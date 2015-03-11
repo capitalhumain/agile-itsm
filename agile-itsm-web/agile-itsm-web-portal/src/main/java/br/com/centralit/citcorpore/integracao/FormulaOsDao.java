@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.FormulaOsDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
 import br.com.citframework.integracao.Field;
@@ -37,7 +37,7 @@ public class FormulaOsDao extends CrudDaoDefaultImpl {
 	}
 
 	@Override
-	public void updateNotNull(IDto obj) throws PersistenceException {
+	public void updateNotNull(BaseEntity obj) throws PersistenceException {
 		super.updateNotNull(obj);
 	}
 	
@@ -49,7 +49,7 @@ public class FormulaOsDao extends CrudDaoDefaultImpl {
 
 
 	@Override
-	public Collection find(IDto obj) throws PersistenceException {
+	public Collection find(BaseEntity obj) throws PersistenceException {
 				return null;
 	}
 

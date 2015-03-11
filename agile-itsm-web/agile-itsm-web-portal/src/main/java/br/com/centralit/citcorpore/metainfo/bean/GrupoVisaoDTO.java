@@ -2,9 +2,9 @@ package br.com.centralit.citcorpore.metainfo.bean;
 
 import java.util.Collection;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class GrupoVisaoDTO implements IDto {
+public class GrupoVisaoDTO extends BaseEntity {
 	private Integer idGrupoVisao;
 	private Integer idVisao;
 	private String descricaoGrupoVisao;

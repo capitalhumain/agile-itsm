@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.EmpregadoDTO;
 import br.com.centralit.citcorpore.bean.UnidadeDTO;
 import br.com.centralit.citcorpore.bean.UsuarioDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.CrudService;
@@ -19,7 +19,7 @@ import br.com.citframework.service.CrudService;
 @SuppressWarnings("rawtypes")
 public interface EmpregadoService extends CrudService {
 
-    void updateNotNull(final IDto dto);
+    void updateNotNull(final BaseEntity dto);
 
     EmpregadoDTO restoreEmpregadosAtivosById(final Integer idEmpregado);
 
@@ -91,7 +91,7 @@ public interface EmpregadoService extends CrudService {
      * @throws Exception
      * @author thays.araujo
      */
-    void deleteEmpregado(final IDto model) throws ServiceException, Exception;
+    void deleteEmpregado(final BaseEntity model) throws ServiceException, Exception;
 
     /**
      *

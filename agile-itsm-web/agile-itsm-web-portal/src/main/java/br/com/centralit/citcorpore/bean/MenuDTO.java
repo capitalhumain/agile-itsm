@@ -2,9 +2,9 @@ package br.com.centralit.citcorpore.bean;
 
 import java.sql.Date;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class MenuDTO implements IDto {
+public class MenuDTO extends BaseEntity {
 
 	private Integer idMenu;
 	private Integer idMenuPai;

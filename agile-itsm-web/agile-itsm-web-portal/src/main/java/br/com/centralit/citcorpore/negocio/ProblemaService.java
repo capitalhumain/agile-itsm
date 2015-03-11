@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.BaseConhecimentoDTO;
 import br.com.centralit.citcorpore.bean.PesquisaProblemaDTO;
 import br.com.centralit.citcorpore.bean.ProblemaDTO;
@@ -13,7 +14,6 @@ import br.com.centralit.citcorpore.bean.ProblemaRelacionadoDTO;
 import br.com.centralit.citcorpore.bean.RelatorioProblemaIncidentesDTO;
 import br.com.centralit.citcorpore.bean.RelatorioQuantitativoProblemaDTO;
 import br.com.centralit.citcorpore.bean.UsuarioDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.excecao.ServiceException;
@@ -132,7 +132,7 @@ public interface ProblemaService extends CrudService {
 	 * @throws Exception
 	 * 
 	 */
-	public void updateNotNull(IDto obj) throws Exception;
+	public void updateNotNull(BaseEntity obj) throws Exception;
 
 	/**
 	 * Retorna a quantidade de problema com prazo limite experado

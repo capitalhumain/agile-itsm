@@ -3,11 +3,11 @@ package br.com.centralit.citcorpore.bean;
 import java.sql.Date;
 import java.sql.Timestamp;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.util.Util;
-import br.com.citframework.dto.IDto;
 
 
-public class JornadaTrabalhoDTO implements IDto {
+public class JornadaTrabalhoDTO extends BaseEntity {
 	private Integer idJornada;
 	private String descricao;
 	private String inicio1;

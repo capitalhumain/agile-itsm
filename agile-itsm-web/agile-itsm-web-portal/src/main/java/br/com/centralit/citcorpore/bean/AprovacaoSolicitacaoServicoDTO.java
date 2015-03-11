@@ -3,9 +3,9 @@ package br.com.centralit.citcorpore.bean;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class AprovacaoSolicitacaoServicoDTO implements IDto {
+public class AprovacaoSolicitacaoServicoDTO extends BaseEntity {
 	private Integer idAprovacaoSolicitacaoServico;
 	private Integer idSolicitacaoServico;
 	private Integer idResponsavel;

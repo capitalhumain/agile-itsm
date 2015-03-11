@@ -2,9 +2,9 @@ package br.com.centralit.citquestionario.bean;
 
 import java.util.Collection;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class ItemSubQuestionarioDTO implements IDto {
+public class ItemSubQuestionarioDTO extends BaseEntity {
 	/**
 	 * 
 	 */

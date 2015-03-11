@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.bpm.dto.InstanciaFluxoDTO;
 import br.com.centralit.bpm.util.Enumerados;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.Condition;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
@@ -49,7 +49,7 @@ public class InstanciaFluxoDao extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public Collection<InstanciaFluxoDTO> find(final IDto arg0) throws PersistenceException {
+    public Collection<InstanciaFluxoDTO> find(final BaseEntity arg0) throws PersistenceException {
         return null;
     }
 

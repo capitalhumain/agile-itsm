@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class GlosaOSBIDTO implements IDto {
+public class GlosaOSBIDTO extends BaseEntity {
 
 	private static final long serialVersionUID = -5747818983870515883L;
 	private Integer idGlosaOS;

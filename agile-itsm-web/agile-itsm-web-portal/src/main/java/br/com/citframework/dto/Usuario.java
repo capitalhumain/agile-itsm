@@ -1,8 +1,10 @@
 package br.com.citframework.dto;
 
+import br.com.agileitsm.model.support.BaseEntity;
 
 
-public class Usuario implements IDto {
+
+public class Usuario extends BaseEntity {
 	/**
 	 * 
 	 */

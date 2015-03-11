@@ -4,9 +4,9 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class ControleGEDDTO implements IDto{
+public class ControleGEDDTO extends BaseEntity{
     private static final long serialVersionUID = 1L;
     
 	public static final int TABELA_RESPOSTAITEMQUESTIONARIOANEXOS = 0;

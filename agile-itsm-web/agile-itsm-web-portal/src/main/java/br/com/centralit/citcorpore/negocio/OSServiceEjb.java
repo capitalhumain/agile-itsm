@@ -7,6 +7,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.AtividadesOSDTO;
 import br.com.centralit.citcorpore.bean.ContratoDTO;
 import br.com.centralit.citcorpore.bean.GlosaOSDTO;
@@ -17,7 +18,6 @@ import br.com.centralit.citcorpore.integracao.AtividadesOSDao;
 import br.com.centralit.citcorpore.integracao.ContratoDao;
 import br.com.centralit.citcorpore.integracao.GlosaOSDao;
 import br.com.centralit.citcorpore.integracao.OSDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.CrudDAO;
@@ -104,7 +104,7 @@ public class OSServiceEjb extends CrudServiceImpl implements OSService {
     }
 
     @Override
-    public IDto create(IDto model) throws ServiceException, LogicException {
+    public BaseEntity create(BaseEntity model) throws ServiceException, LogicException {
         final CrudDAO crudDao = this.getDao();
         final AtividadesOSDao atividadesOSDao = new AtividadesOSDao();
         final TransactionControler tc = new TransactionControlerImpl(crudDao.getAliasDB());
@@ -246,7 +246,7 @@ public class OSServiceEjb extends CrudServiceImpl implements OSService {
     }
 
     @Override
-    public void update(final IDto model) throws ServiceException, LogicException {
+    public void update(final BaseEntity model) throws ServiceException, LogicException {
         // Instancia Objeto controlador de transacao
         final CrudDAO crudDao = this.getDao();
         final AtividadesOSDao atividadesOSDao = new AtividadesOSDao();
@@ -682,7 +682,7 @@ public class OSServiceEjb extends CrudServiceImpl implements OSService {
     }
 
     @Override
-    public void delete(final IDto model) throws ServiceException, LogicException {
+    public void delete(final BaseEntity model) throws ServiceException, LogicException {
         // Instancia Objeto controlador de transacao
         final CrudDAO crudDao = this.getDao();
         final AtividadesOSDao atividadesOSDao = new AtividadesOSDao();

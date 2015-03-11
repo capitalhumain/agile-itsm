@@ -21,6 +21,15 @@ Don't worry, Agile ITSM is being updated to make it easier to evolve it and adop
 ## :warning: WARNING
 Due the origin of the project, you are not encouraged to use it in a production environment before version 1.0.0, which will be the first release version.
 
+## See a demo
+
+You can use a brief of Agile ITSM here: http://demo.agileitsm.com.br
+
+Username: ***demo*** <br>
+Password: ***demo*** 
+
+Not all processes are available in this demo. To use all the features of Agile ITSM, consider installing locally until we can provide a more complete demo :smiley:
+
 ## Licence
 Agile ITSM is released under version 2.0 of the [Apache License][].
 

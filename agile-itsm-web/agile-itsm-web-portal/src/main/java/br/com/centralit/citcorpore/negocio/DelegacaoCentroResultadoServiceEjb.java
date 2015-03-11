@@ -3,6 +3,7 @@ package br.com.centralit.citcorpore.negocio;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.bpm.dto.AtribuicaoFluxoDTO;
 import br.com.centralit.bpm.dto.FluxoDTO;
 import br.com.centralit.bpm.dto.InstanciaFluxoDTO;
@@ -23,7 +24,6 @@ import br.com.centralit.citcorpore.integracao.ExecucaoSolicitacaoDao;
 import br.com.centralit.citcorpore.integracao.ResponsavelCentroResultadoDao;
 import br.com.centralit.citcorpore.integracao.SolicitacaoServicoDao;
 import br.com.centralit.citcorpore.integracao.UsuarioDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
@@ -151,7 +151,7 @@ public class DelegacaoCentroResultadoServiceEjb extends CrudServiceImpl implemen
     }
 
     @Override
-    public IDto create(final IDto model) throws ServiceException, LogicException {
+    public BaseEntity create(final BaseEntity model) throws ServiceException, LogicException {
         final DelegacaoCentroResultadoDao delegacaoCentroResultadoDao = new DelegacaoCentroResultadoDao();
         final DelegacaoCentroResultadoFluxoDao delegacaoCentroResultadoFluxoDao = new DelegacaoCentroResultadoFluxoDao();
         final DelegacaoCentroResultadoProcessoDao delegacaoCentroResultadoProcessoDao = new DelegacaoCentroResultadoProcessoDao();

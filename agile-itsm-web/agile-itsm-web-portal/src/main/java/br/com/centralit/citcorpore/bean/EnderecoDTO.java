@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class EnderecoDTO implements IDto {
+public class EnderecoDTO extends BaseEntity {
 
     private static final long serialVersionUID = -8445948392034467703L;
 

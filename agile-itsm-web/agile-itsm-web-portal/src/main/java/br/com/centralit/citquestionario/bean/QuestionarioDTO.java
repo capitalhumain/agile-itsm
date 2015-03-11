@@ -3,10 +3,10 @@ package br.com.centralit.citquestionario.bean;
 import java.sql.Date;
 import java.util.Collection;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.citframework.util.UtilStrings;
 
-public class QuestionarioDTO implements IDto {
+public class QuestionarioDTO extends BaseEntity {
 
 	/**
 	 * 

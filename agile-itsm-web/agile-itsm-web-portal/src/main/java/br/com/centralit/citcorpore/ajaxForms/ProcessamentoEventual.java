@@ -9,6 +9,7 @@ import java.util.Iterator;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citajax.html.AjaxFormAction;
 import br.com.centralit.citajax.html.DocumentHTML;
 import br.com.centralit.citcorpore.bean.SolicitacaoServicoDTO;
@@ -18,7 +19,6 @@ import br.com.centralit.citcorpore.negocio.SolicitacaoServicoServiceEjb;
 import br.com.centralit.citcorpore.util.CriptoUtils;
 import br.com.centralit.citcorpore.util.Enumerados.ParametroSistema;
 import br.com.centralit.citcorpore.util.ParametroUtil;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 
 /**
@@ -101,7 +101,7 @@ public class ProcessamentoEventual extends AjaxFormAction {
         			"/pages/pesquisaSatisfacao/pesquisaSatisfacao.load?idSolicitacaoServico=" + solicitacaoAuxDto.getIdSolicitacaoServico() +
         			"&hash=" + idHashValidacao + "\">Clique aqui para fazer a avaliação do Atendimento</a>");
         		
-        		MensagemEmail mensagem = new MensagemEmail(2, new IDto[] {solicitacaoAuxDto});
+        		MensagemEmail mensagem = new MensagemEmail(2, new BaseEntity[] {solicitacaoAuxDto});
         		try {
         		    System.out.println("Enviando email p/ " + solicitacaoAuxDto.getEmailcontato());
         			mensagem.envia(solicitacaoAuxDto.getEmailcontato(), remetente, remetente);

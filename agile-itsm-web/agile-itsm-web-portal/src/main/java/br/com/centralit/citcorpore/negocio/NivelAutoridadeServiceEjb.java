@@ -2,11 +2,11 @@ package br.com.centralit.citcorpore.negocio;
 
 import java.util.Collection;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.GrupoNivelAutoridadeDTO;
 import br.com.centralit.citcorpore.bean.NivelAutoridadeDTO;
 import br.com.centralit.citcorpore.integracao.GrupoNivelAutoridadeDao;
 import br.com.centralit.citcorpore.integracao.NivelAutoridadeDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
@@ -46,7 +46,7 @@ public class NivelAutoridadeServiceEjb extends CrudServiceImpl implements NivelA
     }
 
     @Override
-    public IDto create(final IDto model) throws ServiceException, LogicException {
+    public BaseEntity create(final BaseEntity model) throws ServiceException, LogicException {
         final NivelAutoridadeDao nivelAutoridadeDao = new NivelAutoridadeDao();
         final GrupoNivelAutoridadeDao grupoNivelAutoridadeDao = new GrupoNivelAutoridadeDao();
         final TransactionControler tc = new TransactionControlerImpl(nivelAutoridadeDao.getAliasDB());
@@ -86,7 +86,7 @@ public class NivelAutoridadeServiceEjb extends CrudServiceImpl implements NivelA
     }
 
     @Override
-    public void update(final IDto model) throws ServiceException, LogicException {
+    public void update(final BaseEntity model) throws ServiceException, LogicException {
         final NivelAutoridadeDao nivelAutoridadeDao = new NivelAutoridadeDao();
         final GrupoNivelAutoridadeDao grupoNivelAutoridadeDao = new GrupoNivelAutoridadeDao();
         final TransactionControler tc = new TransactionControlerImpl(nivelAutoridadeDao.getAliasDB());

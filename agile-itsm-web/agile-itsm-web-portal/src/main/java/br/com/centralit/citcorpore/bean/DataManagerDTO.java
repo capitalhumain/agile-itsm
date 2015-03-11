@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class DataManagerDTO implements IDto {
+public class DataManagerDTO extends BaseEntity {
 	private Integer idObjetoNegocio;
 
 	public Integer getIdObjetoNegocio() {

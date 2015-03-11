@@ -8,6 +8,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.bpm.dto.FluxoDTO;
 import br.com.centralit.bpm.dto.TarefaFluxoDTO;
 import br.com.centralit.bpm.negocio.ItemTrabalho;
@@ -33,7 +34,6 @@ import br.com.centralit.citcorpore.bean.TipoDemandaServicoDTO;
 import br.com.centralit.citcorpore.bean.UnidadeDTO;
 import br.com.centralit.citcorpore.bean.UsuarioDTO;
 import br.com.centralit.citcorpore.util.Enumerados.TipoSolicitacaoServico;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.excecao.ServiceException;
@@ -289,13 +289,13 @@ public interface SolicitacaoServicoService extends CrudService {
 
     boolean temSolicitacaoServicoAbertaDoEmpregado(final Integer idEmpregado);
 
-    IDto updateInfo(final IDto model) throws ServiceException, LogicException;
+    BaseEntity updateInfo(final BaseEntity model) throws ServiceException, LogicException;
 
-    IDto updateInfoCollection(final IDto model) throws ServiceException, LogicException;
+    BaseEntity updateInfoCollection(final BaseEntity model) throws ServiceException, LogicException;
 
-    void updateNotNull(final IDto obj) throws Exception;
+    void updateNotNull(final BaseEntity obj) throws Exception;
 
-    void updateSLA(final IDto model) throws ServiceException, LogicException;
+    void updateSLA(final BaseEntity model) throws ServiceException, LogicException;
 
     void updateSolicitacaoPai(final int idSolicitacaoPai, final int idSolicitacao);
 
@@ -393,7 +393,7 @@ public interface SolicitacaoServicoService extends CrudService {
 
     Collection<SolicitacaoServicoDTO> findByIdGrupoEDataAtrasadasTotal(final Integer idGrupo, final Date dataInicio, final Date dataFim) throws Exception;
 
-    IDto create(final IDto model, final TransactionControler tc, final boolean determinaPrioridadePrazo, final boolean determinaHoraInicio,
+    BaseEntity create(final BaseEntity model, final TransactionControler tc, final boolean determinaPrioridadePrazo, final boolean determinaHoraInicio,
             final boolean determinaDataHoraSolicitacao) throws Exception;
 
     Collection<SolicitacaoServicoDTO> listaSolicitacoesPorIdEmpregado(final Integer pgAtual, final Integer qtdPaginacao, final GerenciamentoServicosDTO gerenciamentoBean,
@@ -511,5 +511,5 @@ public interface SolicitacaoServicoService extends CrudService {
 
     void determinaPrazoLimite(final SolicitacaoServicoDTO solicitacao, final Integer idCalendario, final TransactionControler tc) throws Exception;
 
-	IDto create(IDto model) throws ServiceException, LogicException;
+	BaseEntity create(BaseEntity model) throws ServiceException, LogicException;
 }

@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class TipoProdutoDTO implements IDto {
+public class TipoProdutoDTO extends BaseEntity {
 	private Integer idTipoProduto;
 	private Integer idCategoria;
 	private Integer idUnidadeMedida;

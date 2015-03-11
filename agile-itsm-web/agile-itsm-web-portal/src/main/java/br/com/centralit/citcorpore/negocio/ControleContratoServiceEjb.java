@@ -2,6 +2,7 @@ package br.com.centralit.citcorpore.negocio;
 
 import java.util.ArrayList;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.ControleContratoDTO;
 import br.com.centralit.citcorpore.bean.ControleContratoModuloSistemaDTO;
 import br.com.centralit.citcorpore.bean.ControleContratoOcorrenciaDTO;
@@ -14,7 +15,6 @@ import br.com.centralit.citcorpore.integracao.ControleContratoOcorrenciaDao;
 import br.com.centralit.citcorpore.integracao.ControleContratoPagamentoDao;
 import br.com.centralit.citcorpore.integracao.ControleContratoTreinamentoDao;
 import br.com.centralit.citcorpore.integracao.ControleContratoVersaoDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
@@ -25,7 +25,6 @@ import br.com.citframework.service.CrudServiceImpl;
  * @author Pedro
  *
  */
-
 public class ControleContratoServiceEjb extends CrudServiceImpl implements ControleContratoService {
 
     private ControleContratoDao dao;
@@ -38,15 +37,11 @@ public class ControleContratoServiceEjb extends CrudServiceImpl implements Contr
         return dao;
     }
 
-    /*
-     * (non-Javadoc)
-     * @see br.com.citframework.service.CrudServicePojoImpl#create(br.com.citframework.dto.IDto)
-     */
     @Override
-    public IDto create(final IDto model) throws ServiceException, LogicException {
+    public BaseEntity create(final BaseEntity model) throws ServiceException, LogicException {
 
         ControleContratoDTO controleContratoDto = (ControleContratoDTO) model;
-        final ControleContratoDao controleContratoDao = this.getDao();
+        final ControleContratoDao controleContratoDao = getDao();
 
         final ControleContratoVersaoDao controleContratoVersaoDao = new ControleContratoVersaoDao();
         final ControleContratoPagamentoDao controleContratoPagamentoDao = new ControleContratoPagamentoDao();
@@ -57,7 +52,7 @@ public class ControleContratoServiceEjb extends CrudServiceImpl implements Contr
         final TransactionControler tc = new TransactionControlerImpl(controleContratoDao.getAliasDB());
 
         try {
-            this.validaCreate(model);
+            validaCreate(model);
             /** TC **/
             controleContratoDao.setTransactionControler(tc);
             controleContratoVersaoDao.setTransactionControler(tc);
@@ -76,9 +71,6 @@ public class ControleContratoServiceEjb extends CrudServiceImpl implements Contr
                 for (int i = 0; i < controleContratoDto.getLstVersao().size(); i++) {
                     item = (ControleContratoVersaoDTO) controleContratoDto.getLstVersao().get(i);
                     item.setIdControleContrato(controleContratoDto.getIdControleContrato());
-                    /* item.setIdCcVersao(controleContratoDto.getIdVersao()); */
-                    // item.setNomeCcVersao(controleContratoDto.getNomeCcVersao());
-                    // grava cada item da lista
                     controleContratoVersaoDao.create(item);
                 }
             }
@@ -89,12 +81,6 @@ public class ControleContratoServiceEjb extends CrudServiceImpl implements Contr
                 for (int i = 0; i < controleContratoDto.getLstPagamento().size(); i++) {
                     itemPagamento = (ControleContratoPagamentoDTO) controleContratoDto.getLstPagamento().get(i);
                     itemPagamento.setIdControleContrato(controleContratoDto.getIdControleContrato());
-                    /*
-                     * itemPagamento.setDataAtrasoCcPagamento(controleContratoDto.getDataAtrasoCcPagamento());
-                     * itemPagamento.setDataCcPagamento(controleContratoDto.getDataCcPagamento());
-                     * itemPagamento.setParcelaCcPagamento(controleContratoDto.getParcelaCcPagamento());
-                     */
-                    // grava cada item da lista
                     controleContratoPagamentoDao.create(itemPagamento);
                 }
             }
@@ -105,12 +91,6 @@ public class ControleContratoServiceEjb extends CrudServiceImpl implements Contr
                 for (int i = 0; i < controleContratoDto.getLstTreinamento().size(); i++) {
                     itemTreinamento = (ControleContratoTreinamentoDTO) controleContratoDto.getLstTreinamento().get(i);
                     itemTreinamento.setIdControleContrato(controleContratoDto.getIdControleContrato());
-                    /*
-                     * itemTreinamento.setDataCcTreinamento(controleContratoDto.getDataCcTreinamento());
-                     * itemTreinamento.setIdEmpregadoTreinamento(controleContratoDto.getIdEmpregadoTreinamento());
-                     */
-
-                    // grava cada item da lista
                     controleContratoTreinamentoDao.create(itemTreinamento);
                 }
             }
@@ -121,13 +101,6 @@ public class ControleContratoServiceEjb extends CrudServiceImpl implements Contr
                 for (int i = 0; i < controleContratoDto.getLstOcorrencia().size(); i++) {
                     itemOcorrencia = (ControleContratoOcorrenciaDTO) controleContratoDto.getLstOcorrencia().get(i);
                     itemOcorrencia.setIdControleContrato(controleContratoDto.getIdControleContrato());
-                    /*
-                     * itemOcorrencia.setAssuntoCcOcorrencia(controleContratoDto.getAssuntoCcOcorrencia());
-                     * itemOcorrencia.setDataCcOcorrencia(controleContratoDto.getDataCcOcorrencia());
-                     * itemOcorrencia.setIdEmpregadoOcorrencia(controleContratoDto.getIdUsuarioOcorrencia());
-                     */
-
-                    // grava cada item da lista
                     controleContratoOcorrenciaDao.create(itemOcorrencia);
                 }
             }
@@ -148,21 +121,17 @@ public class ControleContratoServiceEjb extends CrudServiceImpl implements Contr
             tc.close();
         } catch (final Exception e) {
             e.printStackTrace();
-            this.rollbackTransaction(tc, e);
+            rollbackTransaction(tc, e);
         }
 
         return controleContratoDto;
 
     }
 
-    /*
-     * (non-Javadoc)
-     * @see br.com.citframework.service.CrudServicePojoImpl#update(br.com.citframework.dto.IDto)
-     */
     @Override
-    public void update(final IDto model) throws ServiceException, LogicException {
+    public void update(final BaseEntity model) throws ServiceException, LogicException {
         final ControleContratoDTO controleContratoDto = (ControleContratoDTO) model;
-        final ControleContratoDao controleContratoDao = this.getDao();
+        final ControleContratoDao controleContratoDao = getDao();
 
         final ControleContratoVersaoDao controleContratoVersaoDao = new ControleContratoVersaoDao();
         final ControleContratoPagamentoDao controleContratoPagamentoDao = new ControleContratoPagamentoDao();
@@ -174,8 +143,7 @@ public class ControleContratoServiceEjb extends CrudServiceImpl implements Contr
 
         try {
 
-            this.validaCreate(model);
-            /** TC **/
+            validaCreate(model);
             controleContratoDao.setTransactionControler(tc);
             controleContratoVersaoDao.setTransactionControler(tc);
             controleContratoPagamentoDao.setTransactionControler(tc);
@@ -195,9 +163,6 @@ public class ControleContratoServiceEjb extends CrudServiceImpl implements Contr
                 for (int i = 0; i < controleContratoDto.getLstVersao().size(); i++) {
                     item = (ControleContratoVersaoDTO) controleContratoDto.getLstVersao().get(i);
                     item.setIdControleContrato(controleContratoDto.getIdControleContrato());
-                    /* item.setIdCcVersao(controleContratoDto.getIdVersao()); */
-                    // item.setNomeCcVersao(controleContratoDto.getNomeCcVersao());
-                    // grava cada item da lista
                     controleContratoVersaoDao.create(item);
                 }
             }
@@ -209,12 +174,7 @@ public class ControleContratoServiceEjb extends CrudServiceImpl implements Contr
                 for (int i = 0; i < controleContratoDto.getLstPagamento().size(); i++) {
                     itemPagamento = (ControleContratoPagamentoDTO) controleContratoDto.getLstPagamento().get(i);
                     itemPagamento.setIdControleContrato(controleContratoDto.getIdControleContrato());
-                    /*
-                     * itemPagamento.setDataAtrasoCcPagamento(controleContratoDto.getDataAtrasoCcPagamento());
-                     * itemPagamento.setDataCcPagamento(controleContratoDto.getDataCcPagamento());
-                     * itemPagamento.setParcelaCcPagamento(controleContratoDto.getParcelaCcPagamento());
-                     * // grava cada item da lista
-                     */controleContratoPagamentoDao.create(itemPagamento);
+                    controleContratoPagamentoDao.create(itemPagamento);
                 }
             }
             /** TREINAMENTO **/
@@ -225,12 +185,6 @@ public class ControleContratoServiceEjb extends CrudServiceImpl implements Contr
                 for (int i = 0; i < controleContratoDto.getLstTreinamento().size(); i++) {
                     itemTreinamento = (ControleContratoTreinamentoDTO) controleContratoDto.getLstTreinamento().get(i);
                     itemTreinamento.setIdControleContrato(controleContratoDto.getIdControleContrato());
-                    /*
-                     * itemTreinamento.setDataCcTreinamento(controleContratoDto.getDataCcTreinamento());
-                     * itemTreinamento.setIdEmpregadoTreinamento(controleContratoDto.getIdEmpregadoTreinamento());
-                     */
-
-                    // grava cada item da lista
                     controleContratoTreinamentoDao.create(itemTreinamento);
                 }
             }
@@ -242,13 +196,6 @@ public class ControleContratoServiceEjb extends CrudServiceImpl implements Contr
                 for (int i = 0; i < controleContratoDto.getLstOcorrencia().size(); i++) {
                     itemOcorrencia = (ControleContratoOcorrenciaDTO) controleContratoDto.getLstOcorrencia().get(i);
                     itemOcorrencia.setIdControleContrato(controleContratoDto.getIdControleContrato());
-                    /*
-                     * itemOcorrencia.setAssuntoCcOcorrencia(controleContratoDto.getAssuntoCcOcorrencia());
-                     * itemOcorrencia.setDataCcOcorrencia(controleContratoDto.getDataCcOcorrencia());
-                     * itemOcorrencia.setIdEmpregadoOcorrencia(controleContratoDto.getIdUsuarioOcorrencia());
-                     */
-
-                    // grava cada item da lista
                     controleContratoOcorrenciaDao.create(itemOcorrencia);
                 }
             }
@@ -270,25 +217,17 @@ public class ControleContratoServiceEjb extends CrudServiceImpl implements Contr
             tc.close();
         } catch (final Exception e) {
             e.printStackTrace();
-            this.rollbackTransaction(tc, e);
+            rollbackTransaction(tc, e);
         }
 
     }
 
-    /*
-     * (non-Javadoc)
-     * @see br.com.citframework.service.CrudServicePojoImpl#restore(br.com.citframework.dto.IDto)
-     */
+    // FIXME - Ajustar forma de obtenção dos DAOs
     @Override
-    public IDto restore(final IDto model) throws ServiceException, LogicException {
+    public BaseEntity restore(final BaseEntity model) throws ServiceException, LogicException {
         ControleContratoDTO controleContratoDto = (ControleContratoDTO) model;
-        final ControleContratoDao controleContratoDao = this.getDao();
+        final ControleContratoDao controleContratoDao = getDao();
 
-        new ControleContratoVersaoDao();
-        new ControleContratoPagamentoDao();
-        new ControleContratoTreinamentoDao();
-        new ControleContratoOcorrenciaDao();
-        new ControleContratoModuloSistemaDao();
         try {
             controleContratoDto = (ControleContratoDTO) controleContratoDao.restore(model);
             final ControleContratoVersaoDTO controleContratoVersaoDTO = new ControleContratoVersaoDTO();
@@ -309,7 +248,8 @@ public class ControleContratoServiceEjb extends CrudServiceImpl implements Contr
 
             final ControleContratoModuloSistemaDTO controleContratoModuloSistemaDTO = new ControleContratoModuloSistemaDTO();
             controleContratoModuloSistemaDTO.setIdControleContrato(controleContratoDto.getIdControleContrato());
-            controleContratoDto.setLstModulosAtivos(new ArrayList(new ControleContratoModuloSistemaDao().findByIdControleContrato(controleContratoModuloSistemaDTO)));
+            controleContratoDto.setLstModulosAtivos(new ArrayList(new ControleContratoModuloSistemaDao()
+                    .findByIdControleContrato(controleContratoModuloSistemaDTO)));
 
         } catch (final Exception e) {
             e.printStackTrace();
@@ -317,18 +257,5 @@ public class ControleContratoServiceEjb extends CrudServiceImpl implements Contr
         }
         return controleContratoDto;
     }
-
-    /*
-     * @Override
-     * public Collection<CatalogoServicoDTO> listAllCatalogos() throws ServiceException, Exception {
-     * return this.controleContratoDao().list();
-     * }
-     */
-    /*
-     * @Override
-     * public boolean verificaSeCatalogoExiste(CatalogoServicoDTO catalogoServicoDTO) throws PersistenceException, ServiceException {
-     * return this.catalogoServicoDao().verificaSeCatalogoExiste(catalogoServicoDTO);
-     * }
-     */
 
 }

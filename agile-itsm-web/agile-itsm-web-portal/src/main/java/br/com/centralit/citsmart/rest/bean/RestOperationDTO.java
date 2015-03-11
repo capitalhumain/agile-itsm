@@ -2,9 +2,9 @@ package br.com.centralit.citsmart.rest.bean;
 
 import java.util.Collection;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class RestOperationDTO implements IDto {
+public class RestOperationDTO extends BaseEntity {
 
     private static final long serialVersionUID = -71258999067214258L;
 

@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.CondicaoOperacaoDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
 import br.com.citframework.integracao.Field;
@@ -43,7 +43,7 @@ public class CondicaoOperacaoDao extends CrudDaoDefaultImpl {
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public Collection find(IDto obj) throws PersistenceException {
+	public Collection find(BaseEntity obj) throws PersistenceException {
 		List ordem = new ArrayList();
 		ordem.add(new Order("nomeCondicaoOperacao"));
 		return super.find(obj, ordem);

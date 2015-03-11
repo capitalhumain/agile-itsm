@@ -8,6 +8,7 @@ import java.util.Set;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.bpm.util.Enumerados;
 import br.com.centralit.citajax.html.AjaxFormAction;
 import br.com.centralit.citajax.html.DocumentHTML;
@@ -30,7 +31,6 @@ import br.com.centralit.citcorpore.negocio.UsuarioService;
 import br.com.centralit.citcorpore.util.Enumerados.ParametroSistema;
 import br.com.centralit.citcorpore.util.ParametroUtil;
 import br.com.centralit.citcorpore.util.WebUtil;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.ServiceLocator;
@@ -174,7 +174,7 @@ public class DelegacaoTarefa extends AjaxFormAction {
 				}
 				solicitacaoServicoDto.setServico(solicitacaoServicoService.listaServico(solicitacaoServicoDto.getIdSolicitacaoServico()));
 				
-				MensagemEmail mensagem = new MensagemEmail(Integer.parseInt(ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.ID_MODELO_EMAIL_GRUPO_DESTINO, null)), new IDto[] { solicitacaoServicoDto });
+				MensagemEmail mensagem = new MensagemEmail(Integer.parseInt(ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.ID_MODELO_EMAIL_GRUPO_DESTINO, null)), new BaseEntity[] { solicitacaoServicoDto });
 				try {
 
 					EmpregadoDTO aux = null;
@@ -234,7 +234,7 @@ public class DelegacaoTarefa extends AjaxFormAction {
 		}
 		solicitacaoServicoDto.setServico(solicitacaoServicoService.listaServico(solicitacaoServicoDto.getIdSolicitacaoServico()));
 
-		MensagemEmail mensagem = new MensagemEmail(idModeloEmail, new IDto[] { solicitacaoServicoDto });
+		MensagemEmail mensagem = new MensagemEmail(idModeloEmail, new BaseEntity[] { solicitacaoServicoDto });
 		try {
 
 			EmpregadoDTO aux = null;

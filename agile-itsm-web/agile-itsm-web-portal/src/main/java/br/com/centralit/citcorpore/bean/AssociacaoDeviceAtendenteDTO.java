@@ -1,6 +1,8 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import lombok.Getter;
+import lombok.Setter;
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.citframework.push.DevicePlatformType;
 
 /**
@@ -9,89 +11,49 @@ import br.com.citframework.push.DevicePlatformType;
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 15/11/2014
  */
-public class AssociacaoDeviceAtendenteDTO implements IDto {
+public class AssociacaoDeviceAtendenteDTO extends BaseEntity {
 
     private static final long serialVersionUID = 3025354135360257061L;
 
-    private Integer id;
+    @Getter
+    @Setter
     private Integer idUsuario;
+
+    @Getter
+    @Setter
     private String token;
+
+    @Getter
+    @Setter
     private Integer active;
+
+    @Getter
+    @Setter
     private String connection;
+
+    @Getter
+    @Setter
     private Integer devicePlatform;
+
+    @Getter
+    @Setter
     private String nomeAtendente;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(final Integer id) {
-        this.id = id;
-    }
-
-    public Integer getIdUsuario() {
-        return idUsuario;
-    }
-
-    public void setIdUsuario(final Integer idUsuario) {
-        this.idUsuario = idUsuario;
-    }
-
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(final String token) {
-        this.token = token;
-    }
-
-    public String getConnection() {
-        return connection;
-    }
-
-    public void setConnection(final String connection) {
-        this.connection = connection;
-    }
-
-    public Integer getActive() {
-        return active;
-    }
-
-    public void setActive(final Integer active) {
-        this.active = active;
-    }
-
     public boolean isActive() {
-        return this.getActive() == 1;
-    }
-
-    public Integer getDevicePlatform() {
-        return devicePlatform;
-    }
-
-    public void setDevicePlatform(final Integer devicePlatform) {
-        this.devicePlatform = devicePlatform;
+        return getActive() == 1;
     }
 
     public DevicePlatformType getDevicePlatformType() {
-        if (this.getDevicePlatform() != null) {
-            return DevicePlatformType.fromId(this.getDevicePlatform());
+        if (getDevicePlatform() != null) {
+            return DevicePlatformType.fromId(getDevicePlatform());
         }
         return null;
     }
 
     public void setDevicePlatformType(final DevicePlatformType devicePlatform) {
         if (devicePlatform != null) {
-            this.setDevicePlatform(devicePlatform.getId());
+            setDevicePlatform(devicePlatform.getId());
         }
-    }
-
-    public String getNomeAtendente() {
-        return nomeAtendente;
-    }
-
-    public void setNomeAtendente(final String nomeAtendente) {
-        this.nomeAtendente = nomeAtendente;
     }
 
 }

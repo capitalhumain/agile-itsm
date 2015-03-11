@@ -38,15 +38,12 @@ import org.bouncycastle.jce.provider.BouncyCastleProvider;
 public class CITAssinadorDigital {
 
     public void inicializar() {
-        final BouncyCastleProvider bc = new BouncyCastleProvider();
-
-        Security.addProvider(bc);
+        Security.addProvider(new BouncyCastleProvider());
     }
 
-    public void assinar(String cpf, String fileInWithPathComplete, String fileOutWithPathComplete,
-            X509Certificate cert, boolean assinarAdicionadoConteudo) throws NoSuchAlgorithmException,
-            NoSuchProviderException, CMSException, CertStoreException, CertificateExpiredException,
-            CertificateNotYetValidException, IOException {
+    public void assinar(final String cpf, final String fileInWithPathComplete, final String fileOutWithPathComplete, final X509Certificate cert,
+            final boolean assinarAdicionadoConteudo) throws NoSuchAlgorithmException, NoSuchProviderException, CMSException, CertStoreException,
+            CertificateExpiredException, CertificateNotYetValidException, IOException {
         final byte[] x = assinar(cpf, fileInWithPathComplete, cert, assinarAdicionadoConteudo);
         try {
             final FileOutputStream output = new FileOutputStream(fileOutWithPathComplete);
@@ -60,9 +57,9 @@ public class CITAssinadorDigital {
         }
     }
 
-    public byte[] assinar(String cpf, String fileInWithPathComplete, X509Certificate cert,
-            boolean assinarAdicionadoConteudo) throws NoSuchAlgorithmException, NoSuchProviderException, CMSException,
-            CertStoreException, CertificateExpiredException, CertificateNotYetValidException, IOException {
+    public byte[] assinar(final String cpf, final String fileInWithPathComplete, final X509Certificate cert, final boolean assinarAdicionadoConteudo)
+            throws NoSuchAlgorithmException, NoSuchProviderException, CMSException, CertStoreException, CertificateExpiredException,
+            CertificateNotYetValidException, IOException {
         final File file = new File(fileInWithPathComplete);
 
         final byte[] content = getBytesFromFile(file);
@@ -70,9 +67,9 @@ public class CITAssinadorDigital {
         return assinar(cpf, content, cert, assinarAdicionadoConteudo);
     }
 
-    public byte[] assinar(String cpf, byte[] infoAssinar, X509Certificate cert, boolean assinarAdicionadoConteudo)
-            throws NoSuchAlgorithmException, NoSuchProviderException, CMSException, CertStoreException,
-            CertificateExpiredException, CertificateNotYetValidException, IOException {
+    public byte[] assinar(final String cpf, final byte[] infoAssinar, final X509Certificate cert, final boolean assinarAdicionadoConteudo)
+            throws NoSuchAlgorithmException, NoSuchProviderException, CMSException, CertStoreException, CertificateExpiredException,
+            CertificateNotYetValidException, IOException {
         byte[] content = null;
 
         cert.checkValidity();
@@ -91,8 +88,7 @@ public class CITAssinadorDigital {
         final List<X509Certificate> certList = new ArrayList<>();
         certList.add(cert);
         try {
-            final CertStore certs = CertStore.getInstance("Collection", new CollectionCertStoreParameters(certList),
-                    "BC");
+            final CertStore certs = CertStore.getInstance("Collection", new CollectionCertStoreParameters(certList), "BC");
             generator.addCertificatesAndCRLs(certs);
         } catch (final InvalidAlgorithmParameterException e1) {
             throw new RuntimeException(e1);
@@ -124,8 +120,8 @@ public class CITAssinadorDigital {
         }
     }
 
-    public InfoCertificadoDigital validarAssinatura(String fileSigned) throws IOException, CMSException,
-    NoSuchAlgorithmException, NoSuchProviderException, CertStoreException, CertificateParsingException {
+    public InfoCertificadoDigital validarAssinatura(final String fileSigned) throws IOException, CMSException, NoSuchAlgorithmException,
+            NoSuchProviderException, CertStoreException, CertificateParsingException {
         final InfoCertificadoDigital infoCertificadoDigital = new InfoCertificadoDigital();
         final CMSSignedData signedData = new CMSSignedData(new FileInputStream(new File(fileSigned)));
 
@@ -193,8 +189,8 @@ public class CITAssinadorDigital {
         return infoCertificadoDigital;
     }
 
-    public InfoCertificadoDigital getInformacaoCertificado(String fileCertificado) throws CertificateException,
-    FileNotFoundException, NoSuchProviderException {
+    public InfoCertificadoDigital getInformacaoCertificado(final String fileCertificado) throws CertificateException, FileNotFoundException,
+            NoSuchProviderException {
         final InputStream inStream = new FileInputStream(fileCertificado);
         final CertificateFactory cf = CertificateFactory.getInstance("X.509", "BC");
         final X509Certificate cert = (X509Certificate) cf.generateCertificate(inStream);
@@ -202,8 +198,8 @@ public class CITAssinadorDigital {
         return getInformacaoCertificado(cert);
     }
 
-    public InfoCertificadoDigital getInformacaoCertificado(X509Certificate cert) throws CertificateException,
-    FileNotFoundException, NoSuchProviderException {
+    public InfoCertificadoDigital getInformacaoCertificado(final X509Certificate cert) throws CertificateException, FileNotFoundException,
+            NoSuchProviderException {
         final InfoCertificadoDigital infoCertificadoDigital = new InfoCertificadoDigital();
 
         infoCertificadoDigital.setKeyUsageDigitalSignature(cert.getKeyUsage()[0]);
@@ -266,7 +262,7 @@ public class CITAssinadorDigital {
         return infoCertificadoDigital;
     }
 
-    private static byte[] getBytesFromFile(File file) {
+    private static byte[] getBytesFromFile(final File file) {
         try {
             final InputStream is = new FileInputStream(file);
             final long length = file.length();
@@ -291,8 +287,8 @@ public class CITAssinadorDigital {
         return null;
     }
 
-    public static void main(String[] args) throws CertificateException, NoSuchAlgorithmException, IOException,
-    NoSuchProviderException, KeyStoreException, CMSException, CertStoreException {
+    public static void main(final String[] args) throws CertificateException, NoSuchAlgorithmException, IOException, NoSuchProviderException,
+            KeyStoreException, CMSException, CertStoreException {
         final CITAssinadorDigital d = new CITAssinadorDigital();
         d.inicializar();
 

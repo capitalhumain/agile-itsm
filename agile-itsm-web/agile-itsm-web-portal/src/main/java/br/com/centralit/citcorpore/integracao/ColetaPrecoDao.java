@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.ColetaPrecoDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.Condition;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
@@ -57,7 +57,7 @@ public class ColetaPrecoDao extends CrudDaoDefaultImpl {
 	public Class getBean() {
 		return ColetaPrecoDTO.class;
 	}
-	public Collection find(IDto arg0) throws PersistenceException {
+	public Collection find(BaseEntity arg0) throws PersistenceException {
 		return null;
 	}
 	public void excluiRelacionamentos(Collection<ColetaPrecoDTO> col) throws PersistenceException {
@@ -304,7 +304,7 @@ public class ColetaPrecoDao extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public IDto restore(IDto obj) throws PersistenceException {
+    public BaseEntity restore(BaseEntity obj) throws PersistenceException {
         List parametro = new ArrayList();
 
         StringBuilder sql = getSQLRestoreAll();
@@ -324,7 +324,7 @@ public class ColetaPrecoDao extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public void delete(IDto obj) throws PersistenceException {
+    public void delete(BaseEntity obj) throws PersistenceException {
     	Collection col = new ArrayList();
     	col.add(obj);
     	excluiRelacionamentos(col);

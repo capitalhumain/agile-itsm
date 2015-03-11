@@ -11,10 +11,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.AnexoBaseConhecimentoDTO;
 import br.com.centralit.citcorpore.bean.UploadDTO;
 import br.com.centralit.citged.bean.ControleGEDDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.Condition;
 import br.com.citframework.integracao.ConnectionReadOnlyProvider;
@@ -32,7 +32,7 @@ public class ControleGEDDao extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public Collection<ControleGEDDTO> find(final IDto obj) throws PersistenceException {
+    public Collection<ControleGEDDTO> find(final BaseEntity obj) throws PersistenceException {
         return null;
     }
 
@@ -185,7 +185,7 @@ public class ControleGEDDao extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public IDto restore(final IDto obj) throws PersistenceException {
+    public BaseEntity restore(final BaseEntity obj) throws PersistenceException {
         File f = null;
         ControleGEDDTO ret = null;
         final ControleGEDDTO ged = (ControleGEDDTO) obj;

@@ -3,13 +3,14 @@ package br.com.centralit.citcorpore.bean;
 
 import java.sql.Date;
 
+
+import br.com.agileitsm.model.support.BaseEntity;
 /**
  * @author geber.costa
  */
 import br.com.centralit.citcorpore.util.Enumerados;
-import br.com.citframework.dto.IDto;
 
-public class OcorrenciaProblemaDTO implements IDto{
+public class OcorrenciaProblemaDTO extends BaseEntity{
 
 	private static final long serialVersionUID = -3055161845325828805L;
 

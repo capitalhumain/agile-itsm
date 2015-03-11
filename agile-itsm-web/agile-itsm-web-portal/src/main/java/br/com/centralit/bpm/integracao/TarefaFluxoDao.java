@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.bpm.dto.GrupoBpmDTO;
 import br.com.centralit.bpm.dto.TarefaFluxoDTO;
 import br.com.centralit.bpm.util.Enumerados.SituacaoItemTrabalho;
 import br.com.centralit.bpm.util.Enumerados.TipoAtribuicao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.Condition;
 
@@ -27,7 +27,7 @@ public class TarefaFluxoDao extends ItemTrabalhoFluxoDao {
     }
 
     @Override
-    public void updateNotNull(final IDto obj) throws PersistenceException {
+    public void updateNotNull(final BaseEntity obj) throws PersistenceException {
         super.updateNotNull(obj);
     }
 

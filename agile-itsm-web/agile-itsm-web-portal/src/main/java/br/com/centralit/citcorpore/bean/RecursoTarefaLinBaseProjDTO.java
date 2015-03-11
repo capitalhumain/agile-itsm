@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class RecursoTarefaLinBaseProjDTO implements IDto {
+public class RecursoTarefaLinBaseProjDTO extends BaseEntity {
 	private Integer idRecursoTarefaLinBaseProj;
 	private Integer idTarefaLinhaBaseProjeto;
 	private Integer idPerfilContrato;

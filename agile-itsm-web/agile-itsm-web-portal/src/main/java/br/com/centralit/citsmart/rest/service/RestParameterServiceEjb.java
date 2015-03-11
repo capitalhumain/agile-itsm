@@ -4,12 +4,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citsmart.rest.bean.RestDomainDTO;
 import br.com.centralit.citsmart.rest.bean.RestOperationDTO;
 import br.com.centralit.citsmart.rest.bean.RestParameterDTO;
 import br.com.centralit.citsmart.rest.bean.RestSessionDTO;
 import br.com.centralit.citsmart.rest.dao.RestParameterDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
@@ -30,7 +30,7 @@ public class RestParameterServiceEjb extends CrudServiceImpl implements RestPara
     }
 
     @Override
-    public IDto create(final IDto model) throws ServiceException, LogicException {
+    public BaseEntity create(final BaseEntity model) throws ServiceException, LogicException {
         RestParameterDTO restDto = (RestParameterDTO) model;
 
         final TransactionControler transaction = new TransactionControlerImpl(this.getDao().getAliasDB());

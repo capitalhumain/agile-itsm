@@ -2,8 +2,8 @@ package br.com.centralit.citcorpore.negocio;
 
 import java.util.Collection;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.CentroResultadoDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.CrudService;
@@ -29,6 +29,6 @@ public interface CentroResultadoService extends CrudService {
 	public void recuperaImagem(CentroResultadoDTO centroResultadoDTO) throws Exception;
 	
 	public Collection findByIdAlcada(Integer idAlcada) throws Exception;
-	public IDto createAntigo(IDto model) throws ServiceException, LogicException;
-	public void updateAntigo(IDto model) throws ServiceException, LogicException;
+	public BaseEntity createAntigo(BaseEntity model) throws ServiceException, LogicException;
+	public void updateAntigo(BaseEntity model) throws ServiceException, LogicException;
 }

@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class LimiteAprovacaoProcessoDTO implements IDto {
+public class LimiteAprovacaoProcessoDTO extends BaseEntity {
 	private Integer idLimiteAprovacao;
 	private Integer idProcessoNegocio;
 

@@ -1,9 +1,9 @@
 package br.com.centralit.citcorpore.bean;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.util.CITCorporeUtil;
-import br.com.citframework.dto.IDto;
 
-public class VersaoDTO implements IDto {
+public class VersaoDTO extends BaseEntity {
 	private static final long serialVersionUID = 1L;
 	private Integer idUsuario;
 	private Integer idVersao;

@@ -2,13 +2,13 @@ package br.com.centralit.citcorpore.negocio;
 
 import java.util.Collection;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.CotacaoDTO;
 import br.com.centralit.citcorpore.bean.FornecedorCotacaoDTO;
 import br.com.centralit.citcorpore.integracao.ColetaPrecoDao;
 import br.com.centralit.citcorpore.integracao.CotacaoDao;
 import br.com.centralit.citcorpore.integracao.FornecedorCotacaoDao;
 import br.com.centralit.citcorpore.util.Enumerados.SituacaoCotacao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
@@ -71,7 +71,7 @@ public class FornecedorCotacaoServiceEjb extends CrudServiceImpl implements Forn
     }
 
     @Override
-    public void delete(final IDto model) throws ServiceException, LogicException {
+    public void delete(final BaseEntity model) throws ServiceException, LogicException {
         FornecedorCotacaoDTO fornecedorCotacaoDto = (FornecedorCotacaoDTO) model;
         fornecedorCotacaoDto = (FornecedorCotacaoDTO) this.restore(fornecedorCotacaoDto);
         final FornecedorCotacaoDao fornecedorCotacaoDao = new FornecedorCotacaoDao();

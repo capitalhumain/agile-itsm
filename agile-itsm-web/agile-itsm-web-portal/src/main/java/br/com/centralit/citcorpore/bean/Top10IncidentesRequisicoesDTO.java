@@ -1,12 +1,12 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * @author euler.ramos
  * Utilizado no relatório Top10 Incidentes Requisições, trará todas as informações requisitadas por este relatório e já totalizadas.
  */
-public class Top10IncidentesRequisicoesDTO implements IDto {
+public class Top10IncidentesRequisicoesDTO extends BaseEntity {
 	
 	private static final long serialVersionUID = -6857315975603321041L;
 	

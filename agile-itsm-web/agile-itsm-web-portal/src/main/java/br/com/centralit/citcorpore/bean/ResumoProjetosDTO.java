@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class ResumoProjetosDTO implements IDto {
+public class ResumoProjetosDTO extends BaseEntity {
 	private String condicaoProjeto;
 
 	public String getCondicaoProjeto() {

@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.ProcessoNegocioDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
 import br.com.citframework.integracao.Field;
@@ -41,7 +41,7 @@ public class ProcessoNegocioDao extends CrudDaoDefaultImpl {
 	public Class getBean() {
 		return ProcessoNegocioDTO.class;
 	}
-	public Collection find(IDto arg0) throws PersistenceException {
+	public Collection find(BaseEntity arg0) throws PersistenceException {
 		return null;
 	}
 }

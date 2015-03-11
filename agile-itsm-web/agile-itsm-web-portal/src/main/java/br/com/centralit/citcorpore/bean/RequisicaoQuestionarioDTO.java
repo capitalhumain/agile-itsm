@@ -4,9 +4,9 @@ import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.Collection;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class RequisicaoQuestionarioDTO implements IDto {
+public class RequisicaoQuestionarioDTO extends BaseEntity {
 
 	/**
 	 * 

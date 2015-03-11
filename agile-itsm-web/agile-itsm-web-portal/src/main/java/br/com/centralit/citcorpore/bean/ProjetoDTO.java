@@ -5,12 +5,12 @@ import java.util.Collection;
 
 import org.apache.commons.lang.StringEscapeUtils;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.citframework.util.UtilDatas;
 import br.com.citframework.util.UtilHTML;
 import br.com.citframework.util.UtilStrings;
 
-public class ProjetoDTO implements IDto {
+public class ProjetoDTO extends BaseEntity {
 
 	/**
 	 * 

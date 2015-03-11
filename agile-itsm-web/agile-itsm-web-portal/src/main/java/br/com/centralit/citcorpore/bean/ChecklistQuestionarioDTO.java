@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class ChecklistQuestionarioDTO implements IDto {
+public class ChecklistQuestionarioDTO extends BaseEntity {
 
 	private Integer idChecklistQuestionario;
 	private Integer idContrato;

@@ -5,13 +5,13 @@ package br.com.centralit.citcorpore.bean;
 
 import java.util.Collection;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * @author valdoilo.damasceno
  * 
  */
-public class LdapDTO implements IDto {
+public class LdapDTO extends BaseEntity {
 
 	private static final long serialVersionUID = -3593079788503253157L;
 

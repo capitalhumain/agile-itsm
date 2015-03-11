@@ -3,13 +3,13 @@
  */
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * @author Vadoilo Damasceno
  * 
  */
-public class PalavraGemeaDTO implements IDto {
+public class PalavraGemeaDTO extends BaseEntity {
 
 	private static final long serialVersionUID = 7907826613317683397L;
 

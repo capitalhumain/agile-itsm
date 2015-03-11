@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citajax.config.CitAjaxConfig;
 import br.com.centralit.citajax.config.RedirectItem;
 import br.com.centralit.citajax.framework.CITAutoCompleteProcess;
@@ -21,7 +22,6 @@ import br.com.centralit.citajax.framework.CITFacadeProcess;
 import br.com.centralit.citajax.framework.CITObjectProcess;
 import br.com.centralit.citajax.html.ScriptExecute;
 import br.com.centralit.citajax.util.CitAjaxWebUtil;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.dto.LookupDTO;
 import br.com.citframework.excecao.DuplicateUniqueException;
 import br.com.citframework.excecao.LogicException;
@@ -242,7 +242,7 @@ public class CITServlet extends HttpServlet {
                 if ("find".equalsIgnoreCase(ext)) {
                     final String urlErro = "/pages/lookup/erro.jsp";
                     try {
-                        final IDto user = (IDto) request.getSession().getAttribute(Constantes.getValue("USUARIO_SESSAO") + "_CITCORPORE");
+                        final BaseEntity user = (BaseEntity) request.getSession().getAttribute(Constantes.getValue("USUARIO_SESSAO") + "_CITCORPORE");
                         final LookupProcessService lookupService = (LookupProcessService) ServiceLocator.getInstance().getService(LookupProcessService.class, null);
                         final LookupDTO lookup = new LookupDTO();
                         lookup.setAcao(UtilStrings.decodeCaracteresEspeciais(request.getParameter("acao")));

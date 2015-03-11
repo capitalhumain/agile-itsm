@@ -3,10 +3,10 @@ package br.com.centralit.citcorpore.bean;
 import java.util.HashMap;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.util.Enumerados.MotivoRejeicaoAlcada;
-import br.com.citframework.dto.IDto;
 
-public class AlcadaProcessoNegocioDTO implements IDto {
+public class AlcadaProcessoNegocioDTO extends BaseEntity {
 	private CentroResultadoDTO centroResultadoDto;
 	private EmpregadoDTO empregadoDto;
 	private List<ProcessoNegocioDTO> processosNegocio;

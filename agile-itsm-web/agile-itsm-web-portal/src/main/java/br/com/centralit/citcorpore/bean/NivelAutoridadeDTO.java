@@ -2,10 +2,10 @@ package br.com.centralit.citcorpore.bean;
 
 import java.util.Collection;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.util.Enumerados.MotivoRejeicaoAlcada;
-import br.com.citframework.dto.IDto;
 
-public class NivelAutoridadeDTO implements IDto {
+public class NivelAutoridadeDTO extends BaseEntity {
 	private Integer idNivelAutoridade;
 	private String nomeNivelAutoridade;
 	private Integer hierarquia;

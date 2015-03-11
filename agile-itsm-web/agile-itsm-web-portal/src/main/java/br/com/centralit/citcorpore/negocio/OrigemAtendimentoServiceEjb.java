@@ -2,10 +2,10 @@ package br.com.centralit.citcorpore.negocio;
 
 import java.util.Collection;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citajax.html.DocumentHTML;
 import br.com.centralit.citcorpore.bean.OrigemAtendimentoDTO;
 import br.com.centralit.citcorpore.integracao.OrigemAtendimentoDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
 import br.com.citframework.integracao.TransactionControlerImpl;
@@ -25,7 +25,7 @@ public class OrigemAtendimentoServiceEjb extends CrudServiceImpl implements Orig
     }
 
     @Override
-    public void deletarOrigemAtendimento(final IDto model, final DocumentHTML document) throws ServiceException, Exception {
+    public void deletarOrigemAtendimento(final BaseEntity model, final DocumentHTML document) throws ServiceException, Exception {
         final OrigemAtendimentoDTO origemAtendimentoDTO = (OrigemAtendimentoDTO) model;
         final TransactionControler tc = new TransactionControlerImpl(this.getDao().getAliasDB());
 

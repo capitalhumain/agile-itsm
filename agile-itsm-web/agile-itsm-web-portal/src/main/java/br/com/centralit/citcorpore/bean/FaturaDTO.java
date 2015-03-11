@@ -18,10 +18,10 @@ import java.util.Collection;
 
 import javax.servlet.http.HttpServletRequest;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.citframework.util.UtilI18N;
 
-public class FaturaDTO implements IDto {
+public class FaturaDTO extends BaseEntity {
     public static String EM_CRIACAO = "1";
     public static String AGUARDANDO_APROVACAO = "2";
     public static String APROVADAS = "3";

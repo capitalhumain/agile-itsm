@@ -2,10 +2,10 @@ package br.com.centralit.citcorpore.bean;
 
 import java.sql.Timestamp;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.citframework.util.UtilDatas;
 
-public class NetMapDTO implements IDto {
+public class NetMapDTO extends BaseEntity {
 	public static String INDEFINIDO = "X";
 	public static String ATIVO = "A";
 	public static String INATIVO = "I";

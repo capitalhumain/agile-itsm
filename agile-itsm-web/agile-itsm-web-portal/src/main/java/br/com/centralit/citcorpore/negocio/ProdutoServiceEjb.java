@@ -3,12 +3,12 @@ package br.com.centralit.citcorpore.negocio;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.ProdutoDTO;
 import br.com.centralit.citcorpore.integracao.ProdutoDao;
 import br.com.centralit.citged.bean.ControleGEDDTO;
 import br.com.centralit.citged.integracao.ControleGEDDao;
 import br.com.centralit.citged.negocio.ControleGEDServiceBean;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
@@ -82,7 +82,7 @@ public class ProdutoServiceEjb extends CrudServiceImpl implements ProdutoService
     }
 
     @Override
-    public IDto restore(final IDto model) throws ServiceException, LogicException {
+    public BaseEntity restore(final BaseEntity model) throws ServiceException, LogicException {
         final ProdutoDTO produtoDto = (ProdutoDTO) super.restore(model);
         if (produtoDto != null) {
             produtoDto.montaIdentificacao(); // só pra setar a identificação
@@ -91,7 +91,7 @@ public class ProdutoServiceEjb extends CrudServiceImpl implements ProdutoService
     }
 
     @Override
-    public IDto create(final IDto model) throws ServiceException, LogicException {
+    public BaseEntity create(final BaseEntity model) throws ServiceException, LogicException {
         final ProdutoDao produtoDao = new ProdutoDao();
         final TransactionControler tc = new TransactionControlerImpl(this.getDao().getAliasDB());
 

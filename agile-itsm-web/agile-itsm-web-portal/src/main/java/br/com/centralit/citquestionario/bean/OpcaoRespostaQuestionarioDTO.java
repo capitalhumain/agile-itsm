@@ -1,10 +1,10 @@
 package br.com.centralit.citquestionario.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.citframework.util.UtilHTML;
 import br.com.citframework.util.WebUtil;
 
-public class OpcaoRespostaQuestionarioDTO implements IDto {
+public class OpcaoRespostaQuestionarioDTO extends BaseEntity {
 
 	/**
 	 * 

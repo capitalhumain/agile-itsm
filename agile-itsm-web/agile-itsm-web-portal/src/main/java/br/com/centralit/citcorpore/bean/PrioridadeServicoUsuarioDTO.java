@@ -2,9 +2,9 @@ package br.com.centralit.citcorpore.bean;
 
 import java.sql.Date;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class PrioridadeServicoUsuarioDTO implements IDto {
+public class PrioridadeServicoUsuarioDTO extends BaseEntity {
 	private Integer idUsuario;
 	private Integer idAcordoNivelServico;
 	private Integer idPrioridade;

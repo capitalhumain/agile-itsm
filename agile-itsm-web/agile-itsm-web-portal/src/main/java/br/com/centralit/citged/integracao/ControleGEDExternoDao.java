@@ -2,9 +2,9 @@ package br.com.centralit.citged.integracao;
 
 import java.util.HashMap;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 public abstract class ControleGEDExternoDao {
-	public abstract IDto create(IDto dto, HashMap infoAdicional) throws Exception;
-	public abstract void update(IDto dto, HashMap infoAdicional) throws Exception;
+	public abstract BaseEntity create(BaseEntity dto, HashMap infoAdicional) throws Exception;
+	public abstract void update(BaseEntity dto, HashMap infoAdicional) throws Exception;
 }

@@ -3,10 +3,10 @@ package br.com.centralit.citcorpore.metainfo.bean;
 import java.util.Collection;
 import java.util.HashMap;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.MatrizVisaoDTO;
-import br.com.citframework.dto.IDto;
 
-public class VisaoDTO implements IDto {
+public class VisaoDTO extends BaseEntity {
 	public static String EDIT = "ED";
 	public static String TABLESEARCH = "TS";
 	public static String TABLEEDIT = "TE";

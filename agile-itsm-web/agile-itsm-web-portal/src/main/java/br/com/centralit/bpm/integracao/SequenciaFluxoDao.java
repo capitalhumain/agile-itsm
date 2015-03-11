@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.bpm.dto.SequenciaFluxoDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.Condition;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
@@ -53,7 +53,7 @@ public class SequenciaFluxoDao extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public Collection<SequenciaFluxoDTO> find(final IDto arg0) throws PersistenceException {
+    public Collection<SequenciaFluxoDTO> find(final BaseEntity arg0) throws PersistenceException {
         return null;
     }
 

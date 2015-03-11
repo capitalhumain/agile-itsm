@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class EventoEmpregadoDTO implements IDto {
+public class EventoEmpregadoDTO extends BaseEntity {
 
     // Atributos relacionados ao banco
     private Integer idEvento;

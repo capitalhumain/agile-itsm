@@ -6,9 +6,9 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class DespesaViagemDTO implements IDto {
+public class DespesaViagemDTO extends BaseEntity {
 	private static final long serialVersionUID = 1L;
 	
 	// Campos do banco de dados

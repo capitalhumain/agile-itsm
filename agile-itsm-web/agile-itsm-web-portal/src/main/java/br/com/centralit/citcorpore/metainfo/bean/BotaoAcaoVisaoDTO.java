@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.metainfo.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class BotaoAcaoVisaoDTO implements IDto {
+public class BotaoAcaoVisaoDTO extends BaseEntity {
 	public static String ACAO_GRAVAR = "1";
 	public static String ACAO_LIMPAR = "2";
 	public static String ACAO_EXCLUIR = "3";

@@ -1,12 +1,12 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * @author Pedro
  *
  */
-public class ControleContratoModuloSistemaDTO implements IDto {
+public class ControleContratoModuloSistemaDTO extends BaseEntity {
 
     private Integer idModuloSistema;
     private Integer idControleContrato;

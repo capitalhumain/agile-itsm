@@ -2,9 +2,9 @@ package br.com.centralit.citcorpore.bean;
 
 import java.sql.Date;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class RequisicaoLiberacaoMidiaDTO implements IDto {
+public class RequisicaoLiberacaoMidiaDTO extends BaseEntity {
 	
 	private Integer idRequisicaoLiberacaoMidia;
 	private Integer idMidiaSoftware;

@@ -6,10 +6,10 @@ package br.com.centralit.citcorpore.negocio;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.IncidentesRelacionadosDTO;
 import br.com.centralit.citcorpore.bean.SolicitacaoServicoDTO;
 import br.com.centralit.citcorpore.integracao.IncidentesRelacionadosDAO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.Condition;
@@ -66,7 +66,7 @@ public class IncidentesRelacionadosServiceEjb extends CrudServiceImpl implements
     }
 
     @Override
-    public IDto create(final IDto dto) throws ServiceException, LogicException {
+    public BaseEntity create(final BaseEntity dto) throws ServiceException, LogicException {
         final IncidentesRelacionadosDTO icRelacionadoDto = (IncidentesRelacionadosDTO) dto;
         return super.create(icRelacionadoDto);
     }

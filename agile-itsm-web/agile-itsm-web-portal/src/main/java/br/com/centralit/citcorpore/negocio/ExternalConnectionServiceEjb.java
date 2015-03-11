@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citajax.html.DocumentHTML;
 import br.com.centralit.citcorpore.bean.ExternalConnectionDTO;
 import br.com.centralit.citcorpore.bean.ImportManagerDTO;
@@ -19,7 +20,6 @@ import br.com.centralit.citcorpore.metainfo.util.DataBaseMetaDadosUtil;
 import br.com.centralit.citcorpore.util.CITCorporeUtil;
 import br.com.centralit.citcorpore.util.Enumerados;
 import br.com.centralit.citcorpore.util.ParametroUtil;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
 import br.com.citframework.integracao.TransactionControlerImpl;
@@ -312,7 +312,7 @@ public class ExternalConnectionServiceEjb extends CrudServiceImpl implements Ext
     }
 
     @Override
-    public void deletarConexao(final IDto model, final DocumentHTML document) throws ServiceException, Exception {
+    public void deletarConexao(final BaseEntity model, final DocumentHTML document) throws ServiceException, Exception {
         final ExternalConnectionDTO conexoesDto = (ExternalConnectionDTO) model;
         final TransactionControler tc = new TransactionControlerImpl(this.getDao().getAliasDB());
 

@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.AdiantamentoViagemDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.Condition;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
@@ -22,7 +22,7 @@ public class AdiantamentoViagemDAO extends CrudDaoDefaultImpl {
 	}
 
 	@Override
-	public Collection find(IDto obj) throws PersistenceException {
+	public Collection find(BaseEntity obj) throws PersistenceException {
 		AdiantamentoViagemDTO adiantamentoViagemDto = (AdiantamentoViagemDTO) obj;
 		List list = new ArrayList();
 		list.add(new Order("idAdiantamentoViagem"));

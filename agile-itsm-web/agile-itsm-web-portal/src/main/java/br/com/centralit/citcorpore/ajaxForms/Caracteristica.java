@@ -6,13 +6,13 @@ package br.com.centralit.citcorpore.ajaxForms;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citajax.html.AjaxFormAction;
 import br.com.centralit.citajax.html.DocumentHTML;
 import br.com.centralit.citajax.html.HTMLForm;
 import br.com.centralit.citcorpore.bean.CaracteristicaDTO;
 import br.com.centralit.citcorpore.negocio.CaracteristicaService;
 import br.com.centralit.citcorpore.util.CITCorporeUtil;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.ServiceLocator;
@@ -173,7 +173,7 @@ public class Caracteristica extends AjaxFormAction {
 	 * @param caracteristicaBean
 	 * @author valdoilo.damasceno
 	 */
-	public void setCaracteristicaBean(IDto caracteristicaBean) {
+	public void setCaracteristicaBean(BaseEntity caracteristicaBean) {
 		this.caracteristicaBean = (CaracteristicaDTO) caracteristicaBean;
 	}
 

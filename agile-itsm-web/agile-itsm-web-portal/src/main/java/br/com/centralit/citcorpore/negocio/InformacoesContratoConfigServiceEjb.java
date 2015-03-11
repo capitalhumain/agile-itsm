@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.InformacoesContratoConfigDTO;
 import br.com.centralit.citcorpore.bean.InformacoesContratoPerfSegDTO;
 import br.com.centralit.citcorpore.integracao.InformacoesContratoConfigDao;
 import br.com.centralit.citcorpore.integracao.InformacoesContratoPerfSegDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
@@ -33,7 +33,7 @@ public class InformacoesContratoConfigServiceEjb extends CrudServiceImpl impleme
     }
 
     @Override
-    public IDto create(final IDto model) throws ServiceException, LogicException {
+    public BaseEntity create(final BaseEntity model) throws ServiceException, LogicException {
         final InformacoesContratoPerfSegDao daoPEPS = new InformacoesContratoPerfSegDao();
         final TransactionControler tc = new TransactionControlerImpl(this.getDao().getAliasDB());
         try {
@@ -71,7 +71,7 @@ public class InformacoesContratoConfigServiceEjb extends CrudServiceImpl impleme
     }
 
     @Override
-    public void update(final IDto model) throws ServiceException, LogicException {
+    public void update(final BaseEntity model) throws ServiceException, LogicException {
         final InformacoesContratoConfigDTO contrato = (InformacoesContratoConfigDTO) model;
         final InformacoesContratoPerfSegDao daoPEPS = new InformacoesContratoPerfSegDao();
         final TransactionControler tc = new TransactionControlerImpl(this.getDao().getAliasDB());
@@ -109,7 +109,7 @@ public class InformacoesContratoConfigServiceEjb extends CrudServiceImpl impleme
     }
 
     @Override
-    public IDto restore(final IDto model) throws ServiceException, LogicException {
+    public BaseEntity restore(final BaseEntity model) throws ServiceException, LogicException {
         try {
             final InformacoesContratoConfigDTO contrato = (InformacoesContratoConfigDTO) super.restore(model);
             final InformacoesContratoPerfSegDao daoPEPS = new InformacoesContratoPerfSegDao();

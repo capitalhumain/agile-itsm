@@ -2,12 +2,12 @@ package br.com.centralit.citcorpore.negocio;
 
 import java.util.Collection;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.bpm.negocio.ItemTrabalho;
 import br.com.centralit.citcorpore.bean.AprovacaoSolicitacaoServicoDTO;
 import br.com.centralit.citcorpore.bean.SolicitacaoServicoDTO;
 import br.com.centralit.citcorpore.integracao.AprovacaoSolicitacaoServicoDao;
 import br.com.centralit.citcorpore.integracao.SolicitacaoServicoDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
@@ -46,17 +46,17 @@ public class AprovacaoSolicitacaoServicoServiceEjb extends ComplemInfSolicitacao
     }
 
     @Override
-    public IDto create(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {
+    public BaseEntity create(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {
         return null;
     }
 
     @Override
-    public void delete(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {
+    public void delete(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {
 
     }
 
     @Override
-    public IDto deserializaObjeto(final String serialize) throws Exception {
+    public BaseEntity deserializaObjeto(final String serialize) throws Exception {
         AprovacaoSolicitacaoServicoDTO aprovacaoDto = null;
 
         if (serialize != null) {
@@ -67,7 +67,7 @@ public class AprovacaoSolicitacaoServicoServiceEjb extends ComplemInfSolicitacao
     }
 
     @Override
-    public void update(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {
+    public void update(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {
         this.validaUpdate(solicitacaoServicoDto, model);
 
         AprovacaoSolicitacaoServicoDTO aprovacaoDto = (AprovacaoSolicitacaoServicoDTO) model;
@@ -87,7 +87,7 @@ public class AprovacaoSolicitacaoServicoServiceEjb extends ComplemInfSolicitacao
         solicitacaoServicoDto.setAprovacao(aprovacaoDto.getAprovacao());
     }
 
-    public void validaAtualizacao(final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {
+    public void validaAtualizacao(final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {
         final AprovacaoSolicitacaoServicoDTO aprovacaoDto = (AprovacaoSolicitacaoServicoDTO) model;
 
         if (aprovacaoDto.getAprovacao() == null || aprovacaoDto.getAprovacao().trim().length() == 0) {
@@ -99,15 +99,15 @@ public class AprovacaoSolicitacaoServicoServiceEjb extends ComplemInfSolicitacao
     }
 
     @Override
-    public void validaCreate(final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {
+    public void validaCreate(final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {
         this.validaAtualizacao(solicitacaoServicoDto, model);
     }
 
     @Override
-    public void validaDelete(final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {}
+    public void validaDelete(final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {}
 
     @Override
-    public void validaUpdate(final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {
+    public void validaUpdate(final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {
         this.validaAtualizacao(solicitacaoServicoDto, model);
     }
 

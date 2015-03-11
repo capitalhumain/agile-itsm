@@ -3,10 +3,10 @@ package br.com.centralit.citcorpore.bean;
 import java.util.Collection;
 import java.util.Date;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 @SuppressWarnings("rawtypes")
-public class ImportConfigDTO implements IDto {
+public class ImportConfigDTO extends BaseEntity {
 	
 	/**
 	 * 

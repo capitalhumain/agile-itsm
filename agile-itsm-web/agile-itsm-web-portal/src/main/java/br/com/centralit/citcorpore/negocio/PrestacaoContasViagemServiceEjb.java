@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.AdiantamentoViagemDTO;
 import br.com.centralit.citcorpore.bean.IntegranteViagemDTO;
 import br.com.centralit.citcorpore.bean.ItemPrestacaoContasViagemDTO;
@@ -16,7 +17,6 @@ import br.com.centralit.citcorpore.integracao.ItemPrestacaoContasViagemDao;
 import br.com.centralit.citcorpore.integracao.PrestacaoContasViagemDao;
 import br.com.centralit.citcorpore.integracao.RequisicaoViagemDAO;
 import br.com.centralit.citcorpore.integracao.SolicitacaoServicoDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
@@ -61,7 +61,7 @@ public class PrestacaoContasViagemServiceEjb extends ComplemInfSolicitacaoServic
     }
 
     @Override
-    public IDto create(final IDto model) throws ServiceException, LogicException {
+    public BaseEntity create(final BaseEntity model) throws ServiceException, LogicException {
         return null;
     }
 
@@ -72,7 +72,7 @@ public class PrestacaoContasViagemServiceEjb extends ComplemInfSolicitacaoServic
     }
 
     @Override
-    public IDto deserializaObjeto(final String serialize) throws Exception {
+    public BaseEntity deserializaObjeto(final String serialize) throws Exception {
         PrestacaoContasViagemDTO prestacaoContasViagemDto = null;
         if (serialize != null) {
             prestacaoContasViagemDto = (PrestacaoContasViagemDTO) WebUtil.deserializeObject(PrestacaoContasViagemDTO.class, serialize);
@@ -89,16 +89,16 @@ public class PrestacaoContasViagemServiceEjb extends ComplemInfSolicitacaoServic
     }
 
     @Override
-    public void validaCreate(final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {}
+    public void validaCreate(final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {}
 
     @Override
-    public void validaDelete(final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {}
+    public void validaDelete(final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {}
 
     @Override
-    public void validaUpdate(final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {}
+    public void validaUpdate(final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {}
 
     @Override
-    public IDto create(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {
+    public BaseEntity create(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {
 
         PrestacaoContasViagemDTO prestacaoContasViagemDto = (PrestacaoContasViagemDTO) model;
 
@@ -187,7 +187,7 @@ public class PrestacaoContasViagemServiceEjb extends ComplemInfSolicitacaoServic
     }
 
     @Override
-    public void update(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDTO, final IDto model) throws Exception {
+    public void update(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDTO, final BaseEntity model) throws Exception {
         final ItemPrestacaoContasViagemDao itemPrestacaoContasViagemDAO = new ItemPrestacaoContasViagemDao();
         final IntegranteViagemDao integranteViagemDAO = new IntegranteViagemDao();
 
@@ -264,7 +264,7 @@ public class PrestacaoContasViagemServiceEjb extends ComplemInfSolicitacaoServic
     }
 
     @Override
-    public void delete(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {}
+    public void delete(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {}
 
     @Override
     public Integer recuperaIdPrestacaoSeExistir(final Integer idSolicitacaoServico, final Integer idEmpregado) throws ServiceException, Exception {

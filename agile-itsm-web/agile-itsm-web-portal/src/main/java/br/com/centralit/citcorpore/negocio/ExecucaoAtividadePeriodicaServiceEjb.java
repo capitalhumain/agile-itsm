@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.util.Collection;
 import java.util.Iterator;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.ExecucaoAtividadePeriodicaDTO;
 import br.com.centralit.citcorpore.bean.UploadDTO;
 import br.com.centralit.citcorpore.integracao.AnexoDao;
@@ -16,7 +17,6 @@ import br.com.centralit.citcorpore.util.Util;
 import br.com.centralit.citged.bean.ControleGEDDTO;
 import br.com.centralit.citged.integracao.ControleGEDDao;
 import br.com.centralit.citged.negocio.ControleGEDService;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.CrudDAO;
@@ -82,7 +82,7 @@ public class ExecucaoAtividadePeriodicaServiceEjb extends CrudServiceImpl implem
     }
 
     @Override
-    public IDto create(IDto model) throws ServiceException, LogicException {
+    public BaseEntity create(BaseEntity model) throws ServiceException, LogicException {
         // Instancia Objeto controlador de transacao
         final CrudDAO crudDao = this.getDao();
         final AnexoDao anexoDao = new AnexoDao();
@@ -119,7 +119,7 @@ public class ExecucaoAtividadePeriodicaServiceEjb extends CrudServiceImpl implem
     }
 
     @Override
-    public void update(final IDto model) throws ServiceException, LogicException {
+    public void update(final BaseEntity model) throws ServiceException, LogicException {
         // Instancia Objeto controlador de transacao
         final CrudDAO crudDao = this.getDao();
         final AnexoDao anexoDao = new AnexoDao();
@@ -151,9 +151,9 @@ public class ExecucaoAtividadePeriodicaServiceEjb extends CrudServiceImpl implem
     }
 
     @Override
-    public IDto restore(final IDto model) throws ServiceException, LogicException {
+    public BaseEntity restore(final BaseEntity model) throws ServiceException, LogicException {
         try {
-            final IDto obj = this.getDao().restore(model);
+            final BaseEntity obj = this.getDao().restore(model);
             final ExecucaoAtividadePeriodicaDTO execucaoAtividadeDto = (ExecucaoAtividadePeriodicaDTO) obj;
             final ControleGEDDao controleGedDao = new ControleGEDDao();
             final Collection col = controleGedDao.listByIdTabelaAndID(ControleGEDDTO.TABELA_EXECUCAOATIVIDADE, execucaoAtividadeDto.getIdExecucaoAtividadePeriodica());

@@ -2,8 +2,8 @@ package br.com.centralit.citcorpore.integracao;
 
 import java.util.Collection;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.ExportacaoContratosDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
 import br.com.citframework.integracao.Field;
@@ -21,7 +21,7 @@ public class ExportacaoContratosDao extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public Collection<ExportacaoContratosDTO> find(final IDto obj) throws PersistenceException {
+    public Collection<ExportacaoContratosDTO> find(final BaseEntity obj) throws PersistenceException {
         return null;
     }
 

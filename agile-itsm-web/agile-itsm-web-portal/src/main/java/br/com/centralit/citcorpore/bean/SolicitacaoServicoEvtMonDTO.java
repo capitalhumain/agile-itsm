@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class SolicitacaoServicoEvtMonDTO implements IDto {
+public class SolicitacaoServicoEvtMonDTO extends BaseEntity {
 	private Integer idSolicitacaoServico;
 	private Integer idEventoMonitoramento;
 	private Integer idRecurso;

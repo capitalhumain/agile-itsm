@@ -2,9 +2,9 @@ package br.com.centralit.citcorpore.bean;
 
 import java.sql.Date;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class HistoricoRespCentroResultadoDTO implements IDto {
+public class HistoricoRespCentroResultadoDTO extends BaseEntity {
 	private Integer idHistoricoRespCentroResultado;
 	private Integer idResponsavel;
 	private Integer idCentroResultado;

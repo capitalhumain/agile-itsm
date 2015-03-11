@@ -7,9 +7,9 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.FornecedorDTO;
 import br.com.centralit.citcorpore.util.CITCorporeUtil;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
 import br.com.citframework.integracao.Field;
@@ -71,7 +71,7 @@ public class FornecedorDao extends CrudDaoDefaultImpl {
 		return FornecedorDTO.class;
 	}
 	
-	public Collection find(IDto arg0) throws PersistenceException {
+	public Collection find(BaseEntity arg0) throws PersistenceException {
 		return null;
 	}
 	

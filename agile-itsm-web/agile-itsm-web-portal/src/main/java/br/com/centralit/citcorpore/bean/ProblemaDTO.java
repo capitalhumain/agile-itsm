@@ -8,10 +8,10 @@ import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.bpm.dto.ObjetoNegocioFluxoDTO;
 import br.com.centralit.citcorpore.util.Enumerados;
 import br.com.centralit.citcorpore.util.Util;
-import br.com.citframework.dto.IDto;
 
 public class ProblemaDTO extends ObjetoNegocioFluxoDTO {
 
@@ -220,7 +220,7 @@ public class ProblemaDTO extends ObjetoNegocioFluxoDTO {
 
 	// Serialização das informações complementares
 	private String informacoesComplementares_serialize;
-	private IDto informacoesComplementares;
+	private BaseEntity informacoesComplementares;
 
 	private Integer hiddenIdItemConfiguracao;
 
@@ -1520,11 +1520,11 @@ public class ProblemaDTO extends ObjetoNegocioFluxoDTO {
 		this.informacoesComplementares_serialize = informacoesComplementares_serialize;
 	}
 
-	public IDto getInformacoesComplementares() {
+	public BaseEntity getInformacoesComplementares() {
 		return informacoesComplementares;
 	}
 
-	public void setInformacoesComplementares(IDto informacoesComplementares) {
+	public void setInformacoesComplementares(BaseEntity informacoesComplementares) {
 		this.informacoesComplementares = informacoesComplementares;
 	}
 

@@ -3,6 +3,7 @@ package br.com.centralit.citcorpore.negocio;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.EmpregadoDTO;
 import br.com.centralit.citcorpore.bean.NotificacaoServicoDTO;
 import br.com.centralit.citcorpore.bean.ServicoDTO;
@@ -11,7 +12,6 @@ import br.com.centralit.citcorpore.integracao.NotificacaoServicoDao;
 import br.com.centralit.citcorpore.mail.MensagemEmail;
 import br.com.centralit.citcorpore.util.Enumerados.ParametroSistema;
 import br.com.centralit.citcorpore.util.ParametroUtil;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.service.CrudServiceImpl;
 
 public class NotificacaoServicoServiceEjb extends CrudServiceImpl implements NotificacaoServicoService {
@@ -56,7 +56,7 @@ public class NotificacaoServicoServiceEjb extends CrudServiceImpl implements Not
 
                     for (final EmpregadoDTO empregados : colEmpregados) {
 
-                        final MensagemEmail mensagem = new MensagemEmail(Integer.parseInt(ID_MODELO_EMAIL_AVISAR_ALTERACAO_SERVICO.trim()), new IDto[] {servicoDto});
+                        final MensagemEmail mensagem = new MensagemEmail(Integer.parseInt(ID_MODELO_EMAIL_AVISAR_ALTERACAO_SERVICO.trim()), new BaseEntity[] {servicoDto});
 
                         if (empregados.getEmail() != null) {
                             mensagem.envia(empregados.getEmail(), "", remetente);

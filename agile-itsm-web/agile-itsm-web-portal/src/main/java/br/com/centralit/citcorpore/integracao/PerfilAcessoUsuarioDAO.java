@@ -7,9 +7,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.PerfilAcessoUsuarioDTO;
 import br.com.centralit.citcorpore.bean.UsuarioDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.Condition;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
@@ -31,7 +31,7 @@ public class PerfilAcessoUsuarioDAO extends CrudDaoDefaultImpl {
 	}
 
 	@Override
-	public Collection find(IDto arg0) throws PersistenceException {
+	public Collection find(BaseEntity arg0) throws PersistenceException {
 		return null;
 	}
 
@@ -177,21 +177,21 @@ public class PerfilAcessoUsuarioDAO extends CrudDaoDefaultImpl {
 	}
 
 	@Override
-	public IDto restore(IDto obj) throws PersistenceException {
+	public BaseEntity restore(BaseEntity obj) throws PersistenceException {
 		PerfilAcessoUsuarioDTO perfilAcessoUsuarioDTO = (PerfilAcessoUsuarioDTO) obj;
 		List fields = gerarFieldsRetornoPerfilAcessoUsuario();
 		String sql = "SELECT idPerfil, idUsuario, dataInicio, dataFim FROM " + getTableName() + " WHERE dataFim IS NULL AND idPerfil = " + perfilAcessoUsuarioDTO.getIdUsuario();
 		List dados = this.execSQL(sql, null);
-		return (IDto) this.listConvertion(getBean(), dados, fields);
+		return (BaseEntity) this.listConvertion(getBean(), dados, fields);
 	}
 
-	public IDto restorePerfilAcessoUsuario(IDto obj) throws PersistenceException {
+	public BaseEntity restorePerfilAcessoUsuario(BaseEntity obj) throws PersistenceException {
 		PerfilAcessoUsuarioDTO perfilAcessoUsuarioDTO = (PerfilAcessoUsuarioDTO) obj;
 		List fields = gerarFieldsRetornoPerfilAcessoUsuario();
 		String sql = "SELECT idPerfil, idUsuario, dataInicio, dataFim FROM " + getTableName() + " WHERE dataFim IS NULL AND idUsuario = " + perfilAcessoUsuarioDTO.getIdUsuario();
 		List dados = this.execSQL(sql, null);
 		if (dados != null && !dados.isEmpty()) {
-			return (IDto) this.listConvertion(getBean(), dados, fields).get(0);
+			return (BaseEntity) this.listConvertion(getBean(), dados, fields).get(0);
 		} else {
 			return null;
 		}
@@ -207,7 +207,7 @@ public class PerfilAcessoUsuarioDAO extends CrudDaoDefaultImpl {
 	}
 
 	@Override
-	public void delete(IDto obj) throws PersistenceException {
+	public void delete(BaseEntity obj) throws PersistenceException {
 		PerfilAcessoUsuarioDTO dto = (PerfilAcessoUsuarioDTO) obj;
 		String sql = "DELETE FROM " + getTableName() + " WHERE IDUSUARIO = ? ";
 		this.execUpdate(sql, new Object[] {dto.getIdUsuario()});

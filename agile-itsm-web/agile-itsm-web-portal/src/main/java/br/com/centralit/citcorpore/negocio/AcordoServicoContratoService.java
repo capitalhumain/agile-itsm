@@ -3,8 +3,8 @@ package br.com.centralit.citcorpore.negocio;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.AcordoServicoContratoDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.service.CrudService;
 
 public interface AcordoServicoContratoService extends CrudService {
@@ -39,7 +39,7 @@ public interface AcordoServicoContratoService extends CrudService {
     Collection<AcordoServicoContratoDTO> findByIdAcordoNivelServicoIdServicoContrato(Integer idAcordoNivelServico,
             Integer idServicoContrato) throws Exception;
 
-    void updateNotNull(IDto obj) throws Exception;
+    void updateNotNull(BaseEntity obj) throws Exception;
 
     List<AcordoServicoContratoDTO> listAtivoByIdServicoContrato(Integer idAcordoServicoContrato,
             Integer idServicoContrato, String tipo) throws Exception;

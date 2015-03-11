@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class BIDashBoardSegurDTO implements IDto {
+public class BIDashBoardSegurDTO extends BaseEntity {
 	private Integer idGrupo;
 	private Integer idDashBoard;
 	

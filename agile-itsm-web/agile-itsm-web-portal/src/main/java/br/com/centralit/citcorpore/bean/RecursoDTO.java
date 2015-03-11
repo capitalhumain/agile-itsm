@@ -2,9 +2,9 @@ package br.com.centralit.citcorpore.bean;
 
 import java.util.Collection;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class RecursoDTO implements IDto {
+public class RecursoDTO extends BaseEntity {
 	public static String NAGIOS_NATIVE = "1";
 	public static String NAGIOS_CENTREON = "2";
 	

@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.ControleImportarDadosDTO;
 import br.com.centralit.citcorpore.bean.ImportarDadosDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
 import br.com.citframework.integracao.Field;
@@ -43,7 +43,7 @@ public class ControleImportarDadosDao extends CrudDaoDefaultImpl {
 		return ControleImportarDadosDTO.class;
 	}
 	
-	public Collection find(IDto arg0) throws PersistenceException {
+	public Collection find(BaseEntity arg0) throws PersistenceException {
 		return null;
 	}
 

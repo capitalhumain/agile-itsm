@@ -10,13 +10,13 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citajax.html.AjaxFormAction;
 import br.com.centralit.citajax.html.DocumentHTML;
 import br.com.centralit.citcorpore.bean.BaseItemConfiguracaoDTO;
 import br.com.centralit.citcorpore.negocio.BaseItemConfiguracaoService;
 import br.com.centralit.citcorpore.util.Enumerados.TipoDate;
 import br.com.centralit.citcorpore.util.WebUtil;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.dto.Usuario;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.ServiceLocator;
@@ -122,9 +122,9 @@ public class BaseItemConfiguracao extends AjaxFormAction {
      * @author valdoilo.damasceno
      */
     public void restore(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
-	this.setBaseItemConfiguracaoBean((IDto) document.getBean());
+	this.setBaseItemConfiguracaoBean((BaseEntity) document.getBean());
 
-	List<IDto> filhos = this.getBaseItemConfiguracaoService().restoreChildren(getBaseItemConfiguracaoBean());
+	List<BaseEntity> filhos = this.getBaseItemConfiguracaoService().restoreChildren(getBaseItemConfiguracaoBean());
 
 	document.executeScript("limpar()");
 	document.executeScript("restorePai("+this.getBaseItemConfiguracaoBean().getId()+", '"+UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, ((BaseItemConfiguracaoDTO)filhos.get(0)).getDataInicio(), WebUtil.getLanguage(request))+"', '"+((BaseItemConfiguracaoDTO)filhos.get(0)).getNome()+"')");
@@ -138,7 +138,7 @@ public class BaseItemConfiguracao extends AjaxFormAction {
 		}
 	}
 
-	for (IDto iDto : filhos) {
+	for (BaseEntity iDto : filhos) {
 		BaseItemConfiguracaoDTO baseFilho = (BaseItemConfiguracaoDTO) iDto;
 		if (baseFilho.getTipoexecucao().equals("I")) {
 			document.executeScript("restoreInstalacao('"+baseFilho.getExecutavel().replace("\\", "\\\\")+"', '"+baseFilho.getComando()+"')");
@@ -207,7 +207,7 @@ public class BaseItemConfiguracao extends AjaxFormAction {
      * @param baseItemConfiguracaoBean
      * @author valdoilo.damasceno
      */
-    public void setBaseItemConfiguracaoBean(IDto baseItemConfiguracaoBean) {
+    public void setBaseItemConfiguracaoBean(BaseEntity baseItemConfiguracaoBean) {
 	this.baseItemConfiguracaoBean = (BaseItemConfiguracaoDTO) baseItemConfiguracaoBean;
     }
 

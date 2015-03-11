@@ -2,9 +2,9 @@ package br.com.centralit.citgerencial.bean;
 
 import java.util.HashMap;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class GerencialInfoGenerateDTO implements IDto {
+public class GerencialInfoGenerateDTO extends BaseEntity {
 	public static final String TIPO_INFORMACAO_PESSOAS = "PESSOAS";
 	public static final String TIPO_INFORMACAO_PROGRAMAS = "PROGRAMAS";
 	

@@ -2,8 +2,8 @@ package br.com.centralit.bpm.servico;
 
 import java.util.Collection;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.bpm.dto.FluxoDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.service.CrudService;
 
@@ -17,6 +17,6 @@ public interface FluxoService extends CrudService {
 
     FluxoDTO criaFluxoEEstrutura(final FluxoDTO fluxoDto) throws Exception;
     
-    public IDto restoreComEstrutura(final IDto obj) throws PersistenceException;
+    public BaseEntity restoreComEstrutura(final BaseEntity obj) throws PersistenceException;
 
 }

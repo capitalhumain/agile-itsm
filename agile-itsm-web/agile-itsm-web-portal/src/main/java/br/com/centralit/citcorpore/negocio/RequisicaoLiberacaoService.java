@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.bpm.dto.FluxoDTO;
 import br.com.centralit.citcorpore.bean.BaseConhecimentoDTO;
 import br.com.centralit.citcorpore.bean.PesquisaRequisicaoLiberacaoDTO;
@@ -11,7 +12,6 @@ import br.com.centralit.citcorpore.bean.RequisicaoLiberacaoDTO;
 import br.com.centralit.citcorpore.bean.RequisicaoLiberacaoItemConfiguracaoDTO;
 import br.com.centralit.citcorpore.bean.RequisicaoQuestionarioDTO;
 import br.com.centralit.citcorpore.bean.UsuarioDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
 import br.com.citframework.service.CrudService;
@@ -30,7 +30,7 @@ public interface RequisicaoLiberacaoService extends CrudService {
 
     List<RequisicaoLiberacaoDTO> findByConhecimento(BaseConhecimentoDTO baseConhecimentoDto) throws Exception;
 
-    void updateSimples(IDto model);
+    void updateSimples(BaseEntity model);
 
     /**
      * suspende a requisição mudança
@@ -71,7 +71,7 @@ public interface RequisicaoLiberacaoService extends CrudService {
      * @param RequisicaoLiberacaoDTO
      * @throws Exception
      */
-    void updateLiberacaoAprovada(IDto obj) throws Exception;
+    void updateLiberacaoAprovada(BaseEntity obj) throws Exception;
 
     Collection<RequisicaoLiberacaoDTO> listaRequisicaoLiberacaoPorCriterios(
             PesquisaRequisicaoLiberacaoDTO pesquisaRequisicaoLiberacaoDto) throws Exception;

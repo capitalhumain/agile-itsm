@@ -2,13 +2,13 @@ package br.com.centralit.citcorpore.bean;
 
 import java.util.ArrayList;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * @author breno.guimaraes
  * 
  */
-public class ClienteEmailCentralServicoDTO implements IDto {
+public class ClienteEmailCentralServicoDTO extends BaseEntity {
 
     private static final long serialVersionUID = 4004251311921076618L;
 

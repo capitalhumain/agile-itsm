@@ -3,7 +3,9 @@ package br.com.centralit.citcorpore.bean;
 import java.sql.Date;
 import java.sql.Timestamp;
 
-import br.com.citframework.dto.IDto;
+import lombok.Getter;
+import lombok.Setter;
+import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * DTO que contém atributos comuns aos DTOs usados para persistência/filtro da Gestão da Força de trabalho
@@ -11,110 +13,49 @@ import br.com.citframework.dto.IDto;
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  *
  */
-public abstract class AbstractGestaoForcaAtendimentoDTO implements IDto {
+public abstract class AbstractGestaoForcaAtendimentoDTO extends BaseEntity {
 
     private static final long serialVersionUID = -85203475551247789L;
 
-    private Integer id;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(final Integer id) {
-        this.id = id;
-    }
-
     // atributos para filtro
+    @Getter
+    @Setter
     private Integer idUF;
+
+    @Getter
+    @Setter
     private Integer idCidade;
+
+    @Getter
+    @Setter
     private Integer idContrato;
+
+    @Getter
+    @Setter
     private Integer idGrupo;
+
+    @Getter
+    @Setter
     private Integer idUnidade;
+
+    @Getter
+    @Setter
     private Integer idAtendente;
+
+    @Getter
+    @Setter
     private Date dataInicio;
+
+    @Getter
+    @Setter
     private Date dataFim;
+
+    @Getter
+    @Setter
     private Timestamp timestampInicio;
+
+    @Getter
+    @Setter
     private Timestamp timestampFim;
-
-    public Integer getIdUF() {
-        return idUF;
-    }
-
-    public void setIdUF(final Integer idUF) {
-        this.idUF = idUF;
-    }
-
-    public Integer getIdCidade() {
-        return idCidade;
-    }
-
-    public void setIdCidade(final Integer idCidade) {
-        this.idCidade = idCidade;
-    }
-
-    public Integer getIdContrato() {
-        return idContrato;
-    }
-
-    public void setIdContrato(final Integer idContrato) {
-        this.idContrato = idContrato;
-    }
-
-    public Integer getIdGrupo() {
-        return idGrupo;
-    }
-
-    public void setIdGrupo(final Integer idGrupo) {
-        this.idGrupo = idGrupo;
-    }
-
-    public Integer getIdUnidade() {
-        return idUnidade;
-    }
-
-    public void setIdUnidade(final Integer idUnidade) {
-        this.idUnidade = idUnidade;
-    }
-
-    public Integer getIdAtendente() {
-        return idAtendente;
-    }
-
-    public void setIdAtendente(final Integer idAtendente) {
-        this.idAtendente = idAtendente;
-    }
-
-    public Date getDataInicio() {
-        return dataInicio;
-    }
-
-    public void setDataInicio(final Date dataInicio) {
-        this.dataInicio = dataInicio;
-    }
-
-    public Date getDataFim() {
-        return dataFim;
-    }
-
-    public void setDataFim(final Date dataFim) {
-        this.dataFim = dataFim;
-    }
-
-    public Timestamp getTimestampInicio() {
-        return timestampInicio;
-    }
-
-    public void setTimestampInicio(final Timestamp timestampInicio) {
-        this.timestampInicio = timestampInicio;
-    }
-
-    public Timestamp getTimestampFim() {
-        return timestampFim;
-    }
-
-    public void setTimestampFim(final Timestamp timestampFim) {
-        this.timestampFim = timestampFim;
-    }
 
 }

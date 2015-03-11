@@ -5,8 +5,8 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.BIDashBoardDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.Condition;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
@@ -46,10 +46,10 @@ public class BIDashBoardDao extends CrudDaoDefaultImpl {
 	public Class getBean() {
 		return BIDashBoardDTO.class;
 	}
-	public Collection find(IDto arg0) throws PersistenceException {
+	public Collection find(BaseEntity arg0) throws PersistenceException {
 		return null;
 	}
-	public IDto getByIdentificacao(String ident) throws PersistenceException {
+	public BaseEntity getByIdentificacao(String ident) throws PersistenceException {
 		List condicao = new ArrayList();
 		List ordenacao = new ArrayList();
 		
@@ -59,7 +59,7 @@ public class BIDashBoardDao extends CrudDaoDefaultImpl {
 		Collection col = super.findByCondition(condicao, ordenacao);
 		if (col != null){
 			for (Iterator it = col.iterator(); it.hasNext();){
-				IDto ret = (IDto) it.next();
+				BaseEntity ret = (BaseEntity) it.next();
 				return ret;
 			}
 		}

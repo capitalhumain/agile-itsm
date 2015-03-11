@@ -1,9 +1,9 @@
 package br.com.centralit.citcorpore.negocio;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citajax.html.DocumentHTML;
 import br.com.centralit.citcorpore.bean.CategoriaGaleriaImagemDTO;
 import br.com.centralit.citcorpore.integracao.CategoriaGaleriaImagemDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
 import br.com.citframework.integracao.TransactionControlerImpl;
@@ -32,7 +32,7 @@ public class CategoriaGaleriaImagemServiceEjb extends CrudServiceImpl implements
      * @author cledson.junior
      */
     @Override
-    public void deletarCategoriaImagem(final IDto model, final DocumentHTML document) throws ServiceException, Exception {
+    public void deletarCategoriaImagem(final BaseEntity model, final DocumentHTML document) throws ServiceException, Exception {
         final CategoriaGaleriaImagemDTO categoriaGaleriaImagemDto = (CategoriaGaleriaImagemDTO) model;
         final TransactionControler tc = new TransactionControlerImpl(this.getDao().getAliasDB());
 

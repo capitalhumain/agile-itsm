@@ -2,13 +2,13 @@ package br.com.centralit.citcorpore.bean;
 
 import java.sql.Date;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * @author mario.haysaki
  *
  */
-public class GrupoRequisicaoMudancaDTO implements IDto {
+public class GrupoRequisicaoMudancaDTO extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
 	

@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.CaracteristicaDTO;
 import br.com.centralit.citcorpore.bean.EventoEmpregadoDTO;
 import br.com.centralit.citcorpore.bean.EventoItemConfigDTO;
 import br.com.centralit.citcorpore.bean.ValorDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
 import br.com.citframework.integracao.Field;
@@ -44,7 +44,7 @@ public class EventoItemConfigDao extends CrudDaoDefaultImpl {
 	return "EVENTO";
     }
 
-    public Collection find(IDto obj) throws PersistenceException {
+    public Collection find(BaseEntity obj) throws PersistenceException {
 	return null;
     }
 

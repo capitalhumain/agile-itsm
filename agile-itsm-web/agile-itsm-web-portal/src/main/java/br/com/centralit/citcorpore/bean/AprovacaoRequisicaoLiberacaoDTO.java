@@ -2,10 +2,10 @@ package br.com.centralit.citcorpore.bean;
 
 import java.sql.Timestamp;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 
-public class AprovacaoRequisicaoLiberacaoDTO implements IDto {
+public class AprovacaoRequisicaoLiberacaoDTO extends BaseEntity {
 	
 	/**
 	 * 

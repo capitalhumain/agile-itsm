@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.metainfo.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class DataBaseMetaDadosDTO implements IDto {
+public class DataBaseMetaDadosDTO extends BaseEntity {
 	private String nomeTabela;
 
 	public String getNomeTabela() {

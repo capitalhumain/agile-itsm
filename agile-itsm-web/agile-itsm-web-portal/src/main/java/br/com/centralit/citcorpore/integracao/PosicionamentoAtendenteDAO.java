@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.PosicionamentoAtendenteDTO;
 import br.com.centralit.citcorpore.bean.result.PosicionamentoAtendenteResultDTO;
 import br.com.centralit.citcorpore.util.CITCorporeUtil;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
 import br.com.citframework.integracao.Field;
@@ -49,7 +49,7 @@ public class PosicionamentoAtendenteDAO extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public Collection<PosicionamentoAtendenteDTO> find(final IDto posicionamento) throws PersistenceException {
+    public Collection<PosicionamentoAtendenteDTO> find(final BaseEntity posicionamento) throws PersistenceException {
         return null;
     }
 

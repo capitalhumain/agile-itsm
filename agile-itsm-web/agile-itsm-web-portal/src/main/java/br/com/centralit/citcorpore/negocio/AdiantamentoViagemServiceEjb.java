@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.AdiantamentoViagemDTO;
 import br.com.centralit.citcorpore.bean.DespesaViagemDTO;
 import br.com.centralit.citcorpore.bean.IntegranteViagemDTO;
@@ -16,7 +17,6 @@ import br.com.centralit.citcorpore.integracao.IntegranteViagemDao;
 import br.com.centralit.citcorpore.integracao.RequisicaoViagemDAO;
 import br.com.centralit.citcorpore.integracao.RoteiroViagemDAO;
 import br.com.centralit.citcorpore.util.Enumerados;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
@@ -37,7 +37,7 @@ public class AdiantamentoViagemServiceEjb extends ComplemInfSolicitacaoServicoSe
     }
 
     @Override
-    public IDto deserializaObjeto(final String serialize) throws Exception {
+    public BaseEntity deserializaObjeto(final String serialize) throws Exception {
         DespesaViagemDTO despesaViagemDTO = null;
         if (serialize != null) {
             despesaViagemDTO = (DespesaViagemDTO) WebUtil.deserializeObject(DespesaViagemDTO.class, serialize);
@@ -46,21 +46,21 @@ public class AdiantamentoViagemServiceEjb extends ComplemInfSolicitacaoServicoSe
     }
 
     @Override
-    public void validaCreate(final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {}
+    public void validaCreate(final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {}
 
     @Override
-    public void validaDelete(final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {}
+    public void validaDelete(final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {}
 
     @Override
-    public void validaUpdate(final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {}
+    public void validaUpdate(final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {}
 
     @Override
-    public IDto create(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {
+    public BaseEntity create(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {
         return null;
     }
 
     @Override
-    public void update(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {
+    public void update(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {
         final DespesaViagemDTO despesaViagemDTO = (DespesaViagemDTO) model;
         final DespesaViagemService despesaViagemService = (DespesaViagemService) ServiceLocator.getInstance().getService(DespesaViagemService.class, null);
         final RoteiroViagemDAO roteiroViagemDAO = new RoteiroViagemDAO();
@@ -129,17 +129,17 @@ public class AdiantamentoViagemServiceEjb extends ComplemInfSolicitacaoServicoSe
     }
 
     @Override
-    public void delete(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {
+    public void delete(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {
 
     }
 
     @Override
-    public IDto create(final IDto model) throws ServiceException, LogicException {
+    public BaseEntity create(final BaseEntity model) throws ServiceException, LogicException {
         return null;
     }
 
     @Override
-    public void update(final IDto model) throws ServiceException, LogicException {
+    public void update(final BaseEntity model) throws ServiceException, LogicException {
 
     }
 

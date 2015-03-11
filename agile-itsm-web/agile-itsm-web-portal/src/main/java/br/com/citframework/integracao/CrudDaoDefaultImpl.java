@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.citframework.dto.Usuario;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.core.Page;
@@ -26,26 +26,26 @@ public abstract class CrudDaoDefaultImpl extends DaoTransactDefaultImpl implemen
     public abstract String getTableName();
 
     @Override
-    public IDto create(final IDto obj) throws PersistenceException {
-        return (IDto) engine.create(obj);
+    public BaseEntity create(final BaseEntity obj) throws PersistenceException {
+        return (BaseEntity) engine.create(obj);
     }
 
-    public IDto createWithID(final IDto obj) throws PersistenceException {
-        return (IDto) engine.createWithID(obj);
+    public BaseEntity createWithID(final BaseEntity obj) throws PersistenceException {
+        return (BaseEntity) engine.createWithID(obj);
     }
 
     @Override
-    public void delete(final IDto obj) throws PersistenceException {
+    public void delete(final BaseEntity obj) throws PersistenceException {
         engine.delete(obj);
     }
 
     @Override
-    public IDto restore(final IDto obj) throws PersistenceException {
-        return (IDto) engine.restore(obj);
+    public BaseEntity restore(final BaseEntity obj) throws PersistenceException {
+        return (BaseEntity) engine.restore(obj);
     }
 
     @Override
-    public void update(final IDto obj) throws PersistenceException {
+    public void update(final BaseEntity obj) throws PersistenceException {
         engine.update(obj);
     }
 
@@ -53,15 +53,15 @@ public abstract class CrudDaoDefaultImpl extends DaoTransactDefaultImpl implemen
         return engine.deleteByCondition(condicao);
     }
 
-    protected void updateNotNull(final IDto obj) throws PersistenceException {
+    protected void updateNotNull(final BaseEntity obj) throws PersistenceException {
         engine.updateNotNull(obj);
     }
 
-    protected int updateByCondition(final IDto obj, final List condicao) throws PersistenceException {
+    protected int updateByCondition(final BaseEntity obj, final List condicao) throws PersistenceException {
         return engine.updateByCondition(obj, condicao);
     }
 
-    protected int updateNotNullByCondition(final IDto obj, final List condicao) throws PersistenceException {
+    protected int updateNotNullByCondition(final BaseEntity obj, final List condicao) throws PersistenceException {
         return engine.updateNotNullByCondition(obj, condicao);
     }
 
@@ -92,7 +92,7 @@ public abstract class CrudDaoDefaultImpl extends DaoTransactDefaultImpl implemen
         return engine.list(lstOrder);
     }
 
-    protected Collection find(final IDto obj, final List ordenacao) throws PersistenceException {
+    protected Collection find(final BaseEntity obj, final List ordenacao) throws PersistenceException {
         return engine.findNotNull(obj, ordenacao);
     }
 
@@ -101,7 +101,7 @@ public abstract class CrudDaoDefaultImpl extends DaoTransactDefaultImpl implemen
     }
 
     @Override
-    public Collection find(final IDto obj) throws PersistenceException {
+    public Collection find(final BaseEntity obj) throws PersistenceException {
         return new ArrayList<>();
     }
 

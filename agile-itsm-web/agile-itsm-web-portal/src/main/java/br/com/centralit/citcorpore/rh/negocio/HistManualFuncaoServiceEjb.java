@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.rh.bean.CertificacaoDTO;
 import br.com.centralit.citcorpore.rh.bean.CursoDTO;
 import br.com.centralit.citcorpore.rh.bean.HistAtribuicaoResponsabilidadeDTO;
@@ -18,7 +19,6 @@ import br.com.centralit.citcorpore.rh.integracao.HistManualCompetenciaTecnicaDao
 import br.com.centralit.citcorpore.rh.integracao.HistManualCursoDao;
 import br.com.centralit.citcorpore.rh.integracao.HistManualFuncaoDao;
 import br.com.centralit.citcorpore.rh.integracao.HistPerspectivaComportamentalDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.CrudServiceImpl;
@@ -37,7 +37,7 @@ public class HistManualFuncaoServiceEjb extends CrudServiceImpl implements HistM
     }
 
     @Override
-    public IDto restore(final IDto model) throws ServiceException, LogicException {
+    public BaseEntity restore(final BaseEntity model) throws ServiceException, LogicException {
         final HistManualFuncaoDTO histManualFuncaoDTO = (HistManualFuncaoDTO) super.restore(model);
 
         final HistAtribuicaoResponsabilidadeDao atribuicaoResponsabilidadeDao = new HistAtribuicaoResponsabilidadeDao();

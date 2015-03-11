@@ -6,13 +6,13 @@ package br.com.centralit.citcorpore.bean;
 import java.sql.Date;
 import java.sql.Timestamp;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * @author valdoilo
  * 
  */
-public class PesquisaSatisfacaoDTO implements IDto {
+public class PesquisaSatisfacaoDTO extends BaseEntity {
 
 	private static final long serialVersionUID = -5106909887258593160L;
 

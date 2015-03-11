@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.AlcadaCentroResultadoDTO;
 import br.com.centralit.citcorpore.bean.AlcadaDTO;
 import br.com.centralit.citcorpore.bean.CentroResultadoDTO;
@@ -23,7 +24,6 @@ import br.com.centralit.citcorpore.negocio.RequisicaoProdutoServiceEjb;
 import br.com.centralit.citcorpore.util.Enumerados.ParametroSistema;
 import br.com.centralit.citcorpore.util.Enumerados.TipoAlcada;
 import br.com.centralit.citcorpore.util.ParametroUtil;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.integracao.TransactionControler;
 import br.com.citframework.util.UtilDatas;
@@ -35,7 +35,7 @@ public class AlcadaCompras extends AlcadaImpl {
     private GrupoEmpregadoDao grupoEmpregadoDao = null;
 
     @Override
-    public AlcadaDTO determinaAlcada(IDto objetoNegocioDto, CentroResultadoDTO centroCustoDto, TransactionControler tc) throws Exception {
+    public AlcadaDTO determinaAlcada(BaseEntity objetoNegocioDto, CentroResultadoDTO centroCustoDto, TransactionControler tc) throws Exception {
         AlcadaDao alcadaDao = new AlcadaDao();
         setTransacaoDao(alcadaDao);
         

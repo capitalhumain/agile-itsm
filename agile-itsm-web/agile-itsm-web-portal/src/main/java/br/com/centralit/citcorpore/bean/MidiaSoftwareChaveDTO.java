@@ -4,7 +4,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * 
@@ -13,7 +13,7 @@ import br.com.citframework.dto.IDto;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "MidiaSoftwareChave") 
-public class MidiaSoftwareChaveDTO implements IDto {
+public class MidiaSoftwareChaveDTO extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
 	private Integer idMidiaSoftwareChave;

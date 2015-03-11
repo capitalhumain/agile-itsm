@@ -5,10 +5,10 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 
-public class IntegranteViagemDTO  implements IDto {
+public class IntegranteViagemDTO  extends BaseEntity {
 	
 	private static final long serialVersionUID = 1L; 
 	

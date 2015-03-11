@@ -1,6 +1,6 @@
 package br.com.centralit.citcorpore.bean;
-import br.com.citframework.dto.IDto;
-public class ToolDataBaseDTO implements IDto {
+import br.com.agileitsm.model.support.BaseEntity;
+public class ToolDataBaseDTO extends BaseEntity {
 
 	/**
 	 * 

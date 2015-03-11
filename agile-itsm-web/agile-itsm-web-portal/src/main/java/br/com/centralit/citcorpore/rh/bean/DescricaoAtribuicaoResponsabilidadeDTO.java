@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.rh.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class DescricaoAtribuicaoResponsabilidadeDTO implements IDto{
+public class DescricaoAtribuicaoResponsabilidadeDTO extends BaseEntity{
 
 	private static final long serialVersionUID = 1L;
 	

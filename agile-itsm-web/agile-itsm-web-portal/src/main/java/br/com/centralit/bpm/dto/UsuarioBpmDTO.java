@@ -1,8 +1,8 @@
 package br.com.centralit.bpm.dto;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class UsuarioBpmDTO implements IDto {
+public class UsuarioBpmDTO extends BaseEntity {
 
     private static final long serialVersionUID = 4536314232832963973L;
 

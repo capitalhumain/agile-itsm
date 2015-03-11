@@ -1,8 +1,8 @@
 package br.com.centralit.citgerencial.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class GerencialGraphInformationDTO implements IDto {
+public class GerencialGraphInformationDTO extends BaseEntity {
 
     private static final long serialVersionUID = -3818973074788560743L;
 

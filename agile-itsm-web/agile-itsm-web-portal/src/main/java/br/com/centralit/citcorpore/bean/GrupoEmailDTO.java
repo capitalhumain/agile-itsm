@@ -1,9 +1,9 @@
 package br.com.centralit.citcorpore.bean;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.util.Util;
-import br.com.citframework.dto.IDto;
 
-public class GrupoEmailDTO implements IDto {
+public class GrupoEmailDTO extends BaseEntity {
 
 	private static final long serialVersionUID = -4079973225632843658L;
 	private Integer idGrupo;

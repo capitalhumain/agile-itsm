@@ -2,12 +2,12 @@ package br.com.centralit.citcorpore.bean;
 
 import java.sql.Timestamp;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.util.Enumerados.TipoDate;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.util.UtilDatas;
 import br.com.citframework.util.UtilStrings;
 
-public class AuditoriaItemConfigDTO implements IDto {
+public class AuditoriaItemConfigDTO extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
 

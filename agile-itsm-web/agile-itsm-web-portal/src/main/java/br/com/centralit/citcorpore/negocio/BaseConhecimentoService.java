@@ -10,6 +10,7 @@ import java.util.List;
 
 import org.apache.commons.fileupload.FileUploadException;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.BaseConhecimentoDTO;
 import br.com.centralit.citcorpore.bean.ComentariosDTO;
 import br.com.centralit.citcorpore.bean.NotificacaoDTO;
@@ -17,7 +18,6 @@ import br.com.centralit.citcorpore.bean.PastaDTO;
 import br.com.centralit.citcorpore.bean.SolicitacaoServicoDTO;
 import br.com.centralit.citcorpore.bean.UploadDTO;
 import br.com.centralit.citcorpore.bean.UsuarioDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.excecao.ServiceException;
@@ -276,7 +276,7 @@ public interface BaseConhecimentoService extends CrudService {
 	
 	public Collection<BaseConhecimentoDTO> listarBaseConhecimentoByIds(Integer[] ids) throws Exception;
 	
-	public void updateNotNull(IDto obj) throws Exception;
+	public void updateNotNull(BaseEntity obj) throws Exception;
 	
 	/**
 	 * 

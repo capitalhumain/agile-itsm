@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.RecursoTarefaLinBaseProjDTO;
 import br.com.centralit.citcorpore.bean.TarefaLinhaBaseProjetoDTO;
 import br.com.centralit.citcorpore.bean.TimeSheetProjetoDTO;
 import br.com.centralit.citcorpore.integracao.RecursoTarefaLinBaseProjDao;
 import br.com.centralit.citcorpore.integracao.TarefaLinhaBaseProjetoDao;
 import br.com.centralit.citcorpore.integracao.TimeSheetProjetoDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
@@ -78,7 +78,7 @@ public class TimeSheetProjetoServiceEjb extends CrudServiceImpl implements TimeS
     }
 
     @Override
-    public IDto create(IDto model) throws ServiceException, LogicException {
+    public BaseEntity create(BaseEntity model) throws ServiceException, LogicException {
         // Instancia Objeto controlador de transacao
         final TimeSheetProjetoDao crudDao = new TimeSheetProjetoDao();
         final RecursoTarefaLinBaseProjDao recursoTarefaLinBaseProjDao = new RecursoTarefaLinBaseProjDao();

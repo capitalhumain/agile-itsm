@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class FormulaOsDTO implements IDto {
+public class FormulaOsDTO extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
 	private Integer idFormulaOs;

@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.Collection;
 import java.util.Iterator;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.FaturaApuracaoANSDTO;
 import br.com.centralit.citcorpore.bean.FaturaDTO;
 import br.com.centralit.citcorpore.bean.FaturaOSDTO;
@@ -14,7 +15,6 @@ import br.com.centralit.citcorpore.integracao.FaturaDao;
 import br.com.centralit.citcorpore.integracao.FaturaOSDao;
 import br.com.centralit.citcorpore.integracao.GlosaOSDao;
 import br.com.centralit.citcorpore.integracao.OSDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.CrudDAO;
@@ -59,7 +59,7 @@ public class FaturaServiceEjb extends CrudServiceImpl implements FaturaService {
     }
 
     @Override
-    public IDto create(IDto model) throws ServiceException, LogicException {
+    public BaseEntity create(BaseEntity model) throws ServiceException, LogicException {
         // Instancia Objeto controlador de transacao
         final CrudDAO crudDao = this.getDao();
         final FaturaApuracaoANSDao faturaApuracaoANSDao = new FaturaApuracaoANSDao();
@@ -152,7 +152,7 @@ public class FaturaServiceEjb extends CrudServiceImpl implements FaturaService {
     }
 
     @Override
-    public void update(final IDto model) throws ServiceException, LogicException {
+    public void update(final BaseEntity model) throws ServiceException, LogicException {
         // Instancia Objeto controlador de transacao
         final CrudDAO crudDao = this.getDao();
         final FaturaApuracaoANSDao faturaApuracaoANSDao = new FaturaApuracaoANSDao();

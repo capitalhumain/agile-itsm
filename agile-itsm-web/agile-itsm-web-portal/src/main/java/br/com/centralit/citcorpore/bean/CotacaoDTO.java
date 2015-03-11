@@ -3,10 +3,10 @@ package br.com.centralit.citcorpore.bean;
 import java.sql.Date;
 import java.sql.Timestamp;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.util.Enumerados.SituacaoCotacao;
-import br.com.citframework.dto.IDto;
 
-public class CotacaoDTO implements IDto {
+public class CotacaoDTO extends BaseEntity {
 	private Integer idCotacao;
 	private String identificacao;
 	private Integer idEmpresa;

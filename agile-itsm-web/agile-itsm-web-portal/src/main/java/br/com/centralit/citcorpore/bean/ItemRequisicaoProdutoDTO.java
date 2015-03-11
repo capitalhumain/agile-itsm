@@ -4,11 +4,11 @@ import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.util.Enumerados.SituacaoItemRequisicaoProduto;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.util.UtilStrings;
 
-public class ItemRequisicaoProdutoDTO implements IDto {
+public class ItemRequisicaoProdutoDTO extends BaseEntity {
 	
 	/**
 	 * 

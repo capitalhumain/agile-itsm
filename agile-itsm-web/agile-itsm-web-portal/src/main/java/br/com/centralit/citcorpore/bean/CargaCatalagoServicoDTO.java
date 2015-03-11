@@ -2,10 +2,10 @@ package br.com.centralit.citcorpore.bean;
 
 import java.util.List;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 
-public class CargaCatalagoServicoDTO implements IDto {
+public class CargaCatalagoServicoDTO extends BaseEntity {
 
     private static final long serialVersionUID = 2984986456849222230L;
     private Integer idCatalagoServico;

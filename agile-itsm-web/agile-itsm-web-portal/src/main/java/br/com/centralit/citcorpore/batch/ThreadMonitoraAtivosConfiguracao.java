@@ -5,6 +5,7 @@ import java.util.Collection;
 import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.lang.StringUtils;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.CaracteristicaDTO;
 import br.com.centralit.citcorpore.bean.EmpregadoDTO;
 import br.com.centralit.citcorpore.bean.GrupoEmailDTO;
@@ -34,7 +35,6 @@ import br.com.centralit.citcorpore.negocio.UsuarioService;
 import br.com.centralit.citcorpore.util.Enumerados;
 import br.com.centralit.citcorpore.util.Enumerados.ParametroSistema;
 import br.com.centralit.citcorpore.util.ParametroUtil;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.ServiceLocator;
@@ -327,7 +327,7 @@ public class ThreadMonitoraAtivosConfiguracao extends Thread {
     private void enviarEmail(String remetente, Integer idModeloEmail, String emailEmpregado, MonitoramentoAtivosDTO monitoramentoAtivosDto2, TipoItemConfiguracaoDTO tipoItemConfiguracaoDto2,
             CaracteristicaDTO caracteristicaDto2, ValorDTO valorAnteriorDto2, ValorDTO novoValorDto2, ItemConfiguracaoDTO itemConfiguracaoDTO) throws Exception {
     	
-        MensagemEmail mensagem = new MensagemEmail(idModeloEmail, new IDto[] { monitoramentoAtivosDto2, tipoItemConfiguracaoDto2, caracteristicaDto2, valorAnteriorDto2, novoValorDto2, itemConfiguracaoDTO });
+        MensagemEmail mensagem = new MensagemEmail(idModeloEmail, new BaseEntity[] { monitoramentoAtivosDto2, tipoItemConfiguracaoDto2, caracteristicaDto2, valorAnteriorDto2, novoValorDto2, itemConfiguracaoDTO });
 
         try {
             mensagem.envia(emailEmpregado, remetente, remetente);

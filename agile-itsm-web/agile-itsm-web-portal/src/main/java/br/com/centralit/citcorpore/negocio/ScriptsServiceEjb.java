@@ -24,13 +24,13 @@ import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.input.SAXBuilder;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citajax.html.DocumentHTML;
 import br.com.centralit.citcorpore.bean.ScriptsDTO;
 import br.com.centralit.citcorpore.bean.VersaoDTO;
 import br.com.centralit.citcorpore.integracao.ScriptsDao;
 import br.com.centralit.citcorpore.integracao.VersaoDao;
 import br.com.centralit.citcorpore.util.CITCorporeUtil;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.PersistenceEngine;
 import br.com.citframework.integracao.TransactionControler;
@@ -62,7 +62,7 @@ public class ScriptsServiceEjb extends CrudServiceImpl implements ScriptsService
     }
 
     @Override
-    public void deletarScript(final IDto model, final DocumentHTML document) throws Exception {
+    public void deletarScript(final BaseEntity model, final DocumentHTML document) throws Exception {
         final ScriptsDTO scriptsDto = (ScriptsDTO) model;
         final TransactionControler tc = new TransactionControlerImpl(this.getDao().getAliasDB());
         final ScriptsDao scriptsDao = new ScriptsDao();

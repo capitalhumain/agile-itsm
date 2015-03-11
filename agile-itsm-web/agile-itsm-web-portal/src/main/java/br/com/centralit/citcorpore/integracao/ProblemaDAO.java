@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.bpm.dto.TarefaFluxoDTO;
 import br.com.centralit.citcorpore.bean.BaseConhecimentoDTO;
 import br.com.centralit.citcorpore.bean.PesquisaProblemaDTO;
@@ -17,7 +18,6 @@ import br.com.centralit.citcorpore.bean.RelatorioQuantitativoProblemaDTO;
 import br.com.centralit.citcorpore.bean.UsuarioDTO;
 import br.com.centralit.citcorpore.util.CITCorporeUtil;
 import br.com.centralit.citcorpore.util.Enumerados.SituacaoRequisicaoProblema;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.Condition;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
@@ -129,7 +129,7 @@ public class ProblemaDAO extends CrudDaoDefaultImpl {
 	}
 
 	@Override
-	public IDto restore(IDto obj) throws PersistenceException {
+	public BaseEntity restore(BaseEntity obj) throws PersistenceException {
 		ProblemaDTO problemaDto = (ProblemaDTO) obj;
 
 		List condicao = new ArrayList();
@@ -301,7 +301,7 @@ public class ProblemaDAO extends CrudDaoDefaultImpl {
 	}
 
 	@Override
-	public void updateNotNull(IDto obj) throws PersistenceException {
+	public void updateNotNull(BaseEntity obj) throws PersistenceException {
 		super.updateNotNull(obj);
 	}
 
@@ -309,7 +309,7 @@ public class ProblemaDAO extends CrudDaoDefaultImpl {
 		return ProblemaDTO.class;
 	}
 
-	public Collection find(IDto problemaDTO) throws PersistenceException {
+	public Collection find(BaseEntity problemaDTO) throws PersistenceException {
 		List ordenacao = new ArrayList();
 		ordenacao.add(new Order("idProblema"));
 		return super.find(problemaDTO, ordenacao);
@@ -1170,7 +1170,7 @@ public class ProblemaDAO extends CrudDaoDefaultImpl {
 
 	}
 
-	public IDto restoreTela(IDto obj) throws Exception {
+	public BaseEntity restoreTela(BaseEntity obj) throws Exception {
 		ProblemaDTO problemaDto = (ProblemaDTO) obj;
 
 		List condicao = new ArrayList();
@@ -1184,7 +1184,7 @@ public class ProblemaDAO extends CrudDaoDefaultImpl {
 		return null;
 
 	}
-		public IDto restauraTodos(IDto obj) throws Exception {
+		public BaseEntity restauraTodos(BaseEntity obj) throws Exception {
 		ProblemaDTO problemaDto = (ProblemaDTO) obj;
 
 		List condicao = new ArrayList();

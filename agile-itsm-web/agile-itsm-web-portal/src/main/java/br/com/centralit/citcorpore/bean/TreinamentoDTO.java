@@ -2,13 +2,13 @@ package br.com.centralit.citcorpore.bean;
 
 import java.sql.Date;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * @author Pedro
  *
  */
-public class TreinamentoDTO implements IDto {
+public class TreinamentoDTO extends BaseEntity {
 
     private Integer idTreinamento;
     private String descTreinamento;

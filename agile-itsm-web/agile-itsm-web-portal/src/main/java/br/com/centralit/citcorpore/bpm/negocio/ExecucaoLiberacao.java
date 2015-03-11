@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.bpm.dto.EventoFluxoDTO;
 import br.com.centralit.bpm.dto.FluxoDTO;
 import br.com.centralit.bpm.dto.InstanciaFluxoDTO;
@@ -55,7 +56,6 @@ import br.com.centralit.citcorpore.util.Enumerados.StatusIC;
 import br.com.centralit.citcorpore.util.ParametroUtil;
 import br.com.centralit.citcorpore.util.Util;
 import br.com.citframework.comparacao.ObjectSimpleComparator;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.dto.Usuario;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
@@ -469,7 +469,7 @@ public class ExecucaoLiberacao extends ExecucaoFluxo {
 		
 		requisicaoAuxDto.setNomeTarefa(getRequisicaoLiberacaoDto().getNomeTarefa());
 		
-		MensagemEmail mensagem = new MensagemEmail(idModeloEmail, new IDto[] {requisicaoAuxDto});
+		MensagemEmail mensagem = new MensagemEmail(idModeloEmail, new BaseEntity[] {requisicaoAuxDto});
 		try {
 			mensagem.envia(requisicaoAuxDto.getEmailSolicitante(), remetente, remetente);
 		} catch (Exception e) {
@@ -868,7 +868,7 @@ public class ExecucaoLiberacao extends ExecucaoFluxo {
 				int posArroba = email.indexOf("@");
 				if (posArroba > 0 && email.substring(posArroba).contains(".")) {
 					try {
-						mensagem = new MensagemEmail(idModeloEmail, new IDto[] { requisicaoRequisicaoLiberacaoDTO });
+						mensagem = new MensagemEmail(idModeloEmail, new BaseEntity[] { requisicaoRequisicaoLiberacaoDTO });
 
 						// aux = (EmpregadoDTO) getEmpregadoService().restore(e);
 						// if(aux != null && aux.getEmail() != null && !aux.getEmail().trim().equalsIgnoreCase("") ){
@@ -932,7 +932,7 @@ public class ExecucaoLiberacao extends ExecucaoFluxo {
 				int posArroba = email.indexOf("@");
 				if (posArroba > 0 && email.substring(posArroba).contains(".")) {
 					try {
-						mensagem = new MensagemEmail(idModeloEmail, new IDto[] { requisicaoRequisicaoLiberacaoDTO });
+						mensagem = new MensagemEmail(idModeloEmail, new BaseEntity[] { requisicaoRequisicaoLiberacaoDTO });
 
 						// aux = (EmpregadoDTO) getEmpregadoService().restore(e);
 						// if(aux != null && aux.getEmail() != null && !aux.getEmail().trim().equalsIgnoreCase("") ){

@@ -1,5 +1,6 @@
 package br.com.centralit.citcorpore.negocio;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.bpm.dto.ElementoFluxoDTO;
 import br.com.centralit.bpm.dto.TarefaFluxoDTO;
 import br.com.centralit.bpm.integracao.ElementoFluxoDao;
@@ -10,7 +11,6 @@ import br.com.centralit.citcorpore.bean.SolicitacaoServicoDTO;
 import br.com.centralit.citcorpore.bean.ValidacaoRequisicaoProblemaDTO;
 import br.com.centralit.citcorpore.integracao.ServicoDao;
 import br.com.centralit.citcorpore.integracao.ValidacaoRequisicaoProblemaDAO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
 import br.com.citframework.service.CrudServiceImpl;
@@ -80,7 +80,7 @@ public class ValidacaoRequisicaoProblemaServiceEjb extends CrudServiceImpl imple
     }
 
     @Override
-    public IDto create(final TransactionControler tc, final ProblemaDTO problemaDto, final IDto model) throws Exception {
+    public BaseEntity create(final TransactionControler tc, final ProblemaDTO problemaDto, final BaseEntity model) throws Exception {
         ValidacaoRequisicaoProblemaDTO validacaoRequisicaoProblemaDto = (ValidacaoRequisicaoProblemaDTO) model;
 
         this.getDao().setTransactionControler(tc);
@@ -98,7 +98,7 @@ public class ValidacaoRequisicaoProblemaServiceEjb extends CrudServiceImpl imple
     }
 
     @Override
-    public void update(final TransactionControler tc, final ProblemaDTO problemaDto, final IDto model) throws Exception {
+    public void update(final TransactionControler tc, final ProblemaDTO problemaDto, final BaseEntity model) throws Exception {
         final ValidacaoRequisicaoProblemaDTO validacaoRequisicaoProblemaDto = (ValidacaoRequisicaoProblemaDTO) model;
 
         this.getDao().setTransactionControler(tc);
@@ -114,7 +114,7 @@ public class ValidacaoRequisicaoProblemaServiceEjb extends CrudServiceImpl imple
     }
 
     @Override
-    public IDto deserializaObjeto(final String serialize) throws Exception {
+    public BaseEntity deserializaObjeto(final String serialize) throws Exception {
         ValidacaoRequisicaoProblemaDTO validacaoRequisicaoProblemaDto = null;
 
         if (serialize != null) {
@@ -126,17 +126,17 @@ public class ValidacaoRequisicaoProblemaServiceEjb extends CrudServiceImpl imple
     }
 
     @Override
-    public void validaCreate(final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {
+    public void validaCreate(final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {
 
     }
 
     @Override
-    public void validaDelete(final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {
+    public void validaDelete(final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {
 
     }
 
     @Override
-    public void validaUpdate(final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {
+    public void validaUpdate(final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {
 
     }
 

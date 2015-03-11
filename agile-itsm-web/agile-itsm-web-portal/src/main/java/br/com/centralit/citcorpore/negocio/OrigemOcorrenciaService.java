@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.negocio;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citajax.html.DocumentHTML;
 import br.com.centralit.citcorpore.bean.OrigemOcorrenciaDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.CrudService;
 
@@ -18,7 +18,7 @@ public interface OrigemOcorrenciaService extends CrudService {
 	 * @throws ServiceException
 	 * @throws Exception
 	 */	
-	public void deletarOrigemOcorrencia(IDto model, DocumentHTML document) throws ServiceException, Exception;	
+	public void deletarOrigemOcorrencia(BaseEntity model, DocumentHTML document) throws ServiceException, Exception;	
 	
 	/**
 	 * Consulta por origem da ocorrência que estejam ativas (dataFim não nula).

@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.metainfo.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class HtmlCodePartDTO implements IDto {
+public class HtmlCodePartDTO extends BaseEntity {
 	private String name;
 	private String description;
 	

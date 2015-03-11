@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.AssinaturaAprovacaoProjetoDTO;
 import br.com.centralit.citcorpore.bean.OSDTO;
 import br.com.centralit.citcorpore.bean.ProjetoDTO;
@@ -13,7 +14,6 @@ import br.com.centralit.citcorpore.integracao.AssinaturaAprovacaoProjetoDao;
 import br.com.centralit.citcorpore.integracao.OSDao;
 import br.com.centralit.citcorpore.integracao.ProjetoDao;
 import br.com.centralit.citcorpore.integracao.RecursoProjetoDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
@@ -103,7 +103,7 @@ public class ProjetoServiceEjb extends CrudServiceImpl implements ProjetoService
     }
 
     @Override
-    public IDto create(IDto model) throws ServiceException, LogicException {
+    public BaseEntity create(BaseEntity model) throws ServiceException, LogicException {
         // Instancia Objeto controlador de transacao
         final ProjetoDao crudDao = this.getDao();
         final RecursoProjetoDao recursoProjetoDao = new RecursoProjetoDao();
@@ -192,7 +192,7 @@ public class ProjetoServiceEjb extends CrudServiceImpl implements ProjetoService
     }
 
     @Override
-    public void update(final IDto model) throws ServiceException, LogicException {
+    public void update(final BaseEntity model) throws ServiceException, LogicException {
         // Instancia Objeto controlador de transacao
         final ProjetoDao crudDao = this.getDao();
         final RecursoProjetoDao recursoProjetoDao = new RecursoProjetoDao();

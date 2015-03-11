@@ -14,7 +14,7 @@ import br.com.citframework.util.Assert;
 
 public class ParametroUtil {
 
-    private static final Map<Integer, String> parametroCitSmart = new HashMap<Integer, String>();
+    private static final Map<Integer, String> parametroCitSmart = new HashMap<>();
 
     /**
      * Atualiza HashMap stático que armazena os parâmetros do CITSMart.

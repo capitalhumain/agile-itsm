@@ -3,13 +3,13 @@ package br.com.centralit.citcorpore.bean;
 import java.sql.Date;
 import java.util.Collection;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * @author euler.ramos
  *
  */
-public class RegraEscalonamentoDTO implements IDto {
+public class RegraEscalonamentoDTO extends BaseEntity {
 
 	private static final long serialVersionUID = -3721270786353311618L;
 	

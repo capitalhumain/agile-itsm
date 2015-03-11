@@ -2,13 +2,13 @@ package br.com.centralit.citcorpore.bean;
 
 import java.sql.Date;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * @author euler.ramos
  * Guarda as informações para a geração do gráfico de Gantt
  */
-public class TendenciaGanttDTO implements IDto{
+public class TendenciaGanttDTO extends BaseEntity{
 
 	private static final long serialVersionUID = -4822323995573414L;
 	

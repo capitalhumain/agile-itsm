@@ -10,10 +10,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.ModeloEmailDTO;
 import br.com.centralit.citcorpore.negocio.ModeloEmailService;
 import br.com.centralit.citcorpore.util.Enumerados.TipoDate;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.service.ServiceLocator;
 import br.com.citframework.util.Reflexao;
@@ -50,7 +50,7 @@ public class MensagemEmail {
 		criar(idModelo, map);
 	}
 
-	public MensagemEmail(Integer idModelo, IDto[] bean) throws Exception {
+	public MensagemEmail(Integer idModelo, BaseEntity[] bean) throws Exception {
 		Map<String, String> map = new HashMap<>();
 		if (bean != null && bean.length > 0) {
 			for (int x = 0; x < bean.length; x++) {

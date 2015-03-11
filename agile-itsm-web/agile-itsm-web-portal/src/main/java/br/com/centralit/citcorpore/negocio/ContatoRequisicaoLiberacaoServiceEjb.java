@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.negocio;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.ContatoRequisicaoLiberacaoDTO;
 import br.com.centralit.citcorpore.integracao.ContatoRequisicaoLiberacaoDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.CrudServiceImpl;
@@ -34,7 +34,7 @@ public class ContatoRequisicaoLiberacaoServiceEjb extends CrudServiceImpl implem
     }
 
     @Override
-    public synchronized IDto create(final IDto model) throws ServiceException, LogicException {
+    public synchronized BaseEntity create(final BaseEntity model) throws ServiceException, LogicException {
         return super.create(model);
     }
 

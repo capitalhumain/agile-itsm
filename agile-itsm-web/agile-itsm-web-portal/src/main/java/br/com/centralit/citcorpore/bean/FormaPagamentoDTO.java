@@ -1,9 +1,9 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 @SuppressWarnings("serial")
-public class FormaPagamentoDTO implements IDto{
+public class FormaPagamentoDTO extends BaseEntity{
 	
 	private Integer idFormaPagamento;
 	private String nomeFormaPagamento;

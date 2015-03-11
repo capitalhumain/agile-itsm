@@ -4,12 +4,12 @@ import java.sql.Timestamp;
 
 import javax.servlet.http.HttpSession;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.UsuarioDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.util.Constantes;
 import br.com.citframework.util.UtilDatas;
 
-public class RestSessionDTO implements IDto {
+public class RestSessionDTO extends BaseEntity {
 
     private static final long serialVersionUID = -4117354478284577409L;
 

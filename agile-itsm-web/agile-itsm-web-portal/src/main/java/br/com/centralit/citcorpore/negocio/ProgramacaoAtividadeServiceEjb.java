@@ -37,25 +37,26 @@ public class ProgramacaoAtividadeServiceEjb extends CrudServiceImpl implements P
     @Override
     protected void validaCreate(final Object arg0) throws Exception {
         final ProgramacaoAtividadeDTO programacaoAtividadeDto = (ProgramacaoAtividadeDTO) arg0;
-        this.validaProgramacao(programacaoAtividadeDto);
+        validaProgramacao(programacaoAtividadeDto);
         programacaoAtividadeDto.setHoraInicio(programacaoAtividadeDto.getHoraInicio().replaceAll(":", ""));
         programacaoAtividadeDto.setHoraFim(programacaoAtividadeDto.getHoraFim().replaceAll(":", ""));
     }
 
     @Override
     protected void validaUpdate(final Object arg0) throws Exception {
-        this.validaCreate(arg0);
+        validaCreate(arg0);
     }
 
     @Override
     public Collection findByIdAtividadePeriodica(final Integer parm) throws Exception {
         try {
-            final Collection<ProgramacaoAtividadeDTO> col = this.getDao().findByIdAtividadePeriodica(parm);
+            final Collection<ProgramacaoAtividadeDTO> col = getDao().findByIdAtividadePeriodica(parm);
             if (col != null) {
                 for (final ProgramacaoAtividadeDTO programacaoAtividadeDto : col) {
 
                     if (programacaoAtividadeDto.getIdAtividadesOs() != null) {
-                        final AtividadesOSService atividadesOSService = (AtividadesOSService) ServiceLocator.getInstance().getService(AtividadesOSService.class, null);
+                        final AtividadesOSService atividadesOSService = (AtividadesOSService) ServiceLocator.getInstance().getService(
+                                AtividadesOSService.class, null);
                         AtividadesOSDTO atividadesOSDTO = new AtividadesOSDTO();
                         atividadesOSDTO.setIdAtividadesOS(programacaoAtividadeDto.getIdAtividadesOs());
                         atividadesOSDTO = (AtividadesOSDTO) atividadesOSService.restore(atividadesOSDTO);
@@ -77,26 +78,26 @@ public class ProgramacaoAtividadeServiceEjb extends CrudServiceImpl implements P
     @Override
     public void deleteByIdAtividadePeriodica(final Integer parm) throws Exception {
         try {
-            this.getDao().deleteByIdAtividadePeriodica(parm);
+            getDao().deleteByIdAtividadePeriodica(parm);
         } catch (final Exception e) {
             throw new ServiceException(e);
         }
     }
 
-    public EventoDTO getEvento(final AtividadePeriodicaDTO atividadePeriodicaDto, final ProgramacaoAtividadeDTO programacaoAtividadeDto, final java.util.Date dataRef,
-            final String hora) throws Exception {
+    public EventoDTO getEvento(final AtividadePeriodicaDTO atividadePeriodicaDto, final ProgramacaoAtividadeDTO programacaoAtividadeDto,
+            final java.util.Date dataRef, final String hora) throws Exception {
         final String horaFmt = UtilFormatacao.formataHoraHHMM(hora);
 
-        final EventoDTO eventoDto = new EventoDTO();
-        eventoDto.setId("" + programacaoAtividadeDto.getIdProgramacaoAtividade() + "#" + hora);
-        eventoDto.setIdProgramacao(programacaoAtividadeDto.getIdProgramacaoAtividade());
+        final EventoDTO evento = new EventoDTO();
+        evento.setIdEvento("" + programacaoAtividadeDto.getIdProgramacaoAtividade() + "#" + hora);
+        evento.setIdProgramacao(programacaoAtividadeDto.getIdProgramacaoAtividade());
         if (atividadePeriodicaDto.getNomeTipoMudanca() != null) {
-            eventoDto.setTitle(atividadePeriodicaDto.getTituloAtividade() + "\n" + "Tipo: " + atividadePeriodicaDto.getNomeTipoMudanca());
+            evento.setTitle(atividadePeriodicaDto.getTituloAtividade() + "\n" + "Tipo: " + atividadePeriodicaDto.getNomeTipoMudanca());
         } else {
-            eventoDto.setTitle(atividadePeriodicaDto.getTituloAtividade());
+            evento.setTitle(atividadePeriodicaDto.getTituloAtividade());
         }
-        eventoDto.setNomeTipoMudanca(atividadePeriodicaDto.getNomeTipoMudanca());
-        eventoDto.setStart(Timestamp.valueOf(UtilDatas.dateToSTRWithFormat(dataRef, "yyyy-MM-dd") + " " + horaFmt + ":00"));
+        evento.setNomeTipoMudanca(atividadePeriodicaDto.getNomeTipoMudanca());
+        evento.setStart(Timestamp.valueOf(UtilDatas.dateToSTRWithFormat(dataRef, "yyyy-MM-dd") + " " + horaFmt + ":00"));
 
         double aux = Util.getHoraDbl(hora) + programacaoAtividadeDto.getDuracaoEstimada().doubleValue() / 60;
         java.util.Date dataAux = dataRef;
@@ -104,19 +105,19 @@ public class ProgramacaoAtividadeServiceEjb extends CrudServiceImpl implements P
             aux = aux - 24;
             dataAux = UtilDatas.alteraData(dataAux, 1, Calendar.DAY_OF_MONTH);
         }
-        eventoDto.setEnd(Timestamp.valueOf(UtilDatas.dateToSTRWithFormat(dataAux, "yyyy-MM-dd") + " " + Util.getHoraFmtStr(aux) + ":00"));
-        eventoDto.setAllDay(false);
-        eventoDto.setClassName("agendado");
-        eventoDto.setHoraInicio(horaFmt);
-        eventoDto.setData(dataRef);
+        evento.setEnd(Timestamp.valueOf(UtilDatas.dateToSTRWithFormat(dataAux, "yyyy-MM-dd") + " " + Util.getHoraFmtStr(aux) + ":00"));
+        evento.setAllDay(false);
+        evento.setClassName("agendado");
+        evento.setHoraInicio(horaFmt);
+        evento.setData(dataRef);
 
-        this.adicionaAtividadeOs(atividadePeriodicaDto, programacaoAtividadeDto, eventoDto);
+        adicionaAtividadeOs(atividadePeriodicaDto, programacaoAtividadeDto, evento);
 
-        return eventoDto;
+        return evento;
     }
 
-    private void adicionaAtividadeOs(final AtividadePeriodicaDTO atividadePeriodicaDto, final ProgramacaoAtividadeDTO programacaoAtividadeDto, final EventoDTO eventoDto)
-            throws Exception {
+    private void adicionaAtividadeOs(final AtividadePeriodicaDTO atividadePeriodicaDto, final ProgramacaoAtividadeDTO programacaoAtividadeDto,
+            final EventoDTO eventoDto) throws Exception {
         final AtividadesOSDao atividadesOSDao = new AtividadesOSDao();
         final AtividadesOSDTO atividadesOSDTO = new AtividadesOSDTO();
 
@@ -126,7 +127,8 @@ public class ProgramacaoAtividadeServiceEjb extends CrudServiceImpl implements P
                 atividadesOSDTO.setIdAtividadesOS(programacaoAtividadeDto.getIdAtividadesOs());
             }
             if (atividadesOSDTO.getIdAtividadesOS() != null) {
-                final List<AtividadesOSDTO> listAtividadesOS = (List<AtividadesOSDTO>) atividadesOSDao.listOSNumeroAtividade(atividadesOSDTO.getIdAtividadesOS());
+                final List<AtividadesOSDTO> listAtividadesOS = (List<AtividadesOSDTO>) atividadesOSDao.listOSNumeroAtividade(atividadesOSDTO
+                        .getIdAtividadesOS());
                 if (listAtividadesOS != null && listAtividadesOS.size() > 0) {
                     beanatividadesOS = listAtividadesOS.get(0);
                 }
@@ -153,7 +155,7 @@ public class ProgramacaoAtividadeServiceEjb extends CrudServiceImpl implements P
             programacaoAtividadeDto.setProximaExecucao(new java.sql.Date(dataExecucao.getTime()));
         }
         if (dataExecucao != null && dataExecucao.compareTo(dataRef) == 0) {
-            colEventos.add(this.getEvento(atividadePeriodicaDto, programacaoAtividadeDto, dataRef, programacaoAtividadeDto.getHoraInicio()));
+            colEventos.add(getEvento(atividadePeriodicaDto, programacaoAtividadeDto, dataRef, programacaoAtividadeDto.getHoraInicio()));
             if (programacaoAtividadeDto.getRepeticao().equals("S")) {
                 double intervalo = programacaoAtividadeDto.getRepeticaoIntervalo().doubleValue();
                 if (programacaoAtividadeDto.getRepeticaoTipoIntervalo().equals("M")) {
@@ -162,7 +164,7 @@ public class ProgramacaoAtividadeServiceEjb extends CrudServiceImpl implements P
                 final double limite = Util.getHoraDbl(programacaoAtividadeDto.getHoraFim());
                 double proximaHora = Util.getHoraDbl(programacaoAtividadeDto.getHoraInicio()) + intervalo;
                 while (proximaHora <= limite) {
-                    colEventos.add(this.getEvento(atividadePeriodicaDto, programacaoAtividadeDto, dataRef, Util.getHoraStr(proximaHora)));
+                    colEventos.add(getEvento(atividadePeriodicaDto, programacaoAtividadeDto, dataRef, Util.getHoraStr(proximaHora)));
                     proximaHora += intervalo;
                 }
             }
@@ -171,8 +173,10 @@ public class ProgramacaoAtividadeServiceEjb extends CrudServiceImpl implements P
     }
 
     @Override
-    public Collection<EventoDTO> findEventosAgenda(final AtividadePeriodicaDTO atividadePeriodicaDto, final java.util.Date dataInicio, final Integer qtdeDias) throws Exception {
-        final Collection<ProgramacaoAtividadeDTO> colProgramacao = new ProgramacaoAtividadeDao().findByIdAtividadePeriodica(atividadePeriodicaDto.getIdAtividadePeriodica());
+    public Collection<EventoDTO> findEventosAgenda(final AtividadePeriodicaDTO atividadePeriodicaDto, final java.util.Date dataInicio, final Integer qtdeDias)
+            throws Exception {
+        final Collection<ProgramacaoAtividadeDTO> colProgramacao = new ProgramacaoAtividadeDao().findByIdAtividadePeriodica(atividadePeriodicaDto
+                .getIdAtividadePeriodica());
         if (colProgramacao == null) {
             return null;
         }
@@ -183,7 +187,7 @@ public class ProgramacaoAtividadeServiceEjb extends CrudServiceImpl implements P
             final java.util.Date dataRef = UtilDatas.alteraData(dataInicio, i, Calendar.DAY_OF_MONTH);
             calendar.setTime(dataRef);
             for (final ProgramacaoAtividadeDTO programacaoAtividadeDto : colProgramacao) {
-                colEventos.addAll(this.verificaExecucao(atividadePeriodicaDto, programacaoAtividadeDto, dataRef));
+                colEventos.addAll(verificaExecucao(atividadePeriodicaDto, programacaoAtividadeDto, dataRef));
             }
         }
 
@@ -191,8 +195,8 @@ public class ProgramacaoAtividadeServiceEjb extends CrudServiceImpl implements P
         for (final EventoDTO eventoDto : colEventos) {
             Integer idExecucaoAtividadePeriodica = new Integer(0);
 
-            final List lstExec = (List) execucaoAtividadeDao.findByAtvDataHora(atividadePeriodicaDto.getIdAtividadePeriodica(), new java.sql.Date(eventoDto.getData().getTime()),
-                    eventoDto.getHoraInicio(), eventoDto.getIdProgramacao());
+            final List lstExec = (List) execucaoAtividadeDao.findByAtvDataHora(atividadePeriodicaDto.getIdAtividadePeriodica(), new java.sql.Date(eventoDto
+                    .getData().getTime()), eventoDto.getHoraInicio(), eventoDto.getIdProgramacao());
             if (lstExec != null && lstExec.size() > 0) {
                 final ExecucaoAtividadePeriodicaDTO execucaoAtividadePeriodicaDTO = (ExecucaoAtividadePeriodicaDTO) lstExec.get(0);
                 idExecucaoAtividadePeriodica = execucaoAtividadePeriodicaDTO.getIdExecucaoAtividadePeriodica();
@@ -201,18 +205,18 @@ public class ProgramacaoAtividadeServiceEjb extends CrudServiceImpl implements P
                 }
                 if (execucaoAtividadePeriodicaDTO.getSituacao().equalsIgnoreCase("E")) {
                     eventoDto.setClassName("emExecucao");
-                    eventoDto.setTitle(eventoDto.getTitle() + "\n" + "Atualizado em: " + UtilDatas.dateToSTR(execucaoAtividadePeriodicaDTO.getDataExecucao()) + " - "
-                            + execucaoAtividadePeriodicaDTO.getHoraExecucao());
+                    eventoDto.setTitle(eventoDto.getTitle() + "\n" + "Atualizado em: " + UtilDatas.dateToSTR(execucaoAtividadePeriodicaDTO.getDataExecucao())
+                            + " - " + execucaoAtividadePeriodicaDTO.getHoraExecucao());
                 }
                 if (execucaoAtividadePeriodicaDTO.getSituacao().equalsIgnoreCase("S")) {
                     eventoDto.setClassName("suspenso");
-                    eventoDto.setTitle(eventoDto.getTitle() + "\n" + "Registro em: " + UtilDatas.dateToSTR(execucaoAtividadePeriodicaDTO.getDataExecucao()) + " - "
-                            + execucaoAtividadePeriodicaDTO.getHoraExecucao());
+                    eventoDto.setTitle(eventoDto.getTitle() + "\n" + "Registro em: " + UtilDatas.dateToSTR(execucaoAtividadePeriodicaDTO.getDataExecucao())
+                            + " - " + execucaoAtividadePeriodicaDTO.getHoraExecucao());
                 }
                 if (execucaoAtividadePeriodicaDTO.getSituacao().equalsIgnoreCase("F")) {
                     eventoDto.setClassName("executado");
-                    eventoDto.setTitle(eventoDto.getTitle() + "\n" + "Executado em: " + UtilDatas.dateToSTR(execucaoAtividadePeriodicaDTO.getDataExecucao()) + " - "
-                            + execucaoAtividadePeriodicaDTO.getHoraExecucao());
+                    eventoDto.setTitle(eventoDto.getTitle() + "\n" + "Executado em: " + UtilDatas.dateToSTR(execucaoAtividadePeriodicaDTO.getDataExecucao())
+                            + " - " + execucaoAtividadePeriodicaDTO.getHoraExecucao());
                 }
             }
 
@@ -229,7 +233,7 @@ public class ProgramacaoAtividadeServiceEjb extends CrudServiceImpl implements P
     @Override
     public Collection findByIdAtividadePeriodicaOrderDataHora(final Integer parm) throws Exception {
         try {
-            final Collection<ProgramacaoAtividadeDTO> col = this.getDao().findByIdAtividadePeriodicaOrderDataHora(parm);
+            final Collection<ProgramacaoAtividadeDTO> col = getDao().findByIdAtividadePeriodicaOrderDataHora(parm);
             if (col != null) {
                 for (final ProgramacaoAtividadeDTO programacaoAtividadeDto : col) {
                     programacaoAtividadeDto.setHoraInicio(UtilFormatacao.formataHoraHHMM(programacaoAtividadeDto.getHoraInicio()));

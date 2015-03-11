@@ -2,11 +2,11 @@ package br.com.centralit.citcorpore.negocio;
 
 import java.util.Collection;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.ImportarDadosDTO;
 import br.com.centralit.citcorpore.integracao.ImportarDadosDao;
 import br.com.centralit.citged.bean.ControleGEDDTO;
 import br.com.centralit.citged.negocio.ControleGEDServiceBean;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
@@ -26,7 +26,7 @@ public class ImportarDadosServiceEjb extends CrudServiceImpl implements Importar
     }
 
     @Override
-    public IDto create(final IDto model) throws ServiceException, LogicException {
+    public BaseEntity create(final BaseEntity model) throws ServiceException, LogicException {
         final ImportarDadosDao importarDadosDao = new ImportarDadosDao();
         final TransactionControler tc = new TransactionControlerImpl(importarDadosDao.getAliasDB());
 
@@ -51,7 +51,7 @@ public class ImportarDadosServiceEjb extends CrudServiceImpl implements Importar
     }
 
     @Override
-    public void update(final IDto model) throws ServiceException, LogicException {
+    public void update(final BaseEntity model) throws ServiceException, LogicException {
         final ImportarDadosDao importarDadosDao = new ImportarDadosDao();
         final TransactionControler tc = new TransactionControlerImpl(importarDadosDao.getAliasDB());
 

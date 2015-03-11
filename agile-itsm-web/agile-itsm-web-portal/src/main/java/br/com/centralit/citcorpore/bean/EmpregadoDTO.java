@@ -2,14 +2,14 @@ package br.com.centralit.citcorpore.bean;
 
 import java.sql.Date;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.util.Util;
-import br.com.citframework.dto.IDto;
 
 /**
  * @author thays.araujo
  * 
  */
-public class EmpregadoDTO implements IDto {
+public class EmpregadoDTO extends BaseEntity {
 
 	private static final long serialVersionUID = 1582364224581163482L;
 	private Integer idEmpregado;

@@ -3,8 +3,8 @@ package br.com.centralit.citgerencial.integracao;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citgerencial.bean.ParametroDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
 import br.com.citframework.integracao.Field;
@@ -17,7 +17,7 @@ public class ParametroDao extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public Collection<ParametroDTO> find(final IDto arg0) throws PersistenceException {
+    public Collection<ParametroDTO> find(final BaseEntity arg0) throws PersistenceException {
         return null;
     }
 

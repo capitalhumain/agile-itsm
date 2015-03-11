@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class DesignerWorkflowDTO implements IDto {
+public class DesignerWorkflowDTO extends BaseEntity {
 	private String nome;
 	private String type;
 	private Integer numero;

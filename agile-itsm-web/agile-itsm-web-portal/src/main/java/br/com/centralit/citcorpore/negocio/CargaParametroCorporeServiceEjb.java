@@ -65,13 +65,8 @@ public class CargaParametroCorporeServiceEjb extends CrudServiceImpl implements 
                                 j++;
                             } else if (j == 0) {
                                 beanParametroCorporeDTO = new ParametroCorporeDTO();
-                                beanParametroCorporeDTO = this.existeParametroPorId(Integer.parseInt(coluna), parametroCorporeDAO);
+                                beanParametroCorporeDTO = existeParametroPorId(Integer.parseInt(coluna), parametroCorporeDAO);
                                 if (beanParametroCorporeDTO.getId() == null) {
-                                    /*
-                                     * beanParametroCorporeDTO.setId(Integer.parseInt(coluna));
-                                     * beanParametroCorporeDTO.setIdEmpresa(idEmpresa);
-                                     * beanParametroCorporeDTO.setDataInicio(Util.getSqlDataAtual());
-                                     */
                                     parametroCorporeDTO = beanParametroCorporeDTO;
                                 } else {
                                     beanParametroCorporeDTO.setId(Integer.parseInt(coluna));

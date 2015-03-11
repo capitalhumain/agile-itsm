@@ -3,9 +3,9 @@ package br.com.centralit.citcorpore.bean;
 import java.util.Collection;
 import java.util.List;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class CategoriaProdutoDTO implements IDto {
+public class CategoriaProdutoDTO extends BaseEntity {
 	
 	private static final long serialVersionUID = 643396483433858897L;
 	

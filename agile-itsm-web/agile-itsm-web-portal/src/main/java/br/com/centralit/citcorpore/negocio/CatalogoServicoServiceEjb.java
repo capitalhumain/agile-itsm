@@ -3,13 +3,13 @@ package br.com.centralit.citcorpore.negocio;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.CatalogoServicoDTO;
 import br.com.centralit.citcorpore.bean.InfoCatalogoServicoDTO;
 import br.com.centralit.citcorpore.bean.ServContratoCatalogoServDTO;
 import br.com.centralit.citcorpore.integracao.CatalogoServicoDao;
 import br.com.centralit.citcorpore.integracao.InfoCatalogoServicoDao;
 import br.com.centralit.citcorpore.integracao.ServContratoCatalogoServDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.excecao.ServiceException;
@@ -30,7 +30,7 @@ public class CatalogoServicoServiceEjb extends CrudServiceImpl implements Catalo
     }
 
     @Override
-    public IDto create(final IDto model) throws ServiceException, LogicException {
+    public BaseEntity create(final BaseEntity model) throws ServiceException, LogicException {
         CatalogoServicoDTO catalogoServicoDto = (CatalogoServicoDTO) model;
         final CatalogoServicoDao catalogoServicodao = this.getDao();
 
@@ -100,7 +100,7 @@ public class CatalogoServicoServiceEjb extends CrudServiceImpl implements Catalo
     }
 
     @Override
-    public void update(final IDto model) throws ServiceException, LogicException {
+    public void update(final BaseEntity model) throws ServiceException, LogicException {
         final CatalogoServicoDTO catalogoServicoDto = (CatalogoServicoDTO) model;
         final CatalogoServicoDao catalogoServicodao = this.getDao();
 
@@ -158,7 +158,7 @@ public class CatalogoServicoServiceEjb extends CrudServiceImpl implements Catalo
     }
 
     @Override
-    public IDto restore(final IDto model) throws ServiceException, LogicException {
+    public BaseEntity restore(final BaseEntity model) throws ServiceException, LogicException {
         CatalogoServicoDTO catalogoServicoDto = null;
         final CatalogoServicoDao dao = this.getDao();
         try {

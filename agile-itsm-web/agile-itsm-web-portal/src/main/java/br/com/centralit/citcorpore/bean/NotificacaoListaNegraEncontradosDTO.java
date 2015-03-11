@@ -1,13 +1,13 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * @author ronnie.lopes
  * DTO criado apenas para envio do email Softwares Lista Negra, não possui tabela no banco de dados
  */
 @SuppressWarnings("serial")
-public class NotificacaoListaNegraEncontradosDTO implements IDto{
+public class NotificacaoListaNegraEncontradosDTO extends BaseEntity{
 	
 	private String computador;
 	private String softwarelistanegra;

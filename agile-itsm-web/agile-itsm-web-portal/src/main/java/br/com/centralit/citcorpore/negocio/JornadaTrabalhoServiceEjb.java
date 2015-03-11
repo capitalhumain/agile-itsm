@@ -2,11 +2,11 @@ package br.com.centralit.citcorpore.negocio;
 
 import java.util.Collection;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.JornadaTrabalhoDTO;
 import br.com.centralit.citcorpore.integracao.CalendarioDao;
 import br.com.centralit.citcorpore.integracao.JornadaTrabalhoDao;
 import br.com.centralit.citcorpore.util.Util;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.CrudServiceImpl;
 import br.com.citframework.util.UtilDatas;
@@ -102,7 +102,7 @@ public class JornadaTrabalhoServiceEjb extends CrudServiceImpl implements Jornad
     }
 
     @Override
-    public String deletarJornada(final IDto model) throws ServiceException, Exception {
+    public String deletarJornada(final BaseEntity model) throws ServiceException, Exception {
         String resp = "";
 
         final JornadaTrabalhoDTO jornadaTrabalhoDTO = (JornadaTrabalhoDTO) model;

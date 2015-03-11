@@ -1,9 +1,9 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.citframework.util.UtilStrings;
 
-public class GaleriaImagensDTO implements IDto {
+public class GaleriaImagensDTO extends BaseEntity {
 	private Integer idImagem;
 	private Integer idCategoriaGaleriaImagem;
 	private String nomeImagem;

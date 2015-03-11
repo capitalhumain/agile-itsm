@@ -2,9 +2,9 @@ package br.com.centralit.citcorpore.bean;
 
 import java.util.Collection;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class LinhaBaseProjetoDTO implements IDto {
+public class LinhaBaseProjetoDTO extends BaseEntity {
 	public static final String ATIVO = "A";
 	public static final String EMEXECUCAO = "E";
 	public static final String INATIVO = "I";

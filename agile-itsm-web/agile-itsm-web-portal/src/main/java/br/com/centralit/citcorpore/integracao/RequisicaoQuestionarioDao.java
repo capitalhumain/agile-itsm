@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.ChecklistQuestionarioDTO;
 import br.com.centralit.citcorpore.bean.ContratoQuestionariosDTO;
 import br.com.centralit.citcorpore.bean.RequisicaoQuestionarioDTO;
 import br.com.centralit.citcorpore.bean.SolicitacaoServicoQuestionarioDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
 import br.com.citframework.integracao.Field;
@@ -22,7 +22,7 @@ public class RequisicaoQuestionarioDao extends CrudDaoDefaultImpl {
 
 	}
 
-	public Collection find(IDto obj) throws PersistenceException {
+	public Collection find(BaseEntity obj) throws PersistenceException {
 		return null;
 	}
 
@@ -87,7 +87,7 @@ public class RequisicaoQuestionarioDao extends CrudDaoDefaultImpl {
             return null;
     }
 
-	public void update(IDto obj) throws PersistenceException {
+	public void update(BaseEntity obj) throws PersistenceException {
 		super.updateNotNull(obj);
 	}
 
@@ -156,7 +156,7 @@ public class RequisicaoQuestionarioDao extends CrudDaoDefaultImpl {
 	}
 
 	@Override
-	public void updateNotNull(IDto obj) throws PersistenceException {
+	public void updateNotNull(BaseEntity obj) throws PersistenceException {
 	    // TODO Auto-generated method stub
 	    super.updateNotNull(obj);
 	}

@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.rh.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class RequisicaoFormacaoAcademicaDTO implements IDto {
+public class RequisicaoFormacaoAcademicaDTO extends BaseEntity {
 	private Integer idSolicitacaoServico;
 	private Integer idFormacaoAcademica;
 	private String obrigatorio;

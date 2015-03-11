@@ -1,11 +1,11 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * @author euler.ramos Guardará o resultado da análise de tendências de lançamento de solicitações de serviço
  */
-public class TendenciaDTO implements IDto {
+public class TendenciaDTO extends BaseEntity {
 
 	private static final long serialVersionUID = -42994999516790078L;
 

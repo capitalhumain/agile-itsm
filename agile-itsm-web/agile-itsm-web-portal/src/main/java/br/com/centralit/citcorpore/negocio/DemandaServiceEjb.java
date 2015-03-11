@@ -3,8 +3,8 @@ package br.com.centralit.citcorpore.negocio;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.integracao.DemandaDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.CrudServiceImpl;
@@ -30,7 +30,7 @@ public class DemandaServiceEjb extends CrudServiceImpl implements DemandaService
     }
 
     @Override
-    public IDto create(final IDto model) throws ServiceException, LogicException {
+    public BaseEntity create(final BaseEntity model) throws ServiceException, LogicException {
         /*
          * //Instancia Objeto controlador de transacao
          * CrudDAO crudDao = getDao();

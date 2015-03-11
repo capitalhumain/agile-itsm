@@ -2,7 +2,7 @@ package br.com.centralit.citgerencial.integracao;
 
 import java.util.Collection;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
 import br.com.citframework.integracao.Field;
@@ -15,7 +15,7 @@ public class GerencialGenerateDao extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public Collection<?> find(final IDto arg0) throws PersistenceException {
+    public Collection<?> find(final BaseEntity arg0) throws PersistenceException {
         return null;
     }
 

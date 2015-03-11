@@ -12,6 +12,7 @@ import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.bpm.dto.ElementoFluxoDTO;
 import br.com.centralit.bpm.dto.TarefaFluxoDTO;
 import br.com.centralit.bpm.util.Enumerados.SituacaoItemTrabalho;
@@ -46,7 +47,6 @@ import br.com.centralit.citcorpore.util.Enumerados.SituacaoSolicitacaoServico;
 import br.com.centralit.citcorpore.util.Enumerados.TipoSolicitacaoServico;
 import br.com.centralit.citcorpore.util.ParametroUtil;
 import br.com.centralit.citcorpore.util.Util;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.Condition;
@@ -472,7 +472,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public Collection find(IDto solicitacaoServicoDTO) throws PersistenceException {
+    public Collection find(BaseEntity solicitacaoServicoDTO) throws PersistenceException {
         List ordenacao = new ArrayList();
         ordenacao.add(new Order("idSolicitacaoServico"));
         return super.find(solicitacaoServicoDTO, ordenacao);
@@ -8040,7 +8040,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public void updateNotNull(IDto obj) throws PersistenceException {
+    public void updateNotNull(BaseEntity obj) throws PersistenceException {
         super.updateNotNull(obj);
     }
 

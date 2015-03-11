@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class GrupoRecursosDTO implements IDto {
+public class GrupoRecursosDTO extends BaseEntity {
 	private Integer idGrupoRecurso;
 	private String nomeGrupoRecurso;
 	private String situacao;

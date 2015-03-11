@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.integracao.MatrizVisaoDao;
 import br.com.centralit.citcorpore.metainfo.bean.BotaoAcaoVisaoDTO;
 import br.com.centralit.citcorpore.metainfo.bean.CamposObjetoNegocioDTO;
@@ -31,7 +32,6 @@ import br.com.centralit.citcorpore.metainfo.integracao.VinculoVisaoDao;
 import br.com.centralit.citcorpore.metainfo.integracao.VisaoDao;
 import br.com.centralit.citcorpore.metainfo.integracao.VisaoRelacionadaDao;
 import br.com.centralit.citcorpore.metainfo.util.MetaUtil;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
@@ -55,7 +55,7 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
     }
 
     @Override
-    public IDto create(IDto model) throws ServiceException, LogicException {
+    public BaseEntity create(BaseEntity model) throws ServiceException, LogicException {
         // Instancia Objeto controlador de transacao
         VisaoDao crudDao = this.getDao();
         GrupoVisaoDao grupoVisaoDao = getGrupoVisaoDao();
@@ -263,7 +263,7 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
     }
 
     @Override
-    public void update(IDto model) throws ServiceException, LogicException {
+    public void update(BaseEntity model) throws ServiceException, LogicException {
         // Instancia Objeto controlador de transacao
         VisaoDao crudDao = getDao();
         GrupoVisaoDao grupoVisaoDao = getGrupoVisaoDao();
@@ -481,7 +481,7 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
     }
 
     @Override
-    public void deleteVisao(IDto model) throws Exception {
+    public void deleteVisao(BaseEntity model) throws Exception {
         // Instancia Objeto controlador de transacao
         VisaoDao crudDao = getDao();
 

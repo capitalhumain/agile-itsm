@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.metainfo.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class ReturnTableSearchDTO implements IDto {
+public class ReturnTableSearchDTO extends BaseEntity {
 	private String label;
 	private String value;
 	private String[][] aaData;

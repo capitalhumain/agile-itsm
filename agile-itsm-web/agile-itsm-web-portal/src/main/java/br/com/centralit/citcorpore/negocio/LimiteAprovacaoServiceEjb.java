@@ -2,6 +2,7 @@ package br.com.centralit.citcorpore.negocio;
 
 import java.util.Collection;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.LimiteAprovacaoAutoridadeDTO;
 import br.com.centralit.citcorpore.bean.LimiteAprovacaoDTO;
 import br.com.centralit.citcorpore.bean.LimiteAprovacaoProcessoDTO;
@@ -10,7 +11,6 @@ import br.com.centralit.citcorpore.integracao.LimiteAprovacaoAutoridadeDao;
 import br.com.centralit.citcorpore.integracao.LimiteAprovacaoDao;
 import br.com.centralit.citcorpore.integracao.LimiteAprovacaoProcessoDao;
 import br.com.centralit.citcorpore.integracao.ValorLimiteAprovacaoDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
@@ -46,7 +46,7 @@ public class LimiteAprovacaoServiceEjb extends CrudServiceImpl implements Limite
     }
 
     @Override
-    public IDto create(final IDto model) throws ServiceException, LogicException {
+    public BaseEntity create(final BaseEntity model) throws ServiceException, LogicException {
         final LimiteAprovacaoDao limiteAprovacaoDao = new LimiteAprovacaoDao();
         final LimiteAprovacaoProcessoDao limiteAprovacaoProcessoDao = new LimiteAprovacaoProcessoDao();
         final LimiteAprovacaoAutoridadeDao limiteAprovacaoAutoridadeDao = new LimiteAprovacaoAutoridadeDao();
@@ -111,7 +111,7 @@ public class LimiteAprovacaoServiceEjb extends CrudServiceImpl implements Limite
     }
 
     @Override
-    public void update(final IDto model) throws ServiceException, LogicException {
+    public void update(final BaseEntity model) throws ServiceException, LogicException {
         final LimiteAprovacaoDao limiteAprovacaoDao = new LimiteAprovacaoDao();
         final LimiteAprovacaoProcessoDao limiteAprovacaoProcessoDao = new LimiteAprovacaoProcessoDao();
         final LimiteAprovacaoAutoridadeDao limiteAprovacaoAutoridadeDao = new LimiteAprovacaoAutoridadeDao();

@@ -3,8 +3,8 @@ package br.com.centralit.citcorpore.integracao;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.ControleRendimentoGrupoDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.dto.Usuario;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
@@ -21,7 +21,7 @@ public class ControleRendimentoGrupoDao extends CrudDaoDefaultImpl{
 		super(Constantes.getValue("DATABASE_ALIAS"), null);
 	}
 	@Override
-	public Collection find(IDto obj) throws PersistenceException {
+	public Collection find(BaseEntity obj) throws PersistenceException {
 				return null;
 	}
 

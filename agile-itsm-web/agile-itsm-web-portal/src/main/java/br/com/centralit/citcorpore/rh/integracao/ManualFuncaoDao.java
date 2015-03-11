@@ -3,8 +3,8 @@ package br.com.centralit.citcorpore.rh.integracao;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.rh.bean.ManualFuncaoDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
 import br.com.citframework.integracao.Field;
@@ -28,7 +28,7 @@ public class ManualFuncaoDao extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public Collection find(final IDto obj) throws PersistenceException {
+    public Collection find(final BaseEntity obj) throws PersistenceException {
         return null;
     }
 

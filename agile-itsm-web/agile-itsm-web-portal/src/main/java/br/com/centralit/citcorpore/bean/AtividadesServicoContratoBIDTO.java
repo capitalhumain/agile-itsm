@@ -1,9 +1,9 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 @SuppressWarnings("serial")
-public class AtividadesServicoContratoBIDTO implements IDto {
+public class AtividadesServicoContratoBIDTO extends BaseEntity {
 	private Integer idAtividadeServicoContrato;
 	private Integer idServicoContrato;
 	private String descricaoAtividade;

@@ -2,9 +2,9 @@ package br.com.centralit.citcorpore.bean;
 
 import java.util.List;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class AcordoServicoContratoDTO implements IDto {
+public class AcordoServicoContratoDTO extends BaseEntity {
 
 	private static final long serialVersionUID = 7878341453446988862L;
 	

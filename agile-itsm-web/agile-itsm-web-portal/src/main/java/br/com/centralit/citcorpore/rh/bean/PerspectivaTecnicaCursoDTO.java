@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.rh.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class PerspectivaTecnicaCursoDTO implements IDto{
+public class PerspectivaTecnicaCursoDTO extends BaseEntity{
 	/**
 	 * 
 	 */

@@ -6,6 +6,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.Semaphore;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.AcordoNivelServicoDTO;
 import br.com.centralit.citcorpore.bean.EscalonamentoDTO;
 import br.com.centralit.citcorpore.bean.OcorrenciaMudancaDTO;
@@ -27,7 +28,6 @@ import br.com.centralit.citcorpore.util.Enumerados.CategoriaOcorrencia;
 import br.com.centralit.citcorpore.util.Enumerados.OrigemOcorrencia;
 import br.com.centralit.citcorpore.util.Enumerados.ParametroSistema;
 import br.com.centralit.citcorpore.util.ParametroUtil;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.service.ServiceLocator;
 import br.com.citframework.util.UtilDatas;
@@ -328,7 +328,7 @@ public class MonitoraMudanca extends Thread {
         requisicaoAuxDto.setLinkPesquisaSatisfacao("<a href=\"" + urlSistema + "/pages/pesquisaSatisfacao/pesquisaSatisfacao.load?idSolicitacaoServico="
                 + requisicaoAuxDto.getIdRequisicaoMudanca() + "&hash=" + idHashValidacao + "\">Clique aqui para fazer a avaliação do Atendimento</a>");
 
-        final MensagemEmail mensagem = new MensagemEmail(idModeloEmail, new IDto[] {requisicaoAuxDto});
+        final MensagemEmail mensagem = new MensagemEmail(idModeloEmail, new BaseEntity[] {requisicaoAuxDto});
         try {
             mensagem.envia(requisicaoAuxDto.getEmailContato(), remetente, remetente);
         } catch (final Exception e) {}

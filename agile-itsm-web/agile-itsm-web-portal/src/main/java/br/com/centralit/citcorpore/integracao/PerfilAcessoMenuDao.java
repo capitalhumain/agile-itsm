@@ -6,10 +6,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.PerfilAcessoDTO;
 import br.com.centralit.citcorpore.bean.PerfilAcessoMenuDTO;
 import br.com.centralit.citcorpore.bean.UsuarioDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.Condition;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
@@ -26,7 +26,7 @@ public class PerfilAcessoMenuDao extends CrudDaoDefaultImpl {
 	}
 
 	@Override
-	public Collection find(IDto arg0) throws PersistenceException {
+	public Collection find(BaseEntity arg0) throws PersistenceException {
 		return null;
 	}
 
@@ -53,7 +53,7 @@ public class PerfilAcessoMenuDao extends CrudDaoDefaultImpl {
 	}
 
 	@Override
-	public void delete(IDto obj) throws PersistenceException {
+	public void delete(BaseEntity obj) throws PersistenceException {
 		PerfilAcessoMenuDTO perfilAcessoMenuDTO = (PerfilAcessoMenuDTO) obj;
 		List condicao = new ArrayList();
 		condicao.add(new Condition("idPerfilAcesso", "=", perfilAcessoMenuDTO
@@ -117,7 +117,7 @@ public class PerfilAcessoMenuDao extends CrudDaoDefaultImpl {
 		return super.findByCondition(condicao, ordenacao);
 	}
 
-	public Collection<PerfilAcessoMenuDTO> restoreMenusAcesso(IDto obj)
+	public Collection<PerfilAcessoMenuDTO> restoreMenusAcesso(BaseEntity obj)
 			throws PersistenceException {
 		PerfilAcessoMenuDTO perfilAcessoMenuDTO = (PerfilAcessoMenuDTO) obj;
 		List param = new ArrayList();
@@ -155,7 +155,7 @@ public class PerfilAcessoMenuDao extends CrudDaoDefaultImpl {
 	}
 
 	@Override
-	public void update(IDto obj) throws PersistenceException {
+	public void update(BaseEntity obj) throws PersistenceException {
 		PerfilAcessoMenuDTO perfilAcessoMenuDTO = (PerfilAcessoMenuDTO) obj;
 		List parametros = new ArrayList();
 		parametros.add(UtilDatas.getDataAtual());

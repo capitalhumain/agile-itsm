@@ -2,14 +2,14 @@ package br.com.centralit.citcorpore.bean;
 
 import java.util.Collection;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * 
  * @author pedro
  *
  */
-public class InfoCatalogoServicoDTO implements IDto {
+public class InfoCatalogoServicoDTO extends BaseEntity {
 
 		private Integer idInfoCatalogoServico;
 		private Integer idCatalogoServico;

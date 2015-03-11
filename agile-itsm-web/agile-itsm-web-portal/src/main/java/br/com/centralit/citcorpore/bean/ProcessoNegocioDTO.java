@@ -2,10 +2,10 @@ package br.com.centralit.citcorpore.bean;
 
 import java.util.Collection;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bpm.negocio.ExecucaoSolicitacao;
-import br.com.citframework.dto.IDto;
 
-public class ProcessoNegocioDTO implements IDto {
+public class ProcessoNegocioDTO extends BaseEntity {
 	/**
 	 * 
 	 */

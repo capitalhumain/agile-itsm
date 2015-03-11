@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class CausaIncidenteDTO implements IDto {
+public class CausaIncidenteDTO extends BaseEntity {
 	private Integer idCausaIncidente;
 	private Integer idCausaIncidentePai;
 	private String descricaoCausa;

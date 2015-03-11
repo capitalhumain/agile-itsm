@@ -7,6 +7,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.AuditoriaItemConfigDTO;
 import br.com.centralit.citcorpore.bean.BaseConhecimentoDTO;
 import br.com.centralit.citcorpore.bean.GrupoItemConfiguracaoDTO;
@@ -16,7 +17,6 @@ import br.com.centralit.citcorpore.bean.ItemConfiguracaoDTO;
 import br.com.centralit.citcorpore.bean.RequisicaoLiberacaoDTO;
 import br.com.centralit.citcorpore.bean.UsuarioDTO;
 import br.com.centralit.citcorpore.bean.ValorDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
@@ -37,7 +37,7 @@ public interface ItemConfiguracaoService extends CrudService {
 
 	public ItemConfiguracaoDTO listIdUsuario(String obj) throws Exception;
 
-	public void updateItemConfiguracao(IDto ItemConfiguracao, UsuarioDTO user) throws ServiceException, LogicException;
+	public void updateItemConfiguracao(BaseEntity ItemConfiguracao, UsuarioDTO user) throws ServiceException, LogicException;
 
 	public void criarEAssociarValorDaCaracteristicaAoItemConfiguracao(ItemConfiguracaoDTO itemConfiguracaoDto, UsuarioDTO user, Integer IdHistoricoIC) throws Exception;
 
@@ -59,7 +59,7 @@ public interface ItemConfiguracaoService extends CrudService {
 
 	public boolean VerificaSeCadastrado(ItemConfiguracaoDTO itemDTO) throws Exception;
 
-	public void updateNotNull(IDto dto) throws Exception;
+	public void updateNotNull(BaseEntity dto) throws Exception;
 
 	public Collection<ItemConfiguracaoDTO> listByIdItemConfiguracaoPai(Integer idItemPai) throws Exception;
 

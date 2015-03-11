@@ -3,9 +3,9 @@ package br.com.centralit.citcorpore.bean;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class SolucaoContornoDTO implements IDto {
+public class SolucaoContornoDTO extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
 	

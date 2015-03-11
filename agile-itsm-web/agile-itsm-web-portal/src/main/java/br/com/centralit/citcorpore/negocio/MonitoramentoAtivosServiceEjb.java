@@ -1,5 +1,6 @@
 package br.com.centralit.citcorpore.negocio;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.CaracteristicaMonitDTO;
 import br.com.centralit.citcorpore.bean.MonitoramentoAtivosDTO;
 import br.com.centralit.citcorpore.bean.NotificacaoGrupoMonitDTO;
@@ -10,7 +11,6 @@ import br.com.centralit.citcorpore.integracao.MonitoramentoAtivosDAO;
 import br.com.centralit.citcorpore.integracao.NotificacaoGrupoMonitDAO;
 import br.com.centralit.citcorpore.integracao.NotificacaoUsuarioMonitDAO;
 import br.com.centralit.citcorpore.integracao.ScriptMonitDAO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
@@ -35,7 +35,7 @@ public class MonitoramentoAtivosServiceEjb extends CrudServiceImpl implements Mo
     }
 
     @Override
-    public IDto create(final IDto model) throws ServiceException, LogicException {
+    public BaseEntity create(final BaseEntity model) throws ServiceException, LogicException {
         MonitoramentoAtivosDTO monitoramentoAtivosDTO = (MonitoramentoAtivosDTO) model;
         final MonitoramentoAtivosDAO monitoramentoAtivosDAO = this.getDao();
 
@@ -79,7 +79,7 @@ public class MonitoramentoAtivosServiceEjb extends CrudServiceImpl implements Mo
     }
 
     @Override
-    public void update(final IDto model) throws ServiceException, LogicException {
+    public void update(final BaseEntity model) throws ServiceException, LogicException {
         final MonitoramentoAtivosDTO monitoramentoAtivosDTO = (MonitoramentoAtivosDTO) model;
 
         if (monitoramentoAtivosDTO.getIdMonitoramentoAtivos() != null) {
@@ -126,7 +126,7 @@ public class MonitoramentoAtivosServiceEjb extends CrudServiceImpl implements Mo
     }
 
     @Override
-    public void delete(final IDto model) throws ServiceException, LogicException {
+    public void delete(final BaseEntity model) throws ServiceException, LogicException {
         final MonitoramentoAtivosDTO monitoramentoAtivosDTO = (MonitoramentoAtivosDTO) model;
 
         if (monitoramentoAtivosDTO.getIdMonitoramentoAtivos() != null) {

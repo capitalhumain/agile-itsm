@@ -8,6 +8,7 @@ import java.util.logging.Logger;
 
 import org.apache.commons.lang.StringUtils;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.AssociacaoDeviceAtendenteDTO;
 import br.com.centralit.citcorpore.bean.AtribuicaoSolicitacaoAtendenteDTO;
 import br.com.centralit.citcorpore.bean.HistoricoPushMessageDTO;
@@ -15,7 +16,6 @@ import br.com.centralit.citcorpore.bean.UsuarioDTO;
 import br.com.centralit.citcorpore.integracao.AtribuicaoSolicitacaoAtendenteDAO;
 import br.com.centralit.citcorpore.util.Enumerados.ParametroSistema;
 import br.com.centralit.citcorpore.util.ParametroUtil;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.push.ConfigPushService;
@@ -52,7 +52,7 @@ public class AtribuicaoSolicitacaoAtendenteServiceEjb extends CrudServiceImpl im
     }
 
     @Override
-    public void delete(final IDto bean) throws ServiceException, LogicException {
+    public void delete(final BaseEntity bean) throws ServiceException, LogicException {
         final AtribuicaoSolicitacaoAtendenteDTO atribuicao = (AtribuicaoSolicitacaoAtendenteDTO) bean;
         atribuicao.setActive(0);
         super.update(atribuicao);

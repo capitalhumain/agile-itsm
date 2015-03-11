@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.EmpregadoDTO;
 import br.com.centralit.citcorpore.bean.PerfilAcessoUsuarioDTO;
 import br.com.centralit.citcorpore.bean.UnidadeDTO;
@@ -11,7 +12,6 @@ import br.com.centralit.citcorpore.bean.UsuarioDTO;
 import br.com.centralit.citcorpore.integracao.EmpregadoDao;
 import br.com.centralit.citcorpore.integracao.PerfilAcessoUsuarioDAO;
 import br.com.centralit.citcorpore.integracao.UsuarioDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.excecao.ServiceException;
@@ -158,7 +158,7 @@ public class EmpregadoServiceEjb extends CrudServiceImpl implements EmpregadoSer
     }
 
     @Override
-    public void update(final IDto model) throws ServiceException, LogicException {
+    public void update(final BaseEntity model) throws ServiceException, LogicException {
         final EmpregadoDTO empregadoDto = (EmpregadoDTO) model;
 
         try {
@@ -188,7 +188,7 @@ public class EmpregadoServiceEjb extends CrudServiceImpl implements EmpregadoSer
     }
 
     @Override
-    public void deleteEmpregado(final IDto model) throws ServiceException, Exception {
+    public void deleteEmpregado(final BaseEntity model) throws ServiceException, Exception {
         final EmpregadoDTO empregadoDto = (EmpregadoDTO) model;
 
         final TransactionControler tc = new TransactionControlerImpl(this.getDao().getAliasDB());
@@ -247,7 +247,7 @@ public class EmpregadoServiceEjb extends CrudServiceImpl implements EmpregadoSer
     }
 
     @Override
-    public void updateNotNull(final IDto dto) {
+    public void updateNotNull(final BaseEntity dto) {
         try {
             this.getDao().updateNotNull(dto);
         } catch (final Exception e) {
@@ -256,7 +256,7 @@ public class EmpregadoServiceEjb extends CrudServiceImpl implements EmpregadoSer
     }
 
     @Override
-    public IDto create(IDto model) throws ServiceException, LogicException {
+    public BaseEntity create(BaseEntity model) throws ServiceException, LogicException {
         try {
             this.validaCreate(model);
 

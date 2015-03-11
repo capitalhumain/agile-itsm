@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class CronogramaDTO implements IDto {
+public class CronogramaDTO extends BaseEntity {
 	private String ta;
 	private Integer idProjeto;
 	private Integer idLinhaBaseProjeto;

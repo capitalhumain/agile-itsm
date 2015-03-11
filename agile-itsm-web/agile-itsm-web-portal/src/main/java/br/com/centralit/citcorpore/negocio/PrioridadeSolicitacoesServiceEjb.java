@@ -3,6 +3,7 @@ package br.com.centralit.citcorpore.negocio;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citajax.html.DocumentHTML;
 import br.com.centralit.citcorpore.bean.ImpactoDTO;
 import br.com.centralit.citcorpore.bean.MatrizPrioridadeDTO;
@@ -10,7 +11,6 @@ import br.com.centralit.citcorpore.bean.UrgenciaDTO;
 import br.com.centralit.citcorpore.integracao.ImpactoDAO;
 import br.com.centralit.citcorpore.integracao.MatrizPrioridadeDAO;
 import br.com.centralit.citcorpore.integracao.UrgenciaDAO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.integracao.CrudDAO;
 import br.com.citframework.service.CrudServiceImpl;
 
@@ -62,7 +62,7 @@ public class PrioridadeSolicitacoesServiceEjb extends CrudServiceImpl implements
     }
 
     @Override
-    public IDto restoreImpactoBySigla(final ImpactoDTO impacto) throws Exception {
+    public BaseEntity restoreImpactoBySigla(final ImpactoDTO impacto) throws Exception {
         ImpactoDTO impactoResp = new ImpactoDTO();
         final List<ImpactoDTO> resp = this.getImpactoDAO().restoreBySigla(impacto.getSiglaImpacto().trim().toString().toUpperCase());
         if (resp == null) {
@@ -75,7 +75,7 @@ public class PrioridadeSolicitacoesServiceEjb extends CrudServiceImpl implements
     }
 
     @Override
-    public IDto restoreUrgenciaBySigla(final UrgenciaDTO urgencia) throws Exception {
+    public BaseEntity restoreUrgenciaBySigla(final UrgenciaDTO urgencia) throws Exception {
         UrgenciaDTO urgenciaResp = new UrgenciaDTO();
         final List<UrgenciaDTO> resp = this.getUrgenciaDAO().restoreBySigla(urgencia.getSiglaUrgencia().trim().toString().toUpperCase());
         if (resp == null) {
@@ -88,7 +88,7 @@ public class PrioridadeSolicitacoesServiceEjb extends CrudServiceImpl implements
     }
 
     @Override
-    public void createImpacto(final IDto impacto) throws Exception {
+    public void createImpacto(final BaseEntity impacto) throws Exception {
         this.getImpactoDAO().create(impacto);
     }
 
@@ -98,7 +98,7 @@ public class PrioridadeSolicitacoesServiceEjb extends CrudServiceImpl implements
     }
 
     @Override
-    public void createUrgencia(final IDto urgencia) throws Exception {
+    public void createUrgencia(final BaseEntity urgencia) throws Exception {
         this.getUrgenciaDAO().create(urgencia);
     }
 
@@ -108,7 +108,7 @@ public class PrioridadeSolicitacoesServiceEjb extends CrudServiceImpl implements
     }
 
     @Override
-    public void createMatrizPrioridade(final IDto matrizPrioridade) throws Exception {
+    public void createMatrizPrioridade(final BaseEntity matrizPrioridade) throws Exception {
         this.getMatrizPrioridadeDAO().create(matrizPrioridade);
     }
 
@@ -133,12 +133,12 @@ public class PrioridadeSolicitacoesServiceEjb extends CrudServiceImpl implements
     }
 
     @Override
-    public IDto restoreImpacto(final IDto impacto) throws Exception {
+    public BaseEntity restoreImpacto(final BaseEntity impacto) throws Exception {
         return this.getImpactoDAO().restore(impacto);
     }
 
     @Override
-    public IDto restoreUrgencia(final IDto urgencia) throws Exception {
+    public BaseEntity restoreUrgencia(final BaseEntity urgencia) throws Exception {
         return this.getUrgenciaDAO().restore(urgencia);
     }
 

@@ -1,13 +1,13 @@
 package br.com.centralit.citcorpore.bean;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.util.Util;
-import br.com.citframework.dto.IDto;
 
 /**
  * @author breno.guimaraes
  * 
  */
-public class JustificativaSolicitacaoDTO implements IDto {
+public class JustificativaSolicitacaoDTO extends BaseEntity {
 
     /**
      * 

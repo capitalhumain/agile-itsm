@@ -1,9 +1,9 @@
 package br.com.centralit.citcorpore.negocio;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citajax.html.DocumentHTML;
 import br.com.centralit.citcorpore.bean.CategoriaOcorrenciaDTO;
 import br.com.centralit.citcorpore.integracao.CategoriaOcorrenciaDAO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
 import br.com.citframework.integracao.TransactionControlerImpl;
@@ -26,7 +26,7 @@ public class CategoriaOcorrenciaServiceEjb extends CrudServiceImpl implements Ca
     }
 
     @Override
-    public void deletarCategoriaOcorrencia(final IDto model, final DocumentHTML document) throws ServiceException, Exception {
+    public void deletarCategoriaOcorrencia(final BaseEntity model, final DocumentHTML document) throws ServiceException, Exception {
         CategoriaOcorrenciaDTO categoriaOcorrenciaDTO = (CategoriaOcorrenciaDTO) model;
         final TransactionControler tc = new TransactionControlerImpl(this.getDao().getAliasDB());
 

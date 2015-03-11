@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class UnidadeMedidaDTO implements IDto {
+public class UnidadeMedidaDTO extends BaseEntity {
 	private Integer idUnidadeMedida;
 	private String nomeUnidadeMedida;
 	private String siglaUnidadeMedida;

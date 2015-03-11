@@ -2,9 +2,9 @@ package br.com.centralit.citcorpore.bean;
 
 import java.util.Collection;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class AtividadePeriodicaDTO implements IDto {
+public class AtividadePeriodicaDTO extends BaseEntity {
 	private Integer idAtividadePeriodica;
 	private Integer idContrato;
 	private Integer idProcedimentoTecnico;

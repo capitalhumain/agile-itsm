@@ -1,7 +1,7 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class CarteiraTrabalhoDTO implements IDto {
+public class CarteiraTrabalhoDTO extends BaseEntity {
 
 }

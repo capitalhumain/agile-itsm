@@ -2,13 +2,13 @@ package br.com.centralit.citcorpore.bean;
 
 import java.sql.Date;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * @author Pedro
  *
  */
-public class ControleContratoOcorrenciaDTO implements IDto {
+public class ControleContratoOcorrenciaDTO extends BaseEntity {
 
     private Integer idCcOcorrencia;
     private Integer idControleContrato;

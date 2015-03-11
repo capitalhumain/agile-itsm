@@ -2,9 +2,9 @@ package br.com.centralit.citcorpore.bean;
 
 import java.sql.Date;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class AvaliacaoContratoDTO implements IDto {
+public class AvaliacaoContratoDTO extends BaseEntity {
 	private Integer idContrato;
 	private Date dataInicio;
 	private Date dataFim;

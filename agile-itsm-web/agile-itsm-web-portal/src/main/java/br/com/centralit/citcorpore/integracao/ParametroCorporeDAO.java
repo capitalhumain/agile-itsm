@@ -1,14 +1,11 @@
-/**
- *
- */
 package br.com.centralit.citcorpore.integracao;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.ParametroCorporeDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.Condition;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
@@ -20,7 +17,6 @@ import br.com.citframework.util.Constantes;
  * @author valdoilo.damasceno
  *
  */
-@SuppressWarnings({"rawtypes", "unchecked"})
 public class ParametroCorporeDAO extends CrudDaoDefaultImpl {
 
     private final String SQL_UPDATE_PARAMETRO = "update " + getTableName() + " set valor = ? where IDPARAMETROCORPORE = ?";
@@ -31,14 +27,13 @@ public class ParametroCorporeDAO extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public Collection<ParametroCorporeDTO> find(IDto arg0) throws PersistenceException {
+    public Collection<ParametroCorporeDTO> find(final BaseEntity arg0) throws PersistenceException {
         return null;
     }
 
     @Override
     public Collection<Field> getFields() {
-        Collection<Field> listFields = new ArrayList<>();
-
+        final Collection<Field> listFields = new ArrayList<>();
         listFields.add(new Field("IDPARAMETROCORPORE", "id", true, false, false, true));
         listFields.add(new Field("NOMEPARAMETROCORPORE", "nome", false, false, false, true, "Nome Parâmetro!"));
         listFields.add(new Field("VALOR", "valor", false, false, false, false));
@@ -46,7 +41,6 @@ public class ParametroCorporeDAO extends CrudDaoDefaultImpl {
         listFields.add(new Field("DATAINICIO", "dataInicio", false, false, false, false));
         listFields.add(new Field("DATAFIM", "dataFim", false, false, false, false));
         listFields.add(new Field("tipodado", "tipoDado", false, false, false, false));
-
         return listFields;
     }
 
@@ -56,8 +50,8 @@ public class ParametroCorporeDAO extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public Collection list() throws PersistenceException {
-        List<Order> list = new ArrayList<>();
+    public Collection<ParametroCorporeDTO> list() throws PersistenceException {
+        final List<Order> list = new ArrayList<>();
         list.add(new Order("id"));
         return super.list(list);
     }
@@ -71,8 +65,8 @@ public class ParametroCorporeDAO extends CrudDaoDefaultImpl {
      * @throws Exception
      * @author Maycon.Fernandes
      */
-    public ParametroCorporeDTO getParamentroAtivo(Integer id) throws PersistenceException {
-        List objs = new ArrayList();
+    public ParametroCorporeDTO getParamentroAtivo(final Integer id) throws PersistenceException {
+        final List objs = new ArrayList();
         objs.add(id);
 
         String sql = SQL_GET_PARAMETRO_CITCORPORE;
@@ -81,32 +75,32 @@ public class ParametroCorporeDAO extends CrudDaoDefaultImpl {
         sql += " (IDPARAMETROCORPORE = ?) AND (DATAFIM IS NULL) ";
 
         sql += " ORDER BY NOMEPARAMETROCORPORE, DATAINICIO DESC, DATAFIM";
-        List lista = this.execSQL(sql, objs.toArray());
+        final List lista = execSQL(sql, objs.toArray());
 
-        List listRetorno = this.prepararListaDeRetorno();
+        final List listRetorno = prepararListaDeRetorno();
 
-        List result = this.engine.listConvertion(getBean(), lista, listRetorno);
+        final List result = engine.listConvertion(getBean(), lista, listRetorno);
         if (result == null || result.size() == 0) {
             return null;
         }
         return (ParametroCorporeDTO) result.get(0);
     }
 
-    public List pesquisarParamentro(Integer id, String NomeParametro) throws PersistenceException {
-        List<Integer> objs = new ArrayList<>();
+    public List<ParametroCorporeDTO> pesquisarParamentro(final Integer id, final String NomeParametro) throws PersistenceException {
+        final List<Integer> objs = new ArrayList<>();
         objs.add(id);
 
-        StringBuilder sql = new StringBuilder(SQL_GET_PARAMETRO_CITCORPORE);
+        final StringBuilder sql = new StringBuilder(SQL_GET_PARAMETRO_CITCORPORE);
 
         sql.append(" WHERE ");
         sql.append(" (IDPARAMETROCORPORE = ?) ");
 
         sql.append(" ORDER BY NOMEPARAMETROCORPORE");
-        List lista = this.execSQL(sql.toString(), objs.toArray());
+        final List lista = execSQL(sql.toString(), objs.toArray());
 
-        List listRetorno = this.prepararListaDeRetorno();
+        final List listRetorno = prepararListaDeRetorno();
 
-        List result = this.engine.listConvertion(getBean(), lista, listRetorno);
+        final List result = engine.listConvertion(getBean(), lista, listRetorno);
         if (result == null || result.size() == 0) {
             return null;
         }
@@ -119,12 +113,12 @@ public class ParametroCorporeDAO extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public void updateNotNull(IDto obj) throws PersistenceException {
+    public void updateNotNull(final BaseEntity obj) throws PersistenceException {
         super.updateNotNull(obj);
     }
 
     private List prepararListaDeRetorno() {
-        List<String> listRetorno = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
         listRetorno.add("id");
         listRetorno.add("nome");
         listRetorno.add("valor");
@@ -134,9 +128,9 @@ public class ParametroCorporeDAO extends CrudDaoDefaultImpl {
         return listRetorno;
     }
 
-    public Collection findByID(ParametroCorporeDTO parametroCorporeDTO) throws PersistenceException {
-        List<Condition> condicao = new ArrayList<>();
-        List<Order> ordenacao = new ArrayList<>();
+    public Collection findByID(final ParametroCorporeDTO parametroCorporeDTO) throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
 
         condicao.add(new Condition("id", "=", parametroCorporeDTO.getId()));
         ordenacao.add(new Order("id"));
@@ -148,14 +142,14 @@ public class ParametroCorporeDAO extends CrudDaoDefaultImpl {
      * Atualiza o valor do parametro pelo id
      *
      */
-    public void atualizarParametro(Integer id, String valor) {
-        List<Object> parametros = new ArrayList<>();
+    public void atualizarParametro(final Integer id, final String valor) {
+        final List<Object> parametros = new ArrayList<>();
         parametros.add(valor);
         parametros.add(id);
 
         try {
             super.execUpdate(SQL_UPDATE_PARAMETRO, parametros.toArray());
-        } catch (PersistenceException e) {
+        } catch (final PersistenceException e) {
             e.printStackTrace();
         }
     }

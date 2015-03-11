@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.rh.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class CertificacaoDTO implements IDto {
+public class CertificacaoDTO extends BaseEntity {
 	private Integer idCertificacao;
 	private String descricao;
     private String detalhe;

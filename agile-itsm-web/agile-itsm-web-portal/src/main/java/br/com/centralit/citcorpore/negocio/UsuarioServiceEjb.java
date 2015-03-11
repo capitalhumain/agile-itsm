@@ -9,6 +9,7 @@ import java.util.Collection;
 
 import org.apache.commons.lang.StringUtils;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.ADUserDTO;
 import br.com.centralit.citcorpore.bean.EmpregadoDTO;
 import br.com.centralit.citcorpore.bean.EmpresaDTO;
@@ -34,7 +35,6 @@ import br.com.centralit.citcorpore.integracao.ad.LDAPUtils;
 import br.com.centralit.citcorpore.util.CriptoUtils;
 import br.com.centralit.citcorpore.util.Enumerados.ParametroSistema;
 import br.com.centralit.citcorpore.util.ParametroUtil;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
@@ -66,10 +66,10 @@ public class UsuarioServiceEjb extends CrudServiceImpl implements UsuarioService
     /**
      * Cria usuário e perfil acesso.
      *
-     * @see br.com.citframework.service.CrudServiceImpl#create(br.com.citframework.dto.IDto)
+     * @see br.com.citframework.service.CrudServiceImpl#create(br.com.agileitsm.model.support.BaseEntity)
      */
     @Override
-    public IDto create(final IDto model) throws ServiceException, LogicException {
+    public BaseEntity create(final BaseEntity model) throws ServiceException, LogicException {
         this.setUsuarioBean(model);
 
         final TransactionControler transaction = new TransactionControlerImpl(this.getDao().getAliasDB());
@@ -106,7 +106,7 @@ public class UsuarioServiceEjb extends CrudServiceImpl implements UsuarioService
     }
 
     @Override
-    public IDto createFirs(final IDto model) throws ServiceException, LogicException {
+    public BaseEntity createFirs(final BaseEntity model) throws ServiceException, LogicException {
         final UsuarioDTO usrDto = (UsuarioDTO) model;
         final PerfilAcessoUsuarioDTO perfilAcDTO = new PerfilAcessoUsuarioDTO();
         final EmpregadoDTO empregadoDTO = new EmpregadoDTO();
@@ -202,7 +202,7 @@ public class UsuarioServiceEjb extends CrudServiceImpl implements UsuarioService
     }
 
     @Override
-    public void updateNotNull(final IDto dto) {
+    public void updateNotNull(final BaseEntity dto) {
         try {
             this.validaUpdate(dto);
             this.getDao().updateNotNull(dto);
@@ -261,7 +261,7 @@ public class UsuarioServiceEjb extends CrudServiceImpl implements UsuarioService
     }
 
     @Override
-    public void delete(final IDto model) throws ServiceException, LogicException {
+    public void delete(final BaseEntity model) throws ServiceException, LogicException {
         this.setUsuarioBean(model);
         final TransactionControler transaction = new TransactionControlerImpl(this.getDao().getAliasDB());
         try {
@@ -291,7 +291,7 @@ public class UsuarioServiceEjb extends CrudServiceImpl implements UsuarioService
     }
 
     @Override
-    public void update(final IDto usuarioDto) throws ServiceException, LogicException {
+    public void update(final BaseEntity usuarioDto) throws ServiceException, LogicException {
         final UsuarioDTO usuarioSelecionado = (UsuarioDTO) usuarioDto;
 
         final UsuarioDao usuarioDao = new UsuarioDao();
@@ -428,7 +428,7 @@ public class UsuarioServiceEjb extends CrudServiceImpl implements UsuarioService
      * @param baseItemConfiguracaoBean
      * @author valdoilo.damasceno
      */
-    private void setUsuarioBean(final IDto usuarioBean) {
+    private void setUsuarioBean(final BaseEntity usuarioBean) {
         this.usuarioBean = (UsuarioDTO) usuarioBean;
     }
 
@@ -1162,7 +1162,7 @@ public class UsuarioServiceEjb extends CrudServiceImpl implements UsuarioService
     }
 
     @Override
-    public IDto restore(final IDto model) throws ServiceException, LogicException {
+    public BaseEntity restore(final BaseEntity model) throws ServiceException, LogicException {
         UsuarioDTO usuarioDto = (UsuarioDTO) model;
 
         try {

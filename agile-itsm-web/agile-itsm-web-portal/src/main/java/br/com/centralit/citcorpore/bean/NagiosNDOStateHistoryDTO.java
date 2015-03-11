@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class NagiosNDOStateHistoryDTO implements IDto {
+public class NagiosNDOStateHistoryDTO extends BaseEntity {
 	private Integer statehistory_id;
 	private Integer instance_id;
 	private java.sql.Timestamp state_time;

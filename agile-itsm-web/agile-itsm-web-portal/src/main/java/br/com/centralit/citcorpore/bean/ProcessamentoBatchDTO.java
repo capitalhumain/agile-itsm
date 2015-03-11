@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class ProcessamentoBatchDTO implements IDto {
+public class ProcessamentoBatchDTO extends BaseEntity {
 
 	private static final long serialVersionUID = 1060402879727020452L;
 

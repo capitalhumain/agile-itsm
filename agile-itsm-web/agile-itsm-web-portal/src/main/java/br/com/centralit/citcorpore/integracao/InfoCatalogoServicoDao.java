@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.CatalogoServicoDTO;
 import br.com.centralit.citcorpore.bean.InfoCatalogoServicoDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
 import br.com.citframework.integracao.Field;
@@ -48,7 +48,7 @@ public class InfoCatalogoServicoDao extends CrudDaoDefaultImpl {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public Collection<InfoCatalogoServicoDTO> find(IDto obj) throws PersistenceException {
+	public Collection<InfoCatalogoServicoDTO> find(BaseEntity obj) throws PersistenceException {
 		List<InfoCatalogoServicoDTO> ordem = new ArrayList<InfoCatalogoServicoDTO>();
 
 		return super.find(obj, ordem);

@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.util.CITCorporeUtil;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.dto.LogDados;
 import br.com.citframework.dto.Usuario;
 import br.com.citframework.excecao.PersistenceException;
@@ -20,7 +20,7 @@ public class LogDadosDao extends CrudDaoDefaultImpl {
     private static final String TABLE_NAME = "logdados";
 
     @Override
-    public synchronized IDto create(final IDto obj) throws PersistenceException {
+    public synchronized BaseEntity create(final BaseEntity obj) throws PersistenceException {
         LogDados logDados = new LogDados();
 
         if (obj != null) {
@@ -48,7 +48,7 @@ public class LogDadosDao extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public synchronized IDto createWithID(final IDto obj) throws PersistenceException {
+    public synchronized BaseEntity createWithID(final BaseEntity obj) throws PersistenceException {
         return super.createWithID(obj);
     }
 
@@ -59,7 +59,7 @@ public class LogDadosDao extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public Collection find(final IDto dto) throws PersistenceException {
+    public Collection find(final BaseEntity dto) throws PersistenceException {
         return null;
     }
 

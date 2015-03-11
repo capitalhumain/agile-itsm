@@ -4,11 +4,11 @@ import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citajax.util.JavaScriptUtil;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.util.UtilDatas;
 
-public class HistoricoExecucaoDTO implements IDto {
+public class HistoricoExecucaoDTO extends BaseEntity {
 
 	/**
 	 * 

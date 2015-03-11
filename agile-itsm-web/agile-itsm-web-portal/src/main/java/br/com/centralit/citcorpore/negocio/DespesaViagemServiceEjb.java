@@ -3,6 +3,7 @@ package br.com.centralit.citcorpore.negocio;
 import java.sql.Timestamp;
 import java.util.Collection;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.DespesaViagemDTO;
 import br.com.centralit.citcorpore.bean.IntegranteViagemDTO;
 import br.com.centralit.citcorpore.bean.RequisicaoViagemDTO;
@@ -13,7 +14,6 @@ import br.com.centralit.citcorpore.integracao.IntegranteViagemDao;
 import br.com.centralit.citcorpore.integracao.RequisicaoViagemDAO;
 import br.com.centralit.citcorpore.integracao.RoteiroViagemDAO;
 import br.com.centralit.citcorpore.util.Enumerados;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
@@ -33,7 +33,7 @@ public class DespesaViagemServiceEjb extends ComplemInfSolicitacaoServicoService
     }
 
     @Override
-    public IDto deserializaObjeto(final String serialize) throws Exception {
+    public BaseEntity deserializaObjeto(final String serialize) throws Exception {
         DespesaViagemDTO despesaViagemDTO = null;
 
         if (serialize != null) {
@@ -44,31 +44,31 @@ public class DespesaViagemServiceEjb extends ComplemInfSolicitacaoServicoService
     }
 
     @Override
-    public void validaCreate(final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {
+    public void validaCreate(final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {
         if (!this.validaPrazoItens(solicitacaoServicoDto.getIdSolicitacaoServico())) {
             throw new LogicException("Prazo cotação expirado ou maior que a data fim viagem, favor refazer a cotação dos itens novamente!");
         }
     }
 
     @Override
-    public void validaDelete(final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {
+    public void validaDelete(final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {
 
     }
 
     @Override
-    public void validaUpdate(final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {
+    public void validaUpdate(final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {
         if (!this.validaPrazoItens(solicitacaoServicoDto.getIdSolicitacaoServico())) {
             throw new LogicException("Prazo cotação expirado ou maior que a data fim viagem, favor refazer a cotação dos itens novamente!");
         }
     }
 
     @Override
-    public IDto create(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {
+    public BaseEntity create(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {
         return null;
     }
 
     @Override
-    public IDto create(IDto model) throws ServiceException, LogicException {
+    public BaseEntity create(BaseEntity model) throws ServiceException, LogicException {
 
         try {
             model = this.getDao().create(model);
@@ -80,7 +80,7 @@ public class DespesaViagemServiceEjb extends ComplemInfSolicitacaoServicoService
     }
 
     @Override
-    public void update(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {
+    public void update(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {
         final RequisicaoViagemDAO requisicaoViagemDAO = new RequisicaoViagemDAO();
 
         requisicaoViagemDAO.setTransactionControler(tc);
@@ -147,7 +147,7 @@ public class DespesaViagemServiceEjb extends ComplemInfSolicitacaoServicoService
     }
 
     @Override
-    public void delete(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {
+    public void delete(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {
 
     }
 

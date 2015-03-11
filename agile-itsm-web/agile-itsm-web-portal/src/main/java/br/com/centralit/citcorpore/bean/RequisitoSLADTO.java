@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class RequisitoSLADTO implements IDto {
+public class RequisitoSLADTO extends BaseEntity {
 	private Integer idRequisitoSLA;
 	private Integer idEmpregado;
 	private String assunto;

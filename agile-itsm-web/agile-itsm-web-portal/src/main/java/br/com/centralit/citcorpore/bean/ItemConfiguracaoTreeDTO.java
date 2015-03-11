@@ -1,19 +1,14 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import lombok.Getter;
+import lombok.Setter;
 
-public class ItemConfiguracaoTreeDTO extends ItemConfiguracaoDTO implements IDto {
+public class ItemConfiguracaoTreeDTO extends ItemConfiguracaoDTO {
 
-	private static final long serialVersionUID = 1L;
-	
-	private String nomeItemConfiguracao;
+    private static final long serialVersionUID = -8011057599270168269L;
 
-	public String getNomeItemConfiguracao() {
-		return nomeItemConfiguracao;
-	}
-
-	public void setNomeItemConfiguracao(String nomeItemConfiguracao) {
-		this.nomeItemConfiguracao = nomeItemConfiguracao;
-	}
+    @Getter
+    @Setter
+    private String nomeItemConfiguracao;
 
 }

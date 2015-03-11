@@ -1,6 +1,8 @@
 package br.com.citframework.dto;
 
-public class ReflexaoCopyProperty implements IDto{
+import br.com.agileitsm.model.support.BaseEntity;
+
+public class ReflexaoCopyProperty extends BaseEntity{
 	/**
 	 * 
 	 */

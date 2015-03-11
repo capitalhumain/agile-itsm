@@ -2,8 +2,8 @@ package br.com.centralit.citcorpore.negocio;
 
 import java.util.Collection;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.NotificacaoDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.integracao.TransactionControler;
 import br.com.citframework.service.CrudService;
 
@@ -42,6 +42,6 @@ public interface NotificacaoService extends CrudService {
 	
 	public Collection<NotificacaoDTO> listaIdContrato(Integer idContrato) throws Exception;
 	
-	public void updateNotNull(IDto obj) throws Exception;
+	public void updateNotNull(BaseEntity obj) throws Exception;
 	
 }

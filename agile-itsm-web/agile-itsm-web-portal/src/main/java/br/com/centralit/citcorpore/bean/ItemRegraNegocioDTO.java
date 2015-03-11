@@ -3,9 +3,9 @@ package br.com.centralit.citcorpore.bean;
 import java.util.Collection;
 import java.util.Iterator;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class ItemRegraNegocioDTO implements IDto {
+public class ItemRegraNegocioDTO extends BaseEntity {
     
     private String resultadoValidacao;
     private String mensagensValidacao;

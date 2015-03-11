@@ -6,9 +6,9 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citajax.html.DocumentHTML;
 import br.com.centralit.citcorpore.bean.ServicoContratoDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.CrudService;
 
@@ -28,7 +28,7 @@ public interface ServicoContratoService extends CrudService {
 	 * @throws ServiceException
 	 * @throws Exception
 	 */
-	public void deletarByIdServicoContrato(IDto model, DocumentHTML document) throws ServiceException, Exception;
+	public void deletarByIdServicoContrato(BaseEntity model, DocumentHTML document) throws ServiceException, Exception;
 
 	public Collection findByIdContrato(Integer parm) throws Exception;
 

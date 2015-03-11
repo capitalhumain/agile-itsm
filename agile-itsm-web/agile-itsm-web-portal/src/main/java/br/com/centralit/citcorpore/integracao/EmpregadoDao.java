@@ -8,11 +8,11 @@ import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.EmpregadoDTO;
 import br.com.centralit.citcorpore.bean.UnidadeDTO;
 import br.com.centralit.citcorpore.bean.UsuarioDTO;
 import br.com.centralit.citcorpore.util.CITCorporeUtil;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.Condition;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
@@ -87,7 +87,7 @@ public class EmpregadoDao extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public void updateNotNull(final IDto obj) throws PersistenceException {
+    public void updateNotNull(final BaseEntity obj) throws PersistenceException {
         super.updateNotNull(obj);
     }
 
@@ -97,7 +97,7 @@ public class EmpregadoDao extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public Collection<EmpregadoDTO> find(final IDto obj) throws PersistenceException {
+    public Collection<EmpregadoDTO> find(final BaseEntity obj) throws PersistenceException {
         return null;
     }
 
@@ -609,7 +609,7 @@ public class EmpregadoDao extends CrudDaoDefaultImpl {
         return col.get(0);
     }
 
-    public IDto restauraTodos(final IDto obj) throws PersistenceException {
+    public BaseEntity restauraTodos(final BaseEntity obj) throws PersistenceException {
         final EmpregadoDTO empregadoDto = (EmpregadoDTO) obj;
 
         final List<Condition> condicao = new ArrayList<>();

@@ -9,6 +9,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citajax.html.AjaxFormAction;
 import br.com.centralit.citajax.html.DocumentHTML;
 import br.com.centralit.citajax.html.HTMLForm;
@@ -35,7 +36,6 @@ import br.com.centralit.citcorpore.util.Enumerados;
 import br.com.centralit.citcorpore.util.Enumerados.ParametroSistema;
 import br.com.centralit.citcorpore.util.ParametroUtil;
 import br.com.centralit.citcorpore.util.WebUtil;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.dto.Usuario;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.PersistenceEngine;
@@ -405,7 +405,7 @@ public class Login extends AjaxFormAction {
 
 							String ID_MODELO_EMAIL_ALTERACAO_SENHA = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.ID_MODELO_EMAIL_ALTERACAO_SENHA, "18");
 
-							MensagemEmail mensagem = new MensagemEmail(Integer.parseInt(ID_MODELO_EMAIL_ALTERACAO_SENHA.trim()), new IDto[] { emailAlteracaoSenhaDTO });
+							MensagemEmail mensagem = new MensagemEmail(Integer.parseInt(ID_MODELO_EMAIL_ALTERACAO_SENHA.trim()), new BaseEntity[] { emailAlteracaoSenhaDTO });
 
 							mensagem.envia(empregadoDTO.getEmail(), "", ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.RemetenteNotificacoesSolicitacao, "10"));
 

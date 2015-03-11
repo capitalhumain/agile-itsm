@@ -2,9 +2,9 @@ package br.com.centralit.citcorpore.bean;
 
 import java.sql.Date;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class ExcecaoCalendarioDTO implements IDto {
+public class ExcecaoCalendarioDTO extends BaseEntity {
 	private Integer idExcecaoCalendario;
 	private Integer idCalendario;
 	private Integer idJornada;

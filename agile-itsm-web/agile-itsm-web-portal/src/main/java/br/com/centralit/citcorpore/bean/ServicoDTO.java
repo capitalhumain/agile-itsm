@@ -17,9 +17,9 @@ package br.com.centralit.citcorpore.bean;
 import java.sql.Date;
 import java.sql.Timestamp;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class ServicoDTO implements IDto {
+public class ServicoDTO extends BaseEntity {
     private static final long serialVersionUID = 1L;
     private String conteudodados;
     private Date dataFim;

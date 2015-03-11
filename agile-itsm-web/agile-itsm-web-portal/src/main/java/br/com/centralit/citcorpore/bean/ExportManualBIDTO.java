@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class ExportManualBIDTO implements IDto {
+public class ExportManualBIDTO extends BaseEntity {
 
 	private static final long serialVersionUID = -5911968771759841485L;
 

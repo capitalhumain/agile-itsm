@@ -2,9 +2,9 @@ package br.com.centralit.citcorpore.rh.bean;
 
 import java.sql.Date;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class AtribuicaoRequisicaoFuncaoDTO implements IDto {
+public class AtribuicaoRequisicaoFuncaoDTO extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
 	private Integer idAtribuicao;

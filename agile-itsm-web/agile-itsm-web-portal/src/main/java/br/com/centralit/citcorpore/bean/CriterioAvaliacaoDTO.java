@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class CriterioAvaliacaoDTO implements IDto {
+public class CriterioAvaliacaoDTO extends BaseEntity {
 	private Integer idCriterio;
 	private String descricao;
 	private String aplicavelCotacao;

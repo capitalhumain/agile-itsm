@@ -1,9 +1,9 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 @SuppressWarnings("serial")
-public class MarcaDTO implements IDto {
+public class MarcaDTO extends BaseEntity {
 	private Integer idMarca;
 	private Integer idFabricante;
 	private String nomeMarca;

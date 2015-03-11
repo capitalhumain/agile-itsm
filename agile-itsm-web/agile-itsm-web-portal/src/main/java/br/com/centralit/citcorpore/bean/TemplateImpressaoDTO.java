@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class TemplateImpressaoDTO implements IDto {
+public class TemplateImpressaoDTO extends BaseEntity {
 	private Integer idTemplateImpressao;
 	private String nomeTemplate;
 	private String htmlCabecalho;

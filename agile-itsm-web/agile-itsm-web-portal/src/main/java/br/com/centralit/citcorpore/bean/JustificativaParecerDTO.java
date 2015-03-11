@@ -2,14 +2,14 @@ package br.com.centralit.citcorpore.bean;
 
 import java.sql.Date;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.util.Util;
-import br.com.citframework.dto.IDto;
 
 /**
  * @author breno.guimaraes
  * 
  */
-public class JustificativaParecerDTO implements IDto {
+public class JustificativaParecerDTO extends BaseEntity {
 
     /**
      * 

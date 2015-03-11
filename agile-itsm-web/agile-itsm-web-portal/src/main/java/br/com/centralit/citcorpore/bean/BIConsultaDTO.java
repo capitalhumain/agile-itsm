@@ -3,9 +3,9 @@ package br.com.centralit.citcorpore.bean;
 import java.util.Collection;
 import java.util.List;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class BIConsultaDTO implements IDto {
+public class BIConsultaDTO extends BaseEntity {
 	private Integer idConsulta;
 	private String identificacao;
 	private String nomeConsulta;

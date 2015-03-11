@@ -5,11 +5,11 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citajax.html.DocumentHTML;
 import br.com.centralit.citcorpore.bean.UnidadeDTO;
 import br.com.centralit.citcorpore.bean.UnidadesAccServicosDTO;
 import br.com.centralit.citcorpore.util.Arvore;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.CrudService;
 
@@ -37,7 +37,7 @@ public interface UnidadeService extends CrudService {
      * @throws Exception
      * @author thays.araujo
      */
-    void deletarUnidade(final IDto model, final DocumentHTML document, final HttpServletRequest request) throws ServiceException, Exception;
+    void deletarUnidade(final BaseEntity model, final DocumentHTML document, final HttpServletRequest request) throws ServiceException, Exception;
 
     /**
      * Restaura GRID de Serviços.

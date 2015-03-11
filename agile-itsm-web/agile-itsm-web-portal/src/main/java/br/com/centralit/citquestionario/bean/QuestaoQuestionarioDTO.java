@@ -6,12 +6,12 @@ import java.util.Iterator;
 
 import org.apache.commons.lang.StringEscapeUtils;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.citframework.util.UtilFormatacao;
 import br.com.citframework.util.UtilHTML;
 import br.com.citframework.util.WebUtil;
 
-public class QuestaoQuestionarioDTO implements IDto {
+public class QuestaoQuestionarioDTO extends BaseEntity {
 
 	/**
 	 * 

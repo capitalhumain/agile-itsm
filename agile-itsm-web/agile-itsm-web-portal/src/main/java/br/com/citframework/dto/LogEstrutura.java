@@ -3,11 +3,13 @@
  */
 package br.com.citframework.dto;
 
+import br.com.agileitsm.model.support.BaseEntity;
+
 
 /**
  * @author karem.ricarte
  */
-public class LogEstrutura implements IDto{
+public class LogEstrutura extends BaseEntity{
 	
 	
 	private static final long serialVersionUID = 1L;

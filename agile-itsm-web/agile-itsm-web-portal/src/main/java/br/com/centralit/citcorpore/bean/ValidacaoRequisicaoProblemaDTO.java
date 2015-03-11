@@ -2,7 +2,7 @@ package br.com.centralit.citcorpore.bean;
 
 import java.sql.Date;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * 
@@ -11,7 +11,7 @@ import br.com.citframework.dto.IDto;
  */
 
 @SuppressWarnings("serial")
-public class ValidacaoRequisicaoProblemaDTO implements IDto {
+public class ValidacaoRequisicaoProblemaDTO extends BaseEntity {
 	private Integer idValidacaoRequisicaoProblema;
 	private String observacaoProblema;
 	private Date dataInicio;

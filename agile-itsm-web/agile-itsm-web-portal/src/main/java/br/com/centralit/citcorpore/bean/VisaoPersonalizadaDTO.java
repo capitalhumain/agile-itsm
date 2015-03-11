@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class VisaoPersonalizadaDTO implements IDto {
+public class VisaoPersonalizadaDTO extends BaseEntity {
 	private Integer idvisao;
 	private String personalizada;
 	private java.sql.Date dataModif;

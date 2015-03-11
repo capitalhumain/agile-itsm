@@ -2,12 +2,12 @@ package br.com.centralit.citcorpore.bean;
 
 import java.util.Collection;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.citframework.util.UtilFormatacao;
 import br.com.citframework.util.UtilHTML;
 import br.com.citframework.util.UtilStrings;
 
-public class TarefaLinhaBaseProjetoDTO implements IDto {
+public class TarefaLinhaBaseProjetoDTO extends BaseEntity {
 	public static final String ATIVO = "A";
 	public static final String PRONTO = "P";
 	public static final String FALHA = "F";

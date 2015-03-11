@@ -4,11 +4,11 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "PermissoesFluxo")
-public class PermissoesFluxoDTO implements IDto {
+public class PermissoesFluxoDTO extends BaseEntity {
 
     private static final long serialVersionUID = -8206459839120172951L;
 

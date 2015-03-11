@@ -2,10 +2,10 @@ package br.com.centralit.citcorpore.bean;
 
 import java.sql.Date;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.citframework.util.UtilDatas;
 
-public class AlcadaCentroResultadoDTO implements IDto {
+public class AlcadaCentroResultadoDTO extends BaseEntity {
 	
 	private static final long serialVersionUID = 4182540164619994646L;
 	

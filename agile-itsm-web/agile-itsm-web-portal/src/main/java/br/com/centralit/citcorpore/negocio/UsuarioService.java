@@ -4,10 +4,10 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Collection;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.ADUserDTO;
 import br.com.centralit.citcorpore.bean.LoginDTO;
 import br.com.centralit.citcorpore.bean.UsuarioDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.CrudService;
@@ -32,7 +32,7 @@ public interface UsuarioService extends CrudService {
 
 	public UsuarioDTO restoreByIdEmpregado(Integer idEmpregado) throws ServiceException, Exception;
 
-	public IDto createFirs(IDto model) throws ServiceException, LogicException;
+	public BaseEntity createFirs(BaseEntity model) throws ServiceException, LogicException;
 
 	public UsuarioDTO listStatus(UsuarioDTO obj) throws Exception;
 
@@ -43,7 +43,7 @@ public interface UsuarioService extends CrudService {
 	
 	public boolean listSeVazio() throws Exception;
 	
-	void updateNotNull(IDto dto);
+	void updateNotNull(BaseEntity dto);
 
 	/**
 	 * Sincroniza Usuário que logou no sistema.

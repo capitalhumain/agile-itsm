@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class PesquisaDTO implements IDto {
+public class PesquisaDTO extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
 	

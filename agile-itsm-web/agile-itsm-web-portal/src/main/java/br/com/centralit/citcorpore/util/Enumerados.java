@@ -164,7 +164,7 @@ public class Enumerados implements Serializable {
         ATENDIDA_FINALIZADA(1, "gestao.forca.atendimento.status.atendimento.atendido.finalizado"),
         NAO_ATENDIDA(2, "gestao.forca.atendimento.status.atendimento.nao.atendido"),
         EM_ATENDIMENTO(3, "gestao.forca.atendimento.status.atendimento.atendendo"),
-        ATENDIDA_COM_PENDENCIA (4, "gestao.forca.atendimento.status.atendimento.pendencia");
+        ATENDIDA_COM_PENDENCIA(4, "gestao.forca.atendimento.status.atendimento.pendencia");
 
         private final Integer id;
         private final String description;
@@ -480,13 +480,11 @@ public class Enumerados implements Serializable {
         ID_CATEGORIA_REGISTRA_OCORRENCIA_PORTAL(262, "parametro.262", NUMERO),
         ID_ORIGEM_REGISTRA_OCORRENCIA_PORTAL(263, "parametro.263", NUMERO),
         FILTRAR_SOLICITACAO_ANDAMENTO(264, "parametro.264", BOOLEAN),
-		SERVASTERISKALGORITMOCAPTURA(265,"parametro.265", NUMERO),
+        SERVASTERISKALGORITMOCAPTURA(265, "parametro.265", NUMERO),
         ID_CALENDARIO_PADRAO(266, "parametro.266", NUMERO);
 
         private final int id;
-
         private final String campo;
-
         private final String tipoCampo;
 
         public int id() {
@@ -617,7 +615,7 @@ public class Enumerados implements Serializable {
         }
 
         public String getSigla() {
-            return this.name();
+            return name();
         }
 
     }
@@ -1127,10 +1125,10 @@ public class Enumerados implements Serializable {
 
         AguardandoValidacao("Aguardando validação", AcaoItemRequisicaoProduto.Criacao),
         RejeitadoCompras("Requisição rejeitada", AcaoItemRequisicaoProduto.Validacao),
-        AlteradoCompras("Alterado pela área de compras",AcaoItemRequisicaoProduto.Validacao),
+        AlteradoCompras("Alterado pela área de compras", AcaoItemRequisicaoProduto.Validacao),
         Inviabilizado("Inviabilizado", AcaoItemRequisicaoProduto.Validacao),
-        AguardandoAutorizacaoCompra("Aguardando autorização",AcaoItemRequisicaoProduto.Validacao),
-        AlteradoAutorizador("Alterado pelo autorizador",AcaoItemRequisicaoProduto.Autorizacao),
+        AguardandoAutorizacaoCompra("Aguardando autorização", AcaoItemRequisicaoProduto.Validacao),
+        AlteradoAutorizador("Alterado pelo autorizador", AcaoItemRequisicaoProduto.Autorizacao),
         RejeitadoAutorizador("Requisição rejeitada", AcaoItemRequisicaoProduto.Autorizacao),
         CompraNaoAutorizada("Compra não autorizada", AcaoItemRequisicaoProduto.Autorizacao),
         AguardandoCotacao("Aguardando cotação", AcaoItemRequisicaoProduto.Autorizacao),
@@ -1760,83 +1758,83 @@ public class Enumerados implements Serializable {
 
     }
 
-	/**
-	 * Enumerados com os Tipos de Item Configuração Default de um XML de Inventário.
-	 * 
-	 * @author valdoilo.damasceno
-	 * @since 19.01.2014
-	 */
-	public enum TagTipoItemConfiguracaoDefault {
+    /**
+     * Enumerados com os Tipos de Item Configuração Default de um XML de Inventário.
+     *
+     * @author valdoilo.damasceno
+     * @since 19.01.2014
+     */
+    public enum TagTipoItemConfiguracaoDefault {
 
-		ACCOUNTS("ACCOUNTS"),
-		BIOS("BIOS"),
-		CAPTION("CAPTION"), 
-		DESCRIPTION("DESCRIPTION"),
-		DISKSIZE("DISKSIZE"),
-		ENVIRONMENTS("ENVIRONMENTS"),
-		HARDWARE("HARDWARE"),
-		MACADDR("MACADDR"),
-		MEMORIES("MEMORIES"),
-		NAME("NAME"), 
-		NETWORKS("NETWORKS"),
-		PRODUCT("PRODUCT"),
-		PRODUCTID("PRODUCTID"),
-		INPUTS("INPUTS"), 
-		SERVICES("SERVICES"),
-		STORAGES("STORAGES"),
-		SOFTWARES("SOFTWARES"),
-		OFFICEPACK("OFFICEPACK"),
-		TYPE("TYPE"),
-		VERSION("VERSION"),  ;
+        ACCOUNTS("ACCOUNTS"),
+        BIOS("BIOS"),
+        CAPTION("CAPTION"),
+        DESCRIPTION("DESCRIPTION"),
+        DISKSIZE("DISKSIZE"),
+        ENVIRONMENTS("ENVIRONMENTS"),
+        HARDWARE("HARDWARE"),
+        MACADDR("MACADDR"),
+        MEMORIES("MEMORIES"),
+        NAME("NAME"),
+        NETWORKS("NETWORKS"),
+        PRODUCT("PRODUCT"),
+        PRODUCTID("PRODUCTID"),
+        INPUTS("INPUTS"),
+        SERVICES("SERVICES"),
+        STORAGES("STORAGES"),
+        SOFTWARES("SOFTWARES"),
+        OFFICEPACK("OFFICEPACK"),
+        TYPE("TYPE"),
+        VERSION("VERSION"), ;
 
-		private final String tagTipoItemConfiguracao;
+        private final String tagTipoItemConfiguracao;
 
-		private TagTipoItemConfiguracaoDefault(final String tagTipoItemConfiguracao) {
-			this.tagTipoItemConfiguracao = tagTipoItemConfiguracao;
-}
+        private TagTipoItemConfiguracaoDefault(final String tagTipoItemConfiguracao) {
+            this.tagTipoItemConfiguracao = tagTipoItemConfiguracao;
+        }
 
-		public String getTagTipoItemConfiguracao() {
-			return tagTipoItemConfiguracao;
-		}
-	}
-    
-	/**
-	 * Enumerado com os Nomes de Características de Identificação.
-	 * 
-	 * @author valdoilo.damasceno
-	 * @since 19.01.2014
-	 */
-	public enum CaracteristicaIdentificacao {
-		
-		CAPTION("CAPTION"),
-		CAPACITY("CAPACITY"),
-		DESCRIPTION("DESCRIPTION"),
-		DEVICEID("DEVICEID"),
-		DISKSIZE("DISKSIZE"),
-		DOMAIN("DOMAIN"),
-		IPADDR("IPADDR"),
-		MACADDR("MACADDR"),
-		NAME("NAME"),
-		PRODUCT("PRODUCT"),
-		PRODUCTID("PRODUCTID"),
-		SMANUFACTURER("SMANUFACTURER"),
-		SSN("SSN"),
-		SERIALNUMBER("SERIALNUMBER"),
-		STARTMODE("STARTMODE"),
-		TYPE("TYPE"),
-		USERNAME("USERNAME"),
-		VERSION("VERSION");
-		
-		private CaracteristicaIdentificacao(final String nomeCaracteristica) {
-			this.nomeCaracteristica = nomeCaracteristica;
-		}
+        public String getTagTipoItemConfiguracao() {
+            return tagTipoItemConfiguracao;
+        }
+    }
 
-		final String nomeCaracteristica;
+    /**
+     * Enumerado com os Nomes de Características de Identificação.
+     *
+     * @author valdoilo.damasceno
+     * @since 19.01.2014
+     */
+    public enum CaracteristicaIdentificacao {
 
-		public String getNomeCaracteristica() {
-			return nomeCaracteristica;
-		}
+        CAPTION("CAPTION"),
+        CAPACITY("CAPACITY"),
+        DESCRIPTION("DESCRIPTION"),
+        DEVICEID("DEVICEID"),
+        DISKSIZE("DISKSIZE"),
+        DOMAIN("DOMAIN"),
+        IPADDR("IPADDR"),
+        MACADDR("MACADDR"),
+        NAME("NAME"),
+        PRODUCT("PRODUCT"),
+        PRODUCTID("PRODUCTID"),
+        SMANUFACTURER("SMANUFACTURER"),
+        SSN("SSN"),
+        SERIALNUMBER("SERIALNUMBER"),
+        STARTMODE("STARTMODE"),
+        TYPE("TYPE"),
+        USERNAME("USERNAME"),
+        VERSION("VERSION");
 
-	}
+        private CaracteristicaIdentificacao(final String nomeCaracteristica) {
+            this.nomeCaracteristica = nomeCaracteristica;
+        }
+
+        final String nomeCaracteristica;
+
+        public String getNomeCaracteristica() {
+            return nomeCaracteristica;
+        }
+
+    }
 
 }

@@ -3,8 +3,8 @@ package br.com.centralit.citcorpore.integracao;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.CheckinDeniedDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
 import br.com.citframework.integracao.Field;
@@ -17,7 +17,7 @@ public class CheckinDeniedDao extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public Collection<CheckinDeniedDTO> find(final IDto obj) throws PersistenceException {
+    public Collection<CheckinDeniedDTO> find(final BaseEntity obj) throws PersistenceException {
         return null;
     }
 

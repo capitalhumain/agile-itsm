@@ -3,11 +3,11 @@ package br.com.centralit.citcorpore.negocio;
 import java.util.Collection;
 import java.util.Iterator;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.BIDashBoardDTO;
 import br.com.centralit.citcorpore.bean.BIItemDashBoardDTO;
 import br.com.centralit.citcorpore.integracao.BIDashBoardDao;
 import br.com.centralit.citcorpore.integracao.BIItemDashBoardDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.CrudDAO;
@@ -28,7 +28,7 @@ public class BIDashBoardServiceEjb extends CrudServiceImpl implements BIDashBoar
     }
 
     @Override
-    public IDto create(IDto model) throws ServiceException, LogicException {
+    public BaseEntity create(BaseEntity model) throws ServiceException, LogicException {
         // Instancia Objeto controlador de transacao
         final CrudDAO crudDao = this.getDao();
         final BIItemDashBoardDao biItemDashBoardDao = new BIItemDashBoardDao();
@@ -73,7 +73,7 @@ public class BIDashBoardServiceEjb extends CrudServiceImpl implements BIDashBoar
     }
 
     @Override
-    public void update(final IDto model) throws ServiceException, LogicException {
+    public void update(final BaseEntity model) throws ServiceException, LogicException {
         final CrudDAO crudDao = this.getDao();
         final BIItemDashBoardDao biItemDashBoardDao = new BIItemDashBoardDao();
         final TransactionControler tc = new TransactionControlerImpl(crudDao.getAliasDB());
@@ -116,7 +116,7 @@ public class BIDashBoardServiceEjb extends CrudServiceImpl implements BIDashBoar
     }
 
     @Override
-    public IDto getByIdentificacao(final String ident) throws Exception {
+    public BaseEntity getByIdentificacao(final String ident) throws Exception {
         return this.getDao().getByIdentificacao(ident);
     }
 

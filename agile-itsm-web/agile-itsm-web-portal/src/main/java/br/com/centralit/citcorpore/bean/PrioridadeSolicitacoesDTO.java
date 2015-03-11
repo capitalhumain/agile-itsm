@@ -2,14 +2,14 @@ package br.com.centralit.citcorpore.bean;
 
 import java.util.ArrayList;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * 
  * @author rodrigo.oliveira
  *
  */
-public class PrioridadeSolicitacoesDTO implements IDto {
+public class PrioridadeSolicitacoesDTO extends BaseEntity {
 
 	/**
 	 * 

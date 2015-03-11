@@ -6,6 +6,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.AnexoBaseConhecimentoDTO;
 import br.com.centralit.citcorpore.bean.UploadDTO;
 import br.com.centralit.citcorpore.util.CITCorporeUtil;
@@ -17,9 +18,7 @@ import br.com.centralit.citged.bean.AssinaturaControleGEDDTO;
 import br.com.centralit.citged.bean.ControleGEDDTO;
 import br.com.centralit.citged.integracao.AssinaturaControleGEDDao;
 import br.com.centralit.citged.integracao.ControleGEDDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
-import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.CrudDAO;
 import br.com.citframework.integracao.TransactionControler;
@@ -34,6 +33,7 @@ public class ControleGEDServiceBean extends CrudServiceImpl implements ControleG
 
     private ControleGEDDao dao;
 
+    @Override
     protected ControleGEDDao getDao() {
         if (dao == null) {
             dao = new ControleGEDDao();
@@ -41,24 +41,27 @@ public class ControleGEDServiceBean extends CrudServiceImpl implements ControleG
         return dao;
     }
 
-    public Collection listByIdTabelaAndID(Integer idTabela, Integer id) throws Exception {
+    @Override
+    public Collection listByIdTabelaAndID(final Integer idTabela, final Integer id) throws Exception {
         return getDao().listByIdTabelaAndID(idTabela, id);
     }
 
+    @Override
     public String getProximaPastaArmazenar() throws Exception {
         return getDao().getProximaPastaArmazenar();
     }
 
-    public Collection convertListControleGEDToUploadDTO(Collection colAnexosControleGED) throws Exception {
+    @Override
+    public Collection convertListControleGEDToUploadDTO(final Collection colAnexosControleGED) throws Exception {
         if (colAnexosControleGED == null) {
             return null;
         }
-        Collection colFinal = new ArrayList();
-        for (Iterator it = colAnexosControleGED.iterator(); it.hasNext();) {
-            ControleGEDDTO controleGedDto = (ControleGEDDTO) it.next();
-            UploadDTO uploadDto = new UploadDTO();
+        final Collection colFinal = new ArrayList();
+        for (final Iterator it = colAnexosControleGED.iterator(); it.hasNext();) {
+            final ControleGEDDTO controleGedDto = (ControleGEDDTO) it.next();
+            final UploadDTO uploadDto = new UploadDTO();
             uploadDto.setIdControleGED(controleGedDto.getIdControleGED());
-            uploadDto.setId("" + controleGedDto.getId());
+            uploadDto.setId(controleGedDto.getId());
             if (controleGedDto.getDescricaoArquivo() != null) {
                 uploadDto.setDescricao(controleGedDto.getDescricaoArquivo());
             } else {
@@ -80,16 +83,17 @@ public class ControleGEDServiceBean extends CrudServiceImpl implements ControleG
         return colFinal;
     }
 
-    public IDto create(IDto model) throws ServiceException, LogicException {
-        CrudDAO crudDao = getDao();
-        AssinaturaControleGEDDao assDao = new AssinaturaControleGEDDao();
-        TransactionControler tc = new TransactionControlerImpl(crudDao.getAliasDB());
+    @Override
+    public BaseEntity create(final BaseEntity model) throws ServiceException, LogicException {
+        final CrudDAO crudDao = getDao();
+        final AssinaturaControleGEDDao assDao = new AssinaturaControleGEDDao();
+        final TransactionControler tc = new TransactionControlerImpl(crudDao.getAliasDB());
         try {
             validaCreate(model);
             assDao.setTransactionControler(tc);
             crudDao.setTransactionControler(tc);
             tc.start();
-            ControleGEDDTO ged = (ControleGEDDTO) crudDao.create(model);
+            final ControleGEDDTO ged = (ControleGEDDTO) crudDao.create(model);
             if (ged != null && ged.getPathsAssinaturas() != null && !ged.getPathsAssinaturas().isEmpty()) {
                 AssinaturaControleGEDDTO ass = null;
                 for (int i = 0; i < ged.getPathsAssinaturas().size(); i++) {
@@ -103,39 +107,36 @@ public class ControleGEDServiceBean extends CrudServiceImpl implements ControleG
             tc.commit();
 
             return model;
-        } catch (Exception e) {
-            this.rollbackTransaction(tc, e);
+        } catch (final Exception e) {
+            rollbackTransaction(tc, e);
         } finally {
-        	try {
-				tc.close();
-			} catch (PersistenceException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
+            tc.closeQuietly();
         }
         return model;
     }
 
     @Override
-    public Collection listByIdTabelaAndIdBaseConhecimentoPaiEFilho(Integer idTabela, Integer idBasePai, Integer idBaseFilho) throws Exception {
+    public Collection listByIdTabelaAndIdBaseConhecimentoPaiEFilho(final Integer idTabela, final Integer idBasePai, final Integer idBaseFilho) throws Exception {
         return getDao().listByIdTabelaAndIdBaseConhecimentoPaiEFilho(idTabela, idBasePai, idBaseFilho);
     }
 
-    public Collection listByIdTabelaAndIdBaseConhecimento(Integer idTabela, Integer idBaseConhecimento) throws Exception {
+    @Override
+    public Collection listByIdTabelaAndIdBaseConhecimento(final Integer idTabela, final Integer idBaseConhecimento) throws Exception {
         return getDao().listByIdTabelaAndIdBaseConhecimento(idTabela, idBaseConhecimento);
     }
 
-    public Collection listByIdTabelaAndIdLiberacaoAndLigacao(Integer idTabela, Integer idRequisicaoLiberacao) throws Exception {
+    @Override
+    public Collection listByIdTabelaAndIdLiberacaoAndLigacao(final Integer idTabela, final Integer idRequisicaoLiberacao) throws Exception {
         return getDao().listByIdTabelaAndIdLiberacaoAndLigacao(idTabela, idRequisicaoLiberacao);
     }
 
-    public String getRelativePathFromGed(ControleGEDDTO controleGEDDTO) throws Exception {
-        if (controleGEDDTO == null)
+    public String getRelativePathFromGed(final ControleGEDDTO controleGEDDTO) throws Exception {
+        if (controleGEDDTO == null) {
             return null;
+        }
         try {
-            Integer idEmpresa = 1;
-            String pasta = controleGEDDTO.getPasta();
+            final Integer idEmpresa = 1;
+            final String pasta = controleGEDDTO.getPasta();
 
             String PRONTUARIO_GED_DIRETORIO = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.GedDiretorio, "");
             if (PRONTUARIO_GED_DIRETORIO == null || PRONTUARIO_GED_DIRETORIO.trim().equalsIgnoreCase("")) {
@@ -154,29 +155,32 @@ public class ControleGEDServiceBean extends CrudServiceImpl implements ControleG
                 PRONTUARIO_GED_INTERNO = "S";
             }
             String prontuarioGedInternoBancoDados = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.GedInternoBD, "N");
-            if (!UtilStrings.isNotVazio(prontuarioGedInternoBancoDados))
+            if (!UtilStrings.isNotVazio(prontuarioGedInternoBancoDados)) {
                 prontuarioGedInternoBancoDados = "N";
+            }
             if (PRONTUARIO_GED_INTERNO.equalsIgnoreCase("S")) {
                 if (PRONTUARIO_GED_INTERNO.equalsIgnoreCase("S") && "S".equalsIgnoreCase(prontuarioGedInternoBancoDados)) { // Se utiliza GED
                     // interno e eh BD
                     // FALTA IMPLEMENTAR!
                 } else {
-                    String fileRec = CITCorporeUtil.CAMINHO_REAL_APP + "tempUpload/REC_FROM_GED_" + controleGEDDTO.getIdControleGED() + "." + controleGEDDTO.getExtensaoArquivo();
-                    CriptoUtils.decryptFile(PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/" + controleGEDDTO.getIdControleGED() + ".ged", fileRec, System
-                            .getProperties().get("user.dir") + Constantes.getValue("CAMINHO_CHAVE_PRIVADA"));
+                    final String fileRec = CITCorporeUtil.CAMINHO_REAL_APP + "tempUpload/REC_FROM_GED_" + controleGEDDTO.getIdControleGED() + "."
+                            + controleGEDDTO.getExtensaoArquivo();
+                    CriptoUtils.decryptFile(PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/" + controleGEDDTO.getIdControleGED() + ".ged",
+                            fileRec, System.getProperties().get("user.dir") + Constantes.getValue("CAMINHO_CHAVE_PRIVADA"));
 
-                    return Constantes.getValue("CONTEXTO_APLICACAO") + "/tempUpload/REC_FROM_GED_" + controleGEDDTO.getIdControleGED() + "." + controleGEDDTO.getExtensaoArquivo();
+                    return Constantes.getValue("CONTEXTO_APLICACAO") + "/tempUpload/REC_FROM_GED_" + controleGEDDTO.getIdControleGED() + "."
+                            + controleGEDDTO.getExtensaoArquivo();
                 }
             }
 
-        } catch (Exception e) {
+        } catch (final Exception e) {
             e.printStackTrace();
         }
         return null;
     }
 
-    public void atualizaAnexos(Collection<UploadDTO> anexos, int idTabela, Integer id, TransactionControler tc) throws Exception {
-        ControleGEDDao controleGEDDao = this.getDao();
+    public void atualizaAnexos(final Collection<UploadDTO> anexos, final int idTabela, final Integer id, final TransactionControler tc) throws Exception {
+        final ControleGEDDao controleGEDDao = getDao();
         controleGEDDao.setTransactionControler(tc);
         String gedInternoBancoDados = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.GedInternoBD, "N");
 
@@ -184,9 +188,9 @@ public class ControleGEDServiceBean extends CrudServiceImpl implements ControleG
             gedInternoBancoDados = "N";
         }
 
-        String GED_DIRETORIO = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.GedDiretorio, "/usr/local/gedCitsmart/");
+        final String GED_DIRETORIO = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.GedDiretorio, "/usr/local/gedCitsmart/");
 
-        String GED_INTERNO = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.GedInterno, "S");
+        final String GED_INTERNO = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.GedInterno, "S");
 
         String pasta = getProximaPastaArmazenar();
         if (GED_INTERNO.equalsIgnoreCase("S")) {
@@ -209,9 +213,9 @@ public class ControleGEDServiceBean extends CrudServiceImpl implements ControleG
             }
         }
 
-        HashMap<String, UploadDTO> mapUpload = new HashMap();
+        final HashMap<String, UploadDTO> mapUpload = new HashMap();
         if (anexos != null) {
-            for (UploadDTO uploadDto : anexos) {
+            for (final UploadDTO uploadDto : anexos) {
                 if (uploadDto.getIdControleGED() != null) {
                     mapUpload.put("" + uploadDto.getIdControleGED(), uploadDto);
                     continue;
@@ -234,10 +238,11 @@ public class ControleGEDServiceBean extends CrudServiceImpl implements ControleG
 
                     if (controleGEDDTO != null) {
 
-                        File arquivo = new File(GED_DIRETORIO + "/1/" + pasta + "/" + controleGEDDTO.getIdControleGED() + "." + Util.getFileExtension(uploadDto.getNameFile()));
+                        final File arquivo = new File(GED_DIRETORIO + "/1/" + pasta + "/" + controleGEDDTO.getIdControleGED() + "."
+                                + Util.getFileExtension(uploadDto.getNameFile()));
 
-                        CriptoUtils.encryptFile(uploadDto.getPath(), GED_DIRETORIO + "/1/" + pasta + "/" + controleGEDDTO.getIdControleGED() + ".ged",
-                                System.getProperties().get("user.dir") + Constantes.getValue("CAMINHO_CHAVE_PUBLICA"));
+                        CriptoUtils.encryptFile(uploadDto.getPath(), GED_DIRETORIO + "/1/" + pasta + "/" + controleGEDDTO.getIdControleGED() + ".ged", System
+                                .getProperties().get("user.dir") + Constantes.getValue("CAMINHO_CHAVE_PUBLICA"));
 
                         arquivo.delete();
                     }
@@ -246,19 +251,22 @@ public class ControleGEDServiceBean extends CrudServiceImpl implements ControleG
             }
         }
 
-        Collection<ControleGEDDTO> colGed = controleGEDDao.listByIdTabelaAndID(idTabela, id);
-        if (colGed == null)
+        final Collection<ControleGEDDTO> colGed = controleGEDDao.listByIdTabelaAndID(idTabela, id);
+        if (colGed == null) {
             return;
+        }
 
-        for (ControleGEDDTO controleGEDDto : colGed) {
-            if (mapUpload.get("" + controleGEDDto.getIdControleGED()) != null)
+        for (final ControleGEDDTO controleGEDDto : colGed) {
+            if (mapUpload.get("" + controleGEDDto.getIdControleGED()) != null) {
                 continue;
+            }
             controleGEDDao.delete(controleGEDDto);
         }
 
     }
 
-    public ControleGEDDTO getControleGED(AnexoBaseConhecimentoDTO anexoBaseConhecimento) throws Exception {
+    @Override
+    public ControleGEDDTO getControleGED(final AnexoBaseConhecimentoDTO anexoBaseConhecimento) throws Exception {
         return getDao().getControleGED(anexoBaseConhecimento);
     }
 

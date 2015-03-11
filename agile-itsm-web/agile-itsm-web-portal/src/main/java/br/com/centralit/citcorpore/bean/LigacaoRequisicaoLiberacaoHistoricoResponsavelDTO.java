@@ -1,13 +1,13 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * @author murilo.pacheco
  * classe criada para fazer a ligação da tabela de responsaveis com os hitoricos.
  *
  */
-public class LigacaoRequisicaoLiberacaoHistoricoResponsavelDTO implements IDto {
+public class LigacaoRequisicaoLiberacaoHistoricoResponsavelDTO extends BaseEntity {
 	
 	/**
 	 * 

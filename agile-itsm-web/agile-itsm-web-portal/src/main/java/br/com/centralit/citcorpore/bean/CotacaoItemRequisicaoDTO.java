@@ -1,11 +1,11 @@
 package br.com.centralit.citcorpore.bean;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.util.Enumerados.SituacaoCotacaoItemRequisicao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.util.UtilFormatacao;
 import br.com.citframework.util.UtilStrings;
 
-public class CotacaoItemRequisicaoDTO implements IDto {
+public class CotacaoItemRequisicaoDTO extends BaseEntity {
 	private Integer idColetaPreco;
 	private Integer idItemRequisicaoProduto;
 	private Integer idParecer;

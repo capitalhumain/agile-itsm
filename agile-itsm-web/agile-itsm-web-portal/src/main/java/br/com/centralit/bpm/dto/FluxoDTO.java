@@ -3,10 +3,10 @@ package br.com.centralit.bpm.dto;
 import java.sql.Date;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.ProcessoNegocioDTO;
-import br.com.citframework.dto.IDto;
 
-public class FluxoDTO implements IDto {
+public class FluxoDTO extends BaseEntity {
 
     private static final long serialVersionUID = 8653101480124828990L;
 

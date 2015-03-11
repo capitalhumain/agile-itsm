@@ -14,10 +14,10 @@
 
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 @SuppressWarnings("serial")
-public class AtividadesOSDTO implements IDto {
+public class AtividadesOSDTO extends BaseEntity {
     private Integer idAtividadesOS;
     private Integer idOS;
     private Integer sequencia;

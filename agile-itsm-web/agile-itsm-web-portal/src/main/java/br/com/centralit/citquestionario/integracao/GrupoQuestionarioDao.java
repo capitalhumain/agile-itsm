@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citquestionario.bean.GrupoQuestionarioDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
 import br.com.citframework.integracao.Field;
@@ -19,7 +19,7 @@ public class GrupoQuestionarioDao extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public Collection<GrupoQuestionarioDTO> find(final IDto obj) throws PersistenceException {
+    public Collection<GrupoQuestionarioDTO> find(final BaseEntity obj) throws PersistenceException {
         return null;
     }
 
@@ -61,11 +61,11 @@ public class GrupoQuestionarioDao extends CrudDaoDefaultImpl {
         return super.find(obj, list);
     }
 
-    public void updateOrdem(final IDto obj) throws PersistenceException {
+    public void updateOrdem(final BaseEntity obj) throws PersistenceException {
         super.updateNotNull(obj);
     }
 
-    public void updateNome(final IDto obj) throws PersistenceException {
+    public void updateNome(final BaseEntity obj) throws PersistenceException {
         super.updateNotNull(obj);
     }
 

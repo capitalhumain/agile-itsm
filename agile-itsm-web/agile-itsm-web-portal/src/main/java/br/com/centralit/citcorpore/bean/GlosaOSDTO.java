@@ -14,9 +14,9 @@
 
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class GlosaOSDTO implements IDto {
+public class GlosaOSDTO extends BaseEntity {
     private Integer idGlosaOS;
     private Integer idOs;
     private java.sql.Date dataCriacao;

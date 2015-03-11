@@ -20,6 +20,7 @@ import org.apache.commons.lang.StringUtils;
 import org.mozilla.javascript.Context;
 import org.mozilla.javascript.Scriptable;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.batch.ThreadMonitoraAtivosConfiguracao;
 import br.com.centralit.citcorpore.bean.AuditoriaItemConfigDTO;
 import br.com.centralit.citcorpore.bean.BaseConhecimentoDTO;
@@ -74,7 +75,6 @@ import br.com.centralit.citcorpore.util.Enumerados.TagTipoItemConfiguracaoDefaul
 import br.com.centralit.citcorpore.util.Enumerados.TipoDate;
 import br.com.centralit.citcorpore.util.ParametroUtil;
 import br.com.centralit.citcorpore.util.WebUtil;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.excecao.ServiceException;
@@ -532,7 +532,7 @@ public class ItemConfiguracaoServiceEjb extends CrudServiceImpl implements ItemC
 							String nomeContato = emailsArray[i].toString();
 							notListaNegraEncontradosDTO.setNomeContato(nomeContato);
 						}
-						mensagem = new MensagemEmail(idModeloEmail, new IDto[] { notListaNegraEncontradosDTO });
+						mensagem = new MensagemEmail(idModeloEmail, new BaseEntity[] { notListaNegraEncontradosDTO });
 						mensagem.envia(email, remetente, remetente);
 						i++;
 					} catch (Exception e) {
@@ -976,7 +976,7 @@ public class ItemConfiguracaoServiceEjb extends CrudServiceImpl implements ItemC
 	 * @author thyen.chan
 	 */
 	@Override
-	public void updateItemConfiguracao(IDto ItemConfiguracao, UsuarioDTO user) throws ServiceException, LogicException {
+	public void updateItemConfiguracao(BaseEntity ItemConfiguracao, UsuarioDTO user) throws ServiceException, LogicException {
 
 		ItemConfiguracaoDTO itemConfiguracaoDto = new ItemConfiguracaoDTO();
 		TransactionControler transactionControler = new TransactionControlerImpl(getDao().getAliasDB());
@@ -1146,7 +1146,7 @@ public class ItemConfiguracaoServiceEjb extends CrudServiceImpl implements ItemC
 	}
 
 	@Override
-	public void delete(IDto itemConfiguracao) throws ServiceException, LogicException {
+	public void delete(BaseEntity itemConfiguracao) throws ServiceException, LogicException {
 
 		ItemConfiguracaoDTO itemConfiguracaoDto = new ItemConfiguracaoDTO();
 
@@ -1298,7 +1298,7 @@ public class ItemConfiguracaoServiceEjb extends CrudServiceImpl implements ItemC
 	}
 
 	@Override
-	public void updateNotNull(IDto dto) {
+	public void updateNotNull(BaseEntity dto) {
 		try {
 			validaUpdate(dto);
 			((ItemConfiguracaoDao) getDao()).updateNotNull(dto);
@@ -1424,7 +1424,7 @@ public class ItemConfiguracaoServiceEjb extends CrudServiceImpl implements ItemC
 						grupoItemConfiguracaoDTO = null;
 				}
 				if (grupoItemConfiguracaoDTO != null) {
-					MensagemEmail mensagem = new MensagemEmail(Integer.parseInt(ID_MODELO_EMAIL.trim()), new IDto[] { itemConfiguracaoDTO });
+					MensagemEmail mensagem = new MensagemEmail(Integer.parseInt(ID_MODELO_EMAIL.trim()), new BaseEntity[] { itemConfiguracaoDTO });
 					if (grupoItemConfiguracaoDTO.getEmailGrupoItemConfiguracao() != null) {
 						mensagem.envia(grupoItemConfiguracaoDTO.getEmailGrupoItemConfiguracao(), "", remetente);
 					}
@@ -1436,7 +1436,7 @@ public class ItemConfiguracaoServiceEjb extends CrudServiceImpl implements ItemC
 					emp = (EmpregadoDTO) empregadoDao.restore(emp);
 				}
 				if (emp != null) {
-					MensagemEmail mensagem = new MensagemEmail(Integer.parseInt(ID_MODELO_EMAIL), new IDto[] { itemConfiguracaoDTO });
+					MensagemEmail mensagem = new MensagemEmail(Integer.parseInt(ID_MODELO_EMAIL), new BaseEntity[] { itemConfiguracaoDTO });
 					if (emp.getEmail() != null) {
 						mensagem.envia(emp.getEmail(), "", remetente);
 					}
@@ -1452,7 +1452,7 @@ public class ItemConfiguracaoServiceEjb extends CrudServiceImpl implements ItemC
 						grupoItemConfiguracaoDTO = null;
 				}
 				if (grupoItemConfiguracaoDTO != null) {
-					MensagemEmail mensagem = new MensagemEmail(Integer.parseInt(ID_MODELO_EMAIL), new IDto[] { itemConfiguracaoDTO });
+					MensagemEmail mensagem = new MensagemEmail(Integer.parseInt(ID_MODELO_EMAIL), new BaseEntity[] { itemConfiguracaoDTO });
 					if (grupoItemConfiguracaoDTO.getEmailGrupoItemConfiguracao() != null) {
 						mensagem.envia(grupoItemConfiguracaoDTO.getEmailGrupoItemConfiguracao(), "", remetente);
 					}
@@ -1464,7 +1464,7 @@ public class ItemConfiguracaoServiceEjb extends CrudServiceImpl implements ItemC
 					emp = (EmpregadoDTO) empregadoDao.restore(emp);
 				}
 				if (emp != null) {
-					MensagemEmail mensagem = new MensagemEmail(Integer.parseInt(ID_MODELO_EMAIL), new IDto[] { itemConfiguracaoDTO });
+					MensagemEmail mensagem = new MensagemEmail(Integer.parseInt(ID_MODELO_EMAIL), new BaseEntity[] { itemConfiguracaoDTO });
 					if (emp.getEmail() != null) {
 						mensagem.envia(emp.getEmail(), "", remetente);
 					}

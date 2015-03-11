@@ -8,10 +8,10 @@ import java.util.List;
 
 import org.apache.commons.lang.StringEscapeUtils;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citajax.reflexao.CitAjaxReflexao;
 import br.com.centralit.citajax.util.CitAjaxWebUtil;
 import br.com.centralit.citcorpore.util.Enumerados.TipoDate;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.util.UtilDatas;
 import br.com.citframework.util.UtilFormatacao;
 import br.com.citframework.util.UtilStrings;
@@ -127,11 +127,11 @@ public class HTMLForm {
         this.setCommandExecute("HTMLUtils.unlockButtonsForm(document." + this.getName() + ", " + str + ")");
     }
 
-    public void setValues(final IDto bean) {
+    public void setValues(final BaseEntity bean) {
         this.setValues(bean, true);
     }
 
-    public void setValues(final IDto bean, final Boolean formatDouble) {
+    public void setValues(final BaseEntity bean, final Boolean formatDouble) {
         final List listSets = CitAjaxReflexao.findSets(bean);
         this.setCommandExecute("document.fAux_HTMLForm_temp = HTMLUtils.getForm()");
         this.setCommandExecute("HTMLUtils.setForm(document." + this.getName() + ")");

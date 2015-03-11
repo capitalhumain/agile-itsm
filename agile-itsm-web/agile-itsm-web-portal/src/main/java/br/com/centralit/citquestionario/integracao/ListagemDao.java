@@ -5,10 +5,10 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citquestionario.bean.ListagemDTO;
 import br.com.centralit.citquestionario.bean.ListagemItemDTO;
 import br.com.centralit.citquestionario.bean.ListagemLinhaDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
 import br.com.citframework.integracao.Field;
@@ -21,7 +21,7 @@ public class ListagemDao extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public Collection<ListagemDTO> find(final IDto obj) throws PersistenceException {
+    public Collection<ListagemDTO> find(final BaseEntity obj) throws PersistenceException {
         return null;
     }
 
@@ -46,10 +46,10 @@ public class ListagemDao extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public IDto restore(final IDto obj) throws PersistenceException {
+    public BaseEntity restore(final BaseEntity obj) throws PersistenceException {
         if (obj != null) {
             final Collection linhas = new ArrayList();
-            final List lista = this.execSQL(((ListagemDTO) obj).getSQL(), null);
+            final List lista = execSQL(((ListagemDTO) obj).getSQL(), null);
 
             for (Integer l = 0; l <= lista.size() - 1; l++) {
                 final Object[] row = (Object[]) lista.get(l);
@@ -74,7 +74,7 @@ public class ListagemDao extends CrudDaoDefaultImpl {
                     }
                     c += 1;
                 }
-                linha.setId(row[0].toString());
+                linha.setId(Integer.parseInt(row[0].toString()));
                 linha.setDescricao(descricao);
                 linha.setDados(dados);
                 linhas.add(linha);

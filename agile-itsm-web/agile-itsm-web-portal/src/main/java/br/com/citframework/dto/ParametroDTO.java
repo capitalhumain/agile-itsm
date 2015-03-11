@@ -1,7 +1,9 @@
 package br.com.citframework.dto;
 
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class ParametroDTO implements IDto {
+
+public class ParametroDTO extends BaseEntity {
 
 	/**
 	 * 

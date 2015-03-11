@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class PerfilAcessoSituacaoFaturaDTO implements IDto {
+public class PerfilAcessoSituacaoFaturaDTO extends BaseEntity {
 	private Integer idPerfil;
 	private String situacaoFatura;
 	private java.sql.Date dataInicio;

@@ -2,9 +2,9 @@ package br.com.centralit.citgerencial.bean;
 
 import java.util.Collection;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class GerencialItemInformationDTO implements IDto {
+public class GerencialItemInformationDTO extends BaseEntity {
 
 	/**
 	 * 

@@ -6,9 +6,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.AnexoBaseConhecimentoDTO;
 import br.com.centralit.citcorpore.bean.TipoDemandaServicoDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.Condition;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
@@ -42,7 +42,7 @@ public class TipoDemandaServicoDao extends CrudDaoDefaultImpl {
 		return "TIPODEMANDASERVICO";
 	}
 
-	public Collection find(IDto obj) throws PersistenceException {
+	public Collection find(BaseEntity obj) throws PersistenceException {
 		return null;
 	}
 

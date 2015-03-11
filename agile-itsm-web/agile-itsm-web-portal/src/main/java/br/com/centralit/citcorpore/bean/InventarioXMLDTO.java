@@ -1,12 +1,12 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * @author Maycon.Fernandes
  *
  */
-public class InventarioXMLDTO implements IDto {
+public class InventarioXMLDTO extends BaseEntity {
 	private Integer idInventarioxml;
 	private Integer idNetMap;
 	private String nome;

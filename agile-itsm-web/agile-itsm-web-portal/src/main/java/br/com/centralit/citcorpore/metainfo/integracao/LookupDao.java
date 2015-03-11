@@ -3,8 +3,8 @@ package br.com.centralit.citcorpore.metainfo.integracao;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.metainfo.bean.LookupDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
 import br.com.citframework.integracao.Field;
@@ -37,7 +37,7 @@ public class LookupDao extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public Collection<LookupDTO> find(final IDto arg0) throws PersistenceException {
+    public Collection<LookupDTO> find(final BaseEntity arg0) throws PersistenceException {
         return null;
     }
 

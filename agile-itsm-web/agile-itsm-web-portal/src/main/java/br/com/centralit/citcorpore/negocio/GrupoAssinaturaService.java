@@ -5,9 +5,9 @@ import java.util.Collection;
 
 import javax.servlet.http.HttpServletRequest;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.GrupoAssinaturaDTO;
 import br.com.centralit.citcorpore.bean.ItemGrupoAssinaturaDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.CrudService;
 
@@ -17,11 +17,11 @@ import br.com.citframework.service.CrudService;
  */
 public interface GrupoAssinaturaService extends CrudService {
 
-    public IDto create(IDto model, ArrayList<ItemGrupoAssinaturaDTO> listaAssinaturas) throws ServiceException, br.com.citframework.excecao.LogicException;
+    public BaseEntity create(BaseEntity model, ArrayList<ItemGrupoAssinaturaDTO> listaAssinaturas) throws ServiceException, br.com.citframework.excecao.LogicException;
 
     boolean violaIndiceUnico(GrupoAssinaturaDTO grupoAssinaturaDTO) throws ServiceException;
 
-    public void update(IDto model, ArrayList<ItemGrupoAssinaturaDTO> listaAssinaturas) throws ServiceException, br.com.citframework.excecao.LogicException;
+    public void update(BaseEntity model, ArrayList<ItemGrupoAssinaturaDTO> listaAssinaturas) throws ServiceException, br.com.citframework.excecao.LogicException;
 
     public boolean naoEstaSendoUtilizado(Integer idGrupoAssinatura) throws ServiceException;
 

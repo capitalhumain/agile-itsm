@@ -8,6 +8,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Locale;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.bpm.dto.ElementoFluxoDTO;
 import br.com.centralit.bpm.negocio.ItemTrabalho;
 import br.com.centralit.citcorpore.bean.CidadesDTO;
@@ -27,7 +28,6 @@ import br.com.centralit.citcorpore.integracao.RequisicaoViagemDAO;
 import br.com.centralit.citcorpore.integracao.RoteiroViagemDAO;
 import br.com.centralit.citcorpore.util.Enumerados;
 import br.com.centralit.citcorpore.util.Enumerados.TipoDate;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.integracao.TransactionControler;
 import br.com.citframework.service.ServiceLocator;
@@ -50,7 +50,7 @@ public class AutorizacaoViagemServiceEjb extends ComplemInfSolicitacaoServicoSer
     }
 
     @Override
-    public IDto deserializaObjeto(final String serialize) throws Exception {
+    public BaseEntity deserializaObjeto(final String serialize) throws Exception {
         RequisicaoViagemDTO requisicaoViagemDto = null;
 
         if (serialize != null) {
@@ -64,26 +64,26 @@ public class AutorizacaoViagemServiceEjb extends ComplemInfSolicitacaoServicoSer
     }
 
     @Override
-    public void delete(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {}
+    public void delete(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {}
 
     @Override
-    public void validaCreate(final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {}
+    public void validaCreate(final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {}
 
     @Override
-    public void validaDelete(final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {}
+    public void validaDelete(final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {}
 
     @Override
-    public void validaUpdate(final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {
+    public void validaUpdate(final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {
         this.validaAprovacao(solicitacaoServicoDto, model);
     }
 
     @Override
-    public IDto create(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {
+    public BaseEntity create(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {
         return null;
     }
 
     @Override
-    public void update(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {
+    public void update(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {
         final RequisicaoViagemDTO requisicaoViagemDto = (RequisicaoViagemDTO) model;
 
         this.getDao().setTransactionControler(tc);
@@ -181,7 +181,7 @@ public class AutorizacaoViagemServiceEjb extends ComplemInfSolicitacaoServicoSer
      * @param model
      * @throws Exception
      */
-    public void validaAprovacao(final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {
+    public void validaAprovacao(final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {
 
         final RequisicaoViagemDTO requisicaoViagemDto = (RequisicaoViagemDTO) model;
 
@@ -310,7 +310,7 @@ public class AutorizacaoViagemServiceEjb extends ComplemInfSolicitacaoServicoSer
      * @param model
      * @throws Exception
      */
-    public void validaItensDespesa(final SolicitacaoServicoDTO solicitacaoDto, final IDto model) throws Exception {
+    public void validaItensDespesa(final SolicitacaoServicoDTO solicitacaoDto, final BaseEntity model) throws Exception {
         final IntegranteViagemDao integranteViagemDao = new IntegranteViagemDao();
         final DespesaViagemDAO despesaViagemDAO = new DespesaViagemDAO();
         final RoteiroViagemDAO roteiroViagemDAO = new RoteiroViagemDAO();

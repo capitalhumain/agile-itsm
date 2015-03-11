@@ -10,10 +10,10 @@ import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.BaseConhecimentoDTO;
 import br.com.centralit.citcorpore.bean.PesquisaRequisicaoLiberacaoDTO;
 import br.com.centralit.citcorpore.bean.RequisicaoLiberacaoDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.Condition;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
@@ -96,7 +96,7 @@ public class RequisicaoLiberacaoDao extends CrudDaoDefaultImpl {
 	public Class getBean() {
 		return RequisicaoLiberacaoDTO.class;
 	}
-	public Collection find(IDto arg0) throws PersistenceException {
+	public Collection find(BaseEntity arg0) throws PersistenceException {
 		return null;
 	}
 	public Collection findByIdSolicitante(Integer parm) throws Exception {
@@ -137,7 +137,7 @@ public class RequisicaoLiberacaoDao extends CrudDaoDefaultImpl {
 		}
 	}
 	@Override
-	public void updateNotNull(IDto obj) throws PersistenceException {
+	public void updateNotNull(BaseEntity obj) throws PersistenceException {
 		super.updateNotNull(obj);
 	}
 	

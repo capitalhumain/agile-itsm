@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citsmart.rest.bean.RestLogDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.Condition;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
@@ -47,7 +47,7 @@ public class RestLogDao extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public Collection<RestLogDTO> find(final IDto arg0) throws PersistenceException {
+    public Collection<RestLogDTO> find(final BaseEntity arg0) throws PersistenceException {
         return null;
     }
 

@@ -1,12 +1,12 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * @author rodrigo.oliveira
  *
  */
-public class ResultadosEsperadosDTO implements IDto {
+public class ResultadosEsperadosDTO extends BaseEntity {
 
 	/**
 	 * 

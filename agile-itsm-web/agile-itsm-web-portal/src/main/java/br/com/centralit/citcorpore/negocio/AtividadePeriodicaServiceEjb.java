@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.AgendaAtvPeriodicasDTO;
 import br.com.centralit.citcorpore.bean.AtividadePeriodicaDTO;
 import br.com.centralit.citcorpore.bean.OSAtividadePeriodicaDTO;
@@ -12,7 +13,6 @@ import br.com.centralit.citcorpore.bean.ProgramacaoAtividadeDTO;
 import br.com.centralit.citcorpore.integracao.AtividadePeriodicaDao;
 import br.com.centralit.citcorpore.integracao.OSAtividadePeriodicaDao;
 import br.com.centralit.citcorpore.integracao.ProgramacaoAtividadeDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.CrudDAO;
@@ -34,7 +34,7 @@ public class AtividadePeriodicaServiceEjb extends CrudServiceImpl implements Ati
     }
 
     @Override
-    public IDto create(IDto model) throws ServiceException, LogicException {
+    public BaseEntity create(BaseEntity model) throws ServiceException, LogicException {
         // Instancia Objeto controlador de transacao
         final CrudDAO crudDao = this.getDao();
         final ProgramacaoAtividadeDao programacaoAtividadeDao = new ProgramacaoAtividadeDao();
@@ -88,7 +88,7 @@ public class AtividadePeriodicaServiceEjb extends CrudServiceImpl implements Ati
     }
 
     @Override
-    public void update(final IDto model) throws ServiceException, LogicException {
+    public void update(final BaseEntity model) throws ServiceException, LogicException {
         // Instancia Objeto controlador de transacao
         final CrudDAO crudDao = this.getDao();
         final ProgramacaoAtividadeDao programacaoAtividadeDao = new ProgramacaoAtividadeDao();

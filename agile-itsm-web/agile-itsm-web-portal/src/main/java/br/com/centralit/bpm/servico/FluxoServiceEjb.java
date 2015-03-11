@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.bpm.dto.ElementoFluxoDTO;
 import br.com.centralit.bpm.dto.ElementoFluxoInicioDTO;
 import br.com.centralit.bpm.dto.ElementoFluxoRaiaDTO;
@@ -25,7 +26,6 @@ import br.com.centralit.bpm.integracao.InstanciaFluxoDao;
 import br.com.centralit.bpm.integracao.SequenciaFluxoDao;
 import br.com.centralit.bpm.integracao.TipoFluxoDao;
 import br.com.centralit.bpm.util.Enumerados.TipoElementoFluxo;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.excecao.ServiceException;
@@ -62,7 +62,7 @@ public class FluxoServiceEjb extends CrudServiceImpl implements FluxoService {
     @Override
     protected void validaDelete(final Object arg0) throws Exception {
         final FluxoDTO fluxoDto = (FluxoDTO) arg0;
-        final FluxoDTO fluxoAuxDto = (FluxoDTO) this.getDao().restore(fluxoDto);
+        final FluxoDTO fluxoAuxDto = (FluxoDTO) getDao().restore(fluxoDto);
         if (fluxoAuxDto != null) {
             final Collection colInstancias = new InstanciaFluxoDao().findByIdFluxo(fluxoAuxDto.getIdFluxo());
             if (colInstancias != null && !colInstancias.isEmpty()) {
@@ -87,12 +87,12 @@ public class FluxoServiceEjb extends CrudServiceImpl implements FluxoService {
 
     @Override
     public Collection listAll() throws Exception {
-        return this.getDao().listAll();
+        return getDao().listAll();
     }
 
     @Override
     public FluxoDTO findByTipoFluxo(final Integer idTipoFluxo) throws Exception {
-        return this.getDao().findByTipoFluxo(idTipoFluxo);
+        return getDao().findByTipoFluxo(idTipoFluxo);
     }
 
     private void criaElementos(final FluxoDTO fluxoDto, final TransactionControler tc) throws Exception {
@@ -234,8 +234,8 @@ public class FluxoServiceEjb extends CrudServiceImpl implements FluxoService {
     }
 
     @Override
-    public IDto create(final IDto model) throws ServiceException, LogicException {
-        final TransactionControler tc = new TransactionControlerImpl(this.getDao().getAliasDB());
+    public BaseEntity create(final BaseEntity model) throws ServiceException, LogicException {
+        final TransactionControler tc = new TransactionControlerImpl(getDao().getAliasDB());
         try {
             tc.start();
 
@@ -245,7 +245,7 @@ public class FluxoServiceEjb extends CrudServiceImpl implements FluxoService {
             tc.commit();
 
         } catch (final Exception e) {
-            this.rollbackTransaction(tc, e);
+            rollbackTransaction(tc, e);
             throw new ServiceException(e);
         } finally {
             tc.closeQuietly();
@@ -254,12 +254,12 @@ public class FluxoServiceEjb extends CrudServiceImpl implements FluxoService {
     }
 
     @Override
-    public void update(final IDto model) throws ServiceException, LogicException {
+    public void update(final BaseEntity model) throws ServiceException, LogicException {
         final FluxoDao fluxoDao = new FluxoDao();
         final TipoFluxoDao tipoFluxoDao = new TipoFluxoDao();
         final TransactionControler tc = new TransactionControlerImpl(fluxoDao.getAliasDB());
         try {
-            this.validaUpdate(model);
+            validaUpdate(model);
 
             tc.start();
 
@@ -280,7 +280,7 @@ public class FluxoServiceEjb extends CrudServiceImpl implements FluxoService {
 
             tc.commit();
         } catch (final Exception e) {
-            this.rollbackTransaction(tc, e);
+            rollbackTransaction(tc, e);
             throw new ServiceException(e);
         } finally {
             tc.closeQuietly();
@@ -303,7 +303,7 @@ public class FluxoServiceEjb extends CrudServiceImpl implements FluxoService {
             tc.commit();
 
         } catch (final Exception e) {
-            this.rollbackTransaction(tc, e);
+            rollbackTransaction(tc, e);
             throw new ServiceException(e);
         } finally {
             tc.closeQuietly();
@@ -342,7 +342,7 @@ public class FluxoServiceEjb extends CrudServiceImpl implements FluxoService {
             tc.commit();
 
         } catch (final Exception e) {
-            this.rollbackTransaction(tc, e);
+            rollbackTransaction(tc, e);
             throw new ServiceException(e);
         } finally {
             tc.closeQuietly();
@@ -467,13 +467,13 @@ public class FluxoServiceEjb extends CrudServiceImpl implements FluxoService {
         fluxoDto.setColFinalizacoes(colFinalizacoes);
         fluxoDto.setColSequenciamentos(colSequencias);
 
-        this.criaElementos(fluxoDto, tc);
+        criaElementos(fluxoDto, tc);
 
         return fluxoDto;
     }
 
     @Override
-    public void delete(final IDto model) throws ServiceException, LogicException {
+    public void delete(final BaseEntity model) throws ServiceException, LogicException {
         final FluxoDao fluxoDao = new FluxoDao();
         final ElementoFluxoDao elementoFluxoDao = new ElementoFluxoDao();
         final SequenciaFluxoDao sequenciaFluxoDao = new SequenciaFluxoDao();
@@ -481,7 +481,7 @@ public class FluxoServiceEjb extends CrudServiceImpl implements FluxoService {
 
         final TransactionControler tc = new TransactionControlerImpl(fluxoDao.getAliasDB());
         try {
-            this.validaDelete(model);
+            validaDelete(model);
 
             tc.start();
 
@@ -504,24 +504,25 @@ public class FluxoServiceEjb extends CrudServiceImpl implements FluxoService {
 
             tc.commit();
         } catch (final Exception e) {
-            this.rollbackTransaction(tc, e);
+            rollbackTransaction(tc, e);
             throw new ServiceException(e);
         } finally {
             tc.closeQuietly();
         }
     }
-    
-	/**
-	 * Restore do FluxoDTO com a estrutura.
-	 *
-	 * @param obj
-	 * @return IDto - Fluxo com os Elementos.
-	 * @throws PersistenceException
-	 * @author carlos.santos
-	 * @since 27.01.2015 - Operação Usain Bolt.
-	 */
-    public IDto restoreComEstrutura(final IDto obj) throws PersistenceException {
-    	return getDao().restoreComEstrutura(obj);
+
+    /**
+     * Restore do FluxoDTO com a estrutura.
+     *
+     * @param obj
+     * @return Fluxo com os Elementos.
+     * @throws PersistenceException
+     * @author carlos.santos
+     * @since 27.01.2015 - Operação Usain Bolt.
+     */
+    @Override
+    public BaseEntity restoreComEstrutura(final BaseEntity obj) throws PersistenceException {
+        return getDao().restoreComEstrutura(obj);
     }
 
 }

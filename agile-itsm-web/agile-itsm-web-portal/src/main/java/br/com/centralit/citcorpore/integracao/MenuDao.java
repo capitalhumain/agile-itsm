@@ -6,13 +6,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.GrupoDTO;
 import br.com.centralit.citcorpore.bean.MenuDTO;
 import br.com.centralit.citcorpore.bean.PerfilAcessoDTO;
 import br.com.centralit.citcorpore.bean.PerfilAcessoGrupoDTO;
 import br.com.centralit.citcorpore.bean.PerfilAcessoUsuarioDTO;
 import br.com.centralit.citcorpore.bean.UsuarioDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
 import br.com.citframework.integracao.Field;
@@ -28,7 +28,7 @@ public class MenuDao extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public Collection find(IDto arg0) throws PersistenceException {
+    public Collection find(BaseEntity arg0) throws PersistenceException {
         return null;
     }
 

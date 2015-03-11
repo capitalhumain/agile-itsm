@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.JustificativaParecerDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.Condition;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
@@ -24,7 +24,7 @@ public class JustificativaParecerDao extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public Collection<JustificativaParecerDTO> find(final IDto justificativa) throws PersistenceException {
+    public Collection<JustificativaParecerDTO> find(final BaseEntity justificativa) throws PersistenceException {
         return null;
     }
 

@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.bpm.dto.EventoFluxoDTO;
 import br.com.centralit.bpm.dto.FluxoDTO;
 import br.com.centralit.bpm.dto.InstanciaFluxoDTO;
@@ -60,7 +61,6 @@ import br.com.centralit.citcorpore.util.Enumerados.SituacaoSLA;
 import br.com.centralit.citcorpore.util.ParametroUtil;
 import br.com.centralit.citcorpore.util.Util;
 import br.com.citframework.comparacao.ObjectSimpleComparator;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.excecao.ServiceException;
@@ -583,7 +583,7 @@ public class ExecucaoProblema extends ExecucaoFluxo {
         complementaInformacoesEmail(problemaAuxDto);
 
         final MensagemEmail mensagem = new MensagemEmail(modeloEmailDto.getIdModeloEmail(),
-                new IDto[] { problemaAuxDto });
+                new BaseEntity[] { problemaAuxDto });
         try {
             mensagem.envia(para, cc, remetente);
         } catch (final Exception e) {
@@ -612,7 +612,7 @@ public class ExecucaoProblema extends ExecucaoFluxo {
 
             complementaInformacoesEmail(problemaAuxDto);
 
-            final MensagemEmail mensagem = new MensagemEmail(idModeloEmail, new IDto[] { problemaAuxDto });
+            final MensagemEmail mensagem = new MensagemEmail(idModeloEmail, new BaseEntity[] { problemaAuxDto });
             try {
                 mensagem.envia(problemaAuxDto.getEmailContato(), remetente, remetente);
             } catch (final Exception e) {
@@ -633,7 +633,7 @@ public class ExecucaoProblema extends ExecucaoFluxo {
         final String remetente = getRemetenteEmail();
         complementaInformacoesEmail(problemaDto);
 
-        final MensagemEmail mensagem = new MensagemEmail(idModeloEmail, new IDto[] { problemaDto });
+        final MensagemEmail mensagem = new MensagemEmail(idModeloEmail, new BaseEntity[] { problemaDto });
         try {
             mensagem.envia(problemaDto.getEmailContato(), remetente, remetente);
         } catch (final Exception e) {
@@ -702,7 +702,7 @@ public class ExecucaoProblema extends ExecucaoFluxo {
                 final int posArroba = email.indexOf("@");
                 if (posArroba > 0 && email.substring(posArroba).contains(".")) {
                     try {
-                        mensagem = new MensagemEmail(idModeloEmail, new IDto[] { problemaAuxDto });
+                        mensagem = new MensagemEmail(idModeloEmail, new BaseEntity[] { problemaAuxDto });
 
                         // aux = (EmpregadoDTO) getEmpregadoService().restore(e);
                         // if(aux != null && aux.getEmail() != null && !aux.getEmail().trim().equalsIgnoreCase("") ){

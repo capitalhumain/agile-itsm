@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.CategoriaProdutoDTO;
 import br.com.centralit.citcorpore.bean.CriterioCotacaoCategoriaDTO;
 import br.com.centralit.citcorpore.integracao.CategoriaProdutoDao;
@@ -11,7 +12,6 @@ import br.com.centralit.citcorpore.integracao.CriterioCotacaoCategoriaDao;
 import br.com.centralit.citged.bean.ControleGEDDTO;
 import br.com.centralit.citged.integracao.ControleGEDDao;
 import br.com.centralit.citged.negocio.ControleGEDServiceBean;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
@@ -223,7 +223,7 @@ public class CategoriaProdutoServiceEjb extends CrudServiceImpl implements Categ
     }
 
     @Override
-    public IDto create(final IDto model) throws ServiceException, LogicException {
+    public BaseEntity create(final BaseEntity model) throws ServiceException, LogicException {
         final CriterioCotacaoCategoriaDao criterioCotacaoCategoriaDao = new CriterioCotacaoCategoriaDao();
         final TransactionControler tc = new TransactionControlerImpl(this.getDao().getAliasDB());
 
@@ -266,7 +266,7 @@ public class CategoriaProdutoServiceEjb extends CrudServiceImpl implements Categ
     }
 
     @Override
-    public void update(final IDto model) throws ServiceException, LogicException {
+    public void update(final BaseEntity model) throws ServiceException, LogicException {
         final CriterioCotacaoCategoriaDao criterioCotacaoCategoriaDao = new CriterioCotacaoCategoriaDao();
         final TransactionControler tc = new TransactionControlerImpl(this.getDao().getAliasDB());
 

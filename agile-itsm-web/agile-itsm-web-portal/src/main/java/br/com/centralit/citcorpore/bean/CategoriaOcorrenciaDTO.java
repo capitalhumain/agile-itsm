@@ -2,7 +2,7 @@ package br.com.centralit.citcorpore.bean;
 
 import java.sql.Date;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 /** 
  * @author thiago.monteiro
@@ -10,7 +10,7 @@ import br.com.citframework.dto.IDto;
  * Um objeto dessa classe é um DTO (Data Transfer Object) e pertence a camada de MODELO (MODEL).
  * Um objeto dessa classe é responsável por armazenar os dados que trafegam entre as camadas de VISÃO (VIEW) e de PERSISTÊNCIA (PERSISTENCE) bidirecionalmente.
  */
-public class CategoriaOcorrenciaDTO implements IDto {	
+public class CategoriaOcorrenciaDTO extends BaseEntity {	
 	private static final long serialVersionUID = -1128815777881092914L;
 	
 	private Integer idCategoriaOcorrencia;

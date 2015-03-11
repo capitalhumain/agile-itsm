@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.GrupoEmpregadoDTO;
 import br.com.centralit.citcorpore.bean.PastaDTO;
 import br.com.centralit.citcorpore.bean.PerfilAcessoPastaDTO;
@@ -15,7 +16,6 @@ import br.com.centralit.citcorpore.negocio.GrupoEmpregadoService;
 import br.com.centralit.citcorpore.negocio.PastaService;
 import br.com.centralit.citcorpore.util.Enumerados;
 import br.com.centralit.citcorpore.util.Enumerados.PermissaoAcessoPasta;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.Condition;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
@@ -37,7 +37,7 @@ public class PerfilAcessoPastaDAO extends CrudDaoDefaultImpl {
 	}
 
 	@Override
-	public Collection<PerfilAcessoPastaDTO> find(IDto arg0) throws PersistenceException {
+	public Collection<PerfilAcessoPastaDTO> find(BaseEntity arg0) throws PersistenceException {
 		return null;
 	}
 

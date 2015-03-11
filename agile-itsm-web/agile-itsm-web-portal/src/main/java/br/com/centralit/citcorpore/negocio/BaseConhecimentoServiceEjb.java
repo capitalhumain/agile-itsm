@@ -19,6 +19,7 @@ import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.AnexoBaseConhecimentoDTO;
 import br.com.centralit.citcorpore.bean.BaseConhecimentoDTO;
 import br.com.centralit.citcorpore.bean.BaseConhecimentoRelacionadoDTO;
@@ -66,7 +67,6 @@ import br.com.centralit.citged.bean.ControleGEDDTO;
 import br.com.centralit.citged.integracao.ControleGEDDao;
 import br.com.centralit.citged.negocio.ControleGEDService;
 import br.com.centralit.lucene.Lucene;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.excecao.ServiceException;
@@ -1656,7 +1656,7 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
 
                     for (final EmpregadoDTO empregados : colEmpregados) {
 
-                        final MensagemEmail mensagem = new MensagemEmail(Integer.parseInt(ID_MODELO_EMAIL.trim()), new IDto[] {baseConhecimentoDTO});
+                        final MensagemEmail mensagem = new MensagemEmail(Integer.parseInt(ID_MODELO_EMAIL.trim()), new BaseEntity[] {baseConhecimentoDTO});
 
                         if (empregados.getEmail() != null) {
                             mensagem.envia(empregados.getEmail(), "", remetente);
@@ -1866,7 +1866,7 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
     }
 
     @Override
-    public void updateNotNull(final IDto obj) throws Exception {
+    public void updateNotNull(final BaseEntity obj) throws Exception {
         this.getDao().updateNotNull(obj);
     }
 

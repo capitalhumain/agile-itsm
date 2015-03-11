@@ -7,6 +7,8 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
+
 import br.com.centralit.citcorpore.bean.BaseItemConfiguracaoDTO;
 import br.com.centralit.citcorpore.bean.CaracteristicaDTO;
 import br.com.centralit.citcorpore.bean.EventoItemConfigDTO;
@@ -34,8 +36,8 @@ public class ThreadDisparaEvento implements Runnable {
     private final String linhaComando;
     private final String linhaComandoLinux;
 
-    public ThreadDisparaEvento(Integer idItemConfiguracao, Integer idBaseItemConfiguracao, Integer idEvento,
-            String tipoExecucao, String linhaComando, String linhaComandoLinux) {
+    public ThreadDisparaEvento(final Integer idItemConfiguracao, final Integer idBaseItemConfiguracao, final Integer idEvento, final String tipoExecucao,
+            final String linhaComando, final String linhaComandoLinux) {
         this.idItemConfiguracao = idItemConfiguracao;
         this.idBaseItemConfiguracao = idBaseItemConfiguracao;
         this.idEvento = idEvento;
@@ -53,19 +55,13 @@ public class ThreadDisparaEvento implements Runnable {
             String comandoCopia = "";
             String comandoDelete = "";
             // Serviços
-            final EventoItemConfigService eventoItemCfgService = (EventoItemConfigService) ServiceLocator.getInstance()
-                    .getService(EventoItemConfigService.class, null);
-            final BaseItemConfiguracaoService baseItemCfgService = (BaseItemConfiguracaoService) ServiceLocator
-                    .getInstance().getService(BaseItemConfiguracaoService.class, null);
+            final EventoItemConfigService eventoItemCfgService = (EventoItemConfigService) ServiceLocator.getInstance().getService(
+                    EventoItemConfigService.class, null);
+            final BaseItemConfiguracaoService baseItemCfgService = (BaseItemConfiguracaoService) ServiceLocator.getInstance().getService(
+                    BaseItemConfiguracaoService.class, null);
             // Recuperando informações de rede (IP, MAC e máscara)
             System.out.println("Buscando IP do computador...");
-            final List<CaracteristicaDTO> colNetworks = (List<CaracteristicaDTO>) eventoItemCfgService
-                    .pegarNetworksItemConfiguracao(idItemConfiguracao);
-
-            // TESTE COM IP ESTATICO
-            // String ip = "10.2.1.138";
-            // String mac = "08:00:27:9e:09:a0";
-            // String ipMask = "255.255.255.0";
+            final List<CaracteristicaDTO> colNetworks = (List<CaracteristicaDTO>) eventoItemCfgService.pegarNetworksItemConfiguracao(idItemConfiguracao);
 
             String ip = "";
             String mac = "";
@@ -87,24 +83,7 @@ public class ThreadDisparaEvento implements Runnable {
                 ipMask = colNetworks.get(index).getValorString();
             }
 
-            /*
-             * for (CaracteristicaDTO caracDto : colNetworks) {
-             * if (ip.equals("") && caracDto.getTag().equalsIgnoreCase("IPADDRESS")) {
-             * ip = caracDto.getValorString();
-             * }
-             * if (mac.equals("") && caracDto.getTag().equalsIgnoreCase("MACADDR")) {
-             * mac = caracDto.getValorString();
-             * }
-             * if (ipMask.equals("") && caracDto.getTag().equalsIgnoreCase("IPMASK")) {
-             * ipMask = caracDto.getValorString();
-             * }
-             * if (!ip.equals("") && !mac.equals("") && !ipMask.equals("")) {
-             * break;
-             * }
-             * }
-             */
-
-            if (!ip.equals("")) {
+            if (StringUtils.isNotBlank(ip)) {
                 System.out.println("IP encontrado: " + ip);
                 final boolean existeArquivo = true;
                 // Item Configuração
@@ -128,23 +107,21 @@ public class ThreadDisparaEvento implements Runnable {
                 if (tipoExecucao.equalsIgnoreCase("I")) {
                     // Recupera o caminho da base de itens de configuração
 
-                    caminho = ParametroUtil.getValorParametroCitSmartHashMap(
-                            Enumerados.ParametroSistema.CaminhoBaseItemCfg, " ");
+                    caminho = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.CaminhoBaseItemCfg, " ");
 
                     // Verifica se existe o arquivo no diretório
                     if (existeArquivo) {
                         if (!linhaComando.equals("")) {
                             // Recupera o sistema operacional utilizado
-                            final String sO = eventoItemCfgService.pegarSistemaOperacionalItemConfiguracao(
-                                    idItemConfiguracao).toUpperCase();
+                            final String sO = eventoItemCfgService.pegarSistemaOperacionalItemConfiguracao(idItemConfiguracao).toUpperCase();
                             // Configura as linhas de comando a serem enviadas ao interpretador de comandos de acordo com o sistema
                             // operacional
                             if (sO.indexOf("WINDOWS") >= 0) {
                                 // O argumento /C faz com que o iterpretador de comandos feche após a execução dos comandos
                                 comando += " cmd.exe /C C:\\" + baseItemCfgDto.getExecutavel() + " " + linhaComando;
                                 // Comando de cópia do instalador (argumento /y efetua a cópia sem pedir confirmação)
-                                comandoCopia += " cmd.exe /C COPY \"\\\\" + caminho.replace("/", "\\").trim() + "\\"
-                                        + baseItemCfgDto.getExecutavel() + "\" C:\\ /y";
+                                comandoCopia += " cmd.exe /C COPY \"\\\\" + caminho.replace("/", "\\").trim() + "\\" + baseItemCfgDto.getExecutavel()
+                                        + "\" C:\\ /y";
                                 // Comando de remoção do instalador
                                 comandoDelete += " cmd.exe /C del C:\\" + baseItemCfgDto.getExecutavel();
                             } else { // Linux
@@ -165,12 +142,11 @@ public class ThreadDisparaEvento implements Runnable {
                                     pastaSoftware += caminhoSplit[i] + "/";
                                 }
                                 // Seta linha de comando digitada pelo usuário
-                                comando = linhaComandoLinux.replace(" ", "##") + "##/tmp/"
-                                        + baseItemCfgDto.getExecutavel() + "##" + linhaComando.replace(" ", "##");
+                                comando = linhaComandoLinux.replace(" ", "##") + "##/tmp/" + baseItemCfgDto.getExecutavel() + "##"
+                                        + linhaComando.replace(" ", "##");
                                 // Seta comando de copia do executavel
-                                comandoCopia = "-COMANDOCOPIA-mount -t cifs //" + caminhoSplit[0].trim() + "/"
-                                        + caminhoSplit[1] + " /mnt -o user=" + eventoItemCfgDto.getUsuario()
-                                        + ",password=" + eventoItemCfgDto.getSenha() + "##" + "cp-SEPARADOR-/mnt/"
+                                comandoCopia = "-COMANDOCOPIA-mount -t cifs //" + caminhoSplit[0].trim() + "/" + caminhoSplit[1] + " /mnt -o user="
+                                        + eventoItemCfgDto.getUsuario() + ",password=" + eventoItemCfgDto.getSenha() + "##" + "cp-SEPARADOR-/mnt/"
                                         + pastaSoftware + baseItemCfgDto.getExecutavel() + "-SEPARADOR-/tmp/";
                                 // Arquivos em /tmp são deletados ao desligar, basta desmontar unidade
                                 comandoDelete = "umount##/mnt";
@@ -178,22 +154,18 @@ public class ThreadDisparaEvento implements Runnable {
                         }
                     } else {
                         System.out.println("###############################");
-                        System.out.println("Arquivo " + caminho + "\\" + baseItemCfgDto.getExecutavel()
-                                + " não encontrado! ");
+                        System.out.println("Arquivo " + caminho + "\\" + baseItemCfgDto.getExecutavel() + " não encontrado! ");
                         System.out.println("IP: " + ip + " Data: " + Util.getDataAtual());
                         System.out.println("###############################");
-                        incluirHistoricoTentativa("Arquivo " + caminho + "\\" + baseItemCfgDto.getExecutavel()
-                                + " não encontrado!");
+                        incluirHistoricoTentativa("Arquivo " + caminho + "\\" + baseItemCfgDto.getExecutavel() + " não encontrado!");
                     }
                 } else if (tipoExecucao.equalsIgnoreCase("D")) { // Desinstalação
-                    final String sO = eventoItemCfgService.pegarSistemaOperacionalItemConfiguracao(idItemConfiguracao)
-                            .toUpperCase();
+                    final String sO = eventoItemCfgService.pegarSistemaOperacionalItemConfiguracao(idItemConfiguracao).toUpperCase();
                     if (sO.indexOf("WINDOWS") >= 0) { // Windows
                         comando += " cmd.exe /C \"" + baseItemCfgDto.getExecutavel() + "\" " + linhaComando;
                     } else {
                         // Seta linha de comando digitada pelo usuário
-                        comando = linhaComandoLinux.replace(" ", "##") + "##" + baseItemCfgDto.getExecutavel() + "##"
-                                + linhaComando.replace(" ", "##");
+                        comando = linhaComandoLinux.replace(" ", "##") + "##" + baseItemCfgDto.getExecutavel() + "##" + linhaComando.replace(" ", "##");
                     }
                 }
                 // Verifica a existência do executável
@@ -253,7 +225,7 @@ public class ThreadDisparaEvento implements Runnable {
         }
     }
 
-    private void dispararEvento(String ip, String comando, String comandoCopia, String comandoDelete) {
+    private void dispararEvento(final String ip, final String comando, final String comandoCopia, final String comandoDelete) {
         String resposta = "";
         try {
             // Efetua cópia do arquivo de instalação
@@ -313,7 +285,7 @@ public class ThreadDisparaEvento implements Runnable {
         }
     }
 
-    private String executaComando(String ip, String comando, int tempo) {
+    private String executaComando(final String ip, final String comando, final int tempo) {
         Socket s = null;
         ObjectOutputStream outObjects = null;
         String dadoRecebido = "";
@@ -325,9 +297,8 @@ public class ThreadDisparaEvento implements Runnable {
             final List<String> parametrosEvento = new ArrayList<String>();
             parametrosEvento.add("EVENTO");
             parametrosEvento.add(comando);
-            SignedInfo signedInfo = CriptoSignedUtil.generateStringToSend(CITCorporeUtil.CAMINHO_REAL_APP
-                    + "/keysSec/citsmart.jks", CITCorporeUtil.CAMINHO_REAL_APP + "/keysSec/citsmartcripto.jks",
-                    parametrosEvento.toString());
+            SignedInfo signedInfo = CriptoSignedUtil.generateStringToSend(CITCorporeUtil.CAMINHO_REAL_APP + "/keysSec/citsmart.jks",
+                    CITCorporeUtil.CAMINHO_REAL_APP + "/keysSec/citsmartcripto.jks", parametrosEvento.toString());
             outObjects.writeObject(signedInfo);
             outObjects.flush();
             ObjectInputStream ois = null;
@@ -348,9 +319,8 @@ public class ThreadDisparaEvento implements Runnable {
                     e.printStackTrace();
                     break;
                 }
-                dadoRecebidoAux = CriptoSignedUtil.translateStringReceive(CITCorporeUtil.CAMINHO_REAL_APP
-                        + "/keysSec/citsmart.jks", CITCorporeUtil.CAMINHO_REAL_APP + "/keysSec/citsmartcripto.jks",
-                        signedInfo.getStrCripto(), signedInfo.getStrSigned());
+                dadoRecebidoAux = CriptoSignedUtil.translateStringReceive(CITCorporeUtil.CAMINHO_REAL_APP + "/keysSec/citsmart.jks",
+                        CITCorporeUtil.CAMINHO_REAL_APP + "/keysSec/citsmartcripto.jks", signedInfo.getStrCripto(), signedInfo.getStrSigned());
                 if (dadoRecebidoAux == null) {
                     dadoRecebidoAux = "";
                 }
@@ -384,7 +354,7 @@ public class ThreadDisparaEvento implements Runnable {
         return dadoRecebido;
     }
 
-    private void desligarMaquina(String ip) {
+    private void desligarMaquina(final String ip) {
         // Socket servidor
         Socket s = null;
         // Stream de saida de dados
@@ -396,9 +366,8 @@ public class ThreadDisparaEvento implements Runnable {
             // Cria a Stream de saida de dados
             outObjects = new ObjectOutputStream(s.getOutputStream());
             // Imprime uma linha para a stream de saída de dados
-            final SignedInfo signedInfo = CriptoSignedUtil.generateStringToSend(CITCorporeUtil.CAMINHO_REAL_APP
-                    + "/keysSec/citsmart.jks", CITCorporeUtil.CAMINHO_REAL_APP + "/keysSec/citsmartcripto.jks",
-                    "DESLIGAR");
+            final SignedInfo signedInfo = CriptoSignedUtil.generateStringToSend(CITCorporeUtil.CAMINHO_REAL_APP + "/keysSec/citsmart.jks",
+                    CITCorporeUtil.CAMINHO_REAL_APP + "/keysSec/citsmartcripto.jks", "DESLIGAR");
             outObjects.writeObject(signedInfo);
             outObjects.flush();
         } catch (final Exception e) {
@@ -421,7 +390,7 @@ public class ThreadDisparaEvento implements Runnable {
         }
     }
 
-    private void incluirHistoricoTentativa(String descricao) throws ServiceException, Exception {
+    private void incluirHistoricoTentativa(final String descricao) throws ServiceException, Exception {
         // Cria um objeto para trafegar os dados relativos ao histórico de tentativas
         final HistoricoTentativaDTO historicoTentativaDto = new HistoricoTentativaDTO();
         historicoTentativaDto.setIdEvento(idEvento);
@@ -430,8 +399,8 @@ public class ThreadDisparaEvento implements Runnable {
         historicoTentativaDto.setDescricao(descricao);
         historicoTentativaDto.setData(UtilDatas.getDataAtual());
         historicoTentativaDto.setHora(UtilDatas.formatHoraFormatadaStr(UtilDatas.getHoraAtual()).replaceAll(":", ""));
-        final HistoricoTentativaService histTentService = (HistoricoTentativaService) ServiceLocator.getInstance()
-                .getService(HistoricoTentativaService.class, null);
+        final HistoricoTentativaService histTentService = (HistoricoTentativaService) ServiceLocator.getInstance().getService(HistoricoTentativaService.class,
+                null);
         histTentService.create(historicoTentativaDto);
     }
 }

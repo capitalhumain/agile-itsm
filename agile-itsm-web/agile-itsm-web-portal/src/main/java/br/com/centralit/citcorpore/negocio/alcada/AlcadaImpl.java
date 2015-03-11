@@ -1,4 +1,5 @@
 package br.com.centralit.citcorpore.negocio.alcada;
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.AlcadaDTO;
 import br.com.centralit.citcorpore.bean.CentroResultadoDTO;
 import br.com.centralit.citcorpore.bean.EmpregadoDTO;
@@ -6,12 +7,11 @@ import br.com.centralit.citcorpore.bean.GrupoDTO;
 import br.com.centralit.citcorpore.bean.ParametroDTO;
 import br.com.centralit.citcorpore.integracao.EmpregadoDao;
 import br.com.centralit.citcorpore.integracao.ParametroDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
 import br.com.citframework.integracao.TransactionControler;
 public class AlcadaImpl implements IAlcada {
     
-    protected IDto objetoNegocioDto = null;
+    protected BaseEntity objetoNegocioDto = null;
     protected EmpregadoDTO solicitante = null;
     protected AlcadaDTO alcadaDto = null;
     protected TransactionControler tc = null;
@@ -22,7 +22,7 @@ public class AlcadaImpl implements IAlcada {
     }
     
     @Override
-    public AlcadaDTO determinaAlcada(IDto objetoNegocioDto, CentroResultadoDTO centroCustoDto, TransactionControler tc) throws Exception {
+    public AlcadaDTO determinaAlcada(BaseEntity objetoNegocioDto, CentroResultadoDTO centroCustoDto, TransactionControler tc) throws Exception {
         return null;
     }
     

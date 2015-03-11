@@ -4,10 +4,10 @@ import java.sql.Date;
 
 import org.jsoup.Jsoup;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.util.Util;
-import br.com.citframework.dto.IDto;
 
-public class RelatorioSolicitacaoReabertaDTO implements IDto {
+public class RelatorioSolicitacaoReabertaDTO extends BaseEntity {
 
 	private static final long serialVersionUID = -53946557530130345L;
 	

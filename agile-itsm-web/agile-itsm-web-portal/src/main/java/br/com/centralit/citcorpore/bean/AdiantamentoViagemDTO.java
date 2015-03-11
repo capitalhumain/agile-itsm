@@ -2,9 +2,9 @@ package br.com.centralit.citcorpore.bean;
 
 import java.sql.Timestamp;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class AdiantamentoViagemDTO implements IDto {
+public class AdiantamentoViagemDTO extends BaseEntity {
 	
 	private static final long serialVersionUID = 1L;
 	

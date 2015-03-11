@@ -1,13 +1,13 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * @author murilo.pacheco
  * classe criada para fazer a ligação da tabela de midia definitiva com os hitoricos.
  *
  */
-public class LigacaoRequisicaoLiberacaoHistoricoComprasDTO implements IDto {
+public class LigacaoRequisicaoLiberacaoHistoricoComprasDTO extends BaseEntity {
 	
 	/**
 	 * 

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.citframework.dto.LogTabela;
 import br.com.citframework.dto.Usuario;
 import br.com.citframework.excecao.PersistenceException;
@@ -24,7 +24,7 @@ public class LogTabelaDao extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public Collection<LogTabela> find(final IDto dto) throws PersistenceException {
+    public Collection<LogTabela> find(final BaseEntity dto) throws PersistenceException {
         return null;
     }
 

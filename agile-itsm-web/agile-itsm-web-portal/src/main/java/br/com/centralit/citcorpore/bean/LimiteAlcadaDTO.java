@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class LimiteAlcadaDTO implements IDto {
+public class LimiteAlcadaDTO extends BaseEntity {
 	private Integer idLimiteAlcada;
 	private Integer idAlcada;
 	private Integer idGrupo;

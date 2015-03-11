@@ -1,6 +1,4 @@
-/**
- * CentralIT - CITSmart
- */
+
 package br.com.centralit.citcorpore.negocio;
 
 import java.io.File;
@@ -16,6 +14,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import net.htmlparser.jericho.Source;
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.bpm.dto.PermissoesFluxoDTO;
 import br.com.centralit.citcorpore.ajaxForms.RequisicaoMudanca;
 import br.com.centralit.citcorpore.bean.AprovacaoMudancaDTO;
@@ -93,10 +92,8 @@ import br.com.centralit.citcorpore.util.ParametroUtil;
 import br.com.centralit.citcorpore.util.Util;
 import br.com.centralit.citged.bean.ControleGEDDTO;
 import br.com.centralit.citged.integracao.ControleGEDDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.dto.Usuario;
 import br.com.citframework.excecao.LogicException;
-import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.CrudDAO;
 import br.com.citframework.integracao.TransactionControler;
@@ -127,20 +124,16 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
     }
 
     @Override
-    public void updateNotNull(final IDto obj) throws Exception {
-        this.getDao().updateNotNull(obj);
+    public void updateNotNull(final BaseEntity obj) throws Exception {
+        getDao().updateNotNull(obj);
     }
 
-    /*
-     * (non-Javadoc)
-     * @see br.com.citframework.service.CrudServicePojoImpl#create(br.com.citframework.dto.IDto)
-     */
     @Override
-    public IDto create(final IDto model) throws ServiceException, LogicException {
+    public BaseEntity create(final BaseEntity model) throws ServiceException, LogicException {
         final ExecucaoMudancaServiceEjb execucaoMudancaService = new ExecucaoMudancaServiceEjb();
         final SolicitacaoServicoMudancaDao solicitacaoServicoMudancaDao = new SolicitacaoServicoMudancaDao();
         final TipoMudancaDAO tipoMudancaDAO = new TipoMudancaDAO();
-        final RequisicaoMudancaDao requisicaoMudancaDao = this.getDao();
+        final RequisicaoMudancaDao requisicaoMudancaDao = getDao();
 
         ContatoRequisicaoMudancaDTO contatoRequisicaoMudancaDto = new ContatoRequisicaoMudancaDTO();
 
@@ -162,7 +155,7 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
         try {
             tc.start();
 
-            this.validaCreate(model);
+            validaCreate(model);
 
             tipoMudancaDAO.setTransactionControler(tc);
             requisicaoMudancaDao.setTransactionControler(tc);
@@ -185,47 +178,52 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
                 usuario.setLocale(requisicaoMudancaDto.getUsuarioDto().getLocale());
             }
 
-            if (requisicaoMudancaDto != null && requisicaoMudancaDto.getDataHoraInicioAgendada() != null && requisicaoMudancaDto.getHoraAgendamentoInicial() != null
-                    && requisicaoMudancaDto != null && requisicaoMudancaDto.getDataHoraInicioAgendada() != null && requisicaoMudancaDto.getHoraAgendamentoInicial() != null) {
-                final boolean resultado = this.seHoraFinalMenorQHoraInicial(requisicaoMudancaDto);
+            if (requisicaoMudancaDto != null && requisicaoMudancaDto.getDataHoraInicioAgendada() != null
+                    && requisicaoMudancaDto.getHoraAgendamentoInicial() != null && requisicaoMudancaDto != null
+                    && requisicaoMudancaDto.getDataHoraInicioAgendada() != null && requisicaoMudancaDto.getHoraAgendamentoInicial() != null) {
+                final boolean resultado = seHoraFinalMenorQHoraInicial(requisicaoMudancaDto);
                 if (resultado == true) {
                     throw new LogicException(this.i18nMessage("requisicaoMudanca.horaFinalMenorQueInicial"));
                 }
             }
 
-            if (requisicaoMudancaDto != null && requisicaoMudancaDto.getDataHoraInicioAgendada() != null && requisicaoMudancaDto.getHoraAgendamentoInicial() != null) {
-                final boolean resultado = this.seHoraInicialMenorQAtual(requisicaoMudancaDto);
+            if (requisicaoMudancaDto != null && requisicaoMudancaDto.getDataHoraInicioAgendada() != null
+                    && requisicaoMudancaDto.getHoraAgendamentoInicial() != null) {
+                final boolean resultado = seHoraInicialMenorQAtual(requisicaoMudancaDto);
                 if (resultado == true) {
                     throw new LogicException(this.i18nMessage("requisicaoMudanca.horaInicialMenorQueAtual"));
                 }
             }
 
-            if (requisicaoMudancaDto != null && requisicaoMudancaDto.getDataHoraTerminoAgendada() != null && requisicaoMudancaDto.getHoraAgendamentoFinal() != null) {
-                final boolean resultado = this.seHoraFinalMenorQAtual(requisicaoMudancaDto);
+            if (requisicaoMudancaDto != null && requisicaoMudancaDto.getDataHoraTerminoAgendada() != null
+                    && requisicaoMudancaDto.getHoraAgendamentoFinal() != null) {
+                final boolean resultado = seHoraFinalMenorQAtual(requisicaoMudancaDto);
                 if (resultado == true) {
                     throw new LogicException(this.i18nMessage("requisicaoMudanca.horaFinalMenorQueAtual"));
                 }
             }
 
-            if (requisicaoMudancaDto != null && requisicaoMudancaDto.getDataHoraInicioAgendada() != null && requisicaoMudancaDto.getHoraAgendamentoInicial() != null) {
-                final Timestamp dataHoraInicial = this.MontardataHoraAgendamentoInicial(requisicaoMudancaDto);
+            if (requisicaoMudancaDto != null && requisicaoMudancaDto.getDataHoraInicioAgendada() != null
+                    && requisicaoMudancaDto.getHoraAgendamentoInicial() != null) {
+                final Timestamp dataHoraInicial = MontardataHoraAgendamentoInicial(requisicaoMudancaDto);
                 requisicaoMudancaDto.setDataHoraInicioAgendada(dataHoraInicial);
             }
 
-            if (requisicaoMudancaDto != null && requisicaoMudancaDto.getDataHoraTerminoAgendada() != null && requisicaoMudancaDto.getHoraAgendamentoFinal() != null) {
-                final Timestamp dataHoraFinal = this.MontardataHoraAgendamentoFinal(requisicaoMudancaDto);
+            if (requisicaoMudancaDto != null && requisicaoMudancaDto.getDataHoraTerminoAgendada() != null
+                    && requisicaoMudancaDto.getHoraAgendamentoFinal() != null) {
+                final Timestamp dataHoraFinal = MontardataHoraAgendamentoFinal(requisicaoMudancaDto);
                 requisicaoMudancaDto.setDataHoraTerminoAgendada(dataHoraFinal);
                 requisicaoMudancaDto.setDataHoraTermino(dataHoraFinal);
             }
 
-            final boolean resultado = this.validacaoGrupoExecutor(requisicaoMudancaDto);
+            final boolean resultado = validacaoGrupoExecutor(requisicaoMudancaDto);
             if (resultado == false) {
                 throw new LogicException(this.i18nMessage("requisicaoMudanca.grupoSemPermissao"));
             }
 
             if (requisicaoMudancaDto.getDataHoraTerminoAgendada() != null && requisicaoMudancaDto.getDataHoraInicioAgendada() != null) {
 
-                this.calculaTempoAtraso(requisicaoMudancaDto);
+                calculaTempoAtraso(requisicaoMudancaDto);
 
             } else {
                 requisicaoMudancaDto.setPrazoHH(00);
@@ -275,7 +273,7 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
 
             requisicaoMudancaDto.setDataHoraCaptura(requisicaoMudancaDto.getDataHoraInicio());
 
-            contatoRequisicaoMudancaDto = this.criarContatoRequisicaoMudanca(requisicaoMudancaDto, tc);
+            contatoRequisicaoMudancaDto = criarContatoRequisicaoMudanca(requisicaoMudancaDto, tc);
 
             requisicaoMudancaDto.setIdContatoRequisicaoMudanca(contatoRequisicaoMudancaDto.getIdContatoRequisicaoMudanca());
 
@@ -290,7 +288,7 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
 
             requisicaoMudancaDto = (RequisicaoMudancaDTO) requisicaoMudancaDao.create(requisicaoMudancaDto);
 
-            this.criarOcorrenciaMudanca(requisicaoMudancaDto, tc);
+            criarOcorrenciaMudanca(requisicaoMudancaDto, tc);
 
             Source source = null;
             if (requisicaoMudancaDto != null) {
@@ -298,7 +296,8 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
                 requisicaoMudancaDto.setRegistroexecucao(source.getTextExtractor().toString());
             }
 
-            if (requisicaoMudancaDto != null && requisicaoMudancaDto.getRegistroexecucao() != null && !requisicaoMudancaDto.getRegistroexecucao().trim().equalsIgnoreCase("")) {
+            if (requisicaoMudancaDto != null && requisicaoMudancaDto.getRegistroexecucao() != null
+                    && !requisicaoMudancaDto.getRegistroexecucao().trim().equalsIgnoreCase("")) {
                 final OcorrenciaMudancaDao ocorrenciaMudancaDao = new OcorrenciaMudancaDao();
                 ocorrenciaMudancaDao.setTransactionControler(tc);
                 final OcorrenciaMudancaDTO ocorrenciaMudancaDto = new OcorrenciaMudancaDTO();
@@ -349,7 +348,8 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
                 }
 
                 if (requisicaoMudancaDto.getListRequisicaoMudancaItemConfiguracaoDTO() != null) {
-                    for (final RequisicaoMudancaItemConfiguracaoDTO requisicaoMudancaItemConfiguracaoDto : requisicaoMudancaDto.getListRequisicaoMudancaItemConfiguracaoDTO()) {
+                    for (final RequisicaoMudancaItemConfiguracaoDTO requisicaoMudancaItemConfiguracaoDto : requisicaoMudancaDto
+                            .getListRequisicaoMudancaItemConfiguracaoDTO()) {
                         requisicaoMudancaItemConfiguracaoDto.setIdRequisicaoMudanca(requisicaoMudancaDto.getIdRequisicaoMudanca());
                         requisicaoMudancaItemConfiguracaoDao.create(requisicaoMudancaItemConfiguracaoDto);
                     }
@@ -424,8 +424,11 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
             }
 
             // gravar anexos dos planos de reversao de mudança
-            if (requisicaoMudancaDto != null && requisicaoMudancaDto.getColUploadPlanoDeReversaoGED() != null /* && liberacaoDto.getColArquivosUpload().size() > 0 */) {
-                this.gravaPlanoDeReversaoGED(requisicaoMudancaDto, tc, historicoMudancaDTO);
+            if (requisicaoMudancaDto != null && requisicaoMudancaDto.getColUploadPlanoDeReversaoGED() != null /*
+                                                                                                               * && liberacaoDto.getColArquivosUpload().size() >
+                                                                                                               * 0
+                                                                                                               */) {
+                gravaPlanoDeReversaoGED(requisicaoMudancaDto, tc, historicoMudancaDTO);
             }
 
             if (requisicaoMudancaDto != null) {
@@ -438,16 +441,10 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
                 RequisicaoMudanca.salvaGrupoAtvPeriodicaEAgenda(requisicaoMudancaDto);
             }
         } catch (final Exception e) {
-            this.rollbackTransaction(tc, e);
+            rollbackTransaction(tc, e);
             throw new ServiceException(e);
         } finally {
-            try {
-                tc.close();
-            } catch (final PersistenceException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-
+            tc.closeQuietly();
         }
         return model;
     }
@@ -480,13 +477,13 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
      * PODE SER UTILIZADO PARA SETAR OS CONTATOS DA REQUISICAO MUDANCA
      *
      */
-    public ContatoRequisicaoMudancaDTO criarContatoRequisicaoMudanca(final RequisicaoMudancaDTO requisicaoMudancaDto, final TransactionControler tc) throws ServiceException,
-            LogicException {
+    public ContatoRequisicaoMudancaDTO criarContatoRequisicaoMudanca(final RequisicaoMudancaDTO requisicaoMudancaDto, final TransactionControler tc)
+            throws ServiceException, LogicException {
 
         final ContatoRequisicaoMudancaDao contatoRequisicaoMudancaDao = new ContatoRequisicaoMudancaDao();
         ContatoRequisicaoMudancaDTO contatoRequisicaoMudancaDto = new ContatoRequisicaoMudancaDTO();
 
-        final RequisicaoMudancaDao requisicaoMudancaDao = this.getDao();
+        final RequisicaoMudancaDao requisicaoMudancaDao = getDao();
 
         try {
             contatoRequisicaoMudancaDao.setTransactionControler(tc);
@@ -518,7 +515,7 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
             }
 
         } catch (final Exception e) {
-            this.rollbackTransaction(tc, e);
+            rollbackTransaction(tc, e);
             throw new ServiceException(e);
         }
         return contatoRequisicaoMudancaDto;
@@ -562,8 +559,8 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
      * @throws ServiceException
      * @throws Exception
      */
-    public ArrayList<RequisicaoMudancaItemConfiguracaoDTO> listItensRelacionadosRequisicaoMudanca(final RequisicaoMudancaDTO requisicaoMudancaDTO) throws ServiceException,
-            Exception {
+    public ArrayList<RequisicaoMudancaItemConfiguracaoDTO> listItensRelacionadosRequisicaoMudanca(final RequisicaoMudancaDTO requisicaoMudancaDTO)
+            throws ServiceException, Exception {
         ItemConfiguracaoDTO ic = null;
         final RequisicaoMudancaItemConfiguracaoDao requisicaoMudancaItemConfiguracaoDao = new RequisicaoMudancaItemConfiguracaoDao();
 
@@ -574,7 +571,7 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
         // atribui nome para os itens retornados
         if (listaReqMudancaIC != null) {
             for (final RequisicaoMudancaItemConfiguracaoDTO r : listaReqMudancaIC) {
-                ic = this.getItemConfiguracaoService().restoreByIdItemConfiguracao(r.getIdItemConfiguracao());
+                ic = getItemConfiguracaoService().restoreByIdItemConfiguracao(r.getIdItemConfiguracao());
                 if (ic != null) {
                     r.setNomeItemConfiguracao(ic.getIdentificacao());
                 }
@@ -591,15 +588,10 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
         return itemConfiguracaoService;
     }
 
-    /*
-     * (non-Javadoc)
-     * @see br.com.citframework.service.CrudServicePojoImpl#update(br.com.citframework.dto.IDto)
-     */
-
     @Override
-    public void update(final IDto model, final HttpServletRequest request) throws ServiceException, LogicException {
+    public void update(final BaseEntity model, final HttpServletRequest request) throws ServiceException, LogicException {
         final RequisicaoMudancaDTO requisicaoMudancaDto = (RequisicaoMudancaDTO) model;
-        final RequisicaoMudancaDao requisicaoMudancaDao = this.getDao();
+        final RequisicaoMudancaDao requisicaoMudancaDao = getDao();
         LigacaoRequisicaoMudancaHistoricoResponsavelDTO ligacaoResponsavelDTO = new LigacaoRequisicaoMudancaHistoricoResponsavelDTO();
         final LigacaoRequisicaoMudancaResponsavelDao ligacaoResponsavelDao = new LigacaoRequisicaoMudancaResponsavelDao();
         LigacaoRequisicaoMudancaHistoricoItemConfiguracaoDTO ligacaoRequisicaoMudancaHistoricoItemConfiguracaoDTO = new LigacaoRequisicaoMudancaHistoricoItemConfiguracaoDTO();
@@ -622,18 +614,19 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
         }
 
         try {
-            requisicaoMudancaDto.setDataHoraInicio(this.getRequisicaoAtual(requisicaoMudancaDto.getIdRequisicaoMudanca()).getDataHoraInicio());
+            requisicaoMudancaDto.setDataHoraInicio(getRequisicaoAtual(requisicaoMudancaDto.getIdRequisicaoMudanca()).getDataHoraInicio());
         } catch (final Exception e1) {
             e1.printStackTrace();
         }
 
-        if (requisicaoMudancaDto != null && requisicaoMudancaDto.getDataHoraInicioAgendada() != null && requisicaoMudancaDto.getHoraAgendamentoInicial() != null) {
-            final Timestamp dataHoraInicial = this.MontardataHoraAgendamentoInicial(requisicaoMudancaDto);
+        if (requisicaoMudancaDto != null && requisicaoMudancaDto.getDataHoraInicioAgendada() != null
+                && requisicaoMudancaDto.getHoraAgendamentoInicial() != null) {
+            final Timestamp dataHoraInicial = MontardataHoraAgendamentoInicial(requisicaoMudancaDto);
             requisicaoMudancaDto.setDataHoraInicioAgendada(dataHoraInicial);
         }
 
         if (requisicaoMudancaDto != null && requisicaoMudancaDto.getDataHoraTerminoAgendada() != null && requisicaoMudancaDto.getHoraAgendamentoFinal() != null) {
-            final Timestamp dataHoraFinal = this.MontardataHoraAgendamentoFinal(requisicaoMudancaDto);
+            final Timestamp dataHoraFinal = MontardataHoraAgendamentoFinal(requisicaoMudancaDto);
             requisicaoMudancaDto.setDataHoraTerminoAgendada(dataHoraFinal);
             requisicaoMudancaDto.setDataHoraTermino(dataHoraFinal);
         }
@@ -692,7 +685,7 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
 
                 if (requisicaoMudancaDto.getAcaoFluxo().equalsIgnoreCase("E") && requisicaoMudancaDto.getFase().equalsIgnoreCase("Proposta")) {
                     if (!requisicaoMudancaDto.getStatus().equalsIgnoreCase(SituacaoRequisicaoMudanca.Cancelada.name())) {
-                        if (!this.validacaoAvancaFluxoProposta(requisicaoMudancaDto, tc)) {
+                        if (!validacaoAvancaFluxoProposta(requisicaoMudancaDto, tc)) {
                             throw new LogicException(this.i18nMessage("requisicaoMudanca.essaPropostaNaoFoiAprovada"));
                         }
                     }
@@ -700,7 +693,7 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
 
                 if (requisicaoMudancaDto.getDataHoraTerminoAgendada() != null && requisicaoMudancaDto.getDataHoraInicioAgendada() != null) {
 
-                    this.calculaTempoAtraso(requisicaoMudancaDto);
+                    calculaTempoAtraso(requisicaoMudancaDto);
 
                 } else {
                     requisicaoMudancaDto.setPrazoHH(00);
@@ -710,7 +703,7 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
                 if (requisicaoMudancaDto.getStatus() != null && !requisicaoMudancaDto.getStatus().equalsIgnoreCase(SituacaoRequisicaoMudanca.Cancelada.name())
                         && !requisicaoMudancaDto.getStatus().equalsIgnoreCase(SituacaoRequisicaoMudanca.Rejeitada.name())) {
                     if (requisicaoMudancaDto.getAlterarSituacao().equalsIgnoreCase("N")) {
-                        requisicaoMudancaDto.setStatus(this.getStatusAtual(requisicaoMudancaDto.getIdRequisicaoMudanca()));
+                        requisicaoMudancaDto.setStatus(getStatusAtual(requisicaoMudancaDto.getIdRequisicaoMudanca()));
                     }
                 }
 
@@ -721,12 +714,12 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
             final HistoricoMudancaDao historicoMudancaDao = new HistoricoMudancaDao();
             historicoMudancaDao.setTransactionControler(tc);
             if (requisicaoMudancaDto != null && requisicaoMudancaDto.getIdRequisicaoMudanca() != null) {
-                historicoMudancaDTO = (HistoricoMudancaDTO) historicoMudancaDao.create(this.createHistoricoMudanca(requisicaoMudancaDto));
+                historicoMudancaDTO = (HistoricoMudancaDTO) historicoMudancaDao.create(createHistoricoMudanca(requisicaoMudancaDto));
 
                 final ControleGEDDao controleGEDDao = new ControleGEDDao();
                 controleGEDDao.setTransactionControler(tc);
 
-                historicoMudancaDTO.setColResponsaveis(this.listarColResponsaveis(historicoMudancaDTO));
+                historicoMudancaDTO.setColResponsaveis(listarColResponsaveis(historicoMudancaDTO));
                 if (historicoMudancaDTO.getColResponsaveis() != null) {
                     for (final RequisicaoMudancaResponsavelDTO requisicaoMudancaRespDTO : historicoMudancaDTO.getColResponsaveis()) {
                         ligacaoResponsavelDTO.setIdRequisicaoMudanca(requisicaoMudancaRespDTO.getIdRequisicaoMudanca());
@@ -737,10 +730,12 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
                     }
                 }
 
-                historicoMudancaDTO.setListRequisicaoMudancaItemConfiguracaoDTO(this.listarColItemConfiguracao(historicoMudancaDTO));
+                historicoMudancaDTO.setListRequisicaoMudancaItemConfiguracaoDTO(listarColItemConfiguracao(historicoMudancaDTO));
                 if (historicoMudancaDTO.getListRequisicaoMudancaItemConfiguracaoDTO() != null) {
-                    for (final RequisicaoMudancaItemConfiguracaoDTO requisicaoMudancaItemConfiguracaoDTO : historicoMudancaDTO.getListRequisicaoMudancaItemConfiguracaoDTO()) {
-                        ligacaoRequisicaoMudancaHistoricoItemConfiguracaoDTO.setIdRequisicaoMudanca(requisicaoMudancaItemConfiguracaoDTO.getIdRequisicaoMudanca());
+                    for (final RequisicaoMudancaItemConfiguracaoDTO requisicaoMudancaItemConfiguracaoDTO : historicoMudancaDTO
+                            .getListRequisicaoMudancaItemConfiguracaoDTO()) {
+                        ligacaoRequisicaoMudancaHistoricoItemConfiguracaoDTO.setIdRequisicaoMudanca(requisicaoMudancaItemConfiguracaoDTO
+                                .getIdRequisicaoMudanca());
                         ligacaoRequisicaoMudancaHistoricoItemConfiguracaoDTO.setIdrequisicaomudancaitemconfiguracao(requisicaoMudancaItemConfiguracaoDTO
                                 .getIdRequisicaoMudancaItemConfiguracao());
                         ligacaoRequisicaoMudancaHistoricoItemConfiguracaoDTO.setIdHistoricoMudanca(historicoMudancaDTO.getIdHistoricoMudanca());
@@ -749,7 +744,7 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
                     }
                 }
 
-                historicoMudancaDTO.setListRequisicaoMudancaServicoDTO(this.listarServico(historicoMudancaDTO));
+                historicoMudancaDTO.setListRequisicaoMudancaServicoDTO(listarServico(historicoMudancaDTO));
                 if (historicoMudancaDTO.getListRequisicaoMudancaServicoDTO() != null) {
                     for (final RequisicaoMudancaServicoDTO requisicaoMudancaServicoDTO : historicoMudancaDTO.getListRequisicaoMudancaServicoDTO()) {
                         ligacaoRequisicaoMudancaHistoricoServicoDTO.setIdRequisicaoMudanca(requisicaoMudancaServicoDTO.getIdRequisicaoMudanca());
@@ -760,7 +755,7 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
                     }
                 }
 
-                historicoMudancaDTO.setListProblemaMudancaDTO(this.listarProblema(historicoMudancaDTO));
+                historicoMudancaDTO.setListProblemaMudancaDTO(listarProblema(historicoMudancaDTO));
                 if (historicoMudancaDTO.getListProblemaMudancaDTO() != null) {
                     for (final ProblemaMudancaDTO problemaMudancaDTO : historicoMudancaDTO.getListProblemaMudancaDTO()) {
                         ligacaoRequisicaoMudancaHistoricoProblemaDTO.setIdRequisicaoMudanca(problemaMudancaDTO.getIdRequisicaoMudanca());
@@ -771,7 +766,7 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
                     }
                 }
 
-                historicoMudancaDTO.setListGrupoRequisicaoMudancaDTO(this.listarGrupo(historicoMudancaDTO));
+                historicoMudancaDTO.setListGrupoRequisicaoMudancaDTO(listarGrupo(historicoMudancaDTO));
                 if (historicoMudancaDTO.getListGrupoRequisicaoMudancaDTO() != null) {
                     for (final GrupoRequisicaoMudancaDTO gruporequisicaomudancaDTO : historicoMudancaDTO.getListGrupoRequisicaoMudancaDTO()) {
                         ligacaoRequisicaoMudancaHistoricoGrupoDTO.setIdRequisicaoMudanca(gruporequisicaomudancaDTO.getIdRequisicaoMudanca());
@@ -782,7 +777,7 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
                     }
                 }
 
-                historicoMudancaDTO.setListRequisicaoMudancaRiscoDTO(this.listarRiscos(historicoMudancaDTO));
+                historicoMudancaDTO.setListRequisicaoMudancaRiscoDTO(listarRiscos(historicoMudancaDTO));
                 if (historicoMudancaDTO.getListRequisicaoMudancaRiscoDTO() != null) {
                     for (final RequisicaoMudancaRiscoDTO riscoMudancaDTO : historicoMudancaDTO.getListRequisicaoMudancaRiscoDTO()) {
                         ligaHistoricoRiscosDTO.setIdRequisicaoMudanca(historicoMudancaDTO.getIdRequisicaoMudanca());
@@ -793,20 +788,20 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
                     }
                 }
 
-                historicoMudancaDTO.setListLiberacaoMudancaDTO(this.listarLiberacoes(historicoMudancaDTO));
+                historicoMudancaDTO.setListLiberacaoMudancaDTO(listarLiberacoes(historicoMudancaDTO));
                 if (historicoMudancaDTO.getListLiberacaoMudancaDTO() != null && historicoMudancaDTO.getListLiberacaoMudancaDTO().size() > 0) {
-                    this.gravarLiberacaoHistorico(historicoMudancaDTO, tc);
+                    gravarLiberacaoHistorico(historicoMudancaDTO, tc);
                 }
 
                 // gravando historico mudancaSolicitacaoServico
                 List<RequisicaoMudancaDTO> listSolicitacaoServicosMudanca = new ArrayList<RequisicaoMudancaDTO>();
-                listSolicitacaoServicosMudanca = this.listarSolicitacaoServico(historicoMudancaDTO);
+                listSolicitacaoServicosMudanca = listarSolicitacaoServico(historicoMudancaDTO);
                 if (listSolicitacaoServicosMudanca != null) {
-                    this.gravarSolicitacaoServicoHistoricos(historicoMudancaDTO, listSolicitacaoServicosMudanca, tc);
+                    gravarSolicitacaoServicoHistoricos(historicoMudancaDTO, listSolicitacaoServicosMudanca, tc);
                 }
 
                 // gravando o historico de aprovação de mudança.
-                historicoMudancaDTO.setListAprovacaoMudancaDTO(this.listarAprovacoes(historicoMudancaDTO));
+                historicoMudancaDTO.setListAprovacaoMudancaDTO(listarAprovacoes(historicoMudancaDTO));
                 if (historicoMudancaDTO.getListAprovacaoMudancaDTO() != null) {
                     for (final AprovacaoMudancaDTO aprovacaoMudancaDTO : historicoMudancaDTO.getListAprovacaoMudancaDTO()) {
                         aprovacaoMudancaDTO.setIdHistoricoMudanca(historicoMudancaDTO.getIdHistoricoMudanca());
@@ -816,7 +811,7 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
 
             }
 
-            contatoRequisicaoMudancaDto = this.criarContatoRequisicaoMudanca(requisicaoMudancaDto, tc);
+            contatoRequisicaoMudancaDto = criarContatoRequisicaoMudanca(requisicaoMudancaDto, tc);
             if (contatoRequisicaoMudancaDto != null) {
                 requisicaoMudancaDto.setIdContatoRequisicaoMudanca(contatoRequisicaoMudancaDto.getIdContatoRequisicaoMudanca());
             }
@@ -858,10 +853,11 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
             // adiciona e deleta logicamente os itens da grid de problemas
             if (requisicaoMudancaDto != null) {
                 if (requisicaoMudancaDto.getListProblemaMudancaDTO() != null && requisicaoMudancaDto.getListProblemaMudancaDTO().size() > 0) {
-                    this.deleteAdicionaTabelaProblema(requisicaoMudancaDto, tc);
+                    deleteAdicionaTabelaProblema(requisicaoMudancaDto, tc);
                 } else {
                     final ProblemaMudancaDAO problemadaoDao = new ProblemaMudancaDAO();
-                    final Collection<ProblemaMudancaDTO> ListProblemaMudancaaDTO = problemadaoDao.findByIdMudancaEDataFim(requisicaoMudancaDto.getIdRequisicaoMudanca());
+                    final Collection<ProblemaMudancaDTO> ListProblemaMudancaaDTO = problemadaoDao.findByIdMudancaEDataFim(requisicaoMudancaDto
+                            .getIdRequisicaoMudanca());
                     if (ListProblemaMudancaaDTO != null && ListProblemaMudancaaDTO.size() > 0) {
                         for (final ProblemaMudancaDTO problemaMudancaDTO : ListProblemaMudancaaDTO) {
                             problemaMudancaDTO.setDataFim(UtilDatas.getDataAtual());
@@ -871,11 +867,11 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
                 }
 
                 if (requisicaoMudancaDto.getListGrupoRequisicaoMudancaDTO() != null && requisicaoMudancaDto.getListGrupoRequisicaoMudancaDTO().size() > 0) {
-                    this.deleteAdicionaTabelaGrupo(requisicaoMudancaDto, tc);
+                    deleteAdicionaTabelaGrupo(requisicaoMudancaDto, tc);
                 } else {
                     final GrupoRequisicaoMudancaDao gruporequisicaomudancaDao1 = new GrupoRequisicaoMudancaDao();
-                    final Collection<GrupoRequisicaoMudancaDTO> ListGrupoRequisicaoMudanca = gruporequisicaomudancaDao1.findByIdMudancaEDataFim(requisicaoMudancaDto
-                            .getIdRequisicaoMudanca());
+                    final Collection<GrupoRequisicaoMudancaDTO> ListGrupoRequisicaoMudanca = gruporequisicaomudancaDao1
+                            .findByIdMudancaEDataFim(requisicaoMudancaDto.getIdRequisicaoMudanca());
                     if (ListGrupoRequisicaoMudanca != null && ListGrupoRequisicaoMudanca.size() > 0) {
                         for (final GrupoRequisicaoMudancaDTO gruporequisicaomudancaDTO : ListGrupoRequisicaoMudanca) {
                             gruporequisicaomudancaDTO.setDataFim(UtilDatas.getDataAtual());
@@ -885,10 +881,11 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
                 }
 
                 if (requisicaoMudancaDto.getListRequisicaoMudancaRiscoDTO() != null && requisicaoMudancaDto.getListRequisicaoMudancaRiscoDTO().size() > 0) {
-                    this.deleteAdicionaTabelaRiscos(requisicaoMudancaDto, tc);
+                    deleteAdicionaTabelaRiscos(requisicaoMudancaDto, tc);
                 } else {
                     final RequisicaoMudancaRiscoDao riscosDao = new RequisicaoMudancaRiscoDao();
-                    final Collection<RequisicaoMudancaRiscoDTO> ListRiscosMudancaaDTO = riscosDao.findByIdRequisicaoMudancaEDataFim(requisicaoMudancaDto.getIdRequisicaoMudanca());
+                    final Collection<RequisicaoMudancaRiscoDTO> ListRiscosMudancaaDTO = riscosDao.findByIdRequisicaoMudancaEDataFim(requisicaoMudancaDto
+                            .getIdRequisicaoMudanca());
                     if (ListRiscosMudancaaDTO != null && ListRiscosMudancaaDTO.size() > 0) {
                         for (final RequisicaoMudancaRiscoDTO riscosMudancaDTO : ListRiscosMudancaaDTO) {
                             riscosMudancaDTO.setDataFim(UtilDatas.getDataAtual());
@@ -931,7 +928,7 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
             }
             if (servicosBanco != null) {
                 for (final RequisicaoMudancaServicoDTO i : servicosBanco) {
-                    if (!this.requisicaoMudancaServicoExisteNaLista(i, requisicaoMudancaDto.getListRequisicaoMudancaServicoDTO())) {
+                    if (!requisicaoMudancaServicoExisteNaLista(i, requisicaoMudancaDto.getListRequisicaoMudancaServicoDTO())) {
                         i.setDataFim(UtilDatas.getDataAtual());
                         requisicaoMudancaServicoDao.update(i);
                     }
@@ -943,7 +940,8 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
 
             if (requisicaoMudancaDto != null && requisicaoMudancaDto.getListRequisicaoMudancaItemConfiguracaoDTO() != null) {
                 // se não existir no banco, cria, caso contrário, atualiza
-                for (final RequisicaoMudancaItemConfiguracaoDTO requisicaoMudancaItemConfiguracaoDTO : requisicaoMudancaDto.getListRequisicaoMudancaItemConfiguracaoDTO()) {
+                for (final RequisicaoMudancaItemConfiguracaoDTO requisicaoMudancaItemConfiguracaoDTO : requisicaoMudancaDto
+                        .getListRequisicaoMudancaItemConfiguracaoDTO()) {
 
                     requisicaoMudancaItemConfiguracaoDTO.setIdRequisicaoMudanca(requisicaoMudancaDto.getIdRequisicaoMudanca());
 
@@ -962,7 +960,7 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
             }
             if (icsBanco != null) {
                 for (final RequisicaoMudancaItemConfiguracaoDTO i : icsBanco) {
-                    if (!this.requisicaoMudancaICExisteNaLista(i, requisicaoMudancaDto.getListRequisicaoMudancaItemConfiguracaoDTO())) {
+                    if (!requisicaoMudancaICExisteNaLista(i, requisicaoMudancaDto.getListRequisicaoMudancaItemConfiguracaoDTO())) {
                         i.setDataFim(UtilDatas.getDataAtual());
                         requisicaoMudancaItemConfiguracaoDao.update(i);
                     }
@@ -971,7 +969,7 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
 
             // update Responsavel
             if (requisicaoMudancaDto != null && requisicaoMudancaDto.getColResponsaveis() != null && requisicaoMudancaDto.getColResponsaveis().size() > 0) {
-                this.deleteAdicionaTabelaResponsavel(requisicaoMudancaDto, tc);
+                deleteAdicionaTabelaResponsavel(requisicaoMudancaDto, tc);
             } else {
                 final RequisicaoMudancaResponsavelDao requisicaoMudancaResponsavelDao = new RequisicaoMudancaResponsavelDao();
                 final Collection<RequisicaoMudancaResponsavelDTO> responsavel = requisicaoMudancaResponsavelDao.findByIdMudancaEDataFim(requisicaoMudancaDto
@@ -987,7 +985,8 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
             // gravando historico de anexos
             final HistoricoGEDDao historicoGEDDao = new HistoricoGEDDao();
             Collection<HistoricoGEDDTO> colHistoricoGed = new ArrayList<HistoricoGEDDTO>();
-            colHistoricoGed = historicoGEDDao.listByIdTabelaAndIdLiberacao(ControleGEDDTO.TABELA_REQUISICAOMUDANCA, requisicaoMudancaDto.getIdRequisicaoMudanca());
+            colHistoricoGed = historicoGEDDao.listByIdTabelaAndIdLiberacao(ControleGEDDTO.TABELA_REQUISICAOMUDANCA,
+                    requisicaoMudancaDto.getIdRequisicaoMudanca());
             if (colHistoricoGed != null && colHistoricoGed.size() > 0) {
                 for (final HistoricoGEDDTO historicoGEDDTO : colHistoricoGed) {
                     historicoGEDDTO.setDataFim(UtilDatas.getDataAtual());
@@ -1000,8 +999,8 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
             }
             // gravando historico de anexos
             Collection<HistoricoGEDDTO> colHistoricoPlanoReversaoGed = new ArrayList<HistoricoGEDDTO>();
-            colHistoricoPlanoReversaoGed = historicoGEDDao
-                    .listByIdTabelaAndIdLiberacao(ControleGEDDTO.TABELA_PLANO_REVERSAO_MUDANCA, requisicaoMudancaDto.getIdRequisicaoMudanca());
+            colHistoricoPlanoReversaoGed = historicoGEDDao.listByIdTabelaAndIdLiberacao(ControleGEDDTO.TABELA_PLANO_REVERSAO_MUDANCA,
+                    requisicaoMudancaDto.getIdRequisicaoMudanca());
             if (colHistoricoPlanoReversaoGed != null && colHistoricoPlanoReversaoGed.size() > 0) {
                 for (final HistoricoGEDDTO historicoGEDDTO : colHistoricoPlanoReversaoGed) {
                     historicoGEDDTO.setDataFim(UtilDatas.getDataAtual());
@@ -1010,11 +1009,11 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
                 }
             }
             if (requisicaoMudancaDto.getColUploadPlanoDeReversaoGED() != null /* && liberacaoDto.getColArquivosUpload().size() > 0 */) {
-                this.gravaPlanoDeReversaoGED(requisicaoMudancaDto, tc, historicoMudancaDTO);
+                gravaPlanoDeReversaoGED(requisicaoMudancaDto, tc, historicoMudancaDTO);
             }
 
             if (requisicaoMudancaDto.getStatus().equalsIgnoreCase(Enumerados.SituacaoRequisicaoMudanca.Resolvida.getDescricao())) {
-                this.fechaRelacionamentoMudanca(tc, requisicaoMudancaDto);
+                fechaRelacionamentoMudanca(tc, requisicaoMudancaDto);
             }
 
             if (requisicaoMudancaDto.getRegistroexecucao() != null) {
@@ -1069,7 +1068,7 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
             if (requisicaoMudancaDto.getAcaoFluxo().equalsIgnoreCase("E")) {
                 if (requisicaoMudancaDto.getStatus().equalsIgnoreCase(SituacaoRequisicaoMudanca.Executada.name())
                         || requisicaoMudancaDto.getStatus().equalsIgnoreCase(SituacaoRequisicaoMudanca.Concluida.name())) {
-                    this.fechaRelacionamentoMudanca(tc, requisicaoMudancaDto);
+                    fechaRelacionamentoMudanca(tc, requisicaoMudancaDto);
                 }
             }
 
@@ -1079,16 +1078,10 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
                 RequisicaoMudanca.salvaGrupoAtvPeriodicaEAgenda(requisicaoMudancaDto);
             }
         } catch (final Exception e) {
-            this.rollbackTransaction(tc, e);
+            rollbackTransaction(tc, e);
             throw new ServiceException(e);
         } finally {
-            try {
-                tc.close();
-            } catch (final PersistenceException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-
+            tc.closeQuietly();
         }
     }
 
@@ -1098,7 +1091,7 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
     }
 
     public RequisicaoMudancaDTO restoreAll(final Integer idRequisicaoMudanca, final TransactionControler tc) throws Exception {
-        final RequisicaoMudancaDao requisicaoDao = this.getDao();
+        final RequisicaoMudancaDao requisicaoDao = getDao();
         if (tc != null) {
             requisicaoDao.setTransactionControler(tc);
         }
@@ -1200,11 +1193,12 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
             }
 
         }
-        return this.verificaAtraso(requisicaoDto);
+        return verificaAtraso(requisicaoDto);
     }
 
-    public RequisicaoMudancaDTO restoreAllReuniao(final Integer idRequisicaoMudanca, final Integer idReuniaoRequisicaoMudanca, final TransactionControler tc) throws Exception {
-        final RequisicaoMudancaDao requisicaoDao = this.getDao();
+    public RequisicaoMudancaDTO restoreAllReuniao(final Integer idRequisicaoMudanca, final Integer idReuniaoRequisicaoMudanca, final TransactionControler tc)
+            throws Exception {
+        final RequisicaoMudancaDao requisicaoDao = getDao();
         if (tc != null) {
             requisicaoDao.setTransactionControler(tc);
         }
@@ -1277,7 +1271,7 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
             requisicaoDto.setDescricao(reuniaoDto.getDescricao());
 
         }
-        return this.verificaAtraso(requisicaoDto);
+        return verificaAtraso(requisicaoDto);
     }
 
     public RequisicaoMudancaDTO verificaAtraso(final RequisicaoMudancaDTO requisicaoDto) throws Exception {
@@ -1310,7 +1304,7 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
     public Collection findBySolictacaoServico(final RequisicaoMudancaDTO bean) throws ServiceException, LogicException {
 
         try {
-            return this.getDao().listProblemaByIdSolicitacao(bean);
+            return getDao().listProblemaByIdSolicitacao(bean);
         } catch (final Exception e) {
             e.printStackTrace();
         }
@@ -1320,7 +1314,7 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
 
     public List<RequisicaoMudancaDTO> obterMudancaCriticos(final Integer idItemConfiguracao) {
         try {
-            final RequisicaoMudancaDao requisicaoMudancaDao = this.getDao();
+            final RequisicaoMudancaDao requisicaoMudancaDao = getDao();
             return requisicaoMudancaDao.listMudancaByIdItemConfiguracao(idItemConfiguracao);
         } catch (final Exception e) {
             e.printStackTrace();
@@ -1330,7 +1324,7 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
 
     @Override
     public List<RequisicaoMudancaDTO> listMudancaByIdItemConfiguracao(final Integer idItemConfiguracao) throws Exception {
-        final RequisicaoMudancaDao requisicaoMudancaDao = this.getDao();
+        final RequisicaoMudancaDao requisicaoMudancaDao = getDao();
 
         return requisicaoMudancaDao.listMudancaByIdItemConfiguracao(idItemConfiguracao);
     }
@@ -1338,7 +1332,7 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
     @Override
     public Collection<RequisicaoMudancaDTO> listaMudancaPorBaseConhecimento(final RequisicaoMudancaDTO mudanca) throws Exception {
         Collection<RequisicaoMudancaDTO> listaMudancaPorBaseConhecimento = null;
-        final RequisicaoMudancaDao mudancaDao = this.getDao();
+        final RequisicaoMudancaDao mudancaDao = getDao();
         try {
             listaMudancaPorBaseConhecimento = mudancaDao.listaMudancasPorBaseConhecimento(mudanca);
             if (listaMudancaPorBaseConhecimento != null) {
@@ -1357,13 +1351,13 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
 
     @Override
     public Collection<RequisicaoMudancaDTO> quantidadeMudancaPorBaseConhecimento(final RequisicaoMudancaDTO mudanca) throws Exception {
-        final RequisicaoMudancaDao mudancaDao = this.getDao();
+        final RequisicaoMudancaDao mudancaDao = getDao();
         return mudancaDao.quantidadeMudancaPorBaseConhecimento(mudanca);
     }
 
     @Override
     public Collection findByConhecimento(final BaseConhecimentoDTO baseConhecimentoDto) throws ServiceException, LogicException {
-        final RequisicaoMudancaDao requisicaoMudancaDao = this.getDao();
+        final RequisicaoMudancaDao requisicaoMudancaDao = getDao();
 
         try {
             return requisicaoMudancaDao.findByConhecimento(baseConhecimentoDto);
@@ -1384,9 +1378,11 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
     }
 
     @Override
-    public Collection<PesquisaRequisicaoMudancaDTO> listRequisicaoMudancaByCriterios(final PesquisaRequisicaoMudancaDTO pesquisaRequisicaoMudancaDto) throws Exception {
+    public Collection<PesquisaRequisicaoMudancaDTO> listRequisicaoMudancaByCriterios(final PesquisaRequisicaoMudancaDTO pesquisaRequisicaoMudancaDto)
+            throws Exception {
 
-        final Collection<PesquisaRequisicaoMudancaDTO> listRequisicaoMudancaByCriterios = this.getDao().listRequisicaoMudancaByCriterios(pesquisaRequisicaoMudancaDto);
+        final Collection<PesquisaRequisicaoMudancaDTO> listRequisicaoMudancaByCriterios = getDao().listRequisicaoMudancaByCriterios(
+                pesquisaRequisicaoMudancaDto);
 
         if (listRequisicaoMudancaByCriterios != null) {
             for (final PesquisaRequisicaoMudancaDTO requisicaoMudanca : listRequisicaoMudancaByCriterios) {
@@ -1402,7 +1398,7 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
 
     @Override
     public boolean verificarSeRequisicaoMudancaPossuiTipoMudanca(final Integer idTipoMudanca) throws Exception {
-        final RequisicaoMudancaDao requisicaoMudancaDao = this.getDao();
+        final RequisicaoMudancaDao requisicaoMudancaDao = getDao();
         return requisicaoMudancaDao.verificarSeRequisicaoMudancaPossuiTipoMudanca(idTipoMudanca);
     }
 
@@ -1447,7 +1443,7 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
     private String getStatusAtual(final Integer id) throws ServiceException, Exception {
         RequisicaoMudancaDTO reqMudanca = new RequisicaoMudancaDTO();
         reqMudanca.setIdRequisicaoMudanca(id);
-        reqMudanca = (RequisicaoMudancaDTO) this.getDao().restore(reqMudanca);
+        reqMudanca = (RequisicaoMudancaDTO) getDao().restore(reqMudanca);
         final String res = reqMudanca.getStatus();
         return res;
 
@@ -1456,14 +1452,14 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
     private RequisicaoMudancaDTO getRequisicaoAtual(final Integer id) throws ServiceException, Exception {
         RequisicaoMudancaDTO reqMudanca = new RequisicaoMudancaDTO();
         reqMudanca.setIdRequisicaoMudanca(id);
-        reqMudanca = (RequisicaoMudancaDTO) this.getDao().restore(reqMudanca);
+        reqMudanca = (RequisicaoMudancaDTO) getDao().restore(reqMudanca);
         return reqMudanca;
 
     }
 
     @Override
     public void suspende(final UsuarioDTO usuarioDto, final RequisicaoMudancaDTO requisicaoMudancaDTO) throws Exception {
-        final TransactionControler tc = new TransactionControlerImpl(this.getDao().getAliasDB());
+        final TransactionControler tc = new TransactionControlerImpl(getDao().getAliasDB());
         this.suspende(usuarioDto, requisicaoMudancaDTO, tc);
         tc.commit();
         tc.close();
@@ -1478,7 +1474,7 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
 
     @Override
     public void reativa(final UsuarioDTO usuarioDto, final RequisicaoMudancaDTO requisicaoMudancaDto) throws Exception {
-        final TransactionControler tc = new TransactionControlerImpl(this.getDao().getAliasDB());
+        final TransactionControler tc = new TransactionControlerImpl(getDao().getAliasDB());
         this.reativa(usuarioDto, requisicaoMudancaDto, tc);
         tc.commit();
         tc.close();
@@ -1491,7 +1487,7 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
 
     @Override
     public List<RequisicaoMudancaDTO> listMudancaByIdSolicitacao(final RequisicaoMudancaDTO bean) throws Exception {
-        return this.getDao().listMudancaByIdSolicitacao(bean);
+        return getDao().listMudancaByIdSolicitacao(bean);
     }
 
     @Override
@@ -1502,10 +1498,12 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
         if (requisicaoMudancaDto.getIdRequisicaoMudanca() != null) {
             aprovacaoMudancaDto.setIdRequisicaoMudanca(requisicaoMudancaDto.getIdRequisicaoMudanca());
             aprovacaoMudancaDto.setVoto("A");
-            aprovacaoMudancaDto.setQuantidadeVotoAprovada(dao.quantidadeAprovacaoMudancaPorVotoAprovada(aprovacaoMudancaDto, requisicaoMudancaDto.getIdGrupoComite()));
+            aprovacaoMudancaDto.setQuantidadeVotoAprovada(dao.quantidadeAprovacaoMudancaPorVotoAprovada(aprovacaoMudancaDto,
+                    requisicaoMudancaDto.getIdGrupoComite()));
             aprovacaoMudancaDto.setIdRequisicaoMudanca(requisicaoMudancaDto.getIdRequisicaoMudanca());
             aprovacaoMudancaDto.setVoto("R");
-            aprovacaoMudancaDto.setQuantidadeVotoRejeitada(dao.quantidadeAprovacaoMudancaPorVotoRejeitada(aprovacaoMudancaDto, requisicaoMudancaDto.getIdGrupoComite()));
+            aprovacaoMudancaDto.setQuantidadeVotoRejeitada(dao.quantidadeAprovacaoMudancaPorVotoRejeitada(aprovacaoMudancaDto,
+                    requisicaoMudancaDto.getIdGrupoComite()));
             aprovacaoMudancaDto.setQuantidadeAprovacaoMudanca(dao.quantidadeDeEmpregdosPorGrupo(requisicaoMudancaDto.getIdGrupoComite()));
 
         }
@@ -1535,10 +1533,12 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
         if (requisicaoMudancaDto.getIdRequisicaoMudanca() != null) {
             aprovacaoPropostaDto.setIdRequisicaoMudanca(requisicaoMudancaDto.getIdRequisicaoMudanca());
             aprovacaoPropostaDto.setVoto("A");
-            aprovacaoPropostaDto.setQuantidadeVotoAprovada(dao.quantidadeAprovacaoPropostaPorVotoAprovada(aprovacaoPropostaDto, requisicaoMudancaDto.getIdGrupoComite()));
+            aprovacaoPropostaDto.setQuantidadeVotoAprovada(dao.quantidadeAprovacaoPropostaPorVotoAprovada(aprovacaoPropostaDto,
+                    requisicaoMudancaDto.getIdGrupoComite()));
             aprovacaoPropostaDto.setIdRequisicaoMudanca(requisicaoMudancaDto.getIdRequisicaoMudanca());
             aprovacaoPropostaDto.setVoto("R");
-            aprovacaoPropostaDto.setQuantidadeVotoRejeitada(dao.quantidadeAprovacaoPropostaPorVotoAprovada(aprovacaoPropostaDto, requisicaoMudancaDto.getIdGrupoComite()));
+            aprovacaoPropostaDto.setQuantidadeVotoRejeitada(dao.quantidadeAprovacaoPropostaPorVotoAprovada(aprovacaoPropostaDto,
+                    requisicaoMudancaDto.getIdGrupoComite()));
             aprovacaoPropostaDto.setQuantidadeAprovacaoProposta(dao.quantidadeDeEmpregdosPorGrupo(requisicaoMudancaDto.getIdGrupoComite()));
 
         }
@@ -1575,10 +1575,12 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
         if (requisicaoMudancaDto.getIdRequisicaoMudanca() != null) {
             aprovacaoPropostaDto.setIdRequisicaoMudanca(requisicaoMudancaDto.getIdRequisicaoMudanca());
             aprovacaoPropostaDto.setVoto("A");
-            aprovacaoPropostaDto.setQuantidadeVotoAprovada(dao.quantidadeAprovacaoPropostaPorVotoAprovada(aprovacaoPropostaDto, requisicaoMudancaDto.getIdGrupoComite()));
+            aprovacaoPropostaDto.setQuantidadeVotoAprovada(dao.quantidadeAprovacaoPropostaPorVotoAprovada(aprovacaoPropostaDto,
+                    requisicaoMudancaDto.getIdGrupoComite()));
             aprovacaoPropostaDto.setIdRequisicaoMudanca(requisicaoMudancaDto.getIdRequisicaoMudanca());
             aprovacaoPropostaDto.setVoto("R");
-            aprovacaoPropostaDto.setQuantidadeVotoRejeitada(dao.quantidadeAprovacaoPropostaPorVotoAprovada(aprovacaoPropostaDto, requisicaoMudancaDto.getIdGrupoComite()));
+            aprovacaoPropostaDto.setQuantidadeVotoRejeitada(dao.quantidadeAprovacaoPropostaPorVotoAprovada(aprovacaoPropostaDto,
+                    requisicaoMudancaDto.getIdGrupoComite()));
             aprovacaoPropostaDto.setQuantidadeAprovacaoProposta(dao.quantidadeDeEmpregdosPorGrupo(requisicaoMudancaDto.getIdGrupoComite()));
 
         }
@@ -1610,10 +1612,12 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
         if (requisicaoMudancaDto.getIdRequisicaoMudanca() != null) {
             aprovacaoMudancaDto.setIdRequisicaoMudanca(requisicaoMudancaDto.getIdRequisicaoMudanca());
             aprovacaoMudancaDto.setVoto("A");
-            aprovacaoMudancaDto.setQuantidadeVotoAprovada(dao.quantidadeAprovacaoMudancaPorVotoAprovada(aprovacaoMudancaDto, requisicaoMudancaDto.getIdGrupoComite()));
+            aprovacaoMudancaDto.setQuantidadeVotoAprovada(dao.quantidadeAprovacaoMudancaPorVotoAprovada(aprovacaoMudancaDto,
+                    requisicaoMudancaDto.getIdGrupoComite()));
             aprovacaoMudancaDto.setIdRequisicaoMudanca(requisicaoMudancaDto.getIdRequisicaoMudanca());
             aprovacaoMudancaDto.setVoto("R");
-            aprovacaoMudancaDto.setQuantidadeVotoRejeitada(dao.quantidadeAprovacaoMudancaPorVotoRejeitada(aprovacaoMudancaDto, requisicaoMudancaDto.getIdGrupoComite()));
+            aprovacaoMudancaDto.setQuantidadeVotoRejeitada(dao.quantidadeAprovacaoMudancaPorVotoRejeitada(aprovacaoMudancaDto,
+                    requisicaoMudancaDto.getIdGrupoComite()));
             aprovacaoMudancaDto.setQuantidadeAprovacaoMudanca(dao.quantidadeDeEmpregdosPorGrupo(requisicaoMudancaDto.getIdGrupoComite()));
         }
 
@@ -1634,7 +1638,8 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
         return aquardando;
     }
 
-    public void gravaInformacoesGED(final RequisicaoMudancaDTO requisicaomudacaDTO, final TransactionControler tc, final HistoricoMudancaDTO historicoMudancaDTO) throws Exception {
+    public void gravaInformacoesGED(final RequisicaoMudancaDTO requisicaomudacaDTO, final TransactionControler tc, final HistoricoMudancaDTO historicoMudancaDTO)
+            throws Exception {
         final Collection<UploadDTO> colArquivosUpload = requisicaomudacaDTO.getColArquivosUpload();
         final HistoricoGEDDTO historicoGEDDTO = new HistoricoGEDDTO();
         final HistoricoGEDDao historicoGEDDao = new HistoricoGEDDao();
@@ -1718,7 +1723,8 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
                 }
 
                 // Se utiliza GEDinterno e eh BD
-                if (PRONTUARIO_GED_INTERNO != null && PRONTUARIO_GED_INTERNO.trim().equalsIgnoreCase("S") && "S".equalsIgnoreCase(prontuarioGedInternoBancoDados.trim())) {
+                if (PRONTUARIO_GED_INTERNO != null && PRONTUARIO_GED_INTERNO.trim().equalsIgnoreCase("S")
+                        && "S".equalsIgnoreCase(prontuarioGedInternoBancoDados.trim())) {
                     controleGEDDTO.setPathArquivo(uploadDTO.getPath()); // Isso vai fazer a gravacao no BD. dento do create abaixo.
                 } else {
                     controleGEDDTO.setPathArquivo(null);
@@ -1754,9 +1760,9 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
                         try {
                             final File arquivo = new File(PRONTUARIO_GED_DIRETORIO + "/" + requisicaomudacaDTO.getIdEmpresa() + "/" + pasta + "/"
                                     + controleGEDDTO.getIdControleGED() + "." + Util.getFileExtension(uploadDTO.getNameFile()));
-                            CriptoUtils.encryptFile(uploadDTO.getPath(),
-                                    PRONTUARIO_GED_DIRETORIO + "/" + requisicaomudacaDTO.getIdEmpresa() + "/" + pasta + "/" + controleGEDDTO.getIdControleGED() + ".ged", System
-                                            .getProperties().get("user.dir") + Constantes.getValue("CAMINHO_CHAVE_PUBLICA"));
+                            CriptoUtils.encryptFile(uploadDTO.getPath(), PRONTUARIO_GED_DIRETORIO + "/" + requisicaomudacaDTO.getIdEmpresa() + "/" + pasta
+                                    + "/" + controleGEDDTO.getIdControleGED() + ".ged",
+                                    System.getProperties().get("user.dir") + Constantes.getValue("CAMINHO_CHAVE_PUBLICA"));
                             arquivo.delete();
                         } catch (final Exception e) {
 
@@ -1769,8 +1775,8 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
     }
 
     @Override
-    public void gravaPlanoDeReversaoGED(final RequisicaoMudancaDTO requisicaomudacaDTO, final TransactionControler tc, final HistoricoMudancaDTO historicoMudancaDTO)
-            throws Exception {
+    public void gravaPlanoDeReversaoGED(final RequisicaoMudancaDTO requisicaomudacaDTO, final TransactionControler tc,
+            final HistoricoMudancaDTO historicoMudancaDTO) throws Exception {
         final Collection<UploadDTO> colArquivosUpload = requisicaomudacaDTO.getColUploadPlanoDeReversaoGED();
 
         // Setando a transaction no GED
@@ -1836,8 +1842,8 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
                 uploadDTO.setTemporario("S");
                 if (upDto.getTemporario() != null) {
                     if (!uploadDTO.getTemporario().equalsIgnoreCase("S")) { // Se
-                                                                            // nao
-                                                                            // //
+                        // nao
+                        // //
                         continue;
                     }
                 } else {
@@ -1879,9 +1885,9 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
                         try {
                             final File arquivo = new File(PRONTUARIO_GED_DIRETORIO + "/" + requisicaomudacaDTO.getIdEmpresa() + "/" + pasta + "/"
                                     + controleGEDDTO.getIdControleGED() + "." + Util.getFileExtension(uploadDTO.getNameFile()));
-                            CriptoUtils.encryptFile(uploadDTO.getPath(),
-                                    PRONTUARIO_GED_DIRETORIO + "/" + requisicaomudacaDTO.getIdEmpresa() + "/" + pasta + "/" + controleGEDDTO.getIdControleGED() + ".ged", System
-                                            .getProperties().get("user.dir") + Constantes.getValue("CAMINHO_CHAVE_PUBLICA"));
+                            CriptoUtils.encryptFile(uploadDTO.getPath(), PRONTUARIO_GED_DIRETORIO + "/" + requisicaomudacaDTO.getIdEmpresa() + "/" + pasta
+                                    + "/" + controleGEDDTO.getIdControleGED() + ".ged",
+                                    System.getProperties().get("user.dir") + Constantes.getValue("CAMINHO_CHAVE_PUBLICA"));
                             arquivo.delete();
                         } catch (final Exception e) {
 
@@ -1920,13 +1926,13 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
 
     @Override
     public Collection listaQuantidadeMudancaPorImpacto(final RequisicaoMudancaDTO requisicaoMudancaDTO) throws Exception {
-        final RequisicaoMudancaDao requisicaoMudancaDao = this.getDao();
+        final RequisicaoMudancaDao requisicaoMudancaDao = getDao();
         return requisicaoMudancaDao.listaQuantidadeMudancaPorImpacto(requisicaoMudancaDTO);
     }
 
     @Override
     public Collection listaQuantidadeMudancaPorPeriodo(final RequisicaoMudancaDTO requisicaoMudancaDTO) throws Exception {
-        final RequisicaoMudancaDao requisicaoMudancaDao = this.getDao();
+        final RequisicaoMudancaDao requisicaoMudancaDao = getDao();
         return requisicaoMudancaDao.listaQuantidadeMudancaPorPeriodo(requisicaoMudancaDTO);
     }
 
@@ -1936,43 +1942,43 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
 
     @Override
     public Collection listaIdETituloMudancasPorPeriodo(final RequisicaoMudancaDTO requisicaoMudancaDTO) throws Exception {
-        final RequisicaoMudancaDao requisicaoMudancaDao = this.getDao();
+        final RequisicaoMudancaDao requisicaoMudancaDao = getDao();
         return requisicaoMudancaDao.listaIdETituloMudancasPorPeriodo(requisicaoMudancaDTO);
     }
 
     @Override
     public Collection listaQuantidadeMudancaPorProprietario(final RequisicaoMudancaDTO requisicaoMudancaDTO) throws Exception {
-        final RequisicaoMudancaDao requisicaoMudancaDao = this.getDao();
+        final RequisicaoMudancaDao requisicaoMudancaDao = getDao();
         return requisicaoMudancaDao.listaQuantidadeMudancaPorProprietario(requisicaoMudancaDTO);
     }
 
     @Override
     public Collection listaQuantidadeMudancaPorSolicitante(final RequisicaoMudancaDTO requisicaoMudancaDTO) throws Exception {
-        final RequisicaoMudancaDao requisicaoMudancaDao = this.getDao();
+        final RequisicaoMudancaDao requisicaoMudancaDao = getDao();
         return requisicaoMudancaDao.listaQuantidadeMudancaPorSolicitante(requisicaoMudancaDTO);
     }
 
     @Override
     public Collection listaQuantidadeMudancaPorStatus(final RequisicaoMudancaDTO requisicaoMudancaDTO) throws Exception {
-        final RequisicaoMudancaDao requisicaoMudancaDao = this.getDao();
+        final RequisicaoMudancaDao requisicaoMudancaDao = getDao();
         return requisicaoMudancaDao.listaQuantidadeMudancaPorStatus(requisicaoMudancaDTO);
     }
 
     @Override
     public Collection listaQuantidadeMudancaPorUrgencia(final RequisicaoMudancaDTO requisicaoMudancaDTO) throws Exception {
-        final RequisicaoMudancaDao requisicaoMudancaDao = this.getDao();
+        final RequisicaoMudancaDao requisicaoMudancaDao = getDao();
         return requisicaoMudancaDao.listaQuantidadeMudancaPorUrgencia(requisicaoMudancaDTO);
     }
 
     @Override
     public Collection listaQuantidadeSemAprovacaoPorPeriodo(final RequisicaoMudancaDTO requisicaoMudancaDTO) throws Exception {
-        final RequisicaoMudancaDao requisicaoMudancaDao = this.getDao();
+        final RequisicaoMudancaDao requisicaoMudancaDao = getDao();
         return requisicaoMudancaDao.listaQuantidadeSemAprovacaoPorPeriodo(requisicaoMudancaDTO);
     }
 
     @Override
     public Collection listaQuantidadeERelacionamentos(final HttpServletRequest request, final RequisicaoMudancaDTO requisicaoMudancaDTO) throws Exception {
-        final RequisicaoMudancaDao requisicaoMudancaDao = this.getDao();
+        final RequisicaoMudancaDao requisicaoMudancaDao = getDao();
 
         final List<RequisicaoMudancaDTO> listaIdETituloMudancasPorPeriodo = new ArrayList<RequisicaoMudancaDTO>(
                 requisicaoMudancaDao.listaIdETituloMudancasPorPeriodo(requisicaoMudancaDTO));
@@ -2093,20 +2099,22 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
                     if (listaIdETituloMudancasPorPeriodo.get(i).getProblema() != null && !listaIdETituloMudancasPorPeriodo.get(i).getProblema().isEmpty()) {
                         totalProblema++;
                     }
-                    if (listaIdETituloMudancasPorPeriodo.get(i).getConhecimento() != null && !listaIdETituloMudancasPorPeriodo.get(i).getConhecimento().isEmpty()) {
+                    if (listaIdETituloMudancasPorPeriodo.get(i).getConhecimento() != null
+                            && !listaIdETituloMudancasPorPeriodo.get(i).getConhecimento().isEmpty()) {
                         totalConhecimento++;
                     }
-                    if (listaIdETituloMudancasPorPeriodo.get(i).getItemConfiguracao() != null && !listaIdETituloMudancasPorPeriodo.get(i).getItemConfiguracao().isEmpty()) {
+                    if (listaIdETituloMudancasPorPeriodo.get(i).getItemConfiguracao() != null
+                            && !listaIdETituloMudancasPorPeriodo.get(i).getItemConfiguracao().isEmpty()) {
                         totalItemConfiguracao++;
                     }
                 } else {
                     final RequisicaoMudancaDTO mudancaDTO = new RequisicaoMudancaDTO();
-                    mudancaDTO.setTitulo(this.negritoHtml(UtilI18N.internacionaliza(request, "citcorpore.comum.totalMudanca")));
-                    mudancaDTO.setIncidente(this.negritoHtml(totalIncidente.toString()));
-                    mudancaDTO.setServico(this.negritoHtml(totalServico.toString()));
-                    mudancaDTO.setProblema(this.negritoHtml(totalProblema.toString()));
-                    mudancaDTO.setConhecimento(this.negritoHtml(totalConhecimento.toString()));
-                    mudancaDTO.setItemConfiguracao(this.negritoHtml(totalItemConfiguracao.toString()));
+                    mudancaDTO.setTitulo(negritoHtml(UtilI18N.internacionaliza(request, "citcorpore.comum.totalMudanca")));
+                    mudancaDTO.setIncidente(negritoHtml(totalIncidente.toString()));
+                    mudancaDTO.setServico(negritoHtml(totalServico.toString()));
+                    mudancaDTO.setProblema(negritoHtml(totalProblema.toString()));
+                    mudancaDTO.setConhecimento(negritoHtml(totalConhecimento.toString()));
+                    mudancaDTO.setItemConfiguracao(negritoHtml(totalItemConfiguracao.toString()));
 
                     listaIdETituloMudancasPorPeriodo.add(i++, mudancaDTO);
 
@@ -2125,10 +2133,12 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
                     if (listaIdETituloMudancasPorPeriodo.get(i).getProblema() != null && !listaIdETituloMudancasPorPeriodo.get(i).getProblema().isEmpty()) {
                         totalProblema++;
                     }
-                    if (listaIdETituloMudancasPorPeriodo.get(i).getConhecimento() != null && !listaIdETituloMudancasPorPeriodo.get(i).getConhecimento().isEmpty()) {
+                    if (listaIdETituloMudancasPorPeriodo.get(i).getConhecimento() != null
+                            && !listaIdETituloMudancasPorPeriodo.get(i).getConhecimento().isEmpty()) {
                         totalConhecimento++;
                     }
-                    if (listaIdETituloMudancasPorPeriodo.get(i).getItemConfiguracao() != null && !listaIdETituloMudancasPorPeriodo.get(i).getItemConfiguracao().isEmpty()) {
+                    if (listaIdETituloMudancasPorPeriodo.get(i).getItemConfiguracao() != null
+                            && !listaIdETituloMudancasPorPeriodo.get(i).getItemConfiguracao().isEmpty()) {
                         totalItemConfiguracao++;
                     }
 
@@ -2136,12 +2146,12 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
                 }
             }
             final RequisicaoMudancaDTO mudancaDTO = new RequisicaoMudancaDTO();
-            mudancaDTO.setTitulo(this.negritoHtml(UtilI18N.internacionaliza(request, "citcorpore.comum.totalMudanca")));
-            mudancaDTO.setIncidente(this.negritoHtml(totalIncidente.toString()));
-            mudancaDTO.setServico(this.negritoHtml(totalServico.toString()));
-            mudancaDTO.setProblema(this.negritoHtml(totalProblema.toString()));
-            mudancaDTO.setConhecimento(this.negritoHtml(totalConhecimento.toString()));
-            mudancaDTO.setItemConfiguracao(this.negritoHtml(totalItemConfiguracao.toString()));
+            mudancaDTO.setTitulo(negritoHtml(UtilI18N.internacionaliza(request, "citcorpore.comum.totalMudanca")));
+            mudancaDTO.setIncidente(negritoHtml(totalIncidente.toString()));
+            mudancaDTO.setServico(negritoHtml(totalServico.toString()));
+            mudancaDTO.setProblema(negritoHtml(totalProblema.toString()));
+            mudancaDTO.setConhecimento(negritoHtml(totalConhecimento.toString()));
+            mudancaDTO.setItemConfiguracao(negritoHtml(totalItemConfiguracao.toString()));
 
             listaIdETituloMudancasPorPeriodo.add(mudancaDTO);
         }
@@ -2279,7 +2289,8 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
             final Integer idGrupoExecutor = requisicaoMudancaDto.getIdGrupoAtual();
             final Integer idTipoMudanca = requisicaoMudancaDto.getIdTipoMudanca();
 
-            final PermissoesFluxoService permissoesFluxoService = (PermissoesFluxoService) ServiceLocator.getInstance().getService(PermissoesFluxoService.class, null);
+            final PermissoesFluxoService permissoesFluxoService = (PermissoesFluxoService) ServiceLocator.getInstance().getService(
+                    PermissoesFluxoService.class, null);
 
             resultado = permissoesFluxoService.permissaoGrupoExecutor(idTipoMudanca, idGrupoExecutor);
         }
@@ -2349,7 +2360,8 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
         final HistoricoMudancaDTO historico = new HistoricoMudancaDTO();
         RequisicaoMudancaDTO requisicaoMudancaDTOAux = requisicaoMudancaDTO;
         final Integer idExecutormodificacao = requisicaoMudancaDTO.getUsuarioDto().getIdEmpregado();
-        final RequisicaoMudancaService requisicaoMudancaService = (RequisicaoMudancaService) ServiceLocator.getInstance().getService(RequisicaoMudancaService.class, null);
+        final RequisicaoMudancaService requisicaoMudancaService = (RequisicaoMudancaService) ServiceLocator.getInstance().getService(
+                RequisicaoMudancaService.class, null);
         requisicaoMudancaDTOAux = (RequisicaoMudancaDTO) requisicaoMudancaService.restore(requisicaoMudancaDTO);
         requisicaoMudancaDTOAux.setAlterarSituacao(requisicaoMudancaDTO.getAlterarSituacao());
         requisicaoMudancaDTOAux.setAcaoFluxo(requisicaoMudancaDTO.getAcaoFluxo());
@@ -2374,11 +2386,11 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
         }
 
         HistoricoMudancaDTO ultVersao = new HistoricoMudancaDTO();
-        ultVersao = this.getHistoricoMudancaDao().maxIdHistorico(requisicaoMudancaDTO);
+        ultVersao = getHistoricoMudancaDao().maxIdHistorico(requisicaoMudancaDTO);
         if (ultVersao.getIdHistoricoMudanca() != null) {
-            ultVersao = (HistoricoMudancaDTO) this.getHistoricoMudancaDao().restore(ultVersao);
-            historico.setHistoricoVersao(ultVersao.getHistoricoVersao() == null ? 1d : +new BigDecimal(ultVersao.getHistoricoVersao() + 0.1f).setScale(1, BigDecimal.ROUND_DOWN)
-                    .floatValue());
+            ultVersao = (HistoricoMudancaDTO) getHistoricoMudancaDao().restore(ultVersao);
+            historico.setHistoricoVersao(ultVersao.getHistoricoVersao() == null ? 1d : +new BigDecimal(ultVersao.getHistoricoVersao() + 0.1f).setScale(1,
+                    BigDecimal.ROUND_DOWN).floatValue());
         } else {
             historico.setHistoricoVersao(1d);
         }
@@ -2394,7 +2406,7 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
     }
 
     public HistoricoMudancaDao getHistoricoMudancaDao() throws ServiceException {
-        return (HistoricoMudancaDao) this.getHistoricoMudDao();
+        return (HistoricoMudancaDao) getHistoricoMudDao();
     }
 
     protected CrudDAO getHistoricoMudDao() throws ServiceException {
@@ -2403,13 +2415,14 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
 
     public Collection<RequisicaoMudancaResponsavelDTO> listarColResponsaveis(final HistoricoMudancaDTO historicoMudancaDTO) throws ServiceException, Exception {
         final RequisicaoMudancaResponsavelDao requisicaoMudancaResponsavelDao = new RequisicaoMudancaResponsavelDao();
-        final Collection<RequisicaoMudancaResponsavelDTO> requisicaoMudancaResponsavelDTOs = requisicaoMudancaResponsavelDao.findByIdMudancaEDataFim(historicoMudancaDTO
-                .getIdRequisicaoMudanca());
+        final Collection<RequisicaoMudancaResponsavelDTO> requisicaoMudancaResponsavelDTOs = requisicaoMudancaResponsavelDao
+                .findByIdMudancaEDataFim(historicoMudancaDTO.getIdRequisicaoMudanca());
 
         return requisicaoMudancaResponsavelDTOs;
     }
 
-    public List<RequisicaoMudancaItemConfiguracaoDTO> listarColItemConfiguracao(final HistoricoMudancaDTO historicoMudancaDTO) throws ServiceException, Exception {
+    public List<RequisicaoMudancaItemConfiguracaoDTO> listarColItemConfiguracao(final HistoricoMudancaDTO historicoMudancaDTO) throws ServiceException,
+            Exception {
         final RequisicaoMudancaItemConfiguracaoDao requisicaoMudancaItemConfiguracaoDao = new RequisicaoMudancaItemConfiguracaoDao();
         final List<RequisicaoMudancaItemConfiguracaoDTO> requisicaoMudancaItemConfiguracaoDTOs = (List<RequisicaoMudancaItemConfiguracaoDTO>) requisicaoMudancaItemConfiguracaoDao
                 .findByIdMudancaEDataFim(historicoMudancaDTO.getIdRequisicaoMudanca());
@@ -2426,23 +2439,24 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
     public List<ProblemaMudancaDTO> listarProblema(final HistoricoMudancaDTO historicoMudancaDTO) throws ServiceException, Exception {
 
         final ProblemaMudancaDAO problemaMudancaDAO = new ProblemaMudancaDAO();
-        final List<ProblemaMudancaDTO> problemaMudancaDTOs = (List<ProblemaMudancaDTO>) problemaMudancaDAO.findByIdMudancaEDataFim(historicoMudancaDTO.getIdRequisicaoMudanca());
+        final List<ProblemaMudancaDTO> problemaMudancaDTOs = (List<ProblemaMudancaDTO>) problemaMudancaDAO.findByIdMudancaEDataFim(historicoMudancaDTO
+                .getIdRequisicaoMudanca());
         return problemaMudancaDTOs;
     }
 
     public List<GrupoRequisicaoMudancaDTO> listarGrupo(final HistoricoMudancaDTO historicoMudancaDTO) throws ServiceException, Exception {
 
         final GrupoRequisicaoMudancaDao grupoRequisicaoMudancaDAO = new GrupoRequisicaoMudancaDao();
-        final List<GrupoRequisicaoMudancaDTO> grupoRequisicaoMudancaDTOs = (List<GrupoRequisicaoMudancaDTO>) grupoRequisicaoMudancaDAO.findByIdMudancaEDataFim(historicoMudancaDTO
-                .getIdRequisicaoMudanca());
+        final List<GrupoRequisicaoMudancaDTO> grupoRequisicaoMudancaDTOs = (List<GrupoRequisicaoMudancaDTO>) grupoRequisicaoMudancaDAO
+                .findByIdMudancaEDataFim(historicoMudancaDTO.getIdRequisicaoMudanca());
         return grupoRequisicaoMudancaDTOs;
     }
 
     public List<RequisicaoMudancaRiscoDTO> listarRiscos(final HistoricoMudancaDTO historicoMudancaDTO) throws ServiceException, Exception {
 
         final RequisicaoMudancaRiscoDao riscoDao = new RequisicaoMudancaRiscoDao();
-        final List<RequisicaoMudancaRiscoDTO> problemaMudancaDTOs = (List<RequisicaoMudancaRiscoDTO>) riscoDao.findByIdRequisicaoMudancaEDataFim(historicoMudancaDTO
-                .getIdRequisicaoMudanca());
+        final List<RequisicaoMudancaRiscoDTO> problemaMudancaDTOs = (List<RequisicaoMudancaRiscoDTO>) riscoDao
+                .findByIdRequisicaoMudancaEDataFim(historicoMudancaDTO.getIdRequisicaoMudanca());
         return problemaMudancaDTOs;
     }
 
@@ -2457,14 +2471,14 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
     public List<LiberacaoMudancaDTO> listarLiberacoes(final HistoricoMudancaDTO historicoMudancaDTO) throws ServiceException, Exception {
 
         final LiberacaoMudancaDao liberacaoMudancaDao = new LiberacaoMudancaDao();
-        final List<LiberacaoMudancaDTO> liberacaoMudancaDTOs = (List<LiberacaoMudancaDTO>) liberacaoMudancaDao.findByIdRequisicaoMudanca(historicoMudancaDTO.getIdLiberacao(),
-                historicoMudancaDTO.getIdRequisicaoMudanca());
+        final List<LiberacaoMudancaDTO> liberacaoMudancaDTOs = (List<LiberacaoMudancaDTO>) liberacaoMudancaDao.findByIdRequisicaoMudanca(
+                historicoMudancaDTO.getIdLiberacao(), historicoMudancaDTO.getIdRequisicaoMudanca());
         return liberacaoMudancaDTOs;
     }
 
     public List<RequisicaoMudancaDTO> listarSolicitacaoServico(final HistoricoMudancaDTO historicoMudancaDTO) throws ServiceException, Exception {
 
-        final RequisicaoMudancaDao mudancaDao = this.getDao();
+        final RequisicaoMudancaDao mudancaDao = getDao();
         final List<RequisicaoMudancaDTO> solicitacaoMudancaDTOs = (List<RequisicaoMudancaDTO>) mudancaDao.findByIdRequisicaoMudancaEDataFim(historicoMudancaDTO
                 .getIdRequisicaoMudanca());
         return solicitacaoMudancaDTOs;
@@ -2724,8 +2738,8 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
     }
 
     // metodo que grava o historico da grid de incidentes/requisicoes
-    private void gravarSolicitacaoServicoHistoricos(final HistoricoMudancaDTO historicoMudancaDTO, final List<RequisicaoMudancaDTO> listSolicitacaoServicosMudanca,
-            final TransactionControler tc) throws ServiceException, Exception {
+    private void gravarSolicitacaoServicoHistoricos(final HistoricoMudancaDTO historicoMudancaDTO,
+            final List<RequisicaoMudancaDTO> listSolicitacaoServicosMudanca, final TransactionControler tc) throws ServiceException, Exception {
         final SolicitacaoServicoMudancaDao solicitacaoServicoMudancaDao = new SolicitacaoServicoMudancaDao();
 
         if (tc != null) {
@@ -2747,9 +2761,9 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
 
     public void fechaRelacionamentoMudanca(final TransactionControler tc, final RequisicaoMudancaDTO requisicaoMudancaDto) {
         if (tc != null) {
-            this.fecharSolicitacaoServicoVinculadaMudanca(tc, requisicaoMudancaDto);
-            this.fecharProblemaVinculadoMudanca(requisicaoMudancaDto, tc);
-            this.fecharItemConfiguracaoVinculadoMudanca(requisicaoMudancaDto, tc);
+            fecharSolicitacaoServicoVinculadaMudanca(tc, requisicaoMudancaDto);
+            fecharProblemaVinculadoMudanca(requisicaoMudancaDto, tc);
+            fecharItemConfiguracaoVinculadoMudanca(requisicaoMudancaDto, tc);
         }
     }
 
@@ -2757,7 +2771,8 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
         final SolicitacaoServicoMudancaDao solicitacaoServicoMudancaDao = new SolicitacaoServicoMudancaDao();
         try {
             solicitacaoServicoMudancaDao.setTransactionControler(tc);
-            final List<SolicitacaoServicoDTO> listSolicitacaoServicoDTO = solicitacaoServicoMudancaDao.listSolicitacaoByIdMudanca(requisicaoMudancaDto.getIdRequisicaoMudanca());
+            final List<SolicitacaoServicoDTO> listSolicitacaoServicoDTO = solicitacaoServicoMudancaDao.listSolicitacaoByIdMudanca(requisicaoMudancaDto
+                    .getIdRequisicaoMudanca());
             if (listSolicitacaoServicoDTO != null && listSolicitacaoServicoDTO.size() > 0) {
                 for (final SolicitacaoServicoDTO solicitacaoServicoDTO : listSolicitacaoServicoDTO) {
                     new SolicitacaoServicoServiceEjb().fechaSolicitacaoServicoVinculadaByProblemaOrMudanca(solicitacaoServicoDTO, tc);
@@ -2789,7 +2804,8 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
         final RequisicaoMudancaItemConfiguracaoDao requisicaoMudancaIcDao = new RequisicaoMudancaItemConfiguracaoDao();
         try {
             requisicaoMudancaIcDao.setTransactionControler(tc);
-            final List<ItemConfiguracaoDTO> listItemCofiguracao = requisicaoMudancaIcDao.listItemConfiguracaoByIdMudanca(requisicaoMudancaDto.getIdRequisicaoMudanca());
+            final List<ItemConfiguracaoDTO> listItemCofiguracao = requisicaoMudancaIcDao.listItemConfiguracaoByIdMudanca(requisicaoMudancaDto
+                    .getIdRequisicaoMudanca());
             if (listItemCofiguracao != null && listItemCofiguracao.size() > 0) {
                 for (final ItemConfiguracaoDTO itemConfiguracaoDTO : listItemCofiguracao) {
                     new ItemConfiguracaoServiceEjb().finalizarItemConfiguracao(itemConfiguracaoDTO, tc);
@@ -2807,8 +2823,10 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
         final SolicitacaoServicoMudancaDao solicitacaoServicoMudancaDao = new SolicitacaoServicoMudancaDao();
 
         final List<ProblemaDTO> listProblemaDto = problemaMudancaDAO.listProblemaByIdMudanca(requisicaoMudancaDto.getIdRequisicaoMudanca());
-        final List<SolicitacaoServicoDTO> listSolicitacaoServicoDTO = solicitacaoServicoMudancaDao.listSolicitacaoByIdMudanca(requisicaoMudancaDto.getIdRequisicaoMudanca());
-        final List<ItemConfiguracaoDTO> listItemCofiguracao = requisicaoMudancaIcDao.listItemConfiguracaoByIdMudanca(requisicaoMudancaDto.getIdRequisicaoMudanca());
+        final List<SolicitacaoServicoDTO> listSolicitacaoServicoDTO = solicitacaoServicoMudancaDao.listSolicitacaoByIdMudanca(requisicaoMudancaDto
+                .getIdRequisicaoMudanca());
+        final List<ItemConfiguracaoDTO> listItemCofiguracao = requisicaoMudancaIcDao.listItemConfiguracaoByIdMudanca(requisicaoMudancaDto
+                .getIdRequisicaoMudanca());
 
         if (listProblemaDto != null && listProblemaDto.size() > 0) {
             return true;
@@ -2821,9 +2839,10 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
         return false;
     }
 
-    public void updateTimeAction(final Integer idGrupoRedirect, final Integer idPrioridadeRedirect, final Integer idRequisicaoMudanca) throws ServiceException, LogicException {
+    public void updateTimeAction(final Integer idGrupoRedirect, final Integer idPrioridadeRedirect, final Integer idRequisicaoMudanca) throws ServiceException,
+            LogicException {
         final ExecucaoMudancaServiceEjb execucaoMudancaService = new ExecucaoMudancaServiceEjb();
-        final RequisicaoMudancaDao requiscaoMudancaDao = this.getDao();
+        final RequisicaoMudancaDao requiscaoMudancaDao = getDao();
         final OcorrenciaMudancaDao ocorrenciaMudancaDao = new OcorrenciaMudancaDao();
 
         final TransactionControler tc = new TransactionControlerImpl(requiscaoMudancaDao.getAliasDB());
@@ -2870,26 +2889,21 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
             tc.commit();
 
         } catch (final Exception e) {
-            this.rollbackTransaction(tc, e);
+            rollbackTransaction(tc, e);
             throw new ServiceException(e);
         } finally {
-            try {
-                tc.close();
-            } catch (final PersistenceException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-
+            tc.closeQuietly();
         }
     }
 
     @Override
-    public void gravaInformacoesGED(final Collection colArquivosUpload, final int idEmpresa, final RequisicaoMudancaDTO requisicaoMudancaDto, final TransactionControler tc)
-            throws Exception {
+    public void gravaInformacoesGED(final Collection colArquivosUpload, final int idEmpresa, final RequisicaoMudancaDTO requisicaoMudancaDto,
+            final TransactionControler tc) throws Exception {
 
     }
 
-    // Thiago Fernandes - 01/11/2013 14:06 - Sol. 121468 - Criação de metodo para validar se foi ninformado o anxo plano de reverção, caso não tenha deve ser aberta a aba de anxo
+    // Thiago Fernandes - 01/11/2013 14:06 - Sol. 121468 - Criação de metodo para validar se foi ninformado o anxo plano de reverção, caso não tenha deve ser
+    // aberta a aba de anxo
     // plano de reverção.
     @Override
     public boolean planoDeReversaoInformado(final RequisicaoMudancaDTO requisicaoMudancaDto, final HttpServletRequest request) throws Exception {
@@ -2897,7 +2911,7 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
         TipoMudancaDTO tipoMudancaDto = new TipoMudancaDTO();
         final AprovacaoMudancaDao aprovacaoMudancaDao = new AprovacaoMudancaDao();
         final TipoMudancaDAO tipoMudancaDAO = new TipoMudancaDAO();
-        final TransactionControler tc = new TransactionControlerImpl(this.getDao().getAliasDB());
+        final TransactionControler tc = new TransactionControlerImpl(getDao().getAliasDB());
         try {
             aprovacaoMudancaDao.setTransactionControler(tc);
             tipoMudancaDAO.setTransactionControler(tc);
@@ -2906,23 +2920,26 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
                 tipoMudancaDto.setIdTipoMudanca(requisicaoMudancaDto.getIdTipoMudanca());
                 tipoMudancaDto = (TipoMudancaDTO) tipoMudancaDAO.restore(tipoMudancaDto);
             }
-            if (requisicaoMudancaDto != null && requisicaoMudancaDto.getDataHoraInicioAgendada() != null && requisicaoMudancaDto.getHoraAgendamentoInicial() != null
-                    && requisicaoMudancaDto != null && requisicaoMudancaDto.getDataHoraInicioAgendada() != null && requisicaoMudancaDto.getHoraAgendamentoInicial() != null) {
-                final boolean resultado = this.seHoraFinalMenorQHoraInicial(requisicaoMudancaDto);
+            if (requisicaoMudancaDto != null && requisicaoMudancaDto.getDataHoraInicioAgendada() != null
+                    && requisicaoMudancaDto.getHoraAgendamentoInicial() != null && requisicaoMudancaDto != null
+                    && requisicaoMudancaDto.getDataHoraInicioAgendada() != null && requisicaoMudancaDto.getHoraAgendamentoInicial() != null) {
+                final boolean resultado = seHoraFinalMenorQHoraInicial(requisicaoMudancaDto);
                 if (resultado == true) {
                     throw new LogicException(UtilI18N.internacionaliza(request, "requisicaoMudanca.horaFinalMenorQueInicial"));
                 }
             }
 
-            if (requisicaoMudancaDto != null && requisicaoMudancaDto.getDataHoraInicioAgendada() != null && requisicaoMudancaDto.getHoraAgendamentoInicial() != null) {
-                final boolean resultado = this.seHoraInicialMenorQAtual(requisicaoMudancaDto);
+            if (requisicaoMudancaDto != null && requisicaoMudancaDto.getDataHoraInicioAgendada() != null
+                    && requisicaoMudancaDto.getHoraAgendamentoInicial() != null) {
+                final boolean resultado = seHoraInicialMenorQAtual(requisicaoMudancaDto);
                 if (resultado == true) {
                     throw new LogicException(UtilI18N.internacionaliza(request, "requisicaoMudanca.horaInicialMenorQueAtual"));
                 }
             }
 
-            if (requisicaoMudancaDto != null && requisicaoMudancaDto.getDataHoraTerminoAgendada() != null && requisicaoMudancaDto.getHoraAgendamentoFinal() != null) {
-                final boolean resultado = this.seHoraFinalMenorQAtual(requisicaoMudancaDto);
+            if (requisicaoMudancaDto != null && requisicaoMudancaDto.getDataHoraTerminoAgendada() != null
+                    && requisicaoMudancaDto.getHoraAgendamentoFinal() != null) {
+                final boolean resultado = seHoraFinalMenorQAtual(requisicaoMudancaDto);
                 if (resultado == true) {
                     throw new LogicException(UtilI18N.internacionaliza(request, "requisicaoMudanca.horaFinalMenorQueAtual"));
                 }
@@ -2941,12 +2958,13 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
             if (requisicaoMudancaDto.getAcaoFluxo().equalsIgnoreCase("E") && !requisicaoMudancaDto.getFase().equalsIgnoreCase("Proposta")) {
                 if (!requisicaoMudancaDto.getStatus().equalsIgnoreCase(SituacaoRequisicaoMudanca.Cancelada.name())) {
                     if (tipoMudancaDto.getExigeAprovacao() != null) {
-                        if (!this.validacaoAvancaFluxo(requisicaoMudancaDto, tc)) {
+                        if (!validacaoAvancaFluxo(requisicaoMudancaDto, tc)) {
                             throw new LogicException(UtilI18N.internacionaliza(request, "requisicaoMudanca.essaSolicitacaoMudancaNaoFoiAprovada"));
                         }
                     }
                     if (!requisicaoMudancaDto.getStatus().equalsIgnoreCase("Rejeitada")) {
-                        final Collection<UploadDTO> arquivosUpados = (Collection<UploadDTO>) request.getSession(true).getAttribute("colUploadPlanoDeReversaoGED");
+                        final Collection<UploadDTO> arquivosUpados = (Collection<UploadDTO>) request.getSession(true).getAttribute(
+                                "colUploadPlanoDeReversaoGED");
                         if (arquivosUpados == null || arquivosUpados.size() == 0) {
                             planoReversaoInformado = false;
                         }
@@ -2957,16 +2975,10 @@ public class RequisicaoMudancaServiceEjb extends CrudServiceImpl implements Requ
             tc.commit();
 
         } catch (final Exception e) {
-            this.rollbackTransaction(tc, e);
+            rollbackTransaction(tc, e);
             throw new ServiceException(e);
         } finally {
-            try {
-                tc.close();
-            } catch (final PersistenceException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-
+            tc.closeQuietly();
         }
         return planoReversaoInformado;
     }

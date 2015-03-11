@@ -2,10 +2,10 @@ package br.com.centralit.citcorpore.bean;
 
 import java.sql.Date;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 @SuppressWarnings("serial")
-public class LocalidadeItemConfiguracaoDTO implements IDto {
+public class LocalidadeItemConfiguracaoDTO extends BaseEntity {
 	
 	private Integer idLocalidade;
 	private Integer idItemConfiguracao;

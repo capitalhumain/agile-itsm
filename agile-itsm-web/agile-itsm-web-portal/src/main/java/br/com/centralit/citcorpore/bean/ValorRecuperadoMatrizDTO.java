@@ -2,11 +2,11 @@ package br.com.centralit.citcorpore.bean;
 
 import java.util.Collection;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.metainfo.bean.CamposObjetoNegocioDTO;
 import br.com.centralit.citcorpore.metainfo.bean.ObjetoNegocioDTO;
-import br.com.citframework.dto.IDto;
 
-public class ValorRecuperadoMatrizDTO implements IDto {
+public class ValorRecuperadoMatrizDTO extends BaseEntity {
 	private ObjetoNegocioDTO objetoNegocioDTO;
 	private CamposObjetoNegocioDTO camposObjetoNegocioChaveDTO; 
 	private CamposObjetoNegocioDTO camposObjetoNegocioApres1DTO;

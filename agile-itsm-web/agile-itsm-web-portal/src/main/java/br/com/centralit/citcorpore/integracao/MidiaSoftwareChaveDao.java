@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.MidiaSoftwareChaveDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
 import br.com.citframework.integracao.Field;
@@ -39,7 +39,7 @@ public class MidiaSoftwareChaveDao extends CrudDaoDefaultImpl {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public Collection<MidiaSoftwareChaveDTO> find(IDto obj) throws PersistenceException {
+	public Collection<MidiaSoftwareChaveDTO> find(BaseEntity obj) throws PersistenceException {
 		List<MidiaSoftwareChaveDTO> ordem = new ArrayList<MidiaSoftwareChaveDTO>();
 		return super.find(obj, ordem);
 	}

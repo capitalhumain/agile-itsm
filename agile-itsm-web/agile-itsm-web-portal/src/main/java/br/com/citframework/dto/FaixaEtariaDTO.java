@@ -1,44 +1,41 @@
 package br.com.citframework.dto;
 
-public class FaixaEtariaDTO implements IDto {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	private Integer inicio;
-	private Integer fim;
-	public Integer getInicio() {
-		return inicio;
-	}
-	public void setInicio(Integer inicio) {
-		this.inicio = inicio;
-	}
-	public Integer getFim() {
-		return fim;
-	}
-	public void setFim(Integer fim) {
-		this.fim = fim;
-	}
-	public String getDescricao() {
-		if (this.getInicio() == null){
-			this.setInicio(new Integer(0));
-		}
-		if (this.getFim() == null){
-			this.setFim(new Integer(999));
-		}
-		String strRet = "";
-		
-		if (this.getInicio().intValue() <= 0){
-			strRet += "Até ";
-		}else{
-			strRet += this.getInicio() + " a ";
-		}
-		if (this.getFim().intValue() >= 150){
-			strRet += "+";
-		}else{
-			strRet += this.getFim() + "";
-		}
-		return strRet;
-	}
+import br.com.agileitsm.model.support.BaseEntity;
+import lombok.Getter;
+import lombok.Setter;
+
+public class FaixaEtariaDTO extends BaseEntity {
+
+    private static final long serialVersionUID = -6808816301966007685L;
+
+    @Getter
+    @Setter
+    private Integer inicio;
+
+    @Getter
+    @Setter
+    private Integer fim;
+
+    public String getDescricao() {
+        if (getInicio() == null) {
+            setInicio(0);
+        }
+        if (getFim() == null) {
+            setFim(999);
+        }
+        String strRet = "";
+
+        if (getInicio().intValue() <= 0) {
+            strRet += "Até ";
+        } else {
+            strRet += getInicio() + " a ";
+        }
+        if (getFim().intValue() >= 150) {
+            strRet += "+";
+        } else {
+            strRet += getFim() + "";
+        }
+        return strRet;
+    }
+
 }

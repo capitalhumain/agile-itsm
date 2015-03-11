@@ -6,6 +6,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.Semaphore;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.AcordoNivelServicoDTO;
 import br.com.centralit.citcorpore.bean.EscalonamentoDTO;
 import br.com.centralit.citcorpore.bean.OcorrenciaProblemaDTO;
@@ -23,7 +24,6 @@ import br.com.centralit.citcorpore.negocio.ProblemaServiceEjb;
 import br.com.centralit.citcorpore.util.CriptoUtils;
 import br.com.centralit.citcorpore.util.Enumerados.ParametroSistema;
 import br.com.centralit.citcorpore.util.ParametroUtil;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.service.ServiceLocator;
 import br.com.citframework.util.UtilDatas;
@@ -236,7 +236,7 @@ public class MonitoraProblema extends Thread{
 		problemaAuxDto.setLinkPesquisaSatisfacao("<a href=\"" + urlSistema + "/pages/pesquisaSatisfacao/pesquisaSatisfacao.load?idSolicitacaoServico=" + problemaAuxDto.getIdProblema() + "&hash="
 				+ idHashValidacao + "\">Clique aqui para fazer a avaliação do Atendimento</a>");
 
-		MensagemEmail mensagem = new MensagemEmail(idModeloEmail, new IDto[] { problemaAuxDto });
+		MensagemEmail mensagem = new MensagemEmail(idModeloEmail, new BaseEntity[] { problemaAuxDto });
 		try {
 			mensagem.envia(problemaAuxDto.getEmailContato(), remetente, remetente);
 		} catch (Exception e) {

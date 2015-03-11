@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.DemandaDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.Condition;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
@@ -53,7 +53,7 @@ public class DemandaDao extends CrudDaoDefaultImpl {
 		return "DEMANDAS";
 	}
 
-	public Collection find(IDto obj) throws PersistenceException {
+	public Collection find(BaseEntity obj) throws PersistenceException {
 		return null;
 	}
 
@@ -63,7 +63,7 @@ public class DemandaDao extends CrudDaoDefaultImpl {
 		return super.list(list);
 	}
 
-	public void updateStatus(IDto obj) throws PersistenceException {
+	public void updateStatus(BaseEntity obj) throws PersistenceException {
 		DemandaDTO demanda = (DemandaDTO)obj;
 		DemandaDTO demandaUpdate = new DemandaDTO();
 		

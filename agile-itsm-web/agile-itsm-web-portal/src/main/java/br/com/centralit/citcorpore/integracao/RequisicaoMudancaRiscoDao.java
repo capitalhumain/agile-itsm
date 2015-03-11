@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.RequisicaoMudancaRiscoDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.Condition;
@@ -30,7 +30,7 @@ public class RequisicaoMudancaRiscoDao extends CrudDaoDefaultImpl{
 	}
 
 	@Override
-	public Collection find(IDto obj) throws PersistenceException {
+	public Collection find(BaseEntity obj) throws PersistenceException {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -51,7 +51,7 @@ public class RequisicaoMudancaRiscoDao extends CrudDaoDefaultImpl{
 	}
 
 	@Override
-	public void updateNotNull(IDto obj) throws PersistenceException {
+	public void updateNotNull(BaseEntity obj) throws PersistenceException {
 		super.updateNotNull(obj);
 	}
 	

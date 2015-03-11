@@ -1,12 +1,12 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * @author thiago.borges
  *
  */
-public class ExternalConnectionDTO implements IDto {
+public class ExternalConnectionDTO extends BaseEntity {
 	/**
     Thiago Borges da Silva
     **/

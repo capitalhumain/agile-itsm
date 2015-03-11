@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.rh.bean.AtitudeIndividualDTO;
 import br.com.centralit.citcorpore.rh.bean.AtribuicaoResponsabilidadeDTO;
 import br.com.centralit.citcorpore.rh.bean.CertificacaoDTO;
@@ -35,7 +36,6 @@ import br.com.centralit.citcorpore.rh.integracao.ManualCursoDao;
 import br.com.centralit.citcorpore.rh.integracao.ManualFuncaoCompetenciaDao;
 import br.com.centralit.citcorpore.rh.integracao.ManualFuncaoDao;
 import br.com.centralit.citcorpore.rh.integracao.PerspectivaComportamentalDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.CrudDAO;
@@ -58,7 +58,7 @@ public class ManualFuncaoServiceEjb extends CrudServiceImpl implements ManualFun
     }
 
     @Override
-    public IDto create(IDto model) throws ServiceException, LogicException {
+    public BaseEntity create(BaseEntity model) throws ServiceException, LogicException {
 
         // Instancia Objeto controlador de transacao
 
@@ -189,7 +189,7 @@ public class ManualFuncaoServiceEjb extends CrudServiceImpl implements ManualFun
     }
 
     @Override
-    public void update(final IDto model) throws ServiceException, LogicException {
+    public void update(final BaseEntity model) throws ServiceException, LogicException {
         // Instancia Objeto controlador de transacao
 
         final CrudDAO crudDao = this.getDao();
@@ -324,7 +324,7 @@ public class ManualFuncaoServiceEjb extends CrudServiceImpl implements ManualFun
     }
 
     @Override
-    public IDto restore(final IDto model) throws ServiceException, LogicException {
+    public BaseEntity restore(final BaseEntity model) throws ServiceException, LogicException {
         final ManualFuncaoDTO manualDto = (ManualFuncaoDTO) super.restore(model);
 
         new ManualFuncaoDao();

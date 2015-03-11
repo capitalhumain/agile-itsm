@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class RequisicaoMudancaLiberacaoDTO implements IDto{
+public class RequisicaoMudancaLiberacaoDTO extends BaseEntity{
 	
 	private Integer idRequisicaoMudancaLiberacao;
 	private Integer idRequisicaoMudanca;

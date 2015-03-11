@@ -207,8 +207,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
     private LocalidadeUnidadeService localidadeUnidadeService;
 
     public boolean validaParametrosUpload() {
-        final String GED_DIRETORIO = ParametroUtil.getValorParametroCitSmartHashMap(
-                Enumerados.ParametroSistema.GedDiretorio, "");
+        final String GED_DIRETORIO = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.GedDiretorio, "");
         if (GED_DIRETORIO == null || GED_DIRETORIO.trim().equals("")) {
             return false;
         }
@@ -216,8 +215,8 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         if (!pastaGed.exists()) {
             return false;
         }
-        final String DISKFILEUPLOAD_REPOSITORYPATH = ParametroUtil.getValorParametroCitSmartHashMap(
-                Enumerados.ParametroSistema.DISKFILEUPLOAD_REPOSITORYPATH, "");
+        final String DISKFILEUPLOAD_REPOSITORYPATH = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.DISKFILEUPLOAD_REPOSITORYPATH,
+                "");
         if (DISKFILEUPLOAD_REPOSITORYPATH == null || DISKFILEUPLOAD_REPOSITORYPATH.trim().equals("")) {
             return false;
         }
@@ -228,8 +227,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         return true;
     }
 
-    public void chamaComboOrigem(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws Exception {
+    public void chamaComboOrigem(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         preencherComboOrigem(document, request, response);
     }
 
@@ -240,8 +238,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
      * @since 09/02/2015 - OPERAÇÃO USAIN BOLT
      */
     @Override
-    public void load(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response)
-            throws Exception {
+    public void load(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
 
         SolicitacaoServicoDTO solicitacaoServicoDto = (SolicitacaoServicoDTO) document.getBean();
 
@@ -250,8 +247,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         final UsuarioDTO usuario = WebUtil.getUsuario(request);
         if (usuario == null) {
             document.alert(UtilI18N.internacionaliza(request, "citcorpore.comum.sessaoExpirada"));
-            document.executeScript("window.location = '" + Constantes.getValue("SERVER_ADDRESS")
-                    + request.getContextPath() + "'");
+            document.executeScript("window.location = '" + Constantes.getValue("SERVER_ADDRESS") + request.getContextPath() + "'");
             return;
         }
 
@@ -301,8 +297,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
          * variavel editar da URL está setada com N, pois se estiver é para
          * setar no objeto e sdesabilitar os campos abaixo
          */
-        if (solicitacaoServicoDto != null && request.getParameter("editar") != null
-                && request.getParameter("editar").equalsIgnoreCase("N")) {
+        if (solicitacaoServicoDto != null && request.getParameter("editar") != null && request.getParameter("editar").equalsIgnoreCase("N")) {
             solicitacaoServicoDto.setEditar("N");
         }
 
@@ -370,13 +365,11 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
 
         request.setAttribute("tarefaAssociada", tarefaAssociada);
 
-        if (solicitacaoServicoDto != null && solicitacaoServicoDto.getUrgencia() != null
-                && StringUtils.isNotBlank(solicitacaoServicoDto.getUrgencia())) {
+        if (solicitacaoServicoDto != null && solicitacaoServicoDto.getUrgencia() != null && StringUtils.isNotBlank(solicitacaoServicoDto.getUrgencia())) {
             document.getElementById("urgencia").setValue(solicitacaoServicoDto.getUrgencia().trim());
         }
 
-        if (solicitacaoServicoDto != null && solicitacaoServicoDto.getImpacto() != null
-                && StringUtils.isNotBlank(solicitacaoServicoDto.getImpacto())) {
+        if (solicitacaoServicoDto != null && solicitacaoServicoDto.getImpacto() != null && StringUtils.isNotBlank(solicitacaoServicoDto.getImpacto())) {
             document.getElementById("impacto").setValue(solicitacaoServicoDto.getImpacto().trim());
         }
 
@@ -413,8 +406,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
          * Mário Júnior - 04/12/2013 #Solicitação-125972 Alterado pois na vizualização e na execução o SLA não é mostrado no 3 passo da
          * solicitação.
          */
-        if (solicitacaoServicoDto != null && solicitacaoServicoDto.getIdContrato() != null
-                && solicitacaoServicoDto.getIdServico() != null) {
+        if (solicitacaoServicoDto != null && solicitacaoServicoDto.getIdContrato() != null && solicitacaoServicoDto.getIdServico() != null) {
             if (solicitacaoServicoDto.getPrazoHH() != null && solicitacaoServicoDto.getPrazoMM() != null) {
                 String hh = solicitacaoServicoDto.getPrazoHH().toString();
                 String mm = solicitacaoServicoDto.getPrazoMM().toString();
@@ -437,12 +429,10 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
             document.executeScript("document.getElementById('tdResultadoSLAPrevisto').innerHTML = '" + sla + "';");
         }
 
-        final String mostraGravarBaseConhec = ParametroUtil.getValorParametroCitSmartHashMap(
-                ParametroSistema.MOSTRAR_GRAVAR_BASE_CONHECIMENTO, "S");
+        final String mostraGravarBaseConhec = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.MOSTRAR_GRAVAR_BASE_CONHECIMENTO, "S");
         document.executeScript("validaExibicaoBaseConhecimento('" + mostraGravarBaseConhec + "')");
 
-        if (solicitacaoServicoDto == null || solicitacaoServicoDto != null
-                && solicitacaoServicoDto.getIdSolicitacaoServico() == null) {
+        if (solicitacaoServicoDto == null || solicitacaoServicoDto != null && solicitacaoServicoDto.getIdSolicitacaoServico() == null) {
             request.getSession().removeAttribute("segundoPassoLoad");
             request.getSession().removeAttribute("terceiroPassoLoad");
             request.getSession().removeAttribute("quartoPassoLoad");
@@ -462,8 +452,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
      * @param response
      * @throws Exception
      */
-    public void carregaSegundoPasso(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws Exception {
+    public void carregaSegundoPasso(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
 
         if (request.getSession().getAttribute("segundoPassoLoad") == null) {
             final String UNIDADE_AUTOCOMPLETE = ParametroUtil.getValorParametroCitSmartHashMap(
@@ -499,8 +488,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
             carregaUnidade(document, request, response);
 
             Integer idSolicitacaoRelacionada = null;
-            if (request.getParameter("idSolicitacaoRelacionada") != null
-                    && !request.getParameter("idSolicitacaoRelacionada").equalsIgnoreCase("")) {
+            if (request.getParameter("idSolicitacaoRelacionada") != null && !request.getParameter("idSolicitacaoRelacionada").equalsIgnoreCase("")) {
                 idSolicitacaoRelacionada = Integer.parseInt(request.getParameter("idSolicitacaoRelacionada"));
 
                 Integer idContrato = null;
@@ -508,8 +496,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
                 SolicitacaoServicoDTO solicitacaoServico = new SolicitacaoServicoDTO();
                 final SolicitacaoServicoDTO solicitacaoServicoInformacoesContato = new SolicitacaoServicoDTO();
 
-                if (request.getParameter("idContrato") != null
-                        && !request.getParameter("idContrato").equalsIgnoreCase("")) {
+                if (request.getParameter("idContrato") != null && !request.getParameter("idContrato").equalsIgnoreCase("")) {
                     idContrato = Integer.parseInt(request.getParameter("idContrato"));
 
                     if (idContrato != null) {
@@ -548,8 +535,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
 
                 if (solicitacaoServicoDto != null && solicitacaoServicoDto.getIdSolicitacaoServico() == null
                         && solicitacaoServicoDto.getIdSolicitacaoRelacionada() != null) {
-                    ((SolicitacaoServicoDTO) document.getBean())
-                    .setIdSolicitante(solicitacaoServico.getIdSolicitante());
+                    ((SolicitacaoServicoDTO) document.getBean()).setIdSolicitante(solicitacaoServico.getIdSolicitante());
                     renderizaHistoricoSolicitacoesEmAndamentoUsuario(document, request, response);
                 }
 
@@ -561,8 +547,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
             }
 
             if (acao && idSolicitacaoRelacionada == null) {
-                if (solicitacaoServicoDto.getIdSolicitacaoServico() == null
-                        || solicitacaoServicoDto.getIdSolicitacaoServico().intValue() == 0) {
+                if (solicitacaoServicoDto.getIdSolicitacaoServico() == null || solicitacaoServicoDto.getIdSolicitacaoServico().intValue() == 0) {
                     verificaGrupoExecutor(document, request, response);
                     verificaImpactoUrgencia(document, request, response);
                 }
@@ -570,10 +555,8 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
 
             preencherComboLocalidade(document, request, response);
 
-            if (UNIDADE_AUTOCOMPLETE != null && UNIDADE_AUTOCOMPLETE.equalsIgnoreCase("S")
-                    && solicitacaoServicoDto.getIdUnidade() != null) {
-                solicitacaoServicoDto.setUnidadeDes(getUnidadeService().retornaNomeUnidadeByID(
-                        solicitacaoServicoDto.getIdUnidade()));
+            if (UNIDADE_AUTOCOMPLETE != null && UNIDADE_AUTOCOMPLETE.equalsIgnoreCase("S") && solicitacaoServicoDto.getIdUnidade() != null) {
+                solicitacaoServicoDto.setUnidadeDes(getUnidadeService().retornaNomeUnidadeByID(solicitacaoServicoDto.getIdUnidade()));
             }
 
             request.getSession().setAttribute("segundoPassoLoad", true);
@@ -592,8 +575,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
      * @param response
      * @throws Exception
      */
-    public void carregaTerceiroPasso(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws Exception {
+    public void carregaTerceiroPasso(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
 
         if (request.getSession().getAttribute("terceiroPassoLoad") == null) {
 
@@ -601,8 +583,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
 
             carregarCombosImpactoUrgente(document, request);
 
-            final Collection<GrupoDTO> listGrupoDoEmpregadoLogado = getGrupoService().getGruposByEmpregado(
-                    usuario.getIdEmpregado());
+            final Collection<GrupoDTO> listGrupoDoEmpregadoLogado = getGrupoService().getGruposByEmpregado(usuario.getIdEmpregado());
 
             if (listGrupoDoEmpregadoLogado != null && !listGrupoDoEmpregadoLogado.isEmpty()) {
                 boolean isAbertura = false;
@@ -619,14 +600,12 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
                             document.executeScript("$('#uniform-enviaEmailCriacao').addClass('disabled')");
                             isAbertura = true;
                         }
-                        if (grupoDto.getEncerramento() != null && grupoDto.getEncerramento().trim().equals("S")
-                                && !isEncerramento) {
+                        if (grupoDto.getEncerramento() != null && grupoDto.getEncerramento().trim().equals("S") && !isEncerramento) {
                             document.getElementById("enviaEmailFinalizacao").setDisabled(true);
                             document.executeScript("$('#uniform-enviaEmailFinalizacao').addClass('disabled')");
                             isEncerramento = true;
                         }
-                        if (grupoDto.getAndamento() != null && grupoDto.getAndamento().trim().equals("S")
-                                && isAndamento) {
+                        if (grupoDto.getAndamento() != null && grupoDto.getAndamento().trim().equals("S") && isAndamento) {
                             document.getElementById("enviaEmailAcoes").setDisabled(true);
                             document.executeScript("$('#uniform-enviaEmailAcoes').addClass('disabled')");
                             isAndamento = true;
@@ -653,8 +632,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
      * @param response
      * @throws Exception
      */
-    public void carregaQuartoPasso(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws Exception {
+    public void carregaQuartoPasso(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
 
         if (request.getSession().getAttribute("quartoPassoLoad") == null) {
 
@@ -668,17 +646,15 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
 
     }
 
-    private void alimentarSolicitanteChamadaAsterisk(DocumentHTML document, HttpServletRequest request,
-            HttpServletResponse response, SolicitacaoServicoDTO solicitacaoServicoDto, String unidade_AUTOCOMPLETE)
-                    throws ServiceException, Exception {
+    private void alimentarSolicitanteChamadaAsterisk(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response,
+            final SolicitacaoServicoDTO solicitacaoServicoDto, final String unidade_AUTOCOMPLETE) throws ServiceException, Exception {
 
         if (request.getParameter("idEmpregado") != null && !request.getParameter("idEmpregado").equals("")
                 && !request.getParameter("idEmpregado").equals("NaN")) {
             final Integer idEmpregado = Integer.parseInt(request.getParameter("idEmpregado"));
 
             // Contratos vinculados ao colaborador
-            final Collection<ContratoDTO> listContratosEmpregado = getContratoService().findAtivosByIdEmpregado(
-                    idEmpregado);
+            final Collection<ContratoDTO> listContratosEmpregado = getContratoService().findAtivosByIdEmpregado(idEmpregado);
 
             ContratoDTO contratoSelecionado = null;
 
@@ -713,10 +689,8 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
                     solicitacaoServicoDto.setEmailcontato(empregadoDTO.getEmail().trim());
                     solicitacaoServicoDto.setIdUnidade(empregadoDTO.getIdUnidade());
 
-                    if (unidade_AUTOCOMPLETE != null && unidade_AUTOCOMPLETE.equalsIgnoreCase("S")
-                            && solicitacaoServicoDto.getIdUnidade() != null) {
-                        solicitacaoServicoDto.setUnidadeDes(getUnidadeService().retornaNomeUnidadeByID(
-                                solicitacaoServicoDto.getIdUnidade()));
+                    if (unidade_AUTOCOMPLETE != null && unidade_AUTOCOMPLETE.equalsIgnoreCase("S") && solicitacaoServicoDto.getIdUnidade() != null) {
+                        solicitacaoServicoDto.setUnidadeDes(getUnidadeService().retornaNomeUnidadeByID(solicitacaoServicoDto.getIdUnidade()));
                     }
 
                     solicitacaoServicoDto.setRamal(empregadoDTO.getRamal());
@@ -727,8 +701,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
     }
 
     private void aplicaOrigemHelpDesk(final DocumentHTML document) throws ServiceException, Exception {
-        final OrigemAtendimentoDTO origemAtendimentoDTO = getOrigemAtendimentoService().buscarOrigemAtendimento(
-                "Help Desk");
+        final OrigemAtendimentoDTO origemAtendimentoDTO = getOrigemAtendimentoService().buscarOrigemAtendimento("Help Desk");
         if (origemAtendimentoDTO != null && origemAtendimentoDTO.getIdOrigem() != null) {
             try {
                 document.getElementById("idOrigem").setValue(origemAtendimentoDTO.getIdOrigem().toString());
@@ -751,8 +724,8 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
      * @author valdoilo.damasceno
      * @since 03.11.2013
      */
-    private void carregarComboContrato(final DocumentHTML document, final UsuarioDTO usuario,
-            final SolicitacaoServicoDTO solicitacaoServicoDto) throws Exception, LogicException, ServiceException {
+    private void carregarComboContrato(final DocumentHTML document, final UsuarioDTO usuario, final SolicitacaoServicoDTO solicitacaoServicoDto)
+            throws Exception, LogicException, ServiceException {
 
         Collection<ContratoDTO> listContratoAtivo = null;
 
@@ -810,8 +783,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
 
                     document.executeScript("adicionarIdContratoNaLookup(" + contratoDto.getIdContrato() + ")");
 
-                    document.getSelectById("idContrato").addOption("" + contratoDto.getIdContrato(),
-                            contratoDto.getNome());
+                    document.getSelectById("idContrato").addOption("" + contratoDto.getIdContrato(), contratoDto.getNome());
 
                     acao = true;
 
@@ -835,8 +807,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
      * @author valdoilo.damasceno
      * @since 03.11.2013
      */
-    private void carregarComboCategoriaSolucao(final DocumentHTML document, final HttpServletRequest request)
-            throws ServiceException, Exception {
+    private void carregarComboCategoriaSolucao(final DocumentHTML document, final HttpServletRequest request) throws ServiceException, Exception {
 
         final Collection listCategoriaSolucao = getCategoriaSolucaoService().listHierarquia();
 
@@ -861,8 +832,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
      * @author valdoilo.damasceno
      * @since 03.11.2013
      */
-    private void carregarComboCausa(final DocumentHTML document, final HttpServletRequest request)
-            throws ServiceException, Exception {
+    private void carregarComboCausa(final DocumentHTML document, final HttpServletRequest request) throws ServiceException, Exception {
 
         final Collection colCausas = getCausaIncidenteService().listHierarquia();
 
@@ -887,8 +857,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
      * @author valdoilo.damasceno
      * @since 03.11.2013
      */
-    private void carregarComboGrupoAtual(final DocumentHTML document, final HttpServletRequest request)
-            throws Exception, ServiceException {
+    private void carregarComboGrupoAtual(final DocumentHTML document, final HttpServletRequest request) throws Exception, ServiceException {
 
         final HTMLSelect idGrupoAtual = document.getSelectById("idGrupoAtual");
 
@@ -913,8 +882,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
      * @author valdoilo.damasceno
      * @since 03.11.2013
      */
-    private void carregarComboTipoDemanda(final DocumentHTML document, final HttpServletRequest request)
-            throws ServiceException, Exception {
+    private void carregarComboTipoDemanda(final DocumentHTML document, final HttpServletRequest request) throws ServiceException, Exception {
 
         final HTMLSelect idTipoDemandaServico = document.getSelectById("idTipoDemandaServico");
 
@@ -939,8 +907,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
      * @author valdoilo.damasceno
      * @since 03.11.2013
      */
-    private void carregarCombosImpactoUrgente(final DocumentHTML document, final HttpServletRequest request)
-            throws Exception, ServiceException {
+    private void carregarCombosImpactoUrgente(final DocumentHTML document, final HttpServletRequest request) throws Exception, ServiceException {
 
         final HTMLSelect urgencia = document.getSelectById("urgencia");
 
@@ -1016,14 +983,13 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         }
 
         final String nomeContrato = "" + contratoDto.getNumero() + " de "
-                + UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, contratoDto.getDataContrato(), language) + " ("
-                + nomeCliente + " - " + nomeFornecedor + ")";
+                + UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, contratoDto.getDataContrato(), language) + " (" + nomeCliente + " - " + nomeFornecedor
+                + ")";
 
         return nomeContrato;
     }
 
-    public void save(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response)
-            throws Exception {
+    public void save(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
 
         boolean bExisteSolicitacao = false;
         SolicitacaoServicoQuestionarioDTO solicitacaoServicoQuestionarioDto = null;
@@ -1034,8 +1000,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
 
             if (usuario == null) {
                 document.alert(UtilI18N.internacionaliza(request, "citcorpore.comum.sessaoExpirada"));
-                document.executeScript("window.location = '" + Constantes.getValue("SERVER_ADDRESS")
-                        + request.getContextPath() + "'");
+                document.executeScript("window.location = '" + Constantes.getValue("SERVER_ADDRESS") + request.getContextPath() + "'");
                 return;
             }
 
@@ -1047,46 +1012,39 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
             final boolean bAlterarSituacao = solicitacaoServicoDto.getAlterarSituacao() != null
                     && solicitacaoServicoDto.getAlterarSituacao().equalsIgnoreCase("S");
 
-            final SolicitacaoServicoService solicitacaoServicoService = (SolicitacaoServicoService) ServiceLocator
-                    .getInstance().getService(SolicitacaoServicoService.class, WebUtil.getUsuarioSistema(request));
-            final TemplateSolicitacaoServicoService templateService = (TemplateSolicitacaoServicoService) ServiceLocator
-                    .getInstance().getService(TemplateSolicitacaoServicoService.class,
-                            WebUtil.getUsuarioSistema(request));
-            final TemplateSolicitacaoServicoDTO templateDto = templateService
-                    .recuperaTemplateServico(solicitacaoServicoDto);
+            final SolicitacaoServicoService solicitacaoServicoService = (SolicitacaoServicoService) ServiceLocator.getInstance().getService(
+                    SolicitacaoServicoService.class, WebUtil.getUsuarioSistema(request));
+            final TemplateSolicitacaoServicoService templateService = (TemplateSolicitacaoServicoService) ServiceLocator.getInstance().getService(
+                    TemplateSolicitacaoServicoService.class, WebUtil.getUsuarioSistema(request));
+            final TemplateSolicitacaoServicoDTO templateDto = templateService.recuperaTemplateServico(solicitacaoServicoDto);
             if (templateDto != null && templateDto.isQuestionario()) {
                 final Timestamp ts1 = UtilDatas.getDataHoraAtual();
                 double tempo = 0;
-                solicitacaoServicoQuestionarioDto = (SolicitacaoServicoQuestionarioDTO) request.getSession()
-                        .getAttribute("dados_solicit_quest");
+                solicitacaoServicoQuestionarioDto = (SolicitacaoServicoQuestionarioDTO) request.getSession().getAttribute("dados_solicit_quest");
                 while (solicitacaoServicoQuestionarioDto == null && tempo <= 10000) {
-                    solicitacaoServicoQuestionarioDto = (SolicitacaoServicoQuestionarioDTO) request.getSession()
-                            .getAttribute("dados_solicit_quest");
+                    solicitacaoServicoQuestionarioDto = (SolicitacaoServicoQuestionarioDTO) request.getSession().getAttribute("dados_solicit_quest");
                     final Timestamp ts2 = UtilDatas.getDataHoraAtual();
                     tempo = UtilDatas.calculaDiferencaTempoEmMilisegundos(ts2, ts1);
                 }
                 if (solicitacaoServicoQuestionarioDto == null) {
-                    document.alert(UtilI18N.internacionaliza(request,
-                            "solicitacaoservico.validacao.informacoesComplementares"));
+                    document.alert(UtilI18N.internacionaliza(request, "solicitacaoservico.validacao.informacoesComplementares"));
                     carregaInformacoesComplementares(document, request, solicitacaoServicoDto);
                     return;
                 }
             }
 
-            solicitacaoServicoService.deserializaInformacoesComplementares(solicitacaoServicoDto,
-                    solicitacaoServicoQuestionarioDto);
+            solicitacaoServicoService.deserializaInformacoesComplementares(solicitacaoServicoDto, solicitacaoServicoQuestionarioDto);
 
             final BaseConhecimentoDTO baseConhecimento = new BaseConhecimentoDTO();
             final UsuarioDTO usuarioDto = WebUtil.getUsuario(request);
 
             if (solicitacaoServicoDto != null) {
                 baseConhecimento.setTitulo(solicitacaoServicoDto.getTituloBaseConhecimento());
-                baseConhecimento.setConteudo("Descrição: " + solicitacaoServicoDto.getDescricaoSemFormatacao()
-                        + "<br><br>" + "Solução/Resposta: " + solicitacaoServicoDto.getResposta());
+                baseConhecimento.setConteudo("Descrição: " + solicitacaoServicoDto.getDescricaoSemFormatacao() + "<br><br>" + "Solução/Resposta: "
+                        + solicitacaoServicoDto.getResposta());
             }
             baseConhecimento.setOrigem("5");// Serviço
-            baseConhecimento
-            .setDataExpiracao(UtilDatas.getSqlDate(UtilDatas.geraUmAnoSeguinte(UtilDatas.getDataAtual())));
+            baseConhecimento.setDataExpiracao(UtilDatas.getSqlDate(UtilDatas.geraUmAnoSeguinte(UtilDatas.getDataAtual())));
             baseConhecimento.setStatus("N");
             baseConhecimento.setErroConhecido("S");
             baseConhecimento.setSituacao("EAV");
@@ -1099,8 +1057,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
                 solicitacaoServicoDto.setBeanBaseConhecimento(baseConhecimento);
             }
 
-            if (solicitacaoServicoDto != null && solicitacaoServicoDto.getIdUnidade() == null
-                    && solicitacaoServicoDto.getIdUnidade() != 0) {
+            if (solicitacaoServicoDto != null && solicitacaoServicoDto.getIdUnidade() == null && solicitacaoServicoDto.getIdUnidade() != 0) {
                 document.alert(UtilI18N.internacionaliza(request, "citcorpore.comum.validacao.unidadecontato"));
                 verificaImpactoUrgencia(document, request, response);
                 document.executeScript("habilitaBotaoGravar()");
@@ -1114,8 +1071,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
 
             }
 
-            if (solicitacaoServicoDto != null && solicitacaoServicoDto.getEscalar() != null
-                    && solicitacaoServicoDto.getEscalar().equalsIgnoreCase("S")) {
+            if (solicitacaoServicoDto != null && solicitacaoServicoDto.getEscalar() != null && solicitacaoServicoDto.getEscalar().equalsIgnoreCase("S")) {
                 if (solicitacaoServicoDto.getIdGrupoAtual() == null) {
                     document.alert(UtilI18N.internacionaliza(request, "citcorpore.comum.validacao.grupoatendimento"));
                     verificaImpactoUrgencia(document, request, response);
@@ -1131,19 +1087,16 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
             }
             ServicoContratoDTO servicoContratoDto = null;
             if (solicitacaoServicoDto != null) {
-                servicoContratoDto = getServicoContratoService().findByIdContratoAndIdServico(
-                        solicitacaoServicoDto.getIdContrato(), solicitacaoServicoDto.getIdServico());
+                servicoContratoDto = getServicoContratoService().findByIdContratoAndIdServico(solicitacaoServicoDto.getIdContrato(),
+                        solicitacaoServicoDto.getIdServico());
             }
             if (servicoContratoDto != null) {
-                if (servicoContratoDto != null && solicitacaoServicoDto.getIdGrupoNivel1() == null
-                        || solicitacaoServicoDto.getIdGrupoNivel1().intValue() <= 0) {
+                if (servicoContratoDto != null && solicitacaoServicoDto.getIdGrupoNivel1() == null || solicitacaoServicoDto.getIdGrupoNivel1().intValue() <= 0) {
                     Integer idGrupoNivel1 = null;
-                    if (servicoContratoDto.getIdGrupoNivel1() != null
-                            && servicoContratoDto.getIdGrupoNivel1().intValue() > 0) {
+                    if (servicoContratoDto.getIdGrupoNivel1() != null && servicoContratoDto.getIdGrupoNivel1().intValue() > 0) {
                         idGrupoNivel1 = servicoContratoDto.getIdGrupoNivel1();
                     } else {
-                        final String idGrupoN1 = ParametroUtil.getValor(ParametroSistema.ID_GRUPO_PADRAO_NIVEL1, null,
-                                null);
+                        final String idGrupoN1 = ParametroUtil.getValor(ParametroSistema.ID_GRUPO_PADRAO_NIVEL1, null, null);
                         if (idGrupoN1 != null && !idGrupoN1.trim().equalsIgnoreCase("")) {
                             try {
                                 idGrupoNivel1 = new Integer(idGrupoN1);
@@ -1153,8 +1106,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
                         }
                     }
                     if (idGrupoNivel1 == null || idGrupoNivel1.intValue() <= 0) {
-                        document.alert(UtilI18N.internacionaliza(request,
-                                "solicitacaoservico.validacao.grupoatendnivel"));
+                        document.alert(UtilI18N.internacionaliza(request, "solicitacaoservico.validacao.grupoatendnivel"));
                         if (solicitacaoServicoQuestionarioDto != null) {
                             carregaInformacoesComplementares(document, request, solicitacaoServicoDto);
                         }
@@ -1165,16 +1117,13 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
             }
 
             final List<ConhecimentoSolicitacaoDTO> colConhecimentoSolicitacao = (List<ConhecimentoSolicitacaoDTO>) br.com.citframework.util.WebUtil
-                    .deserializeCollectionFromRequest(ConhecimentoSolicitacaoDTO.class,
-                            "colConhecimentoSolicitacao_Serialize", request);
+                    .deserializeCollectionFromRequest(ConhecimentoSolicitacaoDTO.class, "colConhecimentoSolicitacao_Serialize", request);
             if (solicitacaoServicoDto != null) {
                 solicitacaoServicoDto.setColConhecimentoSolicitacaoSerialize(colConhecimentoSolicitacao);
             }
 
-            if (solicitacaoServicoDto != null
-                    && solicitacaoServicoDto.getSituacao() != null
-                    && solicitacaoServicoDto.getSituacao().equalsIgnoreCase(
-                            Enumerados.SituacaoSolicitacaoServico.Resolvida.name())) {
+            if (solicitacaoServicoDto != null && solicitacaoServicoDto.getSituacao() != null
+                    && solicitacaoServicoDto.getSituacao().equalsIgnoreCase(Enumerados.SituacaoSolicitacaoServico.Resolvida.name())) {
 
                 if (solicitacaoServicoDto.getResposta().trim().equalsIgnoreCase("")) {
                     document.alert(UtilI18N.internacionaliza(request, "citcorpore.comum.validacao.solucaoresposta"));
@@ -1188,23 +1137,20 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
                     }
                     return;
                 }
-                final TipoDemandaServicoService tipoDemandaServicoService = (TipoDemandaServicoService) ServiceLocator
-                        .getInstance().getService(TipoDemandaServicoService.class, WebUtil.getUsuarioSistema(request));
+                final TipoDemandaServicoService tipoDemandaServicoService = (TipoDemandaServicoService) ServiceLocator.getInstance().getService(
+                        TipoDemandaServicoService.class, WebUtil.getUsuarioSistema(request));
                 TipoDemandaServicoDTO tipoDemandaServicoDTO = new TipoDemandaServicoDTO();
                 tipoDemandaServicoDTO.setIdTipoDemandaServico(solicitacaoServicoDto.getIdTipoDemandaServico());
                 if (tipoDemandaServicoDTO.getIdTipoDemandaServico() == null) {
-                    final SolicitacaoServicoDTO solicitacaoServicoAux = solicitacaoServicoService
-                            .restoreAll(solicitacaoServicoDto.getIdSolicitacaoServico());
+                    final SolicitacaoServicoDTO solicitacaoServicoAux = solicitacaoServicoService.restoreAll(solicitacaoServicoDto.getIdSolicitacaoServico());
                     tipoDemandaServicoDTO.setIdTipoDemandaServico(solicitacaoServicoAux.getIdTipoDemandaServico());
                 }
-                tipoDemandaServicoDTO = (TipoDemandaServicoDTO) tipoDemandaServicoService
-                        .restore(tipoDemandaServicoDTO);
+                tipoDemandaServicoDTO = (TipoDemandaServicoDTO) tipoDemandaServicoService.restore(tipoDemandaServicoDTO);
                 if (tipoDemandaServicoDTO != null) {
                     if (tipoDemandaServicoDTO.getClassificacao().equalsIgnoreCase("I")) {
                         if (CAMPOS_OBRIGATORIO_SOLICITACAOSERVICO.trim().equalsIgnoreCase("S")) {
                             if (solicitacaoServicoDto.getIdCausaIncidente() == null) {
-                                document.alert(UtilI18N.internacionaliza(request,
-                                        "citcorpore.comum.validacao.classifiqueincidente"));
+                                document.alert(UtilI18N.internacionaliza(request, "citcorpore.comum.validacao.classifiqueincidente"));
                                 verificaImpactoUrgencia(document, request, response);
                                 document.executeScript("habilitaBotaoGravar()");
                                 if (!bAlterarSituacao) {
@@ -1216,8 +1162,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
                                 return;
                             }
                             if (solicitacaoServicoDto.getIdCategoriaSolucao() == null) {
-                                document.alert(UtilI18N.internacionaliza(request,
-                                        "citcorpore.comum.validacao.classifiquesolucao"));
+                                document.alert(UtilI18N.internacionaliza(request, "citcorpore.comum.validacao.classifiquesolucao"));
                                 verificaImpactoUrgencia(document, request, response);
                                 document.executeScript("habilitaBotaoGravar()");
                                 if (!bAlterarSituacao) {
@@ -1236,53 +1181,49 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
                         && solicitacaoServicoDto.getValidaBaseConhecimento().equalsIgnoreCase("S");
 
                 if (bvalidaBaseConhecimento) {
-                    final boolean informouBaseConhecimento = solicitacaoServicoDto
-                            .getColConhecimentoSolicitacaoSerialize() != null
+                    final boolean informouBaseConhecimento = solicitacaoServicoDto.getColConhecimentoSolicitacaoSerialize() != null
                             && solicitacaoServicoDto.getColConhecimentoSolicitacaoSerialize().size() > 0;
-                    if (!informouBaseConhecimento) {
-                        document.alert(UtilI18N
-                                        .internacionaliza(request, "citcorpore.comum.validacao.baseconhecimento"));
-                        verificaImpactoUrgencia(document, request, response);
-                        document.executeScript("habilitaBotaoGravar()");
-                        if (!bAlterarSituacao) {
-                            document.executeScript("desabilitarSituacao();");
-                        }
-                        if (solicitacaoServicoQuestionarioDto != null) {
-                            carregaInformacoesComplementares(document, request, solicitacaoServicoDto);
-                        }
-                        return;
-                    }
+                            if (!informouBaseConhecimento) {
+                                document.alert(UtilI18N.internacionaliza(request, "citcorpore.comum.validacao.baseconhecimento"));
+                                verificaImpactoUrgencia(document, request, response);
+                                document.executeScript("habilitaBotaoGravar()");
+                                if (!bAlterarSituacao) {
+                                    document.executeScript("desabilitarSituacao();");
+                                }
+                                if (solicitacaoServicoQuestionarioDto != null) {
+                                    carregaInformacoesComplementares(document, request, solicitacaoServicoDto);
+                                }
+                                return;
+                            }
                 }
             }
 
-            final Collection<UploadDTO> arquivosUpados = (Collection<UploadDTO>) request.getSession(true).getAttribute(
-                    "colUploadsGED2");
+            final Collection<UploadDTO> arquivosUpados = (Collection<UploadDTO>) request.getSession(true).getAttribute("colUploadsGED2");
 
             if (solicitacaoServicoDto != null) {
                 solicitacaoServicoDto.setColArquivosUpload(arquivosUpados);
             }
 
-            final Collection colItensProblema = br.com.citframework.util.WebUtil.deserializeCollectionFromRequest(
-                    ProblemaDTO.class, "colItensProblema_Serialize", request);
+            final Collection colItensProblema = br.com.citframework.util.WebUtil.deserializeCollectionFromRequest(ProblemaDTO.class,
+                    "colItensProblema_Serialize", request);
             if (solicitacaoServicoDto != null) {
                 solicitacaoServicoDto.setColItensProblema(colItensProblema);
             }
 
-            final List<RequisicaoMudancaDTO> colItensMudanca = (List<RequisicaoMudancaDTO>) br.com.citframework.util.WebUtil
-                    .deserializeCollectionFromRequest(RequisicaoMudancaDTO.class, "colItensMudanca_Serialize", request);
+            final List<RequisicaoMudancaDTO> colItensMudanca = (List<RequisicaoMudancaDTO>) br.com.citframework.util.WebUtil.deserializeCollectionFromRequest(
+                    RequisicaoMudancaDTO.class, "colItensMudanca_Serialize", request);
             if (solicitacaoServicoDto != null) {
                 solicitacaoServicoDto.setColItensMudanca(colItensMudanca);
             }
 
-            final List<ItemConfiguracaoDTO> colItensIC = (List<ItemConfiguracaoDTO>) br.com.citframework.util.WebUtil
-                    .deserializeCollectionFromRequest(ItemConfiguracaoDTO.class, "colItensIC_Serialize", request);
+            final List<ItemConfiguracaoDTO> colItensIC = (List<ItemConfiguracaoDTO>) br.com.citframework.util.WebUtil.deserializeCollectionFromRequest(
+                    ItemConfiguracaoDTO.class, "colItensIC_Serialize", request);
             if (solicitacaoServicoDto != null) {
                 solicitacaoServicoDto.setColItensICSerialize(colItensIC);
             }
 
             final List<BaseConhecimentoDTO> colItensBaseConhecimento = (List<BaseConhecimentoDTO>) br.com.citframework.util.WebUtil
-                    .deserializeCollectionFromRequest(BaseConhecimentoDTO.class, "colItensBaseConhecimento_Serialize",
-                            request);
+                    .deserializeCollectionFromRequest(BaseConhecimentoDTO.class, "colItensBaseConhecimento_Serialize", request);
             if (solicitacaoServicoDto != null) {
                 solicitacaoServicoDto.setColItensBaseConhecimento(colItensBaseConhecimento);
             }
@@ -1294,15 +1235,12 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
 
             try {
                 if (solicitacaoServicoDto != null
-                        && (solicitacaoServicoDto.getIdSolicitacaoServico() == null || solicitacaoServicoDto
-                        .getIdSolicitacaoServico().intValue() == 0)) {
-                    solicitacaoServicoDto = (SolicitacaoServicoDTO) solicitacaoServicoService
-                            .create(solicitacaoServicoDto);
+                        && (solicitacaoServicoDto.getIdSolicitacaoServico() == null || solicitacaoServicoDto.getIdSolicitacaoServico().intValue() == 0)) {
+                    solicitacaoServicoDto = (SolicitacaoServicoDTO) solicitacaoServicoService.create(solicitacaoServicoDto);
 
                     // Registra o email se tiver sido utilizado
-                    final EmailSolicitacaoServicoService emailSolicitacaoServicoService = (EmailSolicitacaoServicoService) ServiceLocator
-                            .getInstance().getService(EmailSolicitacaoServicoService.class,
-                                    WebUtil.getUsuarioSistema(request));
+                    final EmailSolicitacaoServicoService emailSolicitacaoServicoService = (EmailSolicitacaoServicoService) ServiceLocator.getInstance()
+                            .getService(EmailSolicitacaoServicoService.class, WebUtil.getUsuarioSistema(request));
                     if (solicitacaoServicoDto != null && solicitacaoServicoDto.getMessageId() != null
                             && solicitacaoServicoDto.getMessageId().trim().length() > 0) {
                         final EmailSolicitacaoServicoDTO emailDto = new EmailSolicitacaoServicoDTO();
@@ -1314,12 +1252,10 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
 
                     document.executeScript("$('#divInformacoesComplementares').switchClass( 'ativo', 'inativo', null );");
 
-                    String comando = "mostraMensagemInsercao('<h3>" + UtilI18N.internacionaliza(request, "MSG05")
-                            + ".<br>" + UtilI18N.internacionaliza(request, "gerenciaservico.numerosolicitacao")
-                            + " <b><u>" + solicitacaoServicoDto.getIdSolicitacaoServico() + "</u></b> "
-                            + UtilI18N.internacionaliza(request, "citcorpore.comum.crida") + ".<br><br>"
-                            + UtilI18N.internacionaliza(request, "prioridade.prioridade") + ": "
-                            + solicitacaoServicoDto.getIdPrioridade();
+                    String comando = "mostraMensagemInsercao('<h3>" + UtilI18N.internacionaliza(request, "MSG05") + ".<br>"
+                            + UtilI18N.internacionaliza(request, "gerenciaservico.numerosolicitacao") + " <b><u>"
+                            + solicitacaoServicoDto.getIdSolicitacaoServico() + "</u></b> " + UtilI18N.internacionaliza(request, "citcorpore.comum.crida")
+                            + ".<br><br>" + UtilI18N.internacionaliza(request, "prioridade.prioridade") + ": " + solicitacaoServicoDto.getIdPrioridade();
                     if (solicitacaoServicoDto.getPrazoHH() > 0 || solicitacaoServicoDto.getPrazoMM() > 0) {
                         comando = comando + " - SLA: " + solicitacaoServicoDto.getSLAStr() + "";
                     }
@@ -1328,14 +1264,12 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
                     return;
                 } else {
                     // Registra o email se tiver sido utilizado
-                    final EmailSolicitacaoServicoService emailSolicitacaoServicoService = (EmailSolicitacaoServicoService) ServiceLocator
-                            .getInstance().getService(EmailSolicitacaoServicoService.class,
-                                    WebUtil.getUsuarioSistema(request));
+                    final EmailSolicitacaoServicoService emailSolicitacaoServicoService = (EmailSolicitacaoServicoService) ServiceLocator.getInstance()
+                            .getService(EmailSolicitacaoServicoService.class, WebUtil.getUsuarioSistema(request));
                     if (solicitacaoServicoDto != null && solicitacaoServicoDto.getMessageId() != null
                             && solicitacaoServicoDto.getMessageId().trim().length() > 0) {
-                        EmailSolicitacaoServicoDTO emailDto = emailSolicitacaoServicoService
-                                .getEmailByIdSolicitacaoAndOrigem(solicitacaoServicoDto.getIdSolicitacaoServico(),
-                                        TipoOrigemLeituraEmail.SOLICITACAO_SERVICO.toString());
+                        EmailSolicitacaoServicoDTO emailDto = emailSolicitacaoServicoService.getEmailByIdSolicitacaoAndOrigem(
+                                solicitacaoServicoDto.getIdSolicitacaoServico(), TipoOrigemLeituraEmail.SOLICITACAO_SERVICO.toString());
 
                         if (emailDto != null && emailDto.getIdEmail() != null) {
                             emailDto.setIdMessage(solicitacaoServicoDto.getMessageId());
@@ -1379,8 +1313,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
                 return;
             }
 
-            if (solicitacaoServicoDto != null && solicitacaoServicoDto.getReclassificar() != null
-                    && solicitacaoServicoDto.getReclassificar().equals("S")) {
+            if (solicitacaoServicoDto != null && solicitacaoServicoDto.getReclassificar() != null && solicitacaoServicoDto.getReclassificar().equals("S")) {
                 document.executeScript("document.getElementById('divBotoes').style.display = 'block';");
             }
 
@@ -1388,8 +1321,8 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
 
             final String reclassificar = request.getParameter("reclassificar");
             final String gravaContinua = request.getParameter("acaoFluxo");
-            if (reclassificar != null && reclassificar != "" && reclassificar.equals("S") || gravaContinua != null
-                    && gravaContinua != "" && gravaContinua.equals("I")) {
+            if (reclassificar != null && reclassificar != "" && reclassificar.equals("S") || gravaContinua != null && gravaContinua != ""
+                    && gravaContinua.equals("I")) {
                 document.executeScript("parent.refreshTelaGerenciamento()");
                 request.getSession().setAttribute("gravaEContinua", null);
             } else {
@@ -1413,8 +1346,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         return false;
     }
 
-    public void sincronizaAD(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws Exception {
+    public void sincronizaAD(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         SolicitacaoServicoDTO solicitacaoServicoDto = (SolicitacaoServicoDTO) document.getBean();
         if (solicitacaoServicoDto.getFiltroADPesq() == null) {
             solicitacaoServicoDto.setFiltroADPesq(document.getElementById("filtroADPesq").getValue());
@@ -1426,8 +1358,8 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
 
         contratoDto = (ContratoDTO) getContratoService().restore(contratoDto);
 
-        final Collection<ADUserDTO> listUsuariosADDto = LDAPUtils.consultaEmpregado(
-                solicitacaoServicoDto.getFiltroADPesq(), contratoDto.getIdGrupoSolicitante());
+        final Collection<ADUserDTO> listUsuariosADDto = LDAPUtils.consultaEmpregado(solicitacaoServicoDto.getFiltroADPesq(),
+                contratoDto.getIdGrupoSolicitante());
 
         if (listUsuariosADDto != null && !listUsuariosADDto.isEmpty()) {
 
@@ -1457,8 +1389,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
      * @param response
      * @throws Exception
      */
-    public void carregaUnidade(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws Exception {
+    public void carregaUnidade(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
 
         final String UNIDADE_AUTOCOMPLETE = ParametroUtil.getValorParametroCitSmartHashMap(
                 br.com.centralit.citcorpore.util.Enumerados.ParametroSistema.UNIDADE_AUTOCOMPLETE, "N");
@@ -1471,11 +1402,9 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
 
             SolicitacaoServicoDTO solicitacaoServicoDto = (SolicitacaoServicoDTO) document.getBean();
 
-            if (solicitacaoServicoDto.getIdSolicitacaoServico() != null
-                    && solicitacaoServicoDto.getIdSolicitacaoServico().intValue() > 0) {
+            if (solicitacaoServicoDto.getIdSolicitacaoServico() != null && solicitacaoServicoDto.getIdSolicitacaoServico().intValue() > 0) {
 
-                solicitacaoServicoDto = (SolicitacaoServicoDTO) getSolicitacaoServicoService().restore(
-                        solicitacaoServicoDto);
+                solicitacaoServicoDto = (SolicitacaoServicoDTO) getSolicitacaoServicoService().restore(solicitacaoServicoDto);
 
                 ServicoContratoDTO servicoContratoDTO = new ServicoContratoDTO();
                 servicoContratoDTO.setIdServicoContrato(solicitacaoServicoDto.getIdServicoContrato());
@@ -1505,14 +1434,12 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
 
                 if (idContrato != null) {
 
-                    final ArrayList<UnidadeDTO> unidades = (ArrayList) getUnidadeService()
-                            .listHierarquiaMultiContratos(idContrato);
+                    final ArrayList<UnidadeDTO> unidades = (ArrayList) getUnidadeService().listHierarquiaMultiContratos(idContrato);
 
                     if (unidades != null && !unidades.isEmpty()) {
                         for (final UnidadeDTO unidade : unidades) {
                             if (unidade.getDataFim() == null) {
-                                comboUnidadeMultContratos.addOption(
-                                        Util.tratarAspasSimples(unidade.getIdUnidade().toString()),
+                                comboUnidadeMultContratos.addOption(Util.tratarAspasSimples(unidade.getIdUnidade().toString()),
                                         Util.tratarAspasSimples(unidade.getNomeNivel()));
                             }
 
@@ -1526,8 +1453,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
                 if (unidades != null && !unidades.isEmpty()) {
                     for (final UnidadeDTO unidade : unidades) {
                         if (unidade.getDataFim() == null) {
-                            comboUnidadeMultContratos.addOption(
-                                    Util.tratarAspasSimples(unidade.getIdUnidade().toString()),
+                            comboUnidadeMultContratos.addOption(Util.tratarAspasSimples(unidade.getIdUnidade().toString()),
                                     Util.tratarAspasSimples(unidade.getNomeNivel()));
                         }
                     }
@@ -1544,13 +1470,11 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         componenteCombo.addOption("0", UtilI18N.internacionaliza(request, "citcorpore.comum.selecione"));
     }
 
-    public void carregaServicos(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws Exception {
+    public void carregaServicos(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         // carregaServicosMulti(document, request, response);
     }
 
-    public void verificaImpactoUrgencia(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws Exception {
+    public void verificaImpactoUrgencia(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         SolicitacaoServicoDTO solicitacaoServicoDto = (SolicitacaoServicoDTO) document.getBean();
 
         if (solicitacaoServicoDto.getIdContrato() == null || solicitacaoServicoDto.getIdContrato().intValue() == 0) {
@@ -1562,8 +1486,8 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
             return;
         }
 
-        ServicoContratoDTO servicoContratoDto = getServicoContratoService().findByIdContratoAndIdServico(
-                solicitacaoServicoDto.getIdContrato(), solicitacaoServicoDto.getIdServico());
+        ServicoContratoDTO servicoContratoDto = getServicoContratoService().findByIdContratoAndIdServico(solicitacaoServicoDto.getIdContrato(),
+                solicitacaoServicoDto.getIdServico());
 
         if (servicoContratoDto != null) {
             AcordoNivelServicoDTO acordoNivelServicoDto = getAcordoNivelServicoService().findAtivoByIdServicoContrato(
@@ -1571,8 +1495,8 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
             if (acordoNivelServicoDto == null) {
                 // Se nao houver acordo especifico, ou seja, associado direto ao servicocontrato, entao busca um acordo geral que esteja
                 // vinculado ao servicocontrato.
-                final AcordoServicoContratoDTO acordoServicoContratoDTO = getAcordoServicoContratoService()
-                        .findAtivoByIdServicoContrato(servicoContratoDto.getIdServicoContrato(), "T");
+                final AcordoServicoContratoDTO acordoServicoContratoDTO = getAcordoServicoContratoService().findAtivoByIdServicoContrato(
+                        servicoContratoDto.getIdServicoContrato(), "T");
                 if (acordoServicoContratoDTO == null) {
                     document.alert(UtilI18N.internacionaliza(request, "solicitacaoservico.validacao.tempoacordo"));
                     return;
@@ -1580,8 +1504,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
                 // Apos achar a vinculacao do acordo com o servicocontrato, entao faz um restore do acordo de nivel de servico.
                 acordoNivelServicoDto = new AcordoNivelServicoDTO();
                 acordoNivelServicoDto.setIdAcordoNivelServico(acordoServicoContratoDTO.getIdAcordoNivelServico());
-                acordoNivelServicoDto = (AcordoNivelServicoDTO) new AcordoNivelServicoDao()
-                .restore(acordoNivelServicoDto);
+                acordoNivelServicoDto = (AcordoNivelServicoDTO) new AcordoNivelServicoDao().restore(acordoNivelServicoDto);
                 if (acordoNivelServicoDto == null) {
                     // Se nao houver acordo especifico, ou seja, associado direto ao servicocontrato
                     document.alert(UtilI18N.internacionaliza(request, "solicitacaoservico.validacao.tempoacordo"));
@@ -1590,8 +1513,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
             }
             if (acordoNivelServicoDto.getImpacto() != null) {
                 document.getSelectById("impacto").setValue("" + acordoNivelServicoDto.getImpacto());
-                if (acordoNivelServicoDto.getPermiteMudarImpUrg() != null
-                        && acordoNivelServicoDto.getPermiteMudarImpUrg().equalsIgnoreCase("N")) {
+                if (acordoNivelServicoDto.getPermiteMudarImpUrg() != null && acordoNivelServicoDto.getPermiteMudarImpUrg().equalsIgnoreCase("N")) {
                     document.getSelectById("impacto").setDisabled(true);
                 }
             } else {
@@ -1599,8 +1521,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
             }
             if (acordoNivelServicoDto.getUrgencia() != null) {
                 document.getSelectById("urgencia").setValue("" + acordoNivelServicoDto.getUrgencia());
-                if (acordoNivelServicoDto.getPermiteMudarImpUrg() != null
-                        && acordoNivelServicoDto.getPermiteMudarImpUrg().equalsIgnoreCase("N")) {
+                if (acordoNivelServicoDto.getPermiteMudarImpUrg() != null && acordoNivelServicoDto.getPermiteMudarImpUrg().equalsIgnoreCase("N")) {
                     document.getSelectById("urgencia").setDisabled(true);
                 }
             } else {
@@ -1616,25 +1537,24 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         solicitacaoServicoDto = null;
     }
 
-    public void restore(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws Exception {
+    public void restore(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
 
         SolicitacaoServicoDTO solicitacaoServicoDto = (SolicitacaoServicoDTO) document.getBean();
 
         final String editar = request.getParameter("editar");
 
-        final SolicitacaoServicoService solicitacaoServicoService = (SolicitacaoServicoService) ServiceLocator
-                .getInstance().getService(SolicitacaoServicoService.class, WebUtil.getUsuarioSistema(request));
-        final ContatoSolicitacaoServicoService contatoSolicitacaoServicoService = (ContatoSolicitacaoServicoService) ServiceLocator
-                .getInstance().getService(ContatoSolicitacaoServicoService.class, null);
-        final SolicitacaoServicoEvtMonService solicitacaoServicoEvtMonService = (SolicitacaoServicoEvtMonService) ServiceLocator
-                .getInstance().getService(SolicitacaoServicoEvtMonService.class, WebUtil.getUsuarioSistema(request));
-        final EventoMonitoramentoService eventoMonitoramentoService = (EventoMonitoramentoService) ServiceLocator
-                .getInstance().getService(EventoMonitoramentoService.class, WebUtil.getUsuarioSistema(request));
-        final EventoMonitConhecimentoService eventoMonitConhecimentoService = (EventoMonitConhecimentoService) ServiceLocator
-                .getInstance().getService(EventoMonitConhecimentoService.class, WebUtil.getUsuarioSistema(request));
-        final BaseConhecimentoService baseConhecimentoService = (BaseConhecimentoService) ServiceLocator.getInstance()
-                .getService(BaseConhecimentoService.class, WebUtil.getUsuarioSistema(request));
+        final SolicitacaoServicoService solicitacaoServicoService = (SolicitacaoServicoService) ServiceLocator.getInstance().getService(
+                SolicitacaoServicoService.class, WebUtil.getUsuarioSistema(request));
+        final ContatoSolicitacaoServicoService contatoSolicitacaoServicoService = (ContatoSolicitacaoServicoService) ServiceLocator.getInstance().getService(
+                ContatoSolicitacaoServicoService.class, null);
+        final SolicitacaoServicoEvtMonService solicitacaoServicoEvtMonService = (SolicitacaoServicoEvtMonService) ServiceLocator.getInstance().getService(
+                SolicitacaoServicoEvtMonService.class, WebUtil.getUsuarioSistema(request));
+        final EventoMonitoramentoService eventoMonitoramentoService = (EventoMonitoramentoService) ServiceLocator.getInstance().getService(
+                EventoMonitoramentoService.class, WebUtil.getUsuarioSistema(request));
+        final EventoMonitConhecimentoService eventoMonitConhecimentoService = (EventoMonitConhecimentoService) ServiceLocator.getInstance().getService(
+                EventoMonitConhecimentoService.class, WebUtil.getUsuarioSistema(request));
+        final BaseConhecimentoService baseConhecimentoService = (BaseConhecimentoService) ServiceLocator.getInstance().getService(
+                BaseConhecimentoService.class, WebUtil.getUsuarioSistema(request));
 
         final Integer idTarefa = solicitacaoServicoDto.getIdTarefa();
         final String acaoFluxo = solicitacaoServicoDto.getAcaoFluxo();
@@ -1647,8 +1567,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         solicitacaoServicoDto = solicitacaoServicoService.restoreAll(solicitacaoServicoDto.getIdSolicitacaoServico());
 
         if (solicitacaoServicoDto == null) {
-            document.alert(UtilI18N.internacionaliza(request,
-                    "solicitacaoServico.solicitacaoServico.msg.registronaoencotrado"));
+            document.alert(UtilI18N.internacionaliza(request, "solicitacaoServico.solicitacaoServico.msg.registronaoencotrado"));
             return;
         }
 
@@ -1689,10 +1608,8 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         ContatoSolicitacaoServicoDTO contatoSolicitacaoServicoDTO = null;
         if (solicitacaoServicoDto.getIdContatoSolicitacaoServico() != null) {
             contatoSolicitacaoServicoDTO = new ContatoSolicitacaoServicoDTO();
-            contatoSolicitacaoServicoDTO.setIdcontatosolicitacaoservico(solicitacaoServicoDto
-                    .getIdContatoSolicitacaoServico());
-            contatoSolicitacaoServicoDTO = (ContatoSolicitacaoServicoDTO) contatoSolicitacaoServicoService
-                    .restore(contatoSolicitacaoServicoDTO);
+            contatoSolicitacaoServicoDTO.setIdcontatosolicitacaoservico(solicitacaoServicoDto.getIdContatoSolicitacaoServico());
+            contatoSolicitacaoServicoDTO = (ContatoSolicitacaoServicoDTO) contatoSolicitacaoServicoService.restore(contatoSolicitacaoServicoDTO);
         }
 
         if (contatoSolicitacaoServicoDTO != null) {
@@ -1716,13 +1633,11 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
             if (solicitacaoServicoDto.getIdItemConfiguracaoFilho() != null) {
                 itemConfiguracaoFilhoDTO = new ItemConfiguracaoDTO();
                 itemConfiguracaoFilhoDTO.setIdItemConfiguracao(solicitacaoServicoDto.getIdItemConfiguracaoFilho());
-                itemConfiguracaoFilhoDTO = (ItemConfiguracaoDTO) getItemConfiguracaoService().restore(
-                        itemConfiguracaoFilhoDTO);
+                itemConfiguracaoFilhoDTO = (ItemConfiguracaoDTO) getItemConfiguracaoService().restore(itemConfiguracaoFilhoDTO);
                 if (itemConfiguracaoFilhoDTO != null && itemConfiguracaoFilhoDTO.getIdTipoItemConfiguracao() != null) {
                     TipoItemConfiguracaoDTO tipoItemConfiguracaoDTO = new TipoItemConfiguracaoDTO();
                     tipoItemConfiguracaoDTO.setId(itemConfiguracaoFilhoDTO.getIdTipoItemConfiguracao());
-                    tipoItemConfiguracaoDTO = (TipoItemConfiguracaoDTO) getItemConfiguracaoService().restore(
-                            tipoItemConfiguracaoDTO);
+                    tipoItemConfiguracaoDTO = (TipoItemConfiguracaoDTO) getItemConfiguracaoService().restore(tipoItemConfiguracaoDTO);
                     if (tipoItemConfiguracaoDTO != null) {
                         tagItemCfg = tipoItemConfiguracaoDTO.getTag();
                     }
@@ -1757,8 +1672,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
             document.getTextBoxById("solicitante").setValue(empregadoDTO.getNome());
         }
 
-        if (solicitacaoServicoDto.getReclassificar() != null
-                && solicitacaoServicoDto.getReclassificar().equalsIgnoreCase("S")) {
+        if (solicitacaoServicoDto.getReclassificar() != null && solicitacaoServicoDto.getReclassificar().equalsIgnoreCase("S")) {
             // document.getElementById("divMessage").setInnerHTML("<font color='red'>" + UtilI18N.internacionaliza(request,
             // "solicitacaoServico.solicitacaoServico.msg.reclassificacao") + ".</font>");
         } else {
@@ -1776,10 +1690,8 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
             }
         }
 
-        final boolean bEscalar = solicitacaoServicoDto.getEscalar() != null
-                && solicitacaoServicoDto.getEscalar().equalsIgnoreCase("S");
-        final boolean bAlterarSituacao = solicitacaoServicoDto.getAlterarSituacao() != null
-                && solicitacaoServicoDto.getAlterarSituacao().equalsIgnoreCase("S");
+        final boolean bEscalar = solicitacaoServicoDto.getEscalar() != null && solicitacaoServicoDto.getEscalar().equalsIgnoreCase("S");
+        final boolean bAlterarSituacao = solicitacaoServicoDto.getAlterarSituacao() != null && solicitacaoServicoDto.getAlterarSituacao().equalsIgnoreCase("S");
         if (!bAlterarSituacao) {
             document.executeScript("desabilitarSituacao();");
         }
@@ -1787,8 +1699,8 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
             document.getSelectById("idGrupoAtual").setDisabled(true);
         }
 
-        final Collection colAnexos = getControleGedService().listByIdTabelaAndID(
-                ControleGEDDTO.TABELA_SOLICITACAOSERVICO, solicitacaoServicoDto.getIdSolicitacaoServico());
+        final Collection colAnexos = getControleGedService().listByIdTabelaAndID(ControleGEDDTO.TABELA_SOLICITACAOSERVICO,
+                solicitacaoServicoDto.getIdSolicitacaoServico());
         final Collection colAnexosUploadDTO = getControleGedService().convertListControleGEDToUploadDTO(colAnexos);
         String quantidadeAnexosStr = "0";
         if (colAnexosUploadDTO != null && colAnexosUploadDTO.size() > 0) {
@@ -1802,8 +1714,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         request.getSession(true).setAttribute("colUploadsGED2", colAnexosUploadDTO);
         request.getSession().setAttribute("colUploadsGED2", colAnexosUploadDTO);
 
-        final Collection colOcorrencias = getOcorrenciaSolicitacaoService().findByIdSolicitacaoServico(
-                solicitacaoServicoDto.getIdSolicitacaoServico());
+        final Collection colOcorrencias = getOcorrenciaSolicitacaoService().findByIdSolicitacaoServico(solicitacaoServicoDto.getIdSolicitacaoServico());
         if (colOcorrencias != null && colOcorrencias.size() > 0) {
 
             final String str = listInfoRegExecucaoSolicitacao(colOcorrencias, request);
@@ -1824,131 +1735,115 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
 
         carregaInformacoesComplementares(document, request, solicitacaoServicoDto);
 
-        /**
-         * Verifica o uso da versão free
-         */
-        if (!br.com.citframework.util.Util.isVersionFree(request)) {
+        final HTMLTable tblProblema = document.getTableById("tblProblema");
+        tblProblema.deleteAllRows();
 
-            final HTMLTable tblProblema = document.getTableById("tblProblema");
-            tblProblema.deleteAllRows();
-
-            if (solicitacaoServicoDto != null) {
-                final ProblemaDTO problemadto = new ProblemaDTO();
-                problemadto.setIdSolicitacaoServico(solicitacaoServicoDto.getIdSolicitacaoServico());
-                final Collection col = getProblemaService().findByIdSolictacaoServico(
-                        problemadto.getIdSolicitacaoServico());
-                if (col != null) {
-                    tblProblema.addRowsByCollection(col, new String[] {"numberAndTitulo", "status", ""},
-                            new String[] {"idProblema"}, "Problema já cadastrado!!",
-                            new String[] {"exibeIconesProblema"}, null, null);
-                    document.executeScript("HTMLUtils.applyStyleClassInAllCells('tblProblema', 'tblProblema');");
-                    /**
-                     * Quantitativo de Problemas
-                     *
-                     * @author thays.araujo
-                     */
-                    String quantidadeProblemaStr = "0";
-                    Integer quantidadeProblema;
-                    quantidadeProblema = col.size();
-                    quantidadeProblemaStr = String.valueOf(quantidadeProblema);
-                    document.getElementById("quantidadeProblema").setValue(quantidadeProblemaStr);
-                }
-            }
-
-            final HTMLTable tblMudanca = document.getTableById("tblMudanca");
-            tblMudanca.deleteAllRows();
-
-            if (solicitacaoServicoDto != null) {
-                final RequisicaoMudancaDTO requisicaoMudancaDTO = new RequisicaoMudancaDTO();
-                requisicaoMudancaDTO.setIdSolicitacaoServico(solicitacaoServicoDto.getIdSolicitacaoServico());
-                final Collection col = getRequisicaoMudancaService().findBySolictacaoServico(requisicaoMudancaDTO);
-                if (col != null) {
-                    tblMudanca.addRowsByCollection(col, new String[] {"numberAndTitulo", "status", ""},
-                            new String[] {"idRequisicaoMudanca"}, "Mudança já cadastrado!!",
-                            new String[] {"exibeIconesMudanca"}, null, null);
-                    document.executeScript("HTMLUtils.applyStyleClassInAllCells('tblMudanca', 'tblMudanca');");
-
-                    /**
-                     * Quantitativo de Mudanca
-                     *
-                     * @author thays.araujo
-                     */
-                    String quantidadeMudancaStr = "0";
-                    Integer quantidadeMudanca;
-                    quantidadeMudanca = col.size();
-                    quantidadeMudancaStr = String.valueOf(quantidadeMudanca);
-                    document.getElementById("quantidadeMudanca").setValue(quantidadeMudancaStr);
-                }
-            }
-
-            final HTMLTable tblBaseConhecimento = document.getTableById("tblBaseConhecimento");
-            tblBaseConhecimento.deleteAllRows();
-            final ConhecimentoSolicitacaoDTO conhecimentoSolicitacaoDTO = new ConhecimentoSolicitacaoDTO();
-            conhecimentoSolicitacaoDTO.setIdSolicitacaoServico(solicitacaoServicoDto.getIdSolicitacaoServico());
-            final Collection colConhecimentoSolicitacao = getConhecimentoSolicitacaoService().findBySolictacaoServico(
-                    conhecimentoSolicitacaoDTO);
-
-            if (colConhecimentoSolicitacao != null) {
-                tblBaseConhecimento.addRowsByCollection(colConhecimentoSolicitacao, new String[] {"idBaseConhecimento",
-                        "titulo", ""}, new String[] {"idBaseConhecimento"},
-                        UtilI18N.internacionaliza(request, "baseConhecimento.baseConhecimentoJaCadastrada"),
-                        new String[] {"exibeIconesBaseConhecimento"}, null, null);
-
-                document.executeScript("HTMLUtils.applyStyleClassInAllCells('tblBaseConhecimento', 'tblBaseConhecimento');");
-
+        if (solicitacaoServicoDto != null) {
+            final ProblemaDTO problemadto = new ProblemaDTO();
+            problemadto.setIdSolicitacaoServico(solicitacaoServicoDto.getIdSolicitacaoServico());
+            final Collection col = getProblemaService().findByIdSolictacaoServico(problemadto.getIdSolicitacaoServico());
+            if (col != null) {
+                tblProblema.addRowsByCollection(col, new String[] {"numberAndTitulo", "status", ""}, new String[] {"idProblema"}, "Problema já cadastrado!!",
+                        new String[] {"exibeIconesProblema"}, null, null);
+                document.executeScript("HTMLUtils.applyStyleClassInAllCells('tblProblema', 'tblProblema');");
                 /**
-                 * Quantitativo de Base Conhecimento
+                 * Quantitativo de Problemas
                  *
                  * @author thays.araujo
                  */
-                String quantidadeBaseConhecimentoStr = "0";
-                Integer quantidadeBaseConhecimento;
-                quantidadeBaseConhecimento = colConhecimentoSolicitacao.size();
-                quantidadeBaseConhecimentoStr = String.valueOf(quantidadeBaseConhecimento);
-                document.getElementById("quantidadeBaseConhecimento").setValue(quantidadeBaseConhecimentoStr);
+                String quantidadeProblemaStr = "0";
+                Integer quantidadeProblema;
+                quantidadeProblema = col.size();
+                quantidadeProblemaStr = String.valueOf(quantidadeProblema);
+                document.getElementById("quantidadeProblema").setValue(quantidadeProblemaStr);
             }
+        }
 
-            final HTMLTable tblIC = document.getTableById("tblIC");
-            tblIC.deleteAllRows();
+        final HTMLTable tblMudanca = document.getTableById("tblMudanca");
+        tblMudanca.deleteAllRows();
 
-            if (solicitacaoServicoDto != null) {
-                final ItemCfgSolicitacaoServDTO itemCfgSolicitacaoServDTO = new ItemCfgSolicitacaoServDTO();
-                final Collection col = getItemCfgSolicitacaoServService().findByIdSolicitacaoServico(
-                        solicitacaoServicoDto.getIdSolicitacaoServico());
+        if (solicitacaoServicoDto != null) {
+            final RequisicaoMudancaDTO requisicaoMudancaDTO = new RequisicaoMudancaDTO();
+            requisicaoMudancaDTO.setIdSolicitacaoServico(solicitacaoServicoDto.getIdSolicitacaoServico());
+            final Collection col = getRequisicaoMudancaService().findBySolictacaoServico(requisicaoMudancaDTO);
+            if (col != null) {
+                tblMudanca.addRowsByCollection(col, new String[] {"numberAndTitulo", "status", ""}, new String[] {"idRequisicaoMudanca"},
+                        "Mudança já cadastrado!!", new String[] {"exibeIconesMudanca"}, null, null);
+                document.executeScript("HTMLUtils.applyStyleClassInAllCells('tblMudanca', 'tblMudanca');");
 
-                if (col != null) {
-                    for (final Iterator it = col.iterator(); it.hasNext();) {
-                        final ItemCfgSolicitacaoServDTO itemCfgSolicitacaoServAux = (ItemCfgSolicitacaoServDTO) it
-                                .next();
-                        ItemConfiguracaoDTO itemConfiguracaoAux = new ItemConfiguracaoDTO();
-                        itemConfiguracaoAux.setIdItemConfiguracao(itemCfgSolicitacaoServAux.getIdItemConfiguracao());
-                        itemConfiguracaoAux = (ItemConfiguracaoDTO) getItemConfiguracaoService().restore(
-                                itemConfiguracaoAux);
-                        if (itemConfiguracaoAux != null) {
-                            itemCfgSolicitacaoServAux.setIdentificacaoStatus(itemConfiguracaoAux
-                                    .getIdentificacaoStatus());
-                        }
+                /**
+                 * Quantitativo de Mudanca
+                 *
+                 * @author thays.araujo
+                 */
+                String quantidadeMudancaStr = "0";
+                Integer quantidadeMudanca;
+                quantidadeMudanca = col.size();
+                quantidadeMudancaStr = String.valueOf(quantidadeMudanca);
+                document.getElementById("quantidadeMudanca").setValue(quantidadeMudancaStr);
+            }
+        }
+
+        final HTMLTable tblBaseConhecimento = document.getTableById("tblBaseConhecimento");
+        tblBaseConhecimento.deleteAllRows();
+        final ConhecimentoSolicitacaoDTO conhecimentoSolicitacaoDTO = new ConhecimentoSolicitacaoDTO();
+        conhecimentoSolicitacaoDTO.setIdSolicitacaoServico(solicitacaoServicoDto.getIdSolicitacaoServico());
+        final Collection colConhecimentoSolicitacao = getConhecimentoSolicitacaoService().findBySolictacaoServico(conhecimentoSolicitacaoDTO);
+
+        if (colConhecimentoSolicitacao != null) {
+            tblBaseConhecimento.addRowsByCollection(colConhecimentoSolicitacao, new String[] {"idBaseConhecimento", "titulo", ""},
+                    new String[] {"idBaseConhecimento"}, UtilI18N.internacionaliza(request, "baseConhecimento.baseConhecimentoJaCadastrada"),
+                    new String[] {"exibeIconesBaseConhecimento"}, null, null);
+
+            document.executeScript("HTMLUtils.applyStyleClassInAllCells('tblBaseConhecimento', 'tblBaseConhecimento');");
+
+            /**
+             * Quantitativo de Base Conhecimento
+             *
+             * @author thays.araujo
+             */
+            String quantidadeBaseConhecimentoStr = "0";
+            Integer quantidadeBaseConhecimento;
+            quantidadeBaseConhecimento = colConhecimentoSolicitacao.size();
+            quantidadeBaseConhecimentoStr = String.valueOf(quantidadeBaseConhecimento);
+            document.getElementById("quantidadeBaseConhecimento").setValue(quantidadeBaseConhecimentoStr);
+        }
+
+        final HTMLTable tblIC = document.getTableById("tblIC");
+        tblIC.deleteAllRows();
+
+        if (solicitacaoServicoDto != null) {
+            new ItemCfgSolicitacaoServDTO();
+            final Collection col = getItemCfgSolicitacaoServService().findByIdSolicitacaoServico(solicitacaoServicoDto.getIdSolicitacaoServico());
+
+            if (col != null) {
+                for (final Iterator it = col.iterator(); it.hasNext();) {
+                    final ItemCfgSolicitacaoServDTO itemCfgSolicitacaoServAux = (ItemCfgSolicitacaoServDTO) it.next();
+                    ItemConfiguracaoDTO itemConfiguracaoAux = new ItemConfiguracaoDTO();
+                    itemConfiguracaoAux.setIdItemConfiguracao(itemCfgSolicitacaoServAux.getIdItemConfiguracao());
+                    itemConfiguracaoAux = (ItemConfiguracaoDTO) getItemConfiguracaoService().restore(itemConfiguracaoAux);
+                    if (itemConfiguracaoAux != null) {
+                        itemCfgSolicitacaoServAux.setIdentificacaoStatus(itemConfiguracaoAux.getIdentificacaoStatus());
                     }
                 }
+            }
 
-                if (col != null) {
-                    tblIC.addRowsByCollection(col, new String[] {"idItemConfiguracao", "identificacao", "", ""},
-                            new String[] {"idItemConfiguracao"}, "Item Configuração já cadastrado!!",
-                            new String[] {"exibeIconesIC"}, null, null);
+            if (col != null) {
+                tblIC.addRowsByCollection(col, new String[] {"idItemConfiguracao", "identificacao", "", ""}, new String[] {"idItemConfiguracao"},
+                        "Item Configuração já cadastrado!!", new String[] {"exibeIconesIC"}, null, null);
 
-                    document.executeScript("HTMLUtils.applyStyleClassInAllCells('tblIC', 'tblIC');");
+                document.executeScript("HTMLUtils.applyStyleClassInAllCells('tblIC', 'tblIC');");
 
-                    /**
-                     * Quantitativo de Item Configuração
-                     *
-                     * @author thays.araujo
-                     */
-                    String quantidadeItemConfiguracaoStr = "0";
-                    Integer quantidadeItemConfiguracao;
-                    quantidadeItemConfiguracao = col.size();
-                    quantidadeItemConfiguracaoStr = String.valueOf(quantidadeItemConfiguracao);
-                    document.getElementById("quantidadeItemConfiguracao").setValue(quantidadeItemConfiguracaoStr);
-                }
+                /**
+                 * Quantitativo de Item Configuração
+                 *
+                 * @author thays.araujo
+                 */
+                String quantidadeItemConfiguracaoStr = "0";
+                Integer quantidadeItemConfiguracao;
+                quantidadeItemConfiguracao = col.size();
+                quantidadeItemConfiguracaoStr = String.valueOf(quantidadeItemConfiguracao);
+                document.getElementById("quantidadeItemConfiguracao").setValue(quantidadeItemConfiguracaoStr);
             }
         }
 
@@ -1961,19 +1856,17 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         setQuantitativoIncidentesRelacionados(document, request, response);
 
         final StringBuilder strEventos = new StringBuilder();
-        final Collection colEventsSolic = solicitacaoServicoEvtMonService.findByIdSolicitacao(solicitacaoServicoDto
-                .getIdSolicitacaoServico());
+        final Collection colEventsSolic = solicitacaoServicoEvtMonService.findByIdSolicitacao(solicitacaoServicoDto.getIdSolicitacaoServico());
         if (colEventsSolic != null && colEventsSolic.size() > 0) {
             strEventos.append("<table border='1' width='100%'>");
             for (final Iterator it = colEventsSolic.iterator(); it.hasNext();) {
                 final SolicitacaoServicoEvtMonDTO solicitacaoServicoEvtMonDTO = (SolicitacaoServicoEvtMonDTO) it.next();
                 EventoMonitoramentoDTO eventoMonitoramentoDto = new EventoMonitoramentoDTO();
                 eventoMonitoramentoDto.setIdEventoMonitoramento(solicitacaoServicoEvtMonDTO.getIdEventoMonitoramento());
-                eventoMonitoramentoDto = (EventoMonitoramentoDTO) eventoMonitoramentoService
-                        .restore(eventoMonitoramentoDto);
+                eventoMonitoramentoDto = (EventoMonitoramentoDTO) eventoMonitoramentoService.restore(eventoMonitoramentoDto);
                 if (eventoMonitoramentoDto != null) {
-                    final Collection<EventoMonitConhecimentoDTO> colEventos = eventoMonitConhecimentoService
-                            .listByIdEventoMonitoramento(eventoMonitoramentoDto.getIdEventoMonitoramento());
+                    final Collection<EventoMonitConhecimentoDTO> colEventos = eventoMonitConhecimentoService.listByIdEventoMonitoramento(eventoMonitoramentoDto
+                            .getIdEventoMonitoramento());
                     Integer[] ids = null;
                     if (colEventos != null && colEventos.size() > 0) {
                         ids = new Integer[colEventos.size()];
@@ -1993,17 +1886,14 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
                         strBC.append("<table width='100%'>");
                         for (final Iterator itBC = colBasesConhec.iterator(); itBC.hasNext();) {
                             final BaseConhecimentoDTO baseConhecimentoDto = (BaseConhecimentoDTO) itBC.next();
-                            final String onclickStr = "onclick='abreConhecimento(\""
-                                    + br.com.citframework.util.Constantes.getValue("SERVER_ADDRESS")
-                                    + br.com.citframework.util.Constantes.getValue("CONTEXTO_APLICACAO")
-                                    + "/pages\", \"idBaseConhecimento=" + baseConhecimentoDto.getIdBaseConhecimento()
-                                    + "\")'";
+                            final String onclickStr = "onclick='abreConhecimento(\"" + br.com.citframework.util.Constantes.getValue("SERVER_ADDRESS")
+                                    + br.com.citframework.util.Constantes.getValue("CONTEXTO_APLICACAO") + "/pages\", \"idBaseConhecimento="
+                                    + baseConhecimentoDto.getIdBaseConhecimento() + "\")'";
                             strBC.append("<tr>");
                             strBC.append("<td>");
-                            strBC.append("<img style='cursor:pointer' src='"
-                                    + br.com.citframework.util.Constantes.getValue("SERVER_ADDRESS")
-                                    + br.com.citframework.util.Constantes.getValue("CONTEXTO_APLICACAO")
-                                    + "/imagens/script.png' border='0' " + onclickStr + "/>");
+                            strBC.append("<img style='cursor:pointer' src='" + br.com.citframework.util.Constantes.getValue("SERVER_ADDRESS")
+                                    + br.com.citframework.util.Constantes.getValue("CONTEXTO_APLICACAO") + "/imagens/script.png' border='0' " + onclickStr
+                                    + "/>");
                             strBC.append("</td>");
                             strBC.append("<td style='cursor:pointer' " + onclickStr + ">");
                             strBC.append("" + UtilStrings.retiraAspasApostrofe(baseConhecimentoDto.getTitulo()));
@@ -2016,19 +1906,16 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
                     strEventos.append("<tr>");
                     strEventos.append("<td style='background-color:yellow; border:1px solid red'>");
                     strEventos.append("<img src='" + br.com.citframework.util.Constantes.getValue("SERVER_ADDRESS")
-                            + br.com.citframework.util.Constantes.getValue("CONTEXTO_APLICACAO")
-                            + "/imagens/relampago.png' border='0'/>");
+                            + br.com.citframework.util.Constantes.getValue("CONTEXTO_APLICACAO") + "/imagens/relampago.png' border='0'/>");
                     strEventos.append("</td>");
                     strEventos.append("<td style='background-color:yellow; border:1px solid red'>");
                     strEventos.append(UtilStrings.retiraAspasApostrofe(eventoMonitoramentoDto.getNomeEvento()));
                     strEventos.append("</td>");
                     strEventos.append("<td style='background-color:yellow; border:1px solid red'>");
-                    strEventos.append(UtilStrings.retiraAspasApostrofe(UtilStrings
-                            .nullToVazio(solicitacaoServicoEvtMonDTO.getNomeHost())));
+                    strEventos.append(UtilStrings.retiraAspasApostrofe(UtilStrings.nullToVazio(solicitacaoServicoEvtMonDTO.getNomeHost())));
                     strEventos.append("</td>");
                     strEventos.append("<td style='background-color:yellow; border:1px solid red'>");
-                    strEventos.append(UtilStrings.retiraAspasApostrofe(UtilStrings
-                            .nullToVazio(solicitacaoServicoEvtMonDTO.getNomeService())));
+                    strEventos.append(UtilStrings.retiraAspasApostrofe(UtilStrings.nullToVazio(solicitacaoServicoEvtMonDTO.getNomeService())));
                     strEventos.append("</td>");
                     strEventos.append("<td style='background-color:yellow; border:1px solid red'>");
                     strEventos.append(strBC.toString());
@@ -2075,33 +1962,27 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
             }
         }
 
-        document.executeScript("informaNumeroSolicitacao(\"" + solicitacaoServicoDto.getIdSolicitacaoServico()
-                + "\", \"" + UtilStrings.nullToVazio(responsavelAtual) + "\", \""
-                + UtilStrings.nullToVazio(tarefaAtual) + "\")");
+        document.executeScript("informaNumeroSolicitacao(\"" + solicitacaoServicoDto.getIdSolicitacaoServico() + "\", \""
+                + UtilStrings.nullToVazio(responsavelAtual) + "\", \"" + UtilStrings.nullToVazio(tarefaAtual) + "\")");
         document.executeScript("$('#tituloSolicitacao').removeClass('inativo')");
 
         // Isto permite que nas classes herdadas, seja colocado o Bean no document.
         document.setBean(solicitacaoServicoDto);
 
         if (solicitacaoServicoDto.getObservacao() != null && !solicitacaoServicoDto.getObservacao().equals("")) {
-            document.executeScript("setValorTextArea(\"#observacao\",'"
-                    + StringEscapeUtils.escapeJavaScript(solicitacaoServicoDto.getObservacao()) + "', '"
+            document.executeScript("setValorTextArea(\"#observacao\",'" + StringEscapeUtils.escapeJavaScript(solicitacaoServicoDto.getObservacao()) + "', '"
                     + (editar != null ? editar : 'S') + "')");
         }
         if (solicitacaoServicoDto.getDescricao() != null && !solicitacaoServicoDto.getDescricao().equals("")) {
-            document.executeScript("setValorTextArea(\"#descricao\",'"
-                    + StringEscapeUtils.escapeJavaScript(solicitacaoServicoDto.getDescricao()) + "', '"
+            document.executeScript("setValorTextArea(\"#descricao\",'" + StringEscapeUtils.escapeJavaScript(solicitacaoServicoDto.getDescricao()) + "', '"
                     + (editar != null ? editar : 'S') + "')");
         }
-        if (solicitacaoServicoDto.getDetalhamentoCausa() != null
-                && !solicitacaoServicoDto.getDetalhamentoCausa().equals("")) {
+        if (solicitacaoServicoDto.getDetalhamentoCausa() != null && !solicitacaoServicoDto.getDetalhamentoCausa().equals("")) {
             document.executeScript("setValorTextArea(\"#detalhamentoCausa\",'"
-                    + StringEscapeUtils.escapeJavaScript(solicitacaoServicoDto.getDetalhamentoCausa()) + "', '"
-                    + (editar != null ? editar : 'S') + "')");
+                    + StringEscapeUtils.escapeJavaScript(solicitacaoServicoDto.getDetalhamentoCausa()) + "', '" + (editar != null ? editar : 'S') + "')");
         }
         if (solicitacaoServicoDto.getResposta() != null && !solicitacaoServicoDto.getResposta().equals("")) {
-            document.executeScript("setValorTextArea(\"#resposta\",'"
-                    + StringEscapeUtils.escapeJavaScript(solicitacaoServicoDto.getResposta()) + "', '"
+            document.executeScript("setValorTextArea(\"#resposta\",'" + StringEscapeUtils.escapeJavaScript(solicitacaoServicoDto.getResposta()) + "', '"
                     + (editar != null ? editar : 'S') + "')");
         }
         if (solicitacaoServicoDto.getSolicitante().isEmpty()) {
@@ -2117,8 +1998,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         if (solicitacaoServicoDto.getEditar().equalsIgnoreCase("N")) {
             document.getTextBoxById("servicoBusca").setDisabled(true);
         } else {
-            if (solicitacaoServicoDto.getReclassificar() == null
-                    || solicitacaoServicoDto.getReclassificar().equalsIgnoreCase("N")) {
+            if (solicitacaoServicoDto.getReclassificar() == null || solicitacaoServicoDto.getReclassificar().equalsIgnoreCase("N")) {
                 document.getTextBoxById("servicoBusca").setDisabled(true);
             }
         }
@@ -2131,8 +2011,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         solicitacaoServicoDto = null;
     }
 
-    public void verificaGrupoExecutor(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws Exception {
+    public void verificaGrupoExecutor(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         SolicitacaoServicoDTO solicitacaoServicoDto = (SolicitacaoServicoDTO) document.getBean();
         if (solicitacaoServicoDto.getIdContrato() == null || solicitacaoServicoDto.getIdContrato().intValue() == 0) {
             solicitacaoServicoDto.setIdContrato(contratoDtoAux.getIdContrato());
@@ -2146,8 +2025,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
             final HTMLSelect idGrupoAtual = document.getSelectById("idGrupoAtual");
             idGrupoAtual.removeAllOptions();
             idGrupoAtual.addOption("", UtilI18N.internacionaliza(request, "citcorpore.comum.selecione"));
-            final Collection colGrupos = getGrupoService().listGruposServiceDeskByIdContrato(
-                    solicitacaoServicoDto.getIdContrato());
+            final Collection colGrupos = getGrupoService().listGruposServiceDeskByIdContrato(solicitacaoServicoDto.getIdContrato());
             if (colGrupos != null) {
                 idGrupoAtual.addOptions(colGrupos, "idGrupo", "nome", null);
             }
@@ -2158,14 +2036,13 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         solicitacaoServicoDto = null;
     }
 
-    public void verificaGrupoExecutorInterno(final DocumentHTML document,
-            final SolicitacaoServicoDTO solicitacaoServicoDto) throws Exception {
+    public void verificaGrupoExecutorInterno(final DocumentHTML document, final SolicitacaoServicoDTO solicitacaoServicoDto) throws Exception {
         if (solicitacaoServicoDto.getIdServico() == null || solicitacaoServicoDto.getIdContrato() == null) {
             return;
         }
 
-        final ServicoContratoDTO servicoContratoDto = getServicoContratoService().findByIdContratoAndIdServico(
-                solicitacaoServicoDto.getIdContrato(), solicitacaoServicoDto.getIdServico());
+        final ServicoContratoDTO servicoContratoDto = getServicoContratoService().findByIdContratoAndIdServico(solicitacaoServicoDto.getIdContrato(),
+                solicitacaoServicoDto.getIdServico());
         if (servicoContratoDto != null && servicoContratoDto.getIdGrupoExecutor() != null) {
             document.getElementById("idGrupoAtual").setValue("" + servicoContratoDto.getIdGrupoExecutor());
         } else {
@@ -2173,8 +2050,8 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         }
     }
 
-    public void carregarModalDuplicarSolicitacao(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws ServiceException, Exception {
+    public void carregarModalDuplicarSolicitacao(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response)
+            throws ServiceException, Exception {
 
         SolicitacaoServicoDTO solicitacaoServicoDto = (SolicitacaoServicoDTO) document.getBean();
 
@@ -2240,15 +2117,14 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
          * preenchem os selects com os valores corretos.
          */
         document.executeScript("$('#situacao').find('option[value=\"" + situacao + "\"]').attr(\"selected\",true);");
-        document.executeScript("$('#idGrupoAtual').find('option[value=\"" + idGrupoAtual
-                + "\"]').attr(\"selected\",true);");
+        document.executeScript("$('#idGrupoAtual').find('option[value=\"" + idGrupoAtual + "\"]').attr(\"selected\",true);");
 
         solicitacaoServicoDto = null;
         servicoContratoDto = null;
     }
 
-    public void duplicarSolicitacao(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws ServiceException, Exception {
+    public void duplicarSolicitacao(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws ServiceException,
+            Exception {
 
         SolicitacaoServicoDTO novaSolicitacaoServicoDto = (SolicitacaoServicoDTO) document.getBean();
 
@@ -2261,8 +2137,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
 
         solicitacaoServicoOrigem.setIdSolicitacaoServico(novaSolicitacaoServicoDto.getIdSolicitacaoServico());
 
-        solicitacaoServicoOrigem = (SolicitacaoServicoDTO) getSolicitacaoServicoService().restore(
-                solicitacaoServicoOrigem);
+        solicitacaoServicoOrigem = (SolicitacaoServicoDTO) getSolicitacaoServicoService().restore(solicitacaoServicoOrigem);
 
         servicoContratoDto.setIdServicoContrato(solicitacaoServicoOrigem.getIdServicoContrato());
 
@@ -2280,8 +2155,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         novaSolicitacaoServicoDto.setRegistroexecucao("");
         novaSolicitacaoServicoDto.setEnviaEmailCriacao("S");
 
-        novaSolicitacaoServicoDto = (SolicitacaoServicoDTO) getSolicitacaoServicoService().create(
-                novaSolicitacaoServicoDto);
+        novaSolicitacaoServicoDto = (SolicitacaoServicoDTO) getSolicitacaoServicoService().create(novaSolicitacaoServicoDto);
 
         document.alert(UtilI18N.internacionaliza(request, "gerenciaservico.duplicadacomsucesso"));
 
@@ -2294,14 +2168,13 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
 
     }
 
-    public void restauraSolicitante(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws Exception {
+    public void restauraSolicitante(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         SolicitacaoServicoDTO solicitacaoServicoDto = (SolicitacaoServicoDTO) document.getBean();
         final String UNIDADE_AUTOCOMPLETE = ParametroUtil.getValorParametroCitSmartHashMap(
                 br.com.centralit.citcorpore.util.Enumerados.ParametroSistema.UNIDADE_AUTOCOMPLETE, "N");
 
-        final SolicitacaoServicoService solicitacaoServicoService = (SolicitacaoServicoService) ServiceLocator
-                .getInstance().getService(SolicitacaoServicoService.class, WebUtil.getUsuarioSistema(request));
+        final SolicitacaoServicoService solicitacaoServicoService = (SolicitacaoServicoService) ServiceLocator.getInstance().getService(
+                SolicitacaoServicoService.class, WebUtil.getUsuarioSistema(request));
 
         EmpregadoDTO empregadoDto = new EmpregadoDTO();
         empregadoDto.setIdEmpregado(solicitacaoServicoDto.getIdSolicitante());
@@ -2314,10 +2187,8 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
             solicitacaoServicoDto.setEmailcontato(empregadoDto.getEmail());
             solicitacaoServicoDto.setIdUnidade(empregadoDto.getIdUnidade());
 
-            if (UNIDADE_AUTOCOMPLETE != null && UNIDADE_AUTOCOMPLETE.equalsIgnoreCase("S")
-                    && solicitacaoServicoDto.getIdUnidade() != null) {
-                solicitacaoServicoDto.setUnidadeDes(getUnidadeService().retornaNomeUnidadeByID(
-                        solicitacaoServicoDto.getIdUnidade()));
+            if (UNIDADE_AUTOCOMPLETE != null && UNIDADE_AUTOCOMPLETE.equalsIgnoreCase("S") && solicitacaoServicoDto.getIdUnidade() != null) {
+                solicitacaoServicoDto.setUnidadeDes(getUnidadeService().retornaNomeUnidadeByID(solicitacaoServicoDto.getIdUnidade()));
             }
 
             preencherComboLocalidade(document, request, response);
@@ -2335,10 +2206,8 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
                     .retornaSolicitacaoServicoComItemConfiguracaoDoSolicitante(login);
 
             if (solicitacaoServicoComItemConfiguracaoDoSolicitante != null) {
-                solicitacaoServicoDto.setIdItemConfiguracao(solicitacaoServicoComItemConfiguracaoDoSolicitante
-                        .getIdItemConfiguracao());
-                solicitacaoServicoDto.setItemConfiguracao(solicitacaoServicoComItemConfiguracaoDoSolicitante
-                        .getItemConfiguracao());
+                solicitacaoServicoDto.setIdItemConfiguracao(solicitacaoServicoComItemConfiguracaoDoSolicitante.getIdItemConfiguracao());
+                solicitacaoServicoDto.setItemConfiguracao(solicitacaoServicoComItemConfiguracaoDoSolicitante.getItemConfiguracao());
                 document.executeScript("exibeCampos()");
             }
         }
@@ -2351,14 +2220,13 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
 
     }
 
-    public void restoreSolicitante(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws Exception {
+    public void restoreSolicitante(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         SolicitacaoServicoDTO solicitacaoServicoDto = (SolicitacaoServicoDTO) document.getBean();
         final String UNIDADE_AUTOCOMPLETE = ParametroUtil.getValorParametroCitSmartHashMap(
                 br.com.centralit.citcorpore.util.Enumerados.ParametroSistema.UNIDADE_AUTOCOMPLETE, "N");
 
-        final SolicitacaoServicoService solicitacaoServicoService = (SolicitacaoServicoService) ServiceLocator
-                .getInstance().getService(SolicitacaoServicoService.class, WebUtil.getUsuarioSistema(request));
+        final SolicitacaoServicoService solicitacaoServicoService = (SolicitacaoServicoService) ServiceLocator.getInstance().getService(
+                SolicitacaoServicoService.class, WebUtil.getUsuarioSistema(request));
 
         EmpregadoDTO empregadoDto = new EmpregadoDTO();
         empregadoDto.setIdEmpregado(solicitacaoServicoDto.getIdSolicitante());
@@ -2371,10 +2239,8 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
             solicitacaoServicoDto.setEmailcontato(empregadoDto.getEmail());
             solicitacaoServicoDto.setIdUnidade(empregadoDto.getIdUnidade());
 
-            if (UNIDADE_AUTOCOMPLETE != null && UNIDADE_AUTOCOMPLETE.equalsIgnoreCase("S")
-                    && solicitacaoServicoDto.getIdUnidade() != null) {
-                solicitacaoServicoDto.setUnidadeDes(getUnidadeService().retornaNomeUnidadeByID(
-                        solicitacaoServicoDto.getIdUnidade()));
+            if (UNIDADE_AUTOCOMPLETE != null && UNIDADE_AUTOCOMPLETE.equalsIgnoreCase("S") && solicitacaoServicoDto.getIdUnidade() != null) {
+                solicitacaoServicoDto.setUnidadeDes(getUnidadeService().retornaNomeUnidadeByID(solicitacaoServicoDto.getIdUnidade()));
             }
         }
 
@@ -2390,10 +2256,8 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
                     .retornaSolicitacaoServicoComItemConfiguracaoDoSolicitante(login);
 
             if (solicitacaoServicoComItemConfiguracaoDoSolicitante != null) {
-                solicitacaoServicoDto.setIdItemConfiguracao(solicitacaoServicoComItemConfiguracaoDoSolicitante
-                        .getIdItemConfiguracao());
-                solicitacaoServicoDto.setItemConfiguracao(solicitacaoServicoComItemConfiguracaoDoSolicitante
-                        .getItemConfiguracao());
+                solicitacaoServicoDto.setIdItemConfiguracao(solicitacaoServicoComItemConfiguracaoDoSolicitante.getIdItemConfiguracao());
+                solicitacaoServicoDto.setItemConfiguracao(solicitacaoServicoComItemConfiguracaoDoSolicitante.getItemConfiguracao());
             }
         }
 
@@ -2404,18 +2268,16 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         document.executeScript("setDataEditor()");
 
         // verifica se tem historico para mostrar botao de historico
-        final SolicitacaoServicoService solicitacaoService = (SolicitacaoServicoService) ServiceLocator.getInstance()
-                .getService(SolicitacaoServicoService.class, WebUtil.getUsuarioSistema(request));
-        List<SolicitacaoServicoDTO> resumo = solicitacaoService.findSolicitacoesServicosUsuario(
-                solicitacaoServicoDto.getIdSolicitante(), null);
+        final SolicitacaoServicoService solicitacaoService = (SolicitacaoServicoService) ServiceLocator.getInstance().getService(
+                SolicitacaoServicoService.class, WebUtil.getUsuarioSistema(request));
+        List<SolicitacaoServicoDTO> resumo = solicitacaoService.findSolicitacoesServicosUsuario(solicitacaoServicoDto.getIdSolicitante(), null);
         if (resumo == null || resumo.size() <= 0) {
             document.executeScript("escondeMostraDiv('btHistoricoSolicitante', 'none')");
         } else {
             document.executeScript("escondeMostraDiv('btHistoricoSolicitante', 'inline')");
         }
 
-        resumo = solicitacaoService.findSolicitacoesServicosUsuario(solicitacaoServicoDto.getIdSolicitante(), null,
-                null);
+        resumo = solicitacaoService.findSolicitacoesServicosUsuario(solicitacaoServicoDto.getIdSolicitante(), null, null);
         if (resumo == null || resumo.size() <= 0) {
             document.executeScript("escondeMostraDiv('btHistoricoSolicitanteEmAndamento', 'none')");
         } else {
@@ -2425,8 +2287,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         solicitacaoServicoDto = null;
     }
 
-    private void carregaComboOrigem(final DocumentHTML document, final HttpServletRequest request)
-            throws ServiceException, Exception, LogicException {
+    private void carregaComboOrigem(final DocumentHTML document, final HttpServletRequest request) throws ServiceException, Exception, LogicException {
 
         final HTMLSelect origem = document.getSelectById("idOrigem");
 
@@ -2441,26 +2302,22 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         }
     }
 
-    public void preenchePorEmail(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws ServiceException, Exception {
+    public void preenchePorEmail(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws ServiceException,
+            Exception {
         final String UNIDADE_AUTOCOMPLETE = ParametroUtil.getValorParametroCitSmartHashMap(
                 br.com.centralit.citcorpore.util.Enumerados.ParametroSistema.UNIDADE_AUTOCOMPLETE, "N");
 
         SolicitacaoServicoDTO solicitacaoServicoDto = (SolicitacaoServicoDTO) document.getBean();
         EmpregadoDTO empregadoDTO = new EmpregadoDTO();
-        empregadoDTO = getEmpregadoService().listEmpregadoContrato(solicitacaoServicoDto.getIdContrato(),
-                solicitacaoServicoDto.getEmailcontato());
+        empregadoDTO = getEmpregadoService().listEmpregadoContrato(solicitacaoServicoDto.getIdContrato(), solicitacaoServicoDto.getEmailcontato());
         if (empregadoDTO != null) {
             document.getElementById("idSolicitante").setValue(empregadoDTO.getIdEmpregado().toString());
             document.getElementById("nomecontato").setValue(empregadoDTO.getNome());
             document.getElementById("telefonecontato").setValue(empregadoDTO.getTelefone());
-            document.getElementById("idUnidade").setValue(
-                    Util.tratarAspasSimples(empregadoDTO.getIdUnidade().toString()));
+            document.getElementById("idUnidade").setValue(Util.tratarAspasSimples(empregadoDTO.getIdUnidade().toString()));
 
-            if (UNIDADE_AUTOCOMPLETE != null && UNIDADE_AUTOCOMPLETE.equalsIgnoreCase("S")
-                    && empregadoDTO.getIdUnidade() != null) {
-                document.getElementById("unidadeDes").setValue(
-                        Util.tratarAspasSimples(unidadeService.retornaNomeUnidadeByID(empregadoDTO.getIdUnidade())));
+            if (UNIDADE_AUTOCOMPLETE != null && UNIDADE_AUTOCOMPLETE.equalsIgnoreCase("S") && empregadoDTO.getIdUnidade() != null) {
+                document.getElementById("unidadeDes").setValue(Util.tratarAspasSimples(unidadeService.retornaNomeUnidadeByID(empregadoDTO.getIdUnidade())));
             }
 
             document.getElementById("solicitante").setValue(empregadoDTO.getNome());
@@ -2475,8 +2332,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         empregadoDTO = null;
     }
 
-    public void calculaSLA(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws Exception {
+    public void calculaSLA(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         String sla = "";
         try {
             final SolicitacaoServicoDTO solicitacaoServicoDto = (SolicitacaoServicoDTO) document.getBean();
@@ -2507,8 +2363,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         }
     }
 
-    public void atualizaGridProblema(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws Exception {
+    public void atualizaGridProblema(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         SolicitacaoServicoDTO bean = (SolicitacaoServicoDTO) document.getBean();
         ProblemaDTO problemaDTO = new ProblemaDTO();
 
@@ -2521,13 +2376,11 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         final HTMLTable tblProblema = document.getTableById("tblProblema");
 
         if (problemaDTO.getSequenciaProblema() == null) {
-            tblProblema.addRow(problemaDTO, new String[] {"numberAndTitulo", "status", ""},
-                    new String[] {"idProblema"}, "Problema já cadastrado!!", new String[] {"exibeIconesProblema"},
-                    null, null);
+            tblProblema.addRow(problemaDTO, new String[] {"numberAndTitulo", "status", ""}, new String[] {"idProblema"}, "Problema já cadastrado!!",
+                    new String[] {"exibeIconesProblema"}, null, null);
         } else {
-            tblProblema.updateRow(problemaDTO, new String[] {"numberAndTitulo", "status", ""},
-                    new String[] {"idProblema"}, "Problema já cadastrado!!", new String[] {"exibeIconesProblema"},
-                    "buscaProblema", null, problemaDTO.getSequenciaProblema());
+            tblProblema.updateRow(problemaDTO, new String[] {"numberAndTitulo", "status", ""}, new String[] {"idProblema"}, "Problema já cadastrado!!",
+                    new String[] {"exibeIconesProblema"}, "buscaProblema", null, problemaDTO.getSequenciaProblema());
         }
         document.executeScript("HTMLUtils.applyStyleClassInAllCells('tblProblema', 'tblProblema');");
         document.executeScript("fecharModalProblema();");
@@ -2535,8 +2388,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         bean = null;
     }
 
-    public void atualizaGridMudanca(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws Exception {
+    public void atualizaGridMudanca(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         SolicitacaoServicoDTO bean = (SolicitacaoServicoDTO) document.getBean();
 
         RequisicaoMudancaDTO requisicaoMudancaDTO = new RequisicaoMudancaDTO();
@@ -2548,14 +2400,11 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         final HTMLTable tblMudanca = document.getTableById("tblMudanca");
 
         if (requisicaoMudancaDTO.getSequenciaMudanca() == null) {
-            tblMudanca.addRow(requisicaoMudancaDTO, new String[] {"numberAndTitulo", "status", ""},
-                    new String[] {"idRequisicaoMudanca"}, "Mudança já cadastrado!!",
-                    new String[] {"exibeIconesMudanca"}, null, null);
+            tblMudanca.addRow(requisicaoMudancaDTO, new String[] {"numberAndTitulo", "status", ""}, new String[] {"idRequisicaoMudanca"},
+                    "Mudança já cadastrado!!", new String[] {"exibeIconesMudanca"}, null, null);
         } else {
-            tblMudanca.updateRow(requisicaoMudancaDTO, new String[] {"numberAndTitulo", "status", ""},
-                    new String[] {"idRequisicaoMudanca"}, "Mudança já cadastrado!!",
-                    new String[] {"exibeIconesMudanca"}, "buscaMudanca", null,
-                    requisicaoMudancaDTO.getSequenciaMudanca());
+            tblMudanca.updateRow(requisicaoMudancaDTO, new String[] {"numberAndTitulo", "status", ""}, new String[] {"idRequisicaoMudanca"},
+                    "Mudança já cadastrado!!", new String[] {"exibeIconesMudanca"}, "buscaMudanca", null, requisicaoMudancaDTO.getSequenciaMudanca());
         }
         document.executeScript("HTMLUtils.applyStyleClassInAllCells('tblMudanca', 'tblMudanca');");
         document.executeScript("fecharModalMudanca();");
@@ -2563,8 +2412,8 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         bean = null;
     }
 
-    public void atualizaGridBaseConhecimento(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws Exception {
+    public void atualizaGridBaseConhecimento(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response)
+            throws Exception {
         final SolicitacaoServicoDTO solicitacaoServicoDTO = (SolicitacaoServicoDTO) document.getBean();
 
         BaseConhecimentoDTO baseConhecimentoDTO = new BaseConhecimentoDTO();
@@ -2576,16 +2425,13 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
             final HTMLTable tblBaseConhecimento = document.getTableById("tblBaseConhecimento");
 
             if (baseConhecimentoDTO.getSequenciaBaseConhecimento() == null) {
-                tblBaseConhecimento.addRow(baseConhecimentoDTO, new String[] {"idBaseConhecimento", "titulo", ""},
-                        new String[] {"idBaseConhecimento"},
-                        UtilI18N.internacionaliza(request, "baseConhecimento.baseConhecimentoJaCadastrada"),
-                        new String[] {"exibeIconesBaseConhecimento"}, null, null);
+                tblBaseConhecimento.addRow(baseConhecimentoDTO, new String[] {"idBaseConhecimento", "titulo", ""}, new String[] {"idBaseConhecimento"},
+                        UtilI18N.internacionaliza(request, "baseConhecimento.baseConhecimentoJaCadastrada"), new String[] {"exibeIconesBaseConhecimento"},
+                        null, null);
             } else {
-                tblBaseConhecimento.updateRow(baseConhecimentoDTO, new String[] {"idBaseConhecimento", "titulo", ""},
-                        new String[] {"idBaseConhecimento"},
-                        UtilI18N.internacionaliza(request, "baseConhecimento.baseConhecimentoJaCadastrada"),
-                        new String[] {"exibeIconesBaseConhecimento"}, null, null,
-                        baseConhecimentoDTO.getSequenciaBaseConhecimento());
+                tblBaseConhecimento.updateRow(baseConhecimentoDTO, new String[] {"idBaseConhecimento", "titulo", ""}, new String[] {"idBaseConhecimento"},
+                        UtilI18N.internacionaliza(request, "baseConhecimento.baseConhecimentoJaCadastrada"), new String[] {"exibeIconesBaseConhecimento"},
+                        null, null, baseConhecimentoDTO.getSequenciaBaseConhecimento());
             }
             document.executeScript("setQuantitativoBaseConhecimento()");
             document.executeScript("HTMLUtils.applyStyleClassInAllCells('tblBaseConhecimento', 'tblBaseConhecimento');");
@@ -2593,8 +2439,8 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         }
     }
 
-    public void atualizaGridItemConfiguracao(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws Exception {
+    public void atualizaGridItemConfiguracao(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response)
+            throws Exception {
         final SolicitacaoServicoDTO solicitacaoServicoDTO = (SolicitacaoServicoDTO) document.getBean();
 
         ItemConfiguracaoDTO itemConfiguracaoDTO = new ItemConfiguracaoDTO();
@@ -2606,24 +2452,21 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
             final HTMLTable tblBaseConhecimento = document.getTableById("tblIC");
 
             if (itemConfiguracaoDTO.getSequenciaIC() == null) {
-                tblBaseConhecimento.addRow(itemConfiguracaoDTO,
-                        new String[] {"idItemConfiguracao", "descricao", "", ""}, new String[] {"idItemConfiguracao"},
-                        "Item Configuração já cadastrado!!", new String[] {"exibeIconesMudanca"},
-                        "abreItemConfiguracao", null);
+                tblBaseConhecimento.addRow(itemConfiguracaoDTO, new String[] {"idItemConfiguracao", "descricao", "", ""}, new String[] {"idItemConfiguracao"},
+                        "Item Configuração já cadastrado!!", new String[] {"exibeIconesMudanca"}, "abreItemConfiguracao", null);
 
             } else {
-                tblBaseConhecimento.updateRow(itemConfiguracaoDTO, new String[] {"idItemConfiguracao", "descricao", "",
-                ""}, new String[] {"idBaseConhecimento"},
-                UtilI18N.internacionaliza(request, "baseConhecimento.baseConhecimentoJaCadastrada"),
-                new String[] {"exibeIconesBaseConhecimento"}, null, null, itemConfiguracaoDTO.getSequenciaIC());
+                tblBaseConhecimento.updateRow(itemConfiguracaoDTO, new String[] {"idItemConfiguracao", "descricao", "", ""},
+                        new String[] {"idBaseConhecimento"}, UtilI18N.internacionaliza(request, "baseConhecimento.baseConhecimentoJaCadastrada"),
+                        new String[] {"exibeIconesBaseConhecimento"}, null, null, itemConfiguracaoDTO.getSequenciaIC());
             }
             document.executeScript("HTMLUtils.applyStyleClassInAllCells('tblIC', 'tblIC');");
             document.executeScript("fecharModalItemConfiguracao();");
         }
     }
 
-    public void carregaInformacoesComplementares(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws Exception {
+    public void carregaInformacoesComplementares(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response)
+            throws Exception {
         SolicitacaoServicoDTO solicitacaoServicoDto = (SolicitacaoServicoDTO) document.getBean();
         carregaInformacoesComplementares(document, request, solicitacaoServicoDto);
 
@@ -2635,11 +2478,9 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         boolean validacao = true;
         if (urlTemplate.contains("/requisicaoPessoal.load")) {
             try {
-                if (!getSolicitacaoServicoService().verificaPermGestorSolicitanteRH(
-                        solicitacaoServicoDto.getIdSolicitante())) {
+                if (!getSolicitacaoServicoService().verificaPermGestorSolicitanteRH(solicitacaoServicoDto.getIdSolicitante())) {
                     validacao = false;
-                    document.alert(UtilI18N.internacionaliza(request,
-                            "requisicaoPessoal.somenteGestoresSupDirPodemAbrirReqPessoal"));
+                    document.alert(UtilI18N.internacionaliza(request, "requisicaoPessoal.somenteGestoresSupDirPodemAbrirReqPessoal"));
                     document.executeScript("limparServico();");
                 }
             } catch (final PersistenceException e) {
@@ -2664,21 +2505,20 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         document.executeScript("document.getElementById('divItemConfiguracao').style.display = 'block';");
         document.executeScript("document.getElementById('col4').style.display = 'block';");
 
-        final TemplateSolicitacaoServicoService templateService = (TemplateSolicitacaoServicoService) ServiceLocator
-                .getInstance().getService(TemplateSolicitacaoServicoService.class, WebUtil.getUsuarioSistema(request));
+        final TemplateSolicitacaoServicoService templateService = (TemplateSolicitacaoServicoService) ServiceLocator.getInstance().getService(
+                TemplateSolicitacaoServicoService.class, WebUtil.getUsuarioSistema(request));
         ServicoContratoDTO servicoContrato = null;
 
         // Valida permissoes do template
-        if (validaPermissoesDoTemplate(document, request, solicitacaoServicoDto, getSolicitacaoServicoService()
-                .getUrlInformacoesComplementares(solicitacaoServicoDto))) {
+        if (validaPermissoesDoTemplate(document, request, solicitacaoServicoDto,
+                getSolicitacaoServicoService().getUrlInformacoesComplementares(solicitacaoServicoDto))) {
             request.getSession().setAttribute("idSolicitante", solicitacaoServicoDto.getIdSolicitante());
-            document.executeScript("exibirInformacoesComplementares(\""
-                    + solicitacaoServicoService.getUrlInformacoesComplementares(solicitacaoServicoDto) + "\");");
+            document.executeScript("exibirInformacoesComplementares(\"" + solicitacaoServicoService.getUrlInformacoesComplementares(solicitacaoServicoDto)
+                    + "\");");
             // Incluído, quando questionário for recarregado.
-            document.executeScript("incluiInfoComplSeQuestionario(\""
-                    + solicitacaoServicoService.getUrlInformacoesComplementares(solicitacaoServicoDto) + "\");");
-            final TemplateSolicitacaoServicoDTO templateDto = templateService
-                    .recuperaTemplateServico(solicitacaoServicoDto);
+            document.executeScript("incluiInfoComplSeQuestionario(\"" + solicitacaoServicoService.getUrlInformacoesComplementares(solicitacaoServicoDto)
+                    + "\");");
+            final TemplateSolicitacaoServicoDTO templateDto = templateService.recuperaTemplateServico(solicitacaoServicoDto);
 
             if (templateDto != null) {
                 carregaInformacoesComplementaresTemplate(document, request, templateDto, solicitacaoServicoDto);
@@ -2692,10 +2532,9 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
              *         Alteração mario.haysaki inserção de flag para tela de expandir tela.
              */
             if (solicitacaoServicoDto.getIdContrato() != null && solicitacaoServicoDto.getIdServico() != null) {
-                servicoContrato = getServicoContratoService().findByIdContratoAndIdServico(
-                        solicitacaoServicoDto.getIdContrato(), solicitacaoServicoDto.getIdServico());
-                if (servicoContrato != null && servicoContrato.getExpandir() != null
-                        && servicoContrato.getExpandir().equalsIgnoreCase("S")) {
+                servicoContrato = getServicoContratoService().findByIdContratoAndIdServico(solicitacaoServicoDto.getIdContrato(),
+                        solicitacaoServicoDto.getIdServico());
+                if (servicoContrato != null && servicoContrato.getExpandir() != null && servicoContrato.getExpandir().equalsIgnoreCase("S")) {
                     document.executeScript("ajustarTelaPadraoTemplate();");
                     request.getSession().setAttribute("expandiuTela", "S");
                 } else if (exandiTelaPadrao != null && exandiTelaPadrao.equals("S")) {
@@ -2711,20 +2550,16 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
      *
      *         Separação do codigo que cuida da geração do template, para um metodo expecifico.
      */
-    private void carregaInformacoesComplementaresTemplate(final DocumentHTML document,
-            final HttpServletRequest request, final TemplateSolicitacaoServicoDTO templateDto,
-            final SolicitacaoServicoDTO solicitacaoServicoDto) {
+    private void carregaInformacoesComplementaresTemplate(final DocumentHTML document, final HttpServletRequest request,
+            final TemplateSolicitacaoServicoDTO templateDto, final SolicitacaoServicoDTO solicitacaoServicoDto) {
 
-        ServicoContratoDTO servicoContrato = null;
         try {
-            servicoContrato = getServicoContratoService().findByIdContratoAndIdServico(
-                    solicitacaoServicoDto.getIdContrato(), solicitacaoServicoDto.getIdServico());
+            getServicoContratoService().findByIdContratoAndIdServico(solicitacaoServicoDto.getIdContrato(), solicitacaoServicoDto.getIdServico());
         } catch (final Exception e) {
             e.printStackTrace();
         }
 
-        if (templateDto.getScriptAposRecuperacao() != null
-                && !StringUtils.isBlank(templateDto.getScriptAposRecuperacao())) {
+        if (templateDto.getScriptAposRecuperacao() != null && !StringUtils.isBlank(templateDto.getScriptAposRecuperacao())) {
             document.executeScript(templateDto.getScriptAposRecuperacao());
         }
         if (!templateDto.getHabilitaDirecionamento().equalsIgnoreCase("S")) {
@@ -2754,13 +2589,11 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
             document.executeScript("document.getElementById('divItemConfiguracao').style.display = 'none';");
         }
         if (!templateDto.getHabilitaSolicitacaoRelacionada().equalsIgnoreCase("S")) {
-            if (request.getAttribute("tarefaAssociada") != null
-                    && !((String) request.getAttribute("tarefaAssociada")).equalsIgnoreCase("N")) {
+            if (request.getAttribute("tarefaAssociada") != null && !((String) request.getAttribute("tarefaAssociada")).equalsIgnoreCase("N")) {
                 document.executeScript("document.getElementById('liIncidentesRelacionados').style.display = 'none';");
             }
         }
-        if (!templateDto.getHabilitaGravarEContinuar().equalsIgnoreCase("S")
-                && solicitacaoServicoDto.getIdTarefa() != null) {
+        if (!templateDto.getHabilitaGravarEContinuar().equalsIgnoreCase("S") && solicitacaoServicoDto.getIdTarefa() != null) {
             document.executeScript("document.getElementById('btnGravarEContinuar').style.display = 'none';");
         }
 
@@ -2771,27 +2604,24 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
          * sistema e altera o tamanho por lá.
          */
         if (templateDto.getAlturaDiv() != null) {
-            document.executeScript("document.getElementById('divInformacoesComplementares').style.height = '"
-                    + templateDto.getAlturaDiv().intValue() + "px';");
+            document.executeScript("document.getElementById('divInformacoesComplementares').style.height = '" + templateDto.getAlturaDiv().intValue() + "px';");
         }
-        if (!templateDto.getHabilitaSituacao().equalsIgnoreCase("S")
-                && !templateDto.getHabilitaSolucao().equalsIgnoreCase("S")) {
+        if (!templateDto.getHabilitaSituacao().equalsIgnoreCase("S") && !templateDto.getHabilitaSolucao().equalsIgnoreCase("S")) {
             document.executeScript("document.getElementById('col4').style.display = 'none';");
         }
 
     }
 
-    public void trataTemplatesViagens(final TemplateSolicitacaoServicoDTO templateDto,
-            final SolicitacaoServicoDTO solicitacaoServicoDto, final HttpServletRequest request,
-            final DocumentHTML document) {
-        final UsuarioDTO usuario = WebUtil.getUsuario(request);
+    public void trataTemplatesViagens(final TemplateSolicitacaoServicoDTO templateDto, final SolicitacaoServicoDTO solicitacaoServicoDto,
+            final HttpServletRequest request, final DocumentHTML document) {
+        WebUtil.getUsuario(request);
         if (templateDto != null
                 && templateDto.getIdentificacao() != null
                 && (templateDto.getIdentificacao().equalsIgnoreCase("ControleFinanceiroViagem")
                         || templateDto.getIdentificacao().equalsIgnoreCase("AdiantamentoViagem")
                         || templateDto.getIdentificacao().equalsIgnoreCase("AlteracaoRequisicaoViagem")
-                        || templateDto.getIdentificacao().equalsIgnoreCase("ExecComprasViagem") || templateDto
-                        .getIdentificacao().equalsIgnoreCase("AutorizacaoViagem"))) {
+                        || templateDto.getIdentificacao().equalsIgnoreCase("ExecComprasViagem") || templateDto.getIdentificacao().equalsIgnoreCase(
+                        "AutorizacaoViagem"))) {
             // regra: permite que o usuário solicitante cancele a solicitação durante essas fases do fluxo
             // mas o usuário não pode marcar a solicitação como resolvida
             document.executeScript("document.getElementById('col4').style.display = 'block';");
@@ -2800,8 +2630,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         }
     }
 
-    public void pesquisaBaseConhecimento(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws Exception {
+    public void pesquisaBaseConhecimento(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
 
         final SolicitacaoServicoDTO solicitacaoServicoDto = (SolicitacaoServicoDTO) document.getBean();
 
@@ -2812,14 +2641,10 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
 
         List<BaseConhecimentoDTO> listaPesquisaBaseConhecimento = null;
 
-        if ((baseConhecimentoDto.getTermoPesquisa() == null || baseConhecimentoDto.getTermoPesquisa().trim()
-                .equalsIgnoreCase(""))
-                && baseConhecimentoDto.getIdUsuarioAutorPesquisa() == null
-                && baseConhecimentoDto.getIdUsuarioAprovadorPesquisa() == null
-                && baseConhecimentoDto.getDataInicioPesquisa() == null
-                && baseConhecimentoDto.getDataPublicacaoPesquisa() == null
-                && (baseConhecimentoDto.getTermoPesquisaNota() == null || baseConhecimentoDto.getTermoPesquisaNota()
-                .equalsIgnoreCase(""))) {
+        if ((baseConhecimentoDto.getTermoPesquisa() == null || baseConhecimentoDto.getTermoPesquisa().trim().equalsIgnoreCase(""))
+                && baseConhecimentoDto.getIdUsuarioAutorPesquisa() == null && baseConhecimentoDto.getIdUsuarioAprovadorPesquisa() == null
+                && baseConhecimentoDto.getDataInicioPesquisa() == null && baseConhecimentoDto.getDataPublicacaoPesquisa() == null
+                && (baseConhecimentoDto.getTermoPesquisaNota() == null || baseConhecimentoDto.getTermoPesquisaNota().equalsIgnoreCase(""))) {
 
             document.alert("Informe um termo para pesquisa");
 
@@ -2840,10 +2665,8 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
             for (final BaseConhecimentoDTO baseConhecimentoDTO : listaPesquisaBaseConhecimento) {
                 if (baseConhecimentoDTO != null && baseConhecimentoDTO.getIdPasta() != null) {
                     if (baseConhecimentoDTO != null) {
-                        if (getBaseConhecimentoService()
-                                .obterGrauDeImportanciaParaUsuario(baseConhecimentoDTO, usuario) != null) {
-                            final Integer grauImportancia = getBaseConhecimentoService()
-                                    .obterGrauDeImportanciaParaUsuario(baseConhecimentoDTO, usuario);
+                        if (getBaseConhecimentoService().obterGrauDeImportanciaParaUsuario(baseConhecimentoDTO, usuario) != null) {
+                            final Integer grauImportancia = getBaseConhecimentoService().obterGrauDeImportanciaParaUsuario(baseConhecimentoDTO, usuario);
                             baseConhecimentoDTO.setGrauImportancia(grauImportancia);
                         }
                     }
@@ -2863,12 +2686,11 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
 
                 TabelaDados.append("<ul>");
                 TabelaDados.append("<tr style='height: 25px !important;'>");
-                TabelaDados
-                .append("<td style='FONT-WEIGHT: bold; FONT-SIZE: small; FONT-FAMILY: Arial; width: 422px;'>");
+                TabelaDados.append("<td style='FONT-WEIGHT: bold; FONT-SIZE: small; FONT-FAMILY: Arial; width: 422px;'>");
                 TabelaDados.append("<li>");
 
-                TabelaDados.append("<a href='#' onclick='contadorClicks(" + dto.getIdBaseConhecimento()
-                        + ");abreVISBASECONHECIMENTO(" + dto.getIdBaseConhecimento() + ");'>");
+                TabelaDados.append("<a href='#' onclick='contadorClicks(" + dto.getIdBaseConhecimento() + ");abreVISBASECONHECIMENTO("
+                        + dto.getIdBaseConhecimento() + ");'>");
 
                 TabelaDados.append(titulo + getGrauImportancia(request, importancia) + "</a>");
                 TabelaDados.append("</li>");
@@ -2879,10 +2701,8 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
 
         } else {
             TabelaDados.append("<tr style='height: 25px !important;'>");
-            TabelaDados
-            .append("<td style='FONT-WEIGHT: bold; FONT-SIZE: small; FONT-FAMILY: 'Arial'; width : 422px;'>");
-            TabelaDados.append("<label> " + UtilI18N.internacionaliza(request, "citcorpore.comum.resultado")
-                    + "</label>");
+            TabelaDados.append("<td style='FONT-WEIGHT: bold; FONT-SIZE: small; FONT-FAMILY: 'Arial'; width : 422px;'>");
+            TabelaDados.append("<label> " + UtilI18N.internacionaliza(request, "citcorpore.comum.resultado") + "</label>");
             TabelaDados.append("</td>");
             TabelaDados.append("</tr>");
         }
@@ -2894,8 +2714,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         document.getElementById("modal_pesquisaSolucaoBaseConhecimento").setVisible(true);
     }
 
-    public void contadorDeClicks(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws Exception {
+    public void contadorDeClicks(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         final SolicitacaoServicoDTO solicitacaoServicoDto = (SolicitacaoServicoDTO) document.getBean();
         final UsuarioDTO usuario = WebUtil.getUsuario(request);
 
@@ -2913,8 +2732,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
                 getContadorAcessoService().create(contadorAcessoDto);
 
                 // Avaliação - Média da nota dada pelos usuários
-                final Double media = getBaseConhecimentoService().calcularNota(
-                        baseConhecimentoDto.getIdBaseConhecimento());
+                final Double media = getBaseConhecimentoService().calcularNota(baseConhecimentoDto.getIdBaseConhecimento());
                 if (media != null) {
                     baseConhecimentoDto.setMedia(media.toString());
                 } else {
@@ -2922,8 +2740,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
                 }
 
                 // Qtde de cliques
-                final Integer quantidadeDeCliques = getContadorAcessoService().quantidadesDeAcessoPorBaseConhecimnto(
-                        baseConhecimentoDto);
+                final Integer quantidadeDeCliques = getContadorAcessoService().quantidadesDeAcessoPorBaseConhecimnto(baseConhecimentoDto);
                 if (quantidadeDeCliques != null) {
                     baseConhecimentoDto.setContadorCliques(quantidadeDeCliques);
                 } else {
@@ -2944,42 +2761,36 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
      * @param response
      * @throws Exception
      */
-    public void listarServicosPorContratoDemandaCategoria(final DocumentHTML document,
-            final HttpServletRequest request, final HttpServletResponse response) throws Exception {
+    public void listarServicosPorContratoDemandaCategoria(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response)
+            throws Exception {
 
         final SolicitacaoServicoDTO solicitacaoServicoDto = (SolicitacaoServicoDTO) document.getBean();
 
         final HTMLTable tblListaServicos = document.getTableById("tblListaServicos");
         tblListaServicos.deleteAllRows();
 
-        final Collection<ServicoDTO> colServicos = getServicoService().findByIdTipoDemandaAndIdContrato(
-                solicitacaoServicoDto.getIdTipoDemandaServico(), solicitacaoServicoDto.getIdContrato(),
-                solicitacaoServicoDto.getIdCategoriaServico());
+        final Collection<ServicoDTO> colServicos = getServicoService().findByIdTipoDemandaAndIdContrato(solicitacaoServicoDto.getIdTipoDemandaServico(),
+                solicitacaoServicoDto.getIdContrato(), solicitacaoServicoDto.getIdCategoriaServico());
         if (colServicos != null && !colServicos.isEmpty()) {
-            tblListaServicos.addRowsByCollection(colServicos, new String[] {"idServico", "nomeServico"}, null, null,
-                    null, "selecionarServico", null);
+            tblListaServicos.addRowsByCollection(colServicos, new String[] {"idServico", "nomeServico"}, null, null, null, "selecionarServico", null);
             document.executeScript("$('#modal_infoServicos').modal('show')");
         } else {
             if (solicitacaoServicoDto.getIdCategoriaServico() == null) {
-                document.alert(UtilI18N.internacionaliza(request,
-                        "solicitacaoServico.semServicoParaTipoSolicitacaoContrato"));
+                document.alert(UtilI18N.internacionaliza(request, "solicitacaoServico.semServicoParaTipoSolicitacaoContrato"));
             } else {
-                document.alert(UtilI18N.internacionaliza(request,
-                        "solicitacaoServico.semServicoParaTipoSolicitacaoContratoCategoriaServico"));
+                document.alert(UtilI18N.internacionaliza(request, "solicitacaoServico.semServicoParaTipoSolicitacaoContratoCategoriaServico"));
             }
         }
 
         document.getJanelaPopupById("JANELA_AGUARDE_MENU").hide();
     }
 
-    public void preencherComboOrigem(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws Exception {
+    public void preencherComboOrigem(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         final HTMLSelect selectOrigem = document.getSelectById("idOrigem");
         selectOrigem.removeAllOptions();
         final ArrayList<OrigemAtendimentoDTO> todasOrigens = (ArrayList) getOrigemAtendimentoService().list();
         final ArrayList<OrigemAtendimentoDTO> origensNaoExcluidas = new ArrayList<OrigemAtendimentoDTO>();
-        final String origemPadrao = ParametroUtil.getValorParametroCitSmartHashMap(
-                Enumerados.ParametroSistema.ORIGEM_PADRAO, "");
+        final String origemPadrao = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.ORIGEM_PADRAO, "");
 
         selectOrigem.addOption("", UtilI18N.internacionaliza(request, "citcorpore.comum.selecione"));
         if (todasOrigens != null) {
@@ -3001,8 +2812,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
      * @throws Exception
      * @author thays.araujo
      */
-    public void preencherComboLocalidade(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws Exception {
+    public void preencherComboLocalidade(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         SolicitacaoServicoDTO solicitacaoServicoDto = (SolicitacaoServicoDTO) document.getBean();
 
         LocalidadeDTO localidadeDto = new LocalidadeDTO();
@@ -3016,19 +2826,16 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
 
         final HTMLSelect comboLocalidade = document.getSelectById("idLocalidade");
         comboLocalidade.removeAllOptions();
-        if (TIRAR_VINCULO_LOCALIDADE_UNIDADE.trim().equalsIgnoreCase("N")
-                || TIRAR_VINCULO_LOCALIDADE_UNIDADE.trim().equalsIgnoreCase("")) {
+        if (TIRAR_VINCULO_LOCALIDADE_UNIDADE.trim().equalsIgnoreCase("N") || TIRAR_VINCULO_LOCALIDADE_UNIDADE.trim().equalsIgnoreCase("")) {
             if (solicitacaoServicoDto.getIdUnidade() != null) {
-                listaIdlocalidadePorUnidade = getLocalidadeUnidadeService().listaIdLocalidades(
-                        solicitacaoServicoDto.getIdUnidade());
+                listaIdlocalidadePorUnidade = getLocalidadeUnidadeService().listaIdLocalidades(solicitacaoServicoDto.getIdUnidade());
             }
             if (listaIdlocalidadePorUnidade != null) {
                 inicializarComboLocalidade(comboLocalidade, request);
                 for (final LocalidadeUnidadeDTO localidadeUnidadeDto : listaIdlocalidadePorUnidade) {
                     localidadeDto.setIdLocalidade(localidadeUnidadeDto.getIdLocalidade());
                     localidadeDto = (LocalidadeDTO) getLocalidadeService().restore(localidadeDto);
-                    comboLocalidade.addOption(localidadeDto.getIdLocalidade().toString(),
-                            localidadeDto.getNomeLocalidade());
+                    comboLocalidade.addOption(localidadeDto.getIdLocalidade().toString(), localidadeDto.getNomeLocalidade());
                 }
 
             }
@@ -3039,8 +2846,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
                 for (final LocalidadeDTO localidadeDTO : listaIdlocalidade) {
                     localidadeDto.setIdLocalidade(localidadeDTO.getIdLocalidade());
                     localidadeDto = (LocalidadeDTO) getLocalidadeService().restore(localidadeDto);
-                    comboLocalidade.addOption(localidadeDto.getIdLocalidade().toString(),
-                            localidadeDto.getNomeLocalidade());
+                    comboLocalidade.addOption(localidadeDto.getIdLocalidade().toString(), localidadeDto.getNomeLocalidade());
                 }
             }
 
@@ -3053,8 +2859,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
      * @throws Exception
      */
     public String getCalcularDinamicamente() throws Exception {
-        calcularDinamicamente = ParametroUtil.getValorParametroCitSmartHashMap(
-                Enumerados.ParametroSistema.CALCULAR_PRIORIDADE_SOLICITACAO_DINAMICAMENTE, "N");
+        calcularDinamicamente = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.CALCULAR_PRIORIDADE_SOLICITACAO_DINAMICAMENTE, "N");
         return calcularDinamicamente.trim();
     }
 
@@ -3063,17 +2868,15 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         componenteCombo.addOption("", UtilI18N.internacionaliza(request, "citcorpore.comum.selecione"));
     }
 
-    private void preparaTelaInclusao(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws Exception {
+    private void preparaTelaInclusao(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         // document.getElementById("btOcorrencias").setVisible(false);
         // document.getElementById("btIncidentesRelacionados").setVisible(false);
     }
 
-    public void carregaBaseConhecimentoAssoc(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws Exception {
+    public void carregaBaseConhecimentoAssoc(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response)
+            throws Exception {
         SolicitacaoServicoDTO solicitacaoServicoDto = (SolicitacaoServicoDTO) document.getBean();
-        document.getElementById("divScript").setInnerHTML(
-                UtilI18N.internacionaliza(request, "solicitacaoservico.validacao.scriptservico"));
+        document.getElementById("divScript").setInnerHTML(UtilI18N.internacionaliza(request, "solicitacaoservico.validacao.scriptservico"));
         if (solicitacaoServicoDto.getIdServico() == null) {
             return;
         }
@@ -3101,8 +2904,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         solicitacaoServicoDto = null;
     }
 
-    public void carregaContratos(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws Exception {
+    public void carregaContratos(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         SolicitacaoServicoDTO solicitacaoServicoDto = (SolicitacaoServicoDTO) document.getBean();
 
         final HTMLSelect idContrato = document.getSelectById("idContrato");
@@ -3112,8 +2914,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
             return;
         }
 
-        final Collection<ServicoContratoDTO> colContratos = getServicoContratoService().findByIdServico(
-                solicitacaoServicoDto.getIdServico());
+        final Collection<ServicoContratoDTO> colContratos = getServicoContratoService().findByIdServico(solicitacaoServicoDto.getIdServico());
         if (colContratos != null) {
             if (colContratos.size() > 1) {
                 idContrato.addOption("", UtilI18N.internacionaliza(request, "citcorpore.comum.selecione"));
@@ -3156,8 +2957,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
      * @throws Exception
      * @author thays.araujo
      */
-    public void preecherComboSoftware(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws Exception {
+    public void preecherComboSoftware(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         SolicitacaoServicoDTO solicitacaoServicoDto = (SolicitacaoServicoDTO) document.getBean();
         final ItemConfiguracaoDTO valor = new ItemConfiguracaoDTO();
         final HTMLSelect comboSoftware = document.getSelectById("idItemConfiguracaoPai");
@@ -3170,8 +2970,8 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         solicitacaoServicoDto = null;
     }
 
-    public Collection<ValorDTO> getListaCaracteristicaSoftware(final ItemConfiguracaoDTO itemConfiguracao,
-            final String tagTipoItemConfiguracao) throws ServiceException, Exception {
+    public Collection<ValorDTO> getListaCaracteristicaSoftware(final ItemConfiguracaoDTO itemConfiguracao, final String tagTipoItemConfiguracao)
+            throws ServiceException, Exception {
         final TipoItemConfiguracaoDTO tipoItemConfiguracao = new TipoItemConfiguracaoDTO();
         tipoItemConfiguracao.setTag(tagTipoItemConfiguracao);
         return getValorService().findByItemAndTipoItemConfiguracaoSofware(itemConfiguracao, tipoItemConfiguracao);
@@ -3187,8 +2987,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
      * @throws Exception
      * @author thays.araujo
      */
-    public void preecherComboHardware(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws Exception {
+    public void preecherComboHardware(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         SolicitacaoServicoDTO solicitacaoServicoDto = (SolicitacaoServicoDTO) document.getBean();
         final ItemConfiguracaoDTO valor = new ItemConfiguracaoDTO();
         final HTMLSelect comboHardware = document.getSelectById("idItemConfiguracaoFilho");
@@ -3201,16 +3000,14 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
                         valores.getTagtipoitemconfiguracao() + " - Id: " + valores.getIdItemConfiguracao());
             }
             idItemAnterior = valores.getIdItemConfiguracao();
-            comboHardware.addOption(valores.getIdItemConfiguracao().toString(), valores.getNomeCaracteristica() + " - "
-                    + valores.getValorStr());
+            comboHardware.addOption(valores.getIdItemConfiguracao().toString(), valores.getNomeCaracteristica() + " - " + valores.getValorStr());
         }
 
         solicitacaoServicoDto = null;
 
     }
 
-    public String listInfoRegExecucaoSolicitacao(final Collection col, final HttpServletRequest request)
-            throws ServiceException, Exception {
+    public String listInfoRegExecucaoSolicitacao(final Collection col, final HttpServletRequest request) throws ServiceException, Exception {
 
         final CategoriaOcorrenciaDAO categoriaOcorrenciaDAO = new CategoriaOcorrenciaDAO();
         final OrigemOcorrenciaDAO origemOcorrenciaDAO = new OrigemOcorrenciaDAO();
@@ -3238,16 +3035,12 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
                     ocorrenciaSolicitacaoAux.setOcorrencia(source.getTextExtractor().toString());
                 }
 
-                if (categoriaOcorrenciaDTO.getIdCategoriaOcorrencia() != null
-                        && categoriaOcorrenciaDTO.getIdCategoriaOcorrencia() != 0) {
-                    categoriaOcorrenciaDTO
-                    .setIdCategoriaOcorrencia(ocorrenciaSolicitacaoAux.getIdCategoriaOcorrencia());
-                    categoriaOcorrenciaDTO = (CategoriaOcorrenciaDTO) categoriaOcorrenciaDAO
-                            .restore(categoriaOcorrenciaDTO);
+                if (categoriaOcorrenciaDTO.getIdCategoriaOcorrencia() != null && categoriaOcorrenciaDTO.getIdCategoriaOcorrencia() != 0) {
+                    categoriaOcorrenciaDTO.setIdCategoriaOcorrencia(ocorrenciaSolicitacaoAux.getIdCategoriaOcorrencia());
+                    categoriaOcorrenciaDTO = (CategoriaOcorrenciaDTO) categoriaOcorrenciaDAO.restore(categoriaOcorrenciaDTO);
                 }
 
-                if (origemOcorrenciaDTO.getIdOrigemOcorrencia() != null
-                        && origemOcorrenciaDTO.getIdOrigemOcorrencia() != 0) {
+                if (origemOcorrenciaDTO.getIdOrigemOcorrencia() != null && origemOcorrenciaDTO.getIdOrigemOcorrencia() != 0) {
                     origemOcorrenciaDTO.setIdOrigemOcorrencia(ocorrenciaSolicitacaoAux.getIdOrigemOcorrencia());
                     origemOcorrenciaDAO.restore(origemOcorrenciaDTO);
                 }
@@ -3267,19 +3060,16 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
                 strBuffer.append("<tr>");
                 strBuffer.append("<td style='border:1px solid black'>");
                 strBuffer.append("<b>"
-                        + UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT,
-                                ocorrenciaSolicitacaoAux.getDataregistro(), WebUtil.getLanguage(request)) + " - "
-                                + ocorrenciaSolicitacaoAux.getHoraregistro());
+                        + UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, ocorrenciaSolicitacaoAux.getDataregistro(), WebUtil.getLanguage(request))
+                        + " - " + ocorrenciaSolicitacaoAux.getHoraregistro());
 
                 String strRegPor = UtilStrings.nullToVazio(ocorrenciaSolicitacaoAux.getRegistradopor());
                 try {
                     if (ocorrenciaSolicitacaoAux.getRegistradopor() != null
                             && !ocorrenciaSolicitacaoAux.getRegistradopor().trim().equalsIgnoreCase("Automático")) {
-                        final UsuarioDTO usuarioDto = getUsuarioService().restoreByLogin(
-                                ocorrenciaSolicitacaoAux.getRegistradopor());
+                        final UsuarioDTO usuarioDto = getUsuarioService().restoreByLogin(ocorrenciaSolicitacaoAux.getRegistradopor());
                         if (usuarioDto != null) {
-                            final EmpregadoDTO empregadoDto = empregadoService.restoreByIdEmpregado(usuarioDto
-                                    .getIdEmpregado());
+                            final EmpregadoDTO empregadoDto = empregadoService.restoreByIdEmpregado(usuarioDto.getIdEmpregado());
                             strRegPor = strRegPor + " - " + empregadoDto.getNome();
                         }
                     }
@@ -3287,38 +3077,28 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
                     e.printStackTrace();
                 }
 
-                strBuffer.append(" - </b>" + UtilI18N.internacionaliza(request, "ocorrenciaSolicitacao.registradopor")
-                        + ": <b>" + strRegPor + "</b>");
+                strBuffer.append(" - </b>" + UtilI18N.internacionaliza(request, "ocorrenciaSolicitacao.registradopor") + ": <b>" + strRegPor + "</b>");
                 strBuffer.append("</td>");
                 strBuffer.append("<td style='border:1px solid black'>");
                 strBuffer.append("<b>" + ocorrenciaSolicitacaoAux.getDescricao() + "<br><br></b>");
                 strBuffer.append("<b>" + ocorrencia + "<br><br></b>");
 
-                if (ocorrenciaSolicitacaoAux.getCategoria() != null
-                        && !ocorrenciaSolicitacaoAux.getCategoria().equals("")) {
-                    if (ocorrenciaSolicitacaoAux.getCategoria().trim()
-                            .equalsIgnoreCase(Enumerados.CategoriaOcorrencia.Suspensao.toString())
-                            || ocorrenciaSolicitacaoAux.getCategoria().trim()
-                            .equalsIgnoreCase(Enumerados.CategoriaOcorrencia.MudancaSLA.toString())
-                            || ocorrenciaSolicitacaoAux.getCategoria().trim()
-                            .equalsIgnoreCase(Enumerados.CategoriaOcorrencia.SuspensaoSLA.toString())) {
+                if (ocorrenciaSolicitacaoAux.getCategoria() != null && !ocorrenciaSolicitacaoAux.getCategoria().equals("")) {
+                    if (ocorrenciaSolicitacaoAux.getCategoria().trim().equalsIgnoreCase(Enumerados.CategoriaOcorrencia.Suspensao.toString())
+                            || ocorrenciaSolicitacaoAux.getCategoria().trim().equalsIgnoreCase(Enumerados.CategoriaOcorrencia.MudancaSLA.toString())
+                            || ocorrenciaSolicitacaoAux.getCategoria().trim().equalsIgnoreCase(Enumerados.CategoriaOcorrencia.SuspensaoSLA.toString())) {
                         JustificativaSolicitacaoDTO justificativaSolicitacaoDTO = new JustificativaSolicitacaoDTO();
                         if (ocorrenciaSolicitacaoAux.getIdJustificativa() != null) {
-                            justificativaSolicitacaoDTO.setIdJustificativa(ocorrenciaSolicitacaoAux
-                                    .getIdJustificativa());
-                            justificativaSolicitacaoDTO = (JustificativaSolicitacaoDTO) getJustificativaSolicitacaoService()
-                                    .restore(justificativaSolicitacaoDTO);
+                            justificativaSolicitacaoDTO.setIdJustificativa(ocorrenciaSolicitacaoAux.getIdJustificativa());
+                            justificativaSolicitacaoDTO = (JustificativaSolicitacaoDTO) getJustificativaSolicitacaoService().restore(
+                                    justificativaSolicitacaoDTO);
                             if (justificativaSolicitacaoDTO != null) {
-                                strBuffer.append(UtilI18N.internacionaliza(request, "citcorpore.comum.justificativa")
-                                        + ": <b>" + justificativaSolicitacaoDTO.getDescricaoJustificativa()
-                                        + "<br><br></b>");
+                                strBuffer.append(UtilI18N.internacionaliza(request, "citcorpore.comum.justificativa") + ": <b>"
+                                        + justificativaSolicitacaoDTO.getDescricaoJustificativa() + "<br><br></b>");
                             }
                         }
-                        if (!UtilStrings.nullToVazio(ocorrenciaSolicitacaoAux.getComplementoJustificativa()).trim()
-                                .equalsIgnoreCase("")) {
-                            strBuffer.append("<b>"
-                                    + UtilStrings.nullToVazio(ocorrenciaSolicitacaoAux.getComplementoJustificativa())
-                                    + "<br><br></b>");
+                        if (!UtilStrings.nullToVazio(ocorrenciaSolicitacaoAux.getComplementoJustificativa()).trim().equalsIgnoreCase("")) {
+                            strBuffer.append("<b>" + UtilStrings.nullToVazio(ocorrenciaSolicitacaoAux.getComplementoJustificativa()) + "<br><br></b>");
                         }
                     }
                 }
@@ -3334,28 +3114,25 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         return strBuffer.toString();
     }
 
-    public void abrirListaDeSubSolicitacoes(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws Exception {
+    public void abrirListaDeSubSolicitacoes(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
 
         SolicitacaoServicoDTO solicitacaoServicoDto = (SolicitacaoServicoDTO) document.getBean();
         String html = "";
         if (solicitacaoServicoDto != null && solicitacaoServicoDto.getIdSolicitacaoServico() != null) {
-            final SolicitacaoServicoDTO solicitacaoServicoAux = (SolicitacaoServicoDTO) getSolicitacaoServicoService()
-                    .restore(solicitacaoServicoDto);
+            final SolicitacaoServicoDTO solicitacaoServicoAux = (SolicitacaoServicoDTO) getSolicitacaoServicoService().restore(solicitacaoServicoDto);
             final Collection colFinal = new ArrayList();
             if (solicitacaoServicoAux != null) {
                 if (solicitacaoServicoAux.getIdSolicitacaoRelacionada() != null) {
                     solicitacaoServicoAux.setIdSolicitacaoServico(solicitacaoServicoAux.getIdSolicitacaoRelacionada());
-                    final SolicitacaoServicoDTO solicitacaoServicoAux2 = (SolicitacaoServicoDTO) getSolicitacaoServicoService()
-                            .restore(solicitacaoServicoAux);
+                    final SolicitacaoServicoDTO solicitacaoServicoAux2 = (SolicitacaoServicoDTO) getSolicitacaoServicoService().restore(solicitacaoServicoAux);
                     if (solicitacaoServicoAux2 != null) {
                         colFinal.add(solicitacaoServicoAux2);
                     }
                 }
             }
 
-            final Collection<SolicitacaoServicoDTO> solicitacoesRelacionadas = getSolicitacaoServicoService()
-                    .listSolicitacaoServicoRelacionadaPai(solicitacaoServicoDto.getIdSolicitacaoServico());
+            final Collection<SolicitacaoServicoDTO> solicitacoesRelacionadas = getSolicitacaoServicoService().listSolicitacaoServicoRelacionadaPai(
+                    solicitacaoServicoDto.getIdSolicitacaoServico());
             if (solicitacoesRelacionadas != null) {
                 colFinal.addAll(solicitacoesRelacionadas);
             }
@@ -3411,8 +3188,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         return "";
     }
 
-    private String gerarHtmlComListaSubSolicitacoes(
-            final Collection<SolicitacaoServicoDTO> listSolicitacaoServicoRelacionada, final StringBuilder script,
+    private String gerarHtmlComListaSubSolicitacoes(final Collection<SolicitacaoServicoDTO> listSolicitacaoServicoRelacionada, final StringBuilder script,
             final HttpServletRequest request) {
         final StringBuilder html = new StringBuilder();
 
@@ -3431,43 +3207,31 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
 
             for (final SolicitacaoServicoDTO solicitacaoServicoRelacionada : listSolicitacaoServicoRelacionada) {
                 html.append("<tr>");
-                html.append("<hidden id='idSolicitante' value='" + solicitacaoServicoRelacionada.getIdSolicitante()
-                        + "'/>");
-                html.append("<hidden id='idResponsavel' value='" + solicitacaoServicoRelacionada.getIdResponsavel()
-                        + "'/>");
-                html.append("<td style='text-align: center;'>"
-                        + solicitacaoServicoRelacionada.getIdSolicitacaoServico() + "</td>");
+                html.append("<hidden id='idSolicitante' value='" + solicitacaoServicoRelacionada.getIdSolicitante() + "'/>");
+                html.append("<hidden id='idResponsavel' value='" + solicitacaoServicoRelacionada.getIdResponsavel() + "'/>");
+                html.append("<td style='text-align: center;'>" + solicitacaoServicoRelacionada.getIdSolicitacaoServico() + "</td>");
                 html.append("<td id='dataHoraSolicitacao'>"
-                        + UtilDatas.convertDateToString(TipoDate.TIMESTAMP_WITH_SECONDS,
-                                solicitacaoServicoRelacionada.getDataHoraSolicitacao(), WebUtil.getLanguage(request))
-                                + "</td>");
-                html.append("<td>" + solicitacaoServicoRelacionada.getPrazoHH() + ":"
-                        + solicitacaoServicoRelacionada.getPrazoMM() + "</td>");
+                        + UtilDatas.convertDateToString(TipoDate.TIMESTAMP_WITH_SECONDS, solicitacaoServicoRelacionada.getDataHoraSolicitacao(),
+                                WebUtil.getLanguage(request)) + "</td>");
+                html.append("<td>" + solicitacaoServicoRelacionada.getPrazoHH() + ":" + solicitacaoServicoRelacionada.getPrazoMM() + "</td>");
                 html.append("<td>" + solicitacaoServicoRelacionada.getDescricao() + "</td>");
-                html.append("<td>"
-                        + (solicitacaoServicoRelacionada.getResposta() != null ? solicitacaoServicoRelacionada
-                                .getResposta() : "-") + "</td>");
+                html.append("<td>" + (solicitacaoServicoRelacionada.getResposta() != null ? solicitacaoServicoRelacionada.getResposta() : "-") + "</td>");
                 if (solicitacaoServicoRelacionada.getSituacao().equals("EmAndamento")) {
-                    html.append("<td>" + UtilI18N.internacionaliza(request, "solicitacaoServico.situacao.EmAndamento")
-                            + "</td>");
+                    html.append("<td>" + UtilI18N.internacionaliza(request, "solicitacaoServico.situacao.EmAndamento") + "</td>");
                 } else if (solicitacaoServicoRelacionada.getSituacao().equals("Suspensa")) {
-                    html.append("<td>" + UtilI18N.internacionaliza(request, "solicitacaoServico.situacao.Suspensa")
-                            + "</td>");
+                    html.append("<td>" + UtilI18N.internacionaliza(request, "solicitacaoServico.situacao.Suspensa") + "</td>");
                 } else if (solicitacaoServicoRelacionada.getSituacao().equals("Cancelada")) {
-                    html.append("<td>" + UtilI18N.internacionaliza(request, "solicitacaoServico.situacao.Cancelada")
-                            + "</td>");
+                    html.append("<td>" + UtilI18N.internacionaliza(request, "solicitacaoServico.situacao.Cancelada") + "</td>");
                 } else if (solicitacaoServicoRelacionada.getSituacao().equals("Resolvida")) {
-                    html.append("<td>" + UtilI18N.internacionaliza(request, "solicitacaoServico.situacao.Resolvida")
-                            + "</td>");
+                    html.append("<td>" + UtilI18N.internacionaliza(request, "solicitacaoServico.situacao.Resolvida") + "</td>");
                 } else {
                     html.append("<td>" + solicitacaoServicoRelacionada.getSituacao() + "</td>");
                 }
 
                 if (solicitacaoServicoRelacionada.getDataHoraLimite() != null) {
                     html.append("<td>"
-                            + UtilDatas.convertDateToString(TipoDate.TIMESTAMP_WITH_SECONDS,
-                                    solicitacaoServicoRelacionada.getDataHoraLimite(), WebUtil.getLanguage(request))
-                                    + "</td>");
+                            + UtilDatas.convertDateToString(TipoDate.TIMESTAMP_WITH_SECONDS, solicitacaoServicoRelacionada.getDataHoraLimite(),
+                                    WebUtil.getLanguage(request)) + "</td>");
                 } else {
                     html.append("<td>À combinar</td>");
                 }
@@ -3489,8 +3253,8 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
      * @throws Exception
      * @author rosana.godinho
      */
-    public Collection<ValorDTO> getListaCaracteristica(final ItemConfiguracaoDTO itemConfiguracao,
-            final String tagTipoItemConfiguracao) throws ServiceException, Exception {
+    public Collection<ValorDTO> getListaCaracteristica(final ItemConfiguracaoDTO itemConfiguracao, final String tagTipoItemConfiguracao)
+            throws ServiceException, Exception {
         final TipoItemConfiguracaoDTO tipoItemConfiguracao = new TipoItemConfiguracaoDTO();
         tipoItemConfiguracao.setTag(tagTipoItemConfiguracao);
         return getValorService().findByItemAndTipoItemConfiguracao(itemConfiguracao, tipoItemConfiguracao);
@@ -3502,8 +3266,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         return SolicitacaoServicoDTO.class;
     }
 
-    public void marcarChecksEmail(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws Exception {
+    public void marcarChecksEmail(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
 
         document.getCheckboxById("enviaEmailCriacao").setChecked(false);
         document.getCheckboxById("enviaEmailAcoes").setChecked(false);
@@ -3515,8 +3278,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
             grupoDTO.setIdGrupo(solicitacaoServicoDto.getIdGrupoAtual());
         }
 
-        if (solicitacaoServicoDto != null && solicitacaoServicoDto.getIdGrupoAtual() != null
-                && !solicitacaoServicoDto.getIdGrupoAtual().equals("")) {
+        if (solicitacaoServicoDto != null && solicitacaoServicoDto.getIdGrupoAtual() != null && !solicitacaoServicoDto.getIdGrupoAtual().equals("")) {
             grupoDTO = (GrupoDTO) getGrupoService().restore(grupoDTO);
         }
 
@@ -3545,8 +3307,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
      * @throws Exception
      * @throws LogicException
      */
-    public void criarComboCategoriaServico(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws Exception {
+    public void criarComboCategoriaServico(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         document.executeScript("document.getElementById(\"divCategoriaServico\").style.display = 'block'");
 
         final HTMLSelect idCategoriaServico = document.getSelectById("idCategoriaServico");
@@ -3554,8 +3315,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         idCategoriaServico.addOption("", UtilI18N.internacionaliza(request, "citcorpore.comum.selecione"));
         final Collection listaDeCategoriasAtivas = categoriaService.listHierarquia();
         if (listaDeCategoriasAtivas != null) {
-            idCategoriaServico.addOptions(listaDeCategoriasAtivas, "idCategoriaServico", "nomeCategoriaServicoNivel",
-                    null);
+            idCategoriaServico.addOptions(listaDeCategoriasAtivas, "idCategoriaServico", "nomeCategoriaServicoNivel", null);
         }
 
         document.executeScript("JANELA_AGUARDE_MENU.hide();");
@@ -3570,16 +3330,16 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
      * @param response
      * @throws Exception
      */
-    public void restoreColaboradorSolicitante(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws Exception {
+    public void restoreColaboradorSolicitante(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response)
+            throws Exception {
         SolicitacaoServicoDTO solicitacaoServicoDto = (SolicitacaoServicoDTO) document.getBean();
         final String UNIDADE_AUTOCOMPLETE = ParametroUtil.getValorParametroCitSmartHashMap(
                 br.com.centralit.citcorpore.util.Enumerados.ParametroSistema.UNIDADE_AUTOCOMPLETE, "N");
 
-        final SolicitacaoServicoService solicitacaoServicoService = (SolicitacaoServicoService) ServiceLocator
-                .getInstance().getService(SolicitacaoServicoService.class, WebUtil.getUsuarioSistema(request));
-        final SolicitacaoServicoService solicitacaoService = (SolicitacaoServicoService) ServiceLocator.getInstance()
-                .getService(SolicitacaoServicoService.class, WebUtil.getUsuarioSistema(request));
+        final SolicitacaoServicoService solicitacaoServicoService = (SolicitacaoServicoService) ServiceLocator.getInstance().getService(
+                SolicitacaoServicoService.class, WebUtil.getUsuarioSistema(request));
+        final SolicitacaoServicoService solicitacaoService = (SolicitacaoServicoService) ServiceLocator.getInstance().getService(
+                SolicitacaoServicoService.class, WebUtil.getUsuarioSistema(request));
 
         EmpregadoDTO empregadoDto = new EmpregadoDTO();
         empregadoDto.setIdEmpregado(solicitacaoServicoDto.getIdSolicitante());
@@ -3597,10 +3357,8 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
             solicitacaoServicoDto.setEmailcontato(empregadoDto.getEmail());
             solicitacaoServicoDto.setIdUnidade(empregadoDto.getIdUnidade());
 
-            if (UNIDADE_AUTOCOMPLETE != null && UNIDADE_AUTOCOMPLETE.equalsIgnoreCase("S")
-                    && solicitacaoServicoDto.getIdUnidade() != null) {
-                solicitacaoServicoDto.setUnidadeDes(getUnidadeService().retornaNomeUnidadeByID(
-                        solicitacaoServicoDto.getIdUnidade()));
+            if (UNIDADE_AUTOCOMPLETE != null && UNIDADE_AUTOCOMPLETE.equalsIgnoreCase("S") && solicitacaoServicoDto.getIdUnidade() != null) {
+                solicitacaoServicoDto.setUnidadeDes(getUnidadeService().retornaNomeUnidadeByID(solicitacaoServicoDto.getIdUnidade()));
             }
 
             solicitacaoServicoDto.setRamal(empregadoDto.getRamal());
@@ -3621,10 +3379,8 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
                     .retornaSolicitacaoServicoComItemConfiguracaoDoSolicitante(login);
 
             if (solicitacaoServicoComItemConfiguracaoDoSolicitante != null) {
-                solicitacaoServicoDto.setIdItemConfiguracao(solicitacaoServicoComItemConfiguracaoDoSolicitante
-                        .getIdItemConfiguracao());
-                solicitacaoServicoDto.setItemConfiguracao(solicitacaoServicoComItemConfiguracaoDoSolicitante
-                        .getItemConfiguracao());
+                solicitacaoServicoDto.setIdItemConfiguracao(solicitacaoServicoComItemConfiguracaoDoSolicitante.getIdItemConfiguracao());
+                solicitacaoServicoDto.setItemConfiguracao(solicitacaoServicoComItemConfiguracaoDoSolicitante.getItemConfiguracao());
             }
         }
 
@@ -3636,24 +3392,21 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
 
         document.executeScript("fecharPopup(\"#POPUP_SOLICITANTE\")");
 
-        List<SolicitacaoServicoDTO> resumo = solicitacaoService.findSolicitacoesServicosUsuario(
-                solicitacaoServicoDto.getIdSolicitante(), null);
+        List<SolicitacaoServicoDTO> resumo = solicitacaoService.findSolicitacoesServicosUsuario(solicitacaoServicoDto.getIdSolicitante(), null);
         if (resumo == null || resumo.size() <= 0) {
             document.executeScript("escondeMostraDiv('btHistoricoSolicitante', 'none')");
         } else {
             document.executeScript("escondeMostraDiv('btHistoricoSolicitante', 'inline')");
         }
 
-        resumo = solicitacaoService.findSolicitacoesServicosUsuario(solicitacaoServicoDto.getIdSolicitante(), null,
-                null);
+        resumo = solicitacaoService.findSolicitacoesServicosUsuario(solicitacaoServicoDto.getIdSolicitante(), null, null);
         if (resumo == null || resumo.size() <= 0) {
             document.executeScript("escondeMostraDiv('btHistoricoSolicitanteEmAndamento', 'none')");
         } else {
             document.executeScript("escondeMostraDiv('btHistoricoSolicitanteEmAndamento', 'inline')");
         }
 
-        String controleAccUnidade = ParametroUtil.getValorParametroCitSmartHashMap(
-                Enumerados.ParametroSistema.CONTROLE_ACC_UNIDADE_INC_SOLIC, "N");
+        String controleAccUnidade = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.CONTROLE_ACC_UNIDADE_INC_SOLIC, "N");
 
         if (!UtilStrings.isNotVazio(controleAccUnidade)) {
             controleAccUnidade = "N";
@@ -3670,8 +3423,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         document.executeScript("fecharJanelaAguarde();");
     }
 
-    public void restoreItemConfiguracao(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws Exception {
+    public void restoreItemConfiguracao(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         SolicitacaoServicoDTO bean = (SolicitacaoServicoDTO) document.getBean();
         ItemConfiguracaoDTO itemConfiguracaoDTO = new ItemConfiguracaoDTO();
 
@@ -3681,13 +3433,11 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         final HTMLTable tblIC = document.getTableById("tblIC");
 
         if (itemConfiguracaoDTO.getSequenciaIC() == null) {
-            tblIC.addRow(itemConfiguracaoDTO, new String[] {"idItemConfiguracao", "identificacao", "", ""},
-                    new String[] {"idItemConfiguracao"}, "Item Configuração já cadastrado!!",
-                    new String[] {"exibeIconesIC"}, null, null);
+            tblIC.addRow(itemConfiguracaoDTO, new String[] {"idItemConfiguracao", "identificacao", "", ""}, new String[] {"idItemConfiguracao"},
+                    "Item Configuração já cadastrado!!", new String[] {"exibeIconesIC"}, null, null);
         } else {
-            tblIC.updateRow(itemConfiguracaoDTO, new String[] {"idItemConfiguracao", "identificacaoStatus", "", ""},
-                    new String[] {"idItemConfiguracao"}, "Item Configuração já cadastrado!!",
-                    new String[] {"exibeIconesIC"}, null, null, itemConfiguracaoDTO.getSequenciaIC());
+            tblIC.updateRow(itemConfiguracaoDTO, new String[] {"idItemConfiguracao", "identificacaoStatus", "", ""}, new String[] {"idItemConfiguracao"},
+                    "Item Configuração já cadastrado!!", new String[] {"exibeIconesIC"}, null, null, itemConfiguracaoDTO.getSequenciaIC());
         }
         document.executeScript("setquantitativoItemConfiguracao()");
 
@@ -3698,8 +3448,8 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         // metodo para setar urgencia e impacto de acordo com o item de configuração
         int prioridade = 0;
         int prioridadeObj = 0;
-        List<ItemConfiguracaoDTO> colItensIC = (List<ItemConfiguracaoDTO>) br.com.citframework.util.WebUtil
-                .deserializeCollectionFromRequest(ItemConfiguracaoDTO.class, "colItensIC_Serialize", request);
+        List<ItemConfiguracaoDTO> colItensIC = (List<ItemConfiguracaoDTO>) br.com.citframework.util.WebUtil.deserializeCollectionFromRequest(
+                ItemConfiguracaoDTO.class, "colItensIC_Serialize", request);
         if (colItensIC == null) {
             colItensIC = new ArrayList<ItemConfiguracaoDTO>();
         }
@@ -3708,32 +3458,23 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
             for (ItemConfiguracaoDTO itemConfiguracaoDTO2 : colItensIC) {
                 itemConfiguracaoDTO2 = (ItemConfiguracaoDTO) getItemConfiguracaoService().restore(itemConfiguracaoDTO2);
                 if (itemConfiguracaoDTO2.getUrgencia() != null && itemConfiguracaoDTO2.getImpacto() != null) {
-                    if (itemConfiguracaoDTO2.getUrgencia().equalsIgnoreCase("B")
-                            && itemConfiguracaoDTO2.getImpacto().equalsIgnoreCase("B")) {
+                    if (itemConfiguracaoDTO2.getUrgencia().equalsIgnoreCase("B") && itemConfiguracaoDTO2.getImpacto().equalsIgnoreCase("B")) {
                         prioridadeObj = 1;
-                    } else if (itemConfiguracaoDTO2.getUrgencia().equalsIgnoreCase("B")
-                            && itemConfiguracaoDTO2.getImpacto().equalsIgnoreCase("M")) {
+                    } else if (itemConfiguracaoDTO2.getUrgencia().equalsIgnoreCase("B") && itemConfiguracaoDTO2.getImpacto().equalsIgnoreCase("M")) {
                         prioridadeObj = 2;
-                    } else if (itemConfiguracaoDTO2.getUrgencia().equalsIgnoreCase("B")
-                            && itemConfiguracaoDTO2.getImpacto().equalsIgnoreCase("A")) {
+                    } else if (itemConfiguracaoDTO2.getUrgencia().equalsIgnoreCase("B") && itemConfiguracaoDTO2.getImpacto().equalsIgnoreCase("A")) {
                         prioridadeObj = 3;
-                    } else if (itemConfiguracaoDTO2.getUrgencia().equalsIgnoreCase("M")
-                            && itemConfiguracaoDTO2.getImpacto().equalsIgnoreCase("B")) {
+                    } else if (itemConfiguracaoDTO2.getUrgencia().equalsIgnoreCase("M") && itemConfiguracaoDTO2.getImpacto().equalsIgnoreCase("B")) {
                         prioridadeObj = 2;
-                    } else if (itemConfiguracaoDTO2.getUrgencia().equalsIgnoreCase("M")
-                            && itemConfiguracaoDTO2.getImpacto().equalsIgnoreCase("M")) {
+                    } else if (itemConfiguracaoDTO2.getUrgencia().equalsIgnoreCase("M") && itemConfiguracaoDTO2.getImpacto().equalsIgnoreCase("M")) {
                         prioridadeObj = 3;
-                    } else if (itemConfiguracaoDTO2.getUrgencia().equalsIgnoreCase("M")
-                            && itemConfiguracaoDTO2.getImpacto().equalsIgnoreCase("A")) {
+                    } else if (itemConfiguracaoDTO2.getUrgencia().equalsIgnoreCase("M") && itemConfiguracaoDTO2.getImpacto().equalsIgnoreCase("A")) {
                         prioridadeObj = 4;
-                    } else if (itemConfiguracaoDTO2.getUrgencia().equalsIgnoreCase("A")
-                            && itemConfiguracaoDTO2.getImpacto().equalsIgnoreCase("B")) {
+                    } else if (itemConfiguracaoDTO2.getUrgencia().equalsIgnoreCase("A") && itemConfiguracaoDTO2.getImpacto().equalsIgnoreCase("B")) {
                         prioridadeObj = 3;
-                    } else if (itemConfiguracaoDTO2.getUrgencia().equalsIgnoreCase("A")
-                            && itemConfiguracaoDTO2.getImpacto().equalsIgnoreCase("M")) {
+                    } else if (itemConfiguracaoDTO2.getUrgencia().equalsIgnoreCase("A") && itemConfiguracaoDTO2.getImpacto().equalsIgnoreCase("M")) {
                         prioridadeObj = 4;
-                    } else if (itemConfiguracaoDTO2.getUrgencia().equalsIgnoreCase("A")
-                            && itemConfiguracaoDTO2.getImpacto().equalsIgnoreCase("A")) {
+                    } else if (itemConfiguracaoDTO2.getUrgencia().equalsIgnoreCase("A") && itemConfiguracaoDTO2.getImpacto().equalsIgnoreCase("A")) {
                         prioridadeObj = 5;
                     }
                     if (prioridadeObj > prioridade) {
@@ -3756,15 +3497,14 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
      * @throws ServiceException
      * @throws Exception
      */
-    public void renderizaHistoricoSolicitacoesIncidente(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws ServiceException, Exception {
+    public void renderizaHistoricoSolicitacoesIncidente(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response)
+            throws ServiceException, Exception {
 
-        final SolicitacaoServicoService solicitacaoService = (SolicitacaoServicoService) ServiceLocator.getInstance()
-                .getService(SolicitacaoServicoService.class, WebUtil.getUsuarioSistema(request));
+        final SolicitacaoServicoService solicitacaoService = (SolicitacaoServicoService) ServiceLocator.getInstance().getService(
+                SolicitacaoServicoService.class, WebUtil.getUsuarioSistema(request));
 
         Integer idIc = null;
-        if (request.getParameter("idItemConfiguracao") != null
-                && !request.getParameter("idItemConfiguracao").equals("")) {
+        if (request.getParameter("idItemConfiguracao") != null && !request.getParameter("idItemConfiguracao").equals("")) {
             idIc = Integer.parseInt(request.getParameter("idItemConfiguracao"));
         }
 
@@ -3785,15 +3525,14 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
      * @throws ServiceException
      * @throws Exception
      */
-    public void renderizaHistoricoSolicitacoesIC(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws ServiceException, Exception {
+    public void renderizaHistoricoSolicitacoesIC(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response)
+            throws ServiceException, Exception {
 
-        final SolicitacaoServicoService solicitacaoService = (SolicitacaoServicoService) ServiceLocator.getInstance()
-                .getService(SolicitacaoServicoService.class, WebUtil.getUsuarioSistema(request));
+        final SolicitacaoServicoService solicitacaoService = (SolicitacaoServicoService) ServiceLocator.getInstance().getService(
+                SolicitacaoServicoService.class, WebUtil.getUsuarioSistema(request));
 
         Integer idIc = null;
-        if (request.getParameter("idItemConfiguracao") != null
-                && !request.getParameter("idItemConfiguracao").equals("")) {
+        if (request.getParameter("idItemConfiguracao") != null && !request.getParameter("idItemConfiguracao").equals("")) {
             idIc = Integer.parseInt(request.getParameter("idItemConfiguracao"));
         }
 
@@ -3814,17 +3553,16 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
      * @throws Exception
      * @author breno.guimaraes
      */
-    public void renderizaHistoricoSolicitacoesUsuario(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws ServiceException, Exception {
-        final SolicitacaoServicoService solicitacaoService = (SolicitacaoServicoService) ServiceLocator.getInstance()
-                .getService(SolicitacaoServicoService.class, WebUtil.getUsuarioSistema(request));
+    public void renderizaHistoricoSolicitacoesUsuario(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response)
+            throws ServiceException, Exception {
+        final SolicitacaoServicoService solicitacaoService = (SolicitacaoServicoService) ServiceLocator.getInstance().getService(
+                SolicitacaoServicoService.class, WebUtil.getUsuarioSistema(request));
         Integer idSolicitante = null;
         if (request.getParameter("idSolicitante") != null && !request.getParameter("idSolicitante").equals("")) {
             idSolicitante = Integer.parseInt(request.getParameter("idSolicitante"));
         }
 
-        final List<SolicitacaoServicoDTO> resumo = solicitacaoService.findSolicitacoesServicosUsuario(idSolicitante,
-                null);
+        final List<SolicitacaoServicoDTO> resumo = solicitacaoService.findSolicitacoesServicosUsuario(idSolicitante, null);
         final StringBuilder script = new StringBuilder();
         document.getElementById("tblResumo").setInnerHTML(montaHTMLResumoSolicitacoes(resumo, script, request, "true"));
 
@@ -3841,10 +3579,10 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
      * @throws Exception
      * @author breno.guimaraes
      */
-    public void renderizaHistoricoSolicitacoesEmAndamentoUsuario(final DocumentHTML document,
-            final HttpServletRequest request, final HttpServletResponse response) throws ServiceException, Exception {
-        final SolicitacaoServicoService solicitacaoService = (SolicitacaoServicoService) ServiceLocator.getInstance()
-                .getService(SolicitacaoServicoService.class, WebUtil.getUsuarioSistema(request));
+    public void renderizaHistoricoSolicitacoesEmAndamentoUsuario(final DocumentHTML document, final HttpServletRequest request,
+            final HttpServletResponse response) throws ServiceException, Exception {
+        final SolicitacaoServicoService solicitacaoService = (SolicitacaoServicoService) ServiceLocator.getInstance().getService(
+                SolicitacaoServicoService.class, WebUtil.getUsuarioSistema(request));
         Integer idSolicitante = null;
 
         String ehRestauracaoSolicitacao = "";
@@ -3893,8 +3631,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         final StringBuilder script = new StringBuilder();
         final StringBuilder filtro = new StringBuilder();
 
-        final List<SolicitacaoServicoDTO> resumo = solicitacaoService.findSolicitacoesServicosUsuario(idSolicitante,
-                situacaoFiltro, campoBusca);
+        final List<SolicitacaoServicoDTO> resumo = solicitacaoService.findSolicitacoesServicosUsuario(idSolicitante, situacaoFiltro, campoBusca);
         String corpoHTML = "";
 
         if (ehCriacaoSolicitacao.equalsIgnoreCase("true")) {
@@ -3929,8 +3666,8 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
      * @return
      * @author breno.guimaraes
      */
-    private String montaHTMLResumoSolicitacoes(final List<SolicitacaoServicoDTO> resumo, final StringBuilder script,
-            final HttpServletRequest request, final String utilizaTemporizador) {
+    private String montaHTMLResumoSolicitacoes(final List<SolicitacaoServicoDTO> resumo, final StringBuilder script, final HttpServletRequest request,
+            final String utilizaTemporizador) {
 
         final String language = (String) request.getSession().getAttribute("locale");
 
@@ -3968,31 +3705,23 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
             html.append("<hidden id='idSolicitante' value='" + r.getIdSolicitante() + "'/>");
             html.append("<hidden id='idResponsavel' value='" + r.getIdResponsavel() + "'/>");
             html.append("<td>" + r.getIdSolicitacaoServico() + "</td>");
-            html.append("<td id='dataHoraSolicitacao'>"
-                    + UtilDatas.convertDateToString(TipoDate.TIMESTAMP_WITH_SECONDS, r.getDataHoraSolicitacao(),
-                            language) + "</td>");
+            html.append("<td id='dataHoraSolicitacao'>" + UtilDatas.convertDateToString(TipoDate.TIMESTAMP_WITH_SECONDS, r.getDataHoraSolicitacao(), language)
+                    + "</td>");
             html.append("<td>" + r.getPrazoHH() + ":" + r.getPrazoMM() + "</td>");
             html.append("<td>" + r.getDescricao() + "</td>");
-            html.append("<td>"
-                    + (r.getResposta() != null && !r.getResposta().equals("") ? UtilStrings.unescapeJavaString(r
-                            .getResposta()) : "-") + "</td>");
+            html.append("<td>" + (r.getResposta() != null && !r.getResposta().equals("") ? UtilStrings.unescapeJavaString(r.getResposta()) : "-") + "</td>");
             if (r.getSituacao().equalsIgnoreCase("EmAndamento")) {
-                html.append("<td>" + UtilI18N.internacionaliza(request, "solicitacaoServico.situacao.EmAndamento")
-                        + "</td>");
+                html.append("<td>" + UtilI18N.internacionaliza(request, "solicitacaoServico.situacao.EmAndamento") + "</td>");
             } else if (r.getSituacao().equalsIgnoreCase("Fechada")) {
-                html.append("<td>" + UtilI18N.internacionaliza(request, "solicitacaoServico.situacao.Fechada")
-                        + "</td>");
+                html.append("<td>" + UtilI18N.internacionaliza(request, "solicitacaoServico.situacao.Fechada") + "</td>");
             } else {
                 html.append("<td>" + r.getSituacao() + "</td>");
             }
             if (r.getDataHoraLimite() != null) {
-                html.append("<td>"
-                        + UtilDatas.convertDateToString(TipoDate.TIMESTAMP_WITH_SECONDS, r.getDataHoraLimite(),
-                                language) + "</td>");
+                html.append("<td>" + UtilDatas.convertDateToString(TipoDate.TIMESTAMP_WITH_SECONDS, r.getDataHoraLimite(), language) + "</td>");
                 if (r.getSituacao().equals("EmAndamento") && utilizaTemporizador.equalsIgnoreCase("true")) {
-                    script.append("temporizador.addOuvinte(new Solicitacao('tempoRestante"
-                            + r.getIdSolicitacaoServico() + "', " + "'barraProgresso" + r.getIdSolicitacaoServico()
-                            + "', " + "'" + r.getDataHoraSolicitacao() + "', '" + r.getDataHoraLimite() + "'));");
+                    script.append("temporizador.addOuvinte(new Solicitacao('tempoRestante" + r.getIdSolicitacaoServico() + "', " + "'barraProgresso"
+                            + r.getIdSolicitacaoServico() + "', " + "'" + r.getDataHoraSolicitacao() + "', '" + r.getDataHoraLimite() + "'));");
                 }
                 html.append("<td><label id='tempoRestante" + r.getIdSolicitacaoServico() + "'></label>");
                 html.append("<div id='barraProgresso" + r.getIdSolicitacaoServico() + "'></div></td>");
@@ -4008,13 +3737,11 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         return html.toString();
     }
 
-    public void listHistorico(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws Exception {
-        final SolicitacaoServicoService solicitacaoService = (SolicitacaoServicoService) ServiceLocator.getInstance()
-                .getService(SolicitacaoServicoService.class, WebUtil.getUsuarioSistema(request));
+    public void listHistorico(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
+        final SolicitacaoServicoService solicitacaoService = (SolicitacaoServicoService) ServiceLocator.getInstance().getService(
+                SolicitacaoServicoService.class, WebUtil.getUsuarioSistema(request));
         SolicitacaoServicoDTO solicitacaoServicoDto = (SolicitacaoServicoDTO) document.getBean();
-        final Collection col = solicitacaoService.getHistoricoByIdSolicitacao(solicitacaoServicoDto
-                .getIdSolicitacaoServico());
+        final Collection col = solicitacaoService.getHistoricoByIdSolicitacao(solicitacaoServicoDto.getIdSolicitacaoServico());
 
         final StringBuilder strBuilder = new StringBuilder();
 
@@ -4047,9 +3774,8 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
                 final SolicitacaoServicoDTO solicitacaoServicoAux = (SolicitacaoServicoDTO) it.next();
                 strBuilder.append("<tr>");
                 strBuilder.append("<td style='border:1px solid black'>");
-                strBuilder.append(UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT,
-                        solicitacaoServicoAux.getDataHora(), WebUtil.getLanguage(request))
-                        + " " + UtilDatas.formatHoraFormatadaHHMMSSStr(solicitacaoServicoAux.getDataHora()));
+                strBuilder.append(UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, solicitacaoServicoAux.getDataHora(), WebUtil.getLanguage(request)) + " "
+                        + UtilDatas.formatHoraFormatadaHHMMSSStr(solicitacaoServicoAux.getDataHora()));
                 strBuilder.append("</td>");
                 strBuilder.append("<td style='border:1px solid black'>");
                 if (solicitacaoServicoAux.getSeqReabertura() == null) {
@@ -4082,24 +3808,20 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         solicitacaoServicoDto = null;
     }
 
-    public void gravarAnexo(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws Exception {
+    public void gravarAnexo(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         SolicitacaoServicoDTO solicitacaoServicoDto = (SolicitacaoServicoDTO) document.getBean();
-        final SolicitacaoServicoService solicitacaoServicoService = (SolicitacaoServicoService) ServiceLocator
-                .getInstance().getService(SolicitacaoServicoService.class, WebUtil.getUsuarioSistema(request));
-        final Collection<UploadDTO> arquivosUpados = (Collection<UploadDTO>) request.getSession(true).getAttribute(
-                "colUploadsGED");
+        final SolicitacaoServicoService solicitacaoServicoService = (SolicitacaoServicoService) ServiceLocator.getInstance().getService(
+                SolicitacaoServicoService.class, WebUtil.getUsuarioSistema(request));
+        final Collection<UploadDTO> arquivosUpados = (Collection<UploadDTO>) request.getSession(true).getAttribute("colUploadsGED");
         solicitacaoServicoDto.setColArquivosUpload(arquivosUpados);
         document.getElementById("contatdorAnexo").setValue("" + arquivosUpados.size());
         // Rotina para gravar no banco
-        if (solicitacaoServicoDto.getColArquivosUpload() != null
-                && solicitacaoServicoDto.getColArquivosUpload().size() > 0) {
+        if (solicitacaoServicoDto.getColArquivosUpload() != null && solicitacaoServicoDto.getColArquivosUpload().size() > 0) {
             Integer idEmpresa = WebUtil.getIdEmpresa(request);
             if (idEmpresa == null) {
                 idEmpresa = 1;
             }
-            solicitacaoServicoService.gravaInformacoesGED(solicitacaoServicoDto.getColArquivosUpload(), idEmpresa,
-                    solicitacaoServicoDto, null);
+            solicitacaoServicoService.gravaInformacoesGED(solicitacaoServicoDto.getColArquivosUpload(), idEmpresa, solicitacaoServicoDto, null);
             document.alert(UtilI18N.internacionaliza(request, "MSG06"));
             document.executeScript("('#POPUP_menuAnexos').dialog('close');");
         }
@@ -4107,8 +3829,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         solicitacaoServicoDto = null;
     }
 
-    public Integer carregarProblema(final Integer indice, final Integer id) throws ServiceException,
-    br.com.citframework.excecao.LogicException, Exception {
+    public Integer carregarProblema(final Integer indice, final Integer id) throws ServiceException, br.com.citframework.excecao.LogicException, Exception {
         ProblemaDTO problemadto = new ProblemaDTO();
         problemadto.setIdSolicitacaoServico(id);
         if (id != null) {
@@ -4124,14 +3845,12 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         return problemadto.getIdProblema();
     }
 
-    public Integer obterGrauDeImportanciaParaUsuario(final BaseConhecimentoDTO baseConhecimentoDto,
-            final UsuarioDTO usuarioDto) throws Exception {
+    public Integer obterGrauDeImportanciaParaUsuario(final BaseConhecimentoDTO baseConhecimentoDto, final UsuarioDTO usuarioDto) throws Exception {
 
-        final Collection<GrupoEmpregadoDTO> listGrupoEmpregadoDto = getGrupoEmpregadoService().findByIdEmpregado(
-                usuarioDto.getIdEmpregado());
+        final Collection<GrupoEmpregadoDTO> listGrupoEmpregadoDto = getGrupoEmpregadoService().findByIdEmpregado(usuarioDto.getIdEmpregado());
 
-        final ImportanciaConhecimentoGrupoDTO importanciaConhecimento = getImportanciaConhecimentoGrupoService()
-                .obterGrauDeImportancia(baseConhecimentoDto, listGrupoEmpregadoDto, usuarioDto);
+        final ImportanciaConhecimentoGrupoDTO importanciaConhecimento = getImportanciaConhecimentoGrupoService().obterGrauDeImportancia(baseConhecimentoDto,
+                listGrupoEmpregadoDto, usuarioDto);
 
         if (importanciaConhecimento != null) {
             return Integer.parseInt(importanciaConhecimento.getGrauImportancia());
@@ -4146,13 +3865,11 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
      * @author mario.junior
      * @since 31/10/2013 09:36
      */
-    public void carregaFlagGerenciamento(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws Exception {
+    public void carregaFlagGerenciamento(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         request.getSession(true).setAttribute("flagGerenciamento", "S");
     }
 
-    public void flagGerenciamentoClose(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws Exception {
+    public void flagGerenciamentoClose(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         request.getSession(true).setAttribute("flagGerenciamento", null);
     }
 
@@ -4165,8 +3882,8 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
      * @throws Exception
      * @author thays.araujo
      */
-    public void setQuantitativoIncidentesRelacionados(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws Exception {
+    public void setQuantitativoIncidentesRelacionados(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response)
+            throws Exception {
         final SolicitacaoServicoDTO solicitacaoServicoDto = (SolicitacaoServicoDTO) document.getBean();
 
         if (solicitacaoServicoDto.getIdSolicitacaoServico() != null) {
@@ -4178,8 +3895,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
             if (solicitacoesRelacionadas != null) {
                 quantidadeIncidentesRelacionados = solicitacoesRelacionadas.size();
                 quantidadeIncidentesRelacionadosStr = String.valueOf(quantidadeIncidentesRelacionados);
-                document.getElementById("quantidadeIncidentesRelacionados").setValue(
-                        quantidadeIncidentesRelacionadosStr);
+                document.getElementById("quantidadeIncidentesRelacionados").setValue(quantidadeIncidentesRelacionadosStr);
             }
         }
 
@@ -4191,8 +3907,8 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
      * @author bruno.aquino
      * @since 02/06/2014 16:00
      */
-    public void setarDescricaoNaSessaoCadastrarProblema(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws Exception {
+    public void setarDescricaoNaSessaoCadastrarProblema(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response)
+            throws Exception {
         final SolicitacaoServicoDTO solicitacaoServicoDto = (SolicitacaoServicoDTO) document.getBean();
         request.getSession().setAttribute("DescricaoSolicitacao", solicitacaoServicoDto.getDescricao());
         document.executeScript("cadastrarProblemaAbrirFame()");
@@ -4204,8 +3920,8 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
      * @author bruno.aquino
      * @since 02/06/2014 16:00
      */
-    public void setarDescricaoNaSessaoCadastrarMudanca(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws Exception {
+    public void setarDescricaoNaSessaoCadastrarMudanca(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response)
+            throws Exception {
         final SolicitacaoServicoDTO solicitacaoServicoDto = (SolicitacaoServicoDTO) document.getBean();
         request.getSession().setAttribute("DescricaoSolicitacao", solicitacaoServicoDto.getDescricao());
         document.executeScript("cadastrarMudancaAbrirFame()");
@@ -4227,16 +3943,15 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
 
     private RequisicaoMudancaService getRequisicaoMudancaService() throws ServiceException, Exception {
         if (requisicaoMudancaService == null) {
-            requisicaoMudancaService = (RequisicaoMudancaService) ServiceLocator.getInstance().getService(
-                    RequisicaoMudancaService.class, null);
+            requisicaoMudancaService = (RequisicaoMudancaService) ServiceLocator.getInstance().getService(RequisicaoMudancaService.class, null);
         }
         return requisicaoMudancaService;
     }
 
     private ConhecimentoSolicitacaoService getConhecimentoSolicitacaoService() throws ServiceException {
         if (conhecimentoSolicitacaoService == null) {
-            conhecimentoSolicitacaoService = (ConhecimentoSolicitacaoService) ServiceLocator.getInstance().getService(
-                    ConhecimentoSolicitacaoService.class, null);
+            conhecimentoSolicitacaoService = (ConhecimentoSolicitacaoService) ServiceLocator.getInstance().getService(ConhecimentoSolicitacaoService.class,
+                    null);
         }
         return conhecimentoSolicitacaoService;
     }
@@ -4250,8 +3965,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
 
     public SolicitacaoServicoService getSolicitacaoServicoService() throws ServiceException {
         if (solicitacaoServicoService == null) {
-            solicitacaoServicoService = (SolicitacaoServicoService) ServiceLocator.getInstance().getService(
-                    SolicitacaoServicoService.class, null);
+            solicitacaoServicoService = (SolicitacaoServicoService) ServiceLocator.getInstance().getService(SolicitacaoServicoService.class, null);
         }
         return solicitacaoServicoService;
     }
@@ -4265,8 +3979,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
 
     public OrigemAtendimentoService getOrigemAtendimentoService() throws ServiceException {
         if (origemAtendimentoService == null) {
-            origemAtendimentoService = (OrigemAtendimentoService) ServiceLocator.getInstance().getService(
-                    OrigemAtendimentoService.class, null);
+            origemAtendimentoService = (OrigemAtendimentoService) ServiceLocator.getInstance().getService(OrigemAtendimentoService.class, null);
         }
         return origemAtendimentoService;
     }
@@ -4280,88 +3993,78 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
 
     public ServicoContratoService getServicoContratoService() throws ServiceException {
         if (servicoContratoService == null) {
-            servicoContratoService = (ServicoContratoService) ServiceLocator.getInstance().getService(
-                    ServicoContratoService.class, null);
+            servicoContratoService = (ServicoContratoService) ServiceLocator.getInstance().getService(ServicoContratoService.class, null);
         }
         return servicoContratoService;
     }
 
     public CategoriaSolucaoService getCategoriaSolucaoService() throws ServiceException {
         if (categoriaSolucaoService == null) {
-            categoriaSolucaoService = (CategoriaSolucaoService) ServiceLocator.getInstance().getService(
-                    CategoriaSolucaoService.class, null);
+            categoriaSolucaoService = (CategoriaSolucaoService) ServiceLocator.getInstance().getService(CategoriaSolucaoService.class, null);
         }
         return categoriaSolucaoService;
     }
 
     public CausaIncidenteService getCausaIncidenteService() throws ServiceException {
         if (causaIncidenteService == null) {
-            causaIncidenteService = (CausaIncidenteService) ServiceLocator.getInstance().getService(
-                    CausaIncidenteService.class, null);
+            causaIncidenteService = (CausaIncidenteService) ServiceLocator.getInstance().getService(CausaIncidenteService.class, null);
         }
         return causaIncidenteService;
     }
 
     public TipoDemandaServicoService getTipoDemandaService() throws ServiceException {
         if (tipoDemandaService == null) {
-            tipoDemandaService = (TipoDemandaServicoService) ServiceLocator.getInstance().getService(
-                    TipoDemandaServicoService.class, null);
+            tipoDemandaService = (TipoDemandaServicoService) ServiceLocator.getInstance().getService(TipoDemandaServicoService.class, null);
         }
         return tipoDemandaService;
     }
 
     public FornecedorService getFornecedorService() throws ServiceException {
         if (fornecedorService == null) {
-            fornecedorService = (FornecedorService) ServiceLocator.getInstance().getService(FornecedorService.class,
-                    null);
+            fornecedorService = (FornecedorService) ServiceLocator.getInstance().getService(FornecedorService.class, null);
         }
         return fornecedorService;
     }
 
     public AcordoNivelServicoService getAcordoNivelServicoService() throws ServiceException {
         if (acordoNivelServicoService == null) {
-            acordoNivelServicoService = (AcordoNivelServicoService) ServiceLocator.getInstance().getService(
-                    AcordoNivelServicoService.class, null);
+            acordoNivelServicoService = (AcordoNivelServicoService) ServiceLocator.getInstance().getService(AcordoNivelServicoService.class, null);
         }
         return acordoNivelServicoService;
     }
 
     public AcordoServicoContratoService getAcordoServicoContratoService() throws ServiceException {
         if (acordoServicoContratoService == null) {
-            acordoServicoContratoService = (AcordoServicoContratoService) ServiceLocator.getInstance().getService(
-                    AcordoServicoContratoService.class, null);
+            acordoServicoContratoService = (AcordoServicoContratoService) ServiceLocator.getInstance().getService(AcordoServicoContratoService.class, null);
         }
         return acordoServicoContratoService;
     }
 
     public GrupoEmpregadoService getGrupoEmpregadoService() throws ServiceException {
         if (grupoEmpregadoService == null) {
-            grupoEmpregadoService = (GrupoEmpregadoService) ServiceLocator.getInstance().getService(
-                    GrupoEmpregadoService.class, null);
+            grupoEmpregadoService = (GrupoEmpregadoService) ServiceLocator.getInstance().getService(GrupoEmpregadoService.class, null);
         }
         return grupoEmpregadoService;
     }
 
     public ImportanciaConhecimentoGrupoService getImportanciaConhecimentoGrupoService() throws ServiceException {
         if (importanciaConhecimentoGrupoService == null) {
-            importanciaConhecimentoGrupoService = (ImportanciaConhecimentoGrupoService) ServiceLocator.getInstance()
-                    .getService(ImportanciaConhecimentoGrupoService.class, null);
+            importanciaConhecimentoGrupoService = (ImportanciaConhecimentoGrupoService) ServiceLocator.getInstance().getService(
+                    ImportanciaConhecimentoGrupoService.class, null);
         }
         return importanciaConhecimentoGrupoService;
     }
 
     public ItemConfiguracaoService getItemConfiguracaoService() throws ServiceException {
         if (itemConfiguracaoService == null) {
-            itemConfiguracaoService = (ItemConfiguracaoService) ServiceLocator.getInstance().getService(
-                    ItemConfiguracaoService.class, null);
+            itemConfiguracaoService = (ItemConfiguracaoService) ServiceLocator.getInstance().getService(ItemConfiguracaoService.class, null);
         }
         return itemConfiguracaoService;
     }
 
     public ItemCfgSolicitacaoServService getItemCfgSolicitacaoServService() throws ServiceException {
         if (itemCfgSolicitacaoServService == null) {
-            itemCfgSolicitacaoServService = (ItemCfgSolicitacaoServService) ServiceLocator.getInstance().getService(
-                    ItemCfgSolicitacaoServService.class, null);
+            itemCfgSolicitacaoServService = (ItemCfgSolicitacaoServService) ServiceLocator.getInstance().getService(ItemCfgSolicitacaoServService.class, null);
         }
         return itemCfgSolicitacaoServService;
     }
@@ -4382,32 +4085,28 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
 
     public TipoItemConfiguracaoService getTipoItemConfiguracaoService() throws ServiceException {
         if (tipoItemConfiguracaoService == null) {
-            tipoItemConfiguracaoService = (TipoItemConfiguracaoService) ServiceLocator.getInstance().getService(
-                    TipoItemConfiguracaoService.class, null);
+            tipoItemConfiguracaoService = (TipoItemConfiguracaoService) ServiceLocator.getInstance().getService(TipoItemConfiguracaoService.class, null);
         }
         return tipoItemConfiguracaoService;
     }
 
     public CategoriaServicoService getCategoriaService() throws ServiceException {
         if (categoriaService == null) {
-            categoriaService = (CategoriaServicoService) ServiceLocator.getInstance().getService(
-                    CategoriaServicoService.class, null);
+            categoriaService = (CategoriaServicoService) ServiceLocator.getInstance().getService(CategoriaServicoService.class, null);
         }
         return categoriaService;
     }
 
     public ControleGEDService getControleGedService() throws ServiceException {
         if (controleGedService == null) {
-            controleGedService = (ControleGEDService) ServiceLocator.getInstance().getService(ControleGEDService.class,
-                    null);
+            controleGedService = (ControleGEDService) ServiceLocator.getInstance().getService(ControleGEDService.class, null);
         }
         return controleGedService;
     }
 
     public PrioridadeSolicitacoesService getPrioridadeSolicitacoesService() throws ServiceException {
         if (prioridadeSolicitacoesService == null) {
-            prioridadeSolicitacoesService = (PrioridadeSolicitacoesService) ServiceLocator.getInstance().getService(
-                    PrioridadeSolicitacoesService.class, null);
+            prioridadeSolicitacoesService = (PrioridadeSolicitacoesService) ServiceLocator.getInstance().getService(PrioridadeSolicitacoesService.class, null);
         }
         return prioridadeSolicitacoesService;
     }
@@ -4421,16 +4120,15 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
 
     public OcorrenciaSolicitacaoService getOcorrenciaSolicitacaoService() throws ServiceException {
         if (ocorrenciaSolicitacaoService == null) {
-            ocorrenciaSolicitacaoService = (OcorrenciaSolicitacaoService) ServiceLocator.getInstance().getService(
-                    OcorrenciaSolicitacaoService.class, null);
+            ocorrenciaSolicitacaoService = (OcorrenciaSolicitacaoService) ServiceLocator.getInstance().getService(OcorrenciaSolicitacaoService.class, null);
         }
         return ocorrenciaSolicitacaoService;
     }
 
     public JustificativaSolicitacaoService getJustificativaSolicitacaoService() throws ServiceException {
         if (justificativaSolicitacaoService == null) {
-            justificativaSolicitacaoService = (JustificativaSolicitacaoService) ServiceLocator.getInstance()
-                    .getService(JustificativaSolicitacaoService.class, null);
+            justificativaSolicitacaoService = (JustificativaSolicitacaoService) ServiceLocator.getInstance().getService(JustificativaSolicitacaoService.class,
+                    null);
         }
         return justificativaSolicitacaoService;
     }
@@ -4444,32 +4142,28 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
 
     public BaseConhecimentoService getBaseConhecimentoService() throws ServiceException {
         if (baseConhecimentoService == null) {
-            baseConhecimentoService = (BaseConhecimentoService) ServiceLocator.getInstance().getService(
-                    BaseConhecimentoService.class, null);
+            baseConhecimentoService = (BaseConhecimentoService) ServiceLocator.getInstance().getService(BaseConhecimentoService.class, null);
         }
         return baseConhecimentoService;
     }
 
     public LocalidadeService getLocalidadeService() throws ServiceException {
         if (localidadeService == null) {
-            localidadeService = (LocalidadeService) ServiceLocator.getInstance().getService(LocalidadeService.class,
-                    null);
+            localidadeService = (LocalidadeService) ServiceLocator.getInstance().getService(LocalidadeService.class, null);
         }
         return localidadeService;
     }
 
     public ContadorAcessoService getContadorAcessoService() throws ServiceException {
         if (contadorAcessoService == null) {
-            contadorAcessoService = (ContadorAcessoService) ServiceLocator.getInstance().getService(
-                    ContadorAcessoService.class, null);
+            contadorAcessoService = (ContadorAcessoService) ServiceLocator.getInstance().getService(ContadorAcessoService.class, null);
         }
         return contadorAcessoService;
     }
 
     public LocalidadeUnidadeService getLocalidadeUnidadeService() throws ServiceException {
         if (localidadeUnidadeService == null) {
-            localidadeUnidadeService = (LocalidadeUnidadeService) ServiceLocator.getInstance().getService(
-                    LocalidadeUnidadeService.class, null);
+            localidadeUnidadeService = (LocalidadeUnidadeService) ServiceLocator.getInstance().getService(LocalidadeUnidadeService.class, null);
         }
         return localidadeUnidadeService;
     }

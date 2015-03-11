@@ -3,8 +3,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.TipoProdutoDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.CrudService;
@@ -13,7 +13,7 @@ public interface TipoProdutoService extends CrudService {
     
     public boolean consultarTiposProdutos(TipoProdutoDTO tipoProdutoDTO) throws Exception;
     
-    public IDto create(IDto model, HttpServletRequest request) throws ServiceException, LogicException, Exception;
+    public BaseEntity create(BaseEntity model, HttpServletRequest request) throws ServiceException, LogicException, Exception;
     
-    public void update(IDto model, HttpServletRequest request) throws ServiceException, LogicException;
+    public void update(BaseEntity model, HttpServletRequest request) throws ServiceException, LogicException;
 }

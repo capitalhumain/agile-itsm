@@ -1,12 +1,12 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * @author ygor.magalhaes
  *
  */
-public class SistemaOperacionalDTO implements IDto {
+public class SistemaOperacionalDTO extends BaseEntity {
 
     private Integer id;
     private String nome;

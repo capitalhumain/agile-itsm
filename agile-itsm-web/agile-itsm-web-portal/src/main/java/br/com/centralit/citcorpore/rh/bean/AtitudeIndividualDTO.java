@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.rh.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class AtitudeIndividualDTO implements IDto {
+public class AtitudeIndividualDTO extends BaseEntity {
 
 	private static final long serialVersionUID = 1955373691755479895L;
 

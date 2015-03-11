@@ -1,9 +1,9 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 @SuppressWarnings("serial")
-public class PlanoMelhoriaDTO implements IDto {
+public class PlanoMelhoriaDTO extends BaseEntity {
 	private Integer idPlanoMelhoria;
 	private Integer idFornecedor;
 	private Integer idContrato;

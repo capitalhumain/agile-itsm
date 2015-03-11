@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class EmailAlteracaoSenhaDTO implements IDto {
+public class EmailAlteracaoSenhaDTO extends BaseEntity {
 
 	private static final long serialVersionUID = 5593259062378322864L;
 	

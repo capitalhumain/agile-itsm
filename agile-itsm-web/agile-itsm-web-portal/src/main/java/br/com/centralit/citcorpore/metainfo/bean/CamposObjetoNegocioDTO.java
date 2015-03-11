@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.metainfo.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class CamposObjetoNegocioDTO implements IDto {
+public class CamposObjetoNegocioDTO extends BaseEntity {
 	
 	private Integer idCamposObjetoNegocio;
 	private Integer idObjetoNegocio;

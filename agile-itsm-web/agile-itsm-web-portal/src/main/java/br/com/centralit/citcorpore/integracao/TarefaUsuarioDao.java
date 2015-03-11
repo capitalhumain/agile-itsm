@@ -8,6 +8,7 @@ import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.bpm.util.Enumerados.SituacaoInstanciaFluxo;
 import br.com.centralit.bpm.util.Enumerados.SituacaoItemTrabalho;
 import br.com.centralit.bpm.util.Enumerados.TipoAtribuicao;
@@ -25,7 +26,6 @@ import br.com.centralit.citcorpore.util.Enumerados.SituacaoSolicitacaoServico;
 import br.com.centralit.citcorpore.util.ParametroUtil;
 import br.com.centralit.citcorpore.util.Util;
 import br.com.centralit.citged.bean.ControleGEDDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
 import br.com.citframework.integracao.Field;
@@ -45,7 +45,7 @@ public class TarefaUsuarioDao extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public Collection<TarefaUsuarioDTO> find(final IDto obj) throws PersistenceException {
+    public Collection<TarefaUsuarioDTO> find(final BaseEntity obj) throws PersistenceException {
         return null;
     }
 

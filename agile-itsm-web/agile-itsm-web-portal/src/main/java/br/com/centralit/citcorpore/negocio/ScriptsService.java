@@ -4,9 +4,9 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citajax.html.DocumentHTML;
 import br.com.centralit.citcorpore.bean.ScriptsDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.CrudService;
 
@@ -14,7 +14,7 @@ public interface ScriptsService extends CrudService {
 
     ScriptsDTO buscaScriptPorId(final Integer id) throws Exception;
 
-    void deletarScript(final IDto model, final DocumentHTML document) throws Exception;
+    void deletarScript(final BaseEntity model, final DocumentHTML document) throws Exception;
 
     String executaRotinaScripts() throws Exception;
 

@@ -1,8 +1,8 @@
 package br.com.centralit.citgerencial.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class ParametroDTO implements IDto {
+public class ParametroDTO extends BaseEntity {
 
 	/**
 	 * 

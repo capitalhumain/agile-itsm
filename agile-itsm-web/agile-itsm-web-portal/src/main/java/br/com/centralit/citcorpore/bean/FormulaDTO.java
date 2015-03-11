@@ -1,9 +1,9 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 @SuppressWarnings("serial")
-public class FormulaDTO implements IDto {
+public class FormulaDTO extends BaseEntity {
 	public static String FORMULA_INVENTORY_PROCESS_SAVE = "INVENTORY_PROCESS_SAVE";
 	public static String FORMULA_INVENTORY_PROCESS_BEFORE_CAPTURE = "INVENTORY_PROCESS_BEFORE_CAPTURE";
 	

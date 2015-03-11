@@ -1,11 +1,11 @@
 package br.com.centralit.citcorpore.bean;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.util.Enumerados.ResultadoValidacao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.util.Constantes;
 
 
-public class MensagemRegraNegocioDTO implements IDto {
+public class MensagemRegraNegocioDTO extends BaseEntity {
     public static final String AVISO = "A";
     public static final String ERRO = "E";
 

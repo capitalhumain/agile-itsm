@@ -3,10 +3,10 @@ package br.com.centralit.citcorpore.negocio;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.DadosEmailRegOcorrenciaDTO;
 import br.com.centralit.citcorpore.bean.OcorrenciaDTO;
 import br.com.centralit.citcorpore.integracao.OcorrenciaDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.CrudServiceImpl;
@@ -42,7 +42,7 @@ public class OcorrenciaServiceEjb extends CrudServiceImpl implements OcorrenciaS
     }
 
     @Override
-    public void updateResposta(final IDto bean) throws LogicException, ServiceException {
+    public void updateResposta(final BaseEntity bean) throws LogicException, ServiceException {
         try {
             this.getDao().updateResposta(bean);
         } catch (final Exception e) {

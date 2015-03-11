@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.EntregaItemRequisicaoDTO;
 import br.com.centralit.citcorpore.util.Enumerados.SituacaoEntregaItemRequisicao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.Condition;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
@@ -41,7 +41,7 @@ public class EntregaItemRequisicaoDao extends CrudDaoDefaultImpl {
 	public Class getBean() {
 		return EntregaItemRequisicaoDTO.class;
 	}
-	public Collection find(IDto arg0) throws PersistenceException {
+	public Collection find(BaseEntity arg0) throws PersistenceException {
 		return null;
 	}
     public Collection findDisponiveisInspecaoByIdSolicitacaoServico(Integer idSolicitacaoServico) throws PersistenceException {
@@ -209,7 +209,7 @@ public class EntregaItemRequisicaoDao extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public void updateNotNull(IDto obj) throws PersistenceException {
+    public void updateNotNull(BaseEntity obj) throws PersistenceException {
     	super.updateNotNull(obj);
     }
 }

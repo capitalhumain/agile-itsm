@@ -7,27 +7,26 @@
 <%@ page import="br.com.centralit.citcorpore.negocio.ParametroCorporeService" %>
 <%@ page import="br.com.centralit.citcorpore.bean.ParametroCorporeDTO" %>
 <%@ page import="br.com.centralit.citcorpore.util.Enumerados.ParametroSistema" %>
-<%@ page import="br.com.centralit.citcorpore.free.Free"%>
 <%@page import="br.com.centralit.bpm.util.Enumerados"%>
 
 <%
-	String id = request.getParameter("id");
-	String strRegistrosExecucao = (String) request
-			.getAttribute("strRegistrosExecucao");
-	if (strRegistrosExecucao == null) {
-		strRegistrosExecucao = "";
-	}
+    String id = request.getParameter("id");
+    String strRegistrosExecucao = (String) request
+            .getAttribute("strRegistrosExecucao");
+    if (strRegistrosExecucao == null) {
+        strRegistrosExecucao = "";
+    }
 
-	String PAGE_CADADTRO_SOLICITACAOSERVICO = ParametroUtil
-			.getValorParametroCitSmartHashMap(br.com.centralit.citcorpore.util.Enumerados.ParametroSistema.PAGE_CADADTRO_SOLICITACAOSERVICO,"");
+    String PAGE_CADADTRO_SOLICITACAOSERVICO = ParametroUtil
+            .getValorParametroCitSmartHashMap(br.com.centralit.citcorpore.util.Enumerados.ParametroSistema.PAGE_CADADTRO_SOLICITACAOSERVICO,"");
 
-	String tarefaAssociada = (String) request
-			.getAttribute("tarefaAssociada");
-	if (tarefaAssociada == null) {
-		tarefaAssociada = "N";
-	}
-	String iframe = "";
-	iframe = request.getParameter("iframe");
+    String tarefaAssociada = (String) request
+            .getAttribute("tarefaAssociada");
+    if (tarefaAssociada == null) {
+        tarefaAssociada = "N";
+    }
+    String iframe = "";
+    iframe = request.getParameter("iframe");
 %>
 
 <%@include file="/novoLayout/common/include/libCabecalho.jsp" %>
@@ -54,33 +53,33 @@
 <body onload="">
 <div class="wrapper" >
 
-		<form name='form' id='form' action='${ctx}/pages/reclassificarServico/reclassificarServico'>
-			<div class="row-fluid">
-				<div class="span7">
-				<!-- <label  class="strong">Nome do Serviço</label> -->
-					<!-- <div class="input-append" >
-					  	<input class="span6" id='servicoBusca'  name='servicoBusca' type="text" onblur="camposObrigatoriosSolicitacao();"  placeholder="Digite o nome do Solicitante">
-					  	<button class="btn btn-default" type="button"><i class="icon-search"></i></button>
-					</div> -->
-					<div class="input-prepend input-append" id='divNomeDoServico'>
-					  	<label  class="strong">Nome do Serviço</label>
-					  	<input class="span12"  type="text" name="servicoBusca" id="servicoBusca" onblur="document.form.fireEvent('verificaImpactoUrgencia');carregaScript(this);document.form.fireEvent('verificaGrupoExecutor');carregarInformacoesComplementares();calcularSLA();"
-							class=" Valid[Required] Description[<fmt:message key='servico.servico' />]" placeholder="Digite o nome do Solicitante" >
-					  	<span class="add-on"><i class="icon-search"></i></span>
-					</div>
-					</div>
-					<div class="span5">
-					<label  class="strong">SLA</label>
-					<div class='input-append'>
-						 <span class='label large' id="tdResultadoSLAPrevisto"></span>
-						<span  id="divMini_loading" ><img src="../../novoLayout/common/include/imagens/mini_loading.gif"></span>
+        <form name='form' id='form' action='${ctx}/pages/reclassificarServico/reclassificarServico'>
+            <div class="row-fluid">
+                <div class="span7">
+                <!-- <label  class="strong">Nome do Serviço</label> -->
+                    <!-- <div class="input-append" >
+                          <input class="span6" id='servicoBusca'  name='servicoBusca' type="text" onblur="camposObrigatoriosSolicitacao();"  placeholder="Digite o nome do Solicitante">
+                          <button class="btn btn-default" type="button"><i class="icon-search"></i></button>
+                    </div> -->
+                    <div class="input-prepend input-append" id='divNomeDoServico'>
+                          <label  class="strong">Nome do Serviço</label>
+                          <input class="span12"  type="text" name="servicoBusca" id="servicoBusca" onblur="document.form.fireEvent('verificaImpactoUrgencia');carregaScript(this);document.form.fireEvent('verificaGrupoExecutor');carregarInformacoesComplementares();calcularSLA();"
+                            class=" Valid[Required] Description[<fmt:message key='servico.servico' />]" placeholder="Digite o nome do Solicitante" >
+                          <span class="add-on"><i class="icon-search"></i></span>
+                    </div>
+                    </div>
+                    <div class="span5">
+                    <label  class="strong">SLA</label>
+                    <div class='input-append'>
+                         <span class='label large' id="tdResultadoSLAPrevisto"></span>
+                        <span  id="divMini_loading" ><img src="../../novoLayout/common/include/imagens/mini_loading.gif"></span>
 
-					</div>
-					</div>
-			</div>
-		</form>
+                    </div>
+                    </div>
+            </div>
+        </form>
 </div>
 
-			<%@include file="/novoLayout/common/include/libRodape.jsp" %>
+            <%@include file="/novoLayout/common/include/libRodape.jsp" %>
 </body>
 </html>

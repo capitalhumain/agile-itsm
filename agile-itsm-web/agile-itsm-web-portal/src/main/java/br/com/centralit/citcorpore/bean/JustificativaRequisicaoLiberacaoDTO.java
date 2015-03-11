@@ -1,9 +1,9 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 @SuppressWarnings("serial")
-public class JustificativaRequisicaoLiberacaoDTO implements IDto {
+public class JustificativaRequisicaoLiberacaoDTO extends BaseEntity {
 
 	
 	private Integer idJustificativaLiberacao ;

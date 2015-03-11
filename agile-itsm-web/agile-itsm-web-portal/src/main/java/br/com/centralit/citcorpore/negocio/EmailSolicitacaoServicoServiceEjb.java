@@ -2,9 +2,9 @@ package br.com.centralit.citcorpore.negocio;
 
 import java.util.Collection;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.EmailSolicitacaoServicoDTO;
 import br.com.centralit.citcorpore.integracao.EmailSolicitacaoServicoDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.CrudServiceImpl;
 
@@ -66,7 +66,7 @@ public class EmailSolicitacaoServicoServiceEjb extends CrudServiceImpl implement
     }
 
     @Override
-    public IDto createWithID(final IDto model) throws Exception {
+    public BaseEntity createWithID(final BaseEntity model) throws Exception {
         return this.getDao().createWithID(model);
     }
 

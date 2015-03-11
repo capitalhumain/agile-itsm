@@ -2,7 +2,7 @@ package br.com.centralit.citcorpore.bean;
 
 import java.util.Collection;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * Classe que encapsula os parâmetros para recuperação de tarefas do fluxo
@@ -10,7 +10,7 @@ import br.com.citframework.dto.IDto;
  * @author carlos.santos
  * @since 27.01.2015 - Operação Usain Bolt.
  */
-public class ParamRecuperacaoTarefasDTO implements IDto {
+public class ParamRecuperacaoTarefasDTO extends BaseEntity {
 
     private static final long serialVersionUID = -3415074213123939278L;
 

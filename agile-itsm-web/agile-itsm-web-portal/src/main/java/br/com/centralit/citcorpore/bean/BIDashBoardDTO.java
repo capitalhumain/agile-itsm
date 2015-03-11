@@ -3,9 +3,9 @@ package br.com.centralit.citcorpore.bean;
 import java.util.Collection;
 import java.util.List;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class BIDashBoardDTO implements IDto {
+public class BIDashBoardDTO extends BaseEntity {
 	private Integer idDashBoard;
 	private String nomeDashBoard;
 	private String tipo;

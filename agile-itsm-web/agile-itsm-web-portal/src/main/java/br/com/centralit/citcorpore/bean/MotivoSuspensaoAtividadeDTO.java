@@ -2,9 +2,9 @@ package br.com.centralit.citcorpore.bean;
 
 import java.sql.Date;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class MotivoSuspensaoAtividadeDTO implements IDto {
+public class MotivoSuspensaoAtividadeDTO extends BaseEntity {
 
     private static final long serialVersionUID = 3874037901517329598L;
 

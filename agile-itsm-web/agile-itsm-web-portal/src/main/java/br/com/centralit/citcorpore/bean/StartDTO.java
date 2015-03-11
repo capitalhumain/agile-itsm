@@ -6,13 +6,13 @@ package br.com.centralit.citcorpore.bean;
 import java.sql.Date;
 import java.util.Collection;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * @author flavio.santana
  *         Bean dos objetos de instalação do sistema
  */
-public class StartDTO implements IDto {
+public class StartDTO extends BaseEntity {
 
     private static final long serialVersionUID = 7717115402594824882L;
 

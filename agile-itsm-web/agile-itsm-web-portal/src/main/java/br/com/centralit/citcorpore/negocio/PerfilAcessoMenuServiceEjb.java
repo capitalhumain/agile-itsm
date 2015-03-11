@@ -4,12 +4,12 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.MenuDTO;
 import br.com.centralit.citcorpore.bean.PerfilAcessoMenuDTO;
 import br.com.centralit.citcorpore.bean.UsuarioDTO;
 import br.com.centralit.citcorpore.integracao.MenuDao;
 import br.com.centralit.citcorpore.integracao.PerfilAcessoMenuDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.integracao.TransactionControler;
 import br.com.citframework.integracao.TransactionControlerImpl;
 import br.com.citframework.service.CrudServiceImpl;
@@ -28,7 +28,7 @@ public class PerfilAcessoMenuServiceEjb extends CrudServiceImpl implements Perfi
     }
 
     @Override
-    public Collection<PerfilAcessoMenuDTO> restoreMenusAcesso(final IDto obj) throws Exception {
+    public Collection<PerfilAcessoMenuDTO> restoreMenusAcesso(final BaseEntity obj) throws Exception {
         return this.getDao().restoreMenusAcesso(obj);
     }
 

@@ -2,13 +2,13 @@ package br.com.centralit.citsmart.rest.service;
 
 import java.util.Collection;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citsmart.rest.bean.RestDomainDTO;
 import br.com.centralit.citsmart.rest.bean.RestOperationDTO;
 import br.com.centralit.citsmart.rest.bean.RestPermissionDTO;
 import br.com.centralit.citsmart.rest.dao.RestDomainDao;
 import br.com.centralit.citsmart.rest.dao.RestOperationDao;
 import br.com.centralit.citsmart.rest.dao.RestPermissionDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
@@ -30,10 +30,10 @@ public class RestOperationServiceEjb extends CrudServiceImpl implements RestOper
     /**
      * Cria usuário e perfil acesso.
      *
-     * @see br.com.citframework.service.CrudServiceImpl#create(br.com.citframework.dto.IDto)
+     * @see br.com.citframework.service.CrudServiceImpl#create(br.com.agileitsm.model.support.BaseEntity)
      */
     @Override
-    public IDto create(final IDto model) throws ServiceException, LogicException {
+    public BaseEntity create(final BaseEntity model) throws ServiceException, LogicException {
         RestOperationDTO restDto = (RestOperationDTO) model;
 
         final TransactionControler transaction = new TransactionControlerImpl(this.getDao().getAliasDB());
@@ -79,7 +79,7 @@ public class RestOperationServiceEjb extends CrudServiceImpl implements RestOper
     }
 
     @Override
-    public void update(final IDto model) throws ServiceException, LogicException {
+    public void update(final BaseEntity model) throws ServiceException, LogicException {
         final RestOperationDTO restDto = (RestOperationDTO) model;
 
         final TransactionControler transaction = new TransactionControlerImpl(this.getDao().getAliasDB());

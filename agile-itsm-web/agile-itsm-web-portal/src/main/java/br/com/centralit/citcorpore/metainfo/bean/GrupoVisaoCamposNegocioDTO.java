@@ -2,9 +2,9 @@ package br.com.centralit.citcorpore.metainfo.bean;
 
 import java.util.Collection;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class GrupoVisaoCamposNegocioDTO implements IDto {
+public class GrupoVisaoCamposNegocioDTO extends BaseEntity {
 	public static String RELATION_NONE = "N";
 	public static String RELATION_SIMPLE = "S";
 	public static String RELATION_COMPLEX = "O";

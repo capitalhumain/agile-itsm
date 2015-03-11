@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.EmpregadoDTO;
 import br.com.centralit.citcorpore.bean.NotificacaoDTO;
 import br.com.centralit.citcorpore.bean.PastaDTO;
@@ -25,7 +26,6 @@ import br.com.centralit.citcorpore.util.Enumerados;
 import br.com.centralit.citcorpore.util.Enumerados.ParametroSistema;
 import br.com.centralit.citcorpore.util.Enumerados.PermissaoAcessoPasta;
 import br.com.centralit.citcorpore.util.ParametroUtil;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
@@ -230,7 +230,7 @@ public class PastaServiceEjb extends CrudServiceImpl implements PastaService {
 
 				if (colEmpregados != null) {
 					for (EmpregadoDTO empregados : colEmpregados) {
-						MensagemEmail mensagem = new MensagemEmail(Integer.parseInt(ID_MODELO_EMAIL.trim()), new IDto[] {pastaDto});
+						MensagemEmail mensagem = new MensagemEmail(Integer.parseInt(ID_MODELO_EMAIL.trim()), new BaseEntity[] {pastaDto});
 
 						if (empregados.getEmail() != null) {
 							mensagem.envia(empregados.getEmail(), "", remetente);

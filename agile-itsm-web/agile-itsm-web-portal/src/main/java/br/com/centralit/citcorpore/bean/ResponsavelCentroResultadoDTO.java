@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class ResponsavelCentroResultadoDTO implements IDto {
+public class ResponsavelCentroResultadoDTO extends BaseEntity {
 	private Integer idResponsavel;
 	private Integer idCentroResultado;
 	private Integer[] idProcessoNegocio;

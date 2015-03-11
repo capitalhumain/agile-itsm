@@ -3,9 +3,9 @@ package br.com.centralit.citcorpore.metainfo.bean;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class TableSearchDTO implements IDto {
+public class TableSearchDTO extends BaseEntity {
 	private Integer idVisao;
 	private Integer idVisaoRelacionada;
 	private Integer idCamposObjetoNegocio;

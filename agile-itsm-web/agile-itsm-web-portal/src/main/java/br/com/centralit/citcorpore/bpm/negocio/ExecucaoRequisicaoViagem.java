@@ -9,6 +9,7 @@ import java.util.Map;
 
 import org.apache.commons.lang.StringEscapeUtils;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.bpm.dto.AtribuicaoFluxoDTO;
 import br.com.centralit.bpm.dto.EventoFluxoDTO;
 import br.com.centralit.bpm.dto.FluxoDTO;
@@ -55,7 +56,6 @@ import br.com.centralit.citcorpore.negocio.alcada.AlcadaRequisicaoViagem;
 import br.com.centralit.citcorpore.util.Enumerados;
 import br.com.centralit.citcorpore.util.Enumerados.ParametroSistema;
 import br.com.centralit.citcorpore.util.ParametroUtil;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.integracao.TransactionControler;
 import br.com.citframework.service.ServiceLocator;
@@ -977,7 +977,7 @@ public class ExecucaoRequisicaoViagem extends ExecucaoSolicitacao {
 			solicitacaoAuxDto.setNomecontato(empregadoDto.getNome());
 		}
 
-		MensagemEmail mensagem = new MensagemEmail(idModeloEmail, new IDto[] { solicitacaoAuxDto });
+		MensagemEmail mensagem = new MensagemEmail(idModeloEmail, new BaseEntity[] { solicitacaoAuxDto });
 		try {
 			mensagem.envia(empregadoDto.getEmail(), null, remetente);
 		} catch (Exception e) {

@@ -2,10 +2,10 @@ package br.com.centralit.citcorpore.bean;
 
 import java.sql.Date;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 @SuppressWarnings("serial")
-public class RelatorioSolicitacaoPorExecutanteDTO  implements IDto {
+public class RelatorioSolicitacaoPorExecutanteDTO  extends BaseEntity {
 
 	private Integer idSolicitacaoServico;
 	

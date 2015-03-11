@@ -5,13 +5,13 @@ package br.com.centralit.citcorpore.bean;
 
 import java.sql.Timestamp;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * @author Carlos Santos
  * DTO para log da integração de sistemas externos
  */
-public class LogIntegracaoDTO implements IDto {
+public class LogIntegracaoDTO extends BaseEntity {
 
 	private static final long serialVersionUID = -3593079788503253157L;
 	

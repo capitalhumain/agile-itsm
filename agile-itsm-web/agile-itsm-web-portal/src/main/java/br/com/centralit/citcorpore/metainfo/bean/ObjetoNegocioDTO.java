@@ -2,9 +2,9 @@ package br.com.centralit.citcorpore.metainfo.bean;
 
 import java.util.Collection;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class ObjetoNegocioDTO implements IDto {
+public class ObjetoNegocioDTO extends BaseEntity {
 	private Integer idObjetoNegocio;
 	private String nomeObjetoNegocio;
 	private String nomeTabelaDB;

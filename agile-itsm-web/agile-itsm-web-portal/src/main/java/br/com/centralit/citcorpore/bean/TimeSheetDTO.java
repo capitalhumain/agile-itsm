@@ -2,13 +2,13 @@ package br.com.centralit.citcorpore.bean;
 
 import java.sql.Date;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citajax.util.JavaScriptUtil;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.util.UtilDatas;
 import br.com.citframework.util.UtilFormatacao;
 
-public class TimeSheetDTO implements IDto {
+public class TimeSheetDTO extends BaseEntity {
 
 	/**
 	 * 

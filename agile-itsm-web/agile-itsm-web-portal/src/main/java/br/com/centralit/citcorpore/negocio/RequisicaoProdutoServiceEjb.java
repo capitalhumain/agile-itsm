@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.bpm.dto.ElementoFluxoDTO;
 import br.com.centralit.bpm.dto.ItemTrabalhoFluxoDTO;
 import br.com.centralit.bpm.dto.TarefaFluxoDTO;
@@ -47,7 +48,6 @@ import br.com.centralit.citcorpore.util.Enumerados.SituacaoEntregaItemRequisicao
 import br.com.centralit.citcorpore.util.Enumerados.SituacaoItemRequisicaoProduto;
 import br.com.centralit.citcorpore.util.Enumerados.SituacaoSolicitacaoServico;
 import br.com.centralit.citcorpore.util.ParametroUtil;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.integracao.TransactionControler;
 import br.com.citframework.integracao.TransactionControlerImpl;
@@ -71,7 +71,7 @@ public class RequisicaoProdutoServiceEjb extends ComplemInfSolicitacaoServicoSer
     }
 
     @Override
-    public IDto deserializaObjeto(final String serialize) throws Exception {
+    public BaseEntity deserializaObjeto(final String serialize) throws Exception {
         RequisicaoProdutoDTO requisicaoProdutoDto = null;
 
         if (serialize != null) {
@@ -92,21 +92,21 @@ public class RequisicaoProdutoServiceEjb extends ComplemInfSolicitacaoServicoSer
     }
 
     @Override
-    public void validaCreate(final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {
+    public void validaCreate(final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {
         this.validaAtualizacao(solicitacaoServicoDto, model, null);
     }
 
     @Override
-    public void validaDelete(final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {
+    public void validaDelete(final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {
 
     }
 
     @Override
-    public void validaUpdate(final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {
+    public void validaUpdate(final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {
         this.validaAtualizacao(solicitacaoServicoDto, model, null);
     }
 
-    public void validaSolicitanteAutorizado(final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model, final TransactionControler tc) throws Exception {
+    public void validaSolicitanteAutorizado(final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model, final TransactionControler tc) throws Exception {
         String permiteRequisicao = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.PEMITE_REQUISICAO_EMPREGADO_COMPRAS, "N");
         if (permiteRequisicao == null || permiteRequisicao.equals("")) {
             permiteRequisicao = "N";
@@ -136,7 +136,7 @@ public class RequisicaoProdutoServiceEjb extends ComplemInfSolicitacaoServicoSer
         }
     }
 
-    public void validaAtualizacao(final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model, final TransactionControler tc) throws Exception {
+    public void validaAtualizacao(final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model, final TransactionControler tc) throws Exception {
         this.validaSolicitanteAutorizado(solicitacaoServicoDto, model, tc);
         final RequisicaoProdutoDTO requisicaoProdutoDto = (RequisicaoProdutoDTO) model;
 
@@ -402,7 +402,7 @@ public class RequisicaoProdutoServiceEjb extends ComplemInfSolicitacaoServicoSer
     }
 
     @Override
-    public IDto create(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {
+    public BaseEntity create(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {
         RequisicaoProdutoDTO requisicaoProdutoDto = (RequisicaoProdutoDTO) model;
         requisicaoProdutoDto.setAcao(RequisicaoProdutoDTO.ACAO_CRIACAO);
 
@@ -452,11 +452,11 @@ public class RequisicaoProdutoServiceEjb extends ComplemInfSolicitacaoServicoSer
     }
 
     @Override
-    public void delete(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {
+    public void delete(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {
 
     }
 
-    public void cancelaSolicitacao(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {
+    public void cancelaSolicitacao(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {
         final SolicitacaoServicoDao solicitacaoDao = new SolicitacaoServicoDao();
         solicitacaoDao.setTransactionControler(tc);
         solicitacaoServicoDto.setSituacao(SituacaoSolicitacaoServico.Cancelada.name());
@@ -464,7 +464,7 @@ public class RequisicaoProdutoServiceEjb extends ComplemInfSolicitacaoServicoSer
     }
 
     @Override
-    public void update(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {
+    public void update(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {
         final RequisicaoProdutoDTO requisicaoProdutoDto = (RequisicaoProdutoDTO) model;
         requisicaoProdutoDto.setIdSolicitante(solicitacaoServicoDto.getIdSolicitante());
 

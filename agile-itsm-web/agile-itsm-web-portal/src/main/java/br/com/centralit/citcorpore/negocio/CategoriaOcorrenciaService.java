@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.negocio;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citajax.html.DocumentHTML;
 import br.com.centralit.citcorpore.bean.CategoriaOcorrenciaDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.CrudService;
 
@@ -23,7 +23,7 @@ public interface CategoriaOcorrenciaService extends CrudService {
 	 * @throws ServiceException
 	 * @throws Exception
 	 */	
-	public void deletarCategoriaOcorrencia(IDto model, DocumentHTML document) throws ServiceException, Exception;	
+	public void deletarCategoriaOcorrencia(BaseEntity model, DocumentHTML document) throws ServiceException, Exception;	
 	
 	/**
 	 * Consulta por categorias de ocorrência que estejam ativas (dataFim não nula).

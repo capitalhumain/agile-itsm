@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citajax.html.DocumentHTML;
 import br.com.centralit.citcorpore.bean.AlcadaCentroResultadoDTO;
 import br.com.centralit.citcorpore.bean.AlcadaDTO;
@@ -17,7 +18,6 @@ import br.com.centralit.citcorpore.integracao.EmpregadoDao;
 import br.com.centralit.citcorpore.integracao.GrupoEmpregadoDao;
 import br.com.centralit.citcorpore.integracao.LimiteAlcadaDao;
 import br.com.centralit.citcorpore.util.Enumerados.TipoAlcada;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.CrudServiceImpl;
 
@@ -33,11 +33,11 @@ public class AlcadaServiceEjb extends CrudServiceImpl implements AlcadaService {
         return dao;
     }
 
-    public AlcadaDTO determinaAlcada(final IDto objetoNegocioDto, final CentroResultadoDTO centroCustoDto) throws Exception {
+    public AlcadaDTO determinaAlcada(final BaseEntity objetoNegocioDto, final CentroResultadoDTO centroCustoDto) throws Exception {
         return null;
     }
 
-    public void determinaResponsaveis(final AlcadaDTO alcadaDto, final IDto objetoNegocioDto, final EmpregadoDTO solicitante, final GrupoDTO grupoDto,
+    public void determinaResponsaveis(final AlcadaDTO alcadaDto, final BaseEntity objetoNegocioDto, final EmpregadoDTO solicitante, final GrupoDTO grupoDto,
             final String abrangenciaCentroCusto, final CentroResultadoDTO centroCustoDto) throws Exception {
         final Collection<GrupoEmpregadoDTO> colGrupoEmpregado = new GrupoEmpregadoDao().findByIdGrupo(grupoDto.getIdGrupo());
         if (colGrupoEmpregado == null || colGrupoEmpregado.isEmpty()) {
@@ -97,7 +97,7 @@ public class AlcadaServiceEjb extends CrudServiceImpl implements AlcadaService {
     }
 
     @Override
-    public void deletarAlcada(final IDto model, final DocumentHTML document) throws ServiceException, Exception {
+    public void deletarAlcada(final BaseEntity model, final DocumentHTML document) throws ServiceException, Exception {
         final AlcadaDTO alcadaDto = (AlcadaDTO) model;
         final LimiteAlcadaDao limiteAlcadaDao = new LimiteAlcadaDao();
         try {

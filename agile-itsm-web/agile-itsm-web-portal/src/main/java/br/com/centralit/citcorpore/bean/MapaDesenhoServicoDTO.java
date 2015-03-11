@@ -2,10 +2,10 @@ package br.com.centralit.citcorpore.bean;
 
 import java.util.List;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 @SuppressWarnings("rawtypes")
-public class MapaDesenhoServicoDTO implements IDto {
+public class MapaDesenhoServicoDTO extends BaseEntity {
 
     /**
      * 

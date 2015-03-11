@@ -2,14 +2,14 @@ package br.com.centralit.citcorpore.bean;
 
 import java.sql.Date;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.util.Enumerados;
-import br.com.citframework.dto.IDto;
 
 /**
  * @author breno.guimaraes
  * 
  */
-public class OcorrenciaLiberacaoDTO implements IDto {
+public class OcorrenciaLiberacaoDTO extends BaseEntity {
 
     /**
      * 

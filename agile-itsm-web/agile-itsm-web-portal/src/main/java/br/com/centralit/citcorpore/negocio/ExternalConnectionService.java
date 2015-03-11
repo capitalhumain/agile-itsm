@@ -3,10 +3,10 @@ package br.com.centralit.citcorpore.negocio;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citajax.html.DocumentHTML;
 import br.com.centralit.citcorpore.bean.ExternalConnectionDTO;
 import br.com.centralit.citcorpore.bean.ImportManagerDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.CrudService;
 
@@ -34,7 +34,7 @@ public interface ExternalConnectionService extends CrudService {
      * @throws ServiceException
      * @throws Exception
      */
-    public void deletarConexao(final IDto model, final DocumentHTML document) throws ServiceException, Exception;
+    public void deletarConexao(final BaseEntity model, final DocumentHTML document) throws ServiceException, Exception;
 
     /**
      * Consultar Conexoes Ativas

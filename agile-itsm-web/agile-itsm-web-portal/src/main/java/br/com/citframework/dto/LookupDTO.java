@@ -1,7 +1,9 @@
 package br.com.citframework.dto;
 
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class LookupDTO implements IDto {
+
+public class LookupDTO extends BaseEntity {
 	/**
 	 * 
 	 */
@@ -23,12 +25,12 @@ public class LookupDTO implements IDto {
 	private String paginacao;
 	private String checkbox;
 	
-	private IDto user;
+	private BaseEntity user;
 	
-	public IDto getUser() {
+	public BaseEntity getUser() {
 		return user;
 	}
-	public void setUser(IDto user) {
+	public void setUser(BaseEntity user) {
 		this.user = user;
 	}
 	public String getAcao() {

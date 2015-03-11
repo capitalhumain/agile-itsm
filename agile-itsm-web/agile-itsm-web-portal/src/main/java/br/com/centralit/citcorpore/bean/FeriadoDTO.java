@@ -2,10 +2,10 @@ package br.com.centralit.citcorpore.bean;
 
 import java.sql.Date;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 
-public class FeriadoDTO implements IDto{
+public class FeriadoDTO extends BaseEntity{
 
 	/**
      * 

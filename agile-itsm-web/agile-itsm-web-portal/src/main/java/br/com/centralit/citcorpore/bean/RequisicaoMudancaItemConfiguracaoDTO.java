@@ -8,12 +8,12 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.citframework.util.DateAdapter;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "RequisicaoMudancaItemConfiguracao")
-public class RequisicaoMudancaItemConfiguracaoDTO implements IDto {
+public class RequisicaoMudancaItemConfiguracaoDTO extends BaseEntity {
 
     private static final long serialVersionUID = 1637977870664158121L;
 

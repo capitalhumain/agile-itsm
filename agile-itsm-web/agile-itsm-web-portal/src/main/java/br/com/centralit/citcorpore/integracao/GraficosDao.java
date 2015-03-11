@@ -7,12 +7,12 @@ import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.CategoriaServicoDTO;
 import br.com.centralit.citcorpore.bean.GraficoPizzaDTO;
 import br.com.centralit.citcorpore.bean.RequisicaoMudancaDTO;
 import br.com.centralit.citcorpore.bean.RiscoDTO;
 import br.com.centralit.citcorpore.util.CITCorporeUtil;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
 import br.com.citframework.integracao.Field;
@@ -34,7 +34,7 @@ public class GraficosDao extends CrudDaoDefaultImpl {
     	return null;
     }
 
-    public Collection find(IDto obj) throws PersistenceException {
+    public Collection find(BaseEntity obj) throws PersistenceException {
     	return null;
     }
 

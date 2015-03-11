@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class NagiosNDOObjectDTO implements IDto {
+public class NagiosNDOObjectDTO extends BaseEntity {
 	private Integer object_id;
 	private Integer instance_id;
 	private Integer objecttype_id;

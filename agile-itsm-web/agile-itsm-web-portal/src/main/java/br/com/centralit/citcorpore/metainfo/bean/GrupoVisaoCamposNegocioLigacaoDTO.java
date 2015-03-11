@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.metainfo.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class GrupoVisaoCamposNegocioLigacaoDTO implements IDto {
+public class GrupoVisaoCamposNegocioLigacaoDTO extends BaseEntity {
 	public static String PRESENTATION = "A";
 	public static String VALUE = "V";
 	public static String FILTER = "F";

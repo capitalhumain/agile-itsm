@@ -1,11 +1,11 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.citframework.util.UtilFormatacao;
 import br.com.citframework.util.UtilHTML;
 import br.com.citframework.util.UtilStrings;
 
-public class FornecedorDTO implements IDto {
+public class FornecedorDTO extends BaseEntity {
 	
 	private static final long serialVersionUID = -5191625829085954557L;
 	

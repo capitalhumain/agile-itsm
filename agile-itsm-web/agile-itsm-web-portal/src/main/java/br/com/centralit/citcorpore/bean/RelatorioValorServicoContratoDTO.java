@@ -6,9 +6,9 @@ package br.com.centralit.citcorpore.bean;
 import java.math.BigDecimal;
 import java.util.Date;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class RelatorioValorServicoContratoDTO implements IDto {
+public class RelatorioValorServicoContratoDTO extends BaseEntity {
 
 	private static final long serialVersionUID = 5769173299912237423L;
 	

@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.metainfo.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class ColumnsDTO implements IDto {
+public class ColumnsDTO extends BaseEntity {
 	private String[] coluna;
 
 	public String[] getColuna() {

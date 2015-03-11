@@ -2,12 +2,12 @@ package br.com.centralit.citcorpore.negocio;
 
 import java.util.Iterator;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.ImportConfigCamposDTO;
 import br.com.centralit.citcorpore.bean.ImportConfigDTO;
 import br.com.centralit.citcorpore.bean.ImportarDadosDTO;
 import br.com.centralit.citcorpore.integracao.ImportConfigCamposDao;
 import br.com.centralit.citcorpore.integracao.ImportConfigDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
@@ -28,7 +28,7 @@ public class ImportConfigServiceEjb extends CrudServiceImpl implements ImportCon
     }
 
     @Override
-    public IDto create(IDto model) throws ServiceException, LogicException {
+    public BaseEntity create(BaseEntity model) throws ServiceException, LogicException {
         // Instancia Objeto controlador de transacao
         final TransactionControler tc = new TransactionControlerImpl(this.getDao().getAliasDB());
         final ImportConfigDTO importConfigDTO = (ImportConfigDTO) model;
@@ -69,7 +69,7 @@ public class ImportConfigServiceEjb extends CrudServiceImpl implements ImportCon
     }
 
     @Override
-    public void update(final IDto model) throws ServiceException, LogicException {
+    public void update(final BaseEntity model) throws ServiceException, LogicException {
         // Instancia Objeto controlador de transacao
         final TransactionControler tc = new TransactionControlerImpl(this.getDao().getAliasDB());
         final ImportConfigDTO importConfigDTO = (ImportConfigDTO) model;

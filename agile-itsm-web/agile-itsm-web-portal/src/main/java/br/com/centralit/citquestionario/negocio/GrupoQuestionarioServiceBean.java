@@ -25,37 +25,17 @@ import br.com.citframework.util.UtilHTML;
 
 public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements GrupoQuestionarioService {
 
-    String HTML_TABLE_START =
-        "<table width=\"100%\" style='border:1px solid black'>" +
-        "    <tr>" +
-        "        <td>" +
-        "            <b>Data de Início</b>" +
-        "        </td>" +
-        "        <td>" +
-        "            <b>Data Fim</b>" +
-        "        </td>" +
-        "        <td>" +
-        "            <b>Qtde Dias</b>" +
-        "        </td>" +
-        "    </tr>";
-    String HTML_TABLE_LINE =
-        "    <tr>" +
-        "        <td style='text-align:center'>{0}</td>" +
-        "        <td style='text-align:center'>{1}</td>" +
-        "        <td style='text-align:center'>{2}</td>" +
-        "    </tr>";
-    String HTML_TABLE_END =
-        "</table>";
+    String HTML_TABLE_START = "<table width=\"100%\" style='border:1px solid black'>" + "    <tr>" + "        <td>" + "            <b>Data de Início</b>"
+            + "        </td>" + "        <td>" + "            <b>Data Fim</b>" + "        </td>" + "        <td>" + "            <b>Qtde Dias</b>"
+            + "        </td>" + "    </tr>";
+    String HTML_TABLE_LINE = "    <tr>" + "        <td style='text-align:center'>{0}</td>" + "        <td style='text-align:center'>{1}</td>"
+            + "        <td style='text-align:center'>{2}</td>" + "    </tr>";
+    String HTML_TABLE_END = "</table>";
 
-    String HTML_TABLE_START_ENCAMINHAMENTO =
-        "<table width=\"100%\" style='border:1px solid black'>";
+    String HTML_TABLE_START_ENCAMINHAMENTO = "<table width=\"100%\" style='border:1px solid black'>";
 
-    String HTML_TABLE_LINE_ENCAMINHAMENTO =
-        "    <tr>" +
-        "        <td>{0}</td>" +
-        "    </tr>";
-    String HTML_TABLE_END_ENCAMINHAMENTO =
-        "</table>";
+    String HTML_TABLE_LINE_ENCAMINHAMENTO = "    <tr>" + "        <td>{0}</td>" + "    </tr>";
+    String HTML_TABLE_END_ENCAMINHAMENTO = "</table>";
 
     private GrupoQuestionarioDao dao;
 
@@ -69,7 +49,7 @@ public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements Gru
 
     @Override
     public Collection listByIdQuestionario(final Integer idQuestionario) throws Exception {
-        return this.getDao().listByIdQuestionario(idQuestionario);
+        return getDao().listByIdQuestionario(idQuestionario);
     }
 
     @Override
@@ -194,7 +174,8 @@ public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements Gru
                     }
                 }
 
-                if (questaoDto.getTipo() != null && (questaoDto.getTipo().equalsIgnoreCase("T") || questaoDto.getTipoQuestao().equalsIgnoreCase("F"))) { // Texto Fixo
+                if (questaoDto.getTipo() != null && (questaoDto.getTipo().equalsIgnoreCase("T") || questaoDto.getTipoQuestao().equalsIgnoreCase("F"))) { // Texto
+                    // Fixo
                     // bufferQuestao += avanco + tituloQuestao;
                     bufferQuestao = ""; // NAO SERA IMPRESSO O TEXTO FIXO.
                 } else {
@@ -222,7 +203,8 @@ public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements Gru
                 if (questaoDto.getTipoQuestao().equalsIgnoreCase("L")) { // Texto Longo com Editor (Campo de Laudos, etc.)
                     bufferQuestao += value + dadosAdicionais;
                 }
-                if (questaoDto.getTipoQuestao().equalsIgnoreCase("R") || questaoDto.getTipoQuestao().equalsIgnoreCase("C") || questaoDto.getTipoQuestao().equalsIgnoreCase("X")) {
+                if (questaoDto.getTipoQuestao().equalsIgnoreCase("R") || questaoDto.getTipoQuestao().equalsIgnoreCase("C")
+                        || questaoDto.getTipoQuestao().equalsIgnoreCase("X")) {
                     if (questaoDto.getColOpcoesResposta() != null) {
                         boolean b = false;
                         final String aux = "";
@@ -236,7 +218,7 @@ public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements Gru
                             final OpcaoRespostaQuestionarioDTO opcRespDto = (OpcaoRespostaQuestionarioDTO) itOpcResp.next();
 
                             if (questaoDto.getRespostaItemDto() != null) {
-                                if (this.isInCollection(opcRespDto.getIdOpcaoRespostaQuestionario(), questaoDto.getRespostaItemDto().getColOpcoesResposta())) {
+                                if (isInCollection(opcRespDto.getIdOpcaoRespostaQuestionario(), questaoDto.getRespostaItemDto().getColOpcoesResposta())) {
                                     if (b) {
                                         bufferOut += ", ";
                                     }
@@ -301,7 +283,7 @@ public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements Gru
     private String montaLinhaQuestao(final QuestaoQuestionarioDTO questaoDto) {
         final Collection colQ = new ArrayList();
         colQ.add(questaoDto);
-        final Collection colSaida = this.geraImpressaoFormatadaHTML(colQ, null, null, null);
+        final Collection colSaida = geraImpressaoFormatadaHTML(colQ, null, null, null);
         String saida = "";
         if (colSaida != null) {
             for (final Iterator it = colSaida.iterator(); it.hasNext();) {
@@ -335,7 +317,8 @@ public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements Gru
     }
 
     @Override
-    public Collection geraImpressaoFormatadaHTML(final Collection colQuestoes, final Date dataQuestionario, final Integer idContrato, final Integer idProfissional) {
+    public Collection geraImpressaoFormatadaHTML(final Collection colQuestoes, final Date dataQuestionario, final Integer idContrato,
+            final Integer idProfissional) {
         ListagemService listagemService = null;
         try {
             listagemService = (ListagemService) ServiceLocator.getInstance().getService(ListagemService.class, null);
@@ -374,16 +357,19 @@ public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements Gru
                     for (final Iterator it = questaoDto.getColQuestoesAgrupadas().iterator(); it.hasNext();) {
                         final QuestaoQuestionarioDTO questaoAgrup = (QuestaoQuestionarioDTO) it.next();
                         final RespostaItemQuestionarioDTO resposta = questaoAgrup.obtemRespostaItemDto(questaoAgrup.getSequencialResposta());
-                        if (resposta != null && (resposta.existeResposta() || resposta.getColOpcoesResposta() != null && resposta.getColOpcoesResposta().size() > 0)) {
+                        if (resposta != null
+                                && (resposta.existeResposta() || resposta.getColOpcoesResposta() != null && resposta.getColOpcoesResposta().size() > 0)) {
                             qtdeRespostas++;
                         }
                     }
                     if (qtdeRespostas == 0) {
                         continue;
                     }
-                    bufferQuestao = "<tr><td colspan='20'><b>" + this.montaTituloQuestao(questaoDto) + "</b>";
-                    // bufferQuestao += "<div id='divQuestoesMatriz_" + questaoDto.getIdQuestaoQuestionario() + "' style='width: 720px; height: "+altura+"px; overflow: auto;'>";
-                    bufferQuestao += "<div id='divQuestoesMatriz_" + questaoDto.getIdQuestaoQuestionario() + "' style='width: 100%; height: 100%; overflow: auto;'>";
+                    bufferQuestao = "<tr><td colspan='20'><b>" + montaTituloQuestao(questaoDto) + "</b>";
+                    // bufferQuestao += "<div id='divQuestoesMatriz_" + questaoDto.getIdQuestaoQuestionario() +
+                    // "' style='width: 720px; height: "+altura+"px; overflow: auto;'>";
+                    bufferQuestao += "<div id='divQuestoesMatriz_" + questaoDto.getIdQuestaoQuestionario()
+                            + "' style='width: 100%; height: 100%; overflow: auto;'>";
                     bufferQuestao += "<table id='tblQuestoesMatriz_" + questaoDto.getIdQuestaoQuestionario()
                             + "' cellpadding='0' cellspacing='0' width='100%' height='100%' border = '1'>";
                     if (questaoDto.getCabecalhoColunas().equalsIgnoreCase("S")) {
@@ -406,7 +392,7 @@ public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements Gru
                         for (Integer coluna = 1; coluna <= questaoDto.getQtdeColunas(); coluna++) {
                             final QuestaoQuestionarioDTO questaoAgrupada = (QuestaoQuestionarioDTO) itCel.next();
                             questaoAgrupada.setAgrupada(true);
-                            bufferQuestao += "<td>" + this.montaLinhaQuestao(questaoAgrupada) + "</td>";
+                            bufferQuestao += "<td>" + montaLinhaQuestao(questaoAgrupada) + "</td>";
                         }
                         bufferQuestao += "</tr>";
                     }
@@ -421,13 +407,14 @@ public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements Gru
 
                 // TABELA !!!!!!!!!!!!!!!!
                 if (questaoDto.getTipo().equalsIgnoreCase("L")) {
-                    bufferQuestao = "<tr><td colspan='20'>" + this.montaTituloQuestao(questaoDto) + "";
+                    bufferQuestao = "<tr><td colspan='20'>" + montaTituloQuestao(questaoDto) + "";
                     bufferQuestao += "<div style='width: 100%; height: 100%; overflow: auto;'>";
-                    bufferQuestao += "<table id='tblRespostasTabela_" + questaoDto.getIdQuestaoQuestionario() + "' cellpadding='0' cellspacing='0' width='100%' border = '1'>";
+                    bufferQuestao += "<table id='tblRespostasTabela_" + questaoDto.getIdQuestaoQuestionario()
+                            + "' cellpadding='0' cellspacing='0' width='100%' border = '1'>";
                     bufferQuestao += "<tr>";
                     for (final Iterator itCel = questaoDto.getColQuestoesAgrupadas().iterator(); itCel.hasNext();) {
                         final QuestaoQuestionarioDTO questaoAgrupada = (QuestaoQuestionarioDTO) itCel.next();
-                        bufferQuestao += "<td bgcolor='#20b2aa'>" + this.montaTituloQuestao(questaoAgrupada) + "</td>";
+                        bufferQuestao += "<td bgcolor='#20b2aa'>" + montaTituloQuestao(questaoAgrupada) + "</td>";
                     }
                     bufferQuestao += "</tr>";
                     int ultimoSequencial = 0;
@@ -449,7 +436,7 @@ public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements Gru
                                     questaoTabela.setAgrupada(true);
                                     questaoTabela.setSequencialResposta(new Integer(sequencial));
                                     questaoTabela.setTituloQuestaoQuestionario("");
-                                    bufferQuestao += "<td>" + this.montaLinhaQuestao(questaoTabela) + "</td>";
+                                    bufferQuestao += "<td>" + montaLinhaQuestao(questaoTabela) + "</td>";
                                 }
                             }
                         }
@@ -582,7 +569,7 @@ public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements Gru
                             final ListagemLinhaDTO linha = (ListagemLinhaDTO) it.next();
 
                             if (resposta != null && resposta.getRespostaIdListagem() != null) {
-                                if (linha.getId().trim().equalsIgnoreCase(resposta.getRespostaIdListagem().trim())) {
+                                if (linha.getId().toString().equalsIgnoreCase(resposta.getRespostaIdListagem().trim())) {
                                     value += linha.getDescricao();
                                 }
                             }
@@ -606,14 +593,15 @@ public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements Gru
                         }
                     }
                 }
-                if (questaoDto.getTipoQuestao().equalsIgnoreCase("R") || questaoDto.getTipoQuestao().equalsIgnoreCase("C") || questaoDto.getTipoQuestao().equalsIgnoreCase("X")) {
+                if (questaoDto.getTipoQuestao().equalsIgnoreCase("R") || questaoDto.getTipoQuestao().equalsIgnoreCase("C")
+                        || questaoDto.getTipoQuestao().equalsIgnoreCase("X")) {
                     if (questaoDto.getColOpcoesResposta() != null) {
                         boolean b = false;
                         for (final Iterator itOpcResp = questaoDto.getColOpcoesResposta().iterator(); itOpcResp.hasNext();) {
                             final OpcaoRespostaQuestionarioDTO opcRespDto = (OpcaoRespostaQuestionarioDTO) itOpcResp.next();
 
                             if (resposta != null) {
-                                if (this.isInCollection(opcRespDto.getIdOpcaoRespostaQuestionario(), resposta.getColOpcoesResposta())) {
+                                if (isInCollection(opcRespDto.getIdOpcaoRespostaQuestionario(), resposta.getColOpcoesResposta())) {
                                     if (b) {
                                         value += ", ";
                                     }
@@ -658,7 +646,8 @@ public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements Gru
                         }
                     }
                 }
-                if (questaoDto.getTipo() != null && (questaoDto.getTipo().equalsIgnoreCase("T") || questaoDto.getTipoQuestao().equalsIgnoreCase("F"))) { // Texto Fixo
+                if (questaoDto.getTipo() != null && (questaoDto.getTipo().equalsIgnoreCase("T") || questaoDto.getTipoQuestao().equalsIgnoreCase("F"))) { // Texto
+                    // Fixo
                     // bufferQuestao += avanco + tituloQuestao;
                     bufferQuestao += ""; // NAO SERA IMPRESSO O TEXTO FIXO.
                 } else {
@@ -711,7 +700,8 @@ public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements Gru
                         bufferQuestao += value + dadosAdicionais;
                     }
                 }
-                if (questaoDto.getTipoQuestao().equalsIgnoreCase("R") || questaoDto.getTipoQuestao().equalsIgnoreCase("C") || questaoDto.getTipoQuestao().equalsIgnoreCase("X")) {
+                if (questaoDto.getTipoQuestao().equalsIgnoreCase("R") || questaoDto.getTipoQuestao().equalsIgnoreCase("C")
+                        || questaoDto.getTipoQuestao().equalsIgnoreCase("X")) {
                     if (questaoDto.getColOpcoesResposta() != null) {
                         String bufferOut = value;
                         bufferOut += "" + dadosAdicionais;
@@ -806,10 +796,12 @@ public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements Gru
 
         // Matriz !!!!!!!!!!!!!
         if (questaoDto.getTipo().equalsIgnoreCase("M")) {
-            bufferQuestao = "<tr><td colspan='20'>" + this.montaTituloQuestao(questaoDto) + "";
-            // bufferQuestao += "<div id='divQuestoesMatriz_" + questaoDto.getIdQuestaoQuestionario() + "' style='width: 720px; height: "+altura+"px; overflow: auto;'>";
+            bufferQuestao = "<tr><td colspan='20'>" + montaTituloQuestao(questaoDto) + "";
+            // bufferQuestao += "<div id='divQuestoesMatriz_" + questaoDto.getIdQuestaoQuestionario() +
+            // "' style='width: 720px; height: "+altura+"px; overflow: auto;'>";
             bufferQuestao += "<div id='divQuestoesMatriz_" + questaoDto.getIdQuestaoQuestionario() + "' style='width: 100%; height: 100%; overflow: auto;'>";
-            bufferQuestao += "<table id='tblQuestoesMatriz_" + questaoDto.getIdQuestaoQuestionario() + "' cellpadding='0' cellspacing='0' width='100%' height='100%' border = '1'>";
+            bufferQuestao += "<table id='tblQuestoesMatriz_" + questaoDto.getIdQuestaoQuestionario()
+                    + "' cellpadding='0' cellspacing='0' width='100%' height='100%' border = '1'>";
             if (questaoDto.getCabecalhoColunas().equalsIgnoreCase("S")) {
                 bufferQuestao += "<tr>";
                 for (final Iterator itCol = questaoDto.getColCabecalhosColuna().iterator(); itCol.hasNext();) {
@@ -830,7 +822,7 @@ public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements Gru
                 for (Integer coluna = 1; coluna <= questaoDto.getQtdeColunas(); coluna++) {
                     final QuestaoQuestionarioDTO questaoAgrupada = (QuestaoQuestionarioDTO) itCel.next();
                     questaoAgrupada.setAgrupada(true);
-                    bufferQuestao += "<td>" + this.montaLinhaQuestao(questaoAgrupada) + "</td>";
+                    bufferQuestao += "<td>" + montaLinhaQuestao(questaoAgrupada) + "</td>";
                 }
                 bufferQuestao += "</tr>";
             }
@@ -845,13 +837,14 @@ public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements Gru
 
         // TABELA !!!!!!!!!!!!!!!!
         if (questaoDto.getTipo().equalsIgnoreCase("L")) {
-            bufferQuestao = "<tr><td colspan='20'>" + this.montaTituloQuestao(questaoDto) + "";
+            bufferQuestao = "<tr><td colspan='20'>" + montaTituloQuestao(questaoDto) + "";
             bufferQuestao += "<div style='width: 100%; height: 100%; overflow: auto;'>";
-            bufferQuestao += "<table id='tblRespostasTabela_" + questaoDto.getIdQuestaoQuestionario() + "' cellpadding='0' cellspacing='0' width='100%' border = '1'>";
+            bufferQuestao += "<table id='tblRespostasTabela_" + questaoDto.getIdQuestaoQuestionario()
+                    + "' cellpadding='0' cellspacing='0' width='100%' border = '1'>";
             bufferQuestao += "<tr>";
             for (final Iterator itCel = questaoDto.getColQuestoesAgrupadas().iterator(); itCel.hasNext();) {
                 final QuestaoQuestionarioDTO questaoAgrupada = (QuestaoQuestionarioDTO) itCel.next();
-                bufferQuestao += "<td bgcolor='#20b2aa'>" + this.montaTituloQuestao(questaoAgrupada) + "</td>";
+                bufferQuestao += "<td bgcolor='#20b2aa'>" + montaTituloQuestao(questaoAgrupada) + "</td>";
             }
             bufferQuestao += "</tr>";
             int ultimoSequencial = 0;
@@ -873,7 +866,7 @@ public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements Gru
                             questaoTabela.setAgrupada(true);
                             questaoTabela.setSequencialResposta(new Integer(sequencial));
                             questaoTabela.setTituloQuestaoQuestionario("");
-                            bufferQuestao += "<td>" + this.montaLinhaQuestao(questaoTabela) + "</td>";
+                            bufferQuestao += "<td>" + montaLinhaQuestao(questaoTabela) + "</td>";
                         }
                     }
                 }
@@ -988,7 +981,7 @@ public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements Gru
                     final ListagemLinhaDTO linha = (ListagemLinhaDTO) it.next();
 
                     if (resposta != null && resposta.getRespostaIdListagem() != null) {
-                        if (linha.getId().trim().equalsIgnoreCase(resposta.getRespostaIdListagem().trim())) {
+                        if (linha.getId().toString().equalsIgnoreCase(resposta.getRespostaIdListagem().trim())) {
                             value += linha.getDescricao();
                         }
                     }
@@ -1012,14 +1005,15 @@ public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements Gru
                 }
             }
         }
-        if (questaoDto.getTipoQuestao().equalsIgnoreCase("R") || questaoDto.getTipoQuestao().equalsIgnoreCase("C") || questaoDto.getTipoQuestao().equalsIgnoreCase("X")) {
+        if (questaoDto.getTipoQuestao().equalsIgnoreCase("R") || questaoDto.getTipoQuestao().equalsIgnoreCase("C")
+                || questaoDto.getTipoQuestao().equalsIgnoreCase("X")) {
             if (questaoDto.getColOpcoesResposta() != null) {
                 boolean b = false;
                 for (final Iterator itOpcResp = questaoDto.getColOpcoesResposta().iterator(); itOpcResp.hasNext();) {
                     final OpcaoRespostaQuestionarioDTO opcRespDto = (OpcaoRespostaQuestionarioDTO) itOpcResp.next();
 
                     if (resposta != null) {
-                        if (this.isInCollection(opcRespDto.getIdOpcaoRespostaQuestionario(), resposta.getColOpcoesResposta())) {
+                        if (isInCollection(opcRespDto.getIdOpcaoRespostaQuestionario(), resposta.getColOpcoesResposta())) {
                             if (b) {
                                 value += ", ";
                             }
@@ -1110,7 +1104,8 @@ public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements Gru
                 bufferQuestao += value + dadosAdicionais;
             }
         }
-        if (questaoDto.getTipoQuestao().equalsIgnoreCase("R") || questaoDto.getTipoQuestao().equalsIgnoreCase("C") || questaoDto.getTipoQuestao().equalsIgnoreCase("X")) {
+        if (questaoDto.getTipoQuestao().equalsIgnoreCase("R") || questaoDto.getTipoQuestao().equalsIgnoreCase("C")
+                || questaoDto.getTipoQuestao().equalsIgnoreCase("X")) {
             if (questaoDto.getColOpcoesResposta() != null) {
                 String bufferOut = value;
                 bufferOut += "" + dadosAdicionais;

@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class AcessosPerfilSegurancaDTO implements IDto {
+public class AcessosPerfilSegurancaDTO extends BaseEntity {
 
 	/**
 	 * 

@@ -2,12 +2,12 @@ package br.com.centralit.citcorpore.bean;
 
 import java.sql.Date;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citajax.util.CitAjaxWebUtil;
 import br.com.centralit.citajax.util.JavaScriptUtil;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.util.UtilDatas;
 
-public class OcorrenciaDTO implements IDto {
+public class OcorrenciaDTO extends BaseEntity {
 
 	/**
 	 * 

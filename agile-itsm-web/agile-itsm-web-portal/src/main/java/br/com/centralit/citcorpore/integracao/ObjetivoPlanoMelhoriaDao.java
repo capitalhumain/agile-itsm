@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.ObjetivoPlanoMelhoriaDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.Condition;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
@@ -42,7 +42,7 @@ public class ObjetivoPlanoMelhoriaDao extends CrudDaoDefaultImpl {
 	public Class getBean() {
 		return ObjetivoPlanoMelhoriaDTO.class;
 	}
-	public Collection find(IDto arg0) throws PersistenceException {
+	public Collection find(BaseEntity arg0) throws PersistenceException {
 		return null;
 	}
 	public Collection findByIdPlanoMelhoria(Integer parm) throws PersistenceException {
@@ -88,7 +88,7 @@ public class ObjetivoPlanoMelhoriaDao extends CrudDaoDefaultImpl {
 		return null;
 	}
 	@Override
-	public void update(IDto obj) throws PersistenceException {
+	public void update(BaseEntity obj) throws PersistenceException {
 		ObjetivoPlanoMelhoriaDTO objetivoPlanoMelhoriaDTO = (br.com.centralit.citcorpore.bean.ObjetivoPlanoMelhoriaDTO) restore(obj);
 		if (objetivoPlanoMelhoriaDTO != null){
 			((ObjetivoPlanoMelhoriaDTO)obj).setCriadoPor(objetivoPlanoMelhoriaDTO.getCriadoPor());

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang.StringUtils;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citajax.html.DocumentHTML;
 import br.com.centralit.citcorpore.bean.FluxoServicoDTO;
 import br.com.centralit.citcorpore.bean.ServicoContratoDTO;
@@ -19,7 +20,6 @@ import br.com.centralit.citcorpore.integracao.ResultadosEsperadosDAO;
 import br.com.centralit.citcorpore.integracao.ServicoContratoDao;
 import br.com.centralit.citcorpore.integracao.ValorAjusteGlosaDAO;
 import br.com.centralit.citcorpore.integracao.ValoresServicoContratoDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
@@ -42,7 +42,7 @@ public class ServicoContratoServiceEjb extends CrudServiceImpl implements Servic
     }
 
     @Override
-    public IDto create(final IDto model) throws ServiceException, LogicException {
+    public BaseEntity create(final BaseEntity model) throws ServiceException, LogicException {
         ServicoContratoDTO servicoContratoDTO = (ServicoContratoDTO) model;
         final ServicoContratoDao servicoContratoDao = new ServicoContratoDao();
         final FluxoServicoDao fluxoServicoDao = new FluxoServicoDao();
@@ -74,7 +74,7 @@ public class ServicoContratoServiceEjb extends CrudServiceImpl implements Servic
     }
 
     @Override
-    public void update(final IDto model) throws ServiceException, LogicException {
+    public void update(final BaseEntity model) throws ServiceException, LogicException {
         final ServicoContratoDTO servicoContratoDTO = (ServicoContratoDTO) model;
         final ServicoContratoDao servicoContratoDao = new ServicoContratoDao();
         final FluxoServicoDao fluxoServicoDao = new FluxoServicoDao();
@@ -122,7 +122,7 @@ public class ServicoContratoServiceEjb extends CrudServiceImpl implements Servic
     }
 
     @Override
-    public void deletarByIdServicoContrato(final IDto model, final DocumentHTML document) throws ServiceException, Exception {
+    public void deletarByIdServicoContrato(final BaseEntity model, final DocumentHTML document) throws ServiceException, Exception {
         final ServicoContratoDTO servicoContratoDTO = (ServicoContratoDTO) model;
         final TransactionControler tc = new TransactionControlerImpl(this.getDao().getAliasDB());
         final ServicoContratoDao servicoContratoDao = new ServicoContratoDao();

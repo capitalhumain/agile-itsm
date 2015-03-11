@@ -6,13 +6,13 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.FornecedorProdutoDTO;
 import br.com.centralit.citcorpore.bean.RelacionamentoProdutoDTO;
 import br.com.centralit.citcorpore.bean.TipoProdutoDTO;
 import br.com.centralit.citcorpore.integracao.FornecedorProdutoDao;
 import br.com.centralit.citcorpore.integracao.RelacionamentoProdutoDao;
 import br.com.centralit.citcorpore.integracao.TipoProdutoDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
@@ -44,7 +44,7 @@ public class TipoProdutoServiceEjb extends CrudServiceImpl implements TipoProdut
     }
 
     @Override
-    public IDto create(final IDto model, final HttpServletRequest request) throws Exception {
+    public BaseEntity create(final BaseEntity model, final HttpServletRequest request) throws Exception {
 
         final TransactionControler tc = new TransactionControlerImpl(this.getDao().getAliasDB());
 
@@ -106,7 +106,7 @@ public class TipoProdutoServiceEjb extends CrudServiceImpl implements TipoProdut
 
     @SuppressWarnings("rawtypes")
     @Override
-    public void update(final IDto model, final HttpServletRequest request) throws ServiceException, LogicException {
+    public void update(final BaseEntity model, final HttpServletRequest request) throws ServiceException, LogicException {
         final TransactionControler tc = new TransactionControlerImpl(this.getDao().getAliasDB());
 
         try {

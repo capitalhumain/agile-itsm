@@ -3,8 +3,8 @@ package br.com.centralit.citsmart.rest.dao;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citsmart.rest.bean.RestTranslationDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
 import br.com.citframework.integracao.Field;
@@ -43,7 +43,7 @@ public class RestTranslationDao extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public Collection<RestTranslationDTO> find(final IDto arg0) throws PersistenceException {
+    public Collection<RestTranslationDTO> find(final BaseEntity arg0) throws PersistenceException {
         return null;
     }
 

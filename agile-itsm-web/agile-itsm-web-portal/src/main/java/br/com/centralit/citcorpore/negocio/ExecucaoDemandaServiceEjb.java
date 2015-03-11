@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.ExecucaoDemandaDTO;
 import br.com.centralit.citcorpore.bean.HistoricoExecucaoDTO;
 import br.com.centralit.citcorpore.integracao.ExecucaoDemandaDao;
 import br.com.centralit.citcorpore.integracao.HistoricoExecucaoDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
@@ -57,7 +57,7 @@ public class ExecucaoDemandaServiceEjb extends CrudServiceImpl implements Execuc
     }
 
     @Override
-    public boolean temAtividadeNaSequencia(final IDto bean) throws LogicException, ServiceException {
+    public boolean temAtividadeNaSequencia(final BaseEntity bean) throws LogicException, ServiceException {
         /*
          * FluxoDao fluxoDao = new FluxoDao();
          * ExecucaoDemandaDTO execDemandaBean = (ExecucaoDemandaDTO)bean;
@@ -76,7 +76,7 @@ public class ExecucaoDemandaServiceEjb extends CrudServiceImpl implements Execuc
     }
 
     @Override
-    public void updateAtribuir(final IDto bean) throws LogicException, ServiceException {
+    public void updateAtribuir(final BaseEntity bean) throws LogicException, ServiceException {
         /*
          * //Instancia Objeto controlador de transacao
          * ExecucaoDemandaDao crudDao = (ExecucaoDemandaDao)getDao();
@@ -147,7 +147,7 @@ public class ExecucaoDemandaServiceEjb extends CrudServiceImpl implements Execuc
     }
 
     @Override
-    public void updateStatus(final IDto bean) throws LogicException, ServiceException {
+    public void updateStatus(final BaseEntity bean) throws LogicException, ServiceException {
         // Instancia Objeto controlador de transacao
         final ExecucaoDemandaDao crudDao = this.getDao();
         final HistoricoExecucaoDao historicoExecucaoDao = new HistoricoExecucaoDao();
@@ -186,7 +186,7 @@ public class ExecucaoDemandaServiceEjb extends CrudServiceImpl implements Execuc
     }
 
     @Override
-    public void updateFinalizar(final IDto bean) throws LogicException, ServiceException {
+    public void updateFinalizar(final BaseEntity bean) throws LogicException, ServiceException {
         /*
          * //Instancia Objeto controlador de transacao
          * ExecucaoDemandaDao crudDao = (ExecucaoDemandaDao)getDao();

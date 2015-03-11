@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.CategoriaSolucaoDTO;
 import br.com.centralit.citcorpore.util.CITCorporeUtil;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.Condition;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
@@ -48,7 +48,7 @@ public class CategoriaSolucaoDao extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public Collection<CategoriaSolucaoDTO> find(final IDto arg0) throws PersistenceException {
+    public Collection<CategoriaSolucaoDTO> find(final BaseEntity arg0) throws PersistenceException {
         return null;
     }
 

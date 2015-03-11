@@ -4,9 +4,9 @@ import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.Collection;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class PrestacaoContasViagemDTO implements IDto {
+public class PrestacaoContasViagemDTO extends BaseEntity {
 	public static final String APROVADA = "Aprovada";
 	public static final String NAO_APROVADA = "Não Aprovada";
 	public static final String AGUARDANDO_CONFERENCIA = "Aguardando Conferência";

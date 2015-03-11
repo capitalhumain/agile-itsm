@@ -2,9 +2,9 @@ package br.com.centralit.citcorpore.metainfo.bean;
 
 import java.util.Collection;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class VisaoRelacionadaDTO implements IDto {
+public class VisaoRelacionadaDTO extends BaseEntity {
 	public static String VINC_ABA_AO_LADO = "1";
 	public static String VINC_ABA_FILHA = "2";
 	

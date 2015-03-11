@@ -3,12 +3,14 @@
  */
 package br.com.citframework.dto;
 
+import br.com.agileitsm.model.support.BaseEntity;
+
 
 /**
  * @author karem.ricarte
  *
  */
-public class LogTabela implements IDto {
+public class LogTabela extends BaseEntity {
 	
 
 	private static final long serialVersionUID = 1L;

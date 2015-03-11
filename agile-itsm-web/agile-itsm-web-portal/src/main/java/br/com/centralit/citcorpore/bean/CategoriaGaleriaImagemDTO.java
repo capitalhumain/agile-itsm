@@ -2,9 +2,9 @@ package br.com.centralit.citcorpore.bean;
 
 import java.sql.Date;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class CategoriaGaleriaImagemDTO implements IDto {
+public class CategoriaGaleriaImagemDTO extends BaseEntity {
 	
 	private static final long serialVersionUID = 1505208303547612863L;
 	private Integer idCategoriaGaleriaImagem;

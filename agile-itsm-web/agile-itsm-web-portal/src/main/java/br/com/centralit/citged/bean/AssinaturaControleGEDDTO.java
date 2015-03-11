@@ -1,9 +1,9 @@
 package br.com.centralit.citged.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 
-public class AssinaturaControleGEDDTO implements IDto{
+public class AssinaturaControleGEDDTO extends BaseEntity{
     private static final long serialVersionUID = 1L;
     
 	private Integer idAssinatura;

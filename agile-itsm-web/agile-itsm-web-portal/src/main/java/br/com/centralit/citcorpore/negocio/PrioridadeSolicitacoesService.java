@@ -2,11 +2,11 @@ package br.com.centralit.citcorpore.negocio;
 
 import java.util.Collection;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citajax.html.DocumentHTML;
 import br.com.centralit.citcorpore.bean.ImpactoDTO;
 import br.com.centralit.citcorpore.bean.MatrizPrioridadeDTO;
 import br.com.centralit.citcorpore.bean.UrgenciaDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.service.CrudService;
 
 /**
@@ -19,15 +19,15 @@ public interface PrioridadeSolicitacoesService extends CrudService {
 
     Collection findById(final Integer idMatrizPrioridade) throws Exception;
 
-    void createImpacto(final IDto impacto) throws Exception;
+    void createImpacto(final BaseEntity impacto) throws Exception;
 
     void deleteImpacto() throws Exception;
 
-    void createUrgencia(final IDto urgencia) throws Exception;
+    void createUrgencia(final BaseEntity urgencia) throws Exception;
 
     void deleteUrgencia() throws Exception;
 
-    void createMatrizPrioridade(final IDto matrizPrioridade) throws Exception;
+    void createMatrizPrioridade(final BaseEntity matrizPrioridade) throws Exception;
 
     void deleteMatrizPrioridade() throws Exception;
 
@@ -43,13 +43,13 @@ public interface PrioridadeSolicitacoesService extends CrudService {
 
     Collection consultaMatrizPrioridade() throws Exception;
 
-    IDto restoreImpacto(final IDto impacto) throws Exception;
+    BaseEntity restoreImpacto(final BaseEntity impacto) throws Exception;
 
-    IDto restoreImpactoBySigla(final ImpactoDTO impacto) throws Exception;
+    BaseEntity restoreImpactoBySigla(final ImpactoDTO impacto) throws Exception;
 
-    IDto restoreUrgencia(final IDto urgencia) throws Exception;
+    BaseEntity restoreUrgencia(final BaseEntity urgencia) throws Exception;
 
-    IDto restoreUrgenciaBySigla(final UrgenciaDTO impacto) throws Exception;
+    BaseEntity restoreUrgenciaBySigla(final UrgenciaDTO impacto) throws Exception;
 
     boolean verificaImpactoJaExiste(final ImpactoDTO impacto) throws Exception;
 

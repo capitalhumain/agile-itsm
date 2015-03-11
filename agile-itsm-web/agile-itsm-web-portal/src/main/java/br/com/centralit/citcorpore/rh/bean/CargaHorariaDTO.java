@@ -2,9 +2,9 @@ package br.com.centralit.citcorpore.rh.bean;
 
 import java.sql.Timestamp;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class CargaHorariaDTO implements IDto {
+public class CargaHorariaDTO extends BaseEntity {
 	
 	private static final long serialVersionUID = 8926245340324495564L;
 	

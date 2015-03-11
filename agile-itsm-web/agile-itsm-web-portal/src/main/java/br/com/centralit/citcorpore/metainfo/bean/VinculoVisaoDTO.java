@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.metainfo.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class VinculoVisaoDTO implements IDto {
+public class VinculoVisaoDTO extends BaseEntity {
 	public static String VINCULO_1_TO_N = "1";
 	public static String VINCULO_N_TO_N = "2";
 	

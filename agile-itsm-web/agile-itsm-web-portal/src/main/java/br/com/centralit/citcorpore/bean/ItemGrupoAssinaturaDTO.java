@@ -2,9 +2,9 @@ package br.com.centralit.citcorpore.bean;
 
 import java.sql.Date;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class ItemGrupoAssinaturaDTO implements IDto{
+public class ItemGrupoAssinaturaDTO extends BaseEntity{
 
     private static final long serialVersionUID = -6639560890633897592L;
 

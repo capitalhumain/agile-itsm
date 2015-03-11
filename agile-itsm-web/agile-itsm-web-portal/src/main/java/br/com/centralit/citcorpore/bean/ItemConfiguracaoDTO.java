@@ -10,8 +10,8 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.util.Enumerados;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.util.DateAdapter;
 import br.com.citframework.util.DateTimeAdapter;
 import br.com.citframework.util.UtilStrings;
@@ -19,7 +19,7 @@ import br.com.citframework.util.UtilStrings;
 @SuppressWarnings("rawtypes")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "ItemConfiguracao") 
-public class ItemConfiguracaoDTO implements IDto {
+public class ItemConfiguracaoDTO extends BaseEntity {
 
     private static final long serialVersionUID = 5116065110323539062L;
 

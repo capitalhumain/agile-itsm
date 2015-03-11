@@ -1,9 +1,9 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 @SuppressWarnings("serial")
-public class EmailSolicitacaoServicoDTO implements IDto{
+public class EmailSolicitacaoServicoDTO extends BaseEntity{
     
 	private Integer idEmail;
 	private String idMessage;

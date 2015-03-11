@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.ItemConfiguracaoDTO;
 import br.com.centralit.citcorpore.bean.RelatorioMudancaItemConfiguracaoDTO;
 import br.com.centralit.citcorpore.bean.RequisicaoMudancaItemConfiguracaoDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.Condition;
@@ -65,12 +65,12 @@ public class RequisicaoMudancaItemConfiguracaoDao extends CrudDaoDefaultImpl {
 		return RequisicaoMudancaItemConfiguracaoDTO.class;
 	}
 
-	public Collection find(IDto arg0) throws PersistenceException {
+	public Collection find(BaseEntity arg0) throws PersistenceException {
 		return super.find(arg0, null);
 	}
 
 	@Override
-	public void updateNotNull(IDto obj) throws PersistenceException {
+	public void updateNotNull(BaseEntity obj) throws PersistenceException {
 		super.updateNotNull(obj);
 	}
 

@@ -1,5 +1,8 @@
 package br.com.citframework.util.geo;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * Simples representação de coordenadas geográficas em graus
  *
@@ -9,23 +12,12 @@ package br.com.citframework.util.geo;
  */
 public class Coordinate {
 
+    @Getter
+    @Setter
     private double lat;
+
+    @Getter
+    @Setter
     private double lng;
-
-    public double getLat() {
-        return lat;
-    }
-
-    public void setLat(final double lat) {
-        this.lat = lat;
-    }
-
-    public double getLng() {
-        return lng;
-    }
-
-    public void setLng(final double lng) {
-        this.lng = lng;
-    }
 
 }

@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.CategoriaProdutoDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.Condition;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
@@ -15,7 +15,7 @@ import br.com.citframework.util.Constantes;
 
 public class CategoriaProdutoDao extends CrudDaoDefaultImpl {
     @Override
-	public IDto restore(IDto obj) throws PersistenceException {
+	public BaseEntity restore(BaseEntity obj) throws PersistenceException {
 return super.restore(obj);
 	}
 	private static final String SQL_GET_LISTA_SEM_PAI = 
@@ -50,7 +50,7 @@ return super.restore(obj);
 	public Class getBean() {
 		return CategoriaProdutoDTO.class;
 	}
-	public Collection find(IDto arg0) throws PersistenceException {
+	public Collection find(BaseEntity arg0) throws PersistenceException {
 		return null;
 	}
     public Collection<CategoriaProdutoDTO> findSemPai() throws PersistenceException {

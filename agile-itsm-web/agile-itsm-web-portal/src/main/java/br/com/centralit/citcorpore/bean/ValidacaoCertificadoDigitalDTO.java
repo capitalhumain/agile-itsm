@@ -2,10 +2,10 @@ package br.com.centralit.citcorpore.bean;
 
 import java.security.cert.X509Certificate;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.citframework.util.cripto.InfoCertificadoDigital;
 
-public class ValidacaoCertificadoDigitalDTO implements IDto {
+public class ValidacaoCertificadoDigitalDTO extends BaseEntity {
 
     private static final long serialVersionUID = -4566460320507373015L;
     private String fileName;

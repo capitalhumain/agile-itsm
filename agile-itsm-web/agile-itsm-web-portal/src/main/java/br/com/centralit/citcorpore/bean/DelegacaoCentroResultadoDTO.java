@@ -4,9 +4,9 @@ import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.Collection;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class DelegacaoCentroResultadoDTO implements IDto {
+public class DelegacaoCentroResultadoDTO extends BaseEntity {
 	public static final String NOVAS_EXISTENTES = "E";
 	public static final String NOVAS = "N";
 	public static final String ESPECIFICAS = "R";

@@ -2,14 +2,14 @@ package br.com.centralit.citcorpore.bean;
 
 import java.util.Collection;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * @author breno.guimaraes
  * 
  */
 
-public class ImagemItemConfiguracaoDTO implements IDto {
+public class ImagemItemConfiguracaoDTO extends BaseEntity {
 
     private static final long serialVersionUID = 4649193570630759516L;
 

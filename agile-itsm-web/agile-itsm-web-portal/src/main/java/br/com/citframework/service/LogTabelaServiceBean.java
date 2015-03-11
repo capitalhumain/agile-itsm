@@ -3,7 +3,7 @@ package br.com.citframework.service;
 import java.util.Collection;
 import java.util.Iterator;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.citframework.dto.LogEstrutura;
 import br.com.citframework.dto.LogTabela;
 import br.com.citframework.excecao.LogicException;
@@ -49,7 +49,7 @@ public class LogTabelaServiceBean extends CrudServiceImpl implements LogTabelaSe
     }
 
     @Override
-    public IDto create(IDto model) throws ServiceException, LogicException {
+    public BaseEntity create(BaseEntity model) throws ServiceException, LogicException {
         final LogEstruturaDao eSDao = new LogEstruturaDao(usuario);
         final MetaDataDao mdDao = new MetaDataDao();
 

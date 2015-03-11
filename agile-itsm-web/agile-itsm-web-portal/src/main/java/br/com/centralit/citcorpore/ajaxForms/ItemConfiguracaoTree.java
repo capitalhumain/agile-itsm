@@ -8,6 +8,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citajax.html.DocumentHTML;
 import br.com.centralit.citajax.html.HTMLElement;
 import br.com.centralit.citajax.html.HTMLForm;
@@ -67,7 +68,6 @@ import br.com.centralit.citcorpore.util.Enumerados;
 import br.com.centralit.citcorpore.util.Enumerados.TipoDate;
 import br.com.centralit.citcorpore.util.ParametroUtil;
 import br.com.centralit.citcorpore.util.WebUtil;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.ServiceLocator;
@@ -857,7 +857,7 @@ public class ItemConfiguracaoTree extends ItemConfiguracao {
     	if(usrDto == null){
     		return;
     	}
-		this.setItemConfiguracaoBean((IDto) document.getBean());
+		this.setItemConfiguracaoBean((BaseEntity) document.getBean());
 		/*Verifica de verificação de mudanca item configuracao Ativo*/
 		String valida = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.ITEM_CONFIGURACAO_MUDANCA, "S");
 		if(valida.trim().equals("S"))

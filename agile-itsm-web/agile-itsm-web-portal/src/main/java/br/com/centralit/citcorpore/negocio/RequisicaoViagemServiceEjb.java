@@ -3,6 +3,7 @@ package br.com.centralit.citcorpore.negocio;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.CentroResultadoDTO;
 import br.com.centralit.citcorpore.bean.EmpregadoDTO;
 import br.com.centralit.citcorpore.bean.IntegranteViagemDTO;
@@ -20,7 +21,6 @@ import br.com.centralit.citcorpore.integracao.RequisicaoViagemDAO;
 import br.com.centralit.citcorpore.integracao.RoteiroViagemDAO;
 import br.com.centralit.citcorpore.integracao.SolicitacaoServicoDao;
 import br.com.centralit.citcorpore.util.Enumerados;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.CrudDAO;
@@ -43,7 +43,7 @@ public class RequisicaoViagemServiceEjb extends ComplemInfSolicitacaoServicoServ
     }
 
     @Override
-    public IDto deserializaObjeto(final String serialize) throws Exception {
+    public BaseEntity deserializaObjeto(final String serialize) throws Exception {
         RequisicaoViagemDTO requisicaoViagemDto = null;
 
         if (serialize != null) {
@@ -57,20 +57,20 @@ public class RequisicaoViagemServiceEjb extends ComplemInfSolicitacaoServicoServ
     }
 
     @Override
-    public void validaCreate(final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {
+    public void validaCreate(final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {
         this.validaAtualizacao(solicitacaoServicoDto, model);
 
     }
 
     @Override
-    public void validaDelete(final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {}
+    public void validaDelete(final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {}
 
     @Override
-    public void validaUpdate(final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {
+    public void validaUpdate(final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {
         this.validaAtualizacao(solicitacaoServicoDto, model);
     }
 
-    public void validaAtualizacao(final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {
+    public void validaAtualizacao(final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {
         final RequisicaoViagemDTO requisicaoViagemDto = (RequisicaoViagemDTO) model;
         this.validaCentroResultado(requisicaoViagemDto);
         this.validaProjeto(requisicaoViagemDto);
@@ -146,7 +146,7 @@ public class RequisicaoViagemServiceEjb extends ComplemInfSolicitacaoServicoServ
     }
 
     @Override
-    public IDto create(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {
+    public BaseEntity create(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {
         RequisicaoViagemDTO requisicaoViagemDto = (RequisicaoViagemDTO) model;
         requisicaoViagemDto.setEstado(RequisicaoViagemDTO.AGUARDANDO_PLANEJAMENTO);
 
@@ -209,7 +209,7 @@ public class RequisicaoViagemServiceEjb extends ComplemInfSolicitacaoServicoServ
     }
 
     @Override
-    public void update(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {
+    public void update(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {
 
         final RequisicaoViagemDTO requisicaoViagemDto = (RequisicaoViagemDTO) model;
         ParecerDTO parecerDto = new ParecerDTO();
@@ -273,7 +273,7 @@ public class RequisicaoViagemServiceEjb extends ComplemInfSolicitacaoServicoServ
     }
 
     @Override
-    public void update(final IDto model) throws ServiceException {
+    public void update(final BaseEntity model) throws ServiceException {
         // Instancia Objeto controlador de transacao
         final CrudDAO crudDao = this.getDao();
         TransactionControler tc = null;
@@ -299,7 +299,7 @@ public class RequisicaoViagemServiceEjb extends ComplemInfSolicitacaoServicoServ
     /**
      * TODO Este metodo esta em desuso, pode ser removido na proxima versão
      */
-    public void atualizarRemarcacaoDeViagem(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {
+    public void atualizarRemarcacaoDeViagem(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {
 
         final RequisicaoViagemDTO requisicaoViagemDto = (RequisicaoViagemDTO) model;
 
@@ -348,7 +348,7 @@ public class RequisicaoViagemServiceEjb extends ComplemInfSolicitacaoServicoServ
     }
 
     @Override
-    public void delete(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDto, final IDto model) throws Exception {
+    public void delete(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {
 
     }
 

@@ -1,11 +1,11 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.citframework.util.UtilFormatacao;
 import br.com.citframework.util.UtilHTML;
 import br.com.citframework.util.UtilStrings;
 
-public class PerfilContratoDTO implements IDto {
+public class PerfilContratoDTO extends BaseEntity {
 	private Integer idPerfilContrato;
 	private Integer idContrato;
 	private String nomePerfilContrato;

@@ -1,8 +1,8 @@
 package br.com.centralit.bpm.dto;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class FormDinamicoDTO implements IDto {
+public class FormDinamicoDTO extends BaseEntity {
 
     private static final long serialVersionUID = -4000788525797569832L;
 

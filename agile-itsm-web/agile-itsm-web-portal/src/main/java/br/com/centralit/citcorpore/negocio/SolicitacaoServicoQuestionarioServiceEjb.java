@@ -3,6 +3,7 @@ package br.com.centralit.citcorpore.negocio;
 import java.sql.Date;
 import java.util.Collection;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.ContratoQuestionariosDTO;
 import br.com.centralit.citcorpore.bean.ControleQuestionariosDTO;
 import br.com.centralit.citcorpore.bean.SolicitacaoServicoQuestionarioDTO;
@@ -10,7 +11,6 @@ import br.com.centralit.citcorpore.integracao.ContratoQuestionariosDao;
 import br.com.centralit.citcorpore.integracao.ControleQuestionariosDao;
 import br.com.centralit.citquestionario.integracao.RespostaItemQuestionarioDao;
 import br.com.centralit.citquestionario.negocio.RespostaItemQuestionarioServiceBean;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.CrudDAO;
@@ -96,7 +96,7 @@ public class SolicitacaoServicoQuestionarioServiceEjb extends CrudServiceImpl im
     }
 
     @Override
-    public IDto create(IDto model) throws ServiceException, LogicException {
+    public BaseEntity create(BaseEntity model) throws ServiceException, LogicException {
         // Instancia Objeto controlador de transacao
         final CrudDAO crudDao = this.getDao();
         final ControleQuestionariosDao controleQuestionariosDao = new ControleQuestionariosDao();
@@ -142,7 +142,7 @@ public class SolicitacaoServicoQuestionarioServiceEjb extends CrudServiceImpl im
     }
 
     @Override
-    public void update(final IDto model) throws ServiceException, LogicException {
+    public void update(final BaseEntity model) throws ServiceException, LogicException {
         // Instancia Objeto controlador de transacao
         final CrudDAO crudDao = this.getDao();
         final TransactionControler tc = new TransactionControlerImpl(crudDao.getAliasDB());

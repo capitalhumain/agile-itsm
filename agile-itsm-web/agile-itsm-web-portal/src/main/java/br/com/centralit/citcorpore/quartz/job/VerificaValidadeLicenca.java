@@ -7,6 +7,7 @@ import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.EmpregadoDTO;
 import br.com.centralit.citcorpore.bean.ItemConfiguracaoDTO;
 import br.com.centralit.citcorpore.mail.MensagemEmail;
@@ -15,7 +16,6 @@ import br.com.centralit.citcorpore.negocio.ItemConfiguracaoService;
 import br.com.centralit.citcorpore.util.Enumerados;
 import br.com.centralit.citcorpore.util.Enumerados.ParametroSistema;
 import br.com.centralit.citcorpore.util.ParametroUtil;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.service.ServiceLocator;
 import br.com.citframework.util.UtilDatas;
 
@@ -54,12 +54,12 @@ public class VerificaValidadeLicenca implements Job {
                     final EmpregadoService empregadoService = (EmpregadoService) ServiceLocator.getInstance().getService(EmpregadoService.class, null);
                     for (final ItemConfiguracaoDTO itemConfiguracao : colItemConfiguracao) {
                         empregadoDTO = empregadoService.restoreByIdEmpregado(itemConfiguracao.getIdProprietario());
-                        final MensagemEmail mensagem = new MensagemEmail(Integer.parseInt(ID_MODELO_EMAIL_EXPIRACAO_LICENCA.trim()), new IDto[] {itemConfiguracao});
+                        final MensagemEmail mensagem = new MensagemEmail(Integer.parseInt(ID_MODELO_EMAIL_EXPIRACAO_LICENCA.trim()), new BaseEntity[] {itemConfiguracao});
                         mensagem.envia(empregadoDTO.getEmail(), "", remetente);
                     }
                 } else {
                     for (final ItemConfiguracaoDTO itemConfiguracao : colItemConfiguracao) {
-                        final MensagemEmail mensagem = new MensagemEmail(Integer.parseInt(ID_MODELO_EMAIL_EXPIRACAO_LICENCA.trim()), new IDto[] {itemConfiguracao});
+                        final MensagemEmail mensagem = new MensagemEmail(Integer.parseInt(ID_MODELO_EMAIL_EXPIRACAO_LICENCA.trim()), new BaseEntity[] {itemConfiguracao});
                         mensagem.envia(itemConfiguracao.getEmailGrupoItemConfiguracao(), "", remetente);
                     }
                 }

@@ -9,6 +9,7 @@ import java.util.concurrent.Semaphore;
 
 import org.apache.commons.lang.StringEscapeUtils;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.AcordoNivelServicoDTO;
 import br.com.centralit.citcorpore.bean.EmpregadoDTO;
 import br.com.centralit.citcorpore.bean.EscalonamentoDTO;
@@ -35,7 +36,6 @@ import br.com.centralit.citcorpore.util.Enumerados.CategoriaOcorrencia;
 import br.com.centralit.citcorpore.util.Enumerados.OrigemOcorrencia;
 import br.com.centralit.citcorpore.util.Enumerados.ParametroSistema;
 import br.com.centralit.citcorpore.util.ParametroUtil;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.TransactionControler;
@@ -345,7 +345,7 @@ public class MonitoraIncidentes extends Thread {
 		solicitacaoAuxDto.setLinkPesquisaSatisfacao("<a href=\"" + urlSistema + "/pages/pesquisaSatisfacao/pesquisaSatisfacao.load?idSolicitacaoServico=" + solicitacaoAuxDto.getIdSolicitacaoServico()
 				+ "&hash=" + idHashValidacao + "\">Clique aqui para fazer a avaliação do Atendimento</a>");
 
-		MensagemEmail mensagem = new MensagemEmail(idModeloEmail, new IDto[] { solicitacaoAuxDto });
+		MensagemEmail mensagem = new MensagemEmail(idModeloEmail, new BaseEntity[] { solicitacaoAuxDto });
 
 		try {
 			mensagem.envia(solicitacaoAuxDto.getEmailcontato(), remetente, remetente);
@@ -376,7 +376,7 @@ public class MonitoraIncidentes extends Thread {
 		solicitacaoAuxDto.setLinkPesquisaSatisfacao("<a href=\"" + urlSistema + "/pages/pesquisaSatisfacao/pesquisaSatisfacao.load?idSolicitacaoServico=" + solicitacaoAuxDto.getIdSolicitacaoServico()
 				+ "&hash=" + idHashValidacao + "\">Clique aqui para fazer a avaliação do Atendimento</a>");
 
-		MensagemEmail mensagem = new MensagemEmail(idModeloEmail, new IDto[] { solicitacaoAuxDto });
+		MensagemEmail mensagem = new MensagemEmail(idModeloEmail, new BaseEntity[] { solicitacaoAuxDto });
 
 		try {
 			// Notifica o gerente

@@ -2,12 +2,12 @@ package br.com.centralit.citcorpore.bean;
 
 import java.sql.Date;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.citframework.util.UtilDatas;
 import br.com.citframework.util.UtilFormatacao;
 import br.com.citframework.util.UtilHTML;
 
-public class ExecucaoDemandaDTO implements IDto {
+public class ExecucaoDemandaDTO extends BaseEntity {
 
 	/**
 	 * 

@@ -2,11 +2,11 @@ package br.com.centralit.citcorpore.negocio;
 
 import java.util.Collection;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.HistoricoSolicitacaoServicoDTO;
 import br.com.centralit.citcorpore.bean.RelatorioCargaHorariaDTO;
 import br.com.centralit.citcorpore.bean.SolicitacaoServicoDTO;
 import br.com.centralit.citcorpore.integracao.HistoricoSolicitacaoServicoDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.integracao.TransactionControler;
 import br.com.citframework.service.CrudServiceImpl;
 
@@ -57,8 +57,8 @@ public class HistoricoSolicitacaoServicoServiceEjb extends CrudServiceImpl imple
         return this.getDao().imprimirCargaHorariaGrupo(solicitacaoServicoDTO);
     }
 
-    public static IDto create(final HistoricoSolicitacaoServicoDTO historicoSolicitacaoServicoDTO, final TransactionControler tc) throws Exception {
-        IDto historico = new HistoricoSolicitacaoServicoDTO();
+    public static BaseEntity create(final HistoricoSolicitacaoServicoDTO historicoSolicitacaoServicoDTO, final TransactionControler tc) throws Exception {
+        BaseEntity historico = new HistoricoSolicitacaoServicoDTO();
         final HistoricoSolicitacaoServicoDao historicoSolicitacaoServicoDao = new HistoricoSolicitacaoServicoDao();
         if (tc != null) {
             historicoSolicitacaoServicoDao.setTransactionControler(tc);

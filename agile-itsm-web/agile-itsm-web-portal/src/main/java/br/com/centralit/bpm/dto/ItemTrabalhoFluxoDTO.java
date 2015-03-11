@@ -8,13 +8,13 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.bpm.util.Enumerados.SituacaoItemTrabalho;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.util.DateTimeAdapter;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "ItemTrabalhoFluxo")
-public class ItemTrabalhoFluxoDTO implements IDto {
+public class ItemTrabalhoFluxoDTO extends BaseEntity {
 
     private static final long serialVersionUID = -7116950974247300660L;
 

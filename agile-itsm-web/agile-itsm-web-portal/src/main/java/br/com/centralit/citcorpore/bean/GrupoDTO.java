@@ -10,15 +10,15 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.bpm.dto.PermissoesFluxoDTO;
 import br.com.centralit.citcorpore.util.Util;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.util.DateTimeAdapter;
 
 @SuppressWarnings("rawtypes")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "Grupo") 
-public class GrupoDTO implements IDto {
+public class GrupoDTO extends BaseEntity {
 
 	private static final long serialVersionUID = -7848776827100833523L;
 	

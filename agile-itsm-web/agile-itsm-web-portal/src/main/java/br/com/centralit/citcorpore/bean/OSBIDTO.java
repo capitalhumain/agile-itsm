@@ -3,10 +3,10 @@ package br.com.centralit.citcorpore.bean;
 import java.sql.Date;
 import java.util.Collection;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 @SuppressWarnings("rawtypes")
-public class OSBIDTO implements IDto {
+public class OSBIDTO extends BaseEntity {
 	
 	private static final long serialVersionUID = 4291019354197500491L;
 

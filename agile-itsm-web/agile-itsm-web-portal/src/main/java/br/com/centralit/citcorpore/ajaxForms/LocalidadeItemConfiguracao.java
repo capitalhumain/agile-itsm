@@ -6,6 +6,7 @@ import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citajax.html.AjaxFormAction;
 import br.com.centralit.citajax.html.DocumentHTML;
 import br.com.centralit.citajax.html.HTMLForm;
@@ -22,7 +23,6 @@ import br.com.centralit.citcorpore.negocio.LocalidadeItemConfiguracaoService;
 import br.com.centralit.citcorpore.negocio.RegiaoService;
 import br.com.centralit.citcorpore.negocio.UfService;
 import br.com.centralit.citcorpore.negocio.UnidadeService;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.ServiceLocator;
 import br.com.citframework.util.UtilDatas;
@@ -287,7 +287,7 @@ public class LocalidadeItemConfiguracao extends AjaxFormAction {
 	 * @param empregado
 	 * @author thays.araujo
 	 */
-	public void setLocalidadeItemconfiguracaoDto(IDto localidadeItemConfiguracao) {
+	public void setLocalidadeItemconfiguracaoDto(BaseEntity localidadeItemConfiguracao) {
 		this.localidadeItemConfiguracaoDto = (LocalidadeItemConfiguracaoDTO) localidadeItemConfiguracao;
 	}
 

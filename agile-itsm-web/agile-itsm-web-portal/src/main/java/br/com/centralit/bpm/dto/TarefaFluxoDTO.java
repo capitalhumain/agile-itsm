@@ -9,9 +9,9 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.citframework.util.DateTimeAdapter;
-import br.com.citframework.util.DtoAdapter;
+import br.com.citframework.util.BaseEntityAdapter;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "TarefaFluxo")
@@ -55,16 +55,16 @@ public class TarefaFluxoDTO extends ItemTrabalhoFluxoDTO {
     private Timestamp dataHoraLimite;
 
     @XmlElement(name = "SolicitacaoServico")
-    @XmlJavaTypeAdapter(DtoAdapter.class)
-    private IDto solicitacaoDto;
+    @XmlJavaTypeAdapter(BaseEntityAdapter.class)
+    private BaseEntity solicitacaoDto;
 
     @XmlElement(name = "RequisicaoMudanca")
-    @XmlJavaTypeAdapter(DtoAdapter.class)
-    private IDto requisicaoMudancaDto;
+    @XmlJavaTypeAdapter(BaseEntityAdapter.class)
+    private BaseEntity requisicaoMudancaDto;
 
     @XmlElement(name = "RequisicaoLiberacao")
-    @XmlJavaTypeAdapter(DtoAdapter.class)
-    private IDto requisicaoLiberacaoDto;
+    @XmlJavaTypeAdapter(BaseEntityAdapter.class)
+    private BaseEntity requisicaoLiberacaoDto;
 
     private String elementoFluxo_serialize;
     private String solicitacao_serialize;
@@ -72,8 +72,8 @@ public class TarefaFluxoDTO extends ItemTrabalhoFluxoDTO {
     private String problema_serialize;
 
     @XmlElement(name = "Problema")
-    @XmlJavaTypeAdapter(DtoAdapter.class)
-    private IDto problemaDto;
+    @XmlJavaTypeAdapter(BaseEntityAdapter.class)
+    private BaseEntity problemaDto;
 
     private String tipoAtribuicao;
     private Integer idTipoFluxo;
@@ -198,35 +198,35 @@ public class TarefaFluxoDTO extends ItemTrabalhoFluxoDTO {
         this.problema_serialize = problema_serialize;
     }
 
-    public IDto getSolicitacaoDto() {
+    public BaseEntity getSolicitacaoDto() {
         return solicitacaoDto;
     }
 
-    public void setSolicitacaoDto(final IDto solicitacaoDto) {
+    public void setSolicitacaoDto(final BaseEntity solicitacaoDto) {
         this.solicitacaoDto = solicitacaoDto;
     }
 
-    public IDto getRequisicaoMudancaDto() {
+    public BaseEntity getRequisicaoMudancaDto() {
         return requisicaoMudancaDto;
     }
 
-    public void setRequisicaoMudancaDto(final IDto requisicaoMudancaDto) {
+    public void setRequisicaoMudancaDto(final BaseEntity requisicaoMudancaDto) {
         this.requisicaoMudancaDto = requisicaoMudancaDto;
     }
 
-    public IDto getRequisicaoLiberacaoDto() {
+    public BaseEntity getRequisicaoLiberacaoDto() {
         return requisicaoLiberacaoDto;
     }
 
-    public void setRequisicaoLiberacaoDto(final IDto requisicaoLiberacaoDto) {
+    public void setRequisicaoLiberacaoDto(final BaseEntity requisicaoLiberacaoDto) {
         this.requisicaoLiberacaoDto = requisicaoLiberacaoDto;
     }
 
-    public IDto getProblemaDto() {
+    public BaseEntity getProblemaDto() {
         return problemaDto;
     }
 
-    public void setProblemaDto(final IDto problemaDto) {
+    public void setProblemaDto(final BaseEntity problemaDto) {
         this.problemaDto = problemaDto;
     }
 
@@ -238,18 +238,19 @@ public class TarefaFluxoDTO extends ItemTrabalhoFluxoDTO {
         this.tipoAtribuicao = tipoAtribuicao;
     }
 
-	/**
-	 * @return the idTipoFluxo
-	 */
-	public Integer getIdTipoFluxo() {
-		return idTipoFluxo;
-	}
+    /**
+     * @return the idTipoFluxo
+     */
+    public Integer getIdTipoFluxo() {
+        return idTipoFluxo;
+    }
 
-	/**
-	 * @param idTipoFluxo the idTipoFluxo to set
-	 */
-	public void setIdTipoFluxo(Integer idTipoFluxo) {
-		this.idTipoFluxo = idTipoFluxo;
-	}
+    /**
+     * @param idTipoFluxo
+     *            the idTipoFluxo to set
+     */
+    public void setIdTipoFluxo(final Integer idTipoFluxo) {
+        this.idTipoFluxo = idTipoFluxo;
+    }
 
 }

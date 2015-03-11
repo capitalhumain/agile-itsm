@@ -2,9 +2,9 @@ package br.com.centralit.citcorpore.negocio;
 
 import javax.servlet.http.HttpServletRequest;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citajax.html.DocumentHTML;
 import br.com.centralit.citcorpore.bean.FormaPagamentoDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.CrudService;
 
@@ -22,7 +22,7 @@ public interface FormaPagamentoService extends CrudService{
 	 * @throws ServiceException
 	 * @throws Exception
 	 */
-	public void deletarFormaPagamento(IDto model, DocumentHTML document,HttpServletRequest request) throws ServiceException, Exception;
+	public void deletarFormaPagamento(BaseEntity model, DocumentHTML document,HttpServletRequest request) throws ServiceException, Exception;
 	
 	
 	/**

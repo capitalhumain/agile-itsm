@@ -4,6 +4,7 @@ package br.com.centralit.citcorpore.negocio;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citajax.html.DocumentHTML;
 import br.com.centralit.citcorpore.bean.PastaDTO;
 import br.com.centralit.citcorpore.bean.PerfilAcessoDTO;
@@ -17,7 +18,6 @@ import br.com.centralit.citcorpore.integracao.PerfilAcessoPastaDAO;
 import br.com.centralit.citcorpore.integracao.PerfilAcessoSituacaoFaturaDao;
 import br.com.centralit.citcorpore.integracao.PerfilAcessoSituacaoOSDao;
 import br.com.centralit.citcorpore.integracao.PerfilAcessoUsuarioDAO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.excecao.ServiceException;
@@ -99,7 +99,7 @@ public class PerfilAcessoServiceEjb extends CrudServiceImpl implements PerfilAce
     }
 
     @Override
-    public IDto create(final IDto model) throws ServiceException, LogicException {
+    public BaseEntity create(final BaseEntity model) throws ServiceException, LogicException {
         this.setPerfilAcessoBean(model);
 
         final TransactionControler transactionControler = new TransactionControlerImpl(this.getDao().getAliasDB());
@@ -153,7 +153,7 @@ public class PerfilAcessoServiceEjb extends CrudServiceImpl implements PerfilAce
     }
 
     @Override
-    public void update(final IDto model) throws ServiceException, LogicException {
+    public void update(final BaseEntity model) throws ServiceException, LogicException {
         this.setPerfilAcessoBean(model);
         final PerfilAcessoMenuDao perfilAcessoMenuDao = new PerfilAcessoMenuDao();
         final PerfilAcessoDao perfilAcessoDao = this.getDao();
@@ -264,7 +264,7 @@ public class PerfilAcessoServiceEjb extends CrudServiceImpl implements PerfilAce
      * @param baseItemConfiguracaoBean
      * @author valdoilo.damasceno
      */
-    private void setPerfilAcessoBean(final IDto perfilAcessobean) {
+    private void setPerfilAcessoBean(final BaseEntity perfilAcessobean) {
         perfilAcessoBean = (PerfilAcessoDTO) perfilAcessobean;
     }
 

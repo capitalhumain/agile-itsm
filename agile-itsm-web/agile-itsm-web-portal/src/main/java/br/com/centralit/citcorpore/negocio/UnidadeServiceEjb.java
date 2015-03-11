@@ -9,6 +9,7 @@ import java.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citajax.html.DocumentHTML;
 import br.com.centralit.citcorpore.bean.ContratosUnidadesDTO;
 import br.com.centralit.citcorpore.bean.EnderecoDTO;
@@ -25,7 +26,6 @@ import br.com.centralit.citcorpore.integracao.UnidadesAccServicosDao;
 import br.com.centralit.citcorpore.util.Arvore;
 import br.com.centralit.citcorpore.util.Enumerados;
 import br.com.centralit.citcorpore.util.ParametroUtil;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.Condition;
@@ -85,7 +85,7 @@ public class UnidadeServiceEjb extends CrudServiceImpl implements UnidadeService
     }
 
     @Override
-    public IDto create(final IDto model) throws ServiceException, LogicException {
+    public BaseEntity create(final BaseEntity model) throws ServiceException, LogicException {
         final UnidadeDao unidadeDao = this.getDao();
         final ContratosUnidadesDAO contratosUnidadesDAO = new ContratosUnidadesDAO();
         final LocalidadeUnidadeDAO localidadeUnidadeDao = new LocalidadeUnidadeDAO();
@@ -163,7 +163,7 @@ public class UnidadeServiceEjb extends CrudServiceImpl implements UnidadeService
     }
 
     @Override
-    public void update(final IDto model) throws ServiceException, LogicException {
+    public void update(final BaseEntity model) throws ServiceException, LogicException {
         final UnidadeDao unidadeDAO = this.getDao();
 
         final UnidadeDTO unidade = (UnidadeDTO) model;
@@ -362,7 +362,7 @@ public class UnidadeServiceEjb extends CrudServiceImpl implements UnidadeService
     }
 
     @Override
-    public void deletarUnidade(final IDto model, final DocumentHTML document, final HttpServletRequest request) throws ServiceException, Exception {
+    public void deletarUnidade(final BaseEntity model, final DocumentHTML document, final HttpServletRequest request) throws ServiceException, Exception {
         final UnidadeDTO unidadeDTO = (UnidadeDTO) model;
         final TransactionControler tc = new TransactionControlerImpl(this.getDao().getAliasDB());
         final ContratosUnidadesDAO contratosUnidadesDAO = new ContratosUnidadesDAO();

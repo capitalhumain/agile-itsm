@@ -2,10 +2,10 @@ package br.com.centralit.citcorpore.bean;
 
 import java.sql.Timestamp;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 @SuppressWarnings("serial")
-public class ContadorAcessoDTO implements IDto {
+public class ContadorAcessoDTO extends BaseEntity {
 
 	private Integer idContadorAcesso;
 	private Integer idUsuario;

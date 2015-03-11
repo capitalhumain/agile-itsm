@@ -2,11 +2,11 @@ package br.com.centralit.citcorpore.bean;
 
 import java.sql.Date;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.util.UtilDatas;
 
-public class CalendarioDTO implements IDto {
+public class CalendarioDTO extends BaseEntity {
     /**
      * 
      */

@@ -7,6 +7,7 @@ import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.BaseConhecimentoDTO;
 import br.com.centralit.citcorpore.bean.EmpregadoDTO;
 import br.com.centralit.citcorpore.bean.UsuarioDTO;
@@ -16,7 +17,6 @@ import br.com.centralit.citcorpore.negocio.EmpregadoService;
 import br.com.centralit.citcorpore.negocio.UsuarioService;
 import br.com.centralit.citcorpore.util.Enumerados.ParametroSistema;
 import br.com.centralit.citcorpore.util.ParametroUtil;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.service.ServiceLocator;
 import br.com.citframework.util.UtilDatas;
 
@@ -71,7 +71,7 @@ public class VerificaValidadeBaseConhecimento implements Job {
                     if (usuarioDtoAvaliador.getIdEmpregado() != null) {
                         empregadoDtoAvaliador = empregadoService.restoreByIdEmpregado(usuarioDtoAvaliador.getIdEmpregado());
                     }
-                    final MensagemEmail mensagem = new MensagemEmail(Integer.parseInt(ID_MODELO_EMAIL_EXPIRACAO_BASECONHECIMENTO), new IDto[] {baseConhecimentoDTO});
+                    final MensagemEmail mensagem = new MensagemEmail(Integer.parseInt(ID_MODELO_EMAIL_EXPIRACAO_BASECONHECIMENTO), new BaseEntity[] {baseConhecimentoDTO});
                     mensagem.envia(empregadoDtoAutor.getEmail(), "", remetente);
                     mensagem.envia(empregadoDtoAvaliador.getEmail(), "", remetente);
                 }

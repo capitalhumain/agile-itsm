@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.bpm.dto.PermissoesFluxoDTO;
 import br.com.centralit.citajax.html.DocumentHTML;
 import br.com.centralit.citajax.html.HTMLForm;
@@ -32,7 +33,6 @@ import br.com.centralit.citcorpore.integracao.ServicoContratoDao;
 import br.com.centralit.citcorpore.util.Enumerados;
 import br.com.centralit.citcorpore.util.Enumerados.ParametroSistema;
 import br.com.centralit.citcorpore.util.ParametroUtil;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.excecao.ServiceException;
@@ -74,7 +74,7 @@ public class GrupoServiceEjb extends CrudServiceImpl implements GrupoService {
     }
 
     @Override
-    public IDto create(final IDto model, final HttpServletRequest request) throws ServiceException, LogicException {
+    public BaseEntity create(final BaseEntity model, final HttpServletRequest request) throws ServiceException, LogicException {
         GrupoDTO grupoDto = (GrupoDTO) model;
 
         final TransactionControler tc = new TransactionControlerImpl(this.getDao().getAliasDB());
@@ -181,7 +181,7 @@ public class GrupoServiceEjb extends CrudServiceImpl implements GrupoService {
     }
 
     @Override
-    public void update(final IDto model, final HttpServletRequest request) throws ServiceException, LogicException {
+    public void update(final BaseEntity model, final HttpServletRequest request) throws ServiceException, LogicException {
         final GrupoDTO grupoDto = (GrupoDTO) model;
         final TransactionControler tc = new TransactionControlerImpl(this.getDao().getAliasDB());
         try {
@@ -264,7 +264,7 @@ public class GrupoServiceEjb extends CrudServiceImpl implements GrupoService {
     }
 
     @Override
-    public void delete(final IDto model, final DocumentHTML document) throws ServiceException, LogicException {
+    public void delete(final BaseEntity model, final DocumentHTML document) throws ServiceException, LogicException {
         final GrupoDTO grupoDto = (GrupoDTO) model;
 
         if (!this.validaExclusaoGrupoNosParametros(grupoDto, document)) {

@@ -3,9 +3,9 @@ package br.com.centralit.citcorpore.bean;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class AlcadaDTO implements IDto {
+public class AlcadaDTO extends BaseEntity {
 	private Integer idAlcada;
 	private String nomeAlcada;
 	private String tipoAlcada;

@@ -11,6 +11,7 @@ import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.bpm.dto.AtribuicaoFluxoDTO;
 import br.com.centralit.bpm.dto.EventoFluxoDTO;
 import br.com.centralit.bpm.dto.FluxoDTO;
@@ -56,7 +57,6 @@ import br.com.centralit.citcorpore.util.Enumerados.SituacaoRequisicaoMudanca;
 import br.com.centralit.citcorpore.util.ParametroUtil;
 import br.com.centralit.citcorpore.util.Util;
 import br.com.citframework.comparacao.ObjectSimpleComparator;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.dto.Usuario;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
@@ -431,7 +431,7 @@ public class ExecucaoMudanca extends ExecucaoFluxo {
 		
 		requisicaoAuxDto.setNomeTarefa(getRequisicaoMudancaDto().getNomeTarefa());
 		
-		MensagemEmail mensagem = new MensagemEmail(idModeloEmail, new IDto[] {requisicaoAuxDto});
+		MensagemEmail mensagem = new MensagemEmail(idModeloEmail, new BaseEntity[] {requisicaoAuxDto});
 		try {
 			mensagem.envia(requisicaoAuxDto.getEmailSolicitante(), remetente, remetente);
 		} catch (Exception e) {
@@ -811,7 +811,7 @@ public class ExecucaoMudanca extends ExecucaoFluxo {
 				int posArroba = email.indexOf("@");
 				if (posArroba > 0 && email.substring(posArroba).contains(".")) {
 					try {
-						mensagem = new MensagemEmail(idModeloEmail, new IDto[] { requisicaoMudancaDTO });
+						mensagem = new MensagemEmail(idModeloEmail, new BaseEntity[] { requisicaoMudancaDTO });
 						mensagem.envia(email, remetente, remetente);
 					} catch (Exception e) {
 					}
@@ -879,7 +879,7 @@ public class ExecucaoMudanca extends ExecucaoFluxo {
 							String nomeContato = emailsArray[i].toString();
 							requisicaoMudancaDTO.setNomeContato(nomeContato);
 						}
-						mensagem = new MensagemEmail(idModeloEmail, new IDto[] { requisicaoMudancaDTO });						
+						mensagem = new MensagemEmail(idModeloEmail, new BaseEntity[] { requisicaoMudancaDTO });						
 						mensagem.envia(email, remetente, remetente);
 						i++;
 					} catch (Exception e) {
@@ -941,7 +941,7 @@ public class ExecucaoMudanca extends ExecucaoFluxo {
 				if (posArroba > 0 && email.substring(posArroba).contains(".")) {
 					try {
 						requisicaoMudancaDTO.setNomeContato(empregadoDto.getNome());
-						mensagem = new MensagemEmail(idModeloEmail, new IDto[] { requisicaoMudancaDTO });
+						mensagem = new MensagemEmail(idModeloEmail, new BaseEntity[] { requisicaoMudancaDTO });
 
 						// aux = (EmpregadoDTO) getEmpregadoService().restore(e);
 						// if(aux != null && aux.getEmail() != null && !aux.getEmail().trim().equalsIgnoreCase("") ){

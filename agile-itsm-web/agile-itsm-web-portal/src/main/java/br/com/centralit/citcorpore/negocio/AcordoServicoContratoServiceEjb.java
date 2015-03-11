@@ -3,12 +3,12 @@ package br.com.centralit.citcorpore.negocio;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.AcordoNivelServicoDTO;
 import br.com.centralit.citcorpore.bean.AcordoServicoContratoDTO;
 import br.com.centralit.citcorpore.bean.ServicoContratoDTO;
 import br.com.centralit.citcorpore.integracao.AcordoNivelServicoDao;
 import br.com.centralit.citcorpore.integracao.AcordoServicoContratoDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
@@ -71,7 +71,7 @@ public class AcordoServicoContratoServiceEjb extends CrudServiceImpl implements 
     }
 
     @Override
-    public IDto create(final IDto model) throws ServiceException, LogicException {
+    public BaseEntity create(final BaseEntity model) throws ServiceException, LogicException {
         final AcordoServicoContratoDTO acordoServicoContratoDTO = (AcordoServicoContratoDTO) model;
         AcordoNivelServicoDTO acordoNivelServico = new AcordoNivelServicoDTO();
         acordoNivelServico.setIdAcordoNivelServico(acordoServicoContratoDTO.getIdAcordoNivelServico());
@@ -123,7 +123,7 @@ public class AcordoServicoContratoServiceEjb extends CrudServiceImpl implements 
     }
 
     @Override
-    public void update(final IDto model) throws ServiceException, LogicException {
+    public void update(final BaseEntity model) throws ServiceException, LogicException {
         final AcordoServicoContratoDTO acordoServicoContratoDTO = (AcordoServicoContratoDTO) model;
         AcordoNivelServicoDTO acordoNivelServico = new AcordoNivelServicoDTO();
         acordoNivelServico.setIdAcordoNivelServico(acordoServicoContratoDTO.getIdAcordoNivelServico());
@@ -201,7 +201,7 @@ public class AcordoServicoContratoServiceEjb extends CrudServiceImpl implements 
     }
 
     @Override
-    public void updateNotNull(final IDto obj) throws Exception {
+    public void updateNotNull(final BaseEntity obj) throws Exception {
         final AcordoServicoContratoDTO acordoServicoContratoDTO = (AcordoServicoContratoDTO) obj;
         try {
             if (acordoServicoContratoDTO.getHabilitado().equalsIgnoreCase("S")) {

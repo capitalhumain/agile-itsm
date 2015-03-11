@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class TabFederacaoDadosDTO implements IDto {
+public class TabFederacaoDadosDTO extends BaseEntity {
 	private String nomeTabela;
 	private String chaveFinal;
 	private String chaveOriginal;

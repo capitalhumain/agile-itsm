@@ -9,23 +9,29 @@ import br.com.centralit.citcorpore.bean.ProcessamentoBatchDTO;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.CrudService;
 
-
 public interface ConexaoBIService extends CrudService {
-	@SuppressWarnings("rawtypes")
-	public Collection listAll() throws Exception;
-	@SuppressWarnings("rawtypes")
-	public Collection findByIdConexao(ConexaoBIDTO conexaoBIDTO) throws Exception;
-	@SuppressWarnings("rawtypes")
-	public Collection listarConexoesPaginadas(Collection<ConexaoBIDTO> conexaoBIDTO, Integer pgAtual, Integer qtdPaginacao) throws Exception;
-	@SuppressWarnings("rawtypes")
-	public Collection listarConexoesPaginadasFiltradas(ConexaoBIDTO conexaoBIDTO, Integer pgAtual, Integer qtdPaginacao) throws Exception;
-	public boolean jaExisteRegistroComMesmoNome(ConexaoBIDTO conexaoBIDTO) throws Exception;
-	public boolean jaExisteRegistroComMesmoLink(ConexaoBIDTO conexaoBIDTO) throws Exception;
-	public Integer obterTotalDePaginas(Integer itensPorPagina, String loginUsuario, ConexaoBIDTO conexaoBIBean) throws Exception;
-	public ConexaoBIDTO findByIdProcessBatch(Integer idProcessamentoBatch) throws Exception;
-	public ArrayList<ConexaoBIDTO> listarConexoesAutomaticasSemAgendEspOuExcecao() throws ServiceException, Exception;
-	public String getIdProcEspecificoOuExcecao() throws Exception;
-	public java.util.Date getProxDtExecucao(ConexaoBIDTO conexaoBIDto) throws ServiceException, Exception;
-	public java.util.Date getProxDtExecucaoPadraoOuEspecifica(ConexaoBIDTO conexaoBIDto) throws ServiceException, Exception;
-	public BICitsmartResultRotinaDTO validaAgendamentoExcecao (ConexaoBIDTO conexaoBIDTO, ProcessamentoBatchDTO processamentoBatchDTO)  throws ServiceException, Exception;
+
+    Collection listarConexoesPaginadas(final Collection<ConexaoBIDTO> conexaoBIDTO, final Integer pgAtual, final Integer qtdPaginacao) throws Exception;
+
+    Collection listarConexoesPaginadasFiltradas(final ConexaoBIDTO conexaoBIDTO, final Integer pgAtual, final Integer qtdPaginacao) throws Exception;
+
+    boolean jaExisteRegistroComMesmoNome(final ConexaoBIDTO conexaoBIDTO) throws Exception;
+
+    boolean jaExisteRegistroComMesmoLink(final ConexaoBIDTO conexaoBIDTO) throws Exception;
+
+    Integer obterTotalDePaginas(final Integer itensPorPagina, final String loginUsuario, final ConexaoBIDTO conexaoBIBean) throws Exception;
+
+    ConexaoBIDTO findByIdProcessBatch(final Integer idProcessamentoBatch) throws Exception;
+
+    ArrayList<ConexaoBIDTO> listarConexoesAutomaticasSemAgendEspOuExcecao() throws ServiceException, Exception;
+
+    String getIdProcEspecificoOuExcecao() throws Exception;
+
+    java.util.Date getProxDtExecucao(final ConexaoBIDTO conexaoBI) throws ServiceException, Exception;
+
+    java.util.Date getProxDtExecucaoPadraoOuEspecifica(final ConexaoBIDTO conexaoBI) throws ServiceException, Exception;
+
+    BICitsmartResultRotinaDTO validaAgendamentoExcecao(final ConexaoBIDTO conexaoBI, final ProcessamentoBatchDTO processamentoBatchDTO)
+            throws ServiceException, Exception;
+
 }

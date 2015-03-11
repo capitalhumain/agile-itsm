@@ -7,6 +7,7 @@ import java.util.Iterator;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citajax.html.AjaxFormAction;
 import br.com.centralit.citajax.html.DocumentHTML;
 import br.com.centralit.citajax.html.HTMLElement;
@@ -24,7 +25,6 @@ import br.com.centralit.citcorpore.negocio.PerfilAcessoSituacaoFaturaService;
 import br.com.centralit.citcorpore.negocio.PerfilAcessoSituacaoOSService;
 import br.com.centralit.citcorpore.util.Enumerados.ParametroSistema;
 import br.com.centralit.citcorpore.util.ParametroUtil;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.ServiceLocator;
 import br.com.citframework.util.UtilI18N;
@@ -418,7 +418,7 @@ public class PerfilAcesso extends AjaxFormAction {
 	 * @param empregado
 	 * @author thays.araujo
 	 */
-	public void setPerfilAcessoBean(IDto perfilAcessoBean) {
+	public void setPerfilAcessoBean(BaseEntity perfilAcessoBean) {
 		this.perfilAcessoBean = (PerfilAcessoDTO) perfilAcessoBean;
 	}
 
@@ -438,7 +438,7 @@ public class PerfilAcesso extends AjaxFormAction {
 	 * @param empregado
 	 * @author thays.araujo
 	 */
-	public void setMenuBean(IDto menuPerfis) {
+	public void setMenuBean(BaseEntity menuPerfis) {
 		this.menuBean = (MenuDTO) menuPerfis;
 	}
 
@@ -458,7 +458,7 @@ public class PerfilAcesso extends AjaxFormAction {
 	 * @param empregado
 	 * @author thays.araujo
 	 */
-	public void setAcessoMenuBean(IDto acessoMenu) {
+	public void setAcessoMenuBean(BaseEntity acessoMenu) {
 		this.acessoMenuBean = (PerfilAcessoMenuDTO) acessoMenu;
 	}
 

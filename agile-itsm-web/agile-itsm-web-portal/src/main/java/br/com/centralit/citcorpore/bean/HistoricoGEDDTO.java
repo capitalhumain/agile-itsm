@@ -2,13 +2,13 @@ package br.com.centralit.citcorpore.bean;
 
 import java.sql.Date;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * @author danillo.lisboa
  *
  */
-public class HistoricoGEDDTO implements IDto {
+public class HistoricoGEDDTO extends BaseEntity {
 
 	private Integer idLigacaoHistoricoGed;
 	private Integer idControleGed;

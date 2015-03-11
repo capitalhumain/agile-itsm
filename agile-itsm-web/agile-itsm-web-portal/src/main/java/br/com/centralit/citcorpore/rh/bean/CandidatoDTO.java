@@ -2,10 +2,10 @@ package br.com.centralit.citcorpore.rh.bean;
 
 import java.sql.Date;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.citframework.util.UtilFormatacao;
 
-public class CandidatoDTO implements IDto {
+public class CandidatoDTO extends BaseEntity {
 
 	/**
 	 * @author thiago.borges

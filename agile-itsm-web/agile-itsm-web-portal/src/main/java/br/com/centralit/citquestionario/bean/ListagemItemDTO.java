@@ -1,8 +1,8 @@
 package br.com.centralit.citquestionario.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class ListagemItemDTO implements IDto {
+public class ListagemItemDTO extends BaseEntity {
 
 	/**
 	 * 

@@ -3,6 +3,7 @@ package br.com.centralit.citcorpore.negocio;
 import java.util.Collection;
 import java.util.Iterator;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.LinhaBaseProjetoDTO;
 import br.com.centralit.citcorpore.bean.PerfilContratoDTO;
 import br.com.centralit.citcorpore.bean.ProdutoTarefaLinBaseProjDTO;
@@ -15,7 +16,6 @@ import br.com.centralit.citcorpore.integracao.ProdutoTarefaLinBaseProjDao;
 import br.com.centralit.citcorpore.integracao.RecursoProjetoDao;
 import br.com.centralit.citcorpore.integracao.RecursoTarefaLinBaseProjDao;
 import br.com.centralit.citcorpore.integracao.TarefaLinhaBaseProjetoDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
@@ -54,7 +54,7 @@ public class LinhaBaseProjetoServiceEjb extends CrudServiceImpl implements Linha
     }
 
     @Override
-    public IDto create(IDto model) throws ServiceException, LogicException {
+    public BaseEntity create(BaseEntity model) throws ServiceException, LogicException {
         // Instancia Objeto controlador de transacao
         final LinhaBaseProjetoDao crudDao = new LinhaBaseProjetoDao();
         final TarefaLinhaBaseProjetoDao tarefaLinhaBaseProjetoDao = new TarefaLinhaBaseProjetoDao();
@@ -267,7 +267,7 @@ public class LinhaBaseProjetoServiceEjb extends CrudServiceImpl implements Linha
     }
 
     @Override
-    public void update(final IDto model) throws ServiceException, LogicException {
+    public void update(final BaseEntity model) throws ServiceException, LogicException {
         // Instancia Objeto controlador de transacao
         final LinhaBaseProjetoDao crudDao = new LinhaBaseProjetoDao();
         final TarefaLinhaBaseProjetoDao tarefaLinhaBaseProjetoDao = new TarefaLinhaBaseProjetoDao();
@@ -430,7 +430,7 @@ public class LinhaBaseProjetoServiceEjb extends CrudServiceImpl implements Linha
     }
 
     @Override
-    public void updateAutorizacaoMudanca(final IDto model) throws Exception {
+    public void updateAutorizacaoMudanca(final BaseEntity model) throws Exception {
         final LinhaBaseProjetoDTO linhaBaseProjetoParm = (LinhaBaseProjetoDTO) model;
         final LinhaBaseProjetoDTO linhaBaseProjetoDTO = new LinhaBaseProjetoDTO();
         linhaBaseProjetoDTO.setIdLinhaBaseProjeto(linhaBaseProjetoParm.getIdLinhaBaseProjeto());

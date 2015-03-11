@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.bpm.dto.AtribuicaoFluxoDTO;
 import br.com.centralit.bpm.dto.ElementoFluxoTarefaDTO;
 import br.com.centralit.bpm.dto.EventoFluxoDTO;
@@ -88,7 +89,6 @@ import br.com.centralit.citcorpore.util.Enumerados.TipoSolicitacaoServico;
 import br.com.centralit.citcorpore.util.ParametroUtil;
 import br.com.centralit.citcorpore.util.Util;
 import br.com.citframework.comparacao.ObjectSimpleComparator;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
@@ -814,7 +814,7 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
 		// if (solicitacaoAuxDto.getNomeTarefa() != null)
 		// System.out.println("### Tarefa: " + solicitacaoAuxDto.getNomeTarefa());
 
-		MensagemEmail mensagem = new MensagemEmail(modeloEmailDto.getIdModeloEmail(), new IDto[] { solicitacaoAuxDto });
+		MensagemEmail mensagem = new MensagemEmail(modeloEmailDto.getIdModeloEmail(), new BaseEntity[] { solicitacaoAuxDto });
 		try {
 			for (String para : destinatarios) {
 				// System.out.println("### Destinatário: " + para);
@@ -913,7 +913,7 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
 			}
 		}
 
-		MensagemEmail mensagem = new MensagemEmail(idModeloEmail, new IDto[] { solicitacaoAuxDto });
+		MensagemEmail mensagem = new MensagemEmail(idModeloEmail, new BaseEntity[] { solicitacaoAuxDto });
 		try {
 			if (solicitacaoAuxDto != null) {
 				mensagem.envia(solicitacaoAuxDto.getEmailcontato(), null, remetente);
@@ -983,7 +983,7 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
 				int posArroba = email.indexOf("@");
 				if (posArroba > 0 && email.substring(posArroba).contains(".")) {
 					try {
-						mensagem = new MensagemEmail(idModeloEmail, new IDto[] { solicitacaoAuxDto });
+						mensagem = new MensagemEmail(idModeloEmail, new BaseEntity[] { solicitacaoAuxDto });
 
 						// aux = (EmpregadoDTO)
 						// getEmpregadoService().restore(e);

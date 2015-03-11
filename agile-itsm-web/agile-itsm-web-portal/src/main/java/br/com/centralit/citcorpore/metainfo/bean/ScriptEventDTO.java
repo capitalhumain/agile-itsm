@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.metainfo.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class ScriptEventDTO implements IDto {
+public class ScriptEventDTO extends BaseEntity {
 	private String name;
 	private String description;
 	

@@ -1,8 +1,8 @@
 package br.com.centralit.citgerencial.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class GerencialItemPainelDTO implements IDto {
+public class GerencialItemPainelDTO extends BaseEntity {
 
 	/**
 	 * 

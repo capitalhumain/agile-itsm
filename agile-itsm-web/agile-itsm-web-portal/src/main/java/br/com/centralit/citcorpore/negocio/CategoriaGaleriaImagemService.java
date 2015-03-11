@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.negocio;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citajax.html.DocumentHTML;
 import br.com.centralit.citcorpore.bean.CategoriaGaleriaImagemDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.CrudService;
 
@@ -16,7 +16,7 @@ public interface CategoriaGaleriaImagemService extends CrudService {
 	 * @throws ServiceException
 	 * @throws Exception
 	 */
-	public void deletarCategoriaImagem(IDto model, DocumentHTML document) throws ServiceException, Exception;
+	public void deletarCategoriaImagem(BaseEntity model, DocumentHTML document) throws ServiceException, Exception;
 
 	/**
 	 * Consultar Categoria Imagem Ativos

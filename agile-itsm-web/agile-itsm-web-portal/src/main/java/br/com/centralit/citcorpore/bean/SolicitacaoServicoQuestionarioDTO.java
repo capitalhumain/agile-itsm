@@ -10,13 +10,13 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.citframework.util.DateAdapter;
 import br.com.citframework.util.DateTimeAdapter;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "SolicitacaoServicoQuestionario")
-public class SolicitacaoServicoQuestionarioDTO implements IDto {
+public class SolicitacaoServicoQuestionarioDTO extends BaseEntity {
 
 	/**
 	 * 

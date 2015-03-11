@@ -3,13 +3,13 @@
  */
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * @author Vadoilo Damasceno
  * 
  */
-public class EventoMonitConhecimentoDTO implements IDto {
+public class EventoMonitConhecimentoDTO extends BaseEntity {
 
 	private static final long serialVersionUID = -2467321613106192462L;
 

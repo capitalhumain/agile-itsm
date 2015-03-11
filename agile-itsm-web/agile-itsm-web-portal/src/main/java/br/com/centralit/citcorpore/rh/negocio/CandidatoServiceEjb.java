@@ -2,10 +2,10 @@ package br.com.centralit.citcorpore.rh.negocio;
 
 import java.util.Collection;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citajax.html.DocumentHTML;
 import br.com.centralit.citcorpore.rh.bean.CandidatoDTO;
 import br.com.centralit.citcorpore.rh.integracao.CandidatoDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.CrudServiceImpl;
 import br.com.citframework.util.UtilDatas;
@@ -28,7 +28,7 @@ public class CandidatoServiceEjb extends CrudServiceImpl implements CandidatoSer
     }
 
     @Override
-    public void deletarCandidato(final IDto model, final DocumentHTML document) throws ServiceException, Exception {
+    public void deletarCandidato(final BaseEntity model, final DocumentHTML document) throws ServiceException, Exception {
         final CandidatoDTO candidatoDto = (CandidatoDTO) model;
         this.validaUpdate(model);
         candidatoDto.setDataFim(UtilDatas.getDataAtual());
@@ -120,7 +120,7 @@ public class CandidatoServiceEjb extends CrudServiceImpl implements CandidatoSer
     }
 
     @Override
-    public void updateNotNull(final IDto obj) throws Exception {
+    public void updateNotNull(final BaseEntity obj) throws Exception {
         this.getDao().updateNotNull(obj);
     }
 

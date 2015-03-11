@@ -4,9 +4,9 @@ import java.util.Collection;
 
 import javax.servlet.http.HttpServletRequest;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citajax.html.DocumentHTML;
 import br.com.centralit.citcorpore.bean.GrupoDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.excecao.ServiceException;
@@ -37,11 +37,11 @@ public interface GrupoService extends CrudService {
 
     Collection<GrupoDTO> listGruposServiceDesk() throws Exception;
 
-    IDto create(IDto model, HttpServletRequest request) throws ServiceException, LogicException;
+    BaseEntity create(BaseEntity model, HttpServletRequest request) throws ServiceException, LogicException;
 
-    void update(IDto grupoDto, HttpServletRequest request) throws ServiceException, LogicException;
+    void update(BaseEntity grupoDto, HttpServletRequest request) throws ServiceException, LogicException;
 
-    void delete(IDto model, DocumentHTML document) throws ServiceException, LogicException;
+    void delete(BaseEntity model, DocumentHTML document) throws ServiceException, LogicException;
 
     Collection<GrupoDTO> listGruposPorUsuario(int idUsuario);
 

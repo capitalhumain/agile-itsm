@@ -6,11 +6,13 @@ package br.com.citframework.dto;
 import java.sql.Date;
 import java.sql.Timestamp;
 
+import br.com.agileitsm.model.support.BaseEntity;
+
 /**
  * @author karem.ricarte
  * 
  */
-public class LogDados implements IDto {
+public class LogDados extends BaseEntity {
 
 	/**
 	 * @author karem.ricarte

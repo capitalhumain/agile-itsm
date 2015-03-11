@@ -4,9 +4,9 @@ package br.com.centralit.citcorpore.bean;
 
 import java.sql.Date;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class RelatorioEficaciaTesteDTO implements IDto {
+public class RelatorioEficaciaTesteDTO extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
 	private Date dataInicio;

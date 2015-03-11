@@ -3,9 +3,9 @@ package br.com.centralit.citcorpore.bean;
 import java.sql.Date;
 import java.util.List;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class MidiaSoftwareDTO implements IDto {
+public class MidiaSoftwareDTO extends BaseEntity {
 
 	/**
 	 * 

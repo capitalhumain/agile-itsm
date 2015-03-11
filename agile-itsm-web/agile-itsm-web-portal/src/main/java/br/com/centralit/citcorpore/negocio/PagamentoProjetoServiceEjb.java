@@ -2,11 +2,11 @@ package br.com.centralit.citcorpore.negocio;
 
 import java.util.Collection;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.PagamentoProjetoDTO;
 import br.com.centralit.citcorpore.bean.TarefaLinhaBaseProjetoDTO;
 import br.com.centralit.citcorpore.integracao.PagamentoProjetoDao;
 import br.com.centralit.citcorpore.integracao.TarefaLinhaBaseProjetoDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.CrudDAO;
@@ -45,7 +45,7 @@ public class PagamentoProjetoServiceEjb extends CrudServiceImpl implements Pagam
     }
 
     @Override
-    public IDto create(IDto model) throws ServiceException, LogicException {
+    public BaseEntity create(BaseEntity model) throws ServiceException, LogicException {
         // Instancia Objeto controlador de transacao
         final CrudDAO crudDao = this.getDao();
         final TarefaLinhaBaseProjetoDao tarefaLinhaBaseProjetoDao = new TarefaLinhaBaseProjetoDao();
@@ -97,7 +97,7 @@ public class PagamentoProjetoServiceEjb extends CrudServiceImpl implements Pagam
     }
 
     @Override
-    public void update(final IDto model) throws ServiceException, LogicException {
+    public void update(final BaseEntity model) throws ServiceException, LogicException {
         // Instancia Objeto controlador de transacao
         final CrudDAO crudDao = this.getDao();
         final TarefaLinhaBaseProjetoDao tarefaLinhaBaseProjetoDao = new TarefaLinhaBaseProjetoDao();
@@ -145,7 +145,7 @@ public class PagamentoProjetoServiceEjb extends CrudServiceImpl implements Pagam
     }
 
     @Override
-    public void updateSituacao(final IDto model) throws ServiceException, LogicException {
+    public void updateSituacao(final BaseEntity model) throws ServiceException, LogicException {
         final PagamentoProjetoDTO pagamentoProjetoDTO = new PagamentoProjetoDTO();
         final PagamentoProjetoDTO pagamentoProjetoParm = (PagamentoProjetoDTO) model;
         pagamentoProjetoDTO.setIdPagamentoProjeto(pagamentoProjetoParm.getIdPagamentoProjeto());

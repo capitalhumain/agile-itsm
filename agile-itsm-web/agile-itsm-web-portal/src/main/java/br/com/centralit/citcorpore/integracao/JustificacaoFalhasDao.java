@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.JustificacaoEventoHistoricoDTO;
 import br.com.centralit.citcorpore.bean.JustificacaoFalhasDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
 import br.com.citframework.integracao.Field;
@@ -20,7 +20,7 @@ public class JustificacaoFalhasDao extends CrudDaoDefaultImpl {
 	super(Constantes.getValue("DATABASE_ALIAS"), null);
     }
     
-    public ArrayList<JustificacaoEventoHistoricoDTO> findEventosComFalha(IDto dto){
+    public ArrayList<JustificacaoEventoHistoricoDTO> findEventosComFalha(BaseEntity dto){
 	listaJustificados = null;
 	JustificacaoFalhasDTO justificacaoDto = (JustificacaoFalhasDTO) dto;
 	int numeroDeParametros = 0;
@@ -215,7 +215,7 @@ public class JustificacaoFalhasDao extends CrudDaoDefaultImpl {
 
     
     @Override
-    public Collection find(IDto arg0) throws PersistenceException {
+    public Collection find(BaseEntity arg0) throws PersistenceException {
 	return null;
     }
 

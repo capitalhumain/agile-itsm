@@ -2,9 +2,9 @@ package br.com.centralit.citcorpore.bean;
 
 import java.sql.Timestamp;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class ReaberturaSolicitacaoDTO implements IDto {
+public class ReaberturaSolicitacaoDTO extends BaseEntity {
 	private Integer idSolicitacaoServico;
 	private Integer seqReabertura;
 	private Integer idResponsavel;

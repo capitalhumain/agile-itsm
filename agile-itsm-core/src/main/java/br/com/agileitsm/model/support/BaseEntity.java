@@ -16,38 +16,34 @@
 package br.com.agileitsm.model.support;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 /**
- * Abstract entity for model entity<br />
+ * Abstract base entity for model entity<br />
  *
  * All model entities from model must extend this class or a sub-class
  *
- * @since 24/12/2014
- * @author Bruno César Ribeiro e Silva - <a href="mailto:bruno@brunocesar.com">bruno@brunocesar.com</a>
+ * @author Bruno César - <a href="mailto:bruno@modoagil.com.br">bruno@modoagil.com.br</a>
+ * @since 10/03/2015
  */
-public abstract class AbstractEntity implements Serializable {
+@Data
+public abstract class BaseEntity implements Serializable {
 
-    private static final long serialVersionUID = -4073371653093846183L;
+    private static final long serialVersionUID = 278818851135160366L;
 
-    @Getter
-    @Setter
-    private Long id;
+    private Integer id; // TODO change to Long
 
-    @Getter
-    @Setter
     private Long version;
 
-    @Getter
-    @Setter
-    private Boolean removed;
-
-    @Getter
-    @Setter
     private Date changeDate;
+
+    private Boolean removed = false;
+
+    public Boolean isRemoved() {
+        return removed;
+    }
 
     public boolean isNew() {
         return getId() == null;

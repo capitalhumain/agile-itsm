@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class AgendaAtvPeriodicasDTO implements IDto {
+public class AgendaAtvPeriodicasDTO extends BaseEntity {
 	private Long start;
 	private Long end;
 	private Integer idGrupoAtvPeriodica;

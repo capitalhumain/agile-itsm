@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class PrioridadeAcordoNivelServicoDTO implements IDto {
+public class PrioridadeAcordoNivelServicoDTO extends BaseEntity {
 	private Integer idUnidade;
 	private Integer idAcordoNivelServico;
 	private Integer idPrioridade;

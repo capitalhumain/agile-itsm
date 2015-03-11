@@ -4,11 +4,11 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.metainfo.bean.CamposObjetoNegocioDTO;
 import br.com.centralit.citcorpore.metainfo.bean.ObjetoNegocioDTO;
 import br.com.centralit.citcorpore.metainfo.integracao.CamposObjetoNegocioDao;
 import br.com.centralit.citcorpore.metainfo.integracao.ObjetoNegocioDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.CrudDAO;
@@ -39,7 +39,7 @@ public class ObjetoNegocioServiceEjb extends CrudServiceImpl implements ObjetoNe
     }
 
     @Override
-    public IDto create(IDto model) throws ServiceException, LogicException {
+    public BaseEntity create(BaseEntity model) throws ServiceException, LogicException {
         // Instancia Objeto controlador de transacao
         final CrudDAO crudDao = this.getDao();
         final CamposObjetoNegocioDao camposObjetoNegocioDao = new CamposObjetoNegocioDao();
@@ -80,7 +80,7 @@ public class ObjetoNegocioServiceEjb extends CrudServiceImpl implements ObjetoNe
     }
 
     @Override
-    public void update(final IDto model) throws ServiceException, LogicException {
+    public void update(final BaseEntity model) throws ServiceException, LogicException {
         // Instancia Objeto controlador de transacao
         final CrudDAO crudDao = this.getDao();
         final CamposObjetoNegocioDao camposObjetoNegocioDao = new CamposObjetoNegocioDao();

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.CaracteristicaDTO;
 import br.com.centralit.citcorpore.bean.EventoGrupoDTO;
 import br.com.centralit.citcorpore.bean.EventoItemConfigDTO;
@@ -18,7 +19,6 @@ import br.com.centralit.citcorpore.integracao.EventoItemConfigDao;
 import br.com.centralit.citcorpore.integracao.EventoItemConfigRelDao;
 import br.com.centralit.citcorpore.integracao.ItemConfigEventoDao;
 import br.com.centralit.citcorpore.integracao.ItemConfiguracaoDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.CrudDAO;
@@ -39,7 +39,7 @@ public class EventoItemConfigServiceEjb extends CrudServiceImpl implements Event
     }
 
     @Override
-    public IDto create(final IDto model) throws ServiceException, LogicException {
+    public BaseEntity create(final BaseEntity model) throws ServiceException, LogicException {
         final CrudDAO crudDao = this.getDao();
         final ItemConfigEventoDao itemConfigEventoDao = new ItemConfigEventoDao();
         final EventoGrupoDao eventoGrupoDao = new EventoGrupoDao();
@@ -81,7 +81,7 @@ public class EventoItemConfigServiceEjb extends CrudServiceImpl implements Event
     }
 
     @Override
-    public void update(final IDto model) throws ServiceException, LogicException {
+    public void update(final BaseEntity model) throws ServiceException, LogicException {
         final CrudDAO crudDao = this.getDao();
         final ItemConfigEventoDao itemConfigEventoDao = new ItemConfigEventoDao();
         final EventoGrupoDao eventoGrupoDao = new EventoGrupoDao();

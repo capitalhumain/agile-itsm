@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.EmpregadoDTO;
 import br.com.centralit.citcorpore.bean.UnidadeDTO;
 import br.com.centralit.citcorpore.bean.UsuarioDTO;
@@ -12,7 +13,6 @@ import br.com.centralit.citcorpore.negocio.UnidadeService;
 import br.com.centralit.citcorpore.util.Arvore;
 import br.com.centralit.citcorpore.util.CITCorporeUtil;
 import br.com.centralit.citcorpore.util.ParametroUtil;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.excecao.ServiceException;
@@ -108,7 +108,7 @@ public class UnidadeDao extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public Collection<UnidadeDTO> find(final IDto obj) throws PersistenceException {
+    public Collection<UnidadeDTO> find(final BaseEntity obj) throws PersistenceException {
         return null;
     }
 

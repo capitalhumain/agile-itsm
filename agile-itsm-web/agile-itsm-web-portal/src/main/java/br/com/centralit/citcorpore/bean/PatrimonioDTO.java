@@ -5,14 +5,14 @@ package br.com.centralit.citcorpore.bean;
 
 import java.util.List;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * @author Vadoilo Damasceno
  * 
  */
 @SuppressWarnings("rawtypes")
-public class PatrimonioDTO implements IDto {
+public class PatrimonioDTO extends BaseEntity {
 
 	private static final long serialVersionUID = -1730028252715834436L;
 

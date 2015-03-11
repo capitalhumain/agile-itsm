@@ -1,13 +1,13 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * @author ronnie.lopes
  *
  */
 @SuppressWarnings("serial")
-public class SoftwaresListaNegraDTO implements IDto{
+public class SoftwaresListaNegraDTO extends BaseEntity{
 	
 	private Integer idSoftwaresListaNegra;
 	private String nomeSoftwaresListaNegra;

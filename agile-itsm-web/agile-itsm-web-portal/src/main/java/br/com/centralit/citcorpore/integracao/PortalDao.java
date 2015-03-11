@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.PortalDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.Condition;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
@@ -87,7 +87,7 @@ public class PortalDao extends CrudDaoDefaultImpl  {
 	}
 
     @Override
-	public void update(IDto obj) throws PersistenceException {
+	public void update(BaseEntity obj) throws PersistenceException {
     	PortalDTO dto = (PortalDTO) obj;
     	List param = new ArrayList();
     	param.add(dto.getPosicaoX());
@@ -105,7 +105,7 @@ public class PortalDao extends CrudDaoDefaultImpl  {
 
 
 	@Override
-	public void delete(IDto obj) throws PersistenceException {
+	public void delete(BaseEntity obj) throws PersistenceException {
     	PortalDTO dto = (PortalDTO) obj;
     	List param = new ArrayList();
     	param.add(dto.getIdUsuario());
@@ -114,7 +114,7 @@ public class PortalDao extends CrudDaoDefaultImpl  {
 		super.execUpdate(str, param.toArray());
 	}
 
-	public Collection find(IDto obj) throws PersistenceException
+	public Collection find(BaseEntity obj) throws PersistenceException
     {
 		List ordem = new ArrayList();
 		ordem.add(new Order("idUsuario"));

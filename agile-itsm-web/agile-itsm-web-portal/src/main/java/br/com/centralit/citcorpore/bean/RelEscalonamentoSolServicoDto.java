@@ -1,12 +1,12 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 /**
  * 
  * @author flavio.santana
  *
  */
-public class RelEscalonamentoSolServicoDto implements IDto {
+public class RelEscalonamentoSolServicoDto extends BaseEntity {
 
 	/**
 	 * Relaciona as solicitações de serviço ao escalonamento

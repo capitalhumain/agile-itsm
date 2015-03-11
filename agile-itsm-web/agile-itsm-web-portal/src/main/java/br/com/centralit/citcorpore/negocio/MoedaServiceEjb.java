@@ -2,9 +2,9 @@ package br.com.centralit.citcorpore.negocio;
 
 import java.util.Collection;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.MoedaDTO;
 import br.com.centralit.citcorpore.integracao.MoedaDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.CrudServiceImpl;
@@ -36,7 +36,7 @@ public class MoedaServiceEjb extends CrudServiceImpl implements MoedaService {
     }
 
     @Override
-    public void updateNotNull(final IDto obj) throws Exception {
+    public void updateNotNull(final BaseEntity obj) throws Exception {
         try {
             this.getDao().updateNotNull(obj);
         } catch (final Exception e) {

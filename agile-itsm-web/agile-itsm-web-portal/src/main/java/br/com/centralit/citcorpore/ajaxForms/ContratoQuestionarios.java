@@ -96,7 +96,7 @@ public class ContratoQuestionarios extends QuestionarioResponser {
     }
 
     @Override
-    public void load(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public void load(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         request.getSession().setAttribute("HASH_CONTEUDO", null);
         request.getSession().setAttribute("TABELA_ASS_DIGITAL", null);
         request.getSession().setAttribute("KEY_ASS_DIGITAL", null);
@@ -111,10 +111,10 @@ public class ContratoQuestionarios extends QuestionarioResponser {
         if (pesQuestBean.getAba() == null) {
             pesQuestBean.setAba("");
         }
-        final InformacoesContratoConfigService informacoesContratoConfigService = (InformacoesContratoConfigService) ServiceLocator
-                .getInstance().getService(InformacoesContratoConfigService.class, null);
-        final ContratoQuestionariosService contrQuestService = (ContratoQuestionariosService) ServiceLocator
-                .getInstance().getService(ContratoQuestionariosService.class, null);
+        final InformacoesContratoConfigService informacoesContratoConfigService = (InformacoesContratoConfigService) ServiceLocator.getInstance().getService(
+                InformacoesContratoConfigService.class, null);
+        final ContratoQuestionariosService contrQuestService = (ContratoQuestionariosService) ServiceLocator.getInstance().getService(
+                ContratoQuestionariosService.class, null);
 
         /*
          * if (pesQuestBean.getIdProgramaSaude() == null) {
@@ -147,29 +147,24 @@ public class ContratoQuestionarios extends QuestionarioResponser {
             lst = new ArrayList();
         }
 
-        final Collection TEMP_LISTA_CERTIFICADO_DIGITAL = (Collection) request.getSession().getAttribute(
-                "TEMP_LISTA_CERTIFICADO_DIGITAL");
+        final Collection TEMP_LISTA_CERTIFICADO_DIGITAL = (Collection) request.getSession().getAttribute("TEMP_LISTA_CERTIFICADO_DIGITAL");
         pesQuestBean.setColCertificados(TEMP_LISTA_CERTIFICADO_DIGITAL);
 
-        final ControleGEDService controleGEDService = (ControleGEDService) ServiceLocator.getInstance().getService(
-                ControleGEDService.class, null);
+        final ControleGEDService controleGEDService = (ControleGEDService) ServiceLocator.getInstance().getService(ControleGEDService.class, null);
         for (final Iterator it = lst.iterator(); it.hasNext();) {
             final ArquivoMultimidiaDTO arquivoMultimidia = (ArquivoMultimidiaDTO) it.next();
             ControleGEDDTO controleGEDDTO = new ControleGEDDTO();
 
-            String PRONTUARIO_GED_INTERNO = ParametroUtil.getValorParametroCitSmartHashMap(
-                    Enumerados.ParametroSistema.GedInterno, "S");
+            String PRONTUARIO_GED_INTERNO = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.GedInterno, "S");
             if (PRONTUARIO_GED_INTERNO == null) {
                 PRONTUARIO_GED_INTERNO = "S";
             }
-            String prontuarioGedInternoBancoDados = ParametroUtil.getValorParametroCitSmartHashMap(
-                    Enumerados.ParametroSistema.GedInternoBD, "N");
+            String prontuarioGedInternoBancoDados = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.GedInternoBD, "N");
             if (!UtilStrings.isNotVazio(prontuarioGedInternoBancoDados)) {
                 prontuarioGedInternoBancoDados = "N";
             }
 
-            String PRONTUARIO_GED_DIRETORIO = ParametroUtil.getValorParametroCitSmartHashMap(
-                    Enumerados.ParametroSistema.GedDiretorio, " ");
+            String PRONTUARIO_GED_DIRETORIO = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.GedDiretorio, " ");
             if (PRONTUARIO_GED_DIRETORIO == null || PRONTUARIO_GED_DIRETORIO.trim().equalsIgnoreCase("")) {
                 PRONTUARIO_GED_DIRETORIO = "";
             }
@@ -202,54 +197,48 @@ public class ContratoQuestionarios extends QuestionarioResponser {
             controleGEDDTO.setId(new Integer(0));
             controleGEDDTO.setDataHora(UtilDatas.getDataAtual());
             controleGEDDTO.setDescricaoArquivo(arquivoMultimidia.getNomeArquivo());
-            controleGEDDTO.setExtensaoArquivo(br.com.centralit.citcorpore.util.Util.getFileExtension(arquivoMultimidia
-                    .getNomeArquivo()));
+            controleGEDDTO.setExtensaoArquivo(br.com.centralit.citcorpore.util.Util.getFileExtension(arquivoMultimidia.getNomeArquivo()));
             controleGEDDTO.setPasta(pasta);
             controleGEDDTO.setNomeArquivo(arquivoMultimidia.getNomeArquivo());
 
             if (!arquivoMultimidia.getCaminhoArquivo().startsWith("IDCITGED=")) {
-                if (PRONTUARIO_GED_INTERNO.equalsIgnoreCase("S")
-                        && "S".equalsIgnoreCase(prontuarioGedInternoBancoDados)) {
+                if (PRONTUARIO_GED_INTERNO.equalsIgnoreCase("S") && "S".equalsIgnoreCase(prontuarioGedInternoBancoDados)) {
                     final java.util.Date now = new java.util.Date();
-                    CriptoUtils.encryptFile(arquivoMultimidia.getCaminhoArquivo(), PRONTUARIO_GED_DIRETORIO + "/"
-                            + idEmpresa + "/" + pasta + "/TMP_" + now.getTime() + ".ged", this.getClass()
-                            .getResourceAsStream(Constantes.getValue("CAMINHO_CHAVE_PUBLICA")));
+                    CriptoUtils.encryptFile(arquivoMultimidia.getCaminhoArquivo(),
+                            PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/TMP_" + now.getTime() + ".ged",
+                            this.getClass().getResourceAsStream(Constantes.getValue("CAMINHO_CHAVE_PUBLICA")));
 
-                    controleGEDDTO.setPathArquivo(PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/TMP_"
-                            + now.getTime() + ".ged");
+                    controleGEDDTO.setPathArquivo(PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/TMP_" + now.getTime() + ".ged");
                 }
                 controleGEDDTO = controleGEDService.create(controleGEDDTO);
-                if (PRONTUARIO_GED_INTERNO.equalsIgnoreCase("S")
-                        && !"S".equalsIgnoreCase(prontuarioGedInternoBancoDados)) { // Se utiliza GED interno
+                if (PRONTUARIO_GED_INTERNO.equalsIgnoreCase("S") && !"S".equalsIgnoreCase(prontuarioGedInternoBancoDados)) { // Se utiliza GED interno
                     if (controleGEDDTO != null) {
-                        CriptoUtils.encryptFile(arquivoMultimidia.getCaminhoArquivo(), PRONTUARIO_GED_DIRETORIO + "/"
-                                + idEmpresa + "/" + pasta + "/" + controleGEDDTO.getIdControleGED() + ".ged", this
-                                .getClass().getResourceAsStream(Constantes.getValue("CAMINHO_CHAVE_PUBLICA")));
+                        CriptoUtils
+                        .encryptFile(arquivoMultimidia.getCaminhoArquivo(), PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/"
+                                + controleGEDDTO.getIdControleGED() + ".ged",
+                                this.getClass().getResourceAsStream(Constantes.getValue("CAMINHO_CHAVE_PUBLICA")));
 
                         if (pesQuestBean.getColCertificados() != null && pesQuestBean.getColCertificados().size() > 0) {
                             int ordem = 1;
                             final CITAssinadorDigital d = new CITAssinadorDigital();
                             d.inicializar();
                             for (final Iterator itCert = pesQuestBean.getColCertificados().iterator(); itCert.hasNext();) {
-                                final ValidacaoCertificadoDigitalDTO validacaoCertificadoDigitalDTO = (ValidacaoCertificadoDigitalDTO) itCert
-                                        .next();
+                                final ValidacaoCertificadoDigitalDTO validacaoCertificadoDigitalDTO = (ValidacaoCertificadoDigitalDTO) itCert.next();
 
-                                final InputStream inStream = new FileInputStream(
-                                        validacaoCertificadoDigitalDTO.getCaminhoCompleto());
+                                final InputStream inStream = new FileInputStream(validacaoCertificadoDigitalDTO.getCaminhoCompleto());
                                 final CertificateFactory cf = CertificateFactory.getInstance("X.509", "BC");
                                 final X509Certificate cert = (X509Certificate) cf.generateCertificate(inStream);
-                                d.assinar(validacaoCertificadoDigitalDTO.getInfoCertificadoDigital().getCpf(),
-                                        arquivoMultimidia.getCaminhoArquivo(), PRONTUARIO_GED_DIRETORIO + "/"
-                                                + idEmpresa + "/" + pasta + "/" + controleGEDDTO.getIdControleGED()
-                                                + ".signed" + ordem, cert, false);
+                                d.assinar(validacaoCertificadoDigitalDTO.getInfoCertificadoDigital().getCpf(), arquivoMultimidia.getCaminhoArquivo(),
+                                        PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/" + controleGEDDTO.getIdControleGED() + ".signed" + ordem,
+                                        cert, false);
 
                                 ordem++;
                             }
                         }
                     }
                 } else if (!PRONTUARIO_GED_INTERNO.equalsIgnoreCase("S")) { // Se utiliza GED externo
-                    final String PRONTUARIO_CLASSE_GED_EXTERNO = ParametroUtil.getValorParametroCitSmartHashMap(
-                            Enumerados.ParametroSistema.GedExternoClasse, "");
+                    final String PRONTUARIO_CLASSE_GED_EXTERNO = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.GedExternoClasse,
+                            "");
                     final Class classe = Class.forName(PRONTUARIO_CLASSE_GED_EXTERNO);
                     final Object objeto = classe.newInstance();
                     final Method mtd = CitAjaxReflexao.findMethod("create", objeto);
@@ -264,22 +253,17 @@ public class ContratoQuestionarios extends QuestionarioResponser {
 
                     byte[] conteudoAssinaturaDigital = null;
                     if (pesQuestBean.getColCertificados() != null && pesQuestBean.getColCertificados().size() > 0) {
-                        int ordem = 1;
                         final CITAssinadorDigital d = new CITAssinadorDigital();
                         d.inicializar();
                         for (final Iterator itCert = pesQuestBean.getColCertificados().iterator(); itCert.hasNext();) {
-                            final ValidacaoCertificadoDigitalDTO validacaoCertificadoDigitalDTO = (ValidacaoCertificadoDigitalDTO) itCert
-                                    .next();
+                            final ValidacaoCertificadoDigitalDTO validacaoCertificadoDigitalDTO = (ValidacaoCertificadoDigitalDTO) itCert.next();
 
-                            final InputStream inStream = new FileInputStream(
-                                    validacaoCertificadoDigitalDTO.getCaminhoCompleto());
+                            final InputStream inStream = new FileInputStream(validacaoCertificadoDigitalDTO.getCaminhoCompleto());
                             final CertificateFactory cf = CertificateFactory.getInstance("X.509", "BC");
                             final X509Certificate cert = (X509Certificate) cf.generateCertificate(inStream);
-                            conteudoAssinaturaDigital = d.assinar(validacaoCertificadoDigitalDTO
-                                    .getInfoCertificadoDigital().getCpf(), arquivoMultimidia.getCaminhoArquivo(), cert,
-                                    false);
+                            conteudoAssinaturaDigital = d.assinar(validacaoCertificadoDigitalDTO.getInfoCertificadoDigital().getCpf(),
+                                    arquivoMultimidia.getCaminhoArquivo(), cert, false);
 
-                            ordem++;
                             break; // Faz so a primeira.
                         }
                     }
@@ -288,8 +272,7 @@ public class ContratoQuestionarios extends QuestionarioResponser {
                     mtd.invoke(objeto, new Object[] {controleGedExternoDto, hshInfo});
                 }
             } else {
-                controleGEDDTO.setIdControleGED(new Integer(UtilStrings.apenasNumeros(arquivoMultimidia
-                        .getCaminhoArquivo())));
+                controleGEDDTO.setIdControleGED(new Integer(UtilStrings.apenasNumeros(arquivoMultimidia.getCaminhoArquivo())));
             }
 
             final RespostaItemQuestionarioAnexosDTO respItemQuestAnexoDto = new RespostaItemQuestionarioAnexosDTO();
@@ -330,10 +313,8 @@ public class ContratoQuestionarios extends QuestionarioResponser {
         if (algoritmo == null || !algoritmo.trim().equalsIgnoreCase("")) {
             algoritmo = "SHA-1";
         }
-        request.getSession().setAttribute("HASH_CONTEUDO",
-                CriptoUtils.generateHash(pesQuestBean.getConteudoImpresso(), algoritmo));
-        request.getSession().setAttribute("TABELA_ASS_DIGITAL",
-                ContratoQuestionariosDao.getTableNameAssDigital().toUpperCase());
+        request.getSession().setAttribute("HASH_CONTEUDO", CriptoUtils.generateHash(pesQuestBean.getConteudoImpresso(), algoritmo));
+        request.getSession().setAttribute("TABELA_ASS_DIGITAL", ContratoQuestionariosDao.getTableNameAssDigital().toUpperCase());
         request.getSession().setAttribute("KEY_ASS_DIGITAL", pesQuestBean.getKey());
 
         // Faz o processamento de forms dinamicos.
@@ -346,16 +327,14 @@ public class ContratoQuestionarios extends QuestionarioResponser {
         if (strValores != null && strValores.length > 0) {
             for (int i = 0; i < strValores.length; i++) {
                 if (strValores[i] != null && !strValores[i].trim().equalsIgnoreCase("")) {
-                    final DynamicFormInfoBean dynamicFormInfoBean = RenderDynamicForm
-                            .getDynamicFormInfoBean(strValores[i].trim());
+                    final DynamicFormInfoBean dynamicFormInfoBean = RenderDynamicForm.getDynamicFormInfoBean(strValores[i].trim());
                     if (dynamicFormInfoBean != null) {
                         if (dynamicFormInfoBean.getClasseForm() != null) {
                             final Object objeto = dynamicFormInfoBean.getClasseForm().newInstance();
                             Method mtd = null;
                             mtd = CitAjaxReflexao.findMethod("saveDynamicForm", objeto);
                             if (mtd == null) {
-                                mtd = CitAjaxReflexao.findMethod(dynamicFormInfoBean.getClazz() + "_onSaveDynamicForm",
-                                        objeto);
+                                mtd = CitAjaxReflexao.findMethod(dynamicFormInfoBean.getClazz() + "_onSaveDynamicForm", objeto);
                             }
                             if (mtd != null) {
                                 mtd.invoke(objeto, new Object[] {document, request, response});
@@ -366,10 +345,9 @@ public class ContratoQuestionarios extends QuestionarioResponser {
             }
         }
 
-        final Collection colSubQuestionarios = organizaSubQuestionariosPorIdItem(pesQuestBean.getColValores());
+        organizaSubQuestionariosPorIdItem(pesQuestBean.getColValores());
 
-        String include = RedirectQuestionarioConfig.getInstance().getIncludeCorrespondente(pesQuestBean.getAba(),
-                pesQuestBean.getSituacao());
+        String include = RedirectQuestionarioConfig.getInstance().getIncludeCorrespondente(pesQuestBean.getAba(), pesQuestBean.getSituacao());
         if (include == null) {
             include = RedirectQuestionarioConfig.getInstance().getIncludeCorrespondente("PADRAO", "P");
         }
@@ -378,8 +356,7 @@ public class ContratoQuestionarios extends QuestionarioResponser {
         if (lstProntCfg != null && lstProntCfg.size() > 0) {
             prontuarioEletronicoConfigDTO = (InformacoesContratoConfigDTO) lstProntCfg.get(0);
         }
-        if (prontuarioEletronicoConfigDTO != null
-                && prontuarioEletronicoConfigDTO.getFuncAdicionalAposGravacao() != null
+        if (prontuarioEletronicoConfigDTO != null && prontuarioEletronicoConfigDTO.getFuncAdicionalAposGravacao() != null
                 && !prontuarioEletronicoConfigDTO.getFuncAdicionalAposGravacao().trim().equalsIgnoreCase("")) {
             include = prontuarioEletronicoConfigDTO.getFuncAdicionalAposGravacao();
 
@@ -393,11 +370,8 @@ public class ContratoQuestionarios extends QuestionarioResponser {
         if (pesQuestBean.getDataQuestionario() == null) {
             pesQuestBean.setDataQuestionario(UtilDatas.getDataAtual());
         }
-        request.setAttribute(
-                "dataQuestionario",
-                ""
-                        + UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, pesQuestBean.getDataQuestionario(),
-                                WebUtil.getLanguage(request)));
+        request.setAttribute("dataQuestionario",
+                "" + UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, pesQuestBean.getDataQuestionario(), WebUtil.getLanguage(request)));
         request.setAttribute("aba", "" + pesQuestBean.getAba());
         request.setAttribute("situacao", "" + pesQuestBean.getSituacao());
 
@@ -413,11 +387,10 @@ public class ContratoQuestionarios extends QuestionarioResponser {
         document.alert("Registro gravado com sucesso!");
     }
 
-    public void validate(DocumentHTML document, HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
+    public void validate(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         final ContratoQuestionariosDTO pesQuestBean = (ContratoQuestionariosDTO) document.getBean();
-        final InformacoesContratoConfigService prontuarioEletronicoConfigService = (InformacoesContratoConfigService) ServiceLocator
-                .getInstance().getService(InformacoesContratoConfigService.class, null);
+        final InformacoesContratoConfigService prontuarioEletronicoConfigService = (InformacoesContratoConfigService) ServiceLocator.getInstance().getService(
+                InformacoesContratoConfigService.class, null);
         final Collection col = prontuarioEletronicoConfigService.findByNome(pesQuestBean.getAba());
         InformacoesContratoConfigDTO prontuarioEletronicoConfigDto = null;
         if (col != null && !col.isEmpty()) {
@@ -430,8 +403,7 @@ public class ContratoQuestionarios extends QuestionarioResponser {
             document.executeScript("parent.finalizacao()");
             return;
         }
-        if (prontuarioEletronicoConfigDto.getValidacoes() != null
-                && !prontuarioEletronicoConfigDto.getValidacoes().trim().equalsIgnoreCase("")) {
+        if (prontuarioEletronicoConfigDto.getValidacoes() != null && !prontuarioEletronicoConfigDto.getValidacoes().trim().equalsIgnoreCase("")) {
             final String strAux = prontuarioEletronicoConfigDto.getValidacoes() + ",";
             final String[] str = strAux.split(",");
             prontuarioEletronicoConfigDto.setValidacoesAux(str);
@@ -440,7 +412,7 @@ public class ContratoQuestionarios extends QuestionarioResponser {
         return;
     }
 
-    public Collection organizaSubQuestionariosPorIdItem(Collection colValores) {
+    public Collection organizaSubQuestionariosPorIdItem(final Collection colValores) {
         final HashMap map = new HashMap();
         final Collection colSubQuestionarios = new ArrayList();
         if (colValores != null) {
@@ -486,11 +458,10 @@ public class ContratoQuestionarios extends QuestionarioResponser {
         return colSubQuestionarios;
     }
 
-    public void listarCertificados(DocumentHTML document, HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
+    public void listarCertificados(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         final UsuarioDTO usuario = WebUtil.getUsuario(request);
         if (usuario == null) {
-            document.alert("Sessão expirada! Favor efetuar logon novamente!");
+            document.alert("Sessï¿½o expirada! Favor efetuar logon novamente!");
             return;
         }
         final ContratoQuestionariosDTO pesQuestBean = (ContratoQuestionariosDTO) document.getBean();
@@ -509,8 +480,7 @@ public class ContratoQuestionarios extends QuestionarioResponser {
                 strTable += "</td>";
                 if (vCertDigDto.getFileName() == null || vCertDigDto.getFileName().equalsIgnoreCase("")) {
                     strTable += "<td>";
-                    strTable += "<img src='" + Constantes.getValue("SERVER_ADDRESS")
-                            + Constantes.getValue("CONTEXTO_APLICACAO")
+                    strTable += "<img src='" + Constantes.getValue("SERVER_ADDRESS") + Constantes.getValue("CONTEXTO_APLICACAO")
                             + "/produtos/citsaude/imagens/iconesProntuario/9.jpg' border='0'/>";
                     strTable += "</td>";
                 } else {
@@ -521,7 +491,7 @@ public class ContratoQuestionarios extends QuestionarioResponser {
                 strTable += "</tr>";
             } else {
                 String strUso = "";
-                String strAdequado = "Não";
+                String strAdequado = "Nï¿½o";
                 String strAtencao = "";
                 if (vCertDigDto.getInfoCertificadoDigital().isKeyUsageDigitalSignature()) {
                     strUso += "Assinatura digital";
@@ -575,15 +545,12 @@ public class ContratoQuestionarios extends QuestionarioResponser {
                     strUso += "Decipher Only";
                 }
 
-                if (vCertDigDto.getInfoCertificadoDigital().isKeyUsageDigitalSignature()
-                        && vCertDigDto.getInfoCertificadoDigital().isKeyUsageNonRepudiation()) {
-                    if (UtilDatas.getDataAtual()
-                            .compareTo(vCertDigDto.getInfoCertificadoDigital().getDataFimValidade()) <= 0) {
-                        if (UtilDatas.getDataAtual().compareTo(
-                                vCertDigDto.getInfoCertificadoDigital().getDataInicioValidade()) >= 0) {
+                if (vCertDigDto.getInfoCertificadoDigital().isKeyUsageDigitalSignature() && vCertDigDto.getInfoCertificadoDigital().isKeyUsageNonRepudiation()) {
+                    if (UtilDatas.getDataAtual().compareTo(vCertDigDto.getInfoCertificadoDigital().getDataFimValidade()) <= 0) {
+                        if (UtilDatas.getDataAtual().compareTo(vCertDigDto.getInfoCertificadoDigital().getDataInicioValidade()) >= 0) {
                             strAdequado = "Sim";
                         } else {
-                            strAtencao = "<font color='red'><b>Certificado ainda não entrou em validade!</font></b>";
+                            strAtencao = "<font color='red'><b>Certificado ainda nï¿½o entrou em validade!</font></b>";
                         }
                     } else {
                         strAtencao = "<font color='red'><b>Certificado vencido!</font></b>";
@@ -596,14 +563,12 @@ public class ContratoQuestionarios extends QuestionarioResponser {
                 if (vCertDigDto.getFileName() == null || vCertDigDto.getFileName().equalsIgnoreCase("")) {
                     if (strAdequado.equalsIgnoreCase("Sim")) {
                         strTable += "<td>";
-                        strTable += "<img src='" + Constantes.getValue("SERVER_ADDRESS")
-                                + Constantes.getValue("CONTEXTO_APLICACAO")
+                        strTable += "<img src='" + Constantes.getValue("SERVER_ADDRESS") + Constantes.getValue("CONTEXTO_APLICACAO")
                                 + "/produtos/citsaude/imagens/iconesProntuario/9.jpg' border='0'/>";
                         strTable += "</td>";
                     } else {
                         strTable += "<td>";
-                        strTable += "<img src='" + Constantes.getValue("SERVER_ADDRESS")
-                                + Constantes.getValue("CONTEXTO_APLICACAO")
+                        strTable += "<img src='" + Constantes.getValue("SERVER_ADDRESS") + Constantes.getValue("CONTEXTO_APLICACAO")
                                 + "/produtos/citsaude/imagens/iconesProntuario/pare.gif' border='0'/>";
                         strTable += "</td>";
                     }
@@ -613,8 +578,8 @@ public class ContratoQuestionarios extends QuestionarioResponser {
                     strTable += "</td>";
                 }
                 strTable += "<td>";
-                strTable += "Certificado em nome de: <b>" + vCertDigDto.getInfoCertificadoDigital().getNomeTitular()
-                        + "</b> CPF: <b>" + vCertDigDto.getInfoCertificadoDigital().getCpf() + "</b><br>";
+                strTable += "Certificado em nome de: <b>" + vCertDigDto.getInfoCertificadoDigital().getNomeTitular() + "</b> CPF: <b>"
+                        + vCertDigDto.getInfoCertificadoDigital().getCpf() + "</b><br>";
                 strTable += "Raiz: <b>" + vCertDigDto.getInfoCertificadoDigital().getRaiz() + "</b> Emissor: <b>"
                         + vCertDigDto.getInfoCertificadoDigital().getNomeEmissor() + "</b><br>";
                 strTable += "<b>"
@@ -622,13 +587,13 @@ public class ContratoQuestionarios extends QuestionarioResponser {
                         + "</b> Tipo: <b>"
                         + vCertDigDto.getInfoCertificadoDigital().getTipo()
                         + "</b> Validade entre: <b>"
-                        + UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, vCertDigDto.getInfoCertificadoDigital()
-                                .getDataInicioValidade(), WebUtil.getLanguage(request))
+                        + UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, vCertDigDto.getInfoCertificadoDigital().getDataInicioValidade(),
+                                WebUtil.getLanguage(request))
                         + " a "
-                        + UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, vCertDigDto.getInfoCertificadoDigital()
-                                .getDataFimValidade(), WebUtil.getLanguage(request)) + "</b><br>";
-                strTable += "Utilizações permitidas: <b>" + strUso + "</b><br>";
-                strTable += "Adequado para informações médicas: <b>" + strAdequado + "</b><br>";
+                        + UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, vCertDigDto.getInfoCertificadoDigital().getDataFimValidade(),
+                                        WebUtil.getLanguage(request)) + "</b><br>";
+                strTable += "Utilizaï¿½ï¿½es permitidas: <b>" + strUso + "</b><br>";
+                strTable += "Adequado para informaï¿½ï¿½es mï¿½dicas: <b>" + strAdequado + "</b><br>";
                 strTable += strAtencao;
                 strTable += "</td>";
                 strTable += "</tr>";
@@ -639,22 +604,20 @@ public class ContratoQuestionarios extends QuestionarioResponser {
         document.getElementById(pesQuestBean.getDivAtualizarCertificado()).setInnerHTML(strTable);
     }
 
-    public String geraDadosFormulario(Integer idEmpresa, ContratoQuestionariosDTO pesQuestBean, boolean geraCabecalho,
-            boolean imprimeDemaisDados, boolean imprimeLogo) throws Exception {
-        final ContratoQuestionariosService contratoQuestionarioService = (ContratoQuestionariosService) ServiceLocator
-                .getInstance().getService(ContratoQuestionariosService.class, null);
-        final ContratoQuestionariosDTO pesQuestPesqBean = (ContratoQuestionariosDTO) contratoQuestionarioService
-                .restore(pesQuestBean);
+    public String geraDadosFormulario(final Integer idEmpresa, final ContratoQuestionariosDTO pesQuestBean, final boolean geraCabecalho,
+            final boolean imprimeDemaisDados, final boolean imprimeLogo) throws Exception {
+        final ContratoQuestionariosService contratoQuestionarioService = (ContratoQuestionariosService) ServiceLocator.getInstance().getService(
+                ContratoQuestionariosService.class, null);
+        final ContratoQuestionariosDTO pesQuestPesqBean = (ContratoQuestionariosDTO) contratoQuestionarioService.restore(pesQuestBean);
 
-        final QuestionarioService questionarioService = (QuestionarioService) ServiceLocator.getInstance().getService(
-                QuestionarioService.class, null);
+        final QuestionarioService questionarioService = (QuestionarioService) ServiceLocator.getInstance().getService(QuestionarioService.class, null);
         QuestionarioDTO questionario = new QuestionarioDTO();
         questionario.setIdIdentificadorResposta(pesQuestBean.getIdContratoQuestionario());
         questionario.setIdQuestionario(pesQuestBean.getIdQuestionario());
         questionario = (QuestionarioDTO) questionarioService.restore(questionario);
 
-        final GrupoQuestionarioService grupoQuestionarioService = (GrupoQuestionarioService) ServiceLocator
-                .getInstance().getService(GrupoQuestionarioService.class, null);
+        final GrupoQuestionarioService grupoQuestionarioService = (GrupoQuestionarioService) ServiceLocator.getInstance().getService(
+                GrupoQuestionarioService.class, null);
 
         String strImprimir = "";
 
@@ -664,12 +627,10 @@ public class ContratoQuestionarios extends QuestionarioResponser {
             final Collection colGrupos = questionario.getColGrupos();
             for (final Iterator it = colGrupos.iterator(); it.hasNext();) {
                 final GrupoQuestionarioDTO grupoQuestDto = (GrupoQuestionarioDTO) it.next();
-                final Collection colRetorno = grupoQuestionarioService.geraImpressaoFormatadaHTML(
-                        grupoQuestDto.getColQuestoes(), pesQuestPesqBean.getDataQuestionario(),
-                        pesQuestPesqBean.getIdContrato(), pesQuestBean.getIdProfissional());
+                final Collection colRetorno = grupoQuestionarioService.geraImpressaoFormatadaHTML(grupoQuestDto.getColQuestoes(),
+                        pesQuestPesqBean.getDataQuestionario(), pesQuestPesqBean.getIdContrato(), pesQuestBean.getIdProfissional());
                 if (colRetorno != null && colRetorno.size() > 0) {
-                    final String strAux = "<tr><td colspan='20' bgcolor='#20b2aa'><b>"
-                            + grupoQuestDto.getNomeGrupoQuestionario() + "</b></td></tr>";
+                    final String strAux = "<tr><td colspan='20' bgcolor='#20b2aa'><b>" + grupoQuestDto.getNomeGrupoQuestionario() + "</b></td></tr>";
                     String strAux2 = "";
                     for (final Iterator itQuest = colRetorno.iterator(); itQuest.hasNext();) {
                         final LinhaSpoolQuestionario linha = (LinhaSpoolQuestionario) itQuest.next();
@@ -692,23 +653,20 @@ public class ContratoQuestionarios extends QuestionarioResponser {
         return strImprimir;
     }
 
-    public String geraDadosFormularioSemAssinatura(Integer idEmpresa,
-            ContratoQuestionariosDTO contratoQuestionarioBean, boolean geraCabecalho, boolean imprimeDemaisDados,
-            boolean imprimeLogo) throws Exception {
-        final ContratoQuestionariosService contratoQuestionarioService = (ContratoQuestionariosService) ServiceLocator
-                .getInstance().getService(ContratoQuestionariosService.class, null);
-        final ContratoQuestionariosDTO contratoQuestionarioDto = (ContratoQuestionariosDTO) contratoQuestionarioService
-                .restore(contratoQuestionarioBean);
+    public String geraDadosFormularioSemAssinatura(final Integer idEmpresa, final ContratoQuestionariosDTO contratoQuestionarioBean,
+            final boolean geraCabecalho, final boolean imprimeDemaisDados, final boolean imprimeLogo) throws Exception {
+        final ContratoQuestionariosService contratoQuestionarioService = (ContratoQuestionariosService) ServiceLocator.getInstance().getService(
+                ContratoQuestionariosService.class, null);
+        final ContratoQuestionariosDTO contratoQuestionarioDto = (ContratoQuestionariosDTO) contratoQuestionarioService.restore(contratoQuestionarioBean);
 
-        final QuestionarioService questionarioService = (QuestionarioService) ServiceLocator.getInstance().getService(
-                QuestionarioService.class, null);
+        final QuestionarioService questionarioService = (QuestionarioService) ServiceLocator.getInstance().getService(QuestionarioService.class, null);
         QuestionarioDTO questionario = new QuestionarioDTO();
         questionario.setIdIdentificadorResposta(contratoQuestionarioDto.getIdContratoQuestionario());
         questionario.setIdQuestionario(contratoQuestionarioDto.getIdQuestionario());
         questionario = (QuestionarioDTO) questionarioService.restore(questionario);
 
-        final GrupoQuestionarioService grupoQuestionarioService = (GrupoQuestionarioService) ServiceLocator
-                .getInstance().getService(GrupoQuestionarioService.class, null);
+        final GrupoQuestionarioService grupoQuestionarioService = (GrupoQuestionarioService) ServiceLocator.getInstance().getService(
+                GrupoQuestionarioService.class, null);
 
         String strImprimir = "";
 
@@ -718,12 +676,10 @@ public class ContratoQuestionarios extends QuestionarioResponser {
             final Collection colGrupos = questionario.getColGrupos();
             for (final Iterator it = colGrupos.iterator(); it.hasNext();) {
                 final GrupoQuestionarioDTO grupoQuestDto = (GrupoQuestionarioDTO) it.next();
-                final Collection colRetorno = grupoQuestionarioService.geraImpressaoFormatadaHTML(
-                        grupoQuestDto.getColQuestoes(), contratoQuestionarioDto.getDataQuestionario(),
-                        contratoQuestionarioDto.getIdContrato(), contratoQuestionarioDto.getIdProfissional());
+                final Collection colRetorno = grupoQuestionarioService.geraImpressaoFormatadaHTML(grupoQuestDto.getColQuestoes(),
+                        contratoQuestionarioDto.getDataQuestionario(), contratoQuestionarioDto.getIdContrato(), contratoQuestionarioDto.getIdProfissional());
                 if (colRetorno != null && colRetorno.size() > 0) {
-                    final String strAux = "<tr><td colspan='20' bgcolor='#20b2aa'><b>"
-                            + grupoQuestDto.getNomeGrupoQuestionario() + "</b></td></tr>";
+                    final String strAux = "<tr><td colspan='20' bgcolor='#20b2aa'><b>" + grupoQuestDto.getNomeGrupoQuestionario() + "</b></td></tr>";
                     String strAux2 = "";
                     for (final Iterator itQuest = colRetorno.iterator(); itQuest.hasNext();) {
                         final LinhaSpoolQuestionario linha = (LinhaSpoolQuestionario) itQuest.next();
@@ -746,56 +702,40 @@ public class ContratoQuestionarios extends QuestionarioResponser {
         return strImprimir;
     }
 
-    public String gerarHistoricoGeralPacienteHTML(DocumentHTML document, HttpServletRequest request,
-            HttpServletResponse response) throws Exception {
+    public String gerarHistoricoGeralPacienteHTML(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response)
+            throws Exception {
         final UsuarioDTO usuario = WebUtil.getUsuario(request);
         if (usuario == null) {
-            document.alert("Sessão expirada! Favor efetuar logon novamente!");
+            document.alert("Sessï¿½o expirada! Favor efetuar logon novamente!");
             return "";
         }
 
         final Integer idEmpresa = 1;
-        final String usuarioImpressao = usuario.getNomeUsuario();
-        /*
-         * if (usuario.getIdProfissional() != null){
-         * ProfissionalService profissionalService = (ProfissionalService)
-         * ServiceLocator.getInstance().getService(ProfissionalService.class, null);
-         * ProfissionalDTO profDto = new ProfissionalDTO();
-         * profDto.setIdProfissional(usuario.getIdProfissional());
-         * profDto.setIdEmpresa(idEmpresa);
-         * profDto = (ProfissionalDTO) profissionalService.restore(profDto);
-         * if (profDto != null){
-         * usuarioImpressao = usuarioImpressao + " - " + profDto.getNome();
-         * }
-         * }
-         */
+        usuario.getNomeUsuario();
 
         final ContratoQuestionariosDTO pesQuestBean = (ContratoQuestionariosDTO) document.getBean();
 
-        final ContratoQuestionariosService contratoQuestionarioService = (ContratoQuestionariosService) ServiceLocator
-                .getInstance().getService(ContratoQuestionariosService.class, null);
-        final InformacoesContratoConfigService prontuarioEletronicoConfigService = (InformacoesContratoConfigService) ServiceLocator
-                .getInstance().getService(InformacoesContratoConfigService.class, null);
-        final InformacoesContratoPerfSegService prontuarioEletronicoPerfSegService = (InformacoesContratoPerfSegService) ServiceLocator
-                .getInstance().getService(InformacoesContratoPerfSegService.class, null);
+        final ContratoQuestionariosService contratoQuestionarioService = (ContratoQuestionariosService) ServiceLocator.getInstance().getService(
+                ContratoQuestionariosService.class, null);
+        final InformacoesContratoConfigService prontuarioEletronicoConfigService = (InformacoesContratoConfigService) ServiceLocator.getInstance().getService(
+                InformacoesContratoConfigService.class, null);
+        final InformacoesContratoPerfSegService prontuarioEletronicoPerfSegService = (InformacoesContratoPerfSegService) ServiceLocator.getInstance()
+                .getService(InformacoesContratoPerfSegService.class, null);
 
-        final QuestionarioService questService = (QuestionarioService) ServiceLocator.getInstance().getService(
-                QuestionarioService.class, null);
+        final QuestionarioService questService = (QuestionarioService) ServiceLocator.getInstance().getService(QuestionarioService.class, null);
 
         Collection col = null;
         if (pesQuestBean.getOrdemHistorico() != null && pesQuestBean.getOrdemHistorico().equalsIgnoreCase("D")) {
             if (pesQuestBean.getAba() == null || pesQuestBean.getAba().trim().equalsIgnoreCase("")) {
                 col = contratoQuestionarioService.listByIdContratoOrderDecrescente(pesQuestBean.getIdContrato());
             } else {
-                col = contratoQuestionarioService.listByIdContratoAndAba(pesQuestBean.getIdContrato(),
-                        pesQuestBean.getAba());
+                col = contratoQuestionarioService.listByIdContratoAndAba(pesQuestBean.getIdContrato(), pesQuestBean.getAba());
             }
         } else {
             if (pesQuestBean.getAba() == null || pesQuestBean.getAba().trim().equalsIgnoreCase("")) {
                 col = contratoQuestionarioService.listByIdContrato(pesQuestBean.getIdContrato());
             } else {
-                col = contratoQuestionarioService.listByIdContratoAndAbaOrdemCrescente(pesQuestBean.getIdContrato(),
-                        pesQuestBean.getAba());
+                col = contratoQuestionarioService.listByIdContratoAndAbaOrdemCrescente(pesQuestBean.getIdContrato(), pesQuestBean.getAba());
             }
         }
 
@@ -812,23 +752,21 @@ public class ContratoQuestionarios extends QuestionarioResponser {
                     colItem = null;
                 }
                 if (colItem != null && colItem.size() > 0) {
-                    final InformacoesContratoConfigDTO prontuarioEletronicoConfigDTO = (InformacoesContratoConfigDTO) ((List) colItem)
-                            .get(0);
-                    final Collection colPerfisAssociados = prontuarioEletronicoPerfSegService
-                            .findByIdProntuarioEletronicoConfig(prontuarioEletronicoConfigDTO
-                                    .getIdInformacoesContratoConfig());
-                    if (isPerfilUsuarioLogadoInCollection(colPerfisAssociados, usuario)) { // Se tiver acesso a aquela ABA, então gera
-                                                                                           // historico.
+                    final InformacoesContratoConfigDTO prontuarioEletronicoConfigDTO = (InformacoesContratoConfigDTO) ((List) colItem).get(0);
+                    final Collection colPerfisAssociados = prontuarioEletronicoPerfSegService.findByIdProntuarioEletronicoConfig(prontuarioEletronicoConfigDTO
+                            .getIdInformacoesContratoConfig());
+                    if (isPerfilUsuarioLogadoInCollection(colPerfisAssociados, usuario)) { // Se tiver acesso a aquela ABA, entï¿½o gera
+                        // historico.
                         String str = "";
                         if (bPrimeiroItem) {
-                            String nomeQuestionario = contratoQuestionariosAux.getNomeQuestionario();
+                            contratoQuestionariosAux.getNomeQuestionario();
                             if (contratoQuestionariosAux.getNomeQuestionario() == null
                                     || contratoQuestionariosAux.getNomeQuestionario().trim().equalsIgnoreCase("")) {
                                 QuestionarioDTO questDto = new QuestionarioDTO();
                                 questDto.setIdQuestionario(contratoQuestionariosAux.getIdContratoQuestionario());
                                 questDto = (QuestionarioDTO) questService.restore(questDto);
                                 if (questDto != null) {
-                                    nomeQuestionario = questDto.getNomeQuestionario();
+                                    questDto.getNomeQuestionario();
                                 }
                             }
                         }
@@ -836,14 +774,12 @@ public class ContratoQuestionarios extends QuestionarioResponser {
                                 && !contratoQuestionariosAux.getConteudoImpresso().trim().equalsIgnoreCase("")) {
                             str += contratoQuestionariosAux.getConteudoImpresso();
                         } else {
-                            final String conteudoImp = geraDadosFormularioSemAssinatura(idEmpresa,
-                                    contratoQuestionariosAux, true, false, false);
+                            final String conteudoImp = geraDadosFormularioSemAssinatura(idEmpresa, contratoQuestionariosAux, true, false, false);
 
-                            // -- Se chegar é que nao havia sido gravado, entao grava.
+                            // -- Se chegar ï¿½ que nao havia sido gravado, entao grava.
                             try {
                                 pesQuestBean.setConteudoImpresso(conteudoImp);
-                                contratoQuestionarioService.updateConteudoImpresso(
-                                        contratoQuestionariosAux.getIdContratoQuestionario(), conteudoImp);
+                                contratoQuestionarioService.updateConteudoImpresso(contratoQuestionariosAux.getIdContratoQuestionario(), conteudoImp);
                             } catch (final Exception e) {
                                 e.printStackTrace();
                             }
@@ -861,11 +797,10 @@ public class ContratoQuestionarios extends QuestionarioResponser {
         return strImprimir;
     }
 
-    public void gerarHistoricoGeralPaciente(DocumentHTML document, HttpServletRequest request,
-            HttpServletResponse response) throws Exception {
+    public void gerarHistoricoGeralPaciente(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         final UsuarioDTO usuario = WebUtil.getUsuario(request);
         if (usuario == null) {
-            document.alert("Sessão expirada! Favor efetuar logon novamente!");
+            document.alert("Sessï¿½o expirada! Favor efetuar logon novamente!");
             return;
         }
         final String usuarioImpressao = usuario.getNomeUsuario();
@@ -873,8 +808,8 @@ public class ContratoQuestionarios extends QuestionarioResponser {
         String strImprimir = gerarHistoricoGeralPacienteHTML(document, request, response);
 
         final String diretorioReceita = CITCorporeUtil.CAMINHO_REAL_APP + "/tempReceitas/" + usuario.getIdUsuario();
-        final String diretorioRelativoReceita = Constantes.getValue("DIRETORIO_TEMPORARIO_RECEITAS_RELATIVO") + "/"
-                + usuario.getIdUsuario();
+        Constantes.getValue("DIRETORIO_TEMPORARIO_RECEITAS_RELATIVO");
+        usuario.getIdUsuario();
         File f = new File(diretorioReceita);
         if (!f.exists()) {
             f.mkdirs();
@@ -882,8 +817,6 @@ public class ContratoQuestionarios extends QuestionarioResponser {
 
         final String arquivoForm = diretorioReceita + "/formulario.pdf";
         final String arquivoFormRefact = diretorioReceita + "/formulario2.pdf";
-        final String arquivoRelativoForm = diretorioRelativoReceita + "/formulario.pdf";
-        final String arquivoRelativoFormRefact = diretorioRelativoReceita + "/formulario2.pdf";
         f = new File(arquivoForm);
         if (f.exists()) {
             f.delete();
@@ -909,13 +842,9 @@ public class ContratoQuestionarios extends QuestionarioResponser {
             final BaseFont bf = BaseFont.createFont("Helvetica", BaseFont.WINANSI, false);
             over.setFontAndSize(bf, 8);
             over.setTextMatrix(30, 30);
-            over.showText("Pagina: "
-                    + i
-                    + " de "
-                    + (total - 1)
-                    + "     prontuário impresso em: "
-                    + UtilDatas.convertDateToString(TipoDate.TIMESTAMP_WITH_SECONDS, UtilDatas.getDataHoraAtual(),
-                            WebUtil.getLanguage(request)) + " por: " + usuarioImpressao);
+            over.showText("Pagina: " + i + " de " + (total - 1) + "     prontuï¿½rio impresso em: "
+                    + UtilDatas.convertDateToString(TipoDate.TIMESTAMP_WITH_SECONDS, UtilDatas.getDataHoraAtual(), WebUtil.getLanguage(request)) + " por: "
+                    + usuarioImpressao);
             over.endText();
             // over.setRGBColorStroke(0xFF, 0x00, 0x00);
             // over.setLineWidth(5f);
@@ -937,74 +866,35 @@ public class ContratoQuestionarios extends QuestionarioResponser {
         outputStream.close();
     }
 
-    private boolean isPerfilUsuarioLogadoInCollection(Collection colPerfisAssociados, UsuarioDTO user) {
+    private boolean isPerfilUsuarioLogadoInCollection(final Collection colPerfisAssociados, final UsuarioDTO user) {
         return true;
     }
 
-    /*
-     * private boolean isPerfilUsuarioLogadoInCollection(Collection colPerfisAssociados, UsuarioDTO user){
-     * if (colPerfisAssociados != null){
-     * for(Iterator it = colPerfisAssociados.iterator(); it.hasNext();){
-     * InformacoesContratoPerfSegDTO prontuarioEletronicoPerfSegDTO = (InformacoesContratoPerfSegDTO) it.next();
-     * if (user.getColPerfis() != null){
-     * for(Iterator itPerfUser = user.getColPerfis().iterator(); itPerfUser.hasNext();){
-     * PessoasPerfilSegurancaDTO pessoasPerfilSegurancaDTO = (PessoasPerfilSegurancaDTO) itPerfUser.next();
-     * if (pessoasPerfilSegurancaDTO.getIdPerfilSeguranca().intValue() == prontuarioEletronicoPerfSegDTO.getIdPerfilSeguranca().intValue()){
-     * return true;
-     * }
-     * }
-     * }
-     * }
-     * }
-     * return false;
-     * }
-     */
-
-    public void imprimir(DocumentHTML document, HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
+    public void imprimir(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         ContratoQuestionariosDTO pesQuestBean = (ContratoQuestionariosDTO) document.getBean();
 
         final UsuarioDTO usuario = WebUtil.getUsuario(request);
         if (usuario == null) {
-            document.alert("Sessão expirada! Favor efetuar logon novamente!");
+            document.alert("Sessï¿½o expirada! Favor efetuar logon novamente!");
             return;
         }
 
         final Integer idEmpresa = 1;
         final String usuarioImpressao = usuario.getNomeUsuario();
-        /*
-         * if (usuario.getIdProfissional() != null){
-         * ProfissionalService profissionalService = (ProfissionalService)
-         * ServiceLocator.getInstance().getService(ProfissionalService.class, null);
-         * ProfissionalDTO profDto = new ProfissionalDTO();
-         * profDto.setIdProfissional(usuario.getIdProfissional());
-         * profDto.setIdEmpresa(idEmpresa);
-         * try{
-         * profDto = (ProfissionalDTO) profissionalService.restore(profDto);
-         * }catch (Exception e) {
-         * e.printStackTrace();
-         * profDto = null;
-         * }
-         * if (profDto != null){
-         * usuarioImpressao = usuarioImpressao + " - " + profDto.getNome();
-         * }
-         * }
-         */
         String strImprimir = "";
-        final ContratoQuestionariosService profissionalService = (ContratoQuestionariosService) ServiceLocator
-                .getInstance().getService(ContratoQuestionariosService.class, null);
+        final ContratoQuestionariosService profissionalService = (ContratoQuestionariosService) ServiceLocator.getInstance().getService(
+                ContratoQuestionariosService.class, null);
         try {
             pesQuestBean = (ContratoQuestionariosDTO) profissionalService.restore(pesQuestBean);
             strImprimir = geraDadosFormulario(idEmpresa, pesQuestBean, true, true, true);
         } catch (final Exception e) {
             e.printStackTrace();
-            strImprimir = "OCORREU PROBLEMA AO IMPRIMIR! FAVOR AVISAR AO ADMINISTRADOR DO SISTEMA\n<br>"
-                    + e.getMessage();
+            strImprimir = "OCORREU PROBLEMA AO IMPRIMIR! FAVOR AVISAR AO ADMINISTRADOR DO SISTEMA\n<br>" + e.getMessage();
         }
 
         final String diretorioReceita = CITCorporeUtil.CAMINHO_REAL_APP + "/tempReceitas/" + usuario.getIdUsuario();
-        final String diretorioRelativoReceita = Constantes.getValue("DIRETORIO_TEMPORARIO_RECEITAS_RELATIVO") + "/"
-                + usuario.getIdUsuario();
+        Constantes.getValue("DIRETORIO_TEMPORARIO_RECEITAS_RELATIVO");
+        usuario.getIdUsuario();
         File f = new File(diretorioReceita);
         if (!f.exists()) {
             f.mkdirs();
@@ -1012,14 +902,10 @@ public class ContratoQuestionarios extends QuestionarioResponser {
 
         final String arquivoForm = diretorioReceita + "/formulario.pdf";
         final String arquivoFormRefact = diretorioReceita + "/formulario2.pdf";
-        final String arquivoRelativoForm = diretorioRelativoReceita + "/formulario.pdf";
-        final String arquivoRelativoFormRefact = diretorioRelativoReceita + "/formulario2.pdf";
         f = new File(arquivoForm);
         if (f.exists()) {
             f.delete();
         }
-
-        // UtilTratamentoArquivos.geraFileTxtFromString("c:\\log.txt", strImprimir);
 
         final OutputStream os = new FileOutputStream(arquivoForm);
         strImprimir = UtilHTML.encodeHTML(strImprimir);
@@ -1036,13 +922,9 @@ public class ContratoQuestionarios extends QuestionarioResponser {
             final BaseFont bf = BaseFont.createFont("Helvetica", BaseFont.WINANSI, false);
             over.setFontAndSize(bf, 8);
             over.setTextMatrix(30, 30);
-            over.showText("Pagina: "
-                    + i
-                    + " de "
-                    + (total - 1)
-                    + "      impresso em: "
-                    + UtilDatas.convertDateToString(TipoDate.TIMESTAMP_WITH_SECONDS, UtilDatas.getDataHoraAtual(),
-                            WebUtil.getLanguage(request)) + "      por: " + usuarioImpressao);
+            over.showText("Pagina: " + i + " de " + (total - 1) + "      impresso em: "
+                    + UtilDatas.convertDateToString(TipoDate.TIMESTAMP_WITH_SECONDS, UtilDatas.getDataHoraAtual(), WebUtil.getLanguage(request))
+                    + "      por: " + usuarioImpressao);
             over.endText();
             // over.setRGBColorStroke(0xFF, 0x00, 0x00);
             // over.setLineWidth(5f);
@@ -1064,25 +946,23 @@ public class ContratoQuestionarios extends QuestionarioResponser {
             outputStream.close();
         } catch (final Exception e) {
             e.printStackTrace();
-            document.alert("Ocorreu um erro ao realizar a impressão! " + e.getMessage());
+            document.alert("Ocorreu um erro ao realizar a impressï¿½o! " + e.getMessage());
         }
     }
 
-    public void listarProdutosQuestionario(DocumentHTML document, HttpServletRequest request,
-            HttpServletResponse response) throws Exception {
+    public void listarProdutosQuestionario(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         final UsuarioDTO usuario = WebUtil.getUsuario(request);
         if (usuario == null) {
-            document.alert("Sessão expirada! Favor efetuar logon novamente!");
+            document.alert("Sessï¿½o expirada! Favor efetuar logon novamente!");
             return;
         }
 
         final String strTable = "";
 
         final ContratoQuestionariosDTO pesQuestBean = (ContratoQuestionariosDTO) document.getBean();
-        final AplicacaoQuestionarioService aplicacaoQuestionarioService = (AplicacaoQuestionarioService) ServiceLocator
-                .getInstance().getService(AplicacaoQuestionarioService.class, null);
-        final Collection col = aplicacaoQuestionarioService.listByIdQuestionarioAndAplicacao(
-                pesQuestBean.getIdQuestionario(), "O");
+        final AplicacaoQuestionarioService aplicacaoQuestionarioService = (AplicacaoQuestionarioService) ServiceLocator.getInstance().getService(
+                AplicacaoQuestionarioService.class, null);
+        final Collection col = aplicacaoQuestionarioService.listByIdQuestionarioAndAplicacao(pesQuestBean.getIdQuestionario(), "O");
         AplicacaoQuestionarioDTO aplicacaoQuestionarioDTO = null;
         if (col != null) {
             for (final Iterator it = col.iterator(); it.hasNext();) {
@@ -1100,29 +980,27 @@ public class ContratoQuestionarios extends QuestionarioResponser {
         document.getElementById("divSelecaoProdutos").setInnerHTML(strTable);
     }
 
-    public void visualizarHistoricoCampo(DocumentHTML document, HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
+    public void visualizarHistoricoCampo(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         final UsuarioDTO usuario = WebUtil.getUsuario(request);
         if (usuario == null) {
-            document.alert("Sessão expirada! Favor efetuar logon novamente!");
+            document.alert("Sessï¿½o expirada! Favor efetuar logon novamente!");
             return;
         }
         final ContratoQuestionariosDTO contrQuestBean = (ContratoQuestionariosDTO) document.getBean();
 
         String strTable = "<table width='100%' border='1'>";
 
-        strTable += "<tr><td><b>Data do Atendimento</b></td><td><b>Conteúdo</b></td></tr>";
+        strTable += "<tr><td><b>Data do Atendimento</b></td><td><b>Conteï¿½do</b></td></tr>";
 
         String strItem = "";
 
-        final QuestaoQuestionarioService questaoQuestionarioService = (QuestaoQuestionarioService) ServiceLocator
-                .getInstance().getService(QuestaoQuestionarioService.class, null);
-        final QuestionarioService questionarioService = (QuestionarioService) ServiceLocator.getInstance().getService(
-                QuestionarioService.class, null);
-        final RespostaItemQuestionarioService respostaItemQuestionarioService = (RespostaItemQuestionarioService) ServiceLocator
-                .getInstance().getService(RespostaItemQuestionarioService.class, null);
-        final Collection col = questaoQuestionarioService.listByIdQuestaoAndContrato(
-                contrQuestBean.getIdQuestaoVisHistorico(), contrQuestBean.getIdContratoVisHistorico());
+        final QuestaoQuestionarioService questaoQuestionarioService = (QuestaoQuestionarioService) ServiceLocator.getInstance().getService(
+                QuestaoQuestionarioService.class, null);
+        ServiceLocator.getInstance().getService(QuestionarioService.class, null);
+        final RespostaItemQuestionarioService respostaItemQuestionarioService = (RespostaItemQuestionarioService) ServiceLocator.getInstance().getService(
+                RespostaItemQuestionarioService.class, null);
+        final Collection col = questaoQuestionarioService.listByIdQuestaoAndContrato(contrQuestBean.getIdQuestaoVisHistorico(),
+                contrQuestBean.getIdContratoVisHistorico());
         if (col != null) {
             for (final Iterator it = col.iterator(); it.hasNext();) {
                 final QuestaoQuestionarioDTO questaoDto = (QuestaoQuestionarioDTO) it.next();
@@ -1130,14 +1008,12 @@ public class ContratoQuestionarios extends QuestionarioResponser {
                 resposta.setIdRespostaItemQuestionario(questaoDto.getIdRespostaItemQuestionario());
                 resposta = (RespostaItemQuestionarioDTO) respostaItemQuestionarioService.restore(resposta);
                 strItem = "";
-                if (questaoDto.getTipoQuestao().equalsIgnoreCase("T")
-                        || questaoDto.getTipoQuestao().equalsIgnoreCase("A")) {
+                if (questaoDto.getTipoQuestao().equalsIgnoreCase("T") || questaoDto.getTipoQuestao().equalsIgnoreCase("A")) {
                     strItem += resposta.getRespostaTextual();
                 }
                 if (questaoDto.getTipoQuestao().equalsIgnoreCase("D")) {
                     if (resposta.getRespostaData() != null) {
-                        strItem += UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, resposta.getRespostaData(),
-                                WebUtil.getLanguage(request));
+                        strItem += UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, resposta.getRespostaData(), WebUtil.getLanguage(request));
                     }
                 }
                 if (questaoDto.getTipoQuestao().equalsIgnoreCase("H")) {
@@ -1150,8 +1026,7 @@ public class ContratoQuestionarios extends QuestionarioResponser {
                         strItem += UtilFormatacao.formatDouble(resposta.getRespostaNumero(), 0);
                     }
                 }
-                if (questaoDto.getTipoQuestao().equalsIgnoreCase("V")
-                        || questaoDto.getTipoQuestao().equalsIgnoreCase("%")) {
+                if (questaoDto.getTipoQuestao().equalsIgnoreCase("V") || questaoDto.getTipoQuestao().equalsIgnoreCase("%")) {
                     int qtdeDecimais = 0;
                     if (questaoDto.getDecimais() != null) {
                         qtdeDecimais = questaoDto.getDecimais().intValue();
@@ -1163,20 +1038,17 @@ public class ContratoQuestionarios extends QuestionarioResponser {
                 if (questaoDto.getTipoQuestao().equalsIgnoreCase("L")) {
                     strItem += resposta.getRespostaTextual();
                 }
-                if (questaoDto.getTipoQuestao().equalsIgnoreCase("R")
-                        || questaoDto.getTipoQuestao().equalsIgnoreCase("C")
+                if (questaoDto.getTipoQuestao().equalsIgnoreCase("R") || questaoDto.getTipoQuestao().equalsIgnoreCase("C")
                         || questaoDto.getTipoQuestao().equalsIgnoreCase("X")) { // Radio, checkbox e combobox
-                    final OpcaoRespostaQuestionarioService opcaoRespService = (OpcaoRespostaQuestionarioService) ServiceLocator
-                            .getInstance().getService(OpcaoRespostaQuestionarioService.class, null);
-                    final Collection colOpcoesResposta = opcaoRespService.listByIdQuestaoQuestionario(questaoDto
-                            .getIdQuestaoQuestionario());
+                    final OpcaoRespostaQuestionarioService opcaoRespService = (OpcaoRespostaQuestionarioService) ServiceLocator.getInstance().getService(
+                            OpcaoRespostaQuestionarioService.class, null);
+                    final Collection colOpcoesResposta = opcaoRespService.listByIdQuestaoQuestionario(questaoDto.getIdQuestaoQuestionario());
                     questaoDto.setColOpcoesResposta(colOpcoesResposta);
 
-                    final Collection colAux = respostaItemQuestionarioService
-                            .getRespostasOpcoesByIdRespostaItemQuestionario(questaoDto.getIdRespostaItemQuestionario());
+                    final Collection colAux = respostaItemQuestionarioService.getRespostasOpcoesByIdRespostaItemQuestionario(questaoDto
+                            .getIdRespostaItemQuestionario());
                     for (final Iterator itOpcResp = colAux.iterator(); itOpcResp.hasNext();) {
-                        final RespostaItemQuestionarioOpcoesDTO opcRespDto = (RespostaItemQuestionarioOpcoesDTO) itOpcResp
-                                .next();
+                        final RespostaItemQuestionarioOpcoesDTO opcRespDto = (RespostaItemQuestionarioOpcoesDTO) itOpcResp.next();
                         strItem += opcRespDto.getTitulo() + "";
                     }
                 }
@@ -1184,9 +1056,8 @@ public class ContratoQuestionarios extends QuestionarioResponser {
                     strItem = "";
                 }
 
-                strTable += "<tr><td>"
-                        + UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, questaoDto.getDataRegistro(),
-                                WebUtil.getLanguage(request)) + "</td><td>" + strItem + "</td></tr>";
+                strTable += "<tr><td>" + UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, questaoDto.getDataRegistro(), WebUtil.getLanguage(request))
+                        + "</td><td>" + strItem + "</td></tr>";
             }
         }
 
@@ -1195,27 +1066,23 @@ public class ContratoQuestionarios extends QuestionarioResponser {
         document.getElementById("divHistoricoCampoVisualizacao").setInnerHTML(strTable);
     }
 
-    public void visualizarGraficoHistoricoCampo(DocumentHTML document, HttpServletRequest request,
-            HttpServletResponse response) throws Exception {
+    public void visualizarGraficoHistoricoCampo(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response)
+            throws Exception {
 
         final ContratoQuestionariosDTO contrQuestBean = (ContratoQuestionariosDTO) document.getBean();
 
         JFreeChart chart;
         final DefaultCategoryDataset dados = new DefaultCategoryDataset();
         Double objDouble;
-        Double objDouble2;
-        Double objDouble3;
-
         String cabQuestao = "";
 
-        final QuestaoQuestionarioService questaoQuestionarioService = (QuestaoQuestionarioService) ServiceLocator
-                .getInstance().getService(QuestaoQuestionarioService.class, null);
-        final QuestionarioService questionarioService = (QuestionarioService) ServiceLocator.getInstance().getService(
-                QuestionarioService.class, null);
-        final RespostaItemQuestionarioService respostaItemQuestionarioService = (RespostaItemQuestionarioService) ServiceLocator
-                .getInstance().getService(RespostaItemQuestionarioService.class, null);
-        final Collection col = questaoQuestionarioService.listByIdQuestaoAndContratoOrderDataASC(
-                contrQuestBean.getIdQuestaoVisHistorico(), contrQuestBean.getIdContratoVisHistorico());
+        final QuestaoQuestionarioService questaoQuestionarioService = (QuestaoQuestionarioService) ServiceLocator.getInstance().getService(
+                QuestaoQuestionarioService.class, null);
+        ServiceLocator.getInstance().getService(QuestionarioService.class, null);
+        final RespostaItemQuestionarioService respostaItemQuestionarioService = (RespostaItemQuestionarioService) ServiceLocator.getInstance().getService(
+                RespostaItemQuestionarioService.class, null);
+        final Collection col = questaoQuestionarioService.listByIdQuestaoAndContratoOrderDataASC(contrQuestBean.getIdQuestaoVisHistorico(),
+                contrQuestBean.getIdContratoVisHistorico());
         if (col != null) {
             for (final Iterator it = col.iterator(); it.hasNext();) {
                 final QuestaoQuestionarioDTO questaoDto = (QuestaoQuestionarioDTO) it.next();
@@ -1240,77 +1107,75 @@ public class ContratoQuestionarios extends QuestionarioResponser {
                 }
 
                 objDouble = null;
-                objDouble2 = null;
-                objDouble3 = null;
                 try {
                     if (questaoDto.getTipoQuestao().equalsIgnoreCase("N")) {
                         objDouble = resposta.getRespostaNumero();
                         if (objDouble == null) {
                             objDouble = new Double(0);
                         }
-                        dados.addValue(objDouble.doubleValue(), "Valor", UtilDatas.convertDateToString(
-                                TipoDate.DATE_DEFAULT, questaoDto.getDataRegistro(), WebUtil.getLanguage(request)));
+                        dados.addValue(objDouble.doubleValue(), "Valor",
+                                UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, questaoDto.getDataRegistro(), WebUtil.getLanguage(request)));
                     }
                     if (questaoDto.getTipoQuestao().equalsIgnoreCase("V")) {
                         objDouble = resposta.getRespostaValor();
                         if (objDouble == null) {
                             objDouble = new Double(0);
                         }
-                        dados.addValue(objDouble.doubleValue(), "Valor", UtilDatas.convertDateToString(
-                                TipoDate.DATE_DEFAULT, questaoDto.getDataRegistro(), WebUtil.getLanguage(request)));
+                        dados.addValue(objDouble.doubleValue(), "Valor",
+                                UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, questaoDto.getDataRegistro(), WebUtil.getLanguage(request)));
                     }
                     if (questaoDto.getTipoQuestao().equalsIgnoreCase("%")) {
                         objDouble = resposta.getRespostaPercentual();
                         if (objDouble == null) {
                             objDouble = new Double(0);
                         }
-                        dados.addValue(objDouble.doubleValue(), "Valor", UtilDatas.convertDateToString(
-                                TipoDate.DATE_DEFAULT, questaoDto.getDataRegistro(), WebUtil.getLanguage(request)));
+                        dados.addValue(objDouble.doubleValue(), "Valor",
+                                UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, questaoDto.getDataRegistro(), WebUtil.getLanguage(request)));
                     }
                     if (questaoDto.getTipoQuestao().equalsIgnoreCase("*")) {
                         objDouble = resposta.getRespostaPercentual();
                         if (objDouble == null) {
                             objDouble = new Double(0);
                         }
-                        dados.addValue(objDouble.doubleValue(), "%", UtilDatas.convertDateToString(
-                                TipoDate.DATE_DEFAULT, questaoDto.getDataRegistro(), WebUtil.getLanguage(request)));
+                        dados.addValue(objDouble.doubleValue(), "%",
+                                UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, questaoDto.getDataRegistro(), WebUtil.getLanguage(request)));
 
                         objDouble = resposta.getRespostaValor();
                         if (objDouble == null) {
                             objDouble = new Double(0);
                         }
-                        dados.addValue(objDouble.doubleValue(), "Valor", UtilDatas.convertDateToString(
-                                TipoDate.DATE_DEFAULT, questaoDto.getDataRegistro(), WebUtil.getLanguage(request)));
+                        dados.addValue(objDouble.doubleValue(), "Valor",
+                                UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, questaoDto.getDataRegistro(), WebUtil.getLanguage(request)));
                     }
                     if (questaoDto.getTipoQuestao().equalsIgnoreCase("1")) {
                         objDouble = resposta.getRespostaNumero();
                         if (objDouble == null) {
                             objDouble = new Double(0);
                         }
-                        dados.addValue(objDouble.doubleValue(), "Valor 1", UtilDatas.convertDateToString(
-                                TipoDate.DATE_DEFAULT, questaoDto.getDataRegistro(), WebUtil.getLanguage(request)));
+                        dados.addValue(objDouble.doubleValue(), "Valor 1",
+                                UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, questaoDto.getDataRegistro(), WebUtil.getLanguage(request)));
 
                         objDouble = resposta.getRespostaNumero2();
                         if (objDouble == null) {
                             objDouble = new Double(0);
                         }
-                        dados.addValue(objDouble.doubleValue(), "Valor 2", UtilDatas.convertDateToString(
-                                TipoDate.DATE_DEFAULT, questaoDto.getDataRegistro(), WebUtil.getLanguage(request)));
+                        dados.addValue(objDouble.doubleValue(), "Valor 2",
+                                UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, questaoDto.getDataRegistro(), WebUtil.getLanguage(request)));
                     }
                     if (questaoDto.getTipoQuestao().equalsIgnoreCase("2")) {
                         objDouble = resposta.getRespostaValor();
                         if (objDouble == null) {
                             objDouble = new Double(0);
                         }
-                        dados.addValue(objDouble.doubleValue(), "Valor 1", UtilDatas.convertDateToString(
-                                TipoDate.DATE_DEFAULT, questaoDto.getDataRegistro(), WebUtil.getLanguage(request)));
+                        dados.addValue(objDouble.doubleValue(), "Valor 1",
+                                UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, questaoDto.getDataRegistro(), WebUtil.getLanguage(request)));
 
                         objDouble = resposta.getRespostaValor2();
                         if (objDouble == null) {
                             objDouble = new Double(0);
                         }
-                        dados.addValue(objDouble.doubleValue(), "Valor 2", UtilDatas.convertDateToString(
-                                TipoDate.DATE_DEFAULT, questaoDto.getDataRegistro(), WebUtil.getLanguage(request)));
+                        dados.addValue(objDouble.doubleValue(), "Valor 2",
+                                UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, questaoDto.getDataRegistro(), WebUtil.getLanguage(request)));
                     }
                 } catch (final Exception e) {
                     e.printStackTrace();
@@ -1322,11 +1187,9 @@ public class ContratoQuestionarios extends QuestionarioResponser {
         cabQuestao = cabQuestao.replaceAll("\r", "");
         final boolean is3D = false;
         if (is3D) {
-            chart = ChartFactory.createLineChart3D(cabQuestao, null, null, dados, PlotOrientation.VERTICAL, true, true,
-                    false);
+            chart = ChartFactory.createLineChart3D(cabQuestao, null, null, dados, PlotOrientation.VERTICAL, true, true, false);
         } else {
-            chart = ChartFactory.createLineChart(cabQuestao, null, null, dados, PlotOrientation.VERTICAL, true, true,
-                    false);
+            chart = ChartFactory.createLineChart(cabQuestao, null, null, dados, PlotOrientation.VERTICAL, true, true, false);
         }
 
         // Setando o valor maximo para nunca passar de 100, ja q se trata de
@@ -1339,18 +1202,18 @@ public class ContratoQuestionarios extends QuestionarioResponser {
         chart.setBackgroundPaint(COR_FUNDO); // Cor do fundo do grafico
         chart.getTitle().setPaint(COR_TITULO); // Cor do titulo
         chart.getTitle().setFont(new java.awt.Font("arial", Font.BOLD, 12)); // Fonte do
-                                                                             // titulo
+        // titulo
         chart.getPlot().setBackgroundPaint(new Color(204, 255, 204));// Cor de
-                                                                     // fundo da
-                                                                     // plot (area
-                                                                     // do grafico)
+        // fundo da
+        // plot (area
+        // do grafico)
         chart.setBorderVisible(false); // Visibilidade da borda do grafico
 
-        // Marcador de Mídia de Resolubilidade
+        // Marcador de Mï¿½dia de Resolubilidade
         // IntervalMarker target = new IntervalMarker(y - 0.3, y + 0.3);// A
-        // principio, a mídia será o TOTAL-MF
+        // principio, a mï¿½dia serï¿½ o TOTAL-MF
         /*
-         * target.setLabel(" Resolubilidade Mídia"); target.setLabelFont(new
+         * target.setLabel(" Resolubilidade Mï¿½dia"); target.setLabelFont(new
          * Font("arial", Font.BOLD, 12)); target.setLabelPaint(Color.RED);
          * target.setLabelAnchor(RectangleAnchor.CENTER);
          * target.setLabelTextAnchor(TextAnchor.BOTTOM_CENTER);
@@ -1359,39 +1222,10 @@ public class ContratoQuestionarios extends QuestionarioResponser {
         // plot.addRangeMarker(target, Layer.FOREGROUND);
 
         final String caminhoRelativo = "";
-        final String caminho = "";
-        /*
-         * try {
-         * File arquivo = new File(CITCorporeUtil.caminho_real_app + "/tempReceitas");
-         * if (!arquivo.exists()) {
-         * arquivo.mkdirs();
-         * }
-         * File arquivoVer = new File(CITCorporeUtil.caminho_real_app + "/tempReceitas/" + usuario.getIdUsuario());
-         * if (!arquivoVer.exists()) {
-         * arquivoVer.mkdirs();
-         * }
-         * String hora = UtilDatas.formatHoraFormatadaStr(UtilDatas.getHoraAtual());
-         * hora = UtilStrings.apenasNumeros(hora);
-         * caminho = CITCorporeUtil.caminho_real_app + "/tempReceitas/" + usuario.getIdUsuario() + "/visHistField_" +
-         * UtilStrings.generateNomeBusca(UtilStrings.removeCaracteresEspeciais(cabQuestao)) + hora + ".png";
-         * caminhoRelativo = Constantes.getValue("DIRETORIO_TEMPORARIO_RECEITAS_RELATIVO") + "/" + usuario.getIdUsuario() + "/visHistField_"
-         * + UtilStrings.generateNomeBusca(UtilStrings.removeCaracteresEspeciais(cabQuestao)) + hora + ".png";
-         * arquivo = new File(caminho);
-         * if (arquivo.exists()) {
-         * arquivo.delete();
-         * }
-         * ChartUtilities.saveChartAsPNG(arquivo, chart,
-         * 800,
-         * 450);
-         * } catch (Exception e) {
-         * e.printStackTrace();
-         * }
-         */
-
         document.getElementById("divHistoricoCampoVisualizacao").setInnerHTML("<img src=\"" + caminhoRelativo + "\"/>");
     }
 
-    private boolean isInCollection(Integer idValor, Collection colVerificar) {
+    private boolean isInCollection(final Integer idValor, final Collection colVerificar) {
         if (colVerificar == null) {
             return false;
         }

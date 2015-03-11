@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class HistoricoServicoDTO implements IDto {
+public class HistoricoServicoDTO extends BaseEntity {
 	private Integer idHistoricoServico;
 	private Integer idServico;
 	private Integer idCategoriaServico;

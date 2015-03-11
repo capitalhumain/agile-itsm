@@ -3,9 +3,9 @@ package br.com.centralit.citcorpore.bean;
 import java.math.BigDecimal;
 import java.sql.Date;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class ValoresServicoContratoDTO implements IDto {
+public class ValoresServicoContratoDTO extends BaseEntity {
 	
 	/**
 	 * 

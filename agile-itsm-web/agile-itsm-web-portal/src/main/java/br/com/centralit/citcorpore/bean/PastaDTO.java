@@ -7,14 +7,14 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * DTO de Pasta.
  * 
  * @author valdoilo.damasceno
  */
-public class PastaDTO implements IDto {
+public class PastaDTO extends BaseEntity {
 
 	private static final long serialVersionUID = -1725700162484294191L;
 

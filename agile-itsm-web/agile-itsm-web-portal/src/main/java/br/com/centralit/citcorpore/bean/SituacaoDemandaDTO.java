@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class SituacaoDemandaDTO implements IDto {
+public class SituacaoDemandaDTO extends BaseEntity {
 	public static final Integer SITUACAO_NAO_INICIADA = new Integer(1);
 	
 	/**

@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringEscapeUtils;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citajax.html.AjaxFormAction;
 import br.com.centralit.citajax.html.DocumentHTML;
 import br.com.centralit.citajax.html.HTMLForm;
@@ -30,7 +31,6 @@ import br.com.centralit.citcorpore.negocio.UsuarioService;
 import br.com.centralit.citcorpore.util.Enumerados;
 import br.com.centralit.citcorpore.util.Enumerados.ParametroSistema;
 import br.com.centralit.citcorpore.util.ParametroUtil;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.service.ServiceLocator;
 import br.com.citframework.util.UtilDatas;
 import br.com.citframework.util.UtilI18N;
@@ -416,7 +416,7 @@ public class Empregado extends AjaxFormAction {
         return grupoEmpregadoService;
     }
 
-    private void setEmpregadoBean(IDto empregado) {
+    private void setEmpregadoBean(BaseEntity empregado) {
         empregadoBean = (EmpregadoDTO) empregado;
     }
 

@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class MatrizVisaoDTO implements IDto {
+public class MatrizVisaoDTO extends BaseEntity {
 	private Integer idMatriz;
 	private Integer idVisao;
 	private Integer idObjetoNegocio;

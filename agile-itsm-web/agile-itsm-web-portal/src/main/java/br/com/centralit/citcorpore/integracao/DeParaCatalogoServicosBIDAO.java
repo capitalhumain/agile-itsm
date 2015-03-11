@@ -5,8 +5,8 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.DeParaCatalogoServicosBIDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
 import br.com.citframework.integracao.Field;
@@ -20,7 +20,7 @@ public class DeParaCatalogoServicosBIDAO extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public Collection find(IDto obj) throws PersistenceException {
+    public Collection find(BaseEntity obj) throws PersistenceException {
         return null;
     }
 

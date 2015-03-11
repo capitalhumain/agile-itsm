@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.rh.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class IdiomaDTO implements IDto {
+public class IdiomaDTO extends BaseEntity {
 	private Integer idIdioma;
 	private String descricao;
 	private String detalhe;

@@ -3,10 +3,10 @@ package br.com.centralit.citcorpore.bean;
 import java.sql.Date;
 import java.util.Collection;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 @SuppressWarnings("serial")
-public class AvaliacaoFornecedorDTO implements IDto {
+public class AvaliacaoFornecedorDTO extends BaseEntity {
 
 	private Integer idAvaliacaoFornecedor;
 

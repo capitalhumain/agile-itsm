@@ -25,29 +25,13 @@ public class ConexaoBIServiceEjb extends CrudServiceImpl implements ConexaoBISer
     }
 
     /**
-     * Responsável por listar todas as conexões existentes ativas e inativas na tela Painel de Controle.
-     *
-     * @author thiago.barbosa
-     */
-    @Override
-    @SuppressWarnings("unchecked")
-    public Collection<ConexaoBIDTO> listAll() throws Exception {
-        return this.getDao().list();
-    }
-
-    @Override
-    public Collection findByIdConexao(final ConexaoBIDTO conexaoBIDTO) throws Exception {
-        return this.getDao().list();
-    }
-
-    /**
      * Responsável por verificar se já existe o nome a ser cadastrado.
      *
      * @author thiago.barbosa
      */
     @Override
     public boolean jaExisteRegistroComMesmoNome(final ConexaoBIDTO conexaoBIDTO) throws Exception {
-        return this.getDao().jaExisteRegistroComMesmoNome(conexaoBIDTO);
+        return getDao().jaExisteRegistroComMesmoNome(conexaoBIDTO);
     }
 
     /**
@@ -57,45 +41,46 @@ public class ConexaoBIServiceEjb extends CrudServiceImpl implements ConexaoBISer
      */
     @Override
     public boolean jaExisteRegistroComMesmoLink(final ConexaoBIDTO conexaoBIDTO) throws Exception {
-        return this.getDao().jaExisteRegistroComMesmoLink(conexaoBIDTO);
+        return getDao().jaExisteRegistroComMesmoLink(conexaoBIDTO);
     }
 
     @Override
     @SuppressWarnings("rawtypes")
     public Collection listarConexoesPaginadas(final Collection<ConexaoBIDTO> conexaoBIDTO, final Integer pgAtual, final Integer qtdPaginacao) throws Exception {
-        return this.getDao().listarConexoesPaginadas(conexaoBIDTO, pgAtual, qtdPaginacao);
+        return getDao().listarConexoesPaginadas(conexaoBIDTO, pgAtual, qtdPaginacao);
     }
 
     @Override
     @SuppressWarnings("rawtypes")
     public Collection listarConexoesPaginadasFiltradas(final ConexaoBIDTO conexaoBIDTO, final Integer pgAtual, final Integer qtdPaginacao) throws Exception {
-        return this.getDao().listarConexoesPaginadasFiltradas(conexaoBIDTO, pgAtual, qtdPaginacao);
+        return getDao().listarConexoesPaginadasFiltradas(conexaoBIDTO, pgAtual, qtdPaginacao);
     }
 
     @Override
     public Integer obterTotalDePaginas(final Integer itensPorPagina, final String loginUsuario, final ConexaoBIDTO conexaoBIBean) throws Exception {
         Integer total = 0;
 
-        // ESSA LISTA DE TAREFAS JÁ ESTÁ VINDO COM O DTO E NÃO DEVERIA VIR. CRIAR MÉTODO PARA TRAZER APENAS AS TAREFAS COM O IDINSTANCIA, QUE É A ÚNICA INFORMAÇÃO UTILIZADA NA
+        // ESSA LISTA DE TAREFAS JÁ ESTÁ VINDO COM O DTO E NÃO DEVERIA VIR. CRIAR MÉTODO PARA TRAZER APENAS AS TAREFAS COM O IDINSTANCIA, QUE É A ÚNICA
+        // INFORMAÇÃO UTILIZADA NA
         // CONSULTA ABAIXO.
         // List<TarefaFluxoDTO> listTarefasComSolicitacaoServico = recuperaTarefas(loginUsuario);
         //
         // listTarefas = listTarefasComSolicitacaoServico;
         // Comentado para centalizar o método abaixo
 
-        total = this.getDao().totalDePaginas(itensPorPagina, null, conexaoBIBean);
+        total = getDao().totalDePaginas(itensPorPagina, null, conexaoBIBean);
 
         return total;
     }
 
     @Override
     public ConexaoBIDTO findByIdProcessBatch(final Integer idProcessamentoBatch) throws Exception {
-        return this.getDao().findByIdProcessBatch(idProcessamentoBatch);
+        return getDao().findByIdProcessBatch(idProcessamentoBatch);
     }
 
     @Override
     public ArrayList<ConexaoBIDTO> listarConexoesAutomaticasSemAgendEspOuExcecao() throws ServiceException, Exception {
-        return this.getDao().listarConexoesAutomaticasSemAgendEspOuExcecao();
+        return getDao().listarConexoesAutomaticasSemAgendEspOuExcecao();
     }
 
     private void adicionaID(final StringBuilder idsProcessamentos, final Integer id) {
@@ -116,10 +101,10 @@ public class ConexaoBIServiceEjb extends CrudServiceImpl implements ConexaoBISer
     @SuppressWarnings("unchecked")
     public String getIdProcEspecificoOuExcecao() throws Exception {
         final StringBuilder idsProcessamentos = new StringBuilder();
-        final ArrayList<ConexaoBIDTO> conexoes = (ArrayList<ConexaoBIDTO>) this.getDao().list();
+        final ArrayList<ConexaoBIDTO> conexoes = (ArrayList<ConexaoBIDTO>) getDao().list();
         for (final ConexaoBIDTO conexaoBIDTO : conexoes) {
-            this.adicionaID(idsProcessamentos, conexaoBIDTO.getIdProcessamentoBatchEspecifico());
-            this.adicionaID(idsProcessamentos, conexaoBIDTO.getIdProcessamentoBatchExcecao());
+            adicionaID(idsProcessamentos, conexaoBIDTO.getIdProcessamentoBatchEspecifico());
+            adicionaID(idsProcessamentos, conexaoBIDTO.getIdProcessamentoBatchExcecao());
         }
         return idsProcessamentos.toString();
     }
@@ -131,7 +116,8 @@ public class ConexaoBIServiceEjb extends CrudServiceImpl implements ConexaoBISer
      *         se ela não for manual!
      */
     public ProcessamentoBatchDTO agendamentoAtivo(final ConexaoBIDTO conexaoBIDTO) throws Exception {
-        final ProcessamentoBatchService processamentoBatchService = (ProcessamentoBatchService) ServiceLocator.getInstance().getService(ProcessamentoBatchService.class, null);
+        final ProcessamentoBatchService processamentoBatchService = (ProcessamentoBatchService) ServiceLocator.getInstance().getService(
+                ProcessamentoBatchService.class, null);
         ProcessamentoBatchDTO processamentoBatchDTO = new ProcessamentoBatchDTO();
         if (conexaoBIDTO.getIdProcessamentoBatchEspecifico() != null) {
             processamentoBatchDTO.setIdProcessamentoBatch(conexaoBIDTO.getIdProcessamentoBatchEspecifico());
@@ -147,7 +133,8 @@ public class ConexaoBIServiceEjb extends CrudServiceImpl implements ConexaoBISer
 
     public ProcessamentoBatchDTO agendamentoExcecaoAtivo(final ConexaoBIDTO conexaoBIDTO) throws Exception {
         if (conexaoBIDTO.getIdProcessamentoBatchExcecao() != null) {
-            final ProcessamentoBatchService processamentoBatchService = (ProcessamentoBatchService) ServiceLocator.getInstance().getService(ProcessamentoBatchService.class, null);
+            final ProcessamentoBatchService processamentoBatchService = (ProcessamentoBatchService) ServiceLocator.getInstance().getService(
+                    ProcessamentoBatchService.class, null);
             ProcessamentoBatchDTO processamentoBatchDTO = new ProcessamentoBatchDTO();
             processamentoBatchDTO.setIdProcessamentoBatch(conexaoBIDTO.getIdProcessamentoBatchExcecao());
             processamentoBatchDTO = (ProcessamentoBatchDTO) processamentoBatchService.restore(processamentoBatchDTO);
@@ -167,10 +154,11 @@ public class ConexaoBIServiceEjb extends CrudServiceImpl implements ConexaoBISer
         Date data = null;
         // Filtrando somente as Conexões Automáticas!
         if (conexaoBIDTO != null && conexaoBIDTO.getTipoImportacao() != null && conexaoBIDTO.getTipoImportacao().equalsIgnoreCase("A")) {
-            final ProcessamentoBatchService processamentoBatchService = (ProcessamentoBatchService) ServiceLocator.getInstance().getService(ProcessamentoBatchService.class, null);
+            final ProcessamentoBatchService processamentoBatchService = (ProcessamentoBatchService) ServiceLocator.getInstance().getService(
+                    ProcessamentoBatchService.class, null);
             // Obtendo o agendamento atual da conexão [Específico ou Padrão]
-            final ProcessamentoBatchDTO processamentoBatchAg = this.agendamentoAtivo(conexaoBIDTO);
-            final ProcessamentoBatchDTO processamentoBatchExc = this.agendamentoExcecaoAtivo(conexaoBIDTO);
+            final ProcessamentoBatchDTO processamentoBatchAg = agendamentoAtivo(conexaoBIDTO);
+            final ProcessamentoBatchDTO processamentoBatchExc = agendamentoExcecaoAtivo(conexaoBIDTO);
             if (processamentoBatchAg != null && processamentoBatchAg.getExpressaoCRON() != null && processamentoBatchAg.getExpressaoCRON().length() > 0) {
                 Date dataEsp = null;
                 if (processamentoBatchAg != null && processamentoBatchAg.getExpressaoCRON() != null && processamentoBatchAg.getExpressaoCRON().length() > 0) {
@@ -207,9 +195,10 @@ public class ConexaoBIServiceEjb extends CrudServiceImpl implements ConexaoBISer
         Date data = null;
         // Filtrando somente as Conexões Automáticas!
         if (conexaoBIDTO != null && conexaoBIDTO.getTipoImportacao() != null && conexaoBIDTO.getTipoImportacao().equalsIgnoreCase("A")) {
-            final ProcessamentoBatchService processamentoBatchService = (ProcessamentoBatchService) ServiceLocator.getInstance().getService(ProcessamentoBatchService.class, null);
+            final ProcessamentoBatchService processamentoBatchService = (ProcessamentoBatchService) ServiceLocator.getInstance().getService(
+                    ProcessamentoBatchService.class, null);
             // Obtendo o agendamento atual da conexão [Específico ou Padrão]
-            final ProcessamentoBatchDTO processamentoBatchAg = this.agendamentoAtivo(conexaoBIDTO);
+            final ProcessamentoBatchDTO processamentoBatchAg = agendamentoAtivo(conexaoBIDTO);
             if (processamentoBatchAg != null && processamentoBatchAg.getExpressaoCRON() != null && processamentoBatchAg.getExpressaoCRON().length() > 0) {
                 Date dataEsp = null;
                 if (processamentoBatchAg != null && processamentoBatchAg.getExpressaoCRON() != null && processamentoBatchAg.getExpressaoCRON().length() > 0) {
@@ -227,14 +216,15 @@ public class ConexaoBIServiceEjb extends CrudServiceImpl implements ConexaoBISer
 
     @Override
     @SuppressWarnings("deprecation")
-    public BICitsmartResultRotinaDTO validaAgendamentoExcecao(final ConexaoBIDTO conexaoBIDTO, final ProcessamentoBatchDTO processamentoBatchDTO) throws ServiceException,
-            Exception {
+    public BICitsmartResultRotinaDTO validaAgendamentoExcecao(final ConexaoBIDTO conexaoBIDTO, final ProcessamentoBatchDTO processamentoBatchDTO)
+            throws ServiceException, Exception {
         final BICitsmartResultRotinaDTO resultValidacao = new BICitsmartResultRotinaDTO();
         resultValidacao.setResultado(false);
-        final Date dataProExecPadraoOuEspecifica = this.getProxDtExecucaoPadraoOuEspecifica(conexaoBIDTO);
+        final Date dataProExecPadraoOuEspecifica = getProxDtExecucaoPadraoOuEspecifica(conexaoBIDTO);
         final Date dataHoraAtual = new Date();
-        final Date dataHoraRealProxAgendamento = this.getProxDtExecucaoPadraoOuEspecifica(conexaoBIDTO);
-        final ProcessamentoBatchService processamentoBatchService = (ProcessamentoBatchService) ServiceLocator.getInstance().getService(ProcessamentoBatchService.class, null);
+        final Date dataHoraRealProxAgendamento = getProxDtExecucaoPadraoOuEspecifica(conexaoBIDTO);
+        final ProcessamentoBatchService processamentoBatchService = (ProcessamentoBatchService) ServiceLocator.getInstance().getService(
+                ProcessamentoBatchService.class, null);
         if (dataProExecPadraoOuEspecifica != null) {
             dataHoraRealProxAgendamento.setHours(dataProExecPadraoOuEspecifica.getHours() + 1);
             final Date dataForm = processamentoBatchService.proximaExecucao(processamentoBatchDTO.getExpressaoCRON());
@@ -243,12 +233,16 @@ public class ConexaoBIServiceEjb extends CrudServiceImpl implements ConexaoBISer
                 if (dataForm.compareTo(dataHoraAtual) < 0) {
                     resultValidacao.setResultado(false);
                     resultValidacao.setMensagem("Não foi possível agendar, data/hora deste agendamento, inferior a data/hora atual!");
-                } else if (dataForm.compareTo(dataProExecPadraoOuEspecifica) <= 0) { // validação se a data a ser executada estiver antes de uma hora da proxima execucao
+                } else if (dataForm.compareTo(dataProExecPadraoOuEspecifica) <= 0) { // validação se a data a ser executada estiver antes de uma hora da proxima
+                    // execucao
                     resultValidacao.setResultado(true);
-                } else if (dataForm.compareTo(dataProExecPadraoOuEspecifica) > 0 && dataForm.compareTo(dataHoraRealProxAgendamento) < 0) { // caso esteja a menos de uma hora da
-                                                                                                                                           // proxima execução
+                } else if (dataForm.compareTo(dataProExecPadraoOuEspecifica) > 0 && dataForm.compareTo(dataHoraRealProxAgendamento) < 0) { // caso esteja a
+                    // menos de uma hora
+                    // da
+                    // proxima execução
                     resultValidacao.setResultado(false);
-                    resultValidacao.setMensagem("Não foi possível agendar, data/hora deste agendamento está a menos de uma hora da data/hora da próxima execução agendada!");
+                    resultValidacao
+                    .setMensagem("Não foi possível agendar, data/hora deste agendamento está a menos de uma hora da data/hora da próxima execução agendada!");
                 } else {
                     resultValidacao.setResultado(false);// caso esteja superior a data/hora da proxima execução agendada
                     resultValidacao.setMensagem("Não foi possível agendar, data/hora deste agendamento, superior a data/hora da próxima execução agendada!");

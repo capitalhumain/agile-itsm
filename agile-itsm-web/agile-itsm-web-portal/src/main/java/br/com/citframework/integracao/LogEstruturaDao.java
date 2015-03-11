@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.citframework.dto.LogEstrutura;
 import br.com.citframework.dto.Usuario;
 import br.com.citframework.excecao.PersistenceException;
@@ -17,7 +17,7 @@ public class LogEstruturaDao extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public Collection<LogEstrutura> find(final IDto dto) throws PersistenceException {
+    public Collection<LogEstrutura> find(final BaseEntity dto) throws PersistenceException {
         return null;
     }
 

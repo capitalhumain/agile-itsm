@@ -2,9 +2,9 @@ package br.com.centralit.citcorpore.negocio;
 
 import java.util.Collection;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.GrupoItemConfiguracaoDTO;
 import br.com.centralit.citcorpore.integracao.GrupoItemConfiguracaoDAO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.CrudService;
@@ -22,7 +22,7 @@ public interface GrupoItemConfiguracaoService extends CrudService {
 	 */
 	public Collection<GrupoItemConfiguracaoDTO> listByEvento(Integer idEvento) throws ServiceException;
 	
-	public void updateNotNull(IDto dto) throws Exception;
+	public void updateNotNull(BaseEntity dto) throws Exception;
 	
 	public boolean verificaICRelacionados(GrupoItemConfiguracaoDTO grupoItemConfiguracao) throws PersistenceException, Exception;
 	

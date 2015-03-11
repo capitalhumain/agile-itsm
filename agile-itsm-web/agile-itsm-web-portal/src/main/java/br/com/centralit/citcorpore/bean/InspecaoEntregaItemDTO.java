@@ -2,9 +2,9 @@ package br.com.centralit.citcorpore.bean;
 
 import java.sql.Timestamp;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class InspecaoEntregaItemDTO implements IDto {
+public class InspecaoEntregaItemDTO extends BaseEntity {
 	private Integer idEntrega;
 	private Integer idCriterio;
 	private Timestamp dataHoraInspecao;

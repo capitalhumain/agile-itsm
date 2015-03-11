@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.ProjetoDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.Condition;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
@@ -58,7 +58,7 @@ public class ProjetoDao extends CrudDaoDefaultImpl {
 		return "PROJETOS";
 	}
 
-	public Collection find(IDto obj) throws PersistenceException {
+	public Collection find(BaseEntity obj) throws PersistenceException {
 		List condicao = new ArrayList();
 		List ordem = new ArrayList();
 		condicao.add(new Condition("deleted", "is", null));
@@ -112,7 +112,7 @@ public class ProjetoDao extends CrudDaoDefaultImpl {
     }
 
 	@Override
-	public void updateNotNull(IDto obj) throws PersistenceException {
+	public void updateNotNull(BaseEntity obj) throws PersistenceException {
 		super.updateNotNull(obj);
 	}
     

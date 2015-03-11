@@ -2,9 +2,9 @@ package br.com.centralit.citcorpore.bean;
 
 import java.sql.Date;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class RecursoAvaliacaoDTO implements IDto{
+public class RecursoAvaliacaoDTO extends BaseEntity{
 	private Date dataInicio;
 	private Date dataFim;
 	private Integer idGrupoRecurso;

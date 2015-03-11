@@ -3,9 +3,9 @@ package br.com.centralit.bpm.dto;
 import java.sql.Timestamp;
 import java.util.List;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class InstanciaFluxoDTO implements IDto {
+public class InstanciaFluxoDTO extends BaseEntity {
 
     private static final long serialVersionUID = -7198923723510246056L;
 

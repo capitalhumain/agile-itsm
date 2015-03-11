@@ -1,9 +1,9 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 @SuppressWarnings("serial")
-public class FaturaOSBIDTO implements IDto {
+public class FaturaOSBIDTO extends BaseEntity {
 	private Integer idFatura;
 	private Integer idOs;
 	private Integer idConexaoBI;

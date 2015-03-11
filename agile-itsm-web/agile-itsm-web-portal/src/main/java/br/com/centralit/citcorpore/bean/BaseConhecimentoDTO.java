@@ -13,7 +13,7 @@ import net.htmlparser.jericho.Source;
 
 import org.apache.commons.lang.StringUtils;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * DTO de BaseConhecimento.
@@ -22,7 +22,7 @@ import br.com.citframework.dto.IDto;
  * 
  */
 @SuppressWarnings("rawtypes")
-public class BaseConhecimentoDTO implements IDto {
+public class BaseConhecimentoDTO extends BaseEntity {
 
 	private static final long serialVersionUID = 3913360778332921835L;
 

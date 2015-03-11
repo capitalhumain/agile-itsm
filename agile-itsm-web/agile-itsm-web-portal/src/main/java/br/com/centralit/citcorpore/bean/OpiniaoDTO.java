@@ -3,9 +3,9 @@ package br.com.centralit.citcorpore.bean;
 import java.sql.Date;
 import java.sql.Timestamp;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class OpiniaoDTO implements IDto{
+public class OpiniaoDTO extends BaseEntity{
 	public static String QUEIXA = "Queixa";
 	public static String ELOGIO = "Elogio";
 	

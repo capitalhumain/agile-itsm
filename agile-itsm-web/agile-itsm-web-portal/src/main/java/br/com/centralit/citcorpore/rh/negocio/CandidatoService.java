@@ -2,9 +2,9 @@ package br.com.centralit.citcorpore.rh.negocio;
 
 import java.util.Collection;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citajax.html.DocumentHTML;
 import br.com.centralit.citcorpore.rh.bean.CandidatoDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.CrudService;
 
@@ -23,7 +23,7 @@ public interface CandidatoService extends CrudService {
      * @throws ServiceException
      * @throws Exception
      */
-    void deletarCandidato(final IDto model, final DocumentHTML document) throws ServiceException, Exception;
+    void deletarCandidato(final BaseEntity model, final DocumentHTML document) throws ServiceException, Exception;
 
     /**
      * @param obj
@@ -56,7 +56,7 @@ public interface CandidatoService extends CrudService {
 
     CandidatoDTO restoreByCpf(final String nome) throws Exception;
 
-    void updateNotNull(final IDto obj) throws Exception;
+    void updateNotNull(final BaseEntity obj) throws Exception;
 
     CandidatoDTO findByHashID(final String nome) throws Exception;
 

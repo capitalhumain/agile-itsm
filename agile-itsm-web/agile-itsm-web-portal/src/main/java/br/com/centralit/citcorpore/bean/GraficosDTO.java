@@ -3,13 +3,13 @@
  */
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * @author breno.guimaraes
  * 
  */
-public class GraficosDTO implements IDto {
+public class GraficosDTO extends BaseEntity {
 
 //    public String getScriptPlotGrafico(){
 //	

@@ -2,8 +2,8 @@ package br.com.centralit.citcorpore.metainfo.negocio;
 
 import java.util.Collection;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.metainfo.bean.VisaoDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.CrudService;
 
@@ -13,7 +13,7 @@ public interface VisaoService extends CrudService {
 
     VisaoDTO findByIdentificador(final String identificador) throws Exception;
 
-    void deleteVisao(final IDto model) throws Exception;
+    void deleteVisao(final BaseEntity model) throws Exception;
 
     void importar(final VisaoDTO visaoXML) throws Exception;
 

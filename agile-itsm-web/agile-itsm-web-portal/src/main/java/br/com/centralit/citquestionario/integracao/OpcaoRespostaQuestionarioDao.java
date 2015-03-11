@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citquestionario.bean.OpcaoRespostaQuestionarioDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.Condition;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
@@ -20,7 +20,7 @@ public class OpcaoRespostaQuestionarioDao extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public Collection<OpcaoRespostaQuestionarioDTO> find(final IDto obj) throws PersistenceException {
+    public Collection<OpcaoRespostaQuestionarioDTO> find(final BaseEntity obj) throws PersistenceException {
         return null;
     }
 

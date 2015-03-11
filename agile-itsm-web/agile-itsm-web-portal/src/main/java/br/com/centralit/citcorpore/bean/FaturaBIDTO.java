@@ -4,11 +4,11 @@ import java.util.Collection;
 
 import javax.servlet.http.HttpServletRequest;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.citframework.util.UtilI18N;
 
 @SuppressWarnings("rawtypes")
-public class FaturaBIDTO implements IDto {
+public class FaturaBIDTO extends BaseEntity {
 
 	private static final long serialVersionUID = -6417037963383545156L;
 	public static String EM_CRIACAO = "1";

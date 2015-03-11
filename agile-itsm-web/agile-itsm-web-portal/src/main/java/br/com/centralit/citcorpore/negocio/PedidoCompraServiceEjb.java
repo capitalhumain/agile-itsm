@@ -2,6 +2,7 @@ package br.com.centralit.citcorpore.negocio;
 import java.util.Collection;
 import java.util.HashMap;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.ColetaPrecoDTO;
 import br.com.centralit.citcorpore.bean.CotacaoItemRequisicaoDTO;
 import br.com.centralit.citcorpore.bean.CriterioAvaliacaoDTO;
@@ -25,7 +26,6 @@ import br.com.centralit.citcorpore.util.Enumerados.SituacaoItemRequisicaoProduto
 import br.com.centralit.citcorpore.util.Enumerados.SituacaoPedidoCompra;
 import br.com.centralit.citged.bean.ControleGEDDTO;
 import br.com.centralit.citged.negocio.ControleGEDServiceBean;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
@@ -183,7 +183,7 @@ public class PedidoCompraServiceEjb extends CrudServiceImpl implements PedidoCom
     }
 
     @Override
-    public IDto create(IDto model) throws ServiceException, LogicException {
+    public BaseEntity create(BaseEntity model) throws ServiceException, LogicException {
         PedidoCompraDao pedidoCompraDao = new PedidoCompraDao();
         TransactionControler tc = new TransactionControlerImpl(pedidoCompraDao.getAliasDB());
 
@@ -216,7 +216,7 @@ public class PedidoCompraServiceEjb extends CrudServiceImpl implements PedidoCom
     }
 
     @Override
-    public void update(IDto model) throws ServiceException, LogicException {
+    public void update(BaseEntity model) throws ServiceException, LogicException {
         PedidoCompraDao pedidoCompraDao = new PedidoCompraDao();
         TransactionControler tc = new TransactionControlerImpl(pedidoCompraDao.getAliasDB());
 
@@ -305,7 +305,7 @@ public class PedidoCompraServiceEjb extends CrudServiceImpl implements PedidoCom
     }
 
     @Override
-    public void delete(IDto model) throws ServiceException, LogicException {
+    public void delete(BaseEntity model) throws ServiceException, LogicException {
         PedidoCompraDao pedidoCompraDao = new PedidoCompraDao();
         TransactionControler tc = new TransactionControlerImpl(pedidoCompraDao.getAliasDB());
 

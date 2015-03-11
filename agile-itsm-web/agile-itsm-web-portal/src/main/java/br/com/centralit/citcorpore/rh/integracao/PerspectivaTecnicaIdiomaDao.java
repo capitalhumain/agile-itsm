@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.rh.bean.PerspectivaTecnicaIdiomaDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.Condition;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
@@ -23,7 +23,7 @@ public class PerspectivaTecnicaIdiomaDao extends CrudDaoDefaultImpl {
     private static final String SQL_NOME = " select idperspectivatecnicaidioma, descricaoidioma from rh_perspectivatecnicaidioma " + " where upper(descricaoidioma) like upper(?)";
 
     @Override
-    public Collection<PerspectivaTecnicaIdiomaDTO> find(final IDto arg0) throws PersistenceException {
+    public Collection<PerspectivaTecnicaIdiomaDTO> find(final BaseEntity arg0) throws PersistenceException {
         return null;
     }
 

@@ -2,10 +2,10 @@ package br.com.centralit.citcorpore.negocio;
 
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.HistoricoMudancaDTO;
 import br.com.centralit.citcorpore.bean.RequisicaoMudancaDTO;
 import br.com.centralit.citcorpore.integracao.HistoricoMudancaDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.service.CrudServiceImpl;
 
 public class HistoricoMudancaServiceEjb extends CrudServiceImpl implements HistoricoMudancaService {
@@ -21,7 +21,7 @@ public class HistoricoMudancaServiceEjb extends CrudServiceImpl implements Histo
     }
 
     @Override
-    public void updateNotNull(final IDto obj) throws Exception {
+    public void updateNotNull(final BaseEntity obj) throws Exception {
         this.getDao().updateNotNull(obj);
     }
 

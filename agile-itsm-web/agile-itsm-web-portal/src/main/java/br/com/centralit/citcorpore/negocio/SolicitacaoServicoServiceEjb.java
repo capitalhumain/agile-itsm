@@ -19,6 +19,7 @@ import net.htmlparser.jericho.Source;
 
 import org.apache.commons.lang.StringUtils;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.bpm.dto.FluxoDTO;
 import br.com.centralit.bpm.dto.TarefaFluxoDTO;
 import br.com.centralit.bpm.dto.TipoFluxoDTO;
@@ -119,7 +120,6 @@ import br.com.centralit.citged.bean.ControleGEDDTO;
 import br.com.centralit.citged.integracao.ControleGEDDao;
 import br.com.centralit.citquestionario.integracao.RespostaItemQuestionarioDao;
 import br.com.centralit.citquestionario.negocio.RespostaItemQuestionarioServiceBean;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.excecao.ServiceException;
@@ -142,7 +142,7 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 	private SolicitacaoServicoDao solicitacaoServicoDao;
 
 	@Override
-	public IDto create(IDto model) throws ServiceException, LogicException {
+	public BaseEntity create(BaseEntity model) throws ServiceException, LogicException {
 		TransactionControler tc = new TransactionControlerImpl(this.getDao().getAliasDB());
 		try {
 			tc.start();
@@ -163,7 +163,7 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 	}
 	
 
-	public IDto create(IDto model, TransactionControler tc, boolean determinaPrioridadePrazo, boolean determinaHoraInicio, boolean determinaDataHoraSolicitacao) throws Exception {
+	public BaseEntity create(BaseEntity model, TransactionControler tc, boolean determinaPrioridadePrazo, boolean determinaHoraInicio, boolean determinaDataHoraSolicitacao) throws Exception {
 		SolicitacaoServicoDTO solicitacaoServicoDto = (SolicitacaoServicoDTO) model;
 
 		ExecucaoSolicitacaoServiceEjb execucaoSolicitacaoService = new ExecucaoSolicitacaoServiceEjb();
@@ -518,7 +518,7 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 					solicitacaoServicoDto.setSolicitacaoServicoQuestionarioDTO(solQuestionarioDto);
 				} else {
 					ComplemInfSolicitacaoServicoService informacoesComplementaresService = getInformacoesComplementaresService(templateDto.getNomeClasseServico());
-					IDto informacoesComplementares = informacoesComplementaresService.deserializaObjeto(solicitacaoServicoDto.getInformacoesComplementares_serialize());
+					BaseEntity informacoesComplementares = informacoesComplementaresService.deserializaObjeto(solicitacaoServicoDto.getInformacoesComplementares_serialize());
 					solicitacaoServicoDto.setInformacoesComplementares(informacoesComplementares);
 				}
 			}
@@ -1982,7 +1982,7 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 		}
 	}
 
-	public void update(IDto model) throws LogicException, ServiceException {
+	public void update(BaseEntity model) throws LogicException, ServiceException {
 		ExecucaoSolicitacaoServiceEjb execucaoSolicitacaoService = new ExecucaoSolicitacaoServiceEjb();
 		TransactionControler tc = new TransactionControlerImpl(this.getDao().getAliasDB());
 		try {
@@ -2019,7 +2019,7 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 	}
 	}
 
-	public void updateSimples(IDto model) throws LogicException, ServiceException {
+	public void updateSimples(BaseEntity model) throws LogicException, ServiceException {
 		TransactionControler tc = new TransactionControlerImpl(this.getDao().getAliasDB());
 		try {
 			tc.start();
@@ -2047,7 +2047,7 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 		}
 	}
 
-	public IDto updateInfo(IDto model) throws ServiceException, LogicException {
+	public BaseEntity updateInfo(BaseEntity model) throws ServiceException, LogicException {
 		SolicitacaoServicoDTO solicitacaoServicoDto = (SolicitacaoServicoDTO) model;
 		TransactionControler tc = new TransactionControlerImpl( this.getDao().getAliasDB());
 		try {
@@ -2414,7 +2414,7 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 					if(!mudancaDescricao){
 						ModeloEmailDTO modeloEmailDto = new ModeloEmailDao().findByIdentificador("alterSolServDesc");
 						if(modeloEmailDto!=null){
-							MensagemEmail mensagem = new MensagemEmail(modeloEmailDto.getIdModeloEmail(), new IDto[] { aux });
+							MensagemEmail mensagem = new MensagemEmail(modeloEmailDto.getIdModeloEmail(), new BaseEntity[] { aux });
 							if(mensagem!=null){
 								mensagem.envia(emailPara, null, remetente);
 							}
@@ -2423,7 +2423,7 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 					}else{
 						ModeloEmailDTO modeloEmailDto = new ModeloEmailDao().findByIdentificador("alterSolServico");
 						if(modeloEmailDto!=null){
-							MensagemEmail mensagem = new MensagemEmail(modeloEmailDto.getIdModeloEmail(), new IDto[] { aux });
+							MensagemEmail mensagem = new MensagemEmail(modeloEmailDto.getIdModeloEmail(), new BaseEntity[] { aux });
 							if(mensagem!=null){
 								mensagem.envia(emailPara, null, remetente);
 							}
@@ -2446,14 +2446,14 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 	 * @throws LogicException
 	 */
 
-	public IDto updateInfoCollection(IDto model) throws ServiceException, LogicException {
+	public BaseEntity updateInfoCollection(BaseEntity model) throws ServiceException, LogicException {
 		SolicitacaoServicoDTO solicitacaoServicoDto = (SolicitacaoServicoDTO) model;
 
 		return solicitacaoServicoDto;
 	}
 
 	@Override
-	public void updateNotNull(IDto obj) throws Exception {
+	public void updateNotNull(BaseEntity obj) throws Exception {
 		this.getDao().updateNotNull(obj);
 
 	}
@@ -2466,7 +2466,7 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 	 * @throws ServiceException
 	 * @throws LogicException
 	 */
-	public void updateSLA(IDto model) throws ServiceException, LogicException {
+	public void updateSLA(BaseEntity model) throws ServiceException, LogicException {
 		SolicitacaoServicoDTO solicitacaoServicoDto = (SolicitacaoServicoDTO) model;
 		ExecucaoSolicitacaoServiceEjb execucaoSolicitacaoService = new ExecucaoSolicitacaoServiceEjb();
 		TransactionControler tc = new TransactionControlerImpl(this.getDao().getAliasDB());

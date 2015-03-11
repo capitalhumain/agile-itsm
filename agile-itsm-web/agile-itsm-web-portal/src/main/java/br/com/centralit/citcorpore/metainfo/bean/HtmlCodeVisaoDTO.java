@@ -3,9 +3,9 @@ package br.com.centralit.citcorpore.metainfo.bean;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class HtmlCodeVisaoDTO implements IDto {
+public class HtmlCodeVisaoDTO extends BaseEntity {
 	public static HtmlCodePartDTO HTMLCODE_INIT = new HtmlCodePartDTO("INIT", "visaoAdm.inicioAreaCentral");
 	public static HtmlCodePartDTO HTMLCODE_END  = new HtmlCodePartDTO("END", "visaoAdm.finalAreaCentral");
 	public static HtmlCodePartDTO HTMLCODE_INIT_FORM = new HtmlCodePartDTO("INIT_FORM", "visaoAdm.inicioFormulario");

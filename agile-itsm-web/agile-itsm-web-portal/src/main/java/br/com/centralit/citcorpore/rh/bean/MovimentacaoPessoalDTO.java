@@ -2,9 +2,9 @@ package br.com.centralit.citcorpore.rh.bean;
 
 import java.sql.Date;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class MovimentacaoPessoalDTO implements IDto {
+public class MovimentacaoPessoalDTO extends BaseEntity {
 	
 	private Integer numeroSolicitacaoPessoal;
 	private String nomeCandidato;

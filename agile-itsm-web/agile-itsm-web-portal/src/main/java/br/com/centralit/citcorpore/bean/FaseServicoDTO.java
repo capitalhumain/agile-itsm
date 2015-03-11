@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class FaseServicoDTO implements IDto {
+public class FaseServicoDTO extends BaseEntity {
 	private Integer idFase;
 	private String nomeFase;
 	private String faseCaptura;

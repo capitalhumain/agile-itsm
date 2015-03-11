@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citajax.html.AjaxFormAction;
 import br.com.centralit.citajax.html.DocumentHTML;
 import br.com.centralit.citajax.html.HTMLForm;
@@ -19,7 +20,6 @@ import br.com.centralit.citcorpore.negocio.ItemConfiguracaoService;
 import br.com.centralit.citcorpore.negocio.MidiaService;
 import br.com.centralit.citcorpore.negocio.MidiaSoftwareService;
 import br.com.centralit.citcorpore.negocio.TipoSoftwareService;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.service.ServiceLocator;
 import br.com.citframework.util.UtilDatas;
 import br.com.citframework.util.UtilI18N;
@@ -146,7 +146,7 @@ public class MidiaSoftware extends AjaxFormAction {
 		}
 	}
 
-	public void setMidiaSoftwareBean(IDto softwares) {
+	public void setMidiaSoftwareBean(BaseEntity softwares) {
 		this.midiaSoftwareBean = (MidiaSoftwareDTO) softwares;
 	}
 

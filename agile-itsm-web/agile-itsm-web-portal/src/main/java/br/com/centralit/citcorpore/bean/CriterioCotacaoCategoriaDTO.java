@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class CriterioCotacaoCategoriaDTO implements IDto {
+public class CriterioCotacaoCategoriaDTO extends BaseEntity {
 	private Integer idCategoria;
 	private Integer idCriterio;
 	private Integer pesoCotacao;

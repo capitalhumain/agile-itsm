@@ -2,9 +2,9 @@ package br.com.centralit.citcorpore.bean;
 
 import java.sql.Timestamp;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class CalculoJornadaDTO implements IDto {
+public class CalculoJornadaDTO extends BaseEntity {
 	private Integer idCalendario;
 	private Timestamp dataHoraInicial;
 	private Integer prazoHH;

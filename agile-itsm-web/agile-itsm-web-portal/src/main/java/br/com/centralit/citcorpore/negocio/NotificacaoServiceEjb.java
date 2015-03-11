@@ -2,6 +2,7 @@ package br.com.centralit.citcorpore.negocio;
 
 import java.util.Collection;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.NotificacaoDTO;
 import br.com.centralit.citcorpore.bean.NotificacaoGrupoDTO;
 import br.com.centralit.citcorpore.bean.NotificacaoServicoDTO;
@@ -10,7 +11,6 @@ import br.com.centralit.citcorpore.integracao.NotificacaoDao;
 import br.com.centralit.citcorpore.integracao.NotificacaoGrupoDao;
 import br.com.centralit.citcorpore.integracao.NotificacaoServicoDao;
 import br.com.centralit.citcorpore.integracao.NotificacaoUsuarioDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
 import br.com.citframework.integracao.TransactionControlerImpl;
@@ -29,7 +29,7 @@ public class NotificacaoServiceEjb extends CrudServiceImpl implements Notificaca
         return dao;
     }
 
-    public void deletarNotificacao(final IDto model) throws ServiceException, Exception {
+    public void deletarNotificacao(final BaseEntity model) throws ServiceException, Exception {
         final NotificacaoDTO notificacaoDto = (NotificacaoDTO) model;
         final TransactionControler transactionControler = new TransactionControlerImpl(this.getDao().getAliasDB());
 
@@ -169,7 +169,7 @@ public class NotificacaoServiceEjb extends CrudServiceImpl implements Notificaca
     }
 
     @Override
-    public IDto create(final IDto model) throws ServiceException, br.com.citframework.excecao.LogicException {
+    public BaseEntity create(final BaseEntity model) throws ServiceException, br.com.citframework.excecao.LogicException {
 
         final NotificacaoGrupoDao notificacaoGrupoDao = new NotificacaoGrupoDao();
         final NotificacaoUsuarioDao notificacaoUsuarioDao = new NotificacaoUsuarioDao();
@@ -239,7 +239,7 @@ public class NotificacaoServiceEjb extends CrudServiceImpl implements Notificaca
     }
 
     @Override
-    public void updateNotNull(final IDto obj) throws Exception {
+    public void updateNotNull(final BaseEntity obj) throws Exception {
         this.getDao().updateNotNull(obj);
     }
 

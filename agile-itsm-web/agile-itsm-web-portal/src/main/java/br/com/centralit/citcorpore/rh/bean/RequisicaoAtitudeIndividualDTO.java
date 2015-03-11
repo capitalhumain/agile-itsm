@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.rh.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class RequisicaoAtitudeIndividualDTO implements IDto {
+public class RequisicaoAtitudeIndividualDTO extends BaseEntity {
 	private Integer idSolicitacaoServico;
 	private Integer idAtitudeIndividual;
 	private String obrigatorio;

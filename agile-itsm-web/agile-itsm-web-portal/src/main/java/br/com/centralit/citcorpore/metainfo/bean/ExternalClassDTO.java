@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.metainfo.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class ExternalClassDTO implements IDto {
+public class ExternalClassDTO extends BaseEntity {
 	private String nameJar;
 	private String nameJarOriginal;
 	private String nameClass;

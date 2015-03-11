@@ -2,9 +2,9 @@ package br.com.centralit.citcorpore.bean;
 
 import java.sql.Date;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class RelatorioTop10IncidentesRequisicoesDTO implements IDto {
+public class RelatorioTop10IncidentesRequisicoesDTO extends BaseEntity {
 
 	private static final long serialVersionUID = -53946557530130345L;
 	

@@ -4,10 +4,10 @@ import java.util.Collection;
 
 import javax.servlet.http.HttpServletRequest;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citajax.html.DocumentHTML;
 import br.com.centralit.citcorpore.bean.SituacaoLiberacaoMudancaDTO;
 import br.com.centralit.citcorpore.integracao.SituacaoLiberacaoMudancaDAO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.CrudServiceImpl;
 import br.com.citframework.util.UtilI18N;
@@ -30,7 +30,7 @@ public class SituacaoLiberacaoMudancaServiceEjb extends CrudServiceImpl implemen
     }
 
     @Override
-    public void deletarSituacao(final IDto model, final DocumentHTML document, final HttpServletRequest request) throws ServiceException, Exception {
+    public void deletarSituacao(final BaseEntity model, final DocumentHTML document, final HttpServletRequest request) throws ServiceException, Exception {
         final SituacaoLiberacaoMudancaDTO situacaoDto = (SituacaoLiberacaoMudancaDTO) model;
         try {
 

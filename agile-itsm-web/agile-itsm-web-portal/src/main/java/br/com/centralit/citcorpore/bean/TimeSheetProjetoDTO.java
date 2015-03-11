@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class TimeSheetProjetoDTO implements IDto {
+public class TimeSheetProjetoDTO extends BaseEntity {
 	private Integer idTimeSheetProjeto;
 	private Integer idRecursoTarefaLinBaseProj;
 	private java.sql.Timestamp dataHoraReg;

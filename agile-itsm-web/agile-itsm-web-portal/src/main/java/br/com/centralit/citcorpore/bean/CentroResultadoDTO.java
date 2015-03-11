@@ -2,10 +2,10 @@ package br.com.centralit.citcorpore.bean;
 
 import java.util.Collection;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.citframework.util.UtilStrings;
 
-public class CentroResultadoDTO implements IDto {
+public class CentroResultadoDTO extends BaseEntity {
 
 	private static final long serialVersionUID = 5314639262309812533L;
 	

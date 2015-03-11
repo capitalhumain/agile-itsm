@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.negocio;
 import java.util.Collection;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.JornadaTrabalhoDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.CrudService;
 @SuppressWarnings("rawtypes")
@@ -16,7 +16,7 @@ public interface JornadaTrabalhoService extends CrudService {
 	 * @throws ServiceException
 	 * @throws Exception
 	 */
-	public String deletarJornada(IDto model) throws ServiceException, Exception;
+	public String deletarJornada(BaseEntity model) throws ServiceException, Exception;
 
 	/**
 	 * Consultar jornadas ativas

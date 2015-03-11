@@ -12,8 +12,8 @@ import java.sql.Types;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citged.bean.AssinaturaControleGEDDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.ConnectionProvider;
 import br.com.citframework.integracao.ConnectionReadOnlyProvider;
@@ -63,7 +63,7 @@ public class AssinaturaControleGEDDao extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public IDto create(final IDto obj) throws PersistenceException {
+    public BaseEntity create(final BaseEntity obj) throws PersistenceException {
         File f = null;
         final AssinaturaControleGEDDTO ass = (AssinaturaControleGEDDTO) obj;
         try (Connection conn = ConnectionProvider.getConnection(this.getDataBaseAlias()); PreparedStatement ps = conn.prepareStatement(SQL_INSERT);) {
@@ -89,7 +89,7 @@ public class AssinaturaControleGEDDao extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public IDto restore(final IDto obj) throws PersistenceException {
+    public BaseEntity restore(final BaseEntity obj) throws PersistenceException {
         File f = null;
         AssinaturaControleGEDDTO ret = null;
         final AssinaturaControleGEDDTO ass = (AssinaturaControleGEDDTO) obj;
@@ -129,7 +129,7 @@ public class AssinaturaControleGEDDao extends CrudDaoDefaultImpl {
 
     @Override
     @Deprecated
-    public Collection<AssinaturaControleGEDDTO> find(final IDto obj) throws PersistenceException {
+    public Collection<AssinaturaControleGEDDTO> find(final BaseEntity obj) throws PersistenceException {
         return null;
     }
 

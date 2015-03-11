@@ -16,11 +16,11 @@ package br.com.centralit.citcorpore.bean;
 
 import org.apache.commons.lang.StringUtils;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.citframework.util.UtilHTML;
 import br.com.citframework.util.UtilStrings;
 
-public class ContratoDTO implements IDto {
+public class ContratoDTO extends BaseEntity {
 
     private static final long serialVersionUID = -5899256214152706919L;
 

@@ -6,12 +6,12 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.ComplexidadeDTO;
 import br.com.centralit.citcorpore.bean.ContratoDTO;
 import br.com.centralit.citcorpore.bean.GrupoDTO;
 import br.com.centralit.citcorpore.bean.ServicoContratoDTO;
 import br.com.centralit.citcorpore.util.CITCorporeUtil;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.Condition;
@@ -79,7 +79,7 @@ public class ContratoDao extends CrudDaoDefaultImpl {
 		return ContratoDTO.class;
 	}
 
-	public Collection find(IDto arg0) throws PersistenceException {
+	public Collection find(BaseEntity arg0) throws PersistenceException {
 		return null;
 	}
 

@@ -2,11 +2,11 @@ package br.com.centralit.citcorpore.negocio;
 
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.MidiaSoftwareChaveDTO;
 import br.com.centralit.citcorpore.bean.MidiaSoftwareDTO;
 import br.com.centralit.citcorpore.integracao.MidiaSoftwareChaveDao;
 import br.com.centralit.citcorpore.integracao.MidiaSoftwareDAO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
@@ -26,7 +26,7 @@ public class MidiaSoftwareServiceEjb extends CrudServiceImpl implements MidiaSof
     }
 
     @Override
-    public IDto create(final IDto model) throws ServiceException, LogicException {
+    public BaseEntity create(final BaseEntity model) throws ServiceException, LogicException {
         MidiaSoftwareDTO midiaSoftwareDTO = (MidiaSoftwareDTO) model;
         final MidiaSoftwareDAO dao = this.getDao();
 
@@ -56,7 +56,7 @@ public class MidiaSoftwareServiceEjb extends CrudServiceImpl implements MidiaSof
     }
 
     @Override
-    public void update(final IDto model) throws ServiceException, LogicException {
+    public void update(final BaseEntity model) throws ServiceException, LogicException {
         final MidiaSoftwareDTO midiaSoftwareDTO = (MidiaSoftwareDTO) model;
         final MidiaSoftwareDAO dao = this.getDao();
 
@@ -84,7 +84,7 @@ public class MidiaSoftwareServiceEjb extends CrudServiceImpl implements MidiaSof
     }
 
     @Override
-    public IDto restore(final IDto model) throws ServiceException, LogicException {
+    public BaseEntity restore(final BaseEntity model) throws ServiceException, LogicException {
         MidiaSoftwareDTO midiaSoftwareDTO = null;
         try {
             midiaSoftwareDTO = (MidiaSoftwareDTO) this.getDao().restore(model);

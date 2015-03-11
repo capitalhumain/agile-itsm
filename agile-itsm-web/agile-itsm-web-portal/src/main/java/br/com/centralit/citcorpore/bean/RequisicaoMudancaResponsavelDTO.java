@@ -8,12 +8,12 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.citframework.util.DateAdapter;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "RequisicaoMudancaResponsavel") 
-public class RequisicaoMudancaResponsavelDTO implements IDto{
+public class RequisicaoMudancaResponsavelDTO extends BaseEntity{
 	private static final long serialVersionUID = 1L;
 	private Integer idRequisicaoMudanca;
 	private Integer idResponsavel;

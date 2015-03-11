@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class SNMPStorageDTO implements IDto {
+public class SNMPStorageDTO extends BaseEntity {
 	public static String FISICA = "F";
 	public static String DISCO = "D";
 	private String tipo;

@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.citframework.util.DateAdapter;
 
 /**
@@ -23,7 +23,7 @@ import br.com.citframework.util.DateAdapter;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "Caracteristica") 
-public class CaracteristicaDTO implements IDto {
+public class CaracteristicaDTO extends BaseEntity {
 
     public CaracteristicaDTO(String nome, ValorDTO valor) {
 		super();

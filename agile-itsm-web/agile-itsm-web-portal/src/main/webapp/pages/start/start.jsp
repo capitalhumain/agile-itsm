@@ -356,9 +356,7 @@
                                         </div>
                                     </form>
                                 </div>
-                            <%
-                                if(!br.com.citframework.util.Util.isVersionFree(request)) {
-                            %>
+
                                 <!-- STEP 8 -->
                                 <div class="g-content-inner hide">
                                     <form class="form-horizontal" id="frmIC" name="frmIC" action="${ctx}/pages/start/start.load" method="post" onsubmit="configuraParametrosIC(this); return false;" rel="step-10">
@@ -459,80 +457,6 @@
                                         </div>
                                     </form>
                                 </div>
-                            <%
-                                } else {
-                            %>
-                                <!-- STEP 9 -->
-                                <div class="g-content-inner hide">
-                                    <form class="form-horizontal" id="frmBase" name="frmBase" action="${ctx}/pages/start/start.load" method="post" rel="step-10" onsubmit="configuraParametrosBase(this); return false;">
-                                        <div class="row-fluid">
-                                            <div class="span12">
-                                                <div class="control-group">
-                                                    <h1 class="wrap"><fmt:message key="start.instalacao.8passo" /></h1>
-                                                    <p><fmt:message key="start.instalacao.configuracoesParametrizacoes" /></p>
-                                                    <section>
-                                                        <h3><fmt:message key="start.instalacao.baseConhecimento" /></h3>
-                                                        <div class="controls">
-                                                            <input id="current" name="current" type="hidden" />
-                                                            <input type="hidden" name="listAtributoBaseSerializado" id="idAtributoBaseSerializado">
-                                                        </div>
-                                                        <table class="tableLess m10" id="tabelaAtributosBase">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th><fmt:message key="start.instalacao.atributo" /></th>
-                                                                    <th><fmt:message key="start.instalacao.valor" /></th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody></tbody>
-                                                        </table>
-                                                    </section>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-actions">
-                                            <input type="button" value="<fmt:message key="start.instalacao.anterior" />" class=" content btn btn-primary" rel="step-8">
-                                            <input type="submit" value="<fmt:message key="start.instalacao.proximo" />" class=" content fire btn btn-primary">
-                                        </div>
-                                    </form>
-                                </div>
-
-                                <!-- STEP 10 -->
-                                <div class="g-content-inner hide">
-                                    <form class="form-horizontal" id="frmGeral" name="frmGeral" action="${ctx}/pages/start/start" method="post" onsubmit="configuraAplicacao(false); return false;">
-                                        <input id="current" name="current" type="hidden" />
-                                        <div class="row-fluid">
-                                            <div class="span12">
-                                                <div class="control-group">
-                                                    <div class="controls">
-                                                        <input type="hidden" name="listAtributoGeraisSerializado" id="idAtributoGeraisSerializado">
-                                                    </div>
-                                                    <h1 class="wrap"><fmt:message key="start.instalacao.9passo" /></h1>
-                                                    <p><fmt:message key="start.instalacao.configuracoesParametrizacoes" /></p>
-                                                    <section>
-                                                        <h3><fmt:message key="start.instalacao.gerais" /></h3>
-                                                        <table class="tableLess m10" id="tabelaAtributosGerais">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th><fmt:message key="start.instalacao.atributo" /></th>
-                                                                    <th><fmt:message key="start.instalacao.valor" /></th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody></tbody>
-                                                        </table>
-                                                    </section>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-actions">
-                                            <input type="button" value="<fmt:message key="start.instalacao.anterior" />" class=" content btn btn-primary" rel="step-9">
-                                            <input type="submit" id="concluir" value='<fmt:message key="start.instalacao.concluir" />' class=" content fire btn btn-primary">
-                                            <div id="Throbber_" class="throbber"></div>
-                                        </div>
-                                    </form>
-                                </div>
-                            <%
-                                }
-                            %>
                             </div>
                         </div>
                         <div class="g-unit marquee-image g-col-4"></div>

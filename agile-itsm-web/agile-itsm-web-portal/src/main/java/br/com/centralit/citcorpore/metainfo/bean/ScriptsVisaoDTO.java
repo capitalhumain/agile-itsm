@@ -3,9 +3,9 @@ package br.com.centralit.citcorpore.metainfo.bean;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class ScriptsVisaoDTO implements IDto {
+public class ScriptsVisaoDTO extends BaseEntity {
 	public static ScriptEventDTO SCRIPT_LOAD = new ScriptEventDTO("LOAD", "visaoAdm.aoCarregarTela");
 	public static ScriptEventDTO SCRIPT_VALIDADE = new ScriptEventDTO("VALIDADE", "itemRequisicaoProduto.validacao");
 	public static ScriptEventDTO SCRIPT_ONCREATE = new ScriptEventDTO("ONCREATE", "visaoAdm.aoInserir");

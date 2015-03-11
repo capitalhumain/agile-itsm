@@ -2,13 +2,13 @@ package br.com.centralit.citcorpore.bean;
 
 import java.sql.Date;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * @author mario.haysaki
  *
  */
-public class RelatorioListaNegraDTO implements IDto {
+public class RelatorioListaNegraDTO extends BaseEntity {
 	
 	private Integer idItemConfiguracao;
 	private Integer idGrupoItemConfiguracao;

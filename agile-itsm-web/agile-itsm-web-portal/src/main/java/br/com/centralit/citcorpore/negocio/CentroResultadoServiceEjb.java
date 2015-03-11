@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.AlcadaCentroResultadoDTO;
 import br.com.centralit.citcorpore.bean.CentroResultadoDTO;
 import br.com.centralit.citcorpore.bean.HistoricoRespCentroResultadoDTO;
@@ -18,7 +19,6 @@ import br.com.centralit.citcorpore.integracao.ResponsavelCentroResultadoProcesso
 import br.com.centralit.citged.bean.ControleGEDDTO;
 import br.com.centralit.citged.integracao.ControleGEDDao;
 import br.com.centralit.citged.negocio.ControleGEDServiceBean;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
@@ -361,7 +361,7 @@ public class CentroResultadoServiceEjb extends CrudServiceImpl implements Centro
     }
 
     @Override
-    public IDto create(final IDto model) throws ServiceException, LogicException {
+    public BaseEntity create(final BaseEntity model) throws ServiceException, LogicException {
         final ResponsavelCentroResultadoDao responsavelCentroResultadoDao = new ResponsavelCentroResultadoDao();
         final TransactionControler tc = new TransactionControlerImpl(this.getDao().getAliasDB());
 
@@ -442,7 +442,7 @@ public class CentroResultadoServiceEjb extends CrudServiceImpl implements Centro
     }
 
     @Override
-    public void update(final IDto model) throws ServiceException, LogicException {
+    public void update(final BaseEntity model) throws ServiceException, LogicException {
         final ResponsavelCentroResultadoDao responsavelCentroResultadoDao = new ResponsavelCentroResultadoDao();
         final TransactionControler tc = new TransactionControlerImpl(this.getDao().getAliasDB());
 
@@ -467,7 +467,7 @@ public class CentroResultadoServiceEjb extends CrudServiceImpl implements Centro
     }
 
     @Override
-    public IDto createAntigo(final IDto model) throws ServiceException, LogicException {
+    public BaseEntity createAntigo(final BaseEntity model) throws ServiceException, LogicException {
         final AlcadaCentroResultadoDAO alcadaCentroResultadoDao = new AlcadaCentroResultadoDAO();
         final TransactionControler tc = new TransactionControlerImpl(this.getDao().getAliasDB());
 
@@ -515,7 +515,7 @@ public class CentroResultadoServiceEjb extends CrudServiceImpl implements Centro
     }
 
     @Override
-    public void updateAntigo(final IDto model) throws ServiceException, LogicException {
+    public void updateAntigo(final BaseEntity model) throws ServiceException, LogicException {
         final AlcadaCentroResultadoDAO alcadaCentroResultadoDao = new AlcadaCentroResultadoDAO();
         final TransactionControler tc = new TransactionControlerImpl(this.getDao().getAliasDB());
 

@@ -3,9 +3,9 @@ package br.com.centralit.citcorpore.bean;
 import java.sql.Date;
 import java.util.Collection;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class ColetaPrecoDTO implements IDto {
+public class ColetaPrecoDTO extends BaseEntity {
     public static final String RESULT_MELHOR_COTACAO = "M";
     public static final String RESULT_EMPATE = "E";
     public static final String RESULT_DESCLASSIFICADA = "D";

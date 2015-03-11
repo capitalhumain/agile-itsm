@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.bpm.config.Config;
 import br.com.centralit.bpm.dto.ElementoFluxoDTO;
 import br.com.centralit.bpm.util.Enumerados.TipoElementoFluxo;
 import br.com.centralit.citcorpore.util.CITCorporeUtil;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.Condition;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
@@ -76,7 +76,7 @@ public class ElementoFluxoDao extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public Collection<ElementoFluxoDTO> find(final IDto arg0) throws PersistenceException {
+    public Collection<ElementoFluxoDTO> find(final BaseEntity arg0) throws PersistenceException {
         return null;
     }
 
@@ -111,13 +111,13 @@ public class ElementoFluxoDao extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public IDto create(final IDto obj) throws PersistenceException {
+    public BaseEntity create(final BaseEntity obj) throws PersistenceException {
         ((ElementoFluxoDTO) obj).setTipoElemento(this.getTipoElemento().name());
         return super.create(obj);
     }
 
     @Override
-    public IDto restore(IDto obj) throws PersistenceException {
+    public BaseEntity restore(BaseEntity obj) throws PersistenceException {
         obj = super.restore(obj);
         if (obj == null) {
             return null;

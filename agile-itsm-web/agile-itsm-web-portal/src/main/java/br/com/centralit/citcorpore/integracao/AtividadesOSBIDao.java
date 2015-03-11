@@ -3,8 +3,8 @@ package br.com.centralit.citcorpore.integracao;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.AtividadesOSBIDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
 import br.com.citframework.integracao.Field;
@@ -48,7 +48,7 @@ public class AtividadesOSBIDao extends CrudDaoDefaultImpl {
 		return AtividadesOSBIDTO.class;
 	}
 
-	public Collection find(IDto arg0) throws PersistenceException {
+	public Collection find(BaseEntity arg0) throws PersistenceException {
 		return null;
 	}
 

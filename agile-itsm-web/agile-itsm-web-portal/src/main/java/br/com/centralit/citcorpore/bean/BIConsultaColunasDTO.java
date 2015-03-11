@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class BIConsultaColunasDTO implements IDto {
+public class BIConsultaColunasDTO extends BaseEntity {
 	private Integer idConsultaColuna;
 	private Integer idConsulta;
 	private String nomeColuna;

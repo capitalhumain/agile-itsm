@@ -93,7 +93,7 @@
     </servlet-mapping>
 
     <session-config>
-        <session-timeout>600</session-timeout>
+        <session-timeout>30</session-timeout>
     </session-config>
 
     <!-- Configurando as paginas de erro do sistema -->
@@ -144,9 +144,5 @@
         <servlet-name>dwr-invoker</servlet-name>
         <url-pattern>/dwr/*</url-pattern>
     </servlet-mapping>
-
-    <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
-    </welcome-file-list>
 
 </web-app>

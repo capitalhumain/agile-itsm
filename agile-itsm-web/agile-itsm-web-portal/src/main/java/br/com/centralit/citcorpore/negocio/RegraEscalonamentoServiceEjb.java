@@ -2,11 +2,11 @@ package br.com.centralit.citcorpore.negocio;
 
 import java.util.Collection;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.EscalonamentoDTO;
 import br.com.centralit.citcorpore.bean.RegraEscalonamentoDTO;
 import br.com.centralit.citcorpore.integracao.EscalonamentoDAO;
 import br.com.centralit.citcorpore.integracao.RegraEscalonamentoDAO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
@@ -27,7 +27,7 @@ public class RegraEscalonamentoServiceEjb extends CrudServiceImpl implements Reg
     }
 
     @Override
-    public IDto create(final IDto model) throws ServiceException, LogicException {
+    public BaseEntity create(final BaseEntity model) throws ServiceException, LogicException {
         RegraEscalonamentoDTO regraEscalonamentoDTO = (RegraEscalonamentoDTO) model;
         final RegraEscalonamentoDAO regraEscalonamentoDAO = this.getDao();
         final EscalonamentoDAO escalonamentoDAO = new EscalonamentoDAO();
@@ -53,7 +53,7 @@ public class RegraEscalonamentoServiceEjb extends CrudServiceImpl implements Reg
     }
 
     @Override
-    public void update(final IDto model) throws ServiceException, LogicException {
+    public void update(final BaseEntity model) throws ServiceException, LogicException {
         final RegraEscalonamentoDTO regraEscalonamentoDTO = (RegraEscalonamentoDTO) model;
         final RegraEscalonamentoDAO regraEscalonamentoDAO = this.getDao();
         final EscalonamentoDAO escalonamentoDAO = new EscalonamentoDAO();
@@ -77,7 +77,7 @@ public class RegraEscalonamentoServiceEjb extends CrudServiceImpl implements Reg
     }
 
     @Override
-    public void delete(final IDto model) throws ServiceException, LogicException {
+    public void delete(final BaseEntity model) throws ServiceException, LogicException {
         final RegraEscalonamentoDTO regraEscalonamentoDTO = (RegraEscalonamentoDTO) model;
         final RegraEscalonamentoDAO regraEscalonamentoDAO = this.getDao();
         final EscalonamentoDAO escalonamentoDAO = new EscalonamentoDAO();

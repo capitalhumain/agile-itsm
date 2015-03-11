@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.CategoriaProdutoDTO;
 import br.com.centralit.citcorpore.bean.ColetaPrecoDTO;
 import br.com.centralit.citcorpore.bean.CotacaoDTO;
@@ -28,7 +29,6 @@ import br.com.centralit.citcorpore.util.Enumerados.ParametroSistema;
 import br.com.centralit.citcorpore.util.Enumerados.ResultadoValidacao;
 import br.com.centralit.citcorpore.util.Enumerados.SituacaoCotacao;
 import br.com.centralit.citcorpore.util.ParametroUtil;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
@@ -215,7 +215,7 @@ public class ItemCotacaoServiceEjb extends CrudServiceImpl implements ItemCotaca
     }
 
     @Override
-    public void delete(final IDto model) throws ServiceException, LogicException {
+    public void delete(final BaseEntity model) throws ServiceException, LogicException {
         ItemCotacaoDTO itemCotacaoDto = (ItemCotacaoDTO) model;
         final UsuarioDTO usuarioDto = itemCotacaoDto.getUsuarioDto();
         itemCotacaoDto = (ItemCotacaoDTO) this.restore(itemCotacaoDto);

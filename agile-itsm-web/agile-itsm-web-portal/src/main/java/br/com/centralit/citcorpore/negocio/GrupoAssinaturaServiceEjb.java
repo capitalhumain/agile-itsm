@@ -5,12 +5,12 @@ import java.util.Collection;
 
 import javax.servlet.http.HttpServletRequest;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.GrupoAssinaturaDTO;
 import br.com.centralit.citcorpore.bean.ItemGrupoAssinaturaDTO;
 import br.com.centralit.citcorpore.integracao.GrupoAssinaturaDAO;
 import br.com.centralit.citcorpore.integracao.ItemGrupoAssinaturaDAO;
 import br.com.centralit.citcorpore.util.ParametroUtil;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
 import br.com.citframework.integracao.TransactionControlerImpl;
@@ -36,7 +36,7 @@ public class GrupoAssinaturaServiceEjb extends CrudServiceImpl implements GrupoA
     }
 
     @Override
-    public IDto create(final IDto model, final ArrayList<ItemGrupoAssinaturaDTO> listaAssinaturas) throws ServiceException, br.com.citframework.excecao.LogicException {
+    public BaseEntity create(final BaseEntity model, final ArrayList<ItemGrupoAssinaturaDTO> listaAssinaturas) throws ServiceException, br.com.citframework.excecao.LogicException {
         GrupoAssinaturaDTO grupoAssinaturaDTO = (GrupoAssinaturaDTO) model;
         final GrupoAssinaturaDAO grupoAssinaturaDAO = this.getDao();
         final ItemGrupoAssinaturaDAO itemGrupoAssinaturaDAO = new ItemGrupoAssinaturaDAO();
@@ -61,7 +61,7 @@ public class GrupoAssinaturaServiceEjb extends CrudServiceImpl implements GrupoA
     }
 
     @Override
-    public void update(final IDto model, final ArrayList<ItemGrupoAssinaturaDTO> listaAssinaturas) throws ServiceException, br.com.citframework.excecao.LogicException {
+    public void update(final BaseEntity model, final ArrayList<ItemGrupoAssinaturaDTO> listaAssinaturas) throws ServiceException, br.com.citframework.excecao.LogicException {
         final GrupoAssinaturaDTO grupoAssinaturaDTO = (GrupoAssinaturaDTO) model;
         final GrupoAssinaturaDAO grupoAssinaturaDAO = this.getDao();
         final ItemGrupoAssinaturaDAO itemGrupoAssinaturaDAO = new ItemGrupoAssinaturaDAO();

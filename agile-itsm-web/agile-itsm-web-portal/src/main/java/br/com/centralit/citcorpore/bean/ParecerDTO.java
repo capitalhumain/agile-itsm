@@ -2,9 +2,9 @@ package br.com.centralit.citcorpore.bean;
 
 import java.sql.Timestamp;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class ParecerDTO implements IDto {
+public class ParecerDTO extends BaseEntity {
 	private static final long serialVersionUID = 1L;
 	private Integer idParecer;
 	private Integer idAlcada;

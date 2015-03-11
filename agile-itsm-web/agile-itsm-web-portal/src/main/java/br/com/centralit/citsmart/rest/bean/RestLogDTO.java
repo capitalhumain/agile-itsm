@@ -2,9 +2,9 @@ package br.com.centralit.citsmart.rest.bean;
 
 import java.sql.Timestamp;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class RestLogDTO implements IDto {
+public class RestLogDTO extends BaseEntity {
 
     private static final long serialVersionUID = -1906283961500145476L;
 

@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class CentreonLogDTO implements IDto {
+public class CentreonLogDTO extends BaseEntity {
 	private Integer log_id;
 	private Long ctime;
 	private String host_name;

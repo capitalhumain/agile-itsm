@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.SoftwaresListaNegraEncontradosDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
 import br.com.citframework.integracao.Field;
@@ -45,7 +45,7 @@ public class SoftwaresListaNegraEncontradosDao extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public Collection<SoftwaresListaNegraEncontradosDTO> find(final IDto obj) throws PersistenceException {
+    public Collection<SoftwaresListaNegraEncontradosDTO> find(final BaseEntity obj) throws PersistenceException {
         return null;
     }
 

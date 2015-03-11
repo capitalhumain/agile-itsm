@@ -3,10 +3,10 @@ package br.com.centralit.citcorpore.bean;
 import javax.naming.directory.DirContext;
 import javax.naming.ldap.LdapContext;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 @SuppressWarnings("serial")
-public class ServidorContextoDTO implements IDto {
+public class ServidorContextoDTO extends BaseEntity {
 	
 	private String ldpaFiltro;
 	private String ldpaAtributo;

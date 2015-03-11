@@ -11,6 +11,7 @@ import java.util.GregorianCalendar;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citajax.html.AjaxFormAction;
 import br.com.centralit.citajax.html.DocumentHTML;
 import br.com.centralit.citajax.html.HTMLSelect;
@@ -23,7 +24,6 @@ import br.com.centralit.citcorpore.negocio.SolicitacaoServicoService;
 import br.com.centralit.citcorpore.util.Enumerados;
 import br.com.centralit.citcorpore.util.Enumerados.TipoDemandaServico;
 import br.com.centralit.citcorpore.util.WebUtil;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.ServiceLocator;
 import br.com.citframework.util.UtilDatas;
@@ -81,7 +81,7 @@ public class GanttSolicitacaoServico extends AjaxFormAction {
      * @author valdoilo
      */
     public void filtrarGantt(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
-    	this.setGanttSolicitacaoServicoBean((IDto) document.getBean());
+    	this.setGanttSolicitacaoServicoBean((BaseEntity) document.getBean());
 
 		if (this.getGanttSolicitacaoServicoBean().getDataInicio() == null){
 		    document.alert(UtilI18N.internacionaliza(request, "citcorpore.comum.validacao.datainicio"));
@@ -308,7 +308,7 @@ public class GanttSolicitacaoServico extends AjaxFormAction {
      * 
      * @param ganttSolicitacaoServicoBean
      */
-    public void setGanttSolicitacaoServicoBean(IDto ganttSolicitacaoServicoBean) {
+    public void setGanttSolicitacaoServicoBean(BaseEntity ganttSolicitacaoServicoBean) {
 	this.ganttSolicitacaoServicoBean = (GanttSolicitacaoServicoDTO) ganttSolicitacaoServicoBean;
     }
 

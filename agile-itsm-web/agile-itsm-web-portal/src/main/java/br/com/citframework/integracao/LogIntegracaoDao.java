@@ -3,8 +3,8 @@ package br.com.citframework.integracao;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.IntegracaoSistemasExternosDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.util.Constantes;
 
@@ -42,7 +42,7 @@ public class LogIntegracaoDao extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public Collection find(final IDto arg0) throws PersistenceException {
+    public Collection find(final BaseEntity arg0) throws PersistenceException {
         return null;
     }
 

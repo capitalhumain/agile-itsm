@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.GrupoItemConfiguracaoDTO;
 import br.com.centralit.citcorpore.integracao.GrupoItemConfiguracaoDAO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.CrudServiceImpl;
@@ -39,7 +39,7 @@ public class GrupoItemConfiguracaoServiceEjb extends CrudServiceImpl implements 
     }
 
     @Override
-    public void updateNotNull(final IDto dto) {
+    public void updateNotNull(final BaseEntity dto) {
         try {
             this.validaUpdate(dto);
             this.getDao().updateNotNull(dto);
@@ -159,7 +159,7 @@ public class GrupoItemConfiguracaoServiceEjb extends CrudServiceImpl implements 
         }
     }
 
-    public IDto createWithID(final IDto obj) throws Exception {
+    public BaseEntity createWithID(final BaseEntity obj) throws Exception {
         return this.getDao().createWithID(obj);
     }
 

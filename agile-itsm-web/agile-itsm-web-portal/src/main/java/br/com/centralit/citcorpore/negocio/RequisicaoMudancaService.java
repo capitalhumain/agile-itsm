@@ -8,13 +8,13 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.BaseConhecimentoDTO;
 import br.com.centralit.citcorpore.bean.HistoricoMudancaDTO;
 import br.com.centralit.citcorpore.bean.PesquisaRequisicaoMudancaDTO;
 import br.com.centralit.citcorpore.bean.RequisicaoMudancaDTO;
 import br.com.centralit.citcorpore.bean.ServicoContratoDTO;
 import br.com.centralit.citcorpore.bean.UsuarioDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
@@ -38,10 +38,11 @@ public interface RequisicaoMudancaService extends CrudService {
 
     Collection findBySolictacaoServico(final RequisicaoMudancaDTO bean) throws ServiceException, LogicException;
 
-    void gravaInformacoesGED(final Collection colArquivosUpload, final int idEmpresa, final RequisicaoMudancaDTO requisicaoMudancaDto, final TransactionControler tc)
-            throws Exception;
+    void gravaInformacoesGED(final Collection colArquivosUpload, final int idEmpresa, final RequisicaoMudancaDTO requisicaoMudancaDto,
+            final TransactionControler tc) throws Exception;
 
-    void gravaPlanoDeReversaoGED(final RequisicaoMudancaDTO requisicaomudacaDTO, final TransactionControler tc, final HistoricoMudancaDTO historicoMudancaDTO) throws Exception;
+    void gravaPlanoDeReversaoGED(final RequisicaoMudancaDTO requisicaomudacaDTO, final TransactionControler tc, final HistoricoMudancaDTO historicoMudancaDTO)
+            throws Exception;
 
     Collection<RequisicaoMudancaDTO> listaMudancaPorBaseConhecimento(final RequisicaoMudancaDTO mudanca) throws Exception;
 
@@ -62,8 +63,6 @@ public interface RequisicaoMudancaService extends CrudService {
     List<RequisicaoMudancaDTO> listMudancaByIdItemConfiguracao(final Integer idItemConfiguracao) throws Exception;
 
     String getUrlInformacoesComplementares(final RequisicaoMudancaDTO requisicaoMudancaDTO) throws Exception;
-
-    void updateNotNull(final IDto obj) throws Exception;
 
     /**
      * Retorna uma lista de solicitacao servico associada a requisição mudanca
@@ -122,7 +121,7 @@ public interface RequisicaoMudancaService extends CrudService {
 
     /**
      * Retorna se a requisição mudança esta aprovada, reprovada ou aguardando votação
-     * 
+     *
      * @param requisicaoMudancaDto
      * @param tc
      * @return
@@ -147,12 +146,14 @@ public interface RequisicaoMudancaService extends CrudService {
 
     Collection listaIdETituloMudancasPorPeriodo(final RequisicaoMudancaDTO requisicaoMudancaDTO) throws Exception;
 
-    void update(final IDto requisicaoMudancaDto, final HttpServletRequest request) throws ServiceException, LogicException;
+    void update(final BaseEntity requisicaoMudancaDto, final HttpServletRequest request) throws ServiceException, LogicException;
 
     boolean verificaPermissaoGrupoCancelar(final Integer idTipoMudança, final Integer idGrupo) throws ServiceException, Exception;
 
     boolean verificarItensRelacionados(final RequisicaoMudancaDTO requisicaoMudancaDto) throws ServiceException, Exception;
 
     boolean planoDeReversaoInformado(final RequisicaoMudancaDTO requisicaoMudancaDto, final HttpServletRequest request) throws Exception;
+
+    void updateNotNull(final BaseEntity obj) throws Exception;
 
 }

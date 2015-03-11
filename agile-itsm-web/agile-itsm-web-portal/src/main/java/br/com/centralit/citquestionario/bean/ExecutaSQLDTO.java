@@ -1,8 +1,8 @@
 package br.com.centralit.citquestionario.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class ExecutaSQLDTO implements IDto {
+public class ExecutaSQLDTO extends BaseEntity {
 	private Integer value;
 	private String description;
 	public Integer getValue() {

@@ -4,7 +4,7 @@ import java.util.Collection;
 
 import org.apache.log4j.Logger;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.citframework.dto.Usuario;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
@@ -30,8 +30,8 @@ public abstract class CrudServiceImpl implements CrudService, IService {
     protected Usuario usuario;
 
     @Override
-    public IDto create(final IDto model) throws ServiceException, LogicException {
-        IDto createdModel = model;
+    public BaseEntity create(final BaseEntity model) throws ServiceException, LogicException {
+        BaseEntity createdModel = model;
 
         // Instancia Objeto controlador de transacao
         final CrudDAO crudDao = this.getDao();
@@ -59,7 +59,7 @@ public abstract class CrudServiceImpl implements CrudService, IService {
     }
 
     @Override
-    public IDto restore(final IDto model) throws ServiceException, LogicException {
+    public BaseEntity restore(final BaseEntity model) throws ServiceException, LogicException {
         try {
             return this.getDao().restore(model);
         } catch (final Exception e) {
@@ -69,7 +69,7 @@ public abstract class CrudServiceImpl implements CrudService, IService {
     }
 
     @Override
-    public void update(final IDto model) throws ServiceException, LogicException {
+    public void update(final BaseEntity model) throws ServiceException, LogicException {
         // Instancia Objeto controlador de transacao
         final CrudDAO crudDao = this.getDao();
         final TransactionControler tc = new TransactionControlerImpl(crudDao.getAliasDB());
@@ -95,7 +95,7 @@ public abstract class CrudServiceImpl implements CrudService, IService {
     }
 
     @Override
-    public void delete(final IDto model) throws ServiceException, LogicException {
+    public void delete(final BaseEntity model) throws ServiceException, LogicException {
         // Instancia Objeto controlador de transacao
         final CrudDAO crudDao = this.getDao();
         final TransactionControler tc = new TransactionControlerImpl(crudDao.getAliasDB());
@@ -131,7 +131,7 @@ public abstract class CrudServiceImpl implements CrudService, IService {
     }
 
     @Override
-    public Collection find(final IDto obj) throws LogicException, ServiceException {
+    public Collection find(final BaseEntity obj) throws LogicException, ServiceException {
         try {
             this.validaFind(obj);
             return this.getDao().find(obj);

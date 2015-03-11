@@ -1,13 +1,13 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * 
  * @author rodrigo.oliveira
  *
  */
-public class VinculaOsIncidenteDTO implements IDto {
+public class VinculaOsIncidenteDTO extends BaseEntity {
 	
 	private Integer idOS;
 	private Integer IdSolicitacaoServico;

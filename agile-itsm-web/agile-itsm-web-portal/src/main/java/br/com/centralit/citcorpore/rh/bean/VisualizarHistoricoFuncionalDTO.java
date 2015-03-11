@@ -2,13 +2,13 @@ package br.com.centralit.citcorpore.rh.bean;
 
 import java.sql.Date;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * @author david.silva
  *
  */
-public class VisualizarHistoricoFuncionalDTO implements IDto{
+public class VisualizarHistoricoFuncionalDTO extends BaseEntity{
 
 	private static final long serialVersionUID = 1L;
 	

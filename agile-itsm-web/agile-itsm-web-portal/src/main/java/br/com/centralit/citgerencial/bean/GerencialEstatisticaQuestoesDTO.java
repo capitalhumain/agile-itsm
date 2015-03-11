@@ -2,9 +2,9 @@ package br.com.centralit.citgerencial.bean;
 
 import java.sql.Date;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class GerencialEstatisticaQuestoesDTO implements IDto {
+public class GerencialEstatisticaQuestoesDTO extends BaseEntity {
 
 	/**
 	 * 

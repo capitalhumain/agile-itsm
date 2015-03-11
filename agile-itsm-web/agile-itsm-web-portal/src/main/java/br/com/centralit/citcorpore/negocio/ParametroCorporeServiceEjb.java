@@ -1,18 +1,15 @@
-/**
- * CentralIT - CITSmart
- */
 package br.com.centralit.citcorpore.negocio;
 
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.ParametroCorporeDTO;
 import br.com.centralit.citcorpore.integracao.ParametroCorporeDAO;
 import br.com.centralit.citcorpore.util.Enumerados.ParametroSistema;
 import br.com.centralit.citcorpore.util.ParametroUtil;
 import br.com.centralit.citcorpore.util.WebUtil;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
@@ -24,7 +21,6 @@ import br.com.citframework.util.UtilDatas;
  * @author valdoilo.damasceno
  *
  */
-@SuppressWarnings("unchecked")
 public class ParametroCorporeServiceEjb extends CrudServiceImpl implements ParametroCorporeService {
 
     private ParametroCorporeDAO dao;
@@ -40,7 +36,7 @@ public class ParametroCorporeServiceEjb extends CrudServiceImpl implements Param
     @Override
     public List<ParametroCorporeDTO> pesquisarParamentro(final Integer id, final String nomeParametro) throws ServiceException, LogicException, Exception {
         try {
-            return this.getDao().pesquisarParamentro(id, nomeParametro);
+            return getDao().pesquisarParamentro(id, nomeParametro);
         } catch (final Exception e) {
             return null;
         }
@@ -49,7 +45,7 @@ public class ParametroCorporeServiceEjb extends CrudServiceImpl implements Param
     @Override
     public ParametroCorporeDTO getParamentroAtivo(final Integer id) throws Exception {
         try {
-            return this.getDao().getParamentroAtivo(id);
+            return getDao().getParamentroAtivo(id);
         } catch (final Exception e) {
             return null;
         }
@@ -73,12 +69,11 @@ public class ParametroCorporeServiceEjb extends CrudServiceImpl implements Param
 
     /*
      * (non-Javadoc)
-	 * 
-	 * @see br.com.centralit.citcorpore.negocio.ParametroCorporeService# criarParametrosNovos()
+     * @see br.com.centralit.citcorpore.negocio.ParametroCorporeService# criarParametrosNovos()
      */
     @Override
     public void criarParametrosNovos() throws Exception {
-        final ParametroCorporeDAO dao = this.getDao();
+        final ParametroCorporeDAO dao = getDao();
         final TransactionControler tc = new TransactionControlerImpl(dao.getAliasDB());
 
         try {
@@ -97,7 +92,7 @@ public class ParametroCorporeServiceEjb extends CrudServiceImpl implements Param
                         dao.updateNotNull(parametro);
                         ParametroUtil.atualizarHashMapParametroCitSmart(parametroCitSmart.id(), parametro.getValor());
                     } catch (final Exception e) {
-						System.out.println("ERRO AO ATUALIZAR PARÂMETRO " + parametroCitSmart);
+                        System.out.println("ERRO AO ATUALIZAR PARÂMETRO " + parametroCitSmart);
                         e.printStackTrace();
                     }
                 } else {
@@ -112,7 +107,7 @@ public class ParametroCorporeServiceEjb extends CrudServiceImpl implements Param
                         dao.create(parametro);
                         ParametroUtil.atualizarHashMapParametroCitSmart(parametroCitSmart.id(), parametro.getValor());
                     } catch (final Exception e) {
-						System.out.println("ERRO AO CRIAR PARÂMETRO " + parametroCitSmart);
+                        System.out.println("ERRO AO CRIAR PARÂMETRO " + parametroCitSmart);
                         e.printStackTrace();
                     }
                 }
@@ -126,7 +121,7 @@ public class ParametroCorporeServiceEjb extends CrudServiceImpl implements Param
     @Override
     public void atualizarParametros(final ParametroCorporeDTO parametroDto) throws Exception {
         try {
-            this.getDao().updateNotNull(parametroDto);
+            getDao().updateNotNull(parametroDto);
 
             if (parametroDto.getId() != null) {
                 ParametroUtil.atualizarHashMapParametroCitSmart(parametroDto.getId(), parametroDto.getValor());
@@ -137,10 +132,10 @@ public class ParametroCorporeServiceEjb extends CrudServiceImpl implements Param
     }
 
     @Override
-    public void updateNotNull(final IDto dto) {
+    public void updateNotNull(final BaseEntity dto) {
         try {
-            this.validaUpdate(dto);
-            this.getDao().updateNotNull(dto);
+            validaUpdate(dto);
+            getDao().updateNotNull(dto);
         } catch (final Exception e) {
             e.printStackTrace();
         }
@@ -153,7 +148,7 @@ public class ParametroCorporeServiceEjb extends CrudServiceImpl implements Param
     @Override
     public void atualizarParametro(final Integer id, final String valor) throws Exception {
         try {
-            this.getDao().atualizarParametro(id, valor);
+            getDao().atualizarParametro(id, valor);
             ParametroUtil.atualizarHashMapParametroCitSmart(id, valor);
         } catch (final Exception e) {
             System.out.println("ERRO AO ATUALIZAR PARAMETRO");

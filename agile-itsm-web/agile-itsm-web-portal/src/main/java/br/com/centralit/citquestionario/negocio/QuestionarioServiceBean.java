@@ -3,6 +3,7 @@ package br.com.centralit.citquestionario.negocio;
 import java.util.Collection;
 import java.util.Iterator;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citged.bean.ControleGEDDTO;
 import br.com.centralit.citged.integracao.ControleGEDDao;
 import br.com.centralit.citquestionario.bean.GrupoQuestionarioDTO;
@@ -18,7 +19,6 @@ import br.com.centralit.citquestionario.integracao.QuestionarioDao;
 import br.com.centralit.citquestionario.integracao.RespostaItemQuestionarioAnexosDao;
 import br.com.centralit.citquestionario.integracao.RespostaItemQuestionarioDao;
 import br.com.centralit.citquestionario.integracao.RespostaItemQuestionarioOpcoesDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.CrudDAO;
@@ -120,7 +120,7 @@ public class QuestionarioServiceBean extends CrudServiceImpl implements Question
     }
 
     @Override
-    public IDto create(IDto model) throws ServiceException, LogicException {
+    public BaseEntity create(BaseEntity model) throws ServiceException, LogicException {
         // Instancia Objeto controlador de transacao
         final CrudDAO crudDao = this.getDao();
         final QuestaoQuestionarioDao questaoDao = new QuestaoQuestionarioDao();
@@ -272,7 +272,7 @@ public class QuestionarioServiceBean extends CrudServiceImpl implements Question
     }
 
     @Override
-    public void update(final IDto model) throws ServiceException, LogicException {
+    public void update(final BaseEntity model) throws ServiceException, LogicException {
         // Instancia Objeto controlador de transacao
         final QuestionarioDao crudDao = new QuestionarioDao();
         final QuestaoQuestionarioDao questaoDao = new QuestaoQuestionarioDao();
@@ -444,7 +444,7 @@ public class QuestionarioServiceBean extends CrudServiceImpl implements Question
     }
 
     @Override
-    public void updateOrdemGrupos(final IDto model) throws ServiceException, LogicException {
+    public void updateOrdemGrupos(final BaseEntity model) throws ServiceException, LogicException {
         // Instancia Objeto controlador de transacao
         final CrudDAO crudDao = this.getDao();
         final GrupoQuestionarioDao grupoDao = new GrupoQuestionarioDao();
@@ -478,7 +478,7 @@ public class QuestionarioServiceBean extends CrudServiceImpl implements Question
     }
 
     @Override
-    public void updateNomeGrupo(final IDto model) throws ServiceException, LogicException {
+    public void updateNomeGrupo(final BaseEntity model) throws ServiceException, LogicException {
         // Instancia Objeto controlador de transacao
         final CrudDAO crudDao = this.getDao();
         final GrupoQuestionarioDao grupoDao = new GrupoQuestionarioDao();
@@ -656,7 +656,7 @@ public class QuestionarioServiceBean extends CrudServiceImpl implements Question
     }
 
     @Override
-    public IDto restore(final IDto model) throws ServiceException, LogicException {
+    public BaseEntity restore(final BaseEntity model) throws ServiceException, LogicException {
         final GrupoQuestionarioDao grupoDao = new GrupoQuestionarioDao();
         final QuestaoQuestionarioDao questaoDao = new QuestaoQuestionarioDao();
         final OpcaoRespostaQuestionarioDao opcaoRespostaDao = new OpcaoRespostaQuestionarioDao();
@@ -816,7 +816,7 @@ public class QuestionarioServiceBean extends CrudServiceImpl implements Question
     }
 
     @Override
-    public void copyGroup(final IDto model) throws ServiceException, LogicException {
+    public void copyGroup(final BaseEntity model) throws ServiceException, LogicException {
         // Instancia Objeto controlador de transacao
         final CrudDAO crudDao = this.getDao();
         final QuestaoQuestionarioDao questaoDao = new QuestaoQuestionarioDao();

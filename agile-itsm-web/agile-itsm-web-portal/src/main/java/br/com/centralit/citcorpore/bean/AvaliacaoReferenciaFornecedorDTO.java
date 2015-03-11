@@ -1,9 +1,9 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 @SuppressWarnings("serial")
-public class AvaliacaoReferenciaFornecedorDTO implements IDto {
+public class AvaliacaoReferenciaFornecedorDTO extends BaseEntity {
 	private Integer idAvaliacaoFornecedor;
 	
 	private Integer idEmpregado;

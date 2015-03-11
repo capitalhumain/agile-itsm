@@ -1,8 +1,8 @@
 package br.com.centralit.bpm.dto;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class SequenciaFluxoDTO implements IDto {
+public class SequenciaFluxoDTO extends BaseEntity {
 
     private static final long serialVersionUID = 8226164140444325947L;
 

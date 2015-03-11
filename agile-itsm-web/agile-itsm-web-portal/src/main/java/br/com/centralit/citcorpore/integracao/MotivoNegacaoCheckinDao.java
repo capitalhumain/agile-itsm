@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.MotivoNegacaoCheckinDTO;
 import br.com.centralit.citcorpore.util.CITCorporeUtil;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.Condition;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
@@ -53,7 +53,7 @@ public class MotivoNegacaoCheckinDao extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public Collection<MotivoNegacaoCheckinDTO> find(final IDto motivo) throws PersistenceException {
+    public Collection<MotivoNegacaoCheckinDTO> find(final BaseEntity motivo) throws PersistenceException {
         return null;
     }
 

@@ -3,11 +3,11 @@ package br.com.centralit.citcorpore.negocio;
 import java.util.Collection;
 import java.util.Iterator;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.BIConsultaColunasDTO;
 import br.com.centralit.citcorpore.bean.BIConsultaDTO;
 import br.com.centralit.citcorpore.integracao.BIConsultaColunasDao;
 import br.com.centralit.citcorpore.integracao.BIConsultaDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.CrudDAO;
@@ -28,7 +28,7 @@ public class BIConsultaServiceEjb extends CrudServiceImpl implements BIConsultaS
     }
 
     @Override
-    public IDto create(IDto model) throws ServiceException, LogicException {
+    public BaseEntity create(BaseEntity model) throws ServiceException, LogicException {
         // Instancia Objeto controlador de transacao
         final CrudDAO crudDao = this.getDao();
         final BIConsultaColunasDao biConsultaColunasDao = new BIConsultaColunasDao();
@@ -70,7 +70,7 @@ public class BIConsultaServiceEjb extends CrudServiceImpl implements BIConsultaS
     }
 
     @Override
-    public void update(final IDto model) throws ServiceException, LogicException {
+    public void update(final BaseEntity model) throws ServiceException, LogicException {
         // Instancia Objeto controlador de transacao
         final CrudDAO crudDao = this.getDao();
         final BIConsultaColunasDao biConsultaColunasDao = new BIConsultaColunasDao();

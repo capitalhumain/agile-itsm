@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang.StringEscapeUtils;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citajax.html.DocumentHTML;
 import br.com.centralit.citcorpore.bean.CaracteristicaDTO;
 import br.com.centralit.citcorpore.bean.CaracteristicaTipoItemConfiguracaoDTO;
@@ -16,7 +17,6 @@ import br.com.centralit.citcorpore.bean.TipoItemConfiguracaoDTO;
 import br.com.centralit.citcorpore.integracao.CaracteristicaTipoItemConfiguracaoDAO;
 import br.com.centralit.citcorpore.integracao.TipoItemConfiguracaoDAO;
 import br.com.centralit.citcorpore.util.WebUtil;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.excecao.ServiceException;
@@ -46,50 +46,42 @@ public class TipoItemConfiguracaoServiceEjb extends CrudServiceImpl implements T
 
     private TipoItemConfiguracaoDTO tipoItemConfiguracaoBean;
 
-    /*
-     * (non-Javadoc)
-     * @see br.com.centralit.citcorpore.negocio.TipoItemConfiguracaoService#create (br.com.citframework.dto.IDto, javax.servlet.http.HttpServletRequest)
-     */
     @Override
-    public IDto create(final IDto tipoItemConfiguracao, final HttpServletRequest request) throws ServiceException, LogicException {
-        this.setTipoItemConfiguracaoBean(tipoItemConfiguracao);
+    public BaseEntity create(final BaseEntity tipoItemConfiguracao, final HttpServletRequest request) throws ServiceException, LogicException {
+        setTipoItemConfiguracaoBean(tipoItemConfiguracao);
 
-        final TransactionControler tc = new TransactionControlerImpl(this.getDao().getAliasDB());
+        final TransactionControler tc = new TransactionControlerImpl(getDao().getAliasDB());
         try {
-            this.validaCreate(this.getTipoItemConfiguracaoBean());
-            this.getDao().setTransactionControler(tc);
-            this.getCaracteristicaTipoItemConfiguracaoDao().setTransactionControler(tc);
+            validaCreate(getTipoItemConfiguracaoBean());
+            getDao().setTransactionControler(tc);
+            getCaracteristicaTipoItemConfiguracaoDao().setTransactionControler(tc);
 
             tc.start();
 
-            this.getTipoItemConfiguracaoBean().setDataInicio(UtilDatas.getDataAtual());
-            this.getTipoItemConfiguracaoBean().setIdEmpresa(WebUtil.getIdEmpresa(request));
-            this.getDao().create(tipoItemConfiguracao);
+            getTipoItemConfiguracaoBean().setDataInicio(UtilDatas.getDataAtual());
+            getTipoItemConfiguracaoBean().setIdEmpresa(WebUtil.getIdEmpresa(request));
+            getDao().create(tipoItemConfiguracao);
 
-            this.criarEAssociarCaracteristicaAoTipoItemConfiguracao();
+            criarEAssociarCaracteristicaAoTipoItemConfiguracao();
 
             tc.commit();
             tc.close();
         } catch (final Exception e) {
             e.printStackTrace();
-            this.rollbackTransaction(tc, e);
+            rollbackTransaction(tc, e);
         }
-        return this.getTipoItemConfiguracaoBean();
+        return getTipoItemConfiguracaoBean();
     }
 
-    /*
-     * (non-Javadoc)
-     * @see br.com.citframework.service.CrudServicePojoImpl#update(br.com.citframework .dto.IDto)
-     */
     @Override
-    public void update(final IDto tipoItemConfiguracao) throws ServiceException, LogicException {
-        this.setTipoItemConfiguracaoBean(tipoItemConfiguracao);
+    public void update(final BaseEntity tipoItemConfiguracao) throws ServiceException, LogicException {
+        setTipoItemConfiguracaoBean(tipoItemConfiguracao);
         try {
-            this.criarEAssociarCaracteristicaAoTipoItemConfiguracao();
+            criarEAssociarCaracteristicaAoTipoItemConfiguracao();
         } catch (final Exception e) {
             e.printStackTrace();
         }
-        super.update(this.getTipoItemConfiguracaoBean());
+        super.update(getTipoItemConfiguracaoBean());
     }
 
     /**
@@ -99,17 +91,17 @@ public class TipoItemConfiguracaoServiceEjb extends CrudServiceImpl implements T
      * @author valdoilo.damasceno
      */
     private void criarEAssociarCaracteristicaAoTipoItemConfiguracao() throws Exception {
-        if (this.getTipoItemConfiguracaoBean().getCaracteristicas() != null && !this.getTipoItemConfiguracaoBean().getCaracteristicas().isEmpty()) {
-            for (int i = 0; i < this.getTipoItemConfiguracaoBean().getCaracteristicas().size(); i++) {
-                final Integer idCaracteristica = ((CaracteristicaDTO) this.getTipoItemConfiguracaoBean().getCaracteristicas().get(i)).getIdCaracteristica();
+        if (getTipoItemConfiguracaoBean().getCaracteristicas() != null && !getTipoItemConfiguracaoBean().getCaracteristicas().isEmpty()) {
+            for (int i = 0; i < getTipoItemConfiguracaoBean().getCaracteristicas().size(); i++) {
+                final Integer idCaracteristica = ((CaracteristicaDTO) getTipoItemConfiguracaoBean().getCaracteristicas().get(i)).getIdCaracteristica();
 
                 final CaracteristicaTipoItemConfiguracaoDTO caracteristicaTipoItemConfiguracaoBean = new CaracteristicaTipoItemConfiguracaoDTO();
 
-                if (!this.getCaracteristicaTipoItemConfiguracaoDao().existeAssociacaoComCaracteristica(idCaracteristica, this.getTipoItemConfiguracaoBean().getId())) {
-                    caracteristicaTipoItemConfiguracaoBean.setIdTipoItemConfiguracao(this.getTipoItemConfiguracaoBean().getId());
+                if (!getCaracteristicaTipoItemConfiguracaoDao().existeAssociacaoComCaracteristica(idCaracteristica, getTipoItemConfiguracaoBean().getId())) {
+                    caracteristicaTipoItemConfiguracaoBean.setIdTipoItemConfiguracao(getTipoItemConfiguracaoBean().getId());
                     caracteristicaTipoItemConfiguracaoBean.setIdCaracteristica(idCaracteristica);
                     caracteristicaTipoItemConfiguracaoBean.setDataInicio(UtilDatas.getDataAtual());
-                    this.getCaracteristicaTipoItemConfiguracaoDao().create(caracteristicaTipoItemConfiguracaoBean);
+                    getCaracteristicaTipoItemConfiguracaoDao().create(caracteristicaTipoItemConfiguracaoBean);
                     // throw new LogicException("teste");
                 }
             }
@@ -149,10 +141,11 @@ public class TipoItemConfiguracaoServiceEjb extends CrudServiceImpl implements T
                 }
 
                 document.executeScript("setRestoreCaracteristica('" + caracteristicaBean.getIdCaracteristica() + "'," + "'"
-                        + br.com.citframework.util.WebUtil.codificaEnter(caracteristica) + "'," + "'" + br.com.citframework.util.WebUtil.codificaEnter(tag) + "'," + "'"
-                        + br.com.citframework.util.WebUtil.codificaEnter(StringEscapeUtils.escapeJavaScript(valor)) + "'," + "'"
-                        + br.com.citframework.util.WebUtil.codificaEnter(descricao) + "'," + "'" + br.com.citframework.util.WebUtil.codificaEnter(idEmpresa) + "'," + "'"
-                        + br.com.citframework.util.WebUtil.codificaEnter(dataInicio) + "'," + "'" + br.com.citframework.util.WebUtil.codificaEnter(dataFim) + "')");
+                        + br.com.citframework.util.WebUtil.codificaEnter(caracteristica) + "'," + "'" + br.com.citframework.util.WebUtil.codificaEnter(tag)
+                        + "'," + "'" + br.com.citframework.util.WebUtil.codificaEnter(StringEscapeUtils.escapeJavaScript(valor)) + "'," + "'"
+                        + br.com.citframework.util.WebUtil.codificaEnter(descricao) + "'," + "'" + br.com.citframework.util.WebUtil.codificaEnter(idEmpresa)
+                        + "'," + "'" + br.com.citframework.util.WebUtil.codificaEnter(dataInicio) + "'," + "'"
+                        + br.com.citframework.util.WebUtil.codificaEnter(dataFim) + "')");
             }
             document.executeScript("exibeGrid()");
         } else {
@@ -193,9 +186,10 @@ public class TipoItemConfiguracaoServiceEjb extends CrudServiceImpl implements T
                 }
 
                 document.executeScript("setRestoreCaracteristicaItemConfiguracaoFilho('" + caracteristicaBean.getIdCaracteristica() + "'," + "'"
-                        + br.com.citframework.util.WebUtil.codificaEnter(caracteristica) + "'," + "'" + br.com.citframework.util.WebUtil.codificaEnter(tag) + "'," + "'"
-                        + br.com.citframework.util.WebUtil.codificaEnter(valor) + "'," + "'" + br.com.citframework.util.WebUtil.codificaEnter(descricao) + "'," + "'"
-                        + br.com.citframework.util.WebUtil.codificaEnter(idEmpresa) + "'," + "'" + br.com.citframework.util.WebUtil.codificaEnter(dataInicio) + "'," + "'"
+                        + br.com.citframework.util.WebUtil.codificaEnter(caracteristica) + "'," + "'" + br.com.citframework.util.WebUtil.codificaEnter(tag)
+                        + "'," + "'" + br.com.citframework.util.WebUtil.codificaEnter(valor) + "'," + "'"
+                        + br.com.citframework.util.WebUtil.codificaEnter(descricao) + "'," + "'" + br.com.citframework.util.WebUtil.codificaEnter(idEmpresa)
+                        + "'," + "'" + br.com.citframework.util.WebUtil.codificaEnter(dataInicio) + "'," + "'"
                         + br.com.citframework.util.WebUtil.codificaEnter(dataFim) + "')");
             }
             document.executeScript("exibeGridPatrimonioItemFilho()");
@@ -229,10 +223,9 @@ public class TipoItemConfiguracaoServiceEjb extends CrudServiceImpl implements T
      * Configura Tipo Item Configuração.
      *
      * @param tipoItemConfiguracao
-     *            IDto
      * @author VMD
      */
-    private void setTipoItemConfiguracaoBean(final IDto tipoItemConfiguracao) {
+    private void setTipoItemConfiguracaoBean(final BaseEntity tipoItemConfiguracao) {
         tipoItemConfiguracaoBean = (TipoItemConfiguracaoDTO) tipoItemConfiguracao;
     }
 

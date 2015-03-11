@@ -1,8 +1,8 @@
 package br.com.centralit.citcorpore.metainfo.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
-public class BibliotecasExternasDTO implements IDto {
+public class BibliotecasExternasDTO extends BaseEntity {
 	private Integer idBibliotecasExterna;
 	private String nome;
 	private String caminho;

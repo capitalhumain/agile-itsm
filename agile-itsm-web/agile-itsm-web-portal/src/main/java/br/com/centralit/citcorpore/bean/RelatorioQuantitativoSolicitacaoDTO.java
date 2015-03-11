@@ -5,13 +5,13 @@ package br.com.centralit.citcorpore.bean;
 
 import java.sql.Date;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * @author Thays
  * 
  */
-public class RelatorioQuantitativoSolicitacaoDTO implements IDto {
+public class RelatorioQuantitativoSolicitacaoDTO extends BaseEntity {
 	private static final long serialVersionUID = 5769173299912237423L;
 	private String fase;
 	private String grupo;

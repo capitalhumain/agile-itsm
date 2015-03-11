@@ -14,6 +14,7 @@ import net.htmlparser.jericho.Source;
 
 import org.apache.commons.lang.StringUtils;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.bpm.dto.PermissoesFluxoDTO;
 import br.com.centralit.bpm.dto.TarefaFluxoDTO;
 import br.com.centralit.citcorpore.bean.BaseConhecimentoDTO;
@@ -64,7 +65,6 @@ import br.com.centralit.citcorpore.util.ParametroUtil;
 import br.com.centralit.citcorpore.util.Util;
 import br.com.centralit.citged.bean.ControleGEDDTO;
 import br.com.centralit.citged.integracao.ControleGEDDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.excecao.ServiceException;
@@ -148,7 +148,7 @@ public class ProblemaServiceEjb extends CrudServiceImpl implements ProblemaServi
 	}
 
 	@Override
-	public IDto create(IDto model) throws ServiceException, LogicException {
+	public BaseEntity create(BaseEntity model) throws ServiceException, LogicException {
 		// TODO DTO
 		ContatoProblemaDTO contatoProblemaDto = new ContatoProblemaDTO();
 		OcorrenciaProblemaDTO ocorrenciaProblemaDto = new OcorrenciaProblemaDTO();
@@ -391,7 +391,7 @@ public class ProblemaServiceEjb extends CrudServiceImpl implements ProblemaServi
 	}
 
 	@Override
-	public void update(IDto model) throws ServiceException, LogicException {
+	public void update(BaseEntity model) throws ServiceException, LogicException {
 		// TODO DTO
 		ContatoProblemaDTO contatoProblemaDto = new ContatoProblemaDTO();
 		OcorrenciaProblemaDTO ocorrenciaProblemaDto = new OcorrenciaProblemaDTO();
@@ -1599,7 +1599,7 @@ public class ProblemaServiceEjb extends CrudServiceImpl implements ProblemaServi
 	}
 
 	@Override
-	public void updateNotNull(IDto obj) throws Exception {
+	public void updateNotNull(BaseEntity obj) throws Exception {
 		getDao().updateNotNull(obj);
 	}
 
@@ -1716,7 +1716,7 @@ public class ProblemaServiceEjb extends CrudServiceImpl implements ProblemaServi
 			TemplateSolicitacaoServicoDTO templateDto = new TemplateSolicitacaoServicoServiceEjb().recuperaTemplateProblema(problemaDto);
 			if (templateDto != null && templateDto.getNomeClasseServico() != null) {
 				ComplemInfProblemaServicoService informacoesComplementaresService = getInformacoesComplementaresService(templateDto.getNomeClasseServico());
-				IDto informacoesComplementares = informacoesComplementaresService.deserializaObjeto(problemaDto.getInformacoesComplementares_serialize());
+				BaseEntity informacoesComplementares = informacoesComplementaresService.deserializaObjeto(problemaDto.getInformacoesComplementares_serialize());
 				problemaDto.setInformacoesComplementares(informacoesComplementares);
 			}
 			problemaDto.setInformacoesComplementares_serialize(null);

@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.InformacoesContratoConfigDTO;
 import br.com.centralit.citcorpore.bean.InformacoesContratoPerfSegDTO;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.Condition;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
@@ -20,7 +20,7 @@ public class InformacoesContratoPerfSegDao extends CrudDaoDefaultImpl {
 		super(Constantes.getValue("DATABASE_ALIAS"), null);
 	}
 	
-	public Collection find(IDto obj) throws PersistenceException
+	public Collection find(BaseEntity obj) throws PersistenceException
 	{
 	    List order =  new ArrayList();
 	    order.add(new Order("idPerfilSeguranca", "ASC"));

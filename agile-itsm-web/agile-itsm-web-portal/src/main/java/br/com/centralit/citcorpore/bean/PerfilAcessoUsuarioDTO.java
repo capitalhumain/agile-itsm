@@ -5,14 +5,14 @@ package br.com.centralit.citcorpore.bean;
 
 import java.sql.Date;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * DTO de PerfilAcessoUsuario.
  * 
  * @author valdoilo.damasceno
  */
-public class PerfilAcessoUsuarioDTO implements IDto {
+public class PerfilAcessoUsuarioDTO extends BaseEntity {
 
     private static final long serialVersionUID = 4622694451305944947L;
 

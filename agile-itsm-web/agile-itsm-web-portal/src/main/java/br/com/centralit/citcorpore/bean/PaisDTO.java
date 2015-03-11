@@ -1,9 +1,9 @@
 package br.com.centralit.citcorpore.bean;
 
-import br.com.citframework.dto.IDto;
+import br.com.agileitsm.model.support.BaseEntity;
 
 @SuppressWarnings("serial")
-public class PaisDTO implements IDto {
+public class PaisDTO extends BaseEntity {
 
 	private Integer idPais;
 

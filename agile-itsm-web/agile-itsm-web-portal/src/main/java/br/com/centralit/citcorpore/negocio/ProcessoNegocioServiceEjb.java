@@ -2,13 +2,13 @@ package br.com.centralit.citcorpore.negocio;
 
 import java.util.Collection;
 
+import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.bpm.dto.TipoFluxoDTO;
 import br.com.centralit.bpm.integracao.TipoFluxoDao;
 import br.com.centralit.citcorpore.bean.ProcessoNegocioDTO;
 import br.com.centralit.citcorpore.bean.ProcessoNivelAutoridadeDTO;
 import br.com.centralit.citcorpore.integracao.ProcessoNegocioDao;
 import br.com.centralit.citcorpore.integracao.ProcessoNivelAutoridadeDao;
-import br.com.citframework.dto.IDto;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
@@ -28,7 +28,7 @@ public class ProcessoNegocioServiceEjb extends CrudServiceImpl implements Proces
     }
 
     @Override
-    public IDto create(final IDto model) throws ServiceException, LogicException {
+    public BaseEntity create(final BaseEntity model) throws ServiceException, LogicException {
         final ProcessoNegocioDao processoNegocioDao = new ProcessoNegocioDao();
         final ProcessoNivelAutoridadeDao processoNivelAutoridadeDao = new ProcessoNivelAutoridadeDao();
         final TransactionControler tc = new TransactionControlerImpl(processoNegocioDao.getAliasDB());
@@ -80,7 +80,7 @@ public class ProcessoNegocioServiceEjb extends CrudServiceImpl implements Proces
     }
 
     @Override
-    public void update(final IDto model) throws ServiceException, LogicException {
+    public void update(final BaseEntity model) throws ServiceException, LogicException {
         final ProcessoNegocioDao processoNegocioDao = new ProcessoNegocioDao();
         final ProcessoNivelAutoridadeDao processoNivelAutoridadeDao = new ProcessoNivelAutoridadeDao();
         final TransactionControler tc = new TransactionControlerImpl(processoNegocioDao.getAliasDB());
