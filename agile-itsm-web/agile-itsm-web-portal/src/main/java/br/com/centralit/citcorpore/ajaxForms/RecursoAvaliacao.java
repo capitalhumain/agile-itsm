@@ -14,7 +14,7 @@ import java.util.Iterator;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
@@ -72,7 +72,7 @@ public class RecursoAvaliacao extends AjaxFormAction {
 				GrupoRecursosDTO grupoRecursosDTO = (GrupoRecursosDTO) it.next();
 				if (grupoRecursosDTO.getDeleted() == null
 						|| grupoRecursosDTO.getDeleted().equalsIgnoreCase("n")) {
-					idGrupoRecurso.addOption("" + grupoRecursosDTO.getIdGrupoRecurso(),StringEscapeUtils.escapeJavaScript(grupoRecursosDTO.getNomeGrupoRecurso()));
+					idGrupoRecurso.addOption("" + grupoRecursosDTO.getIdGrupoRecurso(),StringEscapeUtils.escapeEcmaScript(grupoRecursosDTO.getNomeGrupoRecurso()));
 				}
 			}
 		}		
@@ -144,7 +144,7 @@ public class RecursoAvaliacao extends AjaxFormAction {
 		}
 		
 		Collection colMudancasIC = null;
-		Collection colBlackoutsTotais = new ArrayList();
+		Collection colBlackoutsTotais = new ArrayList<>();
 		if (recursoDTO.getIdItemConfiguracao() != null){
 			colMudancasIC = requisicaoMudancaItemConfiguracaoService.findByIdItemConfiguracao(recursoDTO.getIdItemConfiguracao());
 			if (colMudancasIC != null){
@@ -568,7 +568,7 @@ public class RecursoAvaliacao extends AjaxFormAction {
 		}
 		
 		Collection colMudancasIC = null;
-		Collection colBlackoutsTotais = new ArrayList();
+		Collection colBlackoutsTotais = new ArrayList<>();
 		if (recursoDTO.getIdItemConfiguracao() != null){
 			colMudancasIC = requisicaoMudancaItemConfiguracaoService.findByIdItemConfiguracao(recursoDTO.getIdItemConfiguracao());
 			if (colMudancasIC != null){

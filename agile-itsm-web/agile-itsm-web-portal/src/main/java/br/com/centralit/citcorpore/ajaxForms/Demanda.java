@@ -76,7 +76,7 @@ public class Demanda extends AjaxFormAction {
 		prjPesq.setIdCliente(demanda.getIdCliente());
 		prjPesq.setSituacao("A");
 		
-		Collection colProjetos = new ArrayList();
+		Collection colProjetos = new ArrayList<>();
 		if (demanda.getIdCliente() != null){
 			colProjetos = projetoService.find(prjPesq);
 		}

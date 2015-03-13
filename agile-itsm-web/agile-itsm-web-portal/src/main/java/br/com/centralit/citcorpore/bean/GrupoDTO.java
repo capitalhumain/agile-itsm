@@ -15,445 +15,454 @@ import br.com.centralit.bpm.dto.PermissoesFluxoDTO;
 import br.com.centralit.citcorpore.util.Util;
 import br.com.citframework.util.DateTimeAdapter;
 
-@SuppressWarnings("rawtypes")
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "Grupo") 
+@XmlRootElement(name = "Grupo")
 public class GrupoDTO extends BaseEntity {
 
-	private static final long serialVersionUID = -7848776827100833523L;
-	
-	private String permiteSuspensaoReativacao;
-	
-	private Integer idGrupo;
+    private static final long serialVersionUID = -7848776827100833523L;
 
-	private Integer idTipoFluxo;
+    private String permiteSuspensaoReativacao;
 
-	private Integer idEmpresa;
+    private Integer idGrupo;
 
-	private Integer idPerfilAcessoGrupo;
+    private Integer idTipoFluxo;
 
-	private String nome;
+    private Integer idEmpresa;
 
-	private String criar;
+    private Integer idPerfilAcessoGrupo;
 
-	private String executar;
+    private String nome;
 
-	private String delegar;
+    private String criar;
 
-	private String suspender;
+    private String executar;
 
-	@XmlElement(name = "dataInicio")
-	@XmlJavaTypeAdapter(DateTimeAdapter.class)	
-	private Date dataInicio;
+    private String delegar;
 
-	@XmlElement(name = "dataFim")
-	@XmlJavaTypeAdapter(DateTimeAdapter.class)	
-	private Date dataFim;
+    private String suspender;
 
-	private String descricao;
+    @XmlElement(name = "dataInicio")
+    @XmlJavaTypeAdapter(DateTimeAdapter.class)
+    private Date dataInicio;
 
-	private Collection colItens;
+    @XmlElement(name = "dataFim")
+    @XmlJavaTypeAdapter(DateTimeAdapter.class)
+    private Date dataFim;
 
-	private Integer[] idContrato;
+    private String descricao;
 
-	private String empregadosSerializados;
-	
-	private String empregadosSerializadosAux;
-	
-	private String emailsSerializados;
+    private Collection colItens;
+
+    private Integer[] idContrato;
+
+    private String empregadosSerializados;
+
+    private String empregadosSerializadosAux;
+
+    private String emailsSerializados;
 
     private Integer paginaSelecionadaColaborador;
-	
-	private String sigla;
 
-	private String serviceDesk;
+    private String sigla;
 
-	private ArrayList<PermissoesFluxoDTO> permissoesFluxos;
-	
-	private String comiteConsultivoMudanca;
-	
-	/*Notificações de e-mail*/
-	private String abertura;
-	private String andamento;
-	private String encerramento;
-	
-	private String[] colEmpregadoCheckado = null;
-	
-	private String AllEmpregadosCheckados;
-	/**
-	 * @return valor do atributo idGrupo.
-	 */
-	public Integer getIdGrupo() {
-		return idGrupo;
-	}
+    private String serviceDesk;
 
-	/**
-	 * Define valor do atributo idGrupo.
-	 * 
-	 * @param idGrupo
-	 */
-	public void setIdGrupo(Integer idGrupo) {
-		this.idGrupo = idGrupo;
-	}
+    private ArrayList<PermissoesFluxoDTO> permissoesFluxos;
 
-	/**
-	 * @return valor do atributo idEmpresa.
-	 */
-	public Integer getIdEmpresa() {
-		return idEmpresa;
-	}
+    private String comiteConsultivoMudanca;
 
-	/**
-	 * Define valor do atributo idEmpresa.
-	 * 
-	 * @param idEmpresa
-	 */
-	public void setIdEmpresa(Integer idEmpresa) {
-		this.idEmpresa = idEmpresa;
-	}
+    /* Notificações de e-mail */
+    private String abertura;
+    private String andamento;
+    private String encerramento;
 
-	/**
-	 * @return valor do atributo idPerfilAcessoGrupo.
-	 */
-	public Integer getIdPerfilAcessoGrupo() {
-		return idPerfilAcessoGrupo;
-	}
+    private String[] colEmpregadoCheckado = null;
 
-	/**
-	 * Define valor do atributo idPerfilAcessoGrupo.
-	 * 
-	 * @param idPerfilAcessoGrupo
-	 */
-	public void setIdPerfilAcessoGrupo(Integer idPerfilAcessoGrupo) {
-		this.idPerfilAcessoGrupo = idPerfilAcessoGrupo;
-	}
+    private String AllEmpregadosCheckados;
 
-	/**
-	 * @return valor do atributo nome.
-	 */
-	public String getNome() {
-		return Util.tratarAspasSimples( nome );
-	}
+    /**
+     * @return valor do atributo idGrupo.
+     */
+    public Integer getIdGrupo() {
+        return idGrupo;
+    }
 
-	/**
-	 * Define valor do atributo nome.
-	 * 
-	 * @param nome
-	 */
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    /**
+     * Define valor do atributo idGrupo.
+     *
+     * @param idGrupo
+     */
+    public void setIdGrupo(final Integer idGrupo) {
+        this.idGrupo = idGrupo;
+    }
 
-	/**
-	 * @return valor do atributo dataInicio.
-	 */
-	public Date getDataInicio() {
-		return dataInicio;
-	}
+    /**
+     * @return valor do atributo idEmpresa.
+     */
+    public Integer getIdEmpresa() {
+        return idEmpresa;
+    }
 
-	/**
-	 * Define valor do atributo dataInicio.
-	 * 
-	 * @param dataInicio
-	 */
-	public void setDataInicio(Date dataInicio) {
-		this.dataInicio = dataInicio;
-	}
+    /**
+     * Define valor do atributo idEmpresa.
+     *
+     * @param idEmpresa
+     */
+    public void setIdEmpresa(final Integer idEmpresa) {
+        this.idEmpresa = idEmpresa;
+    }
 
-	/**
-	 * @return valor do atributo dataFim.
-	 */
-	public Date getDataFim() {
-		return dataFim;
-	}
+    /**
+     * @return valor do atributo idPerfilAcessoGrupo.
+     */
+    public Integer getIdPerfilAcessoGrupo() {
+        return idPerfilAcessoGrupo;
+    }
 
-	/**
-	 * Define valor do atributo dataFim.
-	 * 
-	 * @param dataFim
-	 */
-	public void setDataFim(Date dataFim) {
-		this.dataFim = dataFim;
-	}
+    /**
+     * Define valor do atributo idPerfilAcessoGrupo.
+     *
+     * @param idPerfilAcessoGrupo
+     */
+    public void setIdPerfilAcessoGrupo(final Integer idPerfilAcessoGrupo) {
+        this.idPerfilAcessoGrupo = idPerfilAcessoGrupo;
+    }
 
-	/**
-	 * @return valor do atributo descricao.
-	 */
-	public String getDescricao() {
-		return Util.tratarAspasSimples(descricao);
-	}
+    /**
+     * @return valor do atributo nome.
+     */
+    public String getNome() {
+        return Util.tratarAspasSimples(nome);
+    }
 
-	/**
-	 * Define valor do atributo descricao.
-	 * 
-	 * @param descricao
-	 */
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
+    /**
+     * Define valor do atributo nome.
+     *
+     * @param nome
+     */
+    public void setNome(final String nome) {
+        this.nome = nome;
+    }
 
-	/**
-	 * @return valor do atributo colItens.
-	 */
-	public Collection getColItens() {
-		return colItens;
-	}
+    /**
+     * @return valor do atributo dataInicio.
+     */
+    public Date getDataInicio() {
+        return dataInicio;
+    }
 
-	/**
-	 * Define valor do atributo colItens.
-	 * 
-	 * @param colItens
-	 */
-	public void setColItens(Collection colItens) {
-		this.colItens = colItens;
-	}
+    /**
+     * Define valor do atributo dataInicio.
+     *
+     * @param dataInicio
+     */
+    public void setDataInicio(final Date dataInicio) {
+        this.dataInicio = dataInicio;
+    }
 
-	public String getSigla() {
-		return Util.tratarAspasSimples(sigla);
-	}
+    /**
+     * @return valor do atributo dataFim.
+     */
+    public Date getDataFim() {
+        return dataFim;
+    }
 
-	public void setSigla(String sigla) {
-		this.sigla = sigla;
-	}
+    /**
+     * Define valor do atributo dataFim.
+     *
+     * @param dataFim
+     */
+    public void setDataFim(final Date dataFim) {
+        this.dataFim = dataFim;
+    }
 
-	public String getServiceDesk() {
-		return serviceDesk;
-	}
+    /**
+     * @return valor do atributo descricao.
+     */
+    public String getDescricao() {
+        return Util.tratarAspasSimples(descricao);
+    }
 
-	public void setServiceDesk(String serviceDesk) {
-		this.serviceDesk = serviceDesk;
-	}
+    /**
+     * Define valor do atributo descricao.
+     *
+     * @param descricao
+     */
+    public void setDescricao(final String descricao) {
+        this.descricao = descricao;
+    }
 
-	/**
-	 * @return the empregadosSerializados
-	 */
-	public String getEmpregadosSerializados() {
-		return empregadosSerializados;
-	}
+    /**
+     * @return valor do atributo colItens.
+     */
+    public Collection getColItens() {
+        return colItens;
+    }
 
-	/**
-	 * @param empregadosSerializados
-	 *            the empregadosSerializados to set
-	 */
-	public void setEmpregadosSerializados(String empregadosSerializados) {
-		this.empregadosSerializados = empregadosSerializados;
-	}
+    /**
+     * Define valor do atributo colItens.
+     *
+     * @param colItens
+     */
+    public void setColItens(final Collection colItens) {
+        this.colItens = colItens;
+    }
 
-	public String getEmailsSerializados() {
-		return emailsSerializados;
-	}
+    public String getSigla() {
+        return Util.tratarAspasSimples(sigla);
+    }
 
-	public void setEmailsSerializados(String emailsSerializados) {
-		this.emailsSerializados = emailsSerializados;
-	}
+    public void setSigla(final String sigla) {
+        this.sigla = sigla;
+    }
 
-	/**
-	 * @return the idTipoFluxo
-	 */
-	public Integer getIdTipoFluxo() {
-		return idTipoFluxo;
-	}
+    public String getServiceDesk() {
+        return serviceDesk;
+    }
 
-	/**
-	 * @param idTipoFluxo
-	 *            the idTipoFluxo to set
-	 */
-	public void setIdTipoFluxo(Integer idTipoFluxo) {
-		this.idTipoFluxo = idTipoFluxo;
-	}
+    public void setServiceDesk(final String serviceDesk) {
+        this.serviceDesk = serviceDesk;
+    }
 
-	/**
-	 * @return the criar
-	 */
-	public String getCriar() {
-		return criar;
-	}
+    /**
+     * @return the empregadosSerializados
+     */
+    public String getEmpregadosSerializados() {
+        return empregadosSerializados;
+    }
 
-	/**
-	 * @param criar
-	 *            the criar to set
-	 */
-	public void setCriar(String criar) {
-		this.criar = criar;
-	}
+    /**
+     * @param empregadosSerializados
+     *            the empregadosSerializados to set
+     */
+    public void setEmpregadosSerializados(final String empregadosSerializados) {
+        this.empregadosSerializados = empregadosSerializados;
+    }
 
-	/**
-	 * @return the executar
-	 */
-	public String getExecutar() {
-		return executar;
-	}
+    public String getEmailsSerializados() {
+        return emailsSerializados;
+    }
 
-	/**
-	 * @param executar
-	 *            the executar to set
-	 */
-	public void setExecutar(String executar) {
-		this.executar = executar;
-	}
+    public void setEmailsSerializados(final String emailsSerializados) {
+        this.emailsSerializados = emailsSerializados;
+    }
 
-	/**
-	 * @return the delegar
-	 */
-	public String getDelegar() {
-		return delegar;
-	}
+    /**
+     * @return the idTipoFluxo
+     */
+    public Integer getIdTipoFluxo() {
+        return idTipoFluxo;
+    }
 
-	/**
-	 * @param delegar
-	 *            the delegar to set
-	 */
-	public void setDelegar(String delegar) {
-		this.delegar = delegar;
-	}
+    /**
+     * @param idTipoFluxo
+     *            the idTipoFluxo to set
+     */
+    public void setIdTipoFluxo(final Integer idTipoFluxo) {
+        this.idTipoFluxo = idTipoFluxo;
+    }
 
-	/**
-	 * @return the suspender
-	 */
-	public String getSuspender() {
-		return suspender;
-	}
+    /**
+     * @return the criar
+     */
+    public String getCriar() {
+        return criar;
+    }
 
-	/**
-	 * @param suspender
-	 *            the suspender to set
-	 */
-	public void setSuspender(String suspender) {
-		this.suspender = suspender;
-	}
+    /**
+     * @param criar
+     *            the criar to set
+     */
+    public void setCriar(final String criar) {
+        this.criar = criar;
+    }
 
-	public ArrayList<PermissoesFluxoDTO> getPermissoesFluxos() {
-		return permissoesFluxos;
-	}
+    /**
+     * @return the executar
+     */
+    public String getExecutar() {
+        return executar;
+    }
 
-	public void setPermissoesFluxos(ArrayList<PermissoesFluxoDTO> permissoesFluxos) {
-		this.permissoesFluxos = permissoesFluxos;
-	}
+    /**
+     * @param executar
+     *            the executar to set
+     */
+    public void setExecutar(final String executar) {
+        this.executar = executar;
+    }
 
-	public Integer[] getIdContrato() {
-		return idContrato;
-	}
+    /**
+     * @return the delegar
+     */
+    public String getDelegar() {
+        return delegar;
+    }
 
-	public void setIdContrato(Integer[] idContrato) {
-		this.idContrato = idContrato;
-	}
+    /**
+     * @param delegar
+     *            the delegar to set
+     */
+    public void setDelegar(final String delegar) {
+        this.delegar = delegar;
+    }
 
-	public String getAbertura() {
-		return abertura;
-	}
+    /**
+     * @return the suspender
+     */
+    public String getSuspender() {
+        return suspender;
+    }
 
-	public void setAbertura(String abertura) {
-		this.abertura = abertura;
-	}
+    /**
+     * @param suspender
+     *            the suspender to set
+     */
+    public void setSuspender(final String suspender) {
+        this.suspender = suspender;
+    }
 
-	public String getAndamento() {
-		return andamento;
-	}
+    public ArrayList<PermissoesFluxoDTO> getPermissoesFluxos() {
+        return permissoesFluxos;
+    }
 
-	public void setAndamento(String andamento) {
-		this.andamento = andamento;
-	}
+    public void setPermissoesFluxos(final ArrayList<PermissoesFluxoDTO> permissoesFluxos) {
+        this.permissoesFluxos = permissoesFluxos;
+    }
 
-	public String getEncerramento() {
-		return encerramento;
-	}
+    public Integer[] getIdContrato() {
+        return idContrato;
+    }
 
-	public void setEncerramento(String encerramento) {
-		this.encerramento = encerramento;
-	}
+    public void setIdContrato(final Integer[] idContrato) {
+        this.idContrato = idContrato;
+    }
 
-	/**
-	 * @return the comiteControleMudanca
-	 */
-	public String getComiteConsultivoMudanca() {
-		return comiteConsultivoMudanca;
-	}
+    public String getAbertura() {
+        return abertura;
+    }
 
-	/**
-	 * @param comiteControleMudanca the comiteControleMudanca to set
-	 */
-	public void setComiteConsultivoMudanca(String comiteControleMudanca) {
-		this.comiteConsultivoMudanca = comiteControleMudanca;
-	}
+    public void setAbertura(final String abertura) {
+        this.abertura = abertura;
+    }
 
-	public Integer getPaginaSelecionadaColaborador() {
-		return paginaSelecionadaColaborador;
-	}
+    public String getAndamento() {
+        return andamento;
+    }
 
-	public void setPaginaSelecionadaColaborador(Integer paginaSelecionadaColaborador) {
-		this.paginaSelecionadaColaborador = paginaSelecionadaColaborador;
-	}
+    public void setAndamento(final String andamento) {
+        this.andamento = andamento;
+    }
 
-	public String getEmpregadosSerializadosAux() {
-		return empregadosSerializadosAux;
-	}
+    public String getEncerramento() {
+        return encerramento;
+    }
 
-	public void setEmpregadosSerializadosAux(String empregadosSerializadosAux) {
-		this.empregadosSerializadosAux = empregadosSerializadosAux;
-	}
+    public void setEncerramento(final String encerramento) {
+        this.encerramento = encerramento;
+    }
 
-	public String getPermiteSuspensaoReativacao() {
-		return permiteSuspensaoReativacao;
-	}
+    /**
+     * @return the comiteControleMudanca
+     */
+    public String getComiteConsultivoMudanca() {
+        return comiteConsultivoMudanca;
+    }
 
-	public void setPermiteSuspensaoReativacao(String permiteSuspensaoReativacao) {
-		this.permiteSuspensaoReativacao = permiteSuspensaoReativacao;
-	}
+    /**
+     * @param comiteControleMudanca
+     *            the comiteControleMudanca to set
+     */
+    public void setComiteConsultivoMudanca(final String comiteControleMudanca) {
+        comiteConsultivoMudanca = comiteControleMudanca;
+    }
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((idGrupo == null) ? 0 : idGrupo.hashCode());
-		return result;
-	}
+    public Integer getPaginaSelecionadaColaborador() {
+        return paginaSelecionadaColaborador;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		GrupoDTO other = (GrupoDTO) obj;
-		if (idGrupo == null) {
-			if (other.idGrupo != null)
-				return false;
-		} else if (!idGrupo.equals(other.idGrupo))
-			return false;
-		return true;
-	}
+    public void setPaginaSelecionadaColaborador(final Integer paginaSelecionadaColaborador) {
+        this.paginaSelecionadaColaborador = paginaSelecionadaColaborador;
+    }
 
-	/**
-	 * @return the AllEmpregadosCheckados
-	 */
-	public String[] getColEmpregadoCheckado() {
-		return colEmpregadoCheckado;
-	}
+    public String getEmpregadosSerializadosAux() {
+        return empregadosSerializadosAux;
+    }
 
-	/**
-	 * @param AllEmpregadosCheckados the AllEmpregadosCheckados to set
-	 */
-	public void setColEmpregadoCheckado(String checkados) {
-		 if (checkados != null)   
-	            this.colEmpregadoCheckado = checkados.split(";");
-	        else
-	            this.colEmpregadoCheckado = new String[]{};
-	}
+    public void setEmpregadosSerializadosAux(final String empregadosSerializadosAux) {
+        this.empregadosSerializadosAux = empregadosSerializadosAux;
+    }
 
-	/**
-	 * @return the allEmpregadosCheckados
-	 */
-	public String getAllEmpregadosCheckados() {
-		return AllEmpregadosCheckados;
-	}
+    public String getPermiteSuspensaoReativacao() {
+        return permiteSuspensaoReativacao;
+    }
 
-	/**
-	 * @param allEmpregadosCheckados the allEmpregadosCheckados to set
-	 */
-	public void setAllEmpregadosCheckados(String allEmpregadosCheckados) {
-		AllEmpregadosCheckados = allEmpregadosCheckados;
-	}
+    public void setPermiteSuspensaoReativacao(final String permiteSuspensaoReativacao) {
+        this.permiteSuspensaoReativacao = permiteSuspensaoReativacao;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + (idGrupo == null ? 0 : idGrupo.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (this.getClass() != obj.getClass()) {
+            return false;
+        }
+        final GrupoDTO other = (GrupoDTO) obj;
+        if (idGrupo == null) {
+            if (other.idGrupo != null) {
+                return false;
+            }
+        } else if (!idGrupo.equals(other.idGrupo)) {
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * @return the AllEmpregadosCheckados
+     */
+    public String[] getColEmpregadoCheckado() {
+        return colEmpregadoCheckado;
+    }
+
+    /**
+     * @param AllEmpregadosCheckados
+     *            the AllEmpregadosCheckados to set
+     */
+    public void setColEmpregadoCheckado(final String checkados) {
+        if (checkados != null) {
+            colEmpregadoCheckado = checkados.split(";");
+        } else {
+            colEmpregadoCheckado = new String[] {};
+        }
+    }
+
+    /**
+     * @return the allEmpregadosCheckados
+     */
+    public String getAllEmpregadosCheckados() {
+        return AllEmpregadosCheckados;
+    }
+
+    /**
+     * @param allEmpregadosCheckados
+     *            the allEmpregadosCheckados to set
+     */
+    public void setAllEmpregadosCheckados(final String allEmpregadosCheckados) {
+        AllEmpregadosCheckados = allEmpregadosCheckados;
+    }
 
 }

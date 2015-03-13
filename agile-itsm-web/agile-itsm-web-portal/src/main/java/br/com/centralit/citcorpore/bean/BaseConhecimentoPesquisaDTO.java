@@ -19,122 +19,122 @@ public class BaseConhecimentoPesquisaDTO {
     private Date dataExpiracao;
 
     private String linkDaPastaBaseConhecimento;
-    
+
     private Integer contadorCliques;
 
     private Collection<AnexoBaseConhecimentoPesquisaDTO> anexosDaBaseConhecimento = new ArrayList<AnexoBaseConhecimentoPesquisaDTO>();
 
     public BaseConhecimentoPesquisaDTO() {
-	key = null;
-	userBaseConhecimento = null;
+        key = null;
+        userBaseConhecimento = null;
     }
 
-    public BaseConhecimentoPesquisaDTO(String userBaseConhecimento) {
-	key = null;
-	this.userBaseConhecimento = userBaseConhecimento;
+    public BaseConhecimentoPesquisaDTO(final String userBaseConhecimento) {
+        key = null;
+        this.userBaseConhecimento = userBaseConhecimento;
     }
 
     public Long getKey() {
-	return key;
+        return key;
     }
 
-    public void setKey(Long key) {
-	this.key = key;
+    public void setKey(final Long key) {
+        this.key = key;
     }
 
     public Long getId() {
-	return key;
+        return key;
     }
 
-    public void setUserBaseConhecimento(String userBaseConhecimento) {
-	this.userBaseConhecimento = userBaseConhecimento;
+    public void setUserBaseConhecimento(final String userBaseConhecimento) {
+        this.userBaseConhecimento = userBaseConhecimento;
     }
 
     public String getUserBaseConhecimento() {
-	return userBaseConhecimento;
+        return userBaseConhecimento;
     }
 
     public Integer getIdBaseConhecimento() {
-	return idBaseConhecimento;
+        return idBaseConhecimento;
     }
 
-    public void setIdBaseConhecimento(Integer idBaseConhecimento) {
-	this.idBaseConhecimento = idBaseConhecimento;
+    public void setIdBaseConhecimento(final Integer idBaseConhecimento) {
+        this.idBaseConhecimento = idBaseConhecimento;
     }
 
     /**
      * @return the linkDaPastaBaseConhecimento
      */
     public String getLinkDaPastaBaseConhecimento() {
-	return linkDaPastaBaseConhecimento;
+        return linkDaPastaBaseConhecimento;
     }
 
     /**
      * @param linkDaPastaBaseConhecimento
      *            the linkDaPastaBaseConhecimento to set
      */
-    public void setLinkDaPastaBaseConhecimento(String linkDaPastaBaseConhecimento) {
-	this.linkDaPastaBaseConhecimento = linkDaPastaBaseConhecimento;
+    public void setLinkDaPastaBaseConhecimento(final String linkDaPastaBaseConhecimento) {
+        this.linkDaPastaBaseConhecimento = linkDaPastaBaseConhecimento;
     }
 
     /**
      * @return the anexosDaBaseConhecimento
      */
     public Collection<AnexoBaseConhecimentoPesquisaDTO> getAnexosDaBaseConhecimento() {
-	return anexosDaBaseConhecimento;
+        return anexosDaBaseConhecimento;
     }
 
     /**
      * @param anexosDaBaseConhecimento
      *            the anexosDaBaseConhecimento to set
      */
-    public void setAnexosDaBaseConhecimento(Collection<AnexoBaseConhecimentoPesquisaDTO> anexosDaBaseConhecimento) {
-	this.anexosDaBaseConhecimento = anexosDaBaseConhecimento;
+    public void setAnexosDaBaseConhecimento(final Collection<AnexoBaseConhecimentoPesquisaDTO> anexosDaBaseConhecimento) {
+        this.anexosDaBaseConhecimento = anexosDaBaseConhecimento;
     }
 
     /**
      * @return the titulo
      */
     public String getTitulo() {
-	return titulo;
+        return titulo;
     }
 
     /**
      * @param titulo
      *            the titulo to set
      */
-    public void setTitulo(String titulo) {
-	this.titulo = titulo;
+    public void setTitulo(final String titulo) {
+        this.titulo = titulo;
     }
 
     /**
      * @return the conteudo
      */
     public String getConteudo() {
-	return conteudo;
+        return conteudo;
     }
 
     /**
      * @param conteudo
      *            the conteudo to set
      */
-    public void setConteudo(String conteudo) {
-	this.conteudo = conteudo;
+    public void setConteudo(final String conteudo) {
+        this.conteudo = conteudo;
     }
 
     /**
      * @return the dataExpiracao
      */
     public Date getDataExpiracao() {
-	return dataExpiracao;
+        return dataExpiracao;
     }
 
     /**
      * @param dataExpiracao
      *            the dataExpiracao to set
      */
-    public void setDataExpiracao(Date dataExpiracao) {
-	this.dataExpiracao = dataExpiracao;
+    public void setDataExpiracao(final Date dataExpiracao) {
+        this.dataExpiracao = dataExpiracao;
     }
 
     /**
@@ -149,7 +149,7 @@ public class BaseConhecimentoPesquisaDTO {
      *
      * @param contadorCliques
      */
-    public void setContadorCliques(Integer contadorCliques) {
+    public void setContadorCliques(final Integer contadorCliques) {
         this.contadorCliques = contadorCliques;
     }
 

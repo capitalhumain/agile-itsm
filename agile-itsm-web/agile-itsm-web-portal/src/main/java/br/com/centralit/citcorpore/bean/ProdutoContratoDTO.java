@@ -5,47 +5,56 @@ import br.com.citframework.util.UtilHTML;
 import br.com.citframework.util.UtilStrings;
 
 public class ProdutoContratoDTO extends BaseEntity {
-	private Integer idProdutoContrato;
-	private Integer idContrato;
-	private String nomeProduto;
-	
-	private Double qtde;
-	private String deleted;
 
-	public Integer getIdProdutoContrato(){
-		return this.idProdutoContrato;
-	}
-	public void setIdProdutoContrato(Integer parm){
-		this.idProdutoContrato = parm;
-	}
+    private Integer idProdutoContrato;
+    private Integer idContrato;
+    private String nomeProduto;
 
-	public Integer getIdContrato(){
-		return this.idContrato;
-	}
-	public void setIdContrato(Integer parm){
-		this.idContrato = parm;
-	}
+    private Double qtde;
+    private String deleted;
 
-	public String getNomeProduto(){
-		return this.nomeProduto;
-	}
-	public String getNomeProdutoHTMLEncoded(){
-		return UtilHTML.encodeHTML(UtilStrings.nullToVazio(this.nomeProduto));
-	}
-	public void setNomeProduto(String parm){
-		this.nomeProduto = parm;
-	}
-	public Double getQtde() {
-		return qtde;
-	}
-	public void setQtde(Double qtde) {
-		this.qtde = qtde;
-	}
-	public String getDeleted() {
-		return deleted;
-	}
-	public void setDeleted(String deleted) {
-		this.deleted = deleted;
-	}
+    public Integer getIdProdutoContrato() {
+        return idProdutoContrato;
+    }
+
+    public void setIdProdutoContrato(final Integer parm) {
+        idProdutoContrato = parm;
+    }
+
+    public Integer getIdContrato() {
+        return idContrato;
+    }
+
+    public void setIdContrato(final Integer parm) {
+        idContrato = parm;
+    }
+
+    public String getNomeProduto() {
+        return nomeProduto;
+    }
+
+    public String getNomeProdutoHTMLEncoded() {
+        return UtilHTML.encodeHTML(UtilStrings.nullToVazio(nomeProduto));
+    }
+
+    public void setNomeProduto(final String parm) {
+        nomeProduto = parm;
+    }
+
+    public Double getQtde() {
+        return qtde;
+    }
+
+    public void setQtde(final Double qtde) {
+        this.qtde = qtde;
+    }
+
+    public String getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(final String deleted) {
+        this.deleted = deleted;
+    }
 
 }

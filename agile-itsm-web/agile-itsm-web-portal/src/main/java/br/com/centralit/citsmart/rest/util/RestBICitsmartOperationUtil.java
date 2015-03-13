@@ -6,7 +6,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.xml.bind.JAXBException;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import br.com.centralit.citsmart.rest.bean.RestExecutionDTO;
 import br.com.centralit.citsmart.rest.bean.RestOperationDTO;

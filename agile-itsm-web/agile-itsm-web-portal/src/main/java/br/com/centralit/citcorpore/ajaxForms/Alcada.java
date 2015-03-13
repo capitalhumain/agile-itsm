@@ -148,7 +148,7 @@ public class Alcada extends AjaxFormAction {
 		AlcadaDTO alcada = (AlcadaDTO) document.getBean();
 		alcada = (AlcadaDTO) getAlcadaService(request).restore(alcada);
 		LimiteAlcadaService limiteService  = (LimiteAlcadaService) ServiceLocator.getInstance().getService(LimiteAlcadaService.class, WebUtil.getUsuarioSistema(request));
-		Collection<LimiteAlcadaDTO> colLimites = new ArrayList();
+		Collection<LimiteAlcadaDTO> colLimites = new ArrayList<>();
 		colLimites = limiteService.findByIdAlcada(alcada.getIdAlcada());
 		
 		HTMLForm form = document.getForm("form");

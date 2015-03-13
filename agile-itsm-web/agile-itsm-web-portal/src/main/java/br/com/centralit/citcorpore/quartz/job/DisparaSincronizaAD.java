@@ -9,7 +9,7 @@ import br.com.centralit.citcorpore.integracao.ad.ThreadSincronizaAD;
 public class DisparaSincronizaAD implements Job {
 
     @Override
-    public void execute(JobExecutionContext context) throws JobExecutionException {
+    public void execute(final JobExecutionContext context) throws JobExecutionException {
         new Thread(new ThreadSincronizaAD()).start();
     }
 

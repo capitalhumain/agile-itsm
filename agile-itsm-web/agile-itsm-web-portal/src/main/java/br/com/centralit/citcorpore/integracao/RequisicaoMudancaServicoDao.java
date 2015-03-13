@@ -13,125 +13,117 @@ import br.com.citframework.integracao.CrudDaoDefaultImpl;
 import br.com.citframework.integracao.Field;
 import br.com.citframework.util.Constantes;
 
-@SuppressWarnings({ "unchecked", "rawtypes" })
 public class RequisicaoMudancaServicoDao extends CrudDaoDefaultImpl {
 
-	public RequisicaoMudancaServicoDao() {
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
+    public RequisicaoMudancaServicoDao() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
+    }
 
-	public Collection<Field> getFields() {
-		Collection<Field> listFields = new ArrayList<>();
-		listFields.add(new Field("idrequisicaomudancaservico", "idRequisicaoMudancaServico", true, true, false, false));
-		listFields.add(new Field("idrequisicaomudanca", "idRequisicaoMudanca", false, false, false, false));
-		listFields.add(new Field("idservico", "idServico", false, false, false, false));
-		listFields.add(new Field("dataFim", "dataFim", false, false, false, false));
+    @Override
+    public Collection<Field> getFields() {
+        final Collection<Field> listFields = new ArrayList<>();
+        listFields.add(new Field("idrequisicaomudancaservico", "idRequisicaoMudancaServico", true, true, false, false));
+        listFields.add(new Field("idrequisicaomudanca", "idRequisicaoMudanca", false, false, false, false));
+        listFields.add(new Field("idservico", "idServico", false, false, false, false));
+        listFields.add(new Field("dataFim", "dataFim", false, false, false, false));
 
-		return listFields;
-	}
+        return listFields;
+    }
 
-	public String getTableName() {
-		return this.getOwner() + "requisicaomudancaservico";
-	}
+    @Override
+    public String getTableName() {
+        return this.getOwner() + "requisicaomudancaservico";
+    }
 
-	public Class getBean() {
-		return RequisicaoMudancaServicoDTO.class;
-	}
+    @Override
+    public Class getBean() {
+        return RequisicaoMudancaServicoDTO.class;
+    }
 
-	public Collection find(BaseEntity arg0) throws PersistenceException {
-		return super.find(arg0, null);
-	}
+    @Override
+    public Collection find(final BaseEntity arg0) throws PersistenceException {
+        return super.find(arg0, null);
+    }
 
-	@Override
-	public void updateNotNull(BaseEntity obj) throws PersistenceException {
-		super.updateNotNull(obj);
-	}
+    @Override
+    public Collection list() throws PersistenceException {
+        return super.list("idrequisicaomudancaservico");
+    }
 
-	@Override
-	public Collection list() throws PersistenceException {
-		return super.list("idrequisicaomudancaservico");
-	}
+    @Override
+    public int deleteByCondition(final List<Condition> condicao) throws PersistenceException {
+        return super.deleteByCondition(condicao);
+    }
 
-	@Override
-	public int deleteByCondition(List condicao) throws PersistenceException {
-		return super.deleteByCondition(condicao);
-	}
+    public ArrayList<RequisicaoMudancaServicoDTO> listByIdRequisicaoMudanca(final Integer idRequisicaoMudanca) throws ServiceException, Exception {
+        final ArrayList<Condition> condicoes = new ArrayList<Condition>();
 
-	public ArrayList<RequisicaoMudancaServicoDTO> listByIdRequisicaoMudanca(Integer idRequisicaoMudanca) throws ServiceException, Exception {
-		ArrayList<Condition> condicoes = new ArrayList<Condition>();
+        condicoes.add(new Condition("idRequisicaoMudanca", "=", idRequisicaoMudanca));
 
-		condicoes.add(new Condition("idRequisicaoMudanca", "=", idRequisicaoMudanca));
+        return (ArrayList<RequisicaoMudancaServicoDTO>) super.findByCondition(condicoes, null);
+    }
 
-		return (ArrayList<RequisicaoMudancaServicoDTO>) super.findByCondition(condicoes, null);
-	}
+    /**
+     * Retorna o item de relacionamento específico sem a chave primária da tabela.
+     * Uma espécie de consulta por chave composta.
+     *
+     * @param dto
+     * @return
+     * @throws Exception
+     * @throws ServiceException
+     */
+    public RequisicaoMudancaServicoDTO restoreByChaveComposta(final RequisicaoMudancaServicoDTO dto) throws ServiceException, Exception {
+        final ArrayList<Condition> condicoes = new ArrayList<Condition>();
 
-	/**
-	 * Retorna o item de relacionamento específico sem a chave primária da tabela.
-	 * Uma espécie de consulta por chave composta.
-	 *
-	 * @param dto
-	 * @return
-	 * @throws Exception
-	 * @throws ServiceException
-	 */
-	public RequisicaoMudancaServicoDTO restoreByChaveComposta(RequisicaoMudancaServicoDTO dto) throws ServiceException, Exception{
-		ArrayList<Condition> condicoes = new ArrayList<Condition>();
+        condicoes.add(new Condition("idRequisicaoMudanca", "=", dto.getIdRequisicaoMudanca()));
+        condicoes.add(new Condition("idServico", "=", dto.getIdServico()));
 
-		condicoes.add(new Condition("idRequisicaoMudanca", "=", dto.getIdRequisicaoMudanca()));
-		condicoes.add(new Condition("idServico", "=", dto.getIdServico()));
+        final ArrayList<RequisicaoMudancaServicoDTO> retorno = (ArrayList<RequisicaoMudancaServicoDTO>) super.findByCondition(condicoes, null);
+        if (retorno != null) {
+            return retorno.get(0);
+        }
+        return null;
+    }
 
-		ArrayList<RequisicaoMudancaServicoDTO> retorno = (ArrayList<RequisicaoMudancaServicoDTO>) super.findByCondition(condicoes, null);
-		if(retorno != null){
-			return retorno.get(0);
-		}
-		return null;
-	}
+    public void deleteByIdRequisicaoMudanca(final Integer idRequisicaoMudanca) throws ServiceException, Exception {
+        final ArrayList<Condition> condicoes = new ArrayList<Condition>();
 
-	public void deleteByIdRequisicaoMudanca(Integer idRequisicaoMudanca) throws ServiceException, Exception{
-		ArrayList<Condition> condicoes = new ArrayList<Condition>();
+        condicoes.add(new Condition("idRequisicaoMudanca", "=", idRequisicaoMudanca));
 
-		condicoes.add(new Condition("idRequisicaoMudanca", "=", idRequisicaoMudanca));
+        super.deleteByCondition(condicoes);
+    }
 
-		super.deleteByCondition(condicoes);
-	}
+    public Collection findByIdMudancaEDataFim(final Integer idRequisicaoMudanca) throws Exception {
+        final List fields = new ArrayList<>();
 
+        final String sql = " select idrequisicaomudancaservico,idrequisicaomudanca,idservico,datafim from requisicaomudancaservico where  idrequisicaomudanca = ? and datafim is null";
 
-	public Collection findByIdMudancaEDataFim(Integer idRequisicaoMudanca) throws Exception {
-		List fields = new ArrayList();
+        final List resultado = this.execSQL(sql, new Object[] {idRequisicaoMudanca});
 
+        fields.add("idRequisicaoMudancaServico");
+        fields.add("idRequisicaoMudanca");
+        fields.add("idServico");
+        fields.add("dataFim");
 
-		String sql = " select idrequisicaomudancaservico,idrequisicaomudanca,idservico,datafim from requisicaomudancaservico where  idrequisicaomudanca = ? and datafim is null";
+        return this.listConvertion(this.getBean(), resultado, fields);
+    }
 
-	  List resultado = 	execSQL(sql, new Object[]{idRequisicaoMudanca});
+    public Collection listByIdHistoricoMudanca(final Integer idRequisicaoMudanca) throws Exception {
+        final List fields = new ArrayList<>();
 
+        final String sql = " select distinct rs.idrequisicaomudancaservico, rs.idrequisicaomudanca, rs.idservico,datafim "
+                + "from requisicaomudancaservico rs "
+                + "inner join ligacao_mud_hist_se ligser on ligser.idrequisicaomudancaservico = rs.idrequisicaomudancaservico "
+                + "where  ligser.idhistoricomudanca = ?";
 
+        final List resultado = this.execSQL(sql, new Object[] {idRequisicaoMudanca});
 
-	  fields.add("idRequisicaoMudancaServico");
-	  fields.add("idRequisicaoMudanca");
-	  fields.add("idServico");
-	  fields.add("dataFim");
+        fields.add("idRequisicaoMudancaServico");
+        fields.add("idRequisicaoMudanca");
+        fields.add("idServico");
+        fields.add("dataFim");
 
-	  return listConvertion(getBean(), resultado,fields) ;
-	}
-	public Collection listByIdHistoricoMudanca(Integer idRequisicaoMudanca) throws Exception {
-		List fields = new ArrayList();
-
-
-		String sql = " select distinct rs.idrequisicaomudancaservico, rs.idrequisicaomudanca, rs.idservico,datafim "+
-				"from requisicaomudancaservico rs "+
-				"inner join ligacao_mud_hist_se ligser on ligser.idrequisicaomudancaservico = rs.idrequisicaomudancaservico "+
-				"where  ligser.idhistoricomudanca = ?";
-
-		List resultado = 	execSQL(sql, new Object[]{idRequisicaoMudanca});
-
-
-
-		fields.add("idRequisicaoMudancaServico");
-		fields.add("idRequisicaoMudanca");
-		fields.add("idServico");
-		fields.add("dataFim");
-
-		return listConvertion(getBean(), resultado,fields) ;
-	}
+        return this.listConvertion(this.getBean(), resultado, fields);
+    }
 
 }

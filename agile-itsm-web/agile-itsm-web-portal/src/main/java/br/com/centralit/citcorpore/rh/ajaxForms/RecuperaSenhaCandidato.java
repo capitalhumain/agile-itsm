@@ -21,7 +21,7 @@ public class RecuperaSenhaCandidato extends AjaxFormAction{
 	@Override
 	public void load(DocumentHTML document, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		// TODO Auto-generated method stub
+		
 		
 	}
 	
@@ -204,7 +204,7 @@ public class RecuperaSenhaCandidato extends AjaxFormAction{
 	
 	@Override
 	public Class getBeanClass() {
-		// TODO Auto-generated method stub
+		
 		return CandidatoDTO.class;
 	}
 

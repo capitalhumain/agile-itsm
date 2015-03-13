@@ -15,88 +15,93 @@ import br.com.citframework.util.Constantes;
 
 public class SolicitacaoServicoQuestionarioDao extends CrudDaoDefaultImpl {
 
-	public SolicitacaoServicoQuestionarioDao() {
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
+    public SolicitacaoServicoQuestionarioDao() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
 
-	}
-
-	public Collection find(BaseEntity obj) throws PersistenceException {
-		return null;
-	}
-
-	public Collection<Field> getFields() {
-		List lista = new ArrayList();
-
-		lista.add(new Field("idSolicitacaoQuestionario","idSolicitacaoQuestionario",true,false,false,false));
-		lista.add(new Field("idQuestionario","idQuestionario",false,false,false,false));
-		lista.add(new Field("idSolicitacaoServico","idSolicitacaoServico",false,false,false,false));
-		lista.add(new Field("dataQuestionario","dataQuestionario",false,false,false,false));
-		lista.add(new Field("idResponsavel","idResponsavel",false,false,false,false));
-		lista.add(new Field("idTarefa","idTarefa",false,false,false,false));
-		lista.add(new Field("aba","aba",false,false,false,false));
-		lista.add(new Field("situacao","situacao",false,false,false,false));
-		lista.add(new Field("dataHoraGrav","dataHoraGrav",false,false,false,false));
-		lista.add(new Field("conteudoImpresso","conteudoImpresso",false,false,false,false));
-
-		return lista;
-	}
-
-	public String getTableName() {
-		return "solicitacaoservicoquestionario";
-	}
-	public static String getTableNameAssDigital() {
-		return "solicitacaoservicoquestionario";
-	}
-
-	public Collection list() throws PersistenceException {
-		return null;
-	}
-
-	public Class getBean() {
-		return SolicitacaoServicoQuestionarioDTO.class;
-	}
-
-	public Collection listByIdSolicitacaoServico(Integer idSolicitacaoServico) throws PersistenceException {
-		List list = new ArrayList();
-		list.add(new Order("dataQuestionario"));
-		list.add(new Order("aba"));
-		SolicitacaoServicoQuestionarioDTO obj = new SolicitacaoServicoQuestionarioDTO();
-		obj.setIdSolicitacaoServico(idSolicitacaoServico);
-		return super.find(obj, list);
-	}
-
-	public SolicitacaoServicoQuestionarioDTO findByIdSolicitacaoServico(Integer idSolicitacaoServico) throws PersistenceException {
-        List list = new ArrayList();
-        list.add(new Order("dataHoraGrav", Order.DESC));
-        list.add(new Order("idSolicitacaoQuestionario", Order.DESC));
-        SolicitacaoServicoQuestionarioDTO obj = new SolicitacaoServicoQuestionarioDTO();
-        obj.setIdSolicitacaoServico(idSolicitacaoServico);
-        List<SolicitacaoServicoQuestionarioDTO> result = (List<SolicitacaoServicoQuestionarioDTO>) super.find(obj, list);
-        if (result != null && result.size() > 0)
-            return result.get(0);
-        else
-            return null;
     }
 
-	public void update(BaseEntity obj) throws PersistenceException {
-		super.updateNotNull(obj);
-	}
+    @Override
+    public Collection find(final BaseEntity obj) throws PersistenceException {
+        return null;
+    }
 
-	public void updateSituacaoComplemento(Integer idPessQuest, String situacaoComplemento) throws PersistenceException {
-		ContratoQuestionariosDTO obj = new ContratoQuestionariosDTO();
-		obj.setIdContratoQuestionario(idPessQuest);
-		obj.setSituacaoComplemento(situacaoComplemento);
-		super.updateNotNull(obj);
-	}
-	public void updateConteudoImpresso(Integer idPessQuest, String conteudoImpresso) throws PersistenceException {
-		ContratoQuestionariosDTO obj = new ContratoQuestionariosDTO();
-		obj.setIdContratoQuestionario(idPessQuest);
-		obj.setConteudoImpresso(conteudoImpresso);
-		super.updateNotNull(obj);
-	}
+    @Override
+    public Collection<Field> getFields() {
+        final List<Field> lista = new ArrayList<>();
 
-	@Override
-	public void updateNotNull(BaseEntity obj) throws PersistenceException {
-	    	    super.updateNotNull(obj);
-	}
+        lista.add(new Field("idSolicitacaoQuestionario", "idSolicitacaoQuestionario", true, false, false, false));
+        lista.add(new Field("idQuestionario", "idQuestionario", false, false, false, false));
+        lista.add(new Field("idSolicitacaoServico", "idSolicitacaoServico", false, false, false, false));
+        lista.add(new Field("dataQuestionario", "dataQuestionario", false, false, false, false));
+        lista.add(new Field("idResponsavel", "idResponsavel", false, false, false, false));
+        lista.add(new Field("idTarefa", "idTarefa", false, false, false, false));
+        lista.add(new Field("aba", "aba", false, false, false, false));
+        lista.add(new Field("situacao", "situacao", false, false, false, false));
+        lista.add(new Field("dataHoraGrav", "dataHoraGrav", false, false, false, false));
+        lista.add(new Field("conteudoImpresso", "conteudoImpresso", false, false, false, false));
+
+        return lista;
+    }
+
+    @Override
+    public String getTableName() {
+        return "solicitacaoservicoquestionario";
+    }
+
+    public static String getTableNameAssDigital() {
+        return "solicitacaoservicoquestionario";
+    }
+
+    @Override
+    public Collection list() throws PersistenceException {
+        return null;
+    }
+
+    @Override
+    public Class getBean() {
+        return SolicitacaoServicoQuestionarioDTO.class;
+    }
+
+    public Collection listByIdSolicitacaoServico(final Integer idSolicitacaoServico) throws PersistenceException {
+        final List list = new ArrayList<>();
+        list.add(new Order("dataQuestionario"));
+        list.add(new Order("aba"));
+        final SolicitacaoServicoQuestionarioDTO obj = new SolicitacaoServicoQuestionarioDTO();
+        obj.setIdSolicitacaoServico(idSolicitacaoServico);
+        return super.find(obj, list);
+    }
+
+    public SolicitacaoServicoQuestionarioDTO findByIdSolicitacaoServico(final Integer idSolicitacaoServico) throws PersistenceException {
+        final List list = new ArrayList<>();
+        list.add(new Order("dataHoraGrav", Order.DESC));
+        list.add(new Order("idSolicitacaoQuestionario", Order.DESC));
+        final SolicitacaoServicoQuestionarioDTO obj = new SolicitacaoServicoQuestionarioDTO();
+        obj.setIdSolicitacaoServico(idSolicitacaoServico);
+        final List<SolicitacaoServicoQuestionarioDTO> result = (List<SolicitacaoServicoQuestionarioDTO>) super.find(obj, list);
+        if (result != null && result.size() > 0) {
+            return result.get(0);
+        } else {
+            return null;
+        }
+    }
+
+    @Override
+    public void update(final BaseEntity obj) throws PersistenceException {
+        super.updateNotNull(obj);
+    }
+
+    public void updateSituacaoComplemento(final Integer idPessQuest, final String situacaoComplemento) throws PersistenceException {
+        final ContratoQuestionariosDTO obj = new ContratoQuestionariosDTO();
+        obj.setIdContratoQuestionario(idPessQuest);
+        obj.setSituacaoComplemento(situacaoComplemento);
+        super.updateNotNull(obj);
+    }
+
+    public void updateConteudoImpresso(final Integer idPessQuest, final String conteudoImpresso) throws PersistenceException {
+        final ContratoQuestionariosDTO obj = new ContratoQuestionariosDTO();
+        obj.setIdContratoQuestionario(idPessQuest);
+        obj.setConteudoImpresso(conteudoImpresso);
+        super.updateNotNull(obj);
+    }
+
 }

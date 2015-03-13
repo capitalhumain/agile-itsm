@@ -7,7 +7,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.mozilla.javascript.Context;
 import org.mozilla.javascript.Scriptable;
 
@@ -158,7 +158,7 @@ public class OsSetSituacao extends Os {
                             "'" + atividadesOSDTO.getIdAtividadesOS() + "'," +
                             "'" + UtilStrings.nullToVazio(exibirBotao) + "'," +
                             "'" + UtilStrings.nullToVazio(strIdServicoContratoContabil) + "'," +
-                            "'" + StringEscapeUtils.escapeJavaScript(UtilStrings.nullToVazio(strBtnServicoContabil.toString())) + "'" +
+                            "'" + StringEscapeUtils.escapeEcmaScript(UtilStrings.nullToVazio(strBtnServicoContabil.toString())) + "'" +
                             ")");
                 }
 
@@ -822,7 +822,7 @@ public class OsSetSituacao extends Os {
                             "'" + atividadesOSDTO.getIdAtividadesOS() + "'," +
                             "'" + UtilStrings.nullToVazio(exibirBotao) + "'," +
                             "'" + UtilStrings.nullToVazio(strIdServicoContratoContabil) + "'," +
-                            "'" + StringEscapeUtils.escapeJavaScript(UtilStrings.nullToVazio(strBtnServicoContabil.toString())) + "'" +
+                            "'" + StringEscapeUtils.escapeEcmaScript(UtilStrings.nullToVazio(strBtnServicoContabil.toString())) + "'" +
                             ")");
 
                 }

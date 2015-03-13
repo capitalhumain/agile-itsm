@@ -586,7 +586,7 @@ public class QuestionarioServiceBean extends CrudServiceImpl implements Question
          * RespostaItemQuestionarioDao respostaDao = new RespostaItemQuestionarioDao();
          * QuestaoQuestionarioDao questaoDao = new QuestaoQuestionarioDao();
          * try {
-         * Collection colRespostas = new ArrayList();
+         * Collection colRespostas = new ArrayList<>();
          * if (questDto.getTipo().equalsIgnoreCase("L") || questDto.getTipo().equalsIgnoreCase("M")) {
          * if (questDto.getColQuestoesAgrupadas() != null && questDto.getColQuestoesAgrupadas().size() > 0) {
          * // recupera a última questao respondida da matriz ou tabela
@@ -610,7 +610,7 @@ public class QuestionarioServiceBean extends CrudServiceImpl implements Question
          * if (questaoAgrupadaDto.getSigla() != null && questaoAgrupadaDto.getSigla().equalsIgnoreCase(questaoAuxDto.getSigla())) {
          * respQuestaoDto.setIdQuestaoQuestionario(questaoAgrupadaDto.getIdQuestaoQuestionario());
          * if (questaoAgrupadaDto.getColRespostas() == null) {
-         * questaoAgrupadaDto.setColRespostas(new ArrayList());
+         * questaoAgrupadaDto.setColRespostas(new ArrayList<>());
          * }
          * questaoAgrupadaDto.getColRespostas().add(respQuestaoDto);
          * if (questDto.getTipo().equalsIgnoreCase("M")) {

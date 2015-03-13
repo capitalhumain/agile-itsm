@@ -186,7 +186,7 @@ public class Questionario extends AjaxFormAction {
 		questionario.setColGrupos(colGruposQuestao);
 
 		if (colGruposQuestao == null){
-			colGruposQuestao = new ArrayList();
+			colGruposQuestao = new ArrayList<>();
 		}
 		for(Iterator it = colGruposQuestao.iterator(); it.hasNext();){
 			GrupoQuestionarioDTO grupo = (GrupoQuestionarioDTO) it.next();

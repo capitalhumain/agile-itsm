@@ -2,7 +2,6 @@ package br.com.centralit.citcorpore.negocio;
 
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 
 import br.com.centralit.citcorpore.integracao.ClienteDao;
 import br.com.citframework.excecao.LogicException;
@@ -19,10 +18,6 @@ public class ClienteServiceEjb extends CrudServiceImpl implements ClienteService
             dao = new ClienteDao();
         }
         return dao;
-    }
-
-    public Collection list(final List ordenacao) throws LogicException, ServiceException {
-        return null;
     }
 
     public Collection list(final String ordenacao) throws LogicException, ServiceException {

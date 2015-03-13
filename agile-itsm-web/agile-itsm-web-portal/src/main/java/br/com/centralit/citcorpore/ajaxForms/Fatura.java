@@ -99,7 +99,7 @@ public class Fatura extends AjaxFormAction {
 		GrupoEmpregadoService grupoEmpregadoService = (GrupoEmpregadoService) ServiceLocator.getInstance().getService(GrupoEmpregadoService.class, null);
 		PerfilAcessoGrupoService perfilAcessoGrupoService = (PerfilAcessoGrupoService) ServiceLocator.getInstance().getService(PerfilAcessoGrupoService.class, null);
 
-		Collection colSituacoesPermitidasFinal = new ArrayList();
+		Collection colSituacoesPermitidasFinal = new ArrayList<>();
 		Collection<GrupoEmpregadoDTO> colGruposUsuario = null;
 
 		if (usuario != null) {
@@ -119,7 +119,7 @@ public class Fatura extends AjaxFormAction {
 					if (colSituacoesPermitidasTemp != null) {
 						for (Integer object : colSituacoesPermitidasTemp) {
 							if (colSituacoesPermitidasFinal == null) {
-								colSituacoesPermitidasFinal = new ArrayList();
+								colSituacoesPermitidasFinal = new ArrayList<>();
 								colSituacoesPermitidasFinal.add(object);
 							} else if (!colSituacoesPermitidasFinal.contains(object)) {
 								colSituacoesPermitidasFinal.add(object);
@@ -447,7 +447,7 @@ public class Fatura extends AjaxFormAction {
 			Collection colOSJaAssociadass = oSService.listOSAssociadasFatura(faturaDTO.getIdFatura());
 			if (colOSJaAssociadass != null) {
 				if (colOSs == null) {
-					colOSs = new ArrayList();
+					colOSs = new ArrayList<>();
 				}
 				colOSs.addAll(colOSJaAssociadass);
 			}

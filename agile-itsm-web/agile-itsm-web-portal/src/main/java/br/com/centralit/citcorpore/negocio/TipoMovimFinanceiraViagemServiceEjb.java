@@ -13,7 +13,6 @@ import br.com.citframework.service.CrudServiceImpl;
  * @author ronnie.lopes
  *
  */
-@SuppressWarnings("rawtypes")
 public class TipoMovimFinanceiraViagemServiceEjb extends CrudServiceImpl implements TipoMovimFinanceiraViagemService {
 
     private TipoMovimFinanceiraViagemDao dao;
@@ -50,7 +49,8 @@ public class TipoMovimFinanceiraViagemServiceEjb extends CrudServiceImpl impleme
     }
 
     @Override
-    public TipoMovimFinanceiraViagemDTO findByMovimentacaoEstadoAdiantamento(final Long idtipoMovimFinanceiraViagem, final String adiantamento) throws Exception {
+    public TipoMovimFinanceiraViagemDTO findByMovimentacaoEstadoAdiantamento(final Long idtipoMovimFinanceiraViagem, final String adiantamento)
+            throws Exception {
         return this.getDao().findByMovimentacaoEstadoAdiantamento(idtipoMovimFinanceiraViagem, adiantamento);
     }
 

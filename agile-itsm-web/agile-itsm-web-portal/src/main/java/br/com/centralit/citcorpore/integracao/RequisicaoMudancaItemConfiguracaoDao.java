@@ -19,246 +19,246 @@ import br.com.citframework.integracao.Order;
 import br.com.citframework.util.Constantes;
 import br.com.citframework.util.UtilDatas;
 
-@SuppressWarnings({ "unchecked", "rawtypes" })
 public class RequisicaoMudancaItemConfiguracaoDao extends CrudDaoDefaultImpl {
 
-	public RequisicaoMudancaItemConfiguracaoDao() {
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
+    public RequisicaoMudancaItemConfiguracaoDao() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
+    }
 
-	public Collection<Field> getFields() {
-		Collection<Field> listFields = new ArrayList<>();
-		listFields.add(new Field("idrequisicaomudancaitemconfiguracao", "idRequisicaoMudancaItemConfiguracao", true, true, false, false));
-		listFields.add(new Field("idrequisicaomudanca", "idRequisicaoMudanca", false, false, false, false));
-		listFields.add(new Field("iditemconfiguracao", "idItemConfiguracao", false, false, false, false));
-		listFields.add(new Field("descricao", "descricao", false, false, false, false));
-		listFields.add(new Field("dataFim", "dataFim", false, false, false, false));
+    @Override
+    public Collection<Field> getFields() {
+        final Collection<Field> listFields = new ArrayList<>();
+        listFields.add(new Field("idrequisicaomudancaitemconfiguracao", "idRequisicaoMudancaItemConfiguracao", true, true, false, false));
+        listFields.add(new Field("idrequisicaomudanca", "idRequisicaoMudanca", false, false, false, false));
+        listFields.add(new Field("iditemconfiguracao", "idItemConfiguracao", false, false, false, false));
+        listFields.add(new Field("descricao", "descricao", false, false, false, false));
+        listFields.add(new Field("dataFim", "dataFim", false, false, false, false));
 
-		return listFields;
-	}
+        return listFields;
+    }
 
-	public String getTableName() {
-		return this.getOwner() + "requisicaomudancaitemconfiguracao";
-	}
+    @Override
+    public String getTableName() {
+        return this.getOwner() + "requisicaomudancaitemconfiguracao";
+    }
 
-	/**
-	 * Verifica se existe outro item igual criado. Se existir retorna 'true', senao retorna 'false';
-	 */
-	public boolean verificaSeCadastrado(RequisicaoMudancaItemConfiguracaoDTO itemDTO) throws Exception {
-		boolean estaCadastrado;
-		List parametro = new ArrayList();
-		List list = new ArrayList();
-		StringBuilder sql = new StringBuilder();
-		sql.append("select * from " + getTableName() + " where iditemconfiguracao = ? and idrequisicaomudanca = ?  ");
-		parametro.add(itemDTO.getIdItemConfiguracao());
-		parametro.add(itemDTO.getIdRequisicaoMudanca());
-		list = this.execSQL(sql.toString(), parametro.toArray());
-		if (list != null && !list.isEmpty()) {
-			estaCadastrado = true;
-		} else {
-			estaCadastrado = false;
-		}
-		return estaCadastrado;
-	}
+    /**
+     * Verifica se existe outro item igual criado. Se existir retorna 'true', senao retorna 'false';
+     */
+    public boolean verificaSeCadastrado(final RequisicaoMudancaItemConfiguracaoDTO itemDTO) throws Exception {
+        boolean estaCadastrado;
+        final List parametro = new ArrayList<>();
+        List list = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
+        sql.append("select * from " + this.getTableName() + " where iditemconfiguracao = ? and idrequisicaomudanca = ?  ");
+        parametro.add(itemDTO.getIdItemConfiguracao());
+        parametro.add(itemDTO.getIdRequisicaoMudanca());
+        list = this.execSQL(sql.toString(), parametro.toArray());
+        if (list != null && !list.isEmpty()) {
+            estaCadastrado = true;
+        } else {
+            estaCadastrado = false;
+        }
+        return estaCadastrado;
+    }
 
-	public Class getBean() {
-		return RequisicaoMudancaItemConfiguracaoDTO.class;
-	}
+    @Override
+    public Class getBean() {
+        return RequisicaoMudancaItemConfiguracaoDTO.class;
+    }
 
-	public Collection find(BaseEntity arg0) throws PersistenceException {
-		return super.find(arg0, null);
-	}
+    @Override
+    public Collection find(final BaseEntity arg0) throws PersistenceException {
+        return super.find(arg0, null);
+    }
 
-	@Override
-	public void updateNotNull(BaseEntity obj) throws PersistenceException {
-		super.updateNotNull(obj);
-	}
+    @Override
+    public int deleteByCondition(final List<Condition> condicao) throws PersistenceException {
+        return super.deleteByCondition(condicao);
+    }
 
-	@Override
-	public int deleteByCondition(List condicao) throws PersistenceException {
-		return super.deleteByCondition(condicao);
-	}
+    @Override
+    public Collection list() throws PersistenceException {
+        return super.list("idrequisicaomudancaitemconfiguracao");
+    }
 
-	@Override
-	public Collection list() throws PersistenceException {
-		return super.list("idrequisicaomudancaitemconfiguracao");
-	}
+    // bruno.aquino
+    public Collection listMudancaItemConfigRelatorio(final int idMudanca, final int idItemConfig, final Date dataInicial, final Date dataFinal,
+            final int idContrato) throws Exception {
 
-	// bruno.aquino
-	public Collection listMudancaItemConfigRelatorio(int idMudanca, int idItemConfig, Date dataInicial, Date dataFinal, int idContrato) throws Exception {
+        final List fields = new ArrayList<>();
 
-		List fields = new ArrayList();
+        final List parametros = new ArrayList<>();
 
-		List parametros = new ArrayList();
+        List resultado;
 
-		List resultado;
+        String sql = "select requisicaomudanca.idrequisicaomudanca, requisicaomudanca.titulo,requisicaomudanca.descricao,grupo.nome, requisicaomudanca.datahorainicio";
 
-		String sql = "select requisicaomudanca.idrequisicaomudanca, requisicaomudanca.titulo,requisicaomudanca.descricao,grupo.nome, requisicaomudanca.datahorainicio";
+        if (idMudanca != 0 && idItemConfig == 0) {
+            sql += " from requisicaomudancaitemconfiguracao JOIN requisicaomudanca on requisicaomudancaitemconfiguracao.idrequisicaomudanca = requisicaomudanca.idrequisicaomudanca "
+                    + " JOIN itemconfiguracao ON  requisicaomudancaitemconfiguracao.iditemconfiguracao = itemconfiguracao.iditemconfiguracao "
+                    + " JOIN grupo ON requisicaomudanca.idgrupoatual = grupo.idgrupo "
+                    + " and requisicaomudancaitemconfiguracao.idrequisicaomudanca = ? and "
+                    + " requisicaomudanca.datahorainicio between ? and ?";
 
-		if (idMudanca != 0 && idItemConfig == 0) {
-			sql += " from requisicaomudancaitemconfiguracao JOIN requisicaomudanca on requisicaomudancaitemconfiguracao.idrequisicaomudanca = requisicaomudanca.idrequisicaomudanca "
-					+ " JOIN itemconfiguracao ON  requisicaomudancaitemconfiguracao.iditemconfiguracao = itemconfiguracao.iditemconfiguracao "
-					+ " JOIN grupo ON requisicaomudanca.idgrupoatual = grupo.idgrupo "
-					+ " and requisicaomudancaitemconfiguracao.idrequisicaomudanca = ? and "
-					+ " requisicaomudanca.datahorainicio between ? and ?";
+            parametros.add(idMudanca);
+        } else if (idItemConfig != 0 && idMudanca == 0) {
+            sql += " from requisicaomudancaitemconfiguracao JOIN requisicaomudanca on requisicaomudancaitemconfiguracao.idrequisicaomudanca = requisicaomudanca.idrequisicaomudanca "
+                    + " JOIN itemconfiguracao ON  requisicaomudancaitemconfiguracao.iditemconfiguracao = itemconfiguracao.iditemconfiguracao "
+                    + " JOIN grupo ON requisicaomudanca.idgrupoatual = grupo.idgrupo "
+                    + " and requisicaomudancaitemconfiguracao.iditemconfiguracao = ? and "
+                    + " requisicaomudanca.datahorainicio between ? and ? ";
 
+            parametros.add(idItemConfig);
+        } else if (idItemConfig != 0 && idMudanca != 0) {
+            sql += " from requisicaomudancaitemconfiguracao JOIN requisicaomudanca on requisicaomudancaitemconfiguracao.idrequisicaomudanca = requisicaomudanca.idrequisicaomudanca "
+                    + " JOIN itemconfiguracao ON  requisicaomudancaitemconfiguracao.iditemconfiguracao = itemconfiguracao.iditemconfiguracao "
+                    + " JOIN grupo ON requisicaomudanca.idgrupoatual = grupo.idgrupo"
+                    + " and requisicaomudancaitemconfiguracao.iditemconfiguracao = ? and "
+                    + " requisicaomudancaitemconfiguracao.idrequisicaomudanca = ? and " + " requisicaomudanca.datahorainicio between ? and ?";
 
-			parametros.add(idMudanca);
-		} else if (idItemConfig != 0 && idMudanca == 0) {
-			sql += " from requisicaomudancaitemconfiguracao JOIN requisicaomudanca on requisicaomudancaitemconfiguracao.idrequisicaomudanca = requisicaomudanca.idrequisicaomudanca "
-					+ " JOIN itemconfiguracao ON  requisicaomudancaitemconfiguracao.iditemconfiguracao = itemconfiguracao.iditemconfiguracao "
-					+ " JOIN grupo ON requisicaomudanca.idgrupoatual = grupo.idgrupo "
-					+ " and requisicaomudancaitemconfiguracao.iditemconfiguracao = ? and "
-					+ " requisicaomudanca.datahorainicio between ? and ? ";
+            parametros.add(idItemConfig);
+            parametros.add(idMudanca);
+        } else {
 
-			parametros.add(idItemConfig);
-		} else if (idItemConfig != 0 && idMudanca != 0) {
-			sql += " from requisicaomudancaitemconfiguracao JOIN requisicaomudanca on requisicaomudancaitemconfiguracao.idrequisicaomudanca = requisicaomudanca.idrequisicaomudanca "
-					+ " JOIN itemconfiguracao ON  requisicaomudancaitemconfiguracao.iditemconfiguracao = itemconfiguracao.iditemconfiguracao "
-				    + " JOIN grupo ON requisicaomudanca.idgrupoatual = grupo.idgrupo"
-				    + " and requisicaomudancaitemconfiguracao.iditemconfiguracao = ? and "
-				    + " requisicaomudancaitemconfiguracao.idrequisicaomudanca = ? and "
-				    + " requisicaomudanca.datahorainicio between ? and ?";
+            sql += " from requisicaomudancaitemconfiguracao JOIN requisicaomudanca on requisicaomudancaitemconfiguracao.idrequisicaomudanca = requisicaomudanca.idrequisicaomudanca "
+                    + " JOIN itemconfiguracao ON  requisicaomudancaitemconfiguracao.iditemconfiguracao = itemconfiguracao.iditemconfiguracao "
+                    + " JOIN grupo ON requisicaomudanca.idgrupoatual = grupo.idgrupo and " + " requisicaomudanca.datahorainicio between ? and ?";
+        }
 
-			parametros.add(idItemConfig);
-			parametros.add(idMudanca);
-		} else {
+        parametros.add(UtilDatas.strToTimestamp(dataInicial.toString()));
+        parametros.add(Timestamp.valueOf(dataFinal.toString() + " 23:59:00"));
 
-			sql += " from requisicaomudancaitemconfiguracao JOIN requisicaomudanca on requisicaomudancaitemconfiguracao.idrequisicaomudanca = requisicaomudanca.idrequisicaomudanca "
-					+ " JOIN itemconfiguracao ON  requisicaomudancaitemconfiguracao.iditemconfiguracao = itemconfiguracao.iditemconfiguracao "
-					+ " JOIN grupo ON requisicaomudanca.idgrupoatual = grupo.idgrupo and " + " requisicaomudanca.datahorainicio between ? and ?";
-		}
+        if (idContrato != 0) {
+            sql += " and requisicaomudanca.idcontrato = ? ";
+            parametros.add(idContrato);
+        }
+        sql += " GROUP BY requisicaomudanca.idrequisicaomudanca, requisicaomudanca.titulo,requisicaomudanca.descricao,  grupo.nome, requisicaomudanca.datahorainicio order by requisicaomudanca.idrequisicaomudanca ";
 
-		parametros.add(UtilDatas.strToTimestamp(dataInicial.toString()));
-		parametros.add(Timestamp.valueOf(dataFinal.toString() + " 23:59:00"));
+        System.out.println(sql);
+        resultado = this.execSQL(sql, parametros.toArray());
 
-		if (idContrato != 0) {
-			sql += " and requisicaomudanca.idcontrato = ? ";
-			parametros.add(idContrato);
-		}
-		sql += " GROUP BY requisicaomudanca.idrequisicaomudanca, requisicaomudanca.titulo,requisicaomudanca.descricao,  grupo.nome, requisicaomudanca.datahorainicio order by requisicaomudanca.idrequisicaomudanca ";
+        fields.add("idNumeroMudanca");
+        fields.add("tituloMudanca");
+        fields.add("descricaoProblemaMudanca");
+        fields.add("grupoMudanca");
+        fields.add("dataMudanca");
 
-		System.out.println(sql);
-		resultado = execSQL(sql, parametros.toArray());
+        return this.listConvertion(RelatorioMudancaItemConfiguracaoDTO.class, resultado, fields);
 
-		fields.add("idNumeroMudanca");
-		fields.add("tituloMudanca");
-		fields.add("descricaoProblemaMudanca");
-		fields.add("grupoMudanca");
-		fields.add("dataMudanca");
+    }
 
-		return (Collection<RelatorioMudancaItemConfiguracaoDTO>) listConvertion(RelatorioMudancaItemConfiguracaoDTO.class, resultado, fields);
+    public Collection findByIdRequisicaoMudanca(final Integer parm) throws Exception {
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
+        condicao.add(new Condition("idRequisicaoMudanca", "=", parm));
+        ordenacao.add(new Order("idItemConfiguracao"));
+        return super.findByCondition(condicao, ordenacao);
+    }
 
-	}
+    public Collection findByIdItemConfiguracao(final Integer parm) throws Exception {
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
+        condicao.add(new Condition("idItemConfiguracao", "=", parm));
+        ordenacao.add(new Order("idRequisicaoMudanca"));
+        return super.findByCondition(condicao, ordenacao);
+    }
 
-	public Collection findByIdRequisicaoMudanca(Integer parm) throws Exception {
-		List condicao = new ArrayList();
-		List ordenacao = new ArrayList();
-		condicao.add(new Condition("idRequisicaoMudanca", "=", parm));
-		ordenacao.add(new Order("idItemConfiguracao"));
-		return super.findByCondition(condicao, ordenacao);
-	}
+    public ArrayList<RequisicaoMudancaItemConfiguracaoDTO> listByIdRequisicaoMudanca(final Integer idRequisicaoMudanca) throws ServiceException, Exception {
+        final ArrayList<Condition> condicoes = new ArrayList<Condition>();
 
-	public Collection findByIdItemConfiguracao(Integer parm) throws Exception {
-		List condicao = new ArrayList();
-		List ordenacao = new ArrayList();
-		condicao.add(new Condition("idItemConfiguracao", "=", parm));
-		ordenacao.add(new Order("idRequisicaoMudanca"));
-		return super.findByCondition(condicao, ordenacao);
-	}
+        condicoes.add(new Condition("idRequisicaoMudanca", "=", idRequisicaoMudanca));
 
-	public ArrayList<RequisicaoMudancaItemConfiguracaoDTO> listByIdRequisicaoMudanca(Integer idRequisicaoMudanca) throws ServiceException, Exception {
-		ArrayList<Condition> condicoes = new ArrayList<Condition>();
+        return (ArrayList<RequisicaoMudancaItemConfiguracaoDTO>) super.findByCondition(condicoes, null);
+    }
 
-		condicoes.add(new Condition("idRequisicaoMudanca", "=", idRequisicaoMudanca));
+    /**
+     * Retorna o item de relacionamento específico sem a chave primária da tabela. Uma espécie de consulta por chave composta.
+     *
+     * @param dto
+     * @return
+     * @throws Exception
+     * @throws ServiceException
+     */
+    public RequisicaoMudancaItemConfiguracaoDTO restoreByChaveComposta(final RequisicaoMudancaItemConfiguracaoDTO dto) throws ServiceException, Exception {
+        final ArrayList<Condition> condicoes = new ArrayList<Condition>();
 
-		return (ArrayList<RequisicaoMudancaItemConfiguracaoDTO>) super.findByCondition(condicoes, null);
-	}
+        condicoes.add(new Condition("idRequisicaoMudanca", "=", dto.getIdRequisicaoMudanca()));
+        condicoes.add(new Condition("idItemConfiguracao", "=", dto.getIdItemConfiguracao()));
 
-	/**
-	 * Retorna o item de relacionamento específico sem a chave primária da tabela. Uma espécie de consulta por chave composta.
-	 *
-	 * @param dto
-	 * @return
-	 * @throws Exception
-	 * @throws ServiceException
-	 */
-	public RequisicaoMudancaItemConfiguracaoDTO restoreByChaveComposta(RequisicaoMudancaItemConfiguracaoDTO dto) throws ServiceException, Exception {
-		ArrayList<Condition> condicoes = new ArrayList<Condition>();
+        final ArrayList<RequisicaoMudancaItemConfiguracaoDTO> retorno = (ArrayList<RequisicaoMudancaItemConfiguracaoDTO>) super
+                .findByCondition(condicoes, null);
 
-		condicoes.add(new Condition("idRequisicaoMudanca", "=", dto.getIdRequisicaoMudanca()));
-		condicoes.add(new Condition("idItemConfiguracao", "=", dto.getIdItemConfiguracao()));
+        if (retorno != null) {
+            return retorno.get(0);
+        }
 
-		ArrayList<RequisicaoMudancaItemConfiguracaoDTO> retorno = (ArrayList<RequisicaoMudancaItemConfiguracaoDTO>) super.findByCondition(condicoes, null);
+        return null;
+    }
 
-		if (retorno != null) {
-			return retorno.get(0);
-		}
+    public void deleteByIdRequisicaoMudanca(final Integer idRequisicaoMudanca) throws ServiceException, Exception {
+        final ArrayList<Condition> condicoes = new ArrayList<Condition>();
 
-		return null;
-	}
+        condicoes.add(new Condition("idRequisicaoMudanca", "=", idRequisicaoMudanca));
 
-	public void deleteByIdRequisicaoMudanca(Integer idRequisicaoMudanca) throws ServiceException, Exception {
-		ArrayList<Condition> condicoes = new ArrayList<Condition>();
+        super.deleteByCondition(condicoes);
+    }
 
-		condicoes.add(new Condition("idRequisicaoMudanca", "=", idRequisicaoMudanca));
+    public Collection findByIdMudancaEDataFim(final Integer idRequisicaoMudanca) throws Exception {
+        final List fields = new ArrayList<>();
 
-		super.deleteByCondition(condicoes);
-	}
+        final String sql = " select distinct idrequisicaomudancaitemconfiguracao,idrequisicaomudanca,iditemconfiguracao,descricao,dataFim from requisicaomudancaitemconfiguracao where  idrequisicaomudanca = ? and datafim is null";
 
-	public Collection findByIdMudancaEDataFim(Integer idRequisicaoMudanca) throws Exception {
-		List fields = new ArrayList();
+        final List resultado = this.execSQL(sql, new Object[] {idRequisicaoMudanca});
 
-		String sql = " select distinct idrequisicaomudancaitemconfiguracao,idrequisicaomudanca,iditemconfiguracao,descricao,dataFim from requisicaomudancaitemconfiguracao where  idrequisicaomudanca = ? and datafim is null";
+        fields.add("idRequisicaoMudancaItemConfiguracao");
+        fields.add("idRequisicaoMudanca");
+        fields.add("idItemConfiguracao");
+        fields.add("descricao");
+        fields.add("dataFim");
 
-		List resultado = execSQL(sql, new Object[] { idRequisicaoMudanca });
+        return this.listConvertion(this.getBean(), resultado, fields);
+    }
 
-		fields.add("idRequisicaoMudancaItemConfiguracao");
-		fields.add("idRequisicaoMudanca");
-		fields.add("idItemConfiguracao");
-		fields.add("descricao");
-		fields.add("dataFim");
+    public Collection listByIdHistoricoMudanca(final Integer idHistoricoMudanca) throws Exception {
+        final List fields = new ArrayList<>();
 
-		return listConvertion(getBean(), resultado, fields);
-	}
+        final String sql = " select rq.idrequisicaomudancaitemconfiguracao, rq.idrequisicaomudanca, rq.iditemconfiguracao,descricao, rq.dataFim "
+                + "from requisicaomudancaitemconfiguracao rq "
+                + "inner join ligacao_mud_hist_ic ligic on ligic.idrequisicaomudancaitemconfiguracao = rq.idrequisicaomudancaitemconfiguracao "
+                + "where  ligic.idhistoricomudanca = ?";
 
-	public Collection listByIdHistoricoMudanca(Integer idHistoricoMudanca) throws Exception {
-		List fields = new ArrayList();
+        final List resultado = this.execSQL(sql, new Object[] {idHistoricoMudanca});
 
-		String sql = " select rq.idrequisicaomudancaitemconfiguracao, rq.idrequisicaomudanca, rq.iditemconfiguracao,descricao, rq.dataFim " + "from requisicaomudancaitemconfiguracao rq "
-				+ "inner join ligacao_mud_hist_ic ligic on ligic.idrequisicaomudancaitemconfiguracao = rq.idrequisicaomudancaitemconfiguracao " + "where  ligic.idhistoricomudanca = ?";
+        fields.add("idRequisicaoMudancaItemConfiguracao");
+        fields.add("idRequisicaoMudanca");
+        fields.add("idItemConfiguracao");
+        fields.add("descricao");
+        fields.add("dataFim");
 
-		List resultado = execSQL(sql, new Object[] { idHistoricoMudanca });
+        return this.listConvertion(this.getBean(), resultado, fields);
+    }
 
-		fields.add("idRequisicaoMudancaItemConfiguracao");
-		fields.add("idRequisicaoMudanca");
-		fields.add("idItemConfiguracao");
-		fields.add("descricao");
-		fields.add("dataFim");
+    public List<ItemConfiguracaoDTO> listItemConfiguracaoByIdMudanca(final Integer idRequisicaoMudanca) throws Exception {
+        final List parametro = new ArrayList<>();
+        final List fields = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
 
-		return listConvertion(getBean(), resultado, fields);
-	}
+        sql.append("select  ic.iditemconfiguracao , ic.identificacao, ic.status ");
+        sql.append(" from itemconfiguracao ic    ");
+        sql.append(" inner join requisicaomudancaitemconfiguracao ri ");
+        sql.append(" on ic.iditemconfiguracao = ri.iditemconfiguracao ");
+        sql.append(" where ri.idrequisicaomudanca = ? ");
 
-	public List<ItemConfiguracaoDTO> listItemConfiguracaoByIdMudanca(Integer idRequisicaoMudanca) throws Exception {
-		List parametro = new ArrayList();
-		List fields = new ArrayList();
-		StringBuilder sql = new StringBuilder();
+        parametro.add(idRequisicaoMudanca);
 
-		sql.append("select  ic.iditemconfiguracao , ic.identificacao, ic.status ");
-		sql.append(" from itemconfiguracao ic    ");
-		sql.append(" inner join requisicaomudancaitemconfiguracao ri ");
-		sql.append(" on ic.iditemconfiguracao = ri.iditemconfiguracao ");
-		sql.append(" where ri.idrequisicaomudanca = ? ");
+        fields.add("idItemConfiguracao");
+        fields.add("identificacao");
+        fields.add("status");
 
-		parametro.add(idRequisicaoMudanca);
+        final List dados = this.execSQL(sql.toString(), parametro.toArray());
 
-		fields.add("idItemConfiguracao");
-		fields.add("identificacao");
-		fields.add("status");
-
-		List dados = this.execSQL(sql.toString(), parametro.toArray());
-
-		return (List<ItemConfiguracaoDTO>) this.listConvertion(ItemConfiguracaoDTO.class, dados, fields);
-	}
+        return this.listConvertion(ItemConfiguracaoDTO.class, dados, fields);
+    }
 
 }

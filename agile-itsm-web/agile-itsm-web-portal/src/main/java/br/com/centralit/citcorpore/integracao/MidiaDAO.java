@@ -12,45 +12,42 @@ import br.com.citframework.integracao.Field;
 import br.com.citframework.integracao.Order;
 import br.com.citframework.util.Constantes;
 
-@SuppressWarnings({ "rawtypes", "unchecked" })
 public class MidiaDAO extends CrudDaoDefaultImpl {
 
-	public MidiaDAO() {
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
+    public MidiaDAO() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
+    }
 
-	@Override
-	public Collection find(BaseEntity obj) throws PersistenceException {
-		return null;
-	}
+    @Override
+    public Collection find(final BaseEntity obj) throws PersistenceException {
+        return null;
+    }
 
+    @Override
+    public Collection<Field> getFields() {
+        final Collection<Field> listFields = new ArrayList<>();
 
+        listFields.add(new Field("idmidia", "idMidia", true, true, false, false));
+        listFields.add(new Field("nome", "nome", false, false, false, false));
 
-	public Collection<Field> getFields() {
-		Collection<Field> listFields = new ArrayList<>();
-		
-		listFields.add(new Field("IDMIDIA", "idMidia", true, true, false, false));
-		listFields.add(new Field("NOME", "nome", false, false, false, false));
+        return listFields;
+    }
 
-		return listFields;
-	}
+    @Override
+    public String getTableName() {
+        return "midia";
+    }
 
-	@Override
-	public String getTableName() {
-		return "MIDIA";
-	}
+    @Override
+    public Collection list() throws PersistenceException {
+        final List list = new ArrayList<>();
+        list.add(new Order("idMidia"));
+        return super.list(list);
+    }
 
-	@Override
-	public Collection list() throws PersistenceException {
-		List list = new ArrayList();
-		list.add(new Order("idMidia"));
-		return super.list(list);
-	    }
-
-
-	@Override
-	public Class getBean() {
-		return MidiaDTO.class;
-	}
+    @Override
+    public Class getBean() {
+        return MidiaDTO.class;
+    }
 
 }

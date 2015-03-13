@@ -5,53 +5,61 @@ import java.sql.Date;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class HistoricoRespCentroResultadoDTO extends BaseEntity {
-	private Integer idHistoricoRespCentroResultado;
-	private Integer idResponsavel;
-	private Integer idCentroResultado;
-	private Date dataInicio;
-	private Date dataFim;
-	
-	private String nomeEmpregado;
 
-	public Integer getIdHistoricoRespCentroResultado(){
-		return this.idHistoricoRespCentroResultado;
-	}
-	public void setIdHistoricoRespCentroResultado(Integer parm){
-		this.idHistoricoRespCentroResultado = parm;
-	}
+    private Integer idHistoricoRespCentroResultado;
+    private Integer idResponsavel;
+    private Integer idCentroResultado;
+    private Date dataInicio;
+    private Date dataFim;
 
-	public Integer getIdResponsavel(){
-		return this.idResponsavel;
-	}
-	public void setIdResponsavel(Integer parm){
-		this.idResponsavel = parm;
-	}
+    private String nomeEmpregado;
 
-	public Integer getIdCentroResultado(){
-		return this.idCentroResultado;
-	}
-	public void setIdCentroResultado(Integer parm){
-		this.idCentroResultado = parm;
-	}
+    public Integer getIdHistoricoRespCentroResultado() {
+        return idHistoricoRespCentroResultado;
+    }
 
-	public Date getDataInicio(){
-		return this.dataInicio;
-	}
-	public void setDataInicio(Date parm){
-		this.dataInicio = parm;
-	}
+    public void setIdHistoricoRespCentroResultado(final Integer parm) {
+        idHistoricoRespCentroResultado = parm;
+    }
 
-	public Date getDataFim(){
-		return this.dataFim;
-	}
-	public void setDataFim(Date parm){
-		this.dataFim = parm;
-	}
-	public String getNomeEmpregado() {
-		return nomeEmpregado;
-	}
-	public void setNomeEmpregado(String nomeEmpregado) {
-		this.nomeEmpregado = nomeEmpregado;
-	}
+    public Integer getIdResponsavel() {
+        return idResponsavel;
+    }
+
+    public void setIdResponsavel(final Integer parm) {
+        idResponsavel = parm;
+    }
+
+    public Integer getIdCentroResultado() {
+        return idCentroResultado;
+    }
+
+    public void setIdCentroResultado(final Integer parm) {
+        idCentroResultado = parm;
+    }
+
+    public Date getDataInicio() {
+        return dataInicio;
+    }
+
+    public void setDataInicio(final Date parm) {
+        dataInicio = parm;
+    }
+
+    public Date getDataFim() {
+        return dataFim;
+    }
+
+    public void setDataFim(final Date parm) {
+        dataFim = parm;
+    }
+
+    public String getNomeEmpregado() {
+        return nomeEmpregado;
+    }
+
+    public void setNomeEmpregado(final String nomeEmpregado) {
+        this.nomeEmpregado = nomeEmpregado;
+    }
 
 }

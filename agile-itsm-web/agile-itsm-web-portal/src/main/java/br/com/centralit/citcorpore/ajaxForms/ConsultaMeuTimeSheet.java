@@ -51,7 +51,7 @@ public class ConsultaMeuTimeSheet extends AjaxFormAction {
 		tblMeuTimeSheet.deleteAllRows();
 		
 		Date d = consultaTimeSheet.getDataInicio();
-		Collection colAux = new ArrayList();
+		Collection colAux = new ArrayList<>();
 		while(d.compareTo(consultaTimeSheet.getDataFim()) <= 0){
 			Collection colRet = null;
 			if (col != null){
@@ -105,7 +105,7 @@ public class ConsultaMeuTimeSheet extends AjaxFormAction {
 	}
 	
 	private Collection comparaDataNaColecao(Date d, Collection col){
-		Collection colRet = new ArrayList();
+		Collection colRet = new ArrayList<>();
 		for(Iterator it = col.iterator(); it.hasNext();){
 			TimeSheetDTO timeSheet = (TimeSheetDTO)it.next();
 			//Por incrivel que pareça a simples comparação de datas não funciona, por isto foi colocado a comparação de strings

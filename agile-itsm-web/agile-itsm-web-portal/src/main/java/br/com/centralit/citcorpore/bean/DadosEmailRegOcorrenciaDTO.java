@@ -8,86 +8,91 @@ import java.io.Serializable;
  */
 public class DadosEmailRegOcorrenciaDTO implements Serializable {
 
-	private static final long serialVersionUID = -2625205721399695112L;
+    private static final long serialVersionUID = -2625205721399695112L;
 
-	private Integer idResponsavelAtual;
-	
-	private Integer idGrupoAtual;
-	
-	private Integer idEmpregado;
-	
-	private String email;
-	
-	private String nome;
+    private Integer idResponsavelAtual;
 
-	/**
-	 * @return the idResponsavelAtual
-	 */
-	public Integer getIdResponsavelAtual() {
-		return idResponsavelAtual;
-	}
+    private Integer idGrupoAtual;
 
-	/**
-	 * @param idResponsavelAtual the idResponsavelAtual to set
-	 */
-	public void setIdResponsavelAtual(Integer idResponsavelAtual) {
-		this.idResponsavelAtual = idResponsavelAtual;
-	}
+    private Integer idEmpregado;
 
-	/**
-	 * @return the idGrupoAtual
-	 */
-	public Integer getIdGrupoAtual() {
-		return idGrupoAtual;
-	}
+    private String email;
 
-	/**
-	 * @param idGrupoAtual the idGrupoAtual to set
-	 */
-	public void setIdGrupoAtual(Integer idGrupoAtual) {
-		this.idGrupoAtual = idGrupoAtual;
-	}
+    private String nome;
 
-	/**
-	 * @return the idEmpregado
-	 */
-	public Integer getIdEmpregado() {
-		return idEmpregado;
-	}
+    /**
+     * @return the idResponsavelAtual
+     */
+    public Integer getIdResponsavelAtual() {
+        return idResponsavelAtual;
+    }
 
-	/**
-	 * @param idEmpregado the idEmpregado to set
-	 */
-	public void setIdEmpregado(Integer idEmpregado) {
-		this.idEmpregado = idEmpregado;
-	}
+    /**
+     * @param idResponsavelAtual
+     *            the idResponsavelAtual to set
+     */
+    public void setIdResponsavelAtual(final Integer idResponsavelAtual) {
+        this.idResponsavelAtual = idResponsavelAtual;
+    }
 
-	/**
-	 * @return the email
-	 */
-	public String getEmail() {
-		return email;
-	}
+    /**
+     * @return the idGrupoAtual
+     */
+    public Integer getIdGrupoAtual() {
+        return idGrupoAtual;
+    }
 
-	/**
-	 * @param email the email to set
-	 */
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    /**
+     * @param idGrupoAtual
+     *            the idGrupoAtual to set
+     */
+    public void setIdGrupoAtual(final Integer idGrupoAtual) {
+        this.idGrupoAtual = idGrupoAtual;
+    }
 
-	/**
-	 * @return the nome
-	 */
-	public String getNome() {
-		return nome;
-	}
+    /**
+     * @return the idEmpregado
+     */
+    public Integer getIdEmpregado() {
+        return idEmpregado;
+    }
 
-	/**
-	 * @param nome the nome to set
-	 */
-	public void setNome(String nome) {
-		this.nome = nome;
-	}	
-	
+    /**
+     * @param idEmpregado
+     *            the idEmpregado to set
+     */
+    public void setIdEmpregado(final Integer idEmpregado) {
+        this.idEmpregado = idEmpregado;
+    }
+
+    /**
+     * @return the email
+     */
+    public String getEmail() {
+        return email;
+    }
+
+    /**
+     * @param email
+     *            the email to set
+     */
+    public void setEmail(final String email) {
+        this.email = email;
+    }
+
+    /**
+     * @return the nome
+     */
+    public String getNome() {
+        return nome;
+    }
+
+    /**
+     * @param nome
+     *            the nome to set
+     */
+    public void setNome(final String nome) {
+        this.nome = nome;
+    }
+
 }

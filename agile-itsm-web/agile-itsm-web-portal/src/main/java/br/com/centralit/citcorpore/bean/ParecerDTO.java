@@ -5,68 +5,79 @@ import java.sql.Timestamp;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class ParecerDTO extends BaseEntity {
-	private static final long serialVersionUID = 1L;
-	private Integer idParecer;
-	private Integer idAlcada;
-	private Integer idJustificativa;
-	private Integer idResponsavel;
-	private Timestamp dataHoraParecer;
-	private String complementoJustificativa;
-	private String aprovado;
-	private String observacoes;
 
-	public Integer getIdParecer(){
-		return this.idParecer;
-	}
-	public void setIdParecer(Integer parm){
-		this.idParecer = parm;
-	}
+    private static final long serialVersionUID = 1L;
 
-	public Integer getIdAlcada(){
-		return this.idAlcada;
-	}
-	public void setIdAlcada(Integer parm){
-		this.idAlcada = parm;
-	}
+    private Integer idParecer;
+    private Integer idAlcada;
+    private Integer idJustificativa;
+    private Integer idResponsavel;
+    private Timestamp dataHoraParecer;
+    private String complementoJustificativa;
+    private String aprovado;
+    private String observacoes;
 
-	public Integer getIdJustificativa(){
-		return this.idJustificativa;
-	}
-	public void setIdJustificativa(Integer parm){
-		this.idJustificativa = parm;
-	}
+    public Integer getIdParecer() {
+        return idParecer;
+    }
 
-	public Integer getIdResponsavel(){
-		return this.idResponsavel;
-	}
-	public void setIdResponsavel(Integer parm){
-		this.idResponsavel = parm;
-	}
+    public void setIdParecer(final Integer parm) {
+        idParecer = parm;
+    }
 
-	public Timestamp getDataHoraParecer(){
-		return this.dataHoraParecer;
-	}
-	public void setDataHoraParecer(Timestamp parm){
-		this.dataHoraParecer = parm;
-	}
+    public Integer getIdAlcada() {
+        return idAlcada;
+    }
 
-	public String getComplementoJustificativa(){
-		return this.complementoJustificativa;
-	}
-	public void setComplementoJustificativa(String parm){
-		this.complementoJustificativa = parm;
-	}
+    public void setIdAlcada(final Integer parm) {
+        idAlcada = parm;
+    }
+
+    public Integer getIdJustificativa() {
+        return idJustificativa;
+    }
+
+    public void setIdJustificativa(final Integer parm) {
+        idJustificativa = parm;
+    }
+
+    public Integer getIdResponsavel() {
+        return idResponsavel;
+    }
+
+    public void setIdResponsavel(final Integer parm) {
+        idResponsavel = parm;
+    }
+
+    public Timestamp getDataHoraParecer() {
+        return dataHoraParecer;
+    }
+
+    public void setDataHoraParecer(final Timestamp parm) {
+        dataHoraParecer = parm;
+    }
+
+    public String getComplementoJustificativa() {
+        return complementoJustificativa;
+    }
+
+    public void setComplementoJustificativa(final String parm) {
+        complementoJustificativa = parm;
+    }
 
     public String getAprovado() {
         return aprovado;
     }
-    public void setAprovado(String aprovado) {
+
+    public void setAprovado(final String aprovado) {
         this.aprovado = aprovado;
     }
+
     public String getObservacoes() {
         return observacoes;
     }
-    public void setObservacoes(String observacoes) {
+
+    public void setObservacoes(final String observacoes) {
         this.observacoes = observacoes;
     }
 

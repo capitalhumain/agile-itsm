@@ -31,23 +31,21 @@ public class BaseItemConfiguracaoDAO extends CrudDaoDefaultImpl {
         super(Constantes.getValue("DATABASE_ALIAS"), null);
     }
 
-    @SuppressWarnings("unchecked")
     @Override
     public BaseEntity restore(final BaseEntity obj) throws PersistenceException {
         final List<Object> parametro = new ArrayList<Object>();
         List<Object> list = new ArrayList<Object>();
         final String sql = "SELECT	fl.idbaseitemconfiguracao, " + "fl.idtipoitemconfiguracao,	" + "pai.nomebaseitemconfiguracao, " + "fl.executavel, "
-                + "fl.tipoexecucao, " + "fl.comando, " + "fl.idbaseitemconfiguracaopai, " + "pai.datainicio, " + "pai.datafim " + "FROM " + getTableName()
-                + " AS pai " + "INNER JOIN " + getTableName() + " AS fl " + "ON pai.idbaseitemconfiguracao = fl.idbaseitemconfiguracaopai "
+                + "fl.tipoexecucao, " + "fl.comando, " + "fl.idbaseitemconfiguracaopai, " + "pai.datainicio, " + "pai.datafim " + "FROM " + this.getTableName()
+                + " AS pai " + "INNER JOIN " + this.getTableName() + " AS fl " + "ON pai.idbaseitemconfiguracao = fl.idbaseitemconfiguracaopai "
                 + "WHERE fl.idbaseitemconfiguracao = ?";
         parametro.add(((BaseItemConfiguracaoDTO) obj).getId());
-        list = execSQL(sql, parametro.toArray());
-        final List<?> result = listConvertion(BaseItemConfiguracaoDTO.class, list, generateFieldsResult());
+        list = this.execSQL(sql, parametro.toArray());
+        final List<?> result = this.listConvertion(BaseItemConfiguracaoDTO.class, list, this.generateFieldsResult());
         if (!result.isEmpty()) {
             return (BaseEntity) result.get(0);
-        } else {
-            return null;
         }
+        return null;
     }
 
     @SuppressWarnings("unchecked")
@@ -61,8 +59,8 @@ public class BaseItemConfiguracaoDAO extends CrudDaoDefaultImpl {
                 + "WHERE 	pai.idbaseitemconfiguracaopai IS NULL "
                 + "AND pai.datafim IS NULL " + "AND fl.idbaseitemconfiguracaopai = ?";
         parametro.add(((BaseItemConfiguracaoDTO) pai).getId());
-        list = execSQL(sql, parametro.toArray());
-        final List<?> result = listConvertion(BaseItemConfiguracaoDTO.class, list, generateFieldsResult());
+        list = this.execSQL(sql, parametro.toArray());
+        final List<?> result = this.listConvertion(BaseItemConfiguracaoDTO.class, list, this.generateFieldsResult());
         return (List<BaseEntity>) result;
     }
 
@@ -111,7 +109,7 @@ public class BaseItemConfiguracaoDAO extends CrudDaoDefaultImpl {
     @SuppressWarnings({"rawtypes", "unchecked"})
     @Override
     public Collection list() throws PersistenceException {
-        final List list = new ArrayList();
+        final List list = new ArrayList<>();
         list.add(new Order("IDBASEITEMCONFIGURACAOPAI"));
         return super.list(list);
     }
@@ -130,28 +128,23 @@ public class BaseItemConfiguracaoDAO extends CrudDaoDefaultImpl {
      * @return
      * @throws Exception
      */
-    @SuppressWarnings("unchecked")
     public boolean existBaseItemConfiguracao(final BaseItemConfiguracaoDTO dto) throws PersistenceException {
-        final List<Object> parametro = new ArrayList<Object>();
-        final List<Object> fields = new ArrayList<Object>();
-        List<Object> list = new ArrayList<Object>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<Object> fields = new ArrayList<>();
+        List<Object> list = new ArrayList<>();
         String sql = null;
         final String strSGBDPrincipal = CITCorporeUtil.SGBD_PRINCIPAL;
         if (strSGBDPrincipal.equalsIgnoreCase("ORACLE")) {
-            sql = "SELECT idbaseitemconfiguracao FROM " + getTableName() + " b "
+            sql = "SELECT idbaseitemconfiguracao FROM " + this.getTableName() + " b "
                     + "WHERE b.nomebaseitemconfiguracao = ? AND b.datafim IS NULL AND b.idbaseitemconfiguracaopai IS NULL";
         } else {
-            sql = "SELECT idbaseitemconfiguracao FROM " + getTableName() + " AS b "
+            sql = "SELECT idbaseitemconfiguracao FROM " + this.getTableName() + " AS b "
                     + "WHERE b.nomebaseitemconfiguracao = ? AND b.datafim IS NULL AND b.idbaseitemconfiguracaopai IS NULL";
         }
         parametro.add(dto.getNome());
-        list = execSQL(sql, parametro.toArray());
+        list = this.execSQL(sql, parametro.toArray());
         fields.add("IDBASEITEMCONFIGURACAO");
-        if (list.isEmpty()) {
-            return false;
-        } else {
-            return true;
-        }
+        return !list.isEmpty();
     }
 
 }

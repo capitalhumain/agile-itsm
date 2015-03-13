@@ -43,7 +43,7 @@ public class CargaHorariaDao extends CrudDaoDefaultImpl {
 
     @Override
     public Collection list() throws PersistenceException {
-        final List list = new ArrayList();
+        final List list = new ArrayList<>();
         list.add(new Order("descricao"));
         return super.list(list);
     }

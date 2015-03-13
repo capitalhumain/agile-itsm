@@ -14,110 +14,116 @@ import br.com.citframework.integracao.Order;
 import br.com.citframework.util.Constantes;
 
 ;
-@SuppressWarnings({ "unchecked", "unused", "rawtypes" })
 public class ObjetivoMonitoramentoDao extends CrudDaoDefaultImpl {
-	public ObjetivoMonitoramentoDao() {
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
 
-	public Collection<Field> getFields() {
-		Collection<Field> listFields = new ArrayList<>();
-		listFields.add(new Field("idObjetivoMonitoramento", "idObjetivoMonitoramento", true, true, false, false));
-		listFields.add(new Field("idObjetivoPlanoMelhoria", "idObjetivoPlanoMelhoria", false, false, false, false));
-		listFields.add(new Field("tituloMonitoramento", "tituloMonitoramento", false, false, false, false));
-		listFields.add(new Field("fatorCriticoSucesso", "fatorCriticoSucesso", false, false, false, false));
-		listFields.add(new Field("kpi", "kpi", false, false, false, false));
-		listFields.add(new Field("metrica", "metrica", false, false, false, false));
-		listFields.add(new Field("medicao", "medicao", false, false, false, false));
-		listFields.add(new Field("relatorios", "relatorios", false, false, false, false));
-		listFields.add(new Field("responsavel", "responsavel", false, false, false, false));
-		listFields.add(new Field("criadoPor", "criadoPor", false, false, false, false));
-		listFields.add(new Field("modificadoPor", "modificadoPor", false, false, false, false));
-		listFields.add(new Field("dataCriacao", "dataCriacao", false, false, false, false));
-		listFields.add(new Field("ultModificacao", "ultModificacao", false, false, false, false));
-		return listFields;
-	}
+    public ObjetivoMonitoramentoDao() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
+    }
 
-	public String getTableName() {
-		return this.getOwner() + "ObjetivoMonitoramento";
-	}
+    @Override
+    public Collection<Field> getFields() {
+        final Collection<Field> listFields = new ArrayList<>();
+        listFields.add(new Field("idObjetivoMonitoramento", "idObjetivoMonitoramento", true, true, false, false));
+        listFields.add(new Field("idObjetivoPlanoMelhoria", "idObjetivoPlanoMelhoria", false, false, false, false));
+        listFields.add(new Field("tituloMonitoramento", "tituloMonitoramento", false, false, false, false));
+        listFields.add(new Field("fatorCriticoSucesso", "fatorCriticoSucesso", false, false, false, false));
+        listFields.add(new Field("kpi", "kpi", false, false, false, false));
+        listFields.add(new Field("metrica", "metrica", false, false, false, false));
+        listFields.add(new Field("medicao", "medicao", false, false, false, false));
+        listFields.add(new Field("relatorios", "relatorios", false, false, false, false));
+        listFields.add(new Field("responsavel", "responsavel", false, false, false, false));
+        listFields.add(new Field("criadoPor", "criadoPor", false, false, false, false));
+        listFields.add(new Field("modificadoPor", "modificadoPor", false, false, false, false));
+        listFields.add(new Field("dataCriacao", "dataCriacao", false, false, false, false));
+        listFields.add(new Field("ultModificacao", "ultModificacao", false, false, false, false));
+        return listFields;
+    }
 
-	public Collection list() throws PersistenceException {
-		return null;
-	}
+    @Override
+    public String getTableName() {
+        return this.getOwner() + "ObjetivoMonitoramento";
+    }
 
-	public Class getBean() {
-		return ObjetivoMonitoramentoDTO.class;
-	}
+    @Override
+    public Collection list() throws PersistenceException {
+        return null;
+    }
 
-	public Collection find(BaseEntity arg0) throws PersistenceException {
-		return null;
-	}
+    @Override
+    public Class getBean() {
+        return ObjetivoMonitoramentoDTO.class;
+    }
 
-	public Collection findByIdObjetivoPlanoMelhoria(Integer parm) throws PersistenceException {
-		List condicao = new ArrayList();
-		List ordenacao = new ArrayList();
-		condicao.add(new Condition("idObjetivoPlanoMelhoria", "=", parm));
-		ordenacao.add(new Order("tituloMonitoramento"));
-		return super.findByCondition(condicao, ordenacao);
-	}
+    @Override
+    public Collection find(final BaseEntity arg0) throws PersistenceException {
+        return null;
+    }
 
-	public void deleteByIdObjetivoPlanoMelhoria(Integer parm) throws PersistenceException {
-		List condicao = new ArrayList();
-		condicao.add(new Condition("idObjetivoPlanoMelhoria", "=", parm));
-		super.deleteByCondition(condicao);
-	}
+    public Collection findByIdObjetivoPlanoMelhoria(final Integer parm) throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
+        condicao.add(new Condition("idObjetivoPlanoMelhoria", "=", parm));
+        ordenacao.add(new Order("tituloMonitoramento"));
+        return super.findByCondition(condicao, ordenacao);
+    }
 
-	@Override
-	public void update(BaseEntity obj) throws PersistenceException {
-		ObjetivoMonitoramentoDTO objetivoMonitoramentoDTO = (br.com.centralit.citcorpore.bean.ObjetivoMonitoramentoDTO) restore(obj);
-		if (objetivoMonitoramentoDTO != null) {
-			((ObjetivoMonitoramentoDTO) obj).setCriadoPor(objetivoMonitoramentoDTO.getCriadoPor());
-			((ObjetivoMonitoramentoDTO) obj).setDataCriacao(objetivoMonitoramentoDTO.getDataCriacao());
-		}
-		super.update(obj);
-	}
+    public void deleteByIdObjetivoPlanoMelhoria(final Integer parm) throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        condicao.add(new Condition("idObjetivoPlanoMelhoria", "=", parm));
+        super.deleteByCondition(condicao);
+    }
 
-	/**
-	 * Retorna uma lista de objetivos monitoramento de acordo com o objetivo plano melhoria passado;
-	 * @param obj
-	 * @return
-	 * @throws Exception
-	 */
-	public Collection<ObjetivoMonitoramentoDTO> listObjetivosMonitoramento(ObjetivoMonitoramentoDTO obj) throws PersistenceException {
+    @Override
+    public void update(final BaseEntity obj) throws PersistenceException {
+        final ObjetivoMonitoramentoDTO objetivoMonitoramentoDTO = (br.com.centralit.citcorpore.bean.ObjetivoMonitoramentoDTO) this.restore(obj);
+        if (objetivoMonitoramentoDTO != null) {
+            ((ObjetivoMonitoramentoDTO) obj).setCriadoPor(objetivoMonitoramentoDTO.getCriadoPor());
+            ((ObjetivoMonitoramentoDTO) obj).setDataCriacao(objetivoMonitoramentoDTO.getDataCriacao());
+        }
+        super.update(obj);
+    }
 
-		StringBuilder sql = new StringBuilder();
+    /**
+     * Retorna uma lista de objetivos monitoramento de acordo com o objetivo plano melhoria passado;
+     * 
+     * @param obj
+     * @return
+     * @throws Exception
+     */
+    public Collection<ObjetivoMonitoramentoDTO> listObjetivosMonitoramento(final ObjetivoMonitoramentoDTO obj) throws PersistenceException {
 
-		List parametro = new ArrayList();
+        final StringBuilder sql = new StringBuilder();
 
-		List list = new ArrayList();
+        final List parametro = new ArrayList<>();
 
-		sql.append("select * from " + getTableName() + " where idObjetivoPlanoMelhoria = ? ");
+        List list = new ArrayList<>();
 
-		parametro.add(obj.getIdObjetivoPlanoMelhoria());
+        sql.append("select * from " + this.getTableName() + " where idObjetivoPlanoMelhoria = ? ");
 
-		list = this.execSQL(sql.toString(), parametro.toArray());
-		List listaRetorno = new ArrayList();
-		listaRetorno.add("idObjetivoMonitoramento");
-		listaRetorno.add("idObjetivoPlanoMelhoria");
-		listaRetorno.add("tituloMonitoramento");
-		listaRetorno.add("fatorCriticoSucesso");
-		listaRetorno.add("kpi");
-		listaRetorno.add("metrica");
-		listaRetorno.add("medicao");
-		listaRetorno.add("relatorios");
-		listaRetorno.add("responsavel");
-		listaRetorno.add("criadoPor");
-		listaRetorno.add("modificadoPor");
-		listaRetorno.add("dataCriacao");
-		listaRetorno.add("ultModificacao");
+        parametro.add(obj.getIdObjetivoPlanoMelhoria());
 
-		if (list != null && !list.isEmpty()) {
-			Collection<ObjetivoMonitoramentoDTO> listObjetivosMonitoramento = this.listConvertion(ObjetivoMonitoramentoDTO.class, list, listaRetorno);
-			return listObjetivosMonitoramento;
-		}
+        list = this.execSQL(sql.toString(), parametro.toArray());
+        final List listaRetorno = new ArrayList<>();
+        listaRetorno.add("idObjetivoMonitoramento");
+        listaRetorno.add("idObjetivoPlanoMelhoria");
+        listaRetorno.add("tituloMonitoramento");
+        listaRetorno.add("fatorCriticoSucesso");
+        listaRetorno.add("kpi");
+        listaRetorno.add("metrica");
+        listaRetorno.add("medicao");
+        listaRetorno.add("relatorios");
+        listaRetorno.add("responsavel");
+        listaRetorno.add("criadoPor");
+        listaRetorno.add("modificadoPor");
+        listaRetorno.add("dataCriacao");
+        listaRetorno.add("ultModificacao");
 
-		return null;
-	}
+        if (list != null && !list.isEmpty()) {
+            final Collection<ObjetivoMonitoramentoDTO> listObjetivosMonitoramento = this.listConvertion(ObjetivoMonitoramentoDTO.class, list, listaRetorno);
+            return listObjetivosMonitoramento;
+        }
+
+        return null;
+    }
 
 }

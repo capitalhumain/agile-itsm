@@ -4,50 +4,50 @@ import br.com.agileitsm.model.support.BaseEntity;
 
 public class ConhecimentoSolicitacaoDTO extends BaseEntity {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	private Integer idSolicitacaoServico;
+    private Integer idSolicitacaoServico;
 
-	private Integer idBaseConhecimento;
-	
-	private String titulo;
+    private Integer idBaseConhecimento;
 
-	/**
-	 * @return the idSolicitacaoServico
-	 */
-	public Integer getIdSolicitacaoServico() {
-		return idSolicitacaoServico;
-	}
+    private String titulo;
 
-	/**
-	 * @param idSolicitacaoServico
-	 *            the idSolicitacaoServico to set
-	 */
-	public void setIdSolicitacaoServico(Integer idSolicitacaoServico) {
-		this.idSolicitacaoServico = idSolicitacaoServico;
-	}
+    /**
+     * @return the idSolicitacaoServico
+     */
+    public Integer getIdSolicitacaoServico() {
+        return idSolicitacaoServico;
+    }
 
-	/**
-	 * @return the idBaseConhecimento
-	 */
-	public Integer getIdBaseConhecimento() {
-		return idBaseConhecimento;
-	}
+    /**
+     * @param idSolicitacaoServico
+     *            the idSolicitacaoServico to set
+     */
+    public void setIdSolicitacaoServico(final Integer idSolicitacaoServico) {
+        this.idSolicitacaoServico = idSolicitacaoServico;
+    }
 
-	/**
-	 * @param idBaseConhecimento
-	 *            the idBaseConhecimento to set
-	 */
-	public void setIdBaseConhecimento(Integer idBaseConhecimento) {
-		this.idBaseConhecimento = idBaseConhecimento;
-	}
+    /**
+     * @return the idBaseConhecimento
+     */
+    public Integer getIdBaseConhecimento() {
+        return idBaseConhecimento;
+    }
 
-	public String getTitulo() {
-		return titulo;
-	}
+    /**
+     * @param idBaseConhecimento
+     *            the idBaseConhecimento to set
+     */
+    public void setIdBaseConhecimento(final Integer idBaseConhecimento) {
+        this.idBaseConhecimento = idBaseConhecimento;
+    }
 
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(final String titulo) {
+        this.titulo = titulo;
+    }
 
 }

@@ -5,57 +5,56 @@ import java.sql.Date;
 import br.com.agileitsm.model.support.BaseEntity;
 
 /**
- * 
+ *
  * @author geber.costa
- * 
+ *
  */
-
-@SuppressWarnings("serial")
 public class ValidacaoRequisicaoProblemaDTO extends BaseEntity {
-	private Integer idValidacaoRequisicaoProblema;
-	private String observacaoProblema;
-	private Date dataInicio;
-	private Date dataFim;
-	private Integer  idProblema ;
 
-	public Integer getIdValidacaoRequisicaoProblema() {
-		return idValidacaoRequisicaoProblema;
-	}
-	
-	public void setIdValidacaoRequisicaoProblema(Integer idValidacaoRequisicaoProblema) {
-		this.idValidacaoRequisicaoProblema = idValidacaoRequisicaoProblema;
-	}
+    private Integer idValidacaoRequisicaoProblema;
+    private String observacaoProblema;
+    private Date dataInicio;
+    private Date dataFim;
+    private Integer idProblema;
 
-	public String getObservacaoProblema() {
-		return observacaoProblema;
-	}
+    public Integer getIdValidacaoRequisicaoProblema() {
+        return idValidacaoRequisicaoProblema;
+    }
 
-	public void setObservacaoProblema(String observacaoProblema) {
-		this.observacaoProblema = observacaoProblema;
-	}
+    public void setIdValidacaoRequisicaoProblema(final Integer idValidacaoRequisicaoProblema) {
+        this.idValidacaoRequisicaoProblema = idValidacaoRequisicaoProblema;
+    }
 
-	public Date getDataInicio() {
-		return dataInicio;
-	}
+    public String getObservacaoProblema() {
+        return observacaoProblema;
+    }
 
-	public void setDataInicio(Date dataInicio) {
-		this.dataInicio = dataInicio;
-	}
+    public void setObservacaoProblema(final String observacaoProblema) {
+        this.observacaoProblema = observacaoProblema;
+    }
 
-	public Date getDataFim() {
-		return dataFim;
-	}
+    public Date getDataInicio() {
+        return dataInicio;
+    }
 
-	public void setDataFim(Date dataFim) {
-		this.dataFim = dataFim;
-	}
+    public void setDataInicio(final Date dataInicio) {
+        this.dataInicio = dataInicio;
+    }
 
-	public Integer getIdProblema() {
-		return idProblema;
-	}
+    public Date getDataFim() {
+        return dataFim;
+    }
 
-	public void setIdProblema(Integer idProblema) {
-		this.idProblema = idProblema;
-	}
+    public void setDataFim(final Date dataFim) {
+        this.dataFim = dataFim;
+    }
+
+    public Integer getIdProblema() {
+        return idProblema;
+    }
+
+    public void setIdProblema(final Integer idProblema) {
+        this.idProblema = idProblema;
+    }
 
 }

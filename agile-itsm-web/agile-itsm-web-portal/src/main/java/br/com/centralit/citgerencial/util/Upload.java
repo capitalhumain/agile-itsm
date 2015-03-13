@@ -113,8 +113,8 @@ public class Upload {
 
             fu.setRepositoryPath(str);
 
-            hshRetorno[0] = new HashMap(); // Retorna os campos de formulário teste para subir
-            hshRetorno[1] = new HashMap(); // Retorna os nomes de arquivos
+            hshRetorno[0] = new HashMap<>(); // Retorna os campos de formulário teste para subir
+            hshRetorno[1] = new HashMap<>(); // Retorna os nomes de arquivos
 
             final List fileItems = fu.parseRequest(request);
             final Iterator i = fileItems.iterator();

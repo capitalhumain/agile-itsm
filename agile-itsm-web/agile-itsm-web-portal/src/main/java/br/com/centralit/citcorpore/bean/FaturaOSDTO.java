@@ -17,20 +17,23 @@ package br.com.centralit.citcorpore.bean;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class FaturaOSDTO extends BaseEntity {
+
     private Integer idFatura;
     private Integer idOs;
 
-    public Integer getIdFatura(){
+    public Integer getIdFatura() {
         return idFatura;
     }
-    public void setIdFatura(Integer parm){
+
+    public void setIdFatura(final Integer parm) {
         idFatura = parm;
     }
 
-    public Integer getIdOs(){
+    public Integer getIdOs() {
         return idOs;
     }
-    public void setIdOs(Integer parm){
+
+    public void setIdOs(final Integer parm) {
         idOs = parm;
     }
 

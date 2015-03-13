@@ -13,7 +13,6 @@ import br.com.citframework.integracao.Condition;
 import br.com.citframework.service.CrudServiceImpl;
 import br.com.citframework.util.UtilDatas;
 
-@SuppressWarnings("rawtypes")
 public class TipoUnidadeServiceEjb extends CrudServiceImpl implements TipoUnidadeService {
 
     private TipoUnidadeDao dao;
@@ -27,14 +26,6 @@ public class TipoUnidadeServiceEjb extends CrudServiceImpl implements TipoUnidad
         return dao;
     }
 
-    public Collection list(final List ordenacao) throws LogicException, ServiceException {
-        return null;
-    }
-
-    public Collection list(final String ordenacao) throws LogicException, ServiceException {
-        return null;
-    }
-
     @Override
     public BaseEntity create(final BaseEntity model) throws ServiceException, LogicException {
         final TipoUnidadeDTO tipoUnidade = (TipoUnidadeDTO) model;
@@ -46,7 +37,7 @@ public class TipoUnidadeServiceEjb extends CrudServiceImpl implements TipoUnidad
 
     @Override
     public boolean jaExisteUnidadeComMesmoNome(final String nome) {
-        final ArrayList<Condition> condicoes = new ArrayList<Condition>();
+        final List<Condition> condicoes = new ArrayList<Condition>();
         condicoes.add(new Condition("nomeTipoUnidade", "=", nome));
         condicoes.add(new Condition("dataFim", "is", null));
         Collection retorno = null;

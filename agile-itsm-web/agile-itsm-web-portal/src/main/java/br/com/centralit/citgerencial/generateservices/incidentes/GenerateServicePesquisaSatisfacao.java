@@ -26,7 +26,7 @@ import br.com.citframework.util.UtilDatas;
 @SuppressWarnings({ "rawtypes", "unchecked" })
 public class GenerateServicePesquisaSatisfacao extends GerencialGenerateService {
 
-	private HashMap novoParametro = new HashMap();
+	private HashMap novoParametro = new HashMap<>();
 
 	public List execute(HashMap parametersValues, Collection paramtersDefinition) throws ParseException {
 
@@ -80,7 +80,7 @@ public class GenerateServicePesquisaSatisfacao extends GerencialGenerateService 
 		if (col != null && !col.isEmpty()) {
 			listaRetorno = (List) col;
 		} else {
-			listaRetorno = new ArrayList();
+			listaRetorno = new ArrayList<>();
 		}
 
 		// resetando parâmetro

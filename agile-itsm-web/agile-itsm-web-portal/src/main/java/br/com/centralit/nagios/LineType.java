@@ -4,8 +4,14 @@ package br.com.centralit.nagios;
 /**
  * Enum LineType. For internal use only.
  *
- * @author	Folkert van Heusden
- * @version	%I%, %G%
- * @since	0.1 
+ * @author Folkert van Heusden
+ * @version %I%, %G%
+ * @since 0.1
  */
-enum LineType { host, service, host_comment, service_comment, ignore }
+enum LineType {
+    host,
+    service,
+    host_comment,
+    service_comment,
+    ignore
+}

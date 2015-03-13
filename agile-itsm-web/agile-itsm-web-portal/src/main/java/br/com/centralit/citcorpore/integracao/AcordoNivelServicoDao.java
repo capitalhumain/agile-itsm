@@ -17,325 +17,338 @@ import br.com.citframework.integracao.Order;
 import br.com.citframework.util.Constantes;
 import br.com.citframework.util.UtilDatas;
 
-@SuppressWarnings({ "rawtypes", "unchecked" })
 public class AcordoNivelServicoDao extends CrudDaoDefaultImpl {
 
-	public AcordoNivelServicoDao() {
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
+    public AcordoNivelServicoDao() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
+    }
 
-	public Collection<Field> getFields() {
-		Collection<Field> listFields = new ArrayList<>();
-		listFields.add(new Field("idAcordoNivelServico", "idAcordoNivelServico", true, true, false, false));
-		listFields.add(new Field("idServicoContrato", "idServicoContrato", false, false, false, false));
-		listFields.add(new Field("idPrioridadePadrao", "idPrioridadePadrao", false, false, false, false));
-		listFields.add(new Field("situacao", "situacao", false, false, false, false));
-		listFields.add(new Field("tituloSLA", "tituloSLA", false, false, false, false));
-		listFields.add(new Field("disponibilidade", "disponibilidade", false, false, false, false));
-		listFields.add(new Field("descricaoSLA", "descricaoSLA", false, false, false, false));
-		listFields.add(new Field("escopoSLA", "escopoSLA", false, false, false, false));
-		listFields.add(new Field("dataInicio", "dataInicio", false, false, false, false));
-		listFields.add(new Field("dataFim", "dataFim", false, false, false, false));
-		listFields.add(new Field("avaliarEm", "avaliarEm", false, false, false, false));
-		listFields.add(new Field("tipo", "tipo", false, false, false, false));
-		listFields.add(new Field("valorLimite", "valorLimite", false, false, false, false));
-		listFields.add(new Field("detalheGlosa", "detalheGlosa", false, false, false, false));
-		listFields.add(new Field("detalheLimiteGlosa", "detalheLimiteGlosa", false, false, false, false));
-		listFields.add(new Field("unidadeValorLimite", "unidadeValorLimite", false, false, false, false));
-		listFields.add(new Field("impacto", "impacto", false, false, false, false));
-		listFields.add(new Field("urgencia", "urgencia", false, false, false, false));
-		listFields.add(new Field("permiteMudarImpUrg", "permiteMudarImpUrg", false, false, false, false));
-		// listFields.add(new Field("idFormula" ,"idFormula", false, false, false, false));
-		listFields.add(new Field("contatos", "contatos", false, false, false, false));
-		listFields.add(new Field("deleted", "deleted", false, false, false, false));
-		listFields.add(new Field("tempoAuto", "tempoAuto", false, false, false, false));
-		listFields.add(new Field("idPrioridadeAuto1", "idPrioridadeAuto1", false, false, false, false));
-		listFields.add(new Field("idGrupo1", "idGrupo1", false, false, false, false));
-		listFields.add(new Field("criadoEm", "criadoEm", false, false, false, false));
-		listFields.add(new Field("criadoPor", "criadoPor", false, false, false, false));
-		listFields.add(new Field("modificadoEm", "modificadoEm", false, false, false, false));
-		listFields.add(new Field("modificadoPor", "modificadoPor", false, false, false, false));
-		listFields.add(new Field("idEmail", "idEmail", false, false, false, false));
-		return listFields;
-	}
+    @Override
+    public Collection<Field> getFields() {
+        final Collection<Field> listFields = new ArrayList<>();
+        listFields.add(new Field("idAcordoNivelServico", "idAcordoNivelServico", true, true, false, false));
+        listFields.add(new Field("idServicoContrato", "idServicoContrato", false, false, false, false));
+        listFields.add(new Field("idPrioridadePadrao", "idPrioridadePadrao", false, false, false, false));
+        listFields.add(new Field("situacao", "situacao", false, false, false, false));
+        listFields.add(new Field("tituloSLA", "tituloSLA", false, false, false, false));
+        listFields.add(new Field("disponibilidade", "disponibilidade", false, false, false, false));
+        listFields.add(new Field("descricaoSLA", "descricaoSLA", false, false, false, false));
+        listFields.add(new Field("escopoSLA", "escopoSLA", false, false, false, false));
+        listFields.add(new Field("dataInicio", "dataInicio", false, false, false, false));
+        listFields.add(new Field("dataFim", "dataFim", false, false, false, false));
+        listFields.add(new Field("avaliarEm", "avaliarEm", false, false, false, false));
+        listFields.add(new Field("tipo", "tipo", false, false, false, false));
+        listFields.add(new Field("valorLimite", "valorLimite", false, false, false, false));
+        listFields.add(new Field("detalheGlosa", "detalheGlosa", false, false, false, false));
+        listFields.add(new Field("detalheLimiteGlosa", "detalheLimiteGlosa", false, false, false, false));
+        listFields.add(new Field("unidadeValorLimite", "unidadeValorLimite", false, false, false, false));
+        listFields.add(new Field("impacto", "impacto", false, false, false, false));
+        listFields.add(new Field("urgencia", "urgencia", false, false, false, false));
+        listFields.add(new Field("permiteMudarImpUrg", "permiteMudarImpUrg", false, false, false, false));
+        // listFields.add(new Field("idFormula" ,"idFormula", false, false, false, false));
+        listFields.add(new Field("contatos", "contatos", false, false, false, false));
+        listFields.add(new Field("deleted", "deleted", false, false, false, false));
+        listFields.add(new Field("tempoAuto", "tempoAuto", false, false, false, false));
+        listFields.add(new Field("idPrioridadeAuto1", "idPrioridadeAuto1", false, false, false, false));
+        listFields.add(new Field("idGrupo1", "idGrupo1", false, false, false, false));
+        listFields.add(new Field("criadoEm", "criadoEm", false, false, false, false));
+        listFields.add(new Field("criadoPor", "criadoPor", false, false, false, false));
+        listFields.add(new Field("modificadoEm", "modificadoEm", false, false, false, false));
+        listFields.add(new Field("modificadoPor", "modificadoPor", false, false, false, false));
+        listFields.add(new Field("idEmail", "idEmail", false, false, false, false));
+        return listFields;
+    }
 
-	public String getTableName() {
-		return this.getOwner() + "AcordoNivelServico";
-	}
+    @Override
+    public String getTableName() {
+        return this.getOwner() + "AcordoNivelServico";
+    }
 
-	public Collection list() throws PersistenceException {
-		return null;
-	}
+    @Override
+    public Collection list() throws PersistenceException {
+        return null;
+    }
 
-	public Class getBean() {
-		return AcordoNivelServicoDTO.class;
-	}
+    @Override
+    public Class getBean() {
+        return AcordoNivelServicoDTO.class;
+    }
 
-	public Collection find(BaseEntity arg0) throws PersistenceException {
-		return null;
-	}
+    @Override
+    public Collection find(final BaseEntity arg0) throws PersistenceException {
+        return null;
+    }
 
-	public Collection findByIdServicoContrato(Integer parm) throws PersistenceException {
-		List condicao = new ArrayList();
-		List ordenacao = new ArrayList();
-		condicao.add(new Condition("idServicoContrato", "=", parm));
-		ordenacao.add(new Order("dataInicio"));
-		return super.findByCondition(condicao, ordenacao);
-	}
+    public Collection findByIdServicoContrato(final Integer parm) throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
+        condicao.add(new Condition("idServicoContrato", "=", parm));
+        ordenacao.add(new Order("dataInicio"));
+        return super.findByCondition(condicao, ordenacao);
+    }
 
-	public void deleteByIdServicoContrato(Integer parm) throws PersistenceException {
-		List condicao = new ArrayList();
-		condicao.add(new Condition("idServicoContrato", "=", parm));
-		super.deleteByCondition(condicao);
-	}
+    public void deleteByIdServicoContrato(final Integer parm) throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        condicao.add(new Condition("idServicoContrato", "=", parm));
+        super.deleteByCondition(condicao);
+    }
 
-	public Collection findByIdPrioridadePadrao(Integer parm) throws PersistenceException {
-		List condicao = new ArrayList();
-		List ordenacao = new ArrayList();
-		condicao.add(new Condition("idPrioridadePadrao", "=", parm));
-		ordenacao.add(new Order("dataInicio"));
-		return super.findByCondition(condicao, ordenacao);
-	}
+    public Collection findByIdPrioridadePadrao(final Integer parm) throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
+        condicao.add(new Condition("idPrioridadePadrao", "=", parm));
+        ordenacao.add(new Order("dataInicio"));
+        return super.findByCondition(condicao, ordenacao);
+    }
 
-	public void deleteByIdPrioridadePadrao(Integer parm) throws PersistenceException {
-		List condicao = new ArrayList();
-		condicao.add(new Condition("idPrioridadePadrao", "=", parm));
-		super.deleteByCondition(condicao);
-	}
+    public void deleteByIdPrioridadePadrao(final Integer parm) throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        condicao.add(new Condition("idPrioridadePadrao", "=", parm));
+        super.deleteByCondition(condicao);
+    }
 
-	public AcordoNivelServicoDTO findAtivoByIdServicoContrato(Integer idServicoContrato, String tipo) throws PersistenceException {
-		List condicao = new ArrayList();
-		condicao.add(new Condition("idServicoContrato", "=", idServicoContrato));
-		condicao.add(new Condition("tipo", "=", tipo));
-		condicao.add(new Condition("situacao", "=", "A"));
+    public AcordoNivelServicoDTO findAtivoByIdServicoContrato(final Integer idServicoContrato, final String tipo) throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        condicao.add(new Condition("idServicoContrato", "=", idServicoContrato));
+        condicao.add(new Condition("tipo", "=", tipo));
+        condicao.add(new Condition("situacao", "=", "A"));
 
-		Collection<AcordoNivelServicoDTO> col = super.findByCondition(condicao, null);
-		if (col == null || col.size() == 0)
-			return null;
-		AcordoNivelServicoDTO result = null;
-		for (AcordoNivelServicoDTO acordoNivelServicoDto : col) {
-			if ((acordoNivelServicoDto.getDataFim() == null || UtilDatas.getDataAtual().before(acordoNivelServicoDto.getDataFim()))
-					&& (acordoNivelServicoDto.getDeleted() == null || acordoNivelServicoDto.getDeleted().equalsIgnoreCase("N")))
-				result = acordoNivelServicoDto;
-		}
-		return result;
-	}
+        final Collection<AcordoNivelServicoDTO> col = super.findByCondition(condicao, null);
+        if (col == null || col.size() == 0) {
+            return null;
+        }
+        AcordoNivelServicoDTO result = null;
+        for (final AcordoNivelServicoDTO acordoNivelServicoDto : col) {
+            if ((acordoNivelServicoDto.getDataFim() == null || UtilDatas.getDataAtual().before(acordoNivelServicoDto.getDataFim()))
+                    && (acordoNivelServicoDto.getDeleted() == null || acordoNivelServicoDto.getDeleted().equalsIgnoreCase("N"))) {
+                result = acordoNivelServicoDto;
+            }
+        }
+        return result;
+    }
 
-	/**
-	 * Método para retornar os serviços que possuem o SLA selecionado já copiado, para ser tratado evitando duplicação de SLA.
-	 * 
-	 * @param titulo
-	 *            do SLA selecionado
-	 * @return retorna os serviços que possuem o SLA selecionado
-	 * @throws Exception
-	 * @author rodrigo.oliveira
-	 */
-	public List<ServicoContratoDTO> buscaServicosComContrato(String tituloSla) throws PersistenceException {
+    /**
+     * Método para retornar os serviços que possuem o SLA selecionado já copiado, para ser tratado evitando duplicação de SLA.
+     *
+     * @param titulo
+     *            do SLA selecionado
+     * @return retorna os serviços que possuem o SLA selecionado
+     * @throws Exception
+     * @author rodrigo.oliveira
+     */
+    public List<ServicoContratoDTO> buscaServicosComContrato(final String tituloSla) throws PersistenceException {
 
-		List parametro = new ArrayList();
-		List resp = new ArrayList();
+        final List parametro = new ArrayList<>();
+        List resp = new ArrayList<>();
 
-		String sql = "SELECT DISTINCT idServicoContrato FROM " + getTableName() + " WHERE titulosla LIKE ? AND idservicocontrato IS NOT NULL ORDER BY idservicocontrato ";
+        final String sql = "SELECT DISTINCT idServicoContrato FROM " + this.getTableName()
+                + " WHERE titulosla LIKE ? AND idservicocontrato IS NOT NULL ORDER BY idservicocontrato ";
 
-		parametro.add(tituloSla);
+        parametro.add(tituloSla);
 
-		resp = this.execSQL(sql, parametro.toArray());
+        resp = this.execSQL(sql, parametro.toArray());
 
-		List listRetorno = new ArrayList();
-		listRetorno.add("idServicoContrato");
+        final List listRetorno = new ArrayList<>();
+        listRetorno.add("idServicoContrato");
 
-		List<ServicoContratoDTO> listconvertion = this.engine.listConvertion(ServicoContratoDTO.class, resp, listRetorno);
+        final List<ServicoContratoDTO> listconvertion = engine.listConvertion(ServicoContratoDTO.class, resp, listRetorno);
 
-		return listconvertion;
-	}
+        return listconvertion;
+    }
 
-	/**
-	 * Método para verificar se existe cadastrado um cadastro o mesmo nome.
-	 * 
-	 * @param String
-	 *            tituloSLA
-	 * @return true se o nome exisite e false se não existir
-	 * @throws Exception
-	 * @author rodrigo.oliveira
-	 */
-	public boolean verificaSeNomeExiste(String tituloSLA) throws PersistenceException {
+    /**
+     * Método para verificar se existe cadastrado um cadastro o mesmo nome.
+     *
+     * @param String
+     *            tituloSLA
+     * @return true se o nome exisite e false se não existir
+     * @throws Exception
+     * @author rodrigo.oliveira
+     */
+    public boolean verificaSeNomeExiste(final String tituloSLA) throws PersistenceException {
 
-		List parametro = new ArrayList();
-		List list = new ArrayList();
-		String sql = "SELECT idacordonivelservico FROM " + getTableName() + " WHERE titulosla = ? ";
+        final List parametro = new ArrayList<>();
+        List list = new ArrayList<>();
+        final String sql = "SELECT idacordonivelservico FROM " + this.getTableName() + " WHERE titulosla = ? ";
 
-		parametro.add(tituloSLA);
+        parametro.add(tituloSLA);
 
-		list = this.execSQL(sql, parametro.toArray());
+        list = this.execSQL(sql, parametro.toArray());
 
-		if (list != null && !list.isEmpty()) {
-			return true;
-		} else {
-			return false;
-		}
-	}
+        if (list != null && !list.isEmpty()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-	/**
-	 * Retorna os SLAs que não possuem vinculação direta com ServicoContrato
-	 * 
-	 */
-	public List<AcordoNivelServicoDTO> findAcordosSemVinculacaoDireta() throws PersistenceException {
-		List resp = new ArrayList();
+    /**
+     * Retorna os SLAs que não possuem vinculação direta com ServicoContrato
+     *
+     */
+    public List<AcordoNivelServicoDTO> findAcordosSemVinculacaoDireta() throws PersistenceException {
+        List resp = new ArrayList<>();
 
-		Collection fields = getFields();
-		List listRetorno = new ArrayList();
-		String campos = "";
-		for (Iterator it = fields.iterator(); it.hasNext();) {
-			Field field = (Field) it.next();
-			if (!campos.trim().equalsIgnoreCase("")) {
-				campos = campos + ",";
-			}
-			campos = campos + field.getFieldDB();
-			listRetorno.add(field.getFieldClass());
-		}
+        final Collection fields = this.getFields();
+        final List listRetorno = new ArrayList<>();
+        String campos = "";
+        for (final Iterator it = fields.iterator(); it.hasNext();) {
+            final Field field = (Field) it.next();
+            if (!campos.trim().equalsIgnoreCase("")) {
+                campos = campos + ",";
+            }
+            campos = campos + field.getFieldDB();
+            listRetorno.add(field.getFieldClass());
+        }
 
-		String sql = "SELECT " + campos + " FROM " + getTableName() + " WHERE idservicocontrato IS NULL ORDER BY titulosla ";
+        final String sql = "SELECT " + campos + " FROM " + this.getTableName() + " WHERE idservicocontrato IS NULL ORDER BY titulosla ";
 
-		resp = this.execSQL(sql, null);
+        resp = this.execSQL(sql, null);
 
-		Collection<AcordoNivelServicoDTO> col = this.listConvertion(AcordoNivelServicoDTO.class, resp, listRetorno);
-		if (col == null || col.size() == 0)
-			return null;
-		List<AcordoNivelServicoDTO> result = new ArrayList<AcordoNivelServicoDTO>();
-		for (AcordoNivelServicoDTO acordoNivelServicoDTO : col) {
-			if (acordoNivelServicoDTO.getDeleted() == null || acordoNivelServicoDTO.getDeleted().equalsIgnoreCase("N")) {
-				if (acordoNivelServicoDTO.getDataFim() == null || acordoNivelServicoDTO.getDataFim().after(UtilDatas.getDataAtual())) {
-					result.add(acordoNivelServicoDTO);
-				}
-			}
-		}
-		return result;
+        final Collection<AcordoNivelServicoDTO> col = this.listConvertion(AcordoNivelServicoDTO.class, resp, listRetorno);
+        if (col == null || col.size() == 0) {
+            return null;
+        }
+        final List<AcordoNivelServicoDTO> result = new ArrayList<AcordoNivelServicoDTO>();
+        for (final AcordoNivelServicoDTO acordoNivelServicoDTO : col) {
+            if (acordoNivelServicoDTO.getDeleted() == null || acordoNivelServicoDTO.getDeleted().equalsIgnoreCase("N")) {
+                if (acordoNivelServicoDTO.getDataFim() == null || acordoNivelServicoDTO.getDataFim().after(UtilDatas.getDataAtual())) {
+                    result.add(acordoNivelServicoDTO);
+                }
+            }
+        }
+        return result;
 
-	}
+    }
 
-	/**
-	 * Encontra o SLAs pelo ID
-	 * @author euler.ramos
-	 */
-	public List<AcordoNivelServicoDTO> findByIdAcordoSemVinculacaoDireta(Integer id) throws PersistenceException {
-		List resp = new ArrayList();
+    /**
+     * Encontra o SLAs pelo ID
+     *
+     * @author euler.ramos
+     */
+    public List<AcordoNivelServicoDTO> findByIdAcordoSemVinculacaoDireta(final Integer id) throws PersistenceException {
+        List resp = new ArrayList<>();
 
-		Collection fields = getFields();
-		List parametro = new ArrayList();
-		List listRetorno = new ArrayList();
-		String campos = "";
-		for (Iterator it = fields.iterator(); it.hasNext();) {
-			Field field = (Field) it.next();
-			if (!campos.trim().equalsIgnoreCase("")) {
-				campos = campos + ",";
-			}
-			campos = campos + field.getFieldDB();
-			listRetorno.add(field.getFieldClass());
-		}
+        final Collection fields = this.getFields();
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        String campos = "";
+        for (final Iterator it = fields.iterator(); it.hasNext();) {
+            final Field field = (Field) it.next();
+            if (!campos.trim().equalsIgnoreCase("")) {
+                campos = campos + ",";
+            }
+            campos = campos + field.getFieldDB();
+            listRetorno.add(field.getFieldClass());
+        }
 
-		String sql = "SELECT " + campos + " FROM " + getTableName() + " WHERE idacordonivelservico=? and (idservicocontrato IS NULL) and ((deleted is null) or (deleted = 'N') or (deleted = 'n')) ORDER BY titulosla ";
-		parametro.add(id);
-		resp = this.execSQL(sql, parametro.toArray());
-		
-		List result = this.engine.listConvertion(getBean(), resp, listRetorno);
-		return (result == null ? new ArrayList<AcordoNivelServicoDTO>() : result);
-	}
+        final String sql = "SELECT "
+                + campos
+                + " FROM "
+                + this.getTableName()
+                + " WHERE idacordonivelservico=? and (idservicocontrato IS NULL) and ((deleted is null) or (deleted = 'N') or (deleted = 'n')) ORDER BY titulosla ";
+        parametro.add(id);
+        resp = this.execSQL(sql, parametro.toArray());
 
-	/**
-	 * Encontra o SLAs pelo Titulo
-	 * @author euler.ramos
-	 */
-	public List<AcordoNivelServicoDTO> findByTituloSLA(String titulo) throws PersistenceException {
-		List resp = new ArrayList();
+        final List result = engine.listConvertion(this.getBean(), resp, listRetorno);
+        return result == null ? new ArrayList<AcordoNivelServicoDTO>() : result;
+    }
 
-		Collection fields = getFields();
-		List parametro = new ArrayList();
-		List listRetorno = new ArrayList();
-		String campos = "";
-		for (Iterator it = fields.iterator(); it.hasNext();) {
-			Field field = (Field) it.next();
-			if (!campos.trim().equalsIgnoreCase("")) {
-				campos = campos + ",";
-			}
-			campos = campos + field.getFieldDB();
-			listRetorno.add(field.getFieldClass());
-		}
+    /**
+     * Encontra o SLAs pelo Titulo
+     *
+     * @author euler.ramos
+     */
+    public List<AcordoNivelServicoDTO> findByTituloSLA(final String titulo) throws PersistenceException {
+        List resp = new ArrayList<>();
 
-		String sql = "SELECT " + campos + " FROM " + getTableName() + " WHERE titulosla=? and (idservicocontrato IS NULL) and ((deleted is null) or (deleted = 'N') or (deleted = 'n')) ORDER BY titulosla ";
-		parametro.add(titulo);
-		resp = this.execSQL(sql, parametro.toArray());
-		
-		List result = this.engine.listConvertion(getBean(), resp, listRetorno);
-		return (result == null ? new ArrayList<AcordoNivelServicoDTO>() : result);
-	}
-	
-	public void updateTemposAcoes(AcordoNivelServicoDTO acordoNivelServicoDTO) throws PersistenceException {
-		AcordoNivelServicoDTO acordoNivelServicoAux = new AcordoNivelServicoDTO();
-		acordoNivelServicoAux.setIdGrupo1(acordoNivelServicoDTO.getIdGrupo1());
-		acordoNivelServicoAux.setIdPrioridadeAuto1(acordoNivelServicoDTO.getIdPrioridadeAuto1());
-		acordoNivelServicoAux.setTempoAuto(acordoNivelServicoDTO.getTempoAuto());
-		acordoNivelServicoAux.setIdAcordoNivelServico(acordoNivelServicoDTO.getIdAcordoNivelServico());
-		acordoNivelServicoAux.setDeleted(acordoNivelServicoDTO.getDeleted());
-		super.updateNotNull(acordoNivelServicoAux);
-	}
+        final Collection fields = this.getFields();
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        String campos = "";
+        for (final Iterator it = fields.iterator(); it.hasNext();) {
+            final Field field = (Field) it.next();
+            if (!campos.trim().equalsIgnoreCase("")) {
+                campos = campos + ",";
+            }
+            campos = campos + field.getFieldDB();
+            listRetorno.add(field.getFieldClass());
+        }
 
-	/**
-	 * @param idServicoContrato
-	 * @param data
-	 * @throws PersistenceException
-	 * @author cledson.junior
-	 */
-	public void updateAcordoNivelServico(Integer idServicoContrato, Date data) throws PersistenceException {
-		List parametros = new ArrayList();
-		if (data != null) {
-			parametros.add(data);
-		} else {
-			parametros.add(null);
-		}
-		parametros.add("y");
-		parametros.add(idServicoContrato);
-		String sql = "UPDATE " + getTableName() + " SET datafim = ?, deleted = ? WHERE idServicoContrato = ?";
-		execUpdate(sql, parametros.toArray());
-	}
+        final String sql = "SELECT " + campos + " FROM " + this.getTableName()
+                + " WHERE titulosla=? and (idservicocontrato IS NULL) and ((deleted is null) or (deleted = 'N') or (deleted = 'n')) ORDER BY titulosla ";
+        parametro.add(titulo);
+        resp = this.execSQL(sql, parametro.toArray());
 
-	public void updateNotNull(AcordoNivelServicoDTO acordoNivelServicoDTO) throws PersistenceException {
-		super.updateNotNull(acordoNivelServicoDTO);
-	}
+        final List result = engine.listConvertion(this.getBean(), resp, listRetorno);
+        return result == null ? new ArrayList<AcordoNivelServicoDTO>() : result;
+    }
 
-	public List<AcordoNivelServicoDTO> findIdEmailByIdSolicitacaoServico(Integer idSolicitacaoServico) throws PersistenceException {
+    public void updateTemposAcoes(final AcordoNivelServicoDTO acordoNivelServicoDTO) throws PersistenceException {
+        final AcordoNivelServicoDTO acordoNivelServicoAux = new AcordoNivelServicoDTO();
+        acordoNivelServicoAux.setIdGrupo1(acordoNivelServicoDTO.getIdGrupo1());
+        acordoNivelServicoAux.setIdPrioridadeAuto1(acordoNivelServicoDTO.getIdPrioridadeAuto1());
+        acordoNivelServicoAux.setTempoAuto(acordoNivelServicoDTO.getTempoAuto());
+        acordoNivelServicoAux.setIdAcordoNivelServico(acordoNivelServicoDTO.getIdAcordoNivelServico());
+        acordoNivelServicoAux.setDeleted(acordoNivelServicoDTO.getDeleted());
+        super.updateNotNull(acordoNivelServicoAux);
+    }
 
-		List parametro = new ArrayList();
-		List resp = new ArrayList();
+    /**
+     * @param idServicoContrato
+     * @param data
+     * @throws PersistenceException
+     * @author cledson.junior
+     */
+    public void updateAcordoNivelServico(final Integer idServicoContrato, final Date data) throws PersistenceException {
+        final List parametros = new ArrayList<>();
+        if (data != null) {
+            parametros.add(data);
+        } else {
+            parametros.add(null);
+        }
+        parametros.add("y");
+        parametros.add(idServicoContrato);
+        final String sql = "UPDATE " + this.getTableName() + " SET datafim = ?, deleted = ? WHERE idServicoContrato = ?";
+        this.execUpdate(sql, parametros.toArray());
+    }
 
-		String sql = "SELECT DISTINCT idEmail FROM " + getTableName() + " inner join  solicitacaoservico on solicitacaoservico.idservicocontrato = acordonivelservico.idservicocontrato"
-				+ " AND solicitacaoservico.idsolicitacaoservico = " + idSolicitacaoServico;
+    public List<AcordoNivelServicoDTO> findIdEmailByIdSolicitacaoServico(final Integer idSolicitacaoServico) throws PersistenceException {
 
-		resp = this.execSQL(sql, parametro.toArray());
+        final List parametro = new ArrayList<>();
+        List resp = new ArrayList<>();
 
-		List listRetorno = new ArrayList();
-		listRetorno.add("idEmail");
+        final String sql = "SELECT DISTINCT idEmail FROM " + this.getTableName()
+                + " inner join  solicitacaoservico on solicitacaoservico.idservicocontrato = acordonivelservico.idservicocontrato"
+                + " AND solicitacaoservico.idsolicitacaoservico = " + idSolicitacaoServico;
 
-		List<AcordoNivelServicoDTO> listconvertion = this.engine.listConvertion(ServicoContratoDTO.class, resp, listRetorno);
+        resp = this.execSQL(sql, parametro.toArray());
 
-		return listconvertion;
-	}
-	
-	public AcordoNivelServicoDTO findByIdAcordoNivelServicoEServicoContrato(Integer idAcordoNivelServico, Integer idServicoContrato) throws PersistenceException {
-		List parametro = new ArrayList();
-		List fields = new ArrayList();
-		List list = new ArrayList();
-		String sql = "select idacordonivelservico, idservicocontrato from acordonivelservico where idacordonivelservico = ? and idservicocontrato = ?";
-		parametro.add(idAcordoNivelServico);
-		parametro.add(idServicoContrato);
-		list = this.execSQL(sql, parametro.toArray());
-		fields.add("idAcordoNivelServico");
-		fields.add("idServicoContrato");
-		
-		if (list != null && !list.isEmpty()) {
-			return (AcordoNivelServicoDTO) this.listConvertion(getBean(), list, fields).get(0);
-		} else {
-			return null;
-		}
-	}
+        final List listRetorno = new ArrayList<>();
+        listRetorno.add("idEmail");
+
+        final List<AcordoNivelServicoDTO> listconvertion = engine.listConvertion(ServicoContratoDTO.class, resp, listRetorno);
+
+        return listconvertion;
+    }
+
+    public AcordoNivelServicoDTO findByIdAcordoNivelServicoEServicoContrato(final Integer idAcordoNivelServico, final Integer idServicoContrato)
+            throws PersistenceException {
+        final List parametro = new ArrayList<>();
+        final List fields = new ArrayList<>();
+        List list = new ArrayList<>();
+        final String sql = "select idacordonivelservico, idservicocontrato from acordonivelservico where idacordonivelservico = ? and idservicocontrato = ?";
+        parametro.add(idAcordoNivelServico);
+        parametro.add(idServicoContrato);
+        list = this.execSQL(sql, parametro.toArray());
+        fields.add("idAcordoNivelServico");
+        fields.add("idServicoContrato");
+
+        if (list != null && !list.isEmpty()) {
+            return (AcordoNivelServicoDTO) this.listConvertion(this.getBean(), list, fields).get(0);
+        } else {
+            return null;
+        }
+    }
 
 }

@@ -50,7 +50,7 @@ public class CitAjaxWebUtil {
      * @throws Exception
      */
     public static Collection deserializeCollectionFromString(final Class classe, final String valor) throws Exception {
-        final Collection col = new ArrayList();
+        final Collection col = new ArrayList<>();
         final String[] strArray = separaObjetos(valor, '\3'); // Esta string representa a colecao de objetos serializados
         if (strArray == null) {
             return null;
@@ -105,7 +105,7 @@ public class CitAjaxWebUtil {
     }
 
     public static String[] separaObjetos(final String str, final char token) {
-        final Collection col = new ArrayList();
+        final Collection col = new ArrayList<>();
         String obj = null;
         boolean bIniciou = false;
         int qtdeChaveAberta = 0;
@@ -194,7 +194,7 @@ public class CitAjaxWebUtil {
      * @throws Exception
      */
     public static Collection getValuesCollectionRequest(final Class classe, final String name, final HttpServletRequest req) throws Exception {
-        final Collection col = new ArrayList();
+        final Collection col = new ArrayList<>();
         final String[] strParser = req.getParameterValues(name);
 
         for (final String element : strParser) {

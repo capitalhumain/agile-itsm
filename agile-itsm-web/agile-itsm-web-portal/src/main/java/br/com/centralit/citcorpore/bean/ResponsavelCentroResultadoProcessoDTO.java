@@ -3,29 +3,33 @@ package br.com.centralit.citcorpore.bean;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class ResponsavelCentroResultadoProcessoDTO extends BaseEntity {
-	private Integer idResponsavel;
-	private Integer idCentroResultado;
-	private Integer idProcessoNegocio;
 
-	public Integer getIdResponsavel(){
-		return this.idResponsavel;
-	}
-	public void setIdResponsavel(Integer parm){
-		this.idResponsavel = parm;
-	}
+    private Integer idResponsavel;
+    private Integer idCentroResultado;
+    private Integer idProcessoNegocio;
 
-	public Integer getIdCentroResultado(){
-		return this.idCentroResultado;
-	}
-	public void setIdCentroResultado(Integer parm){
-		this.idCentroResultado = parm;
-	}
+    public Integer getIdResponsavel() {
+        return idResponsavel;
+    }
 
-	public Integer getIdProcessoNegocio(){
-		return this.idProcessoNegocio;
-	}
-	public void setIdProcessoNegocio(Integer parm){
-		this.idProcessoNegocio = parm;
-	}
+    public void setIdResponsavel(final Integer parm) {
+        idResponsavel = parm;
+    }
+
+    public Integer getIdCentroResultado() {
+        return idCentroResultado;
+    }
+
+    public void setIdCentroResultado(final Integer parm) {
+        idCentroResultado = parm;
+    }
+
+    public Integer getIdProcessoNegocio() {
+        return idProcessoNegocio;
+    }
+
+    public void setIdProcessoNegocio(final Integer parm) {
+        idProcessoNegocio = parm;
+    }
 
 }

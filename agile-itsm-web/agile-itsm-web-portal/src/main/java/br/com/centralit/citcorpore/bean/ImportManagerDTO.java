@@ -3,102 +3,100 @@ package br.com.centralit.citcorpore.bean;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class ImportManagerDTO extends BaseEntity {
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 5826581473179525246L;
-	
-	private Integer idImportConfig;
-	private Integer idExternalConnection;
-	private Integer idImportarDados;
-	private String tabelaOrigem;
-	private String tabelaDestino;
-	private String jsonMatriz;
-	
-	private String nome;
-	private String tipo;
-	private String filtroOrigem;
-	
-	private Object result;
 
-	public Integer getIdExternalConnection() {
-		return idExternalConnection;
-	}
+    private static final long serialVersionUID = 5826581473179525246L;
 
-	public void setIdExternalConnection(Integer idExternalConnection) {
-		this.idExternalConnection = idExternalConnection;
-	}
+    private Integer idImportConfig;
+    private Integer idExternalConnection;
+    private Integer idImportarDados;
+    private String tabelaOrigem;
+    private String tabelaDestino;
+    private String jsonMatriz;
 
-	public String getTabelaOrigem() {
-		return tabelaOrigem;
-	}
+    private String nome;
+    private String tipo;
+    private String filtroOrigem;
 
-	public void setTabelaOrigem(String tabelaOrigem) {
-		this.tabelaOrigem = tabelaOrigem;
-	}
+    private Object result;
 
-	public String getTabelaDestino() {
-		return tabelaDestino;
-	}
+    public Integer getIdExternalConnection() {
+        return idExternalConnection;
+    }
 
-	public void setTabelaDestino(String tabelaDestino) {
-		this.tabelaDestino = tabelaDestino;
-	}
+    public void setIdExternalConnection(final Integer idExternalConnection) {
+        this.idExternalConnection = idExternalConnection;
+    }
 
-	public String getJsonMatriz() {
-		return jsonMatriz;
-	}
+    public String getTabelaOrigem() {
+        return tabelaOrigem;
+    }
 
-	public void setJsonMatriz(String jsonMatriz) {
-		this.jsonMatriz = jsonMatriz;
-	}
+    public void setTabelaOrigem(final String tabelaOrigem) {
+        this.tabelaOrigem = tabelaOrigem;
+    }
 
-	public Object getResult() {
-		return result;
-	}
+    public String getTabelaDestino() {
+        return tabelaDestino;
+    }
 
-	public void setResult(Object result) {
-		this.result = result;
-	}
+    public void setTabelaDestino(final String tabelaDestino) {
+        this.tabelaDestino = tabelaDestino;
+    }
 
-	public String getTipo() {
-		return tipo;
-	}
+    public String getJsonMatriz() {
+        return jsonMatriz;
+    }
 
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
-	}
+    public void setJsonMatriz(final String jsonMatriz) {
+        this.jsonMatriz = jsonMatriz;
+    }
 
-	public String getFiltroOrigem() {
-		return filtroOrigem;
-	}
+    public Object getResult() {
+        return result;
+    }
 
-	public void setFiltroOrigem(String filtroOrigem) {
-		this.filtroOrigem = filtroOrigem;
-	}
+    public void setResult(final Object result) {
+        this.result = result;
+    }
 
-	public String getNome() {
-		return nome;
-	}
+    public String getTipo() {
+        return tipo;
+    }
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    public void setTipo(final String tipo) {
+        this.tipo = tipo;
+    }
 
-	public Integer getIdImportConfig() {
-		return idImportConfig;
-	}
+    public String getFiltroOrigem() {
+        return filtroOrigem;
+    }
 
-	public void setIdImportConfig(Integer idImportConfig) {
-		this.idImportConfig = idImportConfig;
-	}
+    public void setFiltroOrigem(final String filtroOrigem) {
+        this.filtroOrigem = filtroOrigem;
+    }
 
-	public Integer getIdImportarDados() {
-		return idImportarDados;
-	}
+    public String getNome() {
+        return nome;
+    }
 
-	public void setIdImportarDados(Integer idImportarDados) {
-		this.idImportarDados = idImportarDados;
-	}
+    public void setNome(final String nome) {
+        this.nome = nome;
+    }
+
+    public Integer getIdImportConfig() {
+        return idImportConfig;
+    }
+
+    public void setIdImportConfig(final Integer idImportConfig) {
+        this.idImportConfig = idImportConfig;
+    }
+
+    public Integer getIdImportarDados() {
+        return idImportarDados;
+    }
+
+    public void setIdImportarDados(final Integer idImportarDados) {
+        this.idImportarDados = idImportarDados;
+    }
+
 }

@@ -107,9 +107,9 @@ public class CarteiraTrabalho extends AjaxFormAction {
 		CYaHPConverter converter = new CYaHPConverter();
 		File fout = new File("c:\\teste.pdf");
 		FileOutputStream out = new FileOutputStream(fout);
-		List			 headerFooterList = new ArrayList();
+		List			 headerFooterList = new ArrayList<>();
 
-		Map properties = new HashMap();
+		Map properties = new HashMap<>();
 
 		headerFooterList.add(new IHtmlToPdfTransformer.CHeaderFooter(
 				"<table width=\"100%\"><tbody><tr><td align=\"left\">Generated with YaHPConverter.</td><td align=\"right\">"+UtilI18N.internacionaliza(request, "citcorpore.comum.pagina")+" <pagenumber>/<pagecount></td></tr></tbody></table>",

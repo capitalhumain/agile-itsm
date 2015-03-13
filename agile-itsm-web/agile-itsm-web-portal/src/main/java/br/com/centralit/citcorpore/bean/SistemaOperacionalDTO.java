@@ -14,33 +14,35 @@ public class SistemaOperacionalDTO extends BaseEntity {
     /**
      * @return valor do atributo id.
      */
+    @Override
     public Integer getId() {
-	return id;
+        return id;
     }
 
     /**
      * Define valor do atributo id.
-     * 
+     *
      * @param id
      */
-    public void setId(Integer id) {
-	this.id = id;
+    @Override
+    public void setId(final Integer id) {
+        this.id = id;
     }
 
     /**
      * @return valor do atributo nome.
      */
     public String getNome() {
-	return nome;
+        return nome;
     }
 
     /**
      * Define valor do atributo nome.
-     * 
+     *
      * @param nome
      */
-    public void setNome(String nome) {
-	this.nome = nome;
+    public void setNome(final String nome) {
+        this.nome = nome;
     }
 
 }

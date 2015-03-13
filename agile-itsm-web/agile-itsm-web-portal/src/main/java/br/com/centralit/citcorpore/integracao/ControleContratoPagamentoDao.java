@@ -20,60 +20,56 @@ import br.com.citframework.util.Constantes;
 public class ControleContratoPagamentoDao extends CrudDaoDefaultImpl {
 
     public ControleContratoPagamentoDao() {
-	super(Constantes.getValue("DATABASE_ALIAS"), null);
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
     }
 
-    @SuppressWarnings("rawtypes")
+    @Override
     public Class getBean() {
-	return ControleContratoPagamentoDTO.class;
+        return ControleContratoPagamentoDTO.class;
     }
 
+    @Override
     public Collection<Field> getFields() {
-	Collection<Field> listFields = new ArrayList<>();
+        final Collection<Field> listFields = new ArrayList<>();
 
-	listFields.add(new Field("idccpagamento", "idCcPagamento", true, true, false, false));
-	listFields.add(new Field("parcelaccpagamento", "parcelaCcPagamento", false, false, false, false));
-	listFields.add(new Field("idcontrolecontrato", "idControleContrato", false, false, false, false));
-	listFields.add(new Field("dataatrasoccpagamento", "dataAtrasoCcPagamento", false, false, false, false));
-	listFields.add(new Field("dataccpagamento", "dataCcPagamento", false, false, false, false));
+        listFields.add(new Field("idccpagamento", "idCcPagamento", true, true, false, false));
+        listFields.add(new Field("parcelaccpagamento", "parcelaCcPagamento", false, false, false, false));
+        listFields.add(new Field("idcontrolecontrato", "idControleContrato", false, false, false, false));
+        listFields.add(new Field("dataatrasoccpagamento", "dataAtrasoCcPagamento", false, false, false, false));
+        listFields.add(new Field("dataccpagamento", "dataCcPagamento", false, false, false, false));
 
-
-
-	return listFields;
+        return listFields;
     }
 
+    @Override
     public String getTableName() {
-	return "CONTROLECONTRATOPAGAMENTO";
+        return "CONTROLECONTRATOPAGAMENTO";
     }
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
-    public Collection find(BaseEntity obj) throws PersistenceException {
-	List ordem = new ArrayList();
-	ordem.add(new Order("nomeModuloSistema"));
-	return super.find(obj, ordem);
+    @Override
+    public Collection find(final BaseEntity obj) throws PersistenceException {
+        final List ordem = new ArrayList<>();
+        ordem.add(new Order("nomeModuloSistema"));
+        return super.find(obj, ordem);
     }
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
+    @Override
     public Collection list() throws PersistenceException {
-	List list = new ArrayList();
-	list.add(new Order("nomeModuloSistema"));
-	return super.list(list);
+        final List list = new ArrayList<>();
+        list.add(new Order("nomeModuloSistema"));
+        return super.list(list);
     }
 
-    private static final String SQL_DELETE =
-	          "DELETE FROM CONTROLECONTRATOPAGAMENTO WHERE idcontrolecontrato = ? ";
+    private static final String SQL_DELETE = "DELETE FROM CONTROLECONTRATOPAGAMENTO WHERE idcontrolecontrato = ? ";
 
-	public void deleteByIdControleContrato(ControleContratoDTO controleContrato)
-		    throws PersistenceException {
-		        super.execUpdate(SQL_DELETE, new Object[]{controleContrato.getIdControleContrato()});
-		    }
+    public void deleteByIdControleContrato(final ControleContratoDTO controleContrato) throws PersistenceException {
+        super.execUpdate(SQL_DELETE, new Object[] {controleContrato.getIdControleContrato()});
+    }
 
-	 private static final String SQL_FIND =
-		      "SELECT * FROM CONTROLECONTRATOPAGAMENTO WHERE idcontrolecontrato = ? ";
+    private static final String SQL_FIND = "SELECT * FROM CONTROLECONTRATOPAGAMENTO WHERE idcontrolecontrato = ? ";
 
-	public Collection findByIdControleContrato(ControleContratoPagamentoDTO dto) throws PersistenceException {
-       return super.listConvertion(getBean(),
-               super.execSQL(SQL_FIND, new Object[]{dto.getIdControleContrato()}),
-               new ArrayList(getFields()));
-}
+    public Collection findByIdControleContrato(final ControleContratoPagamentoDTO dto) throws PersistenceException {
+        return super.listConvertion(this.getBean(), super.execSQL(SQL_FIND, new Object[] {dto.getIdControleContrato()}), new ArrayList(this.getFields()));
+    }
+
 }

@@ -44,9 +44,7 @@ public class ExecutaSQLDao extends CrudDaoDefaultImpl {
 
     public Collection executaSQL(final String sql) throws PersistenceException {
         if (sql != null) {
-            new ArrayList<>();
             final List lista = this.execSQL(sql, null);
-
             final List listRetorno = new ArrayList<>();
             listRetorno.add("value");
             listRetorno.add("description");

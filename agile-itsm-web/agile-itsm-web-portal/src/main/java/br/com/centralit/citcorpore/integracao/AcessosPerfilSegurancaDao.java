@@ -15,54 +15,57 @@ import br.com.citframework.util.Constantes;
 
 public class AcessosPerfilSegurancaDao extends CrudDaoDefaultImpl {
 
+    public AcessosPerfilSegurancaDao() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
+    }
 
-	public AcessosPerfilSegurancaDao() {
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
-	
-	public Collection find(BaseEntity obj) throws PersistenceException
-	{
-	    List order =  new ArrayList();
-	    order.add(new Order("idPerfilSeguranca", "ASC"));
-	    return super.find(obj, order);
-	}
-	
-	public void deleteByPerfilSeguranca(Integer idPerfilSeguranca) throws PersistenceException {
-		List cond = new ArrayList();
-		cond.add(new Condition("idPerfilSeguranca", "=", idPerfilSeguranca));
-		super.deleteByCondition(cond);
-	}
-	
-	public Collection findByIdPerfilSeguranca(Integer idPerfilSeguranca) throws Exception
-	{
-		List order =  new ArrayList();
-		List cond = new ArrayList();
-		
-		cond.add(new Condition("idPerfilSeguranca", "=", idPerfilSeguranca));
-		
-		order.add(new Order("path", "ASC"));
-		
-		return super.findByCondition(cond, order);
-	}
+    @Override
+    public Collection find(final BaseEntity obj) throws PersistenceException {
+        final List<Order> order = new ArrayList<>();
+        order.add(new Order("idPerfilSeguranca", "ASC"));
+        return super.find(obj, order);
+    }
 
-	public Collection<Field> getFields() {
-		Collection<Field> listFields = new ArrayList<>();
-		
-		listFields.add(new Field("idPerfilSeguranca" ,"idPerfilSeguranca", true, false, false, true));
-		listFields.add(new Field("path" ,"path", true, false, false, true));
-		
-		return listFields;
-	}
+    public void deleteByPerfilSeguranca(final Integer idPerfilSeguranca) throws PersistenceException {
+        final List cond = new ArrayList<>();
+        cond.add(new Condition("idPerfilSeguranca", "=", idPerfilSeguranca));
+        super.deleteByCondition(cond);
+    }
 
-	public String getTableName() {
-		return "ACESSOSPERFILSEGURANCA";
-	}
+    public Collection findByIdPerfilSeguranca(final Integer idPerfilSeguranca) throws Exception {
+        final List<Order> order = new ArrayList<>();
+        final List cond = new ArrayList<>();
 
-	public Collection list() throws PersistenceException {
-		return null;
-	}
-	
-	public Class getBean() {
-		return AcessosPerfilSegurancaDTO.class;
-	}
+        cond.add(new Condition("idPerfilSeguranca", "=", idPerfilSeguranca));
+
+        order.add(new Order("path", "ASC"));
+
+        return super.findByCondition(cond, order);
+    }
+
+    @Override
+    public Collection<Field> getFields() {
+        final Collection<Field> listFields = new ArrayList<>();
+
+        listFields.add(new Field("idPerfilSeguranca", "idPerfilSeguranca", true, false, false, true));
+        listFields.add(new Field("path", "path", true, false, false, true));
+
+        return listFields;
+    }
+
+    @Override
+    public String getTableName() {
+        return "ACESSOSPERFILSEGURANCA";
+    }
+
+    @Override
+    public Collection list() throws PersistenceException {
+        return null;
+    }
+
+    @Override
+    public Class getBean() {
+        return AcessosPerfilSegurancaDTO.class;
+    }
+
 }

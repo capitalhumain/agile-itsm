@@ -9,7 +9,7 @@ import br.com.centralit.citcorpore.comm.server.NetDiscover;
 public class DisparaNetMap implements Job {
 
     @Override
-    public void execute(JobExecutionContext context) throws JobExecutionException {
+    public void execute(final JobExecutionContext context) throws JobExecutionException {
         new Thread(new NetDiscover()).start();
     }
 

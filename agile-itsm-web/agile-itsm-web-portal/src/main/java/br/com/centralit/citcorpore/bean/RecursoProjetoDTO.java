@@ -3,37 +3,43 @@ package br.com.centralit.citcorpore.bean;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class RecursoProjetoDTO extends BaseEntity {
-	private Integer idProjeto;
-	private Integer idEmpregado;
-	private Double custoHora;
-	
-	private EmpregadoDTO empregadoDTO;
 
-	public Integer getIdProjeto(){
-		return this.idProjeto;
-	}
-	public void setIdProjeto(Integer parm){
-		this.idProjeto = parm;
-	}
+    private Integer idProjeto;
+    private Integer idEmpregado;
+    private Double custoHora;
 
-	public Integer getIdEmpregado(){
-		return this.idEmpregado;
-	}
-	public void setIdEmpregado(Integer parm){
-		this.idEmpregado = parm;
-	}
+    private EmpregadoDTO empregadoDTO;
 
-	public Double getCustoHora(){
-		return this.custoHora;
-	}
-	public void setCustoHora(Double parm){
-		this.custoHora = parm;
-	}
-	public EmpregadoDTO getEmpregadoDTO() {
-		return empregadoDTO;
-	}
-	public void setEmpregadoDTO(EmpregadoDTO empregadoDTO) {
-		this.empregadoDTO = empregadoDTO;
-	}
+    public Integer getIdProjeto() {
+        return idProjeto;
+    }
+
+    public void setIdProjeto(final Integer parm) {
+        idProjeto = parm;
+    }
+
+    public Integer getIdEmpregado() {
+        return idEmpregado;
+    }
+
+    public void setIdEmpregado(final Integer parm) {
+        idEmpregado = parm;
+    }
+
+    public Double getCustoHora() {
+        return custoHora;
+    }
+
+    public void setCustoHora(final Double parm) {
+        custoHora = parm;
+    }
+
+    public EmpregadoDTO getEmpregadoDTO() {
+        return empregadoDTO;
+    }
+
+    public void setEmpregadoDTO(final EmpregadoDTO empregadoDTO) {
+        this.empregadoDTO = empregadoDTO;
+    }
 
 }

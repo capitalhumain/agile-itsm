@@ -31,7 +31,7 @@ import net.sf.jasperreports.engine.fill.JRAbstractLRUVirtualizer;
 import net.sf.jasperreports.engine.fill.JRGzipVirtualizer;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import br.com.centralit.bpm.dto.FluxoDTO;
 import br.com.centralit.bpm.dto.PermissoesFluxoDTO;
@@ -159,7 +159,7 @@ public class PesquisaRequisicaoLiberacao extends AjaxFormAction {
 	 * (solicitacaoServicoDto.getDataFimFechamento() == null) { solicitacaoServicoDto.setDataFimFechamento(new java.sql.Date(UtilDatas.alteraData(UtilDatas.getDataAtual(), 365,
 	 * Calendar.DAY_OF_YEAR).getTime())); }
 	 * 
-	 * Collection colCriterios = new ArrayList(); colCriterios.add(new Condition("idSolicitacaoServico", "", solicitacaoServicoDto.getIdSolicitacaoServicoPesquisa())); colCriterios.add(new
+	 * Collection colCriterios = new ArrayList<>(); colCriterios.add(new Condition("idSolicitacaoServico", "", solicitacaoServicoDto.getIdSolicitacaoServicoPesquisa())); colCriterios.add(new
 	 * Condition("idsolicitante", "", idSolicitante)); colCriterios.add(new Condition("iditemconfiguracao", "", idIc)); colCriterios.add(new Condition("situacao", "",
 	 * solicitacaoServicoDto.getSituacao())); colCriterios.add(new Condition("dataInicial", "", solicitacaoServicoDto.getDataInicio())); colCriterios.add(new Condition("dataFinal", "",
 	 * UtilDatas.strToTimestamp(UtilDatas .dateToSTR(solicitacaoServicoDto.getDataFim()) + " 23:59:59"))); colCriterios.add(new Condition("idPrioridade", "", solicitacaoServicoDto.getIdPrioridade()));
@@ -272,7 +272,7 @@ public class PesquisaRequisicaoLiberacao extends AjaxFormAction {
 //		html.append("src='" + br.com.citframework.util.Constantes.getValue("CONTEXTO_APLICACAO") + "/template_new/images/cronometro.png'/>");
 //		html.append("</th>");
 		html.append("</tr>");
-		HashMap<String, PermissoesFluxoDTO> mapPermissoes = new HashMap();
+		HashMap<String, PermissoesFluxoDTO> mapPermissoes = new HashMap<>();
 		for (RequisicaoLiberacaoDTO r : resumo) {
 			
 //			RequisicaoLiberacaoDTO r = (RequisicaoLiberacaoDTO)a.getRequisicaoLiberacaoDto();

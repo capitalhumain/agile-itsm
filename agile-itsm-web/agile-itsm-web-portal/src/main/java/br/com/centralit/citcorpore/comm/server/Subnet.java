@@ -15,24 +15,29 @@ public class Subnet {
     private int address = 0;
     private int network = 0;
     private int broadcast = 0;
-    
+
     public Subnet() {}
 
     /**
      * Constructor that takes a CIDR-notation string, e.g. "192.168.0.1/16"
-     * @param cidrNotation A CIDR-notation string, e.g. "192.168.0.1/16"
+     * 
+     * @param cidrNotation
+     *            A CIDR-notation string, e.g. "192.168.0.1/16"
      */
-    public Subnet(String cidrNotation) {
-        calculate(cidrNotation);
+    public Subnet(final String cidrNotation) {
+        this.calculate(cidrNotation);
     }
 
     /**
-     * Constructor that takes two dotted decimal addresses. 
-     * @param address An IP address, e.g. "192.168.0.1"
-     * @param mask A dotted decimal netmask e.g. "255.255.0.0"
+     * Constructor that takes two dotted decimal addresses.
+     * 
+     * @param address
+     *            An IP address, e.g. "192.168.0.1"
+     * @param mask
+     *            A dotted decimal netmask e.g. "255.255.0.0"
      */
-    public Subnet(String address, String mask) {
-        calculate(toCidrNotation(address, mask));
+    public Subnet(final String address, final String mask) {
+        this.calculate(this.toCidrNotation(address, mask));
     }
 
     /**
@@ -40,39 +45,81 @@ public class Subnet {
      *
      */
     public final class SubnetInfo {
+
         private SubnetInfo() {}
 
-        private int netmask()       { return netmask; }
-        private int network()       { return network; }
-        private int address()       { return address; }
-        private int broadcast()     { return broadcast; }
-        private int low()           { return network() + 1; }
-        private int high()          { return broadcast() - 1; }
-
-        public boolean isInRange(String address)    { return isInRange(toInteger(address)); }
-        private boolean isInRange(int address)      { return ((address-low()) <= (high()-low())); }
-
-        public String getBroadcastAddress()         { return format(toArray(broadcast())); }
-        public String getNetworkAddress()           { return format(toArray(network())); }
-        public String getNetmask()                  { return format(toArray(netmask())); }
-        public String getAddress()                  { return format(toArray(address())); }
-        public String getLowAddress()               { return format(toArray(low())); }
-        public String getHighAddress()              { return format(toArray(high())); }
-        public int getAddressCount()                { return (broadcast() - low()); }
-
-        public int asInteger(String address)        { return toInteger(address); }
-        
-        public String getCidrSignature() { 
-            return toCidrNotation(
-                    format(toArray(address())), 
-                    format(toArray(netmask()))
-            );
+        private int netmask() {
+            return netmask;
         }
-        
-        public String[] getAllAddresses() { 
-            String[] addresses = new String[getAddressCount()];
-            for (int add = low(), j=0; add <= high(); ++add, ++j) {
-                addresses[j] = format(toArray(add));
+
+        private int network() {
+            return network;
+        }
+
+        private int address() {
+            return address;
+        }
+
+        private int broadcast() {
+            return broadcast;
+        }
+
+        private int low() {
+            return this.network() + 1;
+        }
+
+        private int high() {
+            return this.broadcast() - 1;
+        }
+
+        public boolean isInRange(final String address) {
+            return this.isInRange(Subnet.this.toInteger(address));
+        }
+
+        private boolean isInRange(final int address) {
+            return address - this.low() <= this.high() - this.low();
+        }
+
+        public String getBroadcastAddress() {
+            return Subnet.this.format(Subnet.this.toArray(this.broadcast()));
+        }
+
+        public String getNetworkAddress() {
+            return Subnet.this.format(Subnet.this.toArray(this.network()));
+        }
+
+        public String getNetmask() {
+            return Subnet.this.format(Subnet.this.toArray(this.netmask()));
+        }
+
+        public String getAddress() {
+            return Subnet.this.format(Subnet.this.toArray(this.address()));
+        }
+
+        public String getLowAddress() {
+            return Subnet.this.format(Subnet.this.toArray(this.low()));
+        }
+
+        public String getHighAddress() {
+            return Subnet.this.format(Subnet.this.toArray(this.high()));
+        }
+
+        public int getAddressCount() {
+            return this.broadcast() - this.low();
+        }
+
+        public int asInteger(final String address) {
+            return Subnet.this.toInteger(address);
+        }
+
+        public String getCidrSignature() {
+            return Subnet.this.toCidrNotation(Subnet.this.format(Subnet.this.toArray(this.address())), Subnet.this.format(Subnet.this.toArray(this.netmask())));
+        }
+
+        public String[] getAllAddresses() {
+            final String[] addresses = new String[this.getAddressCount()];
+            for (int add = this.low(), j = 0; add <= this.high(); ++add, ++j) {
+                addresses[j] = Subnet.this.format(Subnet.this.toArray(add));
             }
             return addresses;
         }
@@ -80,56 +127,59 @@ public class Subnet {
 
     /**
      * Return a {@link SubnetInfo} instance that contains subnet-specific statistics
+     * 
      * @return
      */
-    public final SubnetInfo getInfo() { return new SubnetInfo(); }
+    public final SubnetInfo getInfo() {
+        return new SubnetInfo();
+    }
 
     /*
      * Initialize the internal fields from the supplied CIDR mask
      */
-    private void calculate(String mask) {
-        Matcher matcher = cidrPattern.matcher(mask);
+    private void calculate(final String mask) {
+        final Matcher matcher = cidrPattern.matcher(mask);
 
         if (matcher.matches()) {
-            address = matchAddress(matcher);
+            address = this.matchAddress(matcher);
 
             /* Create a binary netmask from the number of bits specification /x */
-            int cidrPart = rangeCheck(Integer.parseInt(matcher.group(5)), 0, NBITS-1);
+            final int cidrPart = this.rangeCheck(Integer.parseInt(matcher.group(5)), 0, NBITS - 1);
             for (int j = 0; j < cidrPart; ++j) {
-                netmask |= (1 << 31-j);
+                netmask |= 1 << 31 - j;
             }
 
             /* Calculate base network address */
-            network = (address & netmask);
+            network = address & netmask;
 
             /* Calculate broadcast address */
-            broadcast = network | ~(netmask);
-        }
-        else 
+            broadcast = network | ~netmask;
+        } else {
             throw new IllegalArgumentException("Could not parse [" + mask + "]");
+        }
     }
 
     /*
      * Convert a dotted decimal format address to a packed integer format
      */
-    private int toInteger(String address) {
-        Matcher matcher = addressPattern.matcher(address);
+    private int toInteger(final String address) {
+        final Matcher matcher = addressPattern.matcher(address);
         if (matcher.matches()) {
-            return matchAddress(matcher);
-        }
-        else
+            return this.matchAddress(matcher);
+        } else {
             throw new IllegalArgumentException("Could not parse [" + address + "]");
+        }
     }
 
     /*
-     * Convenience method to extract the components of a dotted decimal address and 
+     * Convenience method to extract the components of a dotted decimal address and
      * pack into an integer using a regex match
      */
-    private int matchAddress(Matcher matcher) {
+    private int matchAddress(final Matcher matcher) {
         int addr = 0;
-        for (int i = 1; i <= 4; ++i) { 
-            int n = (rangeCheck(Integer.parseInt(matcher.group(i)), 0, 255));
-            addr |= ((n & 0xff) << 8*(4-i));
+        for (int i = 1; i <= 4; ++i) {
+            final int n = this.rangeCheck(Integer.parseInt(matcher.group(i)), 0, 255);
+            addr |= (n & 0xff) << 8 * (4 - i);
         }
         return addr;
     }
@@ -137,22 +187,23 @@ public class Subnet {
     /*
      * Convert a packed integer address into a 4-element array
      */
-    private int[] toArray(int val) {
-        int ret[] = new int[4];
-        for (int j = 3; j >= 0; --j)
-            ret[j] |= ((val >>> 8*(3-j)) & (0xff));
+    private int[] toArray(final int val) {
+        final int ret[] = new int[4];
+        for (int j = 3; j >= 0; --j) {
+            ret[j] |= val >>> 8 * (3 - j) & 0xff;
+        }
         return ret;
     }
 
     /*
      * Convert a 4-element array into dotted decimal format
      */
-    private String format(int[] octets) {
-        StringBuilder str = new StringBuilder();
-        for (int i =0; i < octets.length; ++i){
+    private String format(final int[] octets) {
+        final StringBuilder str = new StringBuilder();
+        for (int i = 0; i < octets.length; ++i) {
             str.append(octets[i]);
             if (i != octets.length - 1) {
-                str.append("."); 
+                str.append(".");
             }
         }
         return str.toString();
@@ -161,31 +212,33 @@ public class Subnet {
     /*
      * Convenience function to check integer boundaries
      */
-    private int rangeCheck(int value, int begin, int end) {
-        if (value >= begin && value <= end)
+    private int rangeCheck(final int value, final int begin, final int end) {
+        if (value >= begin && value <= end) {
             return value;
+        }
 
         throw new IllegalArgumentException("Value out of range: [" + value + "]");
     }
 
     /*
      * Count the number of 1-bits in a 32-bit integer using a divide-and-conquer strategy
-     * see Hacker's Delight section 5.1 
+     * see Hacker's Delight section 5.1
      */
     int pop(int x) {
-        x = x - ((x >>> 1) & 0x55555555); 
-        x = (x & 0x33333333) + ((x >>> 2) & 0x33333333); 
-        x = (x + (x >>> 4)) & 0x0F0F0F0F; 
-        x = x + (x >>> 8); 
-        x = x + (x >>> 16); 
-        return x & 0x0000003F; 
-    } 
+        x = x - (x >>> 1 & 0x55555555);
+        x = (x & 0x33333333) + (x >>> 2 & 0x33333333);
+        x = x + (x >>> 4) & 0x0F0F0F0F;
+        x = x + (x >>> 8);
+        x = x + (x >>> 16);
+        return x & 0x0000003F;
+    }
 
-    /* Convert two dotted decimal addresses to a single xxx.xxx.xxx.xxx/yy format
-     * by counting the 1-bit population in the mask address. (It may be better to count 
+    /*
+     * Convert two dotted decimal addresses to a single xxx.xxx.xxx.xxx/yy format
+     * by counting the 1-bit population in the mask address. (It may be better to count
      * NBITS-#trailing zeroes for this case)
      */
-    private String toCidrNotation(String addr, String mask) {
-        return addr + "/" + pop(toInteger(mask));
+    private String toCidrNotation(final String addr, final String mask) {
+        return addr + "/" + this.pop(this.toInteger(mask));
     }
 }

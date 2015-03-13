@@ -3,84 +3,96 @@ package br.com.centralit.citcorpore.bean;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class BIItemDashBoardDTO extends BaseEntity {
-	private Integer idItemDashBoard;
-	private Integer idDashBoard;
-	private Integer idConsulta;
-	private String titulo;
-	private Integer posicao;
-	private Integer itemTop;
-	private Integer itemLeft;
-	private Integer itemWidth;
-	private Integer itemHeight;
-	private String parmsSubst;
 
-	public Integer getIdItemDashBoard(){
-		return this.idItemDashBoard;
-	}
-	public void setIdItemDashBoard(Integer parm){
-		this.idItemDashBoard = parm;
-	}
+    private Integer idItemDashBoard;
+    private Integer idDashBoard;
+    private Integer idConsulta;
+    private String titulo;
+    private Integer posicao;
+    private Integer itemTop;
+    private Integer itemLeft;
+    private Integer itemWidth;
+    private Integer itemHeight;
+    private String parmsSubst;
 
-	public Integer getIdDashBoard(){
-		return this.idDashBoard;
-	}
-	public void setIdDashBoard(Integer parm){
-		this.idDashBoard = parm;
-	}
+    public Integer getIdItemDashBoard() {
+        return idItemDashBoard;
+    }
 
-	public Integer getIdConsulta(){
-		return this.idConsulta;
-	}
-	public void setIdConsulta(Integer parm){
-		this.idConsulta = parm;
-	}
+    public void setIdItemDashBoard(final Integer parm) {
+        idItemDashBoard = parm;
+    }
 
-	public String getTitulo(){
-		return this.titulo;
-	}
-	public void setTitulo(String parm){
-		this.titulo = parm;
-	}
+    public Integer getIdDashBoard() {
+        return idDashBoard;
+    }
 
-	public Integer getPosicao(){
-		return this.posicao;
-	}
-	public void setPosicao(Integer parm){
-		this.posicao = parm;
-	}
+    public void setIdDashBoard(final Integer parm) {
+        idDashBoard = parm;
+    }
 
-	public Integer getItemTop(){
-		return this.itemTop;
-	}
-	public void setItemTop(Integer parm){
-		this.itemTop = parm;
-	}
+    public Integer getIdConsulta() {
+        return idConsulta;
+    }
 
-	public Integer getItemLeft(){
-		return this.itemLeft;
-	}
-	public void setItemLeft(Integer parm){
-		this.itemLeft = parm;
-	}
+    public void setIdConsulta(final Integer parm) {
+        idConsulta = parm;
+    }
 
-	public Integer getItemWidth(){
-		return this.itemWidth;
-	}
-	public void setItemWidth(Integer parm){
-		this.itemWidth = parm;
-	}
+    public String getTitulo() {
+        return titulo;
+    }
 
-	public Integer getItemHeight(){
-		return this.itemHeight;
-	}
-	public void setItemHeight(Integer parm){
-		this.itemHeight = parm;
-	}
-	public String getParmsSubst() {
-		return parmsSubst;
-	}
-	public void setParmsSubst(String parmsSubst) {
-		this.parmsSubst = parmsSubst;
-	}
+    public void setTitulo(final String parm) {
+        titulo = parm;
+    }
+
+    public Integer getPosicao() {
+        return posicao;
+    }
+
+    public void setPosicao(final Integer parm) {
+        posicao = parm;
+    }
+
+    public Integer getItemTop() {
+        return itemTop;
+    }
+
+    public void setItemTop(final Integer parm) {
+        itemTop = parm;
+    }
+
+    public Integer getItemLeft() {
+        return itemLeft;
+    }
+
+    public void setItemLeft(final Integer parm) {
+        itemLeft = parm;
+    }
+
+    public Integer getItemWidth() {
+        return itemWidth;
+    }
+
+    public void setItemWidth(final Integer parm) {
+        itemWidth = parm;
+    }
+
+    public Integer getItemHeight() {
+        return itemHeight;
+    }
+
+    public void setItemHeight(final Integer parm) {
+        itemHeight = parm;
+    }
+
+    public String getParmsSubst() {
+        return parmsSubst;
+    }
+
+    public void setParmsSubst(final String parmsSubst) {
+        this.parmsSubst = parmsSubst;
+    }
 
 }

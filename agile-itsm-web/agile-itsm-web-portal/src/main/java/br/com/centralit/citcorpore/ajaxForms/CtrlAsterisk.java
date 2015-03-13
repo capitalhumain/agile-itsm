@@ -47,7 +47,7 @@ public class CtrlAsterisk extends AjaxFormAction {
 						condicaoProcura = new StringBuilder();
 						condicaoProcura.append(Telefone.mascaraProcuraSql(chamada[0]));
 						empregadoDto = empregadoService.findByTelefoneOrRamal(condicaoProcura.toString());
-						if (empregadoDto != null && empregadoDto.getNome() != null && org.apache.commons.lang.StringUtils.isNotBlank(empregadoDto.getNome())) {
+						if (empregadoDto != null && empregadoDto.getNome() != null && org.apache.commons.lang3.StringUtils.isNotBlank(empregadoDto.getNome())) {
 							campoNome.append("<p>" + empregadoDto.getNome() + "</p>");
 							html.append("<input id='idEmpregado' type='hidden' value='" + empregadoDto.getIdEmpregado() + "'/>");
 						} else {

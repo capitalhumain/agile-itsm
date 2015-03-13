@@ -8,12 +8,21 @@ import br.com.centralit.citcorpore.integracao.PermissoesFluxoDao;
 
 public class BPMPermissoesFluxo implements IPermissoesFluxo {
 
-	@Override
-	public PermissoesFluxoDTO getPermissoesFluxo(GrupoBpmDTO grupoDto, FluxoDTO fluxoDto) throws Exception {
-		PermissoesFluxoDTO permissoesFluxoDto = new PermissoesFluxoDTO();
-		permissoesFluxoDto.setIdTipoFluxo(fluxoDto.getIdTipoFluxo());
-		permissoesFluxoDto.setIdGrupo(grupoDto.getIdGrupo());
-		return (PermissoesFluxoDTO) new PermissoesFluxoDao().restore(permissoesFluxoDto);
-	}
-	
+    private PermissoesFluxoDao dao;
+
+    @Override
+    public PermissoesFluxoDTO getPermissoesFluxo(final GrupoBpmDTO grupoDto, final FluxoDTO fluxoDto) throws Exception {
+        final PermissoesFluxoDTO permissoesFluxoDto = new PermissoesFluxoDTO();
+        permissoesFluxoDto.setIdTipoFluxo(fluxoDto.getIdTipoFluxo());
+        permissoesFluxoDto.setIdGrupo(grupoDto.getIdGrupo());
+        return (PermissoesFluxoDTO) this.getDao().restore(permissoesFluxoDto);
+    }
+
+    private PermissoesFluxoDao getDao() {
+        if (dao == null) {
+            dao = new PermissoesFluxoDao();
+        }
+        return dao;
+    }
+
 }

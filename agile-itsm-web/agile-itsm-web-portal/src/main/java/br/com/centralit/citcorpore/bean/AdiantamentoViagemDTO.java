@@ -5,138 +5,140 @@ import java.sql.Timestamp;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class AdiantamentoViagemDTO extends BaseEntity {
-	
-	private static final long serialVersionUID = 1L;
-	
-	private Integer idAdiantamentoViagem;
-	private Integer idResponsavel;
-	private Integer idSolicitacaoServico;
-	private Integer idEmpregado;
-	private Timestamp dataHora;
-	private Double valorTotalAdiantado;
-	private String situacao;
-	private String observacoes;
-	private String cancelarRequisicao;
-	
-	private String adiantamentoViagemSerialize;
-	
-	private Integer idContrato;
-	
-	private String integranteFuncionario;
-	
-	private String nomeNaoFuncionario;
 
-	public Integer getIdAdiantamentoViagem() {
-		return idAdiantamentoViagem;
-	}
+    private static final long serialVersionUID = 1L;
 
-	public void setIdAdiantamentoViagem(Integer idAdiantamentoViagem) {
-		this.idAdiantamentoViagem = idAdiantamentoViagem;
-	}
+    private Integer idAdiantamentoViagem;
+    private Integer idResponsavel;
+    private Integer idSolicitacaoServico;
+    private Integer idEmpregado;
+    private Timestamp dataHora;
+    private Double valorTotalAdiantado;
+    private String situacao;
+    private String observacoes;
+    private String cancelarRequisicao;
 
-	public Integer getIdResponsavel() {
-		return idResponsavel;
-	}
+    private String adiantamentoViagemSerialize;
 
-	public void setIdResponsavel(Integer idResponsavel) {
-		this.idResponsavel = idResponsavel;
-	}
+    private Integer idContrato;
 
-	public Integer getIdSolicitacaoServico() {
-		return idSolicitacaoServico;
-	}
+    private String integranteFuncionario;
 
-	public void setIdSolicitacaoServico(Integer idSolicitacaoServico) {
-		this.idSolicitacaoServico = idSolicitacaoServico;
-	}
+    private String nomeNaoFuncionario;
 
-	public Integer getIdEmpregado() {
-		return idEmpregado;
-	}
+    public Integer getIdAdiantamentoViagem() {
+        return idAdiantamentoViagem;
+    }
 
-	public void setIdEmpregado(Integer idEmpregado) {
-		this.idEmpregado = idEmpregado;
-	}
+    public void setIdAdiantamentoViagem(final Integer idAdiantamentoViagem) {
+        this.idAdiantamentoViagem = idAdiantamentoViagem;
+    }
 
-	public Timestamp getDataHora() {
-		return dataHora;
-	}
+    public Integer getIdResponsavel() {
+        return idResponsavel;
+    }
 
-	public void setDataHora(Timestamp dataHora) {
-		this.dataHora = dataHora;
-	}
+    public void setIdResponsavel(final Integer idResponsavel) {
+        this.idResponsavel = idResponsavel;
+    }
 
-	public Double getValorTotalAdiantado() {
-		return valorTotalAdiantado;
-	}
+    public Integer getIdSolicitacaoServico() {
+        return idSolicitacaoServico;
+    }
 
-	public void setValorTotalAdiantado(Double valorTotalAdiantado) {
-		this.valorTotalAdiantado = valorTotalAdiantado;
-	}
+    public void setIdSolicitacaoServico(final Integer idSolicitacaoServico) {
+        this.idSolicitacaoServico = idSolicitacaoServico;
+    }
 
-	public String getSituacao() {
-		return situacao;
-	}
+    public Integer getIdEmpregado() {
+        return idEmpregado;
+    }
 
-	public void setSituacao(String situacao) {
-		this.situacao = situacao;
-	}
+    public void setIdEmpregado(final Integer idEmpregado) {
+        this.idEmpregado = idEmpregado;
+    }
 
-	public String getObservacoes() {
-		return observacoes;
-	}
+    public Timestamp getDataHora() {
+        return dataHora;
+    }
 
-	public void setObservacoes(String observacoes) {
-		this.observacoes = observacoes;
-	}
+    public void setDataHora(final Timestamp dataHora) {
+        this.dataHora = dataHora;
+    }
 
-	public String getAdiantamentoViagemSerialize() {
-		return adiantamentoViagemSerialize;
-	}
+    public Double getValorTotalAdiantado() {
+        return valorTotalAdiantado;
+    }
 
-	public void setAdiantamentoViagemSerialize(String adiantamentoViagemSerialize) {
-		this.adiantamentoViagemSerialize = adiantamentoViagemSerialize;
-	}
+    public void setValorTotalAdiantado(final Double valorTotalAdiantado) {
+        this.valorTotalAdiantado = valorTotalAdiantado;
+    }
 
-	public Integer getIdContrato() {
-		return idContrato;
-	}
+    public String getSituacao() {
+        return situacao;
+    }
 
-	public void setIdContrato(Integer idContrato) {
-		this.idContrato = idContrato;
-	}
+    public void setSituacao(final String situacao) {
+        this.situacao = situacao;
+    }
 
-	public String getIntegranteFuncionario() {
-		return integranteFuncionario;
-	}
+    public String getObservacoes() {
+        return observacoes;
+    }
 
-	public void setIntegranteFuncionario(String integranteFuncionario) {
-		this.integranteFuncionario = integranteFuncionario;
-	}
+    public void setObservacoes(final String observacoes) {
+        this.observacoes = observacoes;
+    }
 
-	public String getNomeNaoFuncionario() {
-		return nomeNaoFuncionario;
-	}
+    public String getAdiantamentoViagemSerialize() {
+        return adiantamentoViagemSerialize;
+    }
 
-	public void setNomeNaoFuncionario(String nomeNaoFuncionario) {
-		this.nomeNaoFuncionario = nomeNaoFuncionario;
-	}
+    public void setAdiantamentoViagemSerialize(final String adiantamentoViagemSerialize) {
+        this.adiantamentoViagemSerialize = adiantamentoViagemSerialize;
+    }
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+    public Integer getIdContrato() {
+        return idContrato;
+    }
 
-	/**
-	 * @return the cancelarRequisicao
-	 */
-	public String getCancelarRequisicao() {
-		return cancelarRequisicao;
-	}
+    public void setIdContrato(final Integer idContrato) {
+        this.idContrato = idContrato;
+    }
 
-	/**
-	 * @param cancelarRequisicao the cancelarRequisicao to set
-	 */
-	public void setCancelarRequisicao(String cancelarRequisicao) {
-		this.cancelarRequisicao = cancelarRequisicao;
-	}
+    public String getIntegranteFuncionario() {
+        return integranteFuncionario;
+    }
+
+    public void setIntegranteFuncionario(final String integranteFuncionario) {
+        this.integranteFuncionario = integranteFuncionario;
+    }
+
+    public String getNomeNaoFuncionario() {
+        return nomeNaoFuncionario;
+    }
+
+    public void setNomeNaoFuncionario(final String nomeNaoFuncionario) {
+        this.nomeNaoFuncionario = nomeNaoFuncionario;
+    }
+
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
+
+    /**
+     * @return the cancelarRequisicao
+     */
+    public String getCancelarRequisicao() {
+        return cancelarRequisicao;
+    }
+
+    /**
+     * @param cancelarRequisicao
+     *            the cancelarRequisicao to set
+     */
+    public void setCancelarRequisicao(final String cancelarRequisicao) {
+        this.cancelarRequisicao = cancelarRequisicao;
+    }
+
 }

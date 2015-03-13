@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringEscapeUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import br.com.centralit.citajax.html.AjaxFormAction;
 import br.com.centralit.citajax.html.DocumentHTML;
@@ -241,7 +241,7 @@ public class BlackList extends AjaxFormAction{
 			inicializarCombo(cmbJustificativa, request);
 
 			for (JustificativaListaNegraDTO justificativaDto : justificativaBlackList) {
-				cmbJustificativa.addOption(justificativaDto.getIdJustificativa().toString(), StringEscapeUtils.escapeJavaScript(justificativaDto.getJustificativa()));
+				cmbJustificativa.addOption(justificativaDto.getIdJustificativa().toString(), StringEscapeUtils.escapeEcmaScript(justificativaDto.getJustificativa()));
 			}
 
 		}

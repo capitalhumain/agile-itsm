@@ -114,11 +114,11 @@ public class RequisicaoQuestionario extends SolicitacaoServicoQuestionario {
         final Collection colValoresRequisicao = WebValuesQuestionario.getFormValues(request);
 
         requisicaoQuestionarioDTO.setColValores(colValoresRequisicao);
-        final Collection colAnexos = new ArrayList();
+        final Collection colAnexos = new ArrayList<>();
 
         List lst = (List) request.getSession(true).getAttribute("TEMP_LISTA_ARQ_MULTIMIDIA");
         if (lst == null) {
-            lst = new ArrayList();
+            lst = new ArrayList<>();
         }
 
         final Collection TEMP_LISTA_CERTIFICADO_DIGITAL = (Collection) request.getSession().getAttribute(
@@ -231,7 +231,7 @@ public class RequisicaoQuestionario extends SolicitacaoServicoQuestionario {
                     final ControleGEDExternoDTO controleGedExternoDto = new ControleGEDExternoDTO();
                     Reflexao.copyPropertyValues(controleGEDDTO, controleGedExternoDto);
 
-                    final HashMap hshInfo = new HashMap();
+                    final HashMap hshInfo = new HashMap<>();
 
                     final File file = new File(arquivoMultimidia.getCaminhoArquivo());
                     controleGedExternoDto.setConteudoDocumento(UtilTratamentoArquivos.getBytesFromFile(file));
@@ -324,8 +324,8 @@ public class RequisicaoQuestionario extends SolicitacaoServicoQuestionario {
 
     @Override
     public Collection organizaSubQuestionariosPorIdItem(Collection colValores) {
-        final HashMap map = new HashMap();
-        final Collection colSubQuestionarios = new ArrayList();
+        final HashMap map = new HashMap<>();
+        final Collection colSubQuestionarios = new ArrayList<>();
         if (colValores != null) {
             for (final Iterator it = colValores.iterator(); it.hasNext();) {
                 final RespostaItemAuxiliarDTO respItem = (RespostaItemAuxiliarDTO) it.next();
@@ -348,7 +348,7 @@ public class RequisicaoQuestionario extends SolicitacaoServicoQuestionario {
                                     itemSubQuestionarioAuxDTO = (ItemSubQuestionarioDTO) map.get("ITEM" + x);
                                     col = itemSubQuestionarioAuxDTO.getColSubQuestionario();
                                 } else {
-                                    col = new ArrayList();
+                                    col = new ArrayList<>();
                                     bIncluir = true;
                                 }
                                 respItem.setFieldName(str[2]);
@@ -381,7 +381,7 @@ public class RequisicaoQuestionario extends SolicitacaoServicoQuestionario {
 
         List lst = (List) request.getSession(true).getAttribute("TEMP_LISTA_CERTIFICADO_DIGITAL");
         if (lst == null) {
-            lst = new ArrayList();
+            lst = new ArrayList<>();
         }
 
         String strTable = "<table border='1' width='100%'>";

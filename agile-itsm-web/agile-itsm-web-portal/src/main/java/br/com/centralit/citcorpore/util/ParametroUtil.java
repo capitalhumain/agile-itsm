@@ -3,7 +3,7 @@ package br.com.centralit.citcorpore.util;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import br.com.centralit.citcorpore.bean.ParametroCorporeDTO;
 import br.com.centralit.citcorpore.negocio.ParametroCorporeService;

@@ -303,7 +303,7 @@ public class UnidadeServiceEjb extends CrudServiceImpl implements UnidadeService
 
     @Override
     public Collection listHierarquia() throws Exception {
-        final Collection colFinal = new ArrayList();
+        final Collection colFinal = new ArrayList<>();
         try {
             final Collection col = this.getDao().findSemPai();
             if (col != null) {
@@ -326,7 +326,7 @@ public class UnidadeServiceEjb extends CrudServiceImpl implements UnidadeService
 
     public Collection getCollectionHierarquia(final Integer idUnidade, final Integer nivel) throws Exception {
         final Collection col = this.getDao().findByIdPai(idUnidade);
-        final Collection colFinal = new ArrayList();
+        final Collection colFinal = new ArrayList<>();
         if (col != null) {
             for (final Iterator it = col.iterator(); it.hasNext();) {
                 final UnidadeDTO unidadeDTO = (UnidadeDTO) it.next();
@@ -445,7 +445,7 @@ public class UnidadeServiceEjb extends CrudServiceImpl implements UnidadeService
 
     @Override
     public Collection listHierarquiaMultiContratos(final Integer idContrato) throws Exception {
-        final Collection colFinal = new ArrayList();
+        final Collection colFinal = new ArrayList<>();
         try {
             final Collection col = this.getDao().findSemPaiMultContrato(idContrato);
             if (col != null) {

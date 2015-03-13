@@ -4,56 +4,56 @@ import br.com.agileitsm.model.support.BaseEntity;
 
 public class TipoDemandaServicoDTO extends BaseEntity {
 
-	private static final long serialVersionUID = 4413980874410791397L;
+    private static final long serialVersionUID = 4413980874410791397L;
 
-	private Integer idTipoDemandaServico;
+    private Integer idTipoDemandaServico;
 
-	private String nomeTipoDemandaServico;
+    private String nomeTipoDemandaServico;
 
-	private String classificacao;
+    private String classificacao;
 
-	private String deleted;
-	
-	private Integer quantidade;
+    private String deleted;
 
-	public Integer getIdTipoDemandaServico() {
-		return idTipoDemandaServico;
-	}
+    private Integer quantidade;
 
-	public void setIdTipoDemandaServico(Integer idTipoDemandaServico) {
-		this.idTipoDemandaServico = idTipoDemandaServico;
-	}
+    public Integer getIdTipoDemandaServico() {
+        return idTipoDemandaServico;
+    }
 
-	public String getNomeTipoDemandaServico() {
-		return nomeTipoDemandaServico;
-	}
+    public void setIdTipoDemandaServico(final Integer idTipoDemandaServico) {
+        this.idTipoDemandaServico = idTipoDemandaServico;
+    }
 
-	public void setNomeTipoDemandaServico(String nomeTipoDemandaServico) {
-		this.nomeTipoDemandaServico = nomeTipoDemandaServico;
-	}
+    public String getNomeTipoDemandaServico() {
+        return nomeTipoDemandaServico;
+    }
 
-	public String getClassificacao() {
-		return classificacao;
-	}
+    public void setNomeTipoDemandaServico(final String nomeTipoDemandaServico) {
+        this.nomeTipoDemandaServico = nomeTipoDemandaServico;
+    }
 
-	public void setClassificacao(String classificacao) {
-		this.classificacao = classificacao;
-	}
+    public String getClassificacao() {
+        return classificacao;
+    }
 
-	public String getDeleted() {
-		return deleted;
-	}
+    public void setClassificacao(final String classificacao) {
+        this.classificacao = classificacao;
+    }
 
-	public void setDeleted(String deleted) {
-		this.deleted = deleted;
-	}
+    public String getDeleted() {
+        return deleted;
+    }
 
-	public Integer getQuantidade() {
-		return quantidade;
-	}
+    public void setDeleted(final String deleted) {
+        this.deleted = deleted;
+    }
 
-	public void setQuantidade(Integer quantidade) {
-		this.quantidade = quantidade;
-	}
+    public Integer getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(final Integer quantidade) {
+        this.quantidade = quantidade;
+    }
 
 }

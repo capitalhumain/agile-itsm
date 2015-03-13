@@ -23,7 +23,7 @@ public class ManualFuncaoCompetenciaDao extends CrudDaoDefaultImpl {
 
     @Override
     public Collection find(final BaseEntity obj) throws PersistenceException {
-        final List ordenacao = new ArrayList();
+        final List<Order> ordenacao = new ArrayList<>();
         ordenacao.add(new Order("idNivelCompetencia"));
         return super.find(obj, ordenacao);
     }
@@ -47,14 +47,14 @@ public class ManualFuncaoCompetenciaDao extends CrudDaoDefaultImpl {
 
     @Override
     public Collection list() throws PersistenceException {
-        final List list = new ArrayList();
+        final List list = new ArrayList<>();
         list.add(new Order("nivel"));
         return super.list(list);
     }
 
     public Collection listAtivos() throws PersistenceException {
-        final List condicao = new ArrayList();
-        final List ordenacao = new ArrayList();
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
         condicao.add(new Condition("situacao", "=", "A"));
         ordenacao.add(new Order("descricao"));
         return super.findByCondition(condicao, ordenacao);

@@ -55,7 +55,7 @@ public class DelegacaoCentroResultadoResp extends DelegacaoCentroResultado {
 		form.clear();
 		form.setValues(delegacaoCentroResultadoDto);
 		
-		Collection colCCusto = new ArrayList();
+		Collection colCCusto = new ArrayList<>();
 		CentroResultadoService centroResultadoService = (CentroResultadoService) ServiceLocator.getInstance().getService(CentroResultadoService.class, WebUtil.getUsuarioSistema(request));
 		
 		for (ResponsavelCentroResultadoDTO respDto : colResp) {

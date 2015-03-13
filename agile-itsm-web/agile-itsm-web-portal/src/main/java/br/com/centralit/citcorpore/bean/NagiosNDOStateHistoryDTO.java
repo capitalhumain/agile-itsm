@@ -3,127 +3,143 @@ package br.com.centralit.citcorpore.bean;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class NagiosNDOStateHistoryDTO extends BaseEntity {
-	private Integer statehistory_id;
-	private Integer instance_id;
-	private java.sql.Timestamp state_time;
-	private Integer state_time_usec;
-	private Integer object_id;
-	private Integer state_change;
-	private Integer state;
-	private Integer state_type;
-	private Integer current_check_attempt;
-	private Integer max_check_attempts;
-	private Integer last_state;
-	private Integer last_hard_state;
-	private String output;
-	private String long_output;
 
-	public Integer getStatehistory_id(){
-		return this.statehistory_id;
-	}
-	public void setStatehistory_id(Integer parm){
-		this.statehistory_id = parm;
-	}
+    private Integer statehistory_id;
+    private Integer instance_id;
+    private java.sql.Timestamp state_time;
+    private Integer state_time_usec;
+    private Integer object_id;
+    private Integer state_change;
+    private Integer state;
+    private Integer state_type;
+    private Integer current_check_attempt;
+    private Integer max_check_attempts;
+    private Integer last_state;
+    private Integer last_hard_state;
+    private String output;
+    private String long_output;
 
-	public Integer getInstance_id(){
-		return this.instance_id;
-	}
-	public void setInstance_id(Integer parm){
-		this.instance_id = parm;
-	}
+    public Integer getStatehistory_id() {
+        return statehistory_id;
+    }
 
-	public java.sql.Timestamp getState_time(){
-		return this.state_time;
-	}
-	public void setState_time(java.sql.Timestamp parm){
-		this.state_time = parm;
-	}
+    public void setStatehistory_id(final Integer parm) {
+        statehistory_id = parm;
+    }
 
-	public Integer getState_time_usec(){
-		return this.state_time_usec;
-	}
-	public void setState_time_usec(Integer parm){
-		this.state_time_usec = parm;
-	}
+    public Integer getInstance_id() {
+        return instance_id;
+    }
 
-	public Integer getObject_id(){
-		return this.object_id;
-	}
-	public void setObject_id(Integer parm){
-		this.object_id = parm;
-	}
+    public void setInstance_id(final Integer parm) {
+        instance_id = parm;
+    }
 
-	public Integer getState_change(){
-		return this.state_change;
-	}
-	public void setState_change(Integer parm){
-		this.state_change = parm;
-	}
+    public java.sql.Timestamp getState_time() {
+        return state_time;
+    }
 
-	public Integer getState(){
-		return this.state;
-	}
-	public void setState(Integer parm){
-		this.state = parm;
-	}
+    public void setState_time(final java.sql.Timestamp parm) {
+        state_time = parm;
+    }
 
-	public Integer getState_type(){
-		return this.state_type;
-	}
-	public void setState_type(Integer parm){
-		this.state_type = parm;
-	}
+    public Integer getState_time_usec() {
+        return state_time_usec;
+    }
 
-	public Integer getCurrent_check_attempt(){
-		return this.current_check_attempt;
-	}
-	public void setCurrent_check_attempt(Integer parm){
-		this.current_check_attempt = parm;
-	}
+    public void setState_time_usec(final Integer parm) {
+        state_time_usec = parm;
+    }
 
-	public Integer getMax_check_attempts(){
-		return this.max_check_attempts;
-	}
-	public void setMax_check_attempts(Integer parm){
-		this.max_check_attempts = parm;
-	}
+    public Integer getObject_id() {
+        return object_id;
+    }
 
-	public Integer getLast_state(){
-		return this.last_state;
-	}
-	public void setLast_state(Integer parm){
-		this.last_state = parm;
-	}
+    public void setObject_id(final Integer parm) {
+        object_id = parm;
+    }
 
-	public Integer getLast_hard_state(){
-		return this.last_hard_state;
-	}
-	public void setLast_hard_state(Integer parm){
-		this.last_hard_state = parm;
-	}
+    public Integer getState_change() {
+        return state_change;
+    }
 
-	public String getOutput(){
-		return this.output;
-	}
-	public void setOutput(String parm){
-		this.output = parm;
-	}
+    public void setState_change(final Integer parm) {
+        state_change = parm;
+    }
 
-	public String getLong_output(){
-		return this.long_output;
-	}
-	public void setLong_output(String parm){
-		this.long_output = parm;
-	}
-	public String getStatus(){
-		if (this.getState() != null){
-			if (this.getState().intValue() == 2){ //CRITICAL
-				return "DOWN";
-			}else {
-				return "UP";
-			}
-		}
-		return "";
-	}	
-	
+    public Integer getState() {
+        return state;
+    }
+
+    public void setState(final Integer parm) {
+        state = parm;
+    }
+
+    public Integer getState_type() {
+        return state_type;
+    }
+
+    public void setState_type(final Integer parm) {
+        state_type = parm;
+    }
+
+    public Integer getCurrent_check_attempt() {
+        return current_check_attempt;
+    }
+
+    public void setCurrent_check_attempt(final Integer parm) {
+        current_check_attempt = parm;
+    }
+
+    public Integer getMax_check_attempts() {
+        return max_check_attempts;
+    }
+
+    public void setMax_check_attempts(final Integer parm) {
+        max_check_attempts = parm;
+    }
+
+    public Integer getLast_state() {
+        return last_state;
+    }
+
+    public void setLast_state(final Integer parm) {
+        last_state = parm;
+    }
+
+    public Integer getLast_hard_state() {
+        return last_hard_state;
+    }
+
+    public void setLast_hard_state(final Integer parm) {
+        last_hard_state = parm;
+    }
+
+    public String getOutput() {
+        return output;
+    }
+
+    public void setOutput(final String parm) {
+        output = parm;
+    }
+
+    public String getLong_output() {
+        return long_output;
+    }
+
+    public void setLong_output(final String parm) {
+        long_output = parm;
+    }
+
+    public String getStatus() {
+        if (this.getState() != null) {
+            if (this.getState().intValue() == 2) { // CRITICAL
+                return "DOWN";
+            } else {
+                return "UP";
+            }
+        }
+        return "";
+    }
+
 }

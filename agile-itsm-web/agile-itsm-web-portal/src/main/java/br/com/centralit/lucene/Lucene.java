@@ -301,9 +301,7 @@ public class Lucene {
             indexWriter.close();
             indexDir.close();
             return true;
-        } else {
-            return false;
-        }
+        } return false;
     }
 
     public boolean indexarBaseConhecimento(BaseConhecimentoDTO baseConhecimentoDTO) {

@@ -3,64 +3,72 @@ package br.com.centralit.citcorpore.bean;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class CausaIncidenteDTO extends BaseEntity {
-	private Integer idCausaIncidente;
-	private Integer idCausaIncidentePai;
-	private String descricaoCausa;
-	private java.sql.Date dataInicio;
-	private java.sql.Date dataFim;
-	
-	private Integer nivel;
 
-	public Integer getIdCausaIncidente(){
-		return this.idCausaIncidente;
-	}
-	public void setIdCausaIncidente(Integer parm){
-		this.idCausaIncidente = parm;
-	}
+    private Integer idCausaIncidente;
+    private Integer idCausaIncidentePai;
+    private String descricaoCausa;
+    private java.sql.Date dataInicio;
+    private java.sql.Date dataFim;
 
-	public Integer getIdCausaIncidentePai(){
-		return this.idCausaIncidentePai;
-	}
-	public void setIdCausaIncidentePai(Integer parm){
-		this.idCausaIncidentePai = parm;
-	}
+    private Integer nivel;
 
-	public String getDescricaoCausa(){
-		return this.descricaoCausa;
-	}
-	public void setDescricaoCausa(String parm){
-		this.descricaoCausa = parm;
-	}
-	
-	public String getDescricaoCausaNivel(){
-	    if (this.getNivel() == null){
-		return this.descricaoCausa;
-	    }
-	    String str = "";
-	    for (int i = 0; i < this.getNivel().intValue(); i++){
-		str += "....";
-	    }
-	    return str + this.descricaoCausa;
-	}	
+    public Integer getIdCausaIncidente() {
+        return idCausaIncidente;
+    }
 
-	public java.sql.Date getDataInicio(){
-		return this.dataInicio;
-	}
-	public void setDataInicio(java.sql.Date parm){
-		this.dataInicio = parm;
-	}
+    public void setIdCausaIncidente(final Integer parm) {
+        idCausaIncidente = parm;
+    }
 
-	public java.sql.Date getDataFim(){
-		return this.dataFim;
-	}
-	public void setDataFim(java.sql.Date parm){
-		this.dataFim = parm;
-	}
-	public Integer getNivel() {
-	    return nivel;
-	}
-	public void setNivel(Integer nivel) {
-	    this.nivel = nivel;
-	}
+    public Integer getIdCausaIncidentePai() {
+        return idCausaIncidentePai;
+    }
+
+    public void setIdCausaIncidentePai(final Integer parm) {
+        idCausaIncidentePai = parm;
+    }
+
+    public String getDescricaoCausa() {
+        return descricaoCausa;
+    }
+
+    public void setDescricaoCausa(final String parm) {
+        descricaoCausa = parm;
+    }
+
+    public String getDescricaoCausaNivel() {
+        if (this.getNivel() == null) {
+            return descricaoCausa;
+        }
+        String str = "";
+        for (int i = 0; i < this.getNivel().intValue(); i++) {
+            str += "....";
+        }
+        return str + descricaoCausa;
+    }
+
+    public java.sql.Date getDataInicio() {
+        return dataInicio;
+    }
+
+    public void setDataInicio(final java.sql.Date parm) {
+        dataInicio = parm;
+    }
+
+    public java.sql.Date getDataFim() {
+        return dataFim;
+    }
+
+    public void setDataFim(final java.sql.Date parm) {
+        dataFim = parm;
+    }
+
+    public Integer getNivel() {
+        return nivel;
+    }
+
+    public void setNivel(final Integer nivel) {
+        this.nivel = nivel;
+    }
 
 }

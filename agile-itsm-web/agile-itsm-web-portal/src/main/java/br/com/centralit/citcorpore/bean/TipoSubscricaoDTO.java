@@ -10,21 +10,21 @@ public class TipoSubscricaoDTO extends BaseEntity {
 
     private Integer idTipoSubscricao;
     private String nomeTipoSubscricao;
-    
-	public Integer getIdTipoSubscricao() {
-		return idTipoSubscricao;
-	}
-	public void setIdTipoSubscricao(Integer idTipoSubscricao) {
-		this.idTipoSubscricao = idTipoSubscricao;
-	}
-	public String getNomeTipoSubscricao() {
-		return nomeTipoSubscricao;
-	}
-	public void setNomeTipoSubscricao(String nomeTipoSubscricao) {
-		this.nomeTipoSubscricao = nomeTipoSubscricao;
-	}
 
+    public Integer getIdTipoSubscricao() {
+        return idTipoSubscricao;
+    }
 
+    public void setIdTipoSubscricao(final Integer idTipoSubscricao) {
+        this.idTipoSubscricao = idTipoSubscricao;
+    }
 
+    public String getNomeTipoSubscricao() {
+        return nomeTipoSubscricao;
+    }
+
+    public void setNomeTipoSubscricao(final String nomeTipoSubscricao) {
+        this.nomeTipoSubscricao = nomeTipoSubscricao;
+    }
 
 }

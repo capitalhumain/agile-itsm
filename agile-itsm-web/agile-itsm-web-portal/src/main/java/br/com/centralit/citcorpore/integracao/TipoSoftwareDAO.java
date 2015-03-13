@@ -12,43 +12,42 @@ import br.com.citframework.integracao.Field;
 import br.com.citframework.integracao.Order;
 import br.com.citframework.util.Constantes;
 
-@SuppressWarnings({ "rawtypes", "unchecked" })
 public class TipoSoftwareDAO extends CrudDaoDefaultImpl {
 
-	public TipoSoftwareDAO() {
-		 super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
+    public TipoSoftwareDAO() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
+    }
 
-	@Override
-	public Collection find(BaseEntity obj) throws PersistenceException {
-		return null;
-	}
+    @Override
+    public Collection find(final BaseEntity obj) throws PersistenceException {
+        return null;
+    }
 
-	@Override
-	public Collection<Field> getFields() {
-		Collection<Field> listFields = new ArrayList<>();
-		
-		listFields.add(new Field("IDTIPOSOFTWARE", "idTipoSoftware", true, true, false, false));
-		listFields.add(new Field("NOME", "nome", false, false, false, false));
+    @Override
+    public Collection<Field> getFields() {
+        final Collection<Field> listFields = new ArrayList<>();
 
-		return listFields;
-	}
+        listFields.add(new Field("IDTIPOSOFTWARE", "idTipoSoftware", true, true, false, false));
+        listFields.add(new Field("NOME", "nome", false, false, false, false));
 
-	@Override
-	public String getTableName() {
-		return "TIPOSOFTWARE";
-	}
+        return listFields;
+    }
 
-	@Override
-	public Collection list() throws PersistenceException {
-		List list = new ArrayList();
-		list.add(new Order("idTipoSoftware"));
-		return super.list(list);
-	    }
+    @Override
+    public String getTableName() {
+        return "tiposoftware";
+    }
 
-	@Override
-	public Class getBean() {
-		return TipoSoftwareDTO.class;
-	}
+    @Override
+    public Collection list() throws PersistenceException {
+        final List list = new ArrayList<>();
+        list.add(new Order("idTipoSoftware"));
+        return super.list(list);
+    }
+
+    @Override
+    public Class getBean() {
+        return TipoSoftwareDTO.class;
+    }
 
 }

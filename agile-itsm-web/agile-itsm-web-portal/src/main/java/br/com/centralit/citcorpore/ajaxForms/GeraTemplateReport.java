@@ -133,16 +133,16 @@ public class GeraTemplateReport extends AjaxFormAction {
         }
         final Map<String, Object> data = new HashMap<String, Object>();
 
-        final List result = new ArrayList();
-        final List result1 = new ArrayList();
-        final List result2 = new ArrayList();
-        final List result3 = new ArrayList();
-        final List result4 = new ArrayList();
-        final List result5 = new ArrayList();
-        final List result6 = new ArrayList();
-        final List result7 = new ArrayList();
-        final List result8 = new ArrayList();
-        final List result9 = new ArrayList();
+        final List result = new ArrayList<>();
+        final List result1 = new ArrayList<>();
+        final List result2 = new ArrayList<>();
+        final List result3 = new ArrayList<>();
+        final List result4 = new ArrayList<>();
+        final List result5 = new ArrayList<>();
+        final List result6 = new ArrayList<>();
+        final List result7 = new ArrayList<>();
+        final List result8 = new ArrayList<>();
+        final List result9 = new ArrayList<>();
 
         final String strResult = new String("");
         final String strResult1 = new String("");
@@ -241,7 +241,7 @@ public class GeraTemplateReport extends AjaxFormAction {
         Double objDouble;
         String objString1;
         if (listRetorno == null) {
-            listRetorno = new ArrayList();
+            listRetorno = new ArrayList<>();
         }
         for (int i = 0; i < listRetorno.size(); i++) {
             final Object[] row = (Object[]) listRetorno.get(i);
@@ -512,16 +512,16 @@ public class GeraTemplateReport extends AjaxFormAction {
 
         formula = compl + "\n" + formula;
 
-        final List result = new ArrayList();
-        final List result1 = new ArrayList();
-        final List result2 = new ArrayList();
-        final List result3 = new ArrayList();
-        final List result4 = new ArrayList();
-        final List result5 = new ArrayList();
-        final List result6 = new ArrayList();
-        final List result7 = new ArrayList();
-        final List result8 = new ArrayList();
-        final List result9 = new ArrayList();
+        final List result = new ArrayList<>();
+        final List result1 = new ArrayList<>();
+        final List result2 = new ArrayList<>();
+        final List result3 = new ArrayList<>();
+        final List result4 = new ArrayList<>();
+        final List result5 = new ArrayList<>();
+        final List result6 = new ArrayList<>();
+        final List result7 = new ArrayList<>();
+        final List result8 = new ArrayList<>();
+        final List result9 = new ArrayList<>();
 
         scope.put("retorno", scope, retorno);
         scope.put("utilStrings", scope, new UtilStrings());
@@ -578,7 +578,7 @@ public class GeraTemplateReport extends AjaxFormAction {
         if (colParmsUtilizadosNoSQL == null || colParmsUtilizadosNoSQL.size() == 0) {
             return null;
         }
-        final List lstRetorno = new ArrayList();
+        final List lstRetorno = new ArrayList<>();
         for (final Iterator it = colParmsUtilizadosNoSQL.iterator(); it.hasNext();) {
             final String nameParm = (String) it.next();
             final String type = this.getTypeParametro(colDefinicaoParametros, nameParm);
@@ -969,7 +969,7 @@ public class GeraTemplateReport extends AjaxFormAction {
         if (noItem == null) {
             return null;
         }
-        final List colParameters = new ArrayList();
+        final List colParameters = new ArrayList<>();
         GerencialParameterDTO gerencialParameter;
         if (noItem.getChildNodes() != null) {
             for (int i = 0; i < noItem.getChildNodes().getLength(); i++) {
@@ -1047,7 +1047,7 @@ public class GeraTemplateReport extends AjaxFormAction {
             return null;
         }
 
-        final Collection colRetorno = new ArrayList();
+        final Collection colRetorno = new ArrayList<>();
         if (noItem.getChildNodes() != null) {
             for (int i = 0; i < noItem.getChildNodes().getLength(); i++) {
                 final Node noSubItem = noItem.getChildNodes().item(i);
@@ -1095,7 +1095,7 @@ public class GeraTemplateReport extends AjaxFormAction {
 
     public HashMap getParametrosInformados(final HttpServletRequest request) {
         final Enumeration x = request.getParameterNames();
-        final HashMap hashRetorno = new HashMap();
+        final HashMap hashRetorno = new HashMap<>();
         String[] aux;
         while (x.hasMoreElements()) {
             final String nameElement = (String) x.nextElement();

@@ -14,175 +14,175 @@ import br.com.citframework.integracao.Field;
 import br.com.citframework.integracao.Order;
 import br.com.citframework.util.Constantes;
 
-@SuppressWarnings({ "unchecked", "rawtypes" })
 public class RequisicaoLiberacaoItemConfiguracaoDao extends CrudDaoDefaultImpl {
 
-	public RequisicaoLiberacaoItemConfiguracaoDao() {
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
-
-	public Collection<Field> getFields() {
-		Collection<Field> listFields = new ArrayList<>();
-		listFields.add(new Field("idrequisicaoliberacaoitemconfiguracao", "idRequisicaoLiberacaoItemConfiguracao", true, true, false, false));
-		listFields.add(new Field("idrequisicaoliberacao", "idRequisicaoLiberacao", false, false, false, false));
-		listFields.add(new Field("iditemconfiguracao", "idItemConfiguracao", false, false, false, false));
-		listFields.add(new Field("descricao", "descricao", false, false, false, false));
-		listFields.add(new Field("idhistoricoliberacao", "idHistoricoLiberacao", false, false, false, false));
-
-		return listFields;
-	}
-
-	public String getTableName() {
-		return this.getOwner() + "requisicaoliberacaoitemconfiguracao";
-	}
-
-	/**
-	 * Verifica se existe outro item igual criado.
-	 * Se existir retorna 'true', senao retorna 'false';
-	 */
-	public boolean verificaSeCadastrado(RequisicaoLiberacaoItemConfiguracaoDTO itemDTO) throws Exception {
-		boolean estaCadastrado;
-		List parametro = new ArrayList();
-		List list = new ArrayList();
-		StringBuilder sql = new StringBuilder();
-		sql.append("select * from " + getTableName() + " where iditemconfiguracao = ? and idrequisicaoliberacao = ?  ");
-		parametro.add(itemDTO.getIdItemConfiguracao());
-		parametro.add(itemDTO.getIdRequisicaoLiberacao());
-		list = this.execSQL(sql.toString(), parametro.toArray());
-		if (list != null && !list.isEmpty()) {
-			estaCadastrado = true;
-		} else {
-			estaCadastrado = false;
-		}
-		return estaCadastrado;
-	}
-
-	public Class getBean() {
-		return RequisicaoLiberacaoItemConfiguracaoDTO.class;
-	}
-
-	public Collection find(BaseEntity arg0) throws PersistenceException {
-		return super.find(arg0, null);
-	}
-
-	@Override
-	public void updateNotNull(BaseEntity obj) throws PersistenceException {
-		super.updateNotNull(obj);
-	}
-
-	@Override
-	public int deleteByCondition(List condicao) throws PersistenceException {
-		return super.deleteByCondition(condicao);
-	}
-
-	@Override
-	public Collection list() throws PersistenceException {
-		return super.list("idRequisicaoLiberacaoItemConfiguracao");
-	}
-
-    public Collection findByIdRequisicaoLiberacao(Integer parm) throws Exception {
-
-    	List parametro = new ArrayList();
-		List fields = new ArrayList();
-		List list = new ArrayList();
-		StringBuilder sql =  new StringBuilder();
-		sql.append(" SELECT idrequisicaoliberacaoitemconfiguracao, idrequisicaoliberacao, iditemconfiguracao, descricao, idhistoricoliberacao ");
-		sql.append(" FROM requisicaoliberacaoitemconfiguracao ");
-		sql.append(" WHERE idrequisicaoliberacao = ?");
-		parametro.add(parm);
-		list = this.execSQL(sql.toString(), parametro.toArray());
-		fields.add("idRequisicaoLiberacaoItemConfiguracao");
-		fields.add("idRequisicaoliberacao");
-		fields.add("idItemConfiguracao");
-		fields.add("descricao");
-		fields.add("idHistoricoLiberacao");
-		if (list != null && !list.isEmpty()) {
-			List listaIc = this.listConvertion(RequisicaoLiberacaoItemConfiguracaoDTO.class, list, fields);
-			return listaIc;
-		}
-
-		return null;
+    public RequisicaoLiberacaoItemConfiguracaoDao() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
     }
 
-    public RequisicaoLiberacaoItemConfiguracaoDTO findByIdReqLiberacao(Integer parm) throws Exception {
+    @Override
+    public Collection<Field> getFields() {
+        final Collection<Field> listFields = new ArrayList<>();
+        listFields.add(new Field("idrequisicaoliberacaoitemconfiguracao", "idRequisicaoLiberacaoItemConfiguracao", true, true, false, false));
+        listFields.add(new Field("idrequisicaoliberacao", "idRequisicaoLiberacao", false, false, false, false));
+        listFields.add(new Field("iditemconfiguracao", "idItemConfiguracao", false, false, false, false));
+        listFields.add(new Field("descricao", "descricao", false, false, false, false));
+        listFields.add(new Field("idhistoricoliberacao", "idHistoricoLiberacao", false, false, false, false));
 
-    	RequisicaoLiberacaoItemConfiguracaoDTO requisicaoLiberacaoItemConfiguracaoDTO = new RequisicaoLiberacaoItemConfiguracaoDTO();
-    	List parametro = new ArrayList();
-		List fields = new ArrayList();
-		List list = new ArrayList();
-		StringBuilder sql =  new StringBuilder();
-		sql.append(" SELECT idrequisicaoliberacaoitemconfiguracao, idrequisicaoliberacao, iditemconfiguracao, descricao, idhistoricoliberacao ");
-		sql.append(" FROM requisicaoliberacaoitemconfiguracao ");
-		sql.append(" WHERE idrequisicaoliberacao = ? AND idhistoricoliberacao is null");
-		parametro.add(parm);
-		list = this.execSQL(sql.toString(), parametro.toArray());
-		fields.add("idRequisicaoLiberacaoItemConfiguracao");
-		fields.add("idRequisicaoliberacao");
-		fields.add("idItemConfiguracao");
-		fields.add("descricao");
-		fields.add("idHistoricoLiberacao");
-		if (list != null && !list.isEmpty()) {
-			List<RequisicaoLiberacaoItemConfiguracaoDTO> listaIc = this.listConvertion(RequisicaoLiberacaoItemConfiguracaoDTO.class, list, fields);
-			return listaIc.get(0);
-		}
-
-		return requisicaoLiberacaoItemConfiguracaoDTO;
+        return listFields;
     }
 
-    public Collection findByIdItemConfiguracao(Integer parm) throws Exception {
-        List condicao = new ArrayList();
-        List ordenacao = new ArrayList();
+    @Override
+    public String getTableName() {
+        return this.getOwner() + "requisicaoliberacaoitemconfiguracao";
+    }
+
+    /**
+     * Verifica se existe outro item igual criado.
+     * Se existir retorna 'true', senao retorna 'false';
+     */
+    public boolean verificaSeCadastrado(final RequisicaoLiberacaoItemConfiguracaoDTO itemDTO) throws Exception {
+        boolean estaCadastrado;
+        final List parametro = new ArrayList<>();
+        List list = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
+        sql.append("select * from " + this.getTableName() + " where iditemconfiguracao = ? and idrequisicaoliberacao = ?  ");
+        parametro.add(itemDTO.getIdItemConfiguracao());
+        parametro.add(itemDTO.getIdRequisicaoLiberacao());
+        list = this.execSQL(sql.toString(), parametro.toArray());
+        if (list != null && !list.isEmpty()) {
+            estaCadastrado = true;
+        } else {
+            estaCadastrado = false;
+        }
+        return estaCadastrado;
+    }
+
+    @Override
+    public Class getBean() {
+        return RequisicaoLiberacaoItemConfiguracaoDTO.class;
+    }
+
+    @Override
+    public Collection find(final BaseEntity arg0) throws PersistenceException {
+        return super.find(arg0, null);
+    }
+
+    @Override
+    public int deleteByCondition(final List<Condition> condicao) throws PersistenceException {
+        return super.deleteByCondition(condicao);
+    }
+
+    @Override
+    public Collection list() throws PersistenceException {
+        return super.list("idRequisicaoLiberacaoItemConfiguracao");
+    }
+
+    public Collection findByIdRequisicaoLiberacao(final Integer parm) throws Exception {
+
+        final List parametro = new ArrayList<>();
+        final List fields = new ArrayList<>();
+        List list = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
+        sql.append(" SELECT idrequisicaoliberacaoitemconfiguracao, idrequisicaoliberacao, iditemconfiguracao, descricao, idhistoricoliberacao ");
+        sql.append(" FROM requisicaoliberacaoitemconfiguracao ");
+        sql.append(" WHERE idrequisicaoliberacao = ?");
+        parametro.add(parm);
+        list = this.execSQL(sql.toString(), parametro.toArray());
+        fields.add("idRequisicaoLiberacaoItemConfiguracao");
+        fields.add("idRequisicaoliberacao");
+        fields.add("idItemConfiguracao");
+        fields.add("descricao");
+        fields.add("idHistoricoLiberacao");
+        if (list != null && !list.isEmpty()) {
+            final List listaIc = this.listConvertion(RequisicaoLiberacaoItemConfiguracaoDTO.class, list, fields);
+            return listaIc;
+        }
+
+        return null;
+    }
+
+    public RequisicaoLiberacaoItemConfiguracaoDTO findByIdReqLiberacao(final Integer parm) throws Exception {
+
+        final RequisicaoLiberacaoItemConfiguracaoDTO requisicaoLiberacaoItemConfiguracaoDTO = new RequisicaoLiberacaoItemConfiguracaoDTO();
+        final List parametro = new ArrayList<>();
+        final List fields = new ArrayList<>();
+        List list = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
+        sql.append(" SELECT idrequisicaoliberacaoitemconfiguracao, idrequisicaoliberacao, iditemconfiguracao, descricao, idhistoricoliberacao ");
+        sql.append(" FROM requisicaoliberacaoitemconfiguracao ");
+        sql.append(" WHERE idrequisicaoliberacao = ? AND idhistoricoliberacao is null");
+        parametro.add(parm);
+        list = this.execSQL(sql.toString(), parametro.toArray());
+        fields.add("idRequisicaoLiberacaoItemConfiguracao");
+        fields.add("idRequisicaoliberacao");
+        fields.add("idItemConfiguracao");
+        fields.add("descricao");
+        fields.add("idHistoricoLiberacao");
+        if (list != null && !list.isEmpty()) {
+            final List<RequisicaoLiberacaoItemConfiguracaoDTO> listaIc = this.listConvertion(RequisicaoLiberacaoItemConfiguracaoDTO.class, list, fields);
+            return listaIc.get(0);
+        }
+
+        return requisicaoLiberacaoItemConfiguracaoDTO;
+    }
+
+    public Collection findByIdItemConfiguracao(final Integer parm) throws Exception {
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
         condicao.add(new Condition("idItemConfiguracao", "=", parm));
         ordenacao.add(new Order("idRequisicaoLiberacao"));
         return super.findByCondition(condicao, ordenacao);
     }
-	public ArrayList<RequisicaoLiberacaoItemConfiguracaoDTO> listByIdRequisicaoLiberacao(Integer idrequisicaoliberacao) throws ServiceException, Exception {
-		ArrayList<Condition> condicoes = new ArrayList<Condition>();
 
-		condicoes.add(new Condition("idRequisicaoLiberacao", "=", idrequisicaoliberacao));
+    public ArrayList<RequisicaoLiberacaoItemConfiguracaoDTO> listByIdRequisicaoLiberacao(final Integer idrequisicaoliberacao) throws ServiceException,
+    Exception {
+        final ArrayList<Condition> condicoes = new ArrayList<Condition>();
 
-		return (ArrayList<RequisicaoLiberacaoItemConfiguracaoDTO>) super.findByCondition(condicoes, null);
-	}
+        condicoes.add(new Condition("idRequisicaoLiberacao", "=", idrequisicaoliberacao));
 
-	/**
-	 * Retorna o item de relacionamento específico sem a chave primária da tabela.
-	 * Uma espécie de consulta por chave composta.
-	 *
-	 * @param dto
-	 * @return
-	 * @throws Exception
-	 * @throws ServiceException
-	 */
-	public RequisicaoLiberacaoItemConfiguracaoDTO restoreByChaveComposta(RequisicaoLiberacaoItemConfiguracaoDTO dto) throws ServiceException, Exception{
-		ArrayList<Condition> condicoes = new ArrayList<Condition>();
+        return (ArrayList<RequisicaoLiberacaoItemConfiguracaoDTO>) super.findByCondition(condicoes, null);
+    }
 
-		condicoes.add(new Condition("idRequisicaoLiberacao", "=", dto.getIdRequisicaoLiberacao()));
-		condicoes.add(new Condition("idItemConfiguracao", "=", dto.getIdItemConfiguracao()));
+    /**
+     * Retorna o item de relacionamento específico sem a chave primária da tabela.
+     * Uma espécie de consulta por chave composta.
+     *
+     * @param dto
+     * @return
+     * @throws Exception
+     * @throws ServiceException
+     */
+    public RequisicaoLiberacaoItemConfiguracaoDTO restoreByChaveComposta(final RequisicaoLiberacaoItemConfiguracaoDTO dto) throws ServiceException, Exception {
+        final ArrayList<Condition> condicoes = new ArrayList<Condition>();
 
-		ArrayList<RequisicaoLiberacaoItemConfiguracaoDTO> retorno =
-					(ArrayList<RequisicaoLiberacaoItemConfiguracaoDTO>)	super.findByCondition(condicoes, null);
+        condicoes.add(new Condition("idRequisicaoLiberacao", "=", dto.getIdRequisicaoLiberacao()));
+        condicoes.add(new Condition("idItemConfiguracao", "=", dto.getIdItemConfiguracao()));
 
-		if(retorno != null){
-			return retorno.get(0);
-		}
+        final ArrayList<RequisicaoLiberacaoItemConfiguracaoDTO> retorno = (ArrayList<RequisicaoLiberacaoItemConfiguracaoDTO>) super.findByCondition(condicoes,
+                null);
 
-		return null;
-	}
+        if (retorno != null) {
+            return retorno.get(0);
+        }
 
-	public void deleteByIdRequisicaoMudanca(Integer idRequisicaoLiberacao) throws ServiceException, Exception{
-		ArrayList<Condition> condicoes = new ArrayList<Condition>();
+        return null;
+    }
 
-		condicoes.add(new Condition("idRequisicaoLiberacao", "=", idRequisicaoLiberacao));
+    public void deleteByIdRequisicaoMudanca(final Integer idRequisicaoLiberacao) throws ServiceException, Exception {
+        final ArrayList<Condition> condicoes = new ArrayList<Condition>();
 
-		super.deleteByCondition(condicoes);
-	}
+        condicoes.add(new Condition("idRequisicaoLiberacao", "=", idRequisicaoLiberacao));
 
-	  public ArrayList<RequisicaoLiberacaoItemConfiguracaoDTO> findByIdHistoricoLiberacao(Integer parm) throws Exception {
-	        List condicao = new ArrayList();
-	        List ordenacao = new ArrayList();
-	        condicao.add(new Condition("idHistoricoLiberacao", "=", parm));
-	        ordenacao.add(new Order("idItemConfiguracao"));
-	        return (ArrayList<RequisicaoLiberacaoItemConfiguracaoDTO>) super.findByCondition(condicao, ordenacao);
-	    }
+        super.deleteByCondition(condicoes);
+    }
+
+    public ArrayList<RequisicaoLiberacaoItemConfiguracaoDTO> findByIdHistoricoLiberacao(final Integer parm) throws Exception {
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
+        condicao.add(new Condition("idHistoricoLiberacao", "=", parm));
+        ordenacao.add(new Order("idItemConfiguracao"));
+        return (ArrayList<RequisicaoLiberacaoItemConfiguracaoDTO>) super.findByCondition(condicao, ordenacao);
+    }
 
 }

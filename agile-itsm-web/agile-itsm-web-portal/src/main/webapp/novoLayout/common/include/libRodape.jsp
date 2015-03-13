@@ -20,9 +20,6 @@
 <!-- SlimScroll Plugin -->
 <script type="text/javascript" src="${ctx}/novoLayout/common/theme/scripts/plugins/other/jquery-slimScroll/jquery.slimscroll.min.js"></script>
 
-<!-- Common Demo Script -->
-<script type="text/javascript" src="${ctx}/novoLayout/common/theme/scripts/demo/common.js?1374758914"></script>
-
 <!-- Holder Plugin -->
 <script type="text/javascript" src="${ctx}/novoLayout/common/theme/scripts/plugins/other/holder/holder.js"></script>
 

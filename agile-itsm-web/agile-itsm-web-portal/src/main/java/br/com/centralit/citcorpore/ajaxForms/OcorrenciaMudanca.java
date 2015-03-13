@@ -336,7 +336,7 @@ public class OcorrenciaMudanca extends AjaxFormAction  {
 
 	@Override
 	public Class getBeanClass() {
-		// TODO Auto-generated method stub
+		
 		return OcorrenciaMudancaDTO.class;
 	}
 	

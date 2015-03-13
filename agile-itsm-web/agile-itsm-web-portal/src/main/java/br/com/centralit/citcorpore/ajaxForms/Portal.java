@@ -8,7 +8,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 
 import br.com.centralit.citajax.html.AjaxFormAction;
 import br.com.centralit.citajax.html.DocumentHTML;
@@ -117,7 +117,7 @@ public class Portal extends AjaxFormAction {
             sbCatSer.append("		<a href='javascript:carregarServicos(" + catalogoServicoDTO.getIdCatalogoServico() + "," + catalogoServicoDTO.getIdContrato() + ");' >");
             sbCatSer.append("			<span class='pull-right glyphicons shopping_cart'><i></i></span>");
             sbCatSer.append("			<h5>");
-            sbCatSer.append(StringEscapeUtils.escapeHtml(catalogoServicoDTO.getTituloCatalogoServico()));
+            sbCatSer.append(StringEscapeUtils.escapeHtml4(catalogoServicoDTO.getTituloCatalogoServico()));
             sbCatSer.append("			</h5>");
             sbCatSer.append("			<span class='price'>");
             sbCatSer.append("				");
@@ -180,16 +180,16 @@ public class Portal extends AjaxFormAction {
                             + info.getIdServicoCatalogo() + "' />");
                     sbDesc.append("		<input type='hidden'id='idContrato" + i + "' name='idContrato' value='" + portalDTO.getIdContratoUsuario() + "' />");
                     sbDesc.append("		<input type='hidden'id='descInfoCatalogoServico" + i + "' name='descInfoCatalogoServico' value='"
-                            + StringEscapeUtils.escapeJavaScript(info.getDescInfoCatalogoServico()) + "' />");
+                            + StringEscapeUtils.escapeEcmaScript(info.getDescInfoCatalogoServico()) + "' />");
                     sbDesc.append("		<input type='hidden'id='observacaoInfoCatalogoServico" + i + "' name='observacaoInfoCatalogoServico' value='' />");
                     sbDesc.append("		<input type='hidden'id='nomeServico" + i + "' name='nomeServico' value='"
-                    		+ StringEscapeUtils.escapeJavaScript(info.getNomeInfoCatalogoServico()) + "' />");
+                    		+ StringEscapeUtils.escapeEcmaScript(info.getNomeInfoCatalogoServico()) + "' />");
                     sbDesc.append("		<input type='hidden'id='idInfoCatalogoServico" + i + "' name='idInfoCatalogoServico' value='"
                     		+info.getIdInfoCatalogoServico()+ "' /></td>");
-                    sbDesc.append("<td class ='quebraPalavras' >" + StringEscapeUtils.escapeJavaScript(info.getNomeInfoCatalogoServico()) + "</td>");
+                    sbDesc.append("<td class ='quebraPalavras' >" + StringEscapeUtils.escapeEcmaScript(info.getNomeInfoCatalogoServico()) + "</td>");
 
-                    	sbDesc.append("<td class ='quebraPalavras'>" + StringEscapeUtils.escapeJavaScript(info.getNomeServicoContrato()) + "</td>");
-                    sbDesc.append("<td class ='quebraPalavras'>" + StringEscapeUtils.escapeJavaScript(info.getDescInfoCatalogoServico()) + "</td>");
+                    	sbDesc.append("<td class ='quebraPalavras'>" + StringEscapeUtils.escapeEcmaScript(info.getNomeServicoContrato()) + "</td>");
+                    sbDesc.append("<td class ='quebraPalavras'>" + StringEscapeUtils.escapeEcmaScript(info.getDescInfoCatalogoServico()) + "</td>");
                     sbDesc.append("<td>");
                     sbDesc.append("		<textarea onkeyup='javascript:limita(this.id);'   id='observacaoPortal" + i
                             + "' name='observacaoPortal' class='' style='width: 96%;' rows='2' maxlength = '3000'></textarea>");
@@ -251,7 +251,7 @@ public class Portal extends AjaxFormAction {
                     servicoContratoDto.setIdServico(infoCatalogoServicoDTO.getIdServicoCatalogo());
                     servicoContratoDto.setIdContrato(infoCatalogoServicoDTO.getIdContrato());
                     servicoContratoDto.setDescricao(infoCatalogoServicoDTO.getDescInfoCatalogoServico());
-                    servicoContratoDto.setObservacaoPortal(StringEscapeUtils.escapeJavaScript(br.com.citframework.util.WebUtil.codificaEnter(infoCatalogoServicoDTO.getObservacaoPortal())));
+                    servicoContratoDto.setObservacaoPortal(StringEscapeUtils.escapeEcmaScript(br.com.citframework.util.WebUtil.codificaEnter(infoCatalogoServicoDTO.getObservacaoPortal())));
                     servicoContratoDto.setNomeServico(infoCatalogoServicoDTO.getNomeServico());
                     servicoContratoDto.setIdInfoCatalogoServico(infoCatalogoServicoDTO.getIdInfoCatalogoServico());
 

@@ -7,10 +7,9 @@ import br.com.citframework.excecao.LogicException;
 import br.com.citframework.util.UtilDatas;
 
 public class CalendarioDTO extends BaseEntity {
-    /**
-     * 
-     */
+
     private static final long serialVersionUID = 4675705104260302480L;
+
     private Integer idCalendario;
     private String descricao;
     private String consideraFeriados;
@@ -24,142 +23,143 @@ public class CalendarioDTO extends BaseEntity {
     private String permiteDataInferiorHoje;
 
     public Integer getIdCalendario() {
-	return this.idCalendario;
+        return idCalendario;
     }
 
-    public void setIdCalendario(Integer parm) {
-	this.idCalendario = parm;
+    public void setIdCalendario(final Integer parm) {
+        idCalendario = parm;
     }
 
     public String getDescricao() {
-	return this.descricao;
+        return descricao;
     }
 
-    public void setDescricao(String parm) {
-	this.descricao = parm;
+    public void setDescricao(final String parm) {
+        descricao = parm;
     }
 
     public String getConsideraFeriados() {
-	return this.consideraFeriados;
+        return consideraFeriados;
     }
 
-    public void setConsideraFeriados(String parm) {
-	this.consideraFeriados = parm;
+    public void setConsideraFeriados(final String parm) {
+        consideraFeriados = parm;
     }
 
     public Integer getIdJornadaSeg() {
-	return this.idJornadaSeg;
+        return idJornadaSeg;
     }
 
-    public void setIdJornadaSeg(Integer parm) {
-	if(parm == null || parm == 0){
-	    return;
-	}
-	this.idJornadaSeg = parm;
+    public void setIdJornadaSeg(final Integer parm) {
+        if (parm == null || parm == 0) {
+            return;
+        }
+        idJornadaSeg = parm;
     }
 
     public Integer getIdJornadaTer() {
-	return this.idJornadaTer;
+        return idJornadaTer;
     }
 
-    public void setIdJornadaTer(Integer parm) {
-	if(parm == null || parm == 0){
-	    return;
-	}
-	this.idJornadaTer = parm;
+    public void setIdJornadaTer(final Integer parm) {
+        if (parm == null || parm == 0) {
+            return;
+        }
+        idJornadaTer = parm;
     }
 
     public Integer getIdJornadaQua() {
-	return this.idJornadaQua;
+        return idJornadaQua;
     }
 
-    public void setIdJornadaQua(Integer parm) {
-	if(parm == null || parm == 0){
-	    return;
-	}
-	this.idJornadaQua = parm;
+    public void setIdJornadaQua(final Integer parm) {
+        if (parm == null || parm == 0) {
+            return;
+        }
+        idJornadaQua = parm;
     }
 
     public Integer getIdJornadaQui() {
-	return this.idJornadaQui;
+        return idJornadaQui;
     }
 
-    public void setIdJornadaQui(Integer parm) {
-	if(parm == null || parm == 0){
-	    return;
-	}
-	this.idJornadaQui = parm;
+    public void setIdJornadaQui(final Integer parm) {
+        if (parm == null || parm == 0) {
+            return;
+        }
+        idJornadaQui = parm;
     }
 
     public Integer getIdJornadaSex() {
-	return this.idJornadaSex;
+        return idJornadaSex;
     }
 
-    public void setIdJornadaSex(Integer parm) {
-	if(parm == null || parm == 0){
-	    return;
-	}
-	this.idJornadaSex = parm;
+    public void setIdJornadaSex(final Integer parm) {
+        if (parm == null || parm == 0) {
+            return;
+        }
+        idJornadaSex = parm;
     }
 
     public Integer getIdJornadaSab() {
-	return this.idJornadaSab;
+        return idJornadaSab;
     }
 
-    public void setIdJornadaSab(Integer parm) {
-	if(parm == null || parm == 0){
-	    return;
-	}
-	this.idJornadaSab = parm;
+    public void setIdJornadaSab(final Integer parm) {
+        if (parm == null || parm == 0) {
+            return;
+        }
+        idJornadaSab = parm;
     }
 
     public Integer getIdJornadaDom() {
-	return this.idJornadaDom;
+        return idJornadaDom;
     }
 
-    public void setIdJornadaDom(Integer parm) {
-	if(parm == null || parm == 0){
-	    return;
-	}
-	this.idJornadaDom = parm;
+    public void setIdJornadaDom(final Integer parm) {
+        if (parm == null || parm == 0) {
+            return;
+        }
+        idJornadaDom = parm;
     }
 
-    public Integer getIdJornada(Date dataRef) throws LogicException {
-		Integer idJornada = null;
-		int diaSemana = UtilDatas.getDiaSemana(UtilDatas.dateToSTR(dataRef));
-		switch (diaSemana) {
-			case 1:
-				idJornada = this.getIdJornadaDom();
-				break;
-			case 2:
-				idJornada = this.getIdJornadaSeg();
-				break;
-			case 3:
-				idJornada = this.getIdJornadaTer();
-				break;
-			case 4:
-				idJornada = this.getIdJornadaQua();
-				break;
-			case 5:
-				idJornada = this.getIdJornadaQui();
-				break;
-			case 6:
-				idJornada = this.getIdJornadaSex();
-				break;
-			case 7:
-				idJornada = this.getIdJornadaSab();
-				break;
-			default:
-				break;
-		}
-		return idJornada;
+    public Integer getIdJornada(final Date dataRef) throws LogicException {
+        Integer idJornada = null;
+        final int diaSemana = UtilDatas.getDiaSemana(UtilDatas.dateToSTR(dataRef));
+        switch (diaSemana) {
+        case 1:
+            idJornada = this.getIdJornadaDom();
+            break;
+        case 2:
+            idJornada = this.getIdJornadaSeg();
+            break;
+        case 3:
+            idJornada = this.getIdJornadaTer();
+            break;
+        case 4:
+            idJornada = this.getIdJornadaQua();
+            break;
+        case 5:
+            idJornada = this.getIdJornadaQui();
+            break;
+        case 6:
+            idJornada = this.getIdJornadaSex();
+            break;
+        case 7:
+            idJornada = this.getIdJornadaSab();
+            break;
+        default:
+            break;
+        }
+        return idJornada;
     }
 
-	public String getPermiteDataInferiorHoje() {
-		return permiteDataInferiorHoje;
-	}
+    public String getPermiteDataInferiorHoje() {
+        return permiteDataInferiorHoje;
+    }
 
-	public void setPermiteDataInferiorHoje(String permiteDataInferiorHoje) {
-		this.permiteDataInferiorHoje = permiteDataInferiorHoje;
-	}
+    public void setPermiteDataInferiorHoje(final String permiteDataInferiorHoje) {
+        this.permiteDataInferiorHoje = permiteDataInferiorHoje;
+    }
+
 }

@@ -12,38 +12,40 @@ import br.com.centralit.citcorpore.negocio.EmpregadoService;
 import br.com.citframework.service.ServiceLocator;
 
 public class AtualizaNomeProcuraEmpregados implements Job {
-	@SuppressWarnings("unchecked")
-	public void execute(JobExecutionContext context) throws JobExecutionException {
-		try {
-			EmpregadoService empregadoService = (EmpregadoService) ServiceLocator.getInstance().getService(EmpregadoService.class, null);
 
-			boolean aindaExistemRegistros = true;
-			int intervalo = 200;
-			int indice = 0;
-			do {
-				Collection<EmpregadoDTO> empregados = empregadoService.listarIdEmpregados(intervalo, indice);
-				if(empregados != null){
-					for (EmpregadoDTO empregado : empregados) {
-						empregado = (EmpregadoDTO) empregadoService.restore(empregado);
-						String nomeProcura = empregado.getNome();
-						nomeProcura = nomeProcura.trim();
-						nomeProcura = nomeProcura.toUpperCase();
-						nomeProcura = Normalizer.normalize(nomeProcura, Normalizer.Form.NFD);
-						nomeProcura = nomeProcura.replaceAll("[^\\p{ASCII}]", "");
-						empregado.setNomeProcura(nomeProcura);
-						empregadoService.update(empregado);
-					}
-				}
+    @Override
+    public void execute(final JobExecutionContext context) throws JobExecutionException {
+        try {
+            final EmpregadoService empregadoService = (EmpregadoService) ServiceLocator.getInstance().getService(EmpregadoService.class, null);
 
-				indice += intervalo;
-				if (empregados == null || empregados.size() < intervalo) {
-					aindaExistemRegistros = false;
-				}
+            boolean aindaExistemRegistros = true;
+            final int intervalo = 200;
+            int indice = 0;
+            do {
+                final Collection<EmpregadoDTO> empregados = empregadoService.listarIdEmpregados(intervalo, indice);
+                if (empregados != null) {
+                    for (EmpregadoDTO empregado : empregados) {
+                        empregado = (EmpregadoDTO) empregadoService.restore(empregado);
+                        String nomeProcura = empregado.getNome();
+                        nomeProcura = nomeProcura.trim();
+                        nomeProcura = nomeProcura.toUpperCase();
+                        nomeProcura = Normalizer.normalize(nomeProcura, Normalizer.Form.NFD);
+                        nomeProcura = nomeProcura.replaceAll("[^\\p{ASCII}]", "");
+                        empregado.setNomeProcura(nomeProcura);
+                        empregadoService.update(empregado);
+                    }
+                }
 
-			} while (aindaExistemRegistros);
-			System.out.println("Atualização de nomeProcura dos empregados concluída");
-		} catch (Exception e) {
-			System.out.println("ERRO -  " + e.getMessage());
-		}
-	}
+                indice += intervalo;
+                if (empregados == null || empregados.size() < intervalo) {
+                    aindaExistemRegistros = false;
+                }
+
+            } while (aindaExistemRegistros);
+            System.out.println("Atualização de nomeProcura dos empregados concluída");
+        } catch (final Exception e) {
+            System.out.println("ERRO -  " + e.getMessage());
+        }
+    }
+
 }

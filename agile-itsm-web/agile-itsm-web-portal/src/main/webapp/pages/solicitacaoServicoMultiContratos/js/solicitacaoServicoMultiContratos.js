@@ -175,7 +175,6 @@ $(document).ready(function() {
         montaParametrosAutocompleteServico();
     });
 
-
     $(document).on('onfocus', '#unidadeDes', function() {
         montaParametrosAutocompleteUnidade();
     });
@@ -445,9 +444,8 @@ function validarInformacoesComplementares() {
         } catch (e) {
             return true;
         }
-    } else {
-        return true;
     }
+    return true;
 }
 
 function escondeJanelaAguarde() {
@@ -474,12 +472,10 @@ function adicionarRegistroExecucao() {
 
 function executa_miniLoading() {
     document.getElementById('divMini_loading').style.display = 'block';
-
 }
 
 function finaliza_miniLoading() {
     document.getElementById("divMini_loading").style.display = 'none';
-
 }
 
 function fecharAddSolicitante() {
@@ -511,14 +507,12 @@ function abrirModalMudanca() {
 
 function abrirModalItemConfiguracao() {
     $('#conteudoiframeInformacaoItemConfiguracao').html('<iframe src="about:blank" width="99%" id="iframeInformacaoItemConfiguracao" height="530" class="iframeSemBorda"></iframe>');
-
 }
 
 function modalCadastroSolicitacaoServico() {
     document.form.fireEvent('abrirListaDeSubSolicitacoes');
     $('#modal_solicitacaofilha').modal('show');
 }
-
 
 $(function() {
     var offset = $("#menu").offset();
@@ -637,10 +631,9 @@ function carregarProblema(row, obj) {
     $("#modal_editarCadastrarProblema").modal("show");
 }
 
-
 /**
 Funcao que faz referencia ao bot?o fechar da tela de problema ap?s fechar um problema ira fechar modal em solicitacao servico.
-*
+* 
 * @author maycon.fernandes
 * @since 30/10/2013 15:35
 */
@@ -654,7 +647,7 @@ function fecharFrameProblema() {
 
 /**
 Funcao que faz referencia ao bot?o fechar da tela de mudanca ap?s fechar um mudanca ira fechar modal em solicitacao servico.
-*
+* 
 * @author maycon.fernandes
 * @since 30/10/2013 15:35
 */
@@ -664,7 +657,7 @@ function fecharMudanca() {
 
 /**
 Alterado para apenas visualizar, a rotina anterior estava permitindo alterar com isso ele nao estava andando junto com o fluxo.
-*
+* 
 * @author maycon.fernandes
 * @since 30/10/2013 15:35
 */
@@ -782,7 +775,6 @@ function bloqueiaBotoesVisualizacao() {
     $('.modal-footer').find('a').each(function() {
         $('a').removeAttr("disabled").removeClass('disabled');
     });
-
 }
 
 function preencherComboOrigem() {
@@ -793,7 +785,6 @@ function abreVISBASECONHECIMENTO(id) {
     JANELA_AGUARDE_MENU.show();
     document.getElementById('visualizaProblemaBaseConhecimento').src = URL_SISTEMA + 'baseConhecimentoView/baseConhecimentoView.load?iframe=true&idBaseConhecimento=' + id;
     $('#modal_visualizaProblemaBaseConhecimento').modal('show');
-
 }
 
 function contadorClicks(idBaseConhecimento) {
@@ -847,7 +838,6 @@ function selecionarServico(row, obj) {
     carregarInformacoesComplementares();
     JANELA_AGUARDE_MENU.hide()
     $('#modal_infoServicos').modal('hide');
-
 }
 
 function filtroTableJs(campoBusca, table) {
@@ -885,11 +875,11 @@ function limparServico() {
     $("#idServico").val('');
 }
 
-/* Desenvolvedor: Riubbe Oliveira - Data: 23/10/2013 - Hor?rio: 10:46 - ID Citsmart: 121539
- *
- * Motivo/Coment?rio: Fun??o para ocultar divInformacoesComplementares caso seja um questionario
+/* Desenvolvedor: Riubbe Oliveira - Data: 23/10/2013 - Hor?rio: 10:46 - ID Citsmart: 121539 
+ * 
+ * Motivo/Coment?rio: Fun??o para ocultar divInformacoesComplementares caso seja um questionario 
  * isso se faz necess?rio porque ao salvar o question?rio, a fun??o getObjetoSeriarizado
- * da um submit e um reload dentro da div mostrando a pagina inicial do citsmart
+ * da um submit e um reload dentro da div mostrando a pagina inicial do citsmart   
  * */
 function ocultaInfoComplSeQuestionario(link) {
     var str = new String(link);
@@ -1018,17 +1008,10 @@ function scrolls() {
     }, 'slow');
 }
 
-
-
 function atualizarLista() {
-        parent.atualizarLista();
-    }
-    /* Desenvolvedor: Riubbe Oliveira - Data: 23/10/2013 - Hor?rio: 11:59 - ID Citsmart: 121539
-     *
-     * Motivo/Coment?rio: Fun??o que serializa as informa??es dos templates e questionarios.
-     * foi incluido a chamada ao metodo ocultaInfoComplSeQuestionario(link) para verificar
-     * e tratar a div quando for um question?rio.
-     * */
+	parent.atualizarLista();
+}
+
 function informacoesComplementaresSerialize() {
     var informacoesComplementares_serialize = '';
     var link = $('#fraInformacoesComplementares').attr('src');
@@ -1105,18 +1088,6 @@ function setQuantitativoBaseConhecimento() {
     $("#quantidadeBaseConhecimento").text(count);
 }
 
-
-/**
- * @author gilberto.nery
- * Data: 17/12/2013 - 17:20 - ID Citsmart: 127265
- *
- * Motivo/Coment?rio: Function que sera chamada durante execu??o de automa??o de teste
- * na ferramenta Selenium
- */
-function preencherCampoDescricao() {
-    $('#descricao').data("wysihtml5").editor.setValue("Teste Automatizado Selenium");
-}
-
 function renderizaInformacoesSolicitante() {
     document.form.fireEvent("restoreColaboradorSolicitante");
     document.form.fireEvent('renderizaHistoricoSolicitacoesEmAndamentoUsuario');
@@ -1190,16 +1161,6 @@ function habilitarSituacao() {
     });
 }
 
-
-/* ============================================================
-    ATENÇÃO
-
-NO JSP DEVE CONTER APENAS SCRIPTS QUE NECESSITAM DE SCRIPTLETS
-
-================================================================*/
-
-/* 	ronnie.lopes
-Inicializa escondido Campo Título do Gravar Base Conhecimento no Load da Página */
 $(function() {
     if (mostraGravarBaseConhec == "S") {
         document.getElementById("divTituloSolucaoRespostaBaseConhecimento").style.display = 'none';
@@ -1216,31 +1177,32 @@ $(function() {
 
 var evento;
 
-excluiProblema = function(indice) {
-    if (indice > 0 && confirm('Confirma exclusão')) {
-        HTMLUtils.deleteRow('tblProblema', indice);
-        count = $("#tblProblema").find("tr").length - 1;
-        $("#quantidadeProblema").text(count);
+if (isVersionFree == false) {
+    excluiProblema = function(indice) {
+        if (indice > 0 && confirm('Confirma exclusão')) {
+            HTMLUtils.deleteRow('tblProblema', indice);
+            count = $("#tblProblema").find("tr").length - 1;
+            $("#quantidadeProblema").text(count);
 
+        }
+    }
+
+    excluiMudanca = function(indice) {
+        if (indice > 0 && confirm('Confirma exclusão')) {
+            HTMLUtils.deleteRow('tblMudanca', indice);
+            count = $("#tblMudanca").find("tr").length - 1;
+            $("#quantidadeMudanca").text(count);
+        }
+    }
+
+    excluiIC = function(indice) {
+        if (indice > 0 && confirm('Confirma exclusão')) {
+            HTMLUtils.deleteRow('tblIC', indice);
+            count = $("#tblIC").find("tr").length - 1;
+            $("#quantidadeItemConfiguracao").text(count);
+        }
     }
 }
-
-excluiMudanca = function(indice) {
-    if (indice > 0 && confirm('Confirma exclusão')) {
-        HTMLUtils.deleteRow('tblMudanca', indice);
-        count = $("#tblMudanca").find("tr").length - 1;
-        $("#quantidadeMudanca").text(count);
-    }
-}
-
-excluiIC = function(indice) {
-    if (indice > 0 && confirm('Confirma exclusão')) {
-        HTMLUtils.deleteRow('tblIC', indice);
-        count = $("#tblIC").find("tr").length - 1;
-        $("#quantidadeItemConfiguracao").text(count);
-    }
-}
-
 
 function gravar() {
     if (evento == 13) {
@@ -1311,7 +1273,6 @@ function gravar() {
             document.form.save();
         }
     }
-
 }
 
 function desabilitaBotaoGravar() {
@@ -1454,7 +1415,6 @@ $('#mensagem_insercao').on('show', function() {
         }
     });
 });
-
 
 /*
 Pedro Lino

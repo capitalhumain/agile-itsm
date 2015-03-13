@@ -1,54 +1,54 @@
 package br.com.centralit.citcorpore.util;
-import java.util.TreeSet;
 
+import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * @author euler.ramos
  *
  */
-public class NoArvore implements Comparable<NoArvore>{
-	
-	private Integer id;
-	private String texto;
-	private Integer idPai;
-	private Integer nivel;
-	private TreeSet<NoArvore> filhos;
-	
-	public NoArvore(Integer id, String texto, Integer idPai) {
-		super();
-		this.id = id;
-		this.texto = texto;
-		this.idPai = idPai;
-		this.filhos = new TreeSet<NoArvore>();
-	}
+public class NoArvore implements Comparable<NoArvore> {
 
-	public Integer getId() {
-		return id;
-	}
+    private final Integer id;
+    private final String texto;
+    private final Integer idPai;
+    private Integer nivel;
+    private final Set<NoArvore> filhos = new TreeSet<>();
 
-	public String getTexto() {
-		return texto;
-	}
+    public NoArvore(final Integer id, final String texto, final Integer idPai) {
+        super();
+        this.id = id;
+        this.texto = texto;
+        this.idPai = idPai;
+    }
 
-	public Integer getIdPai() {
-		return idPai;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public Integer getNivel() {
-		return nivel;
-	}
+    public String getTexto() {
+        return texto;
+    }
 
-	public void setNivel(Integer nivel) {
-		this.nivel = nivel;
-	}
-	
-	public TreeSet<NoArvore> getFilhos() {
-		return filhos;
-	}
+    public Integer getIdPai() {
+        return idPai;
+    }
 
-	@Override
-	public int compareTo(NoArvore outroNoArvore) {
-		return this.getTexto().compareTo(outroNoArvore.getTexto());
-	}
+    public Integer getNivel() {
+        return nivel;
+    }
+
+    public void setNivel(final Integer nivel) {
+        this.nivel = nivel;
+    }
+
+    public Set<NoArvore> getFilhos() {
+        return filhos;
+    }
+
+    @Override
+    public int compareTo(final NoArvore outroNoArvore) {
+        return this.getTexto().compareTo(outroNoArvore.getTexto());
+    }
 
 }

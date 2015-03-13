@@ -1,6 +1,6 @@
 package br.com.citframework.push;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import br.com.citframework.util.Assert;
 

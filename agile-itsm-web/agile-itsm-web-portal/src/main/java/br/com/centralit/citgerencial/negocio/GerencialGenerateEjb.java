@@ -117,7 +117,7 @@ public class GerencialGenerateEjb extends CrudServiceImpl implements GerencialGe
 			}
 			gerencialPainelDto.setListParameters(gerencialParameter);
 			if (gerencialItemDto.getType().equalsIgnoreCase("SQL")) {
-				Collection colParmsUtilizadosNoSQL = new ArrayList();
+				Collection colParmsUtilizadosNoSQL = new ArrayList<>();
 				String sql = trataSQL(gerencialItemDto.getGerencialSQL().getSql(), usuario, colParmsUtilizadosNoSQL);
 
 				List listParms = trataParameters(infoGenerate.getHashParametros(), usuario, colParmsUtilizadosNoSQL, gerencialPainelDto.getListParameters());
@@ -144,7 +144,7 @@ public class GerencialGenerateEjb extends CrudServiceImpl implements GerencialGe
 					}
 				}
 
-				Collection colParmsUtilizadosNoSQL = new ArrayList();
+				Collection colParmsUtilizadosNoSQL = new ArrayList<>();
 				sql = trataSQL(sql, usuario, colParmsUtilizadosNoSQL);
 
 				List listParms = trataParameters(infoGenerate.getHashParametros(), usuario, colParmsUtilizadosNoSQL, gerencialPainelDto.getListParameters());
@@ -203,7 +203,7 @@ public class GerencialGenerateEjb extends CrudServiceImpl implements GerencialGe
 		if (colParmsUtilizadosNoSQL == null || colParmsUtilizadosNoSQL.size() == 0) {
 			return null;
 		}
-		List lstRetorno = new ArrayList();
+		List lstRetorno = new ArrayList<>();
 		for (Iterator it = colParmsUtilizadosNoSQL.iterator(); it.hasNext();) {
 			String nameParm = (String) it.next();
 			String type = getTypeParametro(colDefinicaoParametros, nameParm);
@@ -305,8 +305,8 @@ public class GerencialGenerateEjb extends CrudServiceImpl implements GerencialGe
 		} else { // SQL
 			sqlParm = options.getSql();
 		}
-		Collection colRetorno = new ArrayList();
-		Collection colParmsUtilizadosNoSQL = new ArrayList();
+		Collection colRetorno = new ArrayList<>();
+		Collection colParmsUtilizadosNoSQL = new ArrayList<>();
 		String sql = trataSQL(sqlParm, user, colParmsUtilizadosNoSQL);
 
 		List listParms = trataParameters(hashParametros, user, colParmsUtilizadosNoSQL, listParameters);
@@ -839,7 +839,7 @@ public class GerencialGenerateEjb extends CrudServiceImpl implements GerencialGe
 			Double objTotal = new Double(0);
 
 			if (listRetorno == null) {
-				listRetorno = new ArrayList();
+				listRetorno = new ArrayList<>();
 			}
 			for (int i = 0; i < listRetorno.size(); i++) {
 				Object[] row = (Object[]) listRetorno.get(i);
@@ -1217,7 +1217,7 @@ public class GerencialGenerateEjb extends CrudServiceImpl implements GerencialGe
 		Double objDouble;
 		String objString1;
 		if (listRetorno == null) {
-			listRetorno = new ArrayList();
+			listRetorno = new ArrayList<>();
 		}
 		for (int i = 0; i < listRetorno.size(); i++) {
 			Object[] row = (Object[]) listRetorno.get(i);

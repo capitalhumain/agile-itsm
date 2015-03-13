@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import br.com.centralit.citajax.reflexao.CitAjaxReflexao;
 import br.com.centralit.citajax.util.CitAjaxUtil;
@@ -97,13 +97,13 @@ public class ParserRequest {
                         retorno = Short.valueOf((String) valorAtributo);
                     } else if (Double.class.isAssignableFrom(classParametro[0])) {
                         /** Alterado por thyen.chang: substitui os caracteres "," por "." para fazer o parsing */
-                    	String valor = ((String) valorAtributo).replaceAll("\\.", "");
-                    	valor = valor.replaceAll(",", ".");
+                        String valor = ((String) valorAtributo).replaceAll("\\.", "");
+                        valor = valor.replaceAll(",", ".");
                         retorno = Double.valueOf(valor);
                     } else if (BigDecimal.class.isAssignableFrom(classParametro[0])) {
                         /** Alterado por thyen.chang: substitui os caracteres "," por "." para fazer o parsing */
-                    	String valor = ((String) valorAtributo).replaceAll("\\.", "");
-                    	valor = valor.replaceAll(",", ".");
+                        String valor = ((String) valorAtributo).replaceAll("\\.", "");
+                        valor = valor.replaceAll(",", ".");
                         retorno = new BigDecimal(valor);
                     } else if (Date.class.isAssignableFrom(classParametro[0])) {
                         if (valorAtributo == null || ((String) valorAtributo).equalsIgnoreCase("")) {
@@ -117,7 +117,8 @@ public class ParserRequest {
                         retorno = new Boolean((String) valorAtributo);
                     } else {
                         /** Adicionado por valdoilo.damasceno */
-                        if (classParametro[0] != null && classParametro[0] == java.sql.Date.class && valorAtributo != null && !((String) valorAtributo).trim().equalsIgnoreCase("")) {
+                        if (classParametro[0] != null && classParametro[0] == java.sql.Date.class && valorAtributo != null
+                                && !((String) valorAtributo).trim().equalsIgnoreCase("")) {
                             retorno = CitAjaxUtil.strToSqlDateWithLanguage((String) valorAtributo, language);
                         } else if (classParametro[0] != null && classParametro[0] == java.sql.Timestamp.class && valorAtributo != null
                                 && !((String) valorAtributo).trim().equalsIgnoreCase("")) {

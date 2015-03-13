@@ -4,16 +4,16 @@ import br.com.agileitsm.model.support.BaseEntity;
 
 public class ExportManualBIDTO extends BaseEntity {
 
-	private static final long serialVersionUID = -5911968771759841485L;
+    private static final long serialVersionUID = -5911968771759841485L;
 
-	private String pasta;
+    private String pasta;
 
-	public String getPasta() {
-		return pasta;
-	}
+    public String getPasta() {
+        return pasta;
+    }
 
-	public void setPasta(String pasta) {
-		this.pasta = pasta;
-	}
+    public void setPasta(final String pasta) {
+        this.pasta = pasta;
+    }
 
 }

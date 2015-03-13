@@ -15,182 +15,168 @@ import br.com.citframework.integracao.Field;
 import br.com.citframework.util.Constantes;
 import br.com.citframework.util.UtilDatas;
 
-@SuppressWarnings({ "rawtypes", "unchecked", "unused" })
 public class HistoricoItemConfiguracaoDAO extends CrudDaoDefaultImpl {
 
-	public HistoricoItemConfiguracaoDAO() {
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
+    public HistoricoItemConfiguracaoDAO() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
+    }
 
-	public Collection<Field> getFields() {
-		Collection<Field> listFields = new ArrayList<>();
-		listFields.add(new Field("idHistoricoIC", "idHistoricoIC", true, true, false, false));
-		listFields.add(new Field("idItemConfiguracao", "idItemConfiguracao", false, false, false, false));
-		listFields.add(new Field("identificacao", "identificacao", false, false, false, false));
-		listFields.add(new Field("idItemConfiguracaoPai", "idItemConfiguracaoPai", false, false, false, false));
-		listFields.add(new Field("idTipoItemConfiguracao", "idTipoItemConfiguracao", false, false, false, false));
-		listFields.add(new Field("idGrupoItemConfiguracao", "idGrupoItemConfiguracao", false, false, false, false));
-		listFields.add(new Field("idProprietario", "idProprietario", false, false, false, false));
-		listFields.add(new Field("versao", "versao", false, false, false, false));
-		listFields.add(new Field("familia", "familia", false, false, false, false));
-		listFields.add(new Field("classe", "classe", false, false, false, false));
-		listFields.add(new Field("localidade", "localidade", false, false, false, false));
-		listFields.add(new Field("status", "status", false, false, false, false));
-		listFields.add(new Field("criticidade", "criticidade", false, false, false, false));
-		listFields.add(new Field("numeroSerie", "numeroSerie", false, false, false, false));
-		listFields.add(new Field("dataExpiracao", "dataExpiracao", false, false, false, false));
-		listFields.add(new Field("idMudanca", "idMudanca", false, false, false, false));
-		listFields.add(new Field("idProblema", "idProblema", false, false, false, false));
-		listFields.add(new Field("idIncidente", "idIncidente", false, false, false, false));
-		listFields.add(new Field("idAutorAlteracao", "idAutorAlteracao", false, false, false, false));
-		listFields.add(new Field("dataHoraAlteracao", "dataHoraAlteracao", false, false, false, false));
-		listFields.add(new Field("baseLine", "baseLine", false, false, false, false));
-		listFields.add(new Field("restauracao", "restauracao", false, false, false, false));
-		listFields.add(new Field("idMidiaSoftware", "idMidiaSoftware", false, false, false, false));
-		listFields.add(new Field("historicoVersao", "historicoVersao", false, false, false, false));
-		listFields.add(new Field("impacto", "impacto", false, false, false, false));
-		listFields.add(new Field("urgencia", "urgencia", false, false, false, false));
-		listFields.add(new Field("dtultimacaptura", "dtUltimaCaptura", false, false, false, false));
-		listFields.add(new Field("origemmodificacao", "origem", false, false, false, false));
-		listFields.add(new Field("idmodificacao", "idOrigemModificacao", false, false, false, false));
-		listFields.add(new Field("idcontrato", "idContrato", false, false, false, false));
-		listFields.add(new Field("idliberacao", "idLiberacao", false, false, false, false));
-		listFields.add(new Field("idresponsavel", "idResponsavel", false, false, false, false));
-		listFields.add(new Field("ativofixo", "ativoFixo", false, false, false, false));
+    @Override
+    public Collection<Field> getFields() {
+        final Collection<Field> listFields = new ArrayList<>();
+        listFields.add(new Field("idHistoricoIC", "idHistoricoIC", true, true, false, false));
+        listFields.add(new Field("idItemConfiguracao", "idItemConfiguracao", false, false, false, false));
+        listFields.add(new Field("identificacao", "identificacao", false, false, false, false));
+        listFields.add(new Field("idItemConfiguracaoPai", "idItemConfiguracaoPai", false, false, false, false));
+        listFields.add(new Field("idTipoItemConfiguracao", "idTipoItemConfiguracao", false, false, false, false));
+        listFields.add(new Field("idGrupoItemConfiguracao", "idGrupoItemConfiguracao", false, false, false, false));
+        listFields.add(new Field("idProprietario", "idProprietario", false, false, false, false));
+        listFields.add(new Field("versao", "versao", false, false, false, false));
+        listFields.add(new Field("familia", "familia", false, false, false, false));
+        listFields.add(new Field("classe", "classe", false, false, false, false));
+        listFields.add(new Field("localidade", "localidade", false, false, false, false));
+        listFields.add(new Field("status", "status", false, false, false, false));
+        listFields.add(new Field("criticidade", "criticidade", false, false, false, false));
+        listFields.add(new Field("numeroSerie", "numeroSerie", false, false, false, false));
+        listFields.add(new Field("dataExpiracao", "dataExpiracao", false, false, false, false));
+        listFields.add(new Field("idMudanca", "idMudanca", false, false, false, false));
+        listFields.add(new Field("idProblema", "idProblema", false, false, false, false));
+        listFields.add(new Field("idIncidente", "idIncidente", false, false, false, false));
+        listFields.add(new Field("idAutorAlteracao", "idAutorAlteracao", false, false, false, false));
+        listFields.add(new Field("dataHoraAlteracao", "dataHoraAlteracao", false, false, false, false));
+        listFields.add(new Field("baseLine", "baseLine", false, false, false, false));
+        listFields.add(new Field("restauracao", "restauracao", false, false, false, false));
+        listFields.add(new Field("idMidiaSoftware", "idMidiaSoftware", false, false, false, false));
+        listFields.add(new Field("historicoVersao", "historicoVersao", false, false, false, false));
+        listFields.add(new Field("impacto", "impacto", false, false, false, false));
+        listFields.add(new Field("urgencia", "urgencia", false, false, false, false));
+        listFields.add(new Field("dtultimacaptura", "dtUltimaCaptura", false, false, false, false));
+        listFields.add(new Field("origemmodificacao", "origem", false, false, false, false));
+        listFields.add(new Field("idmodificacao", "idOrigemModificacao", false, false, false, false));
+        listFields.add(new Field("idcontrato", "idContrato", false, false, false, false));
+        listFields.add(new Field("idliberacao", "idLiberacao", false, false, false, false));
+        listFields.add(new Field("idresponsavel", "idResponsavel", false, false, false, false));
+        listFields.add(new Field("ativofixo", "ativoFixo", false, false, false, false));
+        return listFields;
+    }
 
-		return listFields;
-	}
+    @Override
+    public String getTableName() {
+        return this.getOwner() + "HistoricoIC";
 
-	public String getTableName() {
-		return this.getOwner() + "HistoricoIC";
+    }
 
+    @Override
+    public Collection list() throws PersistenceException {
+        return null;
+    }
 
-	}
+    @Override
+    public Class<HistoricoItemConfiguracaoDTO> getBean() {
+        return HistoricoItemConfiguracaoDTO.class;
+    }
 
-	public Collection list() throws PersistenceException {
-		return null;
-	}
+    @Override
+    public Collection find(final BaseEntity arg0) throws PersistenceException {
+        return null;
+    }
 
-	public Class getBean() {
-		return HistoricoItemConfiguracaoDTO.class;
-	}
+    public HistoricoItemConfiguracaoDTO maxIdHistorico(final ItemConfiguracaoDTO itemConfiguracao) throws PersistenceException {
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
 
-	public Collection find(BaseEntity arg0) throws PersistenceException {
-		return null;
-	}
+        sql.append("SELECT MAX(idhistoricoic) AS idhistoricoic FROM " + this.getTableName() + " WHERE iditemconfiguracao = ?");
+        parametro.add(itemConfiguracao.getIdItemConfiguracao());
+        final List resultado = this.execSQL(sql.toString(), parametro.toArray());
+        listRetorno.add("idHistoricoIC");
+        final List result = this.listConvertion(HistoricoItemConfiguracaoDTO.class, resultado, listRetorno);
+        return (HistoricoItemConfiguracaoDTO) result.get(0);
+    }
 
+    public List<HistoricoItemConfiguracaoDTO> listHistoricoItemByIditemconfiguracao(final Integer idItemconfiguracao) throws PersistenceException {
+        List listRetorno = new ArrayList<>();
+        final List parametro = new ArrayList<>();
+        final String sql = "select hic.idHistoricoIC, hic.idItemConfiguracao, "
+                + " hic.identificacao, hic.idItemConfiguracaoPai, hic.idTipoItemConfiguracao, hic.idGrupoItemConfiguracao, 	hic.idProprietario, hic.versao, hic.familia, hic.classe, hic.localidade,  "
+                + " hic.status, hic.criticidade, hic.numeroSerie, hic.dataExpiracao, hic.idMudanca, hic.idProblema, hic.idIncidente, hic.idAutorAlteracao, 	hic.dataHoraAlteracao, 	hic.baseLine, hic.restauracao , "
+                + " emp.nome , tipo.nometipoitemconfiguracao , hic.historicoVersao , hic.origemmodificacao, hic.idmodificacao " + " from historicoic hic  "
+                + " left join tipoitemconfiguracao tipo on hic.idtipoitemconfiguracao = tipo.idtipoitemconfiguracao  "
+                + " left join empregados emp on emp.idempregado = hic.idproprietario where hic.iditemconfiguracao = ? order by hic.idHistoricoIC desc";
 
-	@Override
-	public Collection findByCondition(List condicao, List ordenacao) throws PersistenceException {
-		return super.findByCondition(condicao, ordenacao);
-	}
+        parametro.add(idItemconfiguracao);
 
-	public HistoricoItemConfiguracaoDTO maxIdHistorico(ItemConfiguracaoDTO itemConfiguracao) throws PersistenceException {
-		List parametro = new ArrayList();
-		List listRetorno = new ArrayList();
-		StringBuilder sql = new StringBuilder();
+        final List resultado = this.execSQL(sql, parametro.toArray());
 
-		sql.append("SELECT MAX(idhistoricoic) AS idhistoricoic FROM " + getTableName() + " WHERE iditemconfiguracao = ?");
-		parametro.add(itemConfiguracao.getIdItemConfiguracao());
-		List resultado = this.execSQL(sql.toString(), parametro.toArray());
-		listRetorno.add("idHistoricoIC");
-		List result = listConvertion(HistoricoItemConfiguracaoDTO.class , resultado, listRetorno);
-		return (HistoricoItemConfiguracaoDTO) result.get(0);
-	}
+        listRetorno = this.getListRetorno();
+        listRetorno.add("nomeProprietario");
+        listRetorno.add("nomeTipoItemConfiguracao");
+        listRetorno.add("historicoVersao");
+        listRetorno.add("origem");
+        listRetorno.add("idOrigemModificacao");
+        return this.listConvertion(HistoricoItemConfiguracaoDTO.class, resultado, listRetorno);
+    }
 
-	public List<HistoricoItemConfiguracaoDTO> listHistoricoItemByIditemconfiguracao(Integer idItemconfiguracao) throws PersistenceException {
-		List listRetorno = new ArrayList();
-		List parametro = new ArrayList();
-		String sql = "select hic.idHistoricoIC, hic.idItemConfiguracao, "+
-						" hic.identificacao, hic.idItemConfiguracaoPai, hic.idTipoItemConfiguracao, hic.idGrupoItemConfiguracao, 	hic.idProprietario, hic.versao, hic.familia, hic.classe, hic.localidade,  "+
-						" hic.status, hic.criticidade, hic.numeroSerie, hic.dataExpiracao, hic.idMudanca, hic.idProblema, hic.idIncidente, hic.idAutorAlteracao, 	hic.dataHoraAlteracao, 	hic.baseLine, hic.restauracao , "+
-						" emp.nome , tipo.nometipoitemconfiguracao , hic.historicoVersao , hic.origemmodificacao, hic.idmodificacao "+
-						" from historicoic hic  " +
-						" left join tipoitemconfiguracao tipo on hic.idtipoitemconfiguracao = tipo.idtipoitemconfiguracao  " +
-						" left join empregados emp on emp.idempregado = hic.idproprietario where hic.iditemconfiguracao = ? order by hic.idHistoricoIC desc";
+    public List<HistoricoItemConfiguracaoDTO> listHistoricoItemCfValorByIdHistoricoIC(final Integer idHistoricoIC) throws PersistenceException {
+        List listRetorno = new ArrayList<>();
+        final List parametro = new ArrayList<>();
+        final String sql = "	select hic.idHistoricoIC, hic.idItemConfiguracao,   "
+                + " hic.identificacao, hic.idItemConfiguracaoPai, hic.idTipoItemConfiguracao, hic.idGrupoItemConfiguracao, 	hic.idProprietario, hic.versao, hic.familia, hic.classe, hic.localidade,   "
+                + " hic.status, hic.criticidade, hic.numeroSerie, hic.dataExpiracao, hic.idMudanca, hic.idProblema, hic.idIncidente, hic.idAutorAlteracao, 	hic.dataHoraAlteracao, 	hic.baseLine, hic.restauracao,  "
+                + " emp.nome , tipo.nometipoitemconfiguracao, car.nomecaracteristica, hicvalor.valorstr  " + "  from historicoic hic   "
+                + " inner join historicovalor hisval on hic.idhistoricoic = hisval.idhistoricoic  "
+                + " inner join tipoitemconfiguracao tipo on tipo.idtipoitemconfiguracao = hic.idtipoitemconfiguracao  "
+                + " inner join caracteristica car on car.idcaracteristica = hisval.idcaracteristica  "
+                + " inner join historicovalor hicvalor on hicvalor.idhistoricoic = hic.idhistoricoic  "
+                + " inner join empregados emp on emp.idempregado = hic.idproprietario  " + " where hic.idhistoricoic = ?  ";
 
-		parametro.add(idItemconfiguracao);
+        parametro.add(idHistoricoIC);
+        final List resultado = this.execSQL(sql, parametro.toArray());
+        listRetorno = this.getListRetorno();
+        listRetorno.add("nomeProprietario");
+        listRetorno.add("nomeTipoItemConfiguracao");
+        listRetorno.add("nomeCaracteristica");
+        listRetorno.add("valorstr");
 
-		List resultado  = execSQL(sql, parametro.toArray());
+        return this.listConvertion(HistoricoItemConfiguracaoDTO.class, resultado, listRetorno);
+    }
 
-		listRetorno = getListRetorno();
-		listRetorno.add("nomeProprietario");
-		listRetorno.add("nomeTipoItemConfiguracao");
-		listRetorno.add("historicoVersao");
-		listRetorno.add("origem");
-		listRetorno.add("idOrigemModificacao");
-		return listConvertion(HistoricoItemConfiguracaoDTO.class , resultado, listRetorno);
-	}
+    private List getListRetorno() {
+        final List retorno = new ArrayList<>();
+        retorno.add("idHistoricoIC");
+        retorno.add("idItemConfiguracao");
+        retorno.add("identificacao");
+        retorno.add("idItemConfiguracaoPai");
+        retorno.add("idTipoItemConfiguracao");
+        retorno.add("idGrupoItemConfiguracao");
+        retorno.add("idProprietario");
+        retorno.add("versao");
+        retorno.add("familia");
+        retorno.add("classe");
+        retorno.add("localidade");
+        retorno.add("status");
+        retorno.add("criticidade");
+        retorno.add("numeroSerie");
+        retorno.add("dataExpiracao");
+        retorno.add("idMudanca");
+        retorno.add("idProblema");
+        retorno.add("idIncidente");
+        retorno.add("idAutorAlteracao");
+        retorno.add("dataHoraAlteracao");
+        retorno.add("baseLine");
+        retorno.add("restauracao");
+        return retorno;
+    }
 
-	public List<HistoricoItemConfiguracaoDTO> listHistoricoItemCfValorByIdHistoricoIC(Integer idHistoricoIC) throws PersistenceException {
-		List listRetorno = new ArrayList();
-		List parametro = new ArrayList();
-		String sql = "	select hic.idHistoricoIC, hic.idItemConfiguracao,   "+
-							" hic.identificacao, hic.idItemConfiguracaoPai, hic.idTipoItemConfiguracao, hic.idGrupoItemConfiguracao, 	hic.idProprietario, hic.versao, hic.familia, hic.classe, hic.localidade,   "+
-							" hic.status, hic.criticidade, hic.numeroSerie, hic.dataExpiracao, hic.idMudanca, hic.idProblema, hic.idIncidente, hic.idAutorAlteracao, 	hic.dataHoraAlteracao, 	hic.baseLine, hic.restauracao,  "+
-							" emp.nome , tipo.nometipoitemconfiguracao, car.nomecaracteristica, hicvalor.valorstr  "+
-						"  from historicoic hic   "+
-						" inner join historicovalor hisval on hic.idhistoricoic = hisval.idhistoricoic  "+
-						" inner join tipoitemconfiguracao tipo on tipo.idtipoitemconfiguracao = hic.idtipoitemconfiguracao  "+
-						" inner join caracteristica car on car.idcaracteristica = hisval.idcaracteristica  "+
-						" inner join historicovalor hicvalor on hicvalor.idhistoricoic = hic.idhistoricoic  "+
-						" inner join empregados emp on emp.idempregado = hic.idproprietario  "+
-						" where hic.idhistoricoic = ?  ";
-
-		parametro.add(idHistoricoIC);
-		List resultado  = execSQL(sql, parametro.toArray());
-		listRetorno = getListRetorno();
-		listRetorno.add("nomeProprietario");
-		listRetorno.add("nomeTipoItemConfiguracao");
-		listRetorno.add("nomeCaracteristica");
-		listRetorno.add("valorstr");
-
-		return listConvertion(HistoricoItemConfiguracaoDTO.class , resultado, listRetorno);
-	}
-
-	public List getListRetorno(){
-		List retorno = new ArrayList();
-		retorno.add("idHistoricoIC");
-		retorno.add("idItemConfiguracao");
-		retorno.add("identificacao" );
-		retorno.add("idItemConfiguracaoPai");
-		retorno.add("idTipoItemConfiguracao" );
-		retorno.add("idGrupoItemConfiguracao");
-		retorno.add("idProprietario");
-		retorno.add("versao");
-		retorno.add("familia");
-		retorno.add("classe");
-		retorno.add("localidade");
-		retorno.add("status");
-		retorno.add("criticidade");
-		retorno.add("numeroSerie");
-		retorno.add("dataExpiracao");
-		retorno.add("idMudanca");
-		retorno.add("idProblema");
-		retorno.add("idIncidente");
-		retorno.add("idAutorAlteracao");
-		retorno.add("dataHoraAlteracao");
-		retorno.add("baseLine");
-		retorno.add("restauracao");
-		return retorno;
-	}
-
-	@Override
-	public void updateNotNull(BaseEntity obj) throws PersistenceException {
-				super.updateNotNull(obj);
-	}
-
-    public List<HistoricoItemConfiguracaoDTO> listHistoricoSemIdMudanca(Date dataInicio, Date dataFim) throws PersistenceException {
-        List listRetorno = new ArrayList();
-        List parametro = new ArrayList();
-        String sql = "select hic.idHistoricoIC, hic.idItemConfiguracao, "+
-                        " hic.identificacao, hic.idItemConfiguracaoPai, hic.idTipoItemConfiguracao, hic.idGrupoItemConfiguracao,    hic.idProprietario, hic.versao, hic.familia, hic.classe, hic.localidade,  "+
-                        " hic.status, hic.criticidade, hic.numeroSerie, hic.dataExpiracao, hic.idMudanca, hic.idProblema, hic.idIncidente, hic.idAutorAlteracao,    hic.dataHoraAlteracao,  hic.baseLine, hic.restauracao , "+
-                        " emp.nome , tipo.nometipoitemconfiguracao , hic.historicoVersao "+
-                        " from historicoic hic  " +
-                        " inner join tipoitemconfiguracao tipo on hic.idtipoitemconfiguracao = tipo.idtipoitemconfiguracao  " +
-                        " inner join empregados emp on emp.idempregado = hic.idproprietario " +
-                        "where idMudanca is null ";
+    public List<HistoricoItemConfiguracaoDTO> listHistoricoSemIdMudanca(final Date dataInicio, final Date dataFim) throws PersistenceException {
+        List listRetorno = new ArrayList<>();
+        final List parametro = new ArrayList<>();
+        String sql = "select hic.idHistoricoIC, hic.idItemConfiguracao, "
+                + " hic.identificacao, hic.idItemConfiguracaoPai, hic.idTipoItemConfiguracao, hic.idGrupoItemConfiguracao,    hic.idProprietario, hic.versao, hic.familia, hic.classe, hic.localidade,  "
+                + " hic.status, hic.criticidade, hic.numeroSerie, hic.dataExpiracao, hic.idMudanca, hic.idProblema, hic.idIncidente, hic.idAutorAlteracao,    hic.dataHoraAlteracao,  hic.baseLine, hic.restauracao , "
+                + " emp.nome , tipo.nometipoitemconfiguracao , hic.historicoVersao " + " from historicoic hic  "
+                + " inner join tipoitemconfiguracao tipo on hic.idtipoitemconfiguracao = tipo.idtipoitemconfiguracao  "
+                + " inner join empregados emp on emp.idempregado = hic.idproprietario " + "where idMudanca is null ";
 
         sql += "AND dataHoraAlteracao BETWEEN ? AND ? ";
 
@@ -199,13 +185,13 @@ public class HistoricoItemConfiguracaoDAO extends CrudDaoDefaultImpl {
 
         sql += "order by hic.dataHoraAlteracao desc, hic.idHistoricoIC ";
 
-        List resultado  = execSQL(sql, parametro.toArray());
+        final List resultado = this.execSQL(sql, parametro.toArray());
 
-        listRetorno = getListRetorno();
+        listRetorno = this.getListRetorno();
         listRetorno.add("nomeProprietario");
         listRetorno.add("nomeTipoItemConfiguracao");
         listRetorno.add("historicoVersao");
-        return listConvertion(HistoricoItemConfiguracaoDTO.class , resultado, listRetorno);
+        return this.listConvertion(HistoricoItemConfiguracaoDTO.class, resultado, listRetorno);
     }
 
 }

@@ -12,7 +12,6 @@ import br.com.citframework.service.CrudServiceImpl;
  * @author Pedro
  *
  */
-@SuppressWarnings("rawtypes")
 public class TreinamentoServiceEjb extends CrudServiceImpl implements TreinamentoService {
 
     private TreinamentoDao dao;

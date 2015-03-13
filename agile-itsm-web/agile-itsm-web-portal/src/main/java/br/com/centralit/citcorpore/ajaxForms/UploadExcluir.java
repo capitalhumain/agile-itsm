@@ -32,9 +32,9 @@ public class UploadExcluir extends AjaxFormAction {
 		colUploadsGED = (Collection) request.getSession(true).getAttribute("colUploadsGED");
         }
 		if (colUploadsGED == null) {
-			colUploadsGED = new ArrayList();
+			colUploadsGED = new ArrayList<>();
 		}
-		Collection col2 = new ArrayList();
+		Collection col2 = new ArrayList<>();
 		for (Iterator it = colUploadsGED.iterator(); it.hasNext();) {
 			UploadDTO uploadAux = (UploadDTO) it.next();
 			if (!uploadAux.getPath().equalsIgnoreCase(uploadDTO.getPath().replace("\\", "\\\\"))) {

@@ -19,7 +19,6 @@ import java.util.Collection;
 
 import br.com.agileitsm.model.support.BaseEntity;
 
-@SuppressWarnings("rawtypes")
 public class OSDTO extends BaseEntity {
 
     private static final long serialVersionUID = 4291019354197500491L;
@@ -104,7 +103,7 @@ public class OSDTO extends BaseEntity {
         return idOS;
     }
 
-    public void setIdOS(Integer parm) {
+    public void setIdOS(final Integer parm) {
         idOS = parm;
     }
 
@@ -112,7 +111,7 @@ public class OSDTO extends BaseEntity {
         return idContrato;
     }
 
-    public void setIdContrato(Integer parm) {
+    public void setIdContrato(final Integer parm) {
         idContrato = parm;
     }
 
@@ -120,7 +119,7 @@ public class OSDTO extends BaseEntity {
         return idClassificacaoOS;
     }
 
-    public void setIdClassificacaoOS(Integer parm) {
+    public void setIdClassificacaoOS(final Integer parm) {
         idClassificacaoOS = parm;
     }
 
@@ -128,7 +127,7 @@ public class OSDTO extends BaseEntity {
         return ano;
     }
 
-    public void setAno(Integer parm) {
+    public void setAno(final Integer parm) {
         ano = parm;
     }
 
@@ -136,7 +135,7 @@ public class OSDTO extends BaseEntity {
         return numero;
     }
 
-    public void setNumero(String parm) {
+    public void setNumero(final String parm) {
         numero = parm;
     }
 
@@ -144,7 +143,7 @@ public class OSDTO extends BaseEntity {
         return dataInicio;
     }
 
-    public void setDataInicio(java.sql.Date parm) {
+    public void setDataInicio(final java.sql.Date parm) {
         dataInicio = parm;
     }
 
@@ -152,7 +151,7 @@ public class OSDTO extends BaseEntity {
         return dataFim;
     }
 
-    public void setDataFim(java.sql.Date parm) {
+    public void setDataFim(final java.sql.Date parm) {
         dataFim = parm;
     }
 
@@ -160,7 +159,7 @@ public class OSDTO extends BaseEntity {
         return demanda;
     }
 
-    public void setDemanda(String parm) {
+    public void setDemanda(final String parm) {
         demanda = parm;
     }
 
@@ -168,7 +167,7 @@ public class OSDTO extends BaseEntity {
         return objetivo;
     }
 
-    public void setObjetivo(String parm) {
+    public void setObjetivo(final String parm) {
         objetivo = parm;
     }
 
@@ -176,7 +175,7 @@ public class OSDTO extends BaseEntity {
         return colItens;
     }
 
-    public void setColItens(Collection colItens) {
+    public void setColItens(final Collection colItens) {
         this.colItens = colItens;
     }
 
@@ -212,7 +211,7 @@ public class OSDTO extends BaseEntity {
         return "";
     }
 
-    public void setSituacaoOS(Integer situacaoOS) {
+    public void setSituacaoOS(final Integer situacaoOS) {
         this.situacaoOS = situacaoOS;
     }
 
@@ -220,7 +219,7 @@ public class OSDTO extends BaseEntity {
         return idServicoContrato;
     }
 
-    public void setIdServicoContrato(Integer idServicoContrato) {
+    public void setIdServicoContrato(final Integer idServicoContrato) {
         this.idServicoContrato = idServicoContrato;
     }
 
@@ -228,7 +227,7 @@ public class OSDTO extends BaseEntity {
         return nomeServico;
     }
 
-    public void setNomeServico(String nomeServico) {
+    public void setNomeServico(final String nomeServico) {
         this.nomeServico = nomeServico;
     }
 
@@ -236,7 +235,7 @@ public class OSDTO extends BaseEntity {
         return custoOS;
     }
 
-    public void setCustoOS(Double custoOS) {
+    public void setCustoOS(final Double custoOS) {
         this.custoOS = custoOS;
     }
 
@@ -244,7 +243,7 @@ public class OSDTO extends BaseEntity {
         return glosaOS;
     }
 
-    public void setGlosaOS(Double glosaOS) {
+    public void setGlosaOS(final Double glosaOS) {
         this.glosaOS = glosaOS;
     }
 
@@ -252,7 +251,7 @@ public class OSDTO extends BaseEntity {
         return nomeAreaRequisitante;
     }
 
-    public void setNomeAreaRequisitante(String nomeAreaRequisitante) {
+    public void setNomeAreaRequisitante(final String nomeAreaRequisitante) {
         this.nomeAreaRequisitante = nomeAreaRequisitante;
     }
 
@@ -260,7 +259,7 @@ public class OSDTO extends BaseEntity {
         return obsFinalizacao;
     }
 
-    public void setObsFinalizacao(String obsFinalizacao) {
+    public void setObsFinalizacao(final String obsFinalizacao) {
         this.obsFinalizacao = obsFinalizacao;
     }
 
@@ -268,7 +267,7 @@ public class OSDTO extends BaseEntity {
         return executadoOS;
     }
 
-    public void setExecutadoOS(Double executadoOS) {
+    public void setExecutadoOS(final Double executadoOS) {
         this.executadoOS = executadoOS;
     }
 
@@ -283,7 +282,7 @@ public class OSDTO extends BaseEntity {
      * @param sequenciaOS
      *            the sequenciaOS to set
      */
-    public void setSequenciaOS(Integer sequenciaOS) {
+    public void setSequenciaOS(final Integer sequenciaOS) {
         this.sequenciaOS = sequenciaOS;
     }
 
@@ -291,7 +290,7 @@ public class OSDTO extends BaseEntity {
         return quantidadeGlosasAnterior;
     }
 
-    public void setQuantidadeGlosasAnterior(Integer quantidadeGlosasAnterior) {
+    public void setQuantidadeGlosasAnterior(final Integer quantidadeGlosasAnterior) {
         this.quantidadeGlosasAnterior = quantidadeGlosasAnterior;
     }
 
@@ -306,7 +305,7 @@ public class OSDTO extends BaseEntity {
      * @param tituloAtividade
      *            the tituloAtividade to set
      */
-    public void setTituloAtividade(String tituloAtividade) {
+    public void setTituloAtividade(final String tituloAtividade) {
         this.tituloAtividade = tituloAtividade;
     }
 
@@ -321,7 +320,7 @@ public class OSDTO extends BaseEntity {
      * @param idAtividadePeriodica
      *            the idAtividadePeriodica to set
      */
-    public void setIdAtividadePeriodica(Integer idAtividadePeriodica) {
+    public void setIdAtividadePeriodica(final Integer idAtividadePeriodica) {
         this.idAtividadePeriodica = idAtividadePeriodica;
     }
 
@@ -329,7 +328,7 @@ public class OSDTO extends BaseEntity {
         return idANS;
     }
 
-    public void setIdANS(Integer idANS) {
+    public void setIdANS(final Integer idANS) {
         this.idANS = idANS;
     }
 
@@ -337,7 +336,7 @@ public class OSDTO extends BaseEntity {
         return seqANS;
     }
 
-    public void setSeqANS(Integer seqANS) {
+    public void setSeqANS(final Integer seqANS) {
         this.seqANS = seqANS;
     }
 
@@ -345,7 +344,7 @@ public class OSDTO extends BaseEntity {
         return fieldANS;
     }
 
-    public void setFieldANS(String fieldANS) {
+    public void setFieldANS(final String fieldANS) {
         this.fieldANS = fieldANS;
     }
 
@@ -360,7 +359,7 @@ public class OSDTO extends BaseEntity {
      * @param percentualGlosa
      *            the percentualGlosa to set
      */
-    public void setPercentualGlosa(Double percentualGlosa) {
+    public void setPercentualGlosa(final Double percentualGlosa) {
         this.percentualGlosa = percentualGlosa;
     }
 
@@ -375,7 +374,7 @@ public class OSDTO extends BaseEntity {
      * @param valorGlosa
      *            the valorGlosa to set
      */
-    public void setValorGlosa(Double valorGlosa) {
+    public void setValorGlosa(final Double valorGlosa) {
         this.valorGlosa = valorGlosa;
     }
 
@@ -390,7 +389,7 @@ public class OSDTO extends BaseEntity {
      * @param totalQuantidadeDemanda
      *            the totalQuantidadeDemanda to set
      */
-    public void setTotalQuantidadeDemanda(Double totalQuantidadeDemanda) {
+    public void setTotalQuantidadeDemanda(final Double totalQuantidadeDemanda) {
         this.totalQuantidadeDemanda = totalQuantidadeDemanda;
     }
 
@@ -405,7 +404,7 @@ public class OSDTO extends BaseEntity {
      * @param totalUstPrevista
      *            the totalUstPrevista to set
      */
-    public void setTotalUstPrevista(Double totalUstPrevista) {
+    public void setTotalUstPrevista(final Double totalUstPrevista) {
         this.totalUstPrevista = totalUstPrevista;
     }
 
@@ -420,7 +419,7 @@ public class OSDTO extends BaseEntity {
      * @param totalUstRealizadas
      *            the totalUstRealizadas to set
      */
-    public void setTotalUstRealizadas(Double totalUstRealizadas) {
+    public void setTotalUstRealizadas(final Double totalUstRealizadas) {
         this.totalUstRealizadas = totalUstRealizadas;
     }
 
@@ -435,7 +434,7 @@ public class OSDTO extends BaseEntity {
      * @param totalUstGlosadas
      *            the totalUstGlosadas to set
      */
-    public void setTotalUstGlosadas(Double totalUstGlosadas) {
+    public void setTotalUstGlosadas(final Double totalUstGlosadas) {
         this.totalUstGlosadas = totalUstGlosadas;
     }
 
@@ -450,7 +449,7 @@ public class OSDTO extends BaseEntity {
      * @param totalUstTotal
      *            the totalUstTotal to set
      */
-    public void setTotalUstTotal(Double totalUstTotal) {
+    public void setTotalUstTotal(final Double totalUstTotal) {
         this.totalUstTotal = totalUstTotal;
     }
 
@@ -465,7 +464,7 @@ public class OSDTO extends BaseEntity {
      * @param totalValorAutorizado
      *            the totalValorAutorizado to set
      */
-    public void setTotalValorAutorizado(Double totalValorAutorizado) {
+    public void setTotalValorAutorizado(final Double totalValorAutorizado) {
         this.totalValorAutorizado = totalValorAutorizado;
     }
 
@@ -480,7 +479,7 @@ public class OSDTO extends BaseEntity {
      * @param ustRealizada
      *            the ustRealizada to set
      */
-    public void setUstRealizada(Double ustRealizada) {
+    public void setUstRealizada(final Double ustRealizada) {
         this.ustRealizada = ustRealizada;
     }
 
@@ -495,7 +494,7 @@ public class OSDTO extends BaseEntity {
      * @param realizado
      *            the realizado to set
      */
-    public void setRealizado(Double realizado) {
+    public void setRealizado(final Double realizado) {
         this.realizado = realizado;
     }
 
@@ -510,7 +509,7 @@ public class OSDTO extends BaseEntity {
      * @param ustTotal
      *            the ustTotal to set
      */
-    public void setUstTotal(Double ustTotal) {
+    public void setUstTotal(final Double ustTotal) {
         this.ustTotal = ustTotal;
     }
 
@@ -525,7 +524,7 @@ public class OSDTO extends BaseEntity {
      * @param valorAutorizado
      *            the valorAutorizado to set
      */
-    public void setValorAutorizado(Double valorAutorizado) {
+    public void setValorAutorizado(final Double valorAutorizado) {
         this.valorAutorizado = valorAutorizado;
     }
 
@@ -540,7 +539,7 @@ public class OSDTO extends BaseEntity {
      * @param cotacaoMoeda
      *            the cotacaoMoeda to set
      */
-    public void setCotacaoMoeda(Double cotacaoMoeda) {
+    public void setCotacaoMoeda(final Double cotacaoMoeda) {
         this.cotacaoMoeda = cotacaoMoeda;
     }
 
@@ -555,7 +554,7 @@ public class OSDTO extends BaseEntity {
      * @param totalUstPrevistoPerido
      *            the totalUstPrevistoPerido to set
      */
-    public void setTotalUstPrevistoPerido(Double totalUstPrevistoPerido) {
+    public void setTotalUstPrevistoPerido(final Double totalUstPrevistoPerido) {
         this.totalUstPrevistoPerido = totalUstPrevistoPerido;
     }
 
@@ -570,7 +569,7 @@ public class OSDTO extends BaseEntity {
      * @param servico
      *            the servico to set
      */
-    public void setServico(String servico) {
+    public void setServico(final String servico) {
         this.servico = servico;
     }
 
@@ -585,7 +584,7 @@ public class OSDTO extends BaseEntity {
      * @param quantidadeDemanda
      *            the quantidadeDemanda to set
      */
-    public void setQuantidadeDemanda(Double quantidadeDemanda) {
+    public void setQuantidadeDemanda(final Double quantidadeDemanda) {
         this.quantidadeDemanda = quantidadeDemanda;
     }
 
@@ -600,7 +599,7 @@ public class OSDTO extends BaseEntity {
      * @param glosaAtividade
      *            the glosaAtividade to set
      */
-    public void setGlosaAtividade(Double glosaAtividade) {
+    public void setGlosaAtividade(final Double glosaAtividade) {
         this.glosaAtividade = glosaAtividade;
     }
 
@@ -615,7 +614,7 @@ public class OSDTO extends BaseEntity {
      * @param custoGlosa
      *            the custoGlosa to set
      */
-    public void setCustoGlosa(Double custoGlosa) {
+    public void setCustoGlosa(final Double custoGlosa) {
         this.custoGlosa = custoGlosa;
     }
 
@@ -630,7 +629,7 @@ public class OSDTO extends BaseEntity {
      * @param totalglosasAtividades
      *            the totalglosasAtividades to set
      */
-    public void setTotalglosasAtividades(Double totalglosasAtividades) {
+    public void setTotalglosasAtividades(final Double totalglosasAtividades) {
         this.totalglosasAtividades = totalglosasAtividades;
     }
 
@@ -645,7 +644,7 @@ public class OSDTO extends BaseEntity {
      * @param listaFaturaApuracaoANS
      *            the listaFaturaApuracaoANS to set
      */
-    public void setListaFaturaApuracaoANS(Object listaFaturaApuracaoANS) {
+    public void setListaFaturaApuracaoANS(final Object listaFaturaApuracaoANS) {
         this.listaFaturaApuracaoANS = listaFaturaApuracaoANS;
     }
 
@@ -653,7 +652,7 @@ public class OSDTO extends BaseEntity {
         return idOSPai;
     }
 
-    public void setIdOSPai(Integer idOSPai) {
+    public void setIdOSPai(final Integer idOSPai) {
         this.idOSPai = idOSPai;
     }
 
@@ -661,7 +660,7 @@ public class OSDTO extends BaseEntity {
         return dataInicioExecucao;
     }
 
-    public void setDataInicioExecucao(Date dataInicioExecucao) {
+    public void setDataInicioExecucao(final Date dataInicioExecucao) {
         this.dataInicioExecucao = dataInicioExecucao;
     }
 
@@ -669,7 +668,7 @@ public class OSDTO extends BaseEntity {
         return dataFimExecucao;
     }
 
-    public void setDataFimExecucao(Date dataFimExecucao) {
+    public void setDataFimExecucao(final Date dataFimExecucao) {
         this.dataFimExecucao = dataFimExecucao;
     }
 
@@ -677,7 +676,7 @@ public class OSDTO extends BaseEntity {
         return quantidade;
     }
 
-    public void setQuantidade(Integer quantidade) {
+    public void setQuantidade(final Integer quantidade) {
         this.quantidade = quantidade;
     }
 
@@ -685,7 +684,7 @@ public class OSDTO extends BaseEntity {
         return flagGlosa;
     }
 
-    public void setFlagGlosa(String flagGlosa) {
+    public void setFlagGlosa(final String flagGlosa) {
         this.flagGlosa = flagGlosa;
     }
 
@@ -693,7 +692,7 @@ public class OSDTO extends BaseEntity {
         return idServicoContratoContabil;
     }
 
-    public void setIdServicoContratoContabil(Integer idServicoContratoContabil) {
+    public void setIdServicoContratoContabil(final Integer idServicoContratoContabil) {
         this.idServicoContratoContabil = idServicoContratoContabil;
     }
 
@@ -701,7 +700,7 @@ public class OSDTO extends BaseEntity {
         return idSolicitacaoServico;
     }
 
-    public void setIdSolicitacaoServico(Integer idSolicitacaoServico) {
+    public void setIdSolicitacaoServico(final Integer idSolicitacaoServico) {
         this.idSolicitacaoServico = idSolicitacaoServico;
     }
 
@@ -709,7 +708,7 @@ public class OSDTO extends BaseEntity {
         return dataEmissao;
     }
 
-    public void setDataEmissao(Date dataEmissao) {
+    public void setDataEmissao(final Date dataEmissao) {
         this.dataEmissao = dataEmissao;
     }
 
@@ -717,7 +716,7 @@ public class OSDTO extends BaseEntity {
         return idGrupoAssinatura;
     }
 
-    public void setIdGrupoAssinatura(Integer idGrupoAssinatura) {
+    public void setIdGrupoAssinatura(final Integer idGrupoAssinatura) {
         this.idGrupoAssinatura = idGrupoAssinatura;
     }
 

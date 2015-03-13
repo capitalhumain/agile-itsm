@@ -9,50 +9,47 @@ import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
 import br.com.citframework.integracao.Field;
 import br.com.citframework.util.Constantes;
-@SuppressWarnings({ "rawtypes", "unchecked" })
-public class ContatoRequisicaoLiberacaoDao extends CrudDaoDefaultImpl{
+
+public class ContatoRequisicaoLiberacaoDao extends CrudDaoDefaultImpl {
 
     public ContatoRequisicaoLiberacaoDao() {
-	super(Constantes.getValue("DATABASE_ALIAS"), null);
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
     }
 
     @Override
-    public Collection find(BaseEntity arg0) throws PersistenceException {
-	return null;
+    public Collection find(final BaseEntity arg0) throws PersistenceException {
+        return null;
     }
-
 
     @Override
     public Collection<Field> getFields() {
-	Collection<Field> listFields = new ArrayList<>();
+        final Collection<Field> listFields = new ArrayList<>();
 
-	listFields.add(new Field("idContatoRequisicaoLiberacao", "idContatoRequisicaoLiberacao", true, true, false, false));
-	listFields.add(new Field("nomeContato", "nomeContato", false, false, false, false));
-	listFields.add(new Field("telefoneContato", "telefoneContato", false, false, false, false));
-	listFields.add(new Field("emailContato", "emailContato", false, false, false, false));
-	listFields.add(new Field("observacao", "observacao", false, false, false, false));
-	listFields.add(new Field("idLocalidade", "idLocalidade", false, false, false, false));
-	listFields.add(new Field("ramal", "ramal", false, false, false, false));
-	listFields.add(new Field("idUnidade", "idUnidade", false, false, false, false));
+        listFields.add(new Field("idContatoRequisicaoLiberacao", "idContatoRequisicaoLiberacao", true, true, false, false));
+        listFields.add(new Field("nomeContato", "nomeContato", false, false, false, false));
+        listFields.add(new Field("telefoneContato", "telefoneContato", false, false, false, false));
+        listFields.add(new Field("emailContato", "emailContato", false, false, false, false));
+        listFields.add(new Field("observacao", "observacao", false, false, false, false));
+        listFields.add(new Field("idLocalidade", "idLocalidade", false, false, false, false));
+        listFields.add(new Field("ramal", "ramal", false, false, false, false));
+        listFields.add(new Field("idUnidade", "idUnidade", false, false, false, false));
 
-	return listFields;
+        return listFields;
     }
 
     @Override
     public String getTableName() {
-
-	return "contatorequisicaoliberacao";
+        return "contatorequisicaoliberacao";
     }
 
     @Override
     public Collection list() throws PersistenceException {
-	return null;
+        return null;
     }
 
     @Override
     public Class getBean() {
-	return ContatoRequisicaoLiberacaoDTO.class;
+        return ContatoRequisicaoLiberacaoDTO.class;
     }
-
 
 }

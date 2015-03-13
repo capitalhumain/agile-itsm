@@ -6,7 +6,7 @@ import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * Item de Execução
- * 
+ *
  */
 public class ItemConfigEventoDTO extends BaseEntity {
 
@@ -29,105 +29,106 @@ public class ItemConfigEventoDTO extends BaseEntity {
     private String nomeBaseItemConfiguracao;
 
     public Integer getIdItemConfiguracaoEvento() {
-	return idItemConfiguracaoEvento;
+        return idItemConfiguracaoEvento;
     }
 
-    public void setIdItemConfiguracaoEvento(Integer idItemConfiguracaoEvento) {
-	this.idItemConfiguracaoEvento = idItemConfiguracaoEvento;
+    public void setIdItemConfiguracaoEvento(final Integer idItemConfiguracaoEvento) {
+        this.idItemConfiguracaoEvento = idItemConfiguracaoEvento;
     }
 
     public Integer getIdItemConfiguracao() {
-	return idItemConfiguracao;
+        return idItemConfiguracao;
     }
 
-    public void setIdItemConfiguracao(Integer idItemConfiguracao) {
-	this.idItemConfiguracao = idItemConfiguracao;
+    public void setIdItemConfiguracao(final Integer idItemConfiguracao) {
+        this.idItemConfiguracao = idItemConfiguracao;
     }
 
     public String getIdentificacao() {
-	return identificacao;
+        return identificacao;
     }
 
-    public void setIdentificacao(String identificacao) {
-	this.identificacao = identificacao;
+    public void setIdentificacao(final String identificacao) {
+        this.identificacao = identificacao;
     }
 
     public Integer getIdEvento() {
-	return idEvento;
+        return idEvento;
     }
 
-    public void setIdEvento(Integer idEvento) {
-	this.idEvento = idEvento;
+    public void setIdEvento(final Integer idEvento) {
+        this.idEvento = idEvento;
     }
 
     public String getTipoExecucao() {
-	return tipoExecucao;
+        return tipoExecucao;
     }
 
-    public void setTipoExecucao(String tipoExecucao) {
-	this.tipoExecucao = tipoExecucao;
+    public void setTipoExecucao(final String tipoExecucao) {
+        this.tipoExecucao = tipoExecucao;
     }
 
     public String getGerarQuando() {
-	return gerarQuando;
+        return gerarQuando;
     }
 
-    public void setGerarQuando(String gerarQuando) {
-	this.gerarQuando = gerarQuando;
+    public void setGerarQuando(final String gerarQuando) {
+        this.gerarQuando = gerarQuando;
     }
 
     public Date getData() {
-	return data;
+        return data;
     }
 
-    public void setData(Date data) {
-	this.data = data;
+    public void setData(final Date data) {
+        this.data = data;
     }
 
     public String getHora() {
-	return hora;
+        return hora;
     }
 
-    public void setHora(String hora) {
-	this.hora = hora;
+    public void setHora(final String hora) {
+        this.hora = hora;
     }
 
     public String getLinhaComando() {
-	return linhaComando;
+        return linhaComando;
     }
 
-    public void setLinhaComando(String linhaComando) {
-	this.linhaComando = linhaComando;
+    public void setLinhaComando(final String linhaComando) {
+        this.linhaComando = linhaComando;
     }
 
     public Integer getIdBaseItemConfiguracao() {
-	return idBaseItemConfiguracao;
+        return idBaseItemConfiguracao;
     }
 
-    public void setIdBaseItemConfiguracao(Integer idBaseItemConfiguracao) {
-	this.idBaseItemConfiguracao = idBaseItemConfiguracao;
+    public void setIdBaseItemConfiguracao(final Integer idBaseItemConfiguracao) {
+        this.idBaseItemConfiguracao = idBaseItemConfiguracao;
     }
 
     public String getNomeBaseItemConfiguracao() {
-	return nomeBaseItemConfiguracao;
+        return nomeBaseItemConfiguracao;
     }
 
-    public void setNomeBaseItemConfiguracao(String nomeBaseItemConfiguracao) {
-	this.nomeBaseItemConfiguracao = nomeBaseItemConfiguracao;
+    public void setNomeBaseItemConfiguracao(final String nomeBaseItemConfiguracao) {
+        this.nomeBaseItemConfiguracao = nomeBaseItemConfiguracao;
     }
 
-	/**
-	 * @return the linhaComandoLinux
-	 */
-	public String getLinhaComandoLinux() {
-		return linhaComandoLinux;
-	}
+    /**
+     * @return the linhaComandoLinux
+     */
+    public String getLinhaComandoLinux() {
+        return linhaComandoLinux;
+    }
 
-	/**
-	 * @param linhaComandoLinux the linhaComandoLinux to set
-	 */
-	public void setLinhaComandoLinux(String linhaComandoLinux) {
-		this.linhaComandoLinux = linhaComandoLinux;
-	}
+    /**
+     * @param linhaComandoLinux
+     *            the linhaComandoLinux to set
+     */
+    public void setLinhaComandoLinux(final String linhaComandoLinux) {
+        this.linhaComandoLinux = linhaComandoLinux;
+    }
 
 }

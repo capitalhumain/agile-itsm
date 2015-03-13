@@ -31,7 +31,7 @@ public class GerencialGrupoPainelConfig {
             iisGrupo = ClassLoader.getSystemResourceAsStream(fileNameConfig);
         }
         if (iisGrupo == null) {
-            final String strPath = CITGerencialUtil.caminho_real_app + "WEB-INF/classes/" + fileNameConfig;
+            final String strPath = CITGerencialUtil.CAMINHO_REAL_APP + "WEB-INF/classes/" + fileNameConfig;
             FileInputStream fis = null;
             try {
                 fis = new FileInputStream(strPath);

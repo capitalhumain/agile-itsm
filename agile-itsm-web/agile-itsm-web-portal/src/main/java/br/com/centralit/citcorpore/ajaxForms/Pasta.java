@@ -9,8 +9,8 @@ import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringEscapeUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import br.com.centralit.citajax.html.AjaxFormAction;
 import br.com.centralit.citajax.html.DocumentHTML;
@@ -310,7 +310,7 @@ public class Pasta extends AjaxFormAction {
 					perfilAcesso = perfilAcesso.replaceAll("'", "");
 				}
 
-				document.executeScript("setRestorePerfilAcesso('" + perfil.getIdPerfilAcesso() + "'," + "'" + br.com.citframework.util.WebUtil.codificaEnter(StringEscapeUtils.escapeJavaScript(perfilAcesso)) + "'," + "'"
+				document.executeScript("setRestorePerfilAcesso('" + perfil.getIdPerfilAcesso() + "'," + "'" + br.com.citframework.util.WebUtil.codificaEnter(StringEscapeUtils.escapeEcmaScript(perfilAcesso)) + "'," + "'"
 						+ br.com.citframework.util.WebUtil.codificaEnter(aprovaBaseConhecimento) + "')");
 
 				if (perfisDeAcessoDaPasta != null && !perfisDeAcessoDaPasta.isEmpty()) {
@@ -365,7 +365,7 @@ public class Pasta extends AjaxFormAction {
 
 				if (!pasta.getId().equals(pastaDto.getId())) {
 
-					comboPasta.addOption(pasta.getId().toString(), StringEscapeUtils.escapeJavaScript(pasta.getNomeNivel()));
+					comboPasta.addOption(pasta.getId().toString(), StringEscapeUtils.escapeEcmaScript(pasta.getNomeNivel()));
 
 				}
 			}
@@ -428,7 +428,7 @@ public class Pasta extends AjaxFormAction {
 
 				if (pasta.getDataFim() == null) {
 
-					comboPasta.addOption(pasta.getId().toString(), StringEscapeUtils.escapeJavaScript(pasta.getNomeNivel()));
+					comboPasta.addOption(pasta.getId().toString(), StringEscapeUtils.escapeEcmaScript(pasta.getNomeNivel()));
 
 				}
 			}
@@ -583,7 +583,7 @@ public class Pasta extends AjaxFormAction {
 
 	@Override
 	public Class getBeanClass() {
-		// TODO Auto-generated method stub
+		
 		return PastaDTO.class;
 	}
 

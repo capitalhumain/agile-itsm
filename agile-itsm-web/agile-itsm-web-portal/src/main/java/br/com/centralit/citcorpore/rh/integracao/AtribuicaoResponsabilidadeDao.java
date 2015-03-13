@@ -49,7 +49,7 @@ public class AtribuicaoResponsabilidadeDao extends CrudDaoDefaultImpl {
 
     @Override
     public Collection list() throws PersistenceException {
-        final List list = new ArrayList();
+        final List list = new ArrayList<>();
         list.add(new Order("descricaoPerspectivaComplexidade"));
         return super.list(list);
     }
@@ -82,7 +82,7 @@ public class AtribuicaoResponsabilidadeDao extends CrudDaoDefaultImpl {
 
         final List list = this.execSQL(sql.toString(), objs);
 
-        final List listRetorno = new ArrayList();
+        final List listRetorno = new ArrayList<>();
         listRetorno.add("idAtribuicaoResponsabilidade");
         listRetorno.add("descricaoPerspectivaComplexidade");
         listRetorno.add("idNivel");
@@ -101,7 +101,7 @@ public class AtribuicaoResponsabilidadeDao extends CrudDaoDefaultImpl {
 
         final List list = this.execSQL(sql.toString(), objs);
 
-        final List listRetorno = new ArrayList();
+        final List listRetorno = new ArrayList<>();
         listRetorno.add("idAtribuicaoResponsabilidade");
         listRetorno.add("descricaoPerspectivaComplexidade");
         listRetorno.add("idNivel");
@@ -111,7 +111,7 @@ public class AtribuicaoResponsabilidadeDao extends CrudDaoDefaultImpl {
     }
 
     public void deleteByIdManualFuncao(final Integer idManualFuncao) throws PersistenceException {
-        final List condicao = new ArrayList();
+        final List<Condition> condicao = new ArrayList<>();
         condicao.add(new Condition("idManualFuncao", "=", idManualFuncao));
         super.deleteByCondition(condicao);
     }

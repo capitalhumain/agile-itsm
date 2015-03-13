@@ -88,7 +88,7 @@ public class UploadArquivoMultimidia extends AjaxFormAction {
 
 					List lst = (List) request.getSession(true).getAttribute("TEMP_LISTA_ARQ_MULTIMIDIA");
 					if (lst == null){
-						lst = new ArrayList();
+						lst = new ArrayList<>();
 					}
 					lst.add(arquivoMultimidia);
 
@@ -106,7 +106,7 @@ public class UploadArquivoMultimidia extends AjaxFormAction {
 
 		List lst = (List) request.getSession(true).getAttribute("TEMP_LISTA_ARQ_MULTIMIDIA");
 		if (lst == null){
-			lst = new ArrayList();
+			lst = new ArrayList<>();
 		}
 
 		String strTable = "<table width=\"100%\">";

@@ -24,19 +24,17 @@ import br.com.centralit.citcorpore.util.Enumerados.ParametroSistema;
 import br.com.citframework.service.ServiceLocator;
 import br.com.citframework.util.Constantes;
 
-@SuppressWarnings({"unchecked", "rawtypes"})
 public class FiltroSegurancaCITSmart implements Filter {
 
     private static final int ACESSO_NEGADO = 403;
-    private static Collection colLivres = new ArrayList();
+    private static Collection colLivres = new ArrayList<>();
     private static Boolean haVersoesSemValidacao = null;
     private static final String INTERROGACAO = "?";
 
     public static Boolean getHaVersoesSemValidacao() {
         try {
             if (haVersoesSemValidacao == null) {
-                final VersaoService service = (VersaoService) ServiceLocator.getInstance().getService(
-                        VersaoService.class, null);
+                final VersaoService service = (VersaoService) ServiceLocator.getInstance().getService(VersaoService.class, null);
                 haVersoesSemValidacao = service.haVersoesSemValidacao();
             }
             return haVersoesSemValidacao;
@@ -45,7 +43,7 @@ public class FiltroSegurancaCITSmart implements Filter {
         }
     }
 
-    public static void setHaVersoesSemValidacao(Boolean haVersoesSemValidacao) {
+    public static void setHaVersoesSemValidacao(final Boolean haVersoesSemValidacao) {
         FiltroSegurancaCITSmart.haVersoesSemValidacao = haVersoesSemValidacao;
     }
 
@@ -53,22 +51,22 @@ public class FiltroSegurancaCITSmart implements Filter {
     public void destroy() {}
 
     @Override
-    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain chain)
-            throws IOException, ServletException {
+    public void doFilter(final ServletRequest servletRequest, final ServletResponse servletResponse, final FilterChain chain) throws IOException,
+            ServletException {
         final HttpServletRequest request = (HttpServletRequest) servletRequest;
         final HttpServletResponse response = (HttpServletResponse) servletResponse;
-        String path = getRequestedPath(request);
+        String path = this.getRequestedPath(request);
 
         final UsuarioDTO usuario = WebUtil.getUsuario(request);
 
         if (path == null) {
             path = "";
         }
-        if (isFilesLivres(path)) {
+        if (this.isFilesLivres(path)) {
             chain.doFilter(request, response);
             return;
         }
-        if (isPaginaScript(path)) {
+        if (this.isPaginaScript(path)) {
             chain.doFilter(request, response);
             return;
         }
@@ -77,36 +75,32 @@ public class FiltroSegurancaCITSmart implements Filter {
             request.getSession(true).setAttribute("abrePortal", "S");
         }
 
-        if (isRecursoLivre(path) && !getHaVersoesSemValidacao()) {
+        if (this.isRecursoLivre(path) && !getHaVersoesSemValidacao()) {
             chain.doFilter(request, response);
             return;
         }
 
         String CAMINHO_RELATIVO_PAGINA_LOGIN = Constantes.getValue("CAMINHO_RELATIVO_PAGINA_LOGIN");
         if (CAMINHO_RELATIVO_PAGINA_LOGIN == null || CAMINHO_RELATIVO_PAGINA_LOGIN.trim().equalsIgnoreCase("")) {
-            CAMINHO_RELATIVO_PAGINA_LOGIN = Constantes.getValue("SERVER_ADDRESS")
-                    + Constantes.getValue("CONTEXTO_APLICACAO") + "/login/login.load";
+            CAMINHO_RELATIVO_PAGINA_LOGIN = Constantes.getValue("SERVER_ADDRESS") + Constantes.getValue("CONTEXTO_APLICACAO") + "/login/login.load";
         }
 
         if (path.equalsIgnoreCase("") || path.equalsIgnoreCase("/")) {
             if (CAMINHO_RELATIVO_PAGINA_LOGIN == null || CAMINHO_RELATIVO_PAGINA_LOGIN.trim().equalsIgnoreCase("")) {
-                CAMINHO_RELATIVO_PAGINA_LOGIN = Constantes.getValue("SERVER_ADDRESS")
-                        + Constantes.getValue("CONTEXTO_APLICACAO") + "/login/login.load";
+                CAMINHO_RELATIVO_PAGINA_LOGIN = Constantes.getValue("SERVER_ADDRESS") + Constantes.getValue("CONTEXTO_APLICACAO") + "/login/login.load";
             }
             response.sendRedirect(CAMINHO_RELATIVO_PAGINA_LOGIN);
             return;
         }
 
         if (path.equals("/portal/portal.load") && usuario != null) {
-            response.sendRedirect(Constantes.getValue("SERVER_ADDRESS") + Constantes.getValue("CONTEXTO_APLICACAO")
-                    + "/pages/portal/portal.load");
+            response.sendRedirect(Constantes.getValue("SERVER_ADDRESS") + Constantes.getValue("CONTEXTO_APLICACAO") + "/pages/portal/portal.load");
             return;
         }
 
         if (usuario == null) {
             if (CAMINHO_RELATIVO_PAGINA_LOGIN == null || CAMINHO_RELATIVO_PAGINA_LOGIN.trim().equalsIgnoreCase("")) {
-                CAMINHO_RELATIVO_PAGINA_LOGIN = Constantes.getValue("SERVER_ADDRESS")
-                        + Constantes.getValue("CONTEXTO_APLICACAO") + "/login/login.load";
+                CAMINHO_RELATIVO_PAGINA_LOGIN = Constantes.getValue("SERVER_ADDRESS") + Constantes.getValue("CONTEXTO_APLICACAO") + "/login/login.load";
             }
 
             // Verifica se eh a pagina de login para nao ficar em redirect infinito.
@@ -132,22 +126,19 @@ public class FiltroSegurancaCITSmart implements Filter {
         if (!usuario.getLogin().equalsIgnoreCase("consultor") && !usuario.getLogin().equalsIgnoreCase("admin")) {
             if ("N".equalsIgnoreCase(usuario.getAcessoCitsmart())) {
 
-                response.sendRedirect(Constantes.getValue("SERVER_ADDRESS") + Constantes.getValue("CONTEXTO_APLICACAO")
-                        + "/pages/portal/portal.load");
+                response.sendRedirect(Constantes.getValue("SERVER_ADDRESS") + Constantes.getValue("CONTEXTO_APLICACAO") + "/pages/portal/portal.load");
                 return;
             }
         }
 
-        final String idPerfilAcessoAdministrador = ParametroUtil.getValorParametroCitSmartHashMap(
-                ParametroSistema.ID_PERFIL_ACESSO_ADMINISTRADOR, "1");
+        final String idPerfilAcessoAdministrador = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.ID_PERFIL_ACESSO_ADMINISTRADOR, "1");
         final boolean usuarioTemPerfilDeAdministrador = usuario.getIdPerfilAcessoUsuario() != null
                 && usuario.getIdPerfilAcessoUsuario().toString().trim().equals(idPerfilAcessoAdministrador.trim());
 
         // O usuario "admin" ou "admin.centralit" tem acesso a tudo.
-        if (usuario.getNomeUsuario().equalsIgnoreCase("administrador")
-                || usuario.getNomeUsuario().equalsIgnoreCase("admin.centralit")
-                || usuario.getNomeUsuario().equalsIgnoreCase("consultor")
-                || usuario.getNomeUsuario().equalsIgnoreCase("admin") || usuarioTemPerfilDeAdministrador) {
+        if (usuario.getNomeUsuario().equalsIgnoreCase("administrador") || usuario.getNomeUsuario().equalsIgnoreCase("admin.centralit")
+                || usuario.getNomeUsuario().equalsIgnoreCase("consultor") || usuario.getNomeUsuario().equalsIgnoreCase("admin")
+                || usuarioTemPerfilDeAdministrador) {
             if (!getHaVersoesSemValidacao()) {
                 chain.doFilter(request, response);
             } else {
@@ -169,7 +160,7 @@ public class FiltroSegurancaCITSmart implements Filter {
         }
 
         try {
-            if (isRecursoLivre(path)) {
+            if (this.isRecursoLivre(path)) {
                 chain.doFilter(request, response);
                 return;
             }
@@ -177,9 +168,8 @@ public class FiltroSegurancaCITSmart implements Filter {
 
             // Caso ainda nao tenha carregado a colecao com as autorizações, entao carrega.
             if (col == null) {
-                final Collection colPathsAutorizadosUsuario = new ArrayList();
-                final MenuService menuService = (MenuService) ServiceLocator.getInstance().getService(
-                        MenuService.class, null);
+                final Collection colPathsAutorizadosUsuario = new ArrayList<>();
+                final MenuService menuService = (MenuService) ServiceLocator.getInstance().getService(MenuService.class, null);
                 final Collection<MenuDTO> listaPermissao = menuService.listaMenuByUsr(usuario);
                 if (listaPermissao != null && listaPermissao.size() > 0) {
                     for (final MenuDTO beanMenu : listaPermissao) {
@@ -210,7 +200,7 @@ public class FiltroSegurancaCITSmart implements Filter {
                     }
                 }
                 request.getSession(true).setAttribute("acessoSolicitado", path);
-                sendError(ACESSO_NEGADO, "O usuario nao tem acesso ao recurso solicitado.", response);
+                this.sendError(ACESSO_NEGADO, "O usuario nao tem acesso ao recurso solicitado.", response);
             }
         } catch (final Exception e) {
             System.out.println("CITSMART - Filtro de Seguranca: Problemas -> " + e.getMessage());
@@ -219,7 +209,7 @@ public class FiltroSegurancaCITSmart implements Filter {
         }
     }
 
-    private String getRequestedPath(HttpServletRequest request) {
+    private String getRequestedPath(final HttpServletRequest request) {
         String path = request.getRequestURI();
         path = path.substring(request.getContextPath().length());
         final int index = path.indexOf(INTERROGACAO);
@@ -230,10 +220,9 @@ public class FiltroSegurancaCITSmart implements Filter {
     }
 
     @Override
-    public void init(FilterConfig arg0) throws ServletException {
+    public void init(final FilterConfig arg0) throws ServletException {
         try {
-            final VersaoService service = (VersaoService) ServiceLocator.getInstance().getService(VersaoService.class,
-                    null);
+            final VersaoService service = (VersaoService) ServiceLocator.getInstance().getService(VersaoService.class, null);
             setHaVersoesSemValidacao(service.haVersoesSemValidacao());
         } catch (final Exception e) {
             e.printStackTrace();
@@ -312,26 +301,23 @@ public class FiltroSegurancaCITSmart implements Filter {
         if (requestedPath.endsWith(".DOC") || requestedPath.endsWith(".DOCX")) {
             return true;
         }
-        if (requestedPath.endsWith(".GIF") || requestedPath.endsWith(".JPG") || requestedPath.endsWith(".PNG")
-                || requestedPath.endsWith(".BMP") || requestedPath.endsWith(".DCM") || requestedPath.endsWith(".DC3")
-                || requestedPath.endsWith(".SVG")) {
+        if (requestedPath.endsWith(".GIF") || requestedPath.endsWith(".JPG") || requestedPath.endsWith(".PNG") || requestedPath.endsWith(".BMP")
+                || requestedPath.endsWith(".DCM") || requestedPath.endsWith(".DC3") || requestedPath.endsWith(".SVG")) {
             return true;
         }
 
         return false;
     }
 
-    private boolean isPaginaScript(String requestedPath) {
+    private boolean isPaginaScript(final String requestedPath) {
 
         if (requestedPath.endsWith("/scripts/scripts.load") || requestedPath.endsWith("/scripts/scripts.get")
-                || requestedPath.endsWith("/scripts/scripts.event") || requestedPath.contains("/scripts_deploy/")
-                || requestedPath.endsWith("vazio.jsp") || requestedPath.endsWith("/start/start.event")
-                || requestedPath.endsWith("/start/start.load") || requestedPath.endsWith("/start/start.get")
-                || requestedPath.endsWith("/login/login.load") || requestedPath.endsWith("/login/login.save")
-                || requestedPath.endsWith("/login/login.get") || requestedPath.endsWith("/start/termos.html")
-                || requestedPath.endsWith("/start/start.load.event")
-                || requestedPath.endsWith("/start/termos_pt_BR.html")
-                || requestedPath.endsWith("/start/termos_en.html") || requestedPath.endsWith("/start/termos_es.html")) {
+                || requestedPath.endsWith("/scripts/scripts.event") || requestedPath.contains("/scripts_deploy/") || requestedPath.endsWith("vazio.jsp")
+                || requestedPath.endsWith("/start/start.event") || requestedPath.endsWith("/start/start.load") || requestedPath.endsWith("/start/start.get")
+                || requestedPath.endsWith("/login/login.load") || requestedPath.endsWith("/login/login.save") || requestedPath.endsWith("/login/login.get")
+                || requestedPath.endsWith("/start/termos.html") || requestedPath.endsWith("/start/start.load.event")
+                || requestedPath.endsWith("/start/termos_pt_BR.html") || requestedPath.endsWith("/start/termos_en.html")
+                || requestedPath.endsWith("/start/termos_es.html")) {
 
             return true;
         }
@@ -536,8 +522,7 @@ public class FiltroSegurancaCITSmart implements Filter {
         if (requestedPath.endsWith("/pages/contratoQuestionarios/contratoQuestionarios.load")) {
             return true;
         }
-        if (requestedPath
-                .endsWith("/pages/visualizarDesempenhoServicosContrato/visualizarDesempenhoServicosContrato.load")) {
+        if (requestedPath.endsWith("/pages/visualizarDesempenhoServicosContrato/visualizarDesempenhoServicosContrato.load")) {
             return true;
         }
         if (requestedPath.endsWith("/pages/programacaoAtividade/programacaoAtividade.load")) {
@@ -593,8 +578,7 @@ public class FiltroSegurancaCITSmart implements Filter {
                 || requestedPath.startsWith("/printPDF/printPDF.jsp")) {
             return true;
         }
-        if (requestedPath.startsWith("/pages/pesquisaRequisicaoMudanca/pesquisaRequisicaoMudanca.load")
-                || requestedPath.startsWith("/printPDF/printPDF.jsp")) {
+        if (requestedPath.startsWith("/pages/pesquisaRequisicaoMudanca/pesquisaRequisicaoMudanca.load") || requestedPath.startsWith("/printPDF/printPDF.jsp")) {
             return true;
         }
 
@@ -695,12 +679,10 @@ public class FiltroSegurancaCITSmart implements Filter {
         if (requestedPath.endsWith("/pages/uploadPlanoDeReversaoLiberacao/uploadPlanoDeReversaoLiberacao.jsp")) {
             return true;
         }
-        if (requestedPath
-                .endsWith("/pages/uploadExcluirPlanoDeReversaoLiberacao/uploadExcluirPlanoDeReversaoLiberacao.load")) {
+        if (requestedPath.endsWith("/pages/uploadExcluirPlanoDeReversaoLiberacao/uploadExcluirPlanoDeReversaoLiberacao.load")) {
             return true;
         }
-        if (requestedPath
-                .endsWith("/pages/uploadExcluirPlanoDeReversaoLiberacao/uploadExcluirPlanoDeReversaoLiberacao.jsp")) {
+        if (requestedPath.endsWith("/pages/uploadExcluirPlanoDeReversaoLiberacao/uploadExcluirPlanoDeReversaoLiberacao.jsp")) {
             return true;
         }
         if (requestedPath.endsWith("/pages/inventarioNew/inventarioNew.load")) {
@@ -713,8 +695,7 @@ public class FiltroSegurancaCITSmart implements Filter {
             return true;
         }
 
-        if (requestedPath
-                .endsWith("/solicitacaoServicoMultiContratosPortal2/solicitacaoServicoMultiContratosPortal2.load")) {
+        if (requestedPath.endsWith("/solicitacaoServicoMultiContratosPortal2/solicitacaoServicoMultiContratosPortal2.load")) {
             return true;
         }
 
@@ -909,9 +890,8 @@ public class FiltroSegurancaCITSmart implements Filter {
         if (requestedPath.endsWith("/uploadExcluirDocsGerais.load")) {
             return true;
         }
-        if (requestedPath.endsWith(".save") || requestedPath.endsWith(".find") || requestedPath.endsWith(".get")
-                || requestedPath.endsWith(".restore") || requestedPath.endsWith(".event")
-                || requestedPath.endsWith(".complete")) {
+        if (requestedPath.endsWith(".save") || requestedPath.endsWith(".find") || requestedPath.endsWith(".get") || requestedPath.endsWith(".restore")
+                || requestedPath.endsWith(".event") || requestedPath.endsWith(".complete")) {
             return true;
         }
         if (requestedPath.endsWith("/pages/portal/home.html")) {
@@ -944,8 +924,7 @@ public class FiltroSegurancaCITSmart implements Filter {
         if (requestedPath.contains("/exportXML/")) {
             return true;
         }
-        if (requestedPath
-                .endsWith("pages/refreshuploadPlanoDeReversaoLiberacao/refreshuploadPlanoDeReversaoLiberacao.load")) {
+        if (requestedPath.endsWith("pages/refreshuploadPlanoDeReversaoLiberacao/refreshuploadPlanoDeReversaoLiberacao.load")) {
             return true;
         }
         if (requestedPath.endsWith("pages/servicoContratoMulti/servicoContratoMulti.load")) {
@@ -1080,8 +1059,7 @@ public class FiltroSegurancaCITSmart implements Filter {
             return true;
         }
 
-        if (requestedPath
-                .endsWith("/pages/relatorioEficaciaNasEstimativasDasRequisicaoDeServico/relatorioEficaciaNasEstimativasDasRequisicaoDeServico.load")) {
+        if (requestedPath.endsWith("/pages/relatorioEficaciaNasEstimativasDasRequisicaoDeServico/relatorioEficaciaNasEstimativasDasRequisicaoDeServico.load")) {
             return true;
         }
 
@@ -1170,8 +1148,7 @@ public class FiltroSegurancaCITSmart implements Filter {
             return true;
         }
 
-        if (requestedPath.endsWith("/pages/trabalheConosco/trabalheConosco.load")
-                || requestedPath.startsWith("/pages/trabalheConosco/trabalheConosco.load")) {
+        if (requestedPath.endsWith("/pages/trabalheConosco/trabalheConosco.load") || requestedPath.startsWith("/pages/trabalheConosco/trabalheConosco.load")) {
             return true;
         }
 
@@ -1201,7 +1178,7 @@ public class FiltroSegurancaCITSmart implements Filter {
         return false;
     }
 
-    private void sendError(int errorCode, String errorMessage, HttpServletResponse response) {
+    private void sendError(final int errorCode, final String errorMessage, final HttpServletResponse response) {
         try {
             response.sendError(errorCode, errorMessage);
         } catch (final IOException e) {

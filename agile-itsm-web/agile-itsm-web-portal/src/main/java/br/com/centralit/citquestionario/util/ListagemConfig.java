@@ -61,7 +61,7 @@ public class ListagemConfig {
 	public void load(){
 		if (doc == null) return;
 		String nome = "", descricao = "", SQL = "";
-		listagens = new ArrayList();
+		listagens = new ArrayList<>();
 		ListagemDTO listagem;
 		Node noRoot = doc.getChildNodes().item(0);
 		for(int j = 0; j < noRoot.getChildNodes().getLength(); j++){
@@ -111,7 +111,7 @@ public class ListagemConfig {
                         
                         Collection col = listagem.getCampos();
                         if (col == null){
-                            col = new ArrayList();
+                            col = new ArrayList<>();
                             listagem.setCampos(col);
                         }
                         col.add(item);

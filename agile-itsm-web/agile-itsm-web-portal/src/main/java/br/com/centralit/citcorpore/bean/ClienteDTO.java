@@ -18,10 +18,8 @@ import br.com.agileitsm.model.support.BaseEntity;
 
 public class ClienteDTO extends BaseEntity {
 
-    /**
-     *
-     */
     private static final long serialVersionUID = -7252057961936714136L;
+
     private Integer idCliente;
     private String nomeRazaoSocial;
     private String nomeFantasia;
@@ -33,43 +31,56 @@ public class ClienteDTO extends BaseEntity {
     public String getCpfCnpj() {
         return cpfCnpj;
     }
-    public void setCpfCnpj(String cpfCnpj) {
+
+    public void setCpfCnpj(final String cpfCnpj) {
         this.cpfCnpj = cpfCnpj;
     }
+
     public Integer getIdCliente() {
         return idCliente;
     }
-    public void setIdCliente(Integer idCliente) {
+
+    public void setIdCliente(final Integer idCliente) {
         this.idCliente = idCliente;
     }
+
     public String getNomeFantasia() {
         return nomeFantasia;
     }
-    public void setNomeFantasia(String nomeFantasia) {
+
+    public void setNomeFantasia(final String nomeFantasia) {
         this.nomeFantasia = nomeFantasia;
     }
+
     public String getNomeRazaoSocial() {
         return nomeRazaoSocial;
     }
-    public void setNomeRazaoSocial(String nomeRazaoSocial) {
+
+    public void setNomeRazaoSocial(final String nomeRazaoSocial) {
         this.nomeRazaoSocial = nomeRazaoSocial;
     }
+
     public String getObservacoes() {
         return observacoes;
     }
-    public void setObservacoes(String observacoes) {
+
+    public void setObservacoes(final String observacoes) {
         this.observacoes = observacoes;
     }
+
     public String getSituacao() {
         return situacao;
     }
-    public void setSituacao(String situacao) {
+
+    public void setSituacao(final String situacao) {
         this.situacao = situacao;
     }
+
     public String getDeleted() {
         return deleted;
     }
-    public void setDeleted(String deleted) {
+
+    public void setDeleted(final String deleted) {
         this.deleted = deleted;
     }
 

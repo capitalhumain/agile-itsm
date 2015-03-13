@@ -754,14 +754,14 @@ public class Cronograma extends AjaxFormAction {
                         }
                     }
                 } else {
-                    marcoPagamentoPrjDTO.setColPerfisByMarcosFin(new ArrayList());
+                    marcoPagamentoPrjDTO.setColPerfisByMarcosFin(new ArrayList<>());
                 }
                 final Collection colProdutosByMarcosFin = produtoContratoService.getProdutosByIdMarcoPagamentoPrj(
                         marcoPagamentoPrjDTO.getIdMarcoPagamentoPrj(), linhaBaseProjetoDTO.getIdLinhaBaseProjeto());
                 if (colProdutosByMarcosFin != null) {
                     marcoPagamentoPrjDTO.setColProdutosByMarcosFin(colProdutosByMarcosFin);
                 } else {
-                    marcoPagamentoPrjDTO.setColProdutosByMarcosFin(new ArrayList());
+                    marcoPagamentoPrjDTO.setColProdutosByMarcosFin(new ArrayList<>());
                 }
             }
         }
@@ -785,9 +785,9 @@ public class Cronograma extends AjaxFormAction {
                             + perfilContrato.getCustoTotalPerfil().doubleValue());
                 }
             }
-            marcoPagamentoPrjDTO.setColProdutosByMarcosFin(new ArrayList());
+            marcoPagamentoPrjDTO.setColProdutosByMarcosFin(new ArrayList<>());
             if (colMarcosFin == null) {
-                colMarcosFin = new ArrayList();
+                colMarcosFin = new ArrayList<>();
             }
             colMarcosFin.add(marcoPagamentoPrjDTO);
         }
@@ -945,9 +945,9 @@ public class Cronograma extends AjaxFormAction {
                 final CYaHPConverter converter = new CYaHPConverter();
                 final File fout = new File(strPathTemplateCORPO_PDF);
                 final FileOutputStream out = new FileOutputStream(fout);
-                final List headerFooterList = new ArrayList();
+                final List headerFooterList = new ArrayList<>();
 
-                final Map properties = new HashMap();
+                final Map properties = new HashMap<>();
 
                 final String strCabecalho = UtilTratamentoArquivos.getStringTextFromFileTxtTemplate(strPathTemplateCAB_HTML);
                 final String strRodape = UtilTratamentoArquivos.getStringTextFromFileTxtTemplate(strPathTemplateROD_HTML);
@@ -995,7 +995,7 @@ public class Cronograma extends AjaxFormAction {
 
     private Collection getTarefas(final Collection col, final HttpServletRequest request) throws LogicException {
         if (col != null) {
-            final Collection colRetorno = new ArrayList();
+            final Collection colRetorno = new ArrayList<>();
             for (final Iterator it = col.iterator(); it.hasNext();) {
                 final HashMap mapItem = (HashMap) it.next();
                 final String name = (String) mapItem.get("NAME");
@@ -1012,7 +1012,7 @@ public class Cronograma extends AjaxFormAction {
 
     private Collection getMarcosPag(final HttpServletRequest request, final Collection col) {
         if (col != null) {
-            final Collection colRetorno = new ArrayList();
+            final Collection colRetorno = new ArrayList<>();
             for (final Iterator it = col.iterator(); it.hasNext();) {
                 final HashMap mapItem = (HashMap) it.next();
                 final MarcoPagamentoPrjDTO marcoPagamentoPrjDTO = generateMarcoPagDTO(request, mapItem);
@@ -1144,8 +1144,8 @@ public class Cronograma extends AjaxFormAction {
         tarefaLinhaBaseProjetoDTO.setEstimada("N");
 
         final Collection colAssigs = (Collection) mapItem.get("ASSIGS");
-        final Collection colRecursos = new ArrayList();
-        final Collection colProdutos = new ArrayList();
+        final Collection colRecursos = new ArrayList<>();
+        final Collection colProdutos = new ArrayList<>();
         if (colAssigs != null) {
             for (final Iterator it = colAssigs.iterator(); it.hasNext();) {
                 final HashMap mapX = (HashMap) it.next();

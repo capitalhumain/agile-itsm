@@ -77,7 +77,7 @@ public class GeraGraficoBarraJS extends AjaxFormAction{
 		
 		List colColunas = (List) biConsultaColunasService.findByIdConsulta(biConsultaParm.getIdConsulta());
 		if (colColunas == null){
-			colColunas = new ArrayList();
+			colColunas = new ArrayList<>();
 		}
 		String strDataTableColumns = "[";	
 		int x = 0;
@@ -123,7 +123,7 @@ public class GeraGraficoBarraJS extends AjaxFormAction{
 		}
 		String sql = biConsultaDTO.getTextoSQL();
 		
-		Collection colParmsUtilizadosNoSQL = new ArrayList();
+		Collection colParmsUtilizadosNoSQL = new ArrayList<>();
 		sql = trataSQL(sql, user, colParmsUtilizadosNoSQL);
 		List listParms = trataParameters(hashParametros, user, colParmsUtilizadosNoSQL, biConsultaDTO.getListParameters());
 		
@@ -217,7 +217,7 @@ public class GeraGraficoBarraJS extends AjaxFormAction{
 		if (colParmsUtilizadosNoSQL == null || colParmsUtilizadosNoSQL.size() == 0) {
 			return null;
 		}
-		List lstRetorno = new ArrayList();
+		List lstRetorno = new ArrayList<>();
 		for (Iterator it = colParmsUtilizadosNoSQL.iterator(); it.hasNext();) {
 			String nameParm = (String) it.next();
 			String type = getTypeParametro(colDefinicaoParametros, nameParm);
@@ -598,7 +598,7 @@ public class GeraGraficoBarraJS extends AjaxFormAction{
 		if (noItem == null){
             return null;			
 		}		
-		List colParameters = new ArrayList();
+		List colParameters = new ArrayList<>();
 		GerencialParameterDTO gerencialParameter;
         if (noItem.getChildNodes() != null){
             for (int i = 0; i < noItem.getChildNodes().getLength(); i++){
@@ -671,7 +671,7 @@ public class GeraGraficoBarraJS extends AjaxFormAction{
 	public Collection getSubTreeOptions(Node noItem){
 		if (noItem == null) return null;
 		
-		Collection colRetorno = new ArrayList();
+		Collection colRetorno = new ArrayList<>();
         if (noItem.getChildNodes() != null){
             for (int i = 0; i < noItem.getChildNodes().getLength(); i++){
             	Node noSubItem = noItem.getChildNodes().item(i);
@@ -715,7 +715,7 @@ public class GeraGraficoBarraJS extends AjaxFormAction{
 	}
 	public HashMap getParametrosInformados(HttpServletRequest request) {
 		Enumeration x = request.getParameterNames();
-		HashMap hashRetorno = new HashMap();
+		HashMap hashRetorno = new HashMap<>();
 		String[] aux;
 		while (x.hasMoreElements()) {
 			String nameElement = (String) x.nextElement();

@@ -28,7 +28,6 @@ import br.com.citframework.util.Constantes;
 import br.com.citframework.util.UtilDatas;
 import br.com.citframework.util.UtilStrings;
 
-@SuppressWarnings({"rawtypes", "unchecked"})
 public class ControleGEDServiceBean extends CrudServiceImpl implements ControleGEDService {
 
     private ControleGEDDao dao;
@@ -43,12 +42,12 @@ public class ControleGEDServiceBean extends CrudServiceImpl implements ControleG
 
     @Override
     public Collection listByIdTabelaAndID(final Integer idTabela, final Integer id) throws Exception {
-        return getDao().listByIdTabelaAndID(idTabela, id);
+        return this.getDao().listByIdTabelaAndID(idTabela, id);
     }
 
     @Override
     public String getProximaPastaArmazenar() throws Exception {
-        return getDao().getProximaPastaArmazenar();
+        return this.getDao().getProximaPastaArmazenar();
     }
 
     @Override
@@ -56,7 +55,7 @@ public class ControleGEDServiceBean extends CrudServiceImpl implements ControleG
         if (colAnexosControleGED == null) {
             return null;
         }
-        final Collection colFinal = new ArrayList();
+        final Collection colFinal = new ArrayList<>();
         for (final Iterator it = colAnexosControleGED.iterator(); it.hasNext();) {
             final ControleGEDDTO controleGedDto = (ControleGEDDTO) it.next();
             final UploadDTO uploadDto = new UploadDTO();
@@ -77,7 +76,7 @@ public class ControleGEDServiceBean extends CrudServiceImpl implements ControleG
                     uploadDto.setVersao(controleGedDto.getVersao());
                 }
             }
-            uploadDto.setCaminhoRelativo(getRelativePathFromGed(controleGedDto));
+            uploadDto.setCaminhoRelativo(this.getRelativePathFromGed(controleGedDto));
             colFinal.add(uploadDto);
         }
         return colFinal;
@@ -85,11 +84,11 @@ public class ControleGEDServiceBean extends CrudServiceImpl implements ControleG
 
     @Override
     public BaseEntity create(final BaseEntity model) throws ServiceException, LogicException {
-        final CrudDAO crudDao = getDao();
+        final CrudDAO crudDao = this.getDao();
         final AssinaturaControleGEDDao assDao = new AssinaturaControleGEDDao();
         final TransactionControler tc = new TransactionControlerImpl(crudDao.getAliasDB());
         try {
-            validaCreate(model);
+            this.validaCreate(model);
             assDao.setTransactionControler(tc);
             crudDao.setTransactionControler(tc);
             tc.start();
@@ -108,7 +107,7 @@ public class ControleGEDServiceBean extends CrudServiceImpl implements ControleG
 
             return model;
         } catch (final Exception e) {
-            rollbackTransaction(tc, e);
+            this.rollbackTransaction(tc, e);
         } finally {
             tc.closeQuietly();
         }
@@ -117,17 +116,17 @@ public class ControleGEDServiceBean extends CrudServiceImpl implements ControleG
 
     @Override
     public Collection listByIdTabelaAndIdBaseConhecimentoPaiEFilho(final Integer idTabela, final Integer idBasePai, final Integer idBaseFilho) throws Exception {
-        return getDao().listByIdTabelaAndIdBaseConhecimentoPaiEFilho(idTabela, idBasePai, idBaseFilho);
+        return this.getDao().listByIdTabelaAndIdBaseConhecimentoPaiEFilho(idTabela, idBasePai, idBaseFilho);
     }
 
     @Override
     public Collection listByIdTabelaAndIdBaseConhecimento(final Integer idTabela, final Integer idBaseConhecimento) throws Exception {
-        return getDao().listByIdTabelaAndIdBaseConhecimento(idTabela, idBaseConhecimento);
+        return this.getDao().listByIdTabelaAndIdBaseConhecimento(idTabela, idBaseConhecimento);
     }
 
     @Override
     public Collection listByIdTabelaAndIdLiberacaoAndLigacao(final Integer idTabela, final Integer idRequisicaoLiberacao) throws Exception {
-        return getDao().listByIdTabelaAndIdLiberacaoAndLigacao(idTabela, idRequisicaoLiberacao);
+        return this.getDao().listByIdTabelaAndIdLiberacaoAndLigacao(idTabela, idRequisicaoLiberacao);
     }
 
     public String getRelativePathFromGed(final ControleGEDDTO controleGEDDTO) throws Exception {
@@ -169,7 +168,7 @@ public class ControleGEDServiceBean extends CrudServiceImpl implements ControleG
                             fileRec, System.getProperties().get("user.dir") + Constantes.getValue("CAMINHO_CHAVE_PRIVADA"));
 
                     return Constantes.getValue("CONTEXTO_APLICACAO") + "/tempUpload/REC_FROM_GED_" + controleGEDDTO.getIdControleGED() + "."
-                            + controleGEDDTO.getExtensaoArquivo();
+                    + controleGEDDTO.getExtensaoArquivo();
                 }
             }
 
@@ -180,7 +179,7 @@ public class ControleGEDServiceBean extends CrudServiceImpl implements ControleG
     }
 
     public void atualizaAnexos(final Collection<UploadDTO> anexos, final int idTabela, final Integer id, final TransactionControler tc) throws Exception {
-        final ControleGEDDao controleGEDDao = getDao();
+        final ControleGEDDao controleGEDDao = this.getDao();
         controleGEDDao.setTransactionControler(tc);
         String gedInternoBancoDados = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.GedInternoBD, "N");
 
@@ -192,9 +191,9 @@ public class ControleGEDServiceBean extends CrudServiceImpl implements ControleG
 
         final String GED_INTERNO = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.GedInterno, "S");
 
-        String pasta = getProximaPastaArmazenar();
+        String pasta = this.getProximaPastaArmazenar();
         if (GED_INTERNO.equalsIgnoreCase("S")) {
-            pasta = getProximaPastaArmazenar();
+            pasta = this.getProximaPastaArmazenar();
             File fileDir = new File(GED_DIRETORIO);
 
             if (!fileDir.exists()) {
@@ -213,7 +212,7 @@ public class ControleGEDServiceBean extends CrudServiceImpl implements ControleG
             }
         }
 
-        final HashMap<String, UploadDTO> mapUpload = new HashMap();
+        final HashMap<String, UploadDTO> mapUpload = new HashMap<>();
         if (anexos != null) {
             for (final UploadDTO uploadDto : anexos) {
                 if (uploadDto.getIdControleGED() != null) {
@@ -267,7 +266,7 @@ public class ControleGEDServiceBean extends CrudServiceImpl implements ControleG
 
     @Override
     public ControleGEDDTO getControleGED(final AnexoBaseConhecimentoDTO anexoBaseConhecimento) throws Exception {
-        return getDao().getControleGED(anexoBaseConhecimento);
+        return this.getDao().getControleGED(anexoBaseConhecimento);
     }
 
 }

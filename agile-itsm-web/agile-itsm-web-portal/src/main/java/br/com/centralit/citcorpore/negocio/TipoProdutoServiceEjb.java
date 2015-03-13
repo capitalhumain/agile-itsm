@@ -111,7 +111,7 @@ public class TipoProdutoServiceEjb extends CrudServiceImpl implements TipoProdut
 
         try {
 
-            Collection<FornecedorProdutoDTO> colFornecedorProdutoDTO = new ArrayList();
+            Collection<FornecedorProdutoDTO> colFornecedorProdutoDTO = new ArrayList<>();
 
             final TipoProdutoDTO tipoProdutoDTO = (TipoProdutoDTO) model;
 

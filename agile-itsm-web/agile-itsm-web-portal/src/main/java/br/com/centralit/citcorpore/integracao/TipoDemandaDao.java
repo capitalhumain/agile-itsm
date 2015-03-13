@@ -14,36 +14,41 @@ import br.com.citframework.util.Constantes;
 
 public class TipoDemandaDao extends CrudDaoDefaultImpl {
 
-	public TipoDemandaDao() {
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
+    public TipoDemandaDao() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
+    }
 
-	public Class getBean() {
-		return TipoDemandaDTO.class;
-	}
+    @Override
+    public Class getBean() {
+        return TipoDemandaDTO.class;
+    }
 
-	public Collection<Field> getFields() {
-		Collection<Field> listFields = new ArrayList<>();
-		
-		listFields.add(new Field("IDTIPODEMANDA", "idTipoDemanda", true, false, false, true));
-		listFields.add(new Field("NOMETIPODEMANDA", "nomeTipoDemanda", false, false, false, false));
-		listFields.add(new Field("CLASSIFICACAO", "classificacao", false, false, false, false));
-		
-		return listFields;
-	}
+    @Override
+    public Collection<Field> getFields() {
+        final Collection<Field> listFields = new ArrayList<>();
 
-	public String getTableName() {
-		return "TIPODEMANDA";
-	}
+        listFields.add(new Field("IDTIPODEMANDA", "idTipoDemanda", true, false, false, true));
+        listFields.add(new Field("NOMETIPODEMANDA", "nomeTipoDemanda", false, false, false, false));
+        listFields.add(new Field("CLASSIFICACAO", "classificacao", false, false, false, false));
 
-	public Collection find(BaseEntity obj) throws PersistenceException {
-		return null;
-	}
+        return listFields;
+    }
 
-	public Collection list() throws PersistenceException {
-		List list = new ArrayList();
-		list.add(new Order("nomeTipoDemanda"));
-		return super.list(list);
-	}
+    @Override
+    public String getTableName() {
+        return "tipodemanda";
+    }
+
+    @Override
+    public Collection find(final BaseEntity obj) throws PersistenceException {
+        return null;
+    }
+
+    @Override
+    public Collection list() throws PersistenceException {
+        final List list = new ArrayList<>();
+        list.add(new Order("nomeTipoDemanda"));
+        return super.list(list);
+    }
 
 }

@@ -44,9 +44,7 @@ public class RestSessionDTO extends BaseEntity {
     public String getSessionID() {
         if (httpSession != null) {
             return httpSession.getId();
-        } else {
-            return null;
-        }
+        } return null;
     }
 
     public boolean isValid() {

@@ -35,7 +35,7 @@ public class LocalidadeItemConfiguracao extends AjaxFormAction {
 
 	@Override
 	public Class getBeanClass() {
-		// TODO Auto-generated method stub
+		
 		return LocalidadeItemConfiguracaoDTO.class;
 	}
 

@@ -26,15 +26,17 @@ public class DisparaEvento implements Job {
     public void execute(final JobExecutionContext context) throws JobExecutionException {
         try {
             final EventoGrupoService eventoGrupoService = (EventoGrupoService) ServiceLocator.getInstance().getService(EventoGrupoService.class, null);
-            final EventoItemConfigRelService eventoItemConfigRelService = (EventoItemConfigRelService) ServiceLocator.getInstance().getService(EventoItemConfigRelService.class,
-                    null);
-            final ItemConfigEventoService itemConfigEventoService = (ItemConfigEventoService) ServiceLocator.getInstance().getService(ItemConfigEventoService.class, null);
+            final EventoItemConfigRelService eventoItemConfigRelService = (EventoItemConfigRelService) ServiceLocator.getInstance().getService(
+                    EventoItemConfigRelService.class, null);
+            final ItemConfigEventoService itemConfigEventoService = (ItemConfigEventoService) ServiceLocator.getInstance().getService(
+                    ItemConfigEventoService.class, null);
             final Collection<ItemConfigEventoDTO> colEventos = itemConfigEventoService.verificarDataHoraEvento();
             for (final ItemConfigEventoDTO itemCfgEventoDto : colEventos) {
 
                 final Collection<EventoGrupoDTO> lstGrupo = eventoGrupoService.listByEvento(itemCfgEventoDto.getIdEvento());
                 itemCfgEventoDto.getIdEvento();
-                List<EventoItemConfigRelDTO> listItemConfiguracao = (List<EventoItemConfigRelDTO>) eventoItemConfigRelService.listByEvento(itemCfgEventoDto.getIdEvento());
+                List<EventoItemConfigRelDTO> listItemConfiguracao = (List<EventoItemConfigRelDTO>) eventoItemConfigRelService.listByEvento(itemCfgEventoDto
+                        .getIdEvento());
 
                 if (listItemConfiguracao == null) {
                     listItemConfiguracao = new ArrayList<EventoItemConfigRelDTO>();
@@ -58,8 +60,9 @@ public class DisparaEvento implements Job {
                 }
 
                 for (final EventoItemConfigRelDTO eventoItemConfigRel : listItemConfiguracao) {
-                    new Thread(new ThreadDisparaEvento(eventoItemConfigRel.getIdItemConfiguracao(), itemCfgEventoDto.getIdBaseItemConfiguracao(), itemCfgEventoDto.getIdEvento(),
-                            itemCfgEventoDto.getTipoExecucao(), itemCfgEventoDto.getLinhaComando(), itemCfgEventoDto.getLinhaComandoLinux())).start();
+                    new Thread(new ThreadDisparaEvento(eventoItemConfigRel.getIdItemConfiguracao(), itemCfgEventoDto.getIdBaseItemConfiguracao(),
+                            itemCfgEventoDto.getIdEvento(), itemCfgEventoDto.getTipoExecucao(), itemCfgEventoDto.getLinhaComando(),
+                            itemCfgEventoDto.getLinhaComandoLinux())).start();
                 }
             }
         } catch (final Exception e) {

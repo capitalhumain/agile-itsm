@@ -279,7 +279,7 @@ public class ImportarDados extends AjaxFormAction {
                 if (mapMatriz != null && mapMatriz.size() > 0) {
 
                     final ArrayList colMatrizTratada = (ArrayList) mapMatriz.get("MATRIZ");
-                    final Collection colDadosCampos = new ArrayList();
+                    final Collection colDadosCampos = new ArrayList<>();
                     ImportConfigCamposDTO importConfigCamposDTO;
 
                     String idOrigem;

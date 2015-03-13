@@ -52,7 +52,7 @@ public class Eventos extends AjaxFormAction {
 		java.util.Date dataInicio = new java.util.Date(agendaAtvPeriodicasDTO.getStart() * 1000); //A api fullcalendar - divide por 1000
 		java.util.Date dataFim = new java.util.Date(agendaAtvPeriodicasDTO.getEnd() * 1000); //A api fullcalendar - divide por 1000
 		
-		List lst = new ArrayList();
+		List lst = new ArrayList<>();
 		int qtdeDias = UtilDatas.dataDiff(dataInicio, dataFim);
 		
 		AtividadePeriodicaService atividadePeriodicaService = (AtividadePeriodicaService) ServiceLocator.getInstance().getService(AtividadePeriodicaService.class, null);

@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package br.com.centralit.citcorpore.bean;
 
@@ -13,56 +13,56 @@ import br.com.agileitsm.model.support.BaseEntity;
  */
 public class NotificacaoUsuarioMonitDTO extends BaseEntity {
 
-	private static final long serialVersionUID = -8918038669670905991L;
+    private static final long serialVersionUID = -8918038669670905991L;
 
-	private Integer idNotificacaoUsuarioMonit;
+    private Integer idNotificacaoUsuarioMonit;
 
-	private Integer idMonitoramentoAtivos;
+    private Integer idMonitoramentoAtivos;
 
-	private Integer idUsuario;
+    private Integer idUsuario;
 
-	private Date dataInicio;
+    private Date dataInicio;
 
-	private Date dataFim;
+    private Date dataFim;
 
-	public Integer getIdNotificacaoUsuarioMonit() {
-		return idNotificacaoUsuarioMonit;
-	}
+    public Integer getIdNotificacaoUsuarioMonit() {
+        return idNotificacaoUsuarioMonit;
+    }
 
-	public void setIdNotificacaoUsuarioMonit(Integer idNotificacaoUsuarioMonit) {
-		this.idNotificacaoUsuarioMonit = idNotificacaoUsuarioMonit;
-	}
+    public void setIdNotificacaoUsuarioMonit(final Integer idNotificacaoUsuarioMonit) {
+        this.idNotificacaoUsuarioMonit = idNotificacaoUsuarioMonit;
+    }
 
-	public Integer getIdMonitoramentoAtivos() {
-		return idMonitoramentoAtivos;
-	}
+    public Integer getIdMonitoramentoAtivos() {
+        return idMonitoramentoAtivos;
+    }
 
-	public void setIdMonitoramentoAtivos(Integer idMonitoramentoAtivos) {
-		this.idMonitoramentoAtivos = idMonitoramentoAtivos;
-	}
+    public void setIdMonitoramentoAtivos(final Integer idMonitoramentoAtivos) {
+        this.idMonitoramentoAtivos = idMonitoramentoAtivos;
+    }
 
-	public Integer getIdUsuario() {
-		return idUsuario;
-	}
+    public Integer getIdUsuario() {
+        return idUsuario;
+    }
 
-	public void setIdUsuario(Integer idUsuario) {
-		this.idUsuario = idUsuario;
-	}
+    public void setIdUsuario(final Integer idUsuario) {
+        this.idUsuario = idUsuario;
+    }
 
-	public Date getDataInicio() {
-		return dataInicio;
-	}
+    public Date getDataInicio() {
+        return dataInicio;
+    }
 
-	public void setDataInicio(Date dataInicio) {
-		this.dataInicio = dataInicio;
-	}
+    public void setDataInicio(final Date dataInicio) {
+        this.dataInicio = dataInicio;
+    }
 
-	public Date getDataFim() {
-		return dataFim;
-	}
+    public Date getDataFim() {
+        return dataFim;
+    }
 
-	public void setDataFim(Date dataFim) {
-		this.dataFim = dataFim;
-	}
+    public void setDataFim(final Date dataFim) {
+        this.dataFim = dataFim;
+    }
 
 }

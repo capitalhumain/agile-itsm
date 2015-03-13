@@ -6,7 +6,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import br.com.centralit.citcorpore.util.CITCorporeUtil;
 import br.com.citframework.dto.LookupDTO;
@@ -171,7 +171,7 @@ public class LookupProcessConhecimentoDao extends LookupProcessDefaultDao {
 		}
 
 		//Processa o resultado.
-		List result = new ArrayList();
+		List result = new ArrayList<>();
 		if(lista== null || lista.size()==0){
 			TransactionControler tc = this.getTransactionControler();
 			if (tc != null){
@@ -198,7 +198,7 @@ public class LookupProcessConhecimentoDao extends LookupProcessDefaultDao {
 			itRet = colCamposRet.iterator();
 			i = 0;
 			campoAux = null;
-			colAux = new ArrayList();
+			colAux = new ArrayList<>();
 			while(itRet.hasNext()){
 				cp = (Campo)itRet.next();
 				campoAux = new Campo(cp.getNomeFisico(),cp.getDescricao(),cp.isObrigatorio(),cp.getType(),cp.getTamanho());

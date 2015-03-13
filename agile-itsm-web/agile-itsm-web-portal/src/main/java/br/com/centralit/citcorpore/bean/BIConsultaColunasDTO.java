@@ -3,45 +3,51 @@ package br.com.centralit.citcorpore.bean;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class BIConsultaColunasDTO extends BaseEntity {
-	private Integer idConsultaColuna;
-	private Integer idConsulta;
-	private String nomeColuna;
-	private String tipoFiltro;
-	private Integer ordem;
 
-	public Integer getIdConsultaColuna(){
-		return this.idConsultaColuna;
-	}
-	public void setIdConsultaColuna(Integer parm){
-		this.idConsultaColuna = parm;
-	}
+    private Integer idConsultaColuna;
+    private Integer idConsulta;
+    private String nomeColuna;
+    private String tipoFiltro;
+    private Integer ordem;
 
-	public Integer getIdConsulta(){
-		return this.idConsulta;
-	}
-	public void setIdConsulta(Integer parm){
-		this.idConsulta = parm;
-	}
+    public Integer getIdConsultaColuna() {
+        return idConsultaColuna;
+    }
 
-	public String getNomeColuna(){
-		return this.nomeColuna;
-	}
-	public void setNomeColuna(String parm){
-		this.nomeColuna = parm;
-	}
+    public void setIdConsultaColuna(final Integer parm) {
+        idConsultaColuna = parm;
+    }
 
-	public String getTipoFiltro(){
-		return this.tipoFiltro;
-	}
-	public void setTipoFiltro(String parm){
-		this.tipoFiltro = parm;
-	}
+    public Integer getIdConsulta() {
+        return idConsulta;
+    }
 
-	public Integer getOrdem(){
-		return this.ordem;
-	}
-	public void setOrdem(Integer parm){
-		this.ordem = parm;
-	}
+    public void setIdConsulta(final Integer parm) {
+        idConsulta = parm;
+    }
+
+    public String getNomeColuna() {
+        return nomeColuna;
+    }
+
+    public void setNomeColuna(final String parm) {
+        nomeColuna = parm;
+    }
+
+    public String getTipoFiltro() {
+        return tipoFiltro;
+    }
+
+    public void setTipoFiltro(final String parm) {
+        tipoFiltro = parm;
+    }
+
+    public Integer getOrdem() {
+        return ordem;
+    }
+
+    public void setOrdem(final Integer parm) {
+        ordem = parm;
+    }
 
 }

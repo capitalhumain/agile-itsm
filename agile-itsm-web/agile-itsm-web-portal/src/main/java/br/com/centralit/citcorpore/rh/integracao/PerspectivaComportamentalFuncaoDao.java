@@ -48,15 +48,15 @@ public class PerspectivaComportamentalFuncaoDao extends CrudDaoDefaultImpl {
     }
 
     public Collection findByidSolicitacao(final Integer parm) throws PersistenceException {
-        final List condicao = new ArrayList();
-        final List ordenacao = new ArrayList();
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
         condicao.add(new Condition("idSolicitacaoServico", "=", parm));
         ordenacao.add(new Order("idPerspectivaComportamental"));
         return super.findByCondition(condicao, ordenacao);
     }
 
     public void deleteByIdSolicitacao(final Integer parm) throws PersistenceException {
-        final List condicao = new ArrayList();
+        final List<Condition> condicao = new ArrayList<>();
         condicao.add(new Condition("idSolicitacaoServico", "=", parm));
         super.deleteByCondition(condicao);
     }

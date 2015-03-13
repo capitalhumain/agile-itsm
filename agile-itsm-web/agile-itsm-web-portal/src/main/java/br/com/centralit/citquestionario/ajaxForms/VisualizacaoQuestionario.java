@@ -75,10 +75,10 @@ public class VisualizacaoQuestionario extends AjaxFormAction {
         final String QUESTIONARIO_CELLSPACING_TABELA_QUESTOES = "1";
         final String QUESTIONARIO_WIDTH_COLUNA_AVANCO = "10%";
 
-        final Collection colQuestoesComSigla = new ArrayList();
+        final Collection colQuestoesComSigla = new ArrayList<>();
 
         LinhaSpoolQuestionario linhaSpoolQuestionario;
-        final Collection colLinhas = new ArrayList();
+        final Collection colLinhas = new ArrayList<>();
 
         boolean somenteLeitura = false;
         final String modo = request.getParameter("modo");
@@ -863,7 +863,7 @@ public class VisualizacaoQuestionario extends AjaxFormAction {
 
             List lst = (List) request.getAttribute("LST_CAMPOS_EDITOR");
             if (lst == null) {
-                lst = new ArrayList();
+                lst = new ArrayList<>();
             }
             lst.add("" + idCampo + questaoDto.getIdQuestaoQuestionario());
 
@@ -1145,7 +1145,7 @@ public class VisualizacaoQuestionario extends AjaxFormAction {
                     + ")\">[Clique aqui para inserir um arquivo multímidia]</a><div id='divGalMulti"
                     + questaoDto.getIdQuestaoQuestionario()
                     + "' style='border:1px solid black; height: 200px; width: 100%; background-color:white; overflow:auto; margin: 0px 10px 10px 10px;'></div></td></tr>";
-            final Collection colAnexos = new ArrayList();
+            final Collection colAnexos = new ArrayList<>();
             if (resposta != null) {
                 if (resposta.getColRelacaoAnexos() != null) {
                     for (final Iterator it = resposta.getColRelacaoAnexos().iterator(); it.hasNext();) {

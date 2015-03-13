@@ -34,8 +34,8 @@ public class FindFieldUtil {
 		Iterator itCamposPesq = colCamposPesq.iterator();
 		Campo cp;
 		String separaCampos = "N";
-		Collection colCamposTextGenerateLimpar = new ArrayList();
-		Collection colCamposComboGenerateLimpar = new ArrayList();
+		Collection colCamposTextGenerateLimpar = new ArrayList<>();
+		Collection colCamposComboGenerateLimpar = new ArrayList<>();
 		String nomeLookupExec = nameLookup;
 		if (id != null) { // Caso venha com ID, o nome fisico é do ID, caso contrario fica com o do LookupName.
 			nameLookup = id;
@@ -439,7 +439,7 @@ public class FindFieldUtil {
 		}
 		return lookupInfo.getColCamposPesquisa();
 		/*
-		 * Collection col = new ArrayList(); col.add(new Campo("idImposto","Identificação",false,Constantes.FIELDTYPE_TEXT,10)); col.add(new
+		 * Collection col = new ArrayList<>(); col.add(new Campo("idImposto","Identificação",false,Constantes.FIELDTYPE_TEXT,10)); col.add(new
 		 * Campo("Descricao","Descrição",true,Constantes.FIELDTYPE_TEXT,50)); return col;
 		 */
 	}
@@ -450,7 +450,7 @@ public class FindFieldUtil {
 		}
 		return lookupInfo.getColCamposRetorno();
 		/*
-		 * Collection col = new ArrayList(); col.add(new Campo("idImposto","Identificação",false,Constantes.FIELDTYPE_TEXT,10)); col.add(new
+		 * Collection col = new ArrayList<>(); col.add(new Campo("idImposto","Identificação",false,Constantes.FIELDTYPE_TEXT,10)); col.add(new
 		 * Campo("Descricao","Descrição",true,Constantes.FIELDTYPE_TEXT,50)); return col;
 		 */
 	}
@@ -461,7 +461,7 @@ public class FindFieldUtil {
 		}
 		return lookupInfo.getColCamposOrdenacao();
 		/*
-		 * Collection col = new ArrayList(); col.add(new Campo("Descricao","Descrição",true,Constantes.FIELDTYPE_TEXT,50)); return col;
+		 * Collection col = new ArrayList<>(); col.add(new Campo("Descricao","Descrição",true,Constantes.FIELDTYPE_TEXT,50)); return col;
 		 */
 	}
 
@@ -471,7 +471,7 @@ public class FindFieldUtil {
 		}
 		return lookupInfo.getColCamposChave();
 		/*
-		 * Collection col = new ArrayList(); col.add(new Campo("idImposto","Identificação",false,Constantes.FIELDTYPE_TEXT,10)); return col;
+		 * Collection col = new ArrayList<>(); col.add(new Campo("idImposto","Identificação",false,Constantes.FIELDTYPE_TEXT,10)); return col;
 		 */
 	}
 

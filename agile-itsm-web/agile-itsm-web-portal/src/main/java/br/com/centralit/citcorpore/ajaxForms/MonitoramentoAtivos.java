@@ -5,7 +5,7 @@ import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 
 import br.com.centralit.citajax.html.AjaxFormAction;
 import br.com.centralit.citajax.html.DocumentHTML;
@@ -110,7 +110,7 @@ public class MonitoramentoAtivos extends AjaxFormAction {
 				tipoItemConfiguracaoDto.setId(monitoramentoAtivosDto.getIdTipoItemConfiguracao());
 				tipoItemConfiguracaoDto = (TipoItemConfiguracaoDTO) tipoItemConfiguracaoService.restore(tipoItemConfiguracaoDto);
 
-				document.executeScript("$('#tipoItemConfiguracao').attr('value', '" + StringEscapeUtils.escapeJavaScript(tipoItemConfiguracaoDto.getNome()) + "');");
+				document.executeScript("$('#tipoItemConfiguracao').attr('value', '" + StringEscapeUtils.escapeEcmaScript(tipoItemConfiguracaoDto.getNome()) + "');");
 
 				this.preencheGridCaracteristicas(document, request, response);
 
@@ -161,7 +161,7 @@ public class MonitoramentoAtivos extends AjaxFormAction {
 						usuarioDto.setIdUsuario(notificacaoUsuarioMonitDto.getIdUsuario());
 						usuarioDto = (UsuarioDTO) usuarioService.restore(usuarioDto);
 
-						document.executeScript("addLinhaTabelaNotificacaoUsuarios(" + usuarioDto.getIdUsuario() + ", '" + StringEscapeUtils.escapeJavaScript(usuarioDto.getNomeUsuario()) + "');");
+						document.executeScript("addLinhaTabelaNotificacaoUsuarios(" + usuarioDto.getIdUsuario() + ", '" + StringEscapeUtils.escapeEcmaScript(usuarioDto.getNomeUsuario()) + "');");
 					}
 				}
 
@@ -178,7 +178,7 @@ public class MonitoramentoAtivos extends AjaxFormAction {
 						grupoDto.setIdGrupo(notificacaoGrupoMonitDto.getIdGrupo());
 						grupoDto = (GrupoDTO) grupoService.restore(grupoDto);
 
-						document.executeScript("addLinhaTabelaNotificacaoGrupos(" + grupoDto.getIdGrupo() + ", '" + StringEscapeUtils.escapeJavaScript(grupoDto.getNome()) + "');");
+						document.executeScript("addLinhaTabelaNotificacaoGrupos(" + grupoDto.getIdGrupo() + ", '" + StringEscapeUtils.escapeEcmaScript(grupoDto.getNome()) + "');");
 					}
 				}
 

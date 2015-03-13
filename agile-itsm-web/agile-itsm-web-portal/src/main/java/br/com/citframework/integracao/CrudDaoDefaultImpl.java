@@ -49,25 +49,25 @@ public abstract class CrudDaoDefaultImpl extends DaoTransactDefaultImpl implemen
         engine.update(obj);
     }
 
-    protected int deleteByCondition(final List condicao) throws PersistenceException {
-        return engine.deleteByCondition(condicao);
-    }
-
-    protected void updateNotNull(final BaseEntity obj) throws PersistenceException {
+    public void updateNotNull(final BaseEntity obj) throws PersistenceException {
         engine.updateNotNull(obj);
     }
 
-    protected int updateByCondition(final BaseEntity obj, final List condicao) throws PersistenceException {
+    protected int deleteByCondition(final List<Condition> condicao) throws PersistenceException {
+        return engine.deleteByCondition(condicao);
+    }
+
+    protected int updateByCondition(final BaseEntity obj, final List<Condition> condicao) throws PersistenceException {
         return engine.updateByCondition(obj, condicao);
     }
 
-    protected int updateNotNullByCondition(final BaseEntity obj, final List condicao) throws PersistenceException {
+    protected int updateNotNullByCondition(final BaseEntity obj, final List<Condition> condicao) throws PersistenceException {
         return engine.updateNotNullByCondition(obj, condicao);
     }
 
     /**
      * ## IMPORTANTE: ## O 1.o parametro eh uma lista de String com o nome dos campos na classe que devem ser ordenados.
-     * Exemplo: List lst = new ArrayList(); lst.add("nomeUf"); lst.add("siglaUf");
+     * Exemplo: List lst = new ArrayList<>(); lst.add("nomeUf"); lst.add("siglaUf");
      *
      * list(lst);
      *

@@ -96,7 +96,7 @@ public class PersistenceUtil {
         String campos = "";
         String valores = "";
         // Object[] parametros = new Object[camposCreate.size()];
-        final List listaParametros = new ArrayList();
+        final List listaParametros = new ArrayList<>();
         for (int i = 0; i < camposCreate.size(); i++) {
             final Field cmp = (Field) camposCreate.get(i);
             final Object valor = Reflexao.getPropertyValue(obj, cmp.getFieldClass());
@@ -127,7 +127,7 @@ public class PersistenceUtil {
         camposUpdate.size();
         camposChave.size();
         // Object[] parametros = new Object[qtCampos];
-        final List listaParametros = new ArrayList();
+        final List listaParametros = new ArrayList<>();
         for (int i = 0; i < camposUpdate.size(); i++) {
             final Field cmp = (Field) camposUpdate.get(i);
             final Object valor = Reflexao.getPropertyValue(obj, cmp.getFieldClass());
@@ -166,7 +166,7 @@ public class PersistenceUtil {
         camposUpdate.size();
         camposChave.size();
         // Object[] parametros = new Object[qtCampos];
-        final List listaParametros = new ArrayList();
+        final List listaParametros = new ArrayList<>();
         for (int i = 0; i < camposUpdate.size(); i++) {
             final Field cmp = (Field) camposUpdate.get(i);
             final Object valor = Reflexao.getPropertyValue(obj, cmp.getFieldClass());
@@ -222,7 +222,7 @@ public class PersistenceUtil {
         String sql = " select ";
         String camposSql = "";
         String chaves = "";
-        final List camposRetorno = new ArrayList();
+        final List camposRetorno = new ArrayList<>();
 
         final Iterator it = campos.iterator();
 
@@ -257,10 +257,10 @@ public class PersistenceUtil {
         return new SqlConfiguration(sql, parametros, camposRetorno);
     }
 
-    public SqlConfiguration getConfigurationList(final List ordenacao) throws Exception {
+    public SqlConfiguration getConfigurationList(final List<Order> ordenacao) throws Exception {
         String sql = " select ";
         String camposSql = "";
-        final List camposRetorno = new ArrayList();
+        final List camposRetorno = new ArrayList<>();
 
         final Iterator it = campos.iterator();
 
@@ -283,17 +283,17 @@ public class PersistenceUtil {
         return new SqlConfiguration(sql, null, camposRetorno);
     }
 
-    public SqlConfiguration getConfigurationFindByCondition(final List condicao, final List ordenacao) throws Exception {
+    public SqlConfiguration getConfigurationFindByCondition(final List<Condition> condicao, final List<Order> ordenacao) throws Exception {
         final SqlConfiguration sqlConf = this.getConfigurationList(null);
         this.montaCondicaoOrdenacao(condicao, ordenacao, sqlConf);
         return sqlConf;
 
     }
 
-    public SqlConfiguration getConfigurationUpdateAllByCondition(final Object obj, final List condicao) throws Exception {
+    public SqlConfiguration getConfigurationUpdateAllByCondition(final Object obj, final List<Condition> condicao) throws Exception {
         final String sql = "update " + this.getNomeTabela() + " set ";
         String campos = "";
-        final List listaParametros = new ArrayList();
+        final List listaParametros = new ArrayList<>();
         for (int i = 0; i < camposUpdate.size(); i++) {
             final Field cmp = (Field) camposUpdate.get(i);
             final Object valor = Reflexao.getPropertyValue(obj, cmp.getFieldClass());
@@ -315,10 +315,10 @@ public class PersistenceUtil {
 
     }
 
-    public SqlConfiguration getConfigurationUpdateNotNullByCondition(final Object obj, final List condicao) throws Exception {
+    public SqlConfiguration getConfigurationUpdateNotNullByCondition(final Object obj, final List<Condition> condicao) throws Exception {
         final String sql = "update " + this.getNomeTabela() + " set ";
         String campos = "";
-        final List listaParametros = new ArrayList();
+        final List listaParametros = new ArrayList<>();
         for (int i = 0; i < camposUpdate.size(); i++) {
             final Field cmp = (Field) camposUpdate.get(i);
             final Object valor = Reflexao.getPropertyValue(obj, cmp.getFieldClass());
@@ -341,7 +341,7 @@ public class PersistenceUtil {
     /**
      * Pega a configuracao de find. O segundo parametro eh uma lista de String
      * com o nome dos campos na classe que devem ser ordenados. Exemplo: List
-     * lst = new ArrayList(); lst.add("nomeUf"); lst.add("siglaUf");
+     * lst = new ArrayList<>(); lst.add("nomeUf"); lst.add("siglaUf");
      *
      * getConfigurationFindNotNull(obj, lst);
      *
@@ -350,11 +350,11 @@ public class PersistenceUtil {
      * @return
      * @throws Exception
      */
-    public SqlConfiguration getConfigurationFindNotNull(final Object obj, final List ordenacao) throws Exception {
+    public SqlConfiguration getConfigurationFindNotNull(final Object obj, final List<Order> ordenacao) throws Exception {
         String sql = " select ";
         String camposSql = "";
         String chaves = "";
-        final List camposRetorno = new ArrayList();
+        final List camposRetorno = new ArrayList<>();
 
         final Iterator it = campos.iterator();
 
@@ -369,7 +369,7 @@ public class PersistenceUtil {
 
         }
         Object[] parametros = null;
-        final List parms = new ArrayList();
+        final List parms = new ArrayList<>();
         final List camposAux = (List) campos;
         int qtdeParms = 0;
         for (int i = 0; i < camposAux.size(); i++) {
@@ -400,16 +400,16 @@ public class PersistenceUtil {
         return new SqlConfiguration(sql, parametros, camposRetorno);
     }
 
-    public SqlConfiguration getConfigurationDeleteByCondition(final List condicao) throws Exception {
+    public SqlConfiguration getConfigurationDeleteByCondition(final List<Condition> condicao) throws Exception {
         final SqlConfiguration sqlConf = new SqlConfiguration("delete from " + this.getNomeTabela(), null);
         this.montaCondicaoOrdenacao(condicao, null, sqlConf);
         return sqlConf;
     }
 
-    private void montaCondicaoOrdenacao(final List condicao, final List ordenacao, final SqlConfiguration sqlConf) throws Exception {
+    private void montaCondicaoOrdenacao(final List<Condition> condicao, final List<Order> ordenacao, final SqlConfiguration sqlConf) throws Exception {
         if (condicao != null) {
             String result = "";
-            final List parametros = new ArrayList();
+            final List parametros = new ArrayList<>();
             if (sqlConf.getParametros() != null) {
 
                 parametros.addAll(Arrays.asList(sqlConf.getParametros()));
@@ -461,7 +461,7 @@ public class PersistenceUtil {
 
     }
 
-    private String getOrdenacao(final List ordenacao) throws Exception {
+    private String getOrdenacao(final List<Order> ordenacao) throws Exception {
         if (ordenacao == null || ordenacao.size() == 0) {
             return "";
         }

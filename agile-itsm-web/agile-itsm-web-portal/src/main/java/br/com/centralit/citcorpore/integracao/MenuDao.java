@@ -20,7 +20,6 @@ import br.com.citframework.integracao.Order;
 import br.com.citframework.util.Constantes;
 import br.com.citframework.util.UtilDatas;
 
-@SuppressWarnings({ "rawtypes", "unchecked" })
 public class MenuDao extends CrudDaoDefaultImpl {
 
     public MenuDao() {
@@ -28,13 +27,13 @@ public class MenuDao extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public Collection find(BaseEntity arg0) throws PersistenceException {
+    public Collection find(final BaseEntity arg0) throws PersistenceException {
         return null;
     }
 
     @Override
     public Collection<Field> getFields() {
-        Collection<Field> listFields = new ArrayList<>();
+        final Collection<Field> listFields = new ArrayList<>();
         listFields.add(new Field("IDMENU", "idMenu", true, true, false, false));
         listFields.add(new Field("IDMENUPAI", "idMenuPai", false, false, false, false));
         listFields.add(new Field("NOME", "nome", false, false, false, false));
@@ -49,33 +48,33 @@ public class MenuDao extends CrudDaoDefaultImpl {
         return listFields;
     }
 
-    public void updateNotNull(Collection<MenuDTO> menus) {
+    public void updateNotNull(final Collection<MenuDTO> menus) {
         try {
-            for (MenuDTO menu : menus) {
+            for (final MenuDTO menu : menus) {
                 if (menu.getIdMenu() != null) {
-                    updateNotNull(menu);
+                    this.updateNotNull(menu);
                 }
             }
-        } catch (Exception e) {
+        } catch (final Exception e) {
             e.printStackTrace();
         }
     }
 
     public void updateDataFim() throws PersistenceException {
-        Object[] parametro = new Object[] { UtilDatas.getDataAtual() };
+        final Object[] parametro = new Object[] {UtilDatas.getDataAtual()};
 
-        String sql = "UPDATE " + getTableName() + " SET datafim = ?";
-        execUpdate(sql, parametro);
+        final String sql = "UPDATE " + this.getTableName() + " SET datafim = ?";
+        this.execUpdate(sql, parametro);
     }
 
     public void deleteAll() throws PersistenceException {
-        String sql = "delete from " + getTableName();
+        final String sql = "delete from " + this.getTableName();
         super.execUpdate(sql, null);
     }
 
-    public void deleteMenu(Integer idMenu) throws PersistenceException {
-        String sql = "delete from " + getTableName() + " where idmenu = ?";
-        super.execUpdate(sql, new Object[] { idMenu });
+    public void deleteMenu(final Integer idMenu) throws PersistenceException {
+        final String sql = "delete from " + this.getTableName() + " where idmenu = ?";
+        super.execUpdate(sql, new Object[] {idMenu});
     }
 
     @Override
@@ -85,7 +84,7 @@ public class MenuDao extends CrudDaoDefaultImpl {
 
     @Override
     public Collection list() throws PersistenceException {
-        List<Order> list = new ArrayList<>();
+        final List<Order> list = new ArrayList<>();
         list.add(new Order("nome"));
         return super.list(list);
     }
@@ -95,29 +94,29 @@ public class MenuDao extends CrudDaoDefaultImpl {
         return MenuDTO.class;
     }
 
-    public Collection<MenuDTO> listarMenusPorPerfil(UsuarioDTO usuario, Integer idMenuPai) throws PersistenceException {
-        return listaMenus(usuario, idMenuPai, false);
+    public Collection<MenuDTO> listarMenusPorPerfil(final UsuarioDTO usuario, final Integer idMenuPai) throws PersistenceException {
+        return this.listaMenus(usuario, idMenuPai, false);
     }
 
-    public Collection<MenuDTO> listarMenusPorPerfil(UsuarioDTO usuario, Integer idMenuPai, boolean menuRapido)
-            throws PersistenceException {
-        return listaMenus(usuario, idMenuPai, menuRapido);
+    public Collection<MenuDTO> listarMenusPorPerfil(final UsuarioDTO usuario, final Integer idMenuPai, final boolean menuRapido) throws PersistenceException {
+        return this.listaMenus(usuario, idMenuPai, menuRapido);
     }
 
     /**
      * Lista os menus por perfil de acesso Metodo reutilizável
      * Otimizado para utilizar comparador de igualdade.
+     * 
      * @author thyen.chang
      * @since 23/01/2015 Operação Usain Bolt
      */
-    public Collection<MenuDTO> listaMenus(UsuarioDTO usuario, Integer idMenuPai, boolean menuRapido) throws PersistenceException {
+    public Collection<MenuDTO> listaMenus(final UsuarioDTO usuario, final Integer idMenuPai, final boolean menuRapido) throws PersistenceException {
         if (usuario == null) {
             return null;
         }
 
         List result = null;
-        StringBuilder sql = new StringBuilder();
-        List<Integer> parametros = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
+        final List<Integer> parametros = new ArrayList<>();
 
         sql.append("SELECT distinct m.idmenu, m.idmenupai, m.nome, m.datainicio, m.datafim, m.descricao, m.ordem, m.link, m.imagem, m.mostrar ");
         sql.append("FROM perfilacessomenu a ");
@@ -136,22 +135,22 @@ public class MenuDao extends CrudDaoDefaultImpl {
             sql.append("AND m.idmenupai = ? ");
             parametros.add(idMenuPai);
         }
-        
-    	getPerfilAcessoUsuarioDAO().setTransactionControler(this.getTransactionControler());
-    	getGrupoDAO().setTransactionControler(this.getTransactionControler());
-    	getPerfilAcessoGrupoDAO().setTransactionControler(this.getTransactionControler());
 
-        PerfilAcessoUsuarioDTO perfilAcessoEspecifico =  getPerfilAcessoUsuarioDAO().obterPerfilAcessoUsuario(usuario);
+        this.getPerfilAcessoUsuarioDAO().setTransactionControler(this.getTransactionControler());
+        this.getGrupoDAO().setTransactionControler(this.getTransactionControler());
+        this.getPerfilAcessoGrupoDAO().setTransactionControler(this.getTransactionControler());
+
+        final PerfilAcessoUsuarioDTO perfilAcessoEspecifico = this.getPerfilAcessoUsuarioDAO().obterPerfilAcessoUsuario(usuario);
 
         if (perfilAcessoEspecifico != null) {
             sql.append("AND (a.idperfilacesso = ? ");
             parametros.add(perfilAcessoEspecifico.getIdPerfilAcesso());
 
-            Collection<GrupoDTO> gruposDoEmpregado = getGrupoDAO().getGruposByIdEmpregado(usuario.getIdEmpregado());
+            final Collection<GrupoDTO> gruposDoEmpregado = this.getGrupoDAO().getGruposByIdEmpregado(usuario.getIdEmpregado());
 
             if (gruposDoEmpregado != null && !gruposDoEmpregado.isEmpty()) {
-                for (GrupoDTO grupo : gruposDoEmpregado) {
-                    PerfilAcessoGrupoDTO perfilAcessoGrupo = getPerfilAcessoGrupoDAO().obterPerfilAcessoGrupo(grupo);
+                for (final GrupoDTO grupo : gruposDoEmpregado) {
+                    final PerfilAcessoGrupoDTO perfilAcessoGrupo = this.getPerfilAcessoGrupoDAO().obterPerfilAcessoGrupo(grupo);
 
                     if (perfilAcessoGrupo != null) {
                         sql.append("OR a.idperfilacesso = ? ");
@@ -161,12 +160,12 @@ public class MenuDao extends CrudDaoDefaultImpl {
             }
             sql.append(")");
         } else {
-            Collection<GrupoDTO> gruposDoEmpregado = getGrupoDAO().getGruposByIdEmpregado(usuario.getIdEmpregado());
+            final Collection<GrupoDTO> gruposDoEmpregado = this.getGrupoDAO().getGruposByIdEmpregado(usuario.getIdEmpregado());
 
             if (gruposDoEmpregado != null && !gruposDoEmpregado.isEmpty()) {
                 boolean aux = true;
-                for (GrupoDTO grupo : gruposDoEmpregado) {
-                    PerfilAcessoGrupoDTO perfilAcessoGrupo = getPerfilAcessoGrupoDAO().obterPerfilAcessoGrupo(grupo);
+                for (final GrupoDTO grupo : gruposDoEmpregado) {
+                    final PerfilAcessoGrupoDTO perfilAcessoGrupo = this.getPerfilAcessoGrupoDAO().obterPerfilAcessoGrupo(grupo);
 
                     if (perfilAcessoGrupo != null) {
                         if (aux) {
@@ -186,12 +185,12 @@ public class MenuDao extends CrudDaoDefaultImpl {
         }
 
         sql.append(" ORDER BY ordem, idmenupai");
-        Object[] paramsFinal = parametros.size() == 0 ? null : parametros.toArray();
+        final Object[] paramsFinal = parametros.size() == 0 ? null : parametros.toArray();
         List lista;
         try {
             lista = this.execSQL(sql.toString(), paramsFinal);
 
-            List<String> listRetorno = new ArrayList<>();
+            final List<String> listRetorno = new ArrayList<>();
             listRetorno.add("idMenu");
             listRetorno.add("idMenuPai");
             listRetorno.add("nome");
@@ -204,18 +203,18 @@ public class MenuDao extends CrudDaoDefaultImpl {
             listRetorno.add("mostrar");
 
             result = engine.listConvertion(MenuDTO.class, lista, listRetorno);
-        } catch (PersistenceException e) {
+        } catch (final PersistenceException e) {
             e.printStackTrace();
-        } catch (Exception e) {
+        } catch (final Exception e) {
             e.printStackTrace();
         }
         return result;
     }
 
-    public Collection<MenuDTO> listaMenuByUsr(UsuarioDTO usuario) throws PersistenceException {
+    public Collection<MenuDTO> listaMenuByUsr(final UsuarioDTO usuario) throws PersistenceException {
         List result = null;
-        StringBuilder sql = new StringBuilder();
-        List<Integer> parametros = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
+        final List<Integer> parametros = new ArrayList<>();
 
         sql.append("SELECT distinct m.idmenu, m.idmenupai, m.nome, m.datainicio, m.datafim, m.descricao, m.ordem, m.link, m.imagem ");
         sql.append("FROM perfilacessomenu a ");
@@ -223,22 +222,22 @@ public class MenuDao extends CrudDaoDefaultImpl {
         sql.append("WHERE m.datafim IS NULL AND (a.pesquisa <> 'N' OR a.grava <> 'N'  OR a.deleta <> 'N')");
 
         if (usuario != null) {
-        	
-        	getPerfilAcessoUsuarioDAO().setTransactionControler(this.getTransactionControler());
-        	getGrupoDAO().setTransactionControler(this.getTransactionControler());
-        	getPerfilAcessoGrupoDAO().setTransactionControler(this.getTransactionControler());
-        	
-            PerfilAcessoUsuarioDTO perfilAcessoEspecifico = getPerfilAcessoUsuarioDAO().obterPerfilAcessoUsuario(usuario);
+
+            this.getPerfilAcessoUsuarioDAO().setTransactionControler(this.getTransactionControler());
+            this.getGrupoDAO().setTransactionControler(this.getTransactionControler());
+            this.getPerfilAcessoGrupoDAO().setTransactionControler(this.getTransactionControler());
+
+            final PerfilAcessoUsuarioDTO perfilAcessoEspecifico = this.getPerfilAcessoUsuarioDAO().obterPerfilAcessoUsuario(usuario);
 
             if (perfilAcessoEspecifico != null) {
                 sql.append("AND (a.idperfilacesso = ? ");
                 parametros.add(perfilAcessoEspecifico.getIdPerfilAcesso());
 
-                Collection<GrupoDTO> gruposDoEmpregado = getGrupoDAO().getGruposByIdEmpregado(usuario.getIdEmpregado());
+                final Collection<GrupoDTO> gruposDoEmpregado = this.getGrupoDAO().getGruposByIdEmpregado(usuario.getIdEmpregado());
 
                 if (gruposDoEmpregado != null && !gruposDoEmpregado.isEmpty()) {
-                    for (GrupoDTO grupo : gruposDoEmpregado) {
-                        PerfilAcessoGrupoDTO perfilAcessoGrupo = getPerfilAcessoGrupoDAO().obterPerfilAcessoGrupo(grupo);
+                    for (final GrupoDTO grupo : gruposDoEmpregado) {
+                        final PerfilAcessoGrupoDTO perfilAcessoGrupo = this.getPerfilAcessoGrupoDAO().obterPerfilAcessoGrupo(grupo);
 
                         if (perfilAcessoGrupo != null) {
                             sql.append("OR a.idperfilacesso = ? ");
@@ -248,12 +247,12 @@ public class MenuDao extends CrudDaoDefaultImpl {
                 }
                 sql.append(")");
             } else {
-                Collection<GrupoDTO> gruposDoEmpregado = getGrupoDAO().getGruposByIdEmpregado(usuario.getIdEmpregado());
+                final Collection<GrupoDTO> gruposDoEmpregado = this.getGrupoDAO().getGruposByIdEmpregado(usuario.getIdEmpregado());
 
                 if (gruposDoEmpregado != null && !gruposDoEmpregado.isEmpty()) {
                     boolean aux = true;
-                    for (GrupoDTO grupo : gruposDoEmpregado) {
-                        PerfilAcessoGrupoDTO perfilAcessoGrupo = getPerfilAcessoGrupoDAO().obterPerfilAcessoGrupo(grupo);
+                    for (final GrupoDTO grupo : gruposDoEmpregado) {
+                        final PerfilAcessoGrupoDTO perfilAcessoGrupo = this.getPerfilAcessoGrupoDAO().obterPerfilAcessoGrupo(grupo);
 
                         if (perfilAcessoGrupo != null) {
                             if (aux) {
@@ -276,12 +275,12 @@ public class MenuDao extends CrudDaoDefaultImpl {
         sql.append("AND m.link IS NOT NULL");
 
         sql.append(" ORDER BY ordem, idmenupai");
-        Object[] paramsFinal = parametros.size() == 0 ? null : parametros.toArray();
+        final Object[] paramsFinal = parametros.size() == 0 ? null : parametros.toArray();
         List lista;
         try {
             lista = this.execSQL(sql.toString(), paramsFinal);
 
-            List<String> listRetorno = new ArrayList<>();
+            final List<String> listRetorno = new ArrayList<>();
             listRetorno.add("idMenu");
             listRetorno.add("idMenuPai");
             listRetorno.add("nome");
@@ -293,25 +292,25 @@ public class MenuDao extends CrudDaoDefaultImpl {
             listRetorno.add("imagem");
 
             result = engine.listConvertion(MenuDTO.class, lista, listRetorno);
-        } catch (PersistenceException e) {
+        } catch (final PersistenceException e) {
             e.printStackTrace();
-        } catch (Exception e) {
+        } catch (final Exception e) {
             e.printStackTrace();
         }
         return result;
     }
 
-    public Integer getPerfilAcesso(UsuarioDTO usuario) throws PersistenceException {
+    public Integer getPerfilAcesso(final UsuarioDTO usuario) throws PersistenceException {
         Integer retorno = null;
-        StringBuilder sqlPerfilUsuario = new StringBuilder();
+        final StringBuilder sqlPerfilUsuario = new StringBuilder();
         sqlPerfilUsuario.append("SELECT idperfil FROM perfilacessousuario WHERE idusuario = ? AND datafim IS NULL");
 
-        StringBuilder sqlPerfilGrupo = new StringBuilder();
+        final StringBuilder sqlPerfilGrupo = new StringBuilder();
         sqlPerfilGrupo.append("SELECT idperfil FROM perfilacessogrupo WHERE idgrupo = ? AND datafim IS NULL");
-        Object[] params01 = new Object[] { usuario.getIdUsuario() };
-        Object[] params02 = new Object[] { usuario.getIdGrupo() };
+        final Object[] params01 = new Object[] {usuario.getIdUsuario()};
+        final Object[] params02 = new Object[] {usuario.getIdGrupo()};
         List lista;
-        List<String> camposConversao = new ArrayList<>();
+        final List<String> camposConversao = new ArrayList<>();
         List<PerfilAcessoDTO> result;
         try {
             lista = this.execSQL(sqlPerfilUsuario.toString(), params01);
@@ -320,39 +319,38 @@ public class MenuDao extends CrudDaoDefaultImpl {
             }
             if (!lista.isEmpty()) {
                 camposConversao.add("idPerfilAcesso");
-                result = (List<PerfilAcessoDTO>) engine.listConvertion(PerfilAcessoDTO.class, lista,
-                        camposConversao);
+                result = engine.listConvertion(PerfilAcessoDTO.class, lista, camposConversao);
                 retorno = result.get(0).getIdPerfilAcesso();
             }
-        } catch (PersistenceException e) {
+        } catch (final PersistenceException e) {
             e.printStackTrace();
-        } catch (Exception e) {
+        } catch (final Exception e) {
             e.printStackTrace();
         }
         return retorno;
     }
 
     public Collection listarMenus() throws PersistenceException {
-        StringBuilder sql = new StringBuilder();
+        final StringBuilder sql = new StringBuilder();
         sql.append("SELECT distinct menu.idMenu,menu.idMenuPai,menu.nome,menu.mostrar FROM MENU menu INNER JOIN MENU menuFilho ON menu.idMenu = menuFilho.idMenu ");
         sql.append("WHERE menu.idmenupai IS NULL and menu.datafim IS NULL and menuFilho.datafim is null");
-        List lista = new ArrayList();
+        List lista = new ArrayList<>();
         lista = this.execSQL(sql.toString(), null);
-        List<String> listRetorno = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
         listRetorno.add("idMenu");
         listRetorno.add("idMenuPai");
         listRetorno.add("nome");
         listRetorno.add("mostrar");
-        return engine.listConvertion(getBean(), lista, listRetorno);
+        return engine.listConvertion(this.getBean(), lista, listRetorno);
     }
 
     public Collection<MenuDTO> listaIdNomeMenus() throws PersistenceException {
-        StringBuilder sql = new StringBuilder();
+        final StringBuilder sql = new StringBuilder();
         sql.append("select m.idmenu, m.nome, p.idperfilacesso, p.pesquisa, p.grava, p.deleta from perfilacessomenu p inner join menu m on p.idmenu = m.idmenu ");
         sql.append(" where p.datafim is null ");
-        List lista = new ArrayList();
+        List lista = new ArrayList<>();
         lista = this.execSQL(sql.toString(), null);
-        List<String> listRetorno = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
         listRetorno.add("idMenu");
         listRetorno.add("nome");
         listRetorno.add("idPerfilAcesso");
@@ -361,55 +359,55 @@ public class MenuDao extends CrudDaoDefaultImpl {
         listRetorno.add("deleta");
         List result = null;
         if (lista != null && !lista.isEmpty()) {
-            result = engine.listConvertion(getBean(), lista, listRetorno);
+            result = engine.listConvertion(this.getBean(), lista, listRetorno);
         }
         return result;
     }
 
-    public Collection<MenuDTO> listarMenusFilhoByIdMenuPai(Integer idMenuPai) throws PersistenceException {
-        List<Integer> parametro = new ArrayList<>();
-        StringBuilder sql = new StringBuilder();
+    public Collection<MenuDTO> listarMenusFilhoByIdMenuPai(final Integer idMenuPai) throws PersistenceException {
+        final List<Integer> parametro = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
         sql.append("select idmenu, link from menu where idmenupai = ? ");
         parametro.add(idMenuPai);
-        List lista = new ArrayList();
+        List lista = new ArrayList<>();
         lista = this.execSQL(sql.toString(), parametro.toArray());
-        List<String> listRetorno = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
         listRetorno.add("idMenu");
         listRetorno.add("link");
         List result = null;
         if (lista != null && !lista.isEmpty()) {
-            result = engine.listConvertion(getBean(), lista, listRetorno);
+            result = engine.listConvertion(this.getBean(), lista, listRetorno);
         }
         return result;
     }
 
-    public Collection<MenuDTO> listarSubMenus(MenuDTO submenu) throws PersistenceException {
-        List<Integer> parametro = new ArrayList<>();
-        StringBuilder sql = new StringBuilder();
+    public Collection<MenuDTO> listarSubMenus(final MenuDTO submenu) throws PersistenceException {
+        final List<Integer> parametro = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
         sql.append("SELECT idMenu, idMenuPai, nome FROM ");
-        sql.append(getTableName());
+        sql.append(this.getTableName());
         sql.append(" WHERE idmenupai = ? AND datafim IS NULL ");
 
         parametro.add(submenu.getIdMenu());
         List lista = new ArrayList<>();
         lista = this.execSQL(sql.toString(), parametro.toArray());
-        List<String> listRetorno = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
         listRetorno.add("idMenu");
         listRetorno.add("idMenuPai");
         listRetorno.add("nome");
-        return engine.listConvertion(getBean(), lista, listRetorno);
+        return engine.listConvertion(this.getBean(), lista, listRetorno);
     }
 
     public Collection<MenuDTO> listarMenusPais() throws PersistenceException {
-        List<String> parametro = new ArrayList<>();
-        StringBuilder sql = new StringBuilder();
+        final List<String> parametro = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
         sql.append("SELECT idMenu, nome, descricao, ordem, link, imagem, datainicio, menurapido FROM ");
-        sql.append(getTableName());
+        sql.append(this.getTableName());
         sql.append(" WHERE idmenupai is null AND dataFim IS NULL ");
 
         List lista = new ArrayList<>();
         lista = this.execSQL(sql.toString(), parametro.toArray());
-        List<String> listRetorno = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
         listRetorno.add("idMenu");
         listRetorno.add("nome");
         listRetorno.add("descricao");
@@ -418,20 +416,20 @@ public class MenuDao extends CrudDaoDefaultImpl {
         listRetorno.add("imagem");
         listRetorno.add("dataInicio");
         listRetorno.add("menuRapido");
-        return engine.listConvertion(getBean(), lista, listRetorno);
+        return engine.listConvertion(this.getBean(), lista, listRetorno);
     }
 
-    public Collection<MenuDTO> listarMenusFilhos(Integer idMenuPai) throws PersistenceException {
-        List<Integer> parametro = new ArrayList<>();
-        StringBuilder sql = new StringBuilder();
+    public Collection<MenuDTO> listarMenusFilhos(final Integer idMenuPai) throws PersistenceException {
+        final List<Integer> parametro = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
         sql.append("SELECT idMenu, idMenuPai, nome, descricao, ordem, link, imagem, datainicio, menurapido FROM ");
-        sql.append(getTableName());
+        sql.append(this.getTableName());
         sql.append(" WHERE idmenupai = ? AND dataFim IS NULL ");
 
         parametro.add(idMenuPai);
         List lista = new ArrayList<>();
         lista = this.execSQL(sql.toString(), parametro.toArray());
-        List<String> listRetorno = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
         listRetorno.add("idMenu");
         listRetorno.add("idMenuPai");
         listRetorno.add("nome");
@@ -441,22 +439,22 @@ public class MenuDao extends CrudDaoDefaultImpl {
         listRetorno.add("imagem");
         listRetorno.add("dataInicio");
         listRetorno.add("menuRapido");
-        return engine.listConvertion(getBean(), lista, listRetorno);
+        return engine.listConvertion(this.getBean(), lista, listRetorno);
     }
 
-    public Collection<MenuDTO> listarMenuPai(Integer idMenuFilho) throws PersistenceException {
-        List<Integer> parametro = new ArrayList<>();
-        StringBuilder sql = new StringBuilder();
-        sql.append("SELECT idMenu, idMenuPai FROM " + getTableName() + " WHERE idmenu = ? AND dataFim IS NULL ");
+    public Collection<MenuDTO> listarMenuPai(final Integer idMenuFilho) throws PersistenceException {
+        final List<Integer> parametro = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
+        sql.append("SELECT idMenu, idMenuPai FROM " + this.getTableName() + " WHERE idmenu = ? AND dataFim IS NULL ");
         parametro.add(idMenuFilho);
         List lista = new ArrayList<>();
         lista = this.execSQL(sql.toString(), parametro.toArray());
-        List<String> listRetorno = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
         listRetorno.add("idMenu");
         listRetorno.add("idMenuPai");
         List result = null;
         if (lista != null && !lista.isEmpty()) {
-            result = engine.listConvertion(getBean(), lista, listRetorno);
+            result = engine.listConvertion(this.getBean(), lista, listRetorno);
         }
         return result;
     }
@@ -468,10 +466,10 @@ public class MenuDao extends CrudDaoDefaultImpl {
      * @param menuDTO
      * @return Se caso exista menu com o mesmo nome retorna true
      */
-    public boolean verificaSeExisteMenu(MenuDTO menuDTO) throws PersistenceException {
-        List parametro = new ArrayList<>();
+    public boolean verificaSeExisteMenu(final MenuDTO menuDTO) throws PersistenceException {
+        final List parametro = new ArrayList<>();
         List list = new ArrayList<>();
-        String sql = "SELECT idmenu FROM " + getTableName() + " WHERE nome = ? AND dataFim IS NULL ";
+        String sql = "SELECT idmenu FROM " + this.getTableName() + " WHERE nome = ? AND dataFim IS NULL ";
         parametro.add(menuDTO.getNome());
         if (menuDTO.getIdMenu() != null) {
             sql += " AND idmenu <> ? ";
@@ -486,10 +484,10 @@ public class MenuDao extends CrudDaoDefaultImpl {
         return false;
     }
 
-    public boolean verificaSeExisteMenuPorLink(MenuDTO menuDTO) throws PersistenceException {
-        List parametro = new ArrayList<>();
+    public boolean verificaSeExisteMenuPorLink(final MenuDTO menuDTO) throws PersistenceException {
+        final List parametro = new ArrayList<>();
         List list = new ArrayList<>();
-        String sql = "SELECT idmenu FROM " + getTableName() + " WHERE nome = ? AND dataFim IS NULL ";
+        String sql = "SELECT idmenu FROM " + this.getTableName() + " WHERE nome = ? AND dataFim IS NULL ";
         parametro.add(menuDTO.getNome());
         if (menuDTO.getIdMenu() != null) {
             sql += " AND idmenu <> ? ";
@@ -504,24 +502,24 @@ public class MenuDao extends CrudDaoDefaultImpl {
         return false;
     }
 
-    public Integer buscarIdMenu(String link) throws PersistenceException {
-        List<String> ordenacao = new ArrayList<>();
-        StringBuilder sql = new StringBuilder();
+    public Integer buscarIdMenu(final String link) throws PersistenceException {
+        final List<String> ordenacao = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
         sql.append("SELECT idmenu FROM menu where link = ? and dataFim is null");
-        List lista = this.execSQL(sql.toString(), new Object[] { link });
+        final List lista = this.execSQL(sql.toString(), new Object[] {link});
         ordenacao.add("idMenu");
         if (lista != null && !lista.isEmpty()) {
-            Collection<MenuDTO> result = engine.listConvertion(getBean(), lista, ordenacao);
-            for (MenuDTO menu : result) {
+            final Collection<MenuDTO> result = engine.listConvertion(this.getBean(), lista, ordenacao);
+            for (final MenuDTO menu : result) {
                 return menu.getIdMenu();
             }
         }
         return null;
     }
 
-    public void alterarMenuPorNome(MenuDTO menuDTO) throws PersistenceException {
-        List<Object> parametro = new ArrayList<>();
-        String sql = "UPDATE " + getTableName() + " SET idMenuPai = ?, link = ? WHERE nome = ? AND dataFim IS NULL ";
+    public void alterarMenuPorNome(final MenuDTO menuDTO) throws PersistenceException {
+        final List<Object> parametro = new ArrayList<>();
+        String sql = "UPDATE " + this.getTableName() + " SET idMenuPai = ?, link = ? WHERE nome = ? AND dataFim IS NULL ";
         parametro.add(menuDTO.getIdMenuPai());
         parametro.add(menuDTO.getLink());
         parametro.add(menuDTO.getNome());
@@ -539,14 +537,14 @@ public class MenuDao extends CrudDaoDefaultImpl {
 
     private GrupoDao getGrupoDAO() {
         if (grupoDAO == null) {
-        	grupoDAO = new GrupoDao();
+            grupoDAO = new GrupoDao();
         }
         return grupoDAO;
     }
 
     private PerfilAcessoGrupoDao getPerfilAcessoGrupoDAO() {
         if (perfilAcessoGrupoDAO == null) {
-        	perfilAcessoGrupoDAO = new PerfilAcessoGrupoDao();
+            perfilAcessoGrupoDAO = new PerfilAcessoGrupoDao();
         }
         return perfilAcessoGrupoDAO;
     }
@@ -561,19 +559,20 @@ public class MenuDao extends CrudDaoDefaultImpl {
     /**
      * Método para retornar um mapa com todos os menus que o usuário pode acessar
      * Mapa<idMenuPai, List<MenusFilhos>
+     * 
      * @author thyen.chang
      * @since 26/01/2015 - OPERAÇÃO USAIN BOLT
      * @param usuario
      * @return
      * @throws PersistenceException
      */
-    public Map<Integer, List<MenuDTO> > listaMenuPorUsuario(UsuarioDTO usuario) throws PersistenceException{
-    	if(usuario == null || usuario.getIdUsuario() == null){
-    		return null;
-    	}
-    	List result = null;
-        StringBuilder sql = new StringBuilder();
-        List<Integer> parametros = new ArrayList<>();
+    public Map<Integer, List<MenuDTO>> listaMenuPorUsuario(final UsuarioDTO usuario) throws PersistenceException {
+        if (usuario == null || usuario.getIdUsuario() == null) {
+            return null;
+        }
+        List result = null;
+        final StringBuilder sql = new StringBuilder();
+        final List<Integer> parametros = new ArrayList<>();
 
         sql.append("SELECT distinct m.idmenu, m.idmenupai, m.nome, m.datainicio, m.datafim, m.descricao, m.ordem, m.link, m.imagem, m.mostrar ");
         sql.append("FROM perfilacessomenu a ");
@@ -581,21 +580,21 @@ public class MenuDao extends CrudDaoDefaultImpl {
         sql.append("WHERE m.datafim IS NULL AND (a.pesquisa = 'S' OR a.grava = 'S' OR a.deleta = 'S') ");
 
         sql.append("AND m.idmenupai IS NOT NULL ");
-    	getPerfilAcessoUsuarioDAO().setTransactionControler(this.getTransactionControler());
-    	getGrupoDAO().setTransactionControler(this.getTransactionControler());
-    	getPerfilAcessoGrupoDAO().setTransactionControler(this.getTransactionControler());
+        this.getPerfilAcessoUsuarioDAO().setTransactionControler(this.getTransactionControler());
+        this.getGrupoDAO().setTransactionControler(this.getTransactionControler());
+        this.getPerfilAcessoGrupoDAO().setTransactionControler(this.getTransactionControler());
 
-        PerfilAcessoUsuarioDTO perfilAcessoEspecifico =  getPerfilAcessoUsuarioDAO().obterPerfilAcessoUsuario(usuario);
+        final PerfilAcessoUsuarioDTO perfilAcessoEspecifico = this.getPerfilAcessoUsuarioDAO().obterPerfilAcessoUsuario(usuario);
 
         if (perfilAcessoEspecifico != null) {
             sql.append("AND (a.idperfilacesso = ? ");
             parametros.add(perfilAcessoEspecifico.getIdPerfilAcesso());
 
-            Collection<GrupoDTO> gruposDoEmpregado = getGrupoDAO().getGruposByIdEmpregado(usuario.getIdEmpregado());
+            final Collection<GrupoDTO> gruposDoEmpregado = this.getGrupoDAO().getGruposByIdEmpregado(usuario.getIdEmpregado());
 
             if (gruposDoEmpregado != null && !gruposDoEmpregado.isEmpty()) {
-                for (GrupoDTO grupo : gruposDoEmpregado) {
-                    PerfilAcessoGrupoDTO perfilAcessoGrupo = getPerfilAcessoGrupoDAO().obterPerfilAcessoGrupo(grupo);
+                for (final GrupoDTO grupo : gruposDoEmpregado) {
+                    final PerfilAcessoGrupoDTO perfilAcessoGrupo = this.getPerfilAcessoGrupoDAO().obterPerfilAcessoGrupo(grupo);
 
                     if (perfilAcessoGrupo != null) {
                         sql.append("OR a.idperfilacesso = ? ");
@@ -605,12 +604,12 @@ public class MenuDao extends CrudDaoDefaultImpl {
             }
             sql.append(")");
         } else {
-            Collection<GrupoDTO> gruposDoEmpregado = getGrupoDAO().getGruposByIdEmpregado(usuario.getIdEmpregado());
+            final Collection<GrupoDTO> gruposDoEmpregado = this.getGrupoDAO().getGruposByIdEmpregado(usuario.getIdEmpregado());
 
             if (gruposDoEmpregado != null && !gruposDoEmpregado.isEmpty()) {
                 boolean aux = true;
-                for (GrupoDTO grupo : gruposDoEmpregado) {
-                    PerfilAcessoGrupoDTO perfilAcessoGrupo = getPerfilAcessoGrupoDAO().obterPerfilAcessoGrupo(grupo);
+                for (final GrupoDTO grupo : gruposDoEmpregado) {
+                    final PerfilAcessoGrupoDTO perfilAcessoGrupo = this.getPerfilAcessoGrupoDAO().obterPerfilAcessoGrupo(grupo);
 
                     if (perfilAcessoGrupo != null) {
                         if (aux) {
@@ -630,12 +629,12 @@ public class MenuDao extends CrudDaoDefaultImpl {
         }
 
         sql.append(" ORDER BY idmenupai DESC, ordem");
-        Object[] paramsFinal = parametros.size() == 0 ? null : parametros.toArray();
+        final Object[] paramsFinal = parametros.size() == 0 ? null : parametros.toArray();
         List lista;
         try {
             lista = this.execSQL(sql.toString(), paramsFinal);
 
-            List<String> listRetorno = new ArrayList<>();
+            final List<String> listRetorno = new ArrayList<>();
             listRetorno.add("idMenu");
             listRetorno.add("idMenuPai");
             listRetorno.add("nome");
@@ -648,34 +647,35 @@ public class MenuDao extends CrudDaoDefaultImpl {
             listRetorno.add("mostrar");
 
             result = engine.listConvertion(MenuDTO.class, lista, listRetorno);
-        } catch (PersistenceException e) {
+        } catch (final PersistenceException e) {
             e.printStackTrace();
-        } catch (Exception e) {
+        } catch (final Exception e) {
             e.printStackTrace();
         }
-        return convertListToMap(result);
+        return this.convertListToMap(result);
     }
-    
+
     /**
      * Método para converter uma lista com menus para um Mapa<idMenuPai, List<MenusFilhos> >
+     * 
      * @author thyen.chang
      * @since 26/01/2015 - OPERAÇÃO USAIN BOLT
      * @param listaMenus
      * @return
      */
-    private Map<Integer, List<MenuDTO> > convertListToMap(List<MenuDTO> listaMenus){
-    	HashMap<Integer, List<MenuDTO> > mapa = new HashMap<Integer, List<MenuDTO> >();
-    	for(MenuDTO menuAux : listaMenus){
-    		List<MenuDTO> listaMapa = mapa.get(menuAux.getIdMenuPai());
-    		if(listaMapa == null || listaMapa.isEmpty()){
-    			listaMapa = new ArrayList<MenuDTO>();
-    			listaMapa.add(menuAux);
-    		} else {
-    			listaMapa.add(menuAux);
-    		}
-    		mapa.put(menuAux.getIdMenuPai(), listaMapa);
-    	}
-    	return mapa;
+    private Map<Integer, List<MenuDTO>> convertListToMap(final List<MenuDTO> listaMenus) {
+        final HashMap<Integer, List<MenuDTO>> mapa = new HashMap<Integer, List<MenuDTO>>();
+        for (final MenuDTO menuAux : listaMenus) {
+            List<MenuDTO> listaMapa = mapa.get(menuAux.getIdMenuPai());
+            if (listaMapa == null || listaMapa.isEmpty()) {
+                listaMapa = new ArrayList<MenuDTO>();
+                listaMapa.add(menuAux);
+            } else {
+                listaMapa.add(menuAux);
+            }
+            mapa.put(menuAux.getIdMenuPai(), listaMapa);
+        }
+        return mapa;
     }
-    
+
 }

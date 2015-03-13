@@ -12,65 +12,69 @@ import br.com.citframework.integracao.CrudDaoDefaultImpl;
 import br.com.citframework.integracao.Field;
 import br.com.citframework.util.Constantes;
 
-@SuppressWarnings({"rawtypes", "unchecked"})
 public class ControleImportarDadosDao extends CrudDaoDefaultImpl {
-	
-	public ControleImportarDadosDao() {
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
-	
-	public Collection<Field> getFields() {
-		
-		Collection<Field> listFields = new ArrayList<>();
-		
-		listFields.add(new Field("idcontroleimportardados" ,"idControleImportarDados", true, true, false, false));
-		listFields.add(new Field("idimportardados" ,"idImportarDados", false, false, false, false));
-		listFields.add(new Field("dataexecucao" ,"dataExecucao", false, false, false, false));
-		
-		return listFields;
 
-	}
-	
-	public String getTableName() {
-		return this.getOwner() + "ControleImportarDados";
-	}
-	
-	public Collection list() throws PersistenceException {
-		return super.list("nome");
-	}
-	
-	public Class getBean() {
-		return ControleImportarDadosDTO.class;
-	}
-	
-	public Collection find(BaseEntity arg0) throws PersistenceException {
-		return null;
-	}
+    public ControleImportarDadosDao() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
+    }
 
-	/**
-	 * Consulta o ultimo elemento inserido na tabela pelo parametro
-	 * 
-	 * @param importar
-	 * @return
-	 * @throws Exception
-	 */
-	public ControleImportarDadosDTO consultarControleImportarDados(ImportarDadosDTO importar) throws PersistenceException {
-		
-		String sql = "select * from controleimportardados where idimportardados = ? order by idcontroleimportardados desc limit 1";
-		
-		List lstParms = new ArrayList();
-		lstParms.add(importar.getIdImportarDados());
-		
-		List lstDados = this.execSQL(sql, lstParms.toArray());
-		
-		List lst = this.listConvertion(getBean(), lstDados, this.getListNamesFieldClass());
-		
-		if (lst == null || lst.size() == 0){
-			return null;
-		}
-		
-		return (ControleImportarDadosDTO) lst.get(0);
-		
-	}
-	
+    @Override
+    public Collection<Field> getFields() {
+
+        final Collection<Field> listFields = new ArrayList<>();
+
+        listFields.add(new Field("idcontroleimportardados", "idControleImportarDados", true, true, false, false));
+        listFields.add(new Field("idimportardados", "idImportarDados", false, false, false, false));
+        listFields.add(new Field("dataexecucao", "dataExecucao", false, false, false, false));
+
+        return listFields;
+
+    }
+
+    @Override
+    public String getTableName() {
+        return this.getOwner() + "ControleImportarDados";
+    }
+
+    @Override
+    public Collection list() throws PersistenceException {
+        return super.list("nome");
+    }
+
+    @Override
+    public Class getBean() {
+        return ControleImportarDadosDTO.class;
+    }
+
+    @Override
+    public Collection find(final BaseEntity arg0) throws PersistenceException {
+        return null;
+    }
+
+    /**
+     * Consulta o ultimo elemento inserido na tabela pelo parametro
+     *
+     * @param importar
+     * @return
+     * @throws Exception
+     */
+    public ControleImportarDadosDTO consultarControleImportarDados(final ImportarDadosDTO importar) throws PersistenceException {
+
+        final String sql = "select * from controleimportardados where idimportardados = ? order by idcontroleimportardados desc limit 1";
+
+        final List lstParms = new ArrayList<>();
+        lstParms.add(importar.getIdImportarDados());
+
+        final List lstDados = this.execSQL(sql, lstParms.toArray());
+
+        final List lst = this.listConvertion(this.getBean(), lstDados, this.getListNamesFieldClass());
+
+        if (lst == null || lst.size() == 0) {
+            return null;
+        }
+
+        return (ControleImportarDadosDTO) lst.get(0);
+
+    }
+
 }

@@ -243,7 +243,7 @@ public class ControleGEDDao extends CrudDaoDefaultImpl {
 
     public Collection<UploadDTO> listByIdTabelaAndIdHistorico(final Integer idTabela, final Integer id) throws Exception {
         final List<String> lstRetorno = new ArrayList<>();
-        List list = new ArrayList();
+        List list = new ArrayList<>();
         final StringBuilder sql = new StringBuilder();
         final List<Integer> parametro = new ArrayList<>();
 

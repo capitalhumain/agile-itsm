@@ -6,43 +6,43 @@ import br.com.agileitsm.model.support.BaseEntity;
 
 public class GrupoAssinaturaDTO extends BaseEntity {
 
-	private static final long serialVersionUID = -7166007883463244313L;
-	
-	private Integer idGrupoAssinatura;
-	private String titulo;
-	private Date dataInicio;
-	private Date dataFim;
+    private static final long serialVersionUID = -7166007883463244313L;
 
-	public Integer getIdGrupoAssinatura() {
-		return idGrupoAssinatura;
-	}
+    private Integer idGrupoAssinatura;
+    private String titulo;
+    private Date dataInicio;
+    private Date dataFim;
 
-	public void setIdGrupoAssinatura(Integer idGrupoAssinatura) {
-		this.idGrupoAssinatura = idGrupoAssinatura;
-	}
+    public Integer getIdGrupoAssinatura() {
+        return idGrupoAssinatura;
+    }
 
-	public String getTitulo() {
-		return titulo;
-	}
+    public void setIdGrupoAssinatura(final Integer idGrupoAssinatura) {
+        this.idGrupoAssinatura = idGrupoAssinatura;
+    }
 
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
+    public String getTitulo() {
+        return titulo;
+    }
 
-	public Date getDataInicio() {
-		return dataInicio;
-	}
+    public void setTitulo(final String titulo) {
+        this.titulo = titulo;
+    }
 
-	public void setDataInicio(Date dataInicio) {
-		this.dataInicio = dataInicio;
-	}
+    public Date getDataInicio() {
+        return dataInicio;
+    }
 
-	public Date getDataFim() {
-		return dataFim;
-	}
+    public void setDataInicio(final Date dataInicio) {
+        this.dataInicio = dataInicio;
+    }
 
-	public void setDataFim(Date dataFim) {
-		this.dataFim = dataFim;
-	}
+    public Date getDataFim() {
+        return dataFim;
+    }
+
+    public void setDataFim(final Date dataFim) {
+        this.dataFim = dataFim;
+    }
 
 }

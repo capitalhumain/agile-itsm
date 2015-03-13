@@ -8,65 +8,62 @@ import java.util.List;
  * Class Service
  * Contains all parameters/values for a service.
  *
- * @author	Folkert van Heusden
- * @version	%I%, %G%
- * @since	0.1 
+ * @author Folkert van Heusden
+ * @version %I%, %G%
+ * @since 0.1
  */
-public class Service
-{
-	List<ParameterEntry> parameterEntries = new ArrayList<ParameterEntry>();
+public class Service {
 
-	String serviceName;
+    List<ParameterEntry> parameterEntries = new ArrayList<ParameterEntry>();
 
-	/**
-	 * Sets the service name.
-	 *
-	 * @param serviceName	Name of the service.
-	 */
-	public Service(String serviceName)
-	{
-		this.serviceName = serviceName;
-	}
+    String serviceName;
 
-	/**
-	 * Returns the service name.
-	 */
-	public String getServiceName()
-	{
-		return serviceName;
-	}
+    /**
+     * Sets the service name.
+     *
+     * @param serviceName
+     *            Name of the service.
+     */
+    public Service(final String serviceName) {
+        this.serviceName = serviceName;
+    }
 
-	/**
-	 * Adds a parameter+value.
-	 */
-	public void addParameter(ParameterEntry parameterEntry)
-	{
-		parameterEntries.add(parameterEntry);
-	}
+    /**
+     * Returns the service name.
+     */
+    public String getServiceName() {
+        return serviceName;
+    }
 
-	/**
-	 * Returns all parameters (and their values) for this service.
-	 *
-	 * @return	All parameters.
-	 */
-	public List<ParameterEntry> getParameters()
-	{
-		return parameterEntries;
-	}
+    /**
+     * Adds a parameter+value.
+     */
+    public void addParameter(final ParameterEntry parameterEntry) {
+        parameterEntries.add(parameterEntry);
+    }
 
-        /**
-         * Get the value of a service-parameter.
-         *
-         * @return      A string with the value. Indeed, also values are returned as a string.
-         */
-        public String getParameter(String parameter)
-        {
-                for(ParameterEntry parameterEntry : parameterEntries)
-                {
-                        if (parameterEntry.getParameterName().equals(parameter))
-                                return parameterEntry.getParameterValue();
-                }
+    /**
+     * Returns all parameters (and their values) for this service.
+     *
+     * @return All parameters.
+     */
+    public List<ParameterEntry> getParameters() {
+        return parameterEntries;
+    }
 
-                return null;
+    /**
+     * Get the value of a service-parameter.
+     *
+     * @return A string with the value. Indeed, also values are returned as a string.
+     */
+    public String getParameter(final String parameter) {
+        for (final ParameterEntry parameterEntry : parameterEntries) {
+            if (parameterEntry.getParameterName().equals(parameter)) {
+                return parameterEntry.getParameterValue();
+            }
         }
+
+        return null;
+    }
+
 }

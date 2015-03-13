@@ -23,7 +23,7 @@ public class ControleGenerateSLA extends AjaxFormAction {
 	public List execute(HashMap parametersValues, Collection paramtersDefinition) throws ServiceException, Exception {
 		String datainicial = (String) parametersValues.get("PARAM.dataInicial");
 		String datafinal = (String) parametersValues.get("PARAM.dataFinal");
-		List lstRetorno = new ArrayList();
+		List lstRetorno = new ArrayList<>();
 
 		SolicitacaoServicoDTO solicitacaoServicoDTO = new SolicitacaoServicoDTO();
 
@@ -57,7 +57,7 @@ public class ControleGenerateSLA extends AjaxFormAction {
 		double qtdePrazo = 0;
 		double qtdeForaPrazo = 0;
 
-		Collection<SolicitacaoServicoDTO> listSla = new ArrayList();
+		Collection<SolicitacaoServicoDTO> listSla = new ArrayList<>();
 
 		SolicitacaoServicoService solicitacaoServicoService = (SolicitacaoServicoService) ServiceLocator.getInstance().getService(SolicitacaoServicoService.class, null);
 
@@ -76,7 +76,7 @@ public class ControleGenerateSLA extends AjaxFormAction {
 		}
 		try {
 			if (listSla != null && listSla.size() != 0) {
-				lstRetorno = new ArrayList();
+				lstRetorno = new ArrayList<>();
 				lstRetorno.add(new Object[] { "Dentro do SLA", (qtdePrazo / (qtdePrazo + qtdeForaPrazo)) * 100, qtdePrazo });
 				lstRetorno.add(new Object[] { "Fora do SLA", (qtdeForaPrazo / (qtdePrazo + qtdeForaPrazo)) * 100, qtdeForaPrazo });
 			}

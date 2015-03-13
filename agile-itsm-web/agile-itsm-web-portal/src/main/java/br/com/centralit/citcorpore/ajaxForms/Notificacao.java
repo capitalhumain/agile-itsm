@@ -6,7 +6,7 @@ import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import br.com.centralit.citajax.html.AjaxFormAction;
 import br.com.centralit.citajax.html.DocumentHTML;
@@ -187,7 +187,7 @@ public class Notificacao extends AjaxFormAction {
 
 	@Override
 	public Class getBeanClass() {
-		// TODO Auto-generated method stub
+		
 		return NotificacaoDTO.class;
 	}
 

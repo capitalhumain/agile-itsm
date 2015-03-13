@@ -216,7 +216,7 @@ public class AgendarAtividadeRequisicaoMudanca  extends AjaxFormAction{
 	atividadePeriodicaDTO.setIdContrato(requisicaoMudancaDto.getIdContrato());
 	atividadePeriodicaDTO.setOrientacaoTecnica(orient);
 
-	Collection colItens = new ArrayList();
+	Collection colItens = new ArrayList<>();
 	ProgramacaoAtividadeDTO programacaoAtividadeDTO = new ProgramacaoAtividadeDTO();
 	programacaoAtividadeDTO.setTipoAgendamento("U");
 	programacaoAtividadeDTO.setDataInicio(atividadePeriodicaDTO.getDataInicio());

@@ -3,56 +3,64 @@ package br.com.centralit.citcorpore.bean;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class FaixaValoresRecursoDTO extends BaseEntity {
-	private Integer idFaixaValoresRecurso;
-	private Integer idRecurso;
-	private Double valorInicio;
-	private Double valorFim;
-	private String cor;
-	private String descricao;
 
-	public String getCorInner() {
-		return "<div style=\"width:100px; height:18px; background-color: " + getCor() + "\" >&nbsp;</div>";
-	}	
-	public Integer getIdFaixaValoresRecurso(){
-		return this.idFaixaValoresRecurso;
-	}
-	public void setIdFaixaValoresRecurso(Integer parm){
-		this.idFaixaValoresRecurso = parm;
-	}
+    private Integer idFaixaValoresRecurso;
+    private Integer idRecurso;
+    private Double valorInicio;
+    private Double valorFim;
+    private String cor;
+    private String descricao;
 
-	public Integer getIdRecurso(){
-		return this.idRecurso;
-	}
-	public void setIdRecurso(Integer parm){
-		this.idRecurso = parm;
-	}
+    public String getCorInner() {
+        return "<div style=\"width:100px; height:18px; background-color: " + this.getCor() + "\" >&nbsp;</div>";
+    }
 
-	public Double getValorInicio(){
-		return this.valorInicio;
-	}
-	public void setValorInicio(Double parm){
-		this.valorInicio = parm;
-	}
+    public Integer getIdFaixaValoresRecurso() {
+        return idFaixaValoresRecurso;
+    }
 
-	public Double getValorFim(){
-		return this.valorFim;
-	}
-	public void setValorFim(Double parm){
-		this.valorFim = parm;
-	}
+    public void setIdFaixaValoresRecurso(final Integer parm) {
+        idFaixaValoresRecurso = parm;
+    }
 
-	public String getCor(){
-		return this.cor;
-	}
-	public void setCor(String parm){
-		this.cor = parm;
-	}
+    public Integer getIdRecurso() {
+        return idRecurso;
+    }
 
-	public String getDescricao(){
-		return this.descricao;
-	}
-	public void setDescricao(String parm){
-		this.descricao = parm;
-	}
+    public void setIdRecurso(final Integer parm) {
+        idRecurso = parm;
+    }
+
+    public Double getValorInicio() {
+        return valorInicio;
+    }
+
+    public void setValorInicio(final Double parm) {
+        valorInicio = parm;
+    }
+
+    public Double getValorFim() {
+        return valorFim;
+    }
+
+    public void setValorFim(final Double parm) {
+        valorFim = parm;
+    }
+
+    public String getCor() {
+        return cor;
+    }
+
+    public void setCor(final String parm) {
+        cor = parm;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(final String parm) {
+        descricao = parm;
+    }
 
 }

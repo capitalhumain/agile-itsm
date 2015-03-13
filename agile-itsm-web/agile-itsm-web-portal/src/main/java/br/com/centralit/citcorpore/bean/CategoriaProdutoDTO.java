@@ -6,87 +6,87 @@ import java.util.List;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class CategoriaProdutoDTO extends BaseEntity {
-	
-	private static final long serialVersionUID = 643396483433858897L;
-	
-	private Integer idCategoria;
-	private Integer idCategoriaPai;
-	private String nomeCategoria;
-	private String nomeCategoriaPai;
-	private String situacao;
-	private Integer nivel;	
-	private String imagem;
-	private Integer pesoCotacaoPreco;
+
+    private static final long serialVersionUID = 643396483433858897L;
+
+    private Integer idCategoria;
+    private Integer idCategoriaPai;
+    private String nomeCategoria;
+    private String nomeCategoriaPai;
+    private String situacao;
+    private Integer nivel;
+    private String imagem;
+    private Integer pesoCotacaoPreco;
     private Integer pesoCotacaoPrazoEntrega;
     private Integer pesoCotacaoPrazoPagto;
     private Integer pesoCotacaoTaxaJuros;
     private Integer pesoCotacaoPrazoGarantia;
-	
-	private List<TipoProdutoDTO> colProdutos;
-	private Collection<CriterioCotacaoCategoriaDTO> colCriterios;
-	private Collection<UploadDTO> fotos;
 
-	public Integer getIdCategoria() {
-		return this.idCategoria;
-	}
-	
-	public void setIdCategoria(Integer parm) {
-		this.idCategoria = parm;
-	}
+    private List<TipoProdutoDTO> colProdutos;
+    private Collection<CriterioCotacaoCategoriaDTO> colCriterios;
+    private Collection<UploadDTO> fotos;
 
-	public Integer getIdCategoriaPai() {
-		return idCategoriaPai;
-	}
-	
-	public void setIdCategoriaPai(Integer idCategoriaPai) {
-		this.idCategoriaPai = idCategoriaPai;
-	}
-	
-	public String getNomeCategoria() {
-		return this.nomeCategoria;
-	}
-	
-	public void setNomeCategoria(String parm) {
-		this.nomeCategoria = parm;
-	}
-	
-	public String getNomeCategoriaPai() {
-		return nomeCategoriaPai;
-	}
-	
-	public void setNomeCategoriaPai(String nomeCategoriaPai) {
-		this.nomeCategoriaPai = nomeCategoriaPai;
-	}
-	
-	public String getSituacao() {
-		return this.situacao;
-	}
-	
-	public void setSituacao(String parm) {
-		this.situacao = parm;
-	}
-	
+    public Integer getIdCategoria() {
+        return idCategoria;
+    }
+
+    public void setIdCategoria(final Integer parm) {
+        idCategoria = parm;
+    }
+
+    public Integer getIdCategoriaPai() {
+        return idCategoriaPai;
+    }
+
+    public void setIdCategoriaPai(final Integer idCategoriaPai) {
+        this.idCategoriaPai = idCategoriaPai;
+    }
+
+    public String getNomeCategoria() {
+        return nomeCategoria;
+    }
+
+    public void setNomeCategoria(final String parm) {
+        nomeCategoria = parm;
+    }
+
+    public String getNomeCategoriaPai() {
+        return nomeCategoriaPai;
+    }
+
+    public void setNomeCategoriaPai(final String nomeCategoriaPai) {
+        this.nomeCategoriaPai = nomeCategoriaPai;
+    }
+
+    public String getSituacao() {
+        return situacao;
+    }
+
+    public void setSituacao(final String parm) {
+        situacao = parm;
+    }
+
     public Integer getNivel() {
         return nivel;
     }
-    
-    public void setNivel(Integer nivel) {
+
+    public void setNivel(final Integer nivel) {
         this.nivel = nivel;
     }
 
     public String getImagem() {
         return imagem;
     }
-    
-    public void setImagem(String imagem) {
+
+    public void setImagem(final String imagem) {
         this.imagem = imagem;
     }
-    
+
     public List<TipoProdutoDTO> getColProdutos() {
         return colProdutos;
     }
-    
-    public void setColProdutos(List<TipoProdutoDTO> colProdutos) {
+
+    public void setColProdutos(final List<TipoProdutoDTO> colProdutos) {
         this.colProdutos = colProdutos;
     }
 
@@ -94,7 +94,7 @@ public class CategoriaProdutoDTO extends BaseEntity {
         return pesoCotacaoPreco;
     }
 
-    public void setPesoCotacaoPreco(Integer pesoCotacaoPreco) {
+    public void setPesoCotacaoPreco(final Integer pesoCotacaoPreco) {
         this.pesoCotacaoPreco = pesoCotacaoPreco;
     }
 
@@ -102,7 +102,7 @@ public class CategoriaProdutoDTO extends BaseEntity {
         return pesoCotacaoPrazoEntrega;
     }
 
-    public void setPesoCotacaoPrazoEntrega(Integer pesoCotacaoPrazoEntrega) {
+    public void setPesoCotacaoPrazoEntrega(final Integer pesoCotacaoPrazoEntrega) {
         this.pesoCotacaoPrazoEntrega = pesoCotacaoPrazoEntrega;
     }
 
@@ -110,7 +110,7 @@ public class CategoriaProdutoDTO extends BaseEntity {
         return pesoCotacaoPrazoPagto;
     }
 
-    public void setPesoCotacaoPrazoPagto(Integer pesoCotacaoPrazoPagto) {
+    public void setPesoCotacaoPrazoPagto(final Integer pesoCotacaoPrazoPagto) {
         this.pesoCotacaoPrazoPagto = pesoCotacaoPrazoPagto;
     }
 
@@ -118,7 +118,7 @@ public class CategoriaProdutoDTO extends BaseEntity {
         return pesoCotacaoTaxaJuros;
     }
 
-    public void setPesoCotacaoTaxaJuros(Integer pesoCotacaoTaxaJuros) {
+    public void setPesoCotacaoTaxaJuros(final Integer pesoCotacaoTaxaJuros) {
         this.pesoCotacaoTaxaJuros = pesoCotacaoTaxaJuros;
     }
 
@@ -126,7 +126,7 @@ public class CategoriaProdutoDTO extends BaseEntity {
         return pesoCotacaoPrazoGarantia;
     }
 
-    public void setPesoCotacaoPrazoGarantia(Integer pesoCotacaoPrazoGarantia) {
+    public void setPesoCotacaoPrazoGarantia(final Integer pesoCotacaoPrazoGarantia) {
         this.pesoCotacaoPrazoGarantia = pesoCotacaoPrazoGarantia;
     }
 
@@ -134,7 +134,7 @@ public class CategoriaProdutoDTO extends BaseEntity {
         return colCriterios;
     }
 
-    public void setColCriterios(Collection<CriterioCotacaoCategoriaDTO> colCriterios) {
+    public void setColCriterios(final Collection<CriterioCotacaoCategoriaDTO> colCriterios) {
         this.colCriterios = colCriterios;
     }
 
@@ -142,24 +142,27 @@ public class CategoriaProdutoDTO extends BaseEntity {
         return fotos;
     }
 
-    public void setFotos(Collection<UploadDTO> fotos) {
+    public void setFotos(final Collection<UploadDTO> fotos) {
         this.fotos = fotos;
     }
-    
+
     public String getNomeHierarquizado() {
-    	
-        if (nomeCategoria == null) 
-        	return "";
-        
-        if (this.getNivel() == null) 
-        	return nomeCategoria;
-        
-        String aux = "";
-        
-        for (int i = 0; i < this.getNivel().intValue(); i++) {
-        	aux += ".....";
+
+        if (nomeCategoria == null) {
+            return "";
         }
-        
+
+        if (this.getNivel() == null) {
+            return nomeCategoria;
+        }
+
+        String aux = "";
+
+        for (int i = 0; i < this.getNivel().intValue(); i++) {
+            aux += ".....";
+        }
+
         return aux + nomeCategoria;
     }
+
 }

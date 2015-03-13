@@ -13,79 +13,76 @@ import br.com.citframework.integracao.Field;
 import br.com.citframework.integracao.Order;
 import br.com.citframework.util.Constantes;
 
-@SuppressWarnings({"rawtypes" , "unchecked"})
 public class SolucaoContornoDao extends CrudDaoDefaultImpl {
 
-	public SolucaoContornoDao() {
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
+    public SolucaoContornoDao() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
+    }
 
+    @Override
+    public Collection find(final BaseEntity obj) throws PersistenceException {
+        return null;
+    }
 
+    @Override
+    public Collection<Field> getFields() {
+        final Collection<Field> listFields = new ArrayList<>();
 
+        listFields.add(new Field("IDSOLUCAOCONTORNO", "idSolucaoContorno", true, true, false, false));
+        listFields.add(new Field("TITULO", "titulo", false, false, false, false));
+        listFields.add(new Field("DESCRICAO", "descricao", false, false, false, false));
+        listFields.add(new Field("DATAHORACRIACAO", "dataHoraCriacao", false, false, false, false));
+        listFields.add(new Field("idproblema", "idProblema", false, false, false, false));
 
-	@Override
-	public Collection find(BaseEntity obj) throws PersistenceException {
-				return null;
-	}
+        return listFields;
+    }
 
+    @Override
+    public String getTableName() {
+        return "solucaocontorno";
+    }
 
-	@Override
-	public Collection<Field> getFields() {
-		Collection<Field> listFields = new ArrayList<>();
+    @Override
+    public Collection list() throws PersistenceException {
+        final List list = new ArrayList<>();
+        list.add(new Order("titulo"));
+        return super.list(list);
+    }
 
-		listFields.add(new Field("IDSOLUCAOCONTORNO", "idSolucaoContorno", true, true, false, false));
-		listFields.add(new Field("TITULO", "titulo", false, false, false, false));
-		listFields.add(new Field("DESCRICAO", "descricao", false, false, false, false));
-		listFields.add(new Field("DATAHORACRIACAO", "dataHoraCriacao", false, false, false, false));
-		listFields.add(new Field("idproblema", "idProblema", false, false, false, false));
+    @Override
+    public Class getBean() {
+        return SolucaoContornoDTO.class;
+    }
 
-		return listFields;
-	}
+    @Override
+    public BaseEntity restore(final BaseEntity obj) throws PersistenceException {
+        final SolucaoContornoDTO solucaoContornoDTO = (SolucaoContornoDTO) obj;
 
-	@Override
-	public String getTableName() {
-		return "solucaocontorno";
-	}
+        final List<Condition> condicao = new ArrayList<>();
+        condicao.add(new Condition("idSolucaoContorno", "=", solucaoContornoDTO.getIdSolucaoContorno()));
 
-	@Override
-	public Collection list() throws PersistenceException {
-		List list = new ArrayList();
-		list.add(new Order("titulo"));
-		return super.list(list);
-	}
+        final ArrayList<SolucaoContornoDTO> res = (ArrayList<SolucaoContornoDTO>) super.findByCondition(condicao, null);
 
-	@Override
-	public Class getBean() {
-		return SolucaoContornoDTO.class;
-	}
+        if (res != null) {
+            return res.get(0);
+        } else {
+            return null;
+        }
+    }
 
-	public BaseEntity restore(BaseEntity obj) throws PersistenceException{
-		SolucaoContornoDTO solucaoContornoDTO = (SolucaoContornoDTO) obj;
+    public BaseEntity findByIdProblema(final BaseEntity obj) throws PersistenceException {
+        final SolucaoContornoDTO solucaoContornoDTO = (SolucaoContornoDTO) obj;
 
-		List condicao = new ArrayList();
-		condicao.add(new Condition("idSolucaoContorno", "=", solucaoContornoDTO.getIdSolucaoContorno()));
+        final List<Condition> condicao = new ArrayList<>();
+        condicao.add(new Condition("idProblema", "=", solucaoContornoDTO.getIdProblema()));
 
-		ArrayList<SolucaoContornoDTO> res = (ArrayList<SolucaoContornoDTO>) super.findByCondition(condicao, null);
+        final ArrayList<SolucaoContornoDTO> res = (ArrayList<SolucaoContornoDTO>) super.findByCondition(condicao, null);
 
-		if(res != null){
-			return res.get(0);
-		}else{
-			return null;
-		}
-	}
-	public BaseEntity findByIdProblema(BaseEntity obj) throws PersistenceException {
-		SolucaoContornoDTO solucaoContornoDTO = (SolucaoContornoDTO) obj;
-
-		List condicao = new ArrayList();
-		condicao.add(new Condition("idProblema", "=", solucaoContornoDTO.getIdProblema()));
-
-		ArrayList<SolucaoContornoDTO> res = (ArrayList<SolucaoContornoDTO>) super.findByCondition(condicao, null);
-
-		if(res != null){
-			return res.get(0);
-		}else{
-			return null;
-		}
-	}
+        if (res != null) {
+            return res.get(0);
+        } else {
+            return null;
+        }
+    }
 
 }

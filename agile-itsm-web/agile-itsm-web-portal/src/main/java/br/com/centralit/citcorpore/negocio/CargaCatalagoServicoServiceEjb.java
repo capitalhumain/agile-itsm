@@ -38,7 +38,7 @@ public class CargaCatalagoServicoServiceEjb extends CrudServiceImpl implements C
 
     @Override
     public List<CargaCatalagoServicoDTO> gerarCarga(final String[] carga) throws ServiceException, Exception {
-        // TODO Auto-generated method stub
+        
         return null;
     }
 

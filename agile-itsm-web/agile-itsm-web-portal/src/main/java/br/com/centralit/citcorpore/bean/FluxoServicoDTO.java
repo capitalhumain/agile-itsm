@@ -3,51 +3,60 @@ package br.com.centralit.citcorpore.bean;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class FluxoServicoDTO extends BaseEntity {
-	
-	private Integer idFluxoServico;
-	private Integer idServicoContrato;
-	private Integer idTipoFluxo;
-	private Integer idFase;
-	private String principal;
-	private String deleted;
 
-	public Integer getIdFluxoServico() {
-		return idFluxoServico;
-	}
-	public void setIdFluxoServico(Integer idFluxoServico) {
-		this.idFluxoServico = idFluxoServico;
-	}
-	public Integer getIdServicoContrato(){
-		return this.idServicoContrato;
-	}
-	public void setIdServicoContrato(Integer parm){
-		this.idServicoContrato = parm;
-	}
+    private Integer idFluxoServico;
+    private Integer idServicoContrato;
+    private Integer idTipoFluxo;
+    private Integer idFase;
+    private String principal;
+    private String deleted;
 
-	public Integer getIdTipoFluxo(){
-		return this.idTipoFluxo;
-	}
-	public void setIdTipoFluxo(Integer parm){
-		this.idTipoFluxo = parm;
-	}
+    public Integer getIdFluxoServico() {
+        return idFluxoServico;
+    }
 
-	public Integer getIdFase(){
-		return this.idFase;
-	}
-	public void setIdFase(Integer parm){
-		this.idFase = parm;
-	}
-	public String getPrincipal() {
-		return principal;
-	}
-	public void setPrincipal(String principal) {
-		this.principal = principal;
-	}
-	public String getDeleted() {
-		return deleted;
-	}
-	public void setDeleted(String deleted) {
-		this.deleted = deleted;
-	}
-	
+    public void setIdFluxoServico(final Integer idFluxoServico) {
+        this.idFluxoServico = idFluxoServico;
+    }
+
+    public Integer getIdServicoContrato() {
+        return idServicoContrato;
+    }
+
+    public void setIdServicoContrato(final Integer parm) {
+        idServicoContrato = parm;
+    }
+
+    public Integer getIdTipoFluxo() {
+        return idTipoFluxo;
+    }
+
+    public void setIdTipoFluxo(final Integer parm) {
+        idTipoFluxo = parm;
+    }
+
+    public Integer getIdFase() {
+        return idFase;
+    }
+
+    public void setIdFase(final Integer parm) {
+        idFase = parm;
+    }
+
+    public String getPrincipal() {
+        return principal;
+    }
+
+    public void setPrincipal(final String principal) {
+        this.principal = principal;
+    }
+
+    public String getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(final String deleted) {
+        this.deleted = deleted;
+    }
+
 }

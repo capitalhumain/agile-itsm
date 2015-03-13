@@ -2,7 +2,7 @@ package br.com.centralit.citsmart.rest.v2.util;
 
 import java.util.Arrays;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import br.com.centralit.citsmart.rest.bean.RestOperationDTO;
 import br.com.centralit.citsmart.rest.bean.RestSessionDTO;

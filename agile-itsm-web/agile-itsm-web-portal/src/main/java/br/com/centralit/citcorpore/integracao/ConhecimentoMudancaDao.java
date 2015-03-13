@@ -10,72 +10,70 @@ import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.integracao.Condition;
 import br.com.citframework.integracao.CrudDaoDefaultImpl;
 import br.com.citframework.integracao.Field;
+import br.com.citframework.integracao.Order;
 import br.com.citframework.util.Constantes;
 
-@SuppressWarnings({ "rawtypes", "unchecked" })
 public class ConhecimentoMudancaDao extends CrudDaoDefaultImpl {
 
+    public ConhecimentoMudancaDao() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
+    }
 
-	public ConhecimentoMudancaDao() {
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
+    @Override
+    public Collection find(final BaseEntity obj) throws PersistenceException {
+        return null;
+    }
 
-	@Override
-	public Collection find(BaseEntity obj) throws PersistenceException {
+    @Override
+    public Collection<Field> getFields() {
 
-		return null;
-	}
+        final Collection<Field> listFields = new ArrayList<>();
 
-	@Override
-	public Collection<Field> getFields() {
+        listFields.add(new Field("IDREQUISICAOMUDANCA", "idRequisicaoMudanca", true, false, false, false));
+        listFields.add(new Field("IDBASECONHECIMENTO", "idBaseConhecimento", true, false, false, false));
 
-		Collection<Field> listFields = new ArrayList<>();
+        return listFields;
+    }
 
-		listFields.add(new Field("IDREQUISICAOMUDANCA", "idRequisicaoMudanca", true, false, false, false));
-		listFields.add(new Field("IDBASECONHECIMENTO", "idBaseConhecimento", true, false, false, false));
+    @Override
+    public String getTableName() {
+        return "CONHECIMENTOMUDANCA";
+    }
 
-		return listFields;
-	}
+    @Override
+    public Class<ConhecimentoMudancaDTO> getBean() {
+        return ConhecimentoMudancaDTO.class;
+    }
 
-	@Override
-	public String getTableName() {
-		return "CONHECIMENTOMUDANCA";
-	}
+    @Override
+    public Collection list() throws PersistenceException {
+        return null;
+    }
 
-	@Override
-	public Class getBean() {
-		return ConhecimentoMudancaDTO.class;
-	}
+    public void deleteByidRequisicaoMudanca(final Integer parm) throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        condicao.add(new Condition("idRequisicaoMudanca", "=", parm));
+        super.deleteByCondition(condicao);
+    }
 
-	@Override
-	public Collection list() throws PersistenceException {
-		return null;
-	}
+    public void deleteByIdBaseConhecimento(final Integer parm) throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        condicao.add(new Condition("idBaseConhecimento", "=", parm));
+        super.deleteByCondition(condicao);
+    }
 
-	public void deleteByidRequisicaoMudanca(Integer parm) throws PersistenceException {
-		List condicao = new ArrayList();
-		condicao.add(new Condition("idRequisicaoMudanca", "=", parm));
-		super.deleteByCondition(condicao);
-	}
+    public Collection findByIdBaseConhecimento(final Integer parm) throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
+        condicao.add(new Condition("idBaseConhecimento", "=", parm));
+        return super.findByCondition(condicao, ordenacao);
+    }
 
-	public void deleteByIdBaseConhecimento(Integer parm) throws PersistenceException {
-		List condicao = new ArrayList();
-		condicao.add(new Condition("idBaseConhecimento", "=", parm));
-		super.deleteByCondition(condicao);
-	}
-
-	public Collection findByIdBaseConhecimento(Integer parm) throws PersistenceException {
-		List condicao = new ArrayList();
-		List ordenacao = new ArrayList();
-		condicao.add(new Condition("idBaseConhecimento", "=", parm));
-		return super.findByCondition(condicao, ordenacao);
-	}
-
-	public Collection findByidRequisicaoMudanca(Integer parm) throws PersistenceException {
-		List condicao = new ArrayList();
-		List ordenacao = new ArrayList();
-		condicao.add(new Condition("idRequisicaoMudanca", "=", parm));
-		return super.findByCondition(condicao, ordenacao);
-	}
+    public Collection findByidRequisicaoMudanca(final Integer parm) throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
+        condicao.add(new Condition("idRequisicaoMudanca", "=", parm));
+        return super.findByCondition(condicao, ordenacao);
+    }
 
 }

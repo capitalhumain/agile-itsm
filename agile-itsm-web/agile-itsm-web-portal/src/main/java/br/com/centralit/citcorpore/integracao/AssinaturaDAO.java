@@ -17,97 +17,95 @@ import br.com.citframework.util.Constantes;
  * @author euler.ramos
  *
  */
-@SuppressWarnings({ "rawtypes", "unchecked" })
 public class AssinaturaDAO extends CrudDaoDefaultImpl {
 
     public AssinaturaDAO() {
-	super(Constantes.getValue("DATABASE_ALIAS"), null);
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
     }
 
     @Override
-    public Collection find(BaseEntity obj) throws PersistenceException {
-	List order =  new ArrayList();
-	order.add(new Order("idAssinatura", "ASC"));
-	return super.find(obj, order);
+    public Collection find(final BaseEntity obj) throws PersistenceException {
+        final List<Order> order = new ArrayList<>();
+        order.add(new Order("idAssinatura", "ASC"));
+        return super.find(obj, order);
     }
 
     @Override
     public Collection<Field> getFields() {
-	Collection<Field> listFields = new ArrayList<>();
-	listFields.add(new Field("idassinatura", "idAssinatura", true, true, false, false));
-	listFields.add(new Field("idempregado", "idEmpregado", false, false, false, false));
-	listFields.add(new Field("papel", "papel", false, false, false, false));
-	listFields.add(new Field("fase", "fase", false, false, false, false));
-	listFields.add(new Field("datainicio", "dataInicio", false, false, false, false));
-	listFields.add(new Field("datafim", "dataFim", false, false, false, false));
-	return listFields;
+        final Collection<Field> listFields = new ArrayList<>();
+        listFields.add(new Field("idassinatura", "idAssinatura", true, true, false, false));
+        listFields.add(new Field("idempregado", "idEmpregado", false, false, false, false));
+        listFields.add(new Field("papel", "papel", false, false, false, false));
+        listFields.add(new Field("fase", "fase", false, false, false, false));
+        listFields.add(new Field("datainicio", "dataInicio", false, false, false, false));
+        listFields.add(new Field("datafim", "dataFim", false, false, false, false));
+        return listFields;
     }
 
     @Override
     public String getTableName() {
-	return "assinatura";
+        return "assinatura";
     }
 
     @Override
     public Collection list() throws PersistenceException {
-	List condicao = new ArrayList();
-	condicao.add(new Condition("dataFim", "is", null));
-	return super.findByCondition(condicao, null);
+        final List<Condition> condicao = new ArrayList<>();
+        condicao.add(new Condition("dataFim", "is", null));
+        return super.findByCondition(condicao, null);
     }
 
     @Override
     public Class getBean() {
-	return AssinaturaDTO.class;
+        return AssinaturaDTO.class;
     }
 
-    public boolean violaIndiceUnico(AssinaturaDTO assinaturaDTO) {
-	boolean encontrou = false;
+    public boolean violaIndiceUnico(final AssinaturaDTO assinaturaDTO) {
+        boolean encontrou = false;
 
-	List result;
-	try {
-	    List resp = new ArrayList();
+        List result;
+        try {
+            List resp = new ArrayList<>();
 
-	    List parametro = new ArrayList();
+            final List parametro = new ArrayList<>();
 
-	    StringBuilder sql = new StringBuilder();
+            final StringBuilder sql = new StringBuilder();
 
-	    sql.append("SELECT idassinatura FROM " + this.getTableName()+" ");
-	    sql.append("WHERE (datafim is null) AND ");
+            sql.append("SELECT idassinatura FROM " + this.getTableName() + " ");
+            sql.append("WHERE (datafim is null) AND ");
 
-	    if (assinaturaDTO.getIdAssinatura() != null) {
-		sql.append("idassinatura <> ? AND ");
-		parametro.add(assinaturaDTO.getIdAssinatura());
-	    }
+            if (assinaturaDTO.getIdAssinatura() != null) {
+                sql.append("idassinatura <> ? AND ");
+                parametro.add(assinaturaDTO.getIdAssinatura());
+            }
 
-	    // Pode-se cadastrar assinatura sem empregado
-	    if (assinaturaDTO.getIdEmpregado() != null) {
-		sql.append("idempregado = ? AND ");
-		parametro.add(assinaturaDTO.getIdEmpregado());
-	    } else {
-		sql.append("(idempregado is null) AND ");
-	    }
+            // Pode-se cadastrar assinatura sem empregado
+            if (assinaturaDTO.getIdEmpregado() != null) {
+                sql.append("idempregado = ? AND ");
+                parametro.add(assinaturaDTO.getIdEmpregado());
+            } else {
+                sql.append("(idempregado is null) AND ");
+            }
 
-	    sql.append("papel = ? AND ");
-	    parametro.add(assinaturaDTO.getPapel());
-	    sql.append("fase = ?");
-	    parametro.add(assinaturaDTO.getFase());
+            sql.append("papel = ? AND ");
+            parametro.add(assinaturaDTO.getPapel());
+            sql.append("fase = ?");
+            parametro.add(assinaturaDTO.getFase());
 
-	    resp = this.execSQL(sql.toString(), parametro.toArray());
+            resp = this.execSQL(sql.toString(), parametro.toArray());
 
-	    List listRetorno = new ArrayList();
-	    listRetorno.add("idassinatura");
+            final List listRetorno = new ArrayList<>();
+            listRetorno.add("idassinatura");
 
-	    result = this.engine.listConvertion(this.getBean(), resp,
-		    listRetorno);
-	} catch (PersistenceException e) {
-	    e.printStackTrace();
-	    result = null;
-	} catch (Exception e) {
-	    e.printStackTrace();
-	    result = null;
-	}
-	encontrou = ((result != null) && (result.size() > 0));
-	return encontrou;
+            result = engine.listConvertion(this.getBean(), resp, listRetorno);
+        } catch (final PersistenceException e) {
+            e.printStackTrace();
+            result = null;
+        } catch (final Exception e) {
+            e.printStackTrace();
+            result = null;
+        }
+        encontrou = result != null && result.size() > 0;
+        return encontrou;
     }
 
 }

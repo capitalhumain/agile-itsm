@@ -3,60 +3,69 @@ package br.com.centralit.citcorpore.metainfo.bean;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class GrupoVisaoCamposNegocioInfoSQLDTO extends BaseEntity {
-	private Integer idGrupoVisaoCamposNegocioInfoSQL;
-	private Integer idGrupoVisao;
-	private Integer idCamposObjetoNegocio;
-	private String campo;
-	private String tipoLigacao;
-	private String filtro;
-	private String descricao;
 
-	public Integer getIdGrupoVisaoCamposNegocioInfoSQL(){
-		return this.idGrupoVisaoCamposNegocioInfoSQL;
-	}
-	public void setIdGrupoVisaoCamposNegocioInfoSQL(Integer parm){
-		this.idGrupoVisaoCamposNegocioInfoSQL = parm;
-	}
+    private Integer idGrupoVisaoCamposNegocioInfoSQL;
+    private Integer idGrupoVisao;
+    private Integer idCamposObjetoNegocio;
+    private String campo;
+    private String tipoLigacao;
+    private String filtro;
+    private String descricao;
 
-	public Integer getIdGrupoVisao(){
-		return this.idGrupoVisao;
-	}
-	public void setIdGrupoVisao(Integer parm){
-		this.idGrupoVisao = parm;
-	}
+    public Integer getIdGrupoVisaoCamposNegocioInfoSQL() {
+        return idGrupoVisaoCamposNegocioInfoSQL;
+    }
 
-	public Integer getIdCamposObjetoNegocio(){
-		return this.idCamposObjetoNegocio;
-	}
-	public void setIdCamposObjetoNegocio(Integer parm){
-		this.idCamposObjetoNegocio = parm;
-	}
+    public void setIdGrupoVisaoCamposNegocioInfoSQL(final Integer parm) {
+        idGrupoVisaoCamposNegocioInfoSQL = parm;
+    }
 
-	public String getCampo(){
-		return this.campo;
-	}
-	public void setCampo(String parm){
-		this.campo = parm;
-	}
+    public Integer getIdGrupoVisao() {
+        return idGrupoVisao;
+    }
 
-	public String getTipoLigacao(){
-		return this.tipoLigacao;
-	}
-	public void setTipoLigacao(String parm){
-		this.tipoLigacao = parm;
-	}
+    public void setIdGrupoVisao(final Integer parm) {
+        idGrupoVisao = parm;
+    }
 
-	public String getFiltro(){
-		return this.filtro;
-	}
-	public void setFiltro(String parm){
-		this.filtro = parm;
-	}
-	public String getDescricao() {
-		return descricao;
-	}
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
+    public Integer getIdCamposObjetoNegocio() {
+        return idCamposObjetoNegocio;
+    }
+
+    public void setIdCamposObjetoNegocio(final Integer parm) {
+        idCamposObjetoNegocio = parm;
+    }
+
+    public String getCampo() {
+        return campo;
+    }
+
+    public void setCampo(final String parm) {
+        campo = parm;
+    }
+
+    public String getTipoLigacao() {
+        return tipoLigacao;
+    }
+
+    public void setTipoLigacao(final String parm) {
+        tipoLigacao = parm;
+    }
+
+    public String getFiltro() {
+        return filtro;
+    }
+
+    public void setFiltro(final String parm) {
+        filtro = parm;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(final String descricao) {
+        this.descricao = descricao;
+    }
 
 }

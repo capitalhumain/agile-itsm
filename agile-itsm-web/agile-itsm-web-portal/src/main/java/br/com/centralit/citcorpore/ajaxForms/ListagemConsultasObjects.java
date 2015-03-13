@@ -67,10 +67,10 @@ public class ListagemConsultasObjects extends AjaxFormAction {
             Collection col2 = biConsultaService.findByIdCategoria(id);
             if (col != null || col2 != null) {
                 if (col == null) {
-                    col = new ArrayList();
+                    col = new ArrayList<>();
                 }
                 if (col2 == null) {
-                    col2 = new ArrayList();
+                    col2 = new ArrayList<>();
                 }
                 strCab += "[";
                 boolean bPrim = true;
@@ -118,7 +118,7 @@ public class ListagemConsultasObjects extends AjaxFormAction {
             System.out.println("PROBLEMA COM CODIFICACAO DE CARACTERES!!! [AjaxProcessEvent.getFormFields()]");
             e.printStackTrace();
         }
-        final HashMap formFields = new HashMap();
+        final HashMap formFields = new HashMap<>();
         final Enumeration en = req.getParameterNames();
         String[] strValores;
         while (en.hasMoreElements()) {

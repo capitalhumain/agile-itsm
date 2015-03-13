@@ -5,126 +5,124 @@ import java.util.Collection;
 
 import br.com.agileitsm.model.support.BaseEntity;
 
-@SuppressWarnings("serial")
 public class AvaliacaoFornecedorDTO extends BaseEntity {
 
-	private Integer idAvaliacaoFornecedor;
+    private Integer idAvaliacaoFornecedor;
 
-	private Integer idFornecedor;
+    private Integer idFornecedor;
 
-	private Integer idResponsavel;
+    private Integer idResponsavel;
 
-	private Date dataAvaliacao;
+    private Date dataAvaliacao;
 
-	private String decisaoQualificacao;
+    private String decisaoQualificacao;
 
-	private String observacoesAvaliacaoFornecedor;
+    private String observacoesAvaliacaoFornecedor;
 
-	private Collection<CriterioAvaliacaoFornecedorDTO> listCriterioAvaliacaoFornecedor;
+    private Collection<CriterioAvaliacaoFornecedorDTO> listCriterioAvaliacaoFornecedor;
 
-	private Collection<AvaliacaoReferenciaFornecedorDTO> listAvaliacaoReferenciaFornecedor;
-	
-	private String nomeResponsavel ;
+    private Collection<AvaliacaoReferenciaFornecedorDTO> listAvaliacaoReferenciaFornecedor;
 
-	
-	public Integer getIdAvaliacaoFornecedor() {
-		return this.idAvaliacaoFornecedor;
-	}
+    private String nomeResponsavel;
 
-	public void setIdAvaliacaoFornecedor(Integer parm) {
-		this.idAvaliacaoFornecedor = parm;
-	}
+    public Integer getIdAvaliacaoFornecedor() {
+        return idAvaliacaoFornecedor;
+    }
 
-	public Integer getIdFornecedor() {
-		return this.idFornecedor;
-	}
+    public void setIdAvaliacaoFornecedor(final Integer parm) {
+        idAvaliacaoFornecedor = parm;
+    }
 
-	public void setIdFornecedor(Integer parm) {
-		this.idFornecedor = parm;
-	}
+    public Integer getIdFornecedor() {
+        return idFornecedor;
+    }
 
-	public Integer getIdResponsavel() {
-		return this.idResponsavel;
-	}
+    public void setIdFornecedor(final Integer parm) {
+        idFornecedor = parm;
+    }
 
-	public void setIdResponsavel(Integer parm) {
-		this.idResponsavel = parm;
-	}
+    public Integer getIdResponsavel() {
+        return idResponsavel;
+    }
 
-	public Date getDataAvaliacao() {
-		return this.dataAvaliacao;
-	}
+    public void setIdResponsavel(final Integer parm) {
+        idResponsavel = parm;
+    }
 
-	public void setDataAvaliacao(Date parm) {
-		this.dataAvaliacao = parm;
-	}
+    public Date getDataAvaliacao() {
+        return dataAvaliacao;
+    }
 
-	public String getDecisaoQualificacao() {
-		return this.decisaoQualificacao;
-	}
+    public void setDataAvaliacao(final Date parm) {
+        dataAvaliacao = parm;
+    }
 
-	public void setDecisaoQualificacao(String parm) {
-		this.decisaoQualificacao = parm;
-	}
+    public String getDecisaoQualificacao() {
+        return decisaoQualificacao;
+    }
 
+    public void setDecisaoQualificacao(final String parm) {
+        decisaoQualificacao = parm;
+    }
 
-	/**
-	 * @return the listCriterioAvaliacaoFornecedor
-	 */
-	public Collection<CriterioAvaliacaoFornecedorDTO> getListCriterioAvaliacaoFornecedor() {
-		return listCriterioAvaliacaoFornecedor;
-	}
+    /**
+     * @return the listCriterioAvaliacaoFornecedor
+     */
+    public Collection<CriterioAvaliacaoFornecedorDTO> getListCriterioAvaliacaoFornecedor() {
+        return listCriterioAvaliacaoFornecedor;
+    }
 
-	/**
-	 * @param listCriterioAvaliacaoFornecedor
-	 *            the listCriterioAvaliacaoFornecedor to set
-	 */
-	public void setListCriterioAvaliacaoFornecedor(Collection<CriterioAvaliacaoFornecedorDTO> listCriterioAvaliacaoFornecedor) {
-		this.listCriterioAvaliacaoFornecedor = listCriterioAvaliacaoFornecedor;
-	}
+    /**
+     * @param listCriterioAvaliacaoFornecedor
+     *            the listCriterioAvaliacaoFornecedor to set
+     */
+    public void setListCriterioAvaliacaoFornecedor(final Collection<CriterioAvaliacaoFornecedorDTO> listCriterioAvaliacaoFornecedor) {
+        this.listCriterioAvaliacaoFornecedor = listCriterioAvaliacaoFornecedor;
+    }
 
-	/**
-	 * @return the listAvaliacaoReferenciaFornecedor
-	 */
-	public Collection<AvaliacaoReferenciaFornecedorDTO> getListAvaliacaoReferenciaFornecedor() {
-		return listAvaliacaoReferenciaFornecedor;
-	}
+    /**
+     * @return the listAvaliacaoReferenciaFornecedor
+     */
+    public Collection<AvaliacaoReferenciaFornecedorDTO> getListAvaliacaoReferenciaFornecedor() {
+        return listAvaliacaoReferenciaFornecedor;
+    }
 
-	/**
-	 * @param listAvaliacaoReferenciaFornecedor
-	 *            the listAvaliacaoReferenciaFornecedor to set
-	 */
-	public void setListAvaliacaoReferenciaFornecedor(Collection<AvaliacaoReferenciaFornecedorDTO> listAvaliacaoReferenciaFornecedor) {
-		this.listAvaliacaoReferenciaFornecedor = listAvaliacaoReferenciaFornecedor;
-	}
+    /**
+     * @param listAvaliacaoReferenciaFornecedor
+     *            the listAvaliacaoReferenciaFornecedor to set
+     */
+    public void setListAvaliacaoReferenciaFornecedor(final Collection<AvaliacaoReferenciaFornecedorDTO> listAvaliacaoReferenciaFornecedor) {
+        this.listAvaliacaoReferenciaFornecedor = listAvaliacaoReferenciaFornecedor;
+    }
 
-	/**
-	 * @return the nomeResponsavel
-	 */
-	public String getNomeResponsavel() {
-		return nomeResponsavel;
-	}
+    /**
+     * @return the nomeResponsavel
+     */
+    public String getNomeResponsavel() {
+        return nomeResponsavel;
+    }
 
-	/**
-	 * @param nomeResponsavel the nomeResponsavel to set
-	 */
-	public void setNomeResponsavel(String nomeResponsavel) {
-		this.nomeResponsavel = nomeResponsavel;
-	}
+    /**
+     * @param nomeResponsavel
+     *            the nomeResponsavel to set
+     */
+    public void setNomeResponsavel(final String nomeResponsavel) {
+        this.nomeResponsavel = nomeResponsavel;
+    }
 
-	/**
-	 * @return the observacoesAvaliacaoFornecedor
-	 */
-	public String getObservacoesAvaliacaoFornecedor() {
-		return observacoesAvaliacaoFornecedor;
-	}
+    /**
+     * @return the observacoesAvaliacaoFornecedor
+     */
+    public String getObservacoesAvaliacaoFornecedor() {
+        return observacoesAvaliacaoFornecedor;
+    }
 
-	/**
-	 * @param observacoesAvaliacaoFornecedor the observacoesAvaliacaoFornecedor to set
-	 */
-	public void setObservacoesAvaliacaoFornecedor(String observacoesAvaliacaoFornecedor) {
-		this.observacoesAvaliacaoFornecedor = observacoesAvaliacaoFornecedor;
-	}
-
+    /**
+     * @param observacoesAvaliacaoFornecedor
+     *            the observacoesAvaliacaoFornecedor to set
+     */
+    public void setObservacoesAvaliacaoFornecedor(final String observacoesAvaliacaoFornecedor) {
+        this.observacoesAvaliacaoFornecedor = observacoesAvaliacaoFornecedor;
+    }
 
 }

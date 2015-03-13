@@ -19,40 +19,41 @@ import br.com.citframework.util.Constantes;
 public class SistemaOperacionalDao extends CrudDaoDefaultImpl {
 
     public SistemaOperacionalDao() {
-	super(Constantes.getValue("DATABASE_ALIAS"), null);
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
     }
 
-    @SuppressWarnings("rawtypes")
+    @Override
     public Class getBean() {
-	return SistemaOperacionalDTO.class;
+        return SistemaOperacionalDTO.class;
     }
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
+    @Override
     public Collection<Field> getFields() {
-	Collection<Field> listFields = new ArrayList<>();
+        final Collection<Field> listFields = new ArrayList<>();
 
-	listFields.add(new Field("ID", "id", true, true, false, false));
-	listFields.add(new Field("NOME", "nome", false, false, false, true,"Nome Sistema Operacional"));
+        listFields.add(new Field("ID", "id", true, true, false, false));
+        listFields.add(new Field("NOME", "nome", false, false, false, true, "Nome Sistema Operacional"));
 
-	return listFields;
+        return listFields;
     }
 
+    @Override
     public String getTableName() {
-	return "SISTEMAOPERACIONAL";
+        return "sistemaoperacional";
     }
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
-    public Collection find(BaseEntity obj) throws PersistenceException {
-	List ordem = new ArrayList();
-	ordem.add(new Order("nome"));
-	return super.find(obj, ordem);
+    @Override
+    public Collection find(final BaseEntity obj) throws PersistenceException {
+        final List ordem = new ArrayList<>();
+        ordem.add(new Order("nome"));
+        return super.find(obj, ordem);
     }
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
+    @Override
     public Collection list() throws PersistenceException {
-	List list = new ArrayList();
-	list.add(new Order("nome"));
-	return super.list(list);
+        final List list = new ArrayList<>();
+        list.add(new Order("nome"));
+        return super.list(list);
     }
 
 }

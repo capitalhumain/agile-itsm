@@ -7,12 +7,12 @@ import br.com.centralit.citcorpore.metainfo.negocio.DinamicViewsService;
 import br.com.citframework.service.ServiceLocator;
 
 public class ScriptRhinoJSExecute {
-    public Object processScript(Context cx, Scriptable scope, String script, String sourceName) throws Exception {
-        DinamicViewsService dinamicViewsService = (DinamicViewsService) ServiceLocator.getInstance().getService(DinamicViewsService.class, null);
 
-        Object language = scope.get("language", scope);
-        script = dinamicViewsService.internacionalizaScript(script, language.toString());
-
-        return cx.evaluateString(scope, script, sourceName, 1, null);
+    public Object processScript(final Context cx, final Scriptable scope, final String script, final String sourceName) throws Exception {
+        final DinamicViewsService dinamicViewsService = (DinamicViewsService) ServiceLocator.getInstance().getService(DinamicViewsService.class, null);
+        final Object language = scope.get("language", scope);
+        final String toEvaluateScript = dinamicViewsService.internacionalizaScript(script, language.toString());
+        return cx.evaluateString(scope, toEvaluateScript, sourceName, 1, null);
     }
+
 }

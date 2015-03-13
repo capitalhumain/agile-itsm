@@ -16,55 +16,56 @@ import br.com.citframework.util.Constantes;
 
 public class InformacoesContratoPerfSegDao extends CrudDaoDefaultImpl {
 
-
-	public InformacoesContratoPerfSegDao() {
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
-	
-	public Collection find(BaseEntity obj) throws PersistenceException
-	{
-	    List order =  new ArrayList();
-	    order.add(new Order("idPerfilSeguranca", "ASC"));
-	    return super.find(obj, order);
-	}
-
-	public Collection<Field> getFields() {
-		Collection<Field> listFields = new ArrayList<>();
-		
-		listFields.add(new Field("idInformacoesContratoConfig" ,"idInformacoesContratoConfig", true, false, false, true));
-		listFields.add(new Field("idPerfilSeguranca" ,"idPerfilSeguranca", true, false, false, true));
-		
-		return listFields;
-	}
-
-	public String getTableName() {
-		return "InformacoesContratoPerfSeg";
-	}
-
-	public Collection list() throws PersistenceException {
-		return null;
-	}
-	
-	public Class getBean() {
-		return InformacoesContratoPerfSegDTO.class;
-	}
-
-	public Collection findByIdInformacoesContratoConfig(Integer idInformacoesContratoConfig) throws Exception
-	{
-		List lstCond = new ArrayList();
-		List lstOrdem = new ArrayList();
-		
-		lstCond.add(new Condition("idInformacoesContratoConfig", "=", idInformacoesContratoConfig));
-		
-		lstOrdem.add(new Order("idPerfilSeguranca"));
-	    return super.findByCondition(lstCond, lstOrdem);
-	}
-	
-    public void deleteAllByIdInformacoesContratoConfig(
-            InformacoesContratoConfigDTO contrato) throws PersistenceException {
-    	List condicao = new ArrayList();
-    	condicao.add(new Condition("idInformacoesContratoConfig", "=", contrato.getIdInformacoesContratoConfig()));
-    	super.deleteByCondition(condicao);
+    public InformacoesContratoPerfSegDao() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
     }
-	
+
+    @Override
+    public Collection find(final BaseEntity obj) throws PersistenceException {
+        final List<Order> order = new ArrayList<>();
+        order.add(new Order("idPerfilSeguranca", "ASC"));
+        return super.find(obj, order);
+    }
+
+    @Override
+    public Collection<Field> getFields() {
+        final Collection<Field> listFields = new ArrayList<>();
+
+        listFields.add(new Field("idInformacoesContratoConfig", "idInformacoesContratoConfig", true, false, false, true));
+        listFields.add(new Field("idPerfilSeguranca", "idPerfilSeguranca", true, false, false, true));
+
+        return listFields;
+    }
+
+    @Override
+    public String getTableName() {
+        return "InformacoesContratoPerfSeg";
+    }
+
+    @Override
+    public Collection list() throws PersistenceException {
+        return null;
+    }
+
+    @Override
+    public Class getBean() {
+        return InformacoesContratoPerfSegDTO.class;
+    }
+
+    public Collection findByIdInformacoesContratoConfig(final Integer idInformacoesContratoConfig) throws Exception {
+        final List lstCond = new ArrayList<>();
+        final List lstOrdem = new ArrayList<>();
+
+        lstCond.add(new Condition("idInformacoesContratoConfig", "=", idInformacoesContratoConfig));
+
+        lstOrdem.add(new Order("idPerfilSeguranca"));
+        return super.findByCondition(lstCond, lstOrdem);
+    }
+
+    public void deleteAllByIdInformacoesContratoConfig(final InformacoesContratoConfigDTO contrato) throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        condicao.add(new Condition("idInformacoesContratoConfig", "=", contrato.getIdInformacoesContratoConfig()));
+        super.deleteByCondition(condicao);
+    }
+
 }

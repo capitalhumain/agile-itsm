@@ -10,15 +10,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.BodyTagSupport;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 
 import br.com.citframework.dto.Usuario;
 import br.com.citframework.menu.IRenderMenu;
 import br.com.citframework.menu.MenuConfig;
 import br.com.citframework.menu.MenuItem;
-import br.com.citframework.security.Access;
-import br.com.citframework.security.AccessConfig;
 import br.com.citframework.util.Constantes;
 
 public class Menu extends BodyTagSupport {
@@ -68,8 +66,8 @@ public class Menu extends BodyTagSupport {
                         } else {
                             final Object objMenuObj = classMenu.newInstance();
                             final IRenderMenu objRenderMenu = (IRenderMenu) objMenuObj;
-                            str = objRenderMenu.render(colMenus, ((HttpServletRequest) pageContext.getRequest()).getContextPath(), (HttpServletRequest) pageContext.getRequest(),
-                                    (HttpServletResponse) pageContext.getResponse());
+                            str = objRenderMenu.render(colMenus, ((HttpServletRequest) pageContext.getRequest()).getContextPath(),
+                                    (HttpServletRequest) pageContext.getRequest(), (HttpServletResponse) pageContext.getResponse());
                         }
                     }
                 } catch (final Exception e) {
@@ -93,7 +91,7 @@ public class Menu extends BodyTagSupport {
         final List<MenuItem> itemList = new ArrayList<>();
 
         for (final MenuItem item : menuItemCollection) {
-            String path = item.getPath();
+            final String path = item.getPath();
             // if 'path' is blank, item is top level for some itens
             if (StringUtils.isBlank(path)) {
                 Collection<MenuItem> menuItens = item.getMenuItens();
@@ -102,20 +100,6 @@ public class Menu extends BodyTagSupport {
                     if (menuItens != null && menuItens.size() != 0) {
                         item.setMenuItens(menuItens);
                         itemList.add(item);
-                    }
-                }
-            } else {
-                path = FORWARD_SLASH + path;
-                final Access access = AccessConfig.getAccess(path);
-                if (access == null) {
-                    LOGGER.debug("NO mapping for path: " + path);
-                } else {
-                    final String acessosUsuario = usuario.getAcessos();
-                    if (access.hasAccess(acessosUsuario)) {
-                        LOGGER.debug("User '" + usuario.getIdUsuario() + "' has access to: " + path);
-                        itemList.add(item);
-                    } else {
-                        LOGGER.debug("User '" + usuario.getIdUsuario() + "' has NO access to: " + path);
                     }
                 }
             }

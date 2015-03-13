@@ -84,11 +84,11 @@ public class UploadPlanoDeReversao extends AjaxFormAction {
 		
 		 colUploadsGED = (Collection)request.getSession(true).getAttribute("colUploadPlanoDeReversaoGED");
 		if (colUploadsGED != null && colUploadsGED.size() == 0){
-			colUploadsGED = new ArrayList();
+			colUploadsGED = new ArrayList<>();
 		}
 		
 		if (colUploadsGED == null){
-			colUploadsGED = new ArrayList();
+			colUploadsGED = new ArrayList<>();
 		}
 		
 		File f = new File(CITCorporeUtil.CAMINHO_REAL_APP + "tempUpload");
@@ -100,7 +100,7 @@ public class UploadPlanoDeReversao extends AjaxFormAction {
 		FileItem fi;
 		if (!fileItems.isEmpty()){
 			File arquivo;
-			List filesDel = new ArrayList();
+			List filesDel = new ArrayList<>();
 			Iterator it = fileItems.iterator();
 			while(it.hasNext()){
 				fi = (FileItem)it.next();	

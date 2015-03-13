@@ -88,7 +88,7 @@ public class RecuperaFromGed extends AjaxFormAction {
 	}
 
 	FileInputStream fis = null;
-	List filesDel = new ArrayList();
+	List filesDel = new ArrayList<>();
 	try {
 	    if (controleGEDDTO != null) {
 		try {

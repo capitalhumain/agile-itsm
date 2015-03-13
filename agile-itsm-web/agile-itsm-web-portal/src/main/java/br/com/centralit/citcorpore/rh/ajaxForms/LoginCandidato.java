@@ -193,7 +193,7 @@ public class LoginCandidato extends AjaxFormAction {
 	@SuppressWarnings("rawtypes")
 	@Override
 	public Class getBeanClass() {
-		// TODO Auto-generated method stub
+		
 		return CandidatoDTO.class;
 	}
 

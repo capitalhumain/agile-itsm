@@ -16,64 +16,69 @@ import br.com.citframework.util.Constantes;
 
 public class LigacaoRequisicaoLiberacaoRiscosDao extends CrudDaoDefaultImpl {
 
+    public LigacaoRequisicaoLiberacaoRiscosDao() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
+    }
 
-	public LigacaoRequisicaoLiberacaoRiscosDao() {
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
-	public Collection<Field> getFields() {
-		Collection<Field> listFields = new ArrayList<>();
-		listFields.add(new Field("idligacao_mud_hist_risco", "idligacao_mud_hist_riscos", true, true, false, false));
-		listFields.add(new Field("idRequisicaoMudanca" ,"idRequisicaoMudanca", false, false, false, false));
-		listFields.add(new Field("idHistoricoMudanca", "idHistoricoMudanca", false, false, false, false));
-		listFields.add(new Field("idRequisicaoMudancaRisco", "idRequisicaoMudancaRisco", false, false, false, false));
-		return listFields;
-	}
-	
-	public String getTableName() {
-		return this.getOwner() + "ligacao_mud_hist_risco";
-	}
-	public Collection list() throws PersistenceException {
-		return null;
-	}
+    @Override
+    public Collection<Field> getFields() {
+        final Collection<Field> listFields = new ArrayList<>();
+        listFields.add(new Field("idligacao_mud_hist_risco", "idligacao_mud_hist_riscos", true, true, false, false));
+        listFields.add(new Field("idRequisicaoMudanca", "idRequisicaoMudanca", false, false, false, false));
+        listFields.add(new Field("idHistoricoMudanca", "idHistoricoMudanca", false, false, false, false));
+        listFields.add(new Field("idRequisicaoMudancaRisco", "idRequisicaoMudancaRisco", false, false, false, false));
+        return listFields;
+    }
 
-	public Class getBean() {
-		return LigacaoRequisicaoMudancaHistoricoRiscosDTO.class;
-	}
-	public Collection find(BaseEntity arg0) throws PersistenceException {
-		return null;
-	}
-	
-	public void deleteByIdRequisicaoLiberacao(Integer idRequisicaoLiberacao) throws ServiceException, Exception{
-		ArrayList<Condition> condicoes = new ArrayList<Condition>();
-		
-		condicoes.add(new Condition("idRequisicaoLiberacao", "=", idRequisicaoLiberacao));
-		
-		super.deleteByCondition(condicoes);
-	}
-	
-	public Collection<RequisicaoLiberacaoResponsavelDTO> findByIdLiberacao(Integer idRequisicaoLiberacao) throws Exception {
-		List parametro = new ArrayList();
-		List fields = new ArrayList(); 
-		
-		
-		String sql = " select rqResponsavel.idResponsavel, rqResponsavel.idRequisicaoLiberacao, responsavel.nome, responsavel.telefone, responsavel.email, cargo.nomecargo , rqResponsavel.papelresponsavel "+
-				" from requisicaoliberacaoresponsavel rqResponsavel "+ 
-				" inner join liberacao lib on rqResponsavel.idRequisicaoLiberacao = lib.idLiberacao "+
-				" inner join empregados responsavel on rqResponsavel.idResponsavel = responsavel.idempregado "+ 
-				" inner join cargos cargo on responsavel.idcargo = cargo.idcargo" +
-				" where rqResponsavel.idRequisicaoLiberacao = ? ";
-		
-	  List resultado = 	execSQL(sql, new Object[]{idRequisicaoLiberacao	});
-	  
-	  fields.add("idResponsavel");
-	  fields.add("idRequisicaoLiberacao");
-	  fields.add("nomeResponsavel");
-	  fields.add("telResponsavel");
-	  fields.add("emailResponsavel");
-	  fields.add("nomeCargo");
-	  fields.add("papelResponsavel");
-	  
-	  return listConvertion(RequisicaoLiberacaoResponsavelDTO.class, resultado,fields) ;
-	}
+    @Override
+    public String getTableName() {
+        return this.getOwner() + "ligacao_mud_hist_risco";
+    }
+
+    @Override
+    public Collection list() throws PersistenceException {
+        return null;
+    }
+
+    @Override
+    public Class getBean() {
+        return LigacaoRequisicaoMudancaHistoricoRiscosDTO.class;
+    }
+
+    @Override
+    public Collection find(final BaseEntity arg0) throws PersistenceException {
+        return null;
+    }
+
+    public void deleteByIdRequisicaoLiberacao(final Integer idRequisicaoLiberacao) throws ServiceException, Exception {
+        final ArrayList<Condition> condicoes = new ArrayList<Condition>();
+
+        condicoes.add(new Condition("idRequisicaoLiberacao", "=", idRequisicaoLiberacao));
+
+        super.deleteByCondition(condicoes);
+    }
+
+    public Collection<RequisicaoLiberacaoResponsavelDTO> findByIdLiberacao(final Integer idRequisicaoLiberacao) throws Exception {
+        new ArrayList<>();
+        final List fields = new ArrayList<>();
+
+        final String sql = " select rqResponsavel.idResponsavel, rqResponsavel.idRequisicaoLiberacao, responsavel.nome, responsavel.telefone, responsavel.email, cargo.nomecargo , rqResponsavel.papelresponsavel "
+                + " from requisicaoliberacaoresponsavel rqResponsavel "
+                + " inner join liberacao lib on rqResponsavel.idRequisicaoLiberacao = lib.idLiberacao "
+                + " inner join empregados responsavel on rqResponsavel.idResponsavel = responsavel.idempregado "
+                + " inner join cargos cargo on responsavel.idcargo = cargo.idcargo" + " where rqResponsavel.idRequisicaoLiberacao = ? ";
+
+        final List resultado = this.execSQL(sql, new Object[] {idRequisicaoLiberacao});
+
+        fields.add("idResponsavel");
+        fields.add("idRequisicaoLiberacao");
+        fields.add("nomeResponsavel");
+        fields.add("telResponsavel");
+        fields.add("emailResponsavel");
+        fields.add("nomeCargo");
+        fields.add("papelResponsavel");
+
+        return this.listConvertion(RequisicaoLiberacaoResponsavelDTO.class, resultado, fields);
+    }
 
 }

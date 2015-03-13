@@ -4,178 +4,158 @@ import br.com.agileitsm.model.support.BaseEntity;
 
 public class GerenciaConfiguracaoTreeDTO extends BaseEntity {
 
-	private static final long serialVersionUID = 1L;
-	
-	/* Item de Configuracao */
-	private Integer idItemConfiguracao;
-	private Integer idItemConfiguracaoExport;
-	private Integer idItemConfiguracaoPai;
-	private String identificacao;
-	private String localidadeItemConfiguracao;
-	private String criticidadeItemConfiguracao;
-	private Integer idBaseConhecimento;
+    private static final long serialVersionUID = 1L;
 
-	/* Grupo Item de Configuracao */
-	private Integer idGrupoItemConfiguracao;
-	private String nomeGrupoItemConfiguracao;
-	private Integer idGrupoItemConfiguracaoPai;
-	
-	private String criticidade;
-	private String status;
-	
-	private String comboStatus;
-	private String cboCriticidade;
-	private String iframe;
+    /* Item de Configuracao */
+    private Integer idItemConfiguracao;
+    private Integer idItemConfiguracaoExport;
+    private Integer idItemConfiguracaoPai;
+    private String identificacao;
+    private String localidadeItemConfiguracao;
+    private String criticidadeItemConfiguracao;
+    private Integer idBaseConhecimento;
 
-	//atributo auxiliar para capturar o navegador usado
-	private String idBrowserName;
-	
-	public String getIdBrowserName() {
-		return idBrowserName;
-	}
+    /* Grupo Item de Configuracao */
+    private Integer idGrupoItemConfiguracao;
+    private String nomeGrupoItemConfiguracao;
+    private Integer idGrupoItemConfiguracaoPai;
 
+    private String criticidade;
+    private String status;
 
-	public void setIdBrowserName(String idBrowserName) {
-		this.idBrowserName = idBrowserName;
-	}
+    private String comboStatus;
+    private String cboCriticidade;
+    private String iframe;
 
+    // atributo auxiliar para capturar o navegador usado
+    private String idBrowserName;
 
-	public String getComboStatus() {
-		return comboStatus;
-	}
+    public String getIdBrowserName() {
+        return idBrowserName;
+    }
 
+    public void setIdBrowserName(final String idBrowserName) {
+        this.idBrowserName = idBrowserName;
+    }
 
-	public void setComboStatus(String comboStatus) {
-		this.comboStatus = comboStatus;
-	}
+    public String getComboStatus() {
+        return comboStatus;
+    }
 
+    public void setComboStatus(final String comboStatus) {
+        this.comboStatus = comboStatus;
+    }
 
-	public String getCboCriticidade() {
-		return cboCriticidade;
-	}
+    public String getCboCriticidade() {
+        return cboCriticidade;
+    }
 
+    public void setCboCriticidade(final String cboCriticidade) {
+        this.cboCriticidade = cboCriticidade;
+    }
 
-	public void setCboCriticidade(String cboCriticidade) {
-		this.cboCriticidade = cboCriticidade;
-	}
+    public String getCriticidade() {
+        return criticidade;
+    }
 
+    public void setCriticidade(final String criticidade) {
+        this.criticidade = criticidade;
+    }
 
-	public String getCriticidade() {
-		return criticidade;
-	}
+    public String getStatus() {
+        return status;
+    }
 
+    public void setStatus(final String status) {
+        this.status = status;
+    }
 
-	public void setCriticidade(String criticidade) {
-		this.criticidade = criticidade;
-	}
+    public Integer getIdItemConfiguracao() {
+        return idItemConfiguracao;
+    }
 
+    public void setIdItemConfiguracao(final Integer pIdItemConfiguracao) {
+        idItemConfiguracao = pIdItemConfiguracao;
+    }
 
-	public String getStatus() {
-		return status;
-	}
+    public String getIdentificacao() {
+        return identificacao;
+    }
 
+    public void setIdentificacao(final String pIdentificacao) {
+        identificacao = pIdentificacao;
+    }
 
-	public void setStatus(String status) {
-		this.status = status;
-	}
+    public String getLocalidadeItemConfiguracao() {
+        return localidadeItemConfiguracao;
+    }
 
-	
+    public void setLocalidadeItemConfiguracao(final String pLocalidadeItemConfiguracao) {
+        localidadeItemConfiguracao = pLocalidadeItemConfiguracao;
+    }
 
+    public String getCriticidadeItemConfiguracao() {
+        return criticidadeItemConfiguracao;
+    }
 
-	public Integer getIdItemConfiguracao() {
-		return idItemConfiguracao;
-	}
+    public void setCriticidadeItemConfiguracao(final String pCriticidadeItemConfiguracao) {
+        criticidadeItemConfiguracao = pCriticidadeItemConfiguracao;
+    }
 
+    public Integer getIdGrupoItemConfiguracao() {
+        return idGrupoItemConfiguracao;
+    }
 
-	public void setIdItemConfiguracao(Integer pIdItemConfiguracao) {
-		idItemConfiguracao = pIdItemConfiguracao;
-	}
+    public void setIdGrupoItemConfiguracao(final Integer pIdGrupoItemConfiguracao) {
+        idGrupoItemConfiguracao = pIdGrupoItemConfiguracao;
+    }
 
+    public String getNomeGrupoItemConfiguracao() {
+        return nomeGrupoItemConfiguracao;
+    }
 
-	public String getIdentificacao() {
-		return identificacao;
-	}
+    public void setNomeGrupoItemConfiguracao(final String pNomeGrupoItemConfiguracao) {
+        nomeGrupoItemConfiguracao = pNomeGrupoItemConfiguracao;
+    }
 
-	public void setIdentificacao(String pIdentificacao) {
-		identificacao = pIdentificacao;
-	}
+    public Integer getIdItemConfiguracaoPai() {
+        return idItemConfiguracaoPai;
+    }
 
+    public void setIdItemConfiguracaoPai(final Integer idItemConfiguracaoPai) {
+        this.idItemConfiguracaoPai = idItemConfiguracaoPai;
+    }
 
-	public String getLocalidadeItemConfiguracao() {
-		return localidadeItemConfiguracao;
-	}
+    public Integer getIdBaseConhecimento() {
+        return idBaseConhecimento;
+    }
 
-	public void setLocalidadeItemConfiguracao(String pLocalidadeItemConfiguracao) {
-		localidadeItemConfiguracao = pLocalidadeItemConfiguracao;
-	}
+    public void setIdBaseConhecimento(final Integer idBaseConhecimento) {
+        this.idBaseConhecimento = idBaseConhecimento;
+    }
 
+    public Integer getIdGrupoItemConfiguracaoPai() {
+        return idGrupoItemConfiguracaoPai;
+    }
 
-	public String getCriticidadeItemConfiguracao() {
-		return criticidadeItemConfiguracao;
-	}
+    public void setIdGrupoItemConfiguracaoPai(final Integer idGrupoItemConfiguracaoPai) {
+        this.idGrupoItemConfiguracaoPai = idGrupoItemConfiguracaoPai;
+    }
 
-	public void setCriticidadeItemConfiguracao(String pCriticidadeItemConfiguracao) {
-		criticidadeItemConfiguracao = pCriticidadeItemConfiguracao;
-	}
+    public Integer getIdItemConfiguracaoExport() {
+        return idItemConfiguracaoExport;
+    }
 
+    public void setIdItemConfiguracaoExport(final Integer idItemConfiguracaoExport) {
+        this.idItemConfiguracaoExport = idItemConfiguracaoExport;
+    }
 
-	public Integer getIdGrupoItemConfiguracao() {
-		return idGrupoItemConfiguracao;
-	}
+    public String getIframe() {
+        return iframe;
+    }
 
-	public void setIdGrupoItemConfiguracao(Integer pIdGrupoItemConfiguracao) {
-		idGrupoItemConfiguracao = pIdGrupoItemConfiguracao;
-	}
+    public void setIframe(final String iframe) {
+        this.iframe = iframe;
+    }
 
-
-	public String getNomeGrupoItemConfiguracao() {
-		return nomeGrupoItemConfiguracao;
-	}
-
-	public void setNomeGrupoItemConfiguracao(String pNomeGrupoItemConfiguracao) {
-		nomeGrupoItemConfiguracao = pNomeGrupoItemConfiguracao;
-	}
-
-	public Integer getIdItemConfiguracaoPai() {
-		return idItemConfiguracaoPai;
-	}
-
-	public void setIdItemConfiguracaoPai(Integer idItemConfiguracaoPai) {
-		this.idItemConfiguracaoPai = idItemConfiguracaoPai;
-	}
-
-	public Integer getIdBaseConhecimento() {
-		return idBaseConhecimento;
-	}
-
-	public void setIdBaseConhecimento(Integer idBaseConhecimento) {
-		this.idBaseConhecimento = idBaseConhecimento;
-	}
-
-	public Integer getIdGrupoItemConfiguracaoPai() {
-		return idGrupoItemConfiguracaoPai;
-	}
-
-	public void setIdGrupoItemConfiguracaoPai(Integer idGrupoItemConfiguracaoPai) {
-		this.idGrupoItemConfiguracaoPai = idGrupoItemConfiguracaoPai;
-	}
-
-	public Integer getIdItemConfiguracaoExport() {
-		return idItemConfiguracaoExport;
-	}
-
-	public void setIdItemConfiguracaoExport(Integer idItemConfiguracaoExport) {
-		this.idItemConfiguracaoExport = idItemConfiguracaoExport;
-	}
-
-
-	public String getIframe() {
-		return iframe;
-	}
-
-
-	public void setIframe(String iframe) {
-		this.iframe = iframe;
-	}
-	
 }

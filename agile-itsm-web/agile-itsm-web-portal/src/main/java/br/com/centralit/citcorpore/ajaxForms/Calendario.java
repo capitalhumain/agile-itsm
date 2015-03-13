@@ -9,7 +9,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 
 import br.com.centralit.citajax.html.AjaxFormAction;
 import br.com.centralit.citajax.html.DocumentHTML;
@@ -183,7 +183,7 @@ public class Calendario extends AjaxFormAction {
         comboTipoDemanda.addOption(String.valueOf(0), UtilI18N.internacionaliza(request, "calendario.naoHaJornadaTrabalho"));
         if (lista != null) {
             for (JornadaTrabalhoDTO j : lista) {
-                comboTipoDemanda.addOption(j.getIdJornada().toString(), StringEscapeUtils.escapeJavaScript(j.getDescricao()));
+                comboTipoDemanda.addOption(j.getIdJornada().toString(), StringEscapeUtils.escapeEcmaScript(j.getDescricao()));
             }
         }
     }

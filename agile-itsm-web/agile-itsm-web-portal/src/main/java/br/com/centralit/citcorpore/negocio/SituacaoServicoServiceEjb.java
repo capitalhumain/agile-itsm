@@ -32,7 +32,7 @@ public class SituacaoServicoServiceEjb extends CrudServiceImpl implements Situac
 
     @Override
     public boolean jaExisteSituacaoComMesmoNome(final String nome) {
-        final ArrayList<Condition> condicoes = new ArrayList<Condition>();
+        final List<Condition> condicoes = new ArrayList<Condition>();
         condicoes.add(new Condition("nomeSituacaoServico", "=", nome));
         condicoes.add(new Condition("dataFim", "is", null));
         Collection retorno = null;

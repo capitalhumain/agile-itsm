@@ -6,7 +6,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.EmpregadoDTO;
@@ -84,11 +84,6 @@ public class EmpregadoDao extends CrudDaoDefaultImpl {
         listFields.add(new Field("telefone", "telefone", false, false, false, false));
         listFields.add(new Field("ramal", "ramal", false, false, false, false));
         return listFields;
-    }
-
-    @Override
-    public void updateNotNull(final BaseEntity obj) throws PersistenceException {
-        super.updateNotNull(obj);
     }
 
     @Override
@@ -276,10 +271,10 @@ public class EmpregadoDao extends CrudDaoDefaultImpl {
         return null;
     }
 
-    public Collection<EmpregadoDTO> listEmpregadoByContratoAndUnidadeAndEmpregados(final Integer idContrato, final Integer idUnidade, final Integer[] idEmpregados,
-            final UsuarioDTO usuario, final ArrayList<UnidadeDTO> listUnidadeContrato) throws PersistenceException {
+    public Collection<EmpregadoDTO> listEmpregadoByContratoAndUnidadeAndEmpregados(final Integer idContrato, final Integer idUnidade,
+            final Integer[] idEmpregados, final UsuarioDTO usuario, final ArrayList<UnidadeDTO> listUnidadeContrato) throws PersistenceException {
         final StringBuilder sql = new StringBuilder();
-        final List parametro = new ArrayList();
+        final List parametro = new ArrayList<>();
 
         sql.append(" SELECT ge.idempregado, e.nome, e.email , e.telefone, u.idunidade, cg.idcontrato ");
         sql.append(" FROM grupo g, gruposempregados ge, empregados e, contratosgrupos cg, unidade u ");
@@ -294,10 +289,11 @@ public class EmpregadoDao extends CrudDaoDefaultImpl {
             sql.append(" AND cg.idcontrato = ? ");
             parametro.add(idContrato);
         }
+
         if (idUnidade != null) {
             sql.append("AND u.idunidade = ? ");
             parametro.add(idUnidade);
-        } else {
+        } else if (listUnidadeContrato.size() > 0) {
             sql.append(" AND u.idunidade in ( ");
             for (int i = 0; i < listUnidadeContrato.size(); i++) {
                 sql.append(listUnidadeContrato.get(i).getIdUnidade());
@@ -325,9 +321,8 @@ public class EmpregadoDao extends CrudDaoDefaultImpl {
         final List result = engine.listConvertion(EmpregadoDTO.class, lista, listRetorno);
         if (result != null && !result.isEmpty()) {
             return result;
-        } else {
-            return null;
         }
+        return null;
     }
 
     public Collection<EmpregadoDTO> listEmpregadoContrato(final Integer idContrato) throws PersistenceException {
@@ -633,7 +628,8 @@ public class EmpregadoDao extends CrudDaoDefaultImpl {
      * @throws Exception
      * @author valdoilo.damasceno 29.10.2013
      */
-    public Collection<EmpregadoDTO> findSolicitanteByNomeAndIdContratoAndIdUnidade(String nome, final Integer idContrato, final Integer idUnidade) throws PersistenceException {
+    public Collection<EmpregadoDTO> findSolicitanteByNomeAndIdContratoAndIdUnidade(String nome, final Integer idContrato, final Integer idUnidade)
+            throws PersistenceException {
         if (nome == null) {
             nome = "";
         }
@@ -690,7 +686,8 @@ public class EmpregadoDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Pesquisa Empregado por Telefone ou Ramal. Retorna o primeiro Empregado encontrado para o Ramal ou Telefone informado. <<< ATENÇÃO >> o parâmetro Telefone antes de ser
+     * Pesquisa Empregado por Telefone ou Ramal. Retorna o primeiro Empregado encontrado para o Ramal ou Telefone informado. <<< ATENÇÃO >> o parâmetro Telefone
+     * antes de ser
      * enviado para o método,
      * deve ser tratado com o Método mascaraProcuraSql() da Classe Utilitária br.com.centralit.citcorpore.util.Telefone.java;
      *

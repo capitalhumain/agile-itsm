@@ -45,8 +45,8 @@ public class ExperienciaInformaticaDao extends CrudDaoDefaultImpl {
     }
 
     public Collection findByNotIdFuncao(final Integer idFuncao) throws PersistenceException {
-        final List fields = new ArrayList();
-        final List parametros = new ArrayList();
+        final List fields = new ArrayList<>();
+        final List parametros = new ArrayList<>();
 
         final String sql = "select idexperienciainformatica, descricao, detalhe from  rh_experienciainformatica where idexperienciainformatica not"
                 + " in(select idexperienciainformatica from rh_requisicaoexperienciainformatica where idsolicitacaoservico = ? and obrigatorio = 'S') order by descricao ";
@@ -64,7 +64,7 @@ public class ExperienciaInformaticaDao extends CrudDaoDefaultImpl {
 
     @Override
     public Collection list() throws PersistenceException {
-        final List list = new ArrayList();
+        final List list = new ArrayList<>();
         list.add(new Order("descricao"));
         return super.list(list);
     }

@@ -22,7 +22,7 @@ import net.sf.jasperreports.engine.export.JRXlsExporter;
 import net.sf.jasperreports.engine.export.JRXlsExporterParameter;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import br.com.centralit.citajax.html.AjaxFormAction;
 import br.com.centralit.citajax.html.DocumentHTML;
@@ -140,7 +140,7 @@ public class RelatorioControleSla extends AjaxFormAction {
 		GrupoDTO grupoDto = new GrupoDTO();
 		GrupoService grupoSegurancaService = (GrupoService) ServiceLocator.getInstance().getService(GrupoService.class, null);
 
-		Collection<SolicitacaoServicoDTO> listSolicitacaoServicoControleSla = new ArrayList();
+		Collection<SolicitacaoServicoDTO> listSolicitacaoServicoControleSla = new ArrayList<>();
 
 		SolicitacaoServicoService solicitacaoServicoService = (SolicitacaoServicoService) ServiceLocator.getInstance().getService(SolicitacaoServicoService.class, null);
 
@@ -251,7 +251,7 @@ public class RelatorioControleSla extends AjaxFormAction {
 		GrupoDTO grupoDto = new GrupoDTO();
 		GrupoService grupoSegurancaService = (GrupoService) ServiceLocator.getInstance().getService(GrupoService.class, null);
 
-		Collection<SolicitacaoServicoDTO> listSolicitacaoServicoControleSla = new ArrayList();
+		Collection<SolicitacaoServicoDTO> listSolicitacaoServicoControleSla = new ArrayList<>();
 
 		SolicitacaoServicoService solicitacaoServicoService = (SolicitacaoServicoService) ServiceLocator.getInstance().getService(SolicitacaoServicoService.class, null);
 
@@ -367,7 +367,7 @@ public class RelatorioControleSla extends AjaxFormAction {
 
 			SolicitacaoServicoServiceEjb solicitacaoServicoServiceEjb = new SolicitacaoServicoServiceEjb();
 
-			Collection<SolicitacaoServicoDTO> listSolicitacaoServicoControleSlaAux = new ArrayList();
+			Collection<SolicitacaoServicoDTO> listSolicitacaoServicoControleSlaAux = new ArrayList<>();
 
 			for (SolicitacaoServicoDTO solicitacaoServicoControleSlaDto : listSolicitacaoServicoControleSla) {
 				

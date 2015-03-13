@@ -340,11 +340,11 @@ public class InformacoesContrato extends AjaxFormAction {
 	table += "</tbody>";
 	if (((col != null) && (col.size() > 0)) || ((colVincs != null) && (colVincs.size() > 0))) {
 	    if (col == null) {
-		col = new ArrayList(); // Isto eh so para nao gerar erro no for
+		col = new ArrayList<>(); // Isto eh so para nao gerar erro no for
 		// abaixo.
 	    }
 	    if (colVincs == null) {
-		colVincs = new ArrayList(); // Isto eh so para nao gerar erro no
+		colVincs = new ArrayList<>(); // Isto eh so para nao gerar erro no
 		// for abaixo.
 	    }
 	    boolean flag = false;

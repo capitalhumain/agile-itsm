@@ -21,7 +21,6 @@ import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.ServiceLocator;
 import br.com.citframework.util.SQLConfig;
 
-@SuppressWarnings({"rawtypes", "unchecked"})
 public class DataBaseMetaDadosUtil {
 
     public String sincronizaObjNegDB(final String nomeTabela, final boolean messages) throws ServiceException, Exception {
@@ -54,7 +53,8 @@ public class DataBaseMetaDadosUtil {
                 final ObjetoNegocioDTO objetoNegocioAux = (ObjetoNegocioDTO) ((List) colObjs).get(0);
                 objetoNegocioDTO.setIdObjetoNegocio(objetoNegocioAux.getIdObjetoNegocio());
                 if (messages) {
-                    System.out.println("----------: Atualizando....  " + objetoNegocioDTO.getNomeTabelaDB() + "    Id Interno: " + objetoNegocioAux.getIdObjetoNegocio());
+                    System.out.println("----------: Atualizando....  " + objetoNegocioDTO.getNomeTabelaDB() + "    Id Interno: "
+                            + objetoNegocioAux.getIdObjetoNegocio());
                 }
                 objetoNegocioService.update(objetoNegocioDTO);
             }
@@ -63,12 +63,13 @@ public class DataBaseMetaDadosUtil {
         return carregados;
     }
 
-    public Collection readTables(final Connection con, final String catalogo, final String esquema, final String tableName, final boolean messages) throws SQLException {
+    public Collection readTables(final Connection con, final String catalogo, final String esquema, final String tableName, final boolean messages)
+            throws SQLException {
         final DatabaseMetaData dm = con.getMetaData();
         final String[] types = {"TABLE"};
         final ResultSet rsTables = dm.getTables(catalogo, esquema, null, types);
 
-        final Collection colObjetosNegocio = new ArrayList();
+        final Collection colObjetosNegocio = new ArrayList<>();
         while (rsTables.next()) {
             final ObjetoNegocioDTO objetoNegocioDTO = new ObjetoNegocioDTO();
             final String cat = rsTables.getString("TABLE_CAT");
@@ -91,7 +92,7 @@ public class DataBaseMetaDadosUtil {
             }
 
             final ResultSet rsPKs = dm.getPrimaryKeys(cat, schema, nomeTabela);
-            final ArrayList listaPKs = new ArrayList();
+            final ArrayList listaPKs = new ArrayList<>();
             while (rsPKs.next()) {
                 final String nomeColuna = rsPKs.getString("COLUMN_NAME");
                 listaPKs.add(nomeColuna);
@@ -121,7 +122,7 @@ public class DataBaseMetaDadosUtil {
             if (rsColunas == null) {
                 continue;
             }
-            final Collection colCampos = new ArrayList();
+            final Collection colCampos = new ArrayList<>();
             while (rsColunas.next()) {
                 final CamposObjetoNegocioDTO camposObjetoNegocioDTO = new CamposObjetoNegocioDTO();
                 String nomeColunaBanco = rsColunas.getString("COLUMN_NAME");
@@ -136,8 +137,8 @@ public class DataBaseMetaDadosUtil {
                 }
 
                 if (messages) {
-                    System.out.println(" ------:::::::::::::::::::::::::::::::::::> COLUNA: " + nomeColunaBanco + " Tipo: " + nomeTipo + " PK: " + seColunaPK + " OBR: "
-                            + seObrigatorio);
+                    System.out.println(" ------:::::::::::::::::::::::::::::::::::> COLUNA: " + nomeColunaBanco + " Tipo: " + nomeTipo + " PK: " + seColunaPK
+                            + " OBR: " + seObrigatorio);
                 }
 
                 if (nomeTipo == null) {
@@ -222,7 +223,7 @@ public class DataBaseMetaDadosUtil {
         final String[] types = {"TABLE"};
         final ResultSet rsTables = dm.getTables(catalogo, esquema, null, types);
 
-        final Collection colRetorno = new ArrayList();
+        final Collection colRetorno = new ArrayList<>();
         while (rsTables.next()) {
             final ObjetoNegocioDTO objetoNegocioDTO = new ObjetoNegocioDTO();
             final String cat = rsTables.getString("TABLE_CAT");
@@ -243,7 +244,7 @@ public class DataBaseMetaDadosUtil {
             System.out.println(" ------::::::::::::::::> TABELA: " + nomeTabelaAux);
 
             final ResultSet rsPKs = dm.getPrimaryKeys(cat, schema, nomeTabela);
-            final ArrayList listaPKs = new ArrayList();
+            final ArrayList listaPKs = new ArrayList<>();
             while (rsPKs.next()) {
                 final String nomeColuna = rsPKs.getString("COLUMN_NAME");
                 listaPKs.add(nomeColuna);

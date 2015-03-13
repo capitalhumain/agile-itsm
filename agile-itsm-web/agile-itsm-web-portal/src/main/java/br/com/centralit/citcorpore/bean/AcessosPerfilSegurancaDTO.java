@@ -4,27 +4,25 @@ import br.com.agileitsm.model.support.BaseEntity;
 
 public class AcessosPerfilSegurancaDTO extends BaseEntity {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1037812758934980332L;
-	private Integer idPerfilSeguranca;
-	private String path;
-	
+    private static final long serialVersionUID = 1037812758934980332L;
+
+    private Integer idPerfilSeguranca;
+    private String path;
+
     public Integer getIdPerfilSeguranca() {
         return idPerfilSeguranca;
     }
-    public void setIdPerfilSeguranca(Integer idPerfilSeguranca) {
+
+    public void setIdPerfilSeguranca(final Integer idPerfilSeguranca) {
         this.idPerfilSeguranca = idPerfilSeguranca;
     }
+
     public String getPath() {
         return path;
     }
-    public void setPath(String path) {
+
+    public void setPath(final String path) {
         this.path = path;
     }
-	
-	
-	
-	
+
 }

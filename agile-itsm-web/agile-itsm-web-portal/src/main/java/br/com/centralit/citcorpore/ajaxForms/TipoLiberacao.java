@@ -6,7 +6,7 @@ import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 
 import br.com.centralit.bpm.dto.TipoFluxoDTO;
 import br.com.centralit.bpm.servico.TipoFluxoService;
@@ -154,7 +154,7 @@ public class TipoLiberacao extends AjaxFormAction {
 			if (tipoFluxoDTO.getIdTipoFluxo() != null || tipoFluxoDTO.getIdTipoFluxo() > 0) {
 				// Se a datafim for nula ele adiciona a id do fluxo e joga na tela o nome do fluxo
 
-				comboFluxo.addOption(tipoFluxoDTO.getIdTipoFluxo().toString(),StringEscapeUtils.escapeJavaScript(tipoFluxoDTO.getNomeFluxo().toString()) );
+				comboFluxo.addOption(tipoFluxoDTO.getIdTipoFluxo().toString(),StringEscapeUtils.escapeEcmaScript(tipoFluxoDTO.getNomeFluxo().toString()) );
 			}
 		}
 	}
@@ -179,7 +179,7 @@ public class TipoLiberacao extends AjaxFormAction {
 
 		if (emailCriacao != null) {
 			for (ModeloEmailDTO modeloEmailDTO : emailCriacao) {
-				comboEmailCriacao.addOption(modeloEmailDTO.getIdModeloEmail().toString(), StringEscapeUtils.escapeJavaScript(modeloEmailDTO.getTitulo().toString()));
+				comboEmailCriacao.addOption(modeloEmailDTO.getIdModeloEmail().toString(), StringEscapeUtils.escapeEcmaScript(modeloEmailDTO.getTitulo().toString()));
 			}
 		}
 	}
@@ -205,7 +205,7 @@ public class TipoLiberacao extends AjaxFormAction {
 		if (emailFinalizacao != null) {
 			for (ModeloEmailDTO modeloEmailDTO : emailFinalizacao) {
 
-				comboEmailFinalizacao.addOption(modeloEmailDTO.getIdModeloEmail().toString(), StringEscapeUtils.escapeJavaScript(modeloEmailDTO.getTitulo().toString()));
+				comboEmailFinalizacao.addOption(modeloEmailDTO.getIdModeloEmail().toString(), StringEscapeUtils.escapeEcmaScript(modeloEmailDTO.getTitulo().toString()));
 
 			}
 		}
@@ -234,7 +234,7 @@ public class TipoLiberacao extends AjaxFormAction {
 		if (emailAcoes != null) {
 			for (ModeloEmailDTO modeloEmailDTO : emailAcoes) {
 
-				comboEmailAcoes.addOption(modeloEmailDTO.getIdModeloEmail().toString(), StringEscapeUtils.escapeJavaScript(modeloEmailDTO.getTitulo().toString()));
+				comboEmailAcoes.addOption(modeloEmailDTO.getIdModeloEmail().toString(), StringEscapeUtils.escapeEcmaScript(modeloEmailDTO.getTitulo().toString()));
 
 			}
 		}
@@ -260,7 +260,7 @@ public class TipoLiberacao extends AjaxFormAction {
 
 		if (grupoDTO != null) {
 			for (GrupoDTO grupo : grupoDTO) {
-				comboGrupoExecutor.addOption(grupo.getIdGrupo().toString(), StringEscapeUtils.escapeJavaScript(grupo.getNome().toString()));
+				comboGrupoExecutor.addOption(grupo.getIdGrupo().toString(), StringEscapeUtils.escapeEcmaScript(grupo.getNome().toString()));
 			}
 		}
 
@@ -285,7 +285,7 @@ public class TipoLiberacao extends AjaxFormAction {
 
 		if (calendarioDTO != null) {
 			for (CalendarioDTO calendario : calendarioDTO) {
-				comboCalendario.addOption(calendario.getIdCalendario().toString(), StringEscapeUtils.escapeJavaScript(calendario.getDescricao().toString()));
+				comboCalendario.addOption(calendario.getIdCalendario().toString(), StringEscapeUtils.escapeEcmaScript(calendario.getDescricao().toString()));
 			}
 		}
 

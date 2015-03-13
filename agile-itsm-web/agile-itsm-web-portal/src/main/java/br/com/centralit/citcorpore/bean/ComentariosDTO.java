@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package br.com.centralit.citcorpore.bean;
 
@@ -9,7 +9,7 @@ import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * @author valdoilo
- * 
+ *
  */
 public class ComentariosDTO extends BaseEntity {
 
@@ -32,163 +32,174 @@ public class ComentariosDTO extends BaseEntity {
      * @return the votos
      */
     public Long getVotos() {
-	return votos;
+        return votos;
     }
 
     /**
      * @param votos
      *            the votos to set
      */
-    public void setVotos(Long votos) {
-	if(votos == null){
-	    this.votos = 0L;
-	} else { 
-	    this.votos = votos;
-	}
+    public void setVotos(final Long votos) {
+        if (votos == null) {
+            this.votos = 0L;
+        } else {
+            this.votos = votos;
+        }
     }
 
     /**
      * @return the nota
      */
     public String getNota() {
-	return nota;
+        return nota;
     }
 
     /**
      * @param nota
      *            the nota to set
      */
-    public void setNota(String nota) {
-	if(nota == null){
-	    this.nota = "0";
-	} else { 
-	    this.nota = nota;
-	}
+    public void setNota(final String nota) {
+        if (nota == null) {
+            this.nota = "0";
+        } else {
+            this.nota = nota;
+        }
     }
+
     /**
      * @return the idComentario
      */
     public Integer getIdComentario() {
-	return idComentario;
+        return idComentario;
     }
+
     /**
      * @param idComentario
      *            the idComentario to set
      */
-    public void setIdComentario(Integer idComentario) {
-	this.idComentario = idComentario;
+    public void setIdComentario(final Integer idComentario) {
+        this.idComentario = idComentario;
     }
+
     /**
      * @return the comentario
      */
     public String getComentario() {
-	return comentario;
+        return comentario;
     }
+
     /**
      * @param comentario
      *            the comentario to set
      */
-    public void setComentario(String comentario) {
-	this.comentario = comentario;
+    public void setComentario(final String comentario) {
+        this.comentario = comentario;
     }
+
     /**
      * @return the nome
      */
     public String getNome() {
-	return nome;
+        return nome;
     }
+
     /**
      * @param nome
      *            the nome to set
      */
-    public void setNome(String nome) {
-	this.nome = nome;
+    public void setNome(final String nome) {
+        this.nome = nome;
     }
+
     /**
      * @return the email
      */
     public String getEmail() {
-	return email;
+        return email;
     }
+
     /**
      * @param email
      *            the email to set
      */
-    public void setEmail(String email) {
-	this.email = email;
+    public void setEmail(final String email) {
+        this.email = email;
     }
+
     /**
      * @return the idBaseConhecimento
      */
     public Integer getIdBaseConhecimento() {
-	return idBaseConhecimento;
+        return idBaseConhecimento;
     }
-    
+
     /**
      * @param idBaseConhecimento
      *            the idBaseConhecimento to set
      */
-    public void setIdBaseConhecimento(Integer idBaseConhecimento) {
-	this.idBaseConhecimento = idBaseConhecimento;
+    public void setIdBaseConhecimento(final Integer idBaseConhecimento) {
+        this.idBaseConhecimento = idBaseConhecimento;
     }
+
     /**
      * @return the dataInicio
      */
     public Date getDataInicio() {
-	return dataInicio;
+        return dataInicio;
     }
-    
+
     /**
      * @param dataInicio
      *            the dataInicio to set
      */
-    public void setDataInicio(Date dataInicio) {
-	this.dataInicio = dataInicio;
+    public void setDataInicio(final Date dataInicio) {
+        this.dataInicio = dataInicio;
     }
+
     /**
      * @return the dataFim
      */
     public Date getDataFim() {
-	return dataFim;
+        return dataFim;
     }
 
     /**
      * @param dataFim
      *            the dataFim to set
      */
-    public void setDataFim(Date dataFim) {
-	this.dataFim = dataFim;
+    public void setDataFim(final Date dataFim) {
+        this.dataFim = dataFim;
     }
 
     /**
      * @return the media
      */
     public Double getMedia() {
-	return media;
+        return media;
     }
 
     /**
      * @param media
      *            the media to set
      */
-    public void setMedia(Double media) {
-	this.media = media;
+    public void setMedia(final Double media) {
+        this.media = media;
     }
-    
-	public String getTitulo() {
-		return titulo;
-	}
 
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
+    public String getTitulo() {
+        return titulo;
+    }
 
-	public Integer getQuantidadeBaseConhecimento() {
-		return quantidadeBaseConhecimento;
-	}
+    public void setTitulo(final String titulo) {
+        this.titulo = titulo;
+    }
 
-	public void setQuantidadeBaseConhecimento(Integer quantidadeBaseConhecimento) {
-		this.quantidadeBaseConhecimento = quantidadeBaseConhecimento;
-	}
-    
+    public Integer getQuantidadeBaseConhecimento() {
+        return quantidadeBaseConhecimento;
+    }
+
+    public void setQuantidadeBaseConhecimento(final Integer quantidadeBaseConhecimento) {
+        this.quantidadeBaseConhecimento = quantidadeBaseConhecimento;
+    }
+
 }

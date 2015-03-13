@@ -13,33 +13,45 @@ import br.com.citframework.integracao.Field;
 import br.com.citframework.util.Constantes;
 
 public class VisaoPersonalizadaDao extends CrudDaoDefaultImpl {
-	public VisaoPersonalizadaDao() {
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
-	public Collection<Field> getFields() {
-		Collection<Field> listFields = new ArrayList<>();
-		listFields.add(new Field("idvisao" ,"idvisao", true, false, false, false));
-		listFields.add(new Field("personalizada" ,"personalizada", false, false, false, false));
-		listFields.add(new Field("dataModif" ,"dataModif", false, false, false, false));
-		return listFields;
-	}
-	public String getTableName() {
-		return this.getOwner() + "VisaoPersonalizada";
-	}
-	public Collection list() throws PersistenceException {
-		return null;
-	}
 
-	public Class getBean() {
-		return VisaoPersonalizadaDTO.class;
-	}
-	public Collection find(BaseEntity arg0) throws PersistenceException {
-		return null;
-	}
-	public void deleteAll() throws PersistenceException {
-	    Condition cond = new Condition("idvisao", "<>", -1);
-	    List lst = new ArrayList();
-	    lst.add(cond);
-	    super.deleteByCondition(lst);
-	}
+    public VisaoPersonalizadaDao() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
+    }
+
+    @Override
+    public Collection<Field> getFields() {
+        final Collection<Field> listFields = new ArrayList<>();
+        listFields.add(new Field("idvisao", "idvisao", true, false, false, false));
+        listFields.add(new Field("personalizada", "personalizada", false, false, false, false));
+        listFields.add(new Field("dataModif", "dataModif", false, false, false, false));
+        return listFields;
+    }
+
+    @Override
+    public String getTableName() {
+        return this.getOwner() + "VisaoPersonalizada";
+    }
+
+    @Override
+    public Collection list() throws PersistenceException {
+        return null;
+    }
+
+    @Override
+    public Class getBean() {
+        return VisaoPersonalizadaDTO.class;
+    }
+
+    @Override
+    public Collection find(final BaseEntity arg0) throws PersistenceException {
+        return null;
+    }
+
+    public void deleteAll() throws PersistenceException {
+        final Condition cond = new Condition("idvisao", "<>", -1);
+        final List lst = new ArrayList<>();
+        lst.add(cond);
+        super.deleteByCondition(lst);
+    }
+
 }

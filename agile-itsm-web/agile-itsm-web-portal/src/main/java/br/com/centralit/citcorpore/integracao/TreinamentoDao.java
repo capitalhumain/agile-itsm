@@ -19,42 +19,43 @@ import br.com.citframework.util.Constantes;
 public class TreinamentoDao extends CrudDaoDefaultImpl {
 
     public TreinamentoDao() {
-	super(Constantes.getValue("DATABASE_ALIAS"), null);
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
     }
 
-    @SuppressWarnings("rawtypes")
+    @Override
     public Class getBean() {
-	return TreinamentoDTO.class;
+        return TreinamentoDTO.class;
     }
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
+    @Override
     public Collection<Field> getFields() {
-	Collection<Field> listFields = new ArrayList<>();
+        final Collection<Field> listFields = new ArrayList<>();
 
-	listFields.add(new Field("idtreinamento", "idTreinamento", true, true, false, false));
-	listFields.add(new Field("desctreinamento", "descTreinamento", false, false, false, false));
-	listFields.add(new Field("datatreinamento", "dataTreinamento", false, false, false, false));
-	listFields.add(new Field("idinstrutortreinamento", "idInstrutorTreinamento", false, false, false, false));
+        listFields.add(new Field("idtreinamento", "idTreinamento", true, true, false, false));
+        listFields.add(new Field("desctreinamento", "descTreinamento", false, false, false, false));
+        listFields.add(new Field("datatreinamento", "dataTreinamento", false, false, false, false));
+        listFields.add(new Field("idinstrutortreinamento", "idInstrutorTreinamento", false, false, false, false));
 
-	return listFields;
+        return listFields;
     }
 
+    @Override
     public String getTableName() {
-	return "TREINAMENTO";
+        return "treinamento";
     }
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
-    public Collection find(BaseEntity obj) throws PersistenceException {
-	List ordem = new ArrayList();
-	ordem.add(new Order("descTreinamento"));
-	return super.find(obj, ordem);
+    @Override
+    public Collection find(final BaseEntity obj) throws PersistenceException {
+        final List ordem = new ArrayList<>();
+        ordem.add(new Order("descTreinamento"));
+        return super.find(obj, ordem);
     }
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
+    @Override
     public Collection list() throws PersistenceException {
-	List list = new ArrayList();
-	list.add(new Order("descTreinamento"));
-	return super.list(list);
+        final List list = new ArrayList<>();
+        list.add(new Order("descTreinamento"));
+        return super.list(list);
     }
 
 }

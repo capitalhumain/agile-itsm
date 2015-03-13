@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package br.com.centralit.citcorpore.integracao;
 
@@ -17,64 +17,63 @@ import br.com.citframework.util.Constantes;
 
 /**
  * @author valdoilo.damasceno
- * 
+ *
  */
-@SuppressWarnings({ "unchecked", "rawtypes" })
 public class NotificacaoGrupoMonitDAO extends CrudDaoDefaultImpl {
 
-	public NotificacaoGrupoMonitDAO() {
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
+    public NotificacaoGrupoMonitDAO() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
+    }
 
-	@Override
-	public Collection find(BaseEntity obj) throws PersistenceException {
-		return null;
-	}
+    @Override
+    public Collection find(final BaseEntity obj) throws PersistenceException {
+        return null;
+    }
 
-	@Override
-	public Collection<Field> getFields() {
+    @Override
+    public Collection<Field> getFields() {
 
-		Collection<Field> listFields = new ArrayList<>();
+        final Collection<Field> listFields = new ArrayList<>();
 
-		listFields.add(new Field("IDNOTIFICACAOGRUPOMONIT", "idNotificacaoGrupoMonit", true, true, false, false));
-		listFields.add(new Field("IDMONITORAMENTOATIVOS", "idMonitoramentoAtivos", false, false, false, false));
-		listFields.add(new Field("IDGRUPO", "idGrupo", false, false, false, false));
-		listFields.add(new Field("DATAINICIO", "dataInicio", false, false, false, false));
-		listFields.add(new Field("DATAFIM", "dataFim", false, false, false, false));
+        listFields.add(new Field("IDNOTIFICACAOGRUPOMONIT", "idNotificacaoGrupoMonit", true, true, false, false));
+        listFields.add(new Field("IDMONITORAMENTOATIVOS", "idMonitoramentoAtivos", false, false, false, false));
+        listFields.add(new Field("IDGRUPO", "idGrupo", false, false, false, false));
+        listFields.add(new Field("DATAINICIO", "dataInicio", false, false, false, false));
+        listFields.add(new Field("DATAFIM", "dataFim", false, false, false, false));
 
-		return listFields;
-	}
+        return listFields;
+    }
 
-	@Override
-	public String getTableName() {
-		return "notificacaogrupomonit";
-	}
+    @Override
+    public String getTableName() {
+        return "notificacaogrupomonit";
+    }
 
-	@Override
-	public Collection list() throws PersistenceException {
-		return null;
-	}
+    @Override
+    public Collection list() throws PersistenceException {
+        return null;
+    }
 
-	@Override
-	public Class getBean() {
-		return NotificacaoGrupoMonitDTO.class;
-	}
-	
-	public Collection<NotificacaoGrupoMonitDTO> restoreByIdMonitoramentoAtivos(Integer idMonitoramentoAtivos) throws PersistenceException {
-		List codicao = new ArrayList();
+    @Override
+    public Class getBean() {
+        return NotificacaoGrupoMonitDTO.class;
+    }
 
-		codicao.add(new Condition("idMonitoramentoAtivos", "=", idMonitoramentoAtivos));
-		
-		return this.findByCondition(codicao, null);
-	}
-	
-	public boolean deleteByIdMonitoramentoAtivos(Integer idMonitoramentoAtivos) throws PersistenceException {
-		List codicao = new ArrayList();
+    public Collection<NotificacaoGrupoMonitDTO> restoreByIdMonitoramentoAtivos(final Integer idMonitoramentoAtivos) throws PersistenceException {
+        final List codicao = new ArrayList<>();
 
-		codicao.add(new Condition("idMonitoramentoAtivos", "=", idMonitoramentoAtivos));
+        codicao.add(new Condition("idMonitoramentoAtivos", "=", idMonitoramentoAtivos));
 
-		return (this.deleteByCondition(codicao) != 0);
+        return this.findByCondition(codicao, null);
+    }
 
-	}
-	
+    public boolean deleteByIdMonitoramentoAtivos(final Integer idMonitoramentoAtivos) throws PersistenceException {
+        final List codicao = new ArrayList<>();
+
+        codicao.add(new Condition("idMonitoramentoAtivos", "=", idMonitoramentoAtivos));
+
+        return this.deleteByCondition(codicao) != 0;
+
+    }
+
 }

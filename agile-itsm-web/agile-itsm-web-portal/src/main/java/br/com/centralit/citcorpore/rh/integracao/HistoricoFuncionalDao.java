@@ -55,14 +55,14 @@ public class HistoricoFuncionalDao extends CrudDaoDefaultImpl {
 
     @Override
     public Collection list() throws PersistenceException {
-        final List list = new ArrayList();
+        final List list = new ArrayList<>();
         list.add(new Order("idHistoricoFuncional"));
         return super.list(list);
     }
 
     public Collection<HistoricoFuncionalDTO> findByidCandidato(final Integer idCandidato) throws PersistenceException {
-        final List condicao = new ArrayList();
-        final List ordenacao = new ArrayList();
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
         condicao.add(new Condition("idCandidato", "=", idCandidato));
         ordenacao.add(new Order("idCandidato"));
         return super.findByCondition(condicao, ordenacao);
@@ -74,8 +74,8 @@ public class HistoricoFuncionalDao extends CrudDaoDefaultImpl {
     }
 
     public Collection<HistoricoFuncionalDTO> findByidCurriculo(final Integer idCurriculo) throws PersistenceException {
-        final List condicao = new ArrayList();
-        final List ordenacao = new ArrayList();
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
         condicao.add(new Condition("idCurriculo", "=", idCurriculo));
         ordenacao.add(new Order("idCurriculo"));
         return super.findByCondition(condicao, ordenacao);
@@ -87,9 +87,9 @@ public class HistoricoFuncionalDao extends CrudDaoDefaultImpl {
     }
 
     public Date getUltimaAtualizacao(final Integer idCurriculo) throws PersistenceException {
-        final List parametro = new ArrayList();
-        final List fields = new ArrayList();
-        List list = new ArrayList();
+        final List parametro = new ArrayList<>();
+        final List fields = new ArrayList<>();
+        List list = new ArrayList<>();
 
         final StringBuilder sql = new StringBuilder();
         sql.append("SELECT MAX(ihf.dtcriacao) dtCriacao ");

@@ -30,7 +30,7 @@ public class ClienteDao extends CrudDaoDefaultImpl {
 
     @Override
     public Collection<Field> getFields() {
-        Collection<Field> listFields = new ArrayList<>();
+        final Collection<Field> listFields = new ArrayList<>();
 
         listFields.add(new Field("IDCLIENTE", "idCliente", true, true, false, false));
         listFields.add(new Field("NOMERAZAOSOCIAL", "nomeRazaoSocial", false, false, false, false));
@@ -49,55 +49,55 @@ public class ClienteDao extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public Collection find(BaseEntity obj) throws PersistenceException {
+    public Collection find(final BaseEntity obj) throws PersistenceException {
         return null;
     }
 
     @Override
     public Collection list() throws PersistenceException {
-        List list = new ArrayList();
+        final List list = new ArrayList<>();
         list.add(new Order("nomeFantasia"));
         return super.list(list);
     }
 
-
     /**
      * Metodo que verifica se existe um registro com os mesmos dados na base de dados.
      *
-     * @param nomeRazaoSocial - nome da razao social do cliente.
+     * @param nomeRazaoSocial
+     *            - nome da razao social do cliente.
      * @return Retorna 'true' se existir um registro igual e 'false' caso contrario.
      * @throws Exception
      */
-    public boolean existeDuplicacao(String nomeRazaoSocial) throws PersistenceException {
-        List condicao = new ArrayList();
-        List ordenacao = new ArrayList();
+    public boolean existeDuplicacao(final String nomeRazaoSocial) throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
         condicao.add(new Condition("nomeRazaoSocial", "=", nomeRazaoSocial));
         condicao.add(new Condition("deleted", "is", null));
         ordenacao.add(new Order("nomeRazaoSocial"));
 
-        List result = (List) super.findByCondition(condicao, ordenacao);
+        final List result = (List) super.findByCondition(condicao, ordenacao);
 
         if (result != null && !result.isEmpty()) {
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
     /**
      * Encontra o Cliente pelo ID
+     * 
      * @author euler.ramos
      * @throws Exception
      */
-    public List<ClienteDTO> findByIdCliente(Integer id) throws PersistenceException {
-        List resp = new ArrayList();
+    public List<ClienteDTO> findByIdCliente(final Integer id) throws PersistenceException {
+        List resp = new ArrayList<>();
 
-        Collection fields = getFields();
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
+        final Collection fields = this.getFields();
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
         String campos = "";
-        for (Iterator it = fields.iterator(); it.hasNext();) {
-            Field field = (Field) it.next();
+        for (final Iterator it = fields.iterator(); it.hasNext();) {
+            final Field field = (Field) it.next();
             if (!campos.trim().equalsIgnoreCase("")) {
                 campos = campos + ",";
             }
@@ -105,53 +105,56 @@ public class ClienteDao extends CrudDaoDefaultImpl {
             listRetorno.add(field.getFieldClass());
         }
 
-        String sql = "SELECT " + campos + " FROM " + getTableName() + " WHERE idcliente=? and ((deleted is NULL)OR(deleted<>'y')) ORDER BY idcliente";
+        final String sql = "SELECT " + campos + " FROM " + this.getTableName()
+                + " WHERE idcliente=? and ((deleted is NULL)OR(deleted<>'y')) ORDER BY idcliente";
         parametro.add(id);
         resp = this.execSQL(sql, parametro.toArray());
 
-        List result = engine.listConvertion(getBean(), resp, listRetorno);
-        return (result == null ? new ArrayList<ClienteDTO>() : result);
+        final List result = engine.listConvertion(this.getBean(), resp, listRetorno);
+        return result == null ? new ArrayList<ClienteDTO>() : result;
     }
-
 
     /**
      * Encontra o cliente pela Razão Social
+     * 
      * @author euler.ramos
      * @throws Exception
      */
-    public List<ClienteDTO> findByRazaoSocial(String razaoSocial) throws PersistenceException {
-        List resp = new ArrayList();
+    public List<ClienteDTO> findByRazaoSocial(final String razaoSocial) throws PersistenceException {
+        List resp = new ArrayList<>();
 
-        Collection fields = getFields();
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
+        final Collection fields = this.getFields();
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
         String campos = "";
-        for (Iterator it = fields.iterator(); it.hasNext();) {
-            Field field = (Field) it.next();
+        for (final Iterator it = fields.iterator(); it.hasNext();) {
+            final Field field = (Field) it.next();
             if (!campos.trim().equalsIgnoreCase("")) {
                 campos = campos + ",";
             }
             campos = campos + field.getFieldDB();
             listRetorno.add(field.getFieldClass());
         }
-        String sql = "SELECT " + campos + " FROM " + getTableName() + " WHERE nomerazaosocial=? and ((deleted is NULL)OR(deleted<>'y')) ORDER BY nomerazaosocial";
+        final String sql = "SELECT " + campos + " FROM " + this.getTableName()
+                + " WHERE nomerazaosocial=? and ((deleted is NULL)OR(deleted<>'y')) ORDER BY nomerazaosocial";
         parametro.add(razaoSocial);
         resp = this.execSQL(sql, parametro.toArray());
 
-        List result = engine.listConvertion(getBean(), resp, listRetorno);
-        return (result == null ? new ArrayList<ClienteDTO>() : result);
+        final List result = engine.listConvertion(this.getBean(), resp, listRetorno);
+        return result == null ? new ArrayList<ClienteDTO>() : result;
     }
 
     /**
      * Verifica se existe cliente vinculado à algum contrato.
+     * 
      * @param idCliente
      * @return
      * @throws Exception
      * @author mario.haysaki
      */
-    public boolean clienteVinculadoContrato (Integer idCliente) throws PersistenceException {
-        List parametro = new ArrayList();
-        StringBuilder sql = new StringBuilder();
+    public boolean clienteVinculadoContrato(final Integer idCliente) throws PersistenceException {
+        final List parametro = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
 
         sql.append(" select count(*) from contratos co ");
         sql.append(" inner join clientes cl on co.idcliente = cl.idcliente ");
@@ -159,16 +162,17 @@ public class ClienteDao extends CrudDaoDefaultImpl {
 
         parametro.add(idCliente);
 
-        List lista = new ArrayList();
+        List lista = new ArrayList<>();
         lista = this.execSQL(sql.toString(), parametro.toArray());
 
         Long total = 0l;
         BigDecimal totalLinhaBigDecimal;
         Integer totalLinhaInteger;
-        if(lista != null){
-            Object[] totalLinha = (Object[]) lista.get(0);
-            if(totalLinha != null && totalLinha.length > 0){
-                if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.POSTGRESQL) || CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.MYSQL)) {
+        if (lista != null) {
+            final Object[] totalLinha = (Object[]) lista.get(0);
+            if (totalLinha != null && totalLinha.length > 0) {
+                if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.POSTGRESQL)
+                        || CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.MYSQL)) {
                     total = (Long) totalLinha[0];
                 }
                 if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
@@ -184,9 +188,8 @@ public class ClienteDao extends CrudDaoDefaultImpl {
 
         if (total > 0) {
             return true;
-        } else{
-            return false;
         }
+        return false;
     }
 
 }

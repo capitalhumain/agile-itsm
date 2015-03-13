@@ -14,67 +14,71 @@ import br.com.citframework.integracao.CrudDaoDefaultImpl;
 import br.com.citframework.integracao.Field;
 import br.com.citframework.util.Constantes;
 
-@SuppressWarnings({"rawtypes","unchecked"})
 public class LigacaoRequisicaoMudancaGrupoDao extends CrudDaoDefaultImpl {
 
-	public LigacaoRequisicaoMudancaGrupoDao() {
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
-	
-	public Collection<Field> getFields() {
-		Collection<Field> listFields = new ArrayList<>();
-		listFields.add(new Field("idligacao_mud_his_gru", "idligacao_mud_his_gru", true, true, false, false));
-		listFields.add(new Field("idRequisicaoMudanca" ,"idRequisicaoMudanca", false, false, false, false));
-		listFields.add(new Field("idHistoricoMudanca", "idHistoricoMudanca", false, false, false, false));
-		listFields.add(new Field("idGrupoRequisicaoMudanca", "idGrupoRequisicaoMudanca", false, false, false, false));
+    public LigacaoRequisicaoMudancaGrupoDao() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
+    }
 
-		return listFields;
-	}
-	
-	public String getTableName() {
-		return this.getOwner() + "ligacao_mud_his_gru";
-	}
-	public Collection list() throws PersistenceException {
-		return null;
-	}
+    @Override
+    public Collection<Field> getFields() {
+        final Collection<Field> listFields = new ArrayList<>();
+        listFields.add(new Field("idligacao_mud_his_gru", "idligacao_mud_his_gru", true, true, false, false));
+        listFields.add(new Field("idRequisicaoMudanca", "idRequisicaoMudanca", false, false, false, false));
+        listFields.add(new Field("idHistoricoMudanca", "idHistoricoMudanca", false, false, false, false));
+        listFields.add(new Field("idGrupoRequisicaoMudanca", "idGrupoRequisicaoMudanca", false, false, false, false));
 
-	public Class getBean() {
-		return LigacaoRequisicaoMudancaHistoricoGrupoDTO.class;
-	}
-	public Collection find(BaseEntity arg0) throws PersistenceException {
-		return null;
-	}
-	
-	public void deleteByIdRequisicaoMudanca(Integer idRequisicaoMudanca) throws ServiceException, Exception{
-		ArrayList<Condition> condicoes = new ArrayList<Condition>();
-		
-		condicoes.add(new Condition("idRequisicaoMudanca", "=", idRequisicaoMudanca));
-		
-		super.deleteByCondition(condicoes);
-	}
-	
-	public Collection<RequisicaoMudancaResponsavelDTO> findByIdMudanca(Integer idRequisicaoMudanca) throws Exception {
-		List fields = new ArrayList(); 
-		
-		
-		String sql = "select rqResponsavel.iditemconfiguracao, rqResponsavel.idRequisicaoMudanca, responsavel.nome, responsavel.telefone, responsavel.email, cargo.nomecargo , rqResponsavel.descricao "+
-				"from requisicaomudancaitemconfiguracao rqResponsavel "+
-				"inner join requisicaomudanca lib on rqResponsavel.idRequisicaoMudanca = lib.idRequisicaomudanca "+
-				"inner join itemconfiguracao responsavel on rqResponsavel.iditemconfiguracao = responsavel.iditemconfiguracao "+
-				"inner join cargos cargo on responsavel.idcargo = cargo.idcargo"+
-				"where rqResponsavel.idRequisicaomudanca = ? ";
-		
-	  List resultado = 	execSQL(sql, new Object[]{idRequisicaoMudanca	});
-	  
-	  fields.add("idResponsavel");
-	  fields.add("idRequisicaoMudanca");
-	  fields.add("nomeResponsavel");
-	  fields.add("telResponsavel");
-	  fields.add("emailResponsavel");
-	  fields.add("nomeCargo");
-	  fields.add("papelResponsavel");
-	  
-	  return listConvertion(RequisicaoMudancaResponsavelDTO.class, resultado,fields) ;
-	}
+        return listFields;
+    }
+
+    @Override
+    public String getTableName() {
+        return this.getOwner() + "ligacao_mud_his_gru";
+    }
+
+    @Override
+    public Collection list() throws PersistenceException {
+        return null;
+    }
+
+    @Override
+    public Class getBean() {
+        return LigacaoRequisicaoMudancaHistoricoGrupoDTO.class;
+    }
+
+    @Override
+    public Collection find(final BaseEntity arg0) throws PersistenceException {
+        return null;
+    }
+
+    public void deleteByIdRequisicaoMudanca(final Integer idRequisicaoMudanca) throws ServiceException, Exception {
+        final ArrayList<Condition> condicoes = new ArrayList<Condition>();
+
+        condicoes.add(new Condition("idRequisicaoMudanca", "=", idRequisicaoMudanca));
+
+        super.deleteByCondition(condicoes);
+    }
+
+    public Collection<RequisicaoMudancaResponsavelDTO> findByIdMudanca(final Integer idRequisicaoMudanca) throws Exception {
+        final List fields = new ArrayList<>();
+
+        final String sql = "select rqResponsavel.iditemconfiguracao, rqResponsavel.idRequisicaoMudanca, responsavel.nome, responsavel.telefone, responsavel.email, cargo.nomecargo , rqResponsavel.descricao "
+                + "from requisicaomudancaitemconfiguracao rqResponsavel "
+                + "inner join requisicaomudanca lib on rqResponsavel.idRequisicaoMudanca = lib.idRequisicaomudanca "
+                + "inner join itemconfiguracao responsavel on rqResponsavel.iditemconfiguracao = responsavel.iditemconfiguracao "
+                + "inner join cargos cargo on responsavel.idcargo = cargo.idcargo" + "where rqResponsavel.idRequisicaomudanca = ? ";
+
+        final List resultado = this.execSQL(sql, new Object[] {idRequisicaoMudanca});
+
+        fields.add("idResponsavel");
+        fields.add("idRequisicaoMudanca");
+        fields.add("nomeResponsavel");
+        fields.add("telResponsavel");
+        fields.add("emailResponsavel");
+        fields.add("nomeCargo");
+        fields.add("papelResponsavel");
+
+        return this.listConvertion(RequisicaoMudancaResponsavelDTO.class, resultado, fields);
+    }
 
 }

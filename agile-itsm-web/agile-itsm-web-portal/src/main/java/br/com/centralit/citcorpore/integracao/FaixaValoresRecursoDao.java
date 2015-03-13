@@ -14,42 +14,55 @@ import br.com.citframework.integracao.Order;
 import br.com.citframework.util.Constantes;
 
 public class FaixaValoresRecursoDao extends CrudDaoDefaultImpl {
-	public FaixaValoresRecursoDao() {
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
-	public Collection<Field> getFields() {
-		Collection<Field> listFields = new ArrayList<>();
-		listFields.add(new Field("idFaixaValoresRecurso" ,"idFaixaValoresRecurso", true, true, false, false));
-		listFields.add(new Field("idRecurso" ,"idRecurso", false, false, false, false));
-		listFields.add(new Field("valorInicio" ,"valorInicio", false, false, false, false));
-		listFields.add(new Field("valorFim" ,"valorFim", false, false, false, false));
-		listFields.add(new Field("cor" ,"cor", false, false, false, false));
-		listFields.add(new Field("descricao" ,"descricao", false, false, false, false));
-		return listFields;
-	}
-	public String getTableName() {
-		return this.getOwner() + "FaixaValoresRecurso";
-	}
-	public Collection list() throws PersistenceException {
-		return null;
-	}
 
-	public Class getBean() {
-		return FaixaValoresRecursoDTO.class;
-	}
-	public Collection find(BaseEntity arg0) throws PersistenceException {
-		return null;
-	}
-	public Collection findByIdRecurso(Integer parm) throws PersistenceException {
-		List condicao = new ArrayList();
-		List ordenacao = new ArrayList(); 
-		condicao.add(new Condition("idRecurso", "=", parm)); 
-		ordenacao.add(new Order("descricao"));
-		return super.findByCondition(condicao, ordenacao);
-	}
-	public void deleteByIdRecurso(Integer parm) throws PersistenceException {
-		List condicao = new ArrayList();
-		condicao.add(new Condition("idRecurso", "=", parm));
-		super.deleteByCondition(condicao);
-	}
+    public FaixaValoresRecursoDao() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
+    }
+
+    @Override
+    public Collection<Field> getFields() {
+        final Collection<Field> listFields = new ArrayList<>();
+        listFields.add(new Field("idFaixaValoresRecurso", "idFaixaValoresRecurso", true, true, false, false));
+        listFields.add(new Field("idRecurso", "idRecurso", false, false, false, false));
+        listFields.add(new Field("valorInicio", "valorInicio", false, false, false, false));
+        listFields.add(new Field("valorFim", "valorFim", false, false, false, false));
+        listFields.add(new Field("cor", "cor", false, false, false, false));
+        listFields.add(new Field("descricao", "descricao", false, false, false, false));
+        return listFields;
+    }
+
+    @Override
+    public String getTableName() {
+        return this.getOwner() + "FaixaValoresRecurso";
+    }
+
+    @Override
+    public Collection list() throws PersistenceException {
+        return null;
+    }
+
+    @Override
+    public Class getBean() {
+        return FaixaValoresRecursoDTO.class;
+    }
+
+    @Override
+    public Collection find(final BaseEntity arg0) throws PersistenceException {
+        return null;
+    }
+
+    public Collection findByIdRecurso(final Integer parm) throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
+        condicao.add(new Condition("idRecurso", "=", parm));
+        ordenacao.add(new Order("descricao"));
+        return super.findByCondition(condicao, ordenacao);
+    }
+
+    public void deleteByIdRecurso(final Integer parm) throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        condicao.add(new Condition("idRecurso", "=", parm));
+        super.deleteByCondition(condicao);
+    }
+
 }

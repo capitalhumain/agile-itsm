@@ -117,7 +117,7 @@ public class ExecucaoProblemaServiceEjb extends CrudServiceImpl implements Execu
         final Gson gson = new Gson();
 
         final ObjetoNegocioDao objetoNegocioDao = new ObjetoNegocioDao();
-        final HashMap<Integer, ObjetoNegocioDTO> mapObjetos = new HashMap();
+        final HashMap<Integer, ObjetoNegocioDTO> mapObjetos = new HashMap<>();
 
         for (final CamposObjetoNegocioDTO campoDto : colCampos) {
             final String value = params.get(campoDto.getNome());
@@ -168,7 +168,7 @@ public class ExecucaoProblemaServiceEjb extends CrudServiceImpl implements Execu
         }
 
         Collection<GrupoVisaoCamposNegocioDTO> result = null;
-        result = new ArrayList();
+        result = new ArrayList<>();
         final Collection<ObjetoInstanciaFluxoDTO> colCampos = new ObjetoInstanciaFluxoDao().findByIdTarefa(idTarefa);
         if (colCampos != null) {
             final Gson gson = new Gson();
@@ -271,7 +271,7 @@ public class ExecucaoProblemaServiceEjb extends CrudServiceImpl implements Execu
     public void executa(final UsuarioDTO usuarioDto, final TransactionControler tc, final Integer idFluxo, final Integer idTarefa, final String acaoFluxo,
             final HashMap<String, String> params, final Collection<CamposObjetoNegocioDTO> colCamposTodosPrincipal, final Collection<CamposObjetoNegocioDTO> colCamposTodosVinc)
             throws Exception {
-        final HashMap<String, Object> map = new HashMap();
+        final HashMap<String, Object> map = new HashMap<>();
         this.trataCamposTarefa(params, colCamposTodosPrincipal, map, "S");
         this.trataCamposTarefa(params, colCamposTodosVinc, map, "N");
         final Integer idProblema = new Integer((String) map.get("IDPROBLEMA"));
@@ -330,7 +330,7 @@ public class ExecucaoProblemaServiceEjb extends CrudServiceImpl implements Execu
         if (problemaDto.getAcaoFluxo() != null) {
             problemaDto.getAcaoFluxo();
         }
-        final HashMap<String, Object> objetos = new HashMap();
+        final HashMap<String, Object> objetos = new HashMap<>();
 
         final ProblemaDTO problemaAuxDto = new ProblemaServiceEjb().restoreAll(problemaDto.getIdProblema(), tc);
         if (problemaAuxDto.getEmailContato() == null || problemaAuxDto.getEmailContato().equalsIgnoreCase("")) {

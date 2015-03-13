@@ -10,9 +10,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.lang.StringEscapeUtils;
-import org.apache.commons.lang.StringUtils;
-
 import br.com.centralit.citcorpore.util.CITCorporeUtil;
 import br.com.centralit.citcorpore.util.Enumerados.ParametroSistema;
 import br.com.centralit.citcorpore.util.ParametroUtil;
@@ -128,10 +125,6 @@ public class LookupProcessServicosAtivos extends LookupProcessDefaultDao {
                         obj = obj.replaceAll("[^\\p{ASCII}]", "");
                     }
 
-                    if (StringUtils.contains(obj, "'") && !campo.getType().equalsIgnoreCase(Constantes.getValue("FIELDTYPE_COMBO").trim())) {
-                        obj = StringEscapeUtils.escapeSql(obj);
-                    }
-
                     where = where + obj;
                     if (campo.getType().equalsIgnoreCase(Constantes.getValue("FIELDTYPE_TEXT").trim())
                             || campo.getType().equalsIgnoreCase(Constantes.getValue("FIELDTYPE_TEXTAREA").trim())) {
@@ -211,7 +204,8 @@ public class LookupProcessServicosAtivos extends LookupProcessDefaultDao {
             pagAtualAux = 1;
         } else {
             pagAtualAux = new Integer(request.getSession(true).getAttribute("totalPag_" + lookupObject.getNomeLookup()).toString()) + 1;
-            final Integer modulo = new Integer(request.getSession(true).getAttribute("totalItens_" + lookupObject.getNomeLookup()).toString()) % quantidadePaginator;
+            final Integer modulo = new Integer(request.getSession(true).getAttribute("totalItens_" + lookupObject.getNomeLookup()).toString())
+                    % quantidadePaginator;
             if (modulo.intValue() == quantidadePaginator.intValue() || modulo.intValue() == 0) {
                 pagAtual = new Integer(lookupObject.getPaginacao()) - quantidadePaginator;
             } else {
@@ -236,11 +230,13 @@ public class LookupProcessServicosAtivos extends LookupProcessDefaultDao {
                 if (camposDesejados.contains(".") || camposDesejados2.contains(".")) {
                     camposDesejados = camposDesejados.replaceAll("[A-Za-z ]*\\.", "table2_.");
                     camposDesejados2 = camposDesejados2.replaceAll("[A-Za-z ]*\\.", "table2_.");
-                    limit = " select " + camposDesejados + camposDesejados2 + " from (select table_.*, rownum rownum_ from (select count(*) over() as totalRowCount,"
-                            + sql.substring(6, sql.length()) + ") table_ where rownum<= " + quantidadePaginator2 + " ) table2_ where rownum_ > " + pagAtual;
+                    limit = " select " + camposDesejados + camposDesejados2
+                            + " from (select table_.*, rownum rownum_ from (select count(*) over() as totalRowCount," + sql.substring(6, sql.length())
+                            + ") table_ where rownum<= " + quantidadePaginator2 + " ) table2_ where rownum_ > " + pagAtual;
                 } else {
-                    limit = " select " + camposDesejados + camposDesejados2 + " from (select table_.*, rownum rownum_ from (select count(*) over() as totalRowCount,"
-                            + sql.substring(6, sql.length()) + ") table_ where rownum<= " + quantidadePaginator2 + " ) where rownum_ > " + pagAtual;
+                    limit = " select " + camposDesejados + camposDesejados2
+                            + " from (select table_.*, rownum rownum_ from (select count(*) over() as totalRowCount," + sql.substring(6, sql.length())
+                            + ") table_ where rownum<= " + quantidadePaginator2 + " ) where rownum_ > " + pagAtual;
                 }
             } else if (strSGBDPrincipal.equalsIgnoreCase("SQLSERVER")) {
                 Integer quantidadePaginator2 = new Integer(0);
@@ -256,8 +252,8 @@ public class LookupProcessServicosAtivos extends LookupProcessDefaultDao {
                 } else {
                     orderBy += "ORDER BY  (SELECT 1)";
                 }
-                limit = " select " + camposDesejados + camposDesejados2 + " from (select ROW_NUMBER() OVER(" + orderBy + ") as rownum_, " + sql.substring(6, sql.length())
-                        + ")  as table_ where table_.rownum_ between " + pagAtual + " and " + quantidadePaginator2;
+                limit = " select " + camposDesejados + camposDesejados2 + " from (select ROW_NUMBER() OVER(" + orderBy + ") as rownum_, "
+                        + sql.substring(6, sql.length()) + ")  as table_ where table_.rownum_ between " + pagAtual + " and " + quantidadePaginator2;
             }
         }
 
@@ -301,7 +297,7 @@ public class LookupProcessServicosAtivos extends LookupProcessDefaultDao {
         }
 
         // Processa o resultado.
-        final List result = new ArrayList();
+        final List result = new ArrayList<>();
         if (lista == null || lista.size() == 0) {
             final TransactionControler tc = this.getTransactionControler();
             if (tc != null) {
@@ -321,7 +317,7 @@ public class LookupProcessServicosAtivos extends LookupProcessDefaultDao {
             itRet = colCamposRet.iterator();
             i = 0;
             campoAux = null;
-            colAux = new ArrayList();
+            colAux = new ArrayList<>();
             while (itRet.hasNext()) {
                 campo = (Campo) itRet.next();
                 campoAux = new Campo(campo.getNomeFisico(), campo.getDescricao(), campo.isObrigatorio(), campo.getType(), campo.getTamanho());

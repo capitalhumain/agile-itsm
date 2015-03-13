@@ -95,7 +95,7 @@ public class GrupoItemConfiguracaoServiceEjb extends CrudServiceImpl implements 
             final Collection col = dao.listByIdGrupoItemConfiguracaoPai(idGrupo);
             if (col != null && col.size() > 0) {
                 Iterator it = col.iterator();
-                final Collection colTratada = new ArrayList();
+                final Collection colTratada = new ArrayList<>();
                 for (; it.hasNext();) {
                     final GrupoItemConfiguracaoDTO grupoItemConfiguracaoDTO = (GrupoItemConfiguracaoDTO) it.next();
                     colTratada.add(grupoItemConfiguracaoDTO);

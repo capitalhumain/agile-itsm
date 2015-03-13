@@ -6,156 +6,156 @@ import br.com.agileitsm.model.support.BaseEntity;
 
 public class MonitoramentoAtivosDTO extends BaseEntity {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	private Integer idMonitoramentoAtivos;
+    private Integer idMonitoramentoAtivos;
 
-	private Integer idTipoItemConfiguracao;
+    private Integer idTipoItemConfiguracao;
 
-	private String titulo;
+    private String titulo;
 
-	private String descricao;
+    private String descricao;
 
-	private String tipoRegra;
+    private String tipoRegra;
 
-	private String enviarEmail;
+    private String enviarEmail;
 
-	private String criarProblema;
+    private String criarProblema;
 
-	private String criarIncidente;
+    private String criarIncidente;
 
-	private Date dataInicio;
+    private Date dataInicio;
 
-	private Date dataFim;
+    private Date dataFim;
 
-	private Integer idCaracteristica;
+    private Integer idCaracteristica;
 
-	private String script;
+    private String script;
 
-	private Integer[] usuariosNotificacao;
+    private Integer[] usuariosNotificacao;
 
-	private Integer[] gruposNotificacao;
-	
-	private boolean scriptSuccess;
+    private Integer[] gruposNotificacao;
 
-	public Integer getIdMonitoramentoAtivos() {
-		return idMonitoramentoAtivos;
-	}
+    private boolean scriptSuccess;
 
-	public void setIdMonitoramentoAtivos(Integer idMonitoramentoAtivos) {
-		this.idMonitoramentoAtivos = idMonitoramentoAtivos;
-	}
+    public Integer getIdMonitoramentoAtivos() {
+        return idMonitoramentoAtivos;
+    }
 
-	public Integer getIdTipoItemConfiguracao() {
-		return idTipoItemConfiguracao;
-	}
+    public void setIdMonitoramentoAtivos(final Integer idMonitoramentoAtivos) {
+        this.idMonitoramentoAtivos = idMonitoramentoAtivos;
+    }
 
-	public void setIdTipoItemConfiguracao(Integer idTipoItemConfiguracao) {
-		this.idTipoItemConfiguracao = idTipoItemConfiguracao;
-	}
+    public Integer getIdTipoItemConfiguracao() {
+        return idTipoItemConfiguracao;
+    }
 
-	public String getTitulo() {
-		return titulo;
-	}
+    public void setIdTipoItemConfiguracao(final Integer idTipoItemConfiguracao) {
+        this.idTipoItemConfiguracao = idTipoItemConfiguracao;
+    }
 
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
+    public String getTitulo() {
+        return titulo;
+    }
 
-	public String getDescricao() {
-		return descricao;
-	}
+    public void setTitulo(final String titulo) {
+        this.titulo = titulo;
+    }
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
+    public String getDescricao() {
+        return descricao;
+    }
 
-	public String getTipoRegra() {
-		return tipoRegra;
-	}
+    public void setDescricao(final String descricao) {
+        this.descricao = descricao;
+    }
 
-	public void setTipoRegra(String tipoRegra) {
-		this.tipoRegra = tipoRegra;
-	}
+    public String getTipoRegra() {
+        return tipoRegra;
+    }
 
-	public String getEnviarEmail() {
-		return enviarEmail;
-	}
+    public void setTipoRegra(final String tipoRegra) {
+        this.tipoRegra = tipoRegra;
+    }
 
-	public void setEnviarEmail(String enviarEmail) {
-		this.enviarEmail = enviarEmail;
-	}
+    public String getEnviarEmail() {
+        return enviarEmail;
+    }
 
-	public String getCriarProblema() {
-		return criarProblema;
-	}
+    public void setEnviarEmail(final String enviarEmail) {
+        this.enviarEmail = enviarEmail;
+    }
 
-	public void setCriarProblema(String criarProblema) {
-		this.criarProblema = criarProblema;
-	}
+    public String getCriarProblema() {
+        return criarProblema;
+    }
 
-	public String getCriarIncidente() {
-		return criarIncidente;
-	}
+    public void setCriarProblema(final String criarProblema) {
+        this.criarProblema = criarProblema;
+    }
 
-	public void setCriarIncidente(String criarIncidente) {
-		this.criarIncidente = criarIncidente;
-	}
+    public String getCriarIncidente() {
+        return criarIncidente;
+    }
 
-	public Date getDataInicio() {
-		return dataInicio;
-	}
+    public void setCriarIncidente(final String criarIncidente) {
+        this.criarIncidente = criarIncidente;
+    }
 
-	public void setDataInicio(Date dataInicio) {
-		this.dataInicio = dataInicio;
-	}
+    public Date getDataInicio() {
+        return dataInicio;
+    }
 
-	public Date getDataFim() {
-		return dataFim;
-	}
+    public void setDataInicio(final Date dataInicio) {
+        this.dataInicio = dataInicio;
+    }
 
-	public void setDataFim(Date dataFim) {
-		this.dataFim = dataFim;
-	}
+    public Date getDataFim() {
+        return dataFim;
+    }
 
-	public Integer getIdCaracteristica() {
-		return idCaracteristica;
-	}
+    public void setDataFim(final Date dataFim) {
+        this.dataFim = dataFim;
+    }
 
-	public void setIdCaracteristica(Integer idCaracteristica) {
-		this.idCaracteristica = idCaracteristica;
-	}
+    public Integer getIdCaracteristica() {
+        return idCaracteristica;
+    }
 
-	public String getScript() {
-		return script;
-	}
+    public void setIdCaracteristica(final Integer idCaracteristica) {
+        this.idCaracteristica = idCaracteristica;
+    }
 
-	public void setScript(String script) {
-		this.script = script;
-	}
+    public String getScript() {
+        return script;
+    }
 
-	public Integer[] getUsuariosNotificacao() {
-		return usuariosNotificacao;
-	}
+    public void setScript(final String script) {
+        this.script = script;
+    }
 
-	public void setUsuariosNotificacao(Integer[] usuariosNotificacao) {
-		this.usuariosNotificacao = usuariosNotificacao;
-	}
+    public Integer[] getUsuariosNotificacao() {
+        return usuariosNotificacao;
+    }
 
-	public Integer[] getGruposNotificacao() {
-		return gruposNotificacao;
-	}
+    public void setUsuariosNotificacao(final Integer[] usuariosNotificacao) {
+        this.usuariosNotificacao = usuariosNotificacao;
+    }
 
-	public void setGruposNotificacao(Integer[] gruposNotificacao) {
-		this.gruposNotificacao = gruposNotificacao;
-	}
+    public Integer[] getGruposNotificacao() {
+        return gruposNotificacao;
+    }
 
-	public boolean getScriptSuccess() {
-		return scriptSuccess;
-	}
+    public void setGruposNotificacao(final Integer[] gruposNotificacao) {
+        this.gruposNotificacao = gruposNotificacao;
+    }
 
-	public void setScriptSuccess(boolean scriptSuccess) {
-		this.scriptSuccess = scriptSuccess;
-	}
+    public boolean getScriptSuccess() {
+        return scriptSuccess;
+    }
+
+    public void setScriptSuccess(final boolean scriptSuccess) {
+        this.scriptSuccess = scriptSuccess;
+    }
 
 }

@@ -16,52 +16,52 @@ import br.com.centralit.citcorpore.util.ParametroUtil;
  */
 public class MonitoraAsterisk extends Thread {
 
-	private final String nomeDaFuncaoJavaScript = "exibirNotificacaoAsterisk";
-	private static Asterisk asterisk;
-	private StringBuilder listatelefones = null;
-	private List<ChamadaDTO> listChamadaDto = new ArrayList<ChamadaDTO>();
-	private Integer intervalo = 1000;
+    private final String nomeDaFuncaoJavaScript = "exibirNotificacaoAsterisk";
+    private static Asterisk asterisk;
+    private StringBuilder listatelefones = null;
+    private List<ChamadaDTO> listChamadaDto = new ArrayList<ChamadaDTO>();
+    private Integer intervalo = 1000;
 
-	@Override
-	public void run() {
-		while (true) {
-			String asteriskAtivo = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.SERVASTERISKATIVAR, "N");
-			synchronized (this) {
-				if (asteriskAtivo.equalsIgnoreCase("S")) {
-					try {
-						if (asterisk == null) {
-							asterisk = new Asterisk();
-						}
-						listChamadaDto = asterisk.telefonesChamando();
-						listatelefones = new StringBuilder();
-						for (ChamadaDTO chamadaDTO : listChamadaDto) {
-							listatelefones.append(chamadaDTO.getNumeroOrigem() + "," + chamadaDTO.getNumeroDestino() + "#");
-						}
+    @Override
+    public void run() {
+        while (true) {
+            final String asteriskAtivo = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.SERVASTERISKATIVAR, "N");
+            synchronized (this) {
+                if (asteriskAtivo.equalsIgnoreCase("S")) {
+                    try {
+                        if (asterisk == null) {
+                            asterisk = new Asterisk();
+                        }
+                        listChamadaDto = asterisk.telefonesChamando();
+                        listatelefones = new StringBuilder();
+                        for (final ChamadaDTO chamadaDTO : listChamadaDto) {
+                            listatelefones.append(chamadaDTO.getNumeroOrigem() + "," + chamadaDTO.getNumeroDestino() + "#");
+                        }
 
-						if (listatelefones.length() > 0) {
-							// Enviando lista de novas chamadas ativas para os
-							// computadores clientes.
-							AjaxReverse.executarAjaxReverseWithAllSessions(nomeDaFuncaoJavaScript, listatelefones.toString());
-						}
-					} catch (IOException e) {
-						e.printStackTrace();
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-				}
-			}
-			try {
-				try {
-					intervalo = Integer.parseInt(ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.SERVASTERISKINTERVALO, "2000"));
-				} catch (NumberFormatException e) {
-					intervalo = 2000;
-				}
+                        if (listatelefones.length() > 0) {
+                            // Enviando lista de novas chamadas ativas para os
+                            // computadores clientes.
+                            AjaxReverse.executarAjaxReverseWithAllSessions(nomeDaFuncaoJavaScript, listatelefones.toString());
+                        }
+                    } catch (final IOException e) {
+                        e.printStackTrace();
+                    } catch (final Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            try {
+                try {
+                    intervalo = Integer.parseInt(ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.SERVASTERISKINTERVALO, "2000"));
+                } catch (final NumberFormatException e) {
+                    intervalo = 2000;
+                }
 
-				Thread.sleep(intervalo);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}
-	}
+                Thread.sleep(intervalo);
+            } catch (final InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
 }

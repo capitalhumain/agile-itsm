@@ -9,8 +9,8 @@ public interface Log {
     String WARN = "WARN";
     String SEPARADOR = "#|#";
 
-    void registraLog(String mensagem, Class<?> classe, String tipoMensagem) throws Exception;
+    void registraLog(final String mensagem, final Class<?> classe, final String tipoMensagem) throws Exception;
 
-    void registraLog(Exception e, Class<?> classe, String tipoMensagem) throws Exception;
+    void registraLog(final Exception e, final Class<?> classe, final String tipoMensagem) throws Exception;
 
 }

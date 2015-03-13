@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 
 import br.com.centralit.citajax.html.AjaxFormAction;
 import br.com.centralit.citajax.html.DocumentHTML;
@@ -116,7 +116,7 @@ public class TreeViewItemCfgAval extends AjaxFormAction {
 			if (listaGrupos != null){
 				for (Iterator it = listaGrupos.iterator(); it.hasNext();){
 					GrupoItemConfiguracaoDTO grupoItemConfiguracaoDTO = (GrupoItemConfiguracaoDTO)it.next();
-					idGrupoItemConfiguracao.addOption("" + grupoItemConfiguracaoDTO.getIdGrupoItemConfiguracao(), nivel + StringEscapeUtils.escapeJavaScript(grupoItemConfiguracaoDTO.getNomeGrupoItemConfiguracao()));
+					idGrupoItemConfiguracao.addOption("" + grupoItemConfiguracaoDTO.getIdGrupoItemConfiguracao(), nivel + StringEscapeUtils.escapeEcmaScript(grupoItemConfiguracaoDTO.getNomeGrupoItemConfiguracao()));
 					montaEstruturaIC(document, request, response, grupoItemConfiguracaoDTO.getIdGrupoItemConfiguracao(), nivel);
 				}
 			}
@@ -207,7 +207,7 @@ public class TreeViewItemCfgAval extends AjaxFormAction {
 		if (listaGrupos != null){
 			for (Iterator it = listaGrupos.iterator(); it.hasNext();){
 				GrupoItemConfiguracaoDTO grupoItemConfiguracaoDTO = (GrupoItemConfiguracaoDTO)it.next();
-				idGrupoItemConfiguracao.addOption("" + grupoItemConfiguracaoDTO.getIdGrupoItemConfiguracao(), nivelAux + StringEscapeUtils.escapeJavaScript(grupoItemConfiguracaoDTO.getNomeGrupoItemConfiguracao()));
+				idGrupoItemConfiguracao.addOption("" + grupoItemConfiguracaoDTO.getIdGrupoItemConfiguracao(), nivelAux + StringEscapeUtils.escapeEcmaScript(grupoItemConfiguracaoDTO.getNomeGrupoItemConfiguracao()));
 				montaEstruturaIC(document, request, response, grupoItemConfiguracaoDTO.getIdGrupoItemConfiguracao(), nivelAux);
 			}
 		}		
@@ -231,7 +231,7 @@ public class TreeViewItemCfgAval extends AjaxFormAction {
 		softs = softs + ";";
 		softs = softs.replaceAll(",", ";");
 		String[] strsSofts = softs.split(";");
-		List lstSofts = new ArrayList();
+		List lstSofts = new ArrayList<>();
 		if (strsSofts != null){
 			for (int i = 0; i < strsSofts.length; i++){
 				if (strsSofts[i] != null && !strsSofts[i].trim().equalsIgnoreCase("")){

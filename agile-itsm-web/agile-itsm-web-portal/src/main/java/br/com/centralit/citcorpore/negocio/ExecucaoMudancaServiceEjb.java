@@ -84,7 +84,7 @@ public class ExecucaoMudancaServiceEjb extends CrudServiceImpl implements Execuc
             try {
                 tc.close();
             } catch (final PersistenceException e) {
-                // TODO Auto-generated catch block
+                
                 e.printStackTrace();
             }
         }
@@ -107,7 +107,7 @@ public class ExecucaoMudancaServiceEjb extends CrudServiceImpl implements Execuc
         final Gson gson = new Gson();
 
         final ObjetoNegocioDao objetoNegocioDao = new ObjetoNegocioDao();
-        final HashMap<Integer, ObjetoNegocioDTO> mapObjetos = new HashMap();
+        final HashMap<Integer, ObjetoNegocioDTO> mapObjetos = new HashMap<>();
 
         for (final CamposObjetoNegocioDTO campoDto : colCampos) {
             final String value = params.get(campoDto.getNome());
@@ -157,7 +157,7 @@ public class ExecucaoMudancaServiceEjb extends CrudServiceImpl implements Execuc
         }
 
         Collection<GrupoVisaoCamposNegocioDTO> result = null;
-        result = new ArrayList();
+        result = new ArrayList<>();
         final Collection<ObjetoInstanciaFluxoDTO> colCampos = new ObjetoInstanciaFluxoDao().findByIdTarefa(idTarefa);
         if (colCampos != null) {
             final Gson gson = new Gson();
@@ -216,7 +216,7 @@ public class ExecucaoMudancaServiceEjb extends CrudServiceImpl implements Execuc
     public void executa(final UsuarioDTO usuarioDto, final TransactionControler tc, final Integer idFluxo, final Integer idTarefa, final String acaoFluxo,
             final HashMap<String, String> params, final Collection<CamposObjetoNegocioDTO> colCamposTodosPrincipal, final Collection<CamposObjetoNegocioDTO> colCamposTodosVinc)
             throws Exception {
-        final HashMap<String, Object> map = new HashMap();
+        final HashMap<String, Object> map = new HashMap<>();
         this.trataCamposTarefa(params, colCamposTodosPrincipal, map, "S");
         this.trataCamposTarefa(params, colCamposTodosVinc, map, "N");
         final Integer idSolicitacao = new Integer((String) map.get("IDREQUISICAOMUDANCA"));
@@ -230,7 +230,7 @@ public class ExecucaoMudancaServiceEjb extends CrudServiceImpl implements Execuc
         if (requisicaoMudancaDto.getAcaoFluxo() != null) {
             requisicaoMudancaDto.getAcaoFluxo();
         }
-        final HashMap<String, Object> objetos = new HashMap();
+        final HashMap<String, Object> objetos = new HashMap<>();
         final RequisicaoMudancaDTO mudancaAuxDto = new RequisicaoMudancaServiceEjb().restoreAll(requisicaoMudancaDto.getIdRequisicaoMudanca(), tc);
         new ExecucaoMudanca(tc).executa(requisicaoMudancaDto.getUsuarioDto().getLogin(), mudancaAuxDto, idTarefa, acaoFluxo, objetos);
     }

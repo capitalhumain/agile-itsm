@@ -155,7 +155,7 @@ public class DataManager extends AjaxFormAction {
             document.getJanelaPopupById("JANELA_AGUARDE_MENU").hide();
             return;
         }
-        final List colRecordsGeral = new ArrayList();
+        final List colRecordsGeral = new ArrayList<>();
         for (final Iterator it = colUploadsGED.iterator(); it.hasNext();) {
             final UploadDTO uploadDTO = (UploadDTO) it.next();
             final Collection colRecords = UtilImportData.readXMLFile(uploadDTO.getPath());
@@ -182,9 +182,9 @@ public class DataManager extends AjaxFormAction {
                 federarDados = false;
             }
             String sqlWhere = "";
-            final List lstParmsInsert = new ArrayList();
-            final List lstParmsUpdate = new ArrayList();
-            final List lstParmsWhere = new ArrayList();
+            final List lstParmsInsert = new ArrayList<>();
+            final List lstParmsUpdate = new ArrayList<>();
+            final List lstParmsWhere = new ArrayList<>();
             String sqlInsert = "";
             String sqlInsertValues = "";
             String sqlUpdate = "";
@@ -744,7 +744,7 @@ public class DataManager extends AjaxFormAction {
             System.out.println("PROBLEMA COM CODIFICACAO DE CARACTERES!!! [AjaxProcessEvent.getFormFields()]");
             e.printStackTrace();
         }
-        final HashMap formFields = new HashMap();
+        final HashMap formFields = new HashMap<>();
         final Enumeration en = req.getParameterNames();
         String[] strValores;
         while (en.hasMoreElements()) {

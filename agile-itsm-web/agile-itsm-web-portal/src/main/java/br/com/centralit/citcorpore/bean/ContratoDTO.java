@@ -14,7 +14,7 @@
 
 package br.com.centralit.citcorpore.bean;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import br.com.agileitsm.model.support.BaseEntity;
 import br.com.citframework.util.UtilHTML;

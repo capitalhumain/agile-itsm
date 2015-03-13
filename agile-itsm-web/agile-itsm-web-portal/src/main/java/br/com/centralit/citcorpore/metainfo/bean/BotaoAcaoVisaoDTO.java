@@ -3,74 +3,83 @@ package br.com.centralit.citcorpore.metainfo.bean;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class BotaoAcaoVisaoDTO extends BaseEntity {
-	public static String ACAO_GRAVAR = "1";
-	public static String ACAO_LIMPAR = "2";
-	public static String ACAO_EXCLUIR = "3";
-	public static String ACAO_SCRIPT = "4";
-	
-	private Integer idBotaoAcaoVisao;
-	private Integer idVisao;
-	private String texto;
-	private String acao;
-	private String script;
-	private String hint;
-	private String icone;
-	private Integer ordem;
 
-	public Integer getIdBotaoAcaoVisao(){
-		return this.idBotaoAcaoVisao;
-	}
-	public void setIdBotaoAcaoVisao(Integer parm){
-		this.idBotaoAcaoVisao = parm;
-	}
+    public static String ACAO_GRAVAR = "1";
+    public static String ACAO_LIMPAR = "2";
+    public static String ACAO_EXCLUIR = "3";
+    public static String ACAO_SCRIPT = "4";
 
-	public Integer getIdVisao(){
-		return this.idVisao;
-	}
-	public void setIdVisao(Integer parm){
-		this.idVisao = parm;
-	}
+    private Integer idBotaoAcaoVisao;
+    private Integer idVisao;
+    private String texto;
+    private String acao;
+    private String script;
+    private String hint;
+    private String icone;
+    private Integer ordem;
 
-	public String getTexto(){
-		return this.texto;
-	}
-	public void setTexto(String parm){
-		this.texto = parm;
-	}
+    public Integer getIdBotaoAcaoVisao() {
+        return idBotaoAcaoVisao;
+    }
 
-	public String getAcao(){
-		return this.acao;
-	}
-	public void setAcao(String parm){
-		this.acao = parm;
-	}
+    public void setIdBotaoAcaoVisao(final Integer parm) {
+        idBotaoAcaoVisao = parm;
+    }
 
-	public String getScript(){
-		return this.script;
-	}
-	public void setScript(String parm){
-		this.script = parm;
-	}
+    public Integer getIdVisao() {
+        return idVisao;
+    }
 
-	public String getHint(){
-		return this.hint;
-	}
-	public void setHint(String parm){
-		this.hint = parm;
-	}
+    public void setIdVisao(final Integer parm) {
+        idVisao = parm;
+    }
 
-	public String getIcone(){
-		return this.icone;
-	}
-	public void setIcone(String parm){
-		this.icone = parm;
-	}
+    public String getTexto() {
+        return texto;
+    }
 
-	public Integer getOrdem(){
-		return this.ordem;
-	}
-	public void setOrdem(Integer parm){
-		this.ordem = parm;
-	}
+    public void setTexto(final String parm) {
+        texto = parm;
+    }
+
+    public String getAcao() {
+        return acao;
+    }
+
+    public void setAcao(final String parm) {
+        acao = parm;
+    }
+
+    public String getScript() {
+        return script;
+    }
+
+    public void setScript(final String parm) {
+        script = parm;
+    }
+
+    public String getHint() {
+        return hint;
+    }
+
+    public void setHint(final String parm) {
+        hint = parm;
+    }
+
+    public String getIcone() {
+        return icone;
+    }
+
+    public void setIcone(final String parm) {
+        icone = parm;
+    }
+
+    public Integer getOrdem() {
+        return ordem;
+    }
+
+    public void setOrdem(final Integer parm) {
+        ordem = parm;
+    }
 
 }

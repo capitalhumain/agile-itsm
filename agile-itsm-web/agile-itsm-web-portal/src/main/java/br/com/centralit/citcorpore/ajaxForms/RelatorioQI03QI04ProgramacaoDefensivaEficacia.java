@@ -70,7 +70,7 @@ public class RelatorioQI03QI04ProgramacaoDefensivaEficacia extends AjaxFormActio
 	
 	@Override
 	public Class getBeanClass() {
-		// TODO Auto-generated method stub
+		
 		return RelatorioKpiProdutividadeDTO.class;
 	}
 	

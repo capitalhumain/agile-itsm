@@ -12,7 +12,6 @@ import br.com.citframework.integracao.Field;
 import br.com.citframework.integracao.Order;
 import br.com.citframework.util.Constantes;
 
-@SuppressWarnings({"unchecked", "rawtypes"})
 public class ChatSmartDao extends CrudDaoDefaultImpl {
 
     public ChatSmartDao() {
@@ -21,7 +20,7 @@ public class ChatSmartDao extends CrudDaoDefaultImpl {
 
     @Override
     public Collection find(final BaseEntity dto) throws PersistenceException {
-        final List order = new ArrayList();
+        final List<Order> order = new ArrayList<>();
         order.add(new Order("nomeUsuario"));
         return super.find(dto, order);
     }
@@ -40,7 +39,7 @@ public class ChatSmartDao extends CrudDaoDefaultImpl {
 
     @Override
     public Collection list() throws PersistenceException {
-        final List list = new ArrayList();
+        final List list = new ArrayList<>();
         list.add(new Order("NomeUsuarioChat"));
         return super.list(list);
     }

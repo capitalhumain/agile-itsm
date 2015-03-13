@@ -69,7 +69,7 @@ public class UploadDocsGerais extends AjaxFormAction {
 		
 		 colUploadsGED = (Collection)request.getSession(true).getAttribute("colUploadGeraisGED");
 		if (colUploadsGED == null){
-			colUploadsGED = new ArrayList();
+			colUploadsGED = new ArrayList<>();
 		}
 		
 		File f = new File(CITCorporeUtil.CAMINHO_REAL_APP + "tempUpload");
@@ -81,7 +81,7 @@ public class UploadDocsGerais extends AjaxFormAction {
 		FileItem fi;
 		if (!fileItems.isEmpty()){
 			File arquivo;
-			List filesDel = new ArrayList();
+			List filesDel = new ArrayList<>();
 			Iterator it = fileItems.iterator();
 			while(it.hasNext()){
 				fi = (FileItem)it.next();	

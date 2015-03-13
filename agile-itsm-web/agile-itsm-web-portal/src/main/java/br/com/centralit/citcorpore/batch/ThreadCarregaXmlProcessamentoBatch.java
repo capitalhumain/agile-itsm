@@ -13,36 +13,44 @@ import br.com.centralit.citcorpore.util.CITCorporeUtil;
 import br.com.citframework.service.ServiceLocator;
 
 public class ThreadCarregaXmlProcessamentoBatch extends Thread {
-	public void run() {
-		try {
-			sleep(3000);
-		} catch (InterruptedException e2) {
-			e2.printStackTrace();
-		}
-		try {
-			ProcessamentoBatchService processamentoBatchService = (ProcessamentoBatchService) ServiceLocator.getInstance().getService(ProcessamentoBatchService.class, null);
-			String separator = System.getProperty("file.separator");
-			String diretorioReceita = CITCorporeUtil.CAMINHO_REAL_APP + "XMLs"  + separator;
-			File file = new File(diretorioReceita + "processamentoBatch.xml");/*
-			Collection<ProcessamentoBatchDTO> colProcessamentoBatchDTOs = (Collection<ProcessamentoBatchDTO>) processamentoBatchService.getAtivos();*/
-			SAXBuilder sb = new SAXBuilder();
-			Document doc = sb.build(file);
-			Element elements = doc.getRootElement();
-			List<Element> processametoSuperior = elements.getChild("processamentoBatch").getChildren();
-			for (Element batchs : processametoSuperior) {
-				ProcessamentoBatchDTO processamentoBatchDTO = new ProcessamentoBatchDTO();
-				processamentoBatchDTO.setDescricao(batchs.getChildText("descricao").trim());
-				processamentoBatchDTO.setConteudo(batchs.getChildText("conteudo").trim());
-				if(!processamentoBatchService.existeDuplicidade(processamentoBatchDTO) && !processamentoBatchService.existeDuplicidadeClasse(processamentoBatchDTO)){
-					processamentoBatchDTO.setTipo(batchs.getChildText("tipo").trim());
-					processamentoBatchDTO.setSituacao(batchs.getChildText("situacao").trim());
-					processamentoBatchDTO.setExpressaoCRON("");
-					processamentoBatchService.create(processamentoBatchDTO);
-				}
-				processamentoBatchDTO = null;
-			}
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-	}
+
+    @Override
+    public void run() {
+        try {
+            sleep(3000);
+        } catch (final InterruptedException e2) {
+            e2.printStackTrace();
+        }
+        try {
+            final ProcessamentoBatchService processamentoBatchService = (ProcessamentoBatchService) ServiceLocator.getInstance().getService(
+                    ProcessamentoBatchService.class, null);
+            final String separator = System.getProperty("file.separator");
+            final String diretorioReceita = CITCorporeUtil.CAMINHO_REAL_APP + "XMLs" + separator;
+            final File file = new File(diretorioReceita + "processamentoBatch.xml");/*
+                                                                                     * Collection<ProcessamentoBatchDTO> colProcessamentoBatchDTOs =
+                                                                                     * (Collection<ProcessamentoBatchDTO>)
+                                                                                     * processamentoBatchService.getAtivos();
+                                                                                     */
+            final SAXBuilder sb = new SAXBuilder();
+            final Document doc = sb.build(file);
+            final Element elements = doc.getRootElement();
+            final List<Element> processametoSuperior = elements.getChild("processamentoBatch").getChildren();
+            for (final Element batchs : processametoSuperior) {
+                ProcessamentoBatchDTO processamentoBatchDTO = new ProcessamentoBatchDTO();
+                processamentoBatchDTO.setDescricao(batchs.getChildText("descricao").trim());
+                processamentoBatchDTO.setConteudo(batchs.getChildText("conteudo").trim());
+                if (!processamentoBatchService.existeDuplicidade(processamentoBatchDTO)
+                        && !processamentoBatchService.existeDuplicidadeClasse(processamentoBatchDTO)) {
+                    processamentoBatchDTO.setTipo(batchs.getChildText("tipo").trim());
+                    processamentoBatchDTO.setSituacao(batchs.getChildText("situacao").trim());
+                    processamentoBatchDTO.setExpressaoCRON("");
+                    processamentoBatchService.create(processamentoBatchDTO);
+                }
+                processamentoBatchDTO = null;
+            }
+        } catch (final Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }

@@ -3,61 +3,70 @@ package br.com.centralit.citcorpore.bean;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class ValorLimiteAprovacaoDTO extends BaseEntity {
-	private Integer idValorLimiteAprovacao;
-	private Integer idLimiteAprovacao;
-	private String tipoUtilizacao;
-	private String tipoLimite;
-	private Double valorLimite;
-	private Integer intervaloDias;
-	
-	private Integer sequencia;
 
-	public Integer getIdValorLimiteAprovacao(){
-		return this.idValorLimiteAprovacao;
-	}
-	public void setIdValorLimiteAprovacao(Integer parm){
-		this.idValorLimiteAprovacao = parm;
-	}
+    private Integer idValorLimiteAprovacao;
+    private Integer idLimiteAprovacao;
+    private String tipoUtilizacao;
+    private String tipoLimite;
+    private Double valorLimite;
+    private Integer intervaloDias;
 
-	public Integer getIdLimiteAprovacao(){
-		return this.idLimiteAprovacao;
-	}
-	public void setIdLimiteAprovacao(Integer parm){
-		this.idLimiteAprovacao = parm;
-	}
+    private Integer sequencia;
 
-	public String getTipoUtilizacao(){
-		return this.tipoUtilizacao;
-	}
-	public void setTipoUtilizacao(String parm){
-		this.tipoUtilizacao = parm;
-	}
+    public Integer getIdValorLimiteAprovacao() {
+        return idValorLimiteAprovacao;
+    }
 
-	public String getTipoLimite(){
-		return this.tipoLimite;
-	}
-	public void setTipoLimite(String parm){
-		this.tipoLimite = parm;
-	}
+    public void setIdValorLimiteAprovacao(final Integer parm) {
+        idValorLimiteAprovacao = parm;
+    }
 
-	public Double getValorLimite(){
-		return this.valorLimite;
-	}
-	public void setValorLimite(Double parm){
-		this.valorLimite = parm;
-	}
+    public Integer getIdLimiteAprovacao() {
+        return idLimiteAprovacao;
+    }
 
-	public Integer getIntervaloDias(){
-		return this.intervaloDias;
-	}
-	public void setIntervaloDias(Integer parm){
-		this.intervaloDias = parm;
-	}
-	public Integer getSequencia() {
-		return sequencia;
-	}
-	public void setSequencia(Integer sequencia) {
-		this.sequencia = sequencia;
-	}
+    public void setIdLimiteAprovacao(final Integer parm) {
+        idLimiteAprovacao = parm;
+    }
+
+    public String getTipoUtilizacao() {
+        return tipoUtilizacao;
+    }
+
+    public void setTipoUtilizacao(final String parm) {
+        tipoUtilizacao = parm;
+    }
+
+    public String getTipoLimite() {
+        return tipoLimite;
+    }
+
+    public void setTipoLimite(final String parm) {
+        tipoLimite = parm;
+    }
+
+    public Double getValorLimite() {
+        return valorLimite;
+    }
+
+    public void setValorLimite(final Double parm) {
+        valorLimite = parm;
+    }
+
+    public Integer getIntervaloDias() {
+        return intervaloDias;
+    }
+
+    public void setIntervaloDias(final Integer parm) {
+        intervaloDias = parm;
+    }
+
+    public Integer getSequencia() {
+        return sequencia;
+    }
+
+    public void setSequencia(final Integer sequencia) {
+        this.sequencia = sequencia;
+    }
 
 }

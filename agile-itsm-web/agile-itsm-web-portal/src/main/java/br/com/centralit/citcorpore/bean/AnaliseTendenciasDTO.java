@@ -4,147 +4,146 @@ import java.sql.Date;
 
 import br.com.agileitsm.model.support.BaseEntity;
 
-@SuppressWarnings("serial")
 public class AnaliseTendenciasDTO extends BaseEntity {
-	
-	private Date dataInicio;
 
-	private Date dataFim;
+    private Date dataInicio;
 
-	private Integer idContrato;
+    private Date dataFim;
 
-	private Integer idServico;
+    private Integer idContrato;
 
-	private Integer idGrupoExecutor;
+    private Integer idServico;
 
-	private Integer idEmpregado;
+    private Integer idGrupoExecutor;
 
-	private Integer idTipoDemandaServico;
+    private Integer idEmpregado;
 
-	private String urgencia;
+    private Integer idTipoDemandaServico;
 
-	private String impacto;
+    private String urgencia;
 
-	private Integer idItemConfiguracao;
+    private String impacto;
 
-	private Integer idCausaIncidente;
+    private Integer idItemConfiguracao;
 
-	private Integer qtdeCritica;
-	
-	private Integer idRelatorio;
-	
-	private String tipoRelatorio;
+    private Integer idCausaIncidente;
 
-	public Date getDataInicio() {
-		return dataInicio;
-	}
+    private Integer qtdeCritica;
 
-	public void setDataInicio(Date dataInicio) {
-		this.dataInicio = dataInicio;
-	}
+    private Integer idRelatorio;
 
-	public Date getDataFim() {
-		return dataFim;
-	}
+    private String tipoRelatorio;
 
-	public void setDataFim(Date dataFim) {
-		this.dataFim = dataFim;
-	}
+    public Date getDataInicio() {
+        return dataInicio;
+    }
 
-	public Integer getIdContrato() {
-		return idContrato;
-	}
+    public void setDataInicio(final Date dataInicio) {
+        this.dataInicio = dataInicio;
+    }
 
-	public void setIdContrato(Integer idContrato) {
-		this.idContrato = idContrato;
-	}
+    public Date getDataFim() {
+        return dataFim;
+    }
 
-	public Integer getIdServico() {
-		return idServico;
-	}
+    public void setDataFim(final Date dataFim) {
+        this.dataFim = dataFim;
+    }
 
-	public void setIdServico(Integer idServico) {
-		this.idServico = idServico;
-	}
+    public Integer getIdContrato() {
+        return idContrato;
+    }
 
-	public Integer getIdGrupoExecutor() {
-		return idGrupoExecutor;
-	}
+    public void setIdContrato(final Integer idContrato) {
+        this.idContrato = idContrato;
+    }
 
-	public void setIdGrupoExecutor(Integer idGrupoExecutor) {
-		this.idGrupoExecutor = idGrupoExecutor;
-	}
+    public Integer getIdServico() {
+        return idServico;
+    }
 
-	public Integer getIdEmpregado() {
-		return idEmpregado;
-	}
+    public void setIdServico(final Integer idServico) {
+        this.idServico = idServico;
+    }
 
-	public void setIdEmpregado(Integer idEmpregado) {
-		this.idEmpregado = idEmpregado;
-	}
+    public Integer getIdGrupoExecutor() {
+        return idGrupoExecutor;
+    }
 
-	public Integer getIdTipoDemandaServico() {
-		return idTipoDemandaServico;
-	}
+    public void setIdGrupoExecutor(final Integer idGrupoExecutor) {
+        this.idGrupoExecutor = idGrupoExecutor;
+    }
 
-	public void setIdTipoDemandaServico(Integer idTipoDemandaServico) {
-		this.idTipoDemandaServico = idTipoDemandaServico;
-	}
+    public Integer getIdEmpregado() {
+        return idEmpregado;
+    }
 
-	public String getUrgencia() {
-		return urgencia;
-	}
+    public void setIdEmpregado(final Integer idEmpregado) {
+        this.idEmpregado = idEmpregado;
+    }
 
-	public void setUrgencia(String urgencia) {
-		this.urgencia = urgencia;
-	}
+    public Integer getIdTipoDemandaServico() {
+        return idTipoDemandaServico;
+    }
 
-	public String getImpacto() {
-		return impacto;
-	}
+    public void setIdTipoDemandaServico(final Integer idTipoDemandaServico) {
+        this.idTipoDemandaServico = idTipoDemandaServico;
+    }
 
-	public void setImpacto(String impacto) {
-		this.impacto = impacto;
-	}
+    public String getUrgencia() {
+        return urgencia;
+    }
 
-	public Integer getIdItemConfiguracao() {
-		return idItemConfiguracao;
-	}
+    public void setUrgencia(final String urgencia) {
+        this.urgencia = urgencia;
+    }
 
-	public void setIdItemConfiguracao(Integer idItemConfiguracao) {
-		this.idItemConfiguracao = idItemConfiguracao;
-	}
+    public String getImpacto() {
+        return impacto;
+    }
 
-	public Integer getIdCausaIncidente() {
-		return idCausaIncidente;
-	}
+    public void setImpacto(final String impacto) {
+        this.impacto = impacto;
+    }
 
-	public void setIdCausaIncidente(Integer idCausaIncidente) {
-		this.idCausaIncidente = idCausaIncidente;
-	}
+    public Integer getIdItemConfiguracao() {
+        return idItemConfiguracao;
+    }
 
-	public Integer getQtdeCritica() {
-		return qtdeCritica;
-	}
+    public void setIdItemConfiguracao(final Integer idItemConfiguracao) {
+        this.idItemConfiguracao = idItemConfiguracao;
+    }
 
-	public void setQtdeCritica(Integer qtdeCritica) {
-		this.qtdeCritica = qtdeCritica;
-	}
+    public Integer getIdCausaIncidente() {
+        return idCausaIncidente;
+    }
 
-	public Integer getIdRelatorio() {
-		return idRelatorio;
-	}
+    public void setIdCausaIncidente(final Integer idCausaIncidente) {
+        this.idCausaIncidente = idCausaIncidente;
+    }
 
-	public void setIdRelatorio(Integer idRelatorio) {
-		this.idRelatorio = idRelatorio;
-	}
+    public Integer getQtdeCritica() {
+        return qtdeCritica;
+    }
 
-	public String getTipoRelatorio() {
-		return tipoRelatorio;
-	}
+    public void setQtdeCritica(final Integer qtdeCritica) {
+        this.qtdeCritica = qtdeCritica;
+    }
 
-	public void setTipoRelatorio(String tipoRelatorio) {
-		this.tipoRelatorio = tipoRelatorio;
-	}
+    public Integer getIdRelatorio() {
+        return idRelatorio;
+    }
+
+    public void setIdRelatorio(final Integer idRelatorio) {
+        this.idRelatorio = idRelatorio;
+    }
+
+    public String getTipoRelatorio() {
+        return tipoRelatorio;
+    }
+
+    public void setTipoRelatorio(final String tipoRelatorio) {
+        this.tipoRelatorio = tipoRelatorio;
+    }
 
 }

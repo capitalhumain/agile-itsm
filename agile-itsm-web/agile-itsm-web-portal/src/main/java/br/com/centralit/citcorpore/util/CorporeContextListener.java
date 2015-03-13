@@ -75,7 +75,6 @@ import br.com.citframework.util.UtilI18N;
 import br.com.citframework.util.UtilTratamentoArquivos;
 import br.com.citframework.util.XmlReadLookup;
 
-@SuppressWarnings("unchecked")
 public class CorporeContextListener implements ServletContextListener {
 
     private static final Logger LOGGER = Logger.getLogger(CorporeContextListener.class);
@@ -195,23 +194,23 @@ public class CorporeContextListener implements ServletContextListener {
 
         final ServletContext context = event.getServletContext();
 
-        iniciarProcessoInstalacao(context);
+        this.iniciarProcessoInstalacao(context);
 
-        iniciarRotinaDeScripts();
+        this.iniciarRotinaDeScripts();
 
-        carregarParametros();
+        this.carregarParametros();
 
         LOGGER.info("CITSMart - Carregando Dicionários - Início");
         UtilI18N.initialize();
         LOGGER.info("CITSMart - Carregando Dicionários - Fim");
 
-        carregarBibliotecasExternas();
+        this.carregarBibliotecasExternas();
 
-        criarUsuarioConsultor();
+        this.criarUsuarioConsultor();
 
         XmlReadLookup.getInstance();
 
-        realizarCargaDeMenus();
+        this.realizarCargaDeMenus();
 
         final ThreadCarregaXmlProcessamentoBatch threadCarregaXmlProcessamentoBatch = new ThreadCarregaXmlProcessamentoBatch();
         threadCarregaXmlProcessamentoBatch.start();
@@ -247,16 +246,16 @@ public class CorporeContextListener implements ServletContextListener {
             threadEventos.start();
         }
 
-        definirParametrosJasperReport();
+        this.definirParametrosJasperReport();
 
         if (ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.SERVASTERISKATIVAR, "N").equals("S")) {
             final MonitoraAsterisk monitoraAsterisk = new MonitoraAsterisk();
             monitoraAsterisk.start();
         }
 
-        criarAtualizarIndexPesquisaLucene();
+        this.criarAtualizarIndexPesquisaLucene();
 
-        atualizarFormulasAntigasOrdemDeServico();
+        this.atualizarFormulasAntigasOrdemDeServico();
 
         LOGGER.info("Iniciando Citsmart - Fim");
     }
@@ -275,7 +274,7 @@ public class CorporeContextListener implements ServletContextListener {
                 for (final BibliotecasExternasDTO bibliotecasExternasDTO : colLibs) {
                     try {
                         final JarFile jarFile = new JarFile(bibliotecasExternasDTO.getCaminho());
-                        generateClassesFromLib(jarFile, bibliotecasExternasDTO.getCaminho(), bibliotecasExternasDTO.getIdBibliotecasExterna());
+                        this.generateClassesFromLib(jarFile, bibliotecasExternasDTO.getCaminho(), bibliotecasExternasDTO.getIdBibliotecasExterna());
                     } catch (final Exception e) {
                         LOGGER.warn(
                                 String.format("CITSMart - Problema ao carregar biblioteca externa %s: %s", bibliotecasExternasDTO.getCaminho(), e.getMessage()),
@@ -339,7 +338,7 @@ public class CorporeContextListener implements ServletContextListener {
 
         if (ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.RECONFIGURAR_FORMULASOS_DASATIVIDADES, "S").equalsIgnoreCase("S")) {
             try {
-                reconfigurarFormulaOS();
+                this.reconfigurarFormulaOS();
                 final ParametroCorporeService parametroCorporeService = (ParametroCorporeService) ServiceLocator.getInstance().getService(
                         ParametroCorporeService.class, null);
                 ParametroCorporeDTO parametro = new ParametroCorporeDTO();

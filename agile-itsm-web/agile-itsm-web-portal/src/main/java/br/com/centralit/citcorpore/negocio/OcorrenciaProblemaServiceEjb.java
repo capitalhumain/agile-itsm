@@ -49,7 +49,7 @@ public class OcorrenciaProblemaServiceEjb extends CrudServiceImpl implements Oco
         try {
             ocorrenciaProblemaDTO.setDadosProblema(new Gson().toJson(problemaDto));
         } catch (final Exception e) {
-            // TODO Auto-generated catch block
+            
             e.printStackTrace();
         }
         ocorrenciaProblemaDTO.setOcorrencia(ocorrencia);

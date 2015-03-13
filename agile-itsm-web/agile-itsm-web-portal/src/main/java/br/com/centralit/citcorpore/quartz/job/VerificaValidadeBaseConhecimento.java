@@ -48,7 +48,8 @@ public class VerificaValidadeBaseConhecimento implements Job {
 
             dataAtual = (Date) UtilDatas.incrementaDiasEmData(dataAtual, Integer.parseInt(AVISAR_DATAEXPIRACAO_BASECONHECIMENTO));
 
-            final BaseConhecimentoService baseConhecimentoService = (BaseConhecimentoService) ServiceLocator.getInstance().getService(BaseConhecimentoService.class, null);
+            final BaseConhecimentoService baseConhecimentoService = (BaseConhecimentoService) ServiceLocator.getInstance().getService(
+                    BaseConhecimentoService.class, null);
             final EmpregadoService empregadoService = (EmpregadoService) ServiceLocator.getInstance().getService(EmpregadoService.class, null);
             final UsuarioService usuarioService = (UsuarioService) ServiceLocator.getInstance().getService(UsuarioService.class, null);
 
@@ -71,7 +72,8 @@ public class VerificaValidadeBaseConhecimento implements Job {
                     if (usuarioDtoAvaliador.getIdEmpregado() != null) {
                         empregadoDtoAvaliador = empregadoService.restoreByIdEmpregado(usuarioDtoAvaliador.getIdEmpregado());
                     }
-                    final MensagemEmail mensagem = new MensagemEmail(Integer.parseInt(ID_MODELO_EMAIL_EXPIRACAO_BASECONHECIMENTO), new BaseEntity[] {baseConhecimentoDTO});
+                    final MensagemEmail mensagem = new MensagemEmail(Integer.parseInt(ID_MODELO_EMAIL_EXPIRACAO_BASECONHECIMENTO),
+                            new BaseEntity[] {baseConhecimentoDTO});
                     mensagem.envia(empregadoDtoAutor.getEmail(), "", remetente);
                     mensagem.envia(empregadoDtoAvaliador.getEmail(), "", remetente);
                 }

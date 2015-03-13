@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Semaphore;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import br.com.centralit.citcorpore.bean.EmpregadoDTO;
 import br.com.centralit.citcorpore.bean.EventoMonitoramentoDTO;
@@ -60,7 +60,8 @@ public class MonitoraNagios extends Thread {
 
     @Override
     public void run() {
-        final String habilitaMonitoramentoNagios = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.HABILITA_MONITORAMENTO_NAGIOS, "N");
+        final String habilitaMonitoramentoNagios = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.HABILITA_MONITORAMENTO_NAGIOS,
+                "N");
 
         if (habilitaMonitoramentoNagios != null && habilitaMonitoramentoNagios.trim().equalsIgnoreCase("S")) {
             performanceData = new PerformanceData();
@@ -94,8 +95,8 @@ public class MonitoraNagios extends Thread {
 
                                             for (final String serviceName : servidorNagios.services(nomeHost)) {
                                                 final Services serviceHostLiveStatus = new Services(conexao.trim());
-                                                final Map<String, String> atributosService = serviceHostLiveStatus.asArrayString("services", "display_name = " + serviceName + ","
-                                                        + "host_name = " + nomeHost);
+                                                final Map<String, String> atributosService = serviceHostLiveStatus.asArrayString("services", "display_name = "
+                                                        + serviceName + "," + "host_name = " + nomeHost);
 
                                                 for (final String keyService : atributosService.keySet()) {
                                                     host.addServiceEntry(serviceName, keyService, atributosService.get(keyService));
@@ -180,8 +181,8 @@ public class MonitoraNagios extends Thread {
         }
     }
 
-    public void generateIncidente(final RecursoDTO recursoDTO, final String hostName, final String current_state, final int last_check, final List<ParameterEntry> hostEntries)
-            throws ServiceException, LogicException {
+    public void generateIncidente(final RecursoDTO recursoDTO, final String hostName, final String current_state, final int last_check,
+            final List<ParameterEntry> hostEntries) throws ServiceException, LogicException {
         if (recursoDTO == null) {
             return;
         }
@@ -351,14 +352,15 @@ public class MonitoraNagios extends Thread {
             if (mails != null) {
                 for (final String mail : mails) {
                     final String mailTo = UtilStrings.nullToVazio(mail).trim();
-                    final MensagemEmail mensagemEmail = new MensagemEmail(mailTo, null, null, remetente, "CITSMART - Monitoring Alert: " + hostName + " - " + current_state
-                            + " -->> Event: " + nameEventSystem, descr);
+                    final MensagemEmail mensagemEmail = new MensagemEmail(mailTo, null, null, remetente, "CITSMART - Monitoring Alert: " + hostName + " - "
+                            + current_state + " -->> Event: " + nameEventSystem, descr);
                     try {
                         mensagemEmail.envia(mailTo, null, remetente);
                         System.out.println("CITSMART - Monitoring Alert: " + current_state + " Event: " + nameEventSystem + " -->> Send mail: " + mailTo);
                     } catch (final Exception e) {
                         e.printStackTrace();
-                        System.out.println("CITSMART - Monitoring Alert: " + current_state + " Event: " + nameEventSystem + " -->> PROBLEM Send mail: " + mailTo);
+                        System.out.println("CITSMART - Monitoring Alert: " + current_state + " Event: " + nameEventSystem + " -->> PROBLEM Send mail: "
+                                + mailTo);
                     }
                 }
             }
@@ -418,11 +420,6 @@ public class MonitoraNagios extends Thread {
                 current_state = "PENDING";
             }
         }
-    }
-
-    public static void main(final String[] args) {
-        final MonitoraNagios monitoraNagios = new MonitoraNagios();
-        monitoraNagios.start();
     }
 
 }

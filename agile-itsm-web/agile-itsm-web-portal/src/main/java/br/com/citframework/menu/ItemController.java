@@ -1,13 +1,15 @@
 package br.com.citframework.menu;
 
 public class ItemController {
-	private int controle;
 
-	public int getControle() {
-		return controle;
-	}
+    private int controle;
 
-	public void setControle(int controle) {
-		this.controle = controle;
-	}
+    public int getControle() {
+        return controle;
+    }
+
+    public void setControle(final int controle) {
+        this.controle = controle;
+    }
+
 }

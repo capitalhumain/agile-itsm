@@ -38,11 +38,11 @@ import br.com.citframework.integracao.TransactionControler;
 import br.com.citframework.integracao.TransactionControlerImpl;
 import br.com.citframework.service.CrudServiceImpl;
 
-@SuppressWarnings("rawtypes")
 public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
 
     private VisaoDao dao;
 
+    @Override
     protected VisaoDao getDao() {
         if (dao == null) {
             dao = new VisaoDao();
@@ -50,28 +50,29 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
         return dao;
     }
 
+    @Override
     public Collection listAtivos() throws Exception {
-        return getDao().listAtivos();
+        return this.getDao().listAtivos();
     }
 
     @Override
     public BaseEntity create(BaseEntity model) throws ServiceException, LogicException {
         // Instancia Objeto controlador de transacao
-        VisaoDao crudDao = this.getDao();
-        GrupoVisaoDao grupoVisaoDao = getGrupoVisaoDao();
-        GrupoVisaoCamposNegocioDao grupoVisaoCamposNegocioDao = new GrupoVisaoCamposNegocioDao();
-        ValorVisaoCamposNegocioDao valorVisaoCamposNegocioDao = new ValorVisaoCamposNegocioDao();
-        GrupoVisaoCamposNegocioLigacaoDao grupoVisaoCamposNegocioLigacaoDao = new GrupoVisaoCamposNegocioLigacaoDao();
-        VisaoRelacionadaDao visaoRelacionadaDao = new VisaoRelacionadaDao();
-        VinculoVisaoDao vinculoVisaoDao = new VinculoVisaoDao();
-        ScriptsVisaoDao scriptsVisaoDao = new ScriptsVisaoDao();
-        BotaoAcaoVisaoDao botaoAcaoVisaoDao = new BotaoAcaoVisaoDao();
-        HtmlCodeVisaoDao htmlCodeVisaoDao = new HtmlCodeVisaoDao();
-        MatrizVisaoDao matrizVisaoDao = new MatrizVisaoDao();
-        TransactionControler tc = new TransactionControlerImpl(crudDao.getAliasDB());
+        final VisaoDao crudDao = this.getDao();
+        final GrupoVisaoDao grupoVisaoDao = this.getGrupoVisaoDao();
+        final GrupoVisaoCamposNegocioDao grupoVisaoCamposNegocioDao = new GrupoVisaoCamposNegocioDao();
+        final ValorVisaoCamposNegocioDao valorVisaoCamposNegocioDao = new ValorVisaoCamposNegocioDao();
+        final GrupoVisaoCamposNegocioLigacaoDao grupoVisaoCamposNegocioLigacaoDao = new GrupoVisaoCamposNegocioLigacaoDao();
+        final VisaoRelacionadaDao visaoRelacionadaDao = new VisaoRelacionadaDao();
+        final VinculoVisaoDao vinculoVisaoDao = new VinculoVisaoDao();
+        final ScriptsVisaoDao scriptsVisaoDao = new ScriptsVisaoDao();
+        final BotaoAcaoVisaoDao botaoAcaoVisaoDao = new BotaoAcaoVisaoDao();
+        final HtmlCodeVisaoDao htmlCodeVisaoDao = new HtmlCodeVisaoDao();
+        final MatrizVisaoDao matrizVisaoDao = new MatrizVisaoDao();
+        final TransactionControler tc = new TransactionControlerImpl(crudDao.getAliasDB());
         try {
             // Faz validacao, caso exista.
-            validaCreate(model);
+            this.validaCreate(model);
 
             // Instancia ou obtem os DAOs necessarios.
 
@@ -92,7 +93,7 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
             tc.start();
 
             // Executa operacoes pertinentes ao negocio.
-            VisaoDTO visaoDTO = (VisaoDTO) model;
+            final VisaoDTO visaoDTO = (VisaoDTO) model;
             model = crudDao.create(model);
             if (visaoDTO != null) {
                 if (visaoDTO.getTipoVisao().equalsIgnoreCase(VisaoDTO.MATRIZ)) {
@@ -101,14 +102,14 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
                     matrizVisaoDao.create(visaoDTO.getMatrizVisaoDTO());
                 }
                 if (visaoDTO.getColGrupos() != null) {
-                    for (Iterator it = visaoDTO.getColGrupos().iterator(); it.hasNext();) {
+                    for (final Iterator it = visaoDTO.getColGrupos().iterator(); it.hasNext();) {
                         GrupoVisaoDTO grupoVisaoDTO = (GrupoVisaoDTO) it.next();
                         grupoVisaoDTO.setIdVisao(visaoDTO.getIdVisao());
                         grupoVisaoDTO = (GrupoVisaoDTO) grupoVisaoDao.create(grupoVisaoDTO);
                         if (grupoVisaoDTO != null) {
                             if (grupoVisaoDTO.getColCamposVisao() != null) {
                                 int ordem = 0;
-                                for (Iterator itCampos = grupoVisaoDTO.getColCamposVisao().iterator(); itCampos.hasNext();) {
+                                for (final Iterator itCampos = grupoVisaoDTO.getColCamposVisao().iterator(); itCampos.hasNext();) {
                                     ordem++;
                                     GrupoVisaoCamposNegocioDTO grupoVisaoCamposNegocioDTO = (GrupoVisaoCamposNegocioDTO) itCampos.next();
                                     grupoVisaoCamposNegocioDTO.setIdGrupoVisao(grupoVisaoDTO.getIdGrupoVisao());
@@ -126,11 +127,11 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
                                     grupoVisaoCamposNegocioDTO = (GrupoVisaoCamposNegocioDTO) grupoVisaoCamposNegocioDao.create(grupoVisaoCamposNegocioDTO);
                                     if (grupoVisaoCamposNegocioDTO.getValoresOpcoes() != null) {
                                         for (int i = 0; i < grupoVisaoCamposNegocioDTO.getValoresOpcoes().length; i++) {
-                                            String str = grupoVisaoCamposNegocioDTO.getValoresOpcoes()[i];
-                                            String str2[] = str.split("#");
+                                            final String str = grupoVisaoCamposNegocioDTO.getValoresOpcoes()[i];
+                                            final String str2[] = str.split("#");
 
                                             if (str2 != null && str2.length > 0) {
-                                                ValorVisaoCamposNegocioDTO valorVisaoCamposNegocioDTO = new ValorVisaoCamposNegocioDTO();
+                                                final ValorVisaoCamposNegocioDTO valorVisaoCamposNegocioDTO = new ValorVisaoCamposNegocioDTO();
                                                 valorVisaoCamposNegocioDTO.setIdGrupoVisao(grupoVisaoDTO.getIdGrupoVisao());
                                                 valorVisaoCamposNegocioDTO.setIdCamposObjetoNegocio(grupoVisaoCamposNegocioDTO.getIdCamposObjetoNegocio());
                                                 valorVisaoCamposNegocioDTO.setSituacao("A");
@@ -145,29 +146,33 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
                                         }
                                     }
                                     if (grupoVisaoCamposNegocioDTO.getTipoNegocio().equalsIgnoreCase(MetaUtil.RELATION)) {
-                                        GrupoVisaoCamposNegocioLigacaoDTO grupoVisaoCamposNegocioLigacaoDTOValue = new GrupoVisaoCamposNegocioLigacaoDTO();
+                                        final GrupoVisaoCamposNegocioLigacaoDTO grupoVisaoCamposNegocioLigacaoDTOValue = new GrupoVisaoCamposNegocioLigacaoDTO();
                                         grupoVisaoCamposNegocioLigacaoDTOValue.setIdGrupoVisao(grupoVisaoDTO.getIdGrupoVisao());
                                         grupoVisaoCamposNegocioLigacaoDTOValue.setIdCamposObjetoNegocio(grupoVisaoCamposNegocioDTO.getIdCamposObjetoNegocio());
-                                        grupoVisaoCamposNegocioLigacaoDTOValue.setIdCamposObjetoNegocioLigacao(grupoVisaoCamposNegocioDTO.getIdCamposObjetoNegocioLigacaoVinc());
+                                        grupoVisaoCamposNegocioLigacaoDTOValue.setIdCamposObjetoNegocioLigacao(grupoVisaoCamposNegocioDTO
+                                                .getIdCamposObjetoNegocioLigacaoVinc());
                                         grupoVisaoCamposNegocioLigacaoDTOValue.setDescricao(grupoVisaoCamposNegocioDTO.getDescricaoRelacionamento());
                                         grupoVisaoCamposNegocioLigacaoDTOValue.setTipoLigacao(GrupoVisaoCamposNegocioLigacaoDTO.VALUE);
                                         grupoVisaoCamposNegocioLigacaoDao.create(grupoVisaoCamposNegocioLigacaoDTOValue);
 
-                                        GrupoVisaoCamposNegocioLigacaoDTO grupoVisaoCamposNegocioLigacaoDTOApres = new GrupoVisaoCamposNegocioLigacaoDTO();
+                                        final GrupoVisaoCamposNegocioLigacaoDTO grupoVisaoCamposNegocioLigacaoDTOApres = new GrupoVisaoCamposNegocioLigacaoDTO();
                                         grupoVisaoCamposNegocioLigacaoDTOApres.setIdGrupoVisao(grupoVisaoDTO.getIdGrupoVisao());
                                         grupoVisaoCamposNegocioLigacaoDTOApres.setIdCamposObjetoNegocio(grupoVisaoCamposNegocioDTO.getIdCamposObjetoNegocio());
-                                        grupoVisaoCamposNegocioLigacaoDTOApres.setIdCamposObjetoNegocioLigacao(grupoVisaoCamposNegocioDTO.getIdCamposObjetoNegocioLigacao());
+                                        grupoVisaoCamposNegocioLigacaoDTOApres.setIdCamposObjetoNegocioLigacao(grupoVisaoCamposNegocioDTO
+                                                .getIdCamposObjetoNegocioLigacao());
                                         grupoVisaoCamposNegocioLigacaoDTOApres.setDescricao(grupoVisaoCamposNegocioDTO.getDescricaoRelacionamento());
                                         grupoVisaoCamposNegocioLigacaoDTOApres.setTipoLigacao(GrupoVisaoCamposNegocioLigacaoDTO.PRESENTATION);
                                         grupoVisaoCamposNegocioLigacaoDao.create(grupoVisaoCamposNegocioLigacaoDTOApres);
 
-                                        GrupoVisaoCamposNegocioLigacaoDTO grupoVisaoCamposNegocioLigacaoDTOFilter = new GrupoVisaoCamposNegocioLigacaoDTO();
+                                        final GrupoVisaoCamposNegocioLigacaoDTO grupoVisaoCamposNegocioLigacaoDTOFilter = new GrupoVisaoCamposNegocioLigacaoDTO();
                                         grupoVisaoCamposNegocioLigacaoDTOFilter.setIdGrupoVisao(grupoVisaoDTO.getIdGrupoVisao());
                                         grupoVisaoCamposNegocioLigacaoDTOFilter.setIdCamposObjetoNegocio(grupoVisaoCamposNegocioDTO.getIdCamposObjetoNegocio());
-                                        grupoVisaoCamposNegocioLigacaoDTOFilter.setIdCamposObjetoNegocioLigacao(grupoVisaoCamposNegocioDTO.getIdCamposObjetoNegocioLigacao());
+                                        grupoVisaoCamposNegocioLigacaoDTOFilter.setIdCamposObjetoNegocioLigacao(grupoVisaoCamposNegocioDTO
+                                                .getIdCamposObjetoNegocioLigacao());
                                         grupoVisaoCamposNegocioLigacaoDTOFilter.setDescricao(grupoVisaoCamposNegocioDTO.getDescricaoRelacionamento());
                                         grupoVisaoCamposNegocioLigacaoDTOFilter.setTipoLigacao(GrupoVisaoCamposNegocioLigacaoDTO.FILTER);
-                                        if (grupoVisaoCamposNegocioDTO.getFiltro() == null || grupoVisaoCamposNegocioDTO.getFiltro().trim().equalsIgnoreCase("")) {
+                                        if (grupoVisaoCamposNegocioDTO.getFiltro() == null
+                                                || grupoVisaoCamposNegocioDTO.getFiltro().trim().equalsIgnoreCase("")) {
                                             grupoVisaoCamposNegocioLigacaoDTOFilter.setFiltro("${TERMO_PESQUISA}");
                                         } else {
                                             grupoVisaoCamposNegocioLigacaoDTOFilter.setFiltro(grupoVisaoCamposNegocioDTO.getFiltro());
@@ -175,9 +180,10 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
                                         grupoVisaoCamposNegocioLigacaoDao.create(grupoVisaoCamposNegocioLigacaoDTOFilter);
 
                                         if (grupoVisaoCamposNegocioDTO.getIdCamposObjetoNegocioLigacaoOrder() != null) {
-                                            GrupoVisaoCamposNegocioLigacaoDTO grupoVisaoCamposNegocioLigacaoDTOOrder = new GrupoVisaoCamposNegocioLigacaoDTO();
+                                            final GrupoVisaoCamposNegocioLigacaoDTO grupoVisaoCamposNegocioLigacaoDTOOrder = new GrupoVisaoCamposNegocioLigacaoDTO();
                                             grupoVisaoCamposNegocioLigacaoDTOOrder.setIdGrupoVisao(grupoVisaoDTO.getIdGrupoVisao());
-                                            grupoVisaoCamposNegocioLigacaoDTOOrder.setIdCamposObjetoNegocio(grupoVisaoCamposNegocioDTO.getIdCamposObjetoNegocio());
+                                            grupoVisaoCamposNegocioLigacaoDTOOrder.setIdCamposObjetoNegocio(grupoVisaoCamposNegocioDTO
+                                                    .getIdCamposObjetoNegocio());
                                             grupoVisaoCamposNegocioLigacaoDTOOrder.setIdCamposObjetoNegocioLigacao(grupoVisaoCamposNegocioDTO
                                                     .getIdCamposObjetoNegocioLigacaoOrder());
                                             grupoVisaoCamposNegocioLigacaoDTOOrder.setDescricao(grupoVisaoCamposNegocioDTO.getDescricaoRelacionamento());
@@ -192,25 +198,25 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
                 }
 
                 if (visaoDTO.getColVisoesRelacionadas() != null) {
-                    for (Iterator itColVisRel = visaoDTO.getColVisoesRelacionadas().iterator(); itColVisRel.hasNext();) {
+                    for (final Iterator itColVisRel = visaoDTO.getColVisoesRelacionadas().iterator(); itColVisRel.hasNext();) {
                         VisaoRelacionadaDTO visaoRelacionadaDTO = (VisaoRelacionadaDTO) itColVisRel.next();
                         visaoRelacionadaDTO.setIdVisaoPai(visaoDTO.getIdVisao());
                         visaoRelacionadaDTO = (VisaoRelacionadaDTO) visaoRelacionadaDao.create(visaoRelacionadaDTO);
                         if (visaoRelacionadaDTO.getColVinculosVisao() != null) {
                             int x = 0;
-                            for (Iterator it = visaoRelacionadaDTO.getColVinculosVisao().iterator(); it.hasNext();) {
-                                VinculoVisaoDTO vinculoVisaoDTO = (VinculoVisaoDTO) it.next();
+                            for (final Iterator it = visaoRelacionadaDTO.getColVinculosVisao().iterator(); it.hasNext();) {
+                                final VinculoVisaoDTO vinculoVisaoDTO = (VinculoVisaoDTO) it.next();
                                 if (vinculoVisaoDTO.getControle() != null && vinculoVisaoDTO.getControle().equalsIgnoreCase("P")) {
-                                    Collection col1 = grupoVisaoDao.findByIdVisaoAtivos(visaoDTO.getIdVisao());
+                                    final Collection col1 = grupoVisaoDao.findByIdVisaoAtivos(visaoDTO.getIdVisao());
                                     if (col1 != null && col1.size() > 0) {
-                                        GrupoVisaoDTO grupoVisaoDTO = (GrupoVisaoDTO) ((List) (col1)).get(0);
+                                        final GrupoVisaoDTO grupoVisaoDTO = (GrupoVisaoDTO) ((List) col1).get(0);
                                         vinculoVisaoDTO.setIdGrupoVisaoPai(grupoVisaoDTO.getIdGrupoVisao());
                                     }
                                 }
                                 if (vinculoVisaoDTO.getControle() != null && vinculoVisaoDTO.getControle().equalsIgnoreCase("F")) {
-                                    Collection col1 = grupoVisaoDao.findByIdVisaoAtivos(visaoRelacionadaDTO.getIdVisaoFilha());
+                                    final Collection col1 = grupoVisaoDao.findByIdVisaoAtivos(visaoRelacionadaDTO.getIdVisaoFilha());
                                     if (col1 != null && col1.size() > 0) {
-                                        GrupoVisaoDTO grupoVisaoDTO = (GrupoVisaoDTO) ((List) (col1)).get(0);
+                                        final GrupoVisaoDTO grupoVisaoDTO = (GrupoVisaoDTO) ((List) col1).get(0);
                                         vinculoVisaoDTO.setIdGrupoVisaoFilho(grupoVisaoDTO.getIdGrupoVisao());
                                     }
                                 }
@@ -224,16 +230,16 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
                 }
 
                 if (visaoDTO.getColScripts() != null) {
-                    for (Iterator it = visaoDTO.getColScripts().iterator(); it.hasNext();) {
-                        ScriptsVisaoDTO scriptsVisaoDTO = (ScriptsVisaoDTO) it.next();
+                    for (final Iterator it = visaoDTO.getColScripts().iterator(); it.hasNext();) {
+                        final ScriptsVisaoDTO scriptsVisaoDTO = (ScriptsVisaoDTO) it.next();
                         scriptsVisaoDTO.setIdVisao(visaoDTO.getIdVisao());
                         scriptsVisaoDao.create(scriptsVisaoDTO);
                     }
                 }
 
                 if (visaoDTO.getColHtmlCode() != null) {
-                    for (Iterator it = visaoDTO.getColHtmlCode().iterator(); it.hasNext();) {
-                        HtmlCodeVisaoDTO htmlCodeVisaoDTO = (HtmlCodeVisaoDTO) it.next();
+                    for (final Iterator it = visaoDTO.getColHtmlCode().iterator(); it.hasNext();) {
+                        final HtmlCodeVisaoDTO htmlCodeVisaoDTO = (HtmlCodeVisaoDTO) it.next();
                         htmlCodeVisaoDTO.setIdVisao(visaoDTO.getIdVisao());
                         htmlCodeVisaoDao.create(htmlCodeVisaoDTO);
                     }
@@ -241,8 +247,8 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
 
                 if (visaoDTO.getColBotoes() != null) {
                     int i = 0;
-                    for (Iterator it = visaoDTO.getColBotoes().iterator(); it.hasNext();) {
-                        BotaoAcaoVisaoDTO botaoAcaoVisaoDto = (BotaoAcaoVisaoDTO) it.next();
+                    for (final Iterator it = visaoDTO.getColBotoes().iterator(); it.hasNext();) {
+                        final BotaoAcaoVisaoDTO botaoAcaoVisaoDto = (BotaoAcaoVisaoDTO) it.next();
                         botaoAcaoVisaoDto.setIdVisao(visaoDTO.getIdVisao());
                         botaoAcaoVisaoDto.setOrdem(i);
                         botaoAcaoVisaoDao.create(botaoAcaoVisaoDto);
@@ -256,31 +262,31 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
             tc.close();
 
             return model;
-        } catch (Exception e) {
+        } catch (final Exception e) {
             this.rollbackTransaction(tc, e);
         }
         return model;
     }
 
     @Override
-    public void update(BaseEntity model) throws ServiceException, LogicException {
+    public void update(final BaseEntity model) throws ServiceException, LogicException {
         // Instancia Objeto controlador de transacao
-        VisaoDao crudDao = getDao();
-        GrupoVisaoDao grupoVisaoDao = getGrupoVisaoDao();
-        GrupoVisaoCamposNegocioDao grupoVisaoCamposNegocioDao = getGrupoVisaoCamposNegocioDao();
-        ValorVisaoCamposNegocioDao valorVisaoCamposNegocioDao = getValorVisaoCamposNegocioDao();
-        GrupoVisaoCamposNegocioLigacaoDao grupoVisaoCamposNegocioLigacaoDao = getGrupoVisaoCamposNegocioLigacaoDao();
-        VisaoRelacionadaDao visaoRelacionadaDao = getVisaoRelacionadaDao();
-        VinculoVisaoDao vinculoVisaoDao = getVinculoVisaoDao();
-        ScriptsVisaoDao scriptsVisaoDao = getScriptsVisaoDao();
-        BotaoAcaoVisaoDao botaoAcaoVisaoDao = getBotaoAcaoVisaoDao();
-        MatrizVisaoDao matrizVisaoDao = getMatrizVisaoDao();
-        HtmlCodeVisaoDao htmlCodeVisaoDao = getHtmlCodeVisaoDao();
+        final VisaoDao crudDao = this.getDao();
+        final GrupoVisaoDao grupoVisaoDao = this.getGrupoVisaoDao();
+        final GrupoVisaoCamposNegocioDao grupoVisaoCamposNegocioDao = this.getGrupoVisaoCamposNegocioDao();
+        final ValorVisaoCamposNegocioDao valorVisaoCamposNegocioDao = this.getValorVisaoCamposNegocioDao();
+        final GrupoVisaoCamposNegocioLigacaoDao grupoVisaoCamposNegocioLigacaoDao = this.getGrupoVisaoCamposNegocioLigacaoDao();
+        final VisaoRelacionadaDao visaoRelacionadaDao = this.getVisaoRelacionadaDao();
+        final VinculoVisaoDao vinculoVisaoDao = this.getVinculoVisaoDao();
+        final ScriptsVisaoDao scriptsVisaoDao = this.getScriptsVisaoDao();
+        final BotaoAcaoVisaoDao botaoAcaoVisaoDao = this.getBotaoAcaoVisaoDao();
+        final MatrizVisaoDao matrizVisaoDao = this.getMatrizVisaoDao();
+        final HtmlCodeVisaoDao htmlCodeVisaoDao = this.getHtmlCodeVisaoDao();
 
-        TransactionControler tc = new TransactionControlerImpl(crudDao.getAliasDB());
+        final TransactionControler tc = new TransactionControlerImpl(crudDao.getAliasDB());
         try {
             // Faz validacao, caso exista.
-            validaUpdate(model);
+            this.validaUpdate(model);
 
             // Instancia ou obtem os DAOs necessarios.
 
@@ -301,7 +307,7 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
             tc.start();
 
             // Executa operacoes pertinentes ao negocio.
-            VisaoDTO visaoDTO = (VisaoDTO) model;
+            final VisaoDTO visaoDTO = (VisaoDTO) model;
             crudDao.update(model);
             if (visaoDTO != null) {
                 if (visaoDTO.getTipoVisao().equalsIgnoreCase(VisaoDTO.MATRIZ)) {
@@ -319,14 +325,14 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
                 botaoAcaoVisaoDao.deleteByIdVisao(visaoDTO.getIdVisao());
                 htmlCodeVisaoDao.deleteByIdVisao(visaoDTO.getIdVisao());
                 if (visaoDTO.getColGrupos() != null) {
-                    for (Iterator it = visaoDTO.getColGrupos().iterator(); it.hasNext();) {
+                    for (final Iterator it = visaoDTO.getColGrupos().iterator(); it.hasNext();) {
                         GrupoVisaoDTO grupoVisaoDTO = (GrupoVisaoDTO) it.next();
                         grupoVisaoDTO.setIdVisao(visaoDTO.getIdVisao());
                         grupoVisaoDTO = (GrupoVisaoDTO) grupoVisaoDao.create(grupoVisaoDTO);
                         if (grupoVisaoDTO != null) {
                             if (grupoVisaoDTO.getColCamposVisao() != null) {
                                 int ordem = 0;
-                                for (Iterator itCampos = grupoVisaoDTO.getColCamposVisao().iterator(); itCampos.hasNext();) {
+                                for (final Iterator itCampos = grupoVisaoDTO.getColCamposVisao().iterator(); itCampos.hasNext();) {
                                     ordem++;
                                     GrupoVisaoCamposNegocioDTO grupoVisaoCamposNegocioDTO = (GrupoVisaoCamposNegocioDTO) itCampos.next();
                                     grupoVisaoCamposNegocioDTO.setIdGrupoVisao(grupoVisaoDTO.getIdGrupoVisao());
@@ -344,11 +350,11 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
                                     grupoVisaoCamposNegocioDTO = (GrupoVisaoCamposNegocioDTO) grupoVisaoCamposNegocioDao.create(grupoVisaoCamposNegocioDTO);
                                     if (grupoVisaoCamposNegocioDTO.getValoresOpcoes() != null) {
                                         for (int i = 0; i < grupoVisaoCamposNegocioDTO.getValoresOpcoes().length; i++) {
-                                            String str = grupoVisaoCamposNegocioDTO.getValoresOpcoes()[i];
-                                            String str2[] = str.split("#");
+                                            final String str = grupoVisaoCamposNegocioDTO.getValoresOpcoes()[i];
+                                            final String str2[] = str.split("#");
 
                                             if (str2 != null && str2.length > 0) {
-                                                ValorVisaoCamposNegocioDTO valorVisaoCamposNegocioDTO = new ValorVisaoCamposNegocioDTO();
+                                                final ValorVisaoCamposNegocioDTO valorVisaoCamposNegocioDTO = new ValorVisaoCamposNegocioDTO();
                                                 valorVisaoCamposNegocioDTO.setIdGrupoVisao(grupoVisaoDTO.getIdGrupoVisao());
                                                 valorVisaoCamposNegocioDTO.setIdCamposObjetoNegocio(grupoVisaoCamposNegocioDTO.getIdCamposObjetoNegocio());
                                                 valorVisaoCamposNegocioDTO.setSituacao("A");
@@ -363,29 +369,33 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
                                         }
                                     }
                                     if (grupoVisaoCamposNegocioDTO.getTipoNegocio().equalsIgnoreCase(MetaUtil.RELATION)) {
-                                        GrupoVisaoCamposNegocioLigacaoDTO grupoVisaoCamposNegocioLigacaoDTOValue = new GrupoVisaoCamposNegocioLigacaoDTO();
+                                        final GrupoVisaoCamposNegocioLigacaoDTO grupoVisaoCamposNegocioLigacaoDTOValue = new GrupoVisaoCamposNegocioLigacaoDTO();
                                         grupoVisaoCamposNegocioLigacaoDTOValue.setIdGrupoVisao(grupoVisaoDTO.getIdGrupoVisao());
                                         grupoVisaoCamposNegocioLigacaoDTOValue.setIdCamposObjetoNegocio(grupoVisaoCamposNegocioDTO.getIdCamposObjetoNegocio());
-                                        grupoVisaoCamposNegocioLigacaoDTOValue.setIdCamposObjetoNegocioLigacao(grupoVisaoCamposNegocioDTO.getIdCamposObjetoNegocioLigacaoVinc());
+                                        grupoVisaoCamposNegocioLigacaoDTOValue.setIdCamposObjetoNegocioLigacao(grupoVisaoCamposNegocioDTO
+                                                .getIdCamposObjetoNegocioLigacaoVinc());
                                         grupoVisaoCamposNegocioLigacaoDTOValue.setDescricao(grupoVisaoCamposNegocioDTO.getDescricaoRelacionamento());
                                         grupoVisaoCamposNegocioLigacaoDTOValue.setTipoLigacao(GrupoVisaoCamposNegocioLigacaoDTO.VALUE);
                                         grupoVisaoCamposNegocioLigacaoDao.create(grupoVisaoCamposNegocioLigacaoDTOValue);
 
-                                        GrupoVisaoCamposNegocioLigacaoDTO grupoVisaoCamposNegocioLigacaoDTOApres = new GrupoVisaoCamposNegocioLigacaoDTO();
+                                        final GrupoVisaoCamposNegocioLigacaoDTO grupoVisaoCamposNegocioLigacaoDTOApres = new GrupoVisaoCamposNegocioLigacaoDTO();
                                         grupoVisaoCamposNegocioLigacaoDTOApres.setIdGrupoVisao(grupoVisaoDTO.getIdGrupoVisao());
                                         grupoVisaoCamposNegocioLigacaoDTOApres.setIdCamposObjetoNegocio(grupoVisaoCamposNegocioDTO.getIdCamposObjetoNegocio());
-                                        grupoVisaoCamposNegocioLigacaoDTOApres.setIdCamposObjetoNegocioLigacao(grupoVisaoCamposNegocioDTO.getIdCamposObjetoNegocioLigacao());
+                                        grupoVisaoCamposNegocioLigacaoDTOApres.setIdCamposObjetoNegocioLigacao(grupoVisaoCamposNegocioDTO
+                                                .getIdCamposObjetoNegocioLigacao());
                                         grupoVisaoCamposNegocioLigacaoDTOApres.setDescricao(grupoVisaoCamposNegocioDTO.getDescricaoRelacionamento());
                                         grupoVisaoCamposNegocioLigacaoDTOApres.setTipoLigacao(GrupoVisaoCamposNegocioLigacaoDTO.PRESENTATION);
                                         grupoVisaoCamposNegocioLigacaoDao.create(grupoVisaoCamposNegocioLigacaoDTOApres);
 
-                                        GrupoVisaoCamposNegocioLigacaoDTO grupoVisaoCamposNegocioLigacaoDTOFilter = new GrupoVisaoCamposNegocioLigacaoDTO();
+                                        final GrupoVisaoCamposNegocioLigacaoDTO grupoVisaoCamposNegocioLigacaoDTOFilter = new GrupoVisaoCamposNegocioLigacaoDTO();
                                         grupoVisaoCamposNegocioLigacaoDTOFilter.setIdGrupoVisao(grupoVisaoDTO.getIdGrupoVisao());
                                         grupoVisaoCamposNegocioLigacaoDTOFilter.setIdCamposObjetoNegocio(grupoVisaoCamposNegocioDTO.getIdCamposObjetoNegocio());
-                                        grupoVisaoCamposNegocioLigacaoDTOFilter.setIdCamposObjetoNegocioLigacao(grupoVisaoCamposNegocioDTO.getIdCamposObjetoNegocioLigacao());
+                                        grupoVisaoCamposNegocioLigacaoDTOFilter.setIdCamposObjetoNegocioLigacao(grupoVisaoCamposNegocioDTO
+                                                .getIdCamposObjetoNegocioLigacao());
                                         grupoVisaoCamposNegocioLigacaoDTOFilter.setDescricao(grupoVisaoCamposNegocioDTO.getDescricaoRelacionamento());
                                         grupoVisaoCamposNegocioLigacaoDTOFilter.setTipoLigacao(GrupoVisaoCamposNegocioLigacaoDTO.FILTER);
-                                        if (grupoVisaoCamposNegocioDTO.getFiltro() == null || grupoVisaoCamposNegocioDTO.getFiltro().trim().equalsIgnoreCase("")) {
+                                        if (grupoVisaoCamposNegocioDTO.getFiltro() == null
+                                                || grupoVisaoCamposNegocioDTO.getFiltro().trim().equalsIgnoreCase("")) {
                                             grupoVisaoCamposNegocioLigacaoDTOFilter.setFiltro("${TERMO_PESQUISA}");
                                         } else {
                                             grupoVisaoCamposNegocioLigacaoDTOFilter.setFiltro(grupoVisaoCamposNegocioDTO.getFiltro());
@@ -393,9 +403,10 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
                                         grupoVisaoCamposNegocioLigacaoDao.create(grupoVisaoCamposNegocioLigacaoDTOFilter);
 
                                         if (grupoVisaoCamposNegocioDTO.getIdCamposObjetoNegocioLigacaoOrder() != null) {
-                                            GrupoVisaoCamposNegocioLigacaoDTO grupoVisaoCamposNegocioLigacaoDTOOrder = new GrupoVisaoCamposNegocioLigacaoDTO();
+                                            final GrupoVisaoCamposNegocioLigacaoDTO grupoVisaoCamposNegocioLigacaoDTOOrder = new GrupoVisaoCamposNegocioLigacaoDTO();
                                             grupoVisaoCamposNegocioLigacaoDTOOrder.setIdGrupoVisao(grupoVisaoDTO.getIdGrupoVisao());
-                                            grupoVisaoCamposNegocioLigacaoDTOOrder.setIdCamposObjetoNegocio(grupoVisaoCamposNegocioDTO.getIdCamposObjetoNegocio());
+                                            grupoVisaoCamposNegocioLigacaoDTOOrder.setIdCamposObjetoNegocio(grupoVisaoCamposNegocioDTO
+                                                    .getIdCamposObjetoNegocio());
                                             grupoVisaoCamposNegocioLigacaoDTOOrder.setIdCamposObjetoNegocioLigacao(grupoVisaoCamposNegocioDTO
                                                     .getIdCamposObjetoNegocioLigacaoOrder());
                                             grupoVisaoCamposNegocioLigacaoDTOOrder.setDescricao(grupoVisaoCamposNegocioDTO.getDescricaoRelacionamento());
@@ -409,25 +420,25 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
                     }
                 }
                 if (visaoDTO.getColVisoesRelacionadas() != null) {
-                    for (Iterator itColVisRel = visaoDTO.getColVisoesRelacionadas().iterator(); itColVisRel.hasNext();) {
+                    for (final Iterator itColVisRel = visaoDTO.getColVisoesRelacionadas().iterator(); itColVisRel.hasNext();) {
                         VisaoRelacionadaDTO visaoRelacionadaDTO = (VisaoRelacionadaDTO) itColVisRel.next();
                         visaoRelacionadaDTO.setIdVisaoPai(visaoDTO.getIdVisao());
                         visaoRelacionadaDTO = (VisaoRelacionadaDTO) visaoRelacionadaDao.create(visaoRelacionadaDTO);
                         if (visaoRelacionadaDTO.getColVinculosVisao() != null) {
                             int x = 0;
-                            for (Iterator it = visaoRelacionadaDTO.getColVinculosVisao().iterator(); it.hasNext();) {
-                                VinculoVisaoDTO vinculoVisaoDTO = (VinculoVisaoDTO) it.next();
+                            for (final Iterator it = visaoRelacionadaDTO.getColVinculosVisao().iterator(); it.hasNext();) {
+                                final VinculoVisaoDTO vinculoVisaoDTO = (VinculoVisaoDTO) it.next();
                                 if (vinculoVisaoDTO.getControle() != null && vinculoVisaoDTO.getControle().equalsIgnoreCase("P")) {
-                                    Collection col1 = grupoVisaoDao.findByIdVisaoAtivos(visaoDTO.getIdVisao());
+                                    final Collection col1 = grupoVisaoDao.findByIdVisaoAtivos(visaoDTO.getIdVisao());
                                     if (col1 != null && col1.size() > 0) {
-                                        GrupoVisaoDTO grupoVisaoDTO = (GrupoVisaoDTO) ((List) (col1)).get(0);
+                                        final GrupoVisaoDTO grupoVisaoDTO = (GrupoVisaoDTO) ((List) col1).get(0);
                                         vinculoVisaoDTO.setIdGrupoVisaoPai(grupoVisaoDTO.getIdGrupoVisao());
                                     }
                                 }
                                 if (vinculoVisaoDTO.getControle() != null && vinculoVisaoDTO.getControle().equalsIgnoreCase("F")) {
-                                    Collection col1 = grupoVisaoDao.findByIdVisaoAtivos(visaoRelacionadaDTO.getIdVisaoFilha());
+                                    final Collection col1 = grupoVisaoDao.findByIdVisaoAtivos(visaoRelacionadaDTO.getIdVisaoFilha());
                                     if (col1 != null && col1.size() > 0) {
-                                        GrupoVisaoDTO grupoVisaoDTO = (GrupoVisaoDTO) ((List) (col1)).get(0);
+                                        final GrupoVisaoDTO grupoVisaoDTO = (GrupoVisaoDTO) ((List) col1).get(0);
                                         vinculoVisaoDTO.setIdGrupoVisaoFilho(grupoVisaoDTO.getIdGrupoVisao());
                                     }
                                 }
@@ -441,16 +452,16 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
                 }
 
                 if (visaoDTO.getColScripts() != null) {
-                    for (Iterator it = visaoDTO.getColScripts().iterator(); it.hasNext();) {
-                        ScriptsVisaoDTO scriptsVisaoDTO = (ScriptsVisaoDTO) it.next();
+                    for (final Iterator it = visaoDTO.getColScripts().iterator(); it.hasNext();) {
+                        final ScriptsVisaoDTO scriptsVisaoDTO = (ScriptsVisaoDTO) it.next();
                         scriptsVisaoDTO.setIdVisao(visaoDTO.getIdVisao());
                         scriptsVisaoDao.create(scriptsVisaoDTO);
                     }
                 }
 
                 if (visaoDTO.getColHtmlCode() != null) {
-                    for (Iterator it = visaoDTO.getColHtmlCode().iterator(); it.hasNext();) {
-                        HtmlCodeVisaoDTO htmlCodeVisaoDTO = (HtmlCodeVisaoDTO) it.next();
+                    for (final Iterator it = visaoDTO.getColHtmlCode().iterator(); it.hasNext();) {
+                        final HtmlCodeVisaoDTO htmlCodeVisaoDTO = (HtmlCodeVisaoDTO) it.next();
                         htmlCodeVisaoDTO.setIdVisao(visaoDTO.getIdVisao());
                         htmlCodeVisaoDao.create(htmlCodeVisaoDTO);
                     }
@@ -458,8 +469,8 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
 
                 if (visaoDTO.getColBotoes() != null) {
                     int i = 0;
-                    for (Iterator it = visaoDTO.getColBotoes().iterator(); it.hasNext();) {
-                        BotaoAcaoVisaoDTO botaoAcaoVisaoDto = (BotaoAcaoVisaoDTO) it.next();
+                    for (final Iterator it = visaoDTO.getColBotoes().iterator(); it.hasNext();) {
+                        final BotaoAcaoVisaoDTO botaoAcaoVisaoDto = (BotaoAcaoVisaoDTO) it.next();
                         botaoAcaoVisaoDto.setIdVisao(visaoDTO.getIdVisao());
                         botaoAcaoVisaoDto.setOrdem(i);
                         botaoAcaoVisaoDao.create(botaoAcaoVisaoDto);
@@ -471,36 +482,37 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
             // Faz commit e fecha a transacao.
             tc.commit();
             tc.close();
-        } catch (Exception e) {
+        } catch (final Exception e) {
             this.rollbackTransaction(tc, e);
         }
     }
 
-    public VisaoDTO findByIdentificador(String identificador) throws Exception {
-        return getDao().findByIdentificador(identificador);
+    @Override
+    public VisaoDTO findByIdentificador(final String identificador) throws Exception {
+        return this.getDao().findByIdentificador(identificador);
     }
 
     @Override
-    public void deleteVisao(BaseEntity model) throws Exception {
+    public void deleteVisao(final BaseEntity model) throws Exception {
         // Instancia Objeto controlador de transacao
-        VisaoDao crudDao = getDao();
+        final VisaoDao crudDao = this.getDao();
 
         // Instancia ou obtem os DAOs necessarios.
-        GrupoVisaoDao grupoVisaoDao = getGrupoVisaoDao();
-        GrupoVisaoCamposNegocioDao grupoVisaoCamposNegocioDao = getGrupoVisaoCamposNegocioDao();
-        ValorVisaoCamposNegocioDao valorVisaoCamposNegocioDao = getValorVisaoCamposNegocioDao();
-        GrupoVisaoCamposNegocioLigacaoDao grupoVisaoCamposNegocioLigacaoDao = getGrupoVisaoCamposNegocioLigacaoDao();
-        VisaoRelacionadaDao visaoRelacionadaDao = getVisaoRelacionadaDao();
-        VinculoVisaoDao vinculoVisaoDao = getVinculoVisaoDao();
-        ScriptsVisaoDao scriptsVisaoDao = getScriptsVisaoDao();
-        BotaoAcaoVisaoDao botaoAcaoVisaoDao = getBotaoAcaoVisaoDao();
-        HtmlCodeVisaoDao htmlCodeVisaoDao = getHtmlCodeVisaoDao();
-        MatrizVisaoDao matrizVisaoDao = getMatrizVisaoDao();
+        final GrupoVisaoDao grupoVisaoDao = this.getGrupoVisaoDao();
+        final GrupoVisaoCamposNegocioDao grupoVisaoCamposNegocioDao = this.getGrupoVisaoCamposNegocioDao();
+        final ValorVisaoCamposNegocioDao valorVisaoCamposNegocioDao = this.getValorVisaoCamposNegocioDao();
+        final GrupoVisaoCamposNegocioLigacaoDao grupoVisaoCamposNegocioLigacaoDao = this.getGrupoVisaoCamposNegocioLigacaoDao();
+        final VisaoRelacionadaDao visaoRelacionadaDao = this.getVisaoRelacionadaDao();
+        final VinculoVisaoDao vinculoVisaoDao = this.getVinculoVisaoDao();
+        final ScriptsVisaoDao scriptsVisaoDao = this.getScriptsVisaoDao();
+        final BotaoAcaoVisaoDao botaoAcaoVisaoDao = this.getBotaoAcaoVisaoDao();
+        final HtmlCodeVisaoDao htmlCodeVisaoDao = this.getHtmlCodeVisaoDao();
+        final MatrizVisaoDao matrizVisaoDao = this.getMatrizVisaoDao();
 
-        TransactionControler tc = new TransactionControlerImpl(crudDao.getAliasDB());
+        final TransactionControler tc = new TransactionControlerImpl(crudDao.getAliasDB());
         try {
             // Faz validacao, caso exista.
-            validaDelete(model);
+            this.validaDelete(model);
 
             // Seta o TransactionController para os DAOs
             crudDao.setTransactionControler(tc);
@@ -519,7 +531,7 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
             tc.start();
 
             // Executa operacoes pertinentes ao negocio.
-            VisaoDTO visaoDTO = (VisaoDTO) model;
+            final VisaoDTO visaoDTO = (VisaoDTO) model;
             crudDao.delete(model);
             if (visaoDTO != null) {
                 if (visaoDTO.getTipoVisao() != null && visaoDTO.getTipoVisao().equalsIgnoreCase(VisaoDTO.MATRIZ)) {
@@ -539,32 +551,34 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
             // Faz commit e fecha a transacao.
             tc.commit();
             tc.close();
-        } catch (Exception e) {
+        } catch (final Exception e) {
             this.rollbackTransaction(tc, e);
         }
     }
 
-    public void importar(VisaoDTO visaoXML) throws Exception {
+    @Override
+    public void importar(final VisaoDTO visaoXML) throws Exception {
 
         List<GrupoVisaoCamposNegocioDTO> colCampos = new ArrayList<GrupoVisaoCamposNegocioDTO>();
 
         if (visaoXML.getColGrupos() != null && visaoXML.getColGrupos().size() > 0) {
-            GrupoVisaoDTO grupoVisaoDTO = (GrupoVisaoDTO) ((List) (visaoXML.getColGrupos())).get(0);
+            final GrupoVisaoDTO grupoVisaoDTO = (GrupoVisaoDTO) ((List) visaoXML.getColGrupos()).get(0);
             colCampos = (List<GrupoVisaoCamposNegocioDTO>) grupoVisaoDTO.getColCamposVisao();
             if (colCampos != null) {
-                for (GrupoVisaoCamposNegocioDTO grupoVisaoCamposNegocioDTO : colCampos) {
+                for (final GrupoVisaoCamposNegocioDTO grupoVisaoCamposNegocioDTO : colCampos) {
                     if (grupoVisaoCamposNegocioDTO.getNomeTabelaDB() != null) {// Restaura id do Grupo Visão
-                        List<GrupoVisaoDTO> listGrupoVisaoTemp = (List<GrupoVisaoDTO>) getGrupoVisaoDao().findByIdVisao(visaoXML.getIdVisao());
+                        final List<GrupoVisaoDTO> listGrupoVisaoTemp = (List<GrupoVisaoDTO>) this.getGrupoVisaoDao().findByIdVisao(visaoXML.getIdVisao());
                         if (listGrupoVisaoTemp != null) {
-                            for (GrupoVisaoDTO grupoVisaoDTO2 : listGrupoVisaoTemp) {
+                            for (final GrupoVisaoDTO grupoVisaoDTO2 : listGrupoVisaoTemp) {
                                 grupoVisaoCamposNegocioDTO.setIdGrupoVisao(grupoVisaoDTO2.getIdGrupoVisao());
                             }
                         }
                         // Restaura id dos Campos Objeto Negócio
                         Integer idObjetoNegocio = null;
-                        List<ObjetoNegocioDTO> colObjNegocio = (List<ObjetoNegocioDTO>) getObjetoNegocioDao().findByNomeTabelaDB(grupoVisaoCamposNegocioDTO.getNomeTabelaDB());
+                        final List<ObjetoNegocioDTO> colObjNegocio = (List<ObjetoNegocioDTO>) this.getObjetoNegocioDao().findByNomeTabelaDB(
+                                grupoVisaoCamposNegocioDTO.getNomeTabelaDB());
                         if (colObjNegocio != null) {
-                            for (ObjetoNegocioDTO objetoNegocioDTO : colObjNegocio) {
+                            for (final ObjetoNegocioDTO objetoNegocioDTO : colObjNegocio) {
                                 idObjetoNegocio = objetoNegocioDTO.getIdObjetoNegocio();
                             }
                             if (idObjetoNegocio != null) {
@@ -572,10 +586,10 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
                             }
                         }
                         if (idObjetoNegocio != null) {
-                            List<CamposObjetoNegocioDTO> colCamposObjNeg = (List<CamposObjetoNegocioDTO>) getCamposObjetoNegocioDao().findByIdObjetoNegocioAndNomeDB(
-                                    idObjetoNegocio, grupoVisaoCamposNegocioDTO.getNomeDB());
+                            final List<CamposObjetoNegocioDTO> colCamposObjNeg = (List<CamposObjetoNegocioDTO>) this.getCamposObjetoNegocioDao()
+                                    .findByIdObjetoNegocioAndNomeDB(idObjetoNegocio, grupoVisaoCamposNegocioDTO.getNomeDB());
                             if (colCamposObjNeg != null) {
-                                for (CamposObjetoNegocioDTO camposObjetoNegocioDTO : colCamposObjNeg) {
+                                for (final CamposObjetoNegocioDTO camposObjetoNegocioDTO : colCamposObjNeg) {
                                     grupoVisaoCamposNegocioDTO.setIdCamposObjetoNegocio(camposObjetoNegocioDTO.getIdCamposObjetoNegocio());
 
                                 }
@@ -584,34 +598,37 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
                         // Restaura visões de ligação caso exista
                         if (grupoVisaoCamposNegocioDTO.getTipoNegocio().equalsIgnoreCase(MetaUtil.RELATION)) {
                             // Restaura id do objeto negócio ligação
-                            List<ObjetoNegocioDTO> listObjNegTemp = (List<ObjetoNegocioDTO>) getObjetoNegocioDao().findByNomeTabelaDB(
+                            final List<ObjetoNegocioDTO> listObjNegTemp = (List<ObjetoNegocioDTO>) this.getObjetoNegocioDao().findByNomeTabelaDB(
                                     grupoVisaoCamposNegocioDTO.getNomeTabelaDBLigacao());
                             if (listObjNegTemp != null) {
-                                for (ObjetoNegocioDTO objetoNegocioDTO : listObjNegTemp) {
+                                for (final ObjetoNegocioDTO objetoNegocioDTO : listObjNegTemp) {
                                     grupoVisaoCamposNegocioDTO.setIdObjetoNegocioLigacao(objetoNegocioDTO.getIdObjetoNegocio());
                                 }
                             }
                             // Restaura id do campo objeto negócio ligação
-                            List<CamposObjetoNegocioDTO> listCamposObjNegTemp2 = (List<CamposObjetoNegocioDTO>) getCamposObjetoNegocioDao().findByIdObjetoNegocioAndNomeDB(
-                                    grupoVisaoCamposNegocioDTO.getIdObjetoNegocioLigacao(), grupoVisaoCamposNegocioDTO.getNomeDBLigacao());
+                            final List<CamposObjetoNegocioDTO> listCamposObjNegTemp2 = (List<CamposObjetoNegocioDTO>) this.getCamposObjetoNegocioDao()
+                                    .findByIdObjetoNegocioAndNomeDB(grupoVisaoCamposNegocioDTO.getIdObjetoNegocioLigacao(),
+                                            grupoVisaoCamposNegocioDTO.getNomeDBLigacao());
                             if (listCamposObjNegTemp2 != null) {
-                                for (CamposObjetoNegocioDTO camposObjetoNegocioDTO : listCamposObjNegTemp2) {
+                                for (final CamposObjetoNegocioDTO camposObjetoNegocioDTO : listCamposObjNegTemp2) {
                                     grupoVisaoCamposNegocioDTO.setIdCamposObjetoNegocioLigacao(camposObjetoNegocioDTO.getIdCamposObjetoNegocio());
                                 }
                             }
                             // Restaura id do campo objeto negócio ligação vinculado
-                            List<CamposObjetoNegocioDTO> listCamposObjNegTemp3 = (List<CamposObjetoNegocioDTO>) getCamposObjetoNegocioDao().findByIdObjetoNegocioAndNomeDB(
-                                    grupoVisaoCamposNegocioDTO.getIdObjetoNegocioLigacao(), grupoVisaoCamposNegocioDTO.getNomeDBLigacaoVinc());
+                            final List<CamposObjetoNegocioDTO> listCamposObjNegTemp3 = (List<CamposObjetoNegocioDTO>) this.getCamposObjetoNegocioDao()
+                                    .findByIdObjetoNegocioAndNomeDB(grupoVisaoCamposNegocioDTO.getIdObjetoNegocioLigacao(),
+                                            grupoVisaoCamposNegocioDTO.getNomeDBLigacaoVinc());
                             if (listCamposObjNegTemp3 != null) {
-                                for (CamposObjetoNegocioDTO camposObjetoNegocioDTO : listCamposObjNegTemp3) {
+                                for (final CamposObjetoNegocioDTO camposObjetoNegocioDTO : listCamposObjNegTemp3) {
                                     grupoVisaoCamposNegocioDTO.setIdCamposObjetoNegocioLigacaoVinc(camposObjetoNegocioDTO.getIdCamposObjetoNegocio());
                                 }
                             }
                             // Restaura id do campo objeto negócio ligação order
-                            List<CamposObjetoNegocioDTO> listCamposObjNegTemp4 = (List<CamposObjetoNegocioDTO>) getCamposObjetoNegocioDao().findByIdObjetoNegocioAndNomeDB(
-                                    grupoVisaoCamposNegocioDTO.getIdObjetoNegocioLigacao(), grupoVisaoCamposNegocioDTO.getNomeDBLigacaoOrder());
+                            final List<CamposObjetoNegocioDTO> listCamposObjNegTemp4 = (List<CamposObjetoNegocioDTO>) this.getCamposObjetoNegocioDao()
+                                    .findByIdObjetoNegocioAndNomeDB(grupoVisaoCamposNegocioDTO.getIdObjetoNegocioLigacao(),
+                                            grupoVisaoCamposNegocioDTO.getNomeDBLigacaoOrder());
                             if (listCamposObjNegTemp4 != null) {
-                                for (CamposObjetoNegocioDTO camposObjetoNegocioDTO : listCamposObjNegTemp4) {
+                                for (final CamposObjetoNegocioDTO camposObjetoNegocioDTO : listCamposObjNegTemp4) {
                                     grupoVisaoCamposNegocioDTO.setIdCamposObjetoNegocioLigacaoOrder(camposObjetoNegocioDTO.getIdCamposObjetoNegocio());
                                 }
                             }
@@ -621,42 +638,42 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
             }
 
             if (visaoXML.getTipoVisao().equalsIgnoreCase(VisaoDTO.MATRIZ)) {
-                // Restaura ObjetoNegocio
-                ObjetoNegocioDTO obNeg = new ObjetoNegocioDTO();
+                new ObjetoNegocioDTO();
                 Integer idObjetoNegocio = null;
-                List<ObjetoNegocioDTO> colObjNegocio = (List<ObjetoNegocioDTO>) getObjetoNegocioDao().findByNomeTabelaDB(visaoXML.getMatrizVisaoDTO().getNomeTabelaDB());
+                final List<ObjetoNegocioDTO> colObjNegocio = (List<ObjetoNegocioDTO>) this.getObjetoNegocioDao().findByNomeTabelaDB(
+                        visaoXML.getMatrizVisaoDTO().getNomeTabelaDB());
                 if (colObjNegocio != null) {
-                    for (ObjetoNegocioDTO objetoNegocioDTO : colObjNegocio) {
+                    for (final ObjetoNegocioDTO objetoNegocioDTO : colObjNegocio) {
                         idObjetoNegocio = objetoNegocioDTO.getIdObjetoNegocio();
                     }
                     visaoXML.getMatrizVisaoDTO().setIdObjetoNegocio(idObjetoNegocio);
                 }
                 // Restaura CampoObjetoNegocio1
                 Integer idCampNeg1 = null;
-                List<CamposObjetoNegocioDTO> colCampNeg1 = (List<CamposObjetoNegocioDTO>) getCamposObjetoNegocioDao().findByIdObjetoNegocioAndNomeDB(
-                        visaoXML.getMatrizVisaoDTO().getIdObjetoNegocio(), visaoXML.getMatrizVisaoDTO().getNomeDB1());
+                final List<CamposObjetoNegocioDTO> colCampNeg1 = (List<CamposObjetoNegocioDTO>) this.getCamposObjetoNegocioDao()
+                        .findByIdObjetoNegocioAndNomeDB(visaoXML.getMatrizVisaoDTO().getIdObjetoNegocio(), visaoXML.getMatrizVisaoDTO().getNomeDB1());
                 if (colCampNeg1 != null) {
-                    for (CamposObjetoNegocioDTO camposObjetoNegocioDTO : colCampNeg1) {
+                    for (final CamposObjetoNegocioDTO camposObjetoNegocioDTO : colCampNeg1) {
                         idCampNeg1 = camposObjetoNegocioDTO.getIdCamposObjetoNegocio();
                     }
                     visaoXML.getMatrizVisaoDTO().setIdCamposObjetoNegocio1(idCampNeg1);
                 }
                 // Restaura CampoObjetoNegocio2
                 Integer idCampNeg2 = null;
-                List<CamposObjetoNegocioDTO> colCampNeg2 = (List<CamposObjetoNegocioDTO>) getCamposObjetoNegocioDao().findByIdObjetoNegocioAndNomeDB(
-                        visaoXML.getMatrizVisaoDTO().getIdObjetoNegocio(), visaoXML.getMatrizVisaoDTO().getNomeDB2());
+                final List<CamposObjetoNegocioDTO> colCampNeg2 = (List<CamposObjetoNegocioDTO>) this.getCamposObjetoNegocioDao()
+                        .findByIdObjetoNegocioAndNomeDB(visaoXML.getMatrizVisaoDTO().getIdObjetoNegocio(), visaoXML.getMatrizVisaoDTO().getNomeDB2());
                 if (colCampNeg2 != null) {
-                    for (CamposObjetoNegocioDTO camposObjetoNegocioDTO : colCampNeg2) {
+                    for (final CamposObjetoNegocioDTO camposObjetoNegocioDTO : colCampNeg2) {
                         idCampNeg2 = camposObjetoNegocioDTO.getIdCamposObjetoNegocio();
                     }
                     visaoXML.getMatrizVisaoDTO().setIdCamposObjetoNegocio2(idCampNeg2);
                 }
                 // Restaura CampoObjetoNegocio3
                 Integer idCampNeg3 = null;
-                List<CamposObjetoNegocioDTO> colCampNeg3 = (List<CamposObjetoNegocioDTO>) getCamposObjetoNegocioDao().findByIdObjetoNegocioAndNomeDB(
-                        visaoXML.getMatrizVisaoDTO().getIdObjetoNegocio(), visaoXML.getMatrizVisaoDTO().getNomeDB3());
+                final List<CamposObjetoNegocioDTO> colCampNeg3 = (List<CamposObjetoNegocioDTO>) this.getCamposObjetoNegocioDao()
+                        .findByIdObjetoNegocioAndNomeDB(visaoXML.getMatrizVisaoDTO().getIdObjetoNegocio(), visaoXML.getMatrizVisaoDTO().getNomeDB3());
                 if (colCampNeg3 != null) {
-                    for (CamposObjetoNegocioDTO camposObjetoNegocioDTO : colCampNeg3) {
+                    for (final CamposObjetoNegocioDTO camposObjetoNegocioDTO : colCampNeg3) {
                         idCampNeg3 = camposObjetoNegocioDTO.getIdCamposObjetoNegocio();
                     }
                     visaoXML.getMatrizVisaoDTO().setIdCamposObjetoNegocio3(idCampNeg3);
@@ -665,47 +682,48 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
         }
 
         if (visaoXML.getColVisoesRelacionadas() != null && visaoXML.getColVisoesRelacionadas().size() > 0) {
-            List<VisaoRelacionadaDTO> listVisaoRelacionada = (List<VisaoRelacionadaDTO>) visaoXML.getColVisoesRelacionadas();
-            for (VisaoRelacionadaDTO visaoRelacionadaDTO : listVisaoRelacionada) {
+            final List<VisaoRelacionadaDTO> listVisaoRelacionada = (List<VisaoRelacionadaDTO>) visaoXML.getColVisoesRelacionadas();
+            for (final VisaoRelacionadaDTO visaoRelacionadaDTO : listVisaoRelacionada) {
                 // Restaura ID da Visão Relacionada Filha
-                VisaoDTO visaoDTOFilha = findByIdentificador(visaoRelacionadaDTO.getIdentificacaoVisaoFilha());
+                final VisaoDTO visaoDTOFilha = this.findByIdentificador(visaoRelacionadaDTO.getIdentificacaoVisaoFilha());
                 if (visaoDTOFilha != null) {
                     visaoRelacionadaDTO.setIdVisaoFilha(visaoDTOFilha.getIdVisao());
                 }
 
                 // Preenche campos do vínculo
-                List<VinculoVisaoDTO> listVinculoVisao = (List<VinculoVisaoDTO>) visaoRelacionadaDTO.getColVinculosVisao();
+                final List<VinculoVisaoDTO> listVinculoVisao = (List<VinculoVisaoDTO>) visaoRelacionadaDTO.getColVinculosVisao();
                 if (listVinculoVisao != null) {
-                    GrupoVisaoDTO grupoVisaoDTO = (GrupoVisaoDTO) ((List) (visaoXML.getColGrupos())).get(0);
-                    for (VinculoVisaoDTO vinculoVisaoDTO : listVinculoVisao) {
+                    final GrupoVisaoDTO grupoVisaoDTO = (GrupoVisaoDTO) ((List) visaoXML.getColGrupos()).get(0);
+                    for (final VinculoVisaoDTO vinculoVisaoDTO : listVinculoVisao) {
                         if (vinculoVisaoDTO != null) {
                             vinculoVisaoDTO.setIdGrupoVisaoPai(grupoVisaoDTO.getIdGrupoVisao());
                             if (vinculoVisaoDTO.getIdCamposObjetoNegocioPaiNN() != null) {
                                 // Recuperando CampoObjetoNegocio do Pai
                                 Integer idObjetoNegocio = null;
-                                List<ObjetoNegocioDTO> colObjNegocio = (List<ObjetoNegocioDTO>) getObjetoNegocioDao().findByNomeTabelaDB(vinculoVisaoDTO.getNomeTabelaPai());
+                                List<ObjetoNegocioDTO> colObjNegocio = (List<ObjetoNegocioDTO>) this.getObjetoNegocioDao().findByNomeTabelaDB(
+                                        vinculoVisaoDTO.getNomeTabelaPai());
                                 if (colObjNegocio != null) {
-                                    for (ObjetoNegocioDTO objetoNegocioDTO : colObjNegocio) {
+                                    for (final ObjetoNegocioDTO objetoNegocioDTO : colObjNegocio) {
                                         idObjetoNegocio = objetoNegocioDTO.getIdObjetoNegocio();
                                     }
-                                    List<CamposObjetoNegocioDTO> colCamposObjNeg = (List<CamposObjetoNegocioDTO>) getCamposObjetoNegocioDao().findByIdObjetoNegocioAndNomeDB(
-                                            idObjetoNegocio, vinculoVisaoDTO.getNomeDBPai());
+                                    final List<CamposObjetoNegocioDTO> colCamposObjNeg = (List<CamposObjetoNegocioDTO>) this.getCamposObjetoNegocioDao()
+                                            .findByIdObjetoNegocioAndNomeDB(idObjetoNegocio, vinculoVisaoDTO.getNomeDBPai());
                                     if (colCamposObjNeg != null) {
-                                        for (CamposObjetoNegocioDTO camposObjetoNegocioDTO : colCamposObjNeg) {
+                                        for (final CamposObjetoNegocioDTO camposObjetoNegocioDTO : colCamposObjNeg) {
                                             vinculoVisaoDTO.setIdCamposObjetoNegocioPai(camposObjetoNegocioDTO.getIdCamposObjetoNegocio());
                                         }
                                     }
                                 }
                                 // Recuperando CampoObjetoNegocio do PaiNN
-                                colObjNegocio = (List<ObjetoNegocioDTO>) getObjetoNegocioDao().findByNomeTabelaDB(vinculoVisaoDTO.getNomeTabelaPaiNN());
+                                colObjNegocio = (List<ObjetoNegocioDTO>) this.getObjetoNegocioDao().findByNomeTabelaDB(vinculoVisaoDTO.getNomeTabelaPaiNN());
                                 if (colObjNegocio != null) {
-                                    for (ObjetoNegocioDTO objetoNegocioDTO : colObjNegocio) {
+                                    for (final ObjetoNegocioDTO objetoNegocioDTO : colObjNegocio) {
                                         idObjetoNegocio = objetoNegocioDTO.getIdObjetoNegocio();
                                     }
-                                    List<CamposObjetoNegocioDTO> colCamposObjNeg = (List<CamposObjetoNegocioDTO>) getCamposObjetoNegocioDao().findByIdObjetoNegocioAndNomeDB(
-                                            idObjetoNegocio, vinculoVisaoDTO.getNomeDBPaiNN());
+                                    final List<CamposObjetoNegocioDTO> colCamposObjNeg = (List<CamposObjetoNegocioDTO>) this.getCamposObjetoNegocioDao()
+                                            .findByIdObjetoNegocioAndNomeDB(idObjetoNegocio, vinculoVisaoDTO.getNomeDBPaiNN());
                                     if (colCamposObjNeg != null) {
-                                        for (CamposObjetoNegocioDTO camposObjetoNegocioDTO : colCamposObjNeg) {
+                                        for (final CamposObjetoNegocioDTO camposObjetoNegocioDTO : colCamposObjNeg) {
                                             vinculoVisaoDTO.setIdCamposObjetoNegocioPaiNN(camposObjetoNegocioDTO.getIdCamposObjetoNegocio());
                                         }
                                     }
@@ -715,29 +733,30 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
                             if (vinculoVisaoDTO.getIdCamposObjetoNegocioFilhoNN() != null) {
                                 // Recuperando CampoObjetoNegocio do Filho
                                 Integer idObjetoNegocio = null;
-                                List<ObjetoNegocioDTO> colObjNegocio = (List<ObjetoNegocioDTO>) getObjetoNegocioDao().findByNomeTabelaDB(vinculoVisaoDTO.getNomeTabelaFilho());
+                                List<ObjetoNegocioDTO> colObjNegocio = (List<ObjetoNegocioDTO>) this.getObjetoNegocioDao().findByNomeTabelaDB(
+                                        vinculoVisaoDTO.getNomeTabelaFilho());
                                 if (colObjNegocio != null) {
-                                    for (ObjetoNegocioDTO objetoNegocioDTO : colObjNegocio) {
+                                    for (final ObjetoNegocioDTO objetoNegocioDTO : colObjNegocio) {
                                         idObjetoNegocio = objetoNegocioDTO.getIdObjetoNegocio();
                                     }
-                                    List<CamposObjetoNegocioDTO> colCamposObjNeg = (List<CamposObjetoNegocioDTO>) getCamposObjetoNegocioDao().findByIdObjetoNegocioAndNomeDB(
-                                            idObjetoNegocio, vinculoVisaoDTO.getNomeDBPaiFilho());
+                                    final List<CamposObjetoNegocioDTO> colCamposObjNeg = (List<CamposObjetoNegocioDTO>) this.getCamposObjetoNegocioDao()
+                                            .findByIdObjetoNegocioAndNomeDB(idObjetoNegocio, vinculoVisaoDTO.getNomeDBPaiFilho());
                                     if (colCamposObjNeg != null) {
-                                        for (CamposObjetoNegocioDTO camposObjetoNegocioDTO : colCamposObjNeg) {
+                                        for (final CamposObjetoNegocioDTO camposObjetoNegocioDTO : colCamposObjNeg) {
                                             vinculoVisaoDTO.setIdCamposObjetoNegocioFilho(camposObjetoNegocioDTO.getIdCamposObjetoNegocio());
                                         }
                                     }
                                 }
                                 // Recuperando CampoObjetoNegocio do FilhoNN
-                                colObjNegocio = (List<ObjetoNegocioDTO>) getObjetoNegocioDao().findByNomeTabelaDB(vinculoVisaoDTO.getNomeTabelaFilhoNN());
+                                colObjNegocio = (List<ObjetoNegocioDTO>) this.getObjetoNegocioDao().findByNomeTabelaDB(vinculoVisaoDTO.getNomeTabelaFilhoNN());
                                 if (colObjNegocio != null) {
-                                    for (ObjetoNegocioDTO objetoNegocioDTO : colObjNegocio) {
+                                    for (final ObjetoNegocioDTO objetoNegocioDTO : colObjNegocio) {
                                         idObjetoNegocio = objetoNegocioDTO.getIdObjetoNegocio();
                                     }
-                                    List<CamposObjetoNegocioDTO> colCamposObjNeg = (List<CamposObjetoNegocioDTO>) getCamposObjetoNegocioDao().findByIdObjetoNegocioAndNomeDB(
-                                            idObjetoNegocio, vinculoVisaoDTO.getNomeDBPaiFilhoNN());
+                                    final List<CamposObjetoNegocioDTO> colCamposObjNeg = (List<CamposObjetoNegocioDTO>) this.getCamposObjetoNegocioDao()
+                                            .findByIdObjetoNegocioAndNomeDB(idObjetoNegocio, vinculoVisaoDTO.getNomeDBPaiFilhoNN());
                                     if (colCamposObjNeg != null) {
-                                        for (CamposObjetoNegocioDTO camposObjetoNegocioDTO : colCamposObjNeg) {
+                                        for (final CamposObjetoNegocioDTO camposObjetoNegocioDTO : colCamposObjNeg) {
                                             vinculoVisaoDTO.setIdCamposObjetoNegocioFilhoNN(camposObjetoNegocioDTO.getIdCamposObjetoNegocio());
                                         }
                                     }
@@ -750,11 +769,12 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
         }
 
         if (visaoXML != null) {
-            create(visaoXML);
+            this.create(visaoXML);
         }
     }
 
-    public void atualizarVisao(VisaoDTO visaoAtual, VisaoDTO visaoXML) throws Exception {
+    @Override
+    public void atualizarVisao(final VisaoDTO visaoAtual, final VisaoDTO visaoXML) throws Exception {
 
         // Primeiro obtem visão atual a ser atualizada
         if (visaoAtual != null && visaoAtual.getIdVisao() != null) {
@@ -763,23 +783,24 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
             List<GrupoVisaoCamposNegocioDTO> colCamposVisaoXML = new ArrayList<GrupoVisaoCamposNegocioDTO>();
 
             if (visaoXML.getColGrupos() != null && visaoXML.getColGrupos().size() > 0) {
-                GrupoVisaoDTO grupoVisaoDTO = (GrupoVisaoDTO) ((List) (visaoXML.getColGrupos())).get(0);
+                final GrupoVisaoDTO grupoVisaoDTO = (GrupoVisaoDTO) ((List) visaoXML.getColGrupos()).get(0);
                 colCamposVisaoXML = (List<GrupoVisaoCamposNegocioDTO>) grupoVisaoDTO.getColCamposVisao();
                 if (colCamposVisaoXML != null) {
-                    for (GrupoVisaoCamposNegocioDTO grupoVisaoCamposNegocioDTO : colCamposVisaoXML) {
+                    for (final GrupoVisaoCamposNegocioDTO grupoVisaoCamposNegocioDTO : colCamposVisaoXML) {
                         if (grupoVisaoCamposNegocioDTO.getNomeTabelaDB() != null) {
                             // Restaura id do Grupo Visão
-                            List<GrupoVisaoDTO> listGrupoVisaoTemp = (List<GrupoVisaoDTO>) getGrupoVisaoDao().findByIdVisao(visaoXML.getIdVisao());
+                            final List<GrupoVisaoDTO> listGrupoVisaoTemp = (List<GrupoVisaoDTO>) this.getGrupoVisaoDao().findByIdVisao(visaoXML.getIdVisao());
                             if (listGrupoVisaoTemp != null) {
-                                for (GrupoVisaoDTO grupoVisaoDTO2 : listGrupoVisaoTemp) {
+                                for (final GrupoVisaoDTO grupoVisaoDTO2 : listGrupoVisaoTemp) {
                                     grupoVisaoCamposNegocioDTO.setIdGrupoVisao(grupoVisaoDTO2.getIdGrupoVisao());
                                 }
                             }
                             // Restaura id dos Campos Objeto Negócio
                             Integer idObjetoNegocio = null;
-                            List<ObjetoNegocioDTO> colObjNegocio = (List<ObjetoNegocioDTO>) getObjetoNegocioDao().findByNomeTabelaDB(grupoVisaoCamposNegocioDTO.getNomeTabelaDB());
+                            final List<ObjetoNegocioDTO> colObjNegocio = (List<ObjetoNegocioDTO>) this.getObjetoNegocioDao().findByNomeTabelaDB(
+                                    grupoVisaoCamposNegocioDTO.getNomeTabelaDB());
                             if (colObjNegocio != null) {
-                                for (ObjetoNegocioDTO objetoNegocioDTO : colObjNegocio) {
+                                for (final ObjetoNegocioDTO objetoNegocioDTO : colObjNegocio) {
                                     idObjetoNegocio = objetoNegocioDTO.getIdObjetoNegocio();
                                 }
                                 if (idObjetoNegocio != null) {
@@ -787,10 +808,10 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
                                 }
                             }
                             if (idObjetoNegocio != null) {
-                                List<CamposObjetoNegocioDTO> colCamposObjNeg = (List<CamposObjetoNegocioDTO>) getCamposObjetoNegocioDao().findByIdObjetoNegocioAndNomeDB(
-                                        idObjetoNegocio, grupoVisaoCamposNegocioDTO.getNomeDB());
+                                final List<CamposObjetoNegocioDTO> colCamposObjNeg = (List<CamposObjetoNegocioDTO>) this.getCamposObjetoNegocioDao()
+                                        .findByIdObjetoNegocioAndNomeDB(idObjetoNegocio, grupoVisaoCamposNegocioDTO.getNomeDB());
                                 if (colCamposObjNeg != null) {
-                                    for (CamposObjetoNegocioDTO camposObjetoNegocioDTO : colCamposObjNeg) {
+                                    for (final CamposObjetoNegocioDTO camposObjetoNegocioDTO : colCamposObjNeg) {
                                         grupoVisaoCamposNegocioDTO.setIdCamposObjetoNegocio(camposObjetoNegocioDTO.getIdCamposObjetoNegocio());
                                     }
                                 }
@@ -798,34 +819,37 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
                             // Restaura visões de ligação caso exista
                             if (grupoVisaoCamposNegocioDTO.getTipoNegocio().equalsIgnoreCase(MetaUtil.RELATION)) {
                                 // Restaura id do objeto negócio ligação
-                                List<ObjetoNegocioDTO> listObjNegTemp = (List<ObjetoNegocioDTO>) getObjetoNegocioDao().findByNomeTabelaDB(
+                                final List<ObjetoNegocioDTO> listObjNegTemp = (List<ObjetoNegocioDTO>) this.getObjetoNegocioDao().findByNomeTabelaDB(
                                         grupoVisaoCamposNegocioDTO.getNomeTabelaDBLigacao());
                                 if (listObjNegTemp != null) {
-                                    for (ObjetoNegocioDTO objetoNegocioDTO : listObjNegTemp) {
+                                    for (final ObjetoNegocioDTO objetoNegocioDTO : listObjNegTemp) {
                                         grupoVisaoCamposNegocioDTO.setIdObjetoNegocioLigacao(objetoNegocioDTO.getIdObjetoNegocio());
                                     }
                                 }
                                 // Restaura id do campo objeto negócio ligação
-                                List<CamposObjetoNegocioDTO> listCamposObjNegTemp2 = (List<CamposObjetoNegocioDTO>) getCamposObjetoNegocioDao().findByIdObjetoNegocioAndNomeDB(
-                                        grupoVisaoCamposNegocioDTO.getIdObjetoNegocioLigacao(), grupoVisaoCamposNegocioDTO.getNomeDBLigacao());
+                                final List<CamposObjetoNegocioDTO> listCamposObjNegTemp2 = (List<CamposObjetoNegocioDTO>) this.getCamposObjetoNegocioDao()
+                                        .findByIdObjetoNegocioAndNomeDB(grupoVisaoCamposNegocioDTO.getIdObjetoNegocioLigacao(),
+                                                grupoVisaoCamposNegocioDTO.getNomeDBLigacao());
                                 if (listCamposObjNegTemp2 != null) {
-                                    for (CamposObjetoNegocioDTO camposObjetoNegocioDTO : listCamposObjNegTemp2) {
+                                    for (final CamposObjetoNegocioDTO camposObjetoNegocioDTO : listCamposObjNegTemp2) {
                                         grupoVisaoCamposNegocioDTO.setIdCamposObjetoNegocioLigacao(camposObjetoNegocioDTO.getIdCamposObjetoNegocio());
                                     }
                                 }
                                 // Restaura id do campo objeto negócio ligação vinculado
-                                List<CamposObjetoNegocioDTO> listCamposObjNegTemp3 = (List<CamposObjetoNegocioDTO>) getCamposObjetoNegocioDao().findByIdObjetoNegocioAndNomeDB(
-                                        grupoVisaoCamposNegocioDTO.getIdObjetoNegocioLigacao(), grupoVisaoCamposNegocioDTO.getNomeDBLigacaoVinc());
+                                final List<CamposObjetoNegocioDTO> listCamposObjNegTemp3 = (List<CamposObjetoNegocioDTO>) this.getCamposObjetoNegocioDao()
+                                        .findByIdObjetoNegocioAndNomeDB(grupoVisaoCamposNegocioDTO.getIdObjetoNegocioLigacao(),
+                                                grupoVisaoCamposNegocioDTO.getNomeDBLigacaoVinc());
                                 if (listCamposObjNegTemp3 != null) {
-                                    for (CamposObjetoNegocioDTO camposObjetoNegocioDTO : listCamposObjNegTemp3) {
+                                    for (final CamposObjetoNegocioDTO camposObjetoNegocioDTO : listCamposObjNegTemp3) {
                                         grupoVisaoCamposNegocioDTO.setIdCamposObjetoNegocioLigacaoVinc(camposObjetoNegocioDTO.getIdCamposObjetoNegocio());
                                     }
                                 }
                                 // Restaura id do campo objeto negócio ligação order
-                                List<CamposObjetoNegocioDTO> listCamposObjNegTemp4 = (List<CamposObjetoNegocioDTO>) getCamposObjetoNegocioDao().findByIdObjetoNegocioAndNomeDB(
-                                        grupoVisaoCamposNegocioDTO.getIdObjetoNegocioLigacao(), grupoVisaoCamposNegocioDTO.getNomeDBLigacaoOrder());
+                                final List<CamposObjetoNegocioDTO> listCamposObjNegTemp4 = (List<CamposObjetoNegocioDTO>) this.getCamposObjetoNegocioDao()
+                                        .findByIdObjetoNegocioAndNomeDB(grupoVisaoCamposNegocioDTO.getIdObjetoNegocioLigacao(),
+                                                grupoVisaoCamposNegocioDTO.getNomeDBLigacaoOrder());
                                 if (listCamposObjNegTemp4 != null) {
-                                    for (CamposObjetoNegocioDTO camposObjetoNegocioDTO : listCamposObjNegTemp4) {
+                                    for (final CamposObjetoNegocioDTO camposObjetoNegocioDTO : listCamposObjNegTemp4) {
                                         grupoVisaoCamposNegocioDTO.setIdCamposObjetoNegocioLigacaoOrder(camposObjetoNegocioDTO.getIdCamposObjetoNegocio());
                                     }
                                 }
@@ -836,42 +860,42 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
             }
 
             if (visaoXML.getTipoVisao().equalsIgnoreCase(VisaoDTO.MATRIZ)) {
-                // Restaura ObjetoNegocio
-                ObjetoNegocioDTO obNeg = new ObjetoNegocioDTO();
+                new ObjetoNegocioDTO();
                 Integer idObjetoNegocio = null;
-                List<ObjetoNegocioDTO> colObjNegocio = (List<ObjetoNegocioDTO>) getObjetoNegocioDao().findByNomeTabelaDB(visaoXML.getMatrizVisaoDTO().getNomeTabelaDB());
+                final List<ObjetoNegocioDTO> colObjNegocio = (List<ObjetoNegocioDTO>) this.getObjetoNegocioDao().findByNomeTabelaDB(
+                        visaoXML.getMatrizVisaoDTO().getNomeTabelaDB());
                 if (colObjNegocio != null) {
-                    for (ObjetoNegocioDTO objetoNegocioDTO : colObjNegocio) {
+                    for (final ObjetoNegocioDTO objetoNegocioDTO : colObjNegocio) {
                         idObjetoNegocio = objetoNegocioDTO.getIdObjetoNegocio();
                     }
                     visaoXML.getMatrizVisaoDTO().setIdObjetoNegocio(idObjetoNegocio);
                 }
                 // Restaura CampoObjetoNegocio1
                 Integer idCampNeg1 = null;
-                List<CamposObjetoNegocioDTO> colCampNeg1 = (List<CamposObjetoNegocioDTO>) getCamposObjetoNegocioDao().findByIdObjetoNegocioAndNomeDB(
-                        visaoXML.getMatrizVisaoDTO().getIdObjetoNegocio(), visaoXML.getMatrizVisaoDTO().getNomeDB1());
+                final List<CamposObjetoNegocioDTO> colCampNeg1 = (List<CamposObjetoNegocioDTO>) this.getCamposObjetoNegocioDao()
+                        .findByIdObjetoNegocioAndNomeDB(visaoXML.getMatrizVisaoDTO().getIdObjetoNegocio(), visaoXML.getMatrizVisaoDTO().getNomeDB1());
                 if (colCampNeg1 != null) {
-                    for (CamposObjetoNegocioDTO camposObjetoNegocioDTO : colCampNeg1) {
+                    for (final CamposObjetoNegocioDTO camposObjetoNegocioDTO : colCampNeg1) {
                         idCampNeg1 = camposObjetoNegocioDTO.getIdCamposObjetoNegocio();
                     }
                     visaoXML.getMatrizVisaoDTO().setIdCamposObjetoNegocio1(idCampNeg1);
                 }
                 // Restaura CampoObjetoNegocio2
                 Integer idCampNeg2 = null;
-                List<CamposObjetoNegocioDTO> colCampNeg2 = (List<CamposObjetoNegocioDTO>) getCamposObjetoNegocioDao().findByIdObjetoNegocioAndNomeDB(
-                        visaoXML.getMatrizVisaoDTO().getIdObjetoNegocio(), visaoXML.getMatrizVisaoDTO().getNomeDB2());
+                final List<CamposObjetoNegocioDTO> colCampNeg2 = (List<CamposObjetoNegocioDTO>) this.getCamposObjetoNegocioDao()
+                        .findByIdObjetoNegocioAndNomeDB(visaoXML.getMatrizVisaoDTO().getIdObjetoNegocio(), visaoXML.getMatrizVisaoDTO().getNomeDB2());
                 if (colCampNeg2 != null) {
-                    for (CamposObjetoNegocioDTO camposObjetoNegocioDTO : colCampNeg2) {
+                    for (final CamposObjetoNegocioDTO camposObjetoNegocioDTO : colCampNeg2) {
                         idCampNeg2 = camposObjetoNegocioDTO.getIdCamposObjetoNegocio();
                     }
                     visaoXML.getMatrizVisaoDTO().setIdCamposObjetoNegocio2(idCampNeg2);
                 }
                 // Restaura CampoObjetoNegocio3
                 Integer idCampNeg3 = null;
-                List<CamposObjetoNegocioDTO> colCampNeg3 = (List<CamposObjetoNegocioDTO>) getCamposObjetoNegocioDao().findByIdObjetoNegocioAndNomeDB(
-                        visaoXML.getMatrizVisaoDTO().getIdObjetoNegocio(), visaoXML.getMatrizVisaoDTO().getNomeDB3());
+                final List<CamposObjetoNegocioDTO> colCampNeg3 = (List<CamposObjetoNegocioDTO>) this.getCamposObjetoNegocioDao()
+                        .findByIdObjetoNegocioAndNomeDB(visaoXML.getMatrizVisaoDTO().getIdObjetoNegocio(), visaoXML.getMatrizVisaoDTO().getNomeDB3());
                 if (colCampNeg3 != null) {
-                    for (CamposObjetoNegocioDTO camposObjetoNegocioDTO : colCampNeg3) {
+                    for (final CamposObjetoNegocioDTO camposObjetoNegocioDTO : colCampNeg3) {
                         idCampNeg3 = camposObjetoNegocioDTO.getIdCamposObjetoNegocio();
                     }
                     visaoXML.getMatrizVisaoDTO().setIdCamposObjetoNegocio3(idCampNeg3);
@@ -879,47 +903,49 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
             }
 
             if (visaoXML.getColVisoesRelacionadas() != null && visaoXML.getColVisoesRelacionadas().size() > 0) {
-                List<VisaoRelacionadaDTO> listVisaoRelacionada = (List<VisaoRelacionadaDTO>) visaoXML.getColVisoesRelacionadas();
-                for (VisaoRelacionadaDTO visaoRelacionadaDTO : listVisaoRelacionada) {
+                final List<VisaoRelacionadaDTO> listVisaoRelacionada = (List<VisaoRelacionadaDTO>) visaoXML.getColVisoesRelacionadas();
+                for (final VisaoRelacionadaDTO visaoRelacionadaDTO : listVisaoRelacionada) {
                     // Restaura ID da Visão Relacionada Filha
-                    VisaoDTO visaoDTOFilha = findByIdentificador(visaoRelacionadaDTO.getIdentificacaoVisaoFilha());
+                    final VisaoDTO visaoDTOFilha = this.findByIdentificador(visaoRelacionadaDTO.getIdentificacaoVisaoFilha());
                     if (visaoDTOFilha != null) {
                         visaoRelacionadaDTO.setIdVisaoFilha(visaoDTOFilha.getIdVisao());
                     }
 
                     // Preenche campos do vínculo
-                    List<VinculoVisaoDTO> listVinculoVisao = (List<VinculoVisaoDTO>) visaoRelacionadaDTO.getColVinculosVisao();
+                    final List<VinculoVisaoDTO> listVinculoVisao = (List<VinculoVisaoDTO>) visaoRelacionadaDTO.getColVinculosVisao();
                     if (listVinculoVisao != null) {
-                        GrupoVisaoDTO grupoVisaoDTO = (GrupoVisaoDTO) ((List) (visaoXML.getColGrupos())).get(0);
-                        for (VinculoVisaoDTO vinculoVisaoDTO : listVinculoVisao) {
+                        final GrupoVisaoDTO grupoVisaoDTO = (GrupoVisaoDTO) ((List) visaoXML.getColGrupos()).get(0);
+                        for (final VinculoVisaoDTO vinculoVisaoDTO : listVinculoVisao) {
                             if (vinculoVisaoDTO != null) {
                                 vinculoVisaoDTO.setIdGrupoVisaoPai(grupoVisaoDTO.getIdGrupoVisao());
                                 if (vinculoVisaoDTO.getIdCamposObjetoNegocioPaiNN() != null) {
                                     // Recuperando CampoObjetoNegocio do Pai
                                     Integer idObjetoNegocio = null;
-                                    List<ObjetoNegocioDTO> colObjNegocio = (List<ObjetoNegocioDTO>) getObjetoNegocioDao().findByNomeTabelaDB(vinculoVisaoDTO.getNomeTabelaPai());
+                                    List<ObjetoNegocioDTO> colObjNegocio = (List<ObjetoNegocioDTO>) this.getObjetoNegocioDao().findByNomeTabelaDB(
+                                            vinculoVisaoDTO.getNomeTabelaPai());
                                     if (colObjNegocio != null) {
-                                        for (ObjetoNegocioDTO objetoNegocioDTO : colObjNegocio) {
+                                        for (final ObjetoNegocioDTO objetoNegocioDTO : colObjNegocio) {
                                             idObjetoNegocio = objetoNegocioDTO.getIdObjetoNegocio();
                                         }
-                                        List<CamposObjetoNegocioDTO> colCamposObjNeg = (List<CamposObjetoNegocioDTO>) getCamposObjetoNegocioDao().findByIdObjetoNegocioAndNomeDB(
-                                                idObjetoNegocio, vinculoVisaoDTO.getNomeDBPai());
+                                        final List<CamposObjetoNegocioDTO> colCamposObjNeg = (List<CamposObjetoNegocioDTO>) this.getCamposObjetoNegocioDao()
+                                                .findByIdObjetoNegocioAndNomeDB(idObjetoNegocio, vinculoVisaoDTO.getNomeDBPai());
                                         if (colCamposObjNeg != null) {
-                                            for (CamposObjetoNegocioDTO camposObjetoNegocioDTO : colCamposObjNeg) {
+                                            for (final CamposObjetoNegocioDTO camposObjetoNegocioDTO : colCamposObjNeg) {
                                                 vinculoVisaoDTO.setIdCamposObjetoNegocioPai(camposObjetoNegocioDTO.getIdCamposObjetoNegocio());
                                             }
                                         }
                                     }
                                     // Recuperando CampoObjetoNegocio do PaiNN
-                                    colObjNegocio = (List<ObjetoNegocioDTO>) getObjetoNegocioDao().findByNomeTabelaDB(vinculoVisaoDTO.getNomeTabelaPaiNN());
+                                    colObjNegocio = (List<ObjetoNegocioDTO>) this.getObjetoNegocioDao()
+                                            .findByNomeTabelaDB(vinculoVisaoDTO.getNomeTabelaPaiNN());
                                     if (colObjNegocio != null) {
-                                        for (ObjetoNegocioDTO objetoNegocioDTO : colObjNegocio) {
+                                        for (final ObjetoNegocioDTO objetoNegocioDTO : colObjNegocio) {
                                             idObjetoNegocio = objetoNegocioDTO.getIdObjetoNegocio();
                                         }
-                                        List<CamposObjetoNegocioDTO> colCamposObjNeg = (List<CamposObjetoNegocioDTO>) getCamposObjetoNegocioDao().findByIdObjetoNegocioAndNomeDB(
-                                                idObjetoNegocio, vinculoVisaoDTO.getNomeDBPaiNN());
+                                        final List<CamposObjetoNegocioDTO> colCamposObjNeg = (List<CamposObjetoNegocioDTO>) this.getCamposObjetoNegocioDao()
+                                                .findByIdObjetoNegocioAndNomeDB(idObjetoNegocio, vinculoVisaoDTO.getNomeDBPaiNN());
                                         if (colCamposObjNeg != null) {
-                                            for (CamposObjetoNegocioDTO camposObjetoNegocioDTO : colCamposObjNeg) {
+                                            for (final CamposObjetoNegocioDTO camposObjetoNegocioDTO : colCamposObjNeg) {
                                                 vinculoVisaoDTO.setIdCamposObjetoNegocioPaiNN(camposObjetoNegocioDTO.getIdCamposObjetoNegocio());
                                             }
                                         }
@@ -929,29 +955,31 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
                                 if (vinculoVisaoDTO.getIdCamposObjetoNegocioFilhoNN() != null) {
                                     // Recuperando CampoObjetoNegocio do Filho
                                     Integer idObjetoNegocio = null;
-                                    List<ObjetoNegocioDTO> colObjNegocio = (List<ObjetoNegocioDTO>) getObjetoNegocioDao().findByNomeTabelaDB(vinculoVisaoDTO.getNomeTabelaFilho());
+                                    List<ObjetoNegocioDTO> colObjNegocio = (List<ObjetoNegocioDTO>) this.getObjetoNegocioDao().findByNomeTabelaDB(
+                                            vinculoVisaoDTO.getNomeTabelaFilho());
                                     if (colObjNegocio != null) {
-                                        for (ObjetoNegocioDTO objetoNegocioDTO : colObjNegocio) {
+                                        for (final ObjetoNegocioDTO objetoNegocioDTO : colObjNegocio) {
                                             idObjetoNegocio = objetoNegocioDTO.getIdObjetoNegocio();
                                         }
-                                        List<CamposObjetoNegocioDTO> colCamposObjNeg = (List<CamposObjetoNegocioDTO>) getCamposObjetoNegocioDao().findByIdObjetoNegocioAndNomeDB(
-                                                idObjetoNegocio, vinculoVisaoDTO.getNomeDBPaiFilho());
+                                        final List<CamposObjetoNegocioDTO> colCamposObjNeg = (List<CamposObjetoNegocioDTO>) this.getCamposObjetoNegocioDao()
+                                                .findByIdObjetoNegocioAndNomeDB(idObjetoNegocio, vinculoVisaoDTO.getNomeDBPaiFilho());
                                         if (colCamposObjNeg != null) {
-                                            for (CamposObjetoNegocioDTO camposObjetoNegocioDTO : colCamposObjNeg) {
+                                            for (final CamposObjetoNegocioDTO camposObjetoNegocioDTO : colCamposObjNeg) {
                                                 vinculoVisaoDTO.setIdCamposObjetoNegocioFilho(camposObjetoNegocioDTO.getIdCamposObjetoNegocio());
                                             }
                                         }
                                     }
                                     // Recuperando CampoObjetoNegocio do FilhoNN
-                                    colObjNegocio = (List<ObjetoNegocioDTO>) getObjetoNegocioDao().findByNomeTabelaDB(vinculoVisaoDTO.getNomeTabelaFilhoNN());
+                                    colObjNegocio = (List<ObjetoNegocioDTO>) this.getObjetoNegocioDao().findByNomeTabelaDB(
+                                            vinculoVisaoDTO.getNomeTabelaFilhoNN());
                                     if (colObjNegocio != null) {
-                                        for (ObjetoNegocioDTO objetoNegocioDTO : colObjNegocio) {
+                                        for (final ObjetoNegocioDTO objetoNegocioDTO : colObjNegocio) {
                                             idObjetoNegocio = objetoNegocioDTO.getIdObjetoNegocio();
                                         }
-                                        List<CamposObjetoNegocioDTO> colCamposObjNeg = (List<CamposObjetoNegocioDTO>) getCamposObjetoNegocioDao().findByIdObjetoNegocioAndNomeDB(
-                                                idObjetoNegocio, vinculoVisaoDTO.getNomeDBPaiFilhoNN());
+                                        final List<CamposObjetoNegocioDTO> colCamposObjNeg = (List<CamposObjetoNegocioDTO>) this.getCamposObjetoNegocioDao()
+                                                .findByIdObjetoNegocioAndNomeDB(idObjetoNegocio, vinculoVisaoDTO.getNomeDBPaiFilhoNN());
                                         if (colCamposObjNeg != null) {
-                                            for (CamposObjetoNegocioDTO camposObjetoNegocioDTO : colCamposObjNeg) {
+                                            for (final CamposObjetoNegocioDTO camposObjetoNegocioDTO : colCamposObjNeg) {
                                                 vinculoVisaoDTO.setIdCamposObjetoNegocioFilhoNN(camposObjetoNegocioDTO.getIdCamposObjetoNegocio());
                                             }
                                         }
@@ -966,7 +994,7 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
 
             // Salva alterações
             if (visaoXML != null) {
-                update(visaoXML);
+                this.update(visaoXML);
             }
 
         } else {
@@ -975,14 +1003,13 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
 
     }
 
-    public VisaoDTO visaoExistente(String identificadorVisao) throws ServiceException, Exception {
+    @Override
+    public VisaoDTO visaoExistente(final String identificadorVisao) throws ServiceException, Exception {
         VisaoDTO visaoDto = null;
-        visaoDto = findByIdentificador(identificadorVisao);
+        visaoDto = this.findByIdentificador(identificadorVisao);
         if (visaoDto != null) {
             return visaoDto;
-        } else {
-            return null;
-        }
+        } return null;
     }
 
     private BotaoAcaoVisaoDao botaoAcaoVisaoDAO;

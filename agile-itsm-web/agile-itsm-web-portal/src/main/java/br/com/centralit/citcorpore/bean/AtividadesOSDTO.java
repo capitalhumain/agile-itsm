@@ -16,15 +16,15 @@ package br.com.centralit.citcorpore.bean;
 
 import br.com.agileitsm.model.support.BaseEntity;
 
-@SuppressWarnings("serial")
 public class AtividadesOSDTO extends BaseEntity {
+
     private Integer idAtividadesOS;
     private Integer idOS;
     private Integer sequencia;
     private Integer idAtividadeServicoContrato;
     private String descricaoAtividade;
     private String obsAtividade;
-    private Double custoAtividade ;
+    private Double custoAtividade;
     private Double glosaAtividade;
     private Double qtdeExecutada;
     private String complexidade;
@@ -43,7 +43,7 @@ public class AtividadesOSDTO extends BaseEntity {
         return listaGlosasOs;
     }
 
-    public void setListaGlosasOs(Object listaGlosasOs) {
+    public void setListaGlosasOs(final Object listaGlosasOs) {
         this.listaGlosasOs = listaGlosasOs;
     }
 
@@ -51,7 +51,7 @@ public class AtividadesOSDTO extends BaseEntity {
         return custos;
     }
 
-    public void setCustos(Double custos) {
+    public void setCustos(final Double custos) {
         this.custos = custos;
     }
 
@@ -59,7 +59,7 @@ public class AtividadesOSDTO extends BaseEntity {
         return custoRealizado;
     }
 
-    public void setCustoRealizado(Double custoRealizado) {
+    public void setCustoRealizado(final Double custoRealizado) {
         this.custoRealizado = custoRealizado;
     }
 
@@ -67,7 +67,7 @@ public class AtividadesOSDTO extends BaseEntity {
         return listaAtividadeOs;
     }
 
-    public void setListaAtividadeOs(Object listaAtividadeOs) {
+    public void setListaAtividadeOs(final Object listaAtividadeOs) {
         this.listaAtividadeOs = listaAtividadeOs;
     }
 
@@ -75,7 +75,7 @@ public class AtividadesOSDTO extends BaseEntity {
         return listaAcordoNivelServico;
     }
 
-    public void setListaAcordoNivelServico(Object listaAcordoNivelServico) {
+    public void setListaAcordoNivelServico(final Object listaAcordoNivelServico) {
         this.listaAcordoNivelServico = listaAcordoNivelServico;
     }
 
@@ -83,7 +83,7 @@ public class AtividadesOSDTO extends BaseEntity {
         return idAtividadesOS;
     }
 
-    public void setIdAtividadesOS(Integer parm) {
+    public void setIdAtividadesOS(final Integer parm) {
         idAtividadesOS = parm;
     }
 
@@ -91,7 +91,7 @@ public class AtividadesOSDTO extends BaseEntity {
         return idOS;
     }
 
-    public void setIdOS(Integer parm) {
+    public void setIdOS(final Integer parm) {
         idOS = parm;
     }
 
@@ -99,7 +99,7 @@ public class AtividadesOSDTO extends BaseEntity {
         return sequencia;
     }
 
-    public void setSequencia(Integer parm) {
+    public void setSequencia(final Integer parm) {
         sequencia = parm;
     }
 
@@ -107,7 +107,7 @@ public class AtividadesOSDTO extends BaseEntity {
         return idAtividadeServicoContrato;
     }
 
-    public void setIdAtividadeServicoContrato(Integer parm) {
+    public void setIdAtividadeServicoContrato(final Integer parm) {
         idAtividadeServicoContrato = parm;
     }
 
@@ -115,7 +115,7 @@ public class AtividadesOSDTO extends BaseEntity {
         return descricaoAtividade;
     }
 
-    public void setDescricaoAtividade(String parm) {
+    public void setDescricaoAtividade(final String parm) {
         descricaoAtividade = parm;
     }
 
@@ -123,7 +123,7 @@ public class AtividadesOSDTO extends BaseEntity {
         return obsAtividade;
     }
 
-    public void setObsAtividade(String parm) {
+    public void setObsAtividade(final String parm) {
         obsAtividade = parm;
     }
 
@@ -131,7 +131,7 @@ public class AtividadesOSDTO extends BaseEntity {
         return custoAtividade;
     }
 
-    public void setCustoAtividade(Double parm) {
+    public void setCustoAtividade(final Double parm) {
         custoAtividade = parm;
     }
 
@@ -139,14 +139,15 @@ public class AtividadesOSDTO extends BaseEntity {
         return complexidade;
     }
 
-    public void setComplexidade(String parm) {
+    public void setComplexidade(final String parm) {
         complexidade = parm;
     }
 
     public String getDeleted() {
         return deleted;
     }
-    public void setDeleted(String parm) {
+
+    public void setDeleted(final String parm) {
         deleted = parm;
     }
 
@@ -154,7 +155,7 @@ public class AtividadesOSDTO extends BaseEntity {
         return glosaAtividade;
     }
 
-    public void setGlosaAtividade(Double glosaAtividade) {
+    public void setGlosaAtividade(final Double glosaAtividade) {
         this.glosaAtividade = glosaAtividade;
     }
 
@@ -162,7 +163,7 @@ public class AtividadesOSDTO extends BaseEntity {
         return qtdeExecutada;
     }
 
-    public void setQtdeExecutada(Double qtdeExecutada) {
+    public void setQtdeExecutada(final Double qtdeExecutada) {
         this.qtdeExecutada = qtdeExecutada;
     }
 
@@ -170,7 +171,7 @@ public class AtividadesOSDTO extends BaseEntity {
         return numeroOS;
     }
 
-    public void setNumeroOS(String numeroOS) {
+    public void setNumeroOS(final String numeroOS) {
         this.numeroOS = numeroOS;
     }
 
@@ -178,7 +179,7 @@ public class AtividadesOSDTO extends BaseEntity {
         return formula;
     }
 
-    public void setFormula(String formula) {
+    public void setFormula(final String formula) {
         this.formula = formula;
     }
 
@@ -186,7 +187,7 @@ public class AtividadesOSDTO extends BaseEntity {
         return contabilizar;
     }
 
-    public void setContabilizar(String contabilizar) {
+    public void setContabilizar(final String contabilizar) {
         this.contabilizar = contabilizar;
     }
 
@@ -194,7 +195,7 @@ public class AtividadesOSDTO extends BaseEntity {
         return idServicoContratoContabil;
     }
 
-    public void setIdServicoContratoContabil(Integer idServicoContratoContabil) {
+    public void setIdServicoContratoContabil(final Integer idServicoContratoContabil) {
         this.idServicoContratoContabil = idServicoContratoContabil;
     }
 

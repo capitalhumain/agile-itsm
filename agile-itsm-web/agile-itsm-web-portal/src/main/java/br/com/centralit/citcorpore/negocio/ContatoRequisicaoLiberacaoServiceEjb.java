@@ -26,7 +26,7 @@ public class ContatoRequisicaoLiberacaoServiceEjb extends CrudServiceImpl implem
         try {
             contatoRequisicaoLiberacaoDTO = (ContatoRequisicaoLiberacaoDTO) this.getDao().restore(contatoRequisicaoLiberacaoDTO);
         } catch (final Exception e) {
-            // TODO Auto-generated catch block
+            
             e.printStackTrace();
             System.out.println("Contato Requisicao Liberacão não foi encontrado com esse ID");
         }

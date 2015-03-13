@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.BodyTagSupport;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 
 import br.com.centralit.citcorpore.bean.GrupoEmpregadoDTO;
@@ -32,7 +32,6 @@ import br.com.citframework.util.UtilI18N;
  *
  */
 @Deprecated
-@SuppressWarnings({"unchecked"})
 public class Menu extends BodyTagSupport {
 
     private static final long serialVersionUID = 5585162748054781636L;
@@ -116,8 +115,10 @@ public class Menu extends BodyTagSupport {
             html.append("<div id='tst' style='background: #D5DBDF; width:100%;'>");
             for (final MenuDTO menPai : menusPai) {
                 if (menPai.getNome().trim().equalsIgnoreCase("$menu.nome.recursosHumanos")) {
-                    final String mostrarGerenciaRecursosHumanos = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.MOSTRAR_GERENCIA_RECURSOS_HUMANOS, "N");
-                    if (!mostrarGerenciaRecursosHumanos.trim().equalsIgnoreCase("S") || menPai.getMostrar() == null || !Boolean.parseBoolean(menPai.getMostrar())) {
+                    final String mostrarGerenciaRecursosHumanos = ParametroUtil.getValorParametroCitSmartHashMap(
+                            ParametroSistema.MOSTRAR_GERENCIA_RECURSOS_HUMANOS, "N");
+                    if (!mostrarGerenciaRecursosHumanos.trim().equalsIgnoreCase("S") || menPai.getMostrar() == null
+                            || !Boolean.parseBoolean(menPai.getMostrar())) {
                         continue;
                     }
                 } else if (menPai.getNome().trim().equalsIgnoreCase("$menu.nome.compras")) {
@@ -287,10 +288,13 @@ public class Menu extends BodyTagSupport {
         }
         if (validarPermissoesDeBotoes.trim().equalsIgnoreCase("S")) {
             final MenuService menuService = (MenuService) ServiceLocator.getInstance().getService(MenuService.class, null);
-            final PerfilAcessoMenuService perfilAcessoMenuService = (PerfilAcessoMenuService) ServiceLocator.getInstance().getService(PerfilAcessoMenuService.class, null);
+            final PerfilAcessoMenuService perfilAcessoMenuService = (PerfilAcessoMenuService) ServiceLocator.getInstance().getService(
+                    PerfilAcessoMenuService.class, null);
             final UsuarioService usuarioService = (UsuarioService) ServiceLocator.getInstance().getService(UsuarioService.class, null);
-            final GrupoEmpregadoService grupoEmpregadoService = (GrupoEmpregadoService) ServiceLocator.getInstance().getService(GrupoEmpregadoService.class, null);
-            final PerfilAcessoGrupoService perfilAcessoGrupoService = (PerfilAcessoGrupoService) ServiceLocator.getInstance().getService(PerfilAcessoGrupoService.class, null);
+            final GrupoEmpregadoService grupoEmpregadoService = (GrupoEmpregadoService) ServiceLocator.getInstance().getService(GrupoEmpregadoService.class,
+                    null);
+            final PerfilAcessoGrupoService perfilAcessoGrupoService = (PerfilAcessoGrupoService) ServiceLocator.getInstance().getService(
+                    PerfilAcessoGrupoService.class, null);
             final PerfilAcessoMenuDTO perfilAcessoMenudto = new PerfilAcessoMenuDTO();
             PerfilAcessoGrupoDTO perfilAcessoGrupo = new PerfilAcessoGrupoDTO();
             final String pathInfo = this.getRequestedPath(request);

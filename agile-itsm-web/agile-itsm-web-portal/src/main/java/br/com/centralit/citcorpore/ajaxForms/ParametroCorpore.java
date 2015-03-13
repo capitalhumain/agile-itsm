@@ -32,7 +32,7 @@ import net.sf.jasperreports.engine.export.JRCsvExporter;
 import net.sf.jasperreports.engine.export.JRCsvExporterParameter;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import br.com.centralit.citajax.html.AjaxFormAction;
 import br.com.centralit.citajax.html.DocumentHTML;
@@ -108,7 +108,7 @@ public class ParametroCorpore extends AjaxFormAction {
         }
 
         if (parametroBean.getValor() != null && !StringUtils.isBlank(parametroBean.getValor())) {
-            // parametroBean.setValor(StringEscapeUtils.escapeJavaScript(parametroBean.getValor().trim()));
+            // parametroBean.setValor(StringEscapeUtils.escapeEcmaScript(parametroBean.getValor().trim()));
             parametroBean.setValor(UtilStrings.decodeCaracteresEspeciais(parametroBean.getValor()).trim());
         }
 

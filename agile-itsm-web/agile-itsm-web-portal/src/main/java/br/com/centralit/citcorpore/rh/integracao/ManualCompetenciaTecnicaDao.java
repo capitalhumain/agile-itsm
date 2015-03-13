@@ -82,7 +82,7 @@ public class ManualCompetenciaTecnicaDao extends CrudDaoDefaultImpl {
 
         final List list = this.execSQL(sql.toString(), objs);
 
-        final List listRetorno = new ArrayList();
+        final List listRetorno = new ArrayList<>();
         listRetorno.add("idmanualcompetenciatecnica");
         listRetorno.add("descricao");
         listRetorno.add("situcao");
@@ -109,7 +109,7 @@ public class ManualCompetenciaTecnicaDao extends CrudDaoDefaultImpl {
 
         final List list = this.execSQL(sql.toString(), objs);
 
-        final List listRetorno = new ArrayList();
+        final List listRetorno = new ArrayList<>();
         listRetorno.add("idManualCompetenciaTecnica");
         listRetorno.add("descricao");
         listRetorno.add("situacao");
@@ -126,7 +126,7 @@ public class ManualCompetenciaTecnicaDao extends CrudDaoDefaultImpl {
     }
 
     public void deleteByIdManualFuncao(final Integer idManualFuncao) throws PersistenceException {
-        final List condicao = new ArrayList();
+        final List<Condition> condicao = new ArrayList<>();
         condicao.add(new Condition("idManualFuncao", "=", idManualFuncao));
         super.deleteByCondition(condicao);
     }

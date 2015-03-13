@@ -170,7 +170,7 @@ public class RequisicaoLiberacaoItemConfiguracao extends AjaxFormAction implemen
 	public ArrayList listItensRelacionadosRequisicaoMudanca(
 			RequisicaoMudancaDTO requisicaoMudancaDTO) throws ServiceException,
 			Exception {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 }

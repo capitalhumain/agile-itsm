@@ -4,116 +4,117 @@ import java.sql.Timestamp;
 
 public class HistoricoItemConfiguracaoDTO extends ItemConfiguracaoDTO {
 
-	private static final long serialVersionUID = 5116065110323539062L;
+    private static final long serialVersionUID = 5116065110323539062L;
 
-	private Integer idHistoricoIC;
-	private Timestamp dataHoraAlteracao;
-	private Integer idAutorAlteracao;
-	private String baseLine;
-	private Integer restauracao;
-	private Double historicoVersao;
-	private String nomeProprietario;
-	private transient String nomeTipoItemConfiguracao;
-	private String nomeCaracteristica;
-	private String valorstr;
-	private String origem;
-	private Integer idOrigemModificacao;
+    private Integer idHistoricoIC;
+    private Timestamp dataHoraAlteracao;
+    private Integer idAutorAlteracao;
+    private String baseLine;
+    private Integer restauracao;
+    private Double historicoVersao;
+    private String nomeProprietario;
+    private transient String nomeTipoItemConfiguracao;
+    private String nomeCaracteristica;
+    private String valorstr;
+    private String origem;
+    private Integer idOrigemModificacao;
 
-	public Timestamp getDataHoraAlteracao() {
-		return dataHoraAlteracao;
-	}
+    public Timestamp getDataHoraAlteracao() {
+        return dataHoraAlteracao;
+    }
 
-	public void setDataHoraAlteracao(Timestamp dataHoraAlteracao) {
-		this.dataHoraAlteracao = dataHoraAlteracao;
-	}
+    public void setDataHoraAlteracao(final Timestamp dataHoraAlteracao) {
+        this.dataHoraAlteracao = dataHoraAlteracao;
+    }
 
-	public Integer getRestauracao() {
-		return restauracao;
-	}
+    public Integer getRestauracao() {
+        return restauracao;
+    }
 
-	public void setRestauracao(Integer restauracao) {
-		this.restauracao = restauracao;
-	}
+    public void setRestauracao(final Integer restauracao) {
+        this.restauracao = restauracao;
+    }
 
-	public Integer getIdAutorAlteracao() {
-		return idAutorAlteracao;
-	}
+    public Integer getIdAutorAlteracao() {
+        return idAutorAlteracao;
+    }
 
-	public void setIdAutorAlteracao(Integer idAutorAlteracao) {
-		this.idAutorAlteracao = idAutorAlteracao;
-	}
+    public void setIdAutorAlteracao(final Integer idAutorAlteracao) {
+        this.idAutorAlteracao = idAutorAlteracao;
+    }
 
-	public String getBaseLine() {
-		return baseLine;
-	}
+    public String getBaseLine() {
+        return baseLine;
+    }
 
-	public void setBaseLine(String baseLine) {
-		this.baseLine = baseLine;
-	}
+    public void setBaseLine(final String baseLine) {
+        this.baseLine = baseLine;
+    }
 
-	public Integer getIdHistoricoIC() {
-		return idHistoricoIC;
-	}
+    public Integer getIdHistoricoIC() {
+        return idHistoricoIC;
+    }
 
-	public void setIdHistoricoIC(Integer idHistoricoIC) {
-		this.idHistoricoIC = idHistoricoIC;
-	}
+    public void setIdHistoricoIC(final Integer idHistoricoIC) {
+        this.idHistoricoIC = idHistoricoIC;
+    }
 
-	public String getNomeProprietario() {
-		return nomeProprietario;
-	}
+    public String getNomeProprietario() {
+        return nomeProprietario;
+    }
 
-	public void setNomeProprietario(String nomeProprietario) {
-		this.nomeProprietario = nomeProprietario;
-	}
+    public void setNomeProprietario(final String nomeProprietario) {
+        this.nomeProprietario = nomeProprietario;
+    }
 
-	public String getNomeTipoItemConfiguracao() {
-		return nomeTipoItemConfiguracao;
-	}
+    @Override
+    public String getNomeTipoItemConfiguracao() {
+        return nomeTipoItemConfiguracao;
+    }
 
-	public void setNomeTipoItemConfiguracao(String nomeTipoItemConfiguracao) {
-		this.nomeTipoItemConfiguracao = nomeTipoItemConfiguracao;
-	}
+    @Override
+    public void setNomeTipoItemConfiguracao(final String nomeTipoItemConfiguracao) {
+        this.nomeTipoItemConfiguracao = nomeTipoItemConfiguracao;
+    }
 
-	public String getNomeCaracteristica() {
-		return nomeCaracteristica;
-	}
+    public String getNomeCaracteristica() {
+        return nomeCaracteristica;
+    }
 
-	public void setNomeCaracteristica(String nomeCaracteristica) {
-		this.nomeCaracteristica = nomeCaracteristica;
-	}
+    public void setNomeCaracteristica(final String nomeCaracteristica) {
+        this.nomeCaracteristica = nomeCaracteristica;
+    }
 
-	public String getValorstr() {
-		return valorstr;
-	}
+    public String getValorstr() {
+        return valorstr;
+    }
 
-	public void setValorstr(String valorstr) {
-		this.valorstr = valorstr;
-	}
+    public void setValorstr(final String valorstr) {
+        this.valorstr = valorstr;
+    }
 
-	public Double getHistoricoVersao() {
-		return historicoVersao;
-	}
+    public Double getHistoricoVersao() {
+        return historicoVersao;
+    }
 
-	public void setHistoricoVersao(Double historicoVersao) {
-		this.historicoVersao = historicoVersao;
-	}
+    public void setHistoricoVersao(final Double historicoVersao) {
+        this.historicoVersao = historicoVersao;
+    }
 
-	public String getOrigem() {
-		return origem;
-	}
+    public String getOrigem() {
+        return origem;
+    }
 
-	public void setOrigem(String origem) {
-		this.origem = origem;
-	}
+    public void setOrigem(final String origem) {
+        this.origem = origem;
+    }
 
-	public Integer getIdOrigemModificacao() {
-		return idOrigemModificacao;
-	}
+    public Integer getIdOrigemModificacao() {
+        return idOrigemModificacao;
+    }
 
-	public void setIdOrigemModificacao(Integer idOrigemModificacao) {
-		this.idOrigemModificacao = idOrigemModificacao;
-	}
+    public void setIdOrigemModificacao(final Integer idOrigemModificacao) {
+        this.idOrigemModificacao = idOrigemModificacao;
+    }
 
-	
 }

@@ -53,7 +53,7 @@ public class TimeSheetProjetoServiceEjb extends CrudServiceImpl implements TimeS
                             final Collection colAux = this.findByIdRecursoTarefaLinBaseProj(recursoTarefaLinBaseProjAux.getIdRecursoTarefaLinBaseProj(), idEmpregado);
                             if (colAux != null) {
                                 if (col == null) {
-                                    col = new ArrayList();
+                                    col = new ArrayList<>();
                                 }
                                 col.addAll(colAux);
                             }

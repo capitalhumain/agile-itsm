@@ -12,7 +12,6 @@ import br.com.citframework.service.CrudServiceImpl;
  * @author ygor.magalhaes
  *
  */
-@SuppressWarnings("rawtypes")
 public class SistemaOperacionalServiceEjb extends CrudServiceImpl implements SistemaOperacionalService {
 
     private SistemaOperacionalDao dao;

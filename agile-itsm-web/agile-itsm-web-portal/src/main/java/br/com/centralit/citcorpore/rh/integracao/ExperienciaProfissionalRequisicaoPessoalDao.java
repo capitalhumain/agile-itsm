@@ -52,8 +52,8 @@ public class ExperienciaProfissionalRequisicaoPessoalDao extends CrudDaoDefaultI
     }
 
     public Collection findByIdCurriculo(final Integer parm) throws PersistenceException {
-        final List condicao = new ArrayList();
-        final List ordenacao = new ArrayList();
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
         condicao.add(new Condition("idCurriculo", "=", parm));
         ordenacao.add(new Order("idExperienciaProfissional"));
         return super.findByCondition(condicao, ordenacao);

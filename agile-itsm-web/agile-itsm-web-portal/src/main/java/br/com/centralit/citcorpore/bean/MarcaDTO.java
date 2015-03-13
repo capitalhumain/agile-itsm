@@ -2,46 +2,52 @@ package br.com.centralit.citcorpore.bean;
 
 import br.com.agileitsm.model.support.BaseEntity;
 
-@SuppressWarnings("serial")
 public class MarcaDTO extends BaseEntity {
-	private Integer idMarca;
-	private Integer idFabricante;
-	private String nomeMarca;
-	private String situacao;
-	private String nomeFabricante;
 
-	public Integer getIdMarca(){
-		return this.idMarca;
-	}
-	public void setIdMarca(Integer parm){
-		this.idMarca = parm;
-	}
+    private Integer idMarca;
+    private Integer idFabricante;
+    private String nomeMarca;
+    private String situacao;
+    private String nomeFabricante;
 
-	public Integer getIdFabricante(){
-		return this.idFabricante;
-	}
-	public void setIdFabricante(Integer parm){
-		this.idFabricante = parm;
-	}
+    public Integer getIdMarca() {
+        return idMarca;
+    }
 
-	public String getNomeMarca(){
-		return this.nomeMarca;
-	}
-	public void setNomeMarca(String parm){
-		this.nomeMarca = parm;
-	}
+    public void setIdMarca(final Integer parm) {
+        idMarca = parm;
+    }
 
-	public String getSituacao(){
-		return this.situacao;
-	}
-	public void setSituacao(String parm){
-		this.situacao = parm;
-	}
-	public String getNomeFabricante() {
-		return nomeFabricante;
-	}
-	public void setNomeFabricante(String nomeFabricante) {
-		this.nomeFabricante = nomeFabricante;
-	}
+    public Integer getIdFabricante() {
+        return idFabricante;
+    }
+
+    public void setIdFabricante(final Integer parm) {
+        idFabricante = parm;
+    }
+
+    public String getNomeMarca() {
+        return nomeMarca;
+    }
+
+    public void setNomeMarca(final String parm) {
+        nomeMarca = parm;
+    }
+
+    public String getSituacao() {
+        return situacao;
+    }
+
+    public void setSituacao(final String parm) {
+        situacao = parm;
+    }
+
+    public String getNomeFabricante() {
+        return nomeFabricante;
+    }
+
+    public void setNomeFabricante(final String nomeFabricante) {
+        this.nomeFabricante = nomeFabricante;
+    }
 
 }

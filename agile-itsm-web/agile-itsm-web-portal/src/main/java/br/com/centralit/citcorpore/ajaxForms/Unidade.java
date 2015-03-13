@@ -8,7 +8,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 
 import br.com.centralit.citajax.html.AjaxFormAction;
 import br.com.centralit.citajax.html.DocumentHTML;
@@ -179,7 +179,7 @@ public class Unidade extends AjaxFormAction {
                  * unidade como pai dela mesma.
                  */
                 if (unidadeRestore.getIdUnidade() == null || unidadeRestore.getIdUnidade().compareTo(unidade.getIdUnidade()) != 0) {
-                    comboUnidadePai.addOption(unidade.getIdUnidade().toString(), StringEscapeUtils.escapeJavaScript(unidade.getNomeNivel()));
+                    comboUnidadePai.addOption(unidade.getIdUnidade().toString(), StringEscapeUtils.escapeEcmaScript(unidade.getNomeNivel()));
                 }
             }
         }
@@ -334,7 +334,7 @@ public class Unidade extends AjaxFormAction {
                     localidadeDTO.setIdLocalidade(localidadeUnidadeDto.getIdLocalidade());
                     localidadeDTO = (LocalidadeDTO) localidadeService.restore(localidadeDTO);
                     document.executeScript("addLinhaTabelaLocalidade(" + localidadeDTO.getIdLocalidade() + ", '"
-                            + StringEscapeUtils.escapeJavaScript(localidadeDTO.getNomeLocalidade()) + "', " + false + ");");
+                            + StringEscapeUtils.escapeEcmaScript(localidadeDTO.getNomeLocalidade()) + "', " + false + ");");
                 }
                 document.executeScript("exibeGridLocalidade()");
             }

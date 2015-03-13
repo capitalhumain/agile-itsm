@@ -17,6 +17,7 @@ package br.com.centralit.citcorpore.bean;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class FaturaApuracaoANSDTO extends BaseEntity {
+
     private Integer idFaturaApuracaoANS;
     private Integer idFatura;
     private Integer idAcordoNivelServicoContrato;
@@ -31,7 +32,7 @@ public class FaturaApuracaoANSDTO extends BaseEntity {
         return idFaturaApuracaoANS;
     }
 
-    public void setIdFaturaApuracaoANS(Integer parm) {
+    public void setIdFaturaApuracaoANS(final Integer parm) {
         idFaturaApuracaoANS = parm;
     }
 
@@ -39,7 +40,7 @@ public class FaturaApuracaoANSDTO extends BaseEntity {
         return idFatura;
     }
 
-    public void setIdFatura(Integer parm) {
+    public void setIdFatura(final Integer parm) {
         idFatura = parm;
     }
 
@@ -47,7 +48,7 @@ public class FaturaApuracaoANSDTO extends BaseEntity {
         return idAcordoNivelServicoContrato;
     }
 
-    public void setIdAcordoNivelServicoContrato(Integer parm) {
+    public void setIdAcordoNivelServicoContrato(final Integer parm) {
         idAcordoNivelServicoContrato = parm;
     }
 
@@ -55,7 +56,7 @@ public class FaturaApuracaoANSDTO extends BaseEntity {
         return valorApurado;
     }
 
-    public void setValorApurado(Double parm) {
+    public void setValorApurado(final Double parm) {
         valorApurado = parm;
     }
 
@@ -63,7 +64,7 @@ public class FaturaApuracaoANSDTO extends BaseEntity {
         return detalhamento;
     }
 
-    public void setDetalhamento(String parm) {
+    public void setDetalhamento(final String parm) {
         detalhamento = parm;
     }
 
@@ -71,7 +72,7 @@ public class FaturaApuracaoANSDTO extends BaseEntity {
         return percentualGlosa;
     }
 
-    public void setPercentualGlosa(Double parm) {
+    public void setPercentualGlosa(final Double parm) {
         percentualGlosa = parm;
     }
 
@@ -79,7 +80,7 @@ public class FaturaApuracaoANSDTO extends BaseEntity {
         return valorGlosa;
     }
 
-    public void setValorGlosa(Double parm) {
+    public void setValorGlosa(final Double parm) {
         valorGlosa = parm;
     }
 
@@ -87,7 +88,7 @@ public class FaturaApuracaoANSDTO extends BaseEntity {
         return dataApuracao;
     }
 
-    public void setDataApuracao(java.sql.Date parm) {
+    public void setDataApuracao(final java.sql.Date parm) {
         dataApuracao = parm;
     }
 
@@ -102,7 +103,7 @@ public class FaturaApuracaoANSDTO extends BaseEntity {
      * @param descricao
      *            the descricao to set
      */
-    public void setDescricao(String descricao) {
+    public void setDescricao(final String descricao) {
         this.descricao = descricao;
     }
 

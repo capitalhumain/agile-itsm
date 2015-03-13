@@ -45,7 +45,7 @@ public class UploadFile extends AjaxFormAction {
 
 		request.getSession().setAttribute("ARQUIVOS_UPLOAD", null);
 
-		Collection colNomesArquivosUpload = new ArrayList();
+		Collection colNomesArquivosUpload = new ArrayList<>();
 
 		String fileName = "";
 		FileItem fi;

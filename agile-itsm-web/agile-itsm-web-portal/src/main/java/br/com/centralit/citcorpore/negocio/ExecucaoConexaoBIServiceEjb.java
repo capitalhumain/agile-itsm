@@ -36,19 +36,19 @@ public class ExecucaoConexaoBIServiceEjb extends CrudServiceImpl implements Exec
 
     @Override
     public List<TarefaFluxoDTO> recuperaTarefas(final String loginUsuario) throws Exception {
-        // TODO Auto-generated method stub
+        
         return null;
     }
 
     @Override
     public TarefaFluxoDTO recuperaTarefa(final String loginUsuario, final Integer idTarefa) throws Exception {
-        // TODO Auto-generated method stub
+        
         return null;
     }
 
     @Override
     public void delegaTarefa(final String loginUsuario, final Integer idTarefa, final String usuarioDestino, final String grupoDestino) throws Exception {
-        // TODO Auto-generated method stub
+        
     }
 
     @Override

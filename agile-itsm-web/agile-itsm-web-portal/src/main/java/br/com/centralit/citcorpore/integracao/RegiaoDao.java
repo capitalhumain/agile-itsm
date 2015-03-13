@@ -12,54 +12,52 @@ import br.com.citframework.integracao.Field;
 import br.com.citframework.integracao.Order;
 import br.com.citframework.util.Constantes;
 
-@SuppressWarnings({ "unchecked", "rawtypes" })
-public class RegiaoDao extends CrudDaoDefaultImpl  {
+public class RegiaoDao extends CrudDaoDefaultImpl {
 
-	public RegiaoDao() {
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
-
-	@Override
-	public Collection find(BaseEntity arg0) throws PersistenceException {
-		return null;
-	}
-
-
-	@Override
-	public Collection<Field> getFields() {
-
-		Collection<Field> listFields = new ArrayList<>();
-		listFields.add(new Field("idregioes", "idRegioes", true, true, false, false));
-		listFields.add(new Field("nome", "nome", false, false, false, false));
-
-		return listFields;
-	}
-
-	@Override
-	public String getTableName() {
-
-		return "regioes";
-	}
-
-	@Override
-	public Collection list() throws PersistenceException {
-		List list = new ArrayList();
-		list.add(new Order("nome"));
-		return super.list(list);
-	}
-
-    public  RegiaoDTO listByIdRegiao(RegiaoDTO obj) throws PersistenceException {
-	List list = new ArrayList();
-	List fields = new ArrayList();
-	String sql = "select idregioes from " + getTableName() +" where idregioes = ? ";
-	fields.add("idregioes");
-	list = this.execSQL(sql, new Object[] {obj.getIdRegioes() });
-	return (RegiaoDTO)  this.listConvertion(getBean(), list, fields).get(0);
+    public RegiaoDao() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
     }
 
-	@Override
-	public Class getBean() {
-		return RegiaoDTO.class;
-	}
+    @Override
+    public Collection find(final BaseEntity arg0) throws PersistenceException {
+        return null;
+    }
+
+    @Override
+    public Collection<Field> getFields() {
+
+        final Collection<Field> listFields = new ArrayList<>();
+        listFields.add(new Field("idregioes", "idRegioes", true, true, false, false));
+        listFields.add(new Field("nome", "nome", false, false, false, false));
+
+        return listFields;
+    }
+
+    @Override
+    public String getTableName() {
+
+        return "regioes";
+    }
+
+    @Override
+    public Collection list() throws PersistenceException {
+        final List list = new ArrayList<>();
+        list.add(new Order("nome"));
+        return super.list(list);
+    }
+
+    public RegiaoDTO listByIdRegiao(final RegiaoDTO obj) throws PersistenceException {
+        List list = new ArrayList<>();
+        final List fields = new ArrayList<>();
+        final String sql = "select idregioes from " + this.getTableName() + " where idregioes = ? ";
+        fields.add("idregioes");
+        list = this.execSQL(sql, new Object[] {obj.getIdRegioes()});
+        return (RegiaoDTO) this.listConvertion(this.getBean(), list, fields).get(0);
+    }
+
+    @Override
+    public Class getBean() {
+        return RegiaoDTO.class;
+    }
 
 }

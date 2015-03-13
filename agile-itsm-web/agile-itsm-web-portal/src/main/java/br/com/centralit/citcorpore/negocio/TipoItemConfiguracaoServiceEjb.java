@@ -7,7 +7,7 @@ import java.util.Collection;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 
 import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citajax.html.DocumentHTML;
@@ -142,7 +142,7 @@ public class TipoItemConfiguracaoServiceEjb extends CrudServiceImpl implements T
 
                 document.executeScript("setRestoreCaracteristica('" + caracteristicaBean.getIdCaracteristica() + "'," + "'"
                         + br.com.citframework.util.WebUtil.codificaEnter(caracteristica) + "'," + "'" + br.com.citframework.util.WebUtil.codificaEnter(tag)
-                        + "'," + "'" + br.com.citframework.util.WebUtil.codificaEnter(StringEscapeUtils.escapeJavaScript(valor)) + "'," + "'"
+                        + "'," + "'" + br.com.citframework.util.WebUtil.codificaEnter(StringEscapeUtils.escapeEcmaScript(valor)) + "'," + "'"
                         + br.com.citframework.util.WebUtil.codificaEnter(descricao) + "'," + "'" + br.com.citframework.util.WebUtil.codificaEnter(idEmpresa)
                         + "'," + "'" + br.com.citframework.util.WebUtil.codificaEnter(dataInicio) + "'," + "'"
                         + br.com.citframework.util.WebUtil.codificaEnter(dataFim) + "')");

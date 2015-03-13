@@ -13,99 +13,98 @@ import br.com.citframework.integracao.Field;
 import br.com.citframework.integracao.Order;
 import br.com.citframework.util.Constantes;
 
-@SuppressWarnings({ "rawtypes", "unchecked" })
 public class LinguaDao extends CrudDaoDefaultImpl {
 
-	public LinguaDao() {
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
+    public LinguaDao() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
+    }
 
-	@Override
-	public Collection find(BaseEntity obj) throws PersistenceException {
-		return null;
-	}
+    @Override
+    public Collection find(final BaseEntity obj) throws PersistenceException {
+        return null;
+    }
 
-	@Override
-	public Collection<Field> getFields() {
-		Collection<Field> listFields = new ArrayList<>();
+    @Override
+    public Collection<Field> getFields() {
+        final Collection<Field> listFields = new ArrayList<>();
 
-		listFields.add(new Field("idlingua", "idLingua", true, true, false, false));
-		listFields.add(new Field("nome", "nome", false, false, false, false));
-		listFields.add(new Field("sigla", "sigla", false, false, false, false));
-		listFields.add(new Field("datainicio", "dataInicio", false, false, false, false));
-		listFields.add(new Field("datafim", "dataFim", false, false, false, false));
+        listFields.add(new Field("idlingua", "idLingua", true, true, false, false));
+        listFields.add(new Field("nome", "nome", false, false, false, false));
+        listFields.add(new Field("sigla", "sigla", false, false, false, false));
+        listFields.add(new Field("datainicio", "dataInicio", false, false, false, false));
+        listFields.add(new Field("datafim", "dataFim", false, false, false, false));
 
-		return listFields;
-	}
+        return listFields;
+    }
 
-	@Override
-	public String getTableName() {
-		return "LINGUA";
-	}
+    @Override
+    public String getTableName() {
+        return "LINGUA";
+    }
 
-	@Override
-	public Collection list() throws PersistenceException {
-		List ordenacao = new ArrayList();
-		List condicao = new ArrayList();
-		condicao.add(new Condition("dataFim", "is", null));
-		ordenacao.add(new Order("nome"));
-		return super.findByCondition(condicao, ordenacao);
-	}
-	
-	public Collection<LinguaDTO> listarAtivos() throws PersistenceException {
-		List ordenacao = new ArrayList();
-		List condicao = new ArrayList();
-		condicao.add(new Condition("dataFim", "is", null));
-		ordenacao.add(new Order("nome"));
-		return super.findByCondition(condicao, ordenacao);
-	}
+    @Override
+    public Collection list() throws PersistenceException {
+        final List<Order> ordenacao = new ArrayList<>();
+        final List<Condition> condicao = new ArrayList<>();
+        condicao.add(new Condition("dataFim", "is", null));
+        ordenacao.add(new Order("nome"));
+        return super.findByCondition(condicao, ordenacao);
+    }
 
-	@Override
-	public Class getBean() {
-		return LinguaDTO.class;
-	}
+    public Collection<LinguaDTO> listarAtivos() throws PersistenceException {
+        final List<Order> ordenacao = new ArrayList<>();
+        final List<Condition> condicao = new ArrayList<>();
+        condicao.add(new Condition("dataFim", "is", null));
+        ordenacao.add(new Order("nome"));
+        return super.findByCondition(condicao, ordenacao);
+    }
 
-	public boolean consultarLinguaAtivas(LinguaDTO obj) throws PersistenceException {
-		List parametro = new ArrayList();
-		List list = new ArrayList();
-		String sql = "select idlingua From " + getTableName() + "  where  nome = ?   and dataFim is null ";
+    @Override
+    public Class getBean() {
+        return LinguaDTO.class;
+    }
 
-		if (obj.getIdLingua() != null) {
-			sql += " and idlingua <> " + obj.getIdLingua();
-		}
+    public boolean consultarLinguaAtivas(final LinguaDTO obj) throws PersistenceException {
+        final List parametro = new ArrayList<>();
+        List list = new ArrayList<>();
+        String sql = "select idlingua From " + this.getTableName() + "  where  nome = ?   and dataFim is null ";
 
-		parametro.add(obj.getNome());
-		list = this.execSQL(sql, parametro.toArray());
-		if (list != null && !list.isEmpty()) {
-			return true;
-		} else {
-			return false;
-		}
-	}
+        if (obj.getIdLingua() != null) {
+            sql += " and idlingua <> " + obj.getIdLingua();
+        }
 
-	public LinguaDTO getIdLingua(LinguaDTO obj) throws PersistenceException {
-		List parametro = new ArrayList();
-		List list = new ArrayList();
-		StringBuilder sql = new StringBuilder();
+        parametro.add(obj.getNome());
+        list = this.execSQL(sql, parametro.toArray());
+        if (list != null && !list.isEmpty()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-		sql.append("select idlingua from " + getTableName() + " where datafim is null ");
+    public LinguaDTO getIdLingua(final LinguaDTO obj) throws PersistenceException {
+        final List parametro = new ArrayList<>();
+        List list = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
 
-		if (obj.getSigla() != null) {
-			sql.append(" and  UPPER(sigla) = ? ");
-			parametro.add(obj.getSigla().toUpperCase());
-		}
+        sql.append("select idlingua from " + this.getTableName() + " where datafim is null ");
 
-		list = this.execSQL(sql.toString(), parametro.toArray());
-		List listaRetorno = new ArrayList();
-		listaRetorno.add("idLingua");
-		List<LinguaDTO> getidLingua = this.listConvertion(LinguaDTO.class, list, listaRetorno);
+        if (obj.getSigla() != null) {
+            sql.append(" and  UPPER(sigla) = ? ");
+            parametro.add(obj.getSigla().toUpperCase());
+        }
 
-		if (getidLingua != null && getidLingua.size() > 0) {
-			return getidLingua.get(0);
-		}
+        list = this.execSQL(sql.toString(), parametro.toArray());
+        final List listaRetorno = new ArrayList<>();
+        listaRetorno.add("idLingua");
+        final List<LinguaDTO> getidLingua = this.listConvertion(LinguaDTO.class, list, listaRetorno);
 
-		return null;
+        if (getidLingua != null && getidLingua.size() > 0) {
+            return getidLingua.get(0);
+        }
 
-	}
+        return null;
+
+    }
 
 }

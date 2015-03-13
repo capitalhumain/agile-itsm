@@ -9,7 +9,7 @@ import java.util.Set;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 
 import br.com.centralit.citcorpore.bean.UsuarioDTO;
@@ -77,9 +77,10 @@ public abstract class AjaxFormAction {
             if (PRONTUARIO_GED_INTERNO.equalsIgnoreCase("S") && "S".equalsIgnoreCase(prontuarioGedInternoBancoDados)) { // Se utiliza GED interno e eh BD
                 // TODO falta implementar!
             } else {
-                final String fileRec = CITCorporeUtil.CAMINHO_REAL_APP + "tempUpload/REC_FROM_GED_" + controleGEDDTO.getIdControleGED() + "." + controleGEDDTO.getExtensaoArquivo();
-                CriptoUtils.decryptFile(PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/" + controleGEDDTO.getIdControleGED() + ".ged", fileRec, System
-                        .getProperties().get("user.dir") + Constantes.getValue("CAMINHO_CHAVE_PRIVADA"));
+                final String fileRec = CITCorporeUtil.CAMINHO_REAL_APP + "tempUpload/REC_FROM_GED_" + controleGEDDTO.getIdControleGED() + "."
+                        + controleGEDDTO.getExtensaoArquivo();
+                CriptoUtils.decryptFile(PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/" + controleGEDDTO.getIdControleGED() + ".ged", fileRec,
+                        System.getProperties().get("user.dir") + Constantes.getValue("CAMINHO_CHAVE_PRIVADA"));
 
                 return fileRec;
             }
@@ -98,7 +99,8 @@ public abstract class AjaxFormAction {
     }
 
     /**
-     * Retorna a linguagem que foi passada no request que está em paramtersDefinition. ATENÇÃO: UTILIZADO SOMENTE PARA A GERAÇÃO DE RELATÓRIOS EM PAINEL. Este método também está
+     * Retorna a linguagem que foi passada no request que está em paramtersDefinition. ATENÇÃO: UTILIZADO SOMENTE PARA A GERAÇÃO DE RELATÓRIOS EM PAINEL. Este
+     * método também está
      * implementando em
      * br.com.centralit.citgerencial.bean.GerencialGenerateService.java.
      *

@@ -8,7 +8,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 
 import br.com.centralit.bpm.dto.TarefaFluxoDTO;
 import br.com.centralit.bpm.util.Enumerados;
@@ -64,7 +64,7 @@ public class GerenciamentoMudancas extends AjaxFormAction {
         }
 
         final boolean bFiltroPorSolicitacao = gerenciamentoBean.getIdRequisicaoSel() != null && gerenciamentoBean.getIdRequisicaoSel().length() > 0;
-        final List<TarefaFluxoDTO> colTarefasFiltradas = new ArrayList();
+        final List<TarefaFluxoDTO> colTarefasFiltradas = new ArrayList<>();
         if (!bFiltroPorSolicitacao) {
             colTarefasFiltradas.addAll(colTarefas);
         } else {
@@ -77,8 +77,8 @@ public class GerenciamentoMudancas extends AjaxFormAction {
                 }
             }
         }
-        final List colTarefasFiltradasFinal = new ArrayList();
-        final HashMap mapAtr = new HashMap();
+        final List colTarefasFiltradasFinal = new ArrayList<>();
+        final HashMap mapAtr = new HashMap<>();
         mapAtr.put("-- Sem Atribuição --", "-- Sem Atribuição --");
         for (final TarefaFluxoDTO tarefaDto : colTarefasFiltradas) {
             final RequisicaoMudancaDTO requisicaoMudancaDto = (RequisicaoMudancaDTO) tarefaDto.getRequisicaoMudancaDto();
@@ -185,9 +185,9 @@ public class GerenciamentoMudancas extends AjaxFormAction {
             return null;
         }
         for (final TarefaFluxoDTO tarefaDto : colTarefas) {
-            final String elementoFluxo_serialize = StringEscapeUtils.escapeJavaScript(br.com.citframework.util.WebUtil.serializeObject(tarefaDto.getElementoFluxoDto(),
+            final String elementoFluxo_serialize = StringEscapeUtils.escapeEcmaScript(br.com.citframework.util.WebUtil.serializeObject(tarefaDto.getElementoFluxoDto(),
                     WebUtil.getLanguage(request)));
-            final String requisicaoMudanca_serialize = StringEscapeUtils.escapeJavaScript(br.com.citframework.util.WebUtil.serializeObject(tarefaDto.getRequisicaoMudancaDto(),
+            final String requisicaoMudanca_serialize = StringEscapeUtils.escapeEcmaScript(br.com.citframework.util.WebUtil.serializeObject(tarefaDto.getRequisicaoMudancaDto(),
                     WebUtil.getLanguage(request)));
 
             tarefaDto.setElementoFluxo_serialize(elementoFluxo_serialize);

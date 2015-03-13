@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 
 import br.com.centralit.bpm.config.Config;
 import br.com.centralit.bpm.config.Design;
@@ -159,7 +159,7 @@ public class DesenhoFluxo extends AjaxFormAction {
 			fluxoDto.setElementos_serializados(elementos_serializados);
 			fluxoDto.setSequencias_serializadas(sequencias_serializadas);
 
-			document.executeScript("desenhoFluxo.renderizaElementos('"+StringEscapeUtils.escapeJavaScript(elementos_serializados)+"','"+sequencias_serializadas+"');");
+			document.executeScript("desenhoFluxo.renderizaElementos('"+StringEscapeUtils.escapeEcmaScript(elementos_serializados)+"','"+sequencias_serializadas+"');");
 			document.executeScript("redimensionaAreaDesenho()");
 		}else{
 			document.executeScript("desenhoFluxo.resetaLista();");

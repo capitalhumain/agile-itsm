@@ -109,7 +109,7 @@ public class DocumentHTML {
 
     public HTMLForm getForm(final String nameForm) {
         if (forms == null) {
-            forms = new HashMap();
+            forms = new HashMap<>();
         }
         HTMLForm form = (HTMLForm) forms.get(nameForm);
         if (form == null) {
@@ -140,7 +140,7 @@ public class DocumentHTML {
 
     public Collection getAllScripts() {
         final Collection col = comandsExecute;
-        final Collection colRetorno = new ArrayList();
+        final Collection colRetorno = new ArrayList<>();
         ScriptExecute script;
 
         String mName;
@@ -272,4 +272,5 @@ public class DocumentHTML {
     public void setLanguage(final String language) {
         this.language = language;
     }
+
 }

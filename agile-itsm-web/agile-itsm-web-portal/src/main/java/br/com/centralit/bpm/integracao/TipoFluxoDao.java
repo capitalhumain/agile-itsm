@@ -66,11 +66,6 @@ public class TipoFluxoDao extends CrudDaoDefaultImpl {
         return null;
     }
 
-    @Override
-    public void updateNotNull(final BaseEntity obj) throws PersistenceException {
-        super.updateNotNull(obj);
-    }
-
     public Collection findByIdProcessoNegocio(final Integer parm) throws PersistenceException {
         final List<Condition> condicao = new ArrayList<>();
         final List<Order> ordenacao = new ArrayList<>();

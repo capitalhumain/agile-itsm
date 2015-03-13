@@ -58,7 +58,7 @@ public class AtividadesServicoContratoServiceEjb extends CrudServiceImpl impleme
 
     @Override
     public Collection obterAtividadesAtivasPorIdServicoContrato(final Integer idServicoContrato) throws ServiceException {
-        final Collection colRetorno = new ArrayList();
+        final Collection colRetorno = new ArrayList<>();
         try {
             final Collection col = this.getDao().obterAtividadesAtivasPorIdServicoContrato(idServicoContrato);
             if (col != null && col.size() > 0) {
@@ -195,7 +195,7 @@ public class AtividadesServicoContratoServiceEjb extends CrudServiceImpl impleme
     @Override
     public Collection preencheComboServicoContrato(final HashMap mapFields, final String language) throws Exception {
         final String idContratoTxt = (String) mapFields.get("IDCONTRATO");;
-        Collection colServicoContrato = new ArrayList();
+        Collection colServicoContrato = new ArrayList<>();
 
         if (idContratoTxt != null) {
             colServicoContrato = this.obtemServicosContratoAtivos(Integer.parseInt(idContratoTxt));
@@ -216,7 +216,7 @@ public class AtividadesServicoContratoServiceEjb extends CrudServiceImpl impleme
 
         final Collection colServicosContrato = serviceContratoService.findByIdContrato(idServicoContrato);
 
-        final List<ServicoContratoDTO> colFinal = new ArrayList();
+        final List<ServicoContratoDTO> colFinal = new ArrayList<>();
 
         if (colServicosContrato != null) {
             for (final Iterator it = colServicosContrato.iterator(); it.hasNext();) {

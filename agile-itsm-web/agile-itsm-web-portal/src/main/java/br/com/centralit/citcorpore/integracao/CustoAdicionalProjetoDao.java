@@ -12,40 +12,46 @@ import br.com.citframework.integracao.Field;
 import br.com.citframework.integracao.Order;
 import br.com.citframework.util.Constantes;
 
-public class CustoAdicionalProjetoDao extends CrudDaoDefaultImpl{
-	public CustoAdicionalProjetoDao() {
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
+public class CustoAdicionalProjetoDao extends CrudDaoDefaultImpl {
 
-	public Class getBean() {
-		return CustoAdicionalProjetoDTO.class;
-	}
+    public CustoAdicionalProjetoDao() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
+    }
 
-	public Collection<Field> getFields() {
-		Collection<Field> listFields = new ArrayList<>();
-		
-		listFields.add(new Field("idCustoAdicional", "idCustoAdicional", true, true, false, false));
-		listFields.add(new Field("idProjeto", "idProjeto", false, false, false, false));
-		listFields.add(new Field("tipoCusto", "tipoCusto", false, false, false, false));
-		listFields.add(new Field("valor", "valor", false, false, false, false));
-		listFields.add(new Field("detalhamento", "detalhamento", false, false, false, false));
-		listFields.add(new Field("dataCusto", "dataCusto", false, false, false, false));
-		
-		return listFields;
-	}
+    @Override
+    public Class getBean() {
+        return CustoAdicionalProjetoDTO.class;
+    }
 
-	public String getTableName() {
-		return "CUSTOSADICIONAISPROJETO";
-	}
+    @Override
+    public Collection<Field> getFields() {
+        final Collection<Field> listFields = new ArrayList<>();
 
-	public Collection find(BaseEntity obj) throws PersistenceException {
-		return null;
-	}
+        listFields.add(new Field("idCustoAdicional", "idCustoAdicional", true, true, false, false));
+        listFields.add(new Field("idProjeto", "idProjeto", false, false, false, false));
+        listFields.add(new Field("tipoCusto", "tipoCusto", false, false, false, false));
+        listFields.add(new Field("valor", "valor", false, false, false, false));
+        listFields.add(new Field("detalhamento", "detalhamento", false, false, false, false));
+        listFields.add(new Field("dataCusto", "dataCusto", false, false, false, false));
 
-	public Collection list() throws PersistenceException {
-		List list = new ArrayList();
-		list.add(new Order("idProjeto"));
-		return super.list(list);
-	}
+        return listFields;
+    }
+
+    @Override
+    public String getTableName() {
+        return "CUSTOSADICIONAISPROJETO";
+    }
+
+    @Override
+    public Collection find(final BaseEntity obj) throws PersistenceException {
+        return null;
+    }
+
+    @Override
+    public Collection list() throws PersistenceException {
+        final List list = new ArrayList<>();
+        list.add(new Order("idProjeto"));
+        return super.list(list);
+    }
 
 }

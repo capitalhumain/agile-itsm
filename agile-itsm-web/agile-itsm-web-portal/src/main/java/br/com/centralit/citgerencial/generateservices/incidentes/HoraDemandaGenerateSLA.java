@@ -27,8 +27,8 @@ public class HoraDemandaGenerateSLA extends GerencialGenerateService {
 	public List execute(HashMap parametersValues, Collection paramtersDefinition) throws ParseException {
 		String datainicial = (String) parametersValues.get("PARAM.dataInicial");
 		String datafinal = (String) parametersValues.get("PARAM.dataFinal");
-		List parametersValuesBusca = new ArrayList();
-		List lstRetorno = new ArrayList();
+		List parametersValuesBusca = new ArrayList<>();
+		List lstRetorno = new ArrayList<>();
 		/**
 		 * Checa se há limite para pesquisa
 		 * 
@@ -109,7 +109,7 @@ public class HoraDemandaGenerateSLA extends GerencialGenerateService {
 		parametersValuesBusca.add(datainicio);
 		parametersValuesBusca.add(datafim);
 
-		HashMap mapControle = new HashMap();
+		HashMap mapControle = new HashMap<>();
 		for (int i = 0; i <= 23; i++) {
 			mapControle.put("" + i, "0");
 		}
@@ -225,7 +225,7 @@ public class HoraDemandaGenerateSLA extends GerencialGenerateService {
 					mapControle.put("" + hora, "" + qtde);
 				}
 			}
-			lstRetorno = new ArrayList();
+			lstRetorno = new ArrayList<>();
 			if (qtdeTotal != 0) {
 				for (int i = 0; i <= 23; i++) {
 					String qtdeStr = (String) mapControle.get("" + i);

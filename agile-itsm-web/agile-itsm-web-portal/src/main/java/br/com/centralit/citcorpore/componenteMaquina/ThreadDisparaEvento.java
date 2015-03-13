@@ -157,7 +157,7 @@ public class ThreadDisparaEvento implements Runnable {
                         System.out.println("Arquivo " + caminho + "\\" + baseItemCfgDto.getExecutavel() + " não encontrado! ");
                         System.out.println("IP: " + ip + " Data: " + Util.getDataAtual());
                         System.out.println("###############################");
-                        incluirHistoricoTentativa("Arquivo " + caminho + "\\" + baseItemCfgDto.getExecutavel() + " não encontrado!");
+                        this.incluirHistoricoTentativa("Arquivo " + caminho + "\\" + baseItemCfgDto.getExecutavel() + " não encontrado!");
                     }
                 } else if (tipoExecucao.equalsIgnoreCase("D")) { // Desinstalação
                     final String sO = eventoItemCfgService.pegarSistemaOperacionalItemConfiguracao(idItemConfiguracao).toUpperCase();
@@ -176,7 +176,7 @@ public class ThreadDisparaEvento implements Runnable {
                     if (eventoItemCfgDto.getLigarCasoDesl().equalsIgnoreCase("S")) {
                         if (wakeOnLan.pingar(ip)) {
                             System.out.println("O computador " + ip + " estava ligado!");
-                            dispararEvento(ip, comando, comandoCopia, comandoDelete);
+                            this.dispararEvento(ip, comando, comandoCopia, comandoDelete);
                         } else {
                             System.out.println("O computador " + ip + " não estava ligado!");
                             // Executa uma thread WakeOnLan para ligar o PC
@@ -190,24 +190,24 @@ public class ThreadDisparaEvento implements Runnable {
                                 System.out.println("O computador " + ip + " ligou!");
                                 System.out.println("Aguardando subir o serviço do agente...");
                                 Thread.sleep(120000);
-                                dispararEvento(ip, comando, comandoCopia, comandoDelete);
-                                desligarMaquina(ip);
+                                this.dispararEvento(ip, comando, comandoCopia, comandoDelete);
+                                this.desligarMaquina(ip);
                             } else {
                                 System.out.println("###############################");
                                 System.out.println("O computador " + ip + " não ligou!");
                                 System.out.println("###############################");
-                                incluirHistoricoTentativa("O computador " + ip + " não ligou!");
+                                this.incluirHistoricoTentativa("O computador " + ip + " não ligou!");
                             }
                         }
                     } else {
                         if (wakeOnLan.pingar(ip)) {
                             System.out.println("O computador " + ip + " estava ligado!");
-                            dispararEvento(ip, comando, comandoCopia, comandoDelete);
+                            this.dispararEvento(ip, comando, comandoCopia, comandoDelete);
                         } else {
                             System.out.println("###############################");
                             System.out.println("O computador " + ip + " estava desligado!");
                             System.out.println("###############################");
-                            incluirHistoricoTentativa("O computador " + ip + " estava desligado!");
+                            this.incluirHistoricoTentativa("O computador " + ip + " estava desligado!");
                         }
                     }
                     Thread.sleep(5000);
@@ -216,7 +216,7 @@ public class ThreadDisparaEvento implements Runnable {
                 System.out.println("###############################");
                 System.out.println("IP do computador não foi encontrado!");
                 System.out.println("###############################");
-                incluirHistoricoTentativa("IP do computador não foi encontrado!");
+                this.incluirHistoricoTentativa("IP do computador não foi encontrado!");
             }
         } catch (final Exception e) {
             e.printStackTrace();
@@ -231,7 +231,7 @@ public class ThreadDisparaEvento implements Runnable {
             // Efetua cópia do arquivo de instalação
             if (tipoExecucao.equalsIgnoreCase("I")) {
                 System.out.println("Iniciando cópia do arquivo de instalação...");
-                resposta = executaComando(ip, comandoCopia, 60);
+                resposta = this.executaComando(ip, comandoCopia, 60);
                 if (resposta.equalsIgnoreCase("true")) {
                     System.out.println("Finalizando cópia do arquivo de instalação...");
                     Thread.sleep(5000);
@@ -240,7 +240,7 @@ public class ThreadDisparaEvento implements Runnable {
                     System.out.println("Cópia do arquivo de instalação falhou!");
                     System.out.println("IP: " + ip + " Data: " + Util.getDataAtual());
                     System.out.println("###############################");
-                    incluirHistoricoTentativa("Cópia do arquivo de instalação falhou!");
+                    this.incluirHistoricoTentativa("Cópia do arquivo de instalação falhou!");
                     return;
                 }
             }
@@ -250,7 +250,7 @@ public class ThreadDisparaEvento implements Runnable {
             } else {
                 System.out.println("Iniciando desinstalação do software...");
             }
-            resposta = executaComando(ip, comando, 300);
+            resposta = this.executaComando(ip, comando, 300);
             if (resposta.equalsIgnoreCase("true")) {
                 if (tipoExecucao.equalsIgnoreCase("I")) {
                     System.out.println("Finalizando instalação do software...");
@@ -263,12 +263,12 @@ public class ThreadDisparaEvento implements Runnable {
                 System.out.println("Execução falhou!");
                 System.out.println("IP: " + ip + " Data: " + Util.getDataAtual());
                 System.out.println("###############################");
-                incluirHistoricoTentativa("Execução falhou!");
+                this.incluirHistoricoTentativa("Execução falhou!");
             }
             // Efetua exclusão do arquivo de instalação
             if (tipoExecucao.equalsIgnoreCase("I")) {
                 System.out.println("Iniciando exclusão do arquivo de instalação...");
-                resposta = executaComando(ip, comandoDelete, 60);
+                resposta = this.executaComando(ip, comandoDelete, 60);
                 if (resposta.equalsIgnoreCase("true")) {
                     System.out.println("Finalizando exclusão do arquivo de instalação...");
                     Thread.sleep(5000);
@@ -277,7 +277,7 @@ public class ThreadDisparaEvento implements Runnable {
                     System.out.println("Exclusão do arquivo de instalação falhou!");
                     System.out.println("IP: " + ip + " Data: " + Util.getDataAtual());
                     System.out.println("###############################");
-                    incluirHistoricoTentativa("Exclusão do arquivo de instalação falhou!");
+                    this.incluirHistoricoTentativa("Exclusão do arquivo de instalação falhou!");
                 }
             }
         } catch (final Exception e) {

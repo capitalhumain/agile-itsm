@@ -2,106 +2,108 @@ package br.com.centralit.citcorpore.bean;
 
 import br.com.agileitsm.model.support.BaseEntity;
 
-@SuppressWarnings("serial")
 public class JustificativaProblemaDTO extends BaseEntity {
 
-	
-	private Integer idJustificativaProblema ;
-	
-	private String   descricaoProblema  ;
-	
-	private  String suspensao ;
-	
-	private String  situacao ;
-	
-	private String  aprovacao ;
-	
-	private  String  deleted  ;
+    private Integer idJustificativaProblema;
 
-	
-	/**
-	 * @return the idJustificativaMudanca
-	 */
-	public Integer getIdJustificativaProblema() {
-		return idJustificativaProblema;
-	}
+    private String descricaoProblema;
 
-	/**
-	 * @param idJustificativaMudanca the idJustificativaMudanca to set
-	 */
-	public void setIdJustificativaProblema(Integer idJustificativaProblema) {
-		this.idJustificativaProblema = idJustificativaProblema;
-	}
-	
-	/**
-	 * @return the descricaoJustificativa
-	 */
-	public String getDescricaoProblema() {
-		return descricaoProblema;
-	}
+    private String suspensao;
 
+    private String situacao;
 
-	/**
-	 * @param descricaoJustificativa the descricaoJustificativa to set
-	 */
-	public void setDescricaoProblema(String descricaoProblema) {
-		this.descricaoProblema = descricaoProblema;
-	}
-	
-	/**
-	 * @return the suspensao
-	 */
-	public String getSuspensao() {
-		return suspensao;
-	}
+    private String aprovacao;
 
-	/**
-	 * @param suspensao the suspensao to set
-	 */
-	public void setSuspensao(String suspensao) {
-		this.suspensao = suspensao;
-	}
+    private String deleted;
 
-	/**
-	 * @return the situacao
-	 */
-	public String getSituacao() {
-		return situacao;
-	}
+    /**
+     * @return the idJustificativaMudanca
+     */
+    public Integer getIdJustificativaProblema() {
+        return idJustificativaProblema;
+    }
 
-	/**
-	 * @param situacao the situacao to set
-	 */
-	public void setSituacao(String situacao) {
-		this.situacao = situacao;
-	}
+    /**
+     * @param idJustificativaMudanca
+     *            the idJustificativaMudanca to set
+     */
+    public void setIdJustificativaProblema(final Integer idJustificativaProblema) {
+        this.idJustificativaProblema = idJustificativaProblema;
+    }
 
-	/**
-	 * @return the aprovacao
-	 */
-	public String getAprovacao() {
-		return aprovacao;
-	}
+    /**
+     * @return the descricaoJustificativa
+     */
+    public String getDescricaoProblema() {
+        return descricaoProblema;
+    }
 
-	/**
-	 * @param aprovacao the aprovacao to set
-	 */
-	public void setAprovacao(String aprovacao) {
-		this.aprovacao = aprovacao;
-	}
+    /**
+     * @param descricaoJustificativa
+     *            the descricaoJustificativa to set
+     */
+    public void setDescricaoProblema(final String descricaoProblema) {
+        this.descricaoProblema = descricaoProblema;
+    }
 
-	/**
-	 * @return the deleted
-	 */
-	public String getDeleted() {
-		return deleted;
-	}
+    /**
+     * @return the suspensao
+     */
+    public String getSuspensao() {
+        return suspensao;
+    }
 
-	/**
-	 * @param deleted the deleted to set
-	 */
-	public void setDeleted(String deleted) {
-		this.deleted = deleted;
-	}
+    /**
+     * @param suspensao
+     *            the suspensao to set
+     */
+    public void setSuspensao(final String suspensao) {
+        this.suspensao = suspensao;
+    }
+
+    /**
+     * @return the situacao
+     */
+    public String getSituacao() {
+        return situacao;
+    }
+
+    /**
+     * @param situacao
+     *            the situacao to set
+     */
+    public void setSituacao(final String situacao) {
+        this.situacao = situacao;
+    }
+
+    /**
+     * @return the aprovacao
+     */
+    public String getAprovacao() {
+        return aprovacao;
+    }
+
+    /**
+     * @param aprovacao
+     *            the aprovacao to set
+     */
+    public void setAprovacao(final String aprovacao) {
+        this.aprovacao = aprovacao;
+    }
+
+    /**
+     * @return the deleted
+     */
+    public String getDeleted() {
+        return deleted;
+    }
+
+    /**
+     * @param deleted
+     *            the deleted to set
+     */
+    public void setDeleted(final String deleted) {
+        this.deleted = deleted;
+    }
 
 }

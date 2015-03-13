@@ -10,35 +10,36 @@ package br.com.centralit.citcorpore.util;
  * @author Tellus SA
  */
 public class UploadItem {
-	private String nomeArquivo;
-	private String pathArquivo;
-	
-	/**
-	 * @return
-	 */
-	public String getNomeArquivo() {
-		return nomeArquivo;
-	}
 
-	/**
-	 * @return
-	 */
-	public String getPathArquivo() {
-		return pathArquivo;
-	}
+    private String nomeArquivo;
+    private String pathArquivo;
 
-	/**
-	 * @param string
-	 */
-	public void setNomeArquivo(String string) {
-		nomeArquivo = string;
-	}
+    /**
+     * @return
+     */
+    public String getNomeArquivo() {
+        return nomeArquivo;
+    }
 
-	/**
-	 * @param string
-	 */
-	public void setPathArquivo(String string) {
-		pathArquivo = string;
-	}
+    /**
+     * @return
+     */
+    public String getPathArquivo() {
+        return pathArquivo;
+    }
+
+    /**
+     * @param string
+     */
+    public void setNomeArquivo(final String string) {
+        nomeArquivo = string;
+    }
+
+    /**
+     * @param string
+     */
+    public void setPathArquivo(final String string) {
+        pathArquivo = string;
+    }
 
 }

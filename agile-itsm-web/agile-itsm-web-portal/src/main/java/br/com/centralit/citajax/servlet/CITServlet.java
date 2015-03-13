@@ -243,7 +243,8 @@ public class CITServlet extends HttpServlet {
                     final String urlErro = "/pages/lookup/erro.jsp";
                     try {
                         final BaseEntity user = (BaseEntity) request.getSession().getAttribute(Constantes.getValue("USUARIO_SESSAO") + "_CITCORPORE");
-                        final LookupProcessService lookupService = (LookupProcessService) ServiceLocator.getInstance().getService(LookupProcessService.class, null);
+                        final LookupProcessService lookupService = (LookupProcessService) ServiceLocator.getInstance().getService(LookupProcessService.class,
+                                null);
                         final LookupDTO lookup = new LookupDTO();
                         lookup.setAcao(UtilStrings.decodeCaracteresEspeciais(request.getParameter("acao")));
                         lookup.setNomeLookup(UtilStrings.decodeCaracteresEspeciais(request.getParameter("nomeLookup")));
@@ -294,7 +295,8 @@ public class CITServlet extends HttpServlet {
                         }
                     } catch (final LogicException e) {
                         LOGGER.warn(e.getMessage(), e);
-                        request.setAttribute("mensagem", UtilI18N.internacionaliza(request, e.getMessage().replaceAll("br.com.citframework.excecao.LogicException: ", "")));
+                        request.setAttribute("mensagem",
+                                UtilI18N.internacionaliza(request, e.getMessage().replaceAll("br.com.citframework.excecao.LogicException: ", "")));
                         if (Constantes.getValue("CAMINHO_PAGES") == null) {
                             System.out.println("############################################# CITAJAX ##############################################");
                             System.out.println("####################################################################################################");
@@ -395,7 +397,7 @@ public class CITServlet extends HttpServlet {
             }
             exec = exec.replaceAll("'", "\"");
             if ("load".equalsIgnoreCase(ext)) {
-                final Collection colRetorno = new ArrayList();
+                final Collection colRetorno = new ArrayList<>();
                 ScriptExecute script = new ScriptExecute();
 
                 script.setScript("try{JANELA_AGUARDE_MENU.hide();}catch(ex){}");
@@ -448,7 +450,7 @@ public class CITServlet extends HttpServlet {
                 }
                 return;
             } else {
-                final Collection colRetorno = new ArrayList();
+                final Collection colRetorno = new ArrayList<>();
                 ScriptExecute script = new ScriptExecute();
 
                 script.setScript("try{JANELA_AGUARDE_MENU.hide();}catch(ex){}");

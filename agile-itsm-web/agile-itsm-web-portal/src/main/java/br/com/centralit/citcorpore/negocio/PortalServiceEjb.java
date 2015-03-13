@@ -180,7 +180,7 @@ public class PortalServiceEjb extends CrudServiceImpl implements PortalService {
             try {
                 tc.close();
             } catch (final PersistenceException e) {
-                // TODO Auto-generated catch block
+                
                 e.printStackTrace();
             }
 

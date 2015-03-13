@@ -40,7 +40,7 @@ public class DeParaCatalogoServicosBIDAO extends CrudDaoDefaultImpl {
 
     @Override
     public Collection list() throws PersistenceException {
-        List ordenacao = new ArrayList();
+        List<Order> ordenacao = new ArrayList<>();
         ordenacao.add(new Order("idservicode"));
         return super.list(ordenacao);
     }
@@ -53,11 +53,11 @@ public class DeParaCatalogoServicosBIDAO extends CrudDaoDefaultImpl {
     public DeParaCatalogoServicosBIDTO findByidServicoDe(Integer id, Integer idConexaoBI) {
         List result;
         try {
-            List resp = new ArrayList();
+            List resp = new ArrayList<>();
 
             Collection fields = getFields();
-            List parametro = new ArrayList();
-            List listRetorno = new ArrayList();
+            List parametro = new ArrayList<>();
+            List listRetorno = new ArrayList<>();
             String campos = "";
             for (Iterator it = fields.iterator(); it.hasNext();) {
                 Field field = (Field) it.next();
@@ -88,11 +88,11 @@ public class DeParaCatalogoServicosBIDAO extends CrudDaoDefaultImpl {
     public Collection<DeParaCatalogoServicosBIDTO> findByidServicoPara(Integer id, Integer idConexaoBI) {
         List result;
         try {
-            List resp = new ArrayList();
+            List resp = new ArrayList<>();
 
             Collection fields = getFields();
-            List parametro = new ArrayList();
-            List listRetorno = new ArrayList();
+            List parametro = new ArrayList<>();
+            List listRetorno = new ArrayList<>();
             String campos = "";
             for (Iterator it = fields.iterator(); it.hasNext();) {
                 Field field = (Field) it.next();
@@ -130,9 +130,9 @@ public class DeParaCatalogoServicosBIDAO extends CrudDaoDefaultImpl {
     public Collection<DeParaCatalogoServicosBIDTO> findByidConexao(Integer idConexaoBI) {
         List result;
         try {
-            List resp = new ArrayList();
-            List parametro = new ArrayList();
-            List listRetorno = new ArrayList();
+            List resp = new ArrayList<>();
+            List parametro = new ArrayList<>();
+            List listRetorno = new ArrayList<>();
 
             listRetorno.add("idServicoDe");
             listRetorno.add("nomeServicoDe");

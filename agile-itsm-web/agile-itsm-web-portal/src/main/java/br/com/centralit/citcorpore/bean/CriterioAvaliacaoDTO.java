@@ -3,88 +3,106 @@ package br.com.centralit.citcorpore.bean;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class CriterioAvaliacaoDTO extends BaseEntity {
-	private Integer idCriterio;
-	private String descricao;
-	private String aplicavelCotacao;
-	private String aplicavelAvaliacaoSolicitante;
-	private String aplicavelAvaliacaoComprador;
+
+    private Integer idCriterio;
+    private String descricao;
+    private String aplicavelCotacao;
+    private String aplicavelAvaliacaoSolicitante;
+    private String aplicavelAvaliacaoComprador;
     private String aplicavelQualificacaoFornecedor;
     private String tipoAvaliacao;
 
     private Integer sequencia;
-	private String obs;
-	private String valor;
-	
-	private Integer peso;
+    private String obs;
+    private String valor;
 
-	public Integer getIdCriterio(){
-		return this.idCriterio;
-	}
-	public void setIdCriterio(Integer parm){
-		this.idCriterio = parm;
-	}
+    private Integer peso;
 
-	public String getDescricao(){
-		return this.descricao;
-	}
-	public void setDescricao(String parm){
-		this.descricao = parm;
-	}
-	public String getAplicavelCotacao(){
-		return this.aplicavelCotacao;
-	}
-	public void setAplicavelCotacao(String parm){
-		this.aplicavelCotacao = parm;
-	}
+    public Integer getIdCriterio() {
+        return idCriterio;
+    }
 
-	public String getAplicavelAvaliacaoSolicitante(){
-		return this.aplicavelAvaliacaoSolicitante;
-	}
-	public void setAplicavelAvaliacaoSolicitante(String parm){
-		this.aplicavelAvaliacaoSolicitante = parm;
-	}
+    public void setIdCriterio(final Integer parm) {
+        idCriterio = parm;
+    }
 
-	public String getAplicavelAvaliacaoComprador(){
-		return this.aplicavelAvaliacaoComprador;
-	}
-	public void setAplicavelAvaliacaoComprador(String parm){
-		this.aplicavelAvaliacaoComprador = parm;
-	}
-	public Integer getSequencia() {
-		return sequencia;
-	}
-	public void setSequencia(Integer sequencia) {
-		this.sequencia = sequencia;
-	}
-	public String getObs() {
-		return obs;
-	}
-	public void setObs(String obs) {
-		this.obs = obs;
-	}
-	public String getValor() {
-		return valor;
-	}
-	public void setValor(String valor) {
-		this.valor = valor;
-	}
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(final String parm) {
+        descricao = parm;
+    }
+
+    public String getAplicavelCotacao() {
+        return aplicavelCotacao;
+    }
+
+    public void setAplicavelCotacao(final String parm) {
+        aplicavelCotacao = parm;
+    }
+
+    public String getAplicavelAvaliacaoSolicitante() {
+        return aplicavelAvaliacaoSolicitante;
+    }
+
+    public void setAplicavelAvaliacaoSolicitante(final String parm) {
+        aplicavelAvaliacaoSolicitante = parm;
+    }
+
+    public String getAplicavelAvaliacaoComprador() {
+        return aplicavelAvaliacaoComprador;
+    }
+
+    public void setAplicavelAvaliacaoComprador(final String parm) {
+        aplicavelAvaliacaoComprador = parm;
+    }
+
+    public Integer getSequencia() {
+        return sequencia;
+    }
+
+    public void setSequencia(final Integer sequencia) {
+        this.sequencia = sequencia;
+    }
+
+    public String getObs() {
+        return obs;
+    }
+
+    public void setObs(final String obs) {
+        this.obs = obs;
+    }
+
+    public String getValor() {
+        return valor;
+    }
+
+    public void setValor(final String valor) {
+        this.valor = valor;
+    }
+
     public Integer getPeso() {
         return peso;
     }
-    public void setPeso(Integer peso) {
+
+    public void setPeso(final Integer peso) {
         this.peso = peso;
     }
+
     public String getAplicavelQualificacaoFornecedor() {
         return aplicavelQualificacaoFornecedor;
     }
-    public void setAplicavelQualificacaoFornecedor(
-            String aplicavelQualificacaoFornecedor) {
+
+    public void setAplicavelQualificacaoFornecedor(final String aplicavelQualificacaoFornecedor) {
         this.aplicavelQualificacaoFornecedor = aplicavelQualificacaoFornecedor;
     }
+
     public String getTipoAvaliacao() {
         return tipoAvaliacao;
     }
-    public void setTipoAvaliacao(String tipoAvaliacao) {
+
+    public void setTipoAvaliacao(final String tipoAvaliacao) {
         this.tipoAvaliacao = tipoAvaliacao;
     }
 

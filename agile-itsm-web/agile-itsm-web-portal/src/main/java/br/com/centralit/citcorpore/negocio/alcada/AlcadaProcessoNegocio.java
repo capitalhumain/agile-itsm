@@ -89,19 +89,19 @@ public class AlcadaProcessoNegocio {
     protected EmpregadoDTO recuperaEmpregado(final Integer idEmpregado) throws Exception {
         final EmpregadoDTO empregadoDto = new EmpregadoDTO();
         empregadoDto.setIdEmpregado(idEmpregado);
-        return (EmpregadoDTO) atribuiTransacaoDao(new EmpregadoDao()).restore(empregadoDto);
+        return (EmpregadoDTO) this.atribuiTransacaoDao(new EmpregadoDao()).restore(empregadoDto);
     }
 
     protected CentroResultadoDTO recuperaCentroResultado(final Integer idCentroResultado) throws Exception {
         final CentroResultadoDTO centroResultadoDto = new CentroResultadoDTO();
         centroResultadoDto.setIdCentroResultado(idCentroResultado);
-        return (CentroResultadoDTO) atribuiTransacaoDao(new CentroResultadoDao()).restore(centroResultadoDto);
+        return (CentroResultadoDTO) this.atribuiTransacaoDao(new CentroResultadoDao()).restore(centroResultadoDto);
     }
 
     protected ProcessoNegocioDTO recuperaProcessoNegocio(final Integer idProcessoNegocio) throws Exception {
         final ProcessoNegocioDTO processoNegocioDto = new ProcessoNegocioDTO();
         processoNegocioDto.setIdProcessoNegocio(idProcessoNegocio);
-        return (ProcessoNegocioDTO) atribuiTransacaoDao(new ProcessoNegocioDao()).restore(processoNegocioDto);
+        return (ProcessoNegocioDTO) this.atribuiTransacaoDao(new ProcessoNegocioDao()).restore(processoNegocioDto);
     }
 
     protected FluxoDTO recuperaFluxo(final SolicitacaoServicoDTO solicitacaoServicoDto) throws Exception {
@@ -115,10 +115,10 @@ public class AlcadaProcessoNegocio {
     public ProcessoNegocioDTO recuperaProcessoNegocio(final FluxoDTO fluxoDto) throws Exception {
         ProcessoNegocioDTO result = null;
         if (fluxoDto != null && fluxoDto.getIdProcessoNegocio() != null) {
-            result = recuperaProcessoNegocio(fluxoDto.getIdProcessoNegocio());
+            result = this.recuperaProcessoNegocio(fluxoDto.getIdProcessoNegocio());
         }
         if (result != null) {
-            recuperaAutoridadesProcesso(result, (ProcessoNivelAutoridadeDao) atribuiTransacaoDao(new ProcessoNivelAutoridadeDao()));
+            this.recuperaAutoridadesProcesso(result, (ProcessoNivelAutoridadeDao) this.atribuiTransacaoDao(new ProcessoNivelAutoridadeDao()));
         }
         fluxoDto.setProcessoNegocioDto(result);
         return result;
@@ -129,23 +129,23 @@ public class AlcadaProcessoNegocio {
         execucaoSolicitacao.setTransacao(transacao);
         execucaoSolicitacao.setObjetoNegocioDto(solicitacaoServicoDto);
         final ExecucaoSolicitacaoDao execucaoSolicitacaoDao = new ExecucaoSolicitacaoDao();
-        atribuiTransacaoDao(execucaoSolicitacaoDao);
+        this.atribuiTransacaoDao(execucaoSolicitacaoDao);
         execucaoSolicitacao.setExecucaoSolicitacaoDto(execucaoSolicitacaoDao.findBySolicitacaoServico(solicitacaoServicoDto));
         return execucaoSolicitacao;
     }
 
     protected void recuperaLimitesAprovacao(final ProcessoNegocioDTO processoNegocioDto) throws Exception {
         final LimiteAprovacaoProcessoDao limiteAprovacaoProcessoDao = new LimiteAprovacaoProcessoDao();
-        atribuiTransacaoDao(limiteAprovacaoProcessoDao);
+        this.atribuiTransacaoDao(limiteAprovacaoProcessoDao);
         final Collection<LimiteAprovacaoDTO> colLimitesAprovacao = new ArrayList<>();
         // recupera os limites de aprovação associados ao processo
         final Collection<LimiteAprovacaoProcessoDTO> colLimiteAprovacaoProcesso = limiteAprovacaoProcessoDao.findByIdProcessoNegocio(processoNegocioDto
                 .getIdProcessoNegocio());
         if (colLimiteAprovacaoProcesso != null) {
             final LimiteAprovacaoDao limiteAprovacaoDao = new LimiteAprovacaoDao();
-            atribuiTransacaoDao(limiteAprovacaoDao);
+            this.atribuiTransacaoDao(limiteAprovacaoDao);
             final ValorLimiteAprovacaoDao valorLimiteAprovacaoDao = new ValorLimiteAprovacaoDao();
-            atribuiTransacaoDao(valorLimiteAprovacaoDao);
+            this.atribuiTransacaoDao(valorLimiteAprovacaoDao);
             for (final LimiteAprovacaoProcessoDTO limiteAprovacaoProcessoDto : colLimiteAprovacaoProcesso) {
                 LimiteAprovacaoDTO limiteAprovacaoDto = new LimiteAprovacaoDTO();
                 limiteAprovacaoDto.setIdLimiteAprovacao(limiteAprovacaoProcessoDto.getIdLimiteAprovacao());
@@ -162,7 +162,7 @@ public class AlcadaProcessoNegocio {
                         if (limiteDto.getIdProcessoNegocio().intValue() == processoNegocioDto.getIdProcessoNegocio().intValue()) {
                             continue;
                         }
-                        final ProcessoNegocioDTO processoDto = getHashMapProcessosNegocio().get("" + limiteDto.getIdProcessoNegocio());
+                        final ProcessoNegocioDTO processoDto = this.getHashMapProcessosNegocio().get("" + limiteDto.getIdProcessoNegocio());
                         if (processoDto != null) {
                             colProcessos.add(processoDto);
                         }
@@ -183,20 +183,20 @@ public class AlcadaProcessoNegocio {
 
         // recupera os limites de aprovação do processo
         // para cada limite, recupera os outros processos associados
-        recuperaLimitesAprovacao(processoNegocioDto);
+        this.recuperaLimitesAprovacao(processoNegocioDto);
         final Collection<LimiteAprovacaoDTO> colLimites = processoNegocioDto.getColLimitesAprovacao();
         if (colLimites == null || colLimites.isEmpty()) {
             return;
         }
 
         // cria hashMap com os limites
-        final HashMap<String, LimiteAprovacaoDTO> mapLimites = new HashMap();
+        final HashMap<String, LimiteAprovacaoDTO> mapLimites = new HashMap<>();
         for (final LimiteAprovacaoDTO limiteAprovacaoDto : colLimites) {
             mapLimites.put("" + limiteAprovacaoDto.getIdLimiteAprovacao(), limiteAprovacaoDto);
         }
 
         final LimiteAprovacaoAutoridadeDao limiteAprovacaoAutoridadeDao = new LimiteAprovacaoAutoridadeDao();
-        atribuiTransacaoDao(limiteAprovacaoAutoridadeDao);
+        this.atribuiTransacaoDao(limiteAprovacaoAutoridadeDao);
         for (final ProcessoNivelAutoridadeDTO processoNivelAutoridadeDto : processoNegocioDto.getColAutoridades()) {
             // recupera os limites de aprovação de cada autoridade do processo de negócio
             final Collection<LimiteAprovacaoAutoridadeDTO> colLimiteAprovacaoAutoridade = limiteAprovacaoAutoridadeDao
@@ -216,14 +216,14 @@ public class AlcadaProcessoNegocio {
 
         boolean bAtendimentoCliente = false;
         double valorIndividual = 0.0;
-        if (isSimulacao(execucaoSolicitacao.getSolicitacaoServicoDto())) {
+        if (this.isSimulacao(execucaoSolicitacao.getSolicitacaoServicoDto())) {
             bAtendimentoCliente = ((SimulacaoAlcadaDTO) execucaoSolicitacao.getSolicitacaoServicoDto()).getFinalidade().equalsIgnoreCase("C");
             valorIndividual = ((SimulacaoAlcadaDTO) execucaoSolicitacao.getSolicitacaoServicoDto()).getValor();
         } else {
             bAtendimentoCliente = execucaoSolicitacao.isAtendimentoCliente(execucaoSolicitacao.getSolicitacaoServicoDto());
             valorIndividual = execucaoSolicitacao.calculaValorAprovado(execucaoSolicitacao.getSolicitacaoServicoDto(), transacao);
         }
-        recuperaValores(colLimites, execucaoSolicitacao, centroResultadoDto, bAtendimentoCliente);
+        this.recuperaValores(colLimites, execucaoSolicitacao, centroResultadoDto, bAtendimentoCliente);
 
         for (final ProcessoNivelAutoridadeDTO processoNivelAutoridadeDto : processoNegocioDto.getColAutoridades()) {
             if (processoNivelAutoridadeDto.getNivelAutoridadeDto() == null) {
@@ -279,9 +279,9 @@ public class AlcadaProcessoNegocio {
         final int mes = UtilDatas.getMonth(dataAux);
         final int ano = UtilDatas.getYear(dataAux);
 
-        final HashMap<String, ExecucaoSolicitacao> mapExecucaoSolicitacao = new HashMap();
+        final HashMap<String, ExecucaoSolicitacao> mapExecucaoSolicitacao = new HashMap<>();
         final TipoFluxoDao tipoFluxoDao = new TipoFluxoDao();
-        atribuiTransacaoDao(tipoFluxoDao);
+        this.atribuiTransacaoDao(tipoFluxoDao);
         for (final LimiteAprovacaoDTO limiteAprovacaoDto : colLimites) {
             // ignora os limites não associados a alguma autoridade
             if (!limiteAprovacaoDto.isValido()) {
@@ -308,7 +308,7 @@ public class AlcadaProcessoNegocio {
                                     execucaoSolicitacao = (ExecucaoSolicitacao) Class.forName(tipoFluxoDto.getNomeClasseFluxo()).newInstance();
                                     execucaoSolicitacao.setObjetoNegocioDto(solicitacaoServicoDto);
                                     mapExecucaoSolicitacao.put(tipoFluxoDto.getNomeClasseFluxo(), execucaoSolicitacao);
-                                    if (isSimulacao(solicitacaoServicoDto)) {
+                                    if (this.isSimulacao(solicitacaoServicoDto)) {
                                         double valor = 0.0;
                                         if (execucaoSolicitacaoProcesso.getClass().getName().equals(execucaoSolicitacao.getClass().getName())) {
                                             valor = ((SimulacaoAlcadaDTO) solicitacaoServicoDto).getValorMensal();
@@ -350,7 +350,7 @@ public class AlcadaProcessoNegocio {
         final Collection<ProcessoNivelAutoridadeDTO> colAutoridades = processoNivelAutoridadeDao.findByIdProcessoNegocio(processoNegocioDto
                 .getIdProcessoNegocio());
         for (final ProcessoNivelAutoridadeDTO processoNivelAutoridadeDto : colAutoridades) {
-            final NivelAutoridadeDTO nivelDto = getHashMapNivelAutoridade().get("" + processoNivelAutoridadeDto.getIdNivelAutoridade());
+            final NivelAutoridadeDTO nivelDto = this.getHashMapNivelAutoridade().get("" + processoNivelAutoridadeDto.getIdNivelAutoridade());
             if (nivelDto != null) {
                 processoNivelAutoridadeDto.setNivelAutoridadeDto(nivelDto);
                 processoNivelAutoridadeDto.setHierarquia(nivelDto.getHierarquia());
@@ -361,9 +361,9 @@ public class AlcadaProcessoNegocio {
     }
 
     protected HashMap<String, GrupoEmpregadoDTO> getHashMapGruposEmpregado(final EmpregadoDTO empregadoDto) throws Exception {
-        final HashMap<String, GrupoEmpregadoDTO> result = new HashMap();
+        final HashMap<String, GrupoEmpregadoDTO> result = new HashMap<>();
         final GrupoEmpregadoDao grupoEmpregadoDao = new GrupoEmpregadoDao();
-        atribuiTransacaoDao(grupoEmpregadoDao);
+        this.atribuiTransacaoDao(grupoEmpregadoDao);
         final Collection<GrupoEmpregadoDTO> colGrupos = grupoEmpregadoDao.findAtivosByIdEmpregado(empregadoDto.getIdEmpregado());
         if (colGrupos != null) {
             for (final GrupoEmpregadoDTO grupoEmpregadoDto : colGrupos) {
@@ -386,7 +386,7 @@ public class AlcadaProcessoNegocio {
                         && processoNegocioRefDto.getIdProcessoNegocio().intValue() != responsavelCentroResultadoProcessoDto.getIdProcessoNegocio().intValue()) {
                     continue;
                 }
-                final ProcessoNegocioDTO processoNegocioDto = getHashMapProcessosNegocio().get(
+                final ProcessoNegocioDTO processoNegocioDto = this.getHashMapProcessosNegocio().get(
                         "" + responsavelCentroResultadoProcessoDto.getIdProcessoNegocio());
                 if (processoNegocioDto != null && processoNegocioDto.getColAutoridades() != null) {
                     for (final ProcessoNivelAutoridadeDTO processoNivelAutoridadeDto : processoNegocioDto.getColAutoridades()) {
@@ -396,7 +396,8 @@ public class AlcadaProcessoNegocio {
                                 if (mapGruposEmpregado.get("" + grupoNivelAutoridadeDto.getIdGrupo()) != null) {
                                     final ProcessoNegocioDTO processoDto = new ProcessoNegocioDTO();
                                     Reflexao.copyPropertyValues(processoNegocioDto, processoDto);
-                                    processoDto.setNivelAutoridadeDto(getHashMapNivelAutoridade().get("" + processoNivelAutoridadeDto.getIdNivelAutoridade()));
+                                    processoDto.setNivelAutoridadeDto(this.getHashMapNivelAutoridade().get(
+                                            "" + processoNivelAutoridadeDto.getIdNivelAutoridade()));
                                     processosNegocio.add(processoDto);
                                 }
                             }
@@ -417,13 +418,13 @@ public class AlcadaProcessoNegocio {
 
     protected HashMap<String, ProcessoNegocioDTO> getHashMapProcessosNegocio() throws Exception {
         if (mapProcessosNegocio == null) {
-            mapProcessosNegocio = new HashMap();
-            final Collection<ProcessoNegocioDTO> colProcessos = atribuiTransacaoDao(new ProcessoNegocioDao()).list();
+            mapProcessosNegocio = new HashMap<>();
+            final Collection<ProcessoNegocioDTO> colProcessos = this.atribuiTransacaoDao(new ProcessoNegocioDao()).list();
             if (colProcessos != null) {
                 final ProcessoNivelAutoridadeDao processoNivelAutoridadeDao = new ProcessoNivelAutoridadeDao();
-                atribuiTransacaoDao(processoNivelAutoridadeDao);
+                this.atribuiTransacaoDao(processoNivelAutoridadeDao);
                 for (final ProcessoNegocioDTO processoNegocioDto : colProcessos) {
-                    recuperaAutoridadesProcesso(processoNegocioDto, processoNivelAutoridadeDao);
+                    this.recuperaAutoridadesProcesso(processoNegocioDto, processoNivelAutoridadeDao);
                     mapProcessosNegocio.put("" + processoNegocioDto.getIdProcessoNegocio(), processoNegocioDto);
                 }
             }
@@ -433,11 +434,11 @@ public class AlcadaProcessoNegocio {
 
     protected HashMap<String, NivelAutoridadeDTO> getHashMapNivelAutoridade() throws Exception {
         if (mapAutoridades == null) {
-            mapAutoridades = new HashMap();
-            final Collection<NivelAutoridadeDTO> colAutoridades = atribuiTransacaoDao(new NivelAutoridadeDao()).list();
+            mapAutoridades = new HashMap<>();
+            final Collection<NivelAutoridadeDTO> colAutoridades = this.atribuiTransacaoDao(new NivelAutoridadeDao()).list();
             if (colAutoridades != null) {
                 final GrupoNivelAutoridadeDao grupoNivelAutoridadeDao = new GrupoNivelAutoridadeDao();
-                atribuiTransacaoDao(grupoNivelAutoridadeDao);
+                this.atribuiTransacaoDao(grupoNivelAutoridadeDao);
                 for (final NivelAutoridadeDTO nivelDto : colAutoridades) {
                     nivelDto.setColGrupos(grupoNivelAutoridadeDao.findByIdNivelAutoridade(nivelDto.getIdNivelAutoridade()));
                     mapAutoridades.put("" + nivelDto.getIdNivelAutoridade(), nivelDto);
@@ -452,21 +453,21 @@ public class AlcadaProcessoNegocio {
         final List<AlcadaProcessoNegocioDTO> result = new ArrayList<>();
 
         final ResponsavelCentroResultadoDao responsavelCentroResultadoDao = new ResponsavelCentroResultadoDao();
-        atribuiTransacaoDao(responsavelCentroResultadoDao);
+        this.atribuiTransacaoDao(responsavelCentroResultadoDao);
         final Collection<ResponsavelCentroResultadoDTO> colCentrosResultado = responsavelCentroResultadoDao.findByIdCentroResultado(centroResultadoDto
                 .getIdCentroResultado());
         if (colCentrosResultado != null) {
             final EmpregadoDao empregadoDao = new EmpregadoDao();
-            atribuiTransacaoDao(empregadoDao);
+            this.atribuiTransacaoDao(empregadoDao);
             final ResponsavelCentroResultadoProcessoDao responsavelCentroResultadoProcessoDao = new ResponsavelCentroResultadoProcessoDao();
 
             for (final ResponsavelCentroResultadoDTO responsavelCentroResultadoDto : colCentrosResultado) {
                 EmpregadoDTO empregadoDto = new EmpregadoDTO();
                 empregadoDto.setIdEmpregado(responsavelCentroResultadoDto.getIdResponsavel());
                 empregadoDto = (EmpregadoDTO) empregadoDao.restore(empregadoDto);
-                final HashMap<String, GrupoEmpregadoDTO> mapGruposEmpregado = getHashMapGruposEmpregado(empregadoDto);
+                final HashMap<String, GrupoEmpregadoDTO> mapGruposEmpregado = this.getHashMapGruposEmpregado(empregadoDto);
 
-                final AlcadaProcessoNegocioDTO alcadaProcessoNegocioDto = getAlcadaProcessoNegocio(centroResultadoDto, empregadoDto, mapGruposEmpregado,
+                final AlcadaProcessoNegocioDTO alcadaProcessoNegocioDto = this.getAlcadaProcessoNegocio(centroResultadoDto, empregadoDto, mapGruposEmpregado,
                         responsavelCentroResultadoProcessoDao, processoNegocioDto);
                 if (alcadaProcessoNegocioDto != null) {
                     result.add(alcadaProcessoNegocioDto);
@@ -481,21 +482,21 @@ public class AlcadaProcessoNegocio {
         final List<AlcadaProcessoNegocioDTO> result = new ArrayList<>();
 
         final ResponsavelCentroResultadoDao responsavelCentroResultadoDao = new ResponsavelCentroResultadoDao();
-        atribuiTransacaoDao(responsavelCentroResultadoDao);
+        this.atribuiTransacaoDao(responsavelCentroResultadoDao);
         final Collection<ResponsavelCentroResultadoDTO> colCentrosResultado = responsavelCentroResultadoDao.findByIdResponsavel(empregadoDto.getIdEmpregado());
         if (colCentrosResultado != null) {
             final CentroResultadoDao centroResultadoDao = new CentroResultadoDao();
-            atribuiTransacaoDao(centroResultadoDao);
+            this.atribuiTransacaoDao(centroResultadoDao);
             final ResponsavelCentroResultadoProcessoDao responsavelCentroResultadoProcessoDao = new ResponsavelCentroResultadoProcessoDao();
-            atribuiTransacaoDao(responsavelCentroResultadoProcessoDao);
-            final HashMap<String, GrupoEmpregadoDTO> mapGruposEmpregado = getHashMapGruposEmpregado(empregadoDto);
+            this.atribuiTransacaoDao(responsavelCentroResultadoProcessoDao);
+            final HashMap<String, GrupoEmpregadoDTO> mapGruposEmpregado = this.getHashMapGruposEmpregado(empregadoDto);
 
             for (final ResponsavelCentroResultadoDTO responsavelCentroResultadoDto : colCentrosResultado) {
                 CentroResultadoDTO centroResultadoDto = new CentroResultadoDTO();
                 centroResultadoDto.setIdCentroResultado(responsavelCentroResultadoDto.getIdCentroResultado());
                 centroResultadoDto = (CentroResultadoDTO) centroResultadoDao.restore(centroResultadoDto);
 
-                final AlcadaProcessoNegocioDTO alcadaProcessoNegocioDto = getAlcadaProcessoNegocio(centroResultadoDto, empregadoDto, mapGruposEmpregado,
+                final AlcadaProcessoNegocioDTO alcadaProcessoNegocioDto = this.getAlcadaProcessoNegocio(centroResultadoDto, empregadoDto, mapGruposEmpregado,
                         responsavelCentroResultadoProcessoDao, processoNegocioDto);
                 if (alcadaProcessoNegocioDto != null) {
                     result.add(alcadaProcessoNegocioDto);
@@ -512,7 +513,7 @@ public class AlcadaProcessoNegocio {
         if (processoNegocioDto.getColLimitesAprovacao() != null) {
             final Collection<NivelAutoridadeDTO> colAutoridades = new ArrayList<>();
             final LimiteAprovacaoAutoridadeDao limiteAprovacaoAutoridadeDao = new LimiteAprovacaoAutoridadeDao();
-            atribuiTransacaoDao(limiteAprovacaoAutoridadeDao);
+            this.atribuiTransacaoDao(limiteAprovacaoAutoridadeDao);
             for (final LimiteAprovacaoDTO limiteAprovacaoDto : processoNegocioDto.getColLimitesAprovacao()) {
                 if (limiteAprovacaoDto.getAbrangenciaCentroResultado().equalsIgnoreCase("R")) {
                     continue;
@@ -524,18 +525,18 @@ public class AlcadaProcessoNegocio {
                         .findByIdLimiteAprovacao(limiteAprovacaoDto.getIdLimiteAprovacao());
                 if (colLimiteAprovacaoAutoridade != null) {
                     for (final LimiteAprovacaoAutoridadeDTO limiteAprovacaoAutoridadeDto : colLimiteAprovacaoAutoridade) {
-                        colAutoridades.add(getHashMapNivelAutoridade().get("" + limiteAprovacaoAutoridadeDto.getIdNivelAutoridade()));
+                        colAutoridades.add(this.getHashMapNivelAutoridade().get("" + limiteAprovacaoAutoridadeDto.getIdNivelAutoridade()));
                     }
                 }
             }
-            final HashMap<String, EmpregadoDTO> mapEmpregados = new HashMap();
+            final HashMap<String, EmpregadoDTO> mapEmpregados = new HashMap<>();
             if (colAlcadas != null) {
                 for (final AlcadaProcessoNegocioDTO alcadaProcessoNegocioDto : colAlcadas) {
                     mapEmpregados.put("" + alcadaProcessoNegocioDto.getEmpregadoDto().getIdEmpregado(), alcadaProcessoNegocioDto.getEmpregadoDto());
                 }
             }
             final GrupoEmpregadoDao grupoEmpregadoDao = new GrupoEmpregadoDao();
-            atribuiTransacaoDao(grupoEmpregadoDao);
+            this.atribuiTransacaoDao(grupoEmpregadoDao);
             for (final NivelAutoridadeDTO nivelAutoridadeDto : colAutoridades) {
                 for (final GrupoNivelAutoridadeDTO grupoNivelAutoridadeDto : nivelAutoridadeDto.getColGrupos()) {
                     final Collection<GrupoEmpregadoDTO> colGrupoEmpregado = grupoEmpregadoDao.findByIdGrupo(grupoNivelAutoridadeDto.getIdGrupo());
@@ -544,7 +545,7 @@ public class AlcadaProcessoNegocio {
                             if (mapEmpregados.get("" + grupoEmpregadoDto.getIdEmpregado()) != null) {
                                 continue;
                             }
-                            final EmpregadoDTO empregadoDto = recuperaEmpregado(grupoEmpregadoDto.getIdEmpregado());
+                            final EmpregadoDTO empregadoDto = this.recuperaEmpregado(grupoEmpregadoDto.getIdEmpregado());
                             mapEmpregados.put("" + grupoEmpregadoDto.getIdEmpregado(), empregadoDto);
 
                             final List<ProcessoNegocioDTO> colProcessos = new ArrayList<>();
@@ -568,21 +569,21 @@ public class AlcadaProcessoNegocio {
         ProcessoNegocioDTO result = null;
         final FluxoDTO fluxoDto = new SolicitacaoServicoServiceEjb().recuperaFluxo(solicitacaoServicoDto);
         if (fluxoDto != null && fluxoDto.getIdProcessoNegocio() != null) {
-            result = recuperaProcessoNegocio(fluxoDto.getIdProcessoNegocio());
+            result = this.recuperaProcessoNegocio(fluxoDto.getIdProcessoNegocio());
         }
         if (result != null) {
-            recuperaAutoridadesProcesso(result, (ProcessoNivelAutoridadeDao) atribuiTransacaoDao(new ProcessoNivelAutoridadeDao()));
+            this.recuperaAutoridadesProcesso(result, (ProcessoNivelAutoridadeDao) this.atribuiTransacaoDao(new ProcessoNivelAutoridadeDao()));
         }
         return result;
     }
 
     protected void validaAlcadas(final FluxoDTO fluxoDto, final ProcessoNegocioDTO processoNegocioDto, final ExecucaoSolicitacao execucaoSolicitacao,
             final SolicitacaoServicoDTO solicitacaoServicoDto, final List<AlcadaProcessoNegocioDTO> colAlcadas) throws Exception {
-        validaAutoridades(fluxoDto, processoNegocioDto, execucaoSolicitacao, solicitacaoServicoDto, colAlcadas);
-        validaSolicitante(fluxoDto, processoNegocioDto, execucaoSolicitacao, solicitacaoServicoDto, colAlcadas);
-        validaAprovador(fluxoDto, processoNegocioDto, execucaoSolicitacao, solicitacaoServicoDto, colAlcadas);
-        validaHierarquia(fluxoDto, processoNegocioDto, execucaoSolicitacao, solicitacaoServicoDto, colAlcadas);
-        validaUsuario(fluxoDto, processoNegocioDto, execucaoSolicitacao, solicitacaoServicoDto, colAlcadas);
+        this.validaAutoridades(fluxoDto, processoNegocioDto, execucaoSolicitacao, solicitacaoServicoDto, colAlcadas);
+        this.validaSolicitante(fluxoDto, processoNegocioDto, execucaoSolicitacao, solicitacaoServicoDto, colAlcadas);
+        this.validaAprovador(fluxoDto, processoNegocioDto, execucaoSolicitacao, solicitacaoServicoDto, colAlcadas);
+        this.validaHierarquia(fluxoDto, processoNegocioDto, execucaoSolicitacao, solicitacaoServicoDto, colAlcadas);
+        this.validaUsuario(fluxoDto, processoNegocioDto, execucaoSolicitacao, solicitacaoServicoDto, colAlcadas);
     }
 
     protected void validaHierarquia(final FluxoDTO fluxoDto, final ProcessoNegocioDTO processoNegocioDto, final ExecucaoSolicitacao execucaoSolicitacao,
@@ -642,7 +643,7 @@ public class AlcadaProcessoNegocio {
     protected void validaUsuario(final FluxoDTO fluxoDto, final ProcessoNegocioDTO processoNegocioDto, final ExecucaoSolicitacao execucaoSolicitacao,
             final SolicitacaoServicoDTO solicitacaoServicoDto, final List<AlcadaProcessoNegocioDTO> colAlcadas) throws Exception {
         final UsuarioDao usuarioDao = new UsuarioDao();
-        atribuiTransacaoDao(usuarioDao);
+        this.atribuiTransacaoDao(usuarioDao);
         for (final AlcadaProcessoNegocioDTO alcadaProcessoNegocioDto : colAlcadas) {
             if (alcadaProcessoNegocioDto.isAlcadaRejeitada()) {
                 continue;
@@ -694,7 +695,7 @@ public class AlcadaProcessoNegocio {
             final ExecucaoSolicitacao execucaoSolicitacao) throws Exception {
         final Collection<AlcadaProcessoNegocioDTO> colAlcadasDelgacoes = new ArrayList<>();
         final DelegacaoCentroResultadoDao delegacaoCentroResultadoDao = new DelegacaoCentroResultadoDao();
-        atribuiTransacaoDao(delegacaoCentroResultadoDao);
+        this.atribuiTransacaoDao(delegacaoCentroResultadoDao);
         final Collection<DelegacaoCentroResultadoDTO> colDelegCentroResultado = delegacaoCentroResultadoDao.findByIdResponsavelAndIdCentroResultado(
                 alcadaProcessoNegocioDto.getEmpregadoDto().getIdEmpregado(), alcadaProcessoNegocioDto.getCentroResultadoDto().getIdCentroResultado());
         if (colDelegCentroResultado == null) {
@@ -702,9 +703,9 @@ public class AlcadaProcessoNegocio {
         }
         new ArrayList<>();
         final DelegacaoCentroResultadoProcessoDao delegacaoCentroResultadoProcessoDao = new DelegacaoCentroResultadoProcessoDao();
-        atribuiTransacaoDao(delegacaoCentroResultadoProcessoDao);
+        this.atribuiTransacaoDao(delegacaoCentroResultadoProcessoDao);
         final DelegacaoCentroResultadoFluxoDao delegacaoCentroResultadoFluxoDao = new DelegacaoCentroResultadoFluxoDao();
-        atribuiTransacaoDao(delegacaoCentroResultadoFluxoDao);
+        this.atribuiTransacaoDao(delegacaoCentroResultadoFluxoDao);
         for (final DelegacaoCentroResultadoDTO delegacaoCentroResultadoDto : colDelegCentroResultado) {
             if (delegacaoCentroResultadoDto.getDataFim().compareTo(UtilDatas.getDataAtual()) < 0) {
                 continue;
@@ -726,7 +727,7 @@ public class AlcadaProcessoNegocio {
                 delegacaoCentroResultadoFluxoDto.setIdInstanciaFluxo(execucaoSolicitacao.getExecucaoSolicitacaoDto().getIdInstanciaFluxo());
                 delegacaoCentroResultadoFluxoDao.restore(delegacaoCentroResultadoFluxoDto);
             }
-            final EmpregadoDTO empregadoDto = recuperaEmpregado(delegacaoCentroResultadoDto.getIdEmpregado());
+            final EmpregadoDTO empregadoDto = this.recuperaEmpregado(delegacaoCentroResultadoDto.getIdEmpregado());
             if (empregadoDto == null) {
                 continue;
             }
@@ -736,7 +737,7 @@ public class AlcadaProcessoNegocio {
             alcadaDelegDto.setDelegacao(true);
             alcadaDelegDto.setEmpregadoDto(empregadoDto);
             alcadaDelegDto.setProcessosNegocio(alcadaProcessoNegocioDto.getProcessosNegocio());
-            alcadaDelegDto.setMapGruposEmpregado(getHashMapGruposEmpregado(empregadoDto));
+            alcadaDelegDto.setMapGruposEmpregado(this.getHashMapGruposEmpregado(empregadoDto));
             colAlcadasDelgacoes.add(alcadaDelegDto);
         }
         return colAlcadasDelgacoes;
@@ -746,29 +747,29 @@ public class AlcadaProcessoNegocio {
             final CentroResultadoDTO centroResultadoDto, final FluxoDTO fluxoDto, final TransactionControler tc) throws Exception {
         transacao = tc;
 
-        final ProcessoNegocioDTO processoNegocioDto = recuperaProcessoNegocio(fluxoDto);
+        final ProcessoNegocioDTO processoNegocioDto = this.recuperaProcessoNegocio(fluxoDto);
         if (processoNegocioDto == null) {
             throw new LogicException("Processo de negócio não encontrado");
         }
 
-        final ExecucaoSolicitacao execucaoSolicitacao = recuperaExecucaoSolicitacao(fluxoDto, solicitacaoServicoDto);
+        final ExecucaoSolicitacao execucaoSolicitacao = this.recuperaExecucaoSolicitacao(fluxoDto, solicitacaoServicoDto);
         if (execucaoSolicitacao == null) {
             throw new LogicException("Instância do fluxo não encontrada");
         }
 
-        List<AlcadaProcessoNegocioDTO> colAlcadas = getAlcadasCentroResultado(centroResultadoDto, processoNegocioDto);
+        List<AlcadaProcessoNegocioDTO> colAlcadas = this.getAlcadasCentroResultado(centroResultadoDto, processoNegocioDto);
         if (colAlcadas == null || colAlcadas.isEmpty()) {
             return null;
         }
 
         final List<AlcadaProcessoNegocioDTO> colAlcadasDeleg = new ArrayList<>();
         for (final AlcadaProcessoNegocioDTO alcadaProcessoNegocioDto : colAlcadas) {
-            colAlcadasDeleg.addAll(recuperaDelegacoes(alcadaProcessoNegocioDto, execucaoSolicitacao));
+            colAlcadasDeleg.addAll(this.recuperaDelegacoes(alcadaProcessoNegocioDto, execucaoSolicitacao));
         }
         colAlcadas.addAll(colAlcadasDeleg);
 
-        associaLimiteAutoridadeEValores(processoNegocioDto, execucaoSolicitacao, centroResultadoDto);
-        validaAlcadas(fluxoDto, processoNegocioDto, execucaoSolicitacao, solicitacaoServicoDto, colAlcadas);
+        this.associaLimiteAutoridadeEValores(processoNegocioDto, execucaoSolicitacao, centroResultadoDto);
+        this.validaAlcadas(fluxoDto, processoNegocioDto, execucaoSolicitacao, solicitacaoServicoDto, colAlcadas);
 
         int i = 0;
         List<AlcadaProcessoNegocioDTO> result = null;
@@ -806,11 +807,11 @@ public class AlcadaProcessoNegocio {
         }
 
         if (i > 0) {
-            return ordenaAlcadas(result);
+            return this.ordenaAlcadas(result);
         }
 
-        result.addAll(getAlcadasNivelSuperior(processoNegocioDto, result));
-        return ordenaAlcadas(result);
+        result.addAll(this.getAlcadasNivelSuperior(processoNegocioDto, result));
+        return this.ordenaAlcadas(result);
     }
 
     private Collection<AlcadaProcessoNegocioDTO> ordenaAlcadas(final List<AlcadaProcessoNegocioDTO> colAlcadas) throws Exception {
@@ -830,19 +831,19 @@ public class AlcadaProcessoNegocio {
 
     public Collection<AlcadaProcessoNegocioDTO> getSimulacaoAlcada(final SimulacaoAlcadaDTO simulacaoAlcadaDto, final CentroResultadoDTO centroResultadoDto,
             final FluxoDTO fluxoDto) throws Exception {
-        return getAlcadasResponsaveis(simulacaoAlcadaDto, centroResultadoDto, fluxoDto, null);
+        return this.getAlcadasResponsaveis(simulacaoAlcadaDto, centroResultadoDto, fluxoDto, null);
     }
 
     public Collection<EmpregadoDTO> getResponsaveis(final SolicitacaoServicoDTO solicitacaoServicoDto, final CentroResultadoDTO centroResultadoDto,
             final TransactionControler tc) throws Exception {
         transacao = tc;
 
-        final FluxoDTO fluxoDto = recuperaFluxo(solicitacaoServicoDto);
+        final FluxoDTO fluxoDto = this.recuperaFluxo(solicitacaoServicoDto);
         if (fluxoDto == null) {
             throw new LogicException("Fluxo não encontrado");
         }
 
-        final Collection<AlcadaProcessoNegocioDTO> colAlcadas = getAlcadasResponsaveis(solicitacaoServicoDto, centroResultadoDto, fluxoDto, tc);
+        final Collection<AlcadaProcessoNegocioDTO> colAlcadas = this.getAlcadasResponsaveis(solicitacaoServicoDto, centroResultadoDto, fluxoDto, tc);
         if (colAlcadas == null) {
             return null;
         }
@@ -861,11 +862,12 @@ public class AlcadaProcessoNegocio {
             final CentroResultadoDTO centroResultadoDto, final TransactionControler tc) throws Exception {
         transacao = tc;
 
-        final FluxoDTO fluxoDto = recuperaFluxo(solicitacaoServicoDto);
+        final FluxoDTO fluxoDto = this.recuperaFluxo(solicitacaoServicoDto);
         if (fluxoDto == null) {
             throw new LogicException("Fluxo não encontrado");
         }
 
-        return getAlcadasResponsaveis(solicitacaoServicoDto, centroResultadoDto, fluxoDto, tc);
+        return this.getAlcadasResponsaveis(solicitacaoServicoDto, centroResultadoDto, fluxoDto, tc);
     }
+
 }

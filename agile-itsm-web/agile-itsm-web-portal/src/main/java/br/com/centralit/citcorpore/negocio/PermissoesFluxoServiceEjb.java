@@ -97,7 +97,6 @@ public class PermissoesFluxoServiceEjb extends CrudServiceImpl implements Permis
             String reabrir = "N";
             for (final GrupoDTO grupoDto : usuarioDto.getColGrupos()) {
 
-                // TODO
                 final Collection<PermissoesFluxoDTO> colPermissoes = this.findByIdGrupo(grupoDto.getIdGrupo());
 
                 if (colPermissoes != null) {
@@ -106,7 +105,6 @@ public class PermissoesFluxoServiceEjb extends CrudServiceImpl implements Permis
 
                     for (final PermissoesFluxoDTO permissoesAuxDto : colPermissoes) {
 
-                        // TODO
                         final FluxoDTO fluxoAuxDto = fluxoDao.findByTipoFluxo(permissoesAuxDto.getIdTipoFluxo());
 
                         if (fluxoAuxDto != null && fluxoAuxDto.getIdFluxo().intValue() == fluxoDto.getIdFluxo().intValue()) {

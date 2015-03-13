@@ -14,7 +14,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import br.com.centralit.citcorpore.util.CITCorporeUtil;
 import br.com.centralit.citcorpore.util.Enumerados;
@@ -36,8 +36,8 @@ public class GenerateSLA extends GerencialGenerateService {
 	public List execute(HashMap parametersValues, Collection paramtersDefinition) throws ParseException {
 		String datainicial = (String) parametersValues.get("PARAM.dataInicial");
 		String datafinal = (String) parametersValues.get("PARAM.dataFinal");
-		List parametersValuesBusca = new ArrayList();
-		List lstRetorno = new ArrayList();
+		List parametersValuesBusca = new ArrayList<>();
+		List lstRetorno = new ArrayList<>();
 
 		Date datafim = UtilDatas.convertStringToSQLDate(TipoDate.DATE_DEFAULT, datafinal, super.getLanguage(paramtersDefinition));
 		Date datainicio = UtilDatas.convertStringToSQLDate(TipoDate.DATE_DEFAULT, datainicial, super.getLanguage(paramtersDefinition));
@@ -343,8 +343,8 @@ public class GenerateSLA extends GerencialGenerateService {
 					}
 				}
 			}
-			HashMap mapAux1 = new HashMap();
-			HashMap mapAux2 = new HashMap();
+			HashMap mapAux1 = new HashMap<>();
+			HashMap mapAux2 = new HashMap<>();
 			int qtdeTotal = 0;
 			for (Iterator itAux = lstRetorno.iterator(); itAux.hasNext();) {
 				Object[] obj = (Object[]) itAux.next();
@@ -398,7 +398,7 @@ public class GenerateSLA extends GerencialGenerateService {
 						+ UtilFormatacao.formatDouble(perc2, 2) + "%)";
 			}
 			if (lstRetorno == null || lstRetorno.size() == 0) {
-				lstRetorno = new ArrayList();
+				lstRetorno = new ArrayList<>();
 				// lstRetorno.add(new Object[] { "", "", "", "", "", "", "", "", "", "", "", "", "" });
 				/**
 				 * Foi adicionado comentado o Item acima pois, ao gerar o relatório com a lista vazia o relatório estava sendo mostrado. Bruno.Aquino

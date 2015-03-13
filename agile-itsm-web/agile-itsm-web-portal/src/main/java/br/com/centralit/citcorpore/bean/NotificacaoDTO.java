@@ -5,264 +5,263 @@ import java.util.ArrayList;
 
 import br.com.agileitsm.model.support.BaseEntity;
 
-@SuppressWarnings("serial")
 public class NotificacaoDTO extends BaseEntity {
 
-	private Integer idNotificacao;
+    private Integer idNotificacao;
 
-	private String titulo;
+    private String titulo;
 
-	private String tipoNotificacao;
+    private String tipoNotificacao;
 
-	private Date dataInicio;
+    private Date dataInicio;
 
-	private Date dataFim;
+    private Date dataFim;
 
-	private String usuariosSerializados;
+    private String usuariosSerializados;
 
-	private String gruposSerializados;
+    private String gruposSerializados;
 
-	private ArrayList<NotificacaoUsuarioDTO> listaDeUsuario;
+    private ArrayList<NotificacaoUsuarioDTO> listaDeUsuario;
 
-	private ArrayList<NotificacaoGrupoDTO> listaDeGrupo;
-	
-	private ArrayList<NotificacaoServicoDTO> listaDeServico;
+    private ArrayList<NotificacaoGrupoDTO> listaDeGrupo;
 
-	private Integer idBaseConhecimento;
+    private ArrayList<NotificacaoServicoDTO> listaDeServico;
 
-	private Integer idPasta;
-	
-	private String origemNotificacao;
-	
-	private String servicosLancados;
-	
-	private String nomeTipoNotificacao;
-	
-	private Integer idNotificacaoExcluir;
-	
-	private Integer idContratoNotificacao;
-	
-	private Integer idContrato;
-	
-	/**
-	 * @return the idNotificacao
-	 */
-	public Integer getIdNotificacao() {
-		return idNotificacao;
-	}
+    private Integer idBaseConhecimento;
 
-	/**
-	 * @param idNotificacao
-	 *            the idNotificacao to set
-	 */
-	public void setIdNotificacao(Integer idNotificacao) {
-		this.idNotificacao = idNotificacao;
-	}
+    private Integer idPasta;
 
-	/**
-	 * @return the titulo
-	 */
-	public String getTitulo() {
-		return titulo;
-	}
+    private String origemNotificacao;
 
-	/**
-	 * @param titulo
-	 *            the titulo to set
-	 */
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
+    private String servicosLancados;
 
-	/**
-	 * @return the tipoNotificacao
-	 */
-	public String getTipoNotificacao() {
-		return tipoNotificacao;
-	}
+    private String nomeTipoNotificacao;
 
-	/**
-	 * @param tipoNotificacao
-	 *            the tipoNotificacao to set
-	 */
-	public void setTipoNotificacao(String tipoNotificacao) {
-		this.tipoNotificacao = tipoNotificacao;
-	}
+    private Integer idNotificacaoExcluir;
 
-	/**
-	 * @return the dataInicio
-	 */
-	public Date getDataInicio() {
-		return dataInicio;
-	}
+    private Integer idContratoNotificacao;
 
-	/**
-	 * @param dataInicio
-	 *            the dataInicio to set
-	 */
-	public void setDataInicio(Date dataInicio) {
-		this.dataInicio = dataInicio;
-	}
+    private Integer idContrato;
 
-	/**
-	 * @return the dataFim
-	 */
-	public Date getDataFim() {
-		return dataFim;
-	}
+    /**
+     * @return the idNotificacao
+     */
+    public Integer getIdNotificacao() {
+        return idNotificacao;
+    }
 
-	/**
-	 * @param dataFim
-	 *            the dataFim to set
-	 */
-	public void setDataFim(Date dataFim) {
-		this.dataFim = dataFim;
-	}
+    /**
+     * @param idNotificacao
+     *            the idNotificacao to set
+     */
+    public void setIdNotificacao(final Integer idNotificacao) {
+        this.idNotificacao = idNotificacao;
+    }
 
-	/**
-	 * @return the usuariosSerializados
-	 */
-	public String getUsuariosSerializados() {
-		return usuariosSerializados;
-	}
+    /**
+     * @return the titulo
+     */
+    public String getTitulo() {
+        return titulo;
+    }
 
-	/**
-	 * @param usuariosSerializados
-	 *            the usuariosSerializados to set
-	 */
-	public void setUsuariosSerializados(String usuariosSerializados) {
-		this.usuariosSerializados = usuariosSerializados;
-	}
+    /**
+     * @param titulo
+     *            the titulo to set
+     */
+    public void setTitulo(final String titulo) {
+        this.titulo = titulo;
+    }
 
-	/**
-	 * @return the gruposSerializados
-	 */
-	public String getGruposSerializados() {
-		return gruposSerializados;
-	}
+    /**
+     * @return the tipoNotificacao
+     */
+    public String getTipoNotificacao() {
+        return tipoNotificacao;
+    }
 
-	/**
-	 * @param gruposSerializados
-	 *            the gruposSerializados to set
-	 */
-	public void setGruposSerializados(String gruposSerializados) {
-		this.gruposSerializados = gruposSerializados;
-	}
+    /**
+     * @param tipoNotificacao
+     *            the tipoNotificacao to set
+     */
+    public void setTipoNotificacao(final String tipoNotificacao) {
+        this.tipoNotificacao = tipoNotificacao;
+    }
 
-	/**
-	 * @return the listaDeUsuario
-	 */
-	public ArrayList<NotificacaoUsuarioDTO> getListaDeUsuario() {
-		return listaDeUsuario;
-	}
+    /**
+     * @return the dataInicio
+     */
+    public Date getDataInicio() {
+        return dataInicio;
+    }
 
-	/**
-	 * @param listaDeUsuario
-	 *            the listaDeUsuario to set
-	 */
-	public void setListaDeUsuario(ArrayList<NotificacaoUsuarioDTO> listaDeUsuario) {
-		this.listaDeUsuario = listaDeUsuario;
-	}
+    /**
+     * @param dataInicio
+     *            the dataInicio to set
+     */
+    public void setDataInicio(final Date dataInicio) {
+        this.dataInicio = dataInicio;
+    }
 
-	/**
-	 * @return the litaDeGrupo
-	 */
-	public ArrayList<NotificacaoGrupoDTO> getListaDeGrupo() {
-		return listaDeGrupo;
-	}
+    /**
+     * @return the dataFim
+     */
+    public Date getDataFim() {
+        return dataFim;
+    }
 
-	/**
-	 * @param litaDeGrupo
-	 *            the litaDeGrupo to set
-	 */
-	public void setListaDeGrupo(ArrayList<NotificacaoGrupoDTO> listaDeGrupo) {
-		this.listaDeGrupo = listaDeGrupo;
-	}
+    /**
+     * @param dataFim
+     *            the dataFim to set
+     */
+    public void setDataFim(final Date dataFim) {
+        this.dataFim = dataFim;
+    }
 
-	/**
-	 * @return the idBaseConhecimento
-	 */
-	public Integer getIdBaseConhecimento() {
-		return idBaseConhecimento;
-	}
+    /**
+     * @return the usuariosSerializados
+     */
+    public String getUsuariosSerializados() {
+        return usuariosSerializados;
+    }
 
-	/**
-	 * @param idBaseConhecimento
-	 *            the idBaseConhecimento to set
-	 */
-	public void setIdBaseConhecimento(Integer idBaseConhecimento) {
-		this.idBaseConhecimento = idBaseConhecimento;
-	}
+    /**
+     * @param usuariosSerializados
+     *            the usuariosSerializados to set
+     */
+    public void setUsuariosSerializados(final String usuariosSerializados) {
+        this.usuariosSerializados = usuariosSerializados;
+    }
 
-	/**
-	 * @return the idPasta
-	 */
-	public Integer getIdPasta() {
-		return idPasta;
-	}
+    /**
+     * @return the gruposSerializados
+     */
+    public String getGruposSerializados() {
+        return gruposSerializados;
+    }
 
-	/**
-	 * @param idPasta
-	 *            the idPasta to set
-	 */
-	public void setIdPasta(Integer idPasta) {
-		this.idPasta = idPasta;
-	}
+    /**
+     * @param gruposSerializados
+     *            the gruposSerializados to set
+     */
+    public void setGruposSerializados(final String gruposSerializados) {
+        this.gruposSerializados = gruposSerializados;
+    }
 
-	public String getOrigemNotificacao() {
-		return origemNotificacao;
-	}
-	
-	public void setOrigemNotificacao(String origemNotificacao) {
-		this.origemNotificacao = origemNotificacao;
-	}
-	
-	public String getNomeTipoNotificacao() {
-		return nomeTipoNotificacao;
-	}
+    /**
+     * @return the listaDeUsuario
+     */
+    public ArrayList<NotificacaoUsuarioDTO> getListaDeUsuario() {
+        return listaDeUsuario;
+    }
 
-	public void setNomeTipoNotificacao(String nomeTipoNotificacao) {
-		this.nomeTipoNotificacao = nomeTipoNotificacao;
-	}
+    /**
+     * @param listaDeUsuario
+     *            the listaDeUsuario to set
+     */
+    public void setListaDeUsuario(final ArrayList<NotificacaoUsuarioDTO> listaDeUsuario) {
+        this.listaDeUsuario = listaDeUsuario;
+    }
 
-	public Integer getIdNotificacaoExcluir() {
-		return idNotificacaoExcluir;
-	}
+    /**
+     * @return the litaDeGrupo
+     */
+    public ArrayList<NotificacaoGrupoDTO> getListaDeGrupo() {
+        return listaDeGrupo;
+    }
 
-	public void setIdNotificacaoExcluir(Integer idNotificacaoExcluir) {
-		this.idNotificacaoExcluir = idNotificacaoExcluir;
-	}
-	
-	public String getServicosLancados() {
-		return servicosLancados;
-	}
+    /**
+     * @param litaDeGrupo
+     *            the litaDeGrupo to set
+     */
+    public void setListaDeGrupo(final ArrayList<NotificacaoGrupoDTO> listaDeGrupo) {
+        this.listaDeGrupo = listaDeGrupo;
+    }
 
-	public void setServicosLancados(String servicosLancados) {
-		this.servicosLancados = servicosLancados;
-	}
+    /**
+     * @return the idBaseConhecimento
+     */
+    public Integer getIdBaseConhecimento() {
+        return idBaseConhecimento;
+    }
 
-	public Integer getIdContratoNotificacao() {
-		return idContratoNotificacao;
-	}
+    /**
+     * @param idBaseConhecimento
+     *            the idBaseConhecimento to set
+     */
+    public void setIdBaseConhecimento(final Integer idBaseConhecimento) {
+        this.idBaseConhecimento = idBaseConhecimento;
+    }
 
-	public void setIdContratoNotificacao(Integer idContratoNotificacao) {
-		this.idContratoNotificacao = idContratoNotificacao;
-	}
+    /**
+     * @return the idPasta
+     */
+    public Integer getIdPasta() {
+        return idPasta;
+    }
 
-	public ArrayList<NotificacaoServicoDTO> getListaDeServico() {
-		return listaDeServico;
-	}
+    /**
+     * @param idPasta
+     *            the idPasta to set
+     */
+    public void setIdPasta(final Integer idPasta) {
+        this.idPasta = idPasta;
+    }
 
-	public void setListaDeServico(ArrayList<NotificacaoServicoDTO> listaDeServico) {
-		this.listaDeServico = listaDeServico;
-	}
+    public String getOrigemNotificacao() {
+        return origemNotificacao;
+    }
 
-	public Integer getIdContrato() {
-		return idContrato;
-	}
+    public void setOrigemNotificacao(final String origemNotificacao) {
+        this.origemNotificacao = origemNotificacao;
+    }
 
-	public void setIdContrato(Integer idContrato) {
-		this.idContrato = idContrato;
-	}
+    public String getNomeTipoNotificacao() {
+        return nomeTipoNotificacao;
+    }
+
+    public void setNomeTipoNotificacao(final String nomeTipoNotificacao) {
+        this.nomeTipoNotificacao = nomeTipoNotificacao;
+    }
+
+    public Integer getIdNotificacaoExcluir() {
+        return idNotificacaoExcluir;
+    }
+
+    public void setIdNotificacaoExcluir(final Integer idNotificacaoExcluir) {
+        this.idNotificacaoExcluir = idNotificacaoExcluir;
+    }
+
+    public String getServicosLancados() {
+        return servicosLancados;
+    }
+
+    public void setServicosLancados(final String servicosLancados) {
+        this.servicosLancados = servicosLancados;
+    }
+
+    public Integer getIdContratoNotificacao() {
+        return idContratoNotificacao;
+    }
+
+    public void setIdContratoNotificacao(final Integer idContratoNotificacao) {
+        this.idContratoNotificacao = idContratoNotificacao;
+    }
+
+    public ArrayList<NotificacaoServicoDTO> getListaDeServico() {
+        return listaDeServico;
+    }
+
+    public void setListaDeServico(final ArrayList<NotificacaoServicoDTO> listaDeServico) {
+        this.listaDeServico = listaDeServico;
+    }
+
+    public Integer getIdContrato() {
+        return idContrato;
+    }
+
+    public void setIdContrato(final Integer idContrato) {
+        this.idContrato = idContrato;
+    }
 
 }

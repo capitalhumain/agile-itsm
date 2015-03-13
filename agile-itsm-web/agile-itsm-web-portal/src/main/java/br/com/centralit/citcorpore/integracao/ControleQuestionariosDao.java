@@ -12,32 +12,37 @@ import br.com.citframework.util.Constantes;
 
 public class ControleQuestionariosDao extends CrudDaoDefaultImpl {
 
-	public ControleQuestionariosDao() {
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
-	
-	public Collection find(BaseEntity obj) throws PersistenceException {
-		return null;
-	}
+    public ControleQuestionariosDao() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
+    }
 
-	public Collection<Field> getFields() {
-		Collection<Field> listFields = new ArrayList<>();
-		
-		listFields.add(new Field("idControleQuestionario", "idControleQuestionario", true, true, false, false));
-		
-		return listFields;
-	}
+    @Override
+    public Collection find(final BaseEntity obj) throws PersistenceException {
+        return null;
+    }
 
-	public String getTableName() {
-		return "ControleQuestionarios";
-	}
+    @Override
+    public Collection<Field> getFields() {
+        final Collection<Field> listFields = new ArrayList<>();
 
-	public Collection list() throws PersistenceException {
-		return null;
-	}
+        listFields.add(new Field("idControleQuestionario", "idControleQuestionario", true, true, false, false));
 
-	public Class getBean() {
-		return ControleQuestionariosDTO.class;
-	}
+        return listFields;
+    }
+
+    @Override
+    public String getTableName() {
+        return "ControleQuestionarios";
+    }
+
+    @Override
+    public Collection list() throws PersistenceException {
+        return null;
+    }
+
+    @Override
+    public Class getBean() {
+        return ControleQuestionariosDTO.class;
+    }
 
 }

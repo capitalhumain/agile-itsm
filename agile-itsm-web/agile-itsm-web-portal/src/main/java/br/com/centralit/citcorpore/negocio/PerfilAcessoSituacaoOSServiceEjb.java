@@ -57,7 +57,7 @@ public class PerfilAcessoSituacaoOSServiceEjb extends CrudServiceImpl implements
         if (colSituacoesPerfil == null) {
             return null;
         }
-        final Collection colFinal = new ArrayList();
+        final Collection colFinal = new ArrayList<>();
         for (final Iterator it = colSituacoesPerfil.iterator(); it.hasNext();) {
             final PerfilAcessoSituacaoOSDTO perfilAcessoSituacaoOSDTO = (PerfilAcessoSituacaoOSDTO) it.next();
             if (perfilAcessoSituacaoOSDTO.getDataFim() == null || perfilAcessoSituacaoOSDTO.getDataFim().after(UtilDatas.getDataAtual())) {

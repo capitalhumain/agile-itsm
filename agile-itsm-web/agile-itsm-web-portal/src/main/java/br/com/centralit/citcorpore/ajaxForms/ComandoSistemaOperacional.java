@@ -5,7 +5,7 @@ import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 
 import br.com.centralit.citajax.html.AjaxFormAction;
 import br.com.centralit.citajax.html.DocumentHTML;
@@ -43,7 +43,7 @@ public class ComandoSistemaOperacional extends AjaxFormAction {
 			selectSO.addOption("", UtilI18N.internacionaliza(request, "citcorpore.comum.selecione") );
 
 			for (SistemaOperacionalDTO sis : lista) {
-				selectSO.addOption(String.valueOf(sis.getId() ), StringEscapeUtils.escapeJavaScript(sis.getNome() ));
+				selectSO.addOption(String.valueOf(sis.getId() ), StringEscapeUtils.escapeEcmaScript(sis.getNome() ));
 			}
 
 			ComandoService comandoService = (ComandoService) ServiceLocator.getInstance().getService(ComandoService.class, null);
@@ -57,7 +57,7 @@ public class ComandoSistemaOperacional extends AjaxFormAction {
 			selectComando.addOption("", UtilI18N.internacionaliza(request, "citcorpore.comum.selecione") );
 
 			for (ComandoDTO sis : listaComando) {
-				selectComando.addOption(String.valueOf(sis.getId() ), StringEscapeUtils.escapeJavaScript(sis.getDescricao() ));
+				selectComando.addOption(String.valueOf(sis.getId() ), StringEscapeUtils.escapeEcmaScript(sis.getDescricao() ));
 			}
 		}
 	}

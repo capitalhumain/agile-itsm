@@ -114,7 +114,7 @@ public class ListaServicosContrato extends AjaxFormAction {
 		request.getSession(true).setAttribute("totalPag", servicoContratoDTO.getTotalPagina());
 		request.getSession(true).setAttribute("totalItens", (servicoContratoDTO.getTotalItens() ));
 		
-		List colFinal = new ArrayList();
+		List colFinal = new ArrayList<>();
 		if (colServicosContrato != null){
 			for(Iterator it = colServicosContrato.iterator(); it.hasNext();){
 				ServicoContratoDTO servicoContratoAux = (ServicoContratoDTO)it.next();

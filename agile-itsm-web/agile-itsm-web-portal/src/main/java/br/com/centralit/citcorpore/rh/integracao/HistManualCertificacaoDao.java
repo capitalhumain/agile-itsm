@@ -63,7 +63,7 @@ public class HistManualCertificacaoDao extends CrudDaoDefaultImpl {
 
         final List list = this.execSQL(sql.toString(), objs);
 
-        final List listRetorno = new ArrayList();
+        final List listRetorno = new ArrayList<>();
         listRetorno.add("idhistManualCertificacao");
         listRetorno.add("descricao");
         listRetorno.add("detalhe");

@@ -15,142 +15,139 @@ import br.com.citframework.integracao.Field;
 import br.com.citframework.util.Constantes;
 import br.com.citframework.util.UtilDatas;
 
-@SuppressWarnings({ "rawtypes", "unchecked" })
 public class ContadorAcessoDao extends CrudDaoDefaultImpl {
 
-	public ContadorAcessoDao() {
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
+    public ContadorAcessoDao() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
+    }
 
-	@Override
-	public Collection find(BaseEntity obj) throws PersistenceException {
-		List ordenacao = new ArrayList();
-		ordenacao.add("idcontadoracesso");
-		return super.find(obj, ordenacao);
-	}
+    @Override
+    public Collection find(final BaseEntity obj) throws PersistenceException {
+        final List<String> ordenacao = new ArrayList<>();
+        ordenacao.add("idcontadoracesso");
+        return super.find(obj, ordenacao);
+    }
 
-	@Override
-	public Collection<Field> getFields() {
-		Collection<Field> listFields = new ArrayList<>();
+    @Override
+    public Collection<Field> getFields() {
+        final Collection<Field> listFields = new ArrayList<>();
 
-		listFields.add(new Field("idcontadoracesso", "idContadorAcesso", true, true, false, false));
-		listFields.add(new Field("idusuario", "idUsuario", false, false, false, false));
-		listFields.add(new Field("idbaseconhecimento", "idBaseConhecimento", false, false, false, false));
-		listFields.add(new Field("datahoraacesso", "dataHoraAcesso", false, false, false, false));
-		listFields.add(new Field("contadoracesso", "contadorAcesso", false, false, false, false));
+        listFields.add(new Field("idcontadoracesso", "idContadorAcesso", true, true, false, false));
+        listFields.add(new Field("idusuario", "idUsuario", false, false, false, false));
+        listFields.add(new Field("idbaseconhecimento", "idBaseConhecimento", false, false, false, false));
+        listFields.add(new Field("datahoraacesso", "dataHoraAcesso", false, false, false, false));
+        listFields.add(new Field("contadoracesso", "contadorAcesso", false, false, false, false));
 
-		return listFields;
-	}
+        return listFields;
+    }
 
-	@Override
-	public String getTableName() {
-		return "contadoracesso";
-	}
+    @Override
+    public String getTableName() {
+        return "contadoracesso";
+    }
 
-	@Override
-	public Collection list() throws PersistenceException {
-		List ordenacao = new ArrayList();
-		ordenacao.add("idcontadoracesso");
-		return super.list(ordenacao);
-	}
+    @Override
+    public Collection list() throws PersistenceException {
+        final List<String> ordenacao = new ArrayList<>();
+        ordenacao.add("idcontadoracesso");
+        return super.list(ordenacao);
+    }
 
-	public boolean verificarDataHoraDoContadorDeAcesso(ContadorAcessoDTO contadorDto) throws Exception {
-		Long retornoDeHoras;
+    public boolean verificarDataHoraDoContadorDeAcesso(final ContadorAcessoDTO contadorDto) throws Exception {
+        Long retornoDeHoras;
 
-		boolean gravar = false;
+        boolean gravar = false;
 
-		List parametro = new ArrayList();
-		List list = new ArrayList();
-		List listRetornor = new ArrayList();
-		StringBuilder sql = new StringBuilder();
+        final List parametro = new ArrayList<>();
+        List list = new ArrayList<>();
+        final List listRetornor = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
 
-		sql.append("SELECT MAX(datahoraacesso) FROM " + getTableName() + " where idusuario = ? and idbaseconhecimento = ? ");
-		parametro.add(contadorDto.getIdUsuario());
-		parametro.add(contadorDto.getIdBaseConhecimento());
+        sql.append("SELECT MAX(datahoraacesso) FROM " + this.getTableName() + " where idusuario = ? and idbaseconhecimento = ? ");
+        parametro.add(contadorDto.getIdUsuario());
+        parametro.add(contadorDto.getIdBaseConhecimento());
 
-		list = this.execSQL(sql.toString(), parametro.toArray());
-		listRetornor.add("dataHoraAcesso");
-		if (list != null && !list.isEmpty()) {
-			Collection<ContadorAcessoDTO> listaContadorAcesso = this.listConvertion(getBean(), list, listRetornor);
-			for (ContadorAcessoDTO contador : listaContadorAcesso) {
-					if(contador.getDataHoraAcesso()!=null && contadorDto.getDataHoraAcesso() !=null){
-						retornoDeHoras = UtilDatas.calculaDiferencaTempoEmMilisegundos(contadorDto.getDataHoraAcesso(), contador.getDataHoraAcesso());
-						retornoDeHoras = retornoDeHoras / 3600000;
-						if (retornoDeHoras >= 1) {
-							gravar = true;
-						} else {
-							gravar = false;
-						}
-					}else{
-						return true;
-					}
+        list = this.execSQL(sql.toString(), parametro.toArray());
+        listRetornor.add("dataHoraAcesso");
+        if (list != null && !list.isEmpty()) {
+            final Collection<ContadorAcessoDTO> listaContadorAcesso = this.listConvertion(this.getBean(), list, listRetornor);
+            for (final ContadorAcessoDTO contador : listaContadorAcesso) {
+                if (contador.getDataHoraAcesso() != null && contadorDto.getDataHoraAcesso() != null) {
+                    retornoDeHoras = UtilDatas.calculaDiferencaTempoEmMilisegundos(contadorDto.getDataHoraAcesso(), contador.getDataHoraAcesso());
+                    retornoDeHoras = retornoDeHoras / 3600000;
+                    if (retornoDeHoras >= 1) {
+                        gravar = true;
+                    } else {
+                        gravar = false;
+                    }
+                } else {
+                    return true;
+                }
 
-			}
-			return gravar;
-		}
-		return true;
+            }
+            return gravar;
+        }
+        return true;
 
-	}
+    }
 
-	public Integer quantidadesDeAcessoPorBaseConhecimnto(BaseConhecimentoDTO baseConhecimentoDTO) throws Exception {
-		List parametro = new ArrayList();
-		List list = new ArrayList();
-		List listRetornor = new ArrayList();
-		StringBuilder sql = new StringBuilder();
+    public Integer quantidadesDeAcessoPorBaseConhecimnto(final BaseConhecimentoDTO baseConhecimentoDTO) throws Exception {
+        final List parametro = new ArrayList<>();
+        List list = new ArrayList<>();
+        final List listRetornor = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
 
-		sql.append("SELECT count(contadoracesso) FROM "+ getTableName() +" where idbaseconhecimento = ? ");
-		parametro.add(baseConhecimentoDTO.getIdBaseConhecimento());
+        sql.append("SELECT count(contadoracesso) FROM " + this.getTableName() + " where idbaseconhecimento = ? ");
+        parametro.add(baseConhecimentoDTO.getIdBaseConhecimento());
 
-		list = this.execSQL(sql.toString(), parametro.toArray());
-		listRetornor.add("contadorCliques");
-		if (list != null) {
-			Collection<BaseConhecimentoDTO> listaBaseConhecimento = this.listConvertion(BaseConhecimentoDTO.class, list, listRetornor);
-			for (BaseConhecimentoDTO baseConhecimento : listaBaseConhecimento) {
-				return baseConhecimento.getContadorCliques();
-			}
-		}
-		return null;
+        list = this.execSQL(sql.toString(), parametro.toArray());
+        listRetornor.add("contadorCliques");
+        if (list != null) {
+            final Collection<BaseConhecimentoDTO> listaBaseConhecimento = this.listConvertion(BaseConhecimentoDTO.class, list, listRetornor);
+            for (final BaseConhecimentoDTO baseConhecimento : listaBaseConhecimento) {
+                return baseConhecimento.getContadorCliques();
+            }
+        }
+        return null;
 
-	}
+    }
 
-	public Integer quantidadesDeAcessoPorPeriodo(BaseConhecimentoDTO baseConhecimentoDTO) throws Exception {
-		List parametro = new ArrayList();
-		List list = new ArrayList();
-		List listRetornor = new ArrayList();
-		StringBuilder sql = new StringBuilder();
-		Integer contadorAcesso = 0;
+    public Integer quantidadesDeAcessoPorPeriodo(final BaseConhecimentoDTO baseConhecimentoDTO) throws Exception {
+        final List parametro = new ArrayList<>();
+        List list = new ArrayList<>();
+        final List listRetornor = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
+        Integer contadorAcesso = 0;
 
-		sql.append("SELECT count(contadoracesso) FROM "+ getTableName());
-		if (CITCorporeUtil.SGBD_PRINCIPAL.trim().equalsIgnoreCase("ORACLE")) {
-			sql.append(" WHERE trunc(datahoraacesso) BETWEEN to_date(?, 'yyyy-mm-dd') and to_date(?, 'yyyy-mm-dd') ");
-		}else{
-			sql.append(" WHERE datahoraacesso BETWEEN ? and ? ");
-		}
+        sql.append("SELECT count(contadoracesso) FROM " + this.getTableName());
+        if (CITCorporeUtil.SGBD_PRINCIPAL.trim().equalsIgnoreCase("ORACLE")) {
+            sql.append(" WHERE trunc(datahoraacesso) BETWEEN to_date(?, 'yyyy-mm-dd') and to_date(?, 'yyyy-mm-dd') ");
+        } else {
+            sql.append(" WHERE datahoraacesso BETWEEN ? and ? ");
+        }
 
-		if (CITCorporeUtil.SGBD_PRINCIPAL.trim().equalsIgnoreCase("ORACLE")) {
-			parametro.add(UtilDatas.dateToSTRWithFormat(baseConhecimentoDTO.getDataInicio(), "yyyy-MM-dd"));
-			parametro.add(UtilDatas.dateToSTRWithFormat(baseConhecimentoDTO.getDataFim(), "yyyy-MM-dd"));
-		}else{
-			parametro.add(Timestamp.valueOf(UtilDatas.dateToSTRWithFormat(baseConhecimentoDTO.getDataInicio(), "yyyy-MM-dd") + " 00:00:00"));
-			//parametro.add(baseConhecimentoDTO.getDataInicio() + " 00:00:00");
-			parametro.add(Timestamp.valueOf(UtilDatas.dateToSTRWithFormat(baseConhecimentoDTO.getDataFim(), "yyyy-MM-dd") + " 23:59:59"));
-			//parametro.add(baseConhecimentoDTO.getDataFim() + " 23:59:59");
-		}
+        if (CITCorporeUtil.SGBD_PRINCIPAL.trim().equalsIgnoreCase("ORACLE")) {
+            parametro.add(UtilDatas.dateToSTRWithFormat(baseConhecimentoDTO.getDataInicio(), "yyyy-MM-dd"));
+            parametro.add(UtilDatas.dateToSTRWithFormat(baseConhecimentoDTO.getDataFim(), "yyyy-MM-dd"));
+        } else {
+            parametro.add(Timestamp.valueOf(UtilDatas.dateToSTRWithFormat(baseConhecimentoDTO.getDataInicio(), "yyyy-MM-dd") + " 00:00:00"));
+            parametro.add(Timestamp.valueOf(UtilDatas.dateToSTRWithFormat(baseConhecimentoDTO.getDataFim(), "yyyy-MM-dd") + " 23:59:59"));
+        }
 
-		list = this.execSQL(sql.toString(), parametro.toArray());
-		listRetornor.add("contadorCliques");
-		if (list != null) {
-			Collection<BaseConhecimentoDTO> listaBaseConhecimento = this.listConvertion(BaseConhecimentoDTO.class, list, listRetornor);
-			for (BaseConhecimentoDTO baseConhecimento : listaBaseConhecimento) {
-				contadorAcesso = baseConhecimento.getContadorCliques();
-			}
-		}
-		return contadorAcesso;
-	}
+        list = this.execSQL(sql.toString(), parametro.toArray());
+        listRetornor.add("contadorCliques");
+        if (list != null) {
+            final Collection<BaseConhecimentoDTO> listaBaseConhecimento = this.listConvertion(BaseConhecimentoDTO.class, list, listRetornor);
+            for (final BaseConhecimentoDTO baseConhecimento : listaBaseConhecimento) {
+                contadorAcesso = baseConhecimento.getContadorCliques();
+            }
+        }
+        return contadorAcesso;
+    }
 
-	@Override
-	public Class getBean() {
-		return ContadorAcessoDTO.class;
-	}
+    @Override
+    public Class<ContadorAcessoDTO> getBean() {
+        return ContadorAcessoDTO.class;
+    }
 
 }

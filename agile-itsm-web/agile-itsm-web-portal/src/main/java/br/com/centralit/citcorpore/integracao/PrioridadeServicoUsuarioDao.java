@@ -38,7 +38,7 @@ public class PrioridadeServicoUsuarioDao extends CrudDaoDefaultImpl {
 
     @Override
     public Collection list() throws PersistenceException {
-        final List ordenacao = new ArrayList();
+        final List<Order> ordenacao = new ArrayList<>();
         ordenacao.add(new Order("idUsuario"));
         return super.list(ordenacao);
     }
@@ -50,14 +50,14 @@ public class PrioridadeServicoUsuarioDao extends CrudDaoDefaultImpl {
 
     @Override
     public Collection find(final BaseEntity model) throws PersistenceException {
-        final List ordenacao = new ArrayList();
+        final List<Order> ordenacao = new ArrayList<>();
         ordenacao.add(new Order("idUsuario"));
         return super.find(model, ordenacao);
     }
 
     public Collection findByIdAcordoNivelServico(final Integer idAcordoNivelServico) throws PersistenceException {
-        final List condicao = new ArrayList();
-        final List ordenacao = new ArrayList();
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
 
         condicao.add(new Condition("idAcordoNivelServico", "=", idAcordoNivelServico));
         ordenacao.add(new Order("idUsuario"));
@@ -66,7 +66,7 @@ public class PrioridadeServicoUsuarioDao extends CrudDaoDefaultImpl {
     }
 
     public PrioridadeServicoUsuarioDTO findByIdAcordoNivelServicoAndIdUsuario(final Integer idAcordoNivelServico, final Integer idUsuario) throws PersistenceException {
-        final List condicao = new ArrayList();
+        final List<Condition> condicao = new ArrayList<>();
         condicao.add(new Condition("idAcordoNivelServico", "=", idAcordoNivelServico));
         condicao.add(new Condition("idUsuario", "=", idUsuario));
         condicao.add(new Condition("dataFim", "is", null));
@@ -79,7 +79,7 @@ public class PrioridadeServicoUsuarioDao extends CrudDaoDefaultImpl {
     }
 
     public void deleteByIdAcordoNivelServico(final Integer idAcordoNivelServico) throws PersistenceException {
-        final List condicao = new ArrayList();
+        final List<Condition> condicao = new ArrayList<>();
         condicao.add(new Condition("idAcordoNivelServico", "=", idAcordoNivelServico));
         super.deleteByCondition(condicao);
     }

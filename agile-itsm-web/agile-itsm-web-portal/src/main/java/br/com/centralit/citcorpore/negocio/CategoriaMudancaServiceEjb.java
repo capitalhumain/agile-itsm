@@ -82,7 +82,7 @@ public class CategoriaMudancaServiceEjb extends CrudServiceImpl implements Categ
     @Override
     @SuppressWarnings("rawtypes")
     public Collection listHierarquia() throws Exception {
-        final Collection colFinal = new ArrayList();
+        final Collection colFinal = new ArrayList<>();
         try {
             final Collection col = this.getDao().findCategoriaMudancaSemPai();
             if (col != null) {
@@ -104,7 +104,7 @@ public class CategoriaMudancaServiceEjb extends CrudServiceImpl implements Categ
 
     private Collection getCollectionHierarquia(final CategoriaMudancaDTO idCategoriaMudanca, final Integer nivel) throws Exception {
         final Collection col = this.getDao().findByIdCategoriaMudancaPai(idCategoriaMudanca.getIdCategoriaMudancaPai());
-        final Collection colFinal = new ArrayList();
+        final Collection colFinal = new ArrayList<>();
         if (col != null) {
             for (final Iterator it = col.iterator(); it.hasNext();) {
                 final CategoriaMudancaDTO categoriaMudancaDto = (CategoriaMudancaDTO) it.next();
@@ -121,7 +121,7 @@ public class CategoriaMudancaServiceEjb extends CrudServiceImpl implements Categ
 
     @Override
     public Collection findCategoriaAtivos() {
-        // TODO Auto-generated method stub
+        
         return null;
     }
 

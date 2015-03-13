@@ -1,19 +1,16 @@
 package br.com.citframework.dto;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import br.com.agileitsm.model.support.BaseEntity;
-import lombok.Getter;
-import lombok.Setter;
 
+@Data
+@EqualsAndHashCode(callSuper = false)
 public class ItemValorDescricaoDTO extends BaseEntity {
 
     private static final long serialVersionUID = 6041027505586125015L;
 
-    @Getter
-    @Setter
     private String valor;
-
-    @Getter
-    @Setter
     private String descricao;
 
 }

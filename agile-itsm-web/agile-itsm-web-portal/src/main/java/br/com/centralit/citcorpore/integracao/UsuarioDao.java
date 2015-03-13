@@ -52,12 +52,7 @@ public class UsuarioDao extends CrudDaoDefaultImpl {
 
     @Override
     public String getTableName() {
-        return "USUARIO";
-    }
-
-    @Override
-    public void updateNotNull(final BaseEntity obj) throws PersistenceException {
-        super.updateNotNull(obj);
+        return "usuario";
     }
 
     /**

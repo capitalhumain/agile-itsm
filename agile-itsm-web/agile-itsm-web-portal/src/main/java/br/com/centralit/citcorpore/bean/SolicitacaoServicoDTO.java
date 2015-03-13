@@ -12,7 +12,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.safety.Whitelist;
 
@@ -864,9 +864,7 @@ public class SolicitacaoServicoDTO extends ObjetoNegocioFluxoDTO {
             } else {
                 return false;
             }
-        } else {
-            return false;
-        }
+        } return false;
     }
 
     public String getTempoFaltante() {
@@ -979,7 +977,7 @@ public class SolicitacaoServicoDTO extends ObjetoNegocioFluxoDTO {
 
     public String getDescricao() {
         // if (this.descricao != null && !StringUtils.isBlank(this.descricao)) {
-        // return StringEscapeUtils.escapeJavaScript(this.descricao);
+        // return StringEscapeUtils.escapeEcmaScript(this.descricao);
         // } else {
         // return this.descricao;
         // }

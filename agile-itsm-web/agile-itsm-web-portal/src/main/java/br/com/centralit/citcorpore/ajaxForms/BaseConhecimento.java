@@ -10,7 +10,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import br.com.centralit.citajax.html.AjaxFormAction;
 import br.com.centralit.citajax.html.DocumentHTML;
@@ -464,7 +464,7 @@ public class BaseConhecimento extends AjaxFormAction {
 
 			this.restaurarAnexos(request, baseConhecimentoDto);
 
-			//baseConhecimentoDto.setTitulo(StringEscapeUtils.unescapeJavaScript(baseConhecimentoDto.getTitulo()));
+			//baseConhecimentoDto.setTitulo(StringEscapeUtils.unescapeEcmaScript(baseConhecimentoDto.getTitulo()));
 			
 			if(request.getParameter("idProblema") !=null&& !request.getParameter("idProblema").equalsIgnoreCase("")){
 				baseConhecimentoDto.setIdProblema(Integer.parseInt(request.getParameter("idProblema")));

@@ -109,8 +109,8 @@ public class CITAutoCompleteProcess {
                 retornoDesc = ((String) retornoDesc).replaceAll("\"", "&quot;").replaceAll("'", "&#180;");
             }
 
-            strRetorno += "<tr class='" + classTextoautocomplete + "' style='cursor:pointer' onclick='" + funcaoTratarSelecaoDoAutoComplete + "(\"" + facadeName + "\", "
-                    + retornoId + ", \"" + retornoDesc + "\")'>";
+            strRetorno += "<tr class='" + classTextoautocomplete + "' style='cursor:pointer' onclick='" + funcaoTratarSelecaoDoAutoComplete + "(\""
+                    + facadeName + "\", " + retornoId + ", \"" + retornoDesc + "\")'>";
             for (int j = 0; j < ret.getColumnsReturn().length; j++) {
                 final Method mtd = CitAjaxReflexao.findMethod(ret.getColumnsReturn()[j], obj);
                 if (mtd != null) {

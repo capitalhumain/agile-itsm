@@ -335,8 +335,8 @@ public class InformacaoItemConfiguracao extends AjaxFormAction {
     	if(usrDto == null){
     		return;
     	}
-    	HashMap map = new HashMap();
-    	HashMap map2 = new HashMap();
+    	HashMap map = new HashMap<>();
+    	HashMap map2 = new HashMap<>();
     	ImagemItemConfiguracaoService imagemItemConfiguracaoService = (ImagemItemConfiguracaoService) ServiceLocator.getInstance().getService(ImagemItemConfiguracaoService.class, null);
     	Collection colHierarq = imagemItemConfiguracaoService.findItensRelacionadosHierarquia(idItemCfg);
     	String strTables = "<b><u>"+UtilI18N.internacionaliza(request, "pesquisaItemConfiguracao.iCsVinculados")+"</u></b>";

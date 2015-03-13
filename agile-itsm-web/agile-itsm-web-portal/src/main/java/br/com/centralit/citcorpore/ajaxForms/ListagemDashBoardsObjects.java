@@ -75,7 +75,7 @@ public class ListagemDashBoardsObjects extends AjaxFormAction {
             System.out.println("PROBLEMA COM CODIFICACAO DE CARACTERES!!! [AjaxProcessEvent.getFormFields()]");
             e.printStackTrace();
         }
-        final HashMap formFields = new HashMap();
+        final HashMap formFields = new HashMap<>();
         final Enumeration en = req.getParameterNames();
         String[] strValores;
         while (en.hasMoreElements()) {

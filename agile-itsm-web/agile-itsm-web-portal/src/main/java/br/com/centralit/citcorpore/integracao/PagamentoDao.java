@@ -18,40 +18,41 @@ import br.com.citframework.util.Constantes;
 public class PagamentoDao extends CrudDaoDefaultImpl {
 
     public PagamentoDao() {
-	super(Constantes.getValue("DATABASE_ALIAS"), null);
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
     }
 
+    @Override
     @SuppressWarnings("rawtypes")
     public Class getBean() {
-	return TreinamentoDTO.class;
+        return TreinamentoDTO.class;
     }
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
+    @Override
     public Collection<Field> getFields() {
-	Collection<Field> listFields = new ArrayList<>();
+        final Collection<Field> listFields = new ArrayList<>();
 
-	listFields.add(new Field("idpagamento", "idPagamento", true, true, false, false));
-	listFields.add(new Field("datapagamento", "descPagamento", false, false, false, false));
-	listFields.add(new Field("parcela", "parcela", false, false, false, false));
-	
+        listFields.add(new Field("idpagamento", "idPagamento", true, true, false, false));
+        listFields.add(new Field("datapagamento", "descPagamento", false, false, false, false));
+        listFields.add(new Field("parcela", "parcela", false, false, false, false));
 
-	return listFields;
+        return listFields;
     }
 
+    @Override
     public String getTableName() {
-	return "PAGAMENTO";
+        return "PAGAMENTO";
     }
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
-    public Collection find(BaseEntity obj) throws PersistenceException {
-	List ordem = new ArrayList();
-	return super.find(obj, ordem);
+    @Override
+    public Collection find(final BaseEntity obj) throws PersistenceException {
+        final List ordem = new ArrayList<>();
+        return super.find(obj, ordem);
     }
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
+    @Override
     public Collection list() throws PersistenceException {
-	List list = new ArrayList();
-	return super.list(list);
+        final List list = new ArrayList<>();
+        return super.list(list);
     }
 
 }

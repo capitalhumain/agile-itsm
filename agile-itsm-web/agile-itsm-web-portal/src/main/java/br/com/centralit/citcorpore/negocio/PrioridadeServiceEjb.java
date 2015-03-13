@@ -15,7 +15,6 @@ import br.com.citframework.service.CrudServiceImpl;
  * @author leandro.viana
  *
  */
-@SuppressWarnings({"rawtypes", "unchecked"})
 public class PrioridadeServiceEjb extends CrudServiceImpl implements PrioridadeService {
 
     private PrioridadeDao dao;
@@ -38,7 +37,7 @@ public class PrioridadeServiceEjb extends CrudServiceImpl implements PrioridadeS
 
     @Override
     public Collection<PrioridadeDTO> prioridadesAtivasPorNome(final String nome) {
-        final List condicoes = new ArrayList<Condition>();
+        final List<Condition> condicoes = new ArrayList<Condition>();
         condicoes.add(new Condition("nomePrioridade", "=", nome));
         condicoes.add(new Condition("situacao", "!=", "I"));
         try {
@@ -46,7 +45,7 @@ public class PrioridadeServiceEjb extends CrudServiceImpl implements PrioridadeS
         } catch (final Exception e) {
             e.printStackTrace();
         }
-        return new ArrayList<PrioridadeDTO>();
+        return new ArrayList<>();
     }
 
     @Override
@@ -57,7 +56,7 @@ public class PrioridadeServiceEjb extends CrudServiceImpl implements PrioridadeS
         } catch (final Exception e) {
             e.printStackTrace();
         }
-        return new ArrayList<PrioridadeDTO>();
+        return new ArrayList<>();
     }
 
 }

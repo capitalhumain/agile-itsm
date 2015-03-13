@@ -263,7 +263,7 @@ public class CotacaoServiceEjb extends CrudServiceImpl implements CotacaoService
 
             if (tipoCriacaoItem.equals("1") || colItensRequisicao.size() == 1) {
                 for (final ItemRequisicaoProdutoDTO itemRequisicaoProdutoDto : colItensRequisicao) {
-                    final List<ItemRequisicaoProdutoDTO> itens = new ArrayList();
+                    final List<ItemRequisicaoProdutoDTO> itens = new ArrayList<>();
                     itens.add(itemRequisicaoProdutoDto);
                     ItemCotacaoDTO itemCotacaoDto = new ItemCotacaoDTO();
                     Reflexao.copyPropertyValues(itemRequisicaoProdutoDto, itemCotacaoDto);
@@ -272,7 +272,7 @@ public class CotacaoServiceEjb extends CrudServiceImpl implements CotacaoService
                     itemCotacaoDto = itemCotacaoService.create(usuarioDto, itemCotacaoDto, itens, tc);
                 }
             } else {
-                final List<ItemRequisicaoProdutoDTO> itens = new ArrayList();
+                final List<ItemRequisicaoProdutoDTO> itens = new ArrayList<>();
                 ItemCotacaoDTO itemCotacaoDto = new ItemCotacaoDTO();
                 Reflexao.copyPropertyValues(itemCotacaoRefDto, itemCotacaoDto);
                 itemCotacaoDto.setIdCotacao(idCotacao);
@@ -306,7 +306,7 @@ public class CotacaoServiceEjb extends CrudServiceImpl implements CotacaoService
             return;
         }
 
-        final HashMap<String, Object> mapFornecedores = new HashMap();
+        final HashMap<String, Object> mapFornecedores = new HashMap<>();
         final Collection<FornecedorCotacaoDTO> colFornecedorCotacao = new FornecedorCotacaoDao().findByIdCotacao(cotacaoDto.getIdCotacao());
         if (colFornecedorCotacao != null) {
             for (final FornecedorCotacaoDTO fornecedorCotacaoDto : colFornecedorCotacao) {
@@ -348,7 +348,7 @@ public class CotacaoServiceEjb extends CrudServiceImpl implements CotacaoService
             return null;
         }
 
-        final HashMap<String, Object> mapFornecedores = new HashMap();
+        final HashMap<String, Object> mapFornecedores = new HashMap<>();
         final Collection<FornecedorCotacaoDTO> colFornecedorCotacao = new FornecedorCotacaoDao().findByIdCotacao(cotacaoDto.getIdCotacao());
         if (colFornecedorCotacao != null) {
             for (final FornecedorCotacaoDTO fornecedorCotacaoDto : colFornecedorCotacao) {
@@ -359,7 +359,7 @@ public class CotacaoServiceEjb extends CrudServiceImpl implements CotacaoService
         }
 
         final AvaliacaoFornecedorServiceEjb avaliacaoFornecedorService = new AvaliacaoFornecedorServiceEjb();
-        final Collection<FornecedorDTO> result = new ArrayList();
+        final Collection<FornecedorDTO> result = new ArrayList<>();
         final ProdutoDao produtoDao = new ProdutoDao();
         final FornecedorDao fornecedorDao = new FornecedorDao();
         final FornecedorProdutoDao fornecedorProdutoDao = new FornecedorProdutoDao();

@@ -66,7 +66,7 @@ public class PedidoCompraServiceEjb extends CrudServiceImpl implements PedidoCom
 
         ColetaPrecoDao coletaPrecoDao = new ColetaPrecoDao();
 
-	    HashMap<String, ColetaPrecoDTO> mapColetas = new HashMap();
+	    HashMap<String, ColetaPrecoDTO> mapColetas = new HashMap<>();
 	    for (ItemPedidoCompraDTO item : pedidoCompraDto.getColItens()) {
 	        ColetaPrecoDTO coletaPrecoDto = mapColetas.get(""+item.getIdColetaPreco());
 	        if (coletaPrecoDto == null) {

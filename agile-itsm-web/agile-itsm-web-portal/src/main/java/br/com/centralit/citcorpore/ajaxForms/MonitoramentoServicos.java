@@ -40,7 +40,7 @@ public class MonitoramentoServicos extends AjaxFormAction {
         int contador = 0;
         final UsuarioDTO usuario = WebUtil.getUsuario(request);
         final ArrayList<SolicitacaoServicoDTO> resultSolicitacoes = new ArrayList<SolicitacaoServicoDTO>();
-        List colTarefasFiltradasFinal = new ArrayList();
+        List colTarefasFiltradasFinal = new ArrayList<>();
         if (usuario == null) {
             document.alert(UtilI18N.internacionaliza(request, "citcorpore.comum.sessaoExpirada"));
             document.executeScript("window.location = '" + Constantes.getValue("SERVER_ADDRESS") + request.getContextPath() + "'");
@@ -64,7 +64,7 @@ public class MonitoramentoServicos extends AjaxFormAction {
         gerenciamentoBean.setNomeCampoOrdenacao("");
         final boolean bFiltroPorContrato = gerenciamentoBean.getNumeroContratoSel() != null && gerenciamentoBean.getNumeroContratoSel().length() > 0;
         final boolean bFiltroPorSolicitacao = gerenciamentoBean.getIdGrupoAtual() != null && gerenciamentoBean.getIdGrupoAtual() > 0;
-        final List<TarefaFluxoDTO> colTarefasFiltradas = new ArrayList();
+        final List<TarefaFluxoDTO> colTarefasFiltradas = new ArrayList<>();
         if (!bFiltroPorContrato && !bFiltroPorSolicitacao) {
             colTarefasFiltradas.addAll(colTarefas);
         } else {

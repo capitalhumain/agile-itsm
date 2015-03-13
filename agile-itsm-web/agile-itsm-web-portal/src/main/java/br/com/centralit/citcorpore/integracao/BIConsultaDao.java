@@ -14,54 +14,67 @@ import br.com.citframework.integracao.Order;
 import br.com.citframework.util.Constantes;
 
 public class BIConsultaDao extends CrudDaoDefaultImpl {
-	public BIConsultaDao() {
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
-	public Collection<Field> getFields() {
-		Collection<Field> listFields = new ArrayList<>();
-		listFields.add(new Field("idConsulta" ,"idConsulta", true, true, false, false));
-		listFields.add(new Field("identificacao" ,"identificacao", false, false, false, false));
-		listFields.add(new Field("nomeConsulta" ,"nomeConsulta", false, false, false, false));
-		listFields.add(new Field("tipoConsulta" ,"tipoConsulta", false, false, false, false));
-		listFields.add(new Field("textoSQL" ,"textoSQL", false, false, false, false));
-		listFields.add(new Field("situacao" ,"situacao", false, false, false, false));
-		listFields.add(new Field("acaoCruzado" ,"acaoCruzado", false, false, false, false));
-		listFields.add(new Field("template" ,"template", false, false, false, false));
-		listFields.add(new Field("scriptExec" ,"scriptExec", false, false, false, false));
-		listFields.add(new Field("parametros" ,"parametros", false, false, false, false));
-		listFields.add(new Field("idCategoria" ,"idCategoria", false, false, false, false));
-		listFields.add(new Field("naoAtualizBase" ,"naoAtualizBase", false, false, false, false));
-		return listFields;
-	}
-	public String getTableName() {
-		return this.getOwner() + "BI_Consulta";
-	}
-	public Collection list() throws PersistenceException {
-		return null;
-	}
 
-	public Class getBean() {
-		return BIConsultaDTO.class;
-	}
-	public Collection find(BaseEntity arg0) throws PersistenceException {
-		return null;
-	}
-	public Collection findByIdCategoria(Integer parm) throws PersistenceException {
-		List condicao = new ArrayList();
-		List ordenacao = new ArrayList(); 
-		condicao.add(new Condition("idCategoria", "=", parm)); 
-		ordenacao.add(new Order("nomeConsulta"));
-		return super.findByCondition(condicao, ordenacao);
-	}
-	public BIConsultaDTO getByIdentificacao(String ident) throws PersistenceException {
-		String sql = "select " + this.getNamesFieldsStr() + " from " + this.getTableName() + " where identificacao = ?";
-		List lstParms = new ArrayList();
-		lstParms.add(ident);
-		List lstDados = this.execSQL(sql, lstParms.toArray());
-		List lst = this.listConvertion(getBean(), lstDados, this.getListNamesFieldClass());
-		if (lst == null || lst.size() == 0){
-			return null;
-		}
-		return (BIConsultaDTO)lst.get(0);
-	}
+    public BIConsultaDao() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
+    }
+
+    @Override
+    public Collection<Field> getFields() {
+        final Collection<Field> listFields = new ArrayList<>();
+        listFields.add(new Field("idConsulta", "idConsulta", true, true, false, false));
+        listFields.add(new Field("identificacao", "identificacao", false, false, false, false));
+        listFields.add(new Field("nomeConsulta", "nomeConsulta", false, false, false, false));
+        listFields.add(new Field("tipoConsulta", "tipoConsulta", false, false, false, false));
+        listFields.add(new Field("textoSQL", "textoSQL", false, false, false, false));
+        listFields.add(new Field("situacao", "situacao", false, false, false, false));
+        listFields.add(new Field("acaoCruzado", "acaoCruzado", false, false, false, false));
+        listFields.add(new Field("template", "template", false, false, false, false));
+        listFields.add(new Field("scriptExec", "scriptExec", false, false, false, false));
+        listFields.add(new Field("parametros", "parametros", false, false, false, false));
+        listFields.add(new Field("idCategoria", "idCategoria", false, false, false, false));
+        listFields.add(new Field("naoAtualizBase", "naoAtualizBase", false, false, false, false));
+        return listFields;
+    }
+
+    @Override
+    public String getTableName() {
+        return this.getOwner() + "BI_Consulta";
+    }
+
+    @Override
+    public Collection list() throws PersistenceException {
+        return null;
+    }
+
+    @Override
+    public Class getBean() {
+        return BIConsultaDTO.class;
+    }
+
+    @Override
+    public Collection find(final BaseEntity arg0) throws PersistenceException {
+        return null;
+    }
+
+    public Collection findByIdCategoria(final Integer parm) throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
+        condicao.add(new Condition("idCategoria", "=", parm));
+        ordenacao.add(new Order("nomeConsulta"));
+        return super.findByCondition(condicao, ordenacao);
+    }
+
+    public BIConsultaDTO getByIdentificacao(final String ident) throws PersistenceException {
+        final String sql = "select " + this.getNamesFieldsStr() + " from " + this.getTableName() + " where identificacao = ?";
+        final List lstParms = new ArrayList<>();
+        lstParms.add(ident);
+        final List lstDados = this.execSQL(sql, lstParms.toArray());
+        final List lst = this.listConvertion(this.getBean(), lstDados, this.getListNamesFieldClass());
+        if (lst == null || lst.size() == 0) {
+            return null;
+        }
+        return (BIConsultaDTO) lst.get(0);
+    }
+
 }

@@ -4,5 +4,7 @@ import java.util.Collection;
 import java.util.HashMap;
 
 public abstract class GerencialGenerateSQL {
-	public abstract String generateSQL(HashMap parametersValues, Collection paramtersDefinition);
+
+    public abstract String generateSQL(final HashMap parametersValues, final Collection paramtersDefinition);
+
 }

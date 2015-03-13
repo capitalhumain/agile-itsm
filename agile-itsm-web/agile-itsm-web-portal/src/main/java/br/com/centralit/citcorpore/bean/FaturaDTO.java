@@ -22,6 +22,7 @@ import br.com.agileitsm.model.support.BaseEntity;
 import br.com.citframework.util.UtilI18N;
 
 public class FaturaDTO extends BaseEntity {
+
     public static String EM_CRIACAO = "1";
     public static String AGUARDANDO_APROVACAO = "2";
     public static String APROVADAS = "3";
@@ -62,7 +63,7 @@ public class FaturaDTO extends BaseEntity {
         return idFatura;
     }
 
-    public void setIdFatura(Integer parm) {
+    public void setIdFatura(final Integer parm) {
         idFatura = parm;
     }
 
@@ -70,7 +71,7 @@ public class FaturaDTO extends BaseEntity {
         return idContrato;
     }
 
-    public void setIdContrato(Integer parm) {
+    public void setIdContrato(final Integer parm) {
         idContrato = parm;
     }
 
@@ -78,7 +79,7 @@ public class FaturaDTO extends BaseEntity {
         return dataInicial;
     }
 
-    public void setDataInicial(java.sql.Date parm) {
+    public void setDataInicial(final java.sql.Date parm) {
         dataInicial = parm;
     }
 
@@ -86,7 +87,7 @@ public class FaturaDTO extends BaseEntity {
         return dataFinal;
     }
 
-    public void setDataFinal(java.sql.Date parm) {
+    public void setDataFinal(final java.sql.Date parm) {
         dataFinal = parm;
     }
 
@@ -94,7 +95,7 @@ public class FaturaDTO extends BaseEntity {
         return descricaoFatura;
     }
 
-    public void setDescricaoFatura(String parm) {
+    public void setDescricaoFatura(final String parm) {
         descricaoFatura = parm;
     }
 
@@ -102,7 +103,7 @@ public class FaturaDTO extends BaseEntity {
         return valorCotacaoMoeda;
     }
 
-    public void setValorCotacaoMoeda(Double parm) {
+    public void setValorCotacaoMoeda(final Double parm) {
         valorCotacaoMoeda = parm;
     }
 
@@ -110,7 +111,7 @@ public class FaturaDTO extends BaseEntity {
         return dataCriacao;
     }
 
-    public void setDataCriacao(java.sql.Date parm) {
+    public void setDataCriacao(final java.sql.Date parm) {
         dataCriacao = parm;
     }
 
@@ -118,7 +119,7 @@ public class FaturaDTO extends BaseEntity {
         return dataUltModificacao;
     }
 
-    public void setDataUltModificacao(java.sql.Date parm) {
+    public void setDataUltModificacao(final java.sql.Date parm) {
         dataUltModificacao = parm;
     }
 
@@ -138,7 +139,7 @@ public class FaturaDTO extends BaseEntity {
         return valorPrevistoSomaOS;
     }
 
-    public void setValorPrevistoSomaOS(Double parm) {
+    public void setValorPrevistoSomaOS(final Double parm) {
         valorPrevistoSomaOS = parm;
     }
 
@@ -146,7 +147,7 @@ public class FaturaDTO extends BaseEntity {
         return valorSomaGlosasOS;
     }
 
-    public void setValorSomaGlosasOS(Double parm) {
+    public void setValorSomaGlosasOS(final Double parm) {
         valorSomaGlosasOS = parm;
     }
 
@@ -154,7 +155,7 @@ public class FaturaDTO extends BaseEntity {
         return valorExecutadoSomaOS;
     }
 
-    public void setValorExecutadoSomaOS(Double parm) {
+    public void setValorExecutadoSomaOS(final Double parm) {
         valorExecutadoSomaOS = parm;
     }
 
@@ -162,7 +163,7 @@ public class FaturaDTO extends BaseEntity {
         return observacao;
     }
 
-    public void setObservacao(String parm) {
+    public void setObservacao(final String parm) {
         observacao = parm;
     }
 
@@ -170,7 +171,7 @@ public class FaturaDTO extends BaseEntity {
         return aprovacaoGestor;
     }
 
-    public void setAprovacaoGestor(String parm) {
+    public void setAprovacaoGestor(final String parm) {
         aprovacaoGestor = parm;
     }
 
@@ -178,7 +179,7 @@ public class FaturaDTO extends BaseEntity {
         return aprovacaoFiscal;
     }
 
-    public void setAprovacaoFiscal(String parm) {
+    public void setAprovacaoFiscal(final String parm) {
         aprovacaoFiscal = parm;
     }
 
@@ -186,7 +187,7 @@ public class FaturaDTO extends BaseEntity {
         return saldoPrevisto;
     }
 
-    public void setSaldoPrevisto(Double parm) {
+    public void setSaldoPrevisto(final Double parm) {
         saldoPrevisto = parm;
     }
 
@@ -194,11 +195,11 @@ public class FaturaDTO extends BaseEntity {
         return situacaoFatura;
     }
 
-    public void setSituacaoFatura(String situacaoFatura) {
+    public void setSituacaoFatura(final String situacaoFatura) {
         this.situacaoFatura = situacaoFatura;
     }
 
-    public String getDescricaoSituacaoFatura(HttpServletRequest request) {
+    public String getDescricaoSituacaoFatura(final HttpServletRequest request) {
         if (situacaoFatura == null) {
             return "";
         }
@@ -230,7 +231,7 @@ public class FaturaDTO extends BaseEntity {
         return qtdeOS;
     }
 
-    public void setQtdeOS(Integer qtdeOS) {
+    public void setQtdeOS(final Integer qtdeOS) {
         this.qtdeOS = qtdeOS;
     }
 
@@ -238,7 +239,7 @@ public class FaturaDTO extends BaseEntity {
         return colItens;
     }
 
-    public void setColItens(Collection colItens) {
+    public void setColItens(final Collection colItens) {
         this.colItens = colItens;
     }
 
@@ -246,7 +247,7 @@ public class FaturaDTO extends BaseEntity {
         return idOSFatura;
     }
 
-    public void setIdOSFatura(Integer[] idOSFatura) {
+    public void setIdOSFatura(final Integer[] idOSFatura) {
         this.idOSFatura = idOSFatura;
     }
 
@@ -254,7 +255,7 @@ public class FaturaDTO extends BaseEntity {
         return idOSExcluir;
     }
 
-    public void setIdOSExcluir(Integer idOSExcluir) {
+    public void setIdOSExcluir(final Integer idOSExcluir) {
         this.idOSExcluir = idOSExcluir;
     }
 
@@ -262,7 +263,7 @@ public class FaturaDTO extends BaseEntity {
         return idANS;
     }
 
-    public void setIdANS(Integer idANS) {
+    public void setIdANS(final Integer idANS) {
         this.idANS = idANS;
     }
 
@@ -270,7 +271,7 @@ public class FaturaDTO extends BaseEntity {
         return seqANS;
     }
 
-    public void setSeqANS(Integer seqANS) {
+    public void setSeqANS(final Integer seqANS) {
         this.seqANS = seqANS;
     }
 
@@ -278,7 +279,7 @@ public class FaturaDTO extends BaseEntity {
         return fieldANS;
     }
 
-    public void setFieldANS(String fieldANS) {
+    public void setFieldANS(final String fieldANS) {
         this.fieldANS = fieldANS;
     }
 

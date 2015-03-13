@@ -97,7 +97,7 @@ public class CategoriaProdutoServiceEjb extends CrudServiceImpl implements Categ
             return null;
         }
 
-        final Collection colRetorno = new ArrayList();
+        final Collection colRetorno = new ArrayList<>();
         boolean bAcrescenta;
         for (final CategoriaProdutoDTO categoriaProdutoDto : colSemPai) {
             bAcrescenta = true;
@@ -123,7 +123,7 @@ public class CategoriaProdutoServiceEjb extends CrudServiceImpl implements Categ
             return null;
         }
 
-        final Collection colRetorno = new ArrayList();
+        final Collection colRetorno = new ArrayList<>();
 
         boolean bAcrescenta;
         for (final CategoriaProdutoDTO categoriaProdutoDto : colFilhos) {

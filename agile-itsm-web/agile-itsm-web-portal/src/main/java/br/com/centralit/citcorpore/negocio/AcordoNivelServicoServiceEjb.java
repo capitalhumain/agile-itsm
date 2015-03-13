@@ -116,7 +116,7 @@ public class AcordoNivelServicoServiceEjb extends CrudServiceImpl implements Aco
             try {
                 tc.close();
             } catch (final PersistenceException e) {
-                // TODO Auto-generated catch block
+                
                 e.printStackTrace();
             }
 
@@ -351,7 +351,7 @@ public class AcordoNivelServicoServiceEjb extends CrudServiceImpl implements Aco
             try {
                 transaction.close();
             } catch (final PersistenceException e) {
-                // TODO Auto-generated catch block
+                
                 e.printStackTrace();
             }
         }
@@ -505,7 +505,7 @@ public class AcordoNivelServicoServiceEjb extends CrudServiceImpl implements Aco
             try {
                 transaction.close();
             } catch (final PersistenceException e) {
-                // TODO Auto-generated catch block
+                
                 e.printStackTrace();
             }
         }

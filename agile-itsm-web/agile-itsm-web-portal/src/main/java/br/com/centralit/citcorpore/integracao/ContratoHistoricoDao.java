@@ -17,98 +17,97 @@ import br.com.citframework.util.Constantes;
 
 /**
  * @author Thays
- * 
+ *
  */
-@SuppressWarnings({ "unchecked", "rawtypes" })
 public class ContratoHistoricoDao extends CrudDaoDefaultImpl {
 
+    public ContratoHistoricoDao() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
+    }
 
-	public ContratoHistoricoDao() {
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
+    @Override
+    public Collection<Field> getFields() {
+        final Collection<Field> listFields = new ArrayList<>();
+        listFields.add(new Field("idContrato_Hist", "idContrato_Hist", true, true, false, false));
+        listFields.add(new Field("idContrato", "idContrato", false, false, false, false));
+        listFields.add(new Field("idCliente", "idCliente", false, false, false, false));
+        listFields.add(new Field("numero", "numero", false, false, false, false));
+        listFields.add(new Field("objeto", "objeto", false, false, false, false));
+        listFields.add(new Field("dataContrato", "dataContrato", false, false, false, false));
+        listFields.add(new Field("dataFimContrato", "dataFimContrato", false, false, false, false));
+        listFields.add(new Field("valorEstimado", "valorEstimado", false, false, false, false));
+        listFields.add(new Field("tipoTempoEstimado", "tipoTempoEstimado", false, false, false, false));
+        listFields.add(new Field("tempoEstimado", "tempoEstimado", false, false, false, false));
+        listFields.add(new Field("tipo", "tipo", false, false, false, false));
+        listFields.add(new Field("situacao", "situacao", false, false, false, false));
+        listFields.add(new Field("idMoeda", "idMoeda", false, false, false, false));
+        listFields.add(new Field("cotacaoMoeda", "cotacaoMoeda", false, false, false, false));
+        listFields.add(new Field("idFornecedor", "idFornecedor", false, false, false, false));
+        listFields.add(new Field("deleted", "deleted", false, false, false, false));
+        listFields.add(new Field("idgruposolicitante", "idGrupoSolicitante", false, false, false, false));
+        listFields.add(new Field("criadoEm", "criadoEm", false, false, false, false));
+        listFields.add(new Field("criadoPor", "criadoPor", false, false, false, false));
+        listFields.add(new Field("modificadoEm", "modificadoEm", false, false, false, false));
+        listFields.add(new Field("modificadoPor", "modificadoPor", false, false, false, false));
+        listFields.add(new Field("conteudodados", "conteudodados", false, false, false, false));
+        return listFields;
+    }
 
-	public Collection<Field> getFields() {
-		Collection<Field> listFields = new ArrayList<>();
-		listFields.add(new Field("idContrato_Hist", "idContrato_Hist", true, true, false, false));
-		listFields.add(new Field("idContrato", "idContrato", false, false, false, false));
-		listFields.add(new Field("idCliente", "idCliente", false, false, false, false));
-		listFields.add(new Field("numero", "numero", false, false, false, false));
-		listFields.add(new Field("objeto", "objeto", false, false, false, false));
-		listFields.add(new Field("dataContrato", "dataContrato", false, false, false, false));
-		listFields.add(new Field("dataFimContrato", "dataFimContrato", false, false, false, false));
-		listFields.add(new Field("valorEstimado", "valorEstimado", false, false, false, false));
-		listFields.add(new Field("tipoTempoEstimado", "tipoTempoEstimado", false, false, false, false));
-		listFields.add(new Field("tempoEstimado", "tempoEstimado", false, false, false, false));
-		listFields.add(new Field("tipo", "tipo", false, false, false, false));
-		listFields.add(new Field("situacao", "situacao", false, false, false, false));
-		listFields.add(new Field("idMoeda", "idMoeda", false, false, false, false));
-		listFields.add(new Field("cotacaoMoeda", "cotacaoMoeda", false, false, false, false));
-		listFields.add(new Field("idFornecedor", "idFornecedor", false, false, false, false));
-		listFields.add(new Field("deleted", "deleted", false, false, false, false));
-		listFields.add(new Field("idgruposolicitante", "idGrupoSolicitante", false, false, false, false));
-		listFields.add(new Field("criadoEm" ,"criadoEm", false, false, false, false));
-		listFields.add(new Field("criadoPor" ,"criadoPor", false, false, false, false));
-		listFields.add(new Field("modificadoEm" ,"modificadoEm", false, false, false, false));
-		listFields.add(new Field("modificadoPor" ,"modificadoPor", false, false, false, false));
-		listFields.add(new Field("conteudodados" ,"conteudodados", false, false, false, false));
-		return listFields;
-	}
+    @Override
+    public String getTableName() {
+        return this.getOwner() + "contratos_hist";
+    }
 
-	public String getTableName() {
-		return this.getOwner() + "contratos_hist";
-	}
+    @Override
+    public Collection list() throws PersistenceException {
+        final Collection colFinal = new ArrayList<>();
+        final Collection col = super.list("numero");
+        for (final Iterator it = col.iterator(); it.hasNext();) {
+            final ContratoDTO contratoDto = (ContratoDTO) it.next();
+            if (contratoDto.getDeleted() == null || contratoDto.getDeleted().equalsIgnoreCase("n")) {
+                colFinal.add(contratoDto);
+            }
+        }
+        return colFinal;
+    }
 
-	public Collection list() throws PersistenceException {
-		/*
-		 * List condicao = new ArrayList(); List ordenacao = new ArrayList(); condicao.add(new Condition("deleted", "=", "n")); ordenacao.add(new Order("numero")); return
-		 * super.findByCondition(condicao, ordenacao);
-		 */
-		Collection colFinal = new ArrayList();
-		Collection col = super.list("numero");
-		for (Iterator it = col.iterator(); it.hasNext();) {
-			ContratoDTO contratoDto = (ContratoDTO) it.next();
-			if (contratoDto.getDeleted() == null || contratoDto.getDeleted().equalsIgnoreCase("n")) {
-				colFinal.add(contratoDto);
-			}
-		}
-		return colFinal;
-	}
+    @Override
+    public Class getBean() {
+        return ContratoHistoricoDTO.class;
+    }
 
-	public Class getBean() {
-		return ContratoHistoricoDTO.class;
-	}
+    @Override
+    public Collection find(final BaseEntity arg0) throws PersistenceException {
+        return null;
+    }
 
-	public Collection find(BaseEntity arg0) throws PersistenceException {
-		return null;
-	}
+    public Collection findByIdCliente(final Integer parm) throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
+        condicao.add(new Condition("idCliente", "=", parm));
+        ordenacao.add(new Order("numero"));
+        return super.findByCondition(condicao, ordenacao);
+    }
 
-	public Collection findByIdCliente(Integer parm) throws PersistenceException {
-		List condicao = new ArrayList();
-		List ordenacao = new ArrayList();
-		condicao.add(new Condition("idCliente", "=", parm));
-		ordenacao.add(new Order("numero"));
-		return super.findByCondition(condicao, ordenacao);
-	}
-	
-	public Collection findByIdContratoOrderHist(Integer parm) throws PersistenceException {
-		List condicao = new ArrayList();
-		List ordenacao = new ArrayList();
-		condicao.add(new Condition("idContrato", "=", parm));
-		ordenacao.add(new Order("idContrato_Hist"));
-		return super.findByCondition(condicao, ordenacao);
-	}	
+    public Collection findByIdContratoOrderHist(final Integer parm) throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
+        condicao.add(new Condition("idContrato", "=", parm));
+        ordenacao.add(new Order("idContrato_Hist"));
+        return super.findByCondition(condicao, ordenacao);
+    }
 
-	public void deleteByIdCliente(Integer parm) throws PersistenceException {
-		List condicao = new ArrayList();
-		condicao.add(new Condition("idCliente", "=", parm));
-		super.deleteByCondition(condicao);
-	}
-	
-	public Collection findByIdContrato(Integer parm) throws PersistenceException {
-		List condicao = new ArrayList();
-		List ordenacao = new ArrayList();
-		condicao.add(new Condition("idContrato", "=", parm));
-		return super.findByCondition(condicao, ordenacao);
-	}
+    public void deleteByIdCliente(final Integer parm) throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        condicao.add(new Condition("idCliente", "=", parm));
+        super.deleteByCondition(condicao);
+    }
+
+    public Collection findByIdContrato(final Integer parm) throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
+        condicao.add(new Condition("idContrato", "=", parm));
+        return super.findByCondition(condicao, ordenacao);
+    }
 
 }

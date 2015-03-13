@@ -8,29 +8,34 @@ import br.com.agileitsm.model.support.BaseEntity;
  */
 public class InstalacaoDTO extends BaseEntity {
 
-	private static final long serialVersionUID = 1L;
-	
-	private Integer idInstalacao;
-	private String sucesso;
-	private String passo;
-   
-	public String getSucesso() {
-		return sucesso;
-	}
-	public void setSucesso(String sucesso) {
-		this.sucesso = sucesso;
-	}
-	public String getPasso() {
-		return passo;
-	}
-	public void setPasso(String passo) {
-		this.passo = passo;
-	}
-	public Integer getIdInstalacao() {
-		return idInstalacao;
-	}
-	public void setIdInstalacao(Integer idInstalacao) {
-		this.idInstalacao = idInstalacao;
-	}
+    private static final long serialVersionUID = 1L;
+
+    private Integer idInstalacao;
+    private String sucesso;
+    private String passo;
+
+    public String getSucesso() {
+        return sucesso;
+    }
+
+    public void setSucesso(final String sucesso) {
+        this.sucesso = sucesso;
+    }
+
+    public String getPasso() {
+        return passo;
+    }
+
+    public void setPasso(final String passo) {
+        this.passo = passo;
+    }
+
+    public Integer getIdInstalacao() {
+        return idInstalacao;
+    }
+
+    public void setIdInstalacao(final Integer idInstalacao) {
+        this.idInstalacao = idInstalacao;
+    }
 
 }

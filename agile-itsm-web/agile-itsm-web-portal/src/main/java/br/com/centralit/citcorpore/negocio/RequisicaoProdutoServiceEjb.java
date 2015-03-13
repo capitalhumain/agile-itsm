@@ -510,7 +510,7 @@ public class RequisicaoProdutoServiceEjb extends ComplemInfSolicitacaoServicoSer
                 int naoValidos = 0;
                 int alterados = 0;
                 final Collection<ItemRequisicaoProdutoDTO> colItens = requisicaoProdutoDto.getItensRequisicao();
-                final Collection<ItemRequisicaoProdutoDTO> colItensAtuais = new ArrayList();
+                final Collection<ItemRequisicaoProdutoDTO> colItensAtuais = new ArrayList<>();
                 for (final ItemRequisicaoProdutoDTO itemDto : colItens) {
                     final ItemRequisicaoProdutoDTO itemAuxDto = itemDto.getItemAnteriorDto();
                     if (itemDto.dadosAlterados()) {
@@ -584,7 +584,7 @@ public class RequisicaoProdutoServiceEjb extends ComplemInfSolicitacaoServicoSer
                     int alterados = 0;
                     int naoAutorizados = 0;
                     final Collection<ItemRequisicaoProdutoDTO> colItens = requisicaoProdutoDto.getItensRequisicao();
-                    final Collection<ItemRequisicaoProdutoDTO> colItensAtuais = new ArrayList();
+                    final Collection<ItemRequisicaoProdutoDTO> colItensAtuais = new ArrayList<>();
                     for (final ItemRequisicaoProdutoDTO itemDto : colItens) {
                         final ItemRequisicaoProdutoDTO itemAuxDto = itemDto.getItemAnteriorDto();
                         if (itemDto.dadosAlterados()) {
@@ -633,7 +633,7 @@ public class RequisicaoProdutoServiceEjb extends ComplemInfSolicitacaoServicoSer
                     }
                 }
             } else if (UtilStrings.nullToVazio(requisicaoProdutoDto.getAcao()).equalsIgnoreCase(RequisicaoProdutoDTO.ACAO_CRIACAO)) {
-                final HashMap<String, ItemRequisicaoProdutoDTO> mapItens = new HashMap();
+                final HashMap<String, ItemRequisicaoProdutoDTO> mapItens = new HashMap<>();
                 for (final ItemRequisicaoProdutoDTO itemRequisicaoDto : requisicaoProdutoDto.getItensRequisicao()) {
                     if (itemRequisicaoDto.getIdItemRequisicaoProduto() == null) {
                         continue;
@@ -693,7 +693,7 @@ public class RequisicaoProdutoServiceEjb extends ComplemInfSolicitacaoServicoSer
         if (tc != null) {
             itemRequisicaoDao.setTransactionControler(tc);
         }
-        final Collection<ItemRequisicaoProdutoDTO> result = new ArrayList();
+        final Collection<ItemRequisicaoProdutoDTO> result = new ArrayList<>();
         for (final SituacaoItemRequisicaoProduto situacao : situacoes) {
             final Collection<ItemRequisicaoProdutoDTO> col = itemRequisicaoDao.findByIdSolicitacaoServicoAndSituacao(requisicaoProdutoDto.getIdSolicitacaoServico(), situacao);
             if (col != null) {

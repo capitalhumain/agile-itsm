@@ -6,7 +6,7 @@ import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.List;
 
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 
 import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citajax.reflexao.CitAjaxReflexao;
@@ -182,7 +182,7 @@ public class HTMLForm {
 
             if (valorTransf != null) {
                 this.setCommandExecute("HTMLUtils.setValue('" + property + "', ObjectUtils.decodificaEnter(ObjectUtils.decodificaAspasApostrofe('"
-                        + CitAjaxWebUtil.codificaAspasApostrofe(CitAjaxWebUtil.codificaEnter(StringEscapeUtils.escapeJavaScript(valorTransf))) + "')))");
+                        + CitAjaxWebUtil.codificaAspasApostrofe(CitAjaxWebUtil.codificaEnter(StringEscapeUtils.escapeEcmaScript(valorTransf))) + "')))");
             }
         }
         this.setCommandExecute("HTMLUtils.setForm(document.fAux_HTMLForm_temp)");
@@ -190,12 +190,13 @@ public class HTMLForm {
 
     public void setValueText(final String fieldName, final Integer index, final String value) {
         if (index == null) {
-            this.setCommandExecute("document." + this.getName() + "." + fieldName + ".value = ObjectUtils.decodificaAspasApostrofe(ObjectUtils.decodificaEnter('"
+            this.setCommandExecute("document." + this.getName() + "." + fieldName
+                    + ".value = ObjectUtils.decodificaAspasApostrofe(ObjectUtils.decodificaEnter('"
                     + CitAjaxWebUtil.codificaAspasApostrofe(CitAjaxWebUtil.codificaEnter(value)) + "'))");
         } else {
             this.setCommandExecute("document." + this.getName() + "." + fieldName + "[" + index.intValue()
-                    + "].value = ObjectUtils.decodificaAspasApostrofe(ObjectUtils.decodificaEnter('" + CitAjaxWebUtil.codificaAspasApostrofe(CitAjaxWebUtil.codificaEnter(value))
-                    + "'))");
+                    + "].value = ObjectUtils.decodificaAspasApostrofe(ObjectUtils.decodificaEnter('"
+                    + CitAjaxWebUtil.codificaAspasApostrofe(CitAjaxWebUtil.codificaEnter(value)) + "'))");
         }
     }
 

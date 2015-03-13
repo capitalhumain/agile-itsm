@@ -86,7 +86,7 @@ public class Upload extends AjaxFormAction {
 			}
 		 
 		if (colUploadsGED == null){
-			colUploadsGED = new ArrayList();
+			colUploadsGED = new ArrayList<>();
 		}
 		
 		File f = new File(CITCorporeUtil.CAMINHO_REAL_APP + "tempUpload");
@@ -99,7 +99,7 @@ public class Upload extends AjaxFormAction {
 		FileItem fi;
 		if (!fileItems.isEmpty()){
 			File arquivo;
-			List filesDel = new ArrayList();
+			List filesDel = new ArrayList<>();
 			Iterator it = fileItems.iterator();
 			while(it.hasNext()){
 				fi = (FileItem)it.next();	

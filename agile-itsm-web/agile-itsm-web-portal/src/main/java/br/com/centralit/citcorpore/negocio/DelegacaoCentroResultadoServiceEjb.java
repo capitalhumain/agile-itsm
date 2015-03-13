@@ -90,7 +90,7 @@ public class DelegacaoCentroResultadoServiceEjb extends CrudServiceImpl implemen
                 throw new LogicException(this.i18nMessage("delegacaoCentroResultado.requisicoes") + " " + this.i18nMessage("citcorpore.comum.naoInformado"));
             }
 
-            final Collection<ExecucaoSolicitacaoDTO> colInstancias = new ArrayList();
+            final Collection<ExecucaoSolicitacaoDTO> colInstancias = new ArrayList<>();
             SolicitacaoServicoDTO solicitacaoServicoDto = new SolicitacaoServicoDTO();
             final ExecucaoSolicitacaoDao execucaoSolicitacaoDao = new ExecucaoSolicitacaoDao();
             final SolicitacaoServicoDao solicitacaoServicoDao = new SolicitacaoServicoDao();

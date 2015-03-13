@@ -29,31 +29,40 @@ public class MoedaDTO extends BaseEntity {
     public Integer getIdMoeda() {
         return idMoeda;
     }
-    public void setIdMoeda(Integer idMoeda) {
+
+    public void setIdMoeda(final Integer idMoeda) {
         this.idMoeda = idMoeda;
     }
+
     public String getNomeMoeda() {
         return nomeMoeda;
     }
-    public void setNomeMoeda(String nomeMoeda) {
+
+    public void setNomeMoeda(final String nomeMoeda) {
         this.nomeMoeda = nomeMoeda;
     }
+
     public String getUsarCotacao() {
         return usarCotacao;
     }
-    public void setUsarCotacao(String usarCotacao) {
+
+    public void setUsarCotacao(final String usarCotacao) {
         this.usarCotacao = usarCotacao;
     }
+
     public Date getDataInicio() {
         return dataInicio;
     }
-    public void setDataInicio(Date dataInicio) {
+
+    public void setDataInicio(final Date dataInicio) {
         this.dataInicio = dataInicio;
     }
+
     public Date getDataFim() {
         return dataFim;
     }
-    public void setDataFim(Date dataFim) {
+
+    public void setDataFim(final Date dataFim) {
         this.dataFim = dataFim;
     }
 

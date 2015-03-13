@@ -1,6 +1,6 @@
 package br.com.citframework.push;
 
-import org.apache.commons.lang.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
  * Entidade que representa o conteúdo de uma messagem a ser enviada na request

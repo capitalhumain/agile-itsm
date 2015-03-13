@@ -13,8 +13,8 @@ import java.util.Set;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringEscapeUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import br.com.centralit.bpm.dto.TarefaFluxoDTO;
 import br.com.centralit.citajax.html.AjaxFormAction;
@@ -679,7 +679,7 @@ public class GerenciamentoServicos extends AjaxFormAction {
                 sb.append("				    <div class='content-row'>");
 
                 sb.append("					  <button type='button' class='btn btn-default maisInfo' onclick='chamarModalDescricaoSolicitacao(\""
-                        + StringEscapeUtils.escapeJavaScript(solicitacaoServicoDto.getDescricao()) + "\"," + solicitacaoServicoDto.getIdSolicitacaoServico()
+                        + StringEscapeUtils.escapeEcmaScript(solicitacaoServicoDto.getDescricao()) + "\"," + solicitacaoServicoDto.getIdSolicitacaoServico()
                         + " )'>" + UtilI18N.internacionaliza(locale, "citcorpore.comum.descricao") + "</button>");
 
                 if (tarefaFluxoDto.getExecutar().equals("S") && !solicitacaoServicoDto.getSituacao().equals(SituacaoSolicitacaoServico.Suspensa.toString())) {
@@ -814,7 +814,7 @@ public class GerenciamentoServicos extends AjaxFormAction {
                 sb.append("					<div class='span5 right'>");
                 sb.append("				    	<div class='content-row'>");
                 sb.append("					  <button type='button' class='btn btn-default maisInfo' onclick='chamarModalDescricaoSolicitacao(\""
-                        + StringEscapeUtils.escapeJavaScript(solicitacaoServicoDto.getDescricao()) + "\"," + solicitacaoServicoDto.getIdSolicitacaoServico()
+                        + StringEscapeUtils.escapeEcmaScript(solicitacaoServicoDto.getDescricao()) + "\"," + solicitacaoServicoDto.getIdSolicitacaoServico()
                         + " )'>" + UtilI18N.internacionaliza(locale, "citcorpore.comum.descricao") + "</button>");
                 if (tarefaFluxoDto.getExecutar().equals("S") && !solicitacaoServicoDto.getSituacao().equals(SituacaoSolicitacaoServico.Suspensa.toString())) {
                     sb.append("	      			  	<button id='executar' type='button' class='btn btn-default' onclick='prepararExecucaoTarefa("
@@ -1105,8 +1105,8 @@ public class GerenciamentoServicos extends AjaxFormAction {
         }
 
         final StringBuilder sb = new StringBuilder();
-        HashMap HashMapSituacao = new HashMap();
-        HashMap hashMapPrazoLimite = new HashMap();
+        HashMap HashMapSituacao = new HashMap<>();
+        HashMap hashMapPrazoLimite = new HashMap<>();
         // Mário Júnior - 29/10/2013 - 17:00 - Inserido para mostrar total dos resumos
         Integer qtdPrazoLimite = 0;
         Integer qtdTipoSolicitacao = 0;
@@ -1336,7 +1336,7 @@ public class GerenciamentoServicos extends AjaxFormAction {
     }
 
     public HashMap resumoPorPrazoLimite(final Collection<TarefaFluxoDTO> listTarefas) throws Exception {
-        HashMap hashMap = new HashMap();
+        HashMap hashMap = new HashMap<>();
         hashMap = getSolicitacaoServicoService(null).resumoPorPrazoLimite(listTarefas);
         return hashMap;
     }

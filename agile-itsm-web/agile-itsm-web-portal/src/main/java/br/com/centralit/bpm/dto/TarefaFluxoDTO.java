@@ -10,8 +10,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import br.com.agileitsm.model.support.BaseEntity;
-import br.com.citframework.util.DateTimeAdapter;
 import br.com.citframework.util.BaseEntityAdapter;
+import br.com.citframework.util.DateTimeAdapter;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "TarefaFluxo")

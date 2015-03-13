@@ -4,27 +4,25 @@ import br.com.agileitsm.model.support.BaseEntity;
 
 public class TipoSoftwareDTO extends BaseEntity {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 3326603135917156302L;
-	
-	private Integer idTipoSoftware;
-	private String nome;
-	
+    private static final long serialVersionUID = 3326603135917156302L;
 
-	public String getNome() {
-		return nome;
-	}
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-	public Integer getIdTipoSoftware() {
-		return idTipoSoftware;
-	}
-	public void setIdTipoSoftware(Integer idTipoSoftware) {
-		this.idTipoSoftware = idTipoSoftware;
-	}
-	
+    private Integer idTipoSoftware;
+    private String nome;
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(final String nome) {
+        this.nome = nome;
+    }
+
+    public Integer getIdTipoSoftware() {
+        return idTipoSoftware;
+    }
+
+    public void setIdTipoSoftware(final Integer idTipoSoftware) {
+        this.idTipoSoftware = idTipoSoftware;
+    }
 
 }

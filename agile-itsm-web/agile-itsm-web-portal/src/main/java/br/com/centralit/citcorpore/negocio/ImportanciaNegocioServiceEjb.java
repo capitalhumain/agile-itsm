@@ -2,16 +2,13 @@ package br.com.centralit.citcorpore.negocio;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 import br.com.centralit.citcorpore.integracao.ImportanciaNegocioDao;
-import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.Condition;
 import br.com.citframework.service.CrudServiceImpl;
 
-@SuppressWarnings("rawtypes")
 public class ImportanciaNegocioServiceEjb extends CrudServiceImpl implements ImportanciaNegocioService {
 
     private ImportanciaNegocioDao dao;
@@ -22,14 +19,6 @@ public class ImportanciaNegocioServiceEjb extends CrudServiceImpl implements Imp
             dao = new ImportanciaNegocioDao();
         }
         return dao;
-    }
-
-    public Collection list(final List ordenacao) throws LogicException, ServiceException {
-        return null;
-    }
-
-    public Collection list(final String ordenacao) throws LogicException, ServiceException {
-        return null;
     }
 
     @Override

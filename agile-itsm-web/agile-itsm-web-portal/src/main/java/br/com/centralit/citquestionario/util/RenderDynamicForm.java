@@ -35,7 +35,7 @@ public class RenderDynamicForm {
 	 */
 	public static String render(String nameDynaForm, String type, Integer idSolicitacaoServico, Integer idProfissinal){
 		if (hashDynaFormsLoad == null){
-			hashDynaFormsLoad = new HashMap();
+			hashDynaFormsLoad = new HashMap<>();
 		}
 		if (type == null){
 			type = "XML";
@@ -66,7 +66,7 @@ public class RenderDynamicForm {
 	 */
 	public static String print(String nameDynaForm, String type, Integer idSolicitacaoServico, Integer idProfissinal){
 		if (hashDynaFormsLoad == null){
-			hashDynaFormsLoad = new HashMap();
+			hashDynaFormsLoad = new HashMap<>();
 		}
 		if (type == null){
 			type = "XML";
@@ -163,8 +163,8 @@ public class RenderDynamicForm {
 
 	private static DynamicFormInfoBean getElements(DynamicFormInfoBean dynamicFormInfoBean, Node noItem){
 		if (noItem == null) return dynamicFormInfoBean;
-		Collection colElementos = new ArrayList();
-		Collection colJavaScripts = new ArrayList();
+		Collection colElementos = new ArrayList<>();
+		Collection colJavaScripts = new ArrayList<>();
 		if (noItem.getChildNodes() != null){
 			for (int i = 0; i < noItem.getChildNodes().getLength(); i++){
 				Node noListagemItem = noItem.getChildNodes().item(i);
@@ -223,7 +223,7 @@ public class RenderDynamicForm {
 						dynamicFormElementBean.getColumnType().equalsIgnoreCase("checkbox") ||
 						dynamicFormElementBean.getColumnType().equalsIgnoreCase("select")){
 					String nomeItem = dynamicFormElementBean.getColumnType();
-					Collection colSubItens = new ArrayList();
+					Collection colSubItens = new ArrayList<>();
 					for (int c = 0; c < noListagemItem.getChildNodes().getLength(); c++){
             	        Node noSubItem = noListagemItem.getChildNodes().item(c);
             	        if(noSubItem.getNodeName().equals("#text")) continue;
@@ -274,7 +274,7 @@ public class RenderDynamicForm {
 				//AGRUPADOR
 				if (dynamicFormElementBean.getColumnType().equalsIgnoreCase("group")){
 					String nomeItem = dynamicFormElementBean.getColumnType();
-					Collection colSubItens = new ArrayList();
+					Collection colSubItens = new ArrayList<>();
 					for (int c = 0; c < noListagemItem.getChildNodes().getLength(); c++){
             	        Node noSubItem = noListagemItem.getChildNodes().item(c);
             	        if(noSubItem.getNodeName().equals("#text")) continue;
@@ -291,7 +291,7 @@ public class RenderDynamicForm {
 	}
 	private static Collection getJavaScripts(DynamicFormInfoBean dynamicFormInfoBean, Node noItem){
 		if (noItem == null) return null;
-		Collection colJavaScripts = new ArrayList();
+		Collection colJavaScripts = new ArrayList<>();
 
 		if (noItem.getChildNodes() != null){
 			for (int i = 0; i < noItem.getChildNodes().getLength(); i++){

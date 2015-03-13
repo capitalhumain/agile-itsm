@@ -5,6 +5,7 @@ import java.sql.Date;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class HistoricoTentativaDTO extends BaseEntity {
+
     private static final long serialVersionUID = 1L;
 
     private Integer idHistoricoTentativa;
@@ -17,67 +18,67 @@ public class HistoricoTentativaDTO extends BaseEntity {
     private Date data;
 
     public Integer getIdHistoricoTentativa() {
-	return this.idHistoricoTentativa;
+        return idHistoricoTentativa;
     }
 
-    public void setIdHistoricoTentativa(Integer parm) {
-	this.idHistoricoTentativa = parm;
+    public void setIdHistoricoTentativa(final Integer parm) {
+        idHistoricoTentativa = parm;
     }
 
     public String getDescricao() {
-	return this.descricao;
+        return descricao;
     }
 
-    public void setDescricao(String parm) {
-	this.descricao = parm;
+    public void setDescricao(final String parm) {
+        descricao = parm;
     }
 
     public Date getData() {
-	return this.data;
+        return data;
     }
 
-    public void setData(Date parm) {
-	this.data = parm;
+    public void setData(final Date parm) {
+        data = parm;
     }
 
     public String getHora() {
-	return this.hora;
+        return hora;
     }
 
-    public void setHora(String parm) {
-	this.hora = parm;
+    public void setHora(final String parm) {
+        hora = parm;
     }
 
     public Integer getIdEvento() {
-	return idEvento;
+        return idEvento;
     }
 
-    public void setIdEvento(Integer idEvento) {
-	this.idEvento = idEvento;
+    public void setIdEvento(final Integer idEvento) {
+        this.idEvento = idEvento;
     }
 
     public Integer getIdEmpregado() {
-	return idEmpregado;
+        return idEmpregado;
     }
 
-    public void setIdEmpregado(Integer idEmpregado) {
-	this.idEmpregado = idEmpregado;
+    public void setIdEmpregado(final Integer idEmpregado) {
+        this.idEmpregado = idEmpregado;
     }
 
     public Integer getIdBaseItemConfiguracao() {
-	return idBaseItemConfiguracao;
+        return idBaseItemConfiguracao;
     }
 
-    public void setIdBaseItemConfiguracao(Integer idBaseItemConfiguracao) {
-	this.idBaseItemConfiguracao = idBaseItemConfiguracao;
+    public void setIdBaseItemConfiguracao(final Integer idBaseItemConfiguracao) {
+        this.idBaseItemConfiguracao = idBaseItemConfiguracao;
     }
 
     public Integer getIdItemConfiguracao() {
-	return idItemConfiguracao;
+        return idItemConfiguracao;
     }
 
-    public void setIdItemConfiguracao(Integer idItemConfiguracao) {
-	this.idItemConfiguracao = idItemConfiguracao;
+    public void setIdItemConfiguracao(final Integer idItemConfiguracao) {
+        this.idItemConfiguracao = idItemConfiguracao;
     }
 
 }

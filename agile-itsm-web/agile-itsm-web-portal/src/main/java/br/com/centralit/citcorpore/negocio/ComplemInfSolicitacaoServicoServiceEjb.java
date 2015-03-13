@@ -6,17 +6,18 @@ import br.com.citframework.service.CrudServiceImpl;
 
 public abstract class ComplemInfSolicitacaoServicoServiceEjb extends CrudServiceImpl implements ComplemInfSolicitacaoServicoService {
 
-	@Override
-	public void preparaSolicitacaoParaAprovacao(SolicitacaoServicoDTO solicitacaoDto, ItemTrabalho itemTrabalho, String aprovacao, Integer idJustificativa, String observacoes) throws Exception {}
+    @Override
+    public void preparaSolicitacaoParaAprovacao(final SolicitacaoServicoDTO solicitacaoDto, final ItemTrabalho itemTrabalho, final String aprovacao,
+            final Integer idJustificativa, final String observacoes) throws Exception {}
 
-	@Override
-	public String getInformacoesComplementaresFmtTexto(SolicitacaoServicoDTO solicitacaoDto, ItemTrabalho itemTrabalho) throws Exception {
-		String result = "";
-		if (solicitacaoDto.getSolicitante() != null && !solicitacaoDto.getSolicitante().trim().equals(""))
-			result = "Solicitante: "+solicitacaoDto.getSolicitante()+"\n";
-		result += solicitacaoDto.getDescricaoSemFormatacao();
-		return result;
-	}	
-	
-	
+    @Override
+    public String getInformacoesComplementaresFmtTexto(final SolicitacaoServicoDTO solicitacaoDto, final ItemTrabalho itemTrabalho) throws Exception {
+        String result = "";
+        if (solicitacaoDto.getSolicitante() != null && !solicitacaoDto.getSolicitante().trim().equals("")) {
+            result = "Solicitante: " + solicitacaoDto.getSolicitante() + "\n";
+        }
+        result += solicitacaoDto.getDescricaoSemFormatacao();
+        return result;
+    }
+
 }

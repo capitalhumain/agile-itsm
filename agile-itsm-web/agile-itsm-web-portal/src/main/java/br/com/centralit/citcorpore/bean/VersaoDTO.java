@@ -4,40 +4,43 @@ import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.util.CITCorporeUtil;
 
 public class VersaoDTO extends BaseEntity {
-	private static final long serialVersionUID = 1L;
-	private Integer idUsuario;
-	private Integer idVersao;
-	private String nomeVersao;
 
-	public Integer getIdUsuario() {
-		return idUsuario;
-	}
+    private static final long serialVersionUID = 1L;
 
-	public Integer getIdVersao() {
-		return idVersao;
-	}
+    private Integer idUsuario;
+    private Integer idVersao;
+    private String nomeVersao;
 
-	public String getNomeFisicoArquivo() {
-		String nomeFisicoArquivo = new String();
-		if (getNomeVersao() != null) {
-			nomeFisicoArquivo = "deploy_versao_" + getNomeVersao() + "_" + CITCorporeUtil.SGBD_PRINCIPAL + ".sql";
-		}
-		return nomeFisicoArquivo;
-	}
+    public Integer getIdUsuario() {
+        return idUsuario;
+    }
 
-	public String getNomeVersao() {
-		return nomeVersao;
-	}
+    public Integer getIdVersao() {
+        return idVersao;
+    }
 
-	public void setIdUsuario(Integer idUsuario) {
-		this.idUsuario = idUsuario;
-	}
+    public String getNomeFisicoArquivo() {
+        String nomeFisicoArquivo = new String();
+        if (this.getNomeVersao() != null) {
+            nomeFisicoArquivo = "deploy_versao_" + this.getNomeVersao() + "_" + CITCorporeUtil.SGBD_PRINCIPAL + ".sql";
+        }
+        return nomeFisicoArquivo;
+    }
 
-	public void setIdVersao(Integer idVersao) {
-		this.idVersao = idVersao;
-	}
+    public String getNomeVersao() {
+        return nomeVersao;
+    }
 
-	public void setNomeVersao(String nomeVersao) {
-		this.nomeVersao = nomeVersao;
-	}
+    public void setIdUsuario(final Integer idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    public void setIdVersao(final Integer idVersao) {
+        this.idVersao = idVersao;
+    }
+
+    public void setNomeVersao(final String nomeVersao) {
+        this.nomeVersao = nomeVersao;
+    }
+
 }

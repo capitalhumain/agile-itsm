@@ -223,7 +223,7 @@ public class AgendarAtividadeRequisicaoLiberacao  extends AjaxFormAction{
 
 	atividadePeriodicaDTO.setOrientacaoTecnica(orient);
 
-	Collection colItens = new ArrayList();
+	Collection colItens = new ArrayList<>();
 	ProgramacaoAtividadeDTO programacaoAtividadeDTO = new ProgramacaoAtividadeDTO();
 	programacaoAtividadeDTO.setTipoAgendamento("U");
 	programacaoAtividadeDTO.setDataInicio(atividadePeriodicaDTO.getDataInicio());

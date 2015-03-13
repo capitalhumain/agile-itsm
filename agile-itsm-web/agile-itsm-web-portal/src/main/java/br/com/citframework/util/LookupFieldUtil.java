@@ -29,7 +29,7 @@ public class LookupFieldUtil {
 	public StringBuilder generate(ServletRequest request, String nameLookup, String id, int top, int left, int tam, int larg, String nomeForm, String value, String text, String javascript, String html, String disabled, String hide, String maximaze, String checkbox) throws SecurityException, NoSuchMethodException, IllegalArgumentException, IllegalAccessException {
         Collection colCamposPesq = getCamposPesquisa(nameLookup);
         if(colCamposPesq == null)
-            colCamposPesq = new ArrayList();
+            colCamposPesq = new ArrayList<>();
         
         /*
     	 * Recupera a propriedade do locale
@@ -56,8 +56,8 @@ public class LookupFieldUtil {
         	checkbox = "false";
         }
 
-        Collection colCamposTextGenerateLimpar = new ArrayList();
-        Collection colCamposComboGenerateLimpar = new ArrayList();
+        Collection colCamposTextGenerateLimpar = new ArrayList<>();
+        Collection colCamposComboGenerateLimpar = new ArrayList<>();
         
         String nomeLookupExec = nameLookup;
         if (id != null) { // Caso venha com ID, o nome fisico é do ID, caso
@@ -785,7 +785,7 @@ public class LookupFieldUtil {
         }
         return lookupInfo.getColCamposPesquisa();
         /*
-         * Collection col = new ArrayList(); col.add(new
+         * Collection col = new ArrayList<>(); col.add(new
          * Campo("idImposto","Identificação",false,Constantes.FIELDTYPE_TEXT,10));
          * col.add(new
          * Campo("Descricao","Descrição",true,Constantes.FIELDTYPE_TEXT,50));
@@ -799,7 +799,7 @@ public class LookupFieldUtil {
         }
         return lookupInfo.getColCamposRetorno();
         /*
-         * Collection col = new ArrayList(); col.add(new
+         * Collection col = new ArrayList<>(); col.add(new
          * Campo("idImposto","Identificação",false,Constantes.FIELDTYPE_TEXT,10));
          * col.add(new
          * Campo("Descricao","Descrição",true,Constantes.FIELDTYPE_TEXT,50));
@@ -813,7 +813,7 @@ public class LookupFieldUtil {
         }
         return lookupInfo.getColCamposOrdenacao();
         /*
-         * Collection col = new ArrayList(); col.add(new
+         * Collection col = new ArrayList<>(); col.add(new
          * Campo("Descricao","Descrição",true,Constantes.FIELDTYPE_TEXT,50));
          * return col;
          */
@@ -825,7 +825,7 @@ public class LookupFieldUtil {
         }
         return lookupInfo.getColCamposChave();
         /*
-         * Collection col = new ArrayList(); col.add(new
+         * Collection col = new ArrayList<>(); col.add(new
          * Campo("idImposto","Identificação",false,Constantes.FIELDTYPE_TEXT,10));
          * return col;
          */

@@ -2,7 +2,7 @@ package br.com.centralit.citsmart.rest.service;
 
 import java.util.Collection;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import br.com.centralit.citsmart.rest.bean.RestExecutionDTO;
 import br.com.centralit.citsmart.rest.bean.RestOperationDTO;

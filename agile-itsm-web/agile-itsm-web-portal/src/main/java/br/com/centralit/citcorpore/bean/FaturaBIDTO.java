@@ -7,278 +7,278 @@ import javax.servlet.http.HttpServletRequest;
 import br.com.agileitsm.model.support.BaseEntity;
 import br.com.citframework.util.UtilI18N;
 
-@SuppressWarnings("rawtypes")
 public class FaturaBIDTO extends BaseEntity {
 
-	private static final long serialVersionUID = -6417037963383545156L;
-	public static String EM_CRIACAO = "1";
-	public static String AGUARDANDO_APROVACAO = "2";
-	public static String APROVADAS = "3";
-	public static String EM_RECEBIMENTO = "4";
-	public static String RECEBIDAS = "5";
-	public static String REJEITADAS = "6";
-	public static String CANCELADA = "7";
+    private static final long serialVersionUID = -6417037963383545156L;
 
-	private Integer idFatura;
-	private Integer idContrato;
-	private java.sql.Date dataInicial;
-	private java.sql.Date dataFinal;
-	private String descricaoFatura;
-	private Double valorCotacaoMoeda;
-	private java.sql.Date dataCriacao;
-	private java.sql.Date dataUltModificacao;
-	private Double valorPrevistoSomaOS;
-	private Double valorSomaGlosasOS;
-	private Double valorExecutadoSomaOS;
-	private String observacao;
-	private String aprovacaoGestor;
-	private String aprovacaoFiscal;
-	private Double saldoPrevisto;
-	private String situacaoFatura;
+    public static String EM_CRIACAO = "1";
+    public static String AGUARDANDO_APROVACAO = "2";
+    public static String APROVADAS = "3";
+    public static String EM_RECEBIMENTO = "4";
+    public static String RECEBIDAS = "5";
+    public static String REJEITADAS = "6";
+    public static String CANCELADA = "7";
 
-	private Integer qtdeOS;
+    private Integer idFatura;
+    private Integer idContrato;
+    private java.sql.Date dataInicial;
+    private java.sql.Date dataFinal;
+    private String descricaoFatura;
+    private Double valorCotacaoMoeda;
+    private java.sql.Date dataCriacao;
+    private java.sql.Date dataUltModificacao;
+    private Double valorPrevistoSomaOS;
+    private Double valorSomaGlosasOS;
+    private Double valorExecutadoSomaOS;
+    private String observacao;
+    private String aprovacaoGestor;
+    private String aprovacaoFiscal;
+    private Double saldoPrevisto;
+    private String situacaoFatura;
 
-	private Collection colItens;
+    private Integer qtdeOS;
 
-	private Integer[] idOSFatura;
-	private Integer idOSExcluir;
+    private Collection colItens;
 
-	private Integer idANS;
-	private Integer seqANS;
-	private String fieldANS;
+    private Integer[] idOSFatura;
+    private Integer idOSExcluir;
 
-	private Integer idConexaoBI;
-	
-	public Integer getIdFatura() {
-		return this.idFatura;
-	}
+    private Integer idANS;
+    private Integer seqANS;
+    private String fieldANS;
 
-	public void setIdFatura(Integer parm) {
-		this.idFatura = parm;
-	}
+    private Integer idConexaoBI;
 
-	public Integer getIdContrato() {
-		return this.idContrato;
-	}
+    public Integer getIdFatura() {
+        return idFatura;
+    }
 
-	public void setIdContrato(Integer parm) {
-		this.idContrato = parm;
-	}
+    public void setIdFatura(final Integer parm) {
+        idFatura = parm;
+    }
 
-	public java.sql.Date getDataInicial() {
-		return this.dataInicial;
-	}
+    public Integer getIdContrato() {
+        return idContrato;
+    }
 
-	public void setDataInicial(java.sql.Date parm) {
-		this.dataInicial = parm;
-	}
+    public void setIdContrato(final Integer parm) {
+        idContrato = parm;
+    }
 
-	public java.sql.Date getDataFinal() {
-		return this.dataFinal;
-	}
+    public java.sql.Date getDataInicial() {
+        return dataInicial;
+    }
 
-	public void setDataFinal(java.sql.Date parm) {
-		this.dataFinal = parm;
-	}
+    public void setDataInicial(final java.sql.Date parm) {
+        dataInicial = parm;
+    }
 
-	public String getDescricaoFatura() {
-		return this.descricaoFatura;
-	}
+    public java.sql.Date getDataFinal() {
+        return dataFinal;
+    }
 
-	public void setDescricaoFatura(String parm) {
-		this.descricaoFatura = parm;
-	}
+    public void setDataFinal(final java.sql.Date parm) {
+        dataFinal = parm;
+    }
 
-	public Double getValorCotacaoMoeda() {
-		return this.valorCotacaoMoeda;
-	}
+    public String getDescricaoFatura() {
+        return descricaoFatura;
+    }
 
-	public void setValorCotacaoMoeda(Double parm) {
-		this.valorCotacaoMoeda = parm;
-	}
+    public void setDescricaoFatura(final String parm) {
+        descricaoFatura = parm;
+    }
 
-	public java.sql.Date getDataCriacao() {
-		return this.dataCriacao;
-	}
+    public Double getValorCotacaoMoeda() {
+        return valorCotacaoMoeda;
+    }
 
-	public void setDataCriacao(java.sql.Date parm) {
-		this.dataCriacao = parm;
-	}
+    public void setValorCotacaoMoeda(final Double parm) {
+        valorCotacaoMoeda = parm;
+    }
 
-	public java.sql.Date getDataUltModificacao() {
-		return this.dataUltModificacao;
-	}
+    public java.sql.Date getDataCriacao() {
+        return dataCriacao;
+    }
 
-	public void setDataUltModificacao(java.sql.Date parm) {
-		this.dataUltModificacao = parm;
-	}
+    public void setDataCriacao(final java.sql.Date parm) {
+        dataCriacao = parm;
+    }
 
-	public Double getValorReceberOS() {
-		double valorexec = 0;
-		double valorglosas = 0;
-		if (this.getValorExecutadoSomaOS() != null) {
-			valorexec = this.getValorExecutadoSomaOS();
-		}
-		if (this.getValorSomaGlosasOS() != null) {
-			valorglosas = this.getValorSomaGlosasOS();
-		}
-		return valorexec - valorglosas;
-	}
+    public java.sql.Date getDataUltModificacao() {
+        return dataUltModificacao;
+    }
 
-	public Double getValorPrevistoSomaOS() {
-		return this.valorPrevistoSomaOS;
-	}
+    public void setDataUltModificacao(final java.sql.Date parm) {
+        dataUltModificacao = parm;
+    }
 
-	public void setValorPrevistoSomaOS(Double parm) {
-		this.valorPrevistoSomaOS = parm;
-	}
+    public Double getValorReceberOS() {
+        double valorexec = 0;
+        double valorglosas = 0;
+        if (this.getValorExecutadoSomaOS() != null) {
+            valorexec = this.getValorExecutadoSomaOS();
+        }
+        if (this.getValorSomaGlosasOS() != null) {
+            valorglosas = this.getValorSomaGlosasOS();
+        }
+        return valorexec - valorglosas;
+    }
 
-	public Double getValorSomaGlosasOS() {
-		return this.valorSomaGlosasOS;
-	}
+    public Double getValorPrevistoSomaOS() {
+        return valorPrevistoSomaOS;
+    }
 
-	public void setValorSomaGlosasOS(Double parm) {
-		this.valorSomaGlosasOS = parm;
-	}
+    public void setValorPrevistoSomaOS(final Double parm) {
+        valorPrevistoSomaOS = parm;
+    }
 
-	public Double getValorExecutadoSomaOS() {
-		return this.valorExecutadoSomaOS;
-	}
+    public Double getValorSomaGlosasOS() {
+        return valorSomaGlosasOS;
+    }
 
-	public void setValorExecutadoSomaOS(Double parm) {
-		this.valorExecutadoSomaOS = parm;
-	}
+    public void setValorSomaGlosasOS(final Double parm) {
+        valorSomaGlosasOS = parm;
+    }
 
-	public String getObservacao() {
-		return this.observacao;
-	}
+    public Double getValorExecutadoSomaOS() {
+        return valorExecutadoSomaOS;
+    }
 
-	public void setObservacao(String parm) {
-		this.observacao = parm;
-	}
+    public void setValorExecutadoSomaOS(final Double parm) {
+        valorExecutadoSomaOS = parm;
+    }
 
-	public String getAprovacaoGestor() {
-		return this.aprovacaoGestor;
-	}
+    public String getObservacao() {
+        return observacao;
+    }
 
-	public void setAprovacaoGestor(String parm) {
-		this.aprovacaoGestor = parm;
-	}
+    public void setObservacao(final String parm) {
+        observacao = parm;
+    }
 
-	public String getAprovacaoFiscal() {
-		return this.aprovacaoFiscal;
-	}
+    public String getAprovacaoGestor() {
+        return aprovacaoGestor;
+    }
 
-	public void setAprovacaoFiscal(String parm) {
-		this.aprovacaoFiscal = parm;
-	}
+    public void setAprovacaoGestor(final String parm) {
+        aprovacaoGestor = parm;
+    }
 
-	public Double getSaldoPrevisto() {
-		return this.saldoPrevisto;
-	}
+    public String getAprovacaoFiscal() {
+        return aprovacaoFiscal;
+    }
 
-	public void setSaldoPrevisto(Double parm) {
-		this.saldoPrevisto = parm;
-	}
+    public void setAprovacaoFiscal(final String parm) {
+        aprovacaoFiscal = parm;
+    }
 
-	public String getSituacaoFatura() {
-		return situacaoFatura;
-	}
+    public Double getSaldoPrevisto() {
+        return saldoPrevisto;
+    }
 
-	public void setSituacaoFatura(String situacaoFatura) {
-		this.situacaoFatura = situacaoFatura;
-	}
+    public void setSaldoPrevisto(final Double parm) {
+        saldoPrevisto = parm;
+    }
 
-	public String getDescricaoSituacaoFatura(HttpServletRequest request) {
-		if (this.situacaoFatura == null) {
-			return "";
-		}
-		if (this.situacaoFatura.equalsIgnoreCase("1")) {
-			return UtilI18N.internacionaliza(request, "perfil.criacao");
-		}
-		if (this.situacaoFatura.equalsIgnoreCase("2")) {
-			return UtilI18N.internacionaliza(request, "perfil.aguardandoAprovacao");
-		}
-		if (this.situacaoFatura.equalsIgnoreCase("3")) {
-			return UtilI18N.internacionaliza(request, "perfil.aprovada");
-		}
-		if (this.situacaoFatura.equalsIgnoreCase("4")) {
-			return UtilI18N.internacionaliza(request, "perfil.rejeitada");
-		}
-		if (this.situacaoFatura.equalsIgnoreCase("5")) {
-			return UtilI18N.internacionaliza(request, "perfil.recebimento");
-		}
-		if (this.situacaoFatura.equalsIgnoreCase("6")) {
-			return UtilI18N.internacionaliza(request, "perfil.recebida");
-		}
-		if (this.situacaoFatura.equalsIgnoreCase("7")) {
-			return UtilI18N.internacionaliza(request, "perfil.cancelada");
-		}
-		return "";
-	}
+    public String getSituacaoFatura() {
+        return situacaoFatura;
+    }
 
-	public Integer getQtdeOS() {
-		return qtdeOS;
-	}
+    public void setSituacaoFatura(final String situacaoFatura) {
+        this.situacaoFatura = situacaoFatura;
+    }
 
-	public void setQtdeOS(Integer qtdeOS) {
-		this.qtdeOS = qtdeOS;
-	}
+    public String getDescricaoSituacaoFatura(final HttpServletRequest request) {
+        if (situacaoFatura == null) {
+            return "";
+        }
+        if (situacaoFatura.equalsIgnoreCase("1")) {
+            return UtilI18N.internacionaliza(request, "perfil.criacao");
+        }
+        if (situacaoFatura.equalsIgnoreCase("2")) {
+            return UtilI18N.internacionaliza(request, "perfil.aguardandoAprovacao");
+        }
+        if (situacaoFatura.equalsIgnoreCase("3")) {
+            return UtilI18N.internacionaliza(request, "perfil.aprovada");
+        }
+        if (situacaoFatura.equalsIgnoreCase("4")) {
+            return UtilI18N.internacionaliza(request, "perfil.rejeitada");
+        }
+        if (situacaoFatura.equalsIgnoreCase("5")) {
+            return UtilI18N.internacionaliza(request, "perfil.recebimento");
+        }
+        if (situacaoFatura.equalsIgnoreCase("6")) {
+            return UtilI18N.internacionaliza(request, "perfil.recebida");
+        }
+        if (situacaoFatura.equalsIgnoreCase("7")) {
+            return UtilI18N.internacionaliza(request, "perfil.cancelada");
+        }
+        return "";
+    }
 
-	public Collection getColItens() {
-		return colItens;
-	}
+    public Integer getQtdeOS() {
+        return qtdeOS;
+    }
 
-	public void setColItens(Collection colItens) {
-		this.colItens = colItens;
-	}
+    public void setQtdeOS(final Integer qtdeOS) {
+        this.qtdeOS = qtdeOS;
+    }
 
-	public Integer[] getIdOSFatura() {
-		return idOSFatura;
-	}
+    public Collection getColItens() {
+        return colItens;
+    }
 
-	public void setIdOSFatura(Integer[] idOSFatura) {
-		this.idOSFatura = idOSFatura;
-	}
+    public void setColItens(final Collection colItens) {
+        this.colItens = colItens;
+    }
 
-	public Integer getIdOSExcluir() {
-		return idOSExcluir;
-	}
+    public Integer[] getIdOSFatura() {
+        return idOSFatura;
+    }
 
-	public void setIdOSExcluir(Integer idOSExcluir) {
-		this.idOSExcluir = idOSExcluir;
-	}
+    public void setIdOSFatura(final Integer[] idOSFatura) {
+        this.idOSFatura = idOSFatura;
+    }
 
-	public Integer getIdANS() {
-		return idANS;
-	}
+    public Integer getIdOSExcluir() {
+        return idOSExcluir;
+    }
 
-	public void setIdANS(Integer idANS) {
-		this.idANS = idANS;
-	}
+    public void setIdOSExcluir(final Integer idOSExcluir) {
+        this.idOSExcluir = idOSExcluir;
+    }
 
-	public Integer getSeqANS() {
-		return seqANS;
-	}
+    public Integer getIdANS() {
+        return idANS;
+    }
 
-	public void setSeqANS(Integer seqANS) {
-		this.seqANS = seqANS;
-	}
+    public void setIdANS(final Integer idANS) {
+        this.idANS = idANS;
+    }
 
-	public String getFieldANS() {
-		return fieldANS;
-	}
+    public Integer getSeqANS() {
+        return seqANS;
+    }
 
-	public void setFieldANS(String fieldANS) {
-		this.fieldANS = fieldANS;
-	}
+    public void setSeqANS(final Integer seqANS) {
+        this.seqANS = seqANS;
+    }
 
-	public Integer getIdConexaoBI() {
-		return idConexaoBI;
-	}
+    public String getFieldANS() {
+        return fieldANS;
+    }
 
-	public void setIdConexaoBI(Integer idConexaoBI) {
-		this.idConexaoBI = idConexaoBI;
-	}
-	
+    public void setFieldANS(final String fieldANS) {
+        this.fieldANS = fieldANS;
+    }
+
+    public Integer getIdConexaoBI() {
+        return idConexaoBI;
+    }
+
+    public void setIdConexaoBI(final Integer idConexaoBI) {
+        this.idConexaoBI = idConexaoBI;
+    }
+
 }

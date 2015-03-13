@@ -10,7 +10,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import br.com.centralit.citcorpore.bean.ImportacaoContratosDTO;
 import br.com.centralit.citcorpore.integracao.ImportacaoContratosDao;
@@ -58,7 +58,7 @@ public class ImportacaoContratosServiceEjb extends CrudServiceImpl implements Im
 
         final Map<String, String> mapChanges = new HashMap<>();
 
-        final List colRecordsGeral = new ArrayList();
+        final List colRecordsGeral = new ArrayList<>();
 
         System.out.println("XML: " + xml);
 
@@ -108,9 +108,9 @@ public class ImportacaoContratosServiceEjb extends CrudServiceImpl implements Im
             String sqlInsertValues = "";
             String sqlUpdate = "";
 
-            final List lstParmsInsert = new ArrayList();
-            final List lstParmsUpdate = new ArrayList();
-            final List lstParmsWhere = new ArrayList();
+            final List lstParmsInsert = new ArrayList<>();
+            final List lstParmsUpdate = new ArrayList<>();
+            final List lstParmsWhere = new ArrayList<>();
 
             for (final Iterator it = importInfoRecord.getColFields().iterator(); it.hasNext();) {
                 final ImportInfoField importInfoField = (ImportInfoField) it.next();

@@ -69,10 +69,6 @@ public class OcorrenciaServiceEjb extends CrudServiceImpl implements OcorrenciaS
         }
     }
 
-    /*
-     * (non-Javadoc)
-     * @see br.com.centralit.citcorpore.negocio.OcorrenciaService#obterDadosResponsavelEmailRegOcorrencia(java.lang.Integer)
-     */
     @Override
     public DadosEmailRegOcorrenciaDTO obterDadosResponsavelEmailRegOcorrencia(final Integer idSolicitacaoServico) throws Exception {
         return this.getDao().obterDadosResponsavelEmailRegOcorrencia(idSolicitacaoServico);

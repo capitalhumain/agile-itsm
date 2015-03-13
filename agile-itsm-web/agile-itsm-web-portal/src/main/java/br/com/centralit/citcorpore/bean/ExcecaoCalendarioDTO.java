@@ -5,53 +5,60 @@ import java.sql.Date;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class ExcecaoCalendarioDTO extends BaseEntity {
-	private Integer idExcecaoCalendario;
-	private Integer idCalendario;
-	private Integer idJornada;
-	private String tipo;
-	private Date dataInicio;
-	private Date dataTermino;
 
-	public Integer getIdExcecaoCalendario(){
-		return this.idExcecaoCalendario;
-	}
-	public void setIdExcecaoCalendario(Integer parm){
-		this.idExcecaoCalendario = parm;
-	}
+    private Integer idExcecaoCalendario;
+    private Integer idCalendario;
+    private Integer idJornada;
+    private String tipo;
+    private Date dataInicio;
+    private Date dataTermino;
 
-	public Integer getIdCalendario(){
-		return this.idCalendario;
-	}
-	public void setIdCalendario(Integer parm){
-		this.idCalendario = parm;
-	}
+    public Integer getIdExcecaoCalendario() {
+        return idExcecaoCalendario;
+    }
 
-	public Integer getIdJornada(){
-		return this.idJornada;
-	}
-	public void setIdJornada(Integer parm){
-		this.idJornada = parm;
-	}
+    public void setIdExcecaoCalendario(final Integer parm) {
+        idExcecaoCalendario = parm;
+    }
 
-	public String getTipo(){
-		return this.tipo;
-	}
-	public void setTipo(String parm){
-		this.tipo = parm;
-	}
+    public Integer getIdCalendario() {
+        return idCalendario;
+    }
 
-	public Date getDataInicio(){
-		return this.dataInicio;
-	}
-	public void setDataInicio(Date parm){
-		this.dataInicio = parm;
-	}
+    public void setIdCalendario(final Integer parm) {
+        idCalendario = parm;
+    }
 
-	public Date getDataTermino(){
-		return this.dataTermino;
-	}
-	public void setDataTermino(Date parm){
-		this.dataTermino = parm;
-	}
+    public Integer getIdJornada() {
+        return idJornada;
+    }
+
+    public void setIdJornada(final Integer parm) {
+        idJornada = parm;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(final String parm) {
+        tipo = parm;
+    }
+
+    public Date getDataInicio() {
+        return dataInicio;
+    }
+
+    public void setDataInicio(final Date parm) {
+        dataInicio = parm;
+    }
+
+    public Date getDataTermino() {
+        return dataTermino;
+    }
+
+    public void setDataTermino(final Date parm) {
+        dataTermino = parm;
+    }
 
 }

@@ -13,72 +13,72 @@ import br.com.citframework.integracao.Field;
 import br.com.citframework.integracao.Order;
 import br.com.citframework.util.Constantes;
 
-@SuppressWarnings({"rawtypes","unchecked"})
-public class FormaPagamentoDAO extends CrudDaoDefaultImpl{
+public class FormaPagamentoDAO extends CrudDaoDefaultImpl {
 
-	public FormaPagamentoDAO() {
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
-	
-	@Override
-	public Collection find(BaseEntity obj) throws PersistenceException {
+    public FormaPagamentoDAO() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
+    }
 
-		return null;
-	}
+    @Override
+    public Collection find(final BaseEntity obj) throws PersistenceException {
 
-	@Override
-	public Collection<Field> getFields() {
+        return null;
+    }
 
-		Collection<Field> listFields = new ArrayList<>();
+    @Override
+    public Collection<Field> getFields() {
 
-		listFields.add(new Field("IDFORMAPAGAMENTO", "idFormaPagamento", true, true, false, false));
-		listFields.add(new Field("NOMEFORMAPAGAMENTO", "nomeFormaPagamento", false, false, false, false));
-		listFields.add(new Field("SITUACAO", "situacao", false, false, false, false));
+        final Collection<Field> listFields = new ArrayList<>();
 
-		return listFields;
-	}
+        listFields.add(new Field("IDFORMAPAGAMENTO", "idFormaPagamento", true, true, false, false));
+        listFields.add(new Field("NOMEFORMAPAGAMENTO", "nomeFormaPagamento", false, false, false, false));
+        listFields.add(new Field("SITUACAO", "situacao", false, false, false, false));
 
-	@Override
-	public String getTableName() {
-		return "FORMAPAGAMENTO";
-	}
+        return listFields;
+    }
 
-	@Override
-	public Collection list() throws PersistenceException {
-		List ordenacao = new ArrayList();
-		List condicao = new ArrayList();
-		condicao.add(new Condition("situacao", "like", "A"));
-		ordenacao.add(new Order("nomeFormaPagamento"));
-		return super.findByCondition(condicao,ordenacao);
-	}
+    @Override
+    public String getTableName() {
+        return "FORMAPAGAMENTO";
+    }
 
-	@Override
-	public Class getBean() {
-		return FormaPagamentoDTO.class;
-	}
+    @Override
+    public Collection list() throws PersistenceException {
+        final List<Order> ordenacao = new ArrayList<>();
+        final List<Condition> condicao = new ArrayList<>();
+        condicao.add(new Condition("situacao", "like", "A"));
+        ordenacao.add(new Order("nomeFormaPagamento"));
+        return super.findByCondition(condicao, ordenacao);
+    }
 
-	/**
-	 * Retorna lista de status de usuário.
-	 * 
-	 * @param obj
-	 * @return
-	 * @throws Exception
-	 */
-	public boolean consultarFormaPagamento(FormaPagamentoDTO obj) throws PersistenceException {
-		List parametro = new ArrayList();
-		List list = new ArrayList();
-		String sql = "select idFormaPagamento from " + getTableName() + " where nomeFormaPagamento = ? and situacao like 'A'";
-		
-		if(obj.getIdFormaPagamento() != null){
-			sql+=" and idFormaPagamento <> "+ obj.getIdFormaPagamento();
-		}
-				
-		parametro.add(obj.getNomeFormaPagamento());
-		list = this.execSQL(sql, parametro.toArray());
-		if (list != null && !list.isEmpty()) {
-			return true;
-		} else {
-			return false;
-		}
-	}
+    @Override
+    public Class getBean() {
+        return FormaPagamentoDTO.class;
+    }
+
+    /**
+     * Retorna lista de status de usuário.
+     *
+     * @param obj
+     * @return
+     * @throws Exception
+     */
+    public boolean consultarFormaPagamento(final FormaPagamentoDTO obj) throws PersistenceException {
+        final List parametro = new ArrayList<>();
+        List list = new ArrayList<>();
+        String sql = "select idFormaPagamento from " + this.getTableName() + " where nomeFormaPagamento = ? and situacao like 'A'";
+
+        if (obj.getIdFormaPagamento() != null) {
+            sql += " and idFormaPagamento <> " + obj.getIdFormaPagamento();
+        }
+
+        parametro.add(obj.getNomeFormaPagamento());
+        list = this.execSQL(sql, parametro.toArray());
+        if (list != null && !list.isEmpty()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

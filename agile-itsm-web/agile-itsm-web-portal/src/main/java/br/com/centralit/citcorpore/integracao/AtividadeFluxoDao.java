@@ -14,36 +14,40 @@ import br.com.citframework.util.Constantes;
 
 public class AtividadeFluxoDao extends CrudDaoDefaultImpl {
 
-	public AtividadeFluxoDao() {
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
+    public AtividadeFluxoDao() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
+    }
 
-	public Class getBean() {
-		return AtividadeFluxoDTO.class;
-	}
+    @Override
+    public Class getBean() {
+        return AtividadeFluxoDTO.class;
+    }
 
-	public Collection<Field> getFields() {
-		Collection<Field> listFields = new ArrayList<>();
-		
-		listFields.add(new Field("idAtividade", "idAtividade", false, false, false, false));
-		listFields.add(new Field("idFluxo", "idFluxo", false, false, false, false));
-		
-		return listFields;
-	}
+    @Override
+    public Collection<Field> getFields() {
+        final Collection<Field> listFields = new ArrayList<>();
 
-	public String getTableName() {
-		return "ATIVIDADESFLUXOS";
-	}
+        listFields.add(new Field("idAtividade", "idAtividade", false, false, false, false));
+        listFields.add(new Field("idFluxo", "idFluxo", false, false, false, false));
 
-	public Collection find(BaseEntity obj) throws PersistenceException {
-		List ordem = new ArrayList();
-		ordem.add(new Order("idFluxo"));		
-		return super.find(obj, ordem);
-	}
+        return listFields;
+    }
 
-	public Collection list() throws PersistenceException {
-		return null;
-	}
+    @Override
+    public String getTableName() {
+        return "ATIVIDADESFLUXOS";
+    }
 
+    @Override
+    public Collection find(final BaseEntity obj) throws PersistenceException {
+        final List ordem = new ArrayList<>();
+        ordem.add(new Order("idFluxo"));
+        return super.find(obj, ordem);
+    }
+
+    @Override
+    public Collection list() throws PersistenceException {
+        return null;
+    }
 
 }

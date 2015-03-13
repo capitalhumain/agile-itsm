@@ -2,196 +2,197 @@ package br.com.centralit.citcorpore.bean;
 
 import br.com.agileitsm.model.support.BaseEntity;
 
-@SuppressWarnings("serial")
 public class AtividadesOSBIDTO extends BaseEntity {
-	private Integer idAtividadesOS;
-	private Integer idOS;
-	private Integer sequencia;
-	private Integer idAtividadeServicoContrato;
-	private String descricaoAtividade;
-	private String obsAtividade;
-	private Double custoAtividade ;
-	private Double glosaAtividade;
-	private Double qtdeExecutada;
-	private String complexidade;
-	private String numeroOS;
-	private String deleted;
-	private Double custoRealizado;
-	private Double custos;
-	private Object listaAcordoNivelServico;
-	private Object listaAtividadeOs;
-	private Object listaGlosasOs;
-	private String formula;
-	private String contabilizar;
-	private Integer idServicoContratoContabil;
-	
-	private Integer idConexaoBI;
 
-	public Object getListaGlosasOs() {
-		return listaGlosasOs;
-	}
+    private Integer idAtividadesOS;
+    private Integer idOS;
+    private Integer sequencia;
+    private Integer idAtividadeServicoContrato;
+    private String descricaoAtividade;
+    private String obsAtividade;
+    private Double custoAtividade;
+    private Double glosaAtividade;
+    private Double qtdeExecutada;
+    private String complexidade;
+    private String numeroOS;
+    private String deleted;
+    private Double custoRealizado;
+    private Double custos;
+    private Object listaAcordoNivelServico;
+    private Object listaAtividadeOs;
+    private Object listaGlosasOs;
+    private String formula;
+    private String contabilizar;
+    private Integer idServicoContratoContabil;
 
-	public void setListaGlosasOs(Object listaGlosasOs) {
-		this.listaGlosasOs = listaGlosasOs;
-	}
+    private Integer idConexaoBI;
 
-	public Double getCustos() {
-		return custos;
-	}
+    public Object getListaGlosasOs() {
+        return listaGlosasOs;
+    }
 
-	public void setCustos(Double custos) {
-		this.custos = custos;
-	}
+    public void setListaGlosasOs(final Object listaGlosasOs) {
+        this.listaGlosasOs = listaGlosasOs;
+    }
 
-	public Double getCustoRealizado() {
-		return custoRealizado;
-	}
+    public Double getCustos() {
+        return custos;
+    }
 
-	public void setCustoRealizado(Double custoRealizado) {
-		this.custoRealizado = custoRealizado;
-	}
+    public void setCustos(final Double custos) {
+        this.custos = custos;
+    }
 
-	public Object getListaAtividadeOs() {
-		return listaAtividadeOs;
-	}
+    public Double getCustoRealizado() {
+        return custoRealizado;
+    }
 
-	public void setListaAtividadeOs(Object listaAtividadeOs) {
-		this.listaAtividadeOs = listaAtividadeOs;
-	}
+    public void setCustoRealizado(final Double custoRealizado) {
+        this.custoRealizado = custoRealizado;
+    }
 
-	public Object getListaAcordoNivelServico() {
-		return listaAcordoNivelServico;
-	}
+    public Object getListaAtividadeOs() {
+        return listaAtividadeOs;
+    }
 
-	public void setListaAcordoNivelServico(Object listaAcordoNivelServico) {
-		this.listaAcordoNivelServico = listaAcordoNivelServico;
-	}
+    public void setListaAtividadeOs(final Object listaAtividadeOs) {
+        this.listaAtividadeOs = listaAtividadeOs;
+    }
 
-	public Integer getIdAtividadesOS() {
-		return this.idAtividadesOS;
-	}
+    public Object getListaAcordoNivelServico() {
+        return listaAcordoNivelServico;
+    }
 
-	public void setIdAtividadesOS(Integer parm) {
-		this.idAtividadesOS = parm;
-	}
+    public void setListaAcordoNivelServico(final Object listaAcordoNivelServico) {
+        this.listaAcordoNivelServico = listaAcordoNivelServico;
+    }
 
-	public Integer getIdOS() {
-		return this.idOS;
-	}
+    public Integer getIdAtividadesOS() {
+        return idAtividadesOS;
+    }
 
-	public void setIdOS(Integer parm) {
-		this.idOS = parm;
-	}
+    public void setIdAtividadesOS(final Integer parm) {
+        idAtividadesOS = parm;
+    }
 
-	public Integer getSequencia() {
-		return this.sequencia;
-	}
+    public Integer getIdOS() {
+        return idOS;
+    }
 
-	public void setSequencia(Integer parm) {
-		this.sequencia = parm;
-	}
+    public void setIdOS(final Integer parm) {
+        idOS = parm;
+    }
 
-	public Integer getIdAtividadeServicoContrato() {
-		return this.idAtividadeServicoContrato;
-	}
+    public Integer getSequencia() {
+        return sequencia;
+    }
 
-	public void setIdAtividadeServicoContrato(Integer parm) {
-		this.idAtividadeServicoContrato = parm;
-	}
+    public void setSequencia(final Integer parm) {
+        sequencia = parm;
+    }
 
-	public String getDescricaoAtividade() {
-		return this.descricaoAtividade;
-	}
+    public Integer getIdAtividadeServicoContrato() {
+        return idAtividadeServicoContrato;
+    }
 
-	public void setDescricaoAtividade(String parm) {
-		this.descricaoAtividade = parm;
-	}
+    public void setIdAtividadeServicoContrato(final Integer parm) {
+        idAtividadeServicoContrato = parm;
+    }
 
-	public String getObsAtividade() {
-		return this.obsAtividade;
-	}
+    public String getDescricaoAtividade() {
+        return descricaoAtividade;
+    }
 
-	public void setObsAtividade(String parm) {
-		this.obsAtividade = parm;
-	}
+    public void setDescricaoAtividade(final String parm) {
+        descricaoAtividade = parm;
+    }
 
-	public Double getCustoAtividade() {
-		return this.custoAtividade;
-	}
+    public String getObsAtividade() {
+        return obsAtividade;
+    }
 
-	public void setCustoAtividade(Double parm) {
-		this.custoAtividade = parm;
-	}
+    public void setObsAtividade(final String parm) {
+        obsAtividade = parm;
+    }
 
-	public String getComplexidade() {
-		return this.complexidade;
-	}
+    public Double getCustoAtividade() {
+        return custoAtividade;
+    }
 
-	public void setComplexidade(String parm) {
-		this.complexidade = parm;
-	}
-	
-	public String getDeleted() {
-		return this.deleted;
-	}
-	public void setDeleted(String parm) {
-		this.deleted = parm;
-	}
-	
-	public Double getGlosaAtividade() {
-		return glosaAtividade;
-	}
-	
-	public void setGlosaAtividade(Double glosaAtividade) {
-		this.glosaAtividade = glosaAtividade;
-	}
-	
-	public Double getQtdeExecutada() {
-		return qtdeExecutada;
-	}
-	
-	public void setQtdeExecutada(Double qtdeExecutada) {
-		this.qtdeExecutada = qtdeExecutada;
-	}
-	
-	public String getNumeroOS() {
-		return numeroOS;
-	}
-	
-	public void setNumeroOS(String numeroOS) {
-		this.numeroOS = numeroOS;
-	}
-	
-	public String getFormula() {
-		return formula;
-	}
-	
-	public void setFormula(String formula) {
-		this.formula = formula;
-	}
-	
-	public String getContabilizar() {
-		return contabilizar;
-	}
-	
-	public void setContabilizar(String contabilizar) {
-		this.contabilizar = contabilizar;
-	}
-	
-	public Integer getIdServicoContratoContabil() {
-		return idServicoContratoContabil;
-	}
-	
-	public void setIdServicoContratoContabil(Integer idServicoContratoContabil) {
-		this.idServicoContratoContabil = idServicoContratoContabil;
-	}
+    public void setCustoAtividade(final Double parm) {
+        custoAtividade = parm;
+    }
 
-	public Integer getIdConexaoBI() {
-		return idConexaoBI;
-	}
+    public String getComplexidade() {
+        return complexidade;
+    }
 
-	public void setIdConexaoBI(Integer idConexaoBI) {
-		this.idConexaoBI = idConexaoBI;
-	}
-	
+    public void setComplexidade(final String parm) {
+        complexidade = parm;
+    }
+
+    public String getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(final String parm) {
+        deleted = parm;
+    }
+
+    public Double getGlosaAtividade() {
+        return glosaAtividade;
+    }
+
+    public void setGlosaAtividade(final Double glosaAtividade) {
+        this.glosaAtividade = glosaAtividade;
+    }
+
+    public Double getQtdeExecutada() {
+        return qtdeExecutada;
+    }
+
+    public void setQtdeExecutada(final Double qtdeExecutada) {
+        this.qtdeExecutada = qtdeExecutada;
+    }
+
+    public String getNumeroOS() {
+        return numeroOS;
+    }
+
+    public void setNumeroOS(final String numeroOS) {
+        this.numeroOS = numeroOS;
+    }
+
+    public String getFormula() {
+        return formula;
+    }
+
+    public void setFormula(final String formula) {
+        this.formula = formula;
+    }
+
+    public String getContabilizar() {
+        return contabilizar;
+    }
+
+    public void setContabilizar(final String contabilizar) {
+        this.contabilizar = contabilizar;
+    }
+
+    public Integer getIdServicoContratoContabil() {
+        return idServicoContratoContabil;
+    }
+
+    public void setIdServicoContratoContabil(final Integer idServicoContratoContabil) {
+        this.idServicoContratoContabil = idServicoContratoContabil;
+    }
+
+    public Integer getIdConexaoBI() {
+        return idConexaoBI;
+    }
+
+    public void setIdConexaoBI(final Integer idConexaoBI) {
+        this.idConexaoBI = idConexaoBI;
+    }
+
 }

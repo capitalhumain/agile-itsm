@@ -21,8 +21,8 @@ import br.com.citframework.util.SQLConfig;
 import br.com.citframework.util.UtilDatas;
 import br.com.citframework.util.UtilStrings;
 
-@SuppressWarnings({ "unchecked", "rawtypes" })
 public class ServicoContratoDao extends CrudDaoDefaultImpl {
+
     public ServicoContratoDao() {
         super(Constantes.getValue("DATABASE_ALIAS"), null);
     }
@@ -84,22 +84,22 @@ public class ServicoContratoDao extends CrudDaoDefaultImpl {
 
     public Collection findByIdServico(final Integer parm) throws PersistenceException {
         final StringBuilder sql = new StringBuilder();
-        final List parametro = new ArrayList();
-        List list = new ArrayList();
+        final List parametro = new ArrayList<>();
+        List list = new ArrayList<>();
         sql.append("SELECT idServico, idContrato, deleted, dataInicio, dataFim ");
-        sql.append("FROM " + getTableName() + " ");
+        sql.append("FROM " + this.getTableName() + " ");
         sql.append("WHERE idservico = " + parm + " ");
         sql.append("AND (datafim is null or datafim > ? )");
         parametro.add(UtilDatas.getDataAtual());
         list = this.execSQL(sql.toString(), parametro.toArray());
-        final List listRetorno = new ArrayList();
+        final List listRetorno = new ArrayList<>();
         listRetorno.add("idServico");
         listRetorno.add("idContrato");
         listRetorno.add("deleted");
         listRetorno.add("dataInicio");
         listRetorno.add("dataFim");
 
-        final List result = engine.listConvertion(getBean(), list, listRetorno);
+        final List result = engine.listConvertion(this.getBean(), list, listRetorno);
         if (result == null || result.size() == 0) {
             return null;
         } else {
@@ -108,17 +108,17 @@ public class ServicoContratoDao extends CrudDaoDefaultImpl {
     }
 
     public void deleteByIdServico(final Integer parm) throws PersistenceException {
-        final List condicao = new ArrayList();
+        final List<Condition> condicao = new ArrayList<>();
         condicao.add(new Condition("idServico", "=", parm));
         super.deleteByCondition(condicao);
     }
 
     public Collection findByIdContrato(final Integer parm) throws PersistenceException {
         final StringBuilder sql = new StringBuilder();
-        final List parametro = new ArrayList();
-        List list = new ArrayList();
+        final List parametro = new ArrayList<>();
+        List list = new ArrayList<>();
         sql.append("SELECT " + this.getNamesFieldsStr() + " ");
-        sql.append("FROM " + getTableName() + " ");
+        sql.append("FROM " + this.getTableName() + " ");
         sql.append("WHERE idContrato = ? ");
         sql.append("AND (deleted is null or deleted <> 'y')");
 
@@ -128,8 +128,8 @@ public class ServicoContratoDao extends CrudDaoDefaultImpl {
 
         final List listRetorno = this.getListNamesFieldClass();
 
-        List result = new ArrayList();
-        result = engine.listConvertion(getBean(), list, listRetorno);
+        List result = new ArrayList<>();
+        result = engine.listConvertion(this.getBean(), list, listRetorno);
 
         return result;
 
@@ -137,8 +137,8 @@ public class ServicoContratoDao extends CrudDaoDefaultImpl {
 
     public Collection findServicoComNomeByIdContrato(final Integer parm) throws PersistenceException {
         final StringBuilder sql = new StringBuilder();
-        final List parametro = new ArrayList();
-        List list = new ArrayList();
+        final List parametro = new ArrayList<>();
+        List list = new ArrayList<>();
         sql.append("SELECT sc.idservicocontrato, s.nomeservico FROM servicocontrato sc ");
         sql.append("inner join servico s on s.idservico = sc.idservico WHERE idContrato = ? ");
         sql.append("AND (sc.deleted is null or sc.deleted <> 'y')");
@@ -147,12 +147,12 @@ public class ServicoContratoDao extends CrudDaoDefaultImpl {
 
         list = this.execSQL(sql.toString(), parametro.toArray());
 
-        final List listRetorno = new ArrayList();
+        final List listRetorno = new ArrayList<>();
         listRetorno.add("idServicoContrato");
         listRetorno.add("nomeServico");
 
-        List result = new ArrayList();
-        result = engine.listConvertion(getBean(), list, listRetorno);
+        List result = new ArrayList<>();
+        result = engine.listConvertion(this.getBean(), list, listRetorno);
 
         return result;
 
@@ -160,17 +160,17 @@ public class ServicoContratoDao extends CrudDaoDefaultImpl {
 
     public Collection findByIdContratoDistinct(final Integer idContrato) throws PersistenceException {
         final StringBuilder sql = new StringBuilder();
-        final List parametro = new ArrayList();
-        List list = new ArrayList();
+        final List parametro = new ArrayList<>();
+        List list = new ArrayList<>();
         sql.append("SELECT distinct servicocontrato.idServico ");
         sql.append("FROM servicocontrato ");
         sql.append("INNER JOIN servico ON servico.idservico = servicocontrato.idservico ");
         sql.append("WHERE servicocontrato.idcontrato = " + idContrato);
         list = this.execSQL(sql.toString(), parametro.toArray());
-        final List listRetorno = new ArrayList();
+        final List listRetorno = new ArrayList<>();
         listRetorno.add("idServico");
 
-        final List result = engine.listConvertion(getBean(), list, listRetorno);
+        final List result = engine.listConvertion(this.getBean(), list, listRetorno);
         if (result == null || result.size() == 0) {
             return null;
         } else {
@@ -180,8 +180,8 @@ public class ServicoContratoDao extends CrudDaoDefaultImpl {
 
     public Collection findServicoContratoByIdContrato(final Integer idContrato) throws PersistenceException {
         final StringBuilder sql = new StringBuilder();
-        final List parametro = new ArrayList();
-        List list = new ArrayList();
+        final List parametro = new ArrayList<>();
+        List list = new ArrayList<>();
         sql.append("SELECT servicocontrato.idServicoContrato, servico.nomeServico, servico.idServico ");
         sql.append("FROM servicocontrato servicocontrato ");
         sql.append("INNER JOIN servico servico ON servicocontrato.idservico = servico.idservico ");
@@ -189,12 +189,12 @@ public class ServicoContratoDao extends CrudDaoDefaultImpl {
         sql.append(" AND (servicocontrato.deleted is null or servicocontrato.deleted <> 'y') ");
         sql.append("order by servico.nomeservico ");
         list = this.execSQL(sql.toString(), parametro.toArray());
-        final List listRetorno = new ArrayList();
+        final List listRetorno = new ArrayList<>();
         listRetorno.add("idServicoContrato");
         listRetorno.add("nomeServico");
         listRetorno.add("idServico");
 
-        final List result = engine.listConvertion(getBean(), list, listRetorno);
+        final List result = engine.listConvertion(this.getBean(), list, listRetorno);
         if (result == null || result.size() == 0) {
             return null;
         } else {
@@ -211,18 +211,18 @@ public class ServicoContratoDao extends CrudDaoDefaultImpl {
      */
     public Collection findServicoContratoByIdServico(final Integer idServico) throws PersistenceException {
         final StringBuilder sql = new StringBuilder();
-        final List parametro = new ArrayList();
-        List list = new ArrayList();
+        final List parametro = new ArrayList<>();
+        List list = new ArrayList<>();
         sql.append(" SELECT servicocontrato.idServicoContrato ");
         sql.append(" FROM servicocontrato ");
         sql.append(" WHERE servicocontrato.idServico = " + idServico);
         sql.append(" AND (servicocontrato.deleted is null or servicocontrato.deleted <> 'y') ");
 
         list = this.execSQL(sql.toString(), parametro.toArray());
-        final List listRetorno = new ArrayList();
+        final List listRetorno = new ArrayList<>();
         listRetorno.add("idServicoContrato");
 
-        final List result = engine.listConvertion(getBean(), list, listRetorno);
+        final List result = engine.listConvertion(this.getBean(), list, listRetorno);
         if (result == null || result.size() == 0) {
             return null;
         } else {
@@ -241,8 +241,7 @@ public class ServicoContratoDao extends CrudDaoDefaultImpl {
      * @throws Exception
      * @author valdoilo.damasceno
      */
-    public ServicoContratoDTO findByIdContratoAndIdServico(final Integer idContrato, final Integer idServico)
-            throws PersistenceException {
+    public ServicoContratoDTO findByIdContratoAndIdServico(final Integer idContrato, final Integer idServico) throws PersistenceException {
 
         final StringBuilder sql = new StringBuilder();
 
@@ -251,7 +250,7 @@ public class ServicoContratoDao extends CrudDaoDefaultImpl {
         sql.append(" FROM servicocontrato ");
         sql.append(" WHERE idcontrato = ? AND idservico = ? AND (datafim is null OR datafim > ? ) AND (deleted <> 'y' OR deleted <> 'Y' OR deleted is null) ");
 
-        final List parametros = new ArrayList();
+        final List parametros = new ArrayList<>();
 
         parametros.add(idContrato);
         parametros.add(idServico);
@@ -259,14 +258,12 @@ public class ServicoContratoDao extends CrudDaoDefaultImpl {
 
         final List list = this.execSQL(sql.toString(), parametros.toArray());
 
-        final List<ServicoContratoDTO> listServicoContratoDto = this.listConvertion(this.getBean(), list,
-                this.getListNamesFieldClass());
+        final List<ServicoContratoDTO> listServicoContratoDto = this.listConvertion(this.getBean(), list, this.getListNamesFieldClass());
 
         if (listServicoContratoDto != null && !listServicoContratoDto.isEmpty()) {
             return listServicoContratoDto.get(0);
-        } else {
-            return null;
         }
+        return null;
 
     }
 
@@ -283,8 +280,8 @@ public class ServicoContratoDao extends CrudDaoDefaultImpl {
         sql.append("FROM servicocontrato JOIN servico servico ON servicocontrato.idservico = servico.idservico ");
         sql.append("WHERE idservicocontrato = ? AND (servicocontrato.datafim is null OR servicocontrato.datafim > ? ) AND (servicocontrato.deleted <> 'y' OR servicocontrato.deleted <> 'Y' OR servicocontrato.deleted is null) ");
 
-        final List parametros = new ArrayList();
-        final List listaRetorno = new ArrayList();
+        final List parametros = new ArrayList<>();
+        final List listaRetorno = new ArrayList<>();
 
         listaRetorno.add("idServicoContrato");
         listaRetorno.add("nomeServico");
@@ -298,14 +295,13 @@ public class ServicoContratoDao extends CrudDaoDefaultImpl {
 
         if (listServicoContratoDto != null && !listServicoContratoDto.isEmpty()) {
             return listServicoContratoDto.get(0);
-        } else {
-            return null;
         }
+        return null;
 
     }
 
     public void deleteByIdContrato(final Integer parm) throws PersistenceException {
-        final List condicao = new ArrayList();
+        final List<Condition> condicao = new ArrayList<>();
         condicao.add(new Condition("idContrato", "=", parm));
         super.deleteByCondition(condicao);
     }
@@ -322,11 +318,11 @@ public class ServicoContratoDao extends CrudDaoDefaultImpl {
 
     public Collection findByIdFornecedor(final Integer idFornecedor) throws PersistenceException {
         final StringBuilder sql = new StringBuilder();
-        final List parametro = new ArrayList();
-        List list = new ArrayList();
+        final List parametro = new ArrayList<>();
+        List list = new ArrayList<>();
 
-        final Collection fields = getFields();
-        final List listaNomes = new ArrayList();
+        final Collection fields = this.getFields();
+        final List listaNomes = new ArrayList<>();
         sql.append("SELECT ");
         int i = 0;
         for (final Iterator it = fields.iterator(); it.hasNext();) {
@@ -339,7 +335,7 @@ public class ServicoContratoDao extends CrudDaoDefaultImpl {
             i++;
         }
 
-        sql.append(" FROM " + getTableName());
+        sql.append(" FROM " + this.getTableName());
         sql.append(" sc INNER JOIN contratos c ON c.idcontrato = sc.idcontrato WHERE c.idfornecedor = ? ");
         // sql.append("order by nomeservico ");
 
@@ -347,7 +343,7 @@ public class ServicoContratoDao extends CrudDaoDefaultImpl {
 
         list = this.execSQL(sql.toString(), parametro.toArray());
 
-        final List result = engine.listConvertion(getBean(), list, listaNomes);
+        final List result = engine.listConvertion(this.getBean(), list, listaNomes);
         if (result == null || result.size() == 0) {
             return null;
         } else {
@@ -358,11 +354,11 @@ public class ServicoContratoDao extends CrudDaoDefaultImpl {
     public boolean validaServicoContrato(final Integer idContrato, final Integer idServico) throws PersistenceException {
 
         final StringBuilder sql = new StringBuilder();
-        final List parametro = new ArrayList();
+        final List parametro = new ArrayList<>();
 
-        List list = new ArrayList();
+        List list = new ArrayList<>();
         sql.append("SELECT idServicoContrato ");
-        sql.append("FROM " + getTableName() + " ");
+        sql.append("FROM " + this.getTableName() + " ");
         sql.append("WHERE idContrato = ? ");
         sql.append("AND idServico = ? ");
         sql.append("AND deleted IS NULL ");
@@ -371,15 +367,14 @@ public class ServicoContratoDao extends CrudDaoDefaultImpl {
         parametro.add(idServico);
 
         list = this.execSQL(sql.toString(), parametro.toArray());
-        final List listRetorno = new ArrayList();
+        final List listRetorno = new ArrayList<>();
         listRetorno.add("idServicoContrato");
 
-        final List result = engine.listConvertion(getBean(), list, listRetorno);
+        final List result = engine.listConvertion(this.getBean(), list, listRetorno);
         if (result == null || result.size() == 0) {
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
     /**
@@ -389,7 +384,7 @@ public class ServicoContratoDao extends CrudDaoDefaultImpl {
      * @author cledson.junioro
      */
     public void updateServicoContrato(final Integer idServicoContrato, final Date data) throws PersistenceException {
-        final List parametros = new ArrayList();
+        final List parametros = new ArrayList<>();
         if (data != null) {
             parametros.add(data);
         } else {
@@ -397,8 +392,8 @@ public class ServicoContratoDao extends CrudDaoDefaultImpl {
         }
         parametros.add("y");
         parametros.add(idServicoContrato);
-        final String sql = "UPDATE " + getTableName() + " SET datafim = ?, deleted = ? WHERE idServicoContrato = ?";
-        execUpdate(sql, parametros.toArray());
+        final String sql = "UPDATE " + this.getTableName() + " SET datafim = ?, deleted = ? WHERE idServicoContrato = ?";
+        this.execUpdate(sql, parametros.toArray());
     }
 
     /**
@@ -415,9 +410,8 @@ public class ServicoContratoDao extends CrudDaoDefaultImpl {
      *
      *         Paginação da tela Administração de Contratos
      */
-    public Collection findByIdContratoPaginada(final ServicoContratoDTO servicoContratoDTO, final String paginacao,
-            Integer pagAtual, final Integer pagAtualAux, Integer totalPag, final Integer quantidadePaginator,
-            final String campoPesquisa) throws PersistenceException {
+    public Collection findByIdContratoPaginada(final ServicoContratoDTO servicoContratoDTO, final String paginacao, Integer pagAtual,
+            final Integer pagAtualAux, Integer totalPag, final Integer quantidadePaginator, final String campoPesquisa) throws PersistenceException {
         if (strSGBDPrincipal == null) {
             strSGBDPrincipal = CITCorporeUtil.SGBD_PRINCIPAL;
             strSGBDPrincipal = UtilStrings.nullToVazio(strSGBDPrincipal).trim();
@@ -430,7 +424,7 @@ public class ServicoContratoDao extends CrudDaoDefaultImpl {
         sql.append("sc.custo,sc.restricoesPressup,sc.objetivo,sc.permiteSLANoCadInc,sc.linkProcesso,sc.descricaoProcesso,sc.tipoDescProcess,");
         sql.append("sc.areaRequisitante,sc.idModeloEmailCriacao,sc.idModeloEmailFinalizacao,sc.idModeloEmailAcoes,sc.idGrupoNivel1,sc.idGrupoExecutor,");
         sql.append("sc.idGrupoAprovador,sc.idCalendario,sc.permSLATempoACombinar,sc.permMudancaSLA,sc.permMudancaCalendario,sc.deleted, sc.expandir ");
-        sql.append(" FROM " + getTableName() + " sc INNER JOIN servico s ON sc.idServico = s.idServico");
+        sql.append(" FROM " + this.getTableName() + " sc INNER JOIN servico s ON sc.idServico = s.idServico");
 
         if (strSGBDPrincipal.equalsIgnoreCase("SQLSERVER")) {
             trim = "";
@@ -438,10 +432,8 @@ public class ServicoContratoDao extends CrudDaoDefaultImpl {
             trim = " order by trim(s.nomeservico)";
         }
 
-        sql.append(" WHERE sc.idContrato = " + servicoContratoDTO.getIdContrato()
-                + " AND (upper(s.nomeservico) like '%" + campoPesquisa.toUpperCase()
-                + "%' OR upper(s.siglaabrev) like '%" + campoPesquisa.toUpperCase()
-                + "%') AND (sc.deleted is null or sc.deleted <> 'y')" + trim);
+        sql.append(" WHERE sc.idContrato = " + servicoContratoDTO.getIdContrato() + " AND (upper(s.nomeservico) like '%" + campoPesquisa.toUpperCase()
+                + "%' OR upper(s.siglaabrev) like '%" + campoPesquisa.toUpperCase() + "%') AND (sc.deleted is null or sc.deleted <> 'y')" + trim);
         final List listaTotal = this.execSQL(sql.toString(), null);
         if (quantidadePaginator != null) {
             if (strSGBDPrincipal.equalsIgnoreCase("POSTGRESQL") || strSGBDPrincipal.equalsIgnoreCase("POSTGRES")) {
@@ -457,15 +449,13 @@ public class ServicoContratoDao extends CrudDaoDefaultImpl {
                 sql.append("sc.custo,sc.restricoesPressup,sc.objetivo,sc.permiteSLANoCadInc,sc.linkProcesso,sc.descricaoProcesso,sc.tipoDescProcess,");
                 sql.append("sc.areaRequisitante,sc.idModeloEmailCriacao,sc.idModeloEmailFinalizacao,sc.idModeloEmailAcoes,sc.idGrupoNivel1,");
                 sql.append("sc.idGrupoExecutor,sc.idGrupoAprovador,sc.idCalendario,sc.permSLATempoACombinar,sc.permMudancaSLA,sc.permMudancaCalendario,sc.deleted, sc.expandir ");
-                sql.append(" FROM " + getTableName() + " sc INNER JOIN servico s ON sc.idServico = s.idServico ");
-                sql.append(" WHERE sc.idContrato = " + servicoContratoDTO.getIdContrato()
-                        + " AND ( upper(s.nomeservico) like '%" + campoPesquisa.toUpperCase()
+                sql.append(" FROM " + this.getTableName() + " sc INNER JOIN servico s ON sc.idServico = s.idServico ");
+                sql.append(" WHERE sc.idContrato = " + servicoContratoDTO.getIdContrato() + " AND ( upper(s.nomeservico) like '%" + campoPesquisa.toUpperCase()
                         + "%' OR upper(s.siglaabrev)  like '%" + campoPesquisa.toUpperCase() + "%')");
                 sql.append(" AND (sc.deleted is null or sc.deleted <> 'y') and IDSERVICOCONTRATO in ");
                 sql.append("(select IDSERVICOCONTRATO from (select table_.*, rownum rownum_ from (select count(*) over() as totalRowCount,");
                 sql.append(sql2.substring(6, sql2.length()));
-                sql.append(") table_ where rownum <= " + quantidadePaginator2
-                        + " ) as SERVICOCONTRATO where rownum_ > " + pagAtual + ")");
+                sql.append(") table_ where rownum <= " + quantidadePaginator2 + " ) as SERVICOCONTRATO where rownum_ > " + pagAtual + ")");
             } else if (strSGBDPrincipal.equalsIgnoreCase("SQLSERVER")) {
                 Integer quantidadePaginator2 = new Integer(0);
                 quantidadePaginator2 = quantidadePaginator + pagAtual;
@@ -479,8 +469,7 @@ public class ServicoContratoDao extends CrudDaoDefaultImpl {
                 sql.append("areaRequisitante,idModeloEmailCriacao,idModeloEmailFinalizacao,idModeloEmailAcoes,idGrupoNivel1,");
                 sql.append("idGrupoExecutor,idGrupoAprovador,idCalendario,permSLATempoACombinar,permMudancaSLA,permMudancaCalendario,deleted,expandir");
                 sql.append(" FROM" + "(select ROW_NUMBER() OVER( order by s.nomeservico) as rownum_, ");
-                sql.append(sql2.substring(6, sql2.length()) + ")  as table_ where table_.rownum_ between " + pagAtual
-                        + " and " + quantidadePaginator2);
+                sql.append(sql2.substring(6, sql2.length()) + ")  as table_ where table_.rownum_ between " + pagAtual + " and " + quantidadePaginator2);
             }
         }
 
@@ -496,7 +485,7 @@ public class ServicoContratoDao extends CrudDaoDefaultImpl {
             }
         }
         servicoContratoDTO.setTotalPagina(totalPag);
-        final List lista = execSQL(sql.toString(), null);
+        final List lista = this.execSQL(sql.toString(), null);
         if (lista == null || lista.size() == 0) {
             final TransactionControler tc = this.getTransactionControler();
             if (tc != null) {
@@ -505,7 +494,7 @@ public class ServicoContratoDao extends CrudDaoDefaultImpl {
             return null;
         }
 
-        List result = new ArrayList();
+        List result = new ArrayList<>();
         if (lista == null || lista.size() == 0) {
             final TransactionControler tc = this.getTransactionControler();
             if (tc != null) {
@@ -520,7 +509,7 @@ public class ServicoContratoDao extends CrudDaoDefaultImpl {
         }
         final List listRetorno = this.getListNamesFieldClass();
 
-        result = engine.listConvertion(getBean(), lista, listRetorno);
+        result = engine.listConvertion(this.getBean(), lista, listRetorno);
 
         return result;
     }
@@ -533,11 +522,10 @@ public class ServicoContratoDao extends CrudDaoDefaultImpl {
      * @return ServicoDTO
      * @throws Exception
      */
-    public ServicoContratoDTO findByIdServicoContrato(final Integer idServico, final Integer idContrato)
-            throws PersistenceException {
-        final List parametro = new ArrayList();
-        final List fields = new ArrayList();
-        List list = new ArrayList();
+    public ServicoContratoDTO findByIdServicoContrato(final Integer idServico, final Integer idContrato) throws PersistenceException {
+        final List parametro = new ArrayList<>();
+        final List fields = new ArrayList<>();
+        List list = new ArrayList<>();
         final String sql = "select servicocontrato.idservicocontrato, valorservicocontrato.valorservico, servico.nomeservico, categoriaservico.nomecategoriaservico "
                 + "from servicocontrato servicocontrato "
                 + "left join valorservicocontrato valorservicocontrato on valorservicocontrato.idservicocontrato =  servicocontrato.idservicocontrato "
@@ -545,8 +533,7 @@ public class ServicoContratoDao extends CrudDaoDefaultImpl {
                 + "inner join categoriaservico categoriaservico on servico.idcategoriaservico = categoriaservico.idcategoriaservico "
                 + "where valorservicocontrato.datafim is null "
                 + "and servicocontrato.datafim is null and servicocontrato.idservico = ? and servicocontrato.idcontrato = ? "
-                + "and (servico.deleted is null OR servico.deleted = 'n') "
-				+ "and (servicocontrato.deleted is null OR servicocontrato.deleted = 'n')";
+                + "and (servico.deleted is null OR servico.deleted = 'n') " + "and (servicocontrato.deleted is null OR servicocontrato.deleted = 'n')";
         parametro.add(idServico);
         parametro.add(idContrato);
         list = this.execSQL(sql, parametro.toArray());
@@ -555,18 +542,16 @@ public class ServicoContratoDao extends CrudDaoDefaultImpl {
         fields.add("nomeServico");
         fields.add("nomeCategoriaServico");
         if (list != null && !list.isEmpty()) {
-            return (ServicoContratoDTO) this.listConvertion(getBean(), list, fields).get(0);
-        } else {
-            return null;
+            return (ServicoContratoDTO) this.listConvertion(this.getBean(), list, fields).get(0);
         }
+        return null;
     }
 
     public Collection<ServicoContratoDTO> findAtivosByIdGrupo(final Integer idGrupo) throws PersistenceException {
-        final List parametro = new ArrayList();
-        final List fields = new ArrayList();
-        List list = new ArrayList();
-        final String sql = "select servicocontrato.idservicocontrato "
-                + "from servicocontrato servicocontrato "
+        final List parametro = new ArrayList<>();
+        final List fields = new ArrayList<>();
+        List list = new ArrayList<>();
+        final String sql = "select servicocontrato.idservicocontrato " + "from servicocontrato servicocontrato "
                 + "where (servicocontrato.idgruponivel1 = ? or servicocontrato.idgrupoexecutor = ? or servicocontrato.idgrupoaprovador = ?) "
                 + "and servicocontrato.datafim is null";
 
@@ -577,10 +562,9 @@ public class ServicoContratoDao extends CrudDaoDefaultImpl {
         list = this.execSQL(sql, parametro.toArray());
 
         if (list != null && !list.isEmpty()) {
-            return this.listConvertion(getBean(), list, fields);
-        } else {
-            return null;
+            return this.listConvertion(this.getBean(), list, fields);
         }
+        return null;
     }
 
     /**
@@ -590,12 +574,11 @@ public class ServicoContratoDao extends CrudDaoDefaultImpl {
      * @throws Exception
      */
     public ArrayList<ServicoContratoDTO> findByIdCalendario(final Integer idCalendario) throws PersistenceException {
-        final List condicao = new ArrayList();
-        final List ordenacao = new ArrayList();
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
         condicao.add(new Condition("idCalendario", "=", idCalendario));
         ordenacao.add(new Order("idServico"));
-        final ArrayList<ServicoContratoDTO> result = (ArrayList<ServicoContratoDTO>) super.findByCondition(condicao,
-                ordenacao);
+        final ArrayList<ServicoContratoDTO> result = (ArrayList<ServicoContratoDTO>) super.findByCondition(condicao, ordenacao);
         return result == null ? new ArrayList<ServicoContratoDTO>() : result;
     }
 
@@ -607,12 +590,11 @@ public class ServicoContratoDao extends CrudDaoDefaultImpl {
      * @throws Exception
      * @author mario.haysaki
      */
-    public boolean verificaSeExisteSolicitacaoAbertaVinculadoComServico(final Integer idServico,
-            final Integer idContrato) throws PersistenceException {
+    public boolean verificaSeExisteSolicitacaoAbertaVinculadoComServico(final Integer idServico, final Integer idContrato) throws PersistenceException {
 
         final StringBuilder sql = new StringBuilder();
-        List list = new ArrayList();
-        final List parametros = new ArrayList();
+        List list = new ArrayList<>();
+        final List parametros = new ArrayList<>();
 
         sql.append("select COUNT(*) from solicitacaoservico sol  ");
         sql.append("inner join servicocontrato sc on sol.idservicocontrato = sc.idservicocontrato ");
@@ -659,8 +641,8 @@ public class ServicoContratoDao extends CrudDaoDefaultImpl {
      */
     public boolean verificaServicoEstaVinculadoContrato(final Integer idSolicitacaoServico) throws PersistenceException {
         final StringBuilder sql = new StringBuilder();
-        List list = new ArrayList();
-        final List parametros = new ArrayList();
+        List list = new ArrayList<>();
+        final List parametros = new ArrayList<>();
 
         sql.append("select COUNT(*) from servicocontrato sc ");
         sql.append("inner join solicitacaoservico sol on sol.idservicocontrato = sc.idservicocontrato ");
@@ -695,35 +677,34 @@ public class ServicoContratoDao extends CrudDaoDefaultImpl {
 
     }
 
-	public ServicoContratoDTO findByIdSolicitacaoServico(Integer idSolicitacaoServico) throws PersistenceException {
-		
-		 final StringBuilder  query = new StringBuilder();
-		
-		 query.append("SELECT sc.idgruponivel1, sc.idgrupoexecutor FROM servicocontrato sc ");
+    public ServicoContratoDTO findByIdSolicitacaoServico(final Integer idSolicitacaoServico) throws PersistenceException {
 
- 		 query.append("INNER JOIN servico s ON s.idservico = sc.idservico ");
+        final StringBuilder query = new StringBuilder();
 
-		 query.append("INNER JOIN solicitacaoservico ss ON ss.idservicocontrato = sc.idservicocontrato ");
+        query.append("SELECT sc.idgruponivel1, sc.idgrupoexecutor FROM servicocontrato sc ");
 
-		 query.append("WHERE ss.idsolicitacaoservico = ?");
-		
-		 List<String> fields = new ArrayList<String>();
-		 
-		 List parametro = new ArrayList<>();
-		 
-		 parametro.add(idSolicitacaoServico);
-		 
-	     fields.add("idGrupoNivel1");
-	     
-	     fields.add("idGrupoExecutor");
-	     
-	     List list = this.execSQL(query.toString(), parametro.toArray());
+        query.append("INNER JOIN servico s ON s.idservico = sc.idservico ");
+
+        query.append("INNER JOIN solicitacaoservico ss ON ss.idservicocontrato = sc.idservicocontrato ");
+
+        query.append("WHERE ss.idsolicitacaoservico = ?");
+
+        final List<String> fields = new ArrayList<String>();
+
+        final List parametro = new ArrayList<>();
+
+        parametro.add(idSolicitacaoServico);
+
+        fields.add("idGrupoNivel1");
+
+        fields.add("idGrupoExecutor");
+
+        final List list = this.execSQL(query.toString(), parametro.toArray());
 
         if (list != null && !list.isEmpty()) {
             return (ServicoContratoDTO) this.listConvertion(ServicoContratoDTO.class, list, fields).get(0);
-        } else {
-            return null;
-        }		 
-	}
+        }
+        return null;
+    }
 
 }

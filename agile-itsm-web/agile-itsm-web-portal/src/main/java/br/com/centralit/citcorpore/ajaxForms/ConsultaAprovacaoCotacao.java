@@ -110,7 +110,7 @@ public class ConsultaAprovacaoCotacao extends AjaxFormAction {
                 str += "    <td rowspan=\""+rowSpan+"\" >"+coletaPrecoDto.getDescricaoItem()+"</td>";
                 if (colItens != null && colItens.size() > 0) {
                     int i = 0;
-                    HashMap<String, StringBuilder> mapAprovadores = new HashMap();
+                    HashMap<String, StringBuilder> mapAprovadores = new HashMap<>();
                     RequisicaoProdutoService requisicaoProdutoService = (RequisicaoProdutoService) ServiceLocator.getInstance().getService(RequisicaoProdutoService.class, null);
                     for (CotacaoItemRequisicaoDTO cotacaoItemDto : colItens) {
                         StringBuilder aprovadores = mapAprovadores.get(""+cotacaoItemDto.getIdSolicitacaoServico());

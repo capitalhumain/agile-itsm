@@ -1,17 +1,13 @@
 package br.com.centralit.citcorpore.negocio;
 
 import java.util.Collection;
-import java.util.List;
 
 import br.com.centralit.citajax.html.DocumentHTML;
 import br.com.centralit.citcorpore.bean.GrupoEmpregadoDTO;
 import br.com.centralit.citcorpore.bean.RelatorioGruposUsuarioDTO;
 import br.com.centralit.citcorpore.integracao.GrupoEmpregadoDao;
-import br.com.citframework.excecao.LogicException;
-import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.CrudServiceImpl;
 
-@SuppressWarnings("rawtypes")
 public class GrupoEmpregadoServiceEjb extends CrudServiceImpl implements GrupoEmpregadoService {
 
     private GrupoEmpregadoDao dao;
@@ -22,14 +18,6 @@ public class GrupoEmpregadoServiceEjb extends CrudServiceImpl implements GrupoEm
             dao = new GrupoEmpregadoDao();
         }
         return dao;
-    }
-
-    public Collection list(final List ordenacao) throws LogicException, ServiceException {
-        return null;
-    }
-
-    public Collection list(final String ordenacao) throws LogicException, ServiceException {
-        return null;
     }
 
     @Override

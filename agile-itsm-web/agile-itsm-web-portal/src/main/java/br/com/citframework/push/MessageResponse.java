@@ -1,6 +1,6 @@
 package br.com.citframework.push;
 
-import org.apache.commons.lang.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
  * Padrão de mensagem de response

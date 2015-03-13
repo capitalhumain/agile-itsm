@@ -53,7 +53,7 @@ public class TipoMudancaServiceEjb extends CrudServiceImpl implements TipoMudanc
 
     @Override
     public Collection<TipoMudancaDTO> tiposAtivosPorNome(final String nome) {
-        final List condicoes = new ArrayList<Condition>();
+        final List<Condition> condicoes = new ArrayList<Condition>();
         condicoes.add(new Condition("nomeTipoMudanca", "=", nome));
         condicoes.add(new Condition("datafim", "!=", "null"));
         try {

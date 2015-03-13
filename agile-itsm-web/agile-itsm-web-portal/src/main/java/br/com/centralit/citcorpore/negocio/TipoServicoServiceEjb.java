@@ -1,16 +1,11 @@
 package br.com.centralit.citcorpore.negocio;
 
-import java.util.Collection;
-import java.util.List;
-
 import br.com.centralit.citcorpore.bean.TipoServicoDTO;
 import br.com.centralit.citcorpore.integracao.TipoServicoDao;
-import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.CrudServiceImpl;
 
-@SuppressWarnings("rawtypes")
 public class TipoServicoServiceEjb extends CrudServiceImpl implements TipoServicoService {
 
     private TipoServicoDao dao;
@@ -21,14 +16,6 @@ public class TipoServicoServiceEjb extends CrudServiceImpl implements TipoServic
             dao = new TipoServicoDao();
         }
         return dao;
-    }
-
-    public Collection list(final List ordenacao) throws LogicException, ServiceException {
-        return null;
-    }
-
-    public Collection list(final String ordenacao) throws LogicException, ServiceException {
-        return null;
     }
 
     @Override

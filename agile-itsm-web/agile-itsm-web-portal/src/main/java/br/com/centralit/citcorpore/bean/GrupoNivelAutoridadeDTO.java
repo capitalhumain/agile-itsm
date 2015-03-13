@@ -3,29 +3,34 @@ package br.com.centralit.citcorpore.bean;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class GrupoNivelAutoridadeDTO extends BaseEntity {
-	private Integer idNivelAutoridade;
-	private Integer idGrupo;
-	
-	private Integer sequencia;
 
-	public Integer getIdNivelAutoridade(){
-		return this.idNivelAutoridade;
-	}
-	public void setIdNivelAutoridade(Integer parm){
-		this.idNivelAutoridade = parm;
-	}
+    private Integer idNivelAutoridade;
+    private Integer idGrupo;
 
-	public Integer getIdGrupo(){
-		return this.idGrupo;
-	}
-	public void setIdGrupo(Integer parm){
-		this.idGrupo = parm;
-	}
-	public Integer getSequencia() {
-		return sequencia;
-	}
-	public void setSequencia(Integer sequencia) {
-		this.sequencia = sequencia;
-	}
+    private Integer sequencia;
+
+    public Integer getIdNivelAutoridade() {
+        return idNivelAutoridade;
+    }
+
+    public void setIdNivelAutoridade(final Integer parm) {
+        idNivelAutoridade = parm;
+    }
+
+    public Integer getIdGrupo() {
+        return idGrupo;
+    }
+
+    public void setIdGrupo(final Integer parm) {
+        idGrupo = parm;
+    }
+
+    public Integer getSequencia() {
+        return sequencia;
+    }
+
+    public void setSequencia(final Integer sequencia) {
+        this.sequencia = sequencia;
+    }
 
 }

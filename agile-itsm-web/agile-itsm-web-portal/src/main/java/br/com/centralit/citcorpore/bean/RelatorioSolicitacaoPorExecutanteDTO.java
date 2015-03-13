@@ -4,162 +4,167 @@ import java.sql.Date;
 
 import br.com.agileitsm.model.support.BaseEntity;
 
-@SuppressWarnings("serial")
-public class RelatorioSolicitacaoPorExecutanteDTO  extends BaseEntity {
+public class RelatorioSolicitacaoPorExecutanteDTO extends BaseEntity {
 
-	private Integer idSolicitacaoServico;
-	
-	private Integer idContrato;
-	
-	private Date dataInicio;
-	
-	private Date dataFim;
-		
-	private String formatoArquivoRelatorio;
-	
-	private Integer idResponsavelAtual;
-	
-	private String nomeServico;
-	
-	private String nomeResponsavelAtual;
-	
-	private String situacao;
+    private Integer idSolicitacaoServico;
 
-	/**
-	 * Valor do top List
-	 * 
-	 * @author thyen.chang
-	 */
-	private Integer topList;
+    private Integer idContrato;
 
-	public Integer getTopList() {
-		return topList;
-	}
+    private Date dataInicio;
 
-	public void setTopList(Integer topList) {
-		this.topList = topList;
-	}
+    private Date dataFim;
 
-	/**
-	 * @return the idContrato
-	 */
-	public Integer getIdContrato() {
-		return idContrato;
-	}
+    private String formatoArquivoRelatorio;
 
-	/**
-	 * @param idContrato the idContrato to set
-	 */
-	public void setIdContrato(Integer idContrato) {
-		this.idContrato = idContrato;
-	}
+    private Integer idResponsavelAtual;
 
-	/**
-	 * @return the dataInicio
-	 */
-	public Date getDataInicio() {
-		return dataInicio;
-	}
+    private String nomeServico;
 
-	/**
-	 * @param dataInicio the dataInicio to set
-	 */
-	public void setDataInicio(Date dataInicio) {
-		this.dataInicio = dataInicio;
-	}
+    private String nomeResponsavelAtual;
 
-	/**
-	 * @return the dataFim
-	 */
-	public Date getDataFim() {
-		return dataFim;
-	}
+    private String situacao;
 
-	/**
-	 * @param dataFim the dataFim to set
-	 */
-	public void setDataFim(Date dataFim) {
-		this.dataFim = dataFim;
-	}
+    /**
+     * Valor do top List
+     *
+     * @author thyen.chang
+     */
+    private Integer topList;
 
-	/**
-	 * @return the formatoArquivoRelatorio
-	 */
-	public String getFormatoArquivoRelatorio() {
-		return formatoArquivoRelatorio;
-	}
+    public Integer getTopList() {
+        return topList;
+    }
 
-	/**
-	 * @param formatoArquivoRelatorio the formatoArquivoRelatorio to set
-	 */
-	public void setFormatoArquivoRelatorio(String formatoArquivoRelatorio) {
-		this.formatoArquivoRelatorio = formatoArquivoRelatorio;
-	}
+    public void setTopList(final Integer topList) {
+        this.topList = topList;
+    }
 
-	/**
-	 * @return the idSolicitacaoServico
-	 */
-	public Integer getIdSolicitacaoServico() {
-		return idSolicitacaoServico;
-	}
+    /**
+     * @return the idContrato
+     */
+    public Integer getIdContrato() {
+        return idContrato;
+    }
 
-	/**
-	 * @param idSolicitacaoServico the idSolicitacaoServico to set
-	 */
-	public void setIdSolicitacaoServico(Integer idSolicitacaoServico) {
-		this.idSolicitacaoServico = idSolicitacaoServico;
-	}
+    /**
+     * @param idContrato
+     *            the idContrato to set
+     */
+    public void setIdContrato(final Integer idContrato) {
+        this.idContrato = idContrato;
+    }
 
-	/**
-	 * @return the idResponsavelAtual
-	 */
-	public Integer getIdResponsavelAtual() {
-		return idResponsavelAtual;
-	}
+    /**
+     * @return the dataInicio
+     */
+    public Date getDataInicio() {
+        return dataInicio;
+    }
 
-	/**
-	 * @param idResponsavelAtual the idResponsavelAtual to set
-	 */
-	public void setIdResponsavelAtual(Integer idResponsavelAtual) {
-		this.idResponsavelAtual = idResponsavelAtual;
-	}
+    /**
+     * @param dataInicio
+     *            the dataInicio to set
+     */
+    public void setDataInicio(final Date dataInicio) {
+        this.dataInicio = dataInicio;
+    }
 
-	/**
-	 * @return the nomeServico
-	 */
-	public String getNomeServico() {
-		return nomeServico;
-	}
+    /**
+     * @return the dataFim
+     */
+    public Date getDataFim() {
+        return dataFim;
+    }
 
-	/**
-	 * @param nomeServico the nomeServico to set
-	 */
-	public void setNomeServico(String nomeServico) {
-		this.nomeServico = nomeServico;
-	}
+    /**
+     * @param dataFim
+     *            the dataFim to set
+     */
+    public void setDataFim(final Date dataFim) {
+        this.dataFim = dataFim;
+    }
 
-	/**
-	 * @return the nomeResponsavelAtual
-	 */
-	public String getNomeResponsavelAtual() {
-		return nomeResponsavelAtual;
-	}
+    /**
+     * @return the formatoArquivoRelatorio
+     */
+    public String getFormatoArquivoRelatorio() {
+        return formatoArquivoRelatorio;
+    }
 
-	/**
-	 * @param nomeResponsavelAtual the nomeResponsavelAtual to set
-	 */
-	public void setNomeResponsavelAtual(String nomeResponsavelAtual) {
-		this.nomeResponsavelAtual = nomeResponsavelAtual;
-	}
+    /**
+     * @param formatoArquivoRelatorio
+     *            the formatoArquivoRelatorio to set
+     */
+    public void setFormatoArquivoRelatorio(final String formatoArquivoRelatorio) {
+        this.formatoArquivoRelatorio = formatoArquivoRelatorio;
+    }
 
-	public String getSituacao() {
-		return situacao;
-	}
+    /**
+     * @return the idSolicitacaoServico
+     */
+    public Integer getIdSolicitacaoServico() {
+        return idSolicitacaoServico;
+    }
 
-	public void setSituacao(String situacao) {
-		this.situacao = situacao;
-	}
-	
-	
-	
+    /**
+     * @param idSolicitacaoServico
+     *            the idSolicitacaoServico to set
+     */
+    public void setIdSolicitacaoServico(final Integer idSolicitacaoServico) {
+        this.idSolicitacaoServico = idSolicitacaoServico;
+    }
+
+    /**
+     * @return the idResponsavelAtual
+     */
+    public Integer getIdResponsavelAtual() {
+        return idResponsavelAtual;
+    }
+
+    /**
+     * @param idResponsavelAtual
+     *            the idResponsavelAtual to set
+     */
+    public void setIdResponsavelAtual(final Integer idResponsavelAtual) {
+        this.idResponsavelAtual = idResponsavelAtual;
+    }
+
+    /**
+     * @return the nomeServico
+     */
+    public String getNomeServico() {
+        return nomeServico;
+    }
+
+    /**
+     * @param nomeServico
+     *            the nomeServico to set
+     */
+    public void setNomeServico(final String nomeServico) {
+        this.nomeServico = nomeServico;
+    }
+
+    /**
+     * @return the nomeResponsavelAtual
+     */
+    public String getNomeResponsavelAtual() {
+        return nomeResponsavelAtual;
+    }
+
+    /**
+     * @param nomeResponsavelAtual
+     *            the nomeResponsavelAtual to set
+     */
+    public void setNomeResponsavelAtual(final String nomeResponsavelAtual) {
+        this.nomeResponsavelAtual = nomeResponsavelAtual;
+    }
+
+    public String getSituacao() {
+        return situacao;
+    }
+
+    public void setSituacao(final String situacao) {
+        this.situacao = situacao;
+    }
+
 }

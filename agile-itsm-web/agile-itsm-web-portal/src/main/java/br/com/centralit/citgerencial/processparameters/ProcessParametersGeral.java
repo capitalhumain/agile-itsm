@@ -32,7 +32,7 @@ public class ProcessParametersGeral extends GerencialProcessParameters {
 		String valor = null;
 		String strRetorno = "";
 		String nameParam = null;
-		List nomeParams = new ArrayList();
+		List nomeParams = new ArrayList<>();
 		GerencialParameterDTO param = null;
 		for (Iterator it = colDefinicaoParametros.iterator(); it.hasNext();) {
 			param = (GerencialParameterDTO) it.next();

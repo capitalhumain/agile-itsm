@@ -14,40 +14,53 @@ import br.com.citframework.integracao.Order;
 import br.com.citframework.util.Constantes;
 
 public class ResponsavelCentroResultadoProcessoDao extends CrudDaoDefaultImpl {
-	public ResponsavelCentroResultadoProcessoDao() {
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
-	public Collection<Field> getFields() {
-		Collection<Field> listFields = new ArrayList<>();
-		listFields.add(new Field("idResponsavel" ,"idResponsavel", true, false, false, false));
-		listFields.add(new Field("idCentroResultado" ,"idCentroResultado", true, false, false, false));
-		listFields.add(new Field("idProcessoNegocio" ,"idProcessoNegocio", true, false, false, false));
-		return listFields;
-	}
-	public String getTableName() {
-		return this.getOwner() + "RespCentroResultadoProcesso";
-	}
-	public Collection list() throws PersistenceException {
-		return null;
-	}
 
-	public Class getBean() {
-		return ResponsavelCentroResultadoProcessoDTO.class;
-	}
-	public Collection find(BaseEntity arg0) throws PersistenceException {
-		return null;
-	}
-	public Collection findByIdCentroResultadoAndIdResponsavel(Integer idCentroResultado, Integer idResponsavel) throws PersistenceException {
-		List condicao = new ArrayList();
-		List ordenacao = new ArrayList(); 
-		condicao.add(new Condition("idCentroResultado", "=", idCentroResultado)); 
-		condicao.add(new Condition("idResponsavel", "=", idResponsavel)); 
-		ordenacao.add(new Order("idResponsavel"));
-		return super.findByCondition(condicao, ordenacao);
-	}
-	public void deleteByIdCentroResultado(Integer parm) throws PersistenceException {
-		List condicao = new ArrayList();
-		condicao.add(new Condition("idCentroResultado", "=", parm));
-		super.deleteByCondition(condicao);
-	}
+    public ResponsavelCentroResultadoProcessoDao() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
+    }
+
+    @Override
+    public Collection<Field> getFields() {
+        final Collection<Field> listFields = new ArrayList<>();
+        listFields.add(new Field("idResponsavel", "idResponsavel", true, false, false, false));
+        listFields.add(new Field("idCentroResultado", "idCentroResultado", true, false, false, false));
+        listFields.add(new Field("idProcessoNegocio", "idProcessoNegocio", true, false, false, false));
+        return listFields;
+    }
+
+    @Override
+    public String getTableName() {
+        return this.getOwner() + "RespCentroResultadoProcesso";
+    }
+
+    @Override
+    public Collection list() throws PersistenceException {
+        return null;
+    }
+
+    @Override
+    public Class getBean() {
+        return ResponsavelCentroResultadoProcessoDTO.class;
+    }
+
+    @Override
+    public Collection find(final BaseEntity arg0) throws PersistenceException {
+        return null;
+    }
+
+    public Collection findByIdCentroResultadoAndIdResponsavel(final Integer idCentroResultado, final Integer idResponsavel) throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
+        condicao.add(new Condition("idCentroResultado", "=", idCentroResultado));
+        condicao.add(new Condition("idResponsavel", "=", idResponsavel));
+        ordenacao.add(new Order("idResponsavel"));
+        return super.findByCondition(condicao, ordenacao);
+    }
+
+    public void deleteByIdCentroResultado(final Integer parm) throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        condicao.add(new Condition("idCentroResultado", "=", parm));
+        super.deleteByCondition(condicao);
+    }
+
 }

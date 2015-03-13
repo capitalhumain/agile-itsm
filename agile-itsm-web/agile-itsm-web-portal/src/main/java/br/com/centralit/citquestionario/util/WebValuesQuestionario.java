@@ -15,7 +15,7 @@ public class WebValuesQuestionario {
 	 * @return
 	 */	
 	public static Collection getFormValues(HttpServletRequest req){
-		Collection colRespostas = new ArrayList();
+		Collection colRespostas = new ArrayList<>();
 		Enumeration en = req.getParameterNames();
 		String[] strValores;
 		String aux;

@@ -56,7 +56,6 @@ import br.com.citframework.service.CrudServiceImpl;
 import br.com.citframework.util.UtilI18N;
 import br.com.citframework.util.UtilStrings;
 
-@SuppressWarnings({"rawtypes", "unchecked"})
 public class DinamicViewsServiceEjb extends CrudServiceImpl implements DinamicViewsService {
 
     private static final Logger LOGGER = Logger.getLogger(DinamicViewsServiceEjb.class);
@@ -85,8 +84,8 @@ public class DinamicViewsServiceEjb extends CrudServiceImpl implements DinamicVi
             LOGGER.debug("jsonMatriz: " + jsonMatriz);
             throw e;
         }
-        final Collection colCamposPKPrincipal = new ArrayList();
-        final Collection colCamposTodosPrincipal = new ArrayList();
+        final Collection colCamposPKPrincipal = new ArrayList<>();
+        final Collection colCamposTodosPrincipal = new ArrayList<>();
         final List colMatrizTratada = (List) mapMatriz.get("MATRIZ");
         if (colMatrizTratada != null) {
             final Integer idVisao = dinamicViewDto.getDinamicViewsIdVisao();
@@ -132,7 +131,7 @@ public class DinamicViewsServiceEjb extends CrudServiceImpl implements DinamicVi
 
         final Integer idVisao = dinamicViewDto.getDinamicViewsIdVisao();
         final Collection colScripts = scriptsVisaoDao.findByIdVisao(idVisao);
-        final HashMap mapScritps = new HashMap();
+        final HashMap mapScritps = new HashMap<>();
         if (colScripts != null) {
             for (final Iterator it = colScripts.iterator(); it.hasNext();) {
                 final ScriptsVisaoDTO scriptsVisaoDTO = (ScriptsVisaoDTO) it.next();
@@ -140,8 +139,8 @@ public class DinamicViewsServiceEjb extends CrudServiceImpl implements DinamicVi
             }
         }
 
-        final Collection colCamposPKPrincipal = new ArrayList();
-        final Collection colCamposTodosPrincipal = new ArrayList();
+        final Collection colCamposPKPrincipal = new ArrayList<>();
+        final Collection colCamposTodosPrincipal = new ArrayList<>();
         Collection colCamposTodosVinc = null;
         CamposObjetoNegocioDTO camposObjetoNegocioChaveMatriz = new CamposObjetoNegocioDTO();
 
@@ -253,8 +252,8 @@ public class DinamicViewsServiceEjb extends CrudServiceImpl implements DinamicVi
                     if (HashMap.class.isInstance(objFromHash)) {
                         final HashMap mapVinc = (HashMap) objFromHash;
                         if (mapVinc != null) { // Se existir dados recebidos.
-                            final Collection colCamposPKVinc = new ArrayList();
-                            colCamposTodosVinc = new ArrayList();
+                            final Collection colCamposPKVinc = new ArrayList<>();
+                            colCamposTodosVinc = new ArrayList<>();
                             this.setInfoSave(visaoRelacionadaDto.getIdVisaoFilha(), colCamposPKVinc, colCamposTodosVinc);
                             // Grava os dados de informacoes vinculadas.
                             if (this.isPKExists(colCamposPKVinc, mapVinc)) {
@@ -269,8 +268,8 @@ public class DinamicViewsServiceEjb extends CrudServiceImpl implements DinamicVi
                             for (final Iterator it2 = colVinc.iterator(); it2.hasNext();) {
                                 Map mapVinc = (Map) it2.next();
                                 if (mapVinc != null) { // Se existir dados recebidos.
-                                    final Collection colCamposPKVinc = new ArrayList();
-                                    colCamposTodosVinc = new ArrayList();
+                                    final Collection colCamposPKVinc = new ArrayList<>();
+                                    colCamposTodosVinc = new ArrayList<>();
                                     this.setInfoSave(visaoRelacionadaDto.getIdVisaoFilha(), colCamposPKVinc, colCamposTodosVinc);// *****
                                     String tipoVinc = "";
                                     if (colVinculos != null && colVinculos.size() > 0) {
@@ -285,7 +284,8 @@ public class DinamicViewsServiceEjb extends CrudServiceImpl implements DinamicVi
                                         if (colCamposPKVinc != null && colCamposPKVinc.size() > 0) {
                                             for (final Iterator itVinc = colCamposPKVinc.iterator(); itVinc.hasNext();) {
                                                 camposObjetoNegocioDTO = (CamposObjetoNegocioDTO) itVinc.next();
-                                                if (!camposObjetoNegocioDTO.getNomeDB().trim().equalsIgnoreCase(camposObjetoNegocioChaveMatriz.getNomeDB().trim())) {
+                                                if (!camposObjetoNegocioDTO.getNomeDB().trim()
+                                                        .equalsIgnoreCase(camposObjetoNegocioChaveMatriz.getNomeDB().trim())) {
                                                     mapVinc.put(camposObjetoNegocioDTO.getNomeDB(), map.get(camposObjetoNegocioDTO.getNomeDB()));
                                                 }
                                             }
@@ -320,8 +320,8 @@ public class DinamicViewsServiceEjb extends CrudServiceImpl implements DinamicVi
             }
 
             if (dinamicViewDto.getIdFluxo() != null || dinamicViewDto.getIdTarefa() != null) {
-                new ExecucaoSolicitacaoServiceEjb().executa(usuarioDto, tc, dinamicViewDto.getIdFluxo(), dinamicViewDto.getIdTarefa(), dinamicViewDto.getAcaoFluxo(), map,
-                        colCamposTodosPrincipal, colCamposTodosVinc);
+                new ExecucaoSolicitacaoServiceEjb().executa(usuarioDto, tc, dinamicViewDto.getIdFluxo(), dinamicViewDto.getIdTarefa(),
+                        dinamicViewDto.getAcaoFluxo(), map, colCamposTodosPrincipal, colCamposTodosVinc);
             }
 
             tc.commit();
@@ -345,12 +345,12 @@ public class DinamicViewsServiceEjb extends CrudServiceImpl implements DinamicVi
         return mapDest;
     }
 
-    public void processCreateVinc(final VisaoRelacionadaDTO visaoRelacionadaDto, final Collection colVinculos, final Map mapPai, final Map mapVinc, final UsuarioDTO usuarioDto,
-            final HttpServletRequest request) throws Exception {
+    public void processCreateVinc(final VisaoRelacionadaDTO visaoRelacionadaDto, final Collection colVinculos, final Map mapPai, final Map mapVinc,
+            final UsuarioDTO usuarioDto, final HttpServletRequest request) throws Exception {
         final CamposObjetoNegocioDao camposObjetoNegocioDao = new CamposObjetoNegocioDao();
         if (colVinculos != null) {
-            final Collection colCamposVinc = new ArrayList();
-            final Map mapNew = new HashMap();
+            final Collection colCamposVinc = new ArrayList<>();
+            final Map mapNew = new HashMap<>();
             for (final Iterator itVinculos = colVinculos.iterator(); itVinculos.hasNext();) {
                 final VinculoVisaoDTO vinculoVisaoDTO = (VinculoVisaoDTO) itVinculos.next();
                 if (vinculoVisaoDTO.getIdCamposObjetoNegocioPaiNN() != null) {
@@ -424,8 +424,9 @@ public class DinamicViewsServiceEjb extends CrudServiceImpl implements DinamicVi
         }
     }
 
-    public Map createFromMap(final Map map, final Collection colCampos, final UsuarioDTO usuarioDto, final VisaoDao visaoDao, final HttpServletRequest request) throws Exception {
-        final List lstParms = new ArrayList();
+    public Map createFromMap(final Map map, final Collection colCampos, final UsuarioDTO usuarioDto, final VisaoDao visaoDao, final HttpServletRequest request)
+            throws Exception {
+        final List lstParms = new ArrayList<>();
         String strValues = "";
         String strFields = "";
 
@@ -440,7 +441,8 @@ public class DinamicViewsServiceEjb extends CrudServiceImpl implements DinamicVi
                 final CamposObjetoNegocioDTO camposObjetoNegocioDTO = (CamposObjetoNegocioDTO) it.next();
 
                 String strVal = "";
-                if (camposObjetoNegocioDTO != null && camposObjetoNegocioDTO.getFormula() != null && !camposObjetoNegocioDTO.getFormula().trim().equalsIgnoreCase("")
+                if (camposObjetoNegocioDTO != null && camposObjetoNegocioDTO.getFormula() != null
+                        && !camposObjetoNegocioDTO.getFormula().trim().equalsIgnoreCase("")
                         && !camposObjetoNegocioDTO.getTipoNegocio().trim().equalsIgnoreCase(MetaUtil.CLASS_AND_METHOD)) {
                     strVal = this.executeFormula(camposObjetoNegocioDTO.getFormula(), map, camposObjetoNegocioDTO);
                 } else {
@@ -450,7 +452,8 @@ public class DinamicViewsServiceEjb extends CrudServiceImpl implements DinamicVi
                 }
 
                 if (camposObjetoNegocioDTO != null && camposObjetoNegocioDTO.getSequence().equalsIgnoreCase("S")) {
-                    final int val = PersistenceEngine.getNextKey(this.getDao().getAliasDB(), strTable.toLowerCase(), camposObjetoNegocioDTO.getNomeDB().trim().toLowerCase());
+                    final int val = PersistenceEngine.getNextKey(this.getDao().getAliasDB(), strTable.toLowerCase(), camposObjetoNegocioDTO.getNomeDB().trim()
+                            .toLowerCase());
 
                     if (!strValues.equalsIgnoreCase("")) {
                         strValues += ",";
@@ -467,13 +470,15 @@ public class DinamicViewsServiceEjb extends CrudServiceImpl implements DinamicVi
                     lstParms.add(val);
                 } else {
                     // Se o campo for obrigatório e o valor for null ou vazio, não pode continuar.
-                    if (camposObjetoNegocioDTO != null && camposObjetoNegocioDTO.getObrigatorio() != null && camposObjetoNegocioDTO.getObrigatorio().equalsIgnoreCase("S")) {
+                    if (camposObjetoNegocioDTO != null && camposObjetoNegocioDTO.getObrigatorio() != null
+                            && camposObjetoNegocioDTO.getObrigatorio().equalsIgnoreCase("S")) {
                         if (strVal == null || strVal.trim().equals("")) {
                             return map;
                         }
                     } else {
                         /*
-                         * Desenvolvedor: euler.ramos e thiago.oliveira Data: 08/11/2013 Horário: 16h00min ID Citsmart: 123627 Motivo/Comentário: As telas dinamic view não estavam
+                         * Desenvolvedor: euler.ramos e thiago.oliveira Data: 08/11/2013 Horário: 16h00min ID Citsmart: 123627 Motivo/Comentário: As telas
+                         * dinamic view não estavam
                          * listando os registros que estavam com o campo deleted igual a null
                          */
                         if (camposObjetoNegocioDTO != null && camposObjetoNegocioDTO.getNome().equalsIgnoreCase("deleted")) {
@@ -512,9 +517,10 @@ public class DinamicViewsServiceEjb extends CrudServiceImpl implements DinamicVi
         return map;
     }
 
-    public void updateFromMap(final Map map, final Collection colCampos, final UsuarioDTO usuarioDto, final VisaoDao visaoDao, final HttpServletRequest request) throws Exception {
-        final List lstParms = new ArrayList();
-        final List lstWhere = new ArrayList();
+    public void updateFromMap(final Map map, final Collection colCampos, final UsuarioDTO usuarioDto, final VisaoDao visaoDao, final HttpServletRequest request)
+            throws Exception {
+        final List lstParms = new ArrayList<>();
+        final List lstWhere = new ArrayList<>();
         String strFields = "";
         String strWhere = "";
         final String strTable = this.generateFrom(colCampos);
@@ -578,7 +584,8 @@ public class DinamicViewsServiceEjb extends CrudServiceImpl implements DinamicVi
                 }
             } catch (final Exception e) {
                 LOGGER.debug("SQL executado:" + sqlUltAtualizAndLogicDelete);
-                throw new LogicException("Não foi possí­vel realizar a exclusão do registro! Verifique se possui o Campo 'DELETED' do tipo CHAR(1) no Banco de dados!");
+                throw new LogicException(
+                        "Não foi possí­vel realizar a exclusão do registro! Verifique se possui o Campo 'DELETED' do tipo CHAR(1) no Banco de dados!");
             }
         }
     }
@@ -592,7 +599,7 @@ public class DinamicViewsServiceEjb extends CrudServiceImpl implements DinamicVi
 
         final LookupServiceEjb lookupService = new LookupServiceEjb();
 
-        final Collection colCamposTodos = new ArrayList();
+        final Collection colCamposTodos = new ArrayList<>();
         if (colGrupos != null) {
             for (final Iterator it = colGrupos.iterator(); it.hasNext();) {
                 final GrupoVisaoDTO grupoVisaoDTO = (GrupoVisaoDTO) it.next();
@@ -698,9 +705,9 @@ public class DinamicViewsServiceEjb extends CrudServiceImpl implements DinamicVi
 
     private String generateFromWithRelatios(final Collection colPresentation, final Collection colFilter) throws Exception {
         final ObjetoNegocioDao objetoNegocioDao = new ObjetoNegocioDao();
-        final HashMap map = new HashMap();
+        final HashMap map = new HashMap<>();
 
-        final Collection colGeral = new ArrayList();
+        final Collection colGeral = new ArrayList<>();
         if (colPresentation != null) {
             colGeral.addAll(colPresentation);
         }
@@ -896,7 +903,7 @@ public class DinamicViewsServiceEjb extends CrudServiceImpl implements DinamicVi
 
     public String generateFrom(final Collection colGeral) throws Exception {
         final ObjetoNegocioDao objetoNegocioDao = new ObjetoNegocioDao();
-        final Map map = new HashMap();
+        final Map map = new HashMap<>();
 
         if (colGeral != null) {
             for (final Iterator it = colGeral.iterator(); it.hasNext();) {

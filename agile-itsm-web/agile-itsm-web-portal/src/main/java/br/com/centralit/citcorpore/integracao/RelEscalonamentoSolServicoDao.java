@@ -13,64 +13,64 @@ import br.com.citframework.util.Constantes;
 
 public class RelEscalonamentoSolServicoDao extends CrudDaoDefaultImpl {
 
-	public RelEscalonamentoSolServicoDao() {
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
+    public RelEscalonamentoSolServicoDao() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
+    }
 
-	@Override
-	public Collection find(BaseEntity obj) throws PersistenceException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public Collection find(final BaseEntity obj) throws PersistenceException {
 
-	@Override
-	public Collection<Field> getFields() {
-		Collection<Field> listFields = new ArrayList<Field>();
-		listFields.add(new Field("idSolicitacaoServico", "idSolicitacaoServico", false, false, false, false));
-		listFields.add(new Field("idEscalonamento", "idEscalonamento", false, false, false, false));
-		return listFields;
-	}
+        return null;
+    }
 
-	@Override
-	public String getTableName() {
-		// TODO Auto-generated method stub
-		return "relEscalonamentoSolServico";
-	}
+    @Override
+    public Collection<Field> getFields() {
+        final Collection<Field> listFields = new ArrayList<Field>();
+        listFields.add(new Field("idSolicitacaoServico", "idSolicitacaoServico", false, false, false, false));
+        listFields.add(new Field("idEscalonamento", "idEscalonamento", false, false, false, false));
+        return listFields;
+    }
 
-	@Override
-	public Collection list() throws PersistenceException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public String getTableName() {
 
-	@Override
-	public Class getBean() {
-		// TODO Auto-generated method stub
-		return RelEscalonamentoSolServicoDto.class;
-	}
-	
-	/**
-	 * Verifica se existe relacionamento. Se existir retorna 'true', senao retorna 'false';
-	 * 
-	 * @param 
-	 * @return exists
-	 * @throws Exception
-	 */
-	public boolean temRelacionamentoSolicitacaoEscalonamento(Integer idSolicitacaoServico, Integer idEscalonamento) throws PersistenceException {
-		boolean exists;
-		List<Integer> parametro = new ArrayList<Integer>();
-		List list = new ArrayList();
-		StringBuilder sql = new StringBuilder();
-		sql.append("select * from " + getTableName() + " where idSolicitacaoServico = ? and idEscalonamento = ?  ");
-		parametro.add(idSolicitacaoServico);
-		parametro.add(idEscalonamento);
-		list = this.execSQL(sql.toString(), parametro.toArray());
-		if (list != null && !list.isEmpty()) {
-			exists = true;
-		} else {
-			exists = false;
-		}
-		return exists;
-	}
+        return "relEscalonamentoSolServico";
+    }
+
+    @Override
+    public Collection list() throws PersistenceException {
+
+        return null;
+    }
+
+    @Override
+    public Class getBean() {
+
+        return RelEscalonamentoSolServicoDto.class;
+    }
+
+    /**
+     * Verifica se existe relacionamento. Se existir retorna 'true', senao retorna 'false';
+     *
+     * @param
+     * @return exists
+     * @throws Exception
+     */
+    public boolean temRelacionamentoSolicitacaoEscalonamento(final Integer idSolicitacaoServico, final Integer idEscalonamento) throws PersistenceException {
+        boolean exists;
+        final List<Integer> parametro = new ArrayList<Integer>();
+        List list = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
+        sql.append("select * from " + this.getTableName() + " where idSolicitacaoServico = ? and idEscalonamento = ?  ");
+        parametro.add(idSolicitacaoServico);
+        parametro.add(idEscalonamento);
+        list = this.execSQL(sql.toString(), parametro.toArray());
+        if (list != null && !list.isEmpty()) {
+            exists = true;
+        } else {
+            exists = false;
+        }
+        return exists;
+    }
 
 }

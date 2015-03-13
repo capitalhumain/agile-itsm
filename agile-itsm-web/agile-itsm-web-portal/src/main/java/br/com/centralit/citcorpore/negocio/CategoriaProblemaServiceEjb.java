@@ -62,7 +62,7 @@ public class CategoriaProblemaServiceEjb extends CrudServiceImpl implements Cate
 
     @Override
     public Collection listHierarquia() throws Exception {
-        final Collection colFinal = new ArrayList();
+        final Collection colFinal = new ArrayList<>();
         try {
             final Collection col = this.getDao().findCategoriaProblemaSemPai();
             if (col != null) {
@@ -84,7 +84,7 @@ public class CategoriaProblemaServiceEjb extends CrudServiceImpl implements Cate
 
     private Collection getCollectionHierarquia(final CategoriaProblemaDTO idCategoriaProblema, final Integer nivel) throws Exception {
         final Collection col = this.getDao().findByIdCategoriaProblemaPai(idCategoriaProblema.getIdCategoriaProblemaPai());
-        final Collection colFinal = new ArrayList();
+        final Collection colFinal = new ArrayList<>();
         if (col != null) {
             for (final Iterator it = col.iterator(); it.hasNext();) {
                 final CategoriaProblemaDTO categoriaMudancaDto = (CategoriaProblemaDTO) it.next();

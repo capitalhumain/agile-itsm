@@ -48,9 +48,9 @@ public class IdiomaDao extends CrudDaoDefaultImpl {
     }
 
     public Collection findByNotIdFuncao(final Integer idFuncao) throws PersistenceException {
-        List dados = new ArrayList();
-        final List fields = new ArrayList();
-        final List parametros = new ArrayList();
+        List dados = new ArrayList<>();
+        final List fields = new ArrayList<>();
+        final List parametros = new ArrayList<>();
 
         final String sql = "select ididioma, descricao, detalhe from  rh_idioma where ididioma not in(select ididioma from rh_perspectivatecnicaidioma where idsolicitacaoservico = ? and obrigatorioidioma = 'S')";
 
@@ -67,7 +67,7 @@ public class IdiomaDao extends CrudDaoDefaultImpl {
 
     @Override
     public Collection list() throws PersistenceException {
-        final List list = new ArrayList();
+        final List list = new ArrayList<>();
         list.add(new Order("descricao"));
         return super.list(list);
     }
@@ -85,7 +85,7 @@ public class IdiomaDao extends CrudDaoDefaultImpl {
         final Object[] objs = new Object[] {nome};
         final List list = this.execSQL(SQL_NOME, objs);
 
-        final List listRetorno = new ArrayList();
+        final List listRetorno = new ArrayList<>();
         listRetorno.add("idIdioma");
         listRetorno.add("descricao");
 

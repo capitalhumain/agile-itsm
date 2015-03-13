@@ -8,7 +8,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 
 import br.com.centralit.bpm.dto.TarefaFluxoDTO;
 import br.com.centralit.bpm.util.Enumerados;
@@ -56,7 +56,7 @@ public class GerenciamentoLiberacao extends AjaxFormAction {
 			return;
 
 		boolean bFiltroPorSolicitacao = gerenciamentoBean.getIdRequisicaoSel() != null && gerenciamentoBean.getIdRequisicaoSel().length() > 0;
-		List<TarefaFluxoDTO> colTarefasFiltradas = new ArrayList();
+		List<TarefaFluxoDTO> colTarefasFiltradas = new ArrayList<>();
 		if (!bFiltroPorSolicitacao)
 			colTarefasFiltradas.addAll(colTarefas);
 		else {
@@ -68,8 +68,8 @@ public class GerenciamentoLiberacao extends AjaxFormAction {
 					colTarefasFiltradas.add(tarefaDto);
 			}
 		}
-		List colTarefasFiltradasFinal = new ArrayList();
-		HashMap mapAtr = new HashMap();
+		List colTarefasFiltradasFinal = new ArrayList<>();
+		HashMap mapAtr = new HashMap<>();
 		mapAtr.put("-- Sem Atribuição --", "-- Sem Atribuição --");
 		for (TarefaFluxoDTO tarefaDto : colTarefasFiltradas) {
 			RequisicaoLiberacaoDTO requisicaoLiberacaoDto = (RequisicaoLiberacaoDTO) tarefaDto.getRequisicaoLiberacaoDto();
@@ -228,8 +228,8 @@ public class GerenciamentoLiberacao extends AjaxFormAction {
 		if (colTarefas == null)
 			return null;
 		for (TarefaFluxoDTO tarefaDto : colTarefas) {
-			String elementoFluxo_serialize = StringEscapeUtils.escapeJavaScript(br.com.citframework.util.WebUtil.serializeObject(tarefaDto.getElementoFluxoDto(), WebUtil.getLanguage(request)));
-			String requisicaoLiberacao_serialize = StringEscapeUtils.escapeJavaScript(br.com.citframework.util.WebUtil.serializeObject(tarefaDto.getRequisicaoLiberacaoDto(), WebUtil.getLanguage(request)));
+			String elementoFluxo_serialize = StringEscapeUtils.escapeEcmaScript(br.com.citframework.util.WebUtil.serializeObject(tarefaDto.getElementoFluxoDto(), WebUtil.getLanguage(request)));
+			String requisicaoLiberacao_serialize = StringEscapeUtils.escapeEcmaScript(br.com.citframework.util.WebUtil.serializeObject(tarefaDto.getRequisicaoLiberacaoDto(), WebUtil.getLanguage(request)));
 			
 			tarefaDto.setElementoFluxo_serialize(elementoFluxo_serialize);
 			tarefaDto.setSolicitacao_serialize(requisicaoLiberacao_serialize);

@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import br.com.centralit.citcorpore.util.CITCorporeUtil;
 import br.com.centralit.citcorpore.util.Enumerados.TipoDate;
@@ -31,8 +31,8 @@ public class GenerateServiceInicioTratamentoSintetico extends GerencialGenerateS
 	public List execute(HashMap parametersValues, Collection paramtersDefinition) throws ParseException {
 		String datainicial = (String) parametersValues.get("PARAM.dataInicial");
 		String datafinal = (String) parametersValues.get("PARAM.dataFinal");
-		List parametersValuesBusca = new ArrayList();
-		List lstRetorno = new ArrayList();
+		List parametersValuesBusca = new ArrayList<>();
+		List lstRetorno = new ArrayList<>();
 
 		Date datafim = UtilDatas.convertStringToSQLDate(TipoDate.DATE_DEFAULT, datafinal, super.getLanguage(paramtersDefinition));
 		Date datainicio = UtilDatas.convertStringToSQLDate(TipoDate.DATE_DEFAULT, datainicial, super.getLanguage(paramtersDefinition));
@@ -115,7 +115,7 @@ public class GenerateServiceInicioTratamentoSintetico extends GerencialGenerateS
 			if (listaDados != null && !listaDados.isEmpty()) {
 				int total = 0;
 				int totalNoPrazo = 0;
-				HashMap<String, Object[]> map = new HashMap();
+				HashMap<String, Object[]> map = new HashMap<>();
 				for (int i = 0; i < listaDados.size(); i++) {
 					total++;
 					Object[] row = (Object[]) listaDados.get(i);
@@ -178,7 +178,7 @@ public class GenerateServiceInicioTratamentoSintetico extends GerencialGenerateS
 					map.put("" + prioridade, objs);
 				}
 
-				lstRetorno = new ArrayList();
+				lstRetorno = new ArrayList<>();
 				for (String key : map.keySet()) {
 					Object[] objs = map.get(key);
 					double perc = ((Integer) objs[1]).doubleValue() / ((Integer) objs[0]).doubleValue() * 100;
@@ -199,7 +199,7 @@ public class GenerateServiceInicioTratamentoSintetico extends GerencialGenerateS
 			}
 
 			if (lstRetorno == null || lstRetorno.size() == 0) {
-				lstRetorno = new ArrayList();
+				lstRetorno = new ArrayList<>();
 				/* Desenvolvedor: Rodrigo Pecci - Data: 30/10/2013 - Horário: 14h15min - ID Citsmart: 120770
 				 * Motivo/Comentário: Se lstRetorno for null ou vazio, é necessário retornar somente um ArrayList vazio.
 				 */

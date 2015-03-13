@@ -10,7 +10,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 
 import br.com.centralit.citajax.html.AjaxFormAction;
 import br.com.centralit.citajax.html.DocumentHTML;
@@ -73,7 +73,7 @@ public class Os extends AjaxFormAction {
 		Collection colServicosDoContrato = servicoContratoService.findByIdContrato(os.getIdContrato());
 		idContrato.removeAllOptions();
 		idContrato.addOption("", UtilI18N.internacionaliza(request, "citcorpore.comum.selecioneServico"));
-		List colFinal = new ArrayList();
+		List colFinal = new ArrayList<>();
 		if (colServicosDoContrato != null) {
 			for (Iterator it = colServicosDoContrato.iterator(); it.hasNext();) {
 				ServicoContratoDTO servicoContratoDTO = (ServicoContratoDTO) it.next();
@@ -116,7 +116,7 @@ public class Os extends AjaxFormAction {
 		GrupoEmpregadoService grupoEmpregadoService = (GrupoEmpregadoService) ServiceLocator.getInstance().getService(GrupoEmpregadoService.class, null);
 		PerfilAcessoGrupoService perfilAcessoGrupoService = (PerfilAcessoGrupoService) ServiceLocator.getInstance().getService(PerfilAcessoGrupoService.class, null);
 
-		Collection colSituacoesPermitidasFinal = new ArrayList();
+		Collection colSituacoesPermitidasFinal = new ArrayList<>();
 		Collection<GrupoEmpregadoDTO> colGruposUsuario = null;
 
 		if (usuario != null) {
@@ -136,7 +136,7 @@ public class Os extends AjaxFormAction {
 					if (colSituacoesPermitidasTemp != null) {
 						for (Integer object : colSituacoesPermitidasTemp) {
 							if (colSituacoesPermitidasFinal == null) {
-								colSituacoesPermitidasFinal = new ArrayList();
+								colSituacoesPermitidasFinal = new ArrayList<>();
 								colSituacoesPermitidasFinal.add(object);
 							} else if (!colSituacoesPermitidasFinal.contains(object)) {
 								colSituacoesPermitidasFinal.add(object);
@@ -842,7 +842,7 @@ public class Os extends AjaxFormAction {
 
 	    if ((colGrupoAssinatura != null) && (colGrupoAssinatura.size() > 0)) {
 		for (GrupoAssinaturaDTO grupoAssinaturaDTO : colGrupoAssinatura) {
-		    comboGrupoAssinatura.addOption(grupoAssinaturaDTO.getIdGrupoAssinatura().toString(), StringEscapeUtils.escapeJavaScript(grupoAssinaturaDTO.getTitulo().toString()));
+		    comboGrupoAssinatura.addOption(grupoAssinaturaDTO.getIdGrupoAssinatura().toString(), StringEscapeUtils.escapeEcmaScript(grupoAssinaturaDTO.getTitulo().toString()));
 		}
 	    }
 	}

@@ -137,12 +137,12 @@ public class CategoriaProduto extends AjaxFormAction {
 					categoriaProdutoPai = (CategoriaProdutoDTO) categoriaService.restore(categoriaProdutoPai);
 					/*
 					 * Rodrigo Pecci Acorse - 19/03/2014 10h40 - #132777
-					 * StringEscapeUtils.escapeJavaScript removido pois estava quebrando a acentuação na exibição do nome
+					 * StringEscapeUtils.escapeEcmaScript removido pois estava quebrando a acentuação na exibição do nome
 					 */
 					categoriaProduto.setNomeCategoriaPai(categoriaProdutoPai.getNomeCategoria());
 				}
 				if(categoriaProduto.getNomeCategoria()!=null){
-					//categoriaProduto.setNomeCategoria(StringEscapeUtils.escapeJavaScript(categoriaProduto.getNomeCategoria()));
+					//categoriaProduto.setNomeCategoria(StringEscapeUtils.escapeEcmaScript(categoriaProduto.getNomeCategoria()));
 					categoriaProduto.setNomeCategoria(UtilStrings.decodeCaracteresEspeciais(categoriaProduto.getNomeCategoria()));
 				}
 

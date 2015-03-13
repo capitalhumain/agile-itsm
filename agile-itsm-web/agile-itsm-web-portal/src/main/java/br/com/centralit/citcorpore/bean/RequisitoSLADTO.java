@@ -3,100 +3,114 @@ package br.com.centralit.citcorpore.bean;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class RequisitoSLADTO extends BaseEntity {
-	private Integer idRequisitoSLA;
-	private Integer idEmpregado;
-	private String assunto;
-	private String detalhamento;
-	private String situacao;
-	private java.sql.Date requisitadoEm;
-	private java.sql.Date criadoEm;
-	private java.sql.Date modificadoEm;
-	private String criadoPor;
-	private String modificadoPor;
-	private String deleted;
-	private java.sql.Date dataVinculacao;
 
-	public Integer getIdRequisitoSLA(){
-		return this.idRequisitoSLA;
-	}
-	public void setIdRequisitoSLA(Integer parm){
-		this.idRequisitoSLA = parm;
-	}
+    private Integer idRequisitoSLA;
+    private Integer idEmpregado;
+    private String assunto;
+    private String detalhamento;
+    private String situacao;
+    private java.sql.Date requisitadoEm;
+    private java.sql.Date criadoEm;
+    private java.sql.Date modificadoEm;
+    private String criadoPor;
+    private String modificadoPor;
+    private String deleted;
+    private java.sql.Date dataVinculacao;
 
-	public Integer getIdEmpregado(){
-		return this.idEmpregado;
-	}
-	public void setIdEmpregado(Integer parm){
-		this.idEmpregado = parm;
-	}
+    public Integer getIdRequisitoSLA() {
+        return idRequisitoSLA;
+    }
 
-	public String getAssunto(){
-		return this.assunto;
-	}
-	public void setAssunto(String parm){
-		this.assunto = parm;
-	}
+    public void setIdRequisitoSLA(final Integer parm) {
+        idRequisitoSLA = parm;
+    }
 
-	public String getDetalhamento(){
-		return this.detalhamento;
-	}
-	public void setDetalhamento(String parm){
-		this.detalhamento = parm;
-	}
+    public Integer getIdEmpregado() {
+        return idEmpregado;
+    }
 
-	public String getSituacao(){
-		return this.situacao;
-	}
-	public void setSituacao(String parm){
-		this.situacao = parm;
-	}
+    public void setIdEmpregado(final Integer parm) {
+        idEmpregado = parm;
+    }
 
-	public java.sql.Date getRequisitadoEm(){
-		return this.requisitadoEm;
-	}
-	public void setRequisitadoEm(java.sql.Date parm){
-		this.requisitadoEm = parm;
-	}
+    public String getAssunto() {
+        return assunto;
+    }
 
-	public java.sql.Date getCriadoEm(){
-		return this.criadoEm;
-	}
-	public void setCriadoEm(java.sql.Date parm){
-		this.criadoEm = parm;
-	}
+    public void setAssunto(final String parm) {
+        assunto = parm;
+    }
 
-	public java.sql.Date getModificadoEm(){
-		return this.modificadoEm;
-	}
-	public void setModificadoEm(java.sql.Date parm){
-		this.modificadoEm = parm;
-	}
+    public String getDetalhamento() {
+        return detalhamento;
+    }
 
-	public String getCriadoPor(){
-		return this.criadoPor;
-	}
-	public void setCriadoPor(String parm){
-		this.criadoPor = parm;
-	}
+    public void setDetalhamento(final String parm) {
+        detalhamento = parm;
+    }
 
-	public String getModificadoPor(){
-		return this.modificadoPor;
-	}
-	public void setModificadoPor(String parm){
-		this.modificadoPor = parm;
-	}
+    public String getSituacao() {
+        return situacao;
+    }
 
-	public String getDeleted(){
-		return this.deleted;
-	}
-	public void setDeleted(String parm){
-		this.deleted = parm;
-	}
-	public java.sql.Date getDataVinculacao() {
-		return dataVinculacao;
-	}
-	public void setDataVinculacao(java.sql.Date dataVinculacao) {
-		this.dataVinculacao = dataVinculacao;
-	}
+    public void setSituacao(final String parm) {
+        situacao = parm;
+    }
+
+    public java.sql.Date getRequisitadoEm() {
+        return requisitadoEm;
+    }
+
+    public void setRequisitadoEm(final java.sql.Date parm) {
+        requisitadoEm = parm;
+    }
+
+    public java.sql.Date getCriadoEm() {
+        return criadoEm;
+    }
+
+    public void setCriadoEm(final java.sql.Date parm) {
+        criadoEm = parm;
+    }
+
+    public java.sql.Date getModificadoEm() {
+        return modificadoEm;
+    }
+
+    public void setModificadoEm(final java.sql.Date parm) {
+        modificadoEm = parm;
+    }
+
+    public String getCriadoPor() {
+        return criadoPor;
+    }
+
+    public void setCriadoPor(final String parm) {
+        criadoPor = parm;
+    }
+
+    public String getModificadoPor() {
+        return modificadoPor;
+    }
+
+    public void setModificadoPor(final String parm) {
+        modificadoPor = parm;
+    }
+
+    public String getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(final String parm) {
+        deleted = parm;
+    }
+
+    public java.sql.Date getDataVinculacao() {
+        return dataVinculacao;
+    }
+
+    public void setDataVinculacao(final java.sql.Date dataVinculacao) {
+        this.dataVinculacao = dataVinculacao;
+    }
 
 }

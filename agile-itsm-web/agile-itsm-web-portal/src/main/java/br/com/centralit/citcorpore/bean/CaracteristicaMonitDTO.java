@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package br.com.centralit.citcorpore.bean;
 
@@ -13,56 +13,56 @@ import br.com.agileitsm.model.support.BaseEntity;
  */
 public class CaracteristicaMonitDTO extends BaseEntity {
 
-	private static final long serialVersionUID = 4784276108272700744L;
+    private static final long serialVersionUID = 4784276108272700744L;
 
-	private Integer idCaracteristicaMonit;
+    private Integer idCaracteristicaMonit;
 
-	private Integer idCaracteristica;
+    private Integer idCaracteristica;
 
-	private Integer idMonitoramentoAtivos;
+    private Integer idMonitoramentoAtivos;
 
-	private Date dataInicio;
+    private Date dataInicio;
 
-	private Date dataFim;
+    private Date dataFim;
 
-	public Integer getIdCaracteristicaMonit() {
-		return idCaracteristicaMonit;
-	}
+    public Integer getIdCaracteristicaMonit() {
+        return idCaracteristicaMonit;
+    }
 
-	public void setIdCaracteristicaMonit(Integer idCaracteristicaMonit) {
-		this.idCaracteristicaMonit = idCaracteristicaMonit;
-	}
+    public void setIdCaracteristicaMonit(final Integer idCaracteristicaMonit) {
+        this.idCaracteristicaMonit = idCaracteristicaMonit;
+    }
 
-	public Integer getIdCaracteristica() {
-		return idCaracteristica;
-	}
+    public Integer getIdCaracteristica() {
+        return idCaracteristica;
+    }
 
-	public void setIdCaracteristica(Integer idCaracteristica) {
-		this.idCaracteristica = idCaracteristica;
-	}
+    public void setIdCaracteristica(final Integer idCaracteristica) {
+        this.idCaracteristica = idCaracteristica;
+    }
 
-	public Integer getIdMonitoramentoAtivos() {
-		return idMonitoramentoAtivos;
-	}
+    public Integer getIdMonitoramentoAtivos() {
+        return idMonitoramentoAtivos;
+    }
 
-	public void setIdMonitoramentoAtivos(Integer idMonitoramentoAtivos) {
-		this.idMonitoramentoAtivos = idMonitoramentoAtivos;
-	}
+    public void setIdMonitoramentoAtivos(final Integer idMonitoramentoAtivos) {
+        this.idMonitoramentoAtivos = idMonitoramentoAtivos;
+    }
 
-	public Date getDataInicio() {
-		return dataInicio;
-	}
+    public Date getDataInicio() {
+        return dataInicio;
+    }
 
-	public void setDataInicio(Date dataInicio) {
-		this.dataInicio = dataInicio;
-	}
+    public void setDataInicio(final Date dataInicio) {
+        this.dataInicio = dataInicio;
+    }
 
-	public Date getDataFim() {
-		return dataFim;
-	}
+    public Date getDataFim() {
+        return dataFim;
+    }
 
-	public void setDataFim(Date dataFim) {
-		this.dataFim = dataFim;
-	}
+    public void setDataFim(final Date dataFim) {
+        this.dataFim = dataFim;
+    }
 
 }

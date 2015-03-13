@@ -16,37 +16,22 @@ import br.com.citframework.util.Constantes;
 
 public class QuestionarioDao extends CrudDaoDefaultImpl {
 
-    private static final String SQL_EXISTE_RESPOSTA =  "SELECT COUNT(*) QTDE "+
-            "  FROM RESPOSTAITEMQUESTIONARIO R, QUESTAOQUESTIONARIO Q, GRUPOQUESTIONARIO G "+
-            " WHERE R.IDQUESTAOQUESTIONARIO = Q.IDQUESTAOQUESTIONARIO "+
-            "   AND Q.IDGRUPOQUESTIONARIO = G.IDGRUPOQUESTIONARIO "+
-            "   AND G.IDQUESTIONARIO = ?";
+    private static final String SQL_EXISTE_RESPOSTA = "SELECT COUNT(*) QTDE "
+            + "  FROM RESPOSTAITEMQUESTIONARIO R, QUESTAOQUESTIONARIO Q, GRUPOQUESTIONARIO G " + " WHERE R.IDQUESTAOQUESTIONARIO = Q.IDQUESTAOQUESTIONARIO "
+            + "   AND Q.IDGRUPOQUESTIONARIO = G.IDGRUPOQUESTIONARIO " + "   AND G.IDQUESTIONARIO = ?";
 
-    private static final String SQL_EXISTE_REFERENCIA_COMPARTILHADA =   "SELECT COUNT(*) QTDE "+
-             "  FROM QUESTAOQUESTIONARIO Q, GRUPOQUESTIONARIO G "+
-             " WHERE Q.IDGRUPOQUESTIONARIO = G.IDGRUPOQUESTIONARIO "+
-             "   AND G.IDQUESTIONARIO <> ? "+
-             "   AND Q.IDQUESTAOCOMPARTILHADA IN " +
-             "   (SELECT QQ.IDQUESTAOQUESTIONARIO "+
-             "      FROM QUESTAOQUESTIONARIO QQ, GRUPOQUESTIONARIO G  "+
-             "     WHERE QQ.IDGRUPOQUESTIONARIO = G.IDGRUPOQUESTIONARIO  "+
-             "       AND G.IDQUESTIONARIO = ?)";
+    private static final String SQL_EXISTE_REFERENCIA_COMPARTILHADA = "SELECT COUNT(*) QTDE " + "  FROM QUESTAOQUESTIONARIO Q, GRUPOQUESTIONARIO G "
+            + " WHERE Q.IDGRUPOQUESTIONARIO = G.IDGRUPOQUESTIONARIO " + "   AND G.IDQUESTIONARIO <> ? " + "   AND Q.IDQUESTAOCOMPARTILHADA IN "
+            + "   (SELECT QQ.IDQUESTAOQUESTIONARIO " + "      FROM QUESTAOQUESTIONARIO QQ, GRUPOQUESTIONARIO G  "
+            + "     WHERE QQ.IDGRUPOQUESTIONARIO = G.IDGRUPOQUESTIONARIO  " + "       AND G.IDQUESTIONARIO = ?)";
 
-    private static final String SQL_LIST_QUESTIONARIO = "SELECT IDQUESTIONARIO, IDQUESTIONARIOORIGEM, IDCATEGORIAQUESTIONARIO, "+
-             "       NOMEQUESTIONARIO, IDEMPRESA, ATIVO, javaScript "+
-             "  FROM QUESTIONARIO "+
-             " WHERE ATIVO = 'S' "+
-             " ORDER BY NOMEQUESTIONARIO";
+    private static final String SQL_LIST_QUESTIONARIO = "SELECT IDQUESTIONARIO, IDQUESTIONARIOORIGEM, IDCATEGORIAQUESTIONARIO, "
+            + "       NOMEQUESTIONARIO, IDEMPRESA, ATIVO, javaScript " + "  FROM QUESTIONARIO " + " WHERE ATIVO = 'S' " + " ORDER BY NOMEQUESTIONARIO";
 
-    private static final String SQL_LIST_POR_APLICACAO = "SELECT DISTINCT Q.IDQUESTIONARIO, IDQUESTIONARIOORIGEM, Q.IDCATEGORIAQUESTIONARIO, "+
-              "       NOMEQUESTIONARIO, Q.IDEMPRESA, ATIVO, javaScript "+
-              "  FROM QUESTIONARIO Q, APLICACAOQUESTIONARIO A "+
-              " WHERE Q.IDQUESTIONARIO = Q.IDQUESTIONARIOORIGEM "+
-              "   AND Q.IDQUESTIONARIO = A.IDQUESTIONARIO "+
-              "   AND A.SITUACAO = 'A' "+
-              "   AND (A.APLICACAO = 'T' OR A.APLICACAO = ?) "+
-              "   AND Q.idEmpresa = ? "+
-              " ORDER BY NOMEQUESTIONARIO";
+    private static final String SQL_LIST_POR_APLICACAO = "SELECT DISTINCT Q.IDQUESTIONARIO, IDQUESTIONARIOORIGEM, Q.IDCATEGORIAQUESTIONARIO, "
+            + "       NOMEQUESTIONARIO, Q.IDEMPRESA, ATIVO, javaScript " + "  FROM QUESTIONARIO Q, APLICACAOQUESTIONARIO A "
+            + " WHERE Q.IDQUESTIONARIO = Q.IDQUESTIONARIOORIGEM " + "   AND Q.IDQUESTIONARIO = A.IDQUESTIONARIO " + "   AND A.SITUACAO = 'A' "
+            + "   AND (A.APLICACAO = 'T' OR A.APLICACAO = ?) " + "   AND Q.idEmpresa = ? " + " ORDER BY NOMEQUESTIONARIO";
 
     public QuestionarioDao() {
         super(Constantes.getValue("DATABASE_ALIAS"), null);
@@ -125,7 +110,7 @@ public class QuestionarioDao extends CrudDaoDefaultImpl {
     }
 
     public QuestionarioDTO restoreByIdOrigem(final Integer idQuestionarioOrigem) throws PersistenceException {
-        final List lstCond = new ArrayList();
+        final List lstCond = new ArrayList<>();
         lstCond.add(new Condition("idQuestionarioOrigem", "=", idQuestionarioOrigem));
         lstCond.add(new Condition("ativo", "=", "S"));
         final Collection col = super.findByCondition(lstCond, null);
@@ -135,9 +120,8 @@ public class QuestionarioDao extends CrudDaoDefaultImpl {
         final Iterator it = col.iterator();
         if (it.hasNext()) {
             return (QuestionarioDTO) it.next();
-        } else {
-            return null;
         }
+        return null;
     }
 
     public boolean existeResposta(final Integer idQuestionario) throws PersistenceException {
@@ -168,9 +152,10 @@ public class QuestionarioDao extends CrudDaoDefaultImpl {
      * @return
      */
     public boolean existeQuestaoObrigatoria(final Integer idQuestionario) {
-
-        final String QUERY = "SELECT COUNT(qq.idquestaoquestionario) FROM questionario q " + "INNER JOIN grupoquestionario gq ON gq.idquestionario = q.idquestionario "
-                + "INNER JOIN questaoquestionario qq ON qq.idgrupoquestionario = gq.idgrupoquestionario " + "WHERE qq.obrigatoria = 'S' AND q.idquestionario = ?";
+        final String QUERY = "SELECT COUNT(qq.idquestaoquestionario) FROM questionario q "
+                + "INNER JOIN grupoquestionario gq ON gq.idquestionario = q.idquestionario "
+                + "INNER JOIN questaoquestionario qq ON qq.idgrupoquestionario = gq.idgrupoquestionario "
+                + "WHERE qq.obrigatoria = 'S' AND q.idquestionario = ?";
 
         final Object[] param = new Object[] {idQuestionario};
 
@@ -194,4 +179,5 @@ public class QuestionarioDao extends CrudDaoDefaultImpl {
 
         return Boolean.FALSE;
     }
+
 }

@@ -53,9 +53,9 @@ public class DashBoardBuilderInternal extends AjaxFormAction {
 		BIItemDashBoardService biItemDashBoardService = (BIItemDashBoardService) ServiceLocator.getInstance().getService(BIItemDashBoardService.class, null);
 		int iAux = 0;
 		if (biDashBoardDTO.getIdDashBoard() != null && biDashBoardDTO.getIdDashBoard()>0){
-			document.executeScript("hash = new HashMap()");
-			document.executeScript("hashTitulo = new HashMap()");
-			document.executeScript("hashSubst = new HashMap()");
+			document.executeScript("hash = new HashMap<>()");
+			document.executeScript("hashTitulo = new HashMap<>()");
+			document.executeScript("hashSubst = new HashMap<>()");
 			biDashBoardDTO = (BIDashBoardDTO) biDashBoardService.restore(biDashBoardDTO);
 			if (biDashBoardDTO != null){
 				document.getForm("formSalvar").setValues(biDashBoardDTO);

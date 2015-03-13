@@ -22,64 +22,66 @@ public class ComandoSistemaOperacionalDTO extends BaseEntity {
      * @return valor do atributo idComando.
      */
     public Integer getIdComando() {
-	return idComando;
+        return idComando;
     }
 
     /**
      * Define valor do atributo idComando.
-     * 
+     *
      * @param idComando
      */
-    public void setIdComando(Integer idComando) {
-	this.idComando = idComando;
+    public void setIdComando(final Integer idComando) {
+        this.idComando = idComando;
     }
 
     /**
      * @return valor do atributo idSistemaOperacional.
      */
     public Integer getIdSistemaOperacional() {
-	return idSistemaOperacional;
+        return idSistemaOperacional;
     }
 
     /**
      * Define valor do atributo idSistemaOperacional.
-     * 
+     *
      * @param idSistemaOperacional
      */
-    public void setIdSistemaOperacional(Integer idSistemaOperacional) {
-	this.idSistemaOperacional = idSistemaOperacional;
+    public void setIdSistemaOperacional(final Integer idSistemaOperacional) {
+        this.idSistemaOperacional = idSistemaOperacional;
     }
 
     /**
      * @return valor do atributo comando.
      */
     public String getComando() {
-	return comando;
+        return comando;
     }
 
     /**
      * Define valor do atributo comando.
-     * 
+     *
      * @param comando
      */
-    public void setComando(String comando) {
-	this.comando = comando;
+    public void setComando(final String comando) {
+        this.comando = comando;
     }
 
     /**
      * @return valor do atributo id.
      */
+    @Override
     public Integer getId() {
-	return id;
+        return id;
     }
 
     /**
      * Define valor do atributo id.
-     * 
+     *
      * @param id
      */
-    public void setId(Integer id) {
-	this.id = id;
+    @Override
+    public void setId(final Integer id) {
+        this.id = id;
     }
 
 }

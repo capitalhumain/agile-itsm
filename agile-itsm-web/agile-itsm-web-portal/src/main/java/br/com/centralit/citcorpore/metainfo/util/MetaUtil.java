@@ -55,7 +55,6 @@ import br.com.citframework.util.UtilI18N;
 import br.com.citframework.util.UtilStrings;
 import br.com.citframework.util.UtilTratamentoArquivos;
 
-@SuppressWarnings({"rawtypes", "unchecked"})
 public class MetaUtil {
 
     public static String TEXT = "TEXT";
@@ -86,7 +85,8 @@ public class MetaUtil {
                         }
 
                         if (!grupoVisaoCamposNegocioDTO.getTipoNegocio().equalsIgnoreCase(MetaUtil.HIDDEN)
-                                && !grupoVisaoCamposNegocioDTO.getTipoNegocio().equalsIgnoreCase(MetaUtil.HTML) && grupoVisaoCamposNegocioDTO.getVisivel().equalsIgnoreCase("S")) {
+                                && !grupoVisaoCamposNegocioDTO.getTipoNegocio().equalsIgnoreCase(MetaUtil.HTML)
+                                && grupoVisaoCamposNegocioDTO.getVisivel().equalsIgnoreCase("S")) {
                             out.println("<tr>");
                             out.print("<td style='vertical-align: middle;'>");
                             out.print("     " + UtilI18N.internacionalizaString(grupoVisaoCamposNegocioDTO.getDescricaoNegocio(), request));
@@ -151,8 +151,8 @@ public class MetaUtil {
                 + visaoDto.getIdVisao() + "&load=true&matriz=true";
         if (colMatriz != null && colMatriz.size() > 0) {
             final DinamicViewsServiceEjb dinamicViewEjb = new DinamicViewsServiceEjb();
-            final Collection colCamposPKPrincipal = new ArrayList();
-            final Collection colCamposTodosPrincipal = new ArrayList();
+            final Collection colCamposPKPrincipal = new ArrayList<>();
+            final Collection colCamposTodosPrincipal = new ArrayList<>();
             dinamicViewEjb.setInfoSave(visaoDto.getIdVisao(), colCamposPKPrincipal, colCamposTodosPrincipal);
             final String tablePrincipal = dinamicViewEjb.generateFrom(colCamposTodosPrincipal);
             final MatrizVisaoDTO matrizVisaoDTO = (MatrizVisaoDTO) colMatriz.iterator().next();
@@ -214,8 +214,9 @@ public class MetaUtil {
                                         options = "," + options;
                                     }
 
-                                    final String str = "<th data-options=\"field:'" + grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getNomeDB() + "',width:" + tam + ""
-                                            + options + "\">" + UtilI18N.internacionalizaString(grupoVisaoCamposNegocioDTO.getDescricaoNegocio(), request) + "</th>";
+                                    final String str = "<th data-options=\"field:'" + grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getNomeDB()
+                                            + "',width:" + tam + "" + options + "\">"
+                                            + UtilI18N.internacionalizaString(grupoVisaoCamposNegocioDTO.getDescricaoNegocio(), request) + "</th>";
                                     out.print(str);
                                 }
                             }
@@ -258,8 +259,8 @@ public class MetaUtil {
                                         }
                                         if (valorApres.trim().equalsIgnoreCase("")) {
                                             // Se ainda estiver vazio, eh que ainda nao conseguiu pegar o valor atual
-                                            valorApres = recuperaValorAtualCampo(colCamposPKPrincipal, grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto(), tablePrincipal, obj,
-                                                    matrizVisaoDTO, null, request);
+                                            valorApres = recuperaValorAtualCampo(colCamposPKPrincipal, grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto(),
+                                                    tablePrincipal, obj, matrizVisaoDTO, null, request);
                                         }
                                         out.print("<td>");
                                         out.print(valorApres);
@@ -289,15 +290,16 @@ public class MetaUtil {
         return "";
     }
 
-    public static String recuperaValorAtualCampo(final Collection colCamposPKPrincipal, final CamposObjetoNegocioDTO camposObjetoNegocioDTO, final String tablePrincipal,
-            final Object[] objValues, final MatrizVisaoDTO matrizVisaoDTO, final Map map, final HttpServletRequest request) throws Exception {
+    public static String recuperaValorAtualCampo(final Collection colCamposPKPrincipal, final CamposObjetoNegocioDTO camposObjetoNegocioDTO,
+            final String tablePrincipal, final Object[] objValues, final MatrizVisaoDTO matrizVisaoDTO, final Map map, final HttpServletRequest request)
+                    throws Exception {
         final StringBuilder sql = new StringBuilder();
         sql.append("SELECT ");
         sql.append(camposObjetoNegocioDTO.getNomeDB());
         sql.append(" FROM ");
         sql.append(tablePrincipal);
         CamposObjetoNegocioDTO camposObjetoNegocioChaveMatriz = new CamposObjetoNegocioDTO();
-        final List lstParms = new ArrayList();
+        final List lstParms = new ArrayList<>();
         final CamposObjetoNegocioDao camposObjetoNegocioDao = new CamposObjetoNegocioDao();
         camposObjetoNegocioChaveMatriz.setIdCamposObjetoNegocio(matrizVisaoDTO.getIdCamposObjetoNegocio1());
         camposObjetoNegocioChaveMatriz.setIdObjetoNegocio(matrizVisaoDTO.getIdObjetoNegocio());
@@ -383,7 +385,8 @@ public class MetaUtil {
 
     public static String convertStreamToString(final InputStream is) throws IOException {
         /*
-         * To convert the InputStream to String we use the Reader.read(char[] buffer) method. We iterate until the Reader return -1 which means there's no more data to read. We use
+         * To convert the InputStream to String we use the Reader.read(char[] buffer) method. We iterate until the Reader return -1 which means there's no more
+         * data to read. We use
          * the StringWriter
          * class to produce the string.
          */
@@ -407,12 +410,13 @@ public class MetaUtil {
     }
 
     public static void renderViewTableSearch(final VisaoDTO visaoDto, final JspWriter out, final HttpServletRequest request) throws IOException {
-        final String url = Constantes.getValue("SERVER_ADDRESS") + Constantes.getValue("CONTEXTO_APLICACAO") + "/tableSearch/tableSearch.load?idVisao=" + visaoDto.getIdVisao();
+        final String url = Constantes.getValue("SERVER_ADDRESS") + Constantes.getValue("CONTEXTO_APLICACAO") + "/tableSearch/tableSearch.load?idVisao="
+                + visaoDto.getIdVisao();
         out.println("<form name='form_pesq_TABLESEARCH_" + visaoDto.getIdVisao() + "' method='POST'>");
-        out.println("<table><tr><td>" + UtilI18N.internacionaliza(request, "dinamicview.pesquisa") + " </td><td><input name='termo_pesq_TABLESEARCH_" + visaoDto.getIdVisao()
-                + "' id='termo_pesq_TABLESEARCH_" + visaoDto.getIdVisao()
-                + "' type='text' size='30'/></td><td><button name='btn_REFRESH_VIEW' type='button' onclick='func_REFRESH_VIEW_" + visaoDto.getIdVisao() + "()'>"
-                + UtilI18N.internacionaliza(request, "dinamicview.atualizar") + "</button></td></tr></table>");
+        out.println("<table><tr><td>" + UtilI18N.internacionaliza(request, "dinamicview.pesquisa") + " </td><td><input name='termo_pesq_TABLESEARCH_"
+                + visaoDto.getIdVisao() + "' id='termo_pesq_TABLESEARCH_" + visaoDto.getIdVisao()
+                + "' type='text' size='30'/></td><td><button name='btn_REFRESH_VIEW' type='button' onclick='func_REFRESH_VIEW_" + visaoDto.getIdVisao()
+                + "()'>" + UtilI18N.internacionaliza(request, "dinamicview.atualizar") + "</button></td></tr></table>");
         out.println("<table id='dg_" + visaoDto.getIdVisao() + "' width='100%' cellpadding='0' cellspacing='0' class='easyui-datagrid' url='" + url
                 + "' rownumbers='true' pagination='true' singleSelect='true'>");
         out.println("<thead>");
@@ -428,8 +432,8 @@ public class MetaUtil {
                             tam = 5;
                         }
                         tam = tam * 10;
-                        out.println("        <th field='" + grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getNomeDB() + "' width='" + tam + "'" + " sortable='true'>"
-                                + UtilI18N.internacionalizaString(grupoVisaoCamposNegocioDTO.getDescricaoNegocio(), request) + "</th>");
+                        out.println("        <th field='" + grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getNomeDB() + "' width='" + tam + "'"
+                                + " sortable='true'>" + UtilI18N.internacionalizaString(grupoVisaoCamposNegocioDTO.getDescricaoNegocio(), request) + "</th>");
                     }
                 }
             }
@@ -440,9 +444,11 @@ public class MetaUtil {
         out.println("<script>");
         out.println("$(function(){");
         out.println("    $('#dg_" + visaoDto.getIdVisao() + "').datagrid({");
-        out.println("     queryParams: {sSearch: document.form_pesq_TABLESEARCH_" + visaoDto.getIdVisao() + ".termo_pesq_TABLESEARCH_" + visaoDto.getIdVisao() + ".value},");
+        out.println("     queryParams: {sSearch: document.form_pesq_TABLESEARCH_" + visaoDto.getIdVisao() + ".termo_pesq_TABLESEARCH_" + visaoDto.getIdVisao()
+                + ".value},");
         out.println("     onBeforeLoad:function(param){");
-        out.println("        param = {sSearch: document.form_pesq_TABLESEARCH_" + visaoDto.getIdVisao() + ".termo_pesq_TABLESEARCH_" + visaoDto.getIdVisao() + ".value};");
+        out.println("        param = {sSearch: document.form_pesq_TABLESEARCH_" + visaoDto.getIdVisao() + ".termo_pesq_TABLESEARCH_" + visaoDto.getIdVisao()
+                + ".value};");
         out.println("     },");
         out.println("     onClickRow:function(rowIndex){");
         out.println("         var obj = $('#dg_" + visaoDto.getIdVisao() + "').datagrid('getSelected');");
@@ -453,8 +459,8 @@ public class MetaUtil {
         out.println("    });");
         out.println("});");
         out.println("function func_REFRESH_VIEW_" + visaoDto.getIdVisao() + "(){");
-        out.println("    $('#dg_" + visaoDto.getIdVisao() + "').datagrid('load', {sSearch: document.form_pesq_TABLESEARCH_" + visaoDto.getIdVisao() + ".termo_pesq_TABLESEARCH_"
-                + visaoDto.getIdVisao() + ".value});");
+        out.println("    $('#dg_" + visaoDto.getIdVisao() + "').datagrid('load', {sSearch: document.form_pesq_TABLESEARCH_" + visaoDto.getIdVisao()
+                + ".termo_pesq_TABLESEARCH_" + visaoDto.getIdVisao() + ".value});");
         out.println("}");
         out.println("</script>");
         out.println("</form>");
@@ -464,8 +470,8 @@ public class MetaUtil {
         return Constantes.getValue("SERVER_ADDRESS") + Constantes.getValue("CONTEXTO_APLICACAO") + "/load/load.extern?className=" + visaoDto.getClasseName();
     }
 
-    public static void renderViewTableEditVinc_Easy(final VisaoDTO visaoDto, final JspWriter out, final VisaoRelacionadaDTO visaoRelacionadaDTO, final HttpServletRequest request,
-            final HttpServletResponse response) throws ServiceException, Exception {
+    public static void renderViewTableEditVinc_Easy(final VisaoDTO visaoDto, final JspWriter out, final VisaoRelacionadaDTO visaoRelacionadaDTO,
+            final HttpServletRequest request, final HttpServletResponse response) throws ServiceException, Exception {
         final StringBuilder strBuff = new StringBuilder();
         final String url = Constantes.getValue("SERVER_ADDRESS") + Constantes.getValue("CONTEXTO_APLICACAO") + "/tableSearchVinc/tableSearchVinc.load?idVisao="
                 + visaoDto.getIdVisao() + "&load=true&idVisaoRelacionada=" + visaoRelacionadaDTO.getIdVisaoRelacionada();
@@ -499,7 +505,8 @@ public class MetaUtil {
                         }
                         tam = "" + tamAux * 2;
 
-                        if (grupoVisaoCamposNegocioDTO.getTipoNegocio().equalsIgnoreCase(SELECT) || grupoVisaoCamposNegocioDTO.getTipoNegocio().equalsIgnoreCase(RADIO)) {
+                        if (grupoVisaoCamposNegocioDTO.getTipoNegocio().equalsIgnoreCase(SELECT)
+                                || grupoVisaoCamposNegocioDTO.getTipoNegocio().equalsIgnoreCase(RADIO)) {
                             boolean prim = true;
                             strAreasIniciais += "var array_" + grupoVisaoCamposNegocioDTO.getIdCamposObjetoNegocio() + " = [";
                             for (final Iterator itAux1 = grupoVisaoCamposNegocioDTO.getColValores().iterator(); itAux1.hasNext();) {
@@ -552,8 +559,9 @@ public class MetaUtil {
 
                         if (grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto() != null) {
                             if (grupoVisaoCamposNegocioDTO.getTipoNegocio() != null && !grupoVisaoCamposNegocioDTO.getTipoNegocio().equalsIgnoreCase(HIDDEN)) {
-                                str = "<th data-options=\"field:'" + grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getNomeDB() + "',width:" + tam + "" + options + "\">"
-                                        + UtilI18N.internacionalizaString(grupoVisaoCamposNegocioDTO.getDescricaoNegocio(), request) + "</th>";
+                                str = "<th data-options=\"field:'" + grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getNomeDB() + "',width:" + tam + ""
+                                        + options + "\">" + UtilI18N.internacionalizaString(grupoVisaoCamposNegocioDTO.getDescricaoNegocio(), request)
+                                        + "</th>";
                                 strBuff.append(str);
                             }
                         }
@@ -579,14 +587,14 @@ public class MetaUtil {
         out.println("</script>");
     }
 
-    public static void renderViewTableEditVinc(final VisaoDTO visaoDto, final JspWriter out, final VisaoRelacionadaDTO visaoRelacionadaDTO, final HttpServletRequest request,
-            final HttpServletResponse response) throws ServiceException, Exception {
-        out.println("<form name='formTableVinc" + visaoDto.getIdVisao() + "' id='formTableVinc" + visaoDto.getIdVisao() + "' action='" + Constantes.getValue("SERVER_ADDRESS")
-                + Constantes.getValue("CONTEXTO_APLICACAO") + "/pages/dinamicViews/dinamicViews'>");
+    public static void renderViewTableEditVinc(final VisaoDTO visaoDto, final JspWriter out, final VisaoRelacionadaDTO visaoRelacionadaDTO,
+            final HttpServletRequest request, final HttpServletResponse response) throws ServiceException, Exception {
+        out.println("<form name='formTableVinc" + visaoDto.getIdVisao() + "' id='formTableVinc" + visaoDto.getIdVisao() + "' action='"
+                + Constantes.getValue("SERVER_ADDRESS") + Constantes.getValue("CONTEXTO_APLICACAO") + "/pages/dinamicViews/dinamicViews'>");
         out.println("<img src='" + Constantes.getValue("SERVER_ADDRESS") + Constantes.getValue("CONTEXTO_APLICACAO")
                 + "/imagens/plus.png' border='0' style='cursor:pointer' onclick='ADICIONA_TABLE_SEARCH_" + visaoDto.getIdVisao() + "()'/>");
-        out.println("<table width='100%' style='width:100%' cellpadding='0' cellspacing='0' border='0' class='display' id='" + VisaoRelacionadaDTO.PREFIXO_SISTEMA_TABELA_VINCULADA
-                + visaoDto.getIdVisao() + "'>");
+        out.println("<table width='100%' style='width:100%' cellpadding='0' cellspacing='0' border='0' class='display' id='"
+                + VisaoRelacionadaDTO.PREFIXO_SISTEMA_TABELA_VINCULADA + visaoDto.getIdVisao() + "'>");
         out.println("<thead>");
         out.println("    <tr>");
         out.println("        <th width='0%'>codes</th>");
@@ -658,8 +666,8 @@ public class MetaUtil {
         out.println("$(document).ready(function() {");
         out.println("    createTableVinc_" + VisaoRelacionadaDTO.PREFIXO_SISTEMA_TABELA_VINCULADA + visaoDto.getIdVisao() + "('" + url + "', '');");
         out.println("    $('#" + VisaoRelacionadaDTO.PREFIXO_SISTEMA_TABELA_VINCULADA + visaoDto.getIdVisao() + " tbody tr').live('click', function() {"
-                + "var nTds = $('td', this); " + "try{ " + "TABLE_EDIT_CLICK(" + visaoDto.getIdVisao() + ", '" + visaoDto.getAcaoVisaoFilhaPesqRelacionada() + "', nTds, this);"
-                + "}catch(e){}" + "} );");
+                + "var nTds = $('td', this); " + "try{ " + "TABLE_EDIT_CLICK(" + visaoDto.getIdVisao() + ", '" + visaoDto.getAcaoVisaoFilhaPesqRelacionada()
+                + "', nTds, this);" + "}catch(e){}" + "} );");
 
         out.println("    $( '#TABLE_EDIT_" + visaoDto.getIdVisao() + "' ).dialog({");
         out.println("        title: '" + visaoDto.getDescricao() + "',");
@@ -678,8 +686,8 @@ public class MetaUtil {
         out.println("</script>");
 
         out.println("<div id='TABLE_EDIT_" + visaoDto.getIdVisao() + "' style='display:none'>");
-        out.println("<form name='formEdit" + visaoDto.getIdVisao() + "' id='formEdit" + visaoDto.getIdVisao() + "' action='" + Constantes.getValue("SERVER_ADDRESS")
-                + Constantes.getValue("CONTEXTO_APLICACAO") + "/pages/dinamicViews/dinamicViews'>");
+        out.println("<form name='formEdit" + visaoDto.getIdVisao() + "' id='formEdit" + visaoDto.getIdVisao() + "' action='"
+                + Constantes.getValue("SERVER_ADDRESS") + Constantes.getValue("CONTEXTO_APLICACAO") + "/pages/dinamicViews/dinamicViews'>");
         out.println("<input type='hidden' name='idVisaoEdit' value='" + visaoDto.getIdVisao() + "' />");
         out.println("<input type='hidden' name='jsonDataEdit' value='' />");
         out.println("<input type='hidden' name='rowIndexSel' value='' />");
@@ -704,22 +712,24 @@ public class MetaUtil {
         out.println("<tr>");
 
         out.println("<td>");
-        out.print("<button type='button' name='btnGravar_" + visaoDto.getIdVisao() + "' class='light' onclick='VINCULA_TABLE_EDIT(" + visaoDto.getIdVisao() + ", document.formEdit"
-                + visaoDto.getIdVisao() + ", \"" + VisaoRelacionadaDTO.PREFIXO_SISTEMA_TABELA_VINCULADA + visaoDto.getIdVisao() + "\", " + strArrayNamesColumns + ");'>");
+        out.print("<button type='button' name='btnGravar_" + visaoDto.getIdVisao() + "' class='light' onclick='VINCULA_TABLE_EDIT(" + visaoDto.getIdVisao()
+                + ", document.formEdit" + visaoDto.getIdVisao() + ", \"" + VisaoRelacionadaDTO.PREFIXO_SISTEMA_TABELA_VINCULADA + visaoDto.getIdVisao()
+                + "\", " + strArrayNamesColumns + ");'>");
         out.print("<img src='" + br.com.citframework.util.Constantes.getValue("CONTEXTO_APLICACAO") + "/template_new/images/icons/small/grey/pencil.png'>");
         out.print("<span>Vincular dados</span></button>");
         out.println("</td>");
 
         out.println("<td>");
-        out.print("<button type='button' name='btnRemover_" + visaoDto.getIdVisao() + "' class='light' onclick='VINCULA_TABLE_EDIT_REMOVE(" + visaoDto.getIdVisao()
-                + ", document.formEdit" + visaoDto.getIdVisao() + ", \"" + VisaoRelacionadaDTO.PREFIXO_SISTEMA_TABELA_VINCULADA + visaoDto.getIdVisao() + "\", "
-                + strArrayNamesColumns + ");'>");
+        out.print("<button type='button' name='btnRemover_" + visaoDto.getIdVisao() + "' class='light' onclick='VINCULA_TABLE_EDIT_REMOVE("
+                + visaoDto.getIdVisao() + ", document.formEdit" + visaoDto.getIdVisao() + ", \"" + VisaoRelacionadaDTO.PREFIXO_SISTEMA_TABELA_VINCULADA
+                + visaoDto.getIdVisao() + "\", " + strArrayNamesColumns + ");'>");
         out.print("<img src='" + br.com.citframework.util.Constantes.getValue("CONTEXTO_APLICACAO") + "/template_new/images/icons/small/grey/trashcan.png'>");
         out.print("<span>Remover</span></button>");
         out.println("</td>");
 
         out.println("<td>");
-        out.print("<button type='button' name='btnLimpar_" + visaoDto.getIdVisao() + "' class='light' onclick='limparForm(document.formEdit" + visaoDto.getIdVisao() + ");'>");
+        out.print("<button type='button' name='btnLimpar_" + visaoDto.getIdVisao() + "' class='light' onclick='limparForm(document.formEdit"
+                + visaoDto.getIdVisao() + ");'>");
         out.print("<img src='" + br.com.citframework.util.Constantes.getValue("CONTEXTO_APLICACAO") + "/template_new/images/icons/small/grey/clear.png'>");
         out.print("<span>Limpar Dados</span></button>");
         out.println("</td>");
@@ -734,7 +744,8 @@ public class MetaUtil {
         out.println("</table>");
     }
 
-    public static String geraCampoHTML(final GrupoVisaoCamposNegocioDTO grupoVisaoCamposNegocioDTO, final HttpServletRequest request) throws ServiceException, Exception {
+    public static String geraCampoHTML(final GrupoVisaoCamposNegocioDTO grupoVisaoCamposNegocioDTO, final HttpServletRequest request) throws ServiceException,
+    Exception {
         String ret = "";
         String valid = "";
         String format = "";
@@ -752,8 +763,8 @@ public class MetaUtil {
                 valid = "Valid[" + valid + "]";
             }
             ret = "<input type='text' name='" + grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getNomeDB() + "' " + " id='"
-                    + grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getNomeDB() + "' " + " maxlength='" + grupoVisaoCamposNegocioDTO.getTamanho() + "' size='"
-                    + grupoVisaoCamposNegocioDTO.getTamanho() + "'" + " class='" + valid + " Description[" + descricao + "]' />";
+                    + grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getNomeDB() + "' " + " maxlength='" + grupoVisaoCamposNegocioDTO.getTamanho()
+                    + "' size='" + grupoVisaoCamposNegocioDTO.getTamanho() + "'" + " class='" + valid + " Description[" + descricao + "]' />";
             return ret;
         }
         if (grupoVisaoCamposNegocioDTO.getTipoNegocio().equalsIgnoreCase(TEXTAREA)) {
@@ -766,7 +777,8 @@ public class MetaUtil {
             }
             ret = "<textarea name='" + grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getNomeDB() + "' " + " id='"
                     + grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getNomeDB() + "' " + " maxlength='410000' " + " rows='5' cols='"
-                    + grupoVisaoCamposNegocioDTO.getTamanho() + "'" + " class='" + valid + " Description[" + descricao + "]' style='border:1px solid black'></textarea>";
+                    + grupoVisaoCamposNegocioDTO.getTamanho() + "'" + " class='" + valid + " Description[" + descricao
+                    + "]' style='border:1px solid black'></textarea>";
             return ret;
         }
         if (grupoVisaoCamposNegocioDTO.getTipoNegocio().equalsIgnoreCase(DECIMAL)) {
@@ -779,8 +791,8 @@ public class MetaUtil {
                 valid = "Valid[" + valid + "]";
             }
             ret = "<input type='text' name='" + grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getNomeDB() + "' " + " id='"
-                    + grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getNomeDB() + "' " + " maxlength='" + grupoVisaoCamposNegocioDTO.getTamanho() + "' size='"
-                    + grupoVisaoCamposNegocioDTO.getTamanho() + "'" + " class='" + valid + " " + format + " Description[" + descricao + "]' />";
+                    + grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getNomeDB() + "' " + " maxlength='" + grupoVisaoCamposNegocioDTO.getTamanho()
+                    + "' size='" + grupoVisaoCamposNegocioDTO.getTamanho() + "'" + " class='" + valid + " " + format + " Description[" + descricao + "]' />";
             return ret;
         }
         if (grupoVisaoCamposNegocioDTO.getTipoNegocio().equalsIgnoreCase(NUMBER)) {
@@ -793,8 +805,8 @@ public class MetaUtil {
                 valid = "Valid[" + valid + "]";
             }
             ret = "<input type='text' name='" + grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getNomeDB() + "' " + " id='"
-                    + grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getNomeDB() + "' " + " maxlength='" + grupoVisaoCamposNegocioDTO.getTamanho() + "' size='"
-                    + grupoVisaoCamposNegocioDTO.getTamanho() + "'" + " class='" + valid + " " + format + " Description[" + descricao + "]' />";
+                    + grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getNomeDB() + "' " + " maxlength='" + grupoVisaoCamposNegocioDTO.getTamanho()
+                    + "' size='" + grupoVisaoCamposNegocioDTO.getTamanho() + "'" + " class='" + valid + " " + format + " Description[" + descricao + "]' />";
             return ret;
         }
         if (grupoVisaoCamposNegocioDTO.getTipoNegocio().equalsIgnoreCase(HIDDEN)) {
@@ -806,7 +818,8 @@ public class MetaUtil {
                 valid = "Valid[" + valid + "]";
             }
             ret = "<input type='hidden' name='" + grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getNomeDB() + "' " + " id='"
-                    + grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getNomeDB() + "' " + " class='" + valid + " Description[" + descricao + "]' value='' />";
+                    + grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getNomeDB() + "' " + " class='" + valid + " Description[" + descricao
+                    + "]' value='' />";
             return ret;
         }
         if (grupoVisaoCamposNegocioDTO.getTipoNegocio().equalsIgnoreCase(DATE)) {
@@ -820,8 +833,8 @@ public class MetaUtil {
                 valid = "Valid[" + valid + "]";
             }
             ret = "<input type='text' name='" + grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getNomeDB() + "' " + " id='"
-                    + grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getNomeDB() + "' " + " maxlength='10' size='10' " + "class='" + valid + " Description[" + descricao
-                    + "] Format[Date]' />";
+                    + grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getNomeDB() + "' " + " maxlength='10' size='10' " + "class='" + valid
+                    + " Description[" + descricao + "] Format[Date]' />";
             return ret;
         }
         if (grupoVisaoCamposNegocioDTO.getTipoNegocio().equalsIgnoreCase(RADIO)) {
@@ -837,8 +850,8 @@ public class MetaUtil {
                 for (final Iterator it = grupoVisaoCamposNegocioDTO.getColValores().iterator(); it.hasNext();) {
                     final ValorVisaoCamposNegocioDTO valorVisaoCamposNegocioDTO = (ValorVisaoCamposNegocioDTO) it.next();
                     ret += "<input type='radio' name='" + grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getNomeDB() + "' " + " id='"
-                            + grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getNomeDB() + "' " + " class='" + valid + " Description[" + descricao + "]' value='"
-                            + valorVisaoCamposNegocioDTO.getValor() + "' />" + valorVisaoCamposNegocioDTO.getDescricao() + " ";
+                            + grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getNomeDB() + "' " + " class='" + valid + " Description[" + descricao
+                            + "]' value='" + valorVisaoCamposNegocioDTO.getValor() + "' />" + valorVisaoCamposNegocioDTO.getDescricao() + " ";
                 }
             }
             return ret;
@@ -858,7 +871,8 @@ public class MetaUtil {
             }
 
             ret += "<select name='" + grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getNomeDB() + "' " + " id='"
-                    + grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getNomeDB() + "' " + " class='" + valid + " Description[" + descricao + "]' " + compl + ">";
+                    + grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getNomeDB() + "' " + " class='" + valid + " Description[" + descricao + "]' "
+                    + compl + ">";
             // Thiago Fernandes - 03/11/2013 - 14:10 - Sol. 121468 - Internacionalização.
             ret += "<option value=''>" + UtilI18N.internacionaliza(request, "citcorpore.comum.selecione") + "</option>";
 
@@ -915,7 +929,8 @@ public class MetaUtil {
 
             if (grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto() != null) {
                 ret += "<select name='" + grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getNomeDB() + "' " + " id='"
-                        + grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getNomeDB() + "' " + " class='" + valid + " Description[" + descricao + "]' " + compl + ">";
+                        + grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getNomeDB() + "' " + " class='" + valid + " Description[" + descricao + "]' "
+                        + compl + ">";
             }
             if (grupoVisaoCamposNegocioDTO.getColValores() != null) {
                 for (final Iterator it = grupoVisaoCamposNegocioDTO.getColValores().iterator(); it.hasNext();) {
@@ -955,7 +970,8 @@ public class MetaUtil {
                 lookupDto.setIdGrupoVisao(grupoVisaoCamposNegocioDTO.getIdGrupoVisao());
                 lookupDto.setIdCamposObjetoNegocio(grupoVisaoCamposNegocioDTO.getIdCamposObjetoNegocio());
 
-                ret += "<select name='" + grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getNomeDB() + "'" + " class='" + valid + " Description[" + descricao + "]' >";
+                ret += "<select name='" + grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getNomeDB() + "'" + " class='" + valid + " Description["
+                        + descricao + "]' >";
                 // Thiago Fernandes - 03/11/2013 - 14:10 - Sol. 121468 - Internacionalização.
                 ret += "<option value=''>" + UtilI18N.internacionaliza(request, "citcorpore.comum.selecione") + "</option>";
                 final Collection col = lookupService.findSimple(lookupDto);
@@ -985,15 +1001,17 @@ public class MetaUtil {
                 ret += "<input name='" + grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getNomeDB() + "' id='"
                         + grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getNomeDB() + "' class='" + valid + " Description[" + descricao
                         + "]' style='width:400px'></input>";
-                ret += generateScriptLookup(grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getNomeDB(), url, grupoVisaoCamposNegocioDTO.getIdCamposObjetoNegocio(),
-                        grupoVisaoCamposNegocioDTO.getIdGrupoVisao(), grupoVisaoCamposNegocioDTO.getTamanhoParaPesq(), request);
+                ret += generateScriptLookup(grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getNomeDB(), url,
+                        grupoVisaoCamposNegocioDTO.getIdCamposObjetoNegocio(), grupoVisaoCamposNegocioDTO.getIdGrupoVisao(),
+                        grupoVisaoCamposNegocioDTO.getTamanhoParaPesq(), request);
                 return ret;
             }
         }
         return "";
     }
 
-    public static String geraCampoGRID(final GrupoVisaoCamposNegocioDTO grupoVisaoCamposNegocioDTO, final HttpServletRequest request) throws ServiceException, Exception {
+    public static String geraCampoGRID(final GrupoVisaoCamposNegocioDTO grupoVisaoCamposNegocioDTO, final HttpServletRequest request) throws ServiceException,
+    Exception {
         String ret = "";
         String valid = "";
         String descricao = grupoVisaoCamposNegocioDTO.getDescricaoNegocio();
@@ -1005,11 +1023,13 @@ public class MetaUtil {
         /*
          * Rodrigo Pecci Acorse - 03/02/2013 10h15 - #132885
          * Alteração realizada para os campos do tipo TEXT e TEXTAREA.
-         * O plugin não validava se o campo era obrigatório, agora quando o campo for setado como obrigatório irá receber o tipo validatebox para que seja validado corretamente.
+         * O plugin não validava se o campo era obrigatório, agora quando o campo for setado como obrigatório irá receber o tipo validatebox para que seja
+         * validado corretamente.
          */
         String options = "";
         if (grupoVisaoCamposNegocioDTO.getTipoNegocio().equalsIgnoreCase(TEXT)) {
-            if (grupoVisaoCamposNegocioDTO.getObrigatorio().equalsIgnoreCase("S") && grupoVisaoCamposNegocioDTO.getTamanho() != null && grupoVisaoCamposNegocioDTO.getTamanho() > 0) {
+            if (grupoVisaoCamposNegocioDTO.getObrigatorio().equalsIgnoreCase("S") && grupoVisaoCamposNegocioDTO.getTamanho() != null
+                    && grupoVisaoCamposNegocioDTO.getTamanho() > 0) {
                 options = "editor:{type:'validatebox',options:{required:true, maxlength:" + grupoVisaoCamposNegocioDTO.getTamanho() + "}}";
             } else if (grupoVisaoCamposNegocioDTO.getObrigatorio().equalsIgnoreCase("S")) {
                 options = "editor:{type:'validatebox',options:{required:true}}";
@@ -1086,7 +1106,8 @@ public class MetaUtil {
             }
 
             ret += "<select name='" + grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getNomeDB() + "' " + " id='"
-                    + grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getNomeDB() + "' " + " class='" + valid + " Description[" + descricao + "]' " + compl + ">";
+                    + grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getNomeDB() + "' " + " class='" + valid + " Description[" + descricao + "]' "
+                    + compl + ">";
             // Thiago Fernandes - 03/11/2013 - 14:10 - Sol. 121468 - Internacionalização.
             ret += "<option value=''>" + UtilI18N.internacionaliza(request, "citcorpore.comum.selecione") + "</option>";
 
@@ -1162,21 +1183,22 @@ public class MetaUtil {
         return "";
     }
 
-    private static String generateScriptLookup(final String name, final String url, final Integer idCamposObjetoNegocio, final Integer idGrupoVisao, final Integer tamMaxParaPesq,
-            final HttpServletRequest request) throws ServiceException, Exception {
+    private static String generateScriptLookup(final String name, final String url, final Integer idCamposObjetoNegocio, final Integer idGrupoVisao,
+            final Integer tamMaxParaPesq, final HttpServletRequest request) throws ServiceException, Exception {
         String ret = "";
 
-        new HashMap();
+        new HashMap<>();
         final String urlAux = url + "?lookupName=" + name + "&idCamposObjetoNegocio=" + idCamposObjetoNegocio + "&idGrupoVisao=" + idGrupoVisao + "";
 
-        final GrupoVisaoCamposNegocioLigacaoService grupoVisaoCamposNegocioLigacaoService = (GrupoVisaoCamposNegocioLigacaoService) ServiceLocator.getInstance().getService(
-                GrupoVisaoCamposNegocioLigacaoService.class, null);
-        final CamposObjetoNegocioService camposObjetoNegocioService = (CamposObjetoNegocioService) ServiceLocator.getInstance().getService(CamposObjetoNegocioService.class, null);
+        final GrupoVisaoCamposNegocioLigacaoService grupoVisaoCamposNegocioLigacaoService = (GrupoVisaoCamposNegocioLigacaoService) ServiceLocator
+                .getInstance().getService(GrupoVisaoCamposNegocioLigacaoService.class, null);
+        final CamposObjetoNegocioService camposObjetoNegocioService = (CamposObjetoNegocioService) ServiceLocator.getInstance().getService(
+                CamposObjetoNegocioService.class, null);
         ServiceLocator.getInstance().getService(ObjetoNegocioService.class, null);
         CamposObjetoNegocioDTO camposObjetoNegocioDTO = null;
 
-        final Collection colPresentation = new ArrayList();
-        final Collection colValue = new ArrayList();
+        final Collection colPresentation = new ArrayList<>();
+        final Collection colValue = new ArrayList<>();
         final Collection colItens = grupoVisaoCamposNegocioLigacaoService.findByIdGrupoVisaoAndIdCamposObjetoNegocio(idGrupoVisao, idCamposObjetoNegocio);
         if (colItens != null) {
             for (final Iterator it = colItens.iterator(); it.hasNext();) {
@@ -1197,7 +1219,8 @@ public class MetaUtil {
                         colPresentation.add(camposObjetoNegocioDTO);
                     }
                 }
-                if (grupoVisaoCamposNegocioLigacaoAux != null && grupoVisaoCamposNegocioLigacaoAux.getTipoLigacao().equalsIgnoreCase(GrupoVisaoCamposNegocioLigacaoDTO.VALUE)) {
+                if (grupoVisaoCamposNegocioLigacaoAux != null
+                        && grupoVisaoCamposNegocioLigacaoAux.getTipoLigacao().equalsIgnoreCase(GrupoVisaoCamposNegocioLigacaoDTO.VALUE)) {
                     if (grupoVisaoCamposNegocioLigacaoAux != null) {
                         camposObjetoNegocioDTO = new CamposObjetoNegocioDTO();
                         camposObjetoNegocioDTO.setIdCamposObjetoNegocio(grupoVisaoCamposNegocioLigacaoAux.getIdCamposObjetoNegocioLigacao());
@@ -1286,8 +1309,8 @@ public class MetaUtil {
         }
         String typeDBAux = typeDB;
         typeDBAux = typeDBAux.toUpperCase();
-        if (typeDBAux.startsWith("VARCHAR") || typeDBAux.startsWith("CHAR") || typeDBAux.startsWith("TEXT") || typeDBAux.startsWith("BPCHAR") || typeDBAux.startsWith("CLOB")
-                || typeDBAux.startsWith("STRING")) {
+        if (typeDBAux.startsWith("VARCHAR") || typeDBAux.startsWith("CHAR") || typeDBAux.startsWith("TEXT") || typeDBAux.startsWith("BPCHAR")
+                || typeDBAux.startsWith("CLOB") || typeDBAux.startsWith("STRING")) {
             return true;
         }
         return false;
@@ -1299,9 +1322,9 @@ public class MetaUtil {
         }
         String typeDBAux = typeDB;
         typeDBAux = typeDBAux.toUpperCase();
-        if (typeDBAux.startsWith("INT") || typeDBAux.startsWith("LONG") || typeDBAux.startsWith("MONEY") || typeDBAux.startsWith("DOUBLE") || typeDBAux.startsWith("DECIMAL")
-                || typeDBAux.startsWith("NUMBER") || typeDBAux.startsWith("BIGINT") || typeDBAux.startsWith("INTEGER") || typeDBAux.startsWith("SMALLINT")
-                || typeDBAux.startsWith("REAL") || typeDBAux.startsWith("NUMERIC")) {
+        if (typeDBAux.startsWith("INT") || typeDBAux.startsWith("LONG") || typeDBAux.startsWith("MONEY") || typeDBAux.startsWith("DOUBLE")
+                || typeDBAux.startsWith("DECIMAL") || typeDBAux.startsWith("NUMBER") || typeDBAux.startsWith("BIGINT") || typeDBAux.startsWith("INTEGER")
+                || typeDBAux.startsWith("SMALLINT") || typeDBAux.startsWith("REAL") || typeDBAux.startsWith("NUMERIC")) {
             return true;
         }
         return false;
@@ -1329,8 +1352,8 @@ public class MetaUtil {
         value = value.trim();
         String typeDB = typeDBParm;
         typeDB = typeDB.toUpperCase();
-        if (typeDB.startsWith("VARCHAR") || typeDB.startsWith("CHAR") || typeDB.startsWith("TEXT") || typeDB.startsWith("MEDIUMTEXT") || typeDB.startsWith("CLOB")
-                || typeDB.startsWith("BPCHAR") || typeDB.startsWith("STRING") || typeDB.startsWith("LONGTEXT")) {
+        if (typeDB.startsWith("VARCHAR") || typeDB.startsWith("CHAR") || typeDB.startsWith("TEXT") || typeDB.startsWith("MEDIUMTEXT")
+                || typeDB.startsWith("CLOB") || typeDB.startsWith("BPCHAR") || typeDB.startsWith("STRING") || typeDB.startsWith("LONGTEXT")) {
             return value;
         }
         if (typeDB.startsWith("INT") || typeDB.startsWith("BIGINT") || typeDB.startsWith("INTEGER") || typeDB.startsWith("SMALLINT") || value.indexOf("[") > -1
@@ -1405,8 +1428,8 @@ public class MetaUtil {
             }
             return data;
         }
-        if (typeDB.startsWith("MONEY") || typeDB.startsWith("DOUBLE") || typeDB.startsWith("DECIMAL") || typeDB.startsWith("NUMERIC") || typeDB.startsWith("NUMBER")
-                || typeDB.startsWith("REAL") || typeDB.startsWith("FLOAT")) {
+        if (typeDB.startsWith("MONEY") || typeDB.startsWith("DOUBLE") || typeDB.startsWith("DECIMAL") || typeDB.startsWith("NUMERIC")
+                || typeDB.startsWith("NUMBER") || typeDB.startsWith("REAL") || typeDB.startsWith("FLOAT")) {
             final int posicaoPonto = value.indexOf(".");
             if (posicaoPonto > -1 && posicaoPonto == value.length() - 3) { // deve ser -3 mesmo, inclui a posicao do ponto.
                 // ESTA NO PADRAO AMERICANO. PONTO NO LUGAR DE VIRGULA.
@@ -1417,7 +1440,6 @@ public class MetaUtil {
                 try {
                     duplo = new Double(Double.parseDouble(aux));
                 } catch (final Exception e) {
-                    // e.printStackTrace();
                     duplo = null;
                 }
                 return duplo;
@@ -1430,7 +1452,6 @@ public class MetaUtil {
                 try {
                     duplo = new Double(Double.parseDouble(aux));
                 } catch (final Exception e) {
-                    // e.printStackTrace();
                     duplo = null;
                 }
                 return duplo;

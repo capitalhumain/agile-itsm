@@ -49,14 +49,14 @@ public class PerspectivaComplexidadeDao extends CrudDaoDefaultImpl {
 
     @Override
     public Collection list() throws PersistenceException {
-        final List list = new ArrayList();
+        final List list = new ArrayList<>();
         list.add(new Order("descricaoPerspectivaComplexidade"));
         return super.list(list);
     }
 
     public Collection findByidSolicitacao(final Integer parm) throws PersistenceException {
-        final List condicao = new ArrayList();
-        final List ordenacao = new ArrayList();
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
         condicao.add(new Condition("idSolicitacaoServico", "=", parm));
         ordenacao.add(new Order("idPerspectivaComplexidade"));
         return super.findByCondition(condicao, ordenacao);
@@ -75,7 +75,7 @@ public class PerspectivaComplexidadeDao extends CrudDaoDefaultImpl {
         final Object[] objs = new Object[] {nome};
         final List list = this.execSQL(SQL_NOME, objs);
 
-        final List listRetorno = new ArrayList();
+        final List listRetorno = new ArrayList<>();
         listRetorno.add("idPerspectivaComplexidade");
         listRetorno.add("descricaoPerspectivaComplexidade");
 
@@ -83,7 +83,7 @@ public class PerspectivaComplexidadeDao extends CrudDaoDefaultImpl {
     }
 
     public void deleteByIdSolicitacao(final Integer parm) throws PersistenceException {
-        final List condicao = new ArrayList();
+        final List<Condition> condicao = new ArrayList<>();
         condicao.add(new Condition("idSolicitacaoServico", "=", parm));
         super.deleteByCondition(condicao);
     }

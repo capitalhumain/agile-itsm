@@ -13,7 +13,6 @@ import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.CrudServiceImpl;
 
-@SuppressWarnings("rawtypes")
 public class CategoriaPostServiceEjb extends CrudServiceImpl implements CategoriaPostService {
 
     private CategoriaPostDao dao;
@@ -44,7 +43,8 @@ public class CategoriaPostServiceEjb extends CrudServiceImpl implements Categori
         return this.getDao().verificarSeCategoriaExiste(categoriaPostDTO);
     }
 
-    public List<CategoriaPostDTO> listCategoriaHierarquia(final CategoriaPostDTO categoriaServicoDTO, final List<CategoriaPostDTO> listCategoriaHierarquia) throws Exception {
+    public List<CategoriaPostDTO> listCategoriaHierarquia(final CategoriaPostDTO categoriaServicoDTO, final List<CategoriaPostDTO> listCategoriaHierarquia)
+            throws Exception {
         CategoriaPostDTO bean = new CategoriaPostDTO();
         listCategoriaHierarquia.add(categoriaServicoDTO);
         if (categoriaServicoDTO.getIdCategoriaPostPai() != null) {

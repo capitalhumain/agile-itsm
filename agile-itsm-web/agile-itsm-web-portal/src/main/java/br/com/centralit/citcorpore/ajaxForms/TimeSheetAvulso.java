@@ -56,7 +56,7 @@ public class TimeSheetAvulso extends AjaxFormAction {
 		prjPesq.setIdCliente(timeSheet.getIdCliente());
 		prjPesq.setSituacao("A");
 		
-		Collection colProjetos = new ArrayList();
+		Collection colProjetos = new ArrayList<>();
 		if (timeSheet.getIdCliente() != null){
 			colProjetos = projetoService.find(prjPesq);
 		}

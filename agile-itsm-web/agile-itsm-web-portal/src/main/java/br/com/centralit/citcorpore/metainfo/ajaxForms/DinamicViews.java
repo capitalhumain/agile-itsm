@@ -16,8 +16,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringEscapeUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.mozilla.javascript.Context;
 import org.mozilla.javascript.Scriptable;
@@ -105,15 +105,15 @@ public class DinamicViews extends AjaxFormAction {
             }
         }
 
-        final VisaoDTO visao = recuperaVisao(dinamicViewsDTO.getIdVisao(), true);
+        final VisaoDTO visao = this.recuperaVisao(dinamicViewsDTO.getIdVisao(), true);
         if (visao == null) {
             document.alert(UtilI18N.internacionaliza(request, "dinamicview.visaonaoencontrada"));
             return;
         }
 
-        final Map hashValores = getFormFields(request);
+        final Map hashValores = this.getFormFields(request);
         if (DEBUG) {
-            debugValuesFromRequest(hashValores);
+            this.debugValuesFromRequest(hashValores);
         }
 
         final Map<String, Object> map = new HashMap<>();
@@ -145,11 +145,11 @@ public class DinamicViews extends AjaxFormAction {
             scriptExecute.processScript(cx, scope, strScript, DinamicViews.class.getName() + "_" + ScriptsVisaoDTO.SCRIPT_LOAD.getName());
         }
 
-        setValuesFromMap(document, request, map, "document.form");
+        this.setValuesFromMap(document, request, map, "document.form");
 
         if (dinamicViewsDTO.getId() != null) {
-            final VisaoDTO visaoPesquisaDto = recuperaVisao(visao.getIdVisao(), false);
-            final Collection colFilter = new ArrayList();
+            final VisaoDTO visaoPesquisaDto = this.recuperaVisao(visao.getIdVisao(), false);
+            final Collection colFilter = new ArrayList<>();
             final Collection colGrupos = visaoPesquisaDto.getColGrupos();
             for (final Iterator it = colGrupos.iterator(); it.hasNext();) {
                 final GrupoVisaoDTO grupoVisaoDTO = (GrupoVisaoDTO) it.next();
@@ -164,7 +164,7 @@ public class DinamicViews extends AjaxFormAction {
                 }
             }
             final String metodoOrigem = "load";
-            restoreVisao(document, request, response, visao.getIdVisao(), colFilter, metodoOrigem);
+            this.restoreVisao(document, request, response, visao.getIdVisao(), colFilter, metodoOrigem);
         }
 
         /**
@@ -174,7 +174,7 @@ public class DinamicViews extends AjaxFormAction {
          * @since 28/01/2015 - OPERAÇÃO USAIN BOLT
          */
         final MenuService menuService = (MenuService) ServiceLocator.getInstance().getService(MenuService.class, null);
-        final String pathInfo = getRequestedPath(request);
+        final String pathInfo = this.getRequestedPath(request);
         final String url = pathInfo.replaceAll("/pages", "");
         final Integer idMenu = menuService.buscarIdMenu(url);
         String acessoGravar = "N";
@@ -211,7 +211,7 @@ public class DinamicViews extends AjaxFormAction {
         }
 
         if (dinamicViewsDTO.getIdentificacao() != null && "Contratos".equalsIgnoreCase(dinamicViewsDTO.getIdentificacao())) {
-            limparCamposFirefox(document);
+            this.limparCamposFirefox(document);
         }
     }
 
@@ -281,10 +281,10 @@ public class DinamicViews extends AjaxFormAction {
         final DinamicViewsDTO dinamicViewsDTO = (DinamicViewsDTO) document.getBean();
 
         if (dinamicViewsDTO.getIdTarefa() != null) {
-            final Collection<GrupoVisaoCamposNegocioDTO> colFilter = findCamposTarefa(dinamicViewsDTO.getIdTarefa());
+            final Collection<GrupoVisaoCamposNegocioDTO> colFilter = this.findCamposTarefa(dinamicViewsDTO.getIdTarefa());
             if (colFilter != null) {
                 final String metodoOrigem = "recuperaVisaoFluxo";
-                restoreVisao(document, request, response, dinamicViewsDTO.getDinamicViewsIdVisao(), colFilter, metodoOrigem);
+                this.restoreVisao(document, request, response, dinamicViewsDTO.getDinamicViewsIdVisao(), colFilter, metodoOrigem);
             }
         }
     }
@@ -342,7 +342,7 @@ public class DinamicViews extends AjaxFormAction {
                 for (final Iterator it = colVisoesRelacionadas.iterator(); it.hasNext();) {
                     final VisaoRelacionadaDTO visaoRelacionadaDto = (VisaoRelacionadaDTO) it.next();
                     if (visaoRelacionadaDto.getIdVisaoFilha() != null) {
-                        final VisaoDTO visaoFilhaDTO = recuperaVisao(visaoRelacionadaDto.getIdVisaoFilha(), false);
+                        final VisaoDTO visaoFilhaDTO = this.recuperaVisao(visaoRelacionadaDto.getIdVisaoFilha(), false);
                         if (visaoFilhaDTO != null) {
                             visaoFilhaDTO.setFilha(true);
                             visaoFilhaDTO.setAcaoVisaoFilhaPesqRelacionada(visaoRelacionadaDto.getAcaoEmSelecaoPesquisa());
@@ -354,7 +354,7 @@ public class DinamicViews extends AjaxFormAction {
 
             final Collection colScripts = scriptsVisaoService.findByIdVisao(idVisao);
             visaoDto.setColScripts(colScripts);
-            HashMap map = new HashMap();
+            HashMap map = new HashMap<>();
             if (colScripts != null) {
                 for (final Iterator it = colScripts.iterator(); it.hasNext();) {
                     final ScriptsVisaoDTO scriptsVisaoDTO = (ScriptsVisaoDTO) it.next();
@@ -365,7 +365,7 @@ public class DinamicViews extends AjaxFormAction {
 
             final Collection colHtmlCode = htmlCodeVisaoService.findByIdVisao(idVisao);
             visaoDto.setColHtmlCode(colHtmlCode);
-            map = new HashMap();
+            map = new HashMap<>();
             if (colHtmlCode != null) {
                 for (final Iterator it = colHtmlCode.iterator(); it.hasNext();) {
                     final HtmlCodeVisaoDTO htmlCodeVisaoDTO = (HtmlCodeVisaoDTO) it.next();
@@ -376,10 +376,10 @@ public class DinamicViews extends AjaxFormAction {
         }
 
         if (visaoDto.getMapScripts() == null) {
-            visaoDto.setMapScripts(new HashMap());
+            visaoDto.setMapScripts(new HashMap<>());
         }
         if (visaoDto.getMapHtmlCodes() == null) {
-            visaoDto.setMapHtmlCodes(new HashMap());
+            visaoDto.setMapHtmlCodes(new HashMap<>());
         }
 
         return visaoDto;
@@ -397,9 +397,9 @@ public class DinamicViews extends AjaxFormAction {
             final DinamicViewsDTO dinamicViewsDto = (DinamicViewsDTO) document.getBean();
             final DinamicViewsService dinamicViewsService = (DinamicViewsService) ServiceLocator.getInstance().getService(DinamicViewsService.class,
                     WebUtil.getUsuarioSistema(request));
-            final Map hashValores = getFormFields(request);
+            final Map hashValores = this.getFormFields(request);
             if (DEBUG) {
-                debugValuesFromRequest(hashValores);
+                this.debugValuesFromRequest(hashValores);
             }
 
             Map<String, Object> map = null;
@@ -450,7 +450,7 @@ public class DinamicViews extends AjaxFormAction {
         } catch (final UnsupportedEncodingException e) {
             LOGGER.warn("PROBLEMA COM CODIFICACAO DE CARACTERES!!! [AjaxProcessEvent.getFormFields()]: " + e.getMessage(), e);
         }
-        final Map formFields = new HashMap();
+        final Map formFields = new HashMap<>();
         final Enumeration en = req.getParameterNames();
         String[] strValores;
         while (en.hasMoreElements()) {
@@ -484,7 +484,7 @@ public class DinamicViews extends AjaxFormAction {
         final ParserRequest parser = new ParserRequest();
         final Map hashValores = parser.getFormFields(request);
         if (DEBUG) {
-            debugValuesFromRequest(hashValores);
+            this.debugValuesFromRequest(hashValores);
         }
 
         final Map<String, Object> map = JSONUtil.convertJsonToMap(dinamicViewsDto.getDinamicViewsDadosAdicionais(), true);
@@ -521,7 +521,7 @@ public class DinamicViews extends AjaxFormAction {
         }
 
         final Collection colScripts = scriptsVisaoService.findByIdVisao(dinamicViewsDto.getDinamicViewsIdVisao());
-        final HashMap mapScritps = new HashMap();
+        final HashMap mapScritps = new HashMap<>();
         if (colScripts != null) {
             for (final Iterator it = colScripts.iterator(); it.hasNext();) {
                 final ScriptsVisaoDTO scriptsVisaoDTO = (ScriptsVisaoDTO) it.next();
@@ -580,8 +580,8 @@ public class DinamicViews extends AjaxFormAction {
          * Inserido para tratar quando não existe nenhum elemento a ser excluído.
          * Mário Júnior - 14/02/2014
          */
-        final Collection colCamposPKPrincipal = new ArrayList();
-        final Collection colCamposTodosPrincipal = new ArrayList();
+        final Collection colCamposPKPrincipal = new ArrayList<>();
+        final Collection colCamposTodosPrincipal = new ArrayList<>();
 
         dinamicViewsService.setInfoSave(dinamicViewsDto.getDinamicViewsIdVisao(), colCamposPKPrincipal, colCamposTodosPrincipal);
 
@@ -626,7 +626,7 @@ public class DinamicViews extends AjaxFormAction {
         final DinamicViewsService dinamicViewsService = (DinamicViewsService) ServiceLocator.getInstance().getService(DinamicViewsService.class, null);
         final ScriptsVisaoService scriptsVisaoService = (ScriptsVisaoService) ServiceLocator.getInstance().getService(ScriptsVisaoService.class, null);
         final Collection col = dinamicViewsService.restoreVisao(idVisao, colFilter);
-        final HashMap map = new HashMap();
+        final HashMap map = new HashMap<>();
         if (col != null) {
             for (final Iterator it = col.iterator(); it.hasNext();) {
                 final GrupoVisaoCamposNegocioDTO grupoVisaoCamposNegocioDTO = (GrupoVisaoCamposNegocioDTO) it.next();
@@ -650,7 +650,7 @@ public class DinamicViews extends AjaxFormAction {
                 }
             }
             final Collection colScripts = scriptsVisaoService.findByIdVisao(idVisao);
-            final HashMap mapScritps = new HashMap();
+            final HashMap mapScritps = new HashMap<>();
             if (colScripts != null) {
                 for (final Iterator it = colScripts.iterator(); it.hasNext();) {
                     final ScriptsVisaoDTO scriptsVisaoDTO = (ScriptsVisaoDTO) it.next();
@@ -671,7 +671,7 @@ public class DinamicViews extends AjaxFormAction {
                 scriptExecute.processScript(cx, scope, strScript, DinamicViews.class.getName() + "_" + ScriptsVisaoDTO.SCRIPT_ONRESTORE.getName());
             }
             document.executeScript("try{limpar();}catch(e){}");
-            setValuesFromMap(document, request, map, "document.form");
+            this.setValuesFromMap(document, request, map, "document.form");
             document.getElementById("dinamicViewsIdVisao").setValue("" + idVisao);
             document.executeScript("try{$( '#tabs' ).tabs('select', 0);}catch(e){}");
             document.executeScript("carregaVinculacoes()");
@@ -752,11 +752,11 @@ public class DinamicViews extends AjaxFormAction {
                     property = property.replace("_label", "");
                     document.executeScript("try{$('#" + property
                             + "').combogrid('setValue', ObjectUtils.decodificaAspasApostrofe(ObjectUtils.decodificaEnter('"
-                            + StringEscapeUtils.escapeJavaScript(valorTransf) + "')));}catch(e){}");
+                            + StringEscapeUtils.escapeEcmaScript(valorTransf) + "')));}catch(e){}");
                     continue;
                 }
                 document.executeScript("HTMLUtils.setValue('" + property + "', ObjectUtils.decodificaAspasApostrofe(ObjectUtils.decodificaEnter('"
-                        + StringEscapeUtils.escapeJavaScript(valorTransf) + "')), " + formName + ")");
+                        + StringEscapeUtils.escapeEcmaScript(valorTransf) + "')), " + formName + ")");
             }
         }
     }
@@ -773,9 +773,9 @@ public class DinamicViews extends AjaxFormAction {
             throw e;
         }
 
-        final VisaoDTO visaoPesquisaDto = recuperaVisao(dinamicViewsDTO.getDinamicViewsIdVisaoPesquisaSelecionada(), false);
+        final VisaoDTO visaoPesquisaDto = this.recuperaVisao(dinamicViewsDTO.getDinamicViewsIdVisaoPesquisaSelecionada(), false);
 
-        final Collection colFilter = new ArrayList();
+        final Collection colFilter = new ArrayList<>();
         if (dinamicViewsDTO.getDinamicViewsAcaoPesquisaSelecionada() != null
                 && dinamicViewsDTO.getDinamicViewsAcaoPesquisaSelecionada().equalsIgnoreCase(VisaoRelacionadaDTO.ACAO_RECUPERAR_PRINCIPAL)) {
             final Collection colGrupos = visaoPesquisaDto.getColGrupos();
@@ -795,7 +795,7 @@ public class DinamicViews extends AjaxFormAction {
                 }
             }
             final String metodoOrigem = "tableSearchClick";
-            restoreVisao(document, request, response, dinamicViewsDTO.getDinamicViewsIdVisao(), colFilter, metodoOrigem);
+            this.restoreVisao(document, request, response, dinamicViewsDTO.getDinamicViewsIdVisao(), colFilter, metodoOrigem);
         }
     }
 
@@ -804,9 +804,9 @@ public class DinamicViews extends AjaxFormAction {
 
         final ColumnsDTO columnsDTO = GSON.fromJson(dinamicViewsDTO.getJsonDataEdit(), ColumnsDTO.class);
 
-        final VisaoDTO visaoPesquisaDto = recuperaVisao(dinamicViewsDTO.getIdVisaoEdit(), false);
+        final VisaoDTO visaoPesquisaDto = this.recuperaVisao(dinamicViewsDTO.getIdVisaoEdit(), false);
 
-        final Collection colFilter = new ArrayList();
+        final Collection colFilter = new ArrayList<>();
         final Collection colGrupos = visaoPesquisaDto.getColGrupos();
         int i = 1; // A primeira coluna (indice 0) é de controle do sistema.
         for (final Iterator it = colGrupos.iterator(); it.hasNext();) {
@@ -829,14 +829,14 @@ public class DinamicViews extends AjaxFormAction {
                 }
             }
         }
-        restoreVisaoEdit(document, request, response, dinamicViewsDTO.getIdVisaoEdit(), colFilter);
+        this.restoreVisaoEdit(document, request, response, dinamicViewsDTO.getIdVisaoEdit(), colFilter);
     }
 
     public void restoreVisaoEdit(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response, final Integer idVisao,
             final Collection colFilter) throws Exception {
         final DinamicViewsService dinamicViewsService = (DinamicViewsService) ServiceLocator.getInstance().getService(DinamicViewsService.class, null);
         final Collection col = dinamicViewsService.restoreVisao(idVisao, colFilter);
-        final HashMap map = new HashMap();
+        final HashMap map = new HashMap<>();
         if (col != null) {
             for (final Iterator it = col.iterator(); it.hasNext();) {
                 final GrupoVisaoCamposNegocioDTO grupoVisaoCamposNegocioDTO = (GrupoVisaoCamposNegocioDTO) it.next();
@@ -852,7 +852,7 @@ public class DinamicViews extends AjaxFormAction {
                 }
             }
             document.executeScript("limparForm(document.formEdit" + idVisao + ")");
-            setValuesFromMap(document, request, map, "document.formEdit" + idVisao);
+            this.setValuesFromMap(document, request, map, "document.formEdit" + idVisao);
             document.executeScript("$('#TABLE_EDIT_" + idVisao + "' ).dialog( 'open' );");
         } else {
             document.alert(UtilI18N.internacionaliza(request, "dinamicview.naofoipossivelrecuperar"));

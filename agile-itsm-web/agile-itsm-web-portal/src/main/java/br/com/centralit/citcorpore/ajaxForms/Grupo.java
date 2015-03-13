@@ -7,7 +7,7 @@ import java.util.Iterator;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 
 import br.com.centralit.bpm.dto.PermissoesFluxoDTO;
 import br.com.centralit.bpm.dto.TipoFluxoDTO;
@@ -344,8 +344,8 @@ public class Grupo extends AjaxFormAction {
 				if (grupoEmailBean.getIdEmpregado() == null) {
 					grupoEmailBean.setIdEmpregado(0);
 				}
-				document.executeScript("addLinhaTabelaEmail(" + grupoEmailBean.getIdEmpregado() + ", '" + StringEscapeUtils.escapeJavaScript(grupoEmailBean.getNome()) + "', '"
-						+ StringEscapeUtils.escapeJavaScript(grupoEmailBean.getEmail()) + "',  " + false + ");");
+				document.executeScript("addLinhaTabelaEmail(" + grupoEmailBean.getIdEmpregado() + ", '" + StringEscapeUtils.escapeEcmaScript(grupoEmailBean.getNome()) + "', '"
+						+ StringEscapeUtils.escapeEcmaScript(grupoEmailBean.getEmail()) + "',  " + false + ");");
 
 				document.executeScript("exibirGrid1();");
 			}
@@ -529,7 +529,7 @@ public class Grupo extends AjaxFormAction {
 		for (PerfilAcessoDTO perfilAcessoDto : perfilAcessos) {
 			if (perfilAcessoDto.getDataFim() == null) {
 				System.out.println(perfilAcessoDto.getNomePerfilAcesso());
-				comboPerfilAcessoGrupo.addOption(perfilAcessoDto.getIdPerfilAcesso().toString(), StringEscapeUtils.escapeJavaScript(perfilAcessoDto.getNomePerfilAcesso()));
+				comboPerfilAcessoGrupo.addOption(perfilAcessoDto.getIdPerfilAcesso().toString(), StringEscapeUtils.escapeEcmaScript(perfilAcessoDto.getNomePerfilAcesso()));
 			}
 		}
 	}
@@ -551,7 +551,7 @@ public class Grupo extends AjaxFormAction {
 		inicializarCombo(ComboTipoFluxo, request);
 
 		for (TipoFluxoDTO tipoFluxo : tiposFluxos) {
-			ComboTipoFluxo.addOption(tipoFluxo.getIdTipoFluxo().toString(), StringEscapeUtils.escapeJavaScript(tipoFluxo.getNomeFluxo()));
+			ComboTipoFluxo.addOption(tipoFluxo.getIdTipoFluxo().toString(), StringEscapeUtils.escapeEcmaScript(tipoFluxo.getNomeFluxo()));
 		}
 
 	}
@@ -593,7 +593,7 @@ public class Grupo extends AjaxFormAction {
 		if (grupoDeEmpregadostes != null && !grupoDeEmpregadostes.isEmpty()) {
 
 			for (GrupoEmpregadoDTO grupoEmpregadoDto : grupoDeEmpregadostes) {
-				document.executeScript("addLinhaTabelaEmpregado(" + grupoEmpregadoDto.getIdEmpregado() + ", '" + StringEscapeUtils.escapeJavaScript(grupoEmpregadoDto.getNomeEmpregado()) + "', "
+				document.executeScript("addLinhaTabelaEmpregado(" + grupoEmpregadoDto.getIdEmpregado() + ", '" + StringEscapeUtils.escapeEcmaScript(grupoEmpregadoDto.getNomeEmpregado()) + "', "
 						+ false + ", " + (grupoEmpregadoDto.getEnviaEmail() != null && grupoEmpregadoDto.getEnviaEmail().equalsIgnoreCase("S")) + " );");
 
 				document.executeScript("exibirGrid();");

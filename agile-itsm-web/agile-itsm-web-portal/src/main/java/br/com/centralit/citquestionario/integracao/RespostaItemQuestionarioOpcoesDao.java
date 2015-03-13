@@ -57,7 +57,8 @@ public class RespostaItemQuestionarioOpcoesDao extends CrudDaoDefaultImpl {
         return super.find(obj, list);
     }
 
-    public Collection<RespostaItemQuestionarioOpcoesDTO> getRespostasOpcoesByIdRespostaItemQuestionario(final Integer idRespostaItemQuestionario) throws Exception {
+    public Collection<RespostaItemQuestionarioOpcoesDTO> getRespostasOpcoesByIdRespostaItemQuestionario(final Integer idRespostaItemQuestionario)
+            throws Exception {
         final Object[] objs = new Object[] {idRespostaItemQuestionario};
 
         final String sql = "SELECT OPCAORESPOSTAQUESTIONARIO.idOpcaoRespostaQuestionario, titulo, peso, valor, geraAlerta, exibeComplemento, idQuestaoComplemento "

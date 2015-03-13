@@ -9,7 +9,7 @@ import java.util.List;
 
 import javax.ws.rs.core.MediaType;
 
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.jboss.resteasy.client.ClientRequest;
 import org.jboss.resteasy.client.ClientResponse;
 
@@ -35,7 +35,7 @@ import br.com.citframework.util.UtilStrings;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 
-@SuppressWarnings({ "unchecked", "rawtypes" })
+@SuppressWarnings({"unchecked", "rawtypes"})
 public class BICitsmartUtils {
 
     /**
@@ -47,43 +47,40 @@ public class BICitsmartUtils {
      * @return BICitsmartResultRotinaDTO
      * @throws Exception
      */
-    public static BICitsmartResultRotinaDTO autenticacaoComJSON(String url, String usuario, String senha)
-            throws Exception {
-        String input = "{\"userName\":\"" + usuario + "\",\"password\":\"" + senha + "\"}";
-        BICitsmartResultRotinaDTO resultRotina = new BICitsmartResultRotinaDTO();
+    public static BICitsmartResultRotinaDTO autenticacaoComJSON(final String url, final String usuario, final String senha) throws Exception {
+        final String input = "{\"userName\":\"" + usuario + "\",\"password\":\"" + senha + "\"}";
+        final BICitsmartResultRotinaDTO resultRotina = new BICitsmartResultRotinaDTO();
         resultRotina.setResultado(false);
 
         try {
-            ClientRequest request = new ClientRequest(url + "services/login");
+            final ClientRequest request = new ClientRequest(url + "services/login");
 
             request.accept(MediaType.APPLICATION_JSON);
             request.body(MediaType.APPLICATION_JSON, input);
 
-            ClientResponse<String> response = request.post(String.class);
+            final ClientResponse<String> response = request.post(String.class);
 
             try {
-                CtLoginResp resp = new Gson().fromJson(response.getEntity(), CtLoginResp.class);
+                final CtLoginResp resp = new Gson().fromJson(response.getEntity(), CtLoginResp.class);
 
                 if (response != null && response.getStatus() != 200) {
-                    if (resp != null && resp.getError().getDescription() != null
-                            && !resp.getError().getDescription().equals("")) {
-                        resultRotina.concatMensagem("- Estabelecimento da conexão: " + response.getStatus() + " - "
-                                + resp.getError().getDescription() + " (Falha) ");
+                    if (resp != null && resp.getError().getDescription() != null && !resp.getError().getDescription().equals("")) {
+                        resultRotina.concatMensagem("- Estabelecimento da conexão: " + response.getStatus() + " - " + resp.getError().getDescription()
+                                + " (Falha) ");
                     } else {
-                        resultRotina.concatMensagem("- Estabelecimento da conexão HTTP (Falha): Erro "
-                                + response.getStatus());
+                        resultRotina.concatMensagem("- Estabelecimento da conexão HTTP (Falha): Erro " + response.getStatus());
                     }
                 } else {
                     resultRotina.concatMensagem("- Autenticação do usuário (OK)");
                     resultRotina.setResultado(true);
                     resultRotina.setSessionID(resp.getSessionID());
                 }
-            } catch (JsonSyntaxException e) {
+            } catch (final JsonSyntaxException e) {
                 resultRotina.concatMensagem("- Estabelecimento da conexão HTTP (Falha)");
             }
 
             return resultRotina;
-        } catch (ConnectException e) {
+        } catch (final ConnectException e) {
             System.out.println("- Estabelecimento da conexão (Falha).");
             return resultRotina;
         }
@@ -96,9 +93,8 @@ public class BICitsmartUtils {
      * @return ObjetoNegocioDTO
      * @throws Exception
      */
-    protected static ObjetoNegocioDTO restoreByName(String name) throws Exception {
-        ObjetoNegocioService objetoNegocioService = (ObjetoNegocioService) ServiceLocator.getInstance().getService(
-                ObjetoNegocioService.class, null);
+    protected static ObjetoNegocioDTO restoreByName(final String name) throws Exception {
+        final ObjetoNegocioService objetoNegocioService = (ObjetoNegocioService) ServiceLocator.getInstance().getService(ObjetoNegocioService.class, null);
         return objetoNegocioService.findByNomeObjetoNegocio(name);
     }
 
@@ -111,15 +107,15 @@ public class BICitsmartUtils {
      * @throws Exception
      * @author rodrigo.acorse
      */
-    protected static String exportDB(String dbName, String filterAditional, boolean xmlComIdConexao) throws Exception {
-        ObjetoNegocioDTO objetoNegocioDto = BICitsmartUtils.restoreByName(dbName);
+    protected static String exportDB(final String dbName, final String filterAditional, final boolean xmlComIdConexao) throws Exception {
+        final ObjetoNegocioDTO objetoNegocioDto = BICitsmartUtils.restoreByName(dbName);
         if (objetoNegocioDto != null) {
-            HashMap<String, String> map = new HashMap<String, String>();
+            final HashMap<String, String> map = new HashMap<String, String>();
             map.put("excluirAoExportar", "N");
             map.put("exportarVinculos", "N");
 
-            StringBuilder result = BICitsmartUtils.geraExportObjetoNegocio(map, objetoNegocioDto.getIdObjetoNegocio(),
-                    "", "", filterAditional, "", xmlComIdConexao);
+            final StringBuilder result = BICitsmartUtils.geraExportObjetoNegocio(map, objetoNegocioDto.getIdObjetoNegocio(), "", "", filterAditional, "",
+                    xmlComIdConexao);
             return result.toString();
         } else {
             return "";
@@ -135,23 +131,23 @@ public class BICitsmartUtils {
      * @throws Exception
      * @author rodrigo.acorse
      */
-    protected static String generateSQLIn(String xml, String id) throws Exception {
-        List colRecordsGeral = new ArrayList();
+    protected static String generateSQLIn(String xml, final String id) throws Exception {
+        final List colRecordsGeral = new ArrayList<>();
         String glue = "";
         String generatedIn = "";
         Integer count = 0;
         xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<tables origem='0'>\n" + xml + "\n</tables>";
 
-        Collection colRecords = UtilImportData.readXMLSource(xml);
+        final Collection colRecords = UtilImportData.readXMLSource(xml);
         if (colRecords != null) {
             colRecordsGeral.addAll(colRecords);
         }
 
         if (!colRecordsGeral.isEmpty()) {
-            for (Iterator itRecords = colRecordsGeral.iterator(); itRecords.hasNext();) {
-                ImportInfoRecord importInfoRecord = (ImportInfoRecord) itRecords.next();
-                for (Iterator it = importInfoRecord.getColFields().iterator(); it.hasNext();) {
-                    ImportInfoField importInfoField = (ImportInfoField) it.next();
+            for (final Iterator itRecords = colRecordsGeral.iterator(); itRecords.hasNext();) {
+                final ImportInfoRecord importInfoRecord = (ImportInfoRecord) itRecords.next();
+                for (final Iterator it = importInfoRecord.getColFields().iterator(); it.hasNext();) {
+                    final ImportInfoField importInfoField = (ImportInfoField) it.next();
                     if (importInfoField.getNameField().equalsIgnoreCase(id)) {
                         if (count == 0 && generatedIn.equals("")) {
                             generatedIn += id + " IN ( "; // Se é o primeiro item e a váriavel generatedIn for vazia,
@@ -192,14 +188,14 @@ public class BICitsmartUtils {
      * @throws Exception
      * @author rodrigo.acorse
      */
-    public static String recuperaXmlTabelasBICitsmart(boolean xmlComIdConexao) throws Exception {
+    public static String recuperaXmlTabelasBICitsmart(final boolean xmlComIdConexao) throws Exception {
         try {
-            HashMap<String, String> chavesTabelas = new HashMap<String, String>();
-            HashMap<String, String> xmlTabelas = new HashMap<String, String>();
+            final HashMap<String, String> chavesTabelas = new HashMap<String, String>();
+            final HashMap<String, String> xmlTabelas = new HashMap<String, String>();
             String db;
 
             // Inicia a string que receberá o xml final
-            StringBuilder contentXml = new StringBuilder();
+            final StringBuilder contentXml = new StringBuilder();
 
             // Tabela de Moedas
             xmlTabelas.put("moedas", BICitsmartUtils.exportDB("moedas", "", xmlComIdConexao) + "\n");
@@ -224,8 +220,7 @@ public class BICitsmartUtils {
             }
 
             // Tabela de Glosa OS
-            xmlTabelas.put("glosaos", BICitsmartUtils.exportDB("glosaos", chavesTabelas.get("idos"), xmlComIdConexao)
-                    + "\n");
+            xmlTabelas.put("glosaos", BICitsmartUtils.exportDB("glosaos", chavesTabelas.get("idos"), xmlComIdConexao) + "\n");
 
             // Tabela de Fatura
             db = BICitsmartUtils.exportDB("fatura", chavesTabelas.get("idcontrato"), xmlComIdConexao);
@@ -236,41 +231,30 @@ public class BICitsmartUtils {
             }
 
             // Tabela de Fatura OS
-            if (chavesTabelas.get("idfatura") != null && !chavesTabelas.get("idfatura").equals("")
-                    && chavesTabelas.get("idos") != null && !chavesTabelas.get("idos").equals("")) {
-                xmlTabelas.put(
-                        "faturaos",
-                        BICitsmartUtils.exportDB("faturaos",
-                                chavesTabelas.get("idfatura") + " AND " + chavesTabelas.get("idos"), xmlComIdConexao)
-                                + "\n");
+            if (chavesTabelas.get("idfatura") != null && !chavesTabelas.get("idfatura").equals("") && chavesTabelas.get("idos") != null
+                    && !chavesTabelas.get("idos").equals("")) {
+                xmlTabelas.put("faturaos",
+                        BICitsmartUtils.exportDB("faturaos", chavesTabelas.get("idfatura") + " AND " + chavesTabelas.get("idos"), xmlComIdConexao) + "\n");
             } else {
                 if (chavesTabelas.get("idfatura") != null && !chavesTabelas.get("idfatura").equals("")) {
-                    xmlTabelas
-                    .put("faturaos",
-                            BICitsmartUtils.exportDB("faturaos", chavesTabelas.get("idfatura"), xmlComIdConexao)
-                            + "\n");
+                    xmlTabelas.put("faturaos", BICitsmartUtils.exportDB("faturaos", chavesTabelas.get("idfatura"), xmlComIdConexao) + "\n");
                 } else if (chavesTabelas.get("idos") != null && !chavesTabelas.get("idos").equals("")) {
-                    xmlTabelas.put("faturaos",
-                            BICitsmartUtils.exportDB("faturaos", chavesTabelas.get("idos"), xmlComIdConexao) + "\n");
+                    xmlTabelas.put("faturaos", BICitsmartUtils.exportDB("faturaos", chavesTabelas.get("idos"), xmlComIdConexao) + "\n");
                 }
             }
 
             // Tabela de Fatura Apuração Ans
-            xmlTabelas.put("faturaapuracaoans",
-                    BICitsmartUtils.exportDB("faturaapuracaoans", chavesTabelas.get("idfatura"), xmlComIdConexao)
-                    + "\n");
+            xmlTabelas.put("faturaapuracaoans", BICitsmartUtils.exportDB("faturaapuracaoans", chavesTabelas.get("idfatura"), xmlComIdConexao) + "\n");
 
             // Tabela de Atividades OS
-            xmlTabelas.put("atividadesos",
-                    BICitsmartUtils.exportDB("atividadesos", chavesTabelas.get("idos"), xmlComIdConexao) + "\n");
+            xmlTabelas.put("atividadesos", BICitsmartUtils.exportDB("atividadesos", chavesTabelas.get("idos"), xmlComIdConexao) + "\n");
 
             // Tabela de Serviço Contrato
             if (chavesTabelas.get("idcontrato") != null) {
-                db = BICitsmartUtils.exportDB("servicocontrato", " IDSERVICO IN (SELECT IDSERVICO FROM SERVICO) AND "
-                        + chavesTabelas.get("idcontrato"), xmlComIdConexao);
-            } else {
-                db = BICitsmartUtils.exportDB("servicocontrato", " IDSERVICO IN (SELECT IDSERVICO FROM SERVICO) ",
+                db = BICitsmartUtils.exportDB("servicocontrato", " IDSERVICO IN (SELECT IDSERVICO FROM SERVICO) AND " + chavesTabelas.get("idcontrato"),
                         xmlComIdConexao);
+            } else {
+                db = BICitsmartUtils.exportDB("servicocontrato", " IDSERVICO IN (SELECT IDSERVICO FROM SERVICO) ", xmlComIdConexao);
             }
 
             if (!db.equalsIgnoreCase("")) {
@@ -280,14 +264,11 @@ public class BICitsmartUtils {
             }
 
             // Tabela de Atividades Serviço Contrato
-            xmlTabelas.put(
-                    "atividadesservicocontrato",
-                    BICitsmartUtils.exportDB("atividadesservicocontrato", chavesTabelas.get("idservicocontrato"),
-                            xmlComIdConexao) + "\n");
+            xmlTabelas.put("atividadesservicocontrato",
+                    BICitsmartUtils.exportDB("atividadesservicocontrato", chavesTabelas.get("idservicocontrato"), xmlComIdConexao) + "\n");
 
             // Tabela de Serviço
-            xmlTabelas.put("servico",
-                    BICitsmartUtils.exportDB("servico", chavesTabelas.get("idservico"), xmlComIdConexao) + "\n");
+            xmlTabelas.put("servico", BICitsmartUtils.exportDB("servico", chavesTabelas.get("idservico"), xmlComIdConexao) + "\n");
 
             // Monta XML final
             contentXml.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<tables origem='0'>\n");
@@ -305,8 +286,8 @@ public class BICitsmartUtils {
             contentXml.append(xmlTabelas.get("atividadesos"));
             contentXml.append("\n</tables>");
 
-            return StringEscapeUtils.escapeHtml(contentXml.toString());
-        } catch (Exception e) {
+            return StringEscapeUtils.escapeHtml4(contentXml.toString());
+        } catch (final Exception e) {
             e.printStackTrace();
             return null;
         }
@@ -326,24 +307,22 @@ public class BICitsmartUtils {
      * @throws ServiceException
      * @throws Exception
      */
-    protected static StringBuilder geraExportObjetoNegocio(HashMap hashValores, Integer idObjetoNegocio,
-            String sqlDelete, String nomeTabela, String filterAditional, String order, boolean xmlComIdConexao)
-                    throws ServiceException, Exception {
-        CamposObjetoNegocioService camposObjetoNegocioService = (CamposObjetoNegocioService) ServiceLocator
-                .getInstance().getService(CamposObjetoNegocioService.class, null);
-        ObjetoNegocioService objetoNegocioService = (ObjetoNegocioService) ServiceLocator.getInstance().getService(
-                ObjetoNegocioService.class, null);
+    protected static StringBuilder geraExportObjetoNegocio(final HashMap hashValores, final Integer idObjetoNegocio, String sqlDelete, final String nomeTabela,
+            final String filterAditional, final String order, final boolean xmlComIdConexao) throws ServiceException, Exception {
+        final CamposObjetoNegocioService camposObjetoNegocioService = (CamposObjetoNegocioService) ServiceLocator.getInstance().getService(
+                CamposObjetoNegocioService.class, null);
+        final ObjetoNegocioService objetoNegocioService = (ObjetoNegocioService) ServiceLocator.getInstance().getService(ObjetoNegocioService.class, null);
         ObjetoNegocioDTO objetoNegocioDTO = new ObjetoNegocioDTO();
         objetoNegocioDTO.setIdObjetoNegocio(idObjetoNegocio);
         objetoNegocioDTO = (ObjetoNegocioDTO) objetoNegocioService.restore(objetoNegocioDTO);
-        Collection col = camposObjetoNegocioService.findByIdObjetoNegocio(idObjetoNegocio);
+        final Collection col = camposObjetoNegocioService.findByIdObjetoNegocio(idObjetoNegocio);
         String sqlCondicao = "";
         String sqlCampos = "";
 
-        String excluirAoExportar = (String) hashValores.get("excluirAoExportar".toUpperCase());
+        final String excluirAoExportar = (String) hashValores.get("excluirAoExportar".toUpperCase());
 
         // Antes de fazer a exportacao, faz o sincronismo com o DB, pois pode estar desatualizado!
-        DataBaseMetaDadosUtil dataBaseMetaDadosUtil = new DataBaseMetaDadosUtil();
+        final DataBaseMetaDadosUtil dataBaseMetaDadosUtil = new DataBaseMetaDadosUtil();
         dataBaseMetaDadosUtil.sincronizaObjNegDB(objetoNegocioDTO.getNomeTabelaDB(), false);
         System.out.println("Sincronizando tabela: " + objetoNegocioDTO.getNomeTabelaDB());
 
@@ -354,16 +333,15 @@ public class BICitsmartUtils {
         hashValores.put("TABELASTRATADAS", tabelasTratadas);
         // nomeTabela = objetoNegocioDTO.getNomeTabelaDB();
         if (col != null) {
-            for (Iterator it = col.iterator(); it.hasNext();) {
-                CamposObjetoNegocioDTO camposObjetoNegocioDto = (CamposObjetoNegocioDTO) it.next();
+            for (final Iterator it = col.iterator(); it.hasNext();) {
+                final CamposObjetoNegocioDTO camposObjetoNegocioDto = (CamposObjetoNegocioDTO) it.next();
                 if (!sqlCampos.trim().equalsIgnoreCase("")) {
                     sqlCampos += ",";
                 }
                 sqlCampos = sqlCampos + camposObjetoNegocioDto.getNomeDB();
-                String cond = (String) hashValores.get("COND_" + camposObjetoNegocioDto.getIdCamposObjetoNegocio());
+                final String cond = (String) hashValores.get("COND_" + camposObjetoNegocioDto.getIdCamposObjetoNegocio());
                 String valor = (String) hashValores.get("VALOR_" + camposObjetoNegocioDto.getIdCamposObjetoNegocio());
-                if (!UtilStrings.nullToVazio(cond).trim().equalsIgnoreCase("")
-                        && !UtilStrings.nullToVazio(valor).trim().equalsIgnoreCase("")) {
+                if (!UtilStrings.nullToVazio(cond).trim().equalsIgnoreCase("") && !UtilStrings.nullToVazio(valor).trim().equalsIgnoreCase("")) {
                     sqlCondicao = sqlCondicao + " " + camposObjetoNegocioDto.getNomeDB();
                     if (cond != null && cond.equalsIgnoreCase("1")) {
                         sqlCondicao = sqlCondicao + " <> ";
@@ -374,10 +352,9 @@ public class BICitsmartUtils {
                     } else {
                         sqlCondicao = sqlCondicao + " " + cond + " ";
                     }
-                    boolean isStringType = MetaUtil.isStringType(camposObjetoNegocioDto.getTipoDB());
+                    final boolean isStringType = MetaUtil.isStringType(camposObjetoNegocioDto.getTipoDB());
                     if (isStringType) {
-                        if (cond.equalsIgnoreCase("=") || cond.equalsIgnoreCase("1") || cond.equalsIgnoreCase("2")
-                                || cond.equalsIgnoreCase("3")) {
+                        if (cond.equalsIgnoreCase("=") || cond.equalsIgnoreCase("1") || cond.equalsIgnoreCase("2") || cond.equalsIgnoreCase("3")) {
                             valor = valor.replaceAll("'", "");
                             valor = "'" + valor + "'";
                         }
@@ -424,15 +401,15 @@ public class BICitsmartUtils {
 
         hashValores.put("COMMANDDELETE", sqlDeleteAux);
         hashValores.put("COMMAND", sqlExportAux);
-        JdbcEngine jdbcEngine = new JdbcEngine(Constantes.getValue("DATABASE_ALIAS"), null);
+        final JdbcEngine jdbcEngine = new JdbcEngine(Constantes.getValue("DATABASE_ALIAS"), null);
         List lst = null;
         try {
             lst = jdbcEngine.execSQL(sqlFinal, null, 0);
-        } catch (Exception e) {
+        } catch (final Exception e) {
             e.printStackTrace();
             return new StringBuilder("OCORREU ERRO NA GERACAO DOS DADOS!" + e.getMessage());
         }
-        StringBuilder strXML = new StringBuilder();
+        final StringBuilder strXML = new StringBuilder();
         strXML.append("<table name='" + objetoNegocioDTO.getNomeTabelaDB() + "'>\n");
         strXML.append("<command><![CDATA[" + sqlFinal + "]]></command>\n");
         if (excluirAoExportar != null && excluirAoExportar.equalsIgnoreCase("S")) {
@@ -443,15 +420,15 @@ public class BICitsmartUtils {
         String keysProcessed = "";
         if (lst != null) {
             int j = 0;
-            for (Iterator itDados = lst.iterator(); itDados.hasNext();) {
-                Object[] obj = (Object[]) itDados.next();
+            for (final Iterator itDados = lst.iterator(); itDados.hasNext();) {
+                final Object[] obj = (Object[]) itDados.next();
                 int i = 0;
                 j++;
                 strXML.append("<record number='" + j + "'>\n");
-                for (Iterator it = col.iterator(); it.hasNext();) {
-                    CamposObjetoNegocioDTO camposObjetoNegocioDto = (CamposObjetoNegocioDTO) it.next();
+                for (final Iterator it = col.iterator(); it.hasNext();) {
+                    final CamposObjetoNegocioDTO camposObjetoNegocioDto = (CamposObjetoNegocioDTO) it.next();
                     String key = "n";
-                    boolean isStringType = MetaUtil.isStringType(camposObjetoNegocioDto.getTipoDB());
+                    final boolean isStringType = MetaUtil.isStringType(camposObjetoNegocioDto.getTipoDB());
                     if (camposObjetoNegocioDto.getPk() != null && camposObjetoNegocioDto.getPk().equalsIgnoreCase("S")) {
                         key = "y";
                         if (!keysProcessed.trim().equalsIgnoreCase("")) {
@@ -464,12 +441,11 @@ public class BICitsmartUtils {
                         }
                     }
                     String sequence = "n";
-                    if (camposObjetoNegocioDto.getSequence() != null
-                            && camposObjetoNegocioDto.getSequence().equalsIgnoreCase("S")) {
+                    if (camposObjetoNegocioDto.getSequence() != null && camposObjetoNegocioDto.getSequence().equalsIgnoreCase("S")) {
                         sequence = "y";
                     }
-                    strXML.append("<field name='" + camposObjetoNegocioDto.getNomeDB() + "' key='" + key
-                            + "' sequence='" + sequence + "' type='" + camposObjetoNegocioDto.getTipoDB().trim() + "'>");
+                    strXML.append("<field name='" + camposObjetoNegocioDto.getNomeDB() + "' key='" + key + "' sequence='" + sequence + "' type='"
+                            + camposObjetoNegocioDto.getTipoDB().trim() + "'>");
                     if (isStringType) {
                         strXML.append("<![CDATA[");
                     }
@@ -484,10 +460,9 @@ public class BICitsmartUtils {
 
                 if (xmlComIdConexao) {
                     // Utilizar o parametro do sistema
-                    Integer idConexaoBI = Integer.parseInt(ParametroUtil.getValorParametroCitSmartHashMap(
+                    final Integer idConexaoBI = Integer.parseInt(ParametroUtil.getValorParametroCitSmartHashMap(
                             Enumerados.ParametroSistema.BICITSMART_ID_CONEXAO, null));
-                    strXML.append("<field name='IDCONEXAOBI' key='y' sequence='n' type='NUMBER'>" + idConexaoBI
-                            + "</field>\n");
+                    strXML.append("<field name='IDCONEXAOBI' key='y' sequence='n' type='NUMBER'>" + idConexaoBI + "</field>\n");
                 }
 
                 strXML.append("</record>\n");
@@ -498,4 +473,5 @@ public class BICitsmartUtils {
 
         return strXML;
     }
+
 }

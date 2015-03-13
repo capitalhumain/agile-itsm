@@ -172,7 +172,7 @@ public class GrupoServiceEjb extends CrudServiceImpl implements GrupoService {
             try {
                 tc.close();
             } catch (final PersistenceException e) {
-                // TODO Auto-generated catch block
+                
                 e.printStackTrace();
             }
 
@@ -256,7 +256,7 @@ public class GrupoServiceEjb extends CrudServiceImpl implements GrupoService {
             try {
                 tc.close();
             } catch (final PersistenceException e) {
-                // TODO Auto-generated catch block
+                
                 e.printStackTrace();
             }
 
@@ -378,7 +378,7 @@ public class GrupoServiceEjb extends CrudServiceImpl implements GrupoService {
             try {
                 tc.close();
             } catch (final PersistenceException e) {
-                // TODO Auto-generated catch block
+                
                 e.printStackTrace();
             }
 
@@ -586,7 +586,7 @@ public class GrupoServiceEjb extends CrudServiceImpl implements GrupoService {
 
     @Override
     public Collection<GrupoDTO> listGruposPorUsuario(final int idUsuario) {
-        Collection<GrupoDTO> list = new ArrayList();
+        Collection<GrupoDTO> list = new ArrayList<>();
         try {
             list = this.getDao().listGruposPorUsuario(idUsuario);
         } catch (final Exception e) {

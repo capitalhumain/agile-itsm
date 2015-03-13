@@ -169,7 +169,7 @@ public class OSServiceEjb extends CrudServiceImpl implements OSService {
 
         if (colAtividadeOs != null && colAtividadeOs.size() > 0) {
             final List<AtividadesOSDTO> listAtividadeOs = (List<AtividadesOSDTO>) colAtividadeOs;
-            final Collection listFinal = new ArrayList();
+            final Collection listFinal = new ArrayList<>();
             for (final AtividadesOSDTO atividadesOSDTO : listAtividadeOs) {
                 if (osDTO.getQuantidade() != null) {
                     atividadesOSDTO.setCustoAtividade(atividadesOSDTO.getCustoAtividade() * osDTO.getQuantidade());
@@ -301,7 +301,7 @@ public class OSServiceEjb extends CrudServiceImpl implements OSService {
         final GlosaOSDao glosaOSDao = new GlosaOSDao();
         final AtividadesOSDao atividadesOSDao = new AtividadesOSDao();
         final TransactionControler tc = new TransactionControlerImpl(dao.getAliasDB());
-        new ArrayList();
+        new ArrayList<>();
         try {
             dao.setTransactionControler(tc);
             glosaOSDao.setTransactionControler(tc);
@@ -386,7 +386,7 @@ public class OSServiceEjb extends CrudServiceImpl implements OSService {
         final GlosaOSDao glosaOSDao = new GlosaOSDao();
         final AtividadesOSDao atividadesOSDao = new AtividadesOSDao();
         final TransactionControler tc = new TransactionControlerImpl(dao.getAliasDB());
-        new ArrayList();
+        new ArrayList<>();
         try {
             dao.setTransactionControler(tc);
             glosaOSDao.setTransactionControler(tc);
@@ -656,9 +656,7 @@ public class OSServiceEjb extends CrudServiceImpl implements OSService {
         quantidade = UtilDatas.getDifMeses(relatorio.getDataInicioContrato(), relatorio.getDataFimContrato());
         if (quantidade != null) {
             return quantidade;
-        } else {
-            return null;
-        }
+        } return null;
     }
 
     @Override

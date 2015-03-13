@@ -29,7 +29,8 @@ public class HistoricoAtendimentoDAO {
 
     private final JdbcEngine engine = new JdbcEngine(Constantes.getValue("DATABASE_ALIAS"), null);
 
-    public List<HistoricoAtendimentoSearchResultDTO> listHistoricoAtendimentoWithSolicitationInfo(final HistoricoAtendimentoDTO historicoAtendimento) throws PersistenceException {
+    public List<HistoricoAtendimentoSearchResultDTO> listHistoricoAtendimentoWithSolicitationInfo(final HistoricoAtendimentoDTO historicoAtendimento)
+            throws PersistenceException {
         List<HistoricoAtendimentoSearchResultDTO> historicos = new ArrayList<>();
 
         final List<Object> parametros = new ArrayList<>();
@@ -177,7 +178,7 @@ public class HistoricoAtendimentoDAO {
                 sql.append("       AND sol.situacao = 'Suspensa' ");
                 sql.append("       AND atr.id IS NOT NULL ");
                 break;
-                
+
             }
         }
 

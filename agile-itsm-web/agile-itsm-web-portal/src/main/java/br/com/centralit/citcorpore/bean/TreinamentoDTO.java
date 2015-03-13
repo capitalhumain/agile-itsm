@@ -13,45 +13,39 @@ public class TreinamentoDTO extends BaseEntity {
     private Integer idTreinamento;
     private String descTreinamento;
     private Date dataTreinamento;
-    
+
     private Integer idInstrutorTreinamento;
 
-	public Integer getIdTreinamento() {
-		return idTreinamento;
-	}
+    public Integer getIdTreinamento() {
+        return idTreinamento;
+    }
 
-	public void setIdTreinamento(Integer idTreinamento) {
-		this.idTreinamento = idTreinamento;
-	}
+    public void setIdTreinamento(final Integer idTreinamento) {
+        this.idTreinamento = idTreinamento;
+    }
 
-	public String getDescTreinamento() {
-		return descTreinamento;
-	}
+    public String getDescTreinamento() {
+        return descTreinamento;
+    }
 
-	public void setDescTreinamento(String descTreinamento) {
-		this.descTreinamento = descTreinamento;
-	}
+    public void setDescTreinamento(final String descTreinamento) {
+        this.descTreinamento = descTreinamento;
+    }
 
-	public Date getDataTreinamento() {
-		return dataTreinamento;
-	}
+    public Date getDataTreinamento() {
+        return dataTreinamento;
+    }
 
-	public void setDataTreinamento(Date dataTreinamento) {
-		this.dataTreinamento = dataTreinamento;
-	}
+    public void setDataTreinamento(final Date dataTreinamento) {
+        this.dataTreinamento = dataTreinamento;
+    }
 
-	public Integer getIdInstrutorTreinamento() {
-		return idInstrutorTreinamento;
-	}
+    public Integer getIdInstrutorTreinamento() {
+        return idInstrutorTreinamento;
+    }
 
-	public void setIdInstrutorTreinamento(Integer idInstrutorTreinamento) {
-		this.idInstrutorTreinamento = idInstrutorTreinamento;
-	}
-    
-    
-    
-	
-
-   
+    public void setIdInstrutorTreinamento(final Integer idInstrutorTreinamento) {
+        this.idInstrutorTreinamento = idInstrutorTreinamento;
+    }
 
 }

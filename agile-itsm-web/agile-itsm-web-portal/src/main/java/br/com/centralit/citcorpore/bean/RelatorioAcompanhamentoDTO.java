@@ -6,211 +6,210 @@ import br.com.agileitsm.model.support.BaseEntity;
 
 public class RelatorioAcompanhamentoDTO extends BaseEntity {
 
-	private static final long serialVersionUID = 1L;
-	
-	private Double anoDouble;
+    private static final long serialVersionUID = 1L;
 
-	private Integer idContrato;
+    private Double anoDouble;
 
-	private Double custoAtividade;
+    private Integer idContrato;
 
-	private Double valorEstimadoContrato;
+    private Double custoAtividade;
 
-	private String mes;
-	
-	private Double numeroMesDouble;
+    private Double valorEstimadoContrato;
 
-	private Integer peridoVigenciaContrato;
+    private String mes;
 
-	private Integer quantidadePeriodoRealizado;
+    private Double numeroMesDouble;
 
-	private Date dataInicioContrato;
+    private Integer peridoVigenciaContrato;
 
-	private Date dataFimContrato;
+    private Integer quantidadePeriodoRealizado;
 
-	private Double valorPorRata;
+    private Date dataInicioContrato;
 
-	private Double saldo;
+    private Date dataFimContrato;
 
-	/**
-	 * @return the ano
-	 */
-	public Integer getAno() {
-		return (int)(this.anoDouble / 1);
-	}
+    private Double valorPorRata;
 
-	/**
-	 * @return the idContrato
-	 */
-	public Integer getIdContrato() {
-		return idContrato;
-	}
+    private Double saldo;
 
-	/**
-	 * @param idContrato
-	 *            the idContrato to set
-	 */
-	public void setIdContrato(Integer idContrato) {
-		this.idContrato = idContrato;
-	}
+    /**
+     * @return the ano
+     */
+    public Integer getAno() {
+        return (int) (anoDouble / 1);
+    }
 
-	/**
-	 * @return the custoAtividade
-	 */
-	public Double getCustoAtividade() {
-		return custoAtividade;
-	}
+    /**
+     * @return the idContrato
+     */
+    public Integer getIdContrato() {
+        return idContrato;
+    }
 
-	/**
-	 * @param custoAtividade
-	 *            the custoAtividade to set
-	 */
-	public void setCustoAtividade(Double custoAtividade) {
-		this.custoAtividade = custoAtividade;
-	}
+    /**
+     * @param idContrato
+     *            the idContrato to set
+     */
+    public void setIdContrato(final Integer idContrato) {
+        this.idContrato = idContrato;
+    }
 
-	/**
-	 * @return the valorEstimadoContrato
-	 */
-	public Double getValorEstimadoContrato() {
-		return valorEstimadoContrato;
-	}
+    /**
+     * @return the custoAtividade
+     */
+    public Double getCustoAtividade() {
+        return custoAtividade;
+    }
 
-	/**
-	 * @param valorEstimadoContrato
-	 *            the valorEstimadoContrato to set
-	 */
-	public void setValorEstimadoContrato(Double valorEstimadoContrato) {
-		this.valorEstimadoContrato = valorEstimadoContrato;
-	}
+    /**
+     * @param custoAtividade
+     *            the custoAtividade to set
+     */
+    public void setCustoAtividade(final Double custoAtividade) {
+        this.custoAtividade = custoAtividade;
+    }
 
-	/**
-	 * @return the mes
-	 */
-	public String getMes() {
-		return mes;
-	}
+    /**
+     * @return the valorEstimadoContrato
+     */
+    public Double getValorEstimadoContrato() {
+        return valorEstimadoContrato;
+    }
 
-	/**
-	 * @param mes
-	 *            the mes to set
-	 */
-	public void setMes(String mes) {
-		this.mes = mes;
-	}
+    /**
+     * @param valorEstimadoContrato
+     *            the valorEstimadoContrato to set
+     */
+    public void setValorEstimadoContrato(final Double valorEstimadoContrato) {
+        this.valorEstimadoContrato = valorEstimadoContrato;
+    }
 
-	/**
-	 * @return the numeroMes
-	 */
-	public Integer getNumeroMes() {
-		return (int) (this.numeroMesDouble / 1);
-	}
+    /**
+     * @return the mes
+     */
+    public String getMes() {
+        return mes;
+    }
 
+    /**
+     * @param mes
+     *            the mes to set
+     */
+    public void setMes(final String mes) {
+        this.mes = mes;
+    }
 
-	/**
-	 * @return the dataInicioContrato
-	 */
-	public Date getDataInicioContrato() {
-		return dataInicioContrato;
-	}
+    /**
+     * @return the numeroMes
+     */
+    public Integer getNumeroMes() {
+        return (int) (numeroMesDouble / 1);
+    }
 
-	/**
-	 * @param dataInicioContrato
-	 *            the dataInicioContrato to set
-	 */
-	public void setDataInicioContrato(Date dataInicioContrato) {
-		this.dataInicioContrato = dataInicioContrato;
-	}
+    /**
+     * @return the dataInicioContrato
+     */
+    public Date getDataInicioContrato() {
+        return dataInicioContrato;
+    }
 
-	/**
-	 * @return the dataFimContrato
-	 */
-	public Date getDataFimContrato() {
-		return dataFimContrato;
-	}
+    /**
+     * @param dataInicioContrato
+     *            the dataInicioContrato to set
+     */
+    public void setDataInicioContrato(final Date dataInicioContrato) {
+        this.dataInicioContrato = dataInicioContrato;
+    }
 
-	/**
-	 * @param dataFimContrato
-	 *            the dataFimContrato to set
-	 */
-	public void setDataFimContrato(Date dataFimContrato) {
-		this.dataFimContrato = dataFimContrato;
-	}
+    /**
+     * @return the dataFimContrato
+     */
+    public Date getDataFimContrato() {
+        return dataFimContrato;
+    }
 
-	/**
-	 * @return the peridoVigenciaContrato
-	 */
-	public Integer getPeridoVigenciaContrato() {
-		return peridoVigenciaContrato;
-	}
+    /**
+     * @param dataFimContrato
+     *            the dataFimContrato to set
+     */
+    public void setDataFimContrato(final Date dataFimContrato) {
+        this.dataFimContrato = dataFimContrato;
+    }
 
-	/**
-	 * @param peridoVigenciaContrato
-	 *            the peridoVigenciaContrato to set
-	 */
-	public void setPeridoVigenciaContrato(Integer peridoVigenciaContrato) {
-		this.peridoVigenciaContrato = peridoVigenciaContrato;
-	}
+    /**
+     * @return the peridoVigenciaContrato
+     */
+    public Integer getPeridoVigenciaContrato() {
+        return peridoVigenciaContrato;
+    }
 
-	/**
-	 * @return the quantidadePeriodoRealizado
-	 */
-	public Integer getQuantidadePeriodoRealizado() {
-		return quantidadePeriodoRealizado;
-	}
+    /**
+     * @param peridoVigenciaContrato
+     *            the peridoVigenciaContrato to set
+     */
+    public void setPeridoVigenciaContrato(final Integer peridoVigenciaContrato) {
+        this.peridoVigenciaContrato = peridoVigenciaContrato;
+    }
 
-	/**
-	 * @param quantidadePeriodoRealizado
-	 *            the quantidadePeriodoRealizado to set
-	 */
-	public void setQuantidadePeriodoRealizado(Integer quantidadePeriodoRealizado) {
-		this.quantidadePeriodoRealizado = quantidadePeriodoRealizado;
-	}
+    /**
+     * @return the quantidadePeriodoRealizado
+     */
+    public Integer getQuantidadePeriodoRealizado() {
+        return quantidadePeriodoRealizado;
+    }
 
-	/**
-	 * @return the valorPorRata
-	 */
-	public Double getValorPorRata() {
-		return valorPorRata;
-	}
+    /**
+     * @param quantidadePeriodoRealizado
+     *            the quantidadePeriodoRealizado to set
+     */
+    public void setQuantidadePeriodoRealizado(final Integer quantidadePeriodoRealizado) {
+        this.quantidadePeriodoRealizado = quantidadePeriodoRealizado;
+    }
 
-	/**
-	 * @param valorPorRata
-	 *            the valorPorRata to set
-	 */
-	public void setValorPorRata(Double valorPorRata) {
-		this.valorPorRata = valorPorRata;
-	}
+    /**
+     * @return the valorPorRata
+     */
+    public Double getValorPorRata() {
+        return valorPorRata;
+    }
 
-	/**
-	 * @return the saldo
-	 */
-	public Double getSaldo() {
-		return saldo;
-	}
+    /**
+     * @param valorPorRata
+     *            the valorPorRata to set
+     */
+    public void setValorPorRata(final Double valorPorRata) {
+        this.valorPorRata = valorPorRata;
+    }
 
-	/**
-	 * @param saldo
-	 *            the saldo to set
-	 */
-	public void setSaldo(Double saldo) {
-		this.saldo = saldo;
-	}
+    /**
+     * @return the saldo
+     */
+    public Double getSaldo() {
+        return saldo;
+    }
 
-	public Double getNumeroMesDouble() {
-		return numeroMesDouble;
-	}
+    /**
+     * @param saldo
+     *            the saldo to set
+     */
+    public void setSaldo(final Double saldo) {
+        this.saldo = saldo;
+    }
 
-	public void setNumeroMesDouble(Double numeroMesDouble) {
-		this.numeroMesDouble = numeroMesDouble;
-	}
+    public Double getNumeroMesDouble() {
+        return numeroMesDouble;
+    }
 
-	public Double getAnoDouble() {
-		return anoDouble;
-	}
+    public void setNumeroMesDouble(final Double numeroMesDouble) {
+        this.numeroMesDouble = numeroMesDouble;
+    }
 
-	public void setAnoDouble(Double anoDouble) {
-		this.anoDouble = anoDouble;
-	}
+    public Double getAnoDouble() {
+        return anoDouble;
+    }
+
+    public void setAnoDouble(final Double anoDouble) {
+        this.anoDouble = anoDouble;
+    }
 
 }

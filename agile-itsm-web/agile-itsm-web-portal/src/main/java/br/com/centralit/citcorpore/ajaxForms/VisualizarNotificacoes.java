@@ -30,7 +30,7 @@ public class VisualizarNotificacoes extends AjaxFormAction {
 		NotificacaoService serviceNotificacao = (NotificacaoService) ServiceLocator.getInstance().getService(NotificacaoService.class, null);
 
 		Collection colNotificacaoServico = serviceNotificacao.consultarNotificacaoAtivosOrigemServico(notificacaoDTO.getIdContratoNotificacao());
-		List colFinal = new ArrayList();
+		List colFinal = new ArrayList<>();
 		
 		if (colNotificacaoServico != null){
 			for(Iterator it = colNotificacaoServico.iterator(); it.hasNext();){

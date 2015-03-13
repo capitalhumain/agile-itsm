@@ -26,7 +26,7 @@ import br.com.citframework.util.UtilDatas;
 @SuppressWarnings({ "rawtypes", "unchecked" })
 public class GenerateServiceMudancaPorImpacto extends GerencialGenerateService {
 
-	private HashMap novoParametro = new HashMap();
+	private HashMap novoParametro = new HashMap<>();
 
 	public List execute(HashMap parametersValues, Collection paramtersDefinition) throws ParseException {
 
@@ -63,10 +63,10 @@ public class GenerateServiceMudancaPorImpacto extends GerencialGenerateService {
 			getNovoParametro().put("PARAM.dataFinal", new java.sql.Date(calendar.getTime().getTime()));
 		}
 
-		List colBaixa = new ArrayList();
-		List colMedia = new ArrayList();
-		List colAlta = new ArrayList();
-		List listaRetorno = new ArrayList();
+		List colBaixa = new ArrayList<>();
+		List colMedia = new ArrayList<>();
+		List colAlta = new ArrayList<>();
+		List listaRetorno = new ArrayList<>();
 		// int qtd = 1;
 		GraficosDao graficosDao = new GraficosDao();
 
@@ -90,7 +90,7 @@ public class GenerateServiceMudancaPorImpacto extends GerencialGenerateService {
 		}
 
 		/*
-		 * if(colBaixa != null && !colBaixa.isEmpty()){ listaRetorno = (List) colBaixa; }else{ listaRetorno = new ArrayList(); }
+		 * if(colBaixa != null && !colBaixa.isEmpty()){ listaRetorno = (List) colBaixa; }else{ listaRetorno = new ArrayList<>(); }
 		 */
 
 		// resetando parâmetro

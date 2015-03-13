@@ -13,29 +13,40 @@ import br.com.citframework.integracao.Order;
 import br.com.citframework.util.Constantes;
 
 public class FaseServicoDao extends CrudDaoDefaultImpl {
-	public FaseServicoDao() {
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
-	public Collection<Field> getFields() {
-		Collection<Field> listFields = new ArrayList<>();
-		listFields.add(new Field("idFase" ,"idFase", true, true, false, false));
-		listFields.add(new Field("nomeFase" ,"nomeFase", false, false, false, false));
-		listFields.add(new Field("faseCaptura" ,"faseCaptura", false, false, false, false));
-		return listFields;
-	}
-	public String getTableName() {
-		return this.getOwner() + "FaseServico";
-	}
-	public Collection list() throws PersistenceException {
-		List list = new ArrayList();
-		list.add(new Order("nomeFase"));
-		return super.list(list);	    
-	}
 
-	public Class getBean() {
-		return FaseServicoDTO.class;
-	}
-	public Collection find(BaseEntity arg0) throws PersistenceException {
-		return null;
-	}
+    public FaseServicoDao() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
+    }
+
+    @Override
+    public Collection<Field> getFields() {
+        final Collection<Field> listFields = new ArrayList<>();
+        listFields.add(new Field("idFase", "idFase", true, true, false, false));
+        listFields.add(new Field("nomeFase", "nomeFase", false, false, false, false));
+        listFields.add(new Field("faseCaptura", "faseCaptura", false, false, false, false));
+        return listFields;
+    }
+
+    @Override
+    public String getTableName() {
+        return this.getOwner() + "FaseServico";
+    }
+
+    @Override
+    public Collection list() throws PersistenceException {
+        final List list = new ArrayList<>();
+        list.add(new Order("nomeFase"));
+        return super.list(list);
+    }
+
+    @Override
+    public Class getBean() {
+        return FaseServicoDTO.class;
+    }
+
+    @Override
+    public Collection find(final BaseEntity arg0) throws PersistenceException {
+        return null;
+    }
+
 }

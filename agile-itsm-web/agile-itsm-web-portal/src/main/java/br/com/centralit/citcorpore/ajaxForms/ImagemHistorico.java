@@ -116,7 +116,7 @@ public class ImagemHistorico extends AjaxFormAction {
             FileItem fi;
             if (!fileItems.isEmpty()) {
                 File arquivo;
-                final List filesDel = new ArrayList();
+                final List filesDel = new ArrayList<>();
                 final ImagemHistoricoService imagemHistoricoService = (ImagemHistoricoService) ServiceLocator
                         .getInstance().getService(ImagemHistoricoService.class, null);
                 final Iterator it = fileItems.iterator();
@@ -278,7 +278,7 @@ public class ImagemHistorico extends AjaxFormAction {
                         final ControleGEDExternoDTO controleGedExternoDto = new ControleGEDExternoDTO();
                         Reflexao.copyPropertyValues(controleGEDDTO, controleGedExternoDto);
 
-                        final HashMap hshInfo = new HashMap();
+                        final HashMap hshInfo = new HashMap<>();
 
                         fileName = "ANEXO_" + br.com.citframework.util.Util.geraSenhaAleatoria(6) + "_"
                                 + Util.getNameFile(fi.getName());

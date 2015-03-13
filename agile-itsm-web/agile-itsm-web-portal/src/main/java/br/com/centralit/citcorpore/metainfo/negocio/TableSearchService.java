@@ -11,7 +11,6 @@ import br.com.citframework.service.CrudService;
  * Service responsável pelas consultas das telas que são DinamicViews.
  *
  */
-@SuppressWarnings("rawtypes")
 public interface TableSearchService extends CrudService {
 
     /**

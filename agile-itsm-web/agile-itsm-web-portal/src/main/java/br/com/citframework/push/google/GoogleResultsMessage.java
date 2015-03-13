@@ -1,6 +1,6 @@
 package br.com.citframework.push.google;
 
-import org.apache.commons.lang.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
  * Padrão do objeto "result" na response que o <a href="http://developer.android.com/google/gcm/gs.html">Google Cloud Message</a> retorna

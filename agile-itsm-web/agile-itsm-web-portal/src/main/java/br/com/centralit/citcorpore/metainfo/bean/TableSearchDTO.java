@@ -6,131 +6,134 @@ import java.util.Collection;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class TableSearchDTO extends BaseEntity {
-	private Integer idVisao;
-	private Integer idVisaoRelacionada;
-	private Integer idCamposObjetoNegocio;
-	private Integer idGrupoVisao;
-	private String sort;
-	private String order;
-	private String sSearch;
-	private Integer iSortCol_0;
-	private String sSortDir_0;
-	
-	private Integer rows;
-	private String load;
-	private String matriz;
-	private String jsonData;
-	
-	Collection values = new ArrayList();
 
-	public Collection getValues() {
-		return values;
-	}
+    private Integer idVisao;
+    private Integer idVisaoRelacionada;
+    private Integer idCamposObjetoNegocio;
+    private Integer idGrupoVisao;
+    private String sort;
+    private String order;
+    private String sSearch;
+    private Integer iSortCol_0;
+    private String sSortDir_0;
 
-	public void setValues(Collection values) {
-		this.values = values;
-	}
+    private Integer rows;
+    private String load;
+    private String matriz;
+    private String jsonData;
 
-	public Integer getIdCamposObjetoNegocio() {
-		return idCamposObjetoNegocio;
-	}
+    Collection values = new ArrayList<>();
 
-	public void setIdCamposObjetoNegocio(Integer idCamposObjetoNegocio) {
-		this.idCamposObjetoNegocio = idCamposObjetoNegocio;
-	}
+    public Collection getValues() {
+        return values;
+    }
 
-	public Integer getIdGrupoVisao() {
-		return idGrupoVisao;
-	}
+    public void setValues(final Collection values) {
+        this.values = values;
+    }
 
-	public void setIdGrupoVisao(Integer idGrupoVisao) {
-		this.idGrupoVisao = idGrupoVisao;
-	}
+    public Integer getIdCamposObjetoNegocio() {
+        return idCamposObjetoNegocio;
+    }
 
-	public Integer getIdVisao() {
-		return idVisao;
-	}
+    public void setIdCamposObjetoNegocio(final Integer idCamposObjetoNegocio) {
+        this.idCamposObjetoNegocio = idCamposObjetoNegocio;
+    }
 
-	public void setIdVisao(Integer idVisao) {
-		this.idVisao = idVisao;
-	}
+    public Integer getIdGrupoVisao() {
+        return idGrupoVisao;
+    }
 
-	public String getSSearch() {
-		return sSearch;
-	}
+    public void setIdGrupoVisao(final Integer idGrupoVisao) {
+        this.idGrupoVisao = idGrupoVisao;
+    }
 
-	public void setSSearch(String sSearch) {
-		this.sSearch = sSearch;
-	}
+    public Integer getIdVisao() {
+        return idVisao;
+    }
 
-	public Integer getISortCol_0() {
-		return iSortCol_0;
-	}
+    public void setIdVisao(final Integer idVisao) {
+        this.idVisao = idVisao;
+    }
 
-	public void setISortCol_0(Integer iSortCol_0) {
-		this.iSortCol_0 = iSortCol_0;
-	}
+    public String getSSearch() {
+        return sSearch;
+    }
 
-	public String getSSortDir_0() {
-		return sSortDir_0;
-	}
+    public void setSSearch(final String sSearch) {
+        this.sSearch = sSearch;
+    }
 
-	public void setSSortDir_0(String sSortDir_0) {
-		this.sSortDir_0 = sSortDir_0;
-	}
+    public Integer getISortCol_0() {
+        return iSortCol_0;
+    }
 
-	public String getLoad() {
-		return load;
-	}
+    public void setISortCol_0(final Integer iSortCol_0) {
+        this.iSortCol_0 = iSortCol_0;
+    }
 
-	public void setLoad(String load) {
-		this.load = load;
-	}
+    public String getSSortDir_0() {
+        return sSortDir_0;
+    }
 
-	public String getJsonData() {
-		return jsonData;
-	}
+    public void setSSortDir_0(final String sSortDir_0) {
+        this.sSortDir_0 = sSortDir_0;
+    }
 
-	public void setJsonData(String jsonData) {
-		this.jsonData = jsonData;
-	}
+    public String getLoad() {
+        return load;
+    }
 
-	public Integer getIdVisaoRelacionada() {
-		return idVisaoRelacionada;
-	}
+    public void setLoad(final String load) {
+        this.load = load;
+    }
 
-	public void setIdVisaoRelacionada(Integer idVisaoRelacionada) {
-		this.idVisaoRelacionada = idVisaoRelacionada;
-	}
-	public String getSort() {
-		return sort;
-	}
+    public String getJsonData() {
+        return jsonData;
+    }
 
-	public void setSort(String sort) {
-		this.sort = sort;
-	}
+    public void setJsonData(final String jsonData) {
+        this.jsonData = jsonData;
+    }
 
-	public String getOrder() {
-		return order;
-	}
+    public Integer getIdVisaoRelacionada() {
+        return idVisaoRelacionada;
+    }
 
-	public void setOrder(String order) {
-		this.order = order;
-	}
+    public void setIdVisaoRelacionada(final Integer idVisaoRelacionada) {
+        this.idVisaoRelacionada = idVisaoRelacionada;
+    }
 
-	public String getMatriz() {
-		return matriz;
-	}
+    public String getSort() {
+        return sort;
+    }
 
-	public void setMatriz(String matriz) {
-		this.matriz = matriz;
-	}
+    public void setSort(final String sort) {
+        this.sort = sort;
+    }
 
-	public Integer getRows() {
-		return rows;
-	}
+    public String getOrder() {
+        return order;
+    }
 
-	public void setRows(Integer rows) {
-		this.rows = rows;
-	}	
+    public void setOrder(final String order) {
+        this.order = order;
+    }
+
+    public String getMatriz() {
+        return matriz;
+    }
+
+    public void setMatriz(final String matriz) {
+        this.matriz = matriz;
+    }
+
+    public Integer getRows() {
+        return rows;
+    }
+
+    public void setRows(final Integer rows) {
+        this.rows = rows;
+    }
+
 }

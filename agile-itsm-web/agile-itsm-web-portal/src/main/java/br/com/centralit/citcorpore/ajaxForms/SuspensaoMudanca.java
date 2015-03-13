@@ -82,7 +82,7 @@ public class SuspensaoMudanca  extends AjaxFormAction  {
 	
 	@Override
 	public Class getBeanClass() {
-		// TODO Auto-generated method stub
+		
 		return RequisicaoMudancaDTO.class;
 	}
 

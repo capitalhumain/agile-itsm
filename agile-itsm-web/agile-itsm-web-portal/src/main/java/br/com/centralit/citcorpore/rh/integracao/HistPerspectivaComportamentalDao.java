@@ -62,7 +62,7 @@ public class HistPerspectivaComportamentalDao extends CrudDaoDefaultImpl {
 
         final List list = this.execSQL(sql.toString(), objs);
 
-        final List listRetorno = new ArrayList();
+        final List listRetorno = new ArrayList<>();
         listRetorno.add("idhistPerspectivaComportamental");
         listRetorno.add("cmbCompetenciaComportamental");
         listRetorno.add("comportamento");

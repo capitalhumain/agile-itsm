@@ -29,7 +29,7 @@ import br.com.citframework.util.UtilDatas;
 @SuppressWarnings({ "rawtypes", "unchecked" })
 public class GenerateServiceMudancaPorRisco extends GerencialGenerateService {
 
-	private HashMap novoParametro = new HashMap();
+	private HashMap novoParametro = new HashMap<>();
 
 	public List execute(HashMap parametersValues, Collection paramtersDefinition) throws ParseException {
 
@@ -66,8 +66,8 @@ public class GenerateServiceMudancaPorRisco extends GerencialGenerateService {
 			getNovoParametro().put("PARAM.dataFinal", new java.sql.Date(calendar.getTime().getTime()));
 		}
 
-		List col = new ArrayList();
-		List listaRetorno = new ArrayList();
+		List col = new ArrayList<>();
+		List listaRetorno = new ArrayList<>();
 		GraficosDao graficosDao = new GraficosDao();
 
 		try {
@@ -79,7 +79,7 @@ public class GenerateServiceMudancaPorRisco extends GerencialGenerateService {
 					col = (List) graficosDao.consultaMudancaPorRisco(getNovoParametro(), riscoDTO);
 					if (col != null) {
 						listaRetorno.add(col.get(0));
-						col = new ArrayList();
+						col = new ArrayList<>();
 					}
 				}
 			}

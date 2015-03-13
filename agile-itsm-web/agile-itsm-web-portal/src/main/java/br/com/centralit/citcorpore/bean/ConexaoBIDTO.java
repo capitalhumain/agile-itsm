@@ -7,218 +7,218 @@ import br.com.agileitsm.model.support.BaseEntity;
 
 public class ConexaoBIDTO extends BaseEntity {
 
-	private static final long serialVersionUID = -58546973455247L;
+    private static final long serialVersionUID = -58546973455247L;
 
-	private Integer paginaSelecionada;
+    private Integer paginaSelecionada;
 
-	private Integer itensPorPagina;
+    private Integer itensPorPagina;
 
-	private Integer tipoLista;
+    private Integer tipoLista;
 
-	private String situacao;
-	
-	private Integer idConexaoBI;
-	
-	private String nome;
-	
-	private String link;
-	
-	private String login;
-	
-	private String senha;
-	
-	private String status;
+    private String situacao;
 
-	private String statusFiltro;
-	
-	private Timestamp dataHoraUltimaImportacao;
-	
-	private String emailNotificacao;
-	
-	private String caminhoPastaLog;
-	
-	private Integer qtdeDiasAtraso;
-	
-	private Integer idProcessamentoBatchEspecifico;
-	
-	private Integer idProcessamentoBatchExcecao;
+    private Integer idConexaoBI;
 
-	private String tipoImportacao;
-	
-	// paginacao
-	private Integer totalItens;
-	private Integer totalPaginas;
-	
+    private String nome;
 
-	public Integer getPaginaSelecionada() {
-		return paginaSelecionada;
-	}
+    private String link;
 
-	public void setPaginaSelecionada(Integer paginaSelecionada) {
-		this.paginaSelecionada = paginaSelecionada;
-	}
+    private String login;
 
-	public Integer getItensPorPagina() {
-		return itensPorPagina;
-	}
+    private String senha;
 
-	public void setItensPorPagina(Integer itensPorPagina) {
-		this.itensPorPagina = itensPorPagina;
-	}
-	
-	public Integer getTotalItens() {
-		return totalItens;
-	}
+    private String status;
 
-	public void setTotalItens(Integer totalItens) {
-		this.totalItens = totalItens;
-	}
+    private String statusFiltro;
 
-	public Integer getTotalPaginas() {
-		return totalPaginas;
-	}
+    private Timestamp dataHoraUltimaImportacao;
 
-	public void setTotalPaginas(Integer totalPaginas) {
-		this.totalPaginas = totalPaginas;
-	}
+    private String emailNotificacao;
 
-	public Integer getTipoLista() {
-		return tipoLista;
-	}
+    private String caminhoPastaLog;
 
-	public void setTipoLista(Integer tipoLista) {
-		this.tipoLista = tipoLista;
-	}
+    private Integer qtdeDiasAtraso;
 
-	public String getSituacao() {
-		return situacao;
-	}
+    private Integer idProcessamentoBatchEspecifico;
 
-	public void setSituacao(String situacao) {
-		this.situacao = situacao;
-	}
+    private Integer idProcessamentoBatchExcecao;
 
-	public Integer getIdConexaoBI() {
-		return idConexaoBI;
-	}
+    private String tipoImportacao;
 
-	public void setIdConexaoBI(Integer idConexaoBI) {
-		this.idConexaoBI = idConexaoBI;
-	}
+    // paginacao
+    private Integer totalItens;
+    private Integer totalPaginas;
 
-	public String getNome() {
-		return nome;
-	}
+    public Integer getPaginaSelecionada() {
+        return paginaSelecionada;
+    }
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    public void setPaginaSelecionada(final Integer paginaSelecionada) {
+        this.paginaSelecionada = paginaSelecionada;
+    }
 
-	public String getLink() {
-		return link;
-	}
+    public Integer getItensPorPagina() {
+        return itensPorPagina;
+    }
 
-	public void setLink(String link) {
-		this.link = link;
-	}
+    public void setItensPorPagina(final Integer itensPorPagina) {
+        this.itensPorPagina = itensPorPagina;
+    }
 
-	public String getLogin() {
-		return login;
-	}
+    public Integer getTotalItens() {
+        return totalItens;
+    }
 
-	public void setLogin(String login) {
-		this.login = login;
-	}
+    public void setTotalItens(final Integer totalItens) {
+        this.totalItens = totalItens;
+    }
 
-	public String getSenha() {
-		return senha;
-	}
+    public Integer getTotalPaginas() {
+        return totalPaginas;
+    }
 
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
+    public void setTotalPaginas(final Integer totalPaginas) {
+        this.totalPaginas = totalPaginas;
+    }
 
-	public String getStatus() {
-		return status;
-	}
+    public Integer getTipoLista() {
+        return tipoLista;
+    }
 
-	public void setStatus(String status) {
-		this.status = status;
-	}
-	
-	public String getStatusFiltro() {
-		return statusFiltro;
-	}
+    public void setTipoLista(final Integer tipoLista) {
+        this.tipoLista = tipoLista;
+    }
 
-	public void setStatusFiltro(String statusFiltro) {
-		this.statusFiltro = statusFiltro;
-	}
+    public String getSituacao() {
+        return situacao;
+    }
 
-	public Timestamp getDataHoraUltimaImportacao() {
-		return dataHoraUltimaImportacao;
-	}
+    public void setSituacao(final String situacao) {
+        this.situacao = situacao;
+    }
 
-	public void setDataHoraUltimaImportacao(Timestamp dataHoraUltimaImportacao) {
-		this.dataHoraUltimaImportacao = dataHoraUltimaImportacao;
-	}
+    public Integer getIdConexaoBI() {
+        return idConexaoBI;
+    }
 
-	public String getEmailNotificacao() {
-		return emailNotificacao;
-	}
+    public void setIdConexaoBI(final Integer idConexaoBI) {
+        this.idConexaoBI = idConexaoBI;
+    }
 
-	public void setEmailNotificacao(String emailNotificacao) {
-		this.emailNotificacao = emailNotificacao;
-	}
+    public String getNome() {
+        return nome;
+    }
 
-	public String getCaminhoPastaLog() {
-		return caminhoPastaLog;
-	}
+    public void setNome(final String nome) {
+        this.nome = nome;
+    }
 
-	public void setCaminhoPastaLog(String caminhoPastaLog) {
-		this.caminhoPastaLog = caminhoPastaLog;
-	}
+    public String getLink() {
+        return link;
+    }
 
-	public Integer getQtdeDiasAtraso() {
-		return qtdeDiasAtraso;
-	}
+    public void setLink(final String link) {
+        this.link = link;
+    }
 
-	public void setQtdeDiasAtraso(Integer qtdeDiasAtraso) {
-		this.qtdeDiasAtraso = qtdeDiasAtraso;
-	}
+    public String getLogin() {
+        return login;
+    }
 
-	public Integer getIdProcessamentoBatchEspecifico() {
-		return idProcessamentoBatchEspecifico;
-	}
+    public void setLogin(final String login) {
+        this.login = login;
+    }
 
-	public void setIdProcessamentoBatchEspecifico(Integer idProcessamentoBatchEspecifico) {
-		this.idProcessamentoBatchEspecifico = idProcessamentoBatchEspecifico;
-	}
+    public String getSenha() {
+        return senha;
+    }
 
-	public Integer getIdProcessamentoBatchExcecao() {
-		return idProcessamentoBatchExcecao;
-	}
+    public void setSenha(final String senha) {
+        this.senha = senha;
+    }
 
-	public void setIdProcessamentoBatchExcecao(Integer idProcessamentoBatchExcecao) {
-		this.idProcessamentoBatchExcecao = idProcessamentoBatchExcecao;
-	}
-	
-	/**
-	 * @return pegando data como string para exibir na listagem a data formatada com horas e minutos
-	 * @author thiago.barbosa
-	 */
-	public String getDataHoraUltimaImportacaoString() {
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-		if (dataHoraUltimaImportacao != null && !dataHoraUltimaImportacao.equals(""))
-			return sdf.format(dataHoraUltimaImportacao);
-		return "--";
-	}
+    public String getStatus() {
+        return status;
+    }
 
-	public String getTipoImportacao() {
-		return tipoImportacao;
-	}
+    public void setStatus(final String status) {
+        this.status = status;
+    }
 
-	public void setTipoImportacao(String tipoImportacao) {
-		this.tipoImportacao = tipoImportacao;
-	}
+    public String getStatusFiltro() {
+        return statusFiltro;
+    }
+
+    public void setStatusFiltro(final String statusFiltro) {
+        this.statusFiltro = statusFiltro;
+    }
+
+    public Timestamp getDataHoraUltimaImportacao() {
+        return dataHoraUltimaImportacao;
+    }
+
+    public void setDataHoraUltimaImportacao(final Timestamp dataHoraUltimaImportacao) {
+        this.dataHoraUltimaImportacao = dataHoraUltimaImportacao;
+    }
+
+    public String getEmailNotificacao() {
+        return emailNotificacao;
+    }
+
+    public void setEmailNotificacao(final String emailNotificacao) {
+        this.emailNotificacao = emailNotificacao;
+    }
+
+    public String getCaminhoPastaLog() {
+        return caminhoPastaLog;
+    }
+
+    public void setCaminhoPastaLog(final String caminhoPastaLog) {
+        this.caminhoPastaLog = caminhoPastaLog;
+    }
+
+    public Integer getQtdeDiasAtraso() {
+        return qtdeDiasAtraso;
+    }
+
+    public void setQtdeDiasAtraso(final Integer qtdeDiasAtraso) {
+        this.qtdeDiasAtraso = qtdeDiasAtraso;
+    }
+
+    public Integer getIdProcessamentoBatchEspecifico() {
+        return idProcessamentoBatchEspecifico;
+    }
+
+    public void setIdProcessamentoBatchEspecifico(final Integer idProcessamentoBatchEspecifico) {
+        this.idProcessamentoBatchEspecifico = idProcessamentoBatchEspecifico;
+    }
+
+    public Integer getIdProcessamentoBatchExcecao() {
+        return idProcessamentoBatchExcecao;
+    }
+
+    public void setIdProcessamentoBatchExcecao(final Integer idProcessamentoBatchExcecao) {
+        this.idProcessamentoBatchExcecao = idProcessamentoBatchExcecao;
+    }
+
+    /**
+     * @return pegando data como string para exibir na listagem a data formatada com horas e minutos
+     * @author thiago.barbosa
+     */
+    public String getDataHoraUltimaImportacaoString() {
+        final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        if (dataHoraUltimaImportacao != null && !dataHoraUltimaImportacao.equals("")) {
+            return sdf.format(dataHoraUltimaImportacao);
+        }
+        return "--";
+    }
+
+    public String getTipoImportacao() {
+        return tipoImportacao;
+    }
+
+    public void setTipoImportacao(final String tipoImportacao) {
+        this.tipoImportacao = tipoImportacao;
+    }
 
 }

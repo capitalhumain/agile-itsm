@@ -4,7 +4,7 @@ import java.lang.reflect.Method;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.apache.commons.lang.exception.ExceptionUtils;
+import org.apache.commons.lang3.exception.ExceptionUtils;
 
 import br.com.centralit.citcorpore.bean.EmpregadoDTO;
 import br.com.centralit.citcorpore.bean.UsuarioDTO;
@@ -39,7 +39,7 @@ public class RestUtil {
     private RestUtil() {}
 
     public static String stackToString(final Exception e) {
-        return "------\n" + ExceptionUtils.getFullStackTrace(e) + "------\n";
+        return "------\n" + ExceptionUtils.getStackTrace(e) + "------\n";
     }
 
     public static Usuario getUsuarioSistema(final RestSessionDTO restSessionDto) throws Exception {

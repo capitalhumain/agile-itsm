@@ -75,7 +75,7 @@ public class ItemCotacaoServiceEjb extends CrudServiceImpl implements ItemCotaca
                     String solicitacoes = "";
                     final Collection<ItemRequisicaoProdutoDTO> itensRequisicao = itemRequisicaoDao.findByIdItemCotacao(itemCotacaoDto.getIdItemCotacao());
                     if (itensRequisicao != null) {
-                        final HashMap<String, String> mapSolicitacoes = new HashMap();
+                        final HashMap<String, String> mapSolicitacoes = new HashMap<>();
                         for (final ItemRequisicaoProdutoDTO itemRequisicaoDto : itensRequisicao) {
                             if (mapSolicitacoes.get("" + itemRequisicaoDto.getIdSolicitacaoServico()) == null) {
                                 if (!solicitacoes.equals("")) {

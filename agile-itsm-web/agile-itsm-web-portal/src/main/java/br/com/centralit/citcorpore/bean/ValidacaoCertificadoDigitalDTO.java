@@ -8,6 +8,7 @@ import br.com.citframework.util.cripto.InfoCertificadoDigital;
 public class ValidacaoCertificadoDigitalDTO extends BaseEntity {
 
     private static final long serialVersionUID = -4566460320507373015L;
+
     private String fileName;
     private String caminhoCompleto;
     private InfoCertificadoDigital infoCertificadoDigital;
@@ -17,7 +18,7 @@ public class ValidacaoCertificadoDigitalDTO extends BaseEntity {
         return fileName;
     }
 
-    public void setFileName(String fileName) {
+    public void setFileName(final String fileName) {
         this.fileName = fileName;
     }
 
@@ -25,7 +26,7 @@ public class ValidacaoCertificadoDigitalDTO extends BaseEntity {
         return infoCertificadoDigital;
     }
 
-    public void setInfoCertificadoDigital(InfoCertificadoDigital infoCertificadoDigital) {
+    public void setInfoCertificadoDigital(final InfoCertificadoDigital infoCertificadoDigital) {
         this.infoCertificadoDigital = infoCertificadoDigital;
     }
 
@@ -33,7 +34,7 @@ public class ValidacaoCertificadoDigitalDTO extends BaseEntity {
         return caminhoCompleto;
     }
 
-    public void setCaminhoCompleto(String caminhoCompleto) {
+    public void setCaminhoCompleto(final String caminhoCompleto) {
         this.caminhoCompleto = caminhoCompleto;
     }
 
@@ -41,7 +42,7 @@ public class ValidacaoCertificadoDigitalDTO extends BaseEntity {
         return cert;
     }
 
-    public void setCert(X509Certificate cert) {
+    public void setCert(final X509Certificate cert) {
         this.cert = cert;
     }
 

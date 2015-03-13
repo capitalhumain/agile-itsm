@@ -26,9 +26,11 @@ public class VerificaValidadeLicenca implements Job {
         Collection<ItemConfiguracaoDTO> colItemConfiguracao = null;
         EmpregadoDTO empregadoDTO = new EmpregadoDTO();
         try {
-            String AVISAR_DATAEXPIRACAO_LICENCA = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.AVISAR_DATAEXPIRACAO_LICENCA, "90");
+            String AVISAR_DATAEXPIRACAO_LICENCA = ParametroUtil
+                    .getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.AVISAR_DATAEXPIRACAO_LICENCA, "90");
             String ENVIAR_EMAIL_DATAEXPIRACAO = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.ENVIAR_EMAIL_DATAEXPIRACAO, "2");
-            String ID_MODELO_EMAIL_EXPIRACAO_LICENCA = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.ID_MODELO_EMAIL_EXPIRACAO_LICENCA, "6");
+            String ID_MODELO_EMAIL_EXPIRACAO_LICENCA = ParametroUtil.getValorParametroCitSmartHashMap(
+                    Enumerados.ParametroSistema.ID_MODELO_EMAIL_EXPIRACAO_LICENCA, "6");
             final String remetente = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.RemetenteNotificacoesSolicitacao, null);
 
             if (AVISAR_DATAEXPIRACAO_LICENCA == null || AVISAR_DATAEXPIRACAO_LICENCA.isEmpty()) {
@@ -43,7 +45,8 @@ public class VerificaValidadeLicenca implements Job {
 
             dataAtual = UtilDatas.incrementaDiasEmData(dataAtual, Integer.parseInt(AVISAR_DATAEXPIRACAO_LICENCA));
 
-            final ItemConfiguracaoService itemConfiguracaoService = (ItemConfiguracaoService) ServiceLocator.getInstance().getService(ItemConfiguracaoService.class, null);
+            final ItemConfiguracaoService itemConfiguracaoService = (ItemConfiguracaoService) ServiceLocator.getInstance().getService(
+                    ItemConfiguracaoService.class, null);
             colItemConfiguracao = itemConfiguracaoService.pesquisaDataExpiracao(dataAtual);
 
             if (!colItemConfiguracao.isEmpty()) {
@@ -54,12 +57,14 @@ public class VerificaValidadeLicenca implements Job {
                     final EmpregadoService empregadoService = (EmpregadoService) ServiceLocator.getInstance().getService(EmpregadoService.class, null);
                     for (final ItemConfiguracaoDTO itemConfiguracao : colItemConfiguracao) {
                         empregadoDTO = empregadoService.restoreByIdEmpregado(itemConfiguracao.getIdProprietario());
-                        final MensagemEmail mensagem = new MensagemEmail(Integer.parseInt(ID_MODELO_EMAIL_EXPIRACAO_LICENCA.trim()), new BaseEntity[] {itemConfiguracao});
+                        final MensagemEmail mensagem = new MensagemEmail(Integer.parseInt(ID_MODELO_EMAIL_EXPIRACAO_LICENCA.trim()),
+                                new BaseEntity[] {itemConfiguracao});
                         mensagem.envia(empregadoDTO.getEmail(), "", remetente);
                     }
                 } else {
                     for (final ItemConfiguracaoDTO itemConfiguracao : colItemConfiguracao) {
-                        final MensagemEmail mensagem = new MensagemEmail(Integer.parseInt(ID_MODELO_EMAIL_EXPIRACAO_LICENCA.trim()), new BaseEntity[] {itemConfiguracao});
+                        final MensagemEmail mensagem = new MensagemEmail(Integer.parseInt(ID_MODELO_EMAIL_EXPIRACAO_LICENCA.trim()),
+                                new BaseEntity[] {itemConfiguracao});
                         mensagem.envia(itemConfiguracao.getEmailGrupoItemConfiguracao(), "", remetente);
                     }
                 }

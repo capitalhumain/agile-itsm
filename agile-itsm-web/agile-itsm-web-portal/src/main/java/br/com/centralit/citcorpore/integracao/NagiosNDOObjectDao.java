@@ -14,54 +14,69 @@ import br.com.citframework.integracao.Order;
 import br.com.citframework.util.Constantes;
 
 public class NagiosNDOObjectDao extends CrudDaoDefaultImpl {
-	public NagiosNDOObjectDao() {
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
-	public Collection<Field> getFields() {
-		Collection<Field> listFields = new ArrayList<>();
-		listFields.add(new Field("object_id" ,"object_id", true, true, false, false));
-		listFields.add(new Field("instance_id" ,"instance_id", false, false, false, false));
-		listFields.add(new Field("objecttype_id" ,"objecttype_id", false, false, false, false));
-		listFields.add(new Field("name1" ,"name1", false, false, false, false));
-		listFields.add(new Field("name2" ,"name2", false, false, false, false));
-		listFields.add(new Field("is_active" ,"is_active", false, false, false, false));
-		return listFields;
-	}
-	public String getTableName() {
-		return this.getOwner() + "nagios_objects";
-	}
-	public Collection list() throws PersistenceException {
-		return null;
-	}
 
-	public Class getBean() {
-		return NagiosNDOObjectDTO.class;
-	}
-	public Collection find(BaseEntity arg0) throws PersistenceException {
-		return null;
-	}
-	public Collection findByName1(String parm) throws PersistenceException {
-		List condicao = new ArrayList();
-		List ordenacao = new ArrayList(); 
-		condicao.add(new Condition("name1", "=", parm)); 
-		ordenacao.add(new Order("object_id"));
-		return super.findByCondition(condicao, ordenacao);
-	}
-	public void deleteByName1(String parm) throws PersistenceException {
-		List condicao = new ArrayList();
-		condicao.add(new Condition("name1", "=", parm));
-		super.deleteByCondition(condicao);
-	}
-	public Collection findByName2(String parm) throws PersistenceException {
-		List condicao = new ArrayList();
-		List ordenacao = new ArrayList(); 
-		condicao.add(new Condition("name2", "=", parm)); 
-		ordenacao.add(new Order("object_id"));
-		return super.findByCondition(condicao, ordenacao);
-	}
-	public void deleteByName2(String parm) throws PersistenceException {
-		List condicao = new ArrayList();
-		condicao.add(new Condition("name2", "=", parm));
-		super.deleteByCondition(condicao);
-	}
+    public NagiosNDOObjectDao() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
+    }
+
+    @Override
+    public Collection<Field> getFields() {
+        final Collection<Field> listFields = new ArrayList<>();
+        listFields.add(new Field("object_id", "object_id", true, true, false, false));
+        listFields.add(new Field("instance_id", "instance_id", false, false, false, false));
+        listFields.add(new Field("objecttype_id", "objecttype_id", false, false, false, false));
+        listFields.add(new Field("name1", "name1", false, false, false, false));
+        listFields.add(new Field("name2", "name2", false, false, false, false));
+        listFields.add(new Field("is_active", "is_active", false, false, false, false));
+        return listFields;
+    }
+
+    @Override
+    public String getTableName() {
+        return this.getOwner() + "nagios_objects";
+    }
+
+    @Override
+    public Collection list() throws PersistenceException {
+        return null;
+    }
+
+    @Override
+    public Class getBean() {
+        return NagiosNDOObjectDTO.class;
+    }
+
+    @Override
+    public Collection find(final BaseEntity arg0) throws PersistenceException {
+        return null;
+    }
+
+    public Collection findByName1(final String parm) throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
+        condicao.add(new Condition("name1", "=", parm));
+        ordenacao.add(new Order("object_id"));
+        return super.findByCondition(condicao, ordenacao);
+    }
+
+    public void deleteByName1(final String parm) throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        condicao.add(new Condition("name1", "=", parm));
+        super.deleteByCondition(condicao);
+    }
+
+    public Collection findByName2(final String parm) throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
+        condicao.add(new Condition("name2", "=", parm));
+        ordenacao.add(new Order("object_id"));
+        return super.findByCondition(condicao, ordenacao);
+    }
+
+    public void deleteByName2(final String parm) throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        condicao.add(new Condition("name2", "=", parm));
+        super.deleteByCondition(condicao);
+    }
+
 }

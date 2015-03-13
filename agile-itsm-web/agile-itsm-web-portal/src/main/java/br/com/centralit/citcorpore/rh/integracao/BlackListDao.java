@@ -49,9 +49,9 @@ public class BlackListDao extends CrudDaoDefaultImpl {
     }
 
     public Collection findBlackListByIdCandidato(final Integer idCandidato) throws PersistenceException {
-        final List parametro = new ArrayList();
-        final List fields = new ArrayList();
-        List list = new ArrayList();
+        final List parametro = new ArrayList<>();
+        final List fields = new ArrayList<>();
+        List list = new ArrayList<>();
 
         final StringBuilder sql = new StringBuilder();
         sql.append("select idListaNegra, idCandidato from rh_listanegra ");
@@ -69,9 +69,9 @@ public class BlackListDao extends CrudDaoDefaultImpl {
     }
 
     public Collection findBlackList(final Integer idCandidato) throws PersistenceException {
-        final List parametro = new ArrayList();
-        final List fields = new ArrayList();
-        List list = new ArrayList();
+        final List parametro = new ArrayList<>();
+        final List fields = new ArrayList<>();
+        List list = new ArrayList<>();
 
         final StringBuilder sql = new StringBuilder();
         sql.append("select idListaNegra, idCandidato, idJustificativa, idResponsavel, descricao from rh_listanegra ");

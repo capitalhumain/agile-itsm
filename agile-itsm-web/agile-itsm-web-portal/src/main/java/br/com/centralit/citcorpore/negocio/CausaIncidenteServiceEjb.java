@@ -42,7 +42,7 @@ public class CausaIncidenteServiceEjb extends CrudServiceImpl implements CausaIn
 
     @Override
     public Collection listHierarquia() throws Exception {
-        final Collection colFinal = new ArrayList();
+        final Collection colFinal = new ArrayList<>();
         try {
             final Collection col = this.getDao().findSemPai();
             if (col != null) {
@@ -65,7 +65,7 @@ public class CausaIncidenteServiceEjb extends CrudServiceImpl implements CausaIn
     @Override
     public Collection getCollectionHierarquia(final Integer idCausa, final Integer nivel) throws Exception {
         final Collection col = this.getDao().findByIdPai(idCausa);
-        final Collection colFinal = new ArrayList();
+        final Collection colFinal = new ArrayList<>();
         if (col != null) {
             for (final Iterator it = col.iterator(); it.hasNext();) {
                 final CausaIncidenteDTO causaIncidenteDTO = (CausaIncidenteDTO) it.next();

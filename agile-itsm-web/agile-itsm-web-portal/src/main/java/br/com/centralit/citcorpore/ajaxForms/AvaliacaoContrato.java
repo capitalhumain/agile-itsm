@@ -256,7 +256,7 @@ public class AvaliacaoContrato extends AjaxFormAction {
 		AcordoNivelServicoService acordoNivelServicoService = (AcordoNivelServicoService) ServiceLocator.getInstance().getService(AcordoNivelServicoService.class, null);
 		AcordoServicoContratoService acordoServicoContratoService = (AcordoServicoContratoService) ServiceLocator.getInstance().getService(AcordoServicoContratoService.class, null);
 		Collection colServicosContrato = serviceContratoService.findByIdContrato(avaliacaoContratoDTO.getIdContrato());
-		List colFinal = new ArrayList();
+		List colFinal = new ArrayList<>();
 		
 		ControleGenerateSLAPorServicoContratoPeriodo controleGenerateSLAPorServicoContratoPeriodo = new ControleGenerateSLAPorServicoContratoPeriodo();
 		if (colServicosContrato != null){

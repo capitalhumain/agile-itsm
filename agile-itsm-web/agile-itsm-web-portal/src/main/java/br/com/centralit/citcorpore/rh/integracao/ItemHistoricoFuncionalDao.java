@@ -52,9 +52,9 @@ public class ItemHistoricoFuncionalDao extends CrudDaoDefaultImpl {
     }
 
     public Collection findByIdItemHistorico(final Integer idHistorico) throws PersistenceException {
-        final List parametro = new ArrayList();
-        final List fields = new ArrayList();
-        List list = new ArrayList();
+        final List parametro = new ArrayList<>();
+        final List fields = new ArrayList<>();
+        List list = new ArrayList<>();
 
         final StringBuilder sql = new StringBuilder();
         sql.append("select idItemHistorico, idHistoricofuncional, titulo, descricao, dtcriacao, idresponsavel, tipo ");
@@ -78,9 +78,9 @@ public class ItemHistoricoFuncionalDao extends CrudDaoDefaultImpl {
     }
 
     public Collection findByIdResponsavel(final Integer id) throws PersistenceException {
-        final List parametro = new ArrayList();
-        final List fields = new ArrayList();
-        List list = new ArrayList();
+        final List parametro = new ArrayList<>();
+        final List fields = new ArrayList<>();
+        List list = new ArrayList<>();
 
         final StringBuilder sql = new StringBuilder();
         sql.append("select idusuario, nome ");

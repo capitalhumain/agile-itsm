@@ -58,7 +58,7 @@ public class CandidatoDao extends CrudDaoDefaultImpl {
 
     @Override
     public Collection list() throws PersistenceException {
-        final List list = new ArrayList();
+        final List list = new ArrayList<>();
         list.add(new Order("nome"));
         return super.list(list);
     }
@@ -76,8 +76,8 @@ public class CandidatoDao extends CrudDaoDefaultImpl {
      * @throws Exception
      */
     public boolean consultarCandidatosAtivos(final CandidatoDTO obj) throws PersistenceException {
-        final List parametro = new ArrayList();
-        List list = new ArrayList();
+        final List parametro = new ArrayList<>();
+        List list = new ArrayList<>();
         String sql = "select idcandidato From " + this.getTableName() + "  where  cpf = ?   and dataFim is null ";
 
         if (obj.getIdCandidato() != null) {
@@ -99,8 +99,8 @@ public class CandidatoDao extends CrudDaoDefaultImpl {
     }
 
     public Collection findByNome(final CandidatoDTO candidatoDTO) throws PersistenceException {
-        final List condicao = new ArrayList();
-        final List ordenacao = new ArrayList();
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
 
         condicao.add(new Condition("nome", "=", candidatoDTO.getNome()));
         ordenacao.add(new Order("nome"));
@@ -109,8 +109,8 @@ public class CandidatoDao extends CrudDaoDefaultImpl {
     }
 
     public Collection<CandidatoDTO> seCandidatoJaCadastrado(final CandidatoDTO candidatoDTO) throws PersistenceException {
-        final List parametro = new ArrayList();
-        List list = new ArrayList();
+        final List parametro = new ArrayList<>();
+        List list = new ArrayList<>();
         String sql = "";
         sql = " select lower(nome) from rh_candidato where nome = lower(?) ";
 
@@ -120,8 +120,8 @@ public class CandidatoDao extends CrudDaoDefaultImpl {
     }
 
     public Collection<CandidatoDTO> listarAtivos() throws PersistenceException {
-        final List condicao = new ArrayList();
-        final List ordenacao = new ArrayList();
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
 
         ordenacao.add(new Order("nome"));
         condicao.add(new Condition("dataFim", "is", null));
@@ -140,7 +140,7 @@ public class CandidatoDao extends CrudDaoDefaultImpl {
      * @author david.silva
      */
     public CandidatoDTO restoreByID(final Integer id) throws PersistenceException {
-        final List ordem = new ArrayList();
+        final List ordem = new ArrayList<>();
         ordem.add(new Order("idCandidato"));
         ordem.add(new Order("nome"));
         final CandidatoDTO candidatoDto = new CandidatoDTO();
@@ -153,7 +153,7 @@ public class CandidatoDao extends CrudDaoDefaultImpl {
     }
 
     public CandidatoDTO findByCpfCurriculo(final String cpf) throws PersistenceException {
-        final List ordem = new ArrayList();
+        final List ordem = new ArrayList<>();
         ordem.add(new Order("idCandidato"));
         ordem.add(new Order("nome"));
         final CandidatoDTO candidatoDto = new CandidatoDTO();
@@ -168,9 +168,9 @@ public class CandidatoDao extends CrudDaoDefaultImpl {
     public Collection findListTodosCandidatos() throws PersistenceException {
         final String sql = "SELECT nome, cpf, idcandidato, email, situacao, tipo FROM rh_candidato ORDER BY nome ASC;";
 
-        List lista = new ArrayList();
+        List lista = new ArrayList<>();
         lista = this.execSQL(sql, null);
-        final List listRetorno = new ArrayList();
+        final List listRetorno = new ArrayList<>();
 
         listRetorno.add("nome");
         listRetorno.add("cpf");
@@ -184,9 +184,9 @@ public class CandidatoDao extends CrudDaoDefaultImpl {
     }
 
     public Collection findByIdCandidatoJoinIdHistorico(final Integer idCandidato) throws PersistenceException {
-        final List parametro = new ArrayList();
-        final List fields = new ArrayList();
-        List list = new ArrayList();
+        final List parametro = new ArrayList<>();
+        final List fields = new ArrayList<>();
+        List list = new ArrayList<>();
 
         final StringBuilder sql = new StringBuilder();
         sql.append("select idHistoricoFuncional from rh_historicofuncional h ");
@@ -199,14 +199,12 @@ public class CandidatoDao extends CrudDaoDefaultImpl {
 
         if (list != null && !list.isEmpty()) {
             return this.listConvertion(this.getBean(), list, fields);
-        } else {
-            return null;
-        }
+        } return null;
     }
 
     public Collection findByCPF(final String cpf) throws PersistenceException {
-        final List condicao = new ArrayList();
-        final List ordenacao = new ArrayList();
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
 
         condicao.add(new Condition("cpf", "=", cpf));
         condicao.add(new Condition(Condition.AND, "dataFim", "is", null));
@@ -219,9 +217,9 @@ public class CandidatoDao extends CrudDaoDefaultImpl {
     public Collection findByNome(final String nome) throws PersistenceException {
         final String sql = "SELECT nome, cpf, idcandidato, email, situacao, tipo FROM rh_candidato WHERE UPPER(nome) LIKE UPPER('%" + nome + "%');";
 
-        List lista = new ArrayList();
+        List lista = new ArrayList<>();
         lista = this.execSQL(sql, null);
-        final List listRetorno = new ArrayList();
+        final List listRetorno = new ArrayList<>();
 
         listRetorno.add("nome");
         listRetorno.add("cpf");
@@ -236,8 +234,8 @@ public class CandidatoDao extends CrudDaoDefaultImpl {
 
     public Collection<CandidatoDTO> recuperaColecaoCandidatos(final CandidatoDTO candidatoDto, Integer pgAtual, final Integer qtdPaginacao) throws PersistenceException {
 
-        final List parametro = new ArrayList();
-        final List listRetorno = new ArrayList();
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
         final StringBuilder sql = new StringBuilder();
 
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.SQLSERVER)) {
@@ -321,7 +319,7 @@ public class CandidatoDao extends CrudDaoDefaultImpl {
             sqlOracle = this.paginacaoOracle(sql.toString(), intInicio, intLimite);
         }
 
-        List lista = new ArrayList();
+        List lista = new ArrayList<>();
 
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
             lista = this.execSQL(sqlOracle, parametro.toArray());
@@ -346,7 +344,7 @@ public class CandidatoDao extends CrudDaoDefaultImpl {
     }
 
     public Integer calculaTotalPaginas(final Integer itensPorPagina, final CandidatoDTO candidatoDto) throws PersistenceException {
-        final List parametro = new ArrayList();
+        final List parametro = new ArrayList<>();
         final StringBuilder sql = new StringBuilder();
 
         if (candidatoDto.getCandidatoNaListaNegra() != null && candidatoDto.getCandidatoNaListaNegra().equalsIgnoreCase("S")) {
@@ -377,7 +375,7 @@ public class CandidatoDao extends CrudDaoDefaultImpl {
             parametro.add(candidatoDto.getTipo());
         }
 
-        List lista = new ArrayList();
+        List lista = new ArrayList<>();
         lista = this.execSQL(sql.toString(), parametro.toArray());
 
         Long totalLinhaLong = 0l;
@@ -415,8 +413,8 @@ public class CandidatoDao extends CrudDaoDefaultImpl {
     }
 
     public CandidatoDTO findByEmail(final String email) throws PersistenceException {
-        final List parametro = new ArrayList();
-        final List listRetorno = new ArrayList();
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
         final StringBuilder sql = new StringBuilder();
 
         sql.append(" SELECT C.NOME, C.CPF, C.IDCANDIDATO, ");
@@ -436,20 +434,18 @@ public class CandidatoDao extends CrudDaoDefaultImpl {
         listRetorno.add("dataInicio");
         listRetorno.add("senha");
 
-        List lista = new ArrayList();
+        List lista = new ArrayList<>();
         lista = this.execSQL(sql.toString(), parametro.toArray());
 
         if (lista != null && lista.size() > 0) {
             final List result = engine.listConvertion(this.getBean(), lista, listRetorno);
             return (CandidatoDTO) result.get(0);
-        } else {
-            return null;
-        }
+        } return null;
     }
 
     public CandidatoDTO restoreByCpf(final String cpf) throws PersistenceException {
-        final List parametro = new ArrayList();
-        final List listRetorno = new ArrayList();
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
         final StringBuilder sql = new StringBuilder();
 
         sql.append(" SELECT C.NOME, C.CPF, C.IDCANDIDATO, ");
@@ -469,7 +465,7 @@ public class CandidatoDao extends CrudDaoDefaultImpl {
         listRetorno.add("dataInicio");
         listRetorno.add("senha");
 
-        List lista = new ArrayList();
+        List lista = new ArrayList<>();
         lista = this.execSQL(sql.toString(), parametro.toArray());
 
         final List result = engine.listConvertion(this.getBean(), lista, listRetorno);
@@ -480,8 +476,8 @@ public class CandidatoDao extends CrudDaoDefaultImpl {
     }
 
     public CandidatoDTO findByHashID(final String nome) throws PersistenceException {
-        final List parametro = new ArrayList();
-        final List listRetorno = new ArrayList();
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
         final StringBuilder sql = new StringBuilder();
 
         sql.append(" SELECT C.NOME, C.CPF, C.IDCANDIDATO, ");
@@ -501,20 +497,18 @@ public class CandidatoDao extends CrudDaoDefaultImpl {
         listRetorno.add("dataInicio");
         listRetorno.add("senha");
 
-        List lista = new ArrayList();
+        List lista = new ArrayList<>();
         lista = this.execSQL(sql.toString(), parametro.toArray());
 
         if (lista != null && lista.size() > 0) {
             final List result = engine.listConvertion(this.getBean(), lista, listRetorno);
             return (CandidatoDTO) result.get(0);
-        } else {
-            return null;
-        }
+        } return null;
     }
 
     public CandidatoDTO restoreByIdEmpregado(final Integer idEmpregado) throws PersistenceException {
-        final List parametro = new ArrayList();
-        final List listRetorno = new ArrayList();
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
         final StringBuilder sql = new StringBuilder();
 
         sql.append(" SELECT C.NOME, C.CPF, C.IDCANDIDATO, ");
@@ -535,7 +529,7 @@ public class CandidatoDao extends CrudDaoDefaultImpl {
         listRetorno.add("senha");
         listRetorno.add("idEmpregado");
 
-        List lista = new ArrayList();
+        List lista = new ArrayList<>();
         lista = this.execSQL(sql.toString(), parametro.toArray());
 
         final List result = engine.listConvertion(this.getBean(), lista, listRetorno);

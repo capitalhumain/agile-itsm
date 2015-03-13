@@ -154,7 +154,7 @@ public class EntregaPedido extends AjaxFormAction {
             if (colInspecao == null) {
                 Collection<CriterioAvaliacaoDTO> colCriterios = criterioAvaliacaoService.findByAplicavelAvaliacaoComprador();
                 if (colCriterios != null) {
-                    colInspecao = new ArrayList();
+                    colInspecao = new ArrayList<>();
                     for (CriterioAvaliacaoDTO criterioDto : colCriterios) {
                         InspecaoPedidoCompraDTO inspecaoDto = new InspecaoPedidoCompraDTO();
                         inspecaoDto.setIdCriterio(criterioDto.getIdCriterio());

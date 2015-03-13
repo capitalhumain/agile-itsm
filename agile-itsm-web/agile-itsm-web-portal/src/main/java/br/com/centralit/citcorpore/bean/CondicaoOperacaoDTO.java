@@ -10,50 +10,50 @@ import br.com.agileitsm.model.support.BaseEntity;
  */
 public class CondicaoOperacaoDTO extends BaseEntity {
 
-	private Integer idCondicaoOperacao;
-	private Integer idEmpresa;
-	private String nomeCondicaoOperacao;
-	private Date dataInicio;
-	private Date dataFim;
+    private Integer idCondicaoOperacao;
+    private Integer idEmpresa;
+    private String nomeCondicaoOperacao;
+    private Date dataInicio;
+    private Date dataFim;
 
-	public Integer getIdCondicaoOperacao() {
-		return idCondicaoOperacao;
-	}
+    public Integer getIdCondicaoOperacao() {
+        return idCondicaoOperacao;
+    }
 
-	public void setIdCondicaoOperacao(Integer idCondicaoOperacao) {
-		this.idCondicaoOperacao = idCondicaoOperacao;
-	}
+    public void setIdCondicaoOperacao(final Integer idCondicaoOperacao) {
+        this.idCondicaoOperacao = idCondicaoOperacao;
+    }
 
-	public String getNomeCondicaoOperacao() {
-		return nomeCondicaoOperacao;
-	}
+    public String getNomeCondicaoOperacao() {
+        return nomeCondicaoOperacao;
+    }
 
-	public void setNomeCondicaoOperacao(String nomeCondicaoOperacao) {
-		this.nomeCondicaoOperacao = nomeCondicaoOperacao;
-	}
+    public void setNomeCondicaoOperacao(final String nomeCondicaoOperacao) {
+        this.nomeCondicaoOperacao = nomeCondicaoOperacao;
+    }
 
-	public Integer getIdEmpresa() {
-		return idEmpresa;
-	}
+    public Integer getIdEmpresa() {
+        return idEmpresa;
+    }
 
-	public void setIdEmpresa(Integer idEmpresa) {
-		this.idEmpresa = idEmpresa;
-	}
+    public void setIdEmpresa(final Integer idEmpresa) {
+        this.idEmpresa = idEmpresa;
+    }
 
-	public Date getDataInicio() {
-		return dataInicio;
-	}
+    public Date getDataInicio() {
+        return dataInicio;
+    }
 
-	public void setDataInicio(Date dataInicio) {
-		this.dataInicio = dataInicio;
-	}
+    public void setDataInicio(final Date dataInicio) {
+        this.dataInicio = dataInicio;
+    }
 
-	public Date getDataFim() {
-		return dataFim;
-	}
+    public Date getDataFim() {
+        return dataFim;
+    }
 
-	public void setDataFim(Date dataFim) {
-		this.dataFim = dataFim;
-	}
+    public void setDataFim(final Date dataFim) {
+        this.dataFim = dataFim;
+    }
 
 }

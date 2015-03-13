@@ -17,7 +17,7 @@ public class PerfisAcesso extends AjaxFormAction {
     @Override
     public void load(DocumentHTML arg0, HttpServletRequest arg1, HttpServletResponse arg2)
 	    throws Exception {
-	// TODO Auto-generated method stub
+	
 	
     }
 

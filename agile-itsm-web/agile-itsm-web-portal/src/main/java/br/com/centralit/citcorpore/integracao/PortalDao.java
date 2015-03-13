@@ -12,209 +12,192 @@ import br.com.citframework.integracao.CrudDaoDefaultImpl;
 import br.com.citframework.integracao.Field;
 import br.com.citframework.integracao.Order;
 import br.com.citframework.util.Constantes;
-@SuppressWarnings({ "unchecked", "rawtypes" })
-public class PortalDao extends CrudDaoDefaultImpl  {
 
-	public PortalDao()
-	{
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
+public class PortalDao extends CrudDaoDefaultImpl {
 
-
-
-
-	@Override
-	public Collection getFields()
-	{
-		Collection<Field> listFields = new ArrayList<>();
-
-		listFields.add(new Field("idPortal", "idPortal", true, true, false, false));
-		listFields.add(new Field("idItem", "idItem", false, false, false, false));
-		listFields.add(new Field("posicaoX", "posicaoX", false, false, false, false));
-		listFields.add(new Field("posicaoY", "posicaoY", false, false, false, false));
-		listFields.add(new Field("idUsuario", "idUsuario", false, false, false, false));
-		listFields.add(new Field("coluna", "coluna", false, false, false, false));
-		listFields.add(new Field("largura", "largura", false, false, false, false));
-		listFields.add(new Field("altura", "altura", false, false, false, false));
-		listFields.add(new Field("data", "data", false, false, false, false));
-		/*listFields.add(new Field("hora", "hora", false, false, false, false));*/
-
-		return listFields;
-	}
-
-	@Override
-	public String getTableName()
-	{
-		return "portal";
-	}
-	public Collection list() throws PersistenceException
-	{
-		List list = new ArrayList();
-		list.add(new Order("idUsuario"));
-		return super.list(list);
-	}
-
-	public Collection listByUsuario(Integer idUsuario) throws Exception
-	{
-		Object[] objs = new Object[] {idUsuario};
-
-		String sql = " SELECT idUsuario from portal where idUsuario = ? ";
-
-		List lista = this.execSQL(sql, objs);
-		List listRetorno = new ArrayList();
-		listRetorno.add("idUsuario");
-
-		return this.engine.listConvertion(getBean(), lista, listRetorno);
-	}
-
-	public Collection findByCondition(Integer id) throws Exception
-	{
-		List list1 = new ArrayList();
-		List list2 = new ArrayList();
-		list1.add(new Condition("idUsuario", "=", id));
-		list2.add(new Order("idItem"));
-		return super.findByCondition(list1, list2);
-	}
-
-	public Collection findByCondition(Integer idUsuario, Integer idItem) throws Exception
-	{
-		List list1 = new ArrayList();
-		List list2 = new ArrayList();
-		list1.add(new Condition("idUsuario", "=", idUsuario));
-		list1.add(new Condition("idItem", "=", idItem));
-		list2.add(new Order("idItem"));
-		return super.findByCondition(list1, list2);
-	}
-
-    @Override
-	public void update(BaseEntity obj) throws PersistenceException {
-    	PortalDTO dto = (PortalDTO) obj;
-    	List param = new ArrayList();
-    	param.add(dto.getPosicaoX());
-    	param.add(dto.getPosicaoY());
-    	param.add(dto.getLargura());
-    	param.add(dto.getAltura());
-    	param.add(dto.getData());
-    	/*param.add(dto.getHora());*/
-    	param.add(dto.getIdUsuario());
-    	param.add(dto.getIdItem());
-		String str = "UPDATE " +getTableName()+ " SET posicaoX = ?, posicaoY = ?, largura=? ,altura =?, data =? WHERE idusuario = ? AND iditem = ?";
-		super.execUpdate(str, param.toArray());
-	}
-
-
-
-	@Override
-	public void delete(BaseEntity obj) throws PersistenceException {
-    	PortalDTO dto = (PortalDTO) obj;
-    	List param = new ArrayList();
-    	param.add(dto.getIdUsuario());
-    	param.add(dto.getIdItem());
-		String str = "DELETE FROM " +getTableName()+ " WHERE idusuario = ? AND iditem = ?";
-		super.execUpdate(str, param.toArray());
-	}
-
-	public Collection find(BaseEntity obj) throws PersistenceException
-    {
-		List ordem = new ArrayList();
-		ordem.add(new Order("idUsuario"));
-		return super.find(obj, ordem);
+    public PortalDao() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
     }
 
-	@Override
-	public Class getBean() {
-		return PortalDTO.class;
-	}
+    @Override
+    public Collection getFields() {
+        final Collection<Field> listFields = new ArrayList<>();
 
-	/**
-	 * @param idServico
-	 * @return
-	 * @throws Exception
-	 */
-	public boolean existeQuestionarioServico(final Integer idServico) throws PersistenceException {
+        listFields.add(new Field("idPortal", "idPortal", true, true, false, false));
+        listFields.add(new Field("idItem", "idItem", false, false, false, false));
+        listFields.add(new Field("posicaoX", "posicaoX", false, false, false, false));
+        listFields.add(new Field("posicaoY", "posicaoY", false, false, false, false));
+        listFields.add(new Field("idUsuario", "idUsuario", false, false, false, false));
+        listFields.add(new Field("coluna", "coluna", false, false, false, false));
+        listFields.add(new Field("largura", "largura", false, false, false, false));
+        listFields.add(new Field("altura", "altura", false, false, false, false));
+        listFields.add(new Field("data", "data", false, false, false, false));
+        /* listFields.add(new Field("hora", "hora", false, false, false, false)); */
 
-		try{
-			Object[] param = new Object[] {idServico};
+        return listFields;
+    }
 
-			String query = "SELECT count(*) FROM "
-					+ "	servico s"
-					+ " INNER JOIN"
-					+ " servicocontrato sc ON sc.idservico = s.idservico"
-					+ " INNER JOIN"
-					+ "	templatesolicitacaoservico t ON t.idtemplate = s.idtemplatesolicitacao"
-					+ " INNER JOIN"
-					+ "	questionario q ON q.idquestionario = t.idquestionario"
-					+ " WHERE"
-					+ "	s.idservico = ?;";
+    @Override
+    public String getTableName() {
+        return "portal";
+    }
 
-			 	List lista = this.execSQL(query, param);
+    @Override
+    public Collection list() throws PersistenceException {
+        final List list = new ArrayList<>();
+        list.add(new Order("idUsuario"));
+        return super.list(list);
+    }
 
-		        Object[] row = (Object[]) lista.get(0);
+    public Collection listByUsuario(final Integer idUsuario) throws Exception {
+        final Object[] objs = new Object[] {idUsuario};
 
-		        return Integer.parseInt(row[0].toString()) > 0;
+        final String sql = " SELECT idUsuario from portal where idUsuario = ? ";
 
-		}catch(NumberFormatException ex){
+        final List lista = this.execSQL(sql, objs);
+        final List listRetorno = new ArrayList<>();
+        listRetorno.add("idUsuario");
 
-			return Boolean.FALSE;
-		}
-	}
+        return engine.listConvertion(this.getBean(), lista, listRetorno);
+    }
 
-	/**
-	 * @param idServico
-	 * @return
-	 * @throws Exception
-	 */
-	public boolean existeQuestionario(final Integer idServico) throws PersistenceException {
+    public Collection findByCondition(final Integer id) throws Exception {
+        final List list1 = new ArrayList<>();
+        final List list2 = new ArrayList<>();
+        list1.add(new Condition("idUsuario", "=", id));
+        list2.add(new Order("idItem"));
+        return super.findByCondition(list1, list2);
+    }
 
-		try{
+    public Collection findByCondition(final Integer idUsuario, final Integer idItem) throws Exception {
+        final List list1 = new ArrayList<>();
+        final List list2 = new ArrayList<>();
+        list1.add(new Condition("idUsuario", "=", idUsuario));
+        list1.add(new Condition("idItem", "=", idItem));
+        list2.add(new Order("idItem"));
+        return super.findByCondition(list1, list2);
+    }
 
-			Object[] param = new Object[] {idServico};
+    @Override
+    public void update(final BaseEntity obj) throws PersistenceException {
+        final PortalDTO dto = (PortalDTO) obj;
+        final List param = new ArrayList<>();
+        param.add(dto.getPosicaoX());
+        param.add(dto.getPosicaoY());
+        param.add(dto.getLargura());
+        param.add(dto.getAltura());
+        param.add(dto.getData());
+        /* param.add(dto.getHora()); */
+        param.add(dto.getIdUsuario());
+        param.add(dto.getIdItem());
+        final String str = "UPDATE " + this.getTableName()
+                + " SET posicaoX = ?, posicaoY = ?, largura=? ,altura =?, data =? WHERE idusuario = ? AND iditem = ?";
+        super.execUpdate(str, param.toArray());
+    }
 
-			String query = "SELECT COUNT(idquestionario) FROM servico s "
-					+ "		INNER JOIN templatesolicitacaoservico t ON t.idtemplate = s.idtemplatesolicitacao "
-					+ "		WHERE s.idservico=?";
+    @Override
+    public void delete(final BaseEntity obj) throws PersistenceException {
+        final PortalDTO dto = (PortalDTO) obj;
+        final List param = new ArrayList<>();
+        param.add(dto.getIdUsuario());
+        param.add(dto.getIdItem());
+        final String str = "DELETE FROM " + this.getTableName() + " WHERE idusuario = ? AND iditem = ?";
+        super.execUpdate(str, param.toArray());
+    }
 
-			List lista = this.execSQL(query, param);
+    @Override
+    public Collection find(final BaseEntity obj) throws PersistenceException {
+        final List ordem = new ArrayList<>();
+        ordem.add(new Order("idUsuario"));
+        return super.find(obj, ordem);
+    }
 
-	        Object[] row = (Object[]) lista.get(0);
+    @Override
+    public Class getBean() {
+        return PortalDTO.class;
+    }
 
-	        return Integer.parseInt(row[0].toString()) > 0;
+    /**
+     * @param idServico
+     * @return
+     * @throws Exception
+     */
+    public boolean existeQuestionarioServico(final Integer idServico) throws PersistenceException {
 
-		}catch(NumberFormatException ex){
+        try {
+            final Object[] param = new Object[] {idServico};
 
-			return Boolean.FALSE;
-		}
+            final String query = "SELECT count(*) FROM " + "	servico s" + " INNER JOIN" + " servicocontrato sc ON sc.idservico = s.idservico" + " INNER JOIN"
+                    + "	templatesolicitacaoservico t ON t.idtemplate = s.idtemplatesolicitacao" + " INNER JOIN"
+                    + "	questionario q ON q.idquestionario = t.idquestionario" + " WHERE" + "	s.idservico = ?;";
 
-	}
+            final List lista = this.execSQL(query, param);
 
-	/**
-	 * @param idServicoCatalogo
-	 * @return
-	 */
-	public Integer obterIdQuestionarioServico(Integer idServicoCatalogo) {
+            final Object[] row = (Object[]) lista.get(0);
 
-		Object[] param = new Object[] {idServicoCatalogo};
+            return Integer.parseInt(row[0].toString()) > 0;
 
-		String query = "select idQuestionario from servico s INNER JOIN templatesolicitacaoservico t ON t.idtemplate = s.idtemplatesolicitacao WHERE s.idservico=?";
+        } catch (final NumberFormatException ex) {
 
-		List lista;
-		try {
+            return Boolean.FALSE;
+        }
+    }
 
-			lista = this.execSQL(query, param);
+    /**
+     * @param idServico
+     * @return
+     * @throws Exception
+     */
+    public boolean existeQuestionario(final Integer idServico) throws PersistenceException {
 
-			if (lista != null && lista.size() > 0){
+        try {
 
-				Object[] row = (Object[]) lista.get(0);
+            final Object[] param = new Object[] {idServico};
 
-			    return Integer.parseInt(row[0].toString());
-			}
+            final String query = "SELECT COUNT(idquestionario) FROM servico s "
+                    + "		INNER JOIN templatesolicitacaoservico t ON t.idtemplate = s.idtemplatesolicitacao " + "		WHERE s.idservico=?";
 
-		} catch (PersistenceException e) {
+            final List lista = this.execSQL(query, param);
 
-			e.printStackTrace();
-		}
+            final Object[] row = (Object[]) lista.get(0);
 
-		return null;
-	}
+            return Integer.parseInt(row[0].toString()) > 0;
+
+        } catch (final NumberFormatException ex) {
+
+            return Boolean.FALSE;
+        }
+
+    }
+
+    /**
+     * @param idServicoCatalogo
+     * @return
+     */
+    public Integer obterIdQuestionarioServico(final Integer idServicoCatalogo) {
+
+        final Object[] param = new Object[] {idServicoCatalogo};
+
+        final String query = "select idQuestionario from servico s INNER JOIN templatesolicitacaoservico t ON t.idtemplate = s.idtemplatesolicitacao WHERE s.idservico=?";
+
+        List lista;
+        try {
+
+            lista = this.execSQL(query, param);
+
+            if (lista != null && lista.size() > 0) {
+
+                final Object[] row = (Object[]) lista.get(0);
+
+                return Integer.parseInt(row[0].toString());
+            }
+
+        } catch (final PersistenceException e) {
+
+            e.printStackTrace();
+        }
+
+        return null;
+    }
 
 }

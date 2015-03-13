@@ -3,66 +3,62 @@ package br.com.centralit.citcorpore.bean;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class SuspensaoReativacaoSolicitacaoDTO extends BaseEntity {
-	private static final long serialVersionUID = 1L;
 
-	private String idContrato;
-	private String solicitante;
-	private String idGrupo;
-	private String justificativa;
-	private Integer idJustificativa;
-	private String tipoAcao;
+    private static final long serialVersionUID = 1L;
 
-	
-	public Integer getIdJustificativa() {
-		return idJustificativa;
-	}
+    private String idContrato;
+    private String solicitante;
+    private String idGrupo;
+    private String justificativa;
+    private Integer idJustificativa;
+    private String tipoAcao;
 
-	public void setIdJustificativa(Integer idJustificativa) {
-		this.idJustificativa = idJustificativa;
-	}
+    public Integer getIdJustificativa() {
+        return idJustificativa;
+    }
 
-	public String getIdContrato() {
-		return idContrato;
-	}
+    public void setIdJustificativa(final Integer idJustificativa) {
+        this.idJustificativa = idJustificativa;
+    }
 
-	public void setIdContrato(String idContrato) {
-		this.idContrato = idContrato;
-	}
+    public String getIdContrato() {
+        return idContrato;
+    }
 
-	public String getSolicitante() {
-		return solicitante;
-	}
+    public void setIdContrato(final String idContrato) {
+        this.idContrato = idContrato;
+    }
 
-	public void setSolicitante(String solicitante) {
-		this.solicitante = solicitante;
-	}
+    public String getSolicitante() {
+        return solicitante;
+    }
 
-	public String getIdGrupo() {
-		return idGrupo;
-	}
+    public void setSolicitante(final String solicitante) {
+        this.solicitante = solicitante;
+    }
 
-	public void setIdGrupo(String idGrupo) {
-		this.idGrupo = idGrupo;
-	}
+    public String getIdGrupo() {
+        return idGrupo;
+    }
 
-	public String getJustificativa() {
-		return justificativa;
-	}
+    public void setIdGrupo(final String idGrupo) {
+        this.idGrupo = idGrupo;
+    }
 
-	public void setJustificativa(String justificativa) {
-		this.justificativa = justificativa;
-	}
+    public String getJustificativa() {
+        return justificativa;
+    }
 
-	public String getTipoAcao() {
-		return tipoAcao;
-	}
+    public void setJustificativa(final String justificativa) {
+        this.justificativa = justificativa;
+    }
 
-	public void setTipoAcao(String tipoAcao) {
-		this.tipoAcao = tipoAcao;
-	}
+    public String getTipoAcao() {
+        return tipoAcao;
+    }
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+    public void setTipoAcao(final String tipoAcao) {
+        this.tipoAcao = tipoAcao;
+    }
 
 }

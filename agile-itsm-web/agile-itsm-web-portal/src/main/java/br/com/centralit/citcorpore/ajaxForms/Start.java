@@ -21,8 +21,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
-import org.apache.commons.lang.StringEscapeUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import br.com.centralit.citajax.html.AjaxFormAction;
 import br.com.centralit.citajax.html.DocumentHTML;
@@ -260,7 +260,7 @@ public class Start extends AjaxFormAction {
                 + escape(Enumerados.ParametroSistema.NUMERO_COLABORADORES_CONSULTA_AD.getCampoParametroInternacionalizado(request)) + "','"
                 + this.escapeValor(Enumerados.ParametroSistema.NUMERO_COLABORADORES_CONSULTA_AD) + " ')");
         document.executeScript("addLinhaTabelaAtributosLdap(" + Enumerados.ParametroSistema.LDAP_MOSTRA_BOTAO.id() + ",'"
-                + StringEscapeUtils.escapeJavaScript(Enumerados.ParametroSistema.LDAP_MOSTRA_BOTAO.getCampoParametroInternacionalizado(request)) + "','"
+                + StringEscapeUtils.escapeEcmaScript(Enumerados.ParametroSistema.LDAP_MOSTRA_BOTAO.getCampoParametroInternacionalizado(request)) + "','"
                 + this.escapeValor(Enumerados.ParametroSistema.LDAP_MOSTRA_BOTAO, "N") + " ')");
     }
 
@@ -407,7 +407,7 @@ public class Start extends AjaxFormAction {
         document.executeScript("deleteAllRowsTabelaAtributosLog()");
 
         document.executeScript("addLinhaLog(" + Enumerados.ParametroSistema.USE_LOG.id() + "," + "'"
-                + StringEscapeUtils.escapeJavaScript(Enumerados.ParametroSistema.USE_LOG.getCampoParametroInternacionalizado(request)) + "'," + "'"
+                + StringEscapeUtils.escapeEcmaScript(Enumerados.ParametroSistema.USE_LOG.getCampoParametroInternacionalizado(request)) + "'," + "'"
                 + this.escapeValor(Enumerados.ParametroSistema.USE_LOG) + "'," + "'S','','','')");
         document.executeScript("addLinhaLog(" + Enumerados.ParametroSistema.FILE_LOG.id() + "," + "'"
                 + escape(Enumerados.ParametroSistema.FILE_LOG.getCampoParametroInternacionalizado(request)) + "'," + "'"
@@ -609,7 +609,7 @@ public class Start extends AjaxFormAction {
                 + escape(Enumerados.ParametroSistema.NOME_INVENTARIO.getCampoParametroInternacionalizado(request)) + "'," + "'"
                 + this.escapeValor(Enumerados.ParametroSistema.NOME_INVENTARIO) + "'," + "'N', '', '', '', '')");
         document.executeScript("addLinhaParametrosIC(" + Enumerados.ParametroSistema.ITEM_CONFIGURACAO_MUDANCA.id() + "," + "'"
-                + StringEscapeUtils.escapeJavaScript(Enumerados.ParametroSistema.ITEM_CONFIGURACAO_MUDANCA.getCampoParametroInternacionalizado(request)) + "',"
+                + StringEscapeUtils.escapeEcmaScript(Enumerados.ParametroSistema.ITEM_CONFIGURACAO_MUDANCA.getCampoParametroInternacionalizado(request)) + "',"
                 + "'" + this.escapeValor(Enumerados.ParametroSistema.ITEM_CONFIGURACAO_MUDANCA) + "'," + "'S', '', '', '', '')");
         document.executeScript("addLinhaParametrosIC(" + Enumerados.ParametroSistema.ENVIO_PADRAO_EMAIL_IC.id() + "," + "'"
                 + escape(Enumerados.ParametroSistema.ENVIO_PADRAO_EMAIL_IC.getCampoParametroInternacionalizado(request)) + "'," + "'"
@@ -734,7 +734,7 @@ public class Start extends AjaxFormAction {
         document.executeScript("deleteAllRowsTabelaAtributosGerais()");
 
         document.executeScript("addLinhaParametrosGerais(" + Enumerados.ParametroSistema.URL_Sistema.id() + "," + "'"
-                + StringEscapeUtils.escapeJavaScript(Enumerados.ParametroSistema.URL_Sistema.getCampoParametroInternacionalizado(request)) + "'," + "'"
+                + StringEscapeUtils.escapeEcmaScript(Enumerados.ParametroSistema.URL_Sistema.getCampoParametroInternacionalizado(request)) + "'," + "'"
                 + this.escapeValor(Enumerados.ParametroSistema.URL_Sistema) + "'," + "'N','')");
 
         /*
@@ -1062,7 +1062,7 @@ public class Start extends AjaxFormAction {
     }
 
     private String escape(final String valor) {
-        return StringEscapeUtils.escapeJavaScript(valor);
+        return StringEscapeUtils.escapeEcmaScript(valor);
     }
 
     private String escapeValor(final ParametroSistema parametro, final String df) throws Exception {

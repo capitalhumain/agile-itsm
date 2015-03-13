@@ -18,42 +18,45 @@ import br.com.citframework.util.Constantes;
  */
 public class CondicaoOperacaoDao extends CrudDaoDefaultImpl {
 
-	public CondicaoOperacaoDao() {
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
+    public CondicaoOperacaoDao() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
+    }
 
-	@SuppressWarnings("rawtypes")
-	public Class getBean() {
-		return CondicaoOperacaoDTO.class;
-	}
+    @Override
+    public Class getBean() {
+        return CondicaoOperacaoDTO.class;
+    }
 
-	public Collection<Field> getFields() {
-		Collection<Field> listFields = new ArrayList<>();
+    @Override
+    public Collection<Field> getFields() {
+        final Collection<Field> listFields = new ArrayList<>();
 
-		listFields.add(new Field("IDCONDICAOOPERACAO", "idCondicaoOperacao", true, true, false, false));
-		listFields.add(new Field("IDEMPRESA", "idEmpresa", false, false, false, false));
-		listFields.add(new Field("NOMECONDICAOOPERACAO", "nomeCondicaoOperacao", false, false, false, false));
-		listFields.add(new Field("DATAINICIO", "dataInicio", false, false, false, false));
-		listFields.add(new Field("DATAFIM", "dataFim", false, false, false, false));
+        listFields.add(new Field("IDCONDICAOOPERACAO", "idCondicaoOperacao", true, true, false, false));
+        listFields.add(new Field("IDEMPRESA", "idEmpresa", false, false, false, false));
+        listFields.add(new Field("NOMECONDICAOOPERACAO", "nomeCondicaoOperacao", false, false, false, false));
+        listFields.add(new Field("DATAINICIO", "dataInicio", false, false, false, false));
+        listFields.add(new Field("DATAFIM", "dataFim", false, false, false, false));
 
-		return listFields;
-	}
-	public String getTableName() {
-		return "CONDICAOOPERACAO";
-	}
+        return listFields;
+    }
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public Collection find(BaseEntity obj) throws PersistenceException {
-		List ordem = new ArrayList();
-		ordem.add(new Order("nomeCondicaoOperacao"));
-		return super.find(obj, ordem);
-	}
+    @Override
+    public String getTableName() {
+        return "CONDICAOOPERACAO";
+    }
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public Collection list() throws PersistenceException {
-		List list = new ArrayList();
-		list.add(new Order("nomeCondicaoOperacao"));
-		return super.list(list);
-	}
+    @Override
+    public Collection find(final BaseEntity obj) throws PersistenceException {
+        final List ordem = new ArrayList<>();
+        ordem.add(new Order("nomeCondicaoOperacao"));
+        return super.find(obj, ordem);
+    }
+
+    @Override
+    public Collection list() throws PersistenceException {
+        final List list = new ArrayList<>();
+        list.add(new Order("nomeCondicaoOperacao"));
+        return super.list(list);
+    }
 
 }

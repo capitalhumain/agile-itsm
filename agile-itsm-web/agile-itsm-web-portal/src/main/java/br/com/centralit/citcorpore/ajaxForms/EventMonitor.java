@@ -10,7 +10,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import br.com.centralit.citajax.html.AjaxFormAction;
 import br.com.centralit.citajax.html.DocumentHTML;
@@ -47,7 +47,7 @@ public class EventMonitor extends AjaxFormAction {
 		boolean primVez = true;
 		int qtdeTotalHostsDown = 0;
 		int qtdeTotalServicesCritical = 0;
-		List lstServicesCritical = new ArrayList();
+		List lstServicesCritical = new ArrayList<>();
 		if (colGrupos != null) {
 			for (Iterator it = colGrupos.iterator(); it.hasNext();) {
 				GrupoRecursosDTO grupoRecursosDTO = (GrupoRecursosDTO) it.next();
@@ -264,7 +264,7 @@ public class EventMonitor extends AjaxFormAction {
 		String current_state = null;
 		int qtdeServicosCriticos = 0;
 		if (lstServicesCritical == null) {
-			lstServicesCritical = new ArrayList();
+			lstServicesCritical = new ArrayList<>();
 		}
 		try {
 			Host host = MonitoraNagios.javaNagios.findHostByHostName(hostName.trim());
@@ -351,7 +351,7 @@ public class EventMonitor extends AjaxFormAction {
 		}
 		Collection colRecursos = recursoService.findByIdGrupoRecurso(eventMonitorDTO.getIdGrupoRecurso());
 		Date ultimoDownGrp = null;
-		List lstServicesCritical = new ArrayList();
+		List lstServicesCritical = new ArrayList<>();
 		EventTotalsDTO eventTotalsDTO = new EventTotalsDTO();
 
 		String strTable = "<b>" + eventMonitorDTO.getNomeGrupoRecurso() + "</b><br>";

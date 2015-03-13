@@ -6,8 +6,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
-import org.apache.commons.lang.StringEscapeUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import br.com.centralit.citcorpore.integracao.ExportacaoContratosDao;
 import br.com.centralit.citcorpore.metainfo.bean.CamposObjetoNegocioDTO;
@@ -90,8 +90,8 @@ public class ExportacaoContratosServiceEjb extends CrudServiceImpl implements Ex
      */
     @Override
     public String generateSQLIn(String xml, final String id) throws Exception {
-        final ArrayList cols = new ArrayList();
-        final List colRecordsGeral = new ArrayList();
+        final ArrayList cols = new ArrayList<>();
+        final List colRecordsGeral = new ArrayList<>();
         boolean exists;
 
         if (xml != null && !xml.equals("")) {
@@ -531,7 +531,7 @@ public class ExportacaoContratosServiceEjb extends CrudServiceImpl implements Ex
             // Adiciona o rodapé do xml final.
             contentXml.append("\n</tables>");
 
-            return StringEscapeUtils.escapeHtml(contentXml.toString());
+            return StringEscapeUtils.escapeHtml4(contentXml.toString());
         } catch (final Exception e) {
             e.printStackTrace();
             return null;

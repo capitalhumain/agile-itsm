@@ -19,8 +19,8 @@ public class ControleGenerateSLAPorRequisitoSLAEmAndamento {
 		String datainicial = (String) parametersValues.get("PARAM.dataInicial");
 		String datafinal = (String) parametersValues.get("PARAM.dataFinal");
 		*/
-		List parametersValuesBusca = new ArrayList();
-		List lstRetorno = new ArrayList();
+		List parametersValuesBusca = new ArrayList<>();
+		List lstRetorno = new ArrayList<>();
 /*
 		Date datafim = null;
 		Date datainicio = null;
@@ -163,7 +163,7 @@ public class ControleGenerateSLAPorRequisitoSLAEmAndamento {
 					String situacao = (String) row[18];
 				}
 			}
-			lstRetorno = new ArrayList();
+			lstRetorno = new ArrayList<>();
 			lstRetorno
 					.add(new Object[] { "Dentro do SLA",
 							(qtdePrazo / (qtdePrazo + qtdeForaPrazo)) * 100,

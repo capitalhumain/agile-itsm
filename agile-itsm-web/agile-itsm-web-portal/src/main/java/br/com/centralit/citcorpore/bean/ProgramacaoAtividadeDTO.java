@@ -6,9 +6,10 @@ import java.util.Collection;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class ProgramacaoAtividadeDTO extends BaseEntity {
-	private Integer idProgramacaoAtividade;
-	private Integer idAtividadePeriodica;
-    private String tipoAgendamento;     
+
+    private Integer idProgramacaoAtividade;
+    private Integer idAtividadePeriodica;
+    private String tipoAgendamento;
     private Date dataInicio;
     private Date dataFim;
     private Integer duracaoEstimada;
@@ -43,69 +44,81 @@ public class ProgramacaoAtividadeDTO extends BaseEntity {
     private String repeticaoTipoIntervalo;
     private String horaInicio;
     private String horaFim;
-    
+
     private String tipoAgendamentoDescr;
     private String detalhamento;
     private String repeticaoDescr;
     private String horaInicioFmt;
     private String duracaoEstimadaDescr;
-    
+
     private Integer sequencia;
     private Date proximaExecucao;
     private Integer idAtividadesOs;
     private String nomeAtividadeOs;
-    
+
     private Collection colItensOSAtividade;
-    
+
     public String getTipoAgendamentoDescr() {
         return tipoAgendamentoDescr;
     }
-    
-    public void setTipoAgendamentoDescr(String tipoAgendamentoDescr) {
+
+    public void setTipoAgendamentoDescr(final String tipoAgendamentoDescr) {
         this.tipoAgendamentoDescr = tipoAgendamentoDescr;
     }
+
     public String getHoraInicioFmt() {
         return horaInicioFmt;
     }
 
-    public void setHoraInicioFmt(String horaInicioFmt) {
+    public void setHoraInicioFmt(final String horaInicioFmt) {
         this.horaInicioFmt = horaInicioFmt;
     }
 
     public Integer getIdProgramacaoAtividade() {
         return idProgramacaoAtividade;
     }
-    public void setIdProgramacaoAtividade(Integer idProgramacaoAtividade) {
+
+    public void setIdProgramacaoAtividade(final Integer idProgramacaoAtividade) {
         this.idProgramacaoAtividade = idProgramacaoAtividade;
     }
+
     public Integer getIdAtividadePeriodica() {
         return idAtividadePeriodica;
     }
-    public void setIdAtividadePeriodica(Integer idAtividadePeriodica) {
+
+    public void setIdAtividadePeriodica(final Integer idAtividadePeriodica) {
         this.idAtividadePeriodica = idAtividadePeriodica;
     }
+
     public String getTipoAgendamento() {
         return tipoAgendamento;
     }
-    public void setTipoAgendamento(String tipoAgendamento) {
+
+    public void setTipoAgendamento(final String tipoAgendamento) {
         this.tipoAgendamento = tipoAgendamento;
     }
+
     public Date getDataInicio() {
         return dataInicio;
     }
-    public void setDataInicio(Date dataInicio) {
+
+    public void setDataInicio(final Date dataInicio) {
         this.dataInicio = dataInicio;
     }
+
     public Date getDataFim() {
         return dataFim;
     }
-    public void setDataFim(Date dataFim) {
+
+    public void setDataFim(final Date dataFim) {
         this.dataFim = dataFim;
     }
+
     public Integer getDuracaoEstimada() {
         return duracaoEstimada;
     }
-    public void setDuracaoEstimada(Integer duracaoEstimada) {
+
+    public void setDuracaoEstimada(final Integer duracaoEstimada) {
         this.duracaoEstimada = duracaoEstimada;
     }
 
@@ -113,7 +126,7 @@ public class ProgramacaoAtividadeDTO extends BaseEntity {
         return periodicidadeDiaria;
     }
 
-    public void setPeriodicidadeDiaria(Integer periodicidadeDiaria) {
+    public void setPeriodicidadeDiaria(final Integer periodicidadeDiaria) {
         this.periodicidadeDiaria = periodicidadeDiaria;
     }
 
@@ -121,161 +134,207 @@ public class ProgramacaoAtividadeDTO extends BaseEntity {
         return periodicidadeSemanal;
     }
 
-    public void setPeriodicidadeSemanal(Integer periodicidadeSemanal) {
+    public void setPeriodicidadeSemanal(final Integer periodicidadeSemanal) {
         this.periodicidadeSemanal = periodicidadeSemanal;
     }
-
 
     public Integer getPeriodicidadeMensal() {
         return periodicidadeMensal;
     }
 
-    public void setPeriodicidadeMensal(Integer periodicidadeMensal) {
+    public void setPeriodicidadeMensal(final Integer periodicidadeMensal) {
         this.periodicidadeMensal = periodicidadeMensal;
     }
 
     public String getSeg() {
         return seg;
     }
-    public void setSeg(String seg) {
+
+    public void setSeg(final String seg) {
         this.seg = seg;
     }
+
     public String getTer() {
         return ter;
     }
-    public void setTer(String ter) {
+
+    public void setTer(final String ter) {
         this.ter = ter;
     }
+
     public String getQua() {
         return qua;
     }
-    public void setQua(String qua) {
+
+    public void setQua(final String qua) {
         this.qua = qua;
     }
+
     public String getQui() {
         return qui;
     }
-    public void setQui(String qui) {
+
+    public void setQui(final String qui) {
         this.qui = qui;
     }
+
     public String getSex() {
         return sex;
     }
-    public void setSex(String sex) {
+
+    public void setSex(final String sex) {
         this.sex = sex;
     }
+
     public String getSab() {
         return sab;
     }
-    public void setSab(String sab) {
+
+    public void setSab(final String sab) {
         this.sab = sab;
     }
+
     public String getDom() {
         return dom;
     }
-    public void setDom(String dom) {
+
+    public void setDom(final String dom) {
         this.dom = dom;
     }
+
     public String getJan() {
         return jan;
     }
-    public void setJan(String jan) {
+
+    public void setJan(final String jan) {
         this.jan = jan;
     }
+
     public String getFev() {
         return fev;
     }
-    public void setFev(String fev) {
+
+    public void setFev(final String fev) {
         this.fev = fev;
     }
+
     public String getMar() {
         return mar;
     }
-    public void setMar(String mar) {
+
+    public void setMar(final String mar) {
         this.mar = mar;
     }
+
     public String getAbr() {
         return abr;
     }
-    public void setAbr(String abr) {
+
+    public void setAbr(final String abr) {
         this.abr = abr;
     }
+
     public String getMai() {
         return mai;
     }
-    public void setMai(String mai) {
+
+    public void setMai(final String mai) {
         this.mai = mai;
     }
+
     public String getJun() {
         return jun;
     }
-    public void setJun(String jun) {
+
+    public void setJun(final String jun) {
         this.jun = jun;
     }
+
     public String getJul() {
         return jul;
     }
-    public void setJul(String jul) {
+
+    public void setJul(final String jul) {
         this.jul = jul;
     }
+
     public String getAgo() {
         return ago;
     }
-    public void setAgo(String ago) {
+
+    public void setAgo(final String ago) {
         this.ago = ago;
     }
+
     public String getSet() {
         return set;
     }
-    public void setSet(String set) {
+
+    public void setSet(final String set) {
         this.set = set;
     }
+
     public String getOut() {
         return out;
     }
-    public void setOut(String out) {
+
+    public void setOut(final String out) {
         this.out = out;
     }
+
     public String getNov() {
         return nov;
     }
-    public void setNov(String nov) {
+
+    public void setNov(final String nov) {
         this.nov = nov;
     }
+
     public String getDez() {
         return dez;
     }
-    public void setDez(String dez) {
+
+    public void setDez(final String dez) {
         this.dez = dez;
     }
+
     public String getRepeticao() {
         return repeticao;
     }
-    public void setRepeticao(String repeticao) {
+
+    public void setRepeticao(final String repeticao) {
         this.repeticao = repeticao;
     }
+
     public Integer getRepeticaoIntervalo() {
         return repeticaoIntervalo;
     }
-    public void setRepeticaoIntervalo(Integer repeticaoIntervalo) {
+
+    public void setRepeticaoIntervalo(final Integer repeticaoIntervalo) {
         this.repeticaoIntervalo = repeticaoIntervalo;
     }
+
     public String getRepeticaoTipoIntervalo() {
         return repeticaoTipoIntervalo;
     }
-    public void setRepeticaoTipoIntervalo(String repeticaoTipoIntervalo) {
+
+    public void setRepeticaoTipoIntervalo(final String repeticaoTipoIntervalo) {
         this.repeticaoTipoIntervalo = repeticaoTipoIntervalo;
     }
+
     public String getHoraInicio() {
         return horaInicio;
     }
-    public void setHoraInicio(String horaInicio) {
+
+    public void setHoraInicio(final String horaInicio) {
         this.horaInicio = horaInicio;
     }
+
     public String getHoraFim() {
         return horaFim;
     }
-    public void setHoraFim(String horaFim) {
+
+    public void setHoraFim(final String horaFim) {
         this.horaFim = horaFim;
     }
 
@@ -283,7 +342,7 @@ public class ProgramacaoAtividadeDTO extends BaseEntity {
         return sequencia;
     }
 
-    public void setSequencia(Integer sequencia) {
+    public void setSequencia(final Integer sequencia) {
         this.sequencia = sequencia;
     }
 
@@ -291,7 +350,7 @@ public class ProgramacaoAtividadeDTO extends BaseEntity {
         return dia;
     }
 
-    public void setDia(Integer dia) {
+    public void setDia(final Integer dia) {
         this.dia = dia;
     }
 
@@ -299,7 +358,7 @@ public class ProgramacaoAtividadeDTO extends BaseEntity {
         return diaUtil;
     }
 
-    public void setDiaUtil(Integer diaUtil) {
+    public void setDiaUtil(final Integer diaUtil) {
         this.diaUtil = diaUtil;
     }
 
@@ -307,7 +366,7 @@ public class ProgramacaoAtividadeDTO extends BaseEntity {
         return diaSemana;
     }
 
-    public void setDiaSemana(Integer diaSemana) {
+    public void setDiaSemana(final Integer diaSemana) {
         this.diaSemana = diaSemana;
     }
 
@@ -315,7 +374,7 @@ public class ProgramacaoAtividadeDTO extends BaseEntity {
         return seqDiaSemana;
     }
 
-    public void setSeqDiaSemana(Integer seqDiaSemana) {
+    public void setSeqDiaSemana(final Integer seqDiaSemana) {
         this.seqDiaSemana = seqDiaSemana;
     }
 
@@ -323,7 +382,7 @@ public class ProgramacaoAtividadeDTO extends BaseEntity {
         return detalhamento;
     }
 
-    public void setDetalhamento(String detalhamento) {
+    public void setDetalhamento(final String detalhamento) {
         this.detalhamento = detalhamento;
     }
 
@@ -331,7 +390,7 @@ public class ProgramacaoAtividadeDTO extends BaseEntity {
         return repeticaoDescr;
     }
 
-    public void setRepeticaoDescr(String repeticaoDescr) {
+    public void setRepeticaoDescr(final String repeticaoDescr) {
         this.repeticaoDescr = repeticaoDescr;
     }
 
@@ -339,7 +398,7 @@ public class ProgramacaoAtividadeDTO extends BaseEntity {
         return duracaoEstimadaDescr;
     }
 
-    public void setDuracaoEstimadaDescr(String duracaoEstimadaDescr) {
+    public void setDuracaoEstimadaDescr(final String duracaoEstimadaDescr) {
         this.duracaoEstimadaDescr = duracaoEstimadaDescr;
     }
 
@@ -347,37 +406,38 @@ public class ProgramacaoAtividadeDTO extends BaseEntity {
         return proximaExecucao;
     }
 
-    public void setProximaExecucao(Date proximaExecucao) {
+    public void setProximaExecucao(final Date proximaExecucao) {
         this.proximaExecucao = proximaExecucao;
     }
 
-	/**
-	 * @return the idAtividadesOs
-	 */
-	public Integer getIdAtividadesOs() {
-		return idAtividadesOs;
-	}
+    /**
+     * @return the idAtividadesOs
+     */
+    public Integer getIdAtividadesOs() {
+        return idAtividadesOs;
+    }
 
-	/**
-	 * @param idAtividadesOs the idAtividadesOs to set
-	 */
-	public void setIdAtividadesOs(Integer idAtividadesOs) {
-		this.idAtividadesOs = idAtividadesOs;
-	}
+    /**
+     * @param idAtividadesOs
+     *            the idAtividadesOs to set
+     */
+    public void setIdAtividadesOs(final Integer idAtividadesOs) {
+        this.idAtividadesOs = idAtividadesOs;
+    }
 
-	/**
-	 * @return the nomeAtividadeOs
-	 */
-	public String getNomeAtividadeOs() {
-		return nomeAtividadeOs;
-	}
+    /**
+     * @return the nomeAtividadeOs
+     */
+    public String getNomeAtividadeOs() {
+        return nomeAtividadeOs;
+    }
 
-	/**
-	 * @param nomeAtividadeOs the nomeAtividadeOs to set
-	 */
-	public void setNomeAtividadeOs(String nomeAtividadeOs) {
-		this.nomeAtividadeOs = nomeAtividadeOs;
-	}
-
+    /**
+     * @param nomeAtividadeOs
+     *            the nomeAtividadeOs to set
+     */
+    public void setNomeAtividadeOs(final String nomeAtividadeOs) {
+        this.nomeAtividadeOs = nomeAtividadeOs;
+    }
 
 }

@@ -6,7 +6,7 @@ import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 
 import br.com.centralit.citajax.html.AjaxFormAction;
 import br.com.centralit.citajax.html.DocumentHTML;
@@ -123,7 +123,7 @@ public class ManualFuncao extends AjaxFormAction {
 
             for (final ManualFuncaoComplexidadeDTO complexidadeDto : manualFuncaoComplexidade) {
                 cmbJustificativa.addOption(complexidadeDto.getIdComplexidade().toString(),
-                        StringEscapeUtils.escapeJavaScript(complexidadeDto.getDescricao()));
+                        StringEscapeUtils.escapeEcmaScript(complexidadeDto.getDescricao()));
             }
         }
     }
@@ -144,7 +144,7 @@ public class ManualFuncao extends AjaxFormAction {
 
             for (final IdiomaDTO idiomaDto2 : idiomaDto) {
                 cmbIdioma.addOption(idiomaDto2.getIdIdioma().toString(),
-                        StringEscapeUtils.escapeJavaScript(idiomaDto2.getDescricao()));
+                        StringEscapeUtils.escapeEcmaScript(idiomaDto2.getDescricao()));
             }
         }
     }
@@ -165,7 +165,7 @@ public class ManualFuncao extends AjaxFormAction {
 
             for (final IdiomaDTO idiomaDto2 : idiomaDto) {
                 cmbIdioma.addOption(idiomaDto2.getIdIdioma().toString(),
-                        StringEscapeUtils.escapeJavaScript(idiomaDto2.getDescricao()));
+                        StringEscapeUtils.escapeEcmaScript(idiomaDto2.getDescricao()));
             }
         }
     }
@@ -186,7 +186,7 @@ public class ManualFuncao extends AjaxFormAction {
 
             for (final ManualFuncaoCompetenciaDTO competenciaDto : competencia) {
                 cmbCompetencia.addOption(competenciaDto.getIdNivelCompetencia().toString(),
-                        StringEscapeUtils.escapeJavaScript(competenciaDto.getDescricao()));
+                        StringEscapeUtils.escapeEcmaScript(competenciaDto.getDescricao()));
             }
         }
     }
@@ -207,7 +207,7 @@ public class ManualFuncao extends AjaxFormAction {
 
             for (final ManualFuncaoCompetenciaDTO competenciaDto : competencia) {
                 cmbCompetencia.addOption(competenciaDto.getIdNivelCompetencia().toString(),
-                        StringEscapeUtils.escapeJavaScript(competenciaDto.getDescricao()));
+                        StringEscapeUtils.escapeEcmaScript(competenciaDto.getDescricao()));
             }
         }
     }

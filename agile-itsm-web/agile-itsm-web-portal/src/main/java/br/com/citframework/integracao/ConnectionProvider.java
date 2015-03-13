@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 import javax.resource.ResourceException;
 import javax.sql.DataSource;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import br.com.centralit.citcorpore.util.AdaptacaoBD;
 import br.com.citframework.util.Constantes;

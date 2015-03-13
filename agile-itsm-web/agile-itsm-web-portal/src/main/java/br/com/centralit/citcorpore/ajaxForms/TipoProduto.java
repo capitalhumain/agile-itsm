@@ -6,7 +6,7 @@ import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 
 import br.com.centralit.citajax.html.AjaxFormAction;
 import br.com.centralit.citajax.html.DocumentHTML;
@@ -104,8 +104,8 @@ public class TipoProduto extends AjaxFormAction {
 		MarcaDTO marcaDTO = new MarcaDTO();
 		CategoriaProdutoDTO categoriaProdutoDTO = new CategoriaProdutoDTO();
 		UnidadeMedidaDTO unidadeMedidaDTO = new UnidadeMedidaDTO();
-		Collection<RelacionamentoProdutoDTO> colRelacionamentoProdutoDTOs = new ArrayList();
-		Collection<FornecedorProdutoDTO> colFornecedorProdutoDTOs = new ArrayList();
+		Collection<RelacionamentoProdutoDTO> colRelacionamentoProdutoDTOs = new ArrayList<>();
+		Collection<FornecedorProdutoDTO> colFornecedorProdutoDTOs = new ArrayList<>();
 		
 		RelacionamentoProdutoService relacionamentoProdutoService = (RelacionamentoProdutoService) ServiceLocator.getInstance().getService(RelacionamentoProdutoService.class, null);
 		FornecedorProdutoService fornecedorProdutoService = (FornecedorProdutoService) ServiceLocator.getInstance().getService(FornecedorProdutoService.class, null);
@@ -141,7 +141,7 @@ public class TipoProduto extends AjaxFormAction {
 			for (RelacionamentoProdutoDTO relacionamento : colRelacionamentoProdutoDTOs){
 				tipoProdutoDTO2.setIdTipoProduto(relacionamento.getIdTipoProdutoRelacionado());
 				tipoProdutoDTO2 = (TipoProdutoDTO) tipoProdutoService.restore(tipoProdutoDTO2);
-				document.executeScript("addLinhaTabelaTipoProdutoRelacionado(" + tipoProdutoDTO2.getIdTipoProduto() + ", '" + StringEscapeUtils.escapeJavaScript(tipoProdutoDTO2.getNomeProduto()) + "', " + false + ");");
+				document.executeScript("addLinhaTabelaTipoProdutoRelacionado(" + tipoProdutoDTO2.getIdTipoProduto() + ", '" + StringEscapeUtils.escapeEcmaScript(tipoProdutoDTO2.getNomeProduto()) + "', " + false + ");");
 					document.executeScript("atribuirChecked('"+ relacionamento.getTipoRelacionamento() + "',"+ i +");");
 					i++;
 			}
@@ -152,11 +152,11 @@ public class TipoProduto extends AjaxFormAction {
 			for (FornecedorProdutoDTO fornecedorProdutoDTO : colFornecedorProdutoDTOs){
 				fornecedorDTO.setIdFornecedor(fornecedorProdutoDTO.getIdFornecedor());
 				fornecedorDTO = (FornecedorDTO) fornecedorService.restore(fornecedorDTO);
-				document.executeScript("addLinhaTabelaFornecedor(" + fornecedorProdutoDTO.getIdFornecedor() + ",'" + StringEscapeUtils.escapeJavaScript(fornecedorDTO.getRazaoSocial()) + "',"+ false + ");");
+				document.executeScript("addLinhaTabelaFornecedor(" + fornecedorProdutoDTO.getIdFornecedor() + ",'" + StringEscapeUtils.escapeEcmaScript(fornecedorDTO.getRazaoSocial()) + "',"+ false + ");");
 				if (fornecedorProdutoDTO.getIdMarca() != null){
 					marcaDTO.setIdMarca(fornecedorProdutoDTO.getIdMarca());
 					marcaDTO = (MarcaDTO) marcaService.restore(marcaDTO);
-					document.executeScript("setarMarca("+marcaDTO.getIdMarca() +",'" + StringEscapeUtils.escapeJavaScript(marcaDTO.getNomeMarca()) + "'," + i +");");
+					document.executeScript("setarMarca("+marcaDTO.getIdMarca() +",'" + StringEscapeUtils.escapeEcmaScript(marcaDTO.getNomeMarca()) + "'," + i +");");
 				}
 				document.executeScript("setarIdFornecedorProduto("+fornecedorProdutoDTO.getIdFornecedorProduto() +"," + i +");");
 				i++;
@@ -199,8 +199,8 @@ public class TipoProduto extends AjaxFormAction {
 		TipoProdutoDTO tipoProduto = (TipoProdutoDTO) document.getBean();
 		
 		ProdutoDTO produtoDTO = new ProdutoDTO();
-		Collection<ProdutoDTO> listProduto = new ArrayList();
-		Collection<FornecedorProdutoDTO> colFornecedorProdutoDTOs = new ArrayList();
+		Collection<ProdutoDTO> listProduto = new ArrayList<>();
+		Collection<FornecedorProdutoDTO> colFornecedorProdutoDTOs = new ArrayList<>();
 		
 		RelacionamentoProdutoService relacionamentoProdutoService = (RelacionamentoProdutoService) ServiceLocator.getInstance().getService(RelacionamentoProdutoService.class, null);
 		FornecedorProdutoService fornecedorProdutoService = (FornecedorProdutoService) ServiceLocator.getInstance().getService(FornecedorProdutoService.class, null);

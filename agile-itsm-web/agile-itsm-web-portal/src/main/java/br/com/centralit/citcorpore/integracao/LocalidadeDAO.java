@@ -11,96 +11,92 @@ import br.com.citframework.integracao.CrudDaoDefaultImpl;
 import br.com.citframework.integracao.Field;
 import br.com.citframework.util.Constantes;
 
-@SuppressWarnings({ "unchecked", "rawtypes" })
 public class LocalidadeDAO extends CrudDaoDefaultImpl {
 
-	public LocalidadeDAO() {
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
+    public LocalidadeDAO() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
+    }
 
-	@Override
-	public Collection find(BaseEntity obj) throws PersistenceException {
-				return null;
-	}
+    @Override
+    public Collection find(final BaseEntity obj) throws PersistenceException {
+        return null;
+    }
 
-	@Override
-	public Collection<Field> getFields() {
-		Collection<Field> listFields = new ArrayList<>();
+    @Override
+    public Collection<Field> getFields() {
+        final Collection<Field> listFields = new ArrayList<>();
 
-		listFields.add(new Field("idlocalidade", "idLocalidade", true, true, false, false));
-		listFields.add(new Field("nomelocalidade", "nomeLocalidade", false, false, false, false));
-		listFields.add(new Field("datainicio", "dataInicio", false, false, false, false));
-		listFields.add(new Field("datafim", "dataFim", false, false, false, false));
+        listFields.add(new Field("idlocalidade", "idLocalidade", true, true, false, false));
+        listFields.add(new Field("nomelocalidade", "nomeLocalidade", false, false, false, false));
+        listFields.add(new Field("datainicio", "dataInicio", false, false, false, false));
+        listFields.add(new Field("datafim", "dataFim", false, false, false, false));
 
-		return listFields;
-	}
-	
-	/**
-	 * Retorna lista de status de usuário.
-	 * 
-	 * @param obj
-	 * @return
-	 * @throws Exception
-	 */
-	public boolean verificarLocalidadeAtiva(LocalidadeDTO obj) throws PersistenceException {
-		List parametro = new ArrayList();
-		List list = new ArrayList();
-		String sql = "select idlocalidade From " + getTableName() + "  where  nomelocalidade = ?   and dataFim is null ";
-		
-		if(obj.getIdLocalidade() != null){
-			sql+=" and idlocalidade <> "+ obj.getIdLocalidade();
-		}
-		
-		parametro.add(obj.getNomeLocalidade());
-		list = this.execSQL(sql, parametro.toArray());
-		if (list != null && !list.isEmpty()) {
-			return true;
-		} else {
-			return false;
-		}
-	}
+        return listFields;
+    }
 
-	@Override
-	public String getTableName() {
-				return "localidade";
-	}
+    /**
+     * Retorna lista de status de usuário.
+     *
+     * @param obj
+     * @return
+     * @throws Exception
+     */
+    public boolean verificarLocalidadeAtiva(final LocalidadeDTO obj) throws PersistenceException {
+        final List parametro = new ArrayList<>();
+        List list = new ArrayList<>();
+        String sql = "select idlocalidade From " + this.getTableName() + "  where  nomelocalidade = ?   and dataFim is null ";
 
-	@Override
-	public Collection list() throws PersistenceException {
-				return null;
-	}
+        if (obj.getIdLocalidade() != null) {
+            sql += " and idlocalidade <> " + obj.getIdLocalidade();
+        }
 
-	@Override
-	public Class getBean() {
-				return LocalidadeDTO.class;
-	}
-	
-	 /**
-	* Retorna lista de localidades
-	*
-	* @param
-	* @return Collection
-	* @throws Exception
-	* @author thays.araujo
-	*/
-	public Collection<LocalidadeDTO> listLocalidade() throws PersistenceException {
-	List listRetorno = new ArrayList();
-	List list = new ArrayList();
-	String sql = "select idlocalidade From " + getTableName() + " where dataFim is null ";
+        parametro.add(obj.getNomeLocalidade());
+        list = this.execSQL(sql, parametro.toArray());
+        if (list != null && !list.isEmpty()) {
+            return true;
+        }
+        return false;
+    }
 
-	list = this.execSQL(sql, null);
+    @Override
+    public String getTableName() {
+        return "localidade";
+    }
 
-	listRetorno.add("idLocalidade");
+    @Override
+    public Collection list() throws PersistenceException {
+        return null;
+    }
 
-	if (list != null && !list.isEmpty()) {
+    @Override
+    public Class getBean() {
+        return LocalidadeDTO.class;
+    }
 
-	Collection<LocalidadeDTO> listLocalidade = this.listConvertion(LocalidadeDTO.class, list, listRetorno);
-	return listLocalidade;
+    /**
+     * Retorna lista de localidades
+     *
+     * @param
+     * @return Collection
+     * @throws Exception
+     * @author thays.araujo
+     */
+    public Collection<LocalidadeDTO> listLocalidade() throws PersistenceException {
+        final List listRetorno = new ArrayList<>();
+        List list = new ArrayList<>();
+        final String sql = "select idlocalidade From " + this.getTableName() + " where dataFim is null ";
 
-	} else {
-	return null;
-	}
-	}
+        list = this.execSQL(sql, null);
 
+        listRetorno.add("idLocalidade");
+
+        if (list != null && !list.isEmpty()) {
+
+            final Collection<LocalidadeDTO> listLocalidade = this.listConvertion(LocalidadeDTO.class, list, listRetorno);
+            return listLocalidade;
+
+        }
+        return null;
+    }
 
 }

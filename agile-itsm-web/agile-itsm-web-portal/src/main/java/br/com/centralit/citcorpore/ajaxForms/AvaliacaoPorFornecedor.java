@@ -169,7 +169,7 @@ public class AvaliacaoPorFornecedor extends AjaxFormAction {
 			
 			Collection<ServicoContratoDTO> listServicosContrato = getColServicosContrato();
 			
-			List lst = new ArrayList();
+			List lst = new ArrayList<>();
 			double qtdeDentroPrazo = 0;
 			double qtdeForaPrazo = 0;
 			
@@ -302,7 +302,7 @@ public class AvaliacaoPorFornecedor extends AjaxFormAction {
 
 	private void montaTelaDesempenho(DocumentHTML document, HttpServletRequest request,	HttpServletResponse response) throws Exception {
 				
-		List colFinal = new ArrayList();
+		List colFinal = new ArrayList<>();
 		
 		if (getColServicosContrato() != null){
 			for(Iterator it = getColServicosContrato().iterator(); it.hasNext();){

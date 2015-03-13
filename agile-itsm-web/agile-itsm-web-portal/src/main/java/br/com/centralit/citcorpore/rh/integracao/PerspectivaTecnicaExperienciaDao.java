@@ -53,14 +53,14 @@ public class PerspectivaTecnicaExperienciaDao extends CrudDaoDefaultImpl {
 
     @Override
     public Collection list() throws PersistenceException {
-        final List list = new ArrayList();
+        final List list = new ArrayList<>();
         list.add(new Order("descricaoExperiencia"));
         return super.list(list);
     }
 
     public Collection findByidSolicitacao(final Integer parm) throws PersistenceException {
-        final List condicao = new ArrayList();
-        final List ordenacao = new ArrayList();
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
         condicao.add(new Condition("idSolicitacaoServico", "=", parm));
         ordenacao.add(new Order("idPerspectivaTecnicaExperiencia"));
         return super.findByCondition(condicao, ordenacao);
@@ -79,7 +79,7 @@ public class PerspectivaTecnicaExperienciaDao extends CrudDaoDefaultImpl {
         final Object[] objs = new Object[] {nome};
         final List list = this.execSQL(SQL_NOME, objs);
 
-        final List listRetorno = new ArrayList();
+        final List listRetorno = new ArrayList<>();
         listRetorno.add("idPerspectivaTecnicaExperiencia");
         listRetorno.add("descricaoExperiencia");
 
@@ -90,9 +90,9 @@ public class PerspectivaTecnicaExperienciaDao extends CrudDaoDefaultImpl {
 
     @SuppressWarnings("unchecked")
     public List<PerspectivaTecnicaExperienciaDTO> findByIdFuncao(final Integer IdFuncao) throws PersistenceException {
-        final List paramentros = new ArrayList();
-        List dados = new ArrayList();
-        final List fields = new ArrayList();
+        final List paramentros = new ArrayList<>();
+        List dados = new ArrayList<>();
+        final List fields = new ArrayList<>();
 
         final String sql = "SELECT a.idperspectivatecnicaexperiencia, idsolicitacaoServico, descricao, detalhe, obrigatorioexperiencia, b.idconhecimento "
                 + "FROM rh_perspectivatecnicaexperiencia a inner join rh_conhecimento b on a.idconhecimento = b.idconhecimento "
@@ -113,7 +113,7 @@ public class PerspectivaTecnicaExperienciaDao extends CrudDaoDefaultImpl {
     }
 
     public void deleteByIdSolicitacao(final Integer parm) throws PersistenceException {
-        final List condicao = new ArrayList();
+        final List<Condition> condicao = new ArrayList<>();
         condicao.add(new Condition("idSolicitacaoServico", "=", parm));
         super.deleteByCondition(condicao);
     }

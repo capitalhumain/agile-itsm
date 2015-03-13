@@ -4,7 +4,7 @@ import java.util.Collection;
 
 import net.htmlparser.jericho.Source;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;

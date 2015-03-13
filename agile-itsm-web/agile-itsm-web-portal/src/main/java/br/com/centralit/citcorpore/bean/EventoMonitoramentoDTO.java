@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package br.com.centralit.citcorpore.bean;
 
@@ -9,132 +9,132 @@ import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * @author Vadoilo Damasceno
- * 
+ *
  */
 public class EventoMonitoramentoDTO extends BaseEntity {
 
-	private static final long serialVersionUID = 594136415602018544L;
+    private static final long serialVersionUID = 594136415602018544L;
 
-	private Integer idEventoMonitoramento;
+    private Integer idEventoMonitoramento;
 
-	private String nomeEvento;
+    private String nomeEvento;
 
-	private String detalhamento;
+    private String detalhamento;
 
-	private String criadoPor;
+    private String criadoPor;
 
-	private String modificadoPor;
+    private String modificadoPor;
 
-	private Date dataCriacao;
+    private Date dataCriacao;
 
-	private Date ultimaModificacao;
-	
-	public static String staticCriadoPor;
-	public static Date staticDataCriacao;
-	
-	/**
-	 * @return the idEventoMonitoramento
-	 */
-	public Integer getIdEventoMonitoramento() {
-		return idEventoMonitoramento;
-	}
+    private Date ultimaModificacao;
 
-	/**
-	 * @param idEventoMonitoramento
-	 *            the idEventoMonitoramento to set
-	 */
-	public void setIdEventoMonitoramento(Integer idEventoMonitoramento) {
-		this.idEventoMonitoramento = idEventoMonitoramento;
-	}
+    public static String staticCriadoPor;
+    public static Date staticDataCriacao;
 
-	/**
-	 * @return the nomeEvento
-	 */
-	public String getNomeEvento() {
-		return nomeEvento;
-	}
+    /**
+     * @return the idEventoMonitoramento
+     */
+    public Integer getIdEventoMonitoramento() {
+        return idEventoMonitoramento;
+    }
 
-	/**
-	 * @param nomeEvento
-	 *            the nomeEvento to set
-	 */
-	public void setNomeEvento(String nomeEvento) {
-		this.nomeEvento = nomeEvento;
-	}
+    /**
+     * @param idEventoMonitoramento
+     *            the idEventoMonitoramento to set
+     */
+    public void setIdEventoMonitoramento(final Integer idEventoMonitoramento) {
+        this.idEventoMonitoramento = idEventoMonitoramento;
+    }
 
-	/**
-	 * @return the detalhamento
-	 */
-	public String getDetalhamento() {
-		return detalhamento;
-	}
+    /**
+     * @return the nomeEvento
+     */
+    public String getNomeEvento() {
+        return nomeEvento;
+    }
 
-	/**
-	 * @param detalhamento
-	 *            the detalhamento to set
-	 */
-	public void setDetalhamento(String detalhamento) {
-		this.detalhamento = detalhamento;
-	}
+    /**
+     * @param nomeEvento
+     *            the nomeEvento to set
+     */
+    public void setNomeEvento(final String nomeEvento) {
+        this.nomeEvento = nomeEvento;
+    }
 
-	/**
-	 * @return the criadoPor
-	 */
-	public String getCriadoPor() {
-		return criadoPor;
-	}
+    /**
+     * @return the detalhamento
+     */
+    public String getDetalhamento() {
+        return detalhamento;
+    }
 
-	/**
-	 * @param criadoPor
-	 *            the criadoPor to set
-	 */
-	public void setCriadoPor(String criadoPor) {
-		this.criadoPor = criadoPor;
-	}
+    /**
+     * @param detalhamento
+     *            the detalhamento to set
+     */
+    public void setDetalhamento(final String detalhamento) {
+        this.detalhamento = detalhamento;
+    }
 
-	/**
-	 * @return the modificadoPor
-	 */
-	public String getModificadoPor() {
-		return modificadoPor;
-	}
+    /**
+     * @return the criadoPor
+     */
+    public String getCriadoPor() {
+        return criadoPor;
+    }
 
-	/**
-	 * @param modificadoPor
-	 *            the modificadoPor to set
-	 */
-	public void setModificadoPor(String modificadoPor) {
-		this.modificadoPor = modificadoPor;
-	}
+    /**
+     * @param criadoPor
+     *            the criadoPor to set
+     */
+    public void setCriadoPor(final String criadoPor) {
+        this.criadoPor = criadoPor;
+    }
 
-	/**
-	 * @return the dataCriacao
-	 */
-	public Date getDataCriacao() {
-		return dataCriacao;
-	}
+    /**
+     * @return the modificadoPor
+     */
+    public String getModificadoPor() {
+        return modificadoPor;
+    }
 
-	/**
-	 * @param dataCriacao
-	 *            the dataCriacao to set
-	 */
-	public void setDataCriacao(Date dataCriacao) {
-		this.dataCriacao = dataCriacao;
-	}
+    /**
+     * @param modificadoPor
+     *            the modificadoPor to set
+     */
+    public void setModificadoPor(final String modificadoPor) {
+        this.modificadoPor = modificadoPor;
+    }
 
-	/**
-	 * @return the ultimaModificacao
-	 */
-	public Date getUltimaModificacao() {
-		return ultimaModificacao;
-	}
+    /**
+     * @return the dataCriacao
+     */
+    public Date getDataCriacao() {
+        return dataCriacao;
+    }
 
-	/**
-	 * @param ultimaModificacao
-	 *            the ultimaModificacao to set
-	 */
-	public void setUltimaModificacao(Date ultimaModificacao) {
-		this.ultimaModificacao = ultimaModificacao;
-	}
+    /**
+     * @param dataCriacao
+     *            the dataCriacao to set
+     */
+    public void setDataCriacao(final Date dataCriacao) {
+        this.dataCriacao = dataCriacao;
+    }
+
+    /**
+     * @return the ultimaModificacao
+     */
+    public Date getUltimaModificacao() {
+        return ultimaModificacao;
+    }
+
+    /**
+     * @param ultimaModificacao
+     *            the ultimaModificacao to set
+     */
+    public void setUltimaModificacao(final Date ultimaModificacao) {
+        this.ultimaModificacao = ultimaModificacao;
+    }
 
 }

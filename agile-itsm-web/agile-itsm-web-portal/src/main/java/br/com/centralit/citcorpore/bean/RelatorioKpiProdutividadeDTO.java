@@ -9,336 +9,329 @@ import br.com.agileitsm.model.support.BaseEntity;
 
 public class RelatorioKpiProdutividadeDTO extends BaseEntity {
 
-	private static final long serialVersionUID = 1L;
-	private Date dataInicio;
-	private Date dataFim;
-	private String formatoArquivoRelatorio;
-	private Integer idContrato;
-	private String contrato;
-	private String funcionario;
-	private String grupo;
-	private String listaUsuarios;
-	private String listaGrupoUnidade;
-	private String checkMostrarRequisicoes;
-	private String checkMostrarIncidentes;
-	private Collection<SolicitacaoServicoDTO> listaSolicitacoesUsuario;
-	private Collection<RelatorioKpiProdutividadeDTO> listaGeral;
-	private int qtdeExecutada;
-	private int qtdEstourada;
-	private int numeroSolicitacao;
-	private String NomeServico;
-	private double totalGrupoEstouradas;
-	private double totalGrupoExecutadas;
-	private int totalPorExecutante;
-	private int totalPorExecutanteEstouradas;
-	private String totalPorExecutanteEstouradasPorcentagem;
-	private String totalPorExecutantePorcentagem;
-	private String totalPorServicoPorcentagem;
-	private String selecionarGrupoUnidade;
-	private String situacao;
-	
-	//relatorio QI3 QI4
-	
-	private String listaServicosString;
-	private String listaCausaString;
-	private Collection<EmpregadoDTO> listaEmpregado;
-	private Collection<ServicoDTO> listaServicos;
-	private Collection<CausaIncidenteDTO> listaCausaIncidentes;
-	private Integer qtdeencaminhadas;
-	private Integer qtdeexito;
-	private Integer idEmpregado;
-	private Double porcentagemExecutadaExito;
-
-	public Double getPorcentagemExecutadaExito() {
-		return porcentagemExecutadaExito;
-	}
-
-	public void setPorcentagemExecutadaExito(Double porcentagemExecutadaExito) {
-		this.porcentagemExecutadaExito = porcentagemExecutadaExito;
-	}
-
-	public String getSituacao() {
-		return situacao;
-	}
-
-	public void setSituacao(String situacao) {
-		this.situacao = situacao;
-	}
-
-	public int getQtdeExecutada() {
-		return qtdeExecutada;
-	}
-
-	public void setQtdeExecutada(int qtdeExecutada) {
-		this.qtdeExecutada = qtdeExecutada;
-	}
-
-	public int getQtdEstourada() {
-		return qtdEstourada;
-	}
-
-	public void setQtdEstourada(int qtdEstourada) {
-		this.qtdEstourada = qtdEstourada;
-	}
-
-	public String getListaGrupoUnidade() {
-		return listaGrupoUnidade;
-	}
-
-	public void setListaGrupoUnidade(String listaGrupoUnidade) {
-		this.listaGrupoUnidade = listaGrupoUnidade;
-	}
-
-	public String getSelecionarGrupoUnidade() {
-		return selecionarGrupoUnidade;
-	}
-
-	public void setSelecionarGrupoUnidade(String selecionarGrupoUnidade) {
-		this.selecionarGrupoUnidade = selecionarGrupoUnidade;
-	}
-
-	public int getTotalPorExecutante() {
-		return totalPorExecutante;
-	}
-
-	public void setTotalPorExecutante(int totalPorExecutante) {
-		this.totalPorExecutante = totalPorExecutante;
-	}
-
-	public int getTotalPorExecutanteEstouradas() {
-		return totalPorExecutanteEstouradas;
-	}
-
-	public void setTotalPorExecutanteEstouradas(int totalPorExecutanteEstouradas) {
-		this.totalPorExecutanteEstouradas = totalPorExecutanteEstouradas;
-	}
-
-	public String getTotalPorServicoPorcentagem() {
-		return totalPorServicoPorcentagem;
-	}
-
-	public void setTotalPorServicoPorcentagem(String totalPorServicoPorcentagem) {
-		this.totalPorServicoPorcentagem = totalPorServicoPorcentagem;
-	}
-
-	public String getTotalPorExecutantePorcentagem() {
-		return totalPorExecutantePorcentagem;
-	}
-
-	public void setTotalPorExecutantePorcentagem(String totalPorExecutantePorcentagem) {
-		this.totalPorExecutantePorcentagem = totalPorExecutantePorcentagem;
-	}
-
-	public String getTotalPorExecutanteEstouradasPorcentagem() {
-		return totalPorExecutanteEstouradasPorcentagem;
-	}
-
-	public void setTotalPorExecutanteEstouradasPorcentagem(String totalPorExecutanteEstouradasPorcentagem) {
-		this.totalPorExecutanteEstouradasPorcentagem = totalPorExecutanteEstouradasPorcentagem;
-	}
-
-	public double getTotalGrupoEstouradas() {
-		return totalGrupoEstouradas;
-	}
-
-	public void setTotalGrupoEstouradas(double totalGrupoEstouradas) {
-		this.totalGrupoEstouradas = totalGrupoEstouradas;
-	}
-
-	public double getTotalGrupoExecutadas() {
-		return totalGrupoExecutadas;
-	}
-
-	public void setTotalGrupoExecutadas(double totalGrupoExecutadas) {
-		this.totalGrupoExecutadas = totalGrupoExecutadas;
-	}
-
-	public String getNomeServico() {
-		return NomeServico;
-	}
-
-	public void setNomeServico(String nomeServico) {
-		NomeServico = nomeServico;
-	}
-
-	public int getNumeroSolicitacao() {
-		return numeroSolicitacao;
-	}
-
-	public void setNumeroSolicitacao(int numeroSolicitacao) {
-		this.numeroSolicitacao = numeroSolicitacao;
-	}
-
-	public Collection<SolicitacaoServicoDTO> getListaSolicitacoesUsuario() {
-		return listaSolicitacoesUsuario;
-	}
-
-	public void setListaSolicitacoesUsuario(Collection<SolicitacaoServicoDTO> listaSolicitacoesUsuario) {
-		this.listaSolicitacoesUsuario = listaSolicitacoesUsuario;
-	}
-
-	public Collection<RelatorioKpiProdutividadeDTO> getListaGeral() {
-		return listaGeral;
-	}
+    private static final long serialVersionUID = 1L;
+
+    private Date dataInicio;
+    private Date dataFim;
+    private String formatoArquivoRelatorio;
+    private Integer idContrato;
+    private String contrato;
+    private String funcionario;
+    private String grupo;
+    private String listaUsuarios;
+    private String listaGrupoUnidade;
+    private String checkMostrarRequisicoes;
+    private String checkMostrarIncidentes;
+    private Collection<SolicitacaoServicoDTO> listaSolicitacoesUsuario;
+    private Collection<RelatorioKpiProdutividadeDTO> listaGeral;
+    private int qtdeExecutada;
+    private int qtdEstourada;
+    private int numeroSolicitacao;
+    private String NomeServico;
+    private double totalGrupoEstouradas;
+    private double totalGrupoExecutadas;
+    private int totalPorExecutante;
+    private int totalPorExecutanteEstouradas;
+    private String totalPorExecutanteEstouradasPorcentagem;
+    private String totalPorExecutantePorcentagem;
+    private String totalPorServicoPorcentagem;
+    private String selecionarGrupoUnidade;
+    private String situacao;
+
+    // relatorio QI3 QI4
+
+    private String listaServicosString;
+    private String listaCausaString;
+    private Collection<EmpregadoDTO> listaEmpregado;
+    private Collection<ServicoDTO> listaServicos;
+    private Collection<CausaIncidenteDTO> listaCausaIncidentes;
+    private Integer qtdeencaminhadas;
+    private Integer qtdeexito;
+    private Integer idEmpregado;
+    private Double porcentagemExecutadaExito;
+
+    public Double getPorcentagemExecutadaExito() {
+        return porcentagemExecutadaExito;
+    }
+
+    public void setPorcentagemExecutadaExito(final Double porcentagemExecutadaExito) {
+        this.porcentagemExecutadaExito = porcentagemExecutadaExito;
+    }
+
+    public String getSituacao() {
+        return situacao;
+    }
+
+    public void setSituacao(final String situacao) {
+        this.situacao = situacao;
+    }
+
+    public int getQtdeExecutada() {
+        return qtdeExecutada;
+    }
+
+    public void setQtdeExecutada(final int qtdeExecutada) {
+        this.qtdeExecutada = qtdeExecutada;
+    }
+
+    public int getQtdEstourada() {
+        return qtdEstourada;
+    }
+
+    public void setQtdEstourada(final int qtdEstourada) {
+        this.qtdEstourada = qtdEstourada;
+    }
+
+    public String getListaGrupoUnidade() {
+        return listaGrupoUnidade;
+    }
+
+    public void setListaGrupoUnidade(final String listaGrupoUnidade) {
+        this.listaGrupoUnidade = listaGrupoUnidade;
+    }
+
+    public String getSelecionarGrupoUnidade() {
+        return selecionarGrupoUnidade;
+    }
+
+    public void setSelecionarGrupoUnidade(final String selecionarGrupoUnidade) {
+        this.selecionarGrupoUnidade = selecionarGrupoUnidade;
+    }
+
+    public int getTotalPorExecutante() {
+        return totalPorExecutante;
+    }
+
+    public void setTotalPorExecutante(final int totalPorExecutante) {
+        this.totalPorExecutante = totalPorExecutante;
+    }
+
+    public int getTotalPorExecutanteEstouradas() {
+        return totalPorExecutanteEstouradas;
+    }
+
+    public void setTotalPorExecutanteEstouradas(final int totalPorExecutanteEstouradas) {
+        this.totalPorExecutanteEstouradas = totalPorExecutanteEstouradas;
+    }
 
-	public void setListaGeral(Collection<RelatorioKpiProdutividadeDTO> listaGeral) {
-		this.listaGeral = listaGeral;
-	}
+    public String getTotalPorServicoPorcentagem() {
+        return totalPorServicoPorcentagem;
+    }
 
-	public String getCheckMostrarRequisicoes() {
-		return checkMostrarRequisicoes;
-	}
+    public void setTotalPorServicoPorcentagem(final String totalPorServicoPorcentagem) {
+        this.totalPorServicoPorcentagem = totalPorServicoPorcentagem;
+    }
 
-	public void setCheckMostrarRequisicoes(String checkMostrarRequisicoes) {
-		this.checkMostrarRequisicoes = checkMostrarRequisicoes;
-	}
+    public String getTotalPorExecutantePorcentagem() {
+        return totalPorExecutantePorcentagem;
+    }
 
-	public String getCheckMostrarIncidentes() {
-		return checkMostrarIncidentes;
-	}
+    public void setTotalPorExecutantePorcentagem(final String totalPorExecutantePorcentagem) {
+        this.totalPorExecutantePorcentagem = totalPorExecutantePorcentagem;
+    }
 
-	public void setCheckMostrarIncidentes(String checkMostrarIncidentes) {
-		this.checkMostrarIncidentes = checkMostrarIncidentes;
-	}
+    public String getTotalPorExecutanteEstouradasPorcentagem() {
+        return totalPorExecutanteEstouradasPorcentagem;
+    }
 
-	public Date getDataInicio() {
-		return dataInicio;
-	}
+    public void setTotalPorExecutanteEstouradasPorcentagem(final String totalPorExecutanteEstouradasPorcentagem) {
+        this.totalPorExecutanteEstouradasPorcentagem = totalPorExecutanteEstouradasPorcentagem;
+    }
 
-	public void setDataInicio(Date dataInicio) {
-		this.dataInicio = dataInicio;
-	}
+    public double getTotalGrupoEstouradas() {
+        return totalGrupoEstouradas;
+    }
 
-	public Date getDataFim() {
-		return dataFim;
-	}
+    public void setTotalGrupoEstouradas(final double totalGrupoEstouradas) {
+        this.totalGrupoEstouradas = totalGrupoEstouradas;
+    }
 
-	public void setDataFim(Date dataFim) {
-		this.dataFim = dataFim;
-	}
+    public double getTotalGrupoExecutadas() {
+        return totalGrupoExecutadas;
+    }
 
-	public String getFormatoArquivoRelatorio() {
-		return formatoArquivoRelatorio;
-	}
+    public void setTotalGrupoExecutadas(final double totalGrupoExecutadas) {
+        this.totalGrupoExecutadas = totalGrupoExecutadas;
+    }
 
-	public void setFormatoArquivoRelatorio(String formatoArquivoRelatorio) {
-		this.formatoArquivoRelatorio = formatoArquivoRelatorio;
-	}
+    public String getNomeServico() {
+        return NomeServico;
+    }
 
-	public Integer getIdContrato() {
-		return idContrato;
-	}
+    public void setNomeServico(final String nomeServico) {
+        NomeServico = nomeServico;
+    }
 
-	public void setIdContrato(Integer idContrato) {
-		this.idContrato = idContrato;
-	}
+    public int getNumeroSolicitacao() {
+        return numeroSolicitacao;
+    }
 
-	public String getContrato() {
-		return contrato;
-	}
+    public void setNumeroSolicitacao(final int numeroSolicitacao) {
+        this.numeroSolicitacao = numeroSolicitacao;
+    }
 
-	public void setContrato(String contrato) {
-		this.contrato = contrato;
-	}
+    public Collection<SolicitacaoServicoDTO> getListaSolicitacoesUsuario() {
+        return listaSolicitacoesUsuario;
+    }
 
-	public String getFuncionario() {
-		return funcionario;
-	}
+    public void setListaSolicitacoesUsuario(final Collection<SolicitacaoServicoDTO> listaSolicitacoesUsuario) {
+        this.listaSolicitacoesUsuario = listaSolicitacoesUsuario;
+    }
 
-	public void setFuncionario(String funcionario) {
-		this.funcionario = funcionario;
-	}
+    public Collection<RelatorioKpiProdutividadeDTO> getListaGeral() {
+        return listaGeral;
+    }
 
-	public String getGrupo() {
-		return grupo;
-	}
+    public void setListaGeral(final Collection<RelatorioKpiProdutividadeDTO> listaGeral) {
+        this.listaGeral = listaGeral;
+    }
 
-	public void setGrupo(String grupo) {
-		this.grupo = grupo;
-	}
+    public String getCheckMostrarRequisicoes() {
+        return checkMostrarRequisicoes;
+    }
 
-	public String getListaUsuarios() {
-		return listaUsuarios;
-	}
+    public void setCheckMostrarRequisicoes(final String checkMostrarRequisicoes) {
+        this.checkMostrarRequisicoes = checkMostrarRequisicoes;
+    }
 
-	public void setListaUsuarios(String listaUsuarios) {
-		this.listaUsuarios = listaUsuarios;
-	}
+    public String getCheckMostrarIncidentes() {
+        return checkMostrarIncidentes;
+    }
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+    public void setCheckMostrarIncidentes(final String checkMostrarIncidentes) {
+        this.checkMostrarIncidentes = checkMostrarIncidentes;
+    }
 
-	public String getListaServicosString() {
-		return listaServicosString;
-	}
+    public Date getDataInicio() {
+        return dataInicio;
+    }
 
-	public void setListaServicosString(String listaServicosString) {
-		this.listaServicosString = listaServicosString;
-	}
+    public void setDataInicio(final Date dataInicio) {
+        this.dataInicio = dataInicio;
+    }
 
+    public Date getDataFim() {
+        return dataFim;
+    }
 
-	public Collection<ServicoDTO> getListaServicos() {
-		return listaServicos;
-	}
+    public void setDataFim(final Date dataFim) {
+        this.dataFim = dataFim;
+    }
 
-	public void setListaServicos(Collection<ServicoDTO> listaServicos) {
-		this.listaServicos = listaServicos;
-	}
+    public String getFormatoArquivoRelatorio() {
+        return formatoArquivoRelatorio;
+    }
 
-	public Collection<CausaIncidenteDTO> getListaCausaIncidentes() {
-		return listaCausaIncidentes;
-	}
+    public void setFormatoArquivoRelatorio(final String formatoArquivoRelatorio) {
+        this.formatoArquivoRelatorio = formatoArquivoRelatorio;
+    }
 
-	public void setListaCausaIncidentes(Collection<CausaIncidenteDTO> listaCausaIncidentes) {
-		this.listaCausaIncidentes = listaCausaIncidentes;
-	}
+    public Integer getIdContrato() {
+        return idContrato;
+    }
 
-	public String getListaCausaString() {
-		return listaCausaString;
-	}
+    public void setIdContrato(final Integer idContrato) {
+        this.idContrato = idContrato;
+    }
 
-	public void setListaCausaString(String listaCausaString) {
-		this.listaCausaString = listaCausaString;
-	}
+    public String getContrato() {
+        return contrato;
+    }
 
-	public Integer getQtdeencaminhadas() {
-		return qtdeencaminhadas;
-	}
+    public void setContrato(final String contrato) {
+        this.contrato = contrato;
+    }
 
-	public void setQtdeencaminhadas(Integer qtdeencaminhadas) {
-		this.qtdeencaminhadas = qtdeencaminhadas;
-	}
+    public String getFuncionario() {
+        return funcionario;
+    }
 
-	public Integer getQtdeexito() {
-		return qtdeexito;
-	}
+    public void setFuncionario(final String funcionario) {
+        this.funcionario = funcionario;
+    }
 
-	public void setQtdeexito(Integer qtdeexito) {
-		this.qtdeexito = qtdeexito;
-	}
+    public String getGrupo() {
+        return grupo;
+    }
 
-	public Integer getIdEmpregado() {
-		return idEmpregado;
-	}
+    public void setGrupo(final String grupo) {
+        this.grupo = grupo;
+    }
 
-	public void setIdEmpregado(Integer idEmpregado) {
-		this.idEmpregado = idEmpregado;
-	}
+    public String getListaUsuarios() {
+        return listaUsuarios;
+    }
 
-	public Collection<EmpregadoDTO> getListaEmpregado() {
-		return listaEmpregado;
-	}
+    public void setListaUsuarios(final String listaUsuarios) {
+        this.listaUsuarios = listaUsuarios;
+    }
 
-	public void setListaEmpregado(Collection<EmpregadoDTO> listaEmpregado) {
-		this.listaEmpregado = listaEmpregado;
-	}
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
 
-	
+    public String getListaServicosString() {
+        return listaServicosString;
+    }
 
-	
+    public void setListaServicosString(final String listaServicosString) {
+        this.listaServicosString = listaServicosString;
+    }
 
-	
+    public Collection<ServicoDTO> getListaServicos() {
+        return listaServicos;
+    }
 
-	
+    public void setListaServicos(final Collection<ServicoDTO> listaServicos) {
+        this.listaServicos = listaServicos;
+    }
+
+    public Collection<CausaIncidenteDTO> getListaCausaIncidentes() {
+        return listaCausaIncidentes;
+    }
+
+    public void setListaCausaIncidentes(final Collection<CausaIncidenteDTO> listaCausaIncidentes) {
+        this.listaCausaIncidentes = listaCausaIncidentes;
+    }
+
+    public String getListaCausaString() {
+        return listaCausaString;
+    }
+
+    public void setListaCausaString(final String listaCausaString) {
+        this.listaCausaString = listaCausaString;
+    }
+
+    public Integer getQtdeencaminhadas() {
+        return qtdeencaminhadas;
+    }
+
+    public void setQtdeencaminhadas(final Integer qtdeencaminhadas) {
+        this.qtdeencaminhadas = qtdeencaminhadas;
+    }
+
+    public Integer getQtdeexito() {
+        return qtdeexito;
+    }
+
+    public void setQtdeexito(final Integer qtdeexito) {
+        this.qtdeexito = qtdeexito;
+    }
+
+    public Integer getIdEmpregado() {
+        return idEmpregado;
+    }
+
+    public void setIdEmpregado(final Integer idEmpregado) {
+        this.idEmpregado = idEmpregado;
+    }
+
+    public Collection<EmpregadoDTO> getListaEmpregado() {
+        return listaEmpregado;
+    }
+
+    public void setListaEmpregado(final Collection<EmpregadoDTO> listaEmpregado) {
+        this.listaEmpregado = listaEmpregado;
+    }
+
 }

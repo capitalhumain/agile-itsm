@@ -420,7 +420,7 @@ public class Projeto extends AjaxFormAction {
 		Collection colServicosDoContrato = servicoContratoService.findByIdContrato(projeto.getIdContrato());
 		idContrato.removeAllOptions();
 		idContrato.addOption("", UtilI18N.internacionaliza(request, "projeto.selecioneServico"));
-		List colFinal = new ArrayList();
+		List colFinal = new ArrayList<>();
 		if (colServicosDoContrato != null) {
 			for (Iterator it = colServicosDoContrato.iterator(); it.hasNext();) {
 				ServicoContratoDTO servicoContratoDTO = (ServicoContratoDTO) it.next();

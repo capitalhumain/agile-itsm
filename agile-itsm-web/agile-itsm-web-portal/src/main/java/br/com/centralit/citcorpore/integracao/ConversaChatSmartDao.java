@@ -12,7 +12,6 @@ import br.com.citframework.integracao.Field;
 import br.com.citframework.integracao.Order;
 import br.com.citframework.util.Constantes;
 
-@SuppressWarnings({"unchecked", "rawtypes"})
 public class ConversaChatSmartDao extends CrudDaoDefaultImpl {
 
     public ConversaChatSmartDao() {
@@ -21,7 +20,7 @@ public class ConversaChatSmartDao extends CrudDaoDefaultImpl {
 
     @Override
     public Collection find(final BaseEntity dto) throws PersistenceException {
-        final List order = new ArrayList();
+        final List<Order> order = new ArrayList<>();
         order.add(new Order("idConversaChat"));
         return super.find(dto, order);
     }
@@ -36,10 +35,6 @@ public class ConversaChatSmartDao extends CrudDaoDefaultImpl {
         return listFields;
     }
 
-    /*
-     * public void gravar(ConversaChatSmartDTO obj) {
-     * }
-     */
     @Override
     public String getTableName() {
         return "conversachat";
@@ -47,7 +42,7 @@ public class ConversaChatSmartDao extends CrudDaoDefaultImpl {
 
     @Override
     public Collection list() throws PersistenceException {
-        final List list = new ArrayList();
+        final List list = new ArrayList<>();
         list.add(new Order("idConversaChat"));
         return super.list(list);
     }

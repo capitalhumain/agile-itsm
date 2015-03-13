@@ -1,11 +1,8 @@
 package br.com.centralit.citcorpore.negocio;
 
-import java.sql.Timestamp;
 import java.util.Collection;
-import java.util.List;
 
 import br.com.agileitsm.model.support.BaseEntity;
-import br.com.centralit.citcorpore.bean.AdiantamentoViagemDTO;
 import br.com.centralit.citcorpore.bean.IntegranteViagemDTO;
 import br.com.centralit.citcorpore.bean.ItemPrestacaoContasViagemDTO;
 import br.com.centralit.citcorpore.bean.PrestacaoContasViagemDTO;
@@ -20,7 +17,6 @@ import br.com.centralit.citcorpore.integracao.SolicitacaoServicoDao;
 import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
-import br.com.citframework.service.ServiceLocator;
 import br.com.citframework.util.UtilDatas;
 import br.com.citframework.util.UtilI18N;
 import br.com.citframework.util.WebUtil;
@@ -29,7 +25,6 @@ import br.com.citframework.util.WebUtil;
  * @author ronnie.lopes
  *
  */
-@SuppressWarnings({"rawtypes", "unchecked"})
 public class PrestacaoContasViagemServiceEjb extends ComplemInfSolicitacaoServicoServiceEjb implements PrestacaoContasViagemService {
 
     private PrestacaoContasViagemDao dao;
@@ -50,14 +45,6 @@ public class PrestacaoContasViagemServiceEjb extends ComplemInfSolicitacaoServic
             return key;
         }
         return key;
-    }
-
-    public Collection list(final List ordenacao) throws LogicException, ServiceException {
-        return null;
-    }
-
-    public Collection list(final String ordenacao) throws LogicException, ServiceException {
-        return null;
     }
 
     @Override
@@ -164,7 +151,8 @@ public class PrestacaoContasViagemServiceEjb extends ComplemInfSolicitacaoServic
 
             prestacaoContasViagemDto = (PrestacaoContasViagemDTO) prestacaoContasViagemDao.create(prestacaoContasViagemDto);
 
-            if (prestacaoContasViagemDto.getListaItemPrestacaoContasViagemDTO() != null && prestacaoContasViagemDto.getListaItemPrestacaoContasViagemDTO().size() > 0) {
+            if (prestacaoContasViagemDto.getListaItemPrestacaoContasViagemDTO() != null
+                    && prestacaoContasViagemDto.getListaItemPrestacaoContasViagemDTO().size() > 0) {
                 for (final ItemPrestacaoContasViagemDTO itemPrestacaoContasViagemDTO : prestacaoContasViagemDto.getListaItemPrestacaoContasViagemDTO()) {
                     itemPrestacaoContasViagemDTO.setIdPrestacaoContasViagem(prestacaoContasViagemDto.getIdPrestacaoContasViagem());
                     itemPrestacaoContasViagemDao.create(itemPrestacaoContasViagemDTO);
@@ -175,15 +163,6 @@ public class PrestacaoContasViagemServiceEjb extends ComplemInfSolicitacaoServic
         }
 
         return prestacaoContasViagemDto;
-    }
-
-    /**
-     * TODO Este metodo esta em desuso, pode ser removido na proxima versão
-     */
-    public AdiantamentoViagemDTO recuperaAdiantamentoViagem(final Integer idSolicitacaoServico, final Integer idEmpregado) throws Exception {
-        final AdiantamentoViagemService adiantamentoViagemService = (AdiantamentoViagemService) ServiceLocator.getInstance().getService(AdiantamentoViagemService.class, null);
-
-        return adiantamentoViagemService.consultarAdiantamentoViagem(idSolicitacaoServico, idEmpregado);
     }
 
     @Override
@@ -197,8 +176,8 @@ public class PrestacaoContasViagemServiceEjb extends ComplemInfSolicitacaoServic
         PrestacaoContasViagemDTO prestacaoContasViagemDTO = (PrestacaoContasViagemDTO) model;
         IntegranteViagemDTO integranteViagemDTO = new IntegranteViagemDTO();
 
-        prestacaoContasViagemDTO.setIntegranteViagemDto(integranteViagemDAO.getIntegranteByIdSolicitacaoAndTarefa(solicitacaoServicoDTO.getIdSolicitacaoServico(),
-                solicitacaoServicoDTO.getIdTarefa()));
+        prestacaoContasViagemDTO.setIntegranteViagemDto(integranteViagemDAO.getIntegranteByIdSolicitacaoAndTarefa(
+                solicitacaoServicoDTO.getIdSolicitacaoServico(), solicitacaoServicoDTO.getIdTarefa()));
 
         if (prestacaoContasViagemDTO.getIdEmpregado() == null || prestacaoContasViagemDTO.getIdEmpregado().equals("")) {
             prestacaoContasViagemDTO.setIdEmpregado(prestacaoContasViagemDTO.getIntegranteViagemDto().getIdEmpregado());
@@ -223,7 +202,8 @@ public class PrestacaoContasViagemServiceEjb extends ComplemInfSolicitacaoServic
             prestacaoContasViagemDTO.setCorrecao("S");
         }
 
-        if (prestacaoContasViagemDTO.getListaItemPrestacaoContasViagemDTO() != null && !prestacaoContasViagemDTO.getListaItemPrestacaoContasViagemDTO().isEmpty()) {
+        if (prestacaoContasViagemDTO.getListaItemPrestacaoContasViagemDTO() != null
+                && !prestacaoContasViagemDTO.getListaItemPrestacaoContasViagemDTO().isEmpty()) {
             itemPrestacaoContasViagemDAO.deleteByIdPrestacaoContasViagem(prestacaoContasViagemDTO.getIdPrestacaoContasViagem());
 
             for (final ItemPrestacaoContasViagemDTO itemPrestacaoContasViagemDTO : prestacaoContasViagemDTO.getListaItemPrestacaoContasViagemDTO()) {
@@ -246,8 +226,8 @@ public class PrestacaoContasViagemServiceEjb extends ComplemInfSolicitacaoServic
             requisicaoViagemDAO.update(requisicaoViagemDTO);
         }
 
-        integranteViagemDTO = integranteViagemDAO.getIntegranteByIdSolicitacaoAndTarefa(solicitacaoServicoDTO.getIdSolicitacaoServico(), prestacaoContasViagemDTO
-                .getIntegranteViagemDto().getIdTarefa());
+        integranteViagemDTO = integranteViagemDAO.getIntegranteByIdSolicitacaoAndTarefa(solicitacaoServicoDTO.getIdSolicitacaoServico(),
+                prestacaoContasViagemDTO.getIntegranteViagemDto().getIdTarefa());
 
         if (solicitacaoServicoDTO.getAcaoFluxo().equalsIgnoreCase("E")) {
             if (prestacaoContasViagemDTO != null && prestacaoContasViagemDTO.getCorrecao() != null && !prestacaoContasViagemDTO.getCorrecao().equals("N")) {
@@ -272,62 +252,8 @@ public class PrestacaoContasViagemServiceEjb extends ComplemInfSolicitacaoServic
         final PrestacaoContasViagemDTO prestacaoContasViagemDto = dao.findBySolicitacaoAndEmpregado(idSolicitacaoServico, idEmpregado);
         if (prestacaoContasViagemDto != null && prestacaoContasViagemDto.getIdPrestacaoContasViagem() != null) {
             return prestacaoContasViagemDto.getIdPrestacaoContasViagem();
-        } else {
-            return null;
         }
+        return null;
     }
 
-    /**
-     * TODO Este metodo esta em desuso, pode ser removido na proxima versão
-     */
-    @Override
-    public Integer recuperaIdPrestacaoSeExistir(final Integer idSolicitacaoServico, final String nomeNaoFunc) throws ServiceException, Exception {
-
-        final PrestacaoContasViagemDao dao = this.getDao();
-        final PrestacaoContasViagemDTO prestacaoContasViagemDto = dao.findBySolicitacaoAndNomeNaoFuncionario(idSolicitacaoServico, nomeNaoFunc);
-
-        if (prestacaoContasViagemDto != null && prestacaoContasViagemDto.getIdPrestacaoContasViagem() != null) {
-            return prestacaoContasViagemDto.getIdPrestacaoContasViagem();
-        } else {
-            return null;
-        }
-    }
-
-    /**
-     * TODO Este metodo esta em desuso, pode ser removido na proxima versão
-     */
-    public boolean validaPeriodo(final PrestacaoContasViagemDTO prestacaoContasViagemDto) throws ServiceException, Exception {
-        RequisicaoViagemDTO requisicaoViagemDto = new RequisicaoViagemDTO();
-        final RequisicaoViagemDAO requisicaoViagemDao = new RequisicaoViagemDAO();
-
-        requisicaoViagemDto.setIdRequisicaoMudanca(prestacaoContasViagemDto.getIdSolicitacaoServico());
-        requisicaoViagemDto = (RequisicaoViagemDTO) requisicaoViagemDao.restore(requisicaoViagemDto);
-
-        final Timestamp dataRetorno = UtilDatas.strToTimestamp(requisicaoViagemDto.getDataFimViagem().toString());
-        final Timestamp dataPrestacao = prestacaoContasViagemDto.getDataHora();
-        final Timestamp dataLitimte = (Timestamp) UtilDatas.incrementaDiasEmData(dataRetorno, 5);
-
-        if (dataPrestacao.compareTo(dataLitimte) >= 0) {
-            return true;
-        }
-
-        return false;
-
-    }
-
-    /**
-     * TODO Este metodo esta em desuso, pode ser removido na proxima versão
-     */
-    @Override
-    public PrestacaoContasViagemDTO recuperaCorrecao(final PrestacaoContasViagemDTO prestacaoContasViagemDto) throws Exception {
-        final PrestacaoContasViagemDao dao = this.getDao();
-        PrestacaoContasViagemDTO prestacaoContas = null;
-        final List result = (List) dao.findBySolicitacaoEmpregadoSeCorrecao(prestacaoContasViagemDto.getIdSolicitacaoServico(), prestacaoContasViagemDto.getIntegranteViagemDto()
-                .getIdEmpregado());
-        if (result != null) {
-            prestacaoContas = (PrestacaoContasViagemDTO) result.get(0);
-        }
-        return prestacaoContas;
-
-    }
 }

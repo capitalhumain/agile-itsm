@@ -5,90 +5,91 @@ import java.sql.Timestamp;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class CalculoJornadaDTO extends BaseEntity {
-	private Integer idCalendario;
-	private Timestamp dataHoraInicial;
-	private Integer prazoHH;
-	private Integer prazoMM;
-	private Integer tempoDecorridoHH;
-	private Integer tempoDecorridoMM;
-	private Integer tempoDecorridoSS;
-	
-	private Timestamp dataHoraFinal;
 
-	public CalculoJornadaDTO(Integer idCalendario, Timestamp dataHoraInicial, Integer prazoHH, Integer prazoMM) {
-		this.idCalendario = idCalendario;
-		this.dataHoraInicial = dataHoraInicial;
-		this.prazoHH = prazoHH;
-		this.prazoMM = prazoMM;
-	}
-	
-	public CalculoJornadaDTO(Integer idCalendario, Timestamp dataHoraInicial) {
-		this.idCalendario = idCalendario;
-		this.dataHoraInicial = dataHoraInicial;
-	}
+    private Integer idCalendario;
+    private Timestamp dataHoraInicial;
+    private Integer prazoHH;
+    private Integer prazoMM;
+    private Integer tempoDecorridoHH;
+    private Integer tempoDecorridoMM;
+    private Integer tempoDecorridoSS;
 
-	public Integer getIdCalendario() {
-		return idCalendario;
-	}
+    private Timestamp dataHoraFinal;
 
-	public void setIdCalendario(Integer idCalendario) {
-		this.idCalendario = idCalendario;
-	}
+    public CalculoJornadaDTO(final Integer idCalendario, final Timestamp dataHoraInicial, final Integer prazoHH, final Integer prazoMM) {
+        this.idCalendario = idCalendario;
+        this.dataHoraInicial = dataHoraInicial;
+        this.prazoHH = prazoHH;
+        this.prazoMM = prazoMM;
+    }
 
-	public Timestamp getDataHoraInicial() {
-		return dataHoraInicial;
-	}
+    public CalculoJornadaDTO(final Integer idCalendario, final Timestamp dataHoraInicial) {
+        this.idCalendario = idCalendario;
+        this.dataHoraInicial = dataHoraInicial;
+    }
 
-	public void setDataHoraInicial(Timestamp dataHoraInicial) {
-		this.dataHoraInicial = dataHoraInicial;
-	}
+    public Integer getIdCalendario() {
+        return idCalendario;
+    }
 
-	public Integer getPrazoHH() {
-		return prazoHH;
-	}
+    public void setIdCalendario(final Integer idCalendario) {
+        this.idCalendario = idCalendario;
+    }
 
-	public void setPrazoHH(Integer prazoHH) {
-		this.prazoHH = prazoHH;
-	}
+    public Timestamp getDataHoraInicial() {
+        return dataHoraInicial;
+    }
 
-	public Integer getPrazoMM() {
-		return prazoMM;
-	}
+    public void setDataHoraInicial(final Timestamp dataHoraInicial) {
+        this.dataHoraInicial = dataHoraInicial;
+    }
 
-	public void setPrazoMM(Integer prazoMM) {
-		this.prazoMM = prazoMM;
-	}
+    public Integer getPrazoHH() {
+        return prazoHH;
+    }
 
-	public Timestamp getDataHoraFinal() {
-		return dataHoraFinal;
-	}
+    public void setPrazoHH(final Integer prazoHH) {
+        this.prazoHH = prazoHH;
+    }
 
-	public void setDataHoraFinal(Timestamp dataHoraFinal) {
-		this.dataHoraFinal = dataHoraFinal;
-	}
+    public Integer getPrazoMM() {
+        return prazoMM;
+    }
 
-	public Integer getTempoDecorridoHH() {
-		return tempoDecorridoHH;
-	}
+    public void setPrazoMM(final Integer prazoMM) {
+        this.prazoMM = prazoMM;
+    }
 
-	public void setTempoDecorridoHH(Integer tempoDecorridoHH) {
-		this.tempoDecorridoHH = tempoDecorridoHH;
-	}
+    public Timestamp getDataHoraFinal() {
+        return dataHoraFinal;
+    }
 
-	public Integer getTempoDecorridoMM() {
-		return tempoDecorridoMM;
-	}
+    public void setDataHoraFinal(final Timestamp dataHoraFinal) {
+        this.dataHoraFinal = dataHoraFinal;
+    }
 
-	public void setTempoDecorridoMM(Integer tempoDecorridoMM) {
-		this.tempoDecorridoMM = tempoDecorridoMM;
-	}
+    public Integer getTempoDecorridoHH() {
+        return tempoDecorridoHH;
+    }
 
-	public Integer getTempoDecorridoSS() {
-		return tempoDecorridoSS;
-	}
+    public void setTempoDecorridoHH(final Integer tempoDecorridoHH) {
+        this.tempoDecorridoHH = tempoDecorridoHH;
+    }
 
-	public void setTempoDecorridoSS(Integer tempoDecorridoSS) {
-		this.tempoDecorridoSS = tempoDecorridoSS;
-	}
+    public Integer getTempoDecorridoMM() {
+        return tempoDecorridoMM;
+    }
+
+    public void setTempoDecorridoMM(final Integer tempoDecorridoMM) {
+        this.tempoDecorridoMM = tempoDecorridoMM;
+    }
+
+    public Integer getTempoDecorridoSS() {
+        return tempoDecorridoSS;
+    }
+
+    public void setTempoDecorridoSS(final Integer tempoDecorridoSS) {
+        this.tempoDecorridoSS = tempoDecorridoSS;
+    }
 
 }

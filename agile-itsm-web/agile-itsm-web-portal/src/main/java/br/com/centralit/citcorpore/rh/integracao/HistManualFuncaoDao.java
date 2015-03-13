@@ -72,9 +72,9 @@ public class HistManualFuncaoDao extends CrudDaoDefaultImpl {
     }
 
     public Collection findByIdManualFuncao(final int idManualFuncal) throws PersistenceException {
-        final List parametro = new ArrayList();
-        final List listRetorno = new ArrayList();
-        List list = new ArrayList();
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        List list = new ArrayList<>();
         final StringBuilder sql = new StringBuilder();
 
         sql.append(" SELECT  idManualFuncao, tituloCargo, tituloFuncao, ");
@@ -101,8 +101,8 @@ public class HistManualFuncaoDao extends CrudDaoDefaultImpl {
     }
 
     public HistManualFuncaoDTO maxIdHistorico(final ManualFuncaoDTO manualFuncao) throws PersistenceException {
-        final List parametro = new ArrayList();
-        final List listRetorno = new ArrayList();
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
         final StringBuilder sql = new StringBuilder();
 
         sql.append("SELECT MAX(idhistmanualfuncao) AS idhistmanualfuncao FROM " + this.getTableName() + " WHERE idmanualfuncao = ?");

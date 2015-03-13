@@ -9,7 +9,7 @@ public class ChamadaDTO {
         return numeroOrigem;
     }
 
-    public void setNumeroOrigem(String numeroOrigem) {
+    public void setNumeroOrigem(final String numeroOrigem) {
         this.numeroOrigem = numeroOrigem;
     }
 
@@ -17,7 +17,7 @@ public class ChamadaDTO {
         return numeroDestino;
     }
 
-    public void setNumeroDestino(String numeroDestino) {
+    public void setNumeroDestino(final String numeroDestino) {
         this.numeroDestino = numeroDestino;
     }
 
@@ -25,19 +25,17 @@ public class ChamadaDTO {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((numeroDestino == null) ? 0 : numeroDestino.hashCode());
-        result = prime * result + ((numeroOrigem == null) ? 0 : numeroOrigem.hashCode());
+        result = prime * result + (numeroDestino == null ? 0 : numeroDestino.hashCode());
+        result = prime * result + (numeroOrigem == null ? 0 : numeroOrigem.hashCode());
         return result;
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(final Object obj) {
         if (obj != null) {
-            ChamadaDTO objeto = (ChamadaDTO) obj;
-            return ((this.getNumeroOrigem().equals(objeto.getNumeroOrigem())) && (this.getNumeroDestino().equals(objeto.getNumeroDestino())));
-        } else {
-            return false;
-        }
+            final ChamadaDTO objeto = (ChamadaDTO) obj;
+            return this.getNumeroOrigem().equals(objeto.getNumeroOrigem()) && this.getNumeroDestino().equals(objeto.getNumeroDestino());
+        } return false;
     }
 
 }

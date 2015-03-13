@@ -19,131 +19,88 @@ import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-
- 
 /**
  * @author CentralIT
  */
 public class Upload {
-	@SuppressWarnings("deprecation")
-	public void doUpload(HttpServletRequest request, Collection colFilesUpload) throws Exception {
-//		DiskFileUpload fu = new DiskFileUpload(); 
-		FileItemFactory factory = new DiskFileItemFactory();
-		ServletFileUpload fu = new ServletFileUpload(factory); 
-		fu.setSizeMax(-1);
-		fu.setFileSizeMax(-1);
-//		fu.setSizeThreshold(4096);
-//		fu.setRepositoryPath("");
-		
 
-		List fileItems = fu.parseRequest(request);
-		Iterator i = fileItems.iterator();
-		FileItem fi;
-		UploadItem upIt;
-		File arquivo;
-		Iterator itAux = colFilesUpload.iterator();
-		while(itAux.hasNext()){
-			upIt = (UploadItem)itAux.next();
-			while(i.hasNext()){
-				fi = (FileItem)i.next();
-				if (upIt.getNomeArquivo().toUpperCase().trim().equals(fi.getName().toUpperCase().trim())){
-					arquivo = new File(upIt.getPathArquivo() + "\\" + upIt.getNomeArquivo());
-					fi.write(arquivo);
-				}
-			}
-		}
-	}
-	
-	
-	/**
-	 * Modificando a forma de anexar, foi mudado para um método não depreciado.
-	 * @param request
-	 * @return
-	 * @throws Exception
-	 * @author mario.haysaki
-	 */
-	public HashMap[] doUploadAll(HttpServletRequest request) throws Exception {
-		HashMap[] hshRetorno =  new HashMap[2];
-		DiskFileItemFactory  fact = new DiskFileItemFactory(); 
-						
-		String DISKFILEUPLOAD_REPOSITORYPATH = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.DISKFILEUPLOAD_REPOSITORYPATH,"");
-		if(DISKFILEUPLOAD_REPOSITORYPATH == null){
-			DISKFILEUPLOAD_REPOSITORYPATH = "";
-		}		
-		File repositoryPath = new File(DISKFILEUPLOAD_REPOSITORYPATH);	
-		fact.setRepository(repositoryPath);
-				
-		ServletFileUpload fu = new ServletFileUpload(fact);
+    public void doUpload(final HttpServletRequest request, final Collection colFilesUpload) throws Exception {
+        final FileItemFactory factory = new DiskFileItemFactory();
+        final ServletFileUpload fu = new ServletFileUpload(factory);
+        fu.setSizeMax(-1);
+        fu.setFileSizeMax(-1);
 
-		try {
-			/**
-			 * @author pedro.lino, Danilo.Lisboa
-			 * Necessário especificar o encoding, pois quando existe dois ou mais uploads na mesma tela estava vindo com caracteres especiais;
-			 * NÃO RETIRAR O TRATAMENTO DE ENCODING.
-			 * **/
-			fu.setHeaderEncoding("UTF-8");
-			fu.setSizeMax(-1);
-			
-			hshRetorno[0] = new HashMap();  //Retorna os campos de formulário
-			hshRetorno[1] = new HashMap();  //Retorna os nomes de arquivos
-			
-			List fileItems = fu.parseRequest(request);
-			Iterator i = fileItems.iterator();
-			FileItem fi;
-			while(i.hasNext()){
-				fi = (FileItem)i.next();
-				if (!fi.isFormField()){
-					hshRetorno[1].put(CITCorporeUtil.getNameFile(fi.getName()), fi);
-					hshRetorno[0].put(fi.getFieldName().toUpperCase(), CITCorporeUtil.getNameFile(fi.getName()));
-					request.setAttribute(fi.getFieldName(), CITCorporeUtil.getNameFile(fi.getName()));
-				} else {
-					//System.err.println(fi.getFieldName().toUpperCase() + ": " + fi.getString());
-					hshRetorno[0].put(fi.getFieldName().toUpperCase(), fi.getString());	
-					request.setAttribute(fi.getFieldName(), fi.getString());
-				}
-			}			
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-		
-		return hshRetorno;
-	}
-	
-/*	public HashMap[] doUploadAll(HttpServletRequest request) throws Exception {
-		HashMap[] hshRetorno =  new HashMap[2];
-		FileItemFactory factory = new DiskFileItemFactory();
-		ServletFileUpload fu = new ServletFileUpload(factory); 
-		
-		fu.setSizeMax(-1);
+        final List fileItems = fu.parseRequest(request);
+        final Iterator i = fileItems.iterator();
+        FileItem fi;
+        UploadItem upIt;
+        File arquivo;
+        final Iterator itAux = colFilesUpload.iterator();
+        while (itAux.hasNext()) {
+            upIt = (UploadItem) itAux.next();
+            while (i.hasNext()) {
+                fi = (FileItem) i.next();
+                if (upIt.getNomeArquivo().toUpperCase().trim().equals(fi.getName().toUpperCase().trim())) {
+                    arquivo = new File(upIt.getPathArquivo() + "\\" + upIt.getNomeArquivo());
+                    fi.write(arquivo);
+                }
+            }
+        }
+    }
 
-		String DIRETORIO_TEMP_UPLOAD_ARQUIVOS = "";
+    /**
+     * Modificando a forma de anexar, foi mudado para um método não depreciado.
+     * 
+     * @param request
+     * @return
+     * @throws Exception
+     * @author mario.haysaki
+     */
+    public HashMap[] doUploadAll(final HttpServletRequest request) throws Exception {
+        final HashMap[] hshRetorno = new HashMap[2];
+        final DiskFileItemFactory fact = new DiskFileItemFactory();
 
-		String str = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.DISKFILEUPLOAD_REPOSITORYPATH,"");
-		if (str == null){
-			str = "/tmp";
-		}
-		if (str == null || str.equalsIgnoreCase("")){
-			str = DIRETORIO_TEMP_UPLOAD_ARQUIVOS;
-		}
-		//fu.setRepositoryPath(str);
-		
-		hshRetorno[0] = new HashMap();  //Retorna os campos de formulário
-		hshRetorno[1] = new HashMap();  //Retorna os nomes de arquivos
-		
-		List fileItems = fu.parseRequest(request);
-		Iterator i = fileItems.iterator();
-		FileItem fi;
-		while(i.hasNext()){
-			fi = (FileItem)i.next();
-			if (!fi.isFormField()){
-				hshRetorno[1].put(CITCorporeUtil.getNameFile(fi.getName()), fi);
-				hshRetorno[0].put(fi.getFieldName().toUpperCase(), CITCorporeUtil.getNameFile(fi.getName()));
-				request.setAttribute(fi.getFieldName(), CITCorporeUtil.getNameFile(fi.getName()));
-			} else {
-				hshRetorno[0].put(fi.getFieldName().toUpperCase(), fi.getString());	
-				request.setAttribute(fi.getFieldName(), fi.getString());
-			}
-		}
-		return hshRetorno;
-	}*/
+        String DISKFILEUPLOAD_REPOSITORYPATH = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.DISKFILEUPLOAD_REPOSITORYPATH, "");
+        if (DISKFILEUPLOAD_REPOSITORYPATH == null) {
+            DISKFILEUPLOAD_REPOSITORYPATH = "";
+        }
+        final File repositoryPath = new File(DISKFILEUPLOAD_REPOSITORYPATH);
+        fact.setRepository(repositoryPath);
+
+        final ServletFileUpload fu = new ServletFileUpload(fact);
+
+        try {
+            /**
+             * @author pedro.lino, Danilo.Lisboa
+             *         Necessário especificar o encoding, pois quando existe dois ou mais uploads na mesma tela estava vindo com caracteres especiais;
+             *         NÃO RETIRAR O TRATAMENTO DE ENCODING.
+             * **/
+            fu.setHeaderEncoding("UTF-8");
+            fu.setSizeMax(-1);
+
+            hshRetorno[0] = new HashMap<>(); // Retorna os campos de formulário
+            hshRetorno[1] = new HashMap<>(); // Retorna os nomes de arquivos
+
+            final List fileItems = fu.parseRequest(request);
+            final Iterator i = fileItems.iterator();
+            FileItem fi;
+            while (i.hasNext()) {
+                fi = (FileItem) i.next();
+                if (!fi.isFormField()) {
+                    hshRetorno[1].put(CITCorporeUtil.getNameFile(fi.getName()), fi);
+                    hshRetorno[0].put(fi.getFieldName().toUpperCase(), CITCorporeUtil.getNameFile(fi.getName()));
+                    request.setAttribute(fi.getFieldName(), CITCorporeUtil.getNameFile(fi.getName()));
+                } else {
+                    // System.err.println(fi.getFieldName().toUpperCase() + ": " + fi.getString());
+                    hshRetorno[0].put(fi.getFieldName().toUpperCase(), fi.getString());
+                    request.setAttribute(fi.getFieldName(), fi.getString());
+                }
+            }
+        } catch (final Exception e) {
+            // TODO: handle exception
+        }
+
+        return hshRetorno;
+    }
+
 }

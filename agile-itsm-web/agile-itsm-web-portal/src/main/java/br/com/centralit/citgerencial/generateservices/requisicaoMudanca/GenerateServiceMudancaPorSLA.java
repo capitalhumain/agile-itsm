@@ -28,7 +28,7 @@ import br.com.citframework.util.UtilDatas;
 @SuppressWarnings({ "rawtypes", "unchecked" })
 public class GenerateServiceMudancaPorSLA extends GerencialGenerateService {
 
-	private HashMap novoParametro = new HashMap();
+	private HashMap novoParametro = new HashMap<>();
 
 	public List execute(HashMap parametersValues, Collection paramtersDefinition) throws ParseException {
 
@@ -68,7 +68,7 @@ public class GenerateServiceMudancaPorSLA extends GerencialGenerateService {
 		GraficosDao graficosDao = new GraficosDao();
 		Object[] listaGenericaPrazo = new Object[2];
 		Object[] listaGenericaAtrazo = new Object[2];
-		List listaRetorno = new ArrayList();
+		List listaRetorno = new ArrayList<>();
 		String descricaoPrazo = "";
 		String descricaoAtrazo = "";
 		int qtdePrazo = 0;

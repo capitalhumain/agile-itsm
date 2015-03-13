@@ -4,45 +4,46 @@ import br.com.agileitsm.model.support.BaseEntity;
 
 public class EmailAlteracaoSenhaDTO extends BaseEntity {
 
-	private static final long serialVersionUID = 5593259062378322864L;
-	
-	private String login;
-	
-	private String nomeEmpregado;
-	
-	private String novaSenha;
-	
-	private String link;
+    private static final long serialVersionUID = 5593259062378322864L;
 
-	public String getLogin() {
-		return login;
-	}
+    private String login;
 
-	public void setLogin(String login) {
-		this.login = login;
-	}
+    private String nomeEmpregado;
 
-	public String getNomeEmpregado() {
-		return nomeEmpregado;
-	}
+    private String novaSenha;
 
-	public void setNomeEmpregado(String nomeEmpregado) {
-		this.nomeEmpregado = nomeEmpregado;
-	}
+    private String link;
 
-	public String getNovaSenha() {
-		return novaSenha;
-	}
+    public String getLogin() {
+        return login;
+    }
 
-	public void setNovaSenha(String novaSenha) {
-		this.novaSenha = novaSenha;
-	}
-	
-	public void setLink(String link) {
-		this.link = link;
-	}
-	
-	public String getLink() {
-		return this.link;
-	}
+    public void setLogin(final String login) {
+        this.login = login;
+    }
+
+    public String getNomeEmpregado() {
+        return nomeEmpregado;
+    }
+
+    public void setNomeEmpregado(final String nomeEmpregado) {
+        this.nomeEmpregado = nomeEmpregado;
+    }
+
+    public String getNovaSenha() {
+        return novaSenha;
+    }
+
+    public void setNovaSenha(final String novaSenha) {
+        this.novaSenha = novaSenha;
+    }
+
+    public void setLink(final String link) {
+        this.link = link;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
 }

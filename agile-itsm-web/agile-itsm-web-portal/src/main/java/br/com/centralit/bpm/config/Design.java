@@ -3,6 +3,7 @@ package br.com.centralit.bpm.config;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import br.com.centralit.bpm.dto.ElementoFluxoDTO;
 import br.com.centralit.bpm.dto.PropriedadeElementoDTO;
@@ -64,7 +65,7 @@ public class Design {
             return;
         }
 
-        final HashMap<String, PropriedadeElementoDTO> mapProp = new HashMap<>();
+        final Map<String, PropriedadeElementoDTO> mapProp = new HashMap<>();
         for (final PropriedadeElementoDTO propriedade : propriedades) {
             if (propriedade != null) {
                 if (propriedade.getValorDefault() == null) {

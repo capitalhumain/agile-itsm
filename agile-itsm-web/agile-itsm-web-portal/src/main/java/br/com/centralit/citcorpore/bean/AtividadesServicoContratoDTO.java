@@ -17,6 +17,7 @@ package br.com.centralit.citcorpore.bean;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class AtividadesServicoContratoDTO extends BaseEntity {
+
     private Integer idAtividadeServicoContrato;
     private Integer idFormulaOs;
     private String estruturaFormulaOs;
@@ -42,7 +43,7 @@ public class AtividadesServicoContratoDTO extends BaseEntity {
         return idContrato;
     }
 
-    public void setIdContrato(Integer idContrato) {
+    public void setIdContrato(final Integer idContrato) {
         this.idContrato = idContrato;
     }
 
@@ -50,7 +51,7 @@ public class AtividadesServicoContratoDTO extends BaseEntity {
         return formulaCalculoFinal;
     }
 
-    public void setFormulaCalculoFinal(String formulaCalculoFinal) {
+    public void setFormulaCalculoFinal(final String formulaCalculoFinal) {
         this.formulaCalculoFinal = formulaCalculoFinal;
     }
 
@@ -58,7 +59,7 @@ public class AtividadesServicoContratoDTO extends BaseEntity {
         return estruturaFormulaOs;
     }
 
-    public void setEstruturaFormulaOs(String estruturaFormulaOs) {
+    public void setEstruturaFormulaOs(final String estruturaFormulaOs) {
         this.estruturaFormulaOs = estruturaFormulaOs;
     }
 
@@ -66,7 +67,7 @@ public class AtividadesServicoContratoDTO extends BaseEntity {
         return idFormulaOs;
     }
 
-    public void setIdFormulaOs(Integer idFormulaOs) {
+    public void setIdFormulaOs(final Integer idFormulaOs) {
         this.idFormulaOs = idFormulaOs;
     }
 
@@ -74,7 +75,7 @@ public class AtividadesServicoContratoDTO extends BaseEntity {
         return complexidadeCustoTotal;
     }
 
-    public void setComplexidadeCustoTotal(String complexidadeCustoTotal) {
+    public void setComplexidadeCustoTotal(final String complexidadeCustoTotal) {
         this.complexidadeCustoTotal = complexidadeCustoTotal;
     }
 
@@ -82,7 +83,7 @@ public class AtividadesServicoContratoDTO extends BaseEntity {
         return idAtividadeServicoContrato;
     }
 
-    public void setIdAtividadeServicoContrato(Integer parm) {
+    public void setIdAtividadeServicoContrato(final Integer parm) {
         idAtividadeServicoContrato = parm;
     }
 
@@ -90,7 +91,7 @@ public class AtividadesServicoContratoDTO extends BaseEntity {
         return idServicoContrato;
     }
 
-    public void setIdServicoContrato(Integer parm) {
+    public void setIdServicoContrato(final Integer parm) {
         idServicoContrato = parm;
     }
 
@@ -98,7 +99,7 @@ public class AtividadesServicoContratoDTO extends BaseEntity {
         return descricaoAtividade;
     }
 
-    public void setDescricaoAtividade(String parm) {
+    public void setDescricaoAtividade(final String parm) {
         descricaoAtividade = parm;
     }
 
@@ -106,7 +107,7 @@ public class AtividadesServicoContratoDTO extends BaseEntity {
         return custoAtividade;
     }
 
-    public void setCustoAtividade(Double parm) {
+    public void setCustoAtividade(final Double parm) {
         custoAtividade = parm;
     }
 
@@ -114,7 +115,7 @@ public class AtividadesServicoContratoDTO extends BaseEntity {
         return obsAtividade;
     }
 
-    public void setObsAtividade(String parm) {
+    public void setObsAtividade(final String parm) {
         obsAtividade = parm;
     }
 
@@ -125,7 +126,7 @@ public class AtividadesServicoContratoDTO extends BaseEntity {
         return deleted;
     }
 
-    public void setDeleted(String parm) {
+    public void setDeleted(final String parm) {
         deleted = parm;
     }
 
@@ -133,7 +134,7 @@ public class AtividadesServicoContratoDTO extends BaseEntity {
         return complexidade;
     }
 
-    public void setComplexidade(String complexidade) {
+    public void setComplexidade(final String complexidade) {
         this.complexidade = complexidade;
     }
 
@@ -141,7 +142,7 @@ public class AtividadesServicoContratoDTO extends BaseEntity {
         return formula;
     }
 
-    public void setFormula(String formula) {
+    public void setFormula(final String formula) {
         this.formula = formula;
     }
 
@@ -149,7 +150,7 @@ public class AtividadesServicoContratoDTO extends BaseEntity {
         return quantidade;
     }
 
-    public void setQuantidade(Integer quantidade) {
+    public void setQuantidade(final Integer quantidade) {
         this.quantidade = quantidade;
     }
 
@@ -157,7 +158,7 @@ public class AtividadesServicoContratoDTO extends BaseEntity {
         return periodo;
     }
 
-    public void setPeriodo(String periodo) {
+    public void setPeriodo(final String periodo) {
         this.periodo = periodo;
     }
 
@@ -165,7 +166,7 @@ public class AtividadesServicoContratoDTO extends BaseEntity {
         return hora;
     }
 
-    public void setHora(Double hora) {
+    public void setHora(final Double hora) {
         this.hora = hora;
     }
 
@@ -173,7 +174,7 @@ public class AtividadesServicoContratoDTO extends BaseEntity {
         return contabilizar;
     }
 
-    public void setContabilizar(String contabilizar) {
+    public void setContabilizar(final String contabilizar) {
         this.contabilizar = contabilizar;
     }
 
@@ -181,7 +182,7 @@ public class AtividadesServicoContratoDTO extends BaseEntity {
         return idServicoContratoContabil;
     }
 
-    public void setIdServicoContratoContabil(Integer idServicoContratoContabil) {
+    public void setIdServicoContratoContabil(final Integer idServicoContratoContabil) {
         this.idServicoContratoContabil = idServicoContratoContabil;
     }
 
@@ -189,7 +190,7 @@ public class AtividadesServicoContratoDTO extends BaseEntity {
         return nomeServico;
     }
 
-    public void setNomeServico(String nomeServico) {
+    public void setNomeServico(final String nomeServico) {
         this.nomeServico = nomeServico;
     }
 
@@ -197,7 +198,7 @@ public class AtividadesServicoContratoDTO extends BaseEntity {
         return tipoCusto;
     }
 
-    public void setTipoCusto(String tipoCusto) {
+    public void setTipoCusto(final String tipoCusto) {
         this.tipoCusto = tipoCusto;
     }
 

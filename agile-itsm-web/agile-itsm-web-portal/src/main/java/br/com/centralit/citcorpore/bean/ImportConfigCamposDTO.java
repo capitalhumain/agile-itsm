@@ -3,58 +3,62 @@ package br.com.centralit.citcorpore.bean;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class ImportConfigCamposDTO extends BaseEntity {
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1670709329647476793L;
-	
-	private Integer idImportConfigCampo;
-	private Integer idImportConfig;
-	private String origem;
-	private String destino;
-	private String script;
-	private Integer idImportarDados;
 
-	public Integer getIdImportConfigCampo(){
-		return this.idImportConfigCampo;
-	}
-	public void setIdImportConfigCampo(Integer parm){
-		this.idImportConfigCampo = parm;
-	}
+    private static final long serialVersionUID = 1670709329647476793L;
 
-	public Integer getIdImportConfig(){
-		return this.idImportConfig;
-	}
-	public void setIdImportConfig(Integer parm){
-		this.idImportConfig = parm;
-	}
+    private Integer idImportConfigCampo;
+    private Integer idImportConfig;
+    private String origem;
+    private String destino;
+    private String script;
+    private Integer idImportarDados;
 
-	public String getOrigem(){
-		return this.origem;
-	}
-	public void setOrigem(String parm){
-		this.origem = parm;
-	}
+    public Integer getIdImportConfigCampo() {
+        return idImportConfigCampo;
+    }
 
-	public String getDestino(){
-		return this.destino;
-	}
-	public void setDestino(String parm){
-		this.destino = parm;
-	}
+    public void setIdImportConfigCampo(final Integer parm) {
+        idImportConfigCampo = parm;
+    }
 
-	public String getScript(){
-		return this.script;
-	}
-	public void setScript(String parm){
-		this.script = parm;
-	}
-	public Integer getIdImportarDados() {
-		return idImportarDados;
-	}
-	public void setIdImportarDados(Integer idImportarDados) {
-		this.idImportarDados = idImportarDados;
-	}
+    public Integer getIdImportConfig() {
+        return idImportConfig;
+    }
+
+    public void setIdImportConfig(final Integer parm) {
+        idImportConfig = parm;
+    }
+
+    public String getOrigem() {
+        return origem;
+    }
+
+    public void setOrigem(final String parm) {
+        origem = parm;
+    }
+
+    public String getDestino() {
+        return destino;
+    }
+
+    public void setDestino(final String parm) {
+        destino = parm;
+    }
+
+    public String getScript() {
+        return script;
+    }
+
+    public void setScript(final String parm) {
+        script = parm;
+    }
+
+    public Integer getIdImportarDados() {
+        return idImportarDados;
+    }
+
+    public void setIdImportarDados(final Integer idImportarDados) {
+        this.idImportarDados = idImportarDados;
+    }
 
 }

@@ -14,238 +14,235 @@ import br.com.citframework.integracao.Field;
 import br.com.citframework.integracao.Order;
 import br.com.citframework.util.Constantes;
 
-@SuppressWarnings({"rawtypes","unchecked"})
 public class LiberacaoMudancaDao extends CrudDaoDefaultImpl {
 
+    public LiberacaoMudancaDao() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
+    }
 
-	public LiberacaoMudancaDao() {
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
-	
-	private static final String SQL_DELETE = 
-	          "delete from  liberacaomudanca where idliberacao = ? and idhistoricoliberacao is null";
-	private static final String SQL_DELETE_BY_ID_MUDANCA = 
-	          "delete from  liberacaomudanca where idRequisicaoMudanca = ? and idhistoricomudanca is null ";
-	
-	public Collection<Field> getFields() {
-		Collection<Field> listFields = new ArrayList<>();
-		listFields.add(new Field("idLiberacao" ,"idLiberacao", false, false, false, false));
-		listFields.add(new Field("idRequisicaoMudanca" ,"idRequisicaoMudanca", true, false, false, false));
-		listFields.add(new Field("idhistoricoliberacao" ,"idHistoricoLiberacao", true, false, false, false));
-		//listFields.add(new Field("descricao" ,"descricao", false, false, false, false));
-		listFields.add(new Field("status" ,"status", false, false, false, false));
-		listFields.add(new Field("situacaoliberacao" ,"situacaoLiberacao", false, false, false, false));
-		listFields.add(new Field("idHistoricoMudanca" ,"idHistoricoMudanca", false, false, false, false));
-		return listFields;
-	}
-	public String getTableName() {
-		return this.getOwner() + "liberacaomudanca";
-	}
+    private static final String SQL_DELETE = "delete from  liberacaomudanca where idliberacao = ? and idhistoricoliberacao is null";
+    private static final String SQL_DELETE_BY_ID_MUDANCA = "delete from  liberacaomudanca where idRequisicaoMudanca = ? and idhistoricomudanca is null ";
 
-	public Collection list() throws PersistenceException {
-		return null;
-	}
+    @Override
+    public Collection<Field> getFields() {
+        final Collection<Field> listFields = new ArrayList<>();
+        listFields.add(new Field("idLiberacao", "idLiberacao", false, false, false, false));
+        listFields.add(new Field("idRequisicaoMudanca", "idRequisicaoMudanca", true, false, false, false));
+        listFields.add(new Field("idhistoricoliberacao", "idHistoricoLiberacao", true, false, false, false));
+        // listFields.add(new Field("descricao" ,"descricao", false, false, false, false));
+        listFields.add(new Field("status", "status", false, false, false, false));
+        listFields.add(new Field("situacaoliberacao", "situacaoLiberacao", false, false, false, false));
+        listFields.add(new Field("idHistoricoMudanca", "idHistoricoMudanca", false, false, false, false));
+        return listFields;
+    }
 
-	public Class getBean() {
-		return LiberacaoMudancaDTO.class;
-	}
-	public Collection find(BaseEntity arg0) throws PersistenceException {
-		return null;
-	}
-	public Collection findByIdLiberacao(Integer parm) throws Exception {
-		List condicao = new ArrayList();
-		List ordenacao = new ArrayList();
-		String param2 = "is null";
-		condicao.add(new Condition("idLiberacao", "=", parm)); 
-		condicao.add(new Condition("idHistoricoLiberacao", "is", null));
-		ordenacao.add(new Order("idRequisicaoMudanca"));
-		return super.findByCondition(condicao, ordenacao);
-	}
-	public void deleteByIdLiberacao(Integer parm) throws Exception {
-		/*List condicao = new ArrayList();
-		condicao.add(new Condition("idLiberacao", "=", parm));
-		super.deleteByCondition(condicao);*/
-		 super.execUpdate(SQL_DELETE, new Object[]{parm});
-	}
-	public ArrayList<LiberacaoMudancaDTO> listByIdRequisicaoLiberacao(Integer idrequisicaoliberacao) throws ServiceException, Exception {
-		ArrayList<Condition> condicoes = new ArrayList<Condition>();
-		
-		condicoes.add(new Condition("idLiberacao", "=", idrequisicaoliberacao));
-		
-		return (ArrayList<LiberacaoMudancaDTO>) super.findByCondition(condicoes, null);
-	}
-	public ArrayList<LiberacaoMudancaDTO> listByIdRequisicaMudanca(Integer idrequisicaoMudanca) throws ServiceException, Exception {
-		ArrayList<Condition> condicoes = new ArrayList<Condition>();
-		
-		condicoes.add(new Condition("idRequisicaoMudanca", "=", idrequisicaoMudanca));
-		
-		return (ArrayList<LiberacaoMudancaDTO>) super.findByCondition(condicoes, null);
-	}
-	
-	public ArrayList<LiberacaoMudancaDTO> listByIdHistoricoLiberacao(Integer idHistoricoLiberacao) throws ServiceException, Exception {
-		ArrayList<Condition> condicoes = new ArrayList<Condition>();
-		
-		condicoes.add(new Condition("idHistoricoLiberacao", "=", idHistoricoLiberacao));
-		
-		return (ArrayList<LiberacaoMudancaDTO>) super.findByCondition(condicoes, null);
-	}
-	public ArrayList<LiberacaoMudancaDTO> listByIdHistoricoMudanca(Integer idHistoricoMudanca) throws ServiceException, Exception {
-		ArrayList<Condition> condicoes = new ArrayList<Condition>();
-		
-		condicoes.add(new Condition("idHistoricoMudanca", "=", idHistoricoMudanca));
-		
-		return (ArrayList<LiberacaoMudancaDTO>) super.findByCondition(condicoes, null);
-	}
-	
-	//geber.costa 
-	public Collection<LiberacaoMudancaDTO> listAll() throws ServiceException, Exception {
-		
-		StringBuilder sb = new StringBuilder();
-		List listRetorno = new ArrayList();
+    @Override
+    public String getTableName() {
+        return this.getOwner() + "liberacaomudanca";
+    }
 
-		sb.append("SELECT distinct status ");
-		sb.append("FROM liberacaomudanca ");
-		sb.append("WHERE status is not null ");
-		
-		List lista = this.execSQL(sb.toString(), null);
-		listRetorno.add("status");
-		
-		List listaSolicitacoes = this.engine.listConvertion(getBean(), lista, listRetorno);
+    @Override
+    public Collection list() throws PersistenceException {
+        return null;
+    }
 
-		return listaSolicitacoes;
-		
-	}
-	
-	public Collection findByIdRequisicaoMudanca(Integer idLiberacao , Integer idRequisicaoMudanca) throws Exception {
-		List parametro = new ArrayList();
-		List fields = new ArrayList();
-		List list = new ArrayList();
-		StringBuilder sql =  new StringBuilder();
-		sql.append(" SELECT libmud.idliberacao,libmud.idrequisicaomudanca, lib.titulo, lib.descricao, libmud.status, libmud.situacaoliberacao  ");
-		sql.append(" FROM liberacaomudanca libmud  ");
-		sql.append(" inner join liberacao lib on libmud.idliberacao = lib.idliberacao ");
-		sql.append(" inner join requisicaomudanca mud on libmud.idrequisicaomudanca = mud.idrequisicaomudanca  where idhistoricoliberacao is null and idhistoricomudanca is null and ");
-		
-		if(idRequisicaoMudanca != null){
-			if(idLiberacao != null){
-				sql.append(" libmud.idrequisicaomudanca = ? AND ");
-			}else{
-				sql.append(" libmud.idrequisicaomudanca = ? ");
-			}
-			parametro.add(idRequisicaoMudanca);
-		}
-		
-		if(idLiberacao != null){
-			sql.append(" libmud.idliberacao  = ? ");
-			parametro.add(idLiberacao);
-		}
-		
-		
-		
-		
-		list = this.execSQL(sql.toString(), parametro.toArray());
-		fields.add("idLiberacao");
-		fields.add("idRequisicaoMudanca");
-		fields.add("titulo");
-		fields.add("descricao");
-		fields.add("status");
-		fields.add("situacaoLiberacao");
-		if (list != null && !list.isEmpty()) {
-			return (List<LiberacaoMudancaDTO>) this.listConvertion(getBean(), list, fields);
-		} else {
-			return null;
-		}		
-	}
-	public Collection listByIdHistoricoMudanca2(Integer idHistoricoMudanca) throws Exception {
-		List parametro = new ArrayList();
-		List fields = new ArrayList();
-		List list = new ArrayList();
-		StringBuilder sql =  new StringBuilder();
-		sql.append("SELECT libmud.idliberacao,libmud.idrequisicaomudanca, lib.titulo, lib.descricao, libmud.status, libmud.situacaoliberacao "+
-		"FROM liberacaomudanca libmud  "+
-		"inner join liberacao lib on libmud.idliberacao = lib.idliberacao "+
-		"inner join requisicaomudanca mud on libmud.idrequisicaomudanca = mud.idrequisicaomudanca "+
-		"where idhistoricomudanca = ?   ");
-		
+    @Override
+    public Class getBean() {
+        return LiberacaoMudancaDTO.class;
+    }
 
-			parametro.add(idHistoricoMudanca);
-		
-		
-		
-		
-		
-		list = this.execSQL(sql.toString(), parametro.toArray());
-		fields.add("idLiberacao");
-		fields.add("idRequisicaoMudanca");
-		fields.add("titulo");
-		fields.add("descricao");
-		fields.add("status");
-		fields.add("situacaoLiberacao");
-		if (list != null && !list.isEmpty()) {
-			return (List<LiberacaoMudancaDTO>) this.listConvertion(getBean(), list, fields);
-		} else {
-			return null;
-		}		
-	}
-//	
-//	public Collection findByIdRequisicaoMudanca(Integer parm) throws Exception {
-//		List parametro = new ArrayList();
-//		List fields = new ArrayList();
-//		List list = new ArrayList();
-//		StringBuilder sql =  new StringBuilder();
-//		
-//		sql.append(" SELECT idRequisicaoMudanca,idLiberacao,descricao,status,situacaoLiberacao FROM "+getTableName());
-//		sql.append(" WHERE idHistoricoLiberacao is null ");
-//		sql.append(" AND idliberacao =  ?");
-//		parametro.add(parm);
-//		list = this.execSQL(sql.toString(), parametro.toArray());
-//		fields.add("idRequisicaoMudanca");
-//		fields.add("idLiberacao");
-//		fields.add("descricao");
-//		fields.add("status");
-//		fields.add("situacaoLiberacao");
-//		if (list != null && !list.isEmpty()) {
-//			return (List<LiberacaoMudancaDTO>) this.listConvertion(getBean(), list, fields);
-//		} else {
-//			return null;
-//		}		
-//	}
-	
-	public Collection findByIdLiberacao2(Integer parm) throws Exception {
-		List parametro = new ArrayList();
-		List fields = new ArrayList();
-		List list = new ArrayList();
-		StringBuilder sql =  new StringBuilder();
-		sql.append(" select libm.idliberacao, l.titulo, l.descricao, libm.status, libm.situacaoliberacao, libm.idrequisicaomudanca  from liberacaomudanca libm  ");
-		sql.append(" inner join liberacao l on  l.idliberacao = libm.idliberacao ");
-		sql.append(" where libm.idliberacao = ? and idhistoricoliberacao is null");
-		parametro.add(parm);
-		list = this.execSQL(sql.toString(), parametro.toArray());
-		fields.add("idLiberacao");
-		fields.add("titulo");
-		fields.add("descricao");
-		fields.add("status");
-		fields.add("situacaoLiberacao");
-		fields.add("idRequisicaoMudanca");
-		if (list != null && !list.isEmpty()) {
-			return (List<LiberacaoMudancaDTO>) this.listConvertion(getBean(), list, fields);
-		} else {
-			return null;
-		}		
-	}
-	
-	public void deleteByIdRequisicaoMudanca(Integer idRequisicaoMudanca) throws ServiceException, Exception{
-		ArrayList<Condition> condicoes = new ArrayList<Condition>();
-		condicoes.add(new Condition("idRequisicaoMudanca", "=", idRequisicaoMudanca));
-		super.deleteByCondition(condicoes);
-	}
-	
-	public void deleteByIdMudanca(Integer parm) throws Exception {
-		/*List condicao = new ArrayList();
-		condicao.add(new Condition("idLiberacao", "=", parm));
-		super.deleteByCondition(condicao);*/
-		 super.execUpdate(SQL_DELETE_BY_ID_MUDANCA, new Object[]{parm});
-	}
-	
-	
+    @Override
+    public Collection find(final BaseEntity arg0) throws PersistenceException {
+        return null;
+    }
+
+    public Collection findByIdLiberacao(final Integer parm) throws Exception {
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
+        condicao.add(new Condition("idLiberacao", "=", parm));
+        condicao.add(new Condition("idHistoricoLiberacao", "is", null));
+        ordenacao.add(new Order("idRequisicaoMudanca"));
+        return super.findByCondition(condicao, ordenacao);
+    }
+
+    public void deleteByIdLiberacao(final Integer parm) throws Exception {
+        /*
+         * List<Condition> condicao = new ArrayList<>();
+         * condicao.add(new Condition("idLiberacao", "=", parm));
+         * super.deleteByCondition(condicao);
+         */
+        super.execUpdate(SQL_DELETE, new Object[] {parm});
+    }
+
+    public ArrayList<LiberacaoMudancaDTO> listByIdRequisicaoLiberacao(final Integer idrequisicaoliberacao) throws ServiceException, Exception {
+        final ArrayList<Condition> condicoes = new ArrayList<Condition>();
+
+        condicoes.add(new Condition("idLiberacao", "=", idrequisicaoliberacao));
+
+        return (ArrayList<LiberacaoMudancaDTO>) super.findByCondition(condicoes, null);
+    }
+
+    public ArrayList<LiberacaoMudancaDTO> listByIdRequisicaMudanca(final Integer idrequisicaoMudanca) throws ServiceException, Exception {
+        final ArrayList<Condition> condicoes = new ArrayList<Condition>();
+
+        condicoes.add(new Condition("idRequisicaoMudanca", "=", idrequisicaoMudanca));
+
+        return (ArrayList<LiberacaoMudancaDTO>) super.findByCondition(condicoes, null);
+    }
+
+    public ArrayList<LiberacaoMudancaDTO> listByIdHistoricoLiberacao(final Integer idHistoricoLiberacao) throws ServiceException, Exception {
+        final ArrayList<Condition> condicoes = new ArrayList<Condition>();
+
+        condicoes.add(new Condition("idHistoricoLiberacao", "=", idHistoricoLiberacao));
+
+        return (ArrayList<LiberacaoMudancaDTO>) super.findByCondition(condicoes, null);
+    }
+
+    public ArrayList<LiberacaoMudancaDTO> listByIdHistoricoMudanca(final Integer idHistoricoMudanca) throws ServiceException, Exception {
+        final ArrayList<Condition> condicoes = new ArrayList<Condition>();
+
+        condicoes.add(new Condition("idHistoricoMudanca", "=", idHistoricoMudanca));
+
+        return (ArrayList<LiberacaoMudancaDTO>) super.findByCondition(condicoes, null);
+    }
+
+    // geber.costa
+    public Collection<LiberacaoMudancaDTO> listAll() throws ServiceException, Exception {
+
+        final StringBuilder sb = new StringBuilder();
+        final List listRetorno = new ArrayList<>();
+
+        sb.append("SELECT distinct status ");
+        sb.append("FROM liberacaomudanca ");
+        sb.append("WHERE status is not null ");
+
+        final List lista = this.execSQL(sb.toString(), null);
+        listRetorno.add("status");
+
+        final List listaSolicitacoes = engine.listConvertion(this.getBean(), lista, listRetorno);
+
+        return listaSolicitacoes;
+
+    }
+
+    public Collection findByIdRequisicaoMudanca(final Integer idLiberacao, final Integer idRequisicaoMudanca) throws Exception {
+        final List parametro = new ArrayList<>();
+        final List fields = new ArrayList<>();
+        List list = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
+        sql.append(" SELECT libmud.idliberacao,libmud.idrequisicaomudanca, lib.titulo, lib.descricao, libmud.status, libmud.situacaoliberacao  ");
+        sql.append(" FROM liberacaomudanca libmud  ");
+        sql.append(" inner join liberacao lib on libmud.idliberacao = lib.idliberacao ");
+        sql.append(" inner join requisicaomudanca mud on libmud.idrequisicaomudanca = mud.idrequisicaomudanca  where idhistoricoliberacao is null and idhistoricomudanca is null and ");
+
+        if (idRequisicaoMudanca != null) {
+            if (idLiberacao != null) {
+                sql.append(" libmud.idrequisicaomudanca = ? AND ");
+            } else {
+                sql.append(" libmud.idrequisicaomudanca = ? ");
+            }
+            parametro.add(idRequisicaoMudanca);
+        }
+
+        if (idLiberacao != null) {
+            sql.append(" libmud.idliberacao  = ? ");
+            parametro.add(idLiberacao);
+        }
+
+        list = this.execSQL(sql.toString(), parametro.toArray());
+        fields.add("idLiberacao");
+        fields.add("idRequisicaoMudanca");
+        fields.add("titulo");
+        fields.add("descricao");
+        fields.add("status");
+        fields.add("situacaoLiberacao");
+        if (list != null && !list.isEmpty()) {
+            return this.listConvertion(this.getBean(), list, fields);
+        } else {
+            return null;
+        }
+    }
+
+    public Collection listByIdHistoricoMudanca2(final Integer idHistoricoMudanca) throws Exception {
+        final List parametro = new ArrayList<>();
+        final List fields = new ArrayList<>();
+        List list = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
+        sql.append("SELECT libmud.idliberacao,libmud.idrequisicaomudanca, lib.titulo, lib.descricao, libmud.status, libmud.situacaoliberacao "
+                + "FROM liberacaomudanca libmud  " + "inner join liberacao lib on libmud.idliberacao = lib.idliberacao "
+                + "inner join requisicaomudanca mud on libmud.idrequisicaomudanca = mud.idrequisicaomudanca " + "where idhistoricomudanca = ?   ");
+
+        parametro.add(idHistoricoMudanca);
+
+        list = this.execSQL(sql.toString(), parametro.toArray());
+        fields.add("idLiberacao");
+        fields.add("idRequisicaoMudanca");
+        fields.add("titulo");
+        fields.add("descricao");
+        fields.add("status");
+        fields.add("situacaoLiberacao");
+        if (list != null && !list.isEmpty()) {
+            return this.listConvertion(this.getBean(), list, fields);
+        } else {
+            return null;
+        }
+    }
+
+    //
+    // public Collection findByIdRequisicaoMudanca(Integer parm) throws Exception {
+    // List parametro = new ArrayList<>();
+    // List fields = new ArrayList<>();
+    // List list = new ArrayList<>();
+    // StringBuilder sql = new StringBuilder();
+    //
+    // sql.append(" SELECT idRequisicaoMudanca,idLiberacao,descricao,status,situacaoLiberacao FROM "+getTableName());
+    // sql.append(" WHERE idHistoricoLiberacao is null ");
+    // sql.append(" AND idliberacao =  ?");
+    // parametro.add(parm);
+    // list = this.execSQL(sql.toString(), parametro.toArray());
+    // fields.add("idRequisicaoMudanca");
+    // fields.add("idLiberacao");
+    // fields.add("descricao");
+    // fields.add("status");
+    // fields.add("situacaoLiberacao");
+    // if (list != null && !list.isEmpty()) {
+    // return (List<LiberacaoMudancaDTO>) this.listConvertion(getBean(), list, fields);
+    // } else {
+    // return null;
+    // }
+    // }
+
+    public Collection findByIdLiberacao2(final Integer parm) throws Exception {
+        final List parametro = new ArrayList<>();
+        final List fields = new ArrayList<>();
+        List list = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
+        sql.append(" select libm.idliberacao, l.titulo, l.descricao, libm.status, libm.situacaoliberacao, libm.idrequisicaomudanca  from liberacaomudanca libm  ");
+        sql.append(" inner join liberacao l on  l.idliberacao = libm.idliberacao ");
+        sql.append(" where libm.idliberacao = ? and idhistoricoliberacao is null");
+        parametro.add(parm);
+        list = this.execSQL(sql.toString(), parametro.toArray());
+        fields.add("idLiberacao");
+        fields.add("titulo");
+        fields.add("descricao");
+        fields.add("status");
+        fields.add("situacaoLiberacao");
+        fields.add("idRequisicaoMudanca");
+        if (list != null && !list.isEmpty()) {
+            return this.listConvertion(this.getBean(), list, fields);
+        } else {
+            return null;
+        }
+    }
+
+    public void deleteByIdRequisicaoMudanca(final Integer idRequisicaoMudanca) throws ServiceException, Exception {
+        final ArrayList<Condition> condicoes = new ArrayList<Condition>();
+        condicoes.add(new Condition("idRequisicaoMudanca", "=", idRequisicaoMudanca));
+        super.deleteByCondition(condicoes);
+    }
+
+    public void deleteByIdMudanca(final Integer parm) throws Exception {
+        super.execUpdate(SQL_DELETE_BY_ID_MUDANCA, new Object[] {parm});
+    }
+
 }

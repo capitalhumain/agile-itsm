@@ -82,7 +82,7 @@ public class ImagemItemConfiguracaoDao extends CrudDaoDefaultImpl {
 
     @SuppressWarnings({"unchecked", "rawtypes"})
     public Collection<ImagemItemConfiguracaoDTO> findByIdItemConfiguracao(final Integer id) throws PersistenceException {
-        final List condicao = new ArrayList();
+        final List<Condition> condicao = new ArrayList<>();
         condicao.add(new Condition("idItemConfiguracao", "=", id));
         return super.findByCondition(condicao, null);
     }
@@ -90,7 +90,7 @@ public class ImagemItemConfiguracaoDao extends CrudDaoDefaultImpl {
     @SuppressWarnings({"rawtypes", "unchecked"})
     public Collection<ImagemItemConfiguracaoDTO> findByIdImagemItemConfiguracaoPai(final Integer id) {
         Collection retorno = null;
-        final List condicao = new ArrayList();
+        final List<Condition> condicao = new ArrayList<>();
         condicao.add(new Condition("idImagemItemConfiguracaoPai", "=", id));
         try {
             retorno = super.findByCondition(condicao, null);
@@ -105,7 +105,7 @@ public class ImagemItemConfiguracaoDao extends CrudDaoDefaultImpl {
         Collection retorno = null;
         final ImagemItemConfiguracaoDTO img = new ImagemItemConfiguracaoDTO();
         img.setIdImagemItemConfiguracao(id);
-        final List condicao = new ArrayList();
+        final List<Condition> condicao = new ArrayList<>();
         condicao.add(new Condition("idimagemitemconfiguracao", "=", id));
         try {
             retorno = super.find(img, null);
@@ -122,7 +122,7 @@ public class ImagemItemConfiguracaoDao extends CrudDaoDefaultImpl {
         img.setIdServico(id);
         Collection retorno = null;
 
-        final List condicao = new ArrayList();
+        final List<Condition> condicao = new ArrayList<>();
         condicao.add(new Condition("idservico", "=", id.intValue()));
         try {
             // retorno = super.findByCondition(condicao, null);

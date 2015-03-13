@@ -46,12 +46,12 @@ public class WebUtil {
             if (request.getSession().getAttribute("locale") != null && !request.getSession().getAttribute("locale").equals("")) {
                 usuario.setLocale((String) request.getSession().getAttribute("locale"));
             } else {
-            	/**
-            	 * Se não tive uma língua definida, seta como português
-            	 * 
-            	 * @author thyen.chang
-            	 * @since 04/02/2015
-            	 */
+                /**
+                 * Se não tive uma língua definida, seta como português
+                 *
+                 * @author thyen.chang
+                 * @since 04/02/2015
+                 */
                 usuario.setLocale(UtilI18N.PORTUGUESE_SIGLA);
             }
 
@@ -99,8 +99,9 @@ public class WebUtil {
             out.print("<table width='100%'>");
             out.print("<tr id='trITEMMENU_" + itemProntuarioTemp.getNome() + "'>");
             out.print("<td width='10%'>&nbsp;</td>");
-            out.print("<td id='tdITEMMENU_" + itemProntuarioTemp.getNome() + "' style='cursor:pointer' class='bordaNaoSelecionaProntuario' onclick=\"setaAbaSelecionada('"
-                    + itemProntuarioTemp.getNome() + "', " + subItens + ", '" + itemProntuarioTemp.getPath() + "', 'tdITEMMENU_" + itemProntuarioTemp.getNome() + "')\">");
+            out.print("<td id='tdITEMMENU_" + itemProntuarioTemp.getNome()
+                    + "' style='cursor:pointer' class='bordaNaoSelecionaProntuario' onclick=\"setaAbaSelecionada('" + itemProntuarioTemp.getNome() + "', "
+                    + subItens + ", '" + itemProntuarioTemp.getPath() + "', 'tdITEMMENU_" + itemProntuarioTemp.getNome() + "')\">");
             out.print(itemProntuarioTemp.getDescricao());
 
             WebUtil.renderizaFilhos(itemProntuarioTemp, out);
@@ -138,8 +139,9 @@ public class WebUtil {
             out.print("<table width='100%'>");
             out.print("<tr id='trITEMMENU2_" + itemProntuarioTemp.getNome() + "'>");
             out.print("<td width='10%'>&nbsp;</td>");
-            out.print("<td id='tdITEMMENU2_" + itemProntuarioTemp.getNome() + "' style='cursor:pointer' class='bordaNaoSelecionaProntuario' onclick=\"setaAbaSel2('"
-                    + itemProntuarioTemp.getNome() + "', " + subItens + ", '" + itemProntuarioTemp.getPath() + "', 'tdITEMMENU2_" + itemProntuarioTemp.getNome() + "', false, '"
+            out.print("<td id='tdITEMMENU2_" + itemProntuarioTemp.getNome()
+                    + "' style='cursor:pointer' class='bordaNaoSelecionaProntuario' onclick=\"setaAbaSel2('" + itemProntuarioTemp.getNome() + "', " + subItens
+                    + ", '" + itemProntuarioTemp.getPath() + "', 'tdITEMMENU2_" + itemProntuarioTemp.getNome() + "', false, '"
                     + itemProntuarioTemp.getIdQuestionario() + "')\">");
             out.print(itemProntuarioTemp.getDescricao());
 
@@ -244,12 +246,13 @@ public class WebUtil {
      * @throws Exception
      */
     @SuppressWarnings("unchecked")
-    public static List<PerfilAcessoMenuDTO> getPerfilAcessoUsuarioByMenu(final HttpServletRequest request, final UsuarioDTO usuario, final Integer idMenu) throws ServiceException,
-            Exception {
+    public static List<PerfilAcessoMenuDTO> getPerfilAcessoUsuarioByMenu(final HttpServletRequest request, final UsuarioDTO usuario, final Integer idMenu)
+            throws ServiceException, Exception {
         Map<Integer, List<PerfilAcessoMenuDTO>> mapaPerfilAcessoUsuario = (Map<Integer, List<PerfilAcessoMenuDTO>>) request.getSession().getAttribute(
                 Constantes.getValue("USUARIO_SESSAO") + "_PERFILACESSOMENU_CITCORPORE");
         if (mapaPerfilAcessoUsuario == null) {
-            final PerfilAcessoMenuService perfilAcessoMenuService = (PerfilAcessoMenuService) ServiceLocator.getInstance().getService(PerfilAcessoMenuService.class, null);
+            final PerfilAcessoMenuService perfilAcessoMenuService = (PerfilAcessoMenuService) ServiceLocator.getInstance().getService(
+                    PerfilAcessoMenuService.class, null);
             mapaPerfilAcessoUsuario = perfilAcessoMenuService.getPerfilAcessoBotoesMenu(usuario);
             request.getSession().setAttribute(Constantes.getValue("USUARIO_SESSAO") + "_PERFILACESSOMENU_CITCORPORE", mapaPerfilAcessoUsuario);
         }

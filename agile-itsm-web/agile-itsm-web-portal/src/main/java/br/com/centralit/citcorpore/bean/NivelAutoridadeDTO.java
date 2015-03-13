@@ -6,60 +6,71 @@ import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.util.Enumerados.MotivoRejeicaoAlcada;
 
 public class NivelAutoridadeDTO extends BaseEntity {
-	private Integer idNivelAutoridade;
-	private String nomeNivelAutoridade;
-	private Integer hierarquia;
-	private String situacao;
-	
-	private Collection<GrupoNivelAutoridadeDTO> colGrupos;
 
-	private boolean alcadaRejeitada;
-	private MotivoRejeicaoAlcada motivoRejeicao;
+    private Integer idNivelAutoridade;
+    private String nomeNivelAutoridade;
+    private Integer hierarquia;
+    private String situacao;
 
+    private Collection<GrupoNivelAutoridadeDTO> colGrupos;
 
-	public Integer getIdNivelAutoridade(){
-		return this.idNivelAutoridade;
-	}
-	public void setIdNivelAutoridade(Integer parm){
-		this.idNivelAutoridade = parm;
-	}
+    private boolean alcadaRejeitada;
+    private MotivoRejeicaoAlcada motivoRejeicao;
 
-	public String getNomeNivelAutoridade(){
-		return this.nomeNivelAutoridade;
-	}
-	public void setNomeNivelAutoridade(String parm){
-		this.nomeNivelAutoridade = parm;
-	}
+    public Integer getIdNivelAutoridade() {
+        return idNivelAutoridade;
+    }
 
-	public Integer getHierarquia(){
-		return this.hierarquia;
-	}
-	public void setHierarquia(Integer parm){
-		this.hierarquia = parm;
-	}
-	public Collection<GrupoNivelAutoridadeDTO> getColGrupos() {
-		return colGrupos;
-	}
-	public void setColGrupos(Collection<GrupoNivelAutoridadeDTO> colGrupos) {
-		this.colGrupos = colGrupos;
-	}
-	public String getSituacao() {
-		return situacao;
-	}
-	public void setSituacao(String situacao) {
-		this.situacao = situacao;
-	}
-	public boolean isAlcadaRejeitada() {
-		return alcadaRejeitada;
-	}
-	public void setAlcadaRejeitada(boolean alcadaRejeitada) {
-		this.alcadaRejeitada = alcadaRejeitada;
-	}
-	public MotivoRejeicaoAlcada getMotivoRejeicao() {
-		return motivoRejeicao;
-	}
-	public void setMotivoRejeicao(MotivoRejeicaoAlcada motivoRejeicao) {
-		this.motivoRejeicao = motivoRejeicao;
-	}
+    public void setIdNivelAutoridade(final Integer parm) {
+        idNivelAutoridade = parm;
+    }
+
+    public String getNomeNivelAutoridade() {
+        return nomeNivelAutoridade;
+    }
+
+    public void setNomeNivelAutoridade(final String parm) {
+        nomeNivelAutoridade = parm;
+    }
+
+    public Integer getHierarquia() {
+        return hierarquia;
+    }
+
+    public void setHierarquia(final Integer parm) {
+        hierarquia = parm;
+    }
+
+    public Collection<GrupoNivelAutoridadeDTO> getColGrupos() {
+        return colGrupos;
+    }
+
+    public void setColGrupos(final Collection<GrupoNivelAutoridadeDTO> colGrupos) {
+        this.colGrupos = colGrupos;
+    }
+
+    public String getSituacao() {
+        return situacao;
+    }
+
+    public void setSituacao(final String situacao) {
+        this.situacao = situacao;
+    }
+
+    public boolean isAlcadaRejeitada() {
+        return alcadaRejeitada;
+    }
+
+    public void setAlcadaRejeitada(final boolean alcadaRejeitada) {
+        this.alcadaRejeitada = alcadaRejeitada;
+    }
+
+    public MotivoRejeicaoAlcada getMotivoRejeicao() {
+        return motivoRejeicao;
+    }
+
+    public void setMotivoRejeicao(final MotivoRejeicaoAlcada motivoRejeicao) {
+        this.motivoRejeicao = motivoRejeicao;
+    }
 
 }

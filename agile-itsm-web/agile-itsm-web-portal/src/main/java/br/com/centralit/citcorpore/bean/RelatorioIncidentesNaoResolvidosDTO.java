@@ -6,163 +6,164 @@ import br.com.agileitsm.model.support.BaseEntity;
 
 public class RelatorioIncidentesNaoResolvidosDTO extends BaseEntity {
 
-	private static final long serialVersionUID = 1L;
-	private Date dataReferencia;
-	private Date periodoReferencia;
-	private Integer qtdDiasAbertos;
-	private Integer idContrato;
-	private String contrato;
-	private String funcionario;
-	private String listaGrupos;
-	private String listaServicos;
-	private String formatoArquivoRelatorio;
-	private Integer numeroSolicitacao;
-	private String nomeservico;
-	private String responsavel;
-	private String solicitante;
-	private String tipoServico;
-	private String situacao;
-	private String dataCriacao;
-	private Integer qtdDiasAtrasos;
+    private static final long serialVersionUID = 1L;
 
-	public String getListaServicos() {
-		return listaServicos;
-	}
+    private Date dataReferencia;
+    private Date periodoReferencia;
+    private Integer qtdDiasAbertos;
+    private Integer idContrato;
+    private String contrato;
+    private String funcionario;
+    private String listaGrupos;
+    private String listaServicos;
+    private String formatoArquivoRelatorio;
+    private Integer numeroSolicitacao;
+    private String nomeservico;
+    private String responsavel;
+    private String solicitante;
+    private String tipoServico;
+    private String situacao;
+    private String dataCriacao;
+    private Integer qtdDiasAtrasos;
 
-	public void setListaServicos(String listaServicos) {
-		this.listaServicos = listaServicos;
-	}
+    public String getListaServicos() {
+        return listaServicos;
+    }
 
-	public Integer getNumeroSolicitacao() {
-		return numeroSolicitacao;
-	}
+    public void setListaServicos(final String listaServicos) {
+        this.listaServicos = listaServicos;
+    }
 
-	public void setNumeroSolicitacao(Integer numeroSolicitacao) {
-		this.numeroSolicitacao = numeroSolicitacao;
-	}
+    public Integer getNumeroSolicitacao() {
+        return numeroSolicitacao;
+    }
 
-	public String getNomeservico() {
-		return nomeservico;
-	}
+    public void setNumeroSolicitacao(final Integer numeroSolicitacao) {
+        this.numeroSolicitacao = numeroSolicitacao;
+    }
 
-	public void setNomeservico(String nomeservico) {
-		this.nomeservico = nomeservico;
-	}
+    public String getNomeservico() {
+        return nomeservico;
+    }
 
-	public String getResponsavel() {
-		return responsavel;
-	}
+    public void setNomeservico(final String nomeservico) {
+        this.nomeservico = nomeservico;
+    }
 
-	public void setResponsavel(String responsavel) {
-		this.responsavel = responsavel;
-	}
+    public String getResponsavel() {
+        return responsavel;
+    }
 
-	public String getSolicitante() {
-		return solicitante;
-	}
+    public void setResponsavel(final String responsavel) {
+        this.responsavel = responsavel;
+    }
 
-	public void setSolicitante(String solicitante) {
-		this.solicitante = solicitante;
-	}
+    public String getSolicitante() {
+        return solicitante;
+    }
 
-	public String getTipoServico() {
-		return tipoServico;
-	}
+    public void setSolicitante(final String solicitante) {
+        this.solicitante = solicitante;
+    }
 
-	public void setTipoServico(String tipoServico) {
-		this.tipoServico = tipoServico;
-	}
+    public String getTipoServico() {
+        return tipoServico;
+    }
 
-	public String getSituacao() {
-		return situacao;
-	}
+    public void setTipoServico(final String tipoServico) {
+        this.tipoServico = tipoServico;
+    }
 
-	public void setSituacao(String situacao) {
-		this.situacao = situacao;
-	}
+    public String getSituacao() {
+        return situacao;
+    }
 
-	public String getDataCriacao() {
-		return dataCriacao;
-	}
+    public void setSituacao(final String situacao) {
+        this.situacao = situacao;
+    }
 
-	public void setDataCriacao(String dataCriacao) {
-		this.dataCriacao = dataCriacao;
-	}
+    public String getDataCriacao() {
+        return dataCriacao;
+    }
 
-	public Integer getQtdDiasAtrasos() {
-		return qtdDiasAtrasos;
-	}
+    public void setDataCriacao(final String dataCriacao) {
+        this.dataCriacao = dataCriacao;
+    }
 
-	public void setQtdDiasAtrasos(Integer qtdDiasAtrasos) {
-		this.qtdDiasAtrasos = qtdDiasAtrasos;
-	}
+    public Integer getQtdDiasAtrasos() {
+        return qtdDiasAtrasos;
+    }
 
-	public Date getDataReferencia() {
-		return dataReferencia;
-	}
+    public void setQtdDiasAtrasos(final Integer qtdDiasAtrasos) {
+        this.qtdDiasAtrasos = qtdDiasAtrasos;
+    }
 
-	public void setDataReferencia(Date dataReferencia) {
-		this.dataReferencia = dataReferencia;
-	}
+    public Date getDataReferencia() {
+        return dataReferencia;
+    }
 
-	public Date getPeriodoReferencia() {
-		return periodoReferencia;
-	}
+    public void setDataReferencia(final Date dataReferencia) {
+        this.dataReferencia = dataReferencia;
+    }
 
-	public void setPeriodoReferencia(Date periodoReferencia) {
-		this.periodoReferencia = periodoReferencia;
-	}
+    public Date getPeriodoReferencia() {
+        return periodoReferencia;
+    }
 
-	public Integer getQtdDiasAbertos() {
-		return qtdDiasAbertos;
-	}
+    public void setPeriodoReferencia(final Date periodoReferencia) {
+        this.periodoReferencia = periodoReferencia;
+    }
 
-	public void setQtdDiasAbertos(Integer qtdDiasAbertos) {
-		this.qtdDiasAbertos = qtdDiasAbertos;
-	}
+    public Integer getQtdDiasAbertos() {
+        return qtdDiasAbertos;
+    }
 
-	public Integer getIdContrato() {
-		return idContrato;
-	}
+    public void setQtdDiasAbertos(final Integer qtdDiasAbertos) {
+        this.qtdDiasAbertos = qtdDiasAbertos;
+    }
 
-	public void setIdContrato(Integer idContrato) {
-		this.idContrato = idContrato;
-	}
+    public Integer getIdContrato() {
+        return idContrato;
+    }
 
-	public String getContrato() {
-		return contrato;
-	}
+    public void setIdContrato(final Integer idContrato) {
+        this.idContrato = idContrato;
+    }
 
-	public void setContrato(String contrato) {
-		this.contrato = contrato;
-	}
+    public String getContrato() {
+        return contrato;
+    }
 
-	public String getFuncionario() {
-		return funcionario;
-	}
+    public void setContrato(final String contrato) {
+        this.contrato = contrato;
+    }
 
-	public void setFuncionario(String funcionario) {
-		this.funcionario = funcionario;
-	}
+    public String getFuncionario() {
+        return funcionario;
+    }
 
-	public String getListaGrupos() {
-		return listaGrupos;
-	}
+    public void setFuncionario(final String funcionario) {
+        this.funcionario = funcionario;
+    }
 
-	public void setListaGrupos(String listaGrupos) {
-		this.listaGrupos = listaGrupos;
-	}
+    public String getListaGrupos() {
+        return listaGrupos;
+    }
 
-	public String getFormatoArquivoRelatorio() {
-		return formatoArquivoRelatorio;
-	}
+    public void setListaGrupos(final String listaGrupos) {
+        this.listaGrupos = listaGrupos;
+    }
 
-	public void setFormatoArquivoRelatorio(String formatoArquivoRelatorio) {
-		this.formatoArquivoRelatorio = formatoArquivoRelatorio;
-	}
+    public String getFormatoArquivoRelatorio() {
+        return formatoArquivoRelatorio;
+    }
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+    public void setFormatoArquivoRelatorio(final String formatoArquivoRelatorio) {
+        this.formatoArquivoRelatorio = formatoArquivoRelatorio;
+    }
+
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
 
 }

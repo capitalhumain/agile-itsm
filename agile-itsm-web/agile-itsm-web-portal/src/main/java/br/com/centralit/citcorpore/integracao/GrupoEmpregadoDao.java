@@ -16,312 +16,316 @@ import br.com.citframework.integracao.Field;
 import br.com.citframework.util.Constantes;
 import br.com.citframework.util.SQLConfig;
 
-@SuppressWarnings({ "unchecked", "rawtypes" })
 public class GrupoEmpregadoDao extends CrudDaoDefaultImpl {
 
-	public GrupoEmpregadoDao() {
+    public GrupoEmpregadoDao() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
+    }
 
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
+    @Override
+    public Class getBean() {
+        return GrupoEmpregadoDTO.class;
+    }
 
-	}
+    @Override
+    public Collection<Field> getFields() {
+        final Collection<Field> listFields = new ArrayList<>();
 
-	public Class getBean() {
-		return GrupoEmpregadoDTO.class;
-	}
+        listFields.add(new Field("idGrupo", "idGrupo", true, false, false, false));
+        listFields.add(new Field("idEmpregado", "idEmpregado", true, false, false, false));
+        listFields.add(new Field("enviaEmail", "enviaEmail", true, false, false, false));
 
-	public Collection<Field> getFields() {
-		Collection<Field> listFields = new ArrayList<>();
+        return listFields;
+    }
 
-		listFields.add(new Field("idGrupo", "idGrupo", true, false, false, false));
-		listFields.add(new Field("idEmpregado", "idEmpregado", true, false, false, false));
-		listFields.add(new Field("enviaEmail", "enviaEmail", true, false, false, false));
+    @Override
+    public String getTableName() {
+        return "GRUPOSEMPREGADOS";
+    }
 
-		return listFields;
-	}
+    @Override
+    public Collection find(final BaseEntity obj) throws PersistenceException {
+        return null;
+    }
 
-	public String getTableName() {
-		return "GRUPOSEMPREGADOS";
-	}
+    @Override
+    public Collection list() throws PersistenceException {
+        return null;
+    }
 
-	public Collection find(BaseEntity obj) throws PersistenceException {
-		return null;
-	}
+    public void deleteByIdEmpregado(final Integer idEmpregado) throws PersistenceException {
+        final List lstCondicao = new ArrayList<>();
+        lstCondicao.add(new Condition(Condition.AND, "idEmpregado", "=", idEmpregado));
+        super.deleteByCondition(lstCondicao);
+    }
 
-	public Collection list() throws PersistenceException {
-		return null;
-	}
+    public void deleteByIdGrupo(final Integer idGrupo) throws PersistenceException {
+        final List lstCondicao = new ArrayList<>();
+        lstCondicao.add(new Condition("idGrupo", "=", idGrupo));
+        super.deleteByCondition(lstCondicao);
+    }
 
-	public void deleteByIdEmpregado(Integer idEmpregado) throws PersistenceException {
-		List lstCondicao = new ArrayList();
-		lstCondicao.add(new Condition(Condition.AND, "idEmpregado", "=", idEmpregado));
-		super.deleteByCondition(lstCondicao);
-	}
+    /**
+     * Deleta GrupoEmpregado por idGrupo e idEmpregado.
+     *
+     * @param idGrupo
+     * @param idEmpregado
+     * @throws Exception
+     */
+    public void deleteByIdGrupoAndEmpregado(final Integer idGrupo, final Integer idEmpregado) throws PersistenceException {
+        final List lstCondicao = new ArrayList<>();
+        lstCondicao.add(new Condition("idGrupo", "=", idGrupo));
+        lstCondicao.add(new Condition(Condition.AND, "idEmpregado", "=", idEmpregado));
+        super.deleteByCondition(lstCondicao);
+    }
 
-	public void deleteByIdGrupo(Integer idGrupo) throws PersistenceException {
-		List lstCondicao = new ArrayList();
-		lstCondicao.add(new Condition("idGrupo", "=", idGrupo));
-		super.deleteByCondition(lstCondicao);
-	}
+    public Collection findByIdEmpregado(final Integer idEmpregado) throws PersistenceException {
+        final Object[] objs = new Object[] {idEmpregado};
+        final String sql = "SELECT G.idGrupo, G.sigla, GE.idEmpregado  FROM gruposempregados GE INNER JOIN grupo G ON G.idGrupo = GE.idGrupo  WHERE GE.idEmpregado = ? ";
+        final List lista = this.execSQL(sql, objs);
 
-	/**
-	 * Deleta GrupoEmpregado por idGrupo e idEmpregado.
-	 *
-	 * @param idGrupo
-	 * @param idEmpregado
-	 * @throws Exception
-	 */
-	public void deleteByIdGrupoAndEmpregado(Integer idGrupo, Integer idEmpregado) throws PersistenceException {
-		List lstCondicao = new ArrayList();
-		lstCondicao.add(new Condition("idGrupo", "=", idGrupo));
-		lstCondicao.add(new Condition(Condition.AND, "idEmpregado", "=", idEmpregado));
-		super.deleteByCondition(lstCondicao);
-	}
+        final List listRetorno = new ArrayList<>();
+        listRetorno.add("idGrupo");
+        listRetorno.add("sigla");
+        listRetorno.add("idEmpregado");
 
-	public Collection findByIdEmpregado(Integer idEmpregado) throws PersistenceException {
-		Object[] objs = new Object[] { idEmpregado };
-		String sql = "SELECT G.idGrupo, G.sigla, GE.idEmpregado  FROM gruposempregados GE INNER JOIN grupo G ON G.idGrupo = GE.idGrupo  WHERE GE.idEmpregado = ? ";
-		List lista = this.execSQL(sql, objs);
+        return engine.listConvertion(this.getBean(), lista, listRetorno);
+    }
 
-		List listRetorno = new ArrayList();
-		listRetorno.add("idGrupo");
-		listRetorno.add("sigla");
-		listRetorno.add("idEmpregado");
+    public Collection findAtivosByIdEmpregado(final Integer idEmpregado) throws PersistenceException {
+        final Object[] objs = new Object[] {idEmpregado};
+        final String sql = "SELECT G.idGrupo, G.sigla, GE.idEmpregado  FROM GruposEmpregados GE INNER JOIN Grupo G ON G.idGrupo = GE.idGrupo  WHERE G.dataFim IS NULL AND GE.idEmpregado = ? ";
+        final List lista = this.execSQL(sql, objs);
 
-		return this.engine.listConvertion(getBean(), lista, listRetorno);
-	}
+        final List listRetorno = new ArrayList<>();
+        listRetorno.add("idGrupo");
+        listRetorno.add("sigla");
+        listRetorno.add("idEmpregado");
 
-	public Collection findAtivosByIdEmpregado(Integer idEmpregado) throws PersistenceException {
-		Object[] objs = new Object[] { idEmpregado };
-		String sql = "SELECT G.idGrupo, G.sigla, GE.idEmpregado  FROM GruposEmpregados GE INNER JOIN Grupo G ON G.idGrupo = GE.idGrupo  WHERE G.dataFim IS NULL AND GE.idEmpregado = ? ";
-		List lista = this.execSQL(sql, objs);
+        return engine.listConvertion(this.getBean(), lista, listRetorno);
+    }
 
-		List listRetorno = new ArrayList();
-		listRetorno.add("idGrupo");
-		listRetorno.add("sigla");
-		listRetorno.add("idEmpregado");
+    public Collection<GrupoEmpregadoDTO> findByIdGrupo(final Integer idGrupo) throws PersistenceException {
+        final Object[] objs = new Object[] {idGrupo};
+        final StringBuilder sql = new StringBuilder();
+        String orderBy = "";
+        if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.SQLSERVER)) {
+            orderBy = "ORDER BY LTRIM(RTRIM(EM.NOME))";
+        } else {
+            orderBy = "ORDER BY TRIM(EM.NOME)";
+        }
+        sql.append("SELECT G.idGrupo, G.sigla, GE.idEmpregado  FROM GruposEmpregados GE INNER JOIN Grupo G ON G.idGrupo = GE.idGrupo "
+                + "INNER JOIN EMPREGADOS EM ON GE.IDEMPREGADO = EM.IDEMPREGADO WHERE GE.idGrupo = ? " + orderBy + " ");
 
-		return this.engine.listConvertion(getBean(), lista, listRetorno);
-	}
+        final List lista = this.execSQL(sql.toString(), objs);
 
-	public Collection<GrupoEmpregadoDTO> findByIdGrupo(Integer idGrupo) throws PersistenceException {
-		Object[] objs = new Object[] { idGrupo };
-		StringBuilder sql = new StringBuilder();
-		String orderBy = "";
-		if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.SQLSERVER)) {
-			orderBy = "ORDER BY LTRIM(RTRIM(EM.NOME))";
-		} else {
-			orderBy = "ORDER BY TRIM(EM.NOME)";
-		}
-		sql.append("SELECT G.idGrupo, G.sigla, GE.idEmpregado  FROM GruposEmpregados GE INNER JOIN Grupo G ON G.idGrupo = GE.idGrupo "
-				+ "INNER JOIN EMPREGADOS EM ON GE.IDEMPREGADO = EM.IDEMPREGADO WHERE GE.idGrupo = ? " + orderBy + " ");
+        final List listRetorno = new ArrayList<>();
+        listRetorno.add("idGrupo");
+        listRetorno.add("sigla");
+        listRetorno.add("idEmpregado");
+        if (lista != null && !lista.isEmpty()) {
+            return engine.listConvertion(this.getBean(), lista, listRetorno);
+        } else {
+            return null;
+        }
+    }
 
-		List lista = this.execSQL(sql.toString(), objs);
+    /**
+     * Retorna Lista de GrupoEmpregadoDTO com informações do Grupo e Empregados.
+     *
+     * @param idGrupo
+     *            - Identificador único do Grupo.
+     * @return listGrupoEmpregadoDTO - Lista de GrupoEmpregadoDTO com informações do empregado.
+     * @throws PersistenceException
+     * @author valdoilo.damasceno
+     */
+    public Collection<GrupoEmpregadoDTO> findGrupoAndEmpregadoByIdGrupo(final Integer idGrupo) throws PersistenceException {
 
-		List listRetorno = new ArrayList();
-		listRetorno.add("idGrupo");
-		listRetorno.add("sigla");
-		listRetorno.add("idEmpregado");
-		if (lista != null && !lista.isEmpty()) {
-			return this.engine.listConvertion(getBean(), lista, listRetorno);
-		} else {
-			return null;
-		}
-	}
+        final List camposRetorno = new ArrayList<>();
+        final List parametros = new ArrayList<>();
+        final StringBuilder orderBy = new StringBuilder();
+        final StringBuilder sql = new StringBuilder();
 
-	/**
-	 * Retorna Lista de GrupoEmpregadoDTO com informações do Grupo e Empregados.
-	 *
-	 * @param idGrupo
-	 *            - Identificador único do Grupo.
-	 * @return listGrupoEmpregadoDTO - Lista de GrupoEmpregadoDTO com informações do empregado.
-	 * @throws PersistenceException
-	 * @author valdoilo.damasceno
-	 */
-	public Collection<GrupoEmpregadoDTO> findGrupoAndEmpregadoByIdGrupo(Integer idGrupo) throws PersistenceException {
+        parametros.add(idGrupo);
 
-		List camposRetorno = new ArrayList();
-		List parametros = new ArrayList();
-		StringBuilder orderBy = new StringBuilder();
-		StringBuilder sql = new StringBuilder();
+        camposRetorno.add("idGrupo");
+        camposRetorno.add("sigla");
+        camposRetorno.add("idEmpregado");
+        camposRetorno.add("nomeEmpregado");
+        camposRetorno.add("enviaEmail");
 
-		parametros.add(idGrupo);
+        if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.SQLSERVER)) {
+            orderBy.append(" ORDER BY LTRIM(RTRIM(empregado.nome)) ");
+        } else {
+            orderBy.append(" ORDER BY TRIM(empregado.nome)");
+        }
 
-		camposRetorno.add("idGrupo");
-		camposRetorno.add("sigla");
-		camposRetorno.add("idEmpregado");
-		camposRetorno.add("nomeEmpregado");
-		camposRetorno.add("enviaEmail");
+        sql.append("SELECT grupo.idgrupo, grupo.sigla, empregado.idempregado, empregado.nome, grupoemp.enviaemail ");
+        sql.append(" FROM gruposempregados grupoemp ");
+        sql.append(" INNER JOIN empregados empregado ON empregado.idempregado = grupoemp.idempregado ");
+        sql.append(" INNER JOIN grupo grupo ON grupo.idgrupo = grupoemp.idgrupo ");
+        sql.append(" WHERE grupo.idgrupo = ? AND empregado.datafim IS NULL ");
+        sql.append(orderBy.toString());
 
-		if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.SQLSERVER)) {
-			orderBy.append(" ORDER BY LTRIM(RTRIM(empregado.nome)) ");
-		} else {
-			orderBy.append(" ORDER BY TRIM(empregado.nome)");
-		}
+        final List list = this.execSQL(sql.toString(), parametros.toArray());
 
-		sql.append("SELECT grupo.idgrupo, grupo.sigla, empregado.idempregado, empregado.nome, grupoemp.enviaemail ");
-		sql.append(" FROM gruposempregados grupoemp ");
-		sql.append(" INNER JOIN empregados empregado ON empregado.idempregado = grupoemp.idempregado ");
-		sql.append(" INNER JOIN grupo grupo ON grupo.idgrupo = grupoemp.idgrupo ");
-		sql.append(" WHERE grupo.idgrupo = ? AND empregado.datafim IS NULL ");
-		sql.append(orderBy.toString());
+        return engine.listConvertion(this.getBean(), list, camposRetorno);
 
-		List list = this.execSQL(sql.toString(), parametros.toArray());
+    }
 
-		return this.engine.listConvertion(this.getBean(), list, camposRetorno);
+    public Collection<GrupoEmpregadoDTO> findUsariosGrupo() throws PersistenceException {
+        final Object[] objs = new Object[] {};
+        String sql;
+        if (CITCorporeUtil.SGBD_PRINCIPAL.equalsIgnoreCase("SQLSERVER")) {
 
-	}
+            sql = " select em.idEmpregado from GruposEmpregados gp inner join empregados em on gp.idempregado = em.idempregado "
+                    + " where idgrupo in (select idgrupo from Grupo where servicedesk  = 'S' and datafim is null) "
+                    + " group by em.idEmpregado, em.nome order by RTRIM(LTRIM(em.nome))";
 
-	public Collection<GrupoEmpregadoDTO> findUsariosGrupo() throws PersistenceException {
-		Object[] objs = new Object[] {};
-		String sql;
-		if (CITCorporeUtil.SGBD_PRINCIPAL.equalsIgnoreCase("SQLSERVER")) {
+        } else {
+            sql = "select em.idEmpregado " + "from GruposEmpregados gp " + "inner join empregados em " + "on gp.idempregado = em.idempregado "
+                    + "where idgrupo in (select idgrupo from Grupo where servicedesk  = 'S' and datafim is null) " + "group by em.idEmpregado, em.nome "
+                    + "order by trim(em.nome) ";
+        }
 
-			sql = " select em.idEmpregado from GruposEmpregados gp inner join empregados em on gp.idempregado = em.idempregado "
-					+ " where idgrupo in (select idgrupo from Grupo where servicedesk  = 'S' and datafim is null) " + " group by em.idEmpregado, em.nome order by RTRIM(LTRIM(em.nome))";
+        final List lista = this.execSQL(sql, objs);
 
-		} else {
-			sql = "select em.idEmpregado " + "from GruposEmpregados gp " + "inner join empregados em " + "on gp.idempregado = em.idempregado "
-					+ "where idgrupo in (select idgrupo from Grupo where servicedesk  = 'S' and datafim is null) " + "group by em.idEmpregado, em.nome " + "order by trim(em.nome) ";
-		}
+        final List listRetorno = new ArrayList<>();
+        listRetorno.add("idEmpregado");
+        if (lista != null && !lista.isEmpty()) {
+            return engine.listConvertion(this.getBean(), lista, listRetorno);
+        } else {
+            return null;
+        }
+    }
 
-		List lista = this.execSQL(sql, objs);
+    /**
+     * Retorna GrupoEmpregado do Tipo HelpDesk de acordo com o ID Contrato informado.
+     *
+     * @param idContrato
+     *            - Identificador do contrato.
+     * @return Collection<GrupoEmpregadoDTO>
+     * @throws PersistenceException
+     * @author valdoilo.damasceno
+     */
+    public Collection<GrupoEmpregadoDTO> findGrupoEmpregadoHelpDeskByIdContrato(final Integer idContrato) throws PersistenceException {
 
-		List listRetorno = new ArrayList();
-		listRetorno.add("idEmpregado");
-		if (lista != null && !lista.isEmpty()) {
-			return this.engine.listConvertion(getBean(), lista, listRetorno);
-		} else {
-			return null;
-		}
-	}
+        if (idContrato != null) {
 
-	/**
-	 * Retorna GrupoEmpregado do Tipo HelpDesk de acordo com o ID Contrato informado.
-	 *
-	 * @param idContrato
-	 *            - Identificador do contrato.
-	 * @return Collection<GrupoEmpregadoDTO>
-	 * @throws PersistenceException
-	 * @author valdoilo.damasceno
-	 */
-	public Collection<GrupoEmpregadoDTO> findGrupoEmpregadoHelpDeskByIdContrato(Integer idContrato) throws PersistenceException {
+            final Object[] parametros = new Object[] {idContrato};
+            final StringBuilder sql = new StringBuilder();
 
-		if (idContrato != null) {
+            if (CITCorporeUtil.SGBD_PRINCIPAL.equalsIgnoreCase("SQLSERVER")) {
 
-			Object[] parametros = new Object[] { idContrato };
-			StringBuilder sql = new StringBuilder();
+                sql.append("select em.idempregado from gruposempregados gp inner join empregados em on gp.idempregado = em.idempregado where idgrupo in ( ");
+                sql.append("select grupo.idgrupo from grupo inner join contratosgrupos on grupo.idgrupo = contratosgrupos.idgrupo where servicedesk  = 'S' and datafim is null and idcontrato = ?)");
+                sql.append("group by em.idempregado, em.nome order by RTRIM(LTRIM(em.nome))");
 
-			if (CITCorporeUtil.SGBD_PRINCIPAL.equalsIgnoreCase("SQLSERVER")) {
+            } else {
+                sql.append("select em.idempregado from gruposempregados gp inner join empregados em on gp.idempregado = em.idempregado where idgrupo in ( ");
+                sql.append("select grupo.idgrupo from grupo inner join contratosgrupos on grupo.idgrupo = contratosgrupos.idgrupo where servicedesk  = 'S' and datafim is null and idcontrato = ?)");
+                sql.append("group by em.idempregado, em.nome order by trim(em.nome)");
+            }
 
-				sql.append("select em.idempregado from gruposempregados gp inner join empregados em on gp.idempregado = em.idempregado where idgrupo in ( ");
-				sql.append("select grupo.idgrupo from grupo inner join contratosgrupos on grupo.idgrupo = contratosgrupos.idgrupo where servicedesk  = 'S' and datafim is null and idcontrato = ?)");
-				sql.append("group by em.idempregado, em.nome order by RTRIM(LTRIM(em.nome))");
+            List lista = null;
+            lista = this.execSQL(sql.toString(), parametros);
 
-			} else {
-				sql.append("select em.idempregado from gruposempregados gp inner join empregados em on gp.idempregado = em.idempregado where idgrupo in ( ");
-				sql.append("select grupo.idgrupo from grupo inner join contratosgrupos on grupo.idgrupo = contratosgrupos.idgrupo where servicedesk  = 'S' and datafim is null and idcontrato = ?)");
-				sql.append("group by em.idempregado, em.nome order by trim(em.nome)");
-			}
+            final List listRetorno = new ArrayList<>();
+            listRetorno.add("idEmpregado");
+            if (lista != null && !lista.isEmpty()) {
 
-			List lista = null;
-			lista = this.execSQL(sql.toString(), parametros);
+                return engine.listConvertion(this.getBean(), lista, listRetorno);
 
-			List listRetorno = new ArrayList();
-			listRetorno.add("idEmpregado");
-			if (lista != null && !lista.isEmpty()) {
+            } else {
 
-				return this.engine.listConvertion(getBean(), lista, listRetorno);
+                return null;
 
-			} else {
+            }
 
-				return null;
+        } else {
 
-			}
+            return null;
+        }
+    }
 
-		} else {
+    public Collection<RelatorioGruposUsuarioDTO> listaRelatorioGruposUsuario(final Integer idColaborador) throws PersistenceException {
+        final List listRetorno = new ArrayList<>();
+        final List param = new ArrayList<>();
+        List lista = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
 
-			return null;
-		}
-	}
+        sql.append(" SELECT em.nome as nomeColaborador, gr.idgrupo as idGrupo,gr.nome as nomeGrupo ");
+        sql.append(" FROM gruposempregados gre ");
+        sql.append(" inner join grupo gr on gre.idgrupo = gr.idgrupo ");
+        sql.append(" inner join empregados em on gre.idempregado=em.idempregado ");
+        if (idColaborador != null) {
+            sql.append(" where em.idempregado = ? ");
+        }
+        sql.append(" order by em.idempregado, idgrupo ");
+        if (idColaborador != null) {
+            param.add(idColaborador);
+        }
+        if (param != null) {
+            lista = this.execSQL(sql.toString(), param.toArray());
+        }
 
-	public Collection<RelatorioGruposUsuarioDTO> listaRelatorioGruposUsuario(Integer idColaborador) throws PersistenceException {
-		List listRetorno = new ArrayList();
-		List param = new ArrayList();
-		List lista = new ArrayList();
-		StringBuilder sql = new StringBuilder();
+        listRetorno.add("nomeColaborador");
+        listRetorno.add("idGrupo");
+        listRetorno.add("nomeGrupo");
 
-		sql.append(" SELECT em.nome as nomeColaborador, gr.idgrupo as idGrupo,gr.nome as nomeGrupo ");
-		sql.append(" FROM gruposempregados gre ");
-		sql.append(" inner join grupo gr on gre.idgrupo = gr.idgrupo ");
-		sql.append(" inner join empregados em on gre.idempregado=em.idempregado ");
-		if (idColaborador != null) {
-			sql.append(" where em.idempregado = ? ");
-		}
-		sql.append(" order by em.idempregado, idgrupo ");
-		if (idColaborador != null) {
-			param.add(idColaborador);
-		}
-		if (param != null) {
-			lista = this.execSQL(sql.toString(), param.toArray());
-		}
+        if (lista != null && !lista.isEmpty()) {
+            final Collection<RelatorioGruposUsuarioDTO> listResultado = engine.listConvertion(RelatorioGruposUsuarioDTO.class, lista, listRetorno);
+            return listResultado;
+        }
+        return null;
+    }
 
-		listRetorno.add("nomeColaborador");
-		listRetorno.add("idGrupo");
-		listRetorno.add("nomeGrupo");
+    public Collection findByIdEmpregadoNome(final Integer idEmpregado) throws PersistenceException {
+        final Object[] objs = new Object[] {idEmpregado};
+        final String sql = "SELECT G.idGrupo, G.nome as sigla, GE.idEmpregado " + "  FROM gruposempregados GE INNER JOIN grupo G ON G.idGrupo = GE.idGrupo "
+                + " WHERE GE.idEmpregado = ? order by sigla ";
+        final List lista = this.execSQL(sql, objs);
 
-		if (lista != null && !lista.isEmpty()) {
-			Collection<RelatorioGruposUsuarioDTO> listResultado = this.engine.listConvertion(RelatorioGruposUsuarioDTO.class, lista, listRetorno);
-			return listResultado;
-		}
-		return null;
-	}
+        final List listRetorno = new ArrayList<>();
+        listRetorno.add("idGrupo");
+        listRetorno.add("sigla");
+        listRetorno.add("idEmpregado");
 
-	public Collection findByIdEmpregadoNome(Integer idEmpregado) throws PersistenceException {
-		Object[] objs = new Object[] { idEmpregado };
-		String sql = "SELECT G.idGrupo, G.nome as sigla, GE.idEmpregado " + "  FROM gruposempregados GE INNER JOIN grupo G ON G.idGrupo = GE.idGrupo " + " WHERE GE.idEmpregado = ? order by sigla ";
-		List lista = this.execSQL(sql, objs);
+        return engine.listConvertion(this.getBean(), lista, listRetorno);
+    }
 
-		List listRetorno = new ArrayList();
-		listRetorno.add("idGrupo");
-		listRetorno.add("sigla");
-		listRetorno.add("idEmpregado");
+    /**
+     * Método responsável por verificar se há alguma solicitação de serviço em andamento neste grupo que esteja vinculada ao empregado a ser excluido do grupo
+     *
+     * @param idGrupo
+     * @param idEmpregado
+     * @return
+     * @throws PersistenceException
+     */
+    public Collection<GrupoEmpregadoDTO> verificacaoResponsavelPorSolicitacao(final Integer idGrupo, final Integer idEmpregado) throws PersistenceException {
+        final Object[] objs = new Object[] {idGrupo, idEmpregado, idGrupo};
+        final List listRetorno = new ArrayList<>();
+        List lista = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
+        sql.append("SELECT atr.idGrupo, it.idresponsavelatual, us.nome as nomeEmpregado FROM gruposempregados ge ");
+        sql.append(" INNER JOIN bpm_itemtrabalhofluxo it ON it.idresponsavelatual = ge.idempregado ");
+        sql.append(" INNER JOIN execucaosolicitacao ex ON ex.idinstanciafluxo = it.idinstancia ");
+        sql.append(" INNER JOIN bpm_atribuicaofluxo atr ON atr.iditemtrabalho = it.iditemtrabalho ");
+        sql.append(" INNER JOIN usuario us ON us.idempregado = ge.idempregado ");
+        sql.append(" WHERE it.situacao <> 'Executado' AND it.situacao <> 'Cancelado'");
+        sql.append(" AND it.idresponsavelatual IS NOT NULL AND atr.tipo = 'Automatica' AND atr.idgrupo = ? AND it.idresponsavelatual = ? AND ge.idGrupo = ?;");
+        lista = this.execSQL(sql.toString(), objs);
 
-		return this.engine.listConvertion(getBean(), lista, listRetorno);
-	}
+        listRetorno.add("idGrupo");
+        listRetorno.add("idEmpregado");
+        listRetorno.add("nomeEmpregado");
 
-	/**
-	 * Método responsável por verificar se há alguma solicitação de serviço em andamento neste grupo que esteja vinculada ao empregado a ser excluido do grupo
-	 *
-	 * @param idGrupo
-	 * @param idEmpregado
-	 * @return
-	 * @throws PersistenceException
-	 */
-	public Collection<GrupoEmpregadoDTO> verificacaoResponsavelPorSolicitacao(Integer idGrupo, Integer idEmpregado) throws PersistenceException {
-		Object[] objs = new Object[] { idGrupo, idEmpregado, idGrupo };
-		List listRetorno = new ArrayList();
-		List lista = new ArrayList();
-		StringBuilder sql = new StringBuilder();
-		sql.append("SELECT atr.idGrupo, it.idresponsavelatual, us.nome as nomeEmpregado FROM gruposempregados ge ");
-		sql.append(" INNER JOIN bpm_itemtrabalhofluxo it ON it.idresponsavelatual = ge.idempregado ");
-		sql.append(" INNER JOIN execucaosolicitacao ex ON ex.idinstanciafluxo = it.idinstancia ");
-		sql.append(" INNER JOIN bpm_atribuicaofluxo atr ON atr.iditemtrabalho = it.iditemtrabalho ");
-		sql.append(" INNER JOIN usuario us ON us.idempregado = ge.idempregado ");
-		sql.append(" WHERE it.situacao <> 'Executado' AND it.situacao <> 'Cancelado'");
-		sql.append(" AND it.idresponsavelatual IS NOT NULL AND atr.tipo = 'Automatica' AND atr.idgrupo = ? AND it.idresponsavelatual = ? AND ge.idGrupo = ?;");
-		lista = this.execSQL(sql.toString(), objs);
+        return engine.listConvertion(this.getBean(), lista, listRetorno);
+    }
 
-
-		listRetorno.add("idGrupo");
-		listRetorno.add("idEmpregado");
-		listRetorno.add("nomeEmpregado");
-
-		return this.engine.listConvertion(getBean(), lista, listRetorno);
-	}
-
-	public Integer calculaTotalPaginas(Integer itensPorPagina, Integer idGrupo) throws PersistenceException {
-		List parametro = new ArrayList();
-		StringBuilder sql = new StringBuilder();
+    public Integer calculaTotalPaginas(final Integer itensPorPagina, final Integer idGrupo) throws PersistenceException {
+        final List parametro = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
 
         sql.append(" select COUNT(*) ");
         sql.append(" from gruposempregados ");
@@ -329,7 +333,7 @@ public class GrupoEmpregadoDao extends CrudDaoDefaultImpl {
 
         parametro.add(idGrupo);
 
-        List lista = new ArrayList();
+        List lista = new ArrayList<>();
         lista = this.execSQL(sql.toString(), parametro.toArray());
 
         Long totalLinhaLong = 0l;
@@ -337,108 +341,112 @@ public class GrupoEmpregadoDao extends CrudDaoDefaultImpl {
         Integer total = 0;
         BigDecimal totalLinhaBigDecimal;
         Integer totalLinhaInteger;
-        int intLimite = itensPorPagina;
-        if(lista != null){
-        	Object[] totalLinha = (Object[]) lista.get(0);
-        	if(totalLinha != null && totalLinha.length > 0){
-        		if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.POSTGRESQL) || CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.MYSQL)) {
-        			totalLinhaLong = (Long) totalLinha[0];
-        		}
-        		if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
-        			totalLinhaBigDecimal = (BigDecimal) totalLinha[0];
-        			totalLinhaLong = totalLinhaBigDecimal.longValue();
-        		}
-        		if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.SQLSERVER)) {
-        			totalLinhaInteger = (Integer) totalLinha[0];
-        			totalLinhaLong = Long.valueOf(totalLinhaInteger);
-        		}
-        	}
+        final int intLimite = itensPorPagina;
+        if (lista != null) {
+            final Object[] totalLinha = (Object[]) lista.get(0);
+            if (totalLinha != null && totalLinha.length > 0) {
+                if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.POSTGRESQL)
+                        || CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.MYSQL)) {
+                    totalLinhaLong = (Long) totalLinha[0];
+                }
+                if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
+                    totalLinhaBigDecimal = (BigDecimal) totalLinha[0];
+                    totalLinhaLong = totalLinhaBigDecimal.longValue();
+                }
+                if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.SQLSERVER)) {
+                    totalLinhaInteger = (Integer) totalLinha[0];
+                    totalLinhaLong = Long.valueOf(totalLinhaInteger);
+                }
+            }
         }
 
         if (totalLinhaLong > 0) {
-        	totalPagina = (totalLinhaLong / intLimite);
-        	if(totalLinhaLong % intLimite != 0){
-        		totalPagina = totalPagina + 1;
-        	}
+            totalPagina = totalLinhaLong / intLimite;
+            if (totalLinhaLong % intLimite != 0) {
+                totalPagina = totalPagina + 1;
+            }
         }
         total = Integer.valueOf(totalPagina.toString());
         return total;
 
-	}
+    }
 
-	public Collection<GrupoEmpregadoDTO> paginacaoGrupoEmpregado(Integer idGrupo, Integer pgAtual, Integer qtdPaginacao) throws PersistenceException {
+    public Collection<GrupoEmpregadoDTO> paginacaoGrupoEmpregado(final Integer idGrupo, Integer pgAtual, final Integer qtdPaginacao)
+            throws PersistenceException {
 
-		List parametro = new ArrayList();
-		List listRetorno = new ArrayList();
-		StringBuilder sql = new StringBuilder();
-
-		if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.SQLSERVER)) {
-			sql.append(" ;WITH TabelaTemporaria AS ( ");
-		}
-
-		sql.append(" SELECT grupo.idgrupo, grupo.sigla, empregado.idempregado, empregado.nome, grupoemp.enviaemail ");
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
 
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.SQLSERVER)) {
-        	sql.append(" , ROW_NUMBER() OVER (ORDER BY empregado.nome) AS Row ");
-    	}
+            sql.append(" ;WITH TabelaTemporaria AS ( ");
+        }
+
+        sql.append(" SELECT grupo.idgrupo, grupo.sigla, empregado.idempregado, empregado.nome, grupoemp.enviaemail ");
+
+        if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.SQLSERVER)) {
+            sql.append(" , ROW_NUMBER() OVER (ORDER BY empregado.nome) AS Row ");
+        }
         sql.append(" FROM gruposempregados grupoemp ");
         sql.append(" INNER JOIN empregados empregado ON grupoemp.idempregado = empregado.idempregado ");
-		sql.append(" INNER JOIN grupo grupo ON grupoemp.idgrupo = grupo.idgrupo ");
-		sql.append(" WHERE grupoemp.idgrupo = ? AND empregado.datafim IS NULL ");
+        sql.append(" INNER JOIN grupo grupo ON grupoemp.idgrupo = grupo.idgrupo ");
+        sql.append(" WHERE grupoemp.idgrupo = ? AND empregado.datafim IS NULL ");
 
-		parametro.add(idGrupo);
-
+        parametro.add(idGrupo);
 
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.POSTGRESQL)) {
-        	sql.append(" ORDER BY empregado.nome");
-        	Integer pgTotal = pgAtual * qtdPaginacao;
-        	pgAtual = pgTotal - qtdPaginacao;
-        	sql.append(" LIMIT " + qtdPaginacao + " OFFSET " +pgAtual);
+            sql.append(" ORDER BY empregado.nome");
+            final Integer pgTotal = pgAtual * qtdPaginacao;
+            pgAtual = pgTotal - qtdPaginacao;
+            sql.append(" LIMIT " + qtdPaginacao + " OFFSET " + pgAtual);
         }
 
-        if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.MYSQL)){
-        	sql.append(" ORDER BY empregado.nome");
-        	Integer pgTotal = pgAtual * qtdPaginacao;
-        	pgAtual = pgTotal - qtdPaginacao;
-        	sql.append(" LIMIT " +pgAtual+ ", "+qtdPaginacao);
+        if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.MYSQL)) {
+            sql.append(" ORDER BY empregado.nome");
+            final Integer pgTotal = pgAtual * qtdPaginacao;
+            pgAtual = pgTotal - qtdPaginacao;
+            sql.append(" LIMIT " + pgAtual + ", " + qtdPaginacao);
         }
 
-        if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.SQLSERVER)){
-        	Integer quantidadePaginator2 = new Integer(0);
-        	if (pgAtual > 0) {
-        		quantidadePaginator2 = qtdPaginacao * pgAtual;
-        		pgAtual = (pgAtual * qtdPaginacao) - qtdPaginacao;
-        	}else{
-        		quantidadePaginator2 = qtdPaginacao;
-        		pgAtual = 0;
-        	}
-        	sql.append(" ) SELECT * FROM TabelaTemporaria WHERE Row> "+pgAtual+" and Row<"+(quantidadePaginator2+1)+" ");
+        if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.SQLSERVER)) {
+            Integer quantidadePaginator2 = new Integer(0);
+            if (pgAtual > 0) {
+                quantidadePaginator2 = qtdPaginacao * pgAtual;
+                pgAtual = pgAtual * qtdPaginacao - qtdPaginacao;
+            } else {
+                quantidadePaginator2 = qtdPaginacao;
+                pgAtual = 0;
+            }
+            sql.append(" ) SELECT * FROM TabelaTemporaria WHERE Row> " + pgAtual + " and Row<" + (quantidadePaginator2 + 1) + " ");
         }
 
         String sqlOracle = "";
-        if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)){
-        	Integer quantidadePaginator2 = new Integer(0);
-        	if (pgAtual > 1) {
-        		quantidadePaginator2 = qtdPaginacao * pgAtual;
-        		pgAtual = (pgAtual * qtdPaginacao) - qtdPaginacao;
-        		pgAtual = pgAtual + 1;
-        	}else{
-        		quantidadePaginator2 = qtdPaginacao;
-        		pgAtual = 0;
-        	}
-        	int intInicio = pgAtual;
-        	int intLimite = quantidadePaginator2;
-        	sqlOracle = paginacaoOracle(sql.toString(), intInicio, intLimite);
+        if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
+            Integer quantidadePaginator2 = new Integer(0);
+            if (pgAtual > 1) {
+                quantidadePaginator2 = qtdPaginacao * pgAtual;
+                pgAtual = pgAtual * qtdPaginacao - qtdPaginacao;
+                pgAtual = pgAtual + 1;
+            } else {
+                quantidadePaginator2 = qtdPaginacao;
+                pgAtual = 0;
+            }
+            final int intInicio = pgAtual;
+            final int intLimite = quantidadePaginator2;
+            sqlOracle = this.paginacaoOracle(sql.toString(), intInicio, intLimite);
         }
 
-        List lista = new ArrayList();
+        List lista = new ArrayList<>();
 
-        if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)){
-        	lista = this.execSQL(sqlOracle, parametro.toArray());
-    	}else{
-    		/* Desenvolvedor: Euler Data: 28/10/2013 Horário: 10h57min ID Citsmart: 120393 Motivo/Comentário: Loop infinito ao selecionar um grupo sem empregados */
-    		lista = this.execSQL(sql.toString(), parametro.toArray());
-    	}
+        if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
+            lista = this.execSQL(sqlOracle, parametro.toArray());
+        } else {
+            /*
+             * Desenvolvedor: Euler Data: 28/10/2013 Horário: 10h57min ID Citsmart: 120393 Motivo/Comentário: Loop infinito ao selecionar um grupo sem
+             * empregados
+             */
+            lista = this.execSQL(sql.toString(), parametro.toArray());
+        }
 
         listRetorno.add("idGrupo");
         listRetorno.add("sigla");
@@ -446,68 +454,66 @@ public class GrupoEmpregadoDao extends CrudDaoDefaultImpl {
         listRetorno.add("nomeEmpregado");
         listRetorno.add("enviaEmail");
 
-        List result = this.engine.listConvertion(getBean(), lista, listRetorno);
-		return (result == null ? new ArrayList<GrupoEmpregadoDTO>() : result);
-	}
+        final List result = engine.listConvertion(this.getBean(), lista, listRetorno);
+        return result == null ? new ArrayList<GrupoEmpregadoDTO>() : result;
+    }
 
-	public String paginacaoOracle(String strSQL, int intInicio, int intLimite) {
-		strSQL = strSQL + " order by empregado.nome ";
-		return "SELECT * FROM (SELECT PAGING.*, ROWNUM PAGING_RN FROM" +
-		" (" + strSQL + ") PAGING WHERE (ROWNUM <= " + intLimite + "))" +
-		" WHERE (PAGING_RN >= " + intInicio + ") ";
-	}
+    public String paginacaoOracle(String strSQL, final int intInicio, final int intLimite) {
+        strSQL = strSQL + " order by empregado.nome ";
+        return "SELECT * FROM (SELECT PAGING.*, ROWNUM PAGING_RN FROM" + " (" + strSQL + ") PAGING WHERE (ROWNUM <= " + intLimite + "))"
+                + " WHERE (PAGING_RN >= " + intInicio + ") ";
+    }
 
+    /**
+     * Metodo que valida na tabela gruposempregados a existencia de registro com os parametros informados
+     *
+     * @param idEmpregado
+     * @param idGrupo
+     *
+     * @return TRUE: Existe registro com os parametros informados || FALSE: Não existe registro com os parametros informados
+     *
+     * @throws PersistenceException
+     */
+    public boolean grupoempregado(final Integer idEmpregado, final Integer idGrupo) throws PersistenceException {
 
-	/**
-	 * Metodo que valida na tabela gruposempregados a existencia de registro com os parametros informados
-	 *
-	 * @param idEmpregado
-	 * @param idGrupo
-	 *
-	 * @return TRUE: Existe registro com os parametros informados || FALSE: Não existe registro com os parametros informados
-	 *
-	 * @throws PersistenceException
-	 */
-	public boolean grupoempregado (Integer idEmpregado, Integer idGrupo) throws PersistenceException {
+        List lista = new ArrayList<>();
+        final List param = new ArrayList<>();
 
-		List lista = new ArrayList();
-		List param = new ArrayList();
+        final StringBuilder sql = new StringBuilder(" select * from gruposempregados ge where ge.idempregado=? and ge.idgrupo=?  ");
 
-		StringBuilder sql = new StringBuilder(" select * from gruposempregados ge where ge.idempregado=? and ge.idgrupo=?  ");
+        param.add(idEmpregado);
+        param.add(idGrupo);
 
-	    param.add(idEmpregado);
-	    param.add(idGrupo);
+        lista = this.execSQL(sql.toString(), param.toArray());
 
-		lista =  this.execSQL(sql.toString(), param.toArray());
+        if (lista != null && !lista.isEmpty()) {
+            return true;
+        } else {
+            return false;
+        }
 
-		if (lista != null && !lista.isEmpty())
-			return true;
-		else
-			return false;
+    }
 
-	}
+    public Collection<GrupoEmpregadoDTO> findEmpregado(final Integer idGrupo, final Integer idEmpregado) throws PersistenceException {
+        final List param = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
 
-	public Collection<GrupoEmpregadoDTO> findEmpregado(Integer idGrupo, Integer idEmpregado) throws PersistenceException {
-		List param = new ArrayList();
-		StringBuilder sql = new StringBuilder();
+        sql.append("SELECT *  FROM GruposEmpregados GE  WHERE GE.idGrupo = ?  and idEmpregado = ?");
 
-		sql.append("SELECT *  FROM GruposEmpregados GE  WHERE GE.idGrupo = ?  and idEmpregado = ?");
+        param.add(idGrupo);
+        param.add(idEmpregado);
 
-		param.add(idGrupo);
-		param.add(idEmpregado);
+        final List lista = this.execSQL(sql.toString(), param.toArray());
 
-		List lista = this.execSQL(sql.toString(), param.toArray());
+        final List listRetorno = new ArrayList<>();
+        listRetorno.add("idGrupo");
+        listRetorno.add("idEmpregado");
+        listRetorno.add("enviaemail");
 
-		List listRetorno = new ArrayList();
-		listRetorno.add("idGrupo");
-		listRetorno.add("idEmpregado");
-		listRetorno.add("enviaemail");
-
-		if (lista != null && !lista.isEmpty()) {
-			return this.engine.listConvertion(getBean(), lista, listRetorno);
-		} else {
-			return null;
-		}
-	}
+        if (lista != null && !lista.isEmpty()) {
+            return engine.listConvertion(this.getBean(), lista, listRetorno);
+        }
+        return null;
+    }
 
 }

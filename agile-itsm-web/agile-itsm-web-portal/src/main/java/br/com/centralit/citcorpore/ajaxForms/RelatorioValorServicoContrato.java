@@ -119,7 +119,7 @@ public class RelatorioValorServicoContrato extends AjaxFormAction {
 						if (sc.getIdServico() != null) {
 							ServicoDTO s = new ServicoDTO();
 							s.setIdServico(sc.getIdServico() );
-							Collection<ServicoDTO> s1 = new ArrayList();
+							Collection<ServicoDTO> s1 = new ArrayList<>();
 							s1 = (Collection<ServicoDTO>) servicoService.find(s);
 							if(s1 != null){
 								s =  s1.iterator().next();

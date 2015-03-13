@@ -57,7 +57,7 @@ public class BICitsmartRespDeserializer implements JsonDeserializer<BICitsmartRe
 
                 dateTime = DatatypeFactory.newInstance().newXMLGregorianCalendar(gc);
             } catch (DatatypeConfigurationException e) {
-                // TODO Auto-generated catch block
+                
                 e.printStackTrace();
             }
         }

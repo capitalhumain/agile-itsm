@@ -2,95 +2,94 @@ package br.com.centralit.citcorpore.bean;
 
 import br.com.agileitsm.model.support.BaseEntity;
 
-@SuppressWarnings("serial")
 public class CriterioAvaliacaoFornecedorDTO extends BaseEntity {
-	private Integer idAvaliacaoFornecedor;
 
-	private Integer idCriterio;
+    private Integer idAvaliacaoFornecedor;
 
-	private String valor;
+    private Integer idCriterio;
 
-	private Integer valorInteger;
+    private String valor;
 
-	private String obs;
-	
-	private String descricao;
-	
-	
+    private Integer valorInteger;
 
-	public Integer getIdAvaliacaoFornecedor() {
-		return this.idAvaliacaoFornecedor;
-	}
+    private String obs;
 
-	public void setIdAvaliacaoFornecedor(Integer parm) {
-		this.idAvaliacaoFornecedor = parm;
-	}
+    private String descricao;
 
-	public Integer getIdCriterio() {
-		return this.idCriterio;
-	}
+    public Integer getIdAvaliacaoFornecedor() {
+        return idAvaliacaoFornecedor;
+    }
 
-	public void setIdCriterio(Integer parm) {
-		this.idCriterio = parm;
-	}
+    public void setIdAvaliacaoFornecedor(final Integer parm) {
+        idAvaliacaoFornecedor = parm;
+    }
 
-	/**
-	 * @return the obs
-	 */
-	public String getObs() {
-		return obs;
-	}
+    public Integer getIdCriterio() {
+        return idCriterio;
+    }
 
-	/**
-	 * @param obs
-	 *            the obs to set
-	 */
-	public void setObs(String obs) {
-		this.obs = obs;
-	}
+    public void setIdCriterio(final Integer parm) {
+        idCriterio = parm;
+    }
 
-	/**
-	 * @return the valor
-	 */
-	public String getValor() {
-		return valor;
-	}
+    /**
+     * @return the obs
+     */
+    public String getObs() {
+        return obs;
+    }
 
-	/**
-	 * @param valor
-	 *            the valor to set
-	 */
-	public void setValor(String valor) {
-		this.valor = valor;
-	}
+    /**
+     * @param obs
+     *            the obs to set
+     */
+    public void setObs(final String obs) {
+        this.obs = obs;
+    }
 
-	/**
-	 * @return the valorInteger
-	 */
-	public Integer getValorInteger() {
-		return valorInteger;
-	}
+    /**
+     * @return the valor
+     */
+    public String getValor() {
+        return valor;
+    }
 
-	/**
-	 * @param valorInteger
-	 *            the valorInteger to set
-	 */
-	public void setValorInteger(Integer valorInteger) {
-		this.valorInteger = valorInteger;
-	}
+    /**
+     * @param valor
+     *            the valor to set
+     */
+    public void setValor(final String valor) {
+        this.valor = valor;
+    }
 
-	/**
-	 * @return the descricao
-	 */
-	public String getDescricao() {
-		return descricao;
-	}
+    /**
+     * @return the valorInteger
+     */
+    public Integer getValorInteger() {
+        return valorInteger;
+    }
 
-	/**
-	 * @param descricao the descricao to set
-	 */
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
+    /**
+     * @param valorInteger
+     *            the valorInteger to set
+     */
+    public void setValorInteger(final Integer valorInteger) {
+        this.valorInteger = valorInteger;
+    }
+
+    /**
+     * @return the descricao
+     */
+    public String getDescricao() {
+        return descricao;
+    }
+
+    /**
+     * @param descricao
+     *            the descricao to set
+     */
+    public void setDescricao(final String descricao) {
+        this.descricao = descricao;
+    }
 
 }

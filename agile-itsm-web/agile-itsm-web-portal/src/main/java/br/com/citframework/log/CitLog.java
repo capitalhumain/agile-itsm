@@ -38,7 +38,7 @@ public class CitLog implements Log {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         final String nomeArquivo = pathLog + fileLog + "_" + sdf.format(dataAtual) + "." + extLog;
         synchronized (nomeArquivo) {
-            final List lista = new ArrayList();
+            final List lista = new ArrayList<>();
             sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
             lista.add("[" + tipoMensagem + "] - " + sdf.format(dataAtual) + " - " + classe.getName() + " - " + mensagem);
             UtilTratamentoArquivos.geraFileTXT(nomeArquivo, lista, true);
@@ -50,7 +50,7 @@ public class CitLog implements Log {
         final Date dataAtual = UtilDatas.getDataAtual();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         final String nomeArquivo = pathLog + fileLog + "_" + sdf.format(dataAtual) + "." + extLog;
-        final List lista = new ArrayList();
+        final List lista = new ArrayList<>();
         sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         lista.add("[" + tipoMensagem + "] - " + sdf.format(dataAtual) + " - " + classe.getName() + " - Exception:");
         synchronized (nomeArquivo) {

@@ -63,7 +63,7 @@ public class HistAtribuicaoResponsabilidadeDao extends CrudDaoDefaultImpl {
 
         final List list = this.execSQL(sql.toString(), objs);
 
-        final List listRetorno = new ArrayList();
+        final List listRetorno = new ArrayList<>();
         listRetorno.add("idhistAtribuicaoResponsabilidade");
         listRetorno.add("descricaoPerspectivaComplexidade");
         listRetorno.add("idNivel");

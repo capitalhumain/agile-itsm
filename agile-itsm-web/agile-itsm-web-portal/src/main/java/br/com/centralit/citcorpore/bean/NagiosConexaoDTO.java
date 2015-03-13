@@ -3,61 +3,69 @@ package br.com.centralit.citcorpore.bean;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class NagiosConexaoDTO extends BaseEntity {
-	private Integer idNagiosConexao;
-	private String nome;
-	private String nomeJNDI;
-	private String criadoPor;
-	private String modificadoPor;
-	private java.sql.Date dataCriacao;
-	private java.sql.Date ultModificacao;
 
-	public Integer getIdNagiosConexao(){
-		return this.idNagiosConexao;
-	}
-	public void setIdNagiosConexao(Integer parm){
-		this.idNagiosConexao = parm;
-	}
+    private Integer idNagiosConexao;
+    private String nome;
+    private String nomeJNDI;
+    private String criadoPor;
+    private String modificadoPor;
+    private java.sql.Date dataCriacao;
+    private java.sql.Date ultModificacao;
 
-	public String getNome(){
-		return this.nome;
-	}
-	public void setNome(String parm){
-		this.nome = parm;
-	}
+    public Integer getIdNagiosConexao() {
+        return idNagiosConexao;
+    }
 
-	public String getNomeJNDI(){
-		return this.nomeJNDI;
-	}
-	public void setNomeJNDI(String parm){
-		this.nomeJNDI = parm;
-	}
+    public void setIdNagiosConexao(final Integer parm) {
+        idNagiosConexao = parm;
+    }
 
-	public String getCriadoPor(){
-		return this.criadoPor;
-	}
-	public void setCriadoPor(String parm){
-		this.criadoPor = parm;
-	}
+    public String getNome() {
+        return nome;
+    }
 
-	public String getModificadoPor(){
-		return this.modificadoPor;
-	}
-	public void setModificadoPor(String parm){
-		this.modificadoPor = parm;
-	}
+    public void setNome(final String parm) {
+        nome = parm;
+    }
 
-	public java.sql.Date getDataCriacao(){
-		return this.dataCriacao;
-	}
-	public void setDataCriacao(java.sql.Date parm){
-		this.dataCriacao = parm;
-	}
+    public String getNomeJNDI() {
+        return nomeJNDI;
+    }
 
-	public java.sql.Date getUltModificacao(){
-		return this.ultModificacao;
-	}
-	public void setUltModificacao(java.sql.Date parm){
-		this.ultModificacao = parm;
-	}
+    public void setNomeJNDI(final String parm) {
+        nomeJNDI = parm;
+    }
+
+    public String getCriadoPor() {
+        return criadoPor;
+    }
+
+    public void setCriadoPor(final String parm) {
+        criadoPor = parm;
+    }
+
+    public String getModificadoPor() {
+        return modificadoPor;
+    }
+
+    public void setModificadoPor(final String parm) {
+        modificadoPor = parm;
+    }
+
+    public java.sql.Date getDataCriacao() {
+        return dataCriacao;
+    }
+
+    public void setDataCriacao(final java.sql.Date parm) {
+        dataCriacao = parm;
+    }
+
+    public java.sql.Date getUltModificacao() {
+        return ultModificacao;
+    }
+
+    public void setUltModificacao(final java.sql.Date parm) {
+        ultModificacao = parm;
+    }
 
 }

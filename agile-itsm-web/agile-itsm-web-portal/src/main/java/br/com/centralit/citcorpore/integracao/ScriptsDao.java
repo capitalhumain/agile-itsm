@@ -79,31 +79,34 @@ public class ScriptsDao extends CrudDaoDefaultImpl {
     }
 
     public boolean haScriptDeVersaoComErro() throws PersistenceException {
-        final String sql = "select * from " + getTableName() + " where idversao is not null and descricao like 'ERRO%'";
+        final String sql = "select * from " + this.getTableName() + " where idversao is not null and descricao like 'ERRO%'";
         final List list = this.execSQL(sql, null);
         return list != null && !list.isEmpty();
     }
 
     @Override
     public Collection list() throws PersistenceException {
-        final List list = new ArrayList();
+        final List list = new ArrayList<>();
         list.add(new Order("dataInicio"));
         return super.list(list);
     }
 
     public void marcaErrosScriptsComoCorrigidos() throws PersistenceException {
         if (CITCorporeUtil.SGBD_PRINCIPAL.equalsIgnoreCase(SQLConfig.SQLSERVER)) {
-            execUpdate("update " + getTableName() + " set descricao = 'CORRIGIDO ' + convert(varchar,descricao) where idversao is not null and descricao like 'ERRO%' and idscript > 0 ", null);
+            this.execUpdate("update " + this.getTableName()
+                    + " set descricao = 'CORRIGIDO ' + convert(varchar,descricao) where idversao is not null and descricao like 'ERRO%' and idscript > 0 ",
+                    null);
         } else {
-            execUpdate("update " + getTableName() + " set descricao = concat('CORRIGIDO ', descricao) where idversao is not null and descricao like 'ERRO%' and idscript > 0 ", null);
+            this.execUpdate("update " + this.getTableName()
+                    + " set descricao = concat('CORRIGIDO ', descricao) where idversao is not null and descricao like 'ERRO%' and idscript > 0 ", null);
         }
     }
 
     public boolean temScriptsAtivos(final ScriptsDTO script) throws PersistenceException {
-        final List parametro = new ArrayList();
+        final List parametro = new ArrayList<>();
         List list;
 
-        String sql = "select idscript From " + getTableName() + " where ";
+        String sql = "select idscript From " + this.getTableName() + " where ";
         if (script != null && script.getNome() != null && !script.getNome().isEmpty()) {
             sql += " nome = ? and";
             parametro.add(script.getNome());
@@ -146,7 +149,7 @@ public class ScriptsDao extends CrudDaoDefaultImpl {
                 sql.append(")");
             }
 
-            execUpdate(sql.toString(), null);
+            this.execUpdate(sql.toString(), null);
         } catch (final PersistenceException e) {
             retorno = e.getMessage();
         }
@@ -156,7 +159,7 @@ public class ScriptsDao extends CrudDaoDefaultImpl {
     public String testaPermissaoInsercaoRegistroTabela() {
         String retorno = "sucesso";
         try {
-            execUpdate("INSERT INTO tabelatestepermissao (idtabelatestepermissao, colunatexto) VALUES (1, 'conteudo')", null);
+            this.execUpdate("INSERT INTO tabelatestepermissao (idtabelatestepermissao, colunatexto) VALUES (1, 'conteudo')", null);
         } catch (final PersistenceException e) {
             retorno = e.getMessage();
         }
@@ -166,7 +169,7 @@ public class ScriptsDao extends CrudDaoDefaultImpl {
     public String testaPermissaoConsultaTabela() {
         String retorno = "sucesso";
         try {
-            execSQL("SELECT * FROM parametrocorpore", null);
+            this.execSQL("SELECT * FROM parametrocorpore", null);
         } catch (final PersistenceException e) {
             retorno = e.getMessage();
         }
@@ -176,7 +179,7 @@ public class ScriptsDao extends CrudDaoDefaultImpl {
     public String testaPermissaoExclusaoRegistroTabela() {
         String retorno = "sucesso";
         try {
-            execUpdate("DELETE FROM tabelatestepermissao WHERE idtabelatestepermissao = 1", null);
+            this.execUpdate("DELETE FROM tabelatestepermissao WHERE idtabelatestepermissao = 1", null);
         } catch (final PersistenceException e) {
             retorno = e.getMessage();
         }
@@ -187,11 +190,11 @@ public class ScriptsDao extends CrudDaoDefaultImpl {
         String retorno = "sucesso";
         try {
             if (CITCorporeUtil.SGBD_PRINCIPAL.equalsIgnoreCase(SQLConfig.MYSQL) || CITCorporeUtil.SGBD_PRINCIPAL.equalsIgnoreCase(SQLConfig.POSTGRESQL)) {
-                execUpdate("ALTER TABLE tabelatestepermissao ADD COLUMN colunaadicionada VARCHAR(256) NULL", null);
+                this.execUpdate("ALTER TABLE tabelatestepermissao ADD COLUMN colunaadicionada VARCHAR(256) NULL", null);
             } else if (CITCorporeUtil.SGBD_PRINCIPAL.equalsIgnoreCase(SQLConfig.ORACLE)) {
-                execUpdate("ALTER TABLE tabelatestepermissao ADD (colunaadicionada VARCHAR2(256) NULL)", null);
+                this.execUpdate("ALTER TABLE tabelatestepermissao ADD (colunaadicionada VARCHAR2(256) NULL)", null);
             } else if (CITCorporeUtil.SGBD_PRINCIPAL.equalsIgnoreCase(SQLConfig.SQLSERVER)) {
-                execUpdate("ALTER TABLE tabelatestepermissao ADD colunaadicionada VARCHAR(256) NULL", null);
+                this.execUpdate("ALTER TABLE tabelatestepermissao ADD colunaadicionada VARCHAR(256) NULL", null);
             }
         } catch (final PersistenceException e) {
             retorno = e.getMessage();
@@ -203,10 +206,10 @@ public class ScriptsDao extends CrudDaoDefaultImpl {
         String retorno = "sucesso";
         try {
             if (CITCorporeUtil.SGBD_PRINCIPAL.equalsIgnoreCase(SQLConfig.MYSQL)) {
-                execUpdate("ALTER TABLE tabelatestepermissao CHANGE COLUMN colunaadicionada colunaadicionadaalterada VARCHAR(256) NULL", null);
+                this.execUpdate("ALTER TABLE tabelatestepermissao CHANGE COLUMN colunaadicionada colunaadicionadaalterada VARCHAR(256) NULL", null);
             } else if (CITCorporeUtil.SGBD_PRINCIPAL.equalsIgnoreCase(SQLConfig.POSTGRESQL) || CITCorporeUtil.SGBD_PRINCIPAL.equalsIgnoreCase(SQLConfig.ORACLE)
                     || CITCorporeUtil.SGBD_PRINCIPAL.equalsIgnoreCase(SQLConfig.SQLSERVER)) {
-                execUpdate("ALTER TABLE tabelatestepermissao RENAME COLUMN colunaadicionada TO colunaadicionadaalterada", null);
+                this.execUpdate("ALTER TABLE tabelatestepermissao RENAME COLUMN colunaadicionada TO colunaadicionadaalterada", null);
             }
         } catch (final PersistenceException e) {
             retorno = e.getMessage();
@@ -217,7 +220,7 @@ public class ScriptsDao extends CrudDaoDefaultImpl {
     public String testaPermissaoExclusaoColuna() {
         String retorno = "sucesso";
         try {
-            execUpdate("ALTER TABLE tabelatestepermissao DROP COLUMN colunatexto", null);
+            this.execUpdate("ALTER TABLE tabelatestepermissao DROP COLUMN colunatexto", null);
         } catch (final PersistenceException e) {
             retorno = e.getMessage();
         }
@@ -227,7 +230,7 @@ public class ScriptsDao extends CrudDaoDefaultImpl {
     public String testaPermissaoExclusaoTabela() {
         String retorno = "sucesso";
         try {
-            execUpdate("DROP TABLE tabelatestepermissao", null);
+            this.execUpdate("DROP TABLE tabelatestepermissao", null);
         } catch (final PersistenceException e) {
             retorno = e.getMessage();
         }
@@ -259,14 +262,14 @@ public class ScriptsDao extends CrudDaoDefaultImpl {
 
         final List list = this.execSQL(sql.toString(), null);
 
-        final List fields = new ArrayList();
+        final List fields = new ArrayList<>();
         fields.add("descricao");
         fields.add("sqlQuery");
 
         List<ScriptsDTO> listaRetorno = new ArrayList<ScriptsDTO>();
 
         if (list != null && !list.isEmpty()) {
-            listaRetorno = this.listConvertion(getBean(), list, fields);
+            listaRetorno = this.listConvertion(this.getBean(), list, fields);
         }
 
         return listaRetorno;
@@ -275,7 +278,7 @@ public class ScriptsDao extends CrudDaoDefaultImpl {
     public boolean verificaExistenciaTabela(final String tabela) {
         boolean tabelaExiste = false;
         try {
-            execSQL("SELECT * FROM " + tabela, null);
+            this.execSQL("SELECT * FROM " + tabela, null);
             tabelaExiste = true;
         } catch (final PersistenceException e) {
             e.printStackTrace();
@@ -286,29 +289,27 @@ public class ScriptsDao extends CrudDaoDefaultImpl {
     public boolean verificaExistenciaColuna(final String tabela, final String coluna) {
         boolean colunaExiste = false;
         try {
-            execSQL("SELECT " + coluna + " FROM " + tabela, null);
+            this.execSQL("SELECT " + coluna + " FROM " + tabela, null);
             colunaExiste = true;
         } catch (final PersistenceException e) {
             e.printStackTrace();
         }
         return colunaExiste;
     }
-    
+
     /**
      * Retorna todos os scripts da tabela de script
-     * 
+     *
      * @author thyen.chang
      * @since 03/02/2015 - OPERAÇÃO USAIN BOLT
      * @return Lista com todos os scripts
      * @throws PersistenceException
      */
-    @SuppressWarnings({ "rawtypes", "unchecked" })
-	public Collection<ScriptsDTO> listaTodosScripts() throws PersistenceException{
-    	List retorno = execSQL("SELECT nome FROM SCRIPTS", null);
-    	List fields = new ArrayList();
-    	fields.add("nome");
-    	return listConvertion(getBean(), retorno, fields);
-    	
+    public Collection<ScriptsDTO> listaTodosScripts() throws PersistenceException {
+        final List retorno = this.execSQL("SELECT nome FROM SCRIPTS", null);
+        final List fields = new ArrayList<>();
+        fields.add("nome");
+        return this.listConvertion(this.getBean(), retorno, fields);
     }
 
 }

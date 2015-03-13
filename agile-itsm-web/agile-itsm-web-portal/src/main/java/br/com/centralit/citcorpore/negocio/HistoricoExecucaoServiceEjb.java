@@ -1,7 +1,6 @@
 package br.com.centralit.citcorpore.negocio;
 
 import java.util.Collection;
-import java.util.List;
 
 import br.com.centralit.citcorpore.integracao.HistoricoExecucaoDao;
 import br.com.citframework.excecao.LogicException;
@@ -18,14 +17,6 @@ public class HistoricoExecucaoServiceEjb extends CrudServiceImpl implements Hist
             dao = new HistoricoExecucaoDao();
         }
         return dao;
-    }
-
-    public Collection list(final List ordenacao) throws LogicException, ServiceException {
-        return null;
-    }
-
-    public Collection list(final String ordenacao) throws LogicException, ServiceException {
-        return null;
     }
 
     @Override

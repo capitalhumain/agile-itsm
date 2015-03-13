@@ -4,9 +4,6 @@ import br.com.agileitsm.model.support.BaseEntity;
 
 public class PrioridadeDTO extends BaseEntity {
 
-    /**
-	 * 
-	 */
     private static final long serialVersionUID = -7848776827100833523L;
 
     private Integer idPrioridade;
@@ -17,59 +14,59 @@ public class PrioridadeDTO extends BaseEntity {
     private Integer quantidade;
 
     public String getGrupoPrioridade() {
-    	if (grupoPrioridade != null){
-    		return grupoPrioridade.trim();
-    	}
-    	
-    	return grupoPrioridade;
+        if (grupoPrioridade != null) {
+            return grupoPrioridade.trim();
+        }
+
+        return grupoPrioridade;
     }
 
-    public void setGrupoPrioridade(String grupoPrioridade) {
-	this.grupoPrioridade = grupoPrioridade;
+    public void setGrupoPrioridade(final String grupoPrioridade) {
+        this.grupoPrioridade = grupoPrioridade;
     }
 
     public static long getSerialversionuid() {
-	return serialVersionUID;
+        return serialVersionUID;
     }
 
     public String getNomePrioridade() {
-	return nomePrioridade;
+        return nomePrioridade;
     }
 
-    public void setNomePrioridade(String nomePrioridade) {
-	this.nomePrioridade = nomePrioridade;
+    public void setNomePrioridade(final String nomePrioridade) {
+        this.nomePrioridade = nomePrioridade;
     }
 
     public Integer getIdPrioridade() {
-	return idPrioridade;
+        return idPrioridade;
     }
 
-    public void setIdPrioridade(Integer idPrioridade) {
-	this.idPrioridade = idPrioridade;
+    public void setIdPrioridade(final Integer idPrioridade) {
+        this.idPrioridade = idPrioridade;
     }
 
     public Integer getIdEmpresa() {
-	return idEmpresa;
+        return idEmpresa;
     }
 
-    public void setIdEmpresa(Integer idEmpresa) {
-	this.idEmpresa = idEmpresa;
+    public void setIdEmpresa(final Integer idEmpresa) {
+        this.idEmpresa = idEmpresa;
     }
 
     public String getSituacao() {
-	return situacao;
+        return situacao;
     }
 
-    public void setSituacao(String situacao) {
-	this.situacao = situacao;
+    public void setSituacao(final String situacao) {
+        this.situacao = situacao;
     }
 
-	public Integer getQuantidade() {
-		return quantidade;
-	}
+    public Integer getQuantidade() {
+        return quantidade;
+    }
 
-	public void setQuantidade(Integer quantidade) {
-		this.quantidade = quantidade;
-	}
+    public void setQuantidade(final Integer quantidade) {
+        this.quantidade = quantidade;
+    }
 
 }

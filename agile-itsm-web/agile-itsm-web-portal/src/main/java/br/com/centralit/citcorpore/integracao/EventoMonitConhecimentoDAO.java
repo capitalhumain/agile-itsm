@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package br.com.centralit.citcorpore.integracao;
 
@@ -18,112 +18,110 @@ import br.com.citframework.util.Constantes;
 
 /**
  * @author Vadoilo Damasceno
- * 
+ *
  */
-@SuppressWarnings({ "rawtypes", "unchecked" })
 public class EventoMonitConhecimentoDAO extends CrudDaoDefaultImpl {
 
-	public EventoMonitConhecimentoDAO() {
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
+    public EventoMonitConhecimentoDAO() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
+    }
 
-	@Override
-	public Collection find(BaseEntity obj) throws PersistenceException {
-		return null;
-	}
+    @Override
+    public Collection find(final BaseEntity obj) throws PersistenceException {
+        return null;
+    }
 
-	@Override
-	public Collection<Field> getFields() {
-		Collection<Field> listFields = new ArrayList<>();
+    @Override
+    public Collection<Field> getFields() {
+        final Collection<Field> listFields = new ArrayList<>();
 
-		listFields.add(new Field("IDEVENTOMONITORAMENTO", "idEventoMonitoramento", true, false, false, false));
-		listFields.add(new Field("IDBASECONHECIMENTO", "idBaseConhecimento", true, false, false, false));
+        listFields.add(new Field("IDEVENTOMONITORAMENTO", "idEventoMonitoramento", true, false, false, false));
+        listFields.add(new Field("IDBASECONHECIMENTO", "idBaseConhecimento", true, false, false, false));
 
-		return listFields;
-	}
+        return listFields;
+    }
 
-	@Override
-	public String getTableName() {
-		return "EVENTOMONITCONHECIMENTO";
-	}
+    @Override
+    public String getTableName() {
+        return "EVENTOMONITCONHECIMENTO";
+    }
 
-	@Override
-	public Collection list() throws PersistenceException {
-		List ordenacao = new ArrayList();
-		ordenacao.add(new Order("idEventoMonitoramento"));
-		return super.list(ordenacao);
-	}
+    @Override
+    public Collection list() throws PersistenceException {
+        final List<Order> ordenacao = new ArrayList<>();
+        ordenacao.add(new Order("idEventoMonitoramento"));
+        return super.list(ordenacao);
+    }
 
-	@Override
-	public Class getBean() {
-		return EventoMonitConhecimentoDTO.class;
-	}
+    @Override
+    public Class getBean() {
+        return EventoMonitConhecimentoDTO.class;
+    }
 
-	/**
-	 * Deleta EventoMonitConhecimento pelo id da Base de Conhecimento.
-	 * 
-	 * @param idBaseConhecimento
-	 * @throws Exception
-	 * @author Vadoilo Damasceno
-	 */
-	public void deleteByIdConhecimento(Integer idBaseConhecimento) throws PersistenceException {
-		List condicao = new ArrayList();
-		condicao.add(new Condition("idBaseConhecimento", "=", idBaseConhecimento));
-		this.deleteByCondition(condicao);
-	}
+    /**
+     * Deleta EventoMonitConhecimento pelo id da Base de Conhecimento.
+     *
+     * @param idBaseConhecimento
+     * @throws Exception
+     * @author Vadoilo Damasceno
+     */
+    public void deleteByIdConhecimento(final Integer idBaseConhecimento) throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        condicao.add(new Condition("idBaseConhecimento", "=", idBaseConhecimento));
+        this.deleteByCondition(condicao);
+    }
 
-	/**
-	 * Lista EventoMonitConhecimentoDTO por idBaseConhecimento.
-	 * 
-	 * @param idBaseConhecimento
-	 * @return Collection<EventoMonitConhecimentoDTO>
-	 * @throws Exception
-	 * @author Vadoilo Damasceno
-	 */
-	public Collection<EventoMonitConhecimentoDTO> listByIdBaseConhecimento(Integer idBaseConhecimento) throws PersistenceException {
-		List condicao = new ArrayList();
-		List ordenacao = new ArrayList();
+    /**
+     * Lista EventoMonitConhecimentoDTO por idBaseConhecimento.
+     *
+     * @param idBaseConhecimento
+     * @return Collection<EventoMonitConhecimentoDTO>
+     * @throws Exception
+     * @author Vadoilo Damasceno
+     */
+    public Collection<EventoMonitConhecimentoDTO> listByIdBaseConhecimento(final Integer idBaseConhecimento) throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
 
-		condicao.add(new Condition("idBaseConhecimento", "=", idBaseConhecimento));
-		ordenacao.add(new Order("idBaseConhecimento", "ASC"));
+        condicao.add(new Condition("idBaseConhecimento", "=", idBaseConhecimento));
+        ordenacao.add(new Order("idBaseConhecimento", "ASC"));
 
-		return findByCondition(condicao, ordenacao);
-	}
-	
-	public Collection<EventoMonitConhecimentoDTO> listByIdEventoMonitoramento(Integer idEventoMonitoramento) throws PersistenceException {
-		List condicao = new ArrayList();
-		List ordenacao = new ArrayList();
+        return this.findByCondition(condicao, ordenacao);
+    }
 
-		condicao.add(new Condition("idEventoMonitoramento", "=", idEventoMonitoramento));
-		ordenacao.add(new Order("idBaseConhecimento", "ASC"));
+    public Collection<EventoMonitConhecimentoDTO> listByIdEventoMonitoramento(final Integer idEventoMonitoramento) throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
 
-		return findByCondition(condicao, ordenacao);
-	}	
+        condicao.add(new Condition("idEventoMonitoramento", "=", idEventoMonitoramento));
+        ordenacao.add(new Order("idBaseConhecimento", "ASC"));
 
-	/**
-	 * Retorna true ou false caso evento Monitoramento tenha algum relacionamento com base de conhecimento
-	 * 
-	 * @param idEventoMonitoramento
-	 * @return boolena
-	 * @throws Exception
-	 * @author thays.araujo
-	 */
-	public boolean verificarEventoMonitoramentoComConhecimento(Integer idEventoMonitoramento) throws PersistenceException {
-		List parametro = new ArrayList();
-		List list = new ArrayList();
-		StringBuilder sql = new StringBuilder();
-		sql.append("select ideventoMonitoramento From " + getTableName()+" ");
-		if (idEventoMonitoramento != null) {
-			sql.append("where  ideventoMonitoramento = ? ");
-			parametro.add(idEventoMonitoramento);
-		}
+        return this.findByCondition(condicao, ordenacao);
+    }
 
-		list = this.execSQL(sql.toString(), parametro.toArray());
-		if (list != null && !list.isEmpty()) {
-			return true;
-		} else {
-			return false;
-		}
-	}
+    /**
+     * Retorna true ou false caso evento Monitoramento tenha algum relacionamento com base de conhecimento
+     *
+     * @param idEventoMonitoramento
+     * @return boolena
+     * @throws Exception
+     * @author thays.araujo
+     */
+    public boolean verificarEventoMonitoramentoComConhecimento(final Integer idEventoMonitoramento) throws PersistenceException {
+        final List parametro = new ArrayList<>();
+        List list = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
+        sql.append("select ideventoMonitoramento From " + this.getTableName() + " ");
+        if (idEventoMonitoramento != null) {
+            sql.append("where  ideventoMonitoramento = ? ");
+            parametro.add(idEventoMonitoramento);
+        }
+
+        list = this.execSQL(sql.toString(), parametro.toArray());
+        if (list != null && !list.isEmpty()) {
+            return true;
+        }
+        return false;
+    }
 
 }

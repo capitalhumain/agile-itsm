@@ -76,7 +76,7 @@ public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements Gru
     public Collection geraImpressao(final Collection colQuestoes) {
         LinhaSpoolQuestionario linhaSpoolQuestionario = new LinhaSpoolQuestionario();
         final String avanco = "     ";
-        final Collection colLinhas = new ArrayList();
+        final Collection colLinhas = new ArrayList<>();
         if (colQuestoes != null) {
             for (final Iterator itQuest = colQuestoes.iterator(); itQuest.hasNext();) {
                 final QuestaoQuestionarioDTO questaoDto = (QuestaoQuestionarioDTO) itQuest.next();
@@ -301,7 +301,7 @@ public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements Gru
     }
 
     private String montaLinhaQuestao(final QuestaoQuestionarioDTO questaoDto) {
-        final Collection colQ = new ArrayList();
+        final Collection colQ = new ArrayList<>();
         colQ.add(questaoDto);
         final Collection colSaida = geraImpressaoFormatadaHTML(colQ, null, null, null);
         String saida = "";
@@ -350,7 +350,7 @@ public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements Gru
 
         LinhaSpoolQuestionario linhaSpoolQuestionario = new LinhaSpoolQuestionario();
         final String avanco = "     ";
-        final Collection colLinhas = new ArrayList();
+        final Collection colLinhas = new ArrayList<>();
         if (colQuestoes != null) {
             for (final Iterator itQuest = colQuestoes.iterator(); itQuest.hasNext();) {
                 final QuestaoQuestionarioDTO questaoDto = (QuestaoQuestionarioDTO) itQuest.next();
@@ -793,7 +793,7 @@ public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements Gru
 
         LinhaSpoolQuestionario linhaSpoolQuestionario = new LinhaSpoolQuestionario();
         final String avanco = "     ";
-        final Collection colLinhas = new ArrayList();
+        final Collection colLinhas = new ArrayList<>();
 
         if (questaoDto.getImprime() != null && !questaoDto.getImprime().trim().equalsIgnoreCase("S")) {
             linhaSpoolQuestionario = new LinhaSpoolQuestionario(avanco);

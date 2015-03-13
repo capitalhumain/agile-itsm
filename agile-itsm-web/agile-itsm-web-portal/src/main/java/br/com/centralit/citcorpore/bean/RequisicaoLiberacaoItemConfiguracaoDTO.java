@@ -4,9 +4,6 @@ import br.com.agileitsm.model.support.BaseEntity;
 
 public class RequisicaoLiberacaoItemConfiguracaoDTO extends BaseEntity {
 
-    /**
-	 *
-	 */
     private static final long serialVersionUID = 1L;
 
     private Integer idRequisicaoLiberacaoItemConfiguracao;
@@ -25,7 +22,7 @@ public class RequisicaoLiberacaoItemConfiguracaoDTO extends BaseEntity {
         return idStatusIc;
     }
 
-    public void setIdStatusIc(Integer idStatusIc) {
+    public void setIdStatusIc(final Integer idStatusIc) {
         this.idStatusIc = idStatusIc;
     }
 
@@ -33,7 +30,7 @@ public class RequisicaoLiberacaoItemConfiguracaoDTO extends BaseEntity {
         return nomeStatusIc;
     }
 
-    public void setNomeStatusIc(String nomeStatusIc) {
+    public void setNomeStatusIc(final String nomeStatusIc) {
         this.nomeStatusIc = nomeStatusIc;
     }
 
@@ -41,7 +38,7 @@ public class RequisicaoLiberacaoItemConfiguracaoDTO extends BaseEntity {
         return nomeItemConfiguracao;
     }
 
-    public void setNomeItemConfiguracao(String nomeItemConfiguracao) {
+    public void setNomeItemConfiguracao(final String nomeItemConfiguracao) {
         this.nomeItemConfiguracao = nomeItemConfiguracao;
     }
 
@@ -49,7 +46,7 @@ public class RequisicaoLiberacaoItemConfiguracaoDTO extends BaseEntity {
         return idRequisicaoLiberacaoItemConfiguracao;
     }
 
-    public void setIdRequisicaoLiberacaoItemConfiguracao(Integer idRequisicaoLiberacaoItemConfiguracao) {
+    public void setIdRequisicaoLiberacaoItemConfiguracao(final Integer idRequisicaoLiberacaoItemConfiguracao) {
         this.idRequisicaoLiberacaoItemConfiguracao = idRequisicaoLiberacaoItemConfiguracao;
     }
 
@@ -57,7 +54,7 @@ public class RequisicaoLiberacaoItemConfiguracaoDTO extends BaseEntity {
         return idRequisicaoLiberacao;
     }
 
-    public void setIdRequisicaoLiberacao(Integer idRequisicaoLiberacao) {
+    public void setIdRequisicaoLiberacao(final Integer idRequisicaoLiberacao) {
         this.idRequisicaoLiberacao = idRequisicaoLiberacao;
     }
 
@@ -65,7 +62,7 @@ public class RequisicaoLiberacaoItemConfiguracaoDTO extends BaseEntity {
         return idItemConfiguracao;
     }
 
-    public void setIdItemConfiguracao(Integer idItemConfiguracao) {
+    public void setIdItemConfiguracao(final Integer idItemConfiguracao) {
         this.idItemConfiguracao = idItemConfiguracao;
     }
 
@@ -73,7 +70,7 @@ public class RequisicaoLiberacaoItemConfiguracaoDTO extends BaseEntity {
         return descricao;
     }
 
-    public void setDescricao(String descricao) {
+    public void setDescricao(final String descricao) {
         this.descricao = descricao;
     }
 
@@ -81,7 +78,7 @@ public class RequisicaoLiberacaoItemConfiguracaoDTO extends BaseEntity {
         return idHistoricoLiberacao;
     }
 
-    public void setIdHistoricoLiberacao(Integer idHistoricoLiberacao) {
+    public void setIdHistoricoLiberacao(final Integer idHistoricoLiberacao) {
         this.idHistoricoLiberacao = idHistoricoLiberacao;
     }
 
@@ -89,24 +86,25 @@ public class RequisicaoLiberacaoItemConfiguracaoDTO extends BaseEntity {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((descricao == null) ? 0 : descricao.hashCode());
-        result = prime * result + ((idHistoricoLiberacao == null) ? 0 : idHistoricoLiberacao.hashCode());
-        result = prime * result + ((idItemConfiguracao == null) ? 0 : idItemConfiguracao.hashCode());
-        result = prime * result + ((idRequisicaoLiberacao == null) ? 0 : idRequisicaoLiberacao.hashCode());
-        result = prime * result + ((idRequisicaoLiberacaoItemConfiguracao == null) ? 0 : idRequisicaoLiberacaoItemConfiguracao.hashCode());
-        result = prime * result + ((idStatusIc == null) ? 0 : idStatusIc.hashCode());
-        result = prime * result + ((nomeItemConfiguracao == null) ? 0 : nomeItemConfiguracao.hashCode());
-        result = prime * result + ((nomeStatusIc == null) ? 0 : nomeStatusIc.hashCode());
+        result = prime * result + (descricao == null ? 0 : descricao.hashCode());
+        result = prime * result + (idHistoricoLiberacao == null ? 0 : idHistoricoLiberacao.hashCode());
+        result = prime * result + (idItemConfiguracao == null ? 0 : idItemConfiguracao.hashCode());
+        result = prime * result + (idRequisicaoLiberacao == null ? 0 : idRequisicaoLiberacao.hashCode());
+        result = prime * result + (idRequisicaoLiberacaoItemConfiguracao == null ? 0 : idRequisicaoLiberacaoItemConfiguracao.hashCode());
+        result = prime * result + (idStatusIc == null ? 0 : idStatusIc.hashCode());
+        result = prime * result + (nomeItemConfiguracao == null ? 0 : nomeItemConfiguracao.hashCode());
+        result = prime * result + (nomeStatusIc == null ? 0 : nomeStatusIc.hashCode());
         return result;
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(final Object obj) {
         RequisicaoLiberacaoItemConfiguracaoDTO objComparacao = null;
 
         if (obj instanceof RequisicaoLiberacaoItemConfiguracaoDTO) {
             objComparacao = (RequisicaoLiberacaoItemConfiguracaoDTO) obj;
-            if (objComparacao.getIdItemConfiguracao().equals(this.getIdItemConfiguracao()) && objComparacao.getIdRequisicaoLiberacao().equals(this.getIdRequisicaoLiberacao())) {
+            if (objComparacao.getIdItemConfiguracao().equals(this.getIdItemConfiguracao())
+                    && objComparacao.getIdRequisicaoLiberacao().equals(this.getIdRequisicaoLiberacao())) {
                 return true;
             }
         }

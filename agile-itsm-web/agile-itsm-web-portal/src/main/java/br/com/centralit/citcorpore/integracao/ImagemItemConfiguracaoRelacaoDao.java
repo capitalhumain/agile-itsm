@@ -13,111 +13,114 @@ import br.com.citframework.util.Constantes;
 
 public class ImagemItemConfiguracaoRelacaoDao extends CrudDaoDefaultImpl {
 
-	public ImagemItemConfiguracaoRelacaoDao() {
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
-	@Override
-	public Collection<Field> getFields() {
-		Collection<Field> listFields = new ArrayList<>();
-		listFields.add(new Field("idimagemitemconfiguracaorel", "idImagemItemConfiguracaoRel", true, true, false, false));
-		listFields.add(new Field("idimagemitemconfiguracao", "idImagemItemConfiguracao", false, false, false, false));
-		listFields.add(new Field("idimagemitemconfiguracaopai",	"idImagemItemConfiguracaoPai", false, false, false, false));
-		return listFields;
-	}
-	@Override
-	public String getTableName() {
-		return "ImagemItemConfiguracaoRelacao";
-	}
+    public ImagemItemConfiguracaoRelacaoDao() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
+    }
 
-	@Override
-	public Class getBean() {
-		return ImagemItemConfiguracaoRelacaoDTO.class;
-	}
-	@Override
-	public Collection find(BaseEntity obj) throws PersistenceException {
-				return null;
-	}
-	@Override
-	public Collection list() throws PersistenceException {
-				return null;
-	}
-	
-	public Collection<ImagemItemConfiguracaoRelacaoDTO> findByIdImagemItemConfiguracao(Integer idImagemItemConfiguracao) throws PersistenceException {
-		StringBuilder sql = new StringBuilder();
-		List parametro = new ArrayList();
-		List list = new ArrayList();
+    @Override
+    public Collection<Field> getFields() {
+        final Collection<Field> listFields = new ArrayList<>();
+        listFields.add(new Field("idimagemitemconfiguracaorel", "idImagemItemConfiguracaoRel", true, true, false, false));
+        listFields.add(new Field("idimagemitemconfiguracao", "idImagemItemConfiguracao", false, false, false, false));
+        listFields.add(new Field("idimagemitemconfiguracaopai", "idImagemItemConfiguracaoPai", false, false, false, false));
+        return listFields;
+    }
 
-		sql.append("select idimagemitemconfiguracaorel,idimagemitemconfiguracao,idimagemitemconfiguracaopai ");
-		sql.append("from imagemitemconfiguracaorelacao ");
-		sql.append("where idImagemItemConfiguracao = ? ");
-		parametro.add(idImagemItemConfiguracao);
+    @Override
+    public String getTableName() {
+        return "ImagemItemConfiguracaoRelacao";
+    }
 
-		list = this.execSQL(sql.toString(), parametro.toArray());
+    @Override
+    public Class getBean() {
+        return ImagemItemConfiguracaoRelacaoDTO.class;
+    }
 
-		List listRetorno = new ArrayList();
-		listRetorno.add("idImagemItemConfiguracaoRel");
-		listRetorno.add("idImagemItemConfiguracao");
-		listRetorno.add("idImagemItemConfiguracaoPai");
+    @Override
+    public Collection find(final BaseEntity obj) throws PersistenceException {
+        return null;
+    }
 
-		List result = this.engine.listConvertion(getBean(), list, listRetorno);
-		if (result == null || result.size() == 0) {
-			return null;
-		} else {
-			return result;
-		}
+    @Override
+    public Collection list() throws PersistenceException {
+        return null;
+    }
 
-	}
-	
-	public Collection<ImagemItemConfiguracaoRelacaoDTO> findByIdImagemItemConfiguracaoPai(Integer idImagemItemConfiguracao) throws PersistenceException {
-		StringBuilder sql = new StringBuilder();
-		List parametro = new ArrayList();
-		List list = new ArrayList();
+    public Collection<ImagemItemConfiguracaoRelacaoDTO> findByIdImagemItemConfiguracao(final Integer idImagemItemConfiguracao) throws PersistenceException {
+        final StringBuilder sql = new StringBuilder();
+        final List parametro = new ArrayList<>();
+        List list = new ArrayList<>();
 
-		sql.append("select idimagemitemconfiguracaorel,idimagemitemconfiguracao,idimagemitemconfiguracaopai ");
-		sql.append("from imagemitemconfiguracaorelacao ");
-		sql.append("where idImagemItemConfiguracaoPai = ? ");
-		parametro.add(idImagemItemConfiguracao);
+        sql.append("select idimagemitemconfiguracaorel,idimagemitemconfiguracao,idimagemitemconfiguracaopai ");
+        sql.append("from imagemitemconfiguracaorelacao ");
+        sql.append("where idImagemItemConfiguracao = ? ");
+        parametro.add(idImagemItemConfiguracao);
 
-		list = this.execSQL(sql.toString(), parametro.toArray());
+        list = this.execSQL(sql.toString(), parametro.toArray());
 
-		List listRetorno = new ArrayList();
-		listRetorno.add("idImagemItemConfiguracaoRel");
-		listRetorno.add("idImagemItemConfiguracao");
-		listRetorno.add("idImagemItemConfiguracaoPai");
+        final List listRetorno = new ArrayList<>();
+        listRetorno.add("idImagemItemConfiguracaoRel");
+        listRetorno.add("idImagemItemConfiguracao");
+        listRetorno.add("idImagemItemConfiguracaoPai");
 
-		List result = this.engine.listConvertion(getBean(), list, listRetorno);
-		if (result == null || result.size() == 0) {
-			return null;
-		} else {
-			return result;
-		}
+        final List result = engine.listConvertion(this.getBean(), list, listRetorno);
+        if (result == null || result.size() == 0) {
+            return null;
+        } else {
+            return result;
+        }
 
-	}
-	
-	public ImagemItemConfiguracaoRelacaoDTO findByIdImagemItemConfiguracaoAndIdItemPai(Integer idImagemItemConfiguracao, Integer idImagemItemConfiguracaoPai) throws PersistenceException {
-		StringBuilder sql = new StringBuilder();
-		List parametro = new ArrayList();
-		List list = new ArrayList();
+    }
 
-		sql.append("select idimagemitemconfiguracaorel,idimagemitemconfiguracao,idimagemitemconfiguracaopai ");
-		sql.append("from imagemitemconfiguracaorelacao ");
-		sql.append("where idImagemItemConfiguracao = ? and idimagemitemconfiguracaopai = ? ");
-		parametro.add(idImagemItemConfiguracao);
-		parametro.add(idImagemItemConfiguracaoPai);
+    public Collection<ImagemItemConfiguracaoRelacaoDTO> findByIdImagemItemConfiguracaoPai(final Integer idImagemItemConfiguracao) throws PersistenceException {
+        final StringBuilder sql = new StringBuilder();
+        final List parametro = new ArrayList<>();
+        List list = new ArrayList<>();
 
-		list = this.execSQL(sql.toString(), parametro.toArray());
+        sql.append("select idimagemitemconfiguracaorel,idimagemitemconfiguracao,idimagemitemconfiguracaopai ");
+        sql.append("from imagemitemconfiguracaorelacao ");
+        sql.append("where idImagemItemConfiguracaoPai = ? ");
+        parametro.add(idImagemItemConfiguracao);
 
-		List listRetorno = new ArrayList();
-		listRetorno.add("idImagemItemConfiguracaoRel");
-		listRetorno.add("idImagemItemConfiguracao");
-		listRetorno.add("idImagemItemConfiguracaoPai");
+        list = this.execSQL(sql.toString(), parametro.toArray());
 
-		if (list == null || list.size() == 0) {
-			return null;
-		} else {
-			return (ImagemItemConfiguracaoRelacaoDTO)this.engine.listConvertion(getBean(), list, listRetorno).get(0);
-		}
+        final List listRetorno = new ArrayList<>();
+        listRetorno.add("idImagemItemConfiguracaoRel");
+        listRetorno.add("idImagemItemConfiguracao");
+        listRetorno.add("idImagemItemConfiguracaoPai");
 
-	}
+        final List result = engine.listConvertion(this.getBean(), list, listRetorno);
+        if (result == null || result.size() == 0) {
+            return null;
+        } else {
+            return result;
+        }
+
+    }
+
+    public ImagemItemConfiguracaoRelacaoDTO findByIdImagemItemConfiguracaoAndIdItemPai(final Integer idImagemItemConfiguracao,
+            final Integer idImagemItemConfiguracaoPai) throws PersistenceException {
+        final StringBuilder sql = new StringBuilder();
+        final List parametro = new ArrayList<>();
+        List list = new ArrayList<>();
+
+        sql.append("select idimagemitemconfiguracaorel,idimagemitemconfiguracao,idimagemitemconfiguracaopai ");
+        sql.append("from imagemitemconfiguracaorelacao ");
+        sql.append("where idImagemItemConfiguracao = ? and idimagemitemconfiguracaopai = ? ");
+        parametro.add(idImagemItemConfiguracao);
+        parametro.add(idImagemItemConfiguracaoPai);
+
+        list = this.execSQL(sql.toString(), parametro.toArray());
+
+        final List listRetorno = new ArrayList<>();
+        listRetorno.add("idImagemItemConfiguracaoRel");
+        listRetorno.add("idImagemItemConfiguracao");
+        listRetorno.add("idImagemItemConfiguracaoPai");
+
+        if (list == null || list.size() == 0) {
+            return null;
+        }
+        return (ImagemItemConfiguracaoRelacaoDTO) engine.listConvertion(this.getBean(), list, listRetorno).get(0);
+    }
 
 }

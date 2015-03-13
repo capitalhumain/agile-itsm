@@ -18,98 +18,93 @@ import br.com.citframework.util.UtilDatas;
 /**
  * DAO de CaracteristicaTipoItemConfiguracao - Tabela tipoItemCfgCaracteristica
  * no BD.
- * 
+ *
  * @author valdoilo.damasceno
  */
-@SuppressWarnings({ "unchecked", "rawtypes" })
 public class CaracteristicaTipoItemConfiguracaoDAO extends CrudDaoDefaultImpl {
 
     /**
      * Construtor.
-     * 
+     *
      * @author valdoilo.damasceno
      */
     public CaracteristicaTipoItemConfiguracaoDAO() {
-	super(Constantes.getValue("DATABASE_ALIAS"), null);
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
     }
 
     @Override
-    public Collection find(BaseEntity arg0) throws PersistenceException {
-	return null;
+    public Collection find(final BaseEntity arg0) throws PersistenceException {
+        return null;
     }
 
     @Override
     public Collection<Field> getFields() {
-	Collection<Field> listFields = new ArrayList<>();
+        final Collection<Field> listFields = new ArrayList<>();
 
-	listFields.add(new Field("ID", "id", true, true, false, false));
-	listFields.add(new Field("IDTIPOITEMCONFIGURACAO", "idTipoItemConfiguracao", false, false, false, false));
-	listFields.add(new Field("IDCARACTERISTICA", "idCaracteristica", false, false, false, false));
-	listFields.add(new Field("NAMEINFOAGENTE", "nameInfoAgente", false, false, false, false));
-	listFields.add(new Field("DATAINICIO", "dataInicio", false, false, false, false));
-	listFields.add(new Field("DATAFIM", "dataFim", false, false, false, false));
+        listFields.add(new Field("ID", "id", true, true, false, false));
+        listFields.add(new Field("IDTIPOITEMCONFIGURACAO", "idTipoItemConfiguracao", false, false, false, false));
+        listFields.add(new Field("IDCARACTERISTICA", "idCaracteristica", false, false, false, false));
+        listFields.add(new Field("NAMEINFOAGENTE", "nameInfoAgente", false, false, false, false));
+        listFields.add(new Field("DATAINICIO", "dataInicio", false, false, false, false));
+        listFields.add(new Field("DATAFIM", "dataFim", false, false, false, false));
 
-	return listFields;
+        return listFields;
     }
 
     @Override
     public String getTableName() {
-	return "TIPOITEMCFGCARACTERISTICA";
+        return "TIPOITEMCFGCARACTERISTICA";
     }
 
     @Override
     public Collection list() throws PersistenceException {
-	return null;
+        return null;
     }
 
     @Override
     public Class getBean() {
-	return CaracteristicaTipoItemConfiguracaoDTO.class;
+        return CaracteristicaTipoItemConfiguracaoDTO.class;
     }
 
     /**
      * Verifica se Característica está associada a algum Tipo Item Configuração.
-     * 
+     *
      * @param idCaracteristica
      * @return boolean
      * @throws Exception
      * @author valdoilo.damasceno
      */
-    public boolean existeAssociacaoComCaracteristica(Integer idCaracteristica, Integer idTipoItemConfiguracao) throws PersistenceException {
-    	boolean exists;		
-		List parametro = new ArrayList();
-		List list = new ArrayList();
-		StringBuilder sql = new StringBuilder();
-		sql.append("select * from " + getTableName() + " where idCaracteristica = ? ");
-		parametro.add(idCaracteristica);
-		if (idTipoItemConfiguracao != null && !(idTipoItemConfiguracao.intValue() == 0)) {
-			sql.append(" and idTipoItemConfiguracao = ? AND dataFim IS NULL ");
-			parametro.add(idTipoItemConfiguracao);
-		}		
-		sql.append(" AND dataFim IS NULL ");
-		
-		list = this.execSQL(sql.toString(), parametro.toArray());
-		if (list != null && !list.isEmpty()) 
-			exists = true;
-		else 
-			exists = false;
-		return exists;
+    public boolean existeAssociacaoComCaracteristica(final Integer idCaracteristica, final Integer idTipoItemConfiguracao) throws PersistenceException {
+        final List parametro = new ArrayList<>();
+        List list = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
+        sql.append("select * from " + this.getTableName() + " where idCaracteristica = ? ");
+        parametro.add(idCaracteristica);
+        if (idTipoItemConfiguracao != null && !(idTipoItemConfiguracao.intValue() == 0)) {
+            sql.append(" and idTipoItemConfiguracao = ? AND dataFim IS NULL ");
+            parametro.add(idTipoItemConfiguracao);
+        }
+        sql.append(" AND dataFim IS NULL ");
+
+        list = this.execSQL(sql.toString(), parametro.toArray());
+
+        return list != null && !list.isEmpty();
     }
- 
 
     /**
      * Exclui associação de Característica com Tipo Item Configuração.
-     * 
+     *
      * @param idTipoItemConfiguracao
      * @param idCaracteristica
      * @throws PersistenceException
      * @author valdoilo.damasceno
      */
-    public void excluirAssociacaoCaracteristicaTipoItemConfiguracao(Integer idTipoItemConfiguracao, Integer idCaracteristica)
-	    throws PersistenceException {
-	Object[] parametros = new Object[] { UtilDatas.getDataAtual(), idTipoItemConfiguracao, idCaracteristica };
+    public void excluirAssociacaoCaracteristicaTipoItemConfiguracao(final Integer idTipoItemConfiguracao, final Integer idCaracteristica)
+            throws PersistenceException {
+        final Object[] parametros = new Object[] {UtilDatas.getDataAtual(), idTipoItemConfiguracao, idCaracteristica};
 
-	String sql = "UPDATE " + getTableName() + " SET datafim = ? WHERE idtipoitemconfiguracao = ? AND idcaracteristica = ?";
-	execUpdate(sql, parametros);
+        final String sql = "UPDATE " + this.getTableName() + " SET datafim = ? WHERE idtipoitemconfiguracao = ? AND idcaracteristica = ?";
+        this.execUpdate(sql, parametros);
     }
+
 }

@@ -92,7 +92,7 @@ public class CentroResultadoServiceEjb extends CrudServiceImpl implements Centro
             return null;
         }
 
-        final Collection colRetorno = new ArrayList();
+        final Collection colRetorno = new ArrayList<>();
         boolean bAcrescenta;
         for (final CentroResultadoDTO centroResultadoDto : colSemPai) {
             bAcrescenta = true;
@@ -127,7 +127,7 @@ public class CentroResultadoServiceEjb extends CrudServiceImpl implements Centro
         if (colSemPai == null) {
             return null;
         }
-        final Collection colRetorno = new ArrayList();
+        final Collection colRetorno = new ArrayList<>();
         for (final CentroResultadoDTO centroResultadoDto : colSemPai) {
             centroResultadoDto.setNivel(new Integer(0));
             final Collection colFilhos = this.carregaFilhosVinculados(centroResultadoDto.getIdCentroResultado(), idSolicitante, 0, tipoAlcada);
@@ -163,7 +163,7 @@ public class CentroResultadoServiceEjb extends CrudServiceImpl implements Centro
             return null;
         }
 
-        final Collection colRetorno = new ArrayList();
+        final Collection colRetorno = new ArrayList<>();
         boolean bAcrescenta;
 
         for (final CentroResultadoDTO centroResultadoDto : colSemPai) {
@@ -211,7 +211,7 @@ public class CentroResultadoServiceEjb extends CrudServiceImpl implements Centro
             return null;
         }
 
-        final Collection colRetorno = new ArrayList();
+        final Collection colRetorno = new ArrayList<>();
 
         boolean bAcrescenta;
         for (final CentroResultadoDTO centroResultadoDto : colFilhos) {
@@ -259,7 +259,7 @@ public class CentroResultadoServiceEjb extends CrudServiceImpl implements Centro
             return null;
         }
 
-        final Collection colRetorno = new ArrayList();
+        final Collection colRetorno = new ArrayList<>();
 
         boolean bAcrescenta;
         for (final CentroResultadoDTO centroResultadoDto : colFilhos) {
@@ -295,7 +295,7 @@ public class CentroResultadoServiceEjb extends CrudServiceImpl implements Centro
             return null;
         }
 
-        final Collection colRetorno = new ArrayList();
+        final Collection colRetorno = new ArrayList<>();
 
         boolean bAcrescenta;
         for (final CentroResultadoDTO centroResultadoDto : colFilhos) {
@@ -330,7 +330,7 @@ public class CentroResultadoServiceEjb extends CrudServiceImpl implements Centro
             return null;
         }
 
-        final Collection colRetorno = new ArrayList();
+        final Collection colRetorno = new ArrayList<>();
 
         for (final CentroResultadoDTO centroResultadoDto : colFilhos) {
             centroResultadoDto.setNivel(new Integer(nivel + 1));
@@ -388,8 +388,8 @@ public class CentroResultadoServiceEjb extends CrudServiceImpl implements Centro
 
     private void atualizaResponsaveis(final CentroResultadoDTO centroResultadoDto, final ResponsavelCentroResultadoDao responsavelCentroResultadoDao) throws Exception {
         final Collection<ResponsavelCentroResultadoDTO> colExistentes = responsavelCentroResultadoDao.findByIdCentroResultado(centroResultadoDto.getIdCentroResultado());
-        final HashMap<String, ResponsavelCentroResultadoDTO> mapExistentes = new HashMap();
-        final HashMap<String, ResponsavelCentroResultadoDTO> mapAtuais = new HashMap();
+        final HashMap<String, ResponsavelCentroResultadoDTO> mapExistentes = new HashMap<>();
+        final HashMap<String, ResponsavelCentroResultadoDTO> mapAtuais = new HashMap<>();
         if (colExistentes != null) {
             for (final ResponsavelCentroResultadoDTO responsavelCentroResultadoDto : colExistentes) {
                 mapExistentes.put("" + responsavelCentroResultadoDto.getIdResponsavel(), responsavelCentroResultadoDto);

@@ -8,23 +8,23 @@ import br.com.citframework.util.Constantes;
 
 public class ControleSessaoListener implements HttpSessionListener {
 
-	public void sessionCreated(HttpSessionEvent event) {
+    @Override
+    public void sessionCreated(final HttpSessionEvent event) {
 
-	}
+    }
 
-	public void sessionDestroyed(HttpSessionEvent event) {
-		if (event.getSession() != null) {
-			UsuarioDTO user = (UsuarioDTO) event.getSession().getAttribute(	Constantes.getValue("USUARIO_SESSAO") + "_CITCORPORE");
-			if (user != null) {
-				try {
+    @Override
+    public void sessionDestroyed(final HttpSessionEvent event) {
+        if (event.getSession() != null) {
+            final UsuarioDTO user = (UsuarioDTO) event.getSession().getAttribute(Constantes.getValue("USUARIO_SESSAO") + "_CITCORPORE");
+            if (user != null) {
+                try {
 
-				} catch (Exception e) {
-					System.out.println("PROBLEMAS AO REMOVER USUARIO DO CONTROLADOR DE USUARIOS!");
-				}
-			}
-		}
-	}
-
+                } catch (final Exception e) {
+                    System.out.println("PROBLEMAS AO REMOVER USUARIO DO CONTROLADOR DE USUARIOS!");
+                }
+            }
+        }
+    }
 
 }
-

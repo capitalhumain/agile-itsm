@@ -47,7 +47,7 @@ public class XmlReadLookup {
     }
 
     public XmlReadLookup(final InputStream ioos) {
-        mapElementos = new HashMap();
+        mapElementos = new HashMap<>();
         final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         try {
             final DocumentBuilder builder = factory.newDocumentBuilder();
@@ -59,7 +59,7 @@ public class XmlReadLookup {
     }
 
     public XmlReadLookup(final Locale locale) {
-        mapElementos = new HashMap();
+        mapElementos = new HashMap<>();
         final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         try {
             final DocumentBuilder builder = factory.newDocumentBuilder();
@@ -71,7 +71,7 @@ public class XmlReadLookup {
     }
 
     public XmlReadLookup(final String file) {
-        mapElementos = new HashMap();
+        mapElementos = new HashMap<>();
         final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         try {
             final DocumentBuilder builder = factory.newDocumentBuilder();
@@ -91,9 +91,9 @@ public class XmlReadLookup {
                 }
             }
         } else {
-            mapElementos = new HashMap();
+            mapElementos = new HashMap<>();
         }
-        mapElementos = new HashMap();
+        mapElementos = new HashMap<>();
         final LookupInfo lookupInfo = new LookupInfo();
         Node noRoot = null;
         try {
@@ -389,7 +389,7 @@ public class XmlReadLookup {
     }
 
     private Collection getCampos(final Node noLookupItem) {
-        final Collection colRetorno = new ArrayList();
+        final Collection colRetorno = new ArrayList<>();
         for (int i = 0; i < noLookupItem.getChildNodes().getLength(); i++) {
             final Node noCampo = noLookupItem.getChildNodes().item(i);
             if (noCampo.getNodeName().equals("#text")) {
@@ -438,7 +438,7 @@ public class XmlReadLookup {
                                     item.setValor(str2[0]);
                                     item.setDescricao(str2[1]);
                                     if (colValores == null) {
-                                        colValores = new ArrayList();
+                                        colValores = new ArrayList<>();
                                     }
                                     colValores.add(item);
                                 }

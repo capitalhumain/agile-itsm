@@ -172,9 +172,7 @@ public class BPMUsuarioGrupo implements IUsuarioGrupo {
                 i++;
             }
             return emails;
-        } else {
-            return null;
-        }
+        } return null;
     }
 
     @Override

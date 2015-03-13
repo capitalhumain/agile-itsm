@@ -17,6 +17,7 @@ package br.com.centralit.citcorpore.bean;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class GlosaOSDTO extends BaseEntity {
+
     private Integer idGlosaOS;
     private Integer idOs;
     private java.sql.Date dataCriacao;
@@ -28,73 +29,83 @@ public class GlosaOSDTO extends BaseEntity {
     private Double numeroOcorrencias;
     private Integer sequencia;
 
-
-    public Integer getIdGlosaOS(){
+    public Integer getIdGlosaOS() {
         return idGlosaOS;
     }
-    public void setIdGlosaOS(Integer parm){
+
+    public void setIdGlosaOS(final Integer parm) {
         idGlosaOS = parm;
     }
 
-    public Integer getIdOs(){
+    public Integer getIdOs() {
         return idOs;
     }
-    public void setIdOs(Integer parm){
+
+    public void setIdOs(final Integer parm) {
         idOs = parm;
     }
 
-    public java.sql.Date getDataCriacao(){
+    public java.sql.Date getDataCriacao() {
         return dataCriacao;
     }
-    public void setDataCriacao(java.sql.Date parm){
+
+    public void setDataCriacao(final java.sql.Date parm) {
         dataCriacao = parm;
     }
 
-    public java.sql.Date getDataUltModificacao(){
+    public java.sql.Date getDataUltModificacao() {
         return dataUltModificacao;
     }
-    public void setDataUltModificacao(java.sql.Date parm){
+
+    public void setDataUltModificacao(final java.sql.Date parm) {
         dataUltModificacao = parm;
     }
 
-    public String getDescricaoGlosa(){
+    public String getDescricaoGlosa() {
         return descricaoGlosa;
     }
-    public void setDescricaoGlosa(String parm){
+
+    public void setDescricaoGlosa(final String parm) {
         descricaoGlosa = parm;
     }
 
-    public String getOcorrencias(){
+    public String getOcorrencias() {
         return ocorrencias;
     }
-    public void setOcorrencias(String parm){
+
+    public void setOcorrencias(final String parm) {
         ocorrencias = parm;
     }
 
-    public Double getPercAplicado(){
+    public Double getPercAplicado() {
         return percAplicado;
     }
-    public void setPercAplicado(Double parm){
+
+    public void setPercAplicado(final Double parm) {
         percAplicado = parm;
     }
 
-    public Double getCustoGlosa(){
+    public Double getCustoGlosa() {
         return custoGlosa;
     }
-    public void setCustoGlosa(Double parm){
+
+    public void setCustoGlosa(final Double parm) {
         custoGlosa = parm;
     }
 
-    public Double getNumeroOcorrencias(){
+    public Double getNumeroOcorrencias() {
         return numeroOcorrencias;
     }
-    public void setNumeroOcorrencias(Double parm){
+
+    public void setNumeroOcorrencias(final Double parm) {
         numeroOcorrencias = parm;
     }
+
     public Integer getSequencia() {
         return sequencia;
     }
-    public void setSequencia(Integer sequencia) {
+
+    public void setSequencia(final Integer sequencia) {
         this.sequencia = sequencia;
     }
 

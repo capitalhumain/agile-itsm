@@ -6,125 +6,121 @@ import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * @author Maycon.Fernandes
- * 
+ *
  */
-@SuppressWarnings("serial")
 public class InventarioDTO extends BaseEntity {
 
     private Integer idInventario;
     private String ip;
     private String mask;
     private String mac;
-    
+
     private Integer idContrato;
-    @SuppressWarnings("rawtypes")
     private List<NetMapDTO> ipInvetariar;
     private java.sql.Date date;
 
     /**
      * @return valor do atributo ipInvetariar.
      */
-    @SuppressWarnings("rawtypes")
     public List<NetMapDTO> getIpInvetariar() {
-	return ipInvetariar;
+        return ipInvetariar;
     }
 
     /**
      * Define valor do atributo ipInvetariar.
-     * 
+     *
      * @param ipInvetariar
      */
-    @SuppressWarnings("rawtypes")
-    public void setIpInvetariar(List<NetMapDTO> ipInvetariar) {
-	this.ipInvetariar = ipInvetariar;
+    public void setIpInvetariar(final List<NetMapDTO> ipInvetariar) {
+        this.ipInvetariar = ipInvetariar;
     }
 
     /**
      * @return valor do atributo idInventario.
      */
     public Integer getIdInventario() {
-	return idInventario;
+        return idInventario;
     }
 
     /**
      * Define valor do atributo idInventario.
-     * 
+     *
      * @param idInventario
      */
-    public void setIdInventario(Integer idInventario) {
-	this.idInventario = idInventario;
+    public void setIdInventario(final Integer idInventario) {
+        this.idInventario = idInventario;
     }
 
     /**
      * @return valor do atributo ip.
      */
     public String getIp() {
-	return ip;
+        return ip;
     }
 
     /**
      * Define valor do atributo ip.
-     * 
+     *
      * @param ip
      */
-    public void setIp(String ip) {
-	this.ip = ip;
+    public void setIp(final String ip) {
+        this.ip = ip;
     }
 
     /**
      * @return valor do atributo mask.
      */
     public String getMask() {
-	return mask;
+        return mask;
     }
 
     /**
      * Define valor do atributo mask.
-     * 
+     *
      * @param mask
      */
-    public void setMask(String mask) {
-	this.mask = mask;
+    public void setMask(final String mask) {
+        this.mask = mask;
     }
 
     /**
      * @return valor do atributo mac.
      */
     public String getMac() {
-	return mac;
+        return mac;
     }
 
     /**
      * Define valor do atributo mac.
-     * 
+     *
      * @param mac
      */
-    public void setMac(String mac) {
-	this.mac = mac;
+    public void setMac(final String mac) {
+        this.mac = mac;
     }
 
     /**
      * @return valor do atributo date.
      */
     public java.sql.Date getDate() {
-	return date;
+        return date;
     }
 
     /**
      * Define valor do atributo date.
-     * 
+     *
      * @param date
      */
-    public void setDate(java.sql.Date date) {
-	this.date = date;
+    public void setDate(final java.sql.Date date) {
+        this.date = date;
     }
 
-	public Integer getIdContrato() {
-		return idContrato;
-	}
+    public Integer getIdContrato() {
+        return idContrato;
+    }
 
-	public void setIdContrato(Integer idContrato) {
-		this.idContrato = idContrato;
-	}
+    public void setIdContrato(final Integer idContrato) {
+        this.idContrato = idContrato;
+    }
 
 }

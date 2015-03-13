@@ -6,49 +6,51 @@ import java.util.Collection;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class LookupDTO extends BaseEntity {
-	private Integer idCamposObjetoNegocio;
-	private Integer idGrupoVisao;
-	private String termoPesquisa;
-	private String q;
-	Collection values = new ArrayList();
-	
-	public String getQ() {
-		return q;
-	}
 
-	public void setQ(String q) {
-		this.q = q;
-	}
+    private Integer idCamposObjetoNegocio;
+    private Integer idGrupoVisao;
+    private String termoPesquisa;
+    private String q;
+    Collection values = new ArrayList<>();
 
-	public Collection getValues() {
-		return values;
-	}
+    public String getQ() {
+        return q;
+    }
 
-	public void setValues(Collection values) {
-		this.values = values;
-	}
+    public void setQ(final String q) {
+        this.q = q;
+    }
 
-	public Integer getIdCamposObjetoNegocio() {
-		return idCamposObjetoNegocio;
-	}
+    public Collection getValues() {
+        return values;
+    }
 
-	public void setIdCamposObjetoNegocio(Integer idCamposObjetoNegocio) {
-		this.idCamposObjetoNegocio = idCamposObjetoNegocio;
-	}
+    public void setValues(final Collection values) {
+        this.values = values;
+    }
 
-	public Integer getIdGrupoVisao() {
-		return idGrupoVisao;
-	}
+    public Integer getIdCamposObjetoNegocio() {
+        return idCamposObjetoNegocio;
+    }
 
-	public void setIdGrupoVisao(Integer idGrupoVisao) {
-		this.idGrupoVisao = idGrupoVisao;
-	}
+    public void setIdCamposObjetoNegocio(final Integer idCamposObjetoNegocio) {
+        this.idCamposObjetoNegocio = idCamposObjetoNegocio;
+    }
 
-	public String getTermoPesquisa() {
-		return termoPesquisa;
-	}
+    public Integer getIdGrupoVisao() {
+        return idGrupoVisao;
+    }
 
-	public void setTermoPesquisa(String termoPesquisa) {
-		this.termoPesquisa = termoPesquisa;
-	}
+    public void setIdGrupoVisao(final Integer idGrupoVisao) {
+        this.idGrupoVisao = idGrupoVisao;
+    }
+
+    public String getTermoPesquisa() {
+        return termoPesquisa;
+    }
+
+    public void setTermoPesquisa(final String termoPesquisa) {
+        this.termoPesquisa = termoPesquisa;
+    }
+
 }

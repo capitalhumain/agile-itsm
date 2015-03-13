@@ -11,7 +11,6 @@ import java.util.Map;
 import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.bpm.dto.EventoFluxoDTO;
 import br.com.centralit.bpm.dto.FluxoDTO;
-import br.com.centralit.bpm.dto.InstanciaFluxoDTO;
 import br.com.centralit.bpm.dto.ItemTrabalhoFluxoDTO;
 import br.com.centralit.bpm.dto.ObjetoNegocioFluxoDTO;
 import br.com.centralit.bpm.dto.TarefaFluxoDTO;
@@ -45,7 +44,6 @@ import br.com.centralit.citcorpore.integracao.ServicoContratoDao;
 import br.com.centralit.citcorpore.integracao.UsuarioDao;
 import br.com.centralit.citcorpore.mail.MensagemEmail;
 import br.com.centralit.citcorpore.negocio.CalendarioServiceEjb;
-import br.com.centralit.citcorpore.negocio.EmpregadoService;
 import br.com.centralit.citcorpore.negocio.GrupoService;
 import br.com.centralit.citcorpore.negocio.OcorrenciaProblemaServiceEjb;
 import br.com.centralit.citcorpore.negocio.ProblemaService;
@@ -72,11 +70,10 @@ import br.com.citframework.util.UtilI18N;
 
 import com.google.gson.Gson;
 
-@SuppressWarnings({ "unchecked", "rawtypes", "unused" })
+@SuppressWarnings({"unchecked", "rawtypes"})
 public class ExecucaoProblema extends ExecucaoFluxo {
 
     protected UsuarioDTO usuarioDto = null;
-    private EmpregadoService empregadoService;
     protected ProblemaService problemaService;
 
     public String i18n_Message(final UsuarioDTO usuario, final String key) {
@@ -87,20 +84,6 @@ public class ExecucaoProblema extends ExecucaoFluxo {
             return key;
         }
         return key;
-    }
-
-    private EmpregadoService getEmpregadoService() throws ServiceException, Exception {
-        if (empregadoService == null) {
-            empregadoService = (EmpregadoService) ServiceLocator.getInstance().getService(EmpregadoService.class, null);
-        }
-        return empregadoService;
-    }
-
-    private ProblemaService getProblemaService() throws ServiceException, Exception {
-        if (problemaService == null) {
-            problemaService = (ProblemaService) ServiceLocator.getInstance().getService(ProblemaService.class, null);
-        }
-        return problemaService;
     }
 
     public ExecucaoProblema(final TransactionControler tc) {
@@ -121,41 +104,37 @@ public class ExecucaoProblema extends ExecucaoFluxo {
         final TipoFluxoDTO tipoFluxoDto = tipoFluxoDao.findByNome(nomeFluxo);
         if (tipoFluxoDto == null) {
             System.out.println("Fluxo " + nomeFluxo + " não existe");
-            throw new Exception(i18n_Message("citcorpore.comum.fluxoNaoEncontrado"));
+            throw new Exception(this.i18n_Message("citcorpore.comum.fluxoNaoEncontrado"));
         }
-        return inicia(new FluxoDao().findByTipoFluxo(tipoFluxoDto.getIdTipoFluxo()), idFase);
+        return this.inicia(new FluxoDao().findByTipoFluxo(tipoFluxoDto.getIdTipoFluxo()), idFase);
     }
 
     @Override
     public InstanciaFluxo inicia() throws Exception {
         InstanciaFluxo result = null;
-        final InstanciaFluxoDTO instanciaFluxoDto = null;
-        final CategoriaProblemaDTO categoriaProblemaDto = recuperaCategoriaProblema();
+        final CategoriaProblemaDTO categoriaProblemaDto = this.recuperaCategoriaProblema();
         if (categoriaProblemaDto != null) {
 
             if (categoriaProblemaDto.getIdTipoFluxo() != null) {
 
-                result = inicia(new FluxoDao().findByTipoFluxo(categoriaProblemaDto.getIdTipoFluxo()), null);
+                result = this.inicia(new FluxoDao().findByTipoFluxo(categoriaProblemaDto.getIdTipoFluxo()), null);
             }
         } else {
-            final String fluxoPadrao = ParametroUtil.getValorParametroCitSmartHashMap(
-                    ParametroSistema.NomeFluxoPadraoProblema, null);
+            final String fluxoPadrao = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.NomeFluxoPadraoProblema, null);
             if (fluxoPadrao == null) {
-                throw new Exception(i18n_Message("citcorpore.comum.fluxoNaoParametrizado"));
+                throw new Exception(this.i18n_Message("citcorpore.comum.fluxoNaoParametrizado"));
             }
 
-            result = inicia(fluxoPadrao, null);
+            result = this.inicia(fluxoPadrao, null);
         }
 
         try {
 
-            final String enviarNotificacao = ParametroUtil.getValor(
-                    ParametroSistema.NOTIFICAR_GRUPO_RECEPCAO_SOLICITACAO, getTransacao(), "N");
+            final String enviarNotificacao = ParametroUtil.getValor(ParametroSistema.NOTIFICAR_GRUPO_RECEPCAO_SOLICITACAO, this.getTransacao(), "N");
             final String IdModeloEmailGrupoDestinoProblema = ParametroUtil.getValorParametroCitSmartHashMap(
                     ParametroSistema.ID_MODELO_EMAIL_GRUPO_DESTINO_PROBLEMA, "37");
-            if (enviarNotificacao.equalsIgnoreCase("S") && getProblemaDto().escalada()) {
-                enviaEmailGrupo(Integer.parseInt(IdModeloEmailGrupoDestinoProblema.trim()), getProblemaDto()
-                        .getIdGrupoAtual());
+            if (enviarNotificacao.equalsIgnoreCase("S") && this.getProblemaDto().escalada()) {
+                this.enviaEmailGrupo(Integer.parseInt(IdModeloEmailGrupoDestinoProblema.trim()), this.getProblemaDto().getIdGrupoAtual());
             }
         } catch (final NumberFormatException e) {
             System.out.println("Não há modelo de e-mail setado nos parâmetros.");
@@ -166,143 +145,133 @@ public class ExecucaoProblema extends ExecucaoFluxo {
     @Override
     public InstanciaFluxo inicia(final FluxoDTO fluxoDto, final Integer idFase) throws Exception {
         if (fluxoDto == null) {
-            throw new Exception(i18n_Message("citcorpore.comum.fluxoNaoEncontrado"));
+            throw new Exception(this.i18n_Message("citcorpore.comum.fluxoNaoEncontrado"));
         }
 
         this.fluxoDto = fluxoDto;
 
-        final HashMap<String, Object> map = new HashMap();
-        mapObjetoNegocio(map);
+        final HashMap<String, Object> map = new HashMap<>();
+        this.mapObjetoNegocio(map);
         final InstanciaFluxo instanciaFluxo = new InstanciaFluxo(this, map);
 
         final ExecucaoProblemaDTO execucaoProblemaDto = new ExecucaoProblemaDTO();
-        execucaoProblemaDto.setIdProblema(getProblemaDto().getIdProblema());
-        execucaoProblemaDto.setIdFase(getProblemaDto().getIdFaseAtual());
+        execucaoProblemaDto.setIdProblema(this.getProblemaDto().getIdProblema());
+        execucaoProblemaDto.setIdFase(this.getProblemaDto().getIdFaseAtual());
         execucaoProblemaDto.setIdFluxo(instanciaFluxo.getIdFluxo());
         execucaoProblemaDto.setIdInstanciaFluxo(instanciaFluxo.getIdInstancia());
         Integer seqReabertura = 0;
-        if (getProblemaDto().getSeqReabertura() != null && getProblemaDto().getSeqReabertura().intValue() > 0) {
-            seqReabertura = getProblemaDto().getSeqReabertura();
+        if (this.getProblemaDto().getSeqReabertura() != null && this.getProblemaDto().getSeqReabertura().intValue() > 0) {
+            seqReabertura = this.getProblemaDto().getSeqReabertura();
         }
         if (seqReabertura.intValue() > 0) {
-            execucaoProblemaDto.setSeqReabertura(getProblemaDto().getSeqReabertura());
+            execucaoProblemaDto.setSeqReabertura(this.getProblemaDto().getSeqReabertura());
         }
 
         final ExecucaoProblemaDao execucaoProblemaDao = new ExecucaoProblemaDao();
-        setTransacaoDao(execucaoProblemaDao);
+        this.setTransacaoDao(execucaoProblemaDao);
         execucaoFluxoDto = (ExecucaoProblemaDTO) execucaoProblemaDao.create(execucaoProblemaDto);
 
-        if (seqReabertura.intValue() == 0 && getProblemaDto().getEnviaEmailCriacao() != null
-                && getProblemaDto().getEnviaEmailCriacao().equalsIgnoreCase("S")) {
-            final String IdModeloEmailCriacaoProblema = ParametroUtil.getValorParametroCitSmartHashMap(
-                    ParametroSistema.ID_MODELO_EMAIL_CRIACAO_PROBLEMA, "34");
+        if (seqReabertura.intValue() == 0 && this.getProblemaDto().getEnviaEmailCriacao() != null
+                && this.getProblemaDto().getEnviaEmailCriacao().equalsIgnoreCase("S")) {
+            final String IdModeloEmailCriacaoProblema = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.ID_MODELO_EMAIL_CRIACAO_PROBLEMA, "34");
             final Integer idModeloEmail = Integer.parseInt(IdModeloEmailCriacaoProblema.trim());
-            enviaEmail(idModeloEmail);
+            this.enviaEmail(idModeloEmail);
         }
         return instanciaFluxo;
     }
 
     @Override
-    public void executa(final String loginUsuario, final ObjetoNegocioFluxoDTO objetoNegocioDto,
-            final Integer idItemTrabalho, final String acao, final HashMap<String, Object> map) throws Exception {
+    public void executa(final String loginUsuario, final ObjetoNegocioFluxoDTO objetoNegocioDto, final Integer idItemTrabalho, final String acao,
+            final HashMap<String, Object> map) throws Exception {
         if (acao.equals(Enumerados.ACAO_DELEGAR)) {
             return;
         }
 
-        TarefaFluxoDTO tarefaFluxoDto = recuperaTarefa(idItemTrabalho);
+        TarefaFluxoDTO tarefaFluxoDto = this.recuperaTarefa(idItemTrabalho);
         if (tarefaFluxoDto == null) {
             return;
         }
 
         final ExecucaoProblemaDao execucaoProblemaDao = new ExecucaoProblemaDao();
-        setTransacaoDao(execucaoProblemaDao);
-        final ExecucaoProblemaDTO execucaoProblemaDto = execucaoProblemaDao.findByIdInstanciaFluxo(tarefaFluxoDto
-                .getIdInstancia());
+        this.setTransacaoDao(execucaoProblemaDao);
+        final ExecucaoProblemaDTO execucaoProblemaDto = execucaoProblemaDao.findByIdInstanciaFluxo(tarefaFluxoDto.getIdInstancia());
         if (execucaoProblemaDto == null) {
             return;
         }
 
-        recuperaFluxo(execucaoProblemaDto.getIdFluxo());
+        this.recuperaFluxo(execucaoProblemaDto.getIdFluxo());
 
         this.objetoNegocioDto = objetoNegocioDto;
         usuarioDto = new UsuarioDao().restoreByLogin(loginUsuario);
 
         final InstanciaFluxo instanciaFluxo = new InstanciaFluxo(this, tarefaFluxoDto.getIdInstancia());
-        mapObjetoNegocio(instanciaFluxo.getObjetos(map));
+        this.mapObjetoNegocio(instanciaFluxo.getObjetos(map));
 
         if (acao.equals(Enumerados.ACAO_INICIAR)) {
             instanciaFluxo.iniciaItemTrabalho(loginUsuario, tarefaFluxoDto.getIdItemTrabalho(), map);
         } else if (acao.equals(Enumerados.ACAO_EXECUTAR)) {
-            tarefaFluxoDto = recuperaTarefa(idItemTrabalho);
+            tarefaFluxoDto = this.recuperaTarefa(idItemTrabalho);
             final OcorrenciaProblemaDAO ocorrenciaProblemaDao = new OcorrenciaProblemaDAO();
-            setTransacaoDao(ocorrenciaProblemaDao);
+            this.setTransacaoDao(ocorrenciaProblemaDao);
             final OcorrenciaProblemaDTO ocorrenciaProblemaDto = new OcorrenciaProblemaDTO();
-            ocorrenciaProblemaDto.setIdProblema(getProblemaDto().getIdProblema());
+            ocorrenciaProblemaDto.setIdProblema(this.getProblemaDto().getIdProblema());
             ocorrenciaProblemaDto.setDataregistro(UtilDatas.getDataAtual());
             ocorrenciaProblemaDto.setHoraregistro(UtilDatas.formatHoraFormatadaStr(UtilDatas.getHoraAtual()));
             Long tempo = new Long(0);
             if (tarefaFluxoDto.getDataHoraFinalizacao() != null) {
-                tempo = (tarefaFluxoDto.getDataHoraFinalizacao().getTime() - tarefaFluxoDto.getDataHoraCriacao()
-                        .getTime()) / 1000 / 60;
+                tempo = (tarefaFluxoDto.getDataHoraFinalizacao().getTime() - tarefaFluxoDto.getDataHoraCriacao().getTime()) / 1000 / 60;
             }
             ocorrenciaProblemaDto.setTempoGasto(tempo.intValue());
-            ocorrenciaProblemaDto.setDescricao(br.com.centralit.citcorpore.util.Enumerados.CategoriaOcorrencia.Execucao
-                    .getDescricao());
+            ocorrenciaProblemaDto.setDescricao(br.com.centralit.citcorpore.util.Enumerados.CategoriaOcorrencia.Execucao.getDescricao());
             ocorrenciaProblemaDto.setDataInicio(UtilDatas.getDataAtual());
             ocorrenciaProblemaDto.setDataFim(UtilDatas.getDataAtual());
             ocorrenciaProblemaDto.setInformacoesContato("não se aplica");
             ocorrenciaProblemaDto.setRegistradopor(loginUsuario);
             try {
-                ocorrenciaProblemaDto.setDadosProblema(new Gson().toJson(getProblemaDto()));
+                ocorrenciaProblemaDto.setDadosProblema(new Gson().toJson(this.getProblemaDto()));
             } catch (final Exception e) {
                 e.printStackTrace();
             }
-            ocorrenciaProblemaDto.setOcorrencia("Execução da tarefa \""
-                    + tarefaFluxoDto.getElementoFluxoDto().getDocumentacao() + "\"");
-            ocorrenciaProblemaDto.setOrigem(br.com.centralit.citcorpore.util.Enumerados.OrigemOcorrencia.OUTROS
-                    .getSigla().toString());
-            ocorrenciaProblemaDto.setCategoria(br.com.centralit.citcorpore.util.Enumerados.CategoriaOcorrencia.Execucao
-                    .getSigla());
+            ocorrenciaProblemaDto.setOcorrencia("Execução da tarefa \"" + tarefaFluxoDto.getElementoFluxoDto().getDocumentacao() + "\"");
+            ocorrenciaProblemaDto.setOrigem(br.com.centralit.citcorpore.util.Enumerados.OrigemOcorrencia.OUTROS.getSigla().toString());
+            ocorrenciaProblemaDto.setCategoria(br.com.centralit.citcorpore.util.Enumerados.CategoriaOcorrencia.Execucao.getSigla());
             ocorrenciaProblemaDto.setIdItemTrabalho(idItemTrabalho);
             ocorrenciaProblemaDao.create(ocorrenciaProblemaDto);
 
             instanciaFluxo.executaItemTrabalho(loginUsuario, tarefaFluxoDto.getIdItemTrabalho(), map);
 
-            if (getProblemaDto().getFase() != null && !getProblemaDto().getFase().equalsIgnoreCase("")) {
-                final SituacaoRequisicaoProblema novaSituacao = FaseRequisicaoProblema.valueOf(
-                        getProblemaDto().getFase()).getSituacao();
+            if (this.getProblemaDto().getFase() != null && !this.getProblemaDto().getFase().equalsIgnoreCase("")) {
+                final SituacaoRequisicaoProblema novaSituacao = FaseRequisicaoProblema.valueOf(this.getProblemaDto().getFase()).getSituacao();
                 if (novaSituacao != null) {
                     final ProblemaDAO problemaDao = new ProblemaDAO();
-                    setTransacaoDao(problemaDao);
-                    getProblemaDto().setStatus(novaSituacao.getDescricao());
-                    problemaDao.updateNotNull(getProblemaDto());
+                    this.setTransacaoDao(problemaDao);
+                    this.getProblemaDto().setStatus(novaSituacao.getDescricao());
+                    problemaDao.updateNotNull(this.getProblemaDto());
                 }
             }
         }
 
-        if (getProblemaDto().getEnviaEmailAcoes() != null
-                && getProblemaDto().getEnviaEmailAcoes().equalsIgnoreCase("S")) {
-            final String IdModeloEmailProblemaAndamento = ParametroUtil.getValorParametroCitSmartHashMap(
-                    ParametroSistema.ID_MODELO_EMAIL_ANDAMENTO_PROBLEMA, "35");
-            enviaEmail(Integer.parseInt(IdModeloEmailProblemaAndamento.trim()));
+        if (this.getProblemaDto().getEnviaEmailAcoes() != null && this.getProblemaDto().getEnviaEmailAcoes().equalsIgnoreCase("S")) {
+            final String IdModeloEmailProblemaAndamento = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.ID_MODELO_EMAIL_ANDAMENTO_PROBLEMA,
+                    "35");
+            this.enviaEmail(Integer.parseInt(IdModeloEmailProblemaAndamento.trim()));
         }
 
-        if (tarefaFluxoDto.getElementoFluxoDto().getContabilizaSLA() == null
-                || tarefaFluxoDto.getElementoFluxoDto().getContabilizaSLA().equalsIgnoreCase("S")) {
-            if (getProblemaDto().getDataHoraCaptura() == null) {
-                getProblemaDto().setDataHoraCaptura(UtilDatas.getDataHoraAtual());
+        if (tarefaFluxoDto.getElementoFluxoDto().getContabilizaSLA() == null || tarefaFluxoDto.getElementoFluxoDto().getContabilizaSLA().equalsIgnoreCase("S")) {
+            if (this.getProblemaDto().getDataHoraCaptura() == null) {
+                this.getProblemaDto().setDataHoraCaptura(UtilDatas.getDataHoraAtual());
                 final ProblemaDAO problemaDao = new ProblemaDAO();
-                setTransacaoDao(problemaDao);
-                problemaDao.atualizaDataHoraCaptura(getProblemaDto());
+                this.setTransacaoDao(problemaDao);
+                problemaDao.atualizaDataHoraCaptura(this.getProblemaDto());
             }
         }
 
     }
 
     @Override
-    public void delega(final String loginUsuario, final ObjetoNegocioFluxoDTO objetoNegocioDto,
-            final Integer idItemTrabalho, final String usuarioDestino, final String grupoDestino) throws Exception {
-        final TarefaFluxoDTO tarefaFluxoDto = recuperaTarefa(idItemTrabalho);
+    public void delega(final String loginUsuario, final ObjetoNegocioFluxoDTO objetoNegocioDto, final Integer idItemTrabalho, final String usuarioDestino,
+            final String grupoDestino) throws Exception {
+        final TarefaFluxoDTO tarefaFluxoDto = this.recuperaTarefa(idItemTrabalho);
         if (tarefaFluxoDto == null) {
             return;
         }
@@ -313,21 +282,19 @@ public class ExecucaoProblema extends ExecucaoFluxo {
         this.objetoNegocioDto = objetoNegocioDto;
 
         final OcorrenciaProblemaDAO ocorrenciaProblemaDao = new OcorrenciaProblemaDAO();
-        setTransacaoDao(ocorrenciaProblemaDao);
+        this.setTransacaoDao(ocorrenciaProblemaDao);
         final OcorrenciaProblemaDTO ocorrenciaProblemaDto = new OcorrenciaProblemaDTO();
-        ocorrenciaProblemaDto.setIdProblema(getProblemaDto().getIdProblema());
+        ocorrenciaProblemaDto.setIdProblema(this.getProblemaDto().getIdProblema());
         ocorrenciaProblemaDto.setDataregistro(UtilDatas.getDataAtual());
         ocorrenciaProblemaDto.setHoraregistro(UtilDatas.formatHoraFormatadaStr(UtilDatas.getHoraAtual()));
         ocorrenciaProblemaDto.setTempoGasto(0);
-        ocorrenciaProblemaDto
-                .setDescricao(br.com.centralit.citcorpore.util.Enumerados.CategoriaOcorrencia.Compartilhamento
-                        .getDescricao());
+        ocorrenciaProblemaDto.setDescricao(br.com.centralit.citcorpore.util.Enumerados.CategoriaOcorrencia.Compartilhamento.getDescricao());
         ocorrenciaProblemaDto.setDataInicio(UtilDatas.getDataAtual());
         ocorrenciaProblemaDto.setDataFim(UtilDatas.getDataAtual());
         ocorrenciaProblemaDto.setInformacoesContato("não se aplica");
         ocorrenciaProblemaDto.setRegistradopor(loginUsuario);
         try {
-            ocorrenciaProblemaDto.setDadosProblema(new Gson().toJson(getProblemaDto()));
+            ocorrenciaProblemaDto.setDadosProblema(new Gson().toJson(this.getProblemaDto()));
         } catch (final Exception e) {
             e.printStackTrace();
         }
@@ -339,19 +306,15 @@ public class ExecucaoProblema extends ExecucaoFluxo {
             ocorr += " com o grupo " + grupoDestino;
         }
         ocorrenciaProblemaDto.setOcorrencia(ocorr);
-        ocorrenciaProblemaDto.setOrigem(br.com.centralit.citcorpore.util.Enumerados.OrigemOcorrencia.OUTROS.getSigla()
-                .toString());
-        ocorrenciaProblemaDto
-                .setCategoria(br.com.centralit.citcorpore.util.Enumerados.CategoriaOcorrencia.Compartilhamento
-                        .getSigla());
+        ocorrenciaProblemaDto.setOrigem(br.com.centralit.citcorpore.util.Enumerados.OrigemOcorrencia.OUTROS.getSigla().toString());
+        ocorrenciaProblemaDto.setCategoria(br.com.centralit.citcorpore.util.Enumerados.CategoriaOcorrencia.Compartilhamento.getSigla());
         ocorrenciaProblemaDto.setIdItemTrabalho(idItemTrabalho);
         ocorrenciaProblemaDao.create(ocorrenciaProblemaDto);
     }
 
     @Override
-    public void direcionaAtendimento(final String loginUsuario, final ObjetoNegocioFluxoDTO objetoNegocioDto,
-            final String grupoAtendimento) throws Exception {
-        if (getProblemaDto() == null) {
+    public void direcionaAtendimento(final String loginUsuario, final ObjetoNegocioFluxoDTO objetoNegocioDto, final String grupoAtendimento) throws Exception {
+        if (this.getProblemaDto() == null) {
             return;
         }
 
@@ -365,49 +328,42 @@ public class ExecucaoProblema extends ExecucaoFluxo {
         }
 
         UsuarioDTO usuarioRespDto = new UsuarioDTO();
-        usuarioRespDto.setIdUsuario(getProblemaDto().getIdResponsavel());
+        usuarioRespDto.setIdUsuario(this.getProblemaDto().getIdResponsavel());
         usuarioRespDto = (UsuarioDTO) new UsuarioDao().restore(usuarioRespDto);
 
         this.objetoNegocioDto = objetoNegocioDto;
 
-        final Collection<ExecucaoProblemaDTO> colExecucao = new ExecucaoProblemaDao().listByIdProblema(getProblemaDto()
-                .getIdProblema());
+        final Collection<ExecucaoProblemaDTO> colExecucao = new ExecucaoProblemaDao().listByIdProblema(this.getProblemaDto().getIdProblema());
         if (colExecucao != null) {
             final ItemTrabalhoFluxoDao itemTrabalhoFluxoDao = new ItemTrabalhoFluxoDao();
-            setTransacaoDao(itemTrabalhoFluxoDao);
+            this.setTransacaoDao(itemTrabalhoFluxoDao);
 
             final OcorrenciaProblemaDAO ocorrenciaProblemaDao = new OcorrenciaProblemaDAO();
-            setTransacaoDao(ocorrenciaProblemaDao);
+            this.setTransacaoDao(ocorrenciaProblemaDao);
             for (final ExecucaoProblemaDTO execucaoProblemaDto : colExecucao) {
-                final InstanciaFluxo instanciaFluxo = new InstanciaFluxo(this,
-                        execucaoProblemaDto.getIdInstanciaFluxo());
-                final Collection<ItemTrabalhoFluxoDTO> colItens = itemTrabalhoFluxoDao
-                        .findDisponiveisByIdInstancia(execucaoProblemaDto.getIdInstanciaFluxo());
+                final InstanciaFluxo instanciaFluxo = new InstanciaFluxo(this, execucaoProblemaDto.getIdInstanciaFluxo());
+                final Collection<ItemTrabalhoFluxoDTO> colItens = itemTrabalhoFluxoDao.findDisponiveisByIdInstancia(execucaoProblemaDto.getIdInstanciaFluxo());
                 if (colItens != null) {
                     for (final ItemTrabalhoFluxoDTO itemTrabalhoFluxoDto : colItens) {
-                        final ItemTrabalho itemTrabalho = ItemTrabalho.getItemTrabalho(instanciaFluxo,
-                                itemTrabalhoFluxoDto.getIdItemTrabalho());
+                        final ItemTrabalho itemTrabalho = ItemTrabalho.getItemTrabalho(instanciaFluxo, itemTrabalhoFluxoDto.getIdItemTrabalho());
                         itemTrabalho.redireciona(loginUsuario, null, grupoAtendimento);
 
-                        String ocorr = "Direcionamento da tarefa \""
-                                + itemTrabalho.getElementoFluxoDto().getDocumentacao() + "\"";
+                        String ocorr = "Direcionamento da tarefa \"" + itemTrabalho.getElementoFluxoDto().getDocumentacao() + "\"";
                         ocorr += " para o grupo " + grupoAtendimento;
 
-                        OcorrenciaProblemaServiceEjb.create(getProblemaDto(), itemTrabalhoFluxoDto, ocorr,
-                                OrigemOcorrencia.OUTROS, CategoriaOcorrencia.Direcionamento, "não se aplica",
-                                CategoriaOcorrencia.Direcionamento.getDescricao(), loginUsuario, 0, null,
-                                getTransacao());
+                        OcorrenciaProblemaServiceEjb.create(this.getProblemaDto(), itemTrabalhoFluxoDto, ocorr, OrigemOcorrencia.OUTROS,
+                                CategoriaOcorrencia.Direcionamento, "não se aplica", CategoriaOcorrencia.Direcionamento.getDescricao(), loginUsuario, 0, null,
+                                this.getTransacao());
                     }
                 }
             }
         }
 
         try {
-            final String enviarNotificacao = ParametroUtil.getValor(
-                    ParametroSistema.NOTIFICAR_GRUPO_RECEPCAO_SOLICITACAO, getTransacao(), "N");
+            final String enviarNotificacao = ParametroUtil.getValor(ParametroSistema.NOTIFICAR_GRUPO_RECEPCAO_SOLICITACAO, this.getTransacao(), "N");
             if (enviarNotificacao.equalsIgnoreCase("S")) {
-                enviaEmailGrupo(Integer.parseInt(ParametroUtil.getValor(ParametroSistema.ID_MODELO_EMAIL_GRUPO_DESTINO,
-                        getTransacao(), null)), grupoAtendimentoDto.getIdGrupo());
+                this.enviaEmailGrupo(Integer.parseInt(ParametroUtil.getValor(ParametroSistema.ID_MODELO_EMAIL_GRUPO_DESTINO, this.getTransacao(), null)),
+                        grupoAtendimentoDto.getIdGrupo());
             }
         } catch (final NumberFormatException e) {
             System.out.println("Não há modelo de e-mail setado nos parâmetros.");
@@ -417,21 +373,20 @@ public class ExecucaoProblema extends ExecucaoFluxo {
     @Override
     public void mapObjetoNegocio(final Map<String, Object> map) throws Exception {
         final ProblemaDTO problemaDto = (ProblemaDTO) objetoNegocioDto;
-        final ProblemaDTO problemaAuxDto = new ProblemaServiceEjb().restoreAll(problemaDto.getIdProblema(),
-                getTransacao());
+        final ProblemaDTO problemaAuxDto = new ProblemaServiceEjb().restoreAll(problemaDto.getIdProblema(), this.getTransacao());
         problemaDto.setIdGrupoAtual(problemaAuxDto.getIdGrupoAtual());
         problemaDto.setIdGrupoNivel1(problemaAuxDto.getIdGrupoNivel1());
         problemaDto.setNomeGrupoAtual(problemaAuxDto.getNomeGrupoAtual());
 
-        adicionaObjeto("problema", problemaDto, map);
+        this.adicionaObjeto("problema", problemaDto, map);
         if (usuarioDto != null) {
-            adicionaObjeto("usuario", usuarioDto, map);
+            this.adicionaObjeto("usuario", usuarioDto, map);
         } else if (problemaDto.getUsuarioDto() != null) {
-            adicionaObjeto("usuario", problemaDto.getUsuarioDto(), map);
+            this.adicionaObjeto("usuario", problemaDto.getUsuarioDto(), map);
         }
 
-        adicionaObjeto("execucaoFluxo", this, map);
-        adicionaObjeto("problemaService", new ProblemaServiceEjb(), map);
+        this.adicionaObjeto("execucaoFluxo", this, map);
+        this.adicionaObjeto("problemaService", new ProblemaServiceEjb(), map);
     }
 
     public ProblemaDTO getProblemaDto() {
@@ -441,24 +396,17 @@ public class ExecucaoProblema extends ExecucaoFluxo {
     @Override
     public List<TarefaFluxoDTO> recuperaTarefas(final String loginUsuario) throws Exception {
         List<TarefaFluxoDTO> result = null;
-        Timestamp ts1 = UtilDatas.getDataHoraAtual();
         final List<TarefaFluxoDTO> listTarefas = super.recuperaTarefas(loginUsuario);
-        Timestamp ts2 = UtilDatas.getDataHoraAtual();
-        double tempo = UtilDatas.calculaDiferencaTempoEmMilisegundos(ts2, ts1);
-       // System.out.println("########## Tempo super.recuperaTarefas: " + tempo);
         if (listTarefas != null) {
-            ts1 = ts2;
-            result = new ArrayList();
+            result = new ArrayList<>();
             final ProblemaServiceEjb problemaService = new ProblemaServiceEjb();
 
             final ExecucaoProblemaDao execucaoProblemaDao = new ExecucaoProblemaDao();
 
             for (final TarefaFluxoDTO tarefaDto : listTarefas) {
-                final ExecucaoProblemaDTO execucaoProblemaDto = execucaoProblemaDao.findByIdInstanciaFluxo(tarefaDto
-                        .getIdInstancia());
+                final ExecucaoProblemaDTO execucaoProblemaDto = execucaoProblemaDao.findByIdInstanciaFluxo(tarefaDto.getIdInstancia());
                 if (execucaoProblemaDto != null && execucaoProblemaDto.getIdProblema() != null) {
-                    final ProblemaDTO problemaDto = problemaService.restoreAll(execucaoProblemaDto.getIdProblema(),
-                            null);
+                    final ProblemaDTO problemaDto = problemaService.restoreAll(execucaoProblemaDto.getIdProblema(), null);
                     if (problemaDto != null) {
                         tarefaDto.setProblemaDto(problemaDto);
                         result.add(tarefaDto);
@@ -466,33 +414,17 @@ public class ExecucaoProblema extends ExecucaoFluxo {
                 }
             }
 
-            /*
-             * Collection<ProblemaDTO> listProblemaDto = problemaService.listByTarefas(listTarefas); //SE FOR UTILIZAR
-             * "IDPROBLEMAPAI" ENTAO TEM QUE DESCOMENTAR ESSES CODIGOS -> DAVID // Collection<ProblemaDTO>
-             * listProblemasFilhos = problemaService.listProblemasFilhos(); if (listProblemaDto != null &&
-             * !listProblemaDto.isEmpty()){ for (ProblemaDTO problemaDto : listProblemaDto){ for (TarefaFluxoDTO
-             * tarefaDto : listTarefas) { if (problemaDto.getIdInstanciaFluxo().equals(tarefaDto.getIdInstancia())) {
-             * boolean possuiFilho = false; if (listProblemasFilhos != null && !listProblemasFilhos.isEmpty()) { for
-             * (ProblemaDTO problemaDto2 : listProblemasFilhos) { if
-             * (problemaDto.getIdProblema().equals(problemaDto2.getIdProblemaPai())) { possuiFilho = true; break; } } }
-             * problemaDto.setPossuiFilho(possuiFilho); tarefaDto.setProblemaDto(problemaDto);
-             * tarefaDto.setDataHoraLimite(problemaDto.getDataHoraLimite()); result.add(tarefaDto); } } } }
-             */
             Collections.sort(result, new ObjectSimpleComparator("getDataHoraLimite", ObjectSimpleComparator.ASC));
-            ts2 = UtilDatas.getDataHoraAtual();
-            tempo = UtilDatas.calculaDiferencaTempoEmMilisegundos(ts2, ts1);
-            //System.out.println("########## Tempo restore problemas: " + tempo);
         }
         return result;
     }
 
-    public List<TarefaFluxoDTO> recuperaTarefas(final String loginUsuario, final String campoOrdenacao,
-            final Boolean asc) throws Exception {
+    public List<TarefaFluxoDTO> recuperaTarefas(final String loginUsuario, final String campoOrdenacao, final Boolean asc) throws Exception {
         List<TarefaFluxoDTO> result = null;
 
         final List<TarefaFluxoDTO> listTarefas = super.recuperaTarefas(loginUsuario);
         if (listTarefas != null) {
-            result = new ArrayList();
+            result = new ArrayList<>();
             final ProblemaServiceEjb problemaService = new ProblemaServiceEjb();
             for (final TarefaFluxoDTO tarefaDto : listTarefas) {
                 final ProblemaDTO problemaDto = problemaService.restoreByIdInstanciaFluxo(tarefaDto.getIdInstancia());
@@ -506,13 +438,6 @@ public class ExecucaoProblema extends ExecucaoFluxo {
         return result;
     }
 
-    private void atualizaFaseProblema(final Integer idFase) throws Exception {
-        final ProblemaDAO problemaDao = new ProblemaDAO();
-        setTransacaoDao(problemaDao);
-        getProblemaDto().setIdFaseAtual(idFase);
-        problemaDao.updateNotNull(getProblemaDto());
-    }
-
     @Override
     public void enviaEmail(final String identificador) throws Exception {
         if (identificador == null) {
@@ -521,30 +446,28 @@ public class ExecucaoProblema extends ExecucaoFluxo {
 
         final ModeloEmailDTO modeloEmailDto = new ModeloEmailDao().findByIdentificador(identificador);
         if (modeloEmailDto != null) {
-            enviaEmail(modeloEmailDto.getIdModeloEmail());
+            this.enviaEmail(modeloEmailDto.getIdModeloEmail());
         }
     }
 
     public boolean isEmailHabilitado() throws Exception {
-        final String enviaEmail = ParametroUtil.getValor(ParametroSistema.EnviaEmailFluxo, getTransacao(), "N");
+        final String enviaEmail = ParametroUtil.getValor(ParametroSistema.EnviaEmailFluxo, this.getTransacao(), "N");
         return enviaEmail.equalsIgnoreCase("S");
     }
 
     public String getRemetenteEmail() throws Exception {
-        final String remetente = ParametroUtil.getValor(ParametroSistema.RemetenteNotificacoesSolicitacao,
-                getTransacao(), null);
+        final String remetente = ParametroUtil.getValor(ParametroSistema.RemetenteNotificacoesSolicitacao, this.getTransacao(), null);
         if (remetente == null) {
-            throw new LogicException(i18n_Message("citcorpore.comum.remetenteParaNotificacoesNaoParametrizado"));
+            throw new LogicException(this.i18n_Message("citcorpore.comum.remetenteParaNotificacoesNaoParametrizado"));
         }
         return remetente;
     }
 
     public void complementaInformacoesEmail(final ProblemaDTO problemaDto) throws Exception {
-        final String urlSistema = ParametroUtil.getValor(ParametroSistema.URL_Sistema, getTransacao(), "");
+        final String urlSistema = ParametroUtil.getValor(ParametroSistema.URL_Sistema, this.getTransacao(), "");
         final String idHashValidacao = CriptoUtils.generateHash("CODED" + problemaDto.getIdProblema(), "MD5");
-        problemaDto.setLinkPesquisaSatisfacao("<a href=\"" + urlSistema
-                + "/pages/pesquisaSatisfacao/pesquisaSatisfacao.load?idProblema=" + problemaDto.getIdProblema()
-                + "&hash=" + idHashValidacao + "\">Clique aqui para fazer a avaliação do Atendimento</a>");
+        problemaDto.setLinkPesquisaSatisfacao("<a href=\"" + urlSistema + "/pages/pesquisaSatisfacao/pesquisaSatisfacao.load?idProblema="
+                + problemaDto.getIdProblema() + "&hash=" + idHashValidacao + "\">Clique aqui para fazer a avaliação do Atendimento</a>");
     }
 
     @Override
@@ -557,7 +480,7 @@ public class ExecucaoProblema extends ExecucaoFluxo {
             return;
         }
 
-        if (!isEmailHabilitado()) {
+        if (!this.isEmailHabilitado()) {
             return;
         }
 
@@ -574,20 +497,17 @@ public class ExecucaoProblema extends ExecucaoFluxo {
                 cc += destinatarios[i] + ";";
             }
         }
-        final String remetente = getRemetenteEmail();
+        final String remetente = this.getRemetenteEmail();
 
-        final ProblemaDTO problemaAuxDto = new ProblemaServiceEjb().restoreAll(getProblemaDto().getIdProblema(),
-                getTransacao());
-        problemaAuxDto.setNomeTarefa(getProblemaDto().getNomeTarefa());
+        final ProblemaDTO problemaAuxDto = new ProblemaServiceEjb().restoreAll(this.getProblemaDto().getIdProblema(), this.getTransacao());
+        problemaAuxDto.setNomeTarefa(this.getProblemaDto().getNomeTarefa());
 
-        complementaInformacoesEmail(problemaAuxDto);
+        this.complementaInformacoesEmail(problemaAuxDto);
 
-        final MensagemEmail mensagem = new MensagemEmail(modeloEmailDto.getIdModeloEmail(),
-                new BaseEntity[] { problemaAuxDto });
+        final MensagemEmail mensagem = new MensagemEmail(modeloEmailDto.getIdModeloEmail(), new BaseEntity[] {problemaAuxDto});
         try {
             mensagem.envia(para, cc, remetente);
-        } catch (final Exception e) {
-        }
+        } catch (final Exception e) {}
 
     }
 
@@ -597,26 +517,24 @@ public class ExecucaoProblema extends ExecucaoFluxo {
             return;
         }
 
-        if (!isEmailHabilitado()) {
+        if (!this.isEmailHabilitado()) {
             return;
         }
 
-        final String remetente = getRemetenteEmail();
+        final String remetente = this.getRemetenteEmail();
 
-        final ProblemaDTO problemaAuxDto = new ProblemaServiceEjb().restoreAll(getProblemaDto().getIdProblema(),
-                getTransacao());
+        final ProblemaDTO problemaAuxDto = new ProblemaServiceEjb().restoreAll(this.getProblemaDto().getIdProblema(), this.getTransacao());
         if (problemaAuxDto != null) {
-            problemaAuxDto.setNomeTarefa(getProblemaDto().getNomeTarefa());
-            problemaAuxDto.setNomeContato(getProblemaDto().getNomeContato());
-            problemaAuxDto.setEmailContato(getProblemaDto().getEmailContato());
+            problemaAuxDto.setNomeTarefa(this.getProblemaDto().getNomeTarefa());
+            problemaAuxDto.setNomeContato(this.getProblemaDto().getNomeContato());
+            problemaAuxDto.setEmailContato(this.getProblemaDto().getEmailContato());
 
-            complementaInformacoesEmail(problemaAuxDto);
+            this.complementaInformacoesEmail(problemaAuxDto);
 
-            final MensagemEmail mensagem = new MensagemEmail(idModeloEmail, new BaseEntity[] { problemaAuxDto });
+            final MensagemEmail mensagem = new MensagemEmail(idModeloEmail, new BaseEntity[] {problemaAuxDto});
             try {
                 mensagem.envia(problemaAuxDto.getEmailContato(), remetente, remetente);
-            } catch (final Exception e) {
-            }
+            } catch (final Exception e) {}
         }
 
     }
@@ -626,18 +544,17 @@ public class ExecucaoProblema extends ExecucaoFluxo {
             return;
         }
 
-        if (!isEmailHabilitado()) {
+        if (!this.isEmailHabilitado()) {
             return;
         }
 
-        final String remetente = getRemetenteEmail();
-        complementaInformacoesEmail(problemaDto);
+        final String remetente = this.getRemetenteEmail();
+        this.complementaInformacoesEmail(problemaDto);
 
-        final MensagemEmail mensagem = new MensagemEmail(idModeloEmail, new BaseEntity[] { problemaDto });
+        final MensagemEmail mensagem = new MensagemEmail(idModeloEmail, new BaseEntity[] {problemaDto});
         try {
             mensagem.envia(problemaDto.getEmailContato(), remetente, remetente);
-        } catch (final Exception e) {
-        }
+        } catch (final Exception e) {}
 
         // ProblemaDTO problemaAuxDto = new ProblemaServiceEjb().restoreAll(getProblemaDto().getIdProblema(),
         // getTransacao());
@@ -652,7 +569,7 @@ public class ExecucaoProblema extends ExecucaoFluxo {
 
     /**
      * Notifica todos os Empregados de um grupo.
-     * 
+     *
      * @param idModeloEmail
      * @throws Exception
      */
@@ -667,8 +584,7 @@ public class ExecucaoProblema extends ExecucaoFluxo {
             return;
         }
 
-        final GrupoService grupoService = (GrupoService) ServiceLocator.getInstance().getService(GrupoService.class,
-                null);
+        final GrupoService grupoService = (GrupoService) ServiceLocator.getInstance().getService(GrupoService.class, null);
 
         List<String> emails = null;
 
@@ -682,18 +598,16 @@ public class ExecucaoProblema extends ExecucaoFluxo {
             return;
         }
 
-        final String remetente = ParametroUtil.getValor(ParametroSistema.RemetenteNotificacoesSolicitacao,
-                getTransacao(), null);
+        final String remetente = ParametroUtil.getValor(ParametroSistema.RemetenteNotificacoesSolicitacao, this.getTransacao(), null);
         if (remetente == null) {
-            throw new LogicException(i18n_Message("citcorpore.comum.remetenteParaNotificacoesNaoParametrizado"));
+            throw new LogicException(this.i18n_Message("citcorpore.comum.remetenteParaNotificacoesNaoParametrizado"));
         }
 
-        final ProblemaDTO problemaAuxDto = new ProblemaServiceEjb().restoreAll(getProblemaDto().getIdProblema(),
-                getTransacao());
+        final ProblemaDTO problemaAuxDto = new ProblemaServiceEjb().restoreAll(this.getProblemaDto().getIdProblema(), this.getTransacao());
         if (problemaAuxDto == null) {
             return;
         }
-        problemaAuxDto.setNomeTarefa(getProblemaDto().getNomeTarefa());
+        problemaAuxDto.setNomeTarefa(this.getProblemaDto().getNomeTarefa());
 
         try {
 
@@ -702,7 +616,7 @@ public class ExecucaoProblema extends ExecucaoFluxo {
                 final int posArroba = email.indexOf("@");
                 if (posArroba > 0 && email.substring(posArroba).contains(".")) {
                     try {
-                        mensagem = new MensagemEmail(idModeloEmail, new BaseEntity[] { problemaAuxDto });
+                        mensagem = new MensagemEmail(idModeloEmail, new BaseEntity[] {problemaAuxDto});
 
                         // aux = (EmpregadoDTO) getEmpregadoService().restore(e);
                         // if(aux != null && aux.getEmail() != null && !aux.getEmail().trim().equalsIgnoreCase("") ){
@@ -713,19 +627,18 @@ public class ExecucaoProblema extends ExecucaoFluxo {
                 }
                 // }
             }
-        } catch (final Exception e) {
-        }
+        } catch (final Exception e) {}
     }
 
     private ServicoContratoDTO recuperaServicoContrato() throws Exception {
         final ServicoContratoDao servicoContratoDao = new ServicoContratoDao();
-        setTransacaoDao(servicoContratoDao);
+        this.setTransacaoDao(servicoContratoDao);
         ServicoContratoDTO servicoContratoDto = new ServicoContratoDTO();
-        if (getProblemaDto().getIdServicoContrato() != null) {
-            servicoContratoDto.setIdServicoContrato(getProblemaDto().getIdServicoContrato());
+        if (this.getProblemaDto().getIdServicoContrato() != null) {
+            servicoContratoDto.setIdServicoContrato(this.getProblemaDto().getIdServicoContrato());
         } else {
             final ProblemaDAO problemaDao = new ProblemaDAO();
-            setTransacaoDao(problemaDao);
+            this.setTransacaoDao(problemaDao);
             final ProblemaDTO problemaDto = (ProblemaDTO) objetoNegocioDto;
             ProblemaDTO problemaAuxDto = new ProblemaDTO();
             problemaAuxDto.setIdProblema(problemaDto.getIdProblema());
@@ -735,7 +648,7 @@ public class ExecucaoProblema extends ExecucaoFluxo {
         servicoContratoDto = (ServicoContratoDTO) servicoContratoDao.restore(servicoContratoDto);
         if (servicoContratoDto == null) {
             System.out.print("Serviço contrato não localizado");
-            throw new LogicException(i18n_Message("problema.servicoContratoNaoLocalizado"));
+            throw new LogicException(this.i18n_Message("problema.servicoContratoNaoLocalizado"));
         }
 
         return servicoContratoDto;
@@ -743,23 +656,21 @@ public class ExecucaoProblema extends ExecucaoFluxo {
 
     @Override
     public void encerra() throws Exception {
-        final ProblemaDTO problemaDto = getProblemaDto();
+        final ProblemaDTO problemaDto = this.getProblemaDto();
         if (problemaDto == null) {
-            throw new Exception(i18n_Message("problema.naoEncontrado"));
+            throw new Exception(this.i18n_Message("problema.naoEncontrado"));
         }
 
         if (problemaDto.encerrada()) {
             return;
         }
 
-        validaEncerramento();
+        this.validaEncerramento();
 
-        final Collection<ExecucaoProblemaDTO> colExecucao = new ExecucaoProblemaDao().listByIdProblema(getProblemaDto()
-                .getIdProblema());
+        final Collection<ExecucaoProblemaDTO> colExecucao = new ExecucaoProblemaDao().listByIdProblema(this.getProblemaDto().getIdProblema());
         if (colExecucao != null) {
             for (final ExecucaoProblemaDTO execucaoProblemaDto : colExecucao) {
-                final InstanciaFluxo instanciaFluxo = new InstanciaFluxo(this,
-                        execucaoProblemaDto.getIdInstanciaFluxo());
+                final InstanciaFluxo instanciaFluxo = new InstanciaFluxo(this, execucaoProblemaDto.getIdInstanciaFluxo());
                 instanciaFluxo.encerra();
             }
         }
@@ -769,28 +680,26 @@ public class ExecucaoProblema extends ExecucaoFluxo {
         }
 
         problemaDto.setDataHoraFim(UtilDatas.getDataHoraAtual());
-        calculaTempoCaptura(problemaDto);
-        calculaTempoAtendimento(problemaDto);
-        calculaTempoAtraso(problemaDto);
+        this.calculaTempoCaptura(problemaDto);
+        this.calculaTempoAtendimento(problemaDto);
+        this.calculaTempoAtraso(problemaDto);
         final ProblemaDAO problemaDao = new ProblemaDAO();
-        setTransacaoDao(problemaDao);
+        this.setTransacaoDao(problemaDao);
         problemaDao.updateNotNull(problemaDto);
 
-        OcorrenciaProblemaServiceEjb.create(getProblemaDto(), null, null, OrigemOcorrencia.OUTROS,
-                CategoriaOcorrencia.Encerramento, null, CategoriaOcorrencia.Encerramento.getDescricao(), "Automático",
-                0, null, getTransacao());
+        OcorrenciaProblemaServiceEjb.create(this.getProblemaDto(), null, null, OrigemOcorrencia.OUTROS, CategoriaOcorrencia.Encerramento, null,
+                CategoriaOcorrencia.Encerramento.getDescricao(), "Automático", 0, null, this.getTransacao());
 
-        if (getProblemaDto().getEnviaEmailFinalizacao() != null
-                && getProblemaDto().getEnviaEmailFinalizacao().equalsIgnoreCase("S")) {
-            final String IdModeloEmailProblemaFinalizado = ParametroUtil.getValorParametroCitSmartHashMap(
-                    ParametroSistema.ID_MODELO_EMAIL_FINALIZADO_PROBLEMA, "36");
-            enviaEmail(Integer.parseInt(IdModeloEmailProblemaFinalizado.trim()), problemaDto);
+        if (this.getProblemaDto().getEnviaEmailFinalizacao() != null && this.getProblemaDto().getEnviaEmailFinalizacao().equalsIgnoreCase("S")) {
+            final String IdModeloEmailProblemaFinalizado = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.ID_MODELO_EMAIL_FINALIZADO_PROBLEMA,
+                    "36");
+            this.enviaEmail(Integer.parseInt(IdModeloEmailProblemaFinalizado.trim()), problemaDto);
             // O metodo encerra esta sendo rodado duas vezes, para evitar que o email seja enviado duas vezes tambem,
             // modifiquei o valor do atributo para que nao seja enviado na segunda vez, é apenas uma soluçao de contorno
             // sendo necessario descobrir
             // porque o fluxo chama essa metodo duas vezes e se o mesmo é necessario, no momento isso não esta causando
             // nenhum outro erro aparente.
-            getProblemaDto().setEnviaEmailFinalizacao("N");
+            this.getProblemaDto().setEnviaEmailFinalizacao("N");
         }
 
     }
@@ -826,22 +735,16 @@ public class ExecucaoProblema extends ExecucaoFluxo {
 
     @Override
     public void suspende(final String loginUsuario) throws Exception {
-        final ProblemaDTO problemaDto = getProblemaDto();
+        final ProblemaDTO problemaDto = this.getProblemaDto();
         if (problemaDto == null) {
-            throw new Exception(i18n_Message("problema.naoEncontrado"));
+            throw new Exception(this.i18n_Message("problema.naoEncontrado"));
         }
-
-        // if (!problemaDto.emAtendimento())
-        // throw new Exception("Problema não permite suspensão");
-
-        final Timestamp tsAtual = UtilDatas.getDataHoraAtual();
 
         problemaDto.setDataHoraSuspensao(UtilDatas.getDataHoraAtual());
         problemaDto.setDataHoraReativacao(null);
-        // suspendeSLA(problemaDto);
 
         final ProblemaDAO problemaDao = new ProblemaDAO();
-        setTransacaoDao(problemaDao);
+        this.setTransacaoDao(problemaDao);
         problemaDto.setStatus(SituacaoProblema.Suspensa.name());
         problemaDao.update(problemaDto);
 
@@ -849,24 +752,23 @@ public class ExecucaoProblema extends ExecucaoFluxo {
         justificativaProblemaDto.setIdJustificativaProblema(problemaDto.getIdJustificativaProblema());
         justificativaProblemaDto.setDescricaoProblema(problemaDto.getComplementoJustificativa());
 
-        OcorrenciaProblemaServiceEjb.create(getProblemaDto(), null, null, OrigemOcorrencia.OUTROS,
-                CategoriaOcorrencia.Suspensao, null, CategoriaOcorrencia.Suspensao.getDescricao(), loginUsuario, 0,
-                justificativaProblemaDto, getTransacao());
+        OcorrenciaProblemaServiceEjb.create(this.getProblemaDto(), null, null, OrigemOcorrencia.OUTROS, CategoriaOcorrencia.Suspensao, null,
+                CategoriaOcorrencia.Suspensao.getDescricao(), loginUsuario, 0, justificativaProblemaDto, this.getTransacao());
     }
 
     @Override
     public void reativa(final String loginUsuario) throws Exception {
-        final ProblemaDTO problemaDto = getProblemaDto();
+        final ProblemaDTO problemaDto = this.getProblemaDto();
         if (problemaDto == null) {
-            throw new Exception(i18n_Message("problema.naoEncontrado"));
+            throw new Exception(this.i18n_Message("problema.naoEncontrado"));
         }
 
         if (!problemaDto.suspensa()) {
-            throw new Exception(i18n_Message("problema.naoPermiteReativacao"));
+            throw new Exception(this.i18n_Message("problema.naoPermiteReativacao"));
         }
 
         final ProblemaDAO problemaDao = new ProblemaDAO();
-        setTransacaoDao(problemaDao);
+        this.setTransacaoDao(problemaDao);
 
         final Timestamp tsAtual = UtilDatas.getDataHoraAtual();
 
@@ -876,19 +778,18 @@ public class ExecucaoProblema extends ExecucaoFluxo {
         // reativaSLA(problemaDto);
         problemaDao.update(problemaDto);
 
-        OcorrenciaProblemaServiceEjb.create(getProblemaDto(), null, null, OrigemOcorrencia.OUTROS,
-                CategoriaOcorrencia.Reativacao, null, CategoriaOcorrencia.Reativacao.getDescricao(), loginUsuario, 0,
-                null, getTransacao());
+        OcorrenciaProblemaServiceEjb.create(this.getProblemaDto(), null, null, OrigemOcorrencia.OUTROS, CategoriaOcorrencia.Reativacao, null,
+                CategoriaOcorrencia.Reativacao.getDescricao(), loginUsuario, 0, null, this.getTransacao());
     }
 
     private Integer getIdCalendario(final ProblemaDTO problemaDto) throws Exception {
         Integer idCalendario = problemaDto.getIdCalendario();
         if (problemaDto.getIdCalendario() == null) {
-            final ServicoContratoDTO servicoContratoDto = new ServicoContratoDao().findByIdContratoAndIdServico(
-                    problemaDto.getIdContrato(), problemaDto.getIdServico());
+            final ServicoContratoDTO servicoContratoDto = new ServicoContratoDao().findByIdContratoAndIdServico(problemaDto.getIdContrato(),
+                    problemaDto.getIdServico());
             if (servicoContratoDto == null) {
                 System.out.print("Serviço contrato não localizado");
-                throw new LogicException(i18n_Message("problema.servicoContratoNaoLocalizado"));
+                throw new LogicException(this.i18n_Message("problema.servicoContratoNaoLocalizado"));
             }
             idCalendario = servicoContratoDto.getIdCalendario();
         }
@@ -911,7 +812,7 @@ public class ExecucaoProblema extends ExecucaoFluxo {
             return;
         }
 
-        final Integer idCalendario = getIdCalendario(problemaDto);
+        final Integer idCalendario = this.getIdCalendario(problemaDto);
 
         CalculoJornadaDTO calculoDto = new CalculoJornadaDTO(idCalendario, problemaDto.getDataHoraInicioSLA());
         calculoDto = new CalendarioServiceEjb().calculaPrazoDecorrido(calculoDto, problemaDto.getDataHoraCaptura(), null);
@@ -925,7 +826,7 @@ public class ExecucaoProblema extends ExecucaoFluxo {
             return;
         }
 
-        final Integer idCalendario = getIdCalendario(problemaDto);
+        final Integer idCalendario = this.getIdCalendario(problemaDto);
 
         Timestamp tsAtual = UtilDatas.getDataHoraAtual();
         if (problemaDto.getStatus().equalsIgnoreCase(SituacaoProblema.Fechada.name())) {
@@ -947,10 +848,8 @@ public class ExecucaoProblema extends ExecucaoFluxo {
             problemaDto.setTempoDecorridoMM(0);
         }
 
-        problemaDto.setTempoAtendimentoHH(new Integer(problemaDto.getTempoDecorridoHH().intValue()
-                + calculoDto.getTempoDecorridoHH().intValue()));
-        problemaDto.setTempoAtendimentoMM(new Integer(problemaDto.getTempoDecorridoMM().intValue()
-                + calculoDto.getTempoDecorridoMM().intValue()));
+        problemaDto.setTempoAtendimentoHH(new Integer(problemaDto.getTempoDecorridoHH().intValue() + calculoDto.getTempoDecorridoHH().intValue()));
+        problemaDto.setTempoAtendimentoMM(new Integer(problemaDto.getTempoDecorridoMM().intValue() + calculoDto.getTempoDecorridoMM().intValue()));
     }
 
     public void calculaTempoAtraso(final ProblemaDTO problemaDto) throws Exception {
@@ -963,8 +862,7 @@ public class ExecucaoProblema extends ExecucaoFluxo {
                 dataHoraComparacao = problemaDto.getDataHoraFim();
             }
             if (dataHoraComparacao.compareTo(dataHoraLimite) > 0) {
-                final long atrasoSLA = UtilDatas
-                        .calculaDiferencaTempoEmMilisegundos(dataHoraComparacao, dataHoraLimite) / 1000;
+                final long atrasoSLA = UtilDatas.calculaDiferencaTempoEmMilisegundos(dataHoraComparacao, dataHoraLimite) / 1000;
 
                 final String hora = Util.getHoraStr(new Double(atrasoSLA) / 3600);
                 final int tam = hora.length();
@@ -984,7 +882,7 @@ public class ExecucaoProblema extends ExecucaoFluxo {
 
     public StringBuilder recuperaLoginResponsaveis() throws Exception {
         final StringBuilder result = new StringBuilder();
-        final ProblemaDTO problemaDto = getProblemaDto();
+        final ProblemaDTO problemaDto = this.getProblemaDto();
         final UsuarioDao usuarioDao = new UsuarioDao();
         UsuarioDTO usuarioDto = usuarioDao.restoreByIdEmpregado(problemaDto.getIdSolicitante());
         if (usuarioDto != null) {
@@ -1005,23 +903,22 @@ public class ExecucaoProblema extends ExecucaoFluxo {
         final ProblemaDAO problemaDao = new ProblemaDAO();
         final ProblemaDTO problemaDto = problemaDao.restoreByIdInstanciaFluxo(eventoFluxoDto.getIdInstancia());
         if (problemaDto == null) {
-            System.out.println("Execução problemas do evento " + eventoFluxoDto.getIdItemTrabalho()
-                    + " não encontrados");
-            throw new LogicException(i18n_Message("problema.eventoNaoEncontrado"));
+            System.out.println("Execução problemas do evento " + eventoFluxoDto.getIdItemTrabalho() + " não encontrados");
+            throw new LogicException(this.i18n_Message("problema.eventoNaoEncontrado"));
 
         }
 
         final TransactionControler tc = new TransactionControlerImpl(problemaDao.getAliasDB());
-        setTransacao(tc);
+        this.setTransacao(tc);
         try {
             tc.start();
 
-            setObjetoNegocioDto(problemaDto);
+            this.setObjetoNegocioDto(problemaDto);
             final InstanciaFluxo instanciaFluxo = new InstanciaFluxo(this, eventoFluxoDto.getIdInstancia());
 
             final HashMap<String, Object> map = instanciaFluxo.getMapObj();
             instanciaFluxo.getObjetos(map);
-            mapObjetoNegocio(map);
+            this.mapObjetoNegocio(map);
             instanciaFluxo.executaEvento(eventoFluxoDto.getIdItemTrabalho(), map);
 
             tc.commit();
@@ -1030,18 +927,17 @@ public class ExecucaoProblema extends ExecucaoFluxo {
             this.rollbackTransaction(tc, e);
             throw new ServiceException(e);
         } finally {
-        	try {
-				tc.close();
-			} catch (PersistenceException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-        	
+            try {
+                tc.close();
+            } catch (final PersistenceException e) {
+                e.printStackTrace();
+            }
+
         }
     }
 
-    public void cancelaTarefa(final String loginUsuario, final ProblemaDTO problemaDto,
-            final TarefaFluxoDTO tarefaFluxoDto, final String motivo) throws Exception {
+    public void cancelaTarefa(final String loginUsuario, final ProblemaDTO problemaDto, final TarefaFluxoDTO tarefaFluxoDto, final String motivo)
+            throws Exception {
         final InstanciaFluxo instanciaFluxo = new InstanciaFluxo(this, tarefaFluxoDto.getIdInstancia());
         instanciaFluxo.cancelaItemTrabalho(loginUsuario, tarefaFluxoDto.getIdItemTrabalho());
 
@@ -1055,34 +951,31 @@ public class ExecucaoProblema extends ExecucaoFluxo {
             tempo = (tarefaFluxoDto.getDataHoraFinalizacao().getTime() - tarefaFluxoDto.getDataHoraCriacao().getTime()) / 1000 / 60;
         }
 
-        OcorrenciaProblemaServiceEjb.create(getProblemaDto(), tarefaFluxoDto, ocorrencia, OrigemOcorrencia.OUTROS,
-                CategoriaOcorrencia.CancelamentoTarefa, "não se aplica",
-                CategoriaOcorrencia.CancelamentoTarefa.getDescricao(), "Sistema", tempo.intValue(), null,
-                getTransacao());
+        OcorrenciaProblemaServiceEjb.create(this.getProblemaDto(), tarefaFluxoDto, ocorrencia, OrigemOcorrencia.OUTROS, CategoriaOcorrencia.CancelamentoTarefa,
+                "não se aplica", CategoriaOcorrencia.CancelamentoTarefa.getDescricao(), "Sistema", tempo.intValue(), null, this.getTransacao());
     }
 
     @Override
-    public void validaEncerramento() throws Exception {
-    }
+    public void validaEncerramento() throws Exception {}
 
     public String recuperaGrupoAprovador() throws Exception {
-        final ProblemaDTO problemaDto = getProblemaDto();
+        final ProblemaDTO problemaDto = this.getProblemaDto();
         if (problemaDto == null) {
-            throw new Exception(i18n_Message("problema.naoEncontrado"));
+            throw new Exception(this.i18n_Message("problema.naoEncontrado"));
         }
 
-        final ServicoContratoDTO servicoContratoDto = recuperaServicoContrato();
+        final ServicoContratoDTO servicoContratoDto = this.recuperaServicoContrato();
         if (servicoContratoDto.getIdGrupoAprovador() == null) {
-            throw new Exception(i18n_Message("citcorpore.comum.grupoaprovadoNaoParametrizado"));
+            throw new Exception(this.i18n_Message("citcorpore.comum.grupoaprovadoNaoParametrizado"));
         }
 
         final GrupoDao grupoDao = new GrupoDao();
-        setTransacaoDao(grupoDao);
+        this.setTransacaoDao(grupoDao);
         GrupoDTO grupoDto = new GrupoDTO();
         grupoDto.setIdGrupo(servicoContratoDto.getIdGrupoAprovador());
         grupoDto = (GrupoDTO) grupoDao.restore(grupoDto);
         if (grupoDto == null) {
-            throw new Exception(i18n_Message("citcorpore.comum.grupoaprovadoNaoParametrizado"));
+            throw new Exception(this.i18n_Message("citcorpore.comum.grupoaprovadoNaoParametrizado"));
         }
 
         return grupoDto.getSigla();
@@ -1110,12 +1003,11 @@ public class ExecucaoProblema extends ExecucaoFluxo {
 
         if (idCalendario == null || idCalendario.intValue() == 0) {
             final ServicoContratoDao servicoContratoDao = new ServicoContratoDao();
-            servicoContratoDao.setTransactionControler(getTransacao());
-            final ServicoContratoDTO servicoContratoDto = servicoContratoDao.findByIdContratoAndIdServico(
-                    problemaoDto.getIdContrato(), problemaoDto.getIdServico());
+            servicoContratoDao.setTransactionControler(this.getTransacao());
+            final ServicoContratoDTO servicoContratoDto = servicoContratoDao.findByIdContratoAndIdServico(problemaoDto.getIdContrato(),
+                    problemaoDto.getIdServico());
             if (servicoContratoDto == null) {
-                throw new LogicException(i18n_Message(problemaoDto.getUsuarioDto(),
-                        "solicitacaoservico.validacao.servicolocalizado"));
+                throw new LogicException(this.i18n_Message(problemaoDto.getUsuarioDto(), "solicitacaoservico.validacao.servicolocalizado"));
             }
             idCalendario = servicoContratoDto.getIdCalendario();
         }
@@ -1126,8 +1018,8 @@ public class ExecucaoProblema extends ExecucaoFluxo {
         if (problemaoDto.getPrazoMM() == null) {
             problemaoDto.setPrazoMM(0);
         }
-        CalculoJornadaDTO calculoDto = new CalculoJornadaDTO(idCalendario, problemaoDto.getDataHoraInicioSLA(),
-                problemaoDto.getPrazoHH(), problemaoDto.getPrazoMM());
+        CalculoJornadaDTO calculoDto = new CalculoJornadaDTO(idCalendario, problemaoDto.getDataHoraInicioSLA(), problemaoDto.getPrazoHH(),
+                problemaoDto.getPrazoMM());
         calculoDto = new CalendarioServiceEjb().calculaDataHoraFinal(calculoDto, true, null);
         problemaoDto.setDataHoraLimite(calculoDto.getDataHoraFinal());
     }
@@ -1139,11 +1031,10 @@ public class ExecucaoProblema extends ExecucaoFluxo {
 
         problemaDto.setDataHoraInicioSLA(UtilDatas.getDataHoraAtual());
         problemaDto.setSituacaoSLA(SituacaoSLA.A.name());
-        determinaPrazoLimite(problemaDto, null);
+        this.determinaPrazoLimite(problemaDto, null);
 
-        OcorrenciaProblemaServiceEjb.create(getProblemaDto(), null, null, OrigemOcorrencia.OUTROS,
-                CategoriaOcorrencia.InicioSLA, null, CategoriaOcorrencia.InicioSLA.getDescricao(), "Automático", 0,
-                null, getTransacao());
+        OcorrenciaProblemaServiceEjb.create(this.getProblemaDto(), null, null, OrigemOcorrencia.OUTROS, CategoriaOcorrencia.InicioSLA, null,
+                CategoriaOcorrencia.InicioSLA.getDescricao(), "Automático", 0, null, this.getTransacao());
     }
 
     public void suspendeSLA(final ProblemaDTO problemaDto) throws Exception {
@@ -1167,16 +1058,13 @@ public class ExecucaoProblema extends ExecucaoFluxo {
         }
 
         problemaDto.setSituacaoSLA(SituacaoSLA.S.name());
-        problemaDto.setTempoDecorridoHH(new Integer(problemaDto.getTempoDecorridoHH().intValue()
-                + calculoDto.getTempoDecorridoHH().intValue()));
-        problemaDto.setTempoDecorridoMM(new Integer(problemaDto.getTempoDecorridoMM().intValue()
-                + calculoDto.getTempoDecorridoMM().intValue()));
+        problemaDto.setTempoDecorridoHH(new Integer(problemaDto.getTempoDecorridoHH().intValue() + calculoDto.getTempoDecorridoHH().intValue()));
+        problemaDto.setTempoDecorridoMM(new Integer(problemaDto.getTempoDecorridoMM().intValue() + calculoDto.getTempoDecorridoMM().intValue()));
         problemaDto.setDataHoraSuspensaoSLA(tsAtual);
         problemaDto.setDataHoraReativacaoSLA(null);
 
-        OcorrenciaProblemaServiceEjb.create(getProblemaDto(), null, null, OrigemOcorrencia.OUTROS,
-                CategoriaOcorrencia.SuspensaoSLA, null, CategoriaOcorrencia.SuspensaoSLA.getDescricao(), "Automático",
-                0, null, getTransacao());
+        OcorrenciaProblemaServiceEjb.create(this.getProblemaDto(), null, null, OrigemOcorrencia.OUTROS, CategoriaOcorrencia.SuspensaoSLA, null,
+                CategoriaOcorrencia.SuspensaoSLA.getDescricao(), "Automático", 0, null, this.getTransacao());
     }
 
     public void reativaSLA(final ProblemaDTO problemaDto) throws Exception {
@@ -1186,12 +1074,10 @@ public class ExecucaoProblema extends ExecucaoFluxo {
 
         final Timestamp tsAtual = UtilDatas.getDataHoraAtual();
         double prazo = problemaDto.getPrazoHH() + new Double(problemaDto.getPrazoMM()).doubleValue() / 60;
-        final double tempo = problemaDto.getTempoDecorridoHH()
-                + new Double(problemaDto.getTempoDecorridoMM()).doubleValue() / 60;
+        final double tempo = problemaDto.getTempoDecorridoHH() + new Double(problemaDto.getTempoDecorridoMM()).doubleValue() / 60;
         prazo = prazo - tempo;
         if (prazo > 0) {
-            CalculoJornadaDTO calculoDto = new CalculoJornadaDTO(problemaDto.getIdCalendario(), tsAtual,
-                    Util.getHora(prazo), Util.getMinuto(prazo));
+            CalculoJornadaDTO calculoDto = new CalculoJornadaDTO(problemaDto.getIdCalendario(), tsAtual, Util.getHora(prazo), Util.getMinuto(prazo));
 
             calculoDto = new CalendarioServiceEjb().calculaDataHoraFinal(calculoDto, false, null);
             problemaDto.setDataHoraLimite(calculoDto.getDataHoraFinal());
@@ -1201,93 +1087,86 @@ public class ExecucaoProblema extends ExecucaoFluxo {
         problemaDto.setDataHoraSuspensaoSLA(null);
         problemaDto.setDataHoraReativacaoSLA(tsAtual);
 
-        OcorrenciaProblemaServiceEjb.create(getProblemaDto(), null, null, OrigemOcorrencia.OUTROS,
-                CategoriaOcorrencia.ReativacaoSLA, null, CategoriaOcorrencia.ReativacaoSLA.getDescricao(),
-                "Automático", 0, null, getTransacao());
+        OcorrenciaProblemaServiceEjb.create(this.getProblemaDto(), null, null, OrigemOcorrencia.OUTROS, CategoriaOcorrencia.ReativacaoSLA, null,
+                CategoriaOcorrencia.ReativacaoSLA.getDescricao(), "Automático", 0, null, this.getTransacao());
     }
 
     /**
      * Método que consulta se um problema precisa ou não de solução de contorno.
-     * 
+     *
      * @author thiagomonteiro
      * @return true ou false
      * @throws Exception
      */
     public boolean precisaSolucaoContorno() throws Exception {
 
-        final ProblemaDTO problemaDTO = getProblemaDto();
+        final ProblemaDTO problemaDTO = this.getProblemaDto();
 
-        if (problemaDTO.getPrecisaSolucaoContorno() != null
-                && problemaDTO.getPrecisaSolucaoContorno().equalsIgnoreCase("S")) {
+        if (problemaDTO.getPrecisaSolucaoContorno() != null && problemaDTO.getPrecisaSolucaoContorno().equalsIgnoreCase("S")) {
             problemaDTO.setFase(FaseRequisicaoProblema.SolucaoContorno.name());
-            final SituacaoRequisicaoProblema novaSituacao = FaseRequisicaoProblema.valueOf(getProblemaDto().getFase())
-                    .getSituacao();
+            final SituacaoRequisicaoProblema novaSituacao = FaseRequisicaoProblema.valueOf(this.getProblemaDto().getFase()).getSituacao();
             if (novaSituacao != null) {
                 final ProblemaDAO problemaDao = new ProblemaDAO();
-                setTransacaoDao(problemaDao);
-                getProblemaDto().setStatus(novaSituacao.getDescricao());
-                problemaDao.updateNotNull(getProblemaDto());
+                this.setTransacaoDao(problemaDao);
+                this.getProblemaDto().setStatus(novaSituacao.getDescricao());
+                problemaDao.updateNotNull(this.getProblemaDto());
             }
         } else {
             problemaDTO.setFase(FaseRequisicaoProblema.Resolucao.name());
-            final SituacaoRequisicaoProblema novaSituacao = FaseRequisicaoProblema.valueOf(getProblemaDto().getFase())
-                    .getSituacao();
+            final SituacaoRequisicaoProblema novaSituacao = FaseRequisicaoProblema.valueOf(this.getProblemaDto().getFase()).getSituacao();
             if (novaSituacao != null) {
                 final ProblemaDAO problemaDao = new ProblemaDAO();
-                setTransacaoDao(problemaDao);
-                getProblemaDto().setStatus(novaSituacao.getDescricao());
-                problemaDao.updateNotNull(getProblemaDto());
+                this.setTransacaoDao(problemaDao);
+                this.getProblemaDto().setStatus(novaSituacao.getDescricao());
+                problemaDao.updateNotNull(this.getProblemaDto());
             }
         }
 
-        return problemaDTO.getPrecisaSolucaoContorno() != null
-                && problemaDTO.getPrecisaSolucaoContorno().equalsIgnoreCase("S");
+        return problemaDTO.getPrecisaSolucaoContorno() != null && problemaDTO.getPrecisaSolucaoContorno().equalsIgnoreCase("S");
     }
 
     /**
      * Método que consulta se um problema precisa ou não de uma mudança para ser solucionado.
-     * 
+     *
      * @author thiagomonteiro
      * @return true ou false
      * @throws Exception
      */
     public boolean precisaMudanca() throws Exception {
 
-        final ProblemaDTO problemaDTO = getProblemaDto();
+        final ProblemaDTO problemaDTO = this.getProblemaDto();
 
         return problemaDTO.getIdProblemaMudanca() != null && problemaDTO.getIdProblemaMudanca() > 0;
     }
 
     /**
      * Método que consulta se um problema foi resolvido ou não.
-     * 
+     *
      * @author thiagomonteiro
      * @return true ou false
      * @throws Exception
      */
     public boolean resolvido() throws Exception {
 
-        final ProblemaDTO problemaDTO = getProblemaDto();
+        final ProblemaDTO problemaDTO = this.getProblemaDto();
 
         if (problemaDTO.getResolvido() != null && problemaDTO.getResolvido().equalsIgnoreCase("S")) {
             problemaDTO.setFase(FaseRequisicaoProblema.Encerramento.name());
-            final SituacaoRequisicaoProblema novaSituacao = FaseRequisicaoProblema.valueOf(getProblemaDto().getFase())
-                    .getSituacao();
+            final SituacaoRequisicaoProblema novaSituacao = FaseRequisicaoProblema.valueOf(this.getProblemaDto().getFase()).getSituacao();
             if (novaSituacao != null) {
                 final ProblemaDAO problemaDao = new ProblemaDAO();
-                setTransacaoDao(problemaDao);
-                getProblemaDto().setStatus(novaSituacao.getDescricao());
-                problemaDao.updateNotNull(getProblemaDto());
+                this.setTransacaoDao(problemaDao);
+                this.getProblemaDto().setStatus(novaSituacao.getDescricao());
+                problemaDao.updateNotNull(this.getProblemaDto());
             }
         } else {
             problemaDTO.setFase(FaseRequisicaoProblema.Registrada.name());
-            final SituacaoRequisicaoProblema novaSituacao = FaseRequisicaoProblema.valueOf(getProblemaDto().getFase())
-                    .getSituacao();
+            final SituacaoRequisicaoProblema novaSituacao = FaseRequisicaoProblema.valueOf(this.getProblemaDto().getFase()).getSituacao();
             if (novaSituacao != null) {
                 final ProblemaDAO problemaDao = new ProblemaDAO();
-                setTransacaoDao(problemaDao);
-                getProblemaDto().setStatus(novaSituacao.getDescricao());
-                problemaDao.updateNotNull(getProblemaDto());
+                this.setTransacaoDao(problemaDao);
+                this.getProblemaDto().setStatus(novaSituacao.getDescricao());
+                problemaDao.updateNotNull(this.getProblemaDto());
             }
         }
 
@@ -1300,24 +1179,23 @@ public class ExecucaoProblema extends ExecucaoFluxo {
 
     /**
      * Método que consulta se um problema é grave ou não.
-     * 
+     *
      * @author thiagomonteiro
      * @return true ou false
      * @throws Exception
      */
     public boolean grave() throws Exception {
 
-        final ProblemaDTO problemaDTO = getProblemaDto();
+        final ProblemaDTO problemaDTO = this.getProblemaDto();
 
         if (problemaDTO.getGrave() != null && problemaDTO.getGrave().equalsIgnoreCase("S")) {
             problemaDTO.setFase(FaseRequisicaoProblema.Revisar.name());
-            final SituacaoRequisicaoProblema novaSituacao = FaseRequisicaoProblema.valueOf(getProblemaDto().getFase())
-                    .getSituacao();
+            final SituacaoRequisicaoProblema novaSituacao = FaseRequisicaoProblema.valueOf(this.getProblemaDto().getFase()).getSituacao();
             if (novaSituacao != null) {
                 final ProblemaDAO problemaDao = new ProblemaDAO();
-                setTransacaoDao(problemaDao);
-                getProblemaDto().setStatus(novaSituacao.getDescricao());
-                problemaDao.updateNotNull(getProblemaDto());
+                this.setTransacaoDao(problemaDao);
+                this.getProblemaDto().setStatus(novaSituacao.getDescricao());
+                problemaDao.updateNotNull(this.getProblemaDto());
             }
         }
         return problemaDTO.getGrave() != null && problemaDTO.getGrave().equalsIgnoreCase("S");
@@ -1325,16 +1203,16 @@ public class ExecucaoProblema extends ExecucaoFluxo {
 
     public CategoriaProblemaDTO recuperaCategoriaProblema() throws Exception {
         final CategoriaProblemaDAO categoriaProblemaDao = new CategoriaProblemaDAO();
-        setTransacaoDao(categoriaProblemaDao);
+        this.setTransacaoDao(categoriaProblemaDao);
         CategoriaProblemaDTO categoriaProblemaDto = new CategoriaProblemaDTO();
-        if (getProblemaDto().getIdCategoriaProblema() != null) {
-            categoriaProblemaDto.setIdCategoriaProblema(getProblemaDto().getIdCategoriaProblema());
+        if (this.getProblemaDto().getIdCategoriaProblema() != null) {
+            categoriaProblemaDto.setIdCategoriaProblema(this.getProblemaDto().getIdCategoriaProblema());
             categoriaProblemaDto = (CategoriaProblemaDTO) categoriaProblemaDao.restore(categoriaProblemaDto);
         }
 
         if (categoriaProblemaDto == null) {
 
-            throw new LogicException(i18n_Message("problema.categoriaProblemaNaoLocalizado"));
+            throw new LogicException(this.i18n_Message("problema.categoriaProblemaNaoLocalizado"));
         }
 
         return categoriaProblemaDto;

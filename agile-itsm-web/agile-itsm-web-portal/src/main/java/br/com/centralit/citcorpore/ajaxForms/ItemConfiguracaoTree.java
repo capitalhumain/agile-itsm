@@ -988,8 +988,8 @@ public class ItemConfiguracaoTree extends ItemConfiguracao {
     	if(usrDto == null){
     		return;
     	}
-    	HashMap map = new HashMap();
-    	HashMap map2 = new HashMap();
+    	HashMap map = new HashMap<>();
+    	HashMap map2 = new HashMap<>();
     	ItemConfiguracaoDTO itemConfiguracaoDTO = (ItemConfiguracaoDTO) document.getBean();
     	ImagemItemConfiguracaoService imagemItemConfiguracaoService = (ImagemItemConfiguracaoService) ServiceLocator.getInstance().getService(ImagemItemConfiguracaoService.class, null);
     	Collection colHierarq = imagemItemConfiguracaoService.findItensRelacionadosHierarquia(itemConfiguracaoDTO.getIdItemConfiguracao());

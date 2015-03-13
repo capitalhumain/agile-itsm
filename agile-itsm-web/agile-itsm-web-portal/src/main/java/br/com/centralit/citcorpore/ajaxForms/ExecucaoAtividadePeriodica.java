@@ -54,7 +54,7 @@ public class ExecucaoAtividadePeriodica extends AjaxFormAction {
 
 		Collection colUploadsGED = (Collection) request.getSession(true).getAttribute("colUploadsGED");
 		if (colUploadsGED == null) {
-		    colUploadsGED = new ArrayList();
+		    colUploadsGED = new ArrayList<>();
 		}
 		execucaoAtividadePeriodicaDTO.setColArquivosUpload(colUploadsGED);
 
@@ -83,7 +83,7 @@ public class ExecucaoAtividadePeriodica extends AjaxFormAction {
 
 	execucaoAtividadePeriodicaDTO = (ExecucaoAtividadePeriodicaDTO) execucaoAtividadePeriodicaService.restore(execucaoAtividadePeriodicaDTO);
 
-	Collection colUploadsGED = new ArrayList();
+	Collection colUploadsGED = new ArrayList<>();
 	if (execucaoAtividadePeriodicaDTO.getColArquivosUpload() != null) {
 	    for (Iterator it = execucaoAtividadePeriodicaDTO.getColArquivosUpload().iterator(); it.hasNext();) {
 		ControleGEDDTO controleGEDDTO = (ControleGEDDTO) it.next();

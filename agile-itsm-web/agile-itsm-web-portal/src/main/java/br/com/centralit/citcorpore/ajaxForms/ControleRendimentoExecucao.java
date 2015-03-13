@@ -279,7 +279,7 @@ public class ControleRendimentoExecucao extends AjaxFormAction{
 			dataInicio = (java.util.Date) formatador.parse("01/"+ mesInt +"/" + ano);
 			dataFim = (java.util.Date) formatador.parse(ultimoDia +"/"+ mesInt +"/" + controleRendimentoDto.getAno());
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 
@@ -325,7 +325,7 @@ public class ControleRendimentoExecucao extends AjaxFormAction{
 			dataInicio = (java.util.Date) formatador.parse("01/"+ mesInt +"/" + ano);
 			dataFim = (java.util.Date) formatador.parse(ultimoDia +"/"+ mesInt +"/" + ano);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 
@@ -521,7 +521,7 @@ public class ControleRendimentoExecucao extends AjaxFormAction{
 			dataInicio = (java.util.Date) formatador.parse("01/"+ mesInt +"/" + ano);
 			dataFim = (java.util.Date) formatador.parse(ultimoDia +"/"+ mesInt +"/" + ano);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 
@@ -942,7 +942,7 @@ public class ControleRendimentoExecucao extends AjaxFormAction{
 		try {
 			Integer numero = Integer.parseInt(nivelExcelencia.substring(0, tamanhoString));
 		} catch (NumberFormatException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 			return false;
 		}
@@ -1619,7 +1619,7 @@ public class ControleRendimentoExecucao extends AjaxFormAction{
 		}
 		//selecionar os 10 melhores = maior qtdTotalPontos
 
-		ArrayList melhores10Funcionarios = new ArrayList();
+		ArrayList melhores10Funcionarios = new ArrayList<>();
 
 		if(colecaoIdsUsuarios != null) {
 			for (ControleRendimentoUsuarioDTO usuario : colecaoIdsUsuarios) {
@@ -1631,7 +1631,7 @@ public class ControleRendimentoExecucao extends AjaxFormAction{
 		Collections.reverse(melhores10Funcionarios);
 
 
-		ArrayList melhores10FuncionariosAux = new ArrayList();
+		ArrayList melhores10FuncionariosAux = new ArrayList<>();
 
 		//pega só os 10 primeiros registros, se não tiver 10, pega todos
 		int qtdMinimaFuncionarios = melhores10Funcionarios.size();
@@ -1909,7 +1909,7 @@ public class ControleRendimentoExecucao extends AjaxFormAction{
 			dataInicio = (java.util.Date) formatador.parse("01/"+ mesInt +"/" + controleRendimentoDto.getAno());
 			dataFim = (java.util.Date) formatador.parse(ultimoDia +"/"+ mesInt +"/" + controleRendimentoDto.getAno());
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 			document.getJanelaPopupById("JANELA_AGUARDE_MENU").hide();
 			return;

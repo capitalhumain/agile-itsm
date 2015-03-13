@@ -21,7 +21,7 @@ public class GrupoItemConfiguracao extends AjaxFormAction {
 
 	@Override
 	public Class getBeanClass() {
-		// TODO Auto-generated method stub
+		
 		return GrupoItemConfiguracaoDTO.class;
 	}
 

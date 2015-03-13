@@ -10,7 +10,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
-import org.apache.commons.lang.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
 import br.com.centralit.citsmart.rest.resource.RestMobileResources;
 import br.com.centralit.citsmart.rest.schema.CtNotificationGetById;

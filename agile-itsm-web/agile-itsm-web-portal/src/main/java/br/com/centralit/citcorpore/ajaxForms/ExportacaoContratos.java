@@ -7,7 +7,7 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 
 import br.com.centralit.citajax.html.AjaxFormAction;
 import br.com.centralit.citajax.html.DocumentHTML;
@@ -78,7 +78,7 @@ public class ExportacaoContratos extends AjaxFormAction {
             exportacaoContratosDto.setExportarCatalogoServico("y");
         }
 
-        final String xmlString = StringEscapeUtils.unescapeHtml(exportacaoContratosService.recuperaXmlTabelas(exportacaoContratosDto.getIdContrato(),
+        final String xmlString = StringEscapeUtils.unescapeHtml4(exportacaoContratosService.recuperaXmlTabelas(exportacaoContratosDto.getIdContrato(),
                 exportacaoContratosDto.getIdGrupos(), exportacaoContratosDto.getExportarUnidades(), exportacaoContratosDto.getExportarAcordoNivelServico(),
                 exportacaoContratosDto.getExportarCatalogoServico()));
 

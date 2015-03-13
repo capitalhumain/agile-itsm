@@ -6,279 +6,283 @@ import br.com.citframework.util.UtilStrings;
 
 public class ContratoBIDTO extends BaseEntity {
 
-	private static final long serialVersionUID = -5899256214152706919L;
-	
-	private String nome;
-	
-	private Integer idContrato;
+    private static final long serialVersionUID = -5899256214152706919L;
 
-	private Integer idCliente;
+    private String nome;
 
-	private String numero;
+    private Integer idContrato;
 
-	private String objeto;
+    private Integer idCliente;
 
-	private java.sql.Date dataContrato;
-	
-	private java.sql.Date dataFimContrato;
+    private String numero;
 
-	private Double valorEstimado;
+    private String objeto;
 
-	private String tipoTempoEstimado;
+    private java.sql.Date dataContrato;
 
-	private Integer tempoEstimado;
+    private java.sql.Date dataFimContrato;
 
-	private String tipo;
+    private Double valorEstimado;
 
-	private String situacao;
+    private String tipoTempoEstimado;
 
-	private Integer idMoeda;
+    private Integer tempoEstimado;
 
-	private Integer idFluxo;
+    private String tipo;
 
-	private Double cotacaoMoeda;
+    private String situacao;
 
-	private Integer idFornecedor;
+    private Integer idMoeda;
 
-	private String deleted;
+    private Integer idFluxo;
 
-	private Integer idGrupoSolicitante;
-	
-	private java.sql.Date criadoEm;
-	private String criadoPor;
-	private java.sql.Date modificadoEm;
-	private String modificadoPor;
-	
-	private Integer idConexaoBI;
-	private Integer idSuperintendente;
+    private Double cotacaoMoeda;
 
-	public Integer getIdContrato() {
-		return this.idContrato;
-	}
+    private Integer idFornecedor;
 
-	public void setIdContrato(Integer parm) {
-		this.idContrato = parm;
-	}
+    private String deleted;
 
-	public Integer getIdCliente() {
-		return this.idCliente;
-	}
+    private Integer idGrupoSolicitante;
 
-	public void setIdCliente(Integer parm) {
-		this.idCliente = parm;
-	}
+    private java.sql.Date criadoEm;
+    private String criadoPor;
+    private java.sql.Date modificadoEm;
+    private String modificadoPor;
 
-	public String getNumero() {
-		return this.numero;
-	}
-	
-	public String getNumeroHTMLEncoded() {
-		return UtilHTML.encodeHTML(UtilStrings.nullToVazio(this.numero));
-	}
+    private Integer idConexaoBI;
+    private Integer idSuperintendente;
 
-	public void setNumero(String parm) {
-		this.numero = parm;
-	}
+    public Integer getIdContrato() {
+        return idContrato;
+    }
 
-	public String getObjeto() {
-		return this.objeto;
-	}
+    public void setIdContrato(final Integer parm) {
+        idContrato = parm;
+    }
 
-	public void setObjeto(String parm) {
-		this.objeto = parm;
-	}
+    public Integer getIdCliente() {
+        return idCliente;
+    }
 
-	public java.sql.Date getDataContrato() {
-		return this.dataContrato;
-	}
+    public void setIdCliente(final Integer parm) {
+        idCliente = parm;
+    }
 
-	public void setDataContrato(java.sql.Date parm) {
-		this.dataContrato = parm;
-	}
+    public String getNumero() {
+        return numero;
+    }
 
-	public Double getValorEstimado() {
-		return this.valorEstimado;
-	}
+    public String getNumeroHTMLEncoded() {
+        return UtilHTML.encodeHTML(UtilStrings.nullToVazio(numero));
+    }
 
-	public void setValorEstimado(Double parm) {
-		this.valorEstimado = parm;
-	}
+    public void setNumero(final String parm) {
+        numero = parm;
+    }
 
-	public String getTipoTempoEstimado() {
-		return this.tipoTempoEstimado;
-	}
-
-	public void setTipoTempoEstimado(String parm) {
-		this.tipoTempoEstimado = parm;
-	}
-
-	public Integer getTempoEstimado() {
-		return this.tempoEstimado;
-	}
-
-	public void setTempoEstimado(Integer parm) {
-		this.tempoEstimado = parm;
-	}
-
-	public String getTipo() {
-		return this.tipo;
-	}
-
-	public void setTipo(String parm) {
-		this.tipo = parm;
-	}
-
-	public String getSituacao() {
-		return this.situacao;
-	}
-
-	public void setSituacao(String parm) {
-		this.situacao = parm;
-	}
-
-	public Integer getIdMoeda() {
-		return idMoeda;
-	}
-
-	public void setIdMoeda(Integer idMoeda) {
-		this.idMoeda = idMoeda;
-	}
-
-	public Integer getIdFluxo() {
-		return idFluxo;
-	}
-
-	public void setIdFluxo(Integer idFluxo) {
-		this.idFluxo = idFluxo;
-	}
-
-	public Double getCotacaoMoeda() {
-		return cotacaoMoeda;
-	}
-
-	public void setCotacaoMoeda(Double cotacaoMoeda) {
-		this.cotacaoMoeda = cotacaoMoeda;
-	}
-
-	public Integer getIdFornecedor() {
-		return idFornecedor;
-	}
-
-	public void setIdFornecedor(Integer idFornecedor) {
-		this.idFornecedor = idFornecedor;
-	}
-
-	public String getDeleted() {
-		return deleted;
-	}
-
-	public void setDeleted(String deleted) {
-		this.deleted = deleted;
-	}
-
-	public Integer getIdGrupoSolicitante() {
-		return idGrupoSolicitante;
-	}
-
-	public void setIdGrupoSolicitante(Integer idGrupoSolicitante) {
-		this.idGrupoSolicitante = idGrupoSolicitante;
-	}
-
-	/**
-	 * @return the dataFimContrato
-	 */
-	public java.sql.Date getDataFimContrato() {
-		return dataFimContrato;
-	}
-
-	/**
-	 * @param dataFimContrato the dataFimContrato to set
-	 */
-	public void setDataFimContrato(java.sql.Date dataFimContrato) {
-		this.dataFimContrato = dataFimContrato;
-	}
-
-	public java.sql.Date getCriadoEm() {
-		return criadoEm;
-	}
-
-	public void setCriadoEm(java.sql.Date criadoEm) {
-		this.criadoEm = criadoEm;
-	}
-
-	public String getCriadoPor() {
-		return criadoPor;
-	}
-
-	public void setCriadoPor(String criadoPor) {
-		this.criadoPor = criadoPor;
-	}
-
-	public java.sql.Date getModificadoEm() {
-		return modificadoEm;
-	}
-
-	public void setModificadoEm(java.sql.Date modificadoEm) {
-		this.modificadoEm = modificadoEm;
-	}
-
-	public String getModificadoPor() {
-		return modificadoPor;
-	}
-
-	public void setModificadoPor(String modificadoPor) {
-		this.modificadoPor = modificadoPor;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result
-				+ ((idContrato == null) ? 0 : idContrato.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		ContratoBIDTO other = (ContratoBIDTO) obj;
-		if (idContrato == null) {
-			if (other.idContrato != null)
-				return false;
-		} else if (!idContrato.equals(other.idContrato))
-			return false;
-		return true;
-	}
-
-	public Integer getIdConexaoBI() {
-		return idConexaoBI;
-	}
-
-	public void setIdConexaoBI(Integer idConexaoBI) {
-		this.idConexaoBI = idConexaoBI;
-	}
-
-	public Integer getIdSuperintendente() {
-		return idSuperintendente;
-	}
-
-	public void setIdSuperintendente(Integer idSuperintendente) {
-		this.idSuperintendente = idSuperintendente;
-	}
-	
-	
+    public String getObjeto() {
+        return objeto;
+    }
+
+    public void setObjeto(final String parm) {
+        objeto = parm;
+    }
+
+    public java.sql.Date getDataContrato() {
+        return dataContrato;
+    }
+
+    public void setDataContrato(final java.sql.Date parm) {
+        dataContrato = parm;
+    }
+
+    public Double getValorEstimado() {
+        return valorEstimado;
+    }
+
+    public void setValorEstimado(final Double parm) {
+        valorEstimado = parm;
+    }
+
+    public String getTipoTempoEstimado() {
+        return tipoTempoEstimado;
+    }
+
+    public void setTipoTempoEstimado(final String parm) {
+        tipoTempoEstimado = parm;
+    }
+
+    public Integer getTempoEstimado() {
+        return tempoEstimado;
+    }
+
+    public void setTempoEstimado(final Integer parm) {
+        tempoEstimado = parm;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(final String parm) {
+        tipo = parm;
+    }
+
+    public String getSituacao() {
+        return situacao;
+    }
+
+    public void setSituacao(final String parm) {
+        situacao = parm;
+    }
+
+    public Integer getIdMoeda() {
+        return idMoeda;
+    }
+
+    public void setIdMoeda(final Integer idMoeda) {
+        this.idMoeda = idMoeda;
+    }
+
+    public Integer getIdFluxo() {
+        return idFluxo;
+    }
+
+    public void setIdFluxo(final Integer idFluxo) {
+        this.idFluxo = idFluxo;
+    }
+
+    public Double getCotacaoMoeda() {
+        return cotacaoMoeda;
+    }
+
+    public void setCotacaoMoeda(final Double cotacaoMoeda) {
+        this.cotacaoMoeda = cotacaoMoeda;
+    }
+
+    public Integer getIdFornecedor() {
+        return idFornecedor;
+    }
+
+    public void setIdFornecedor(final Integer idFornecedor) {
+        this.idFornecedor = idFornecedor;
+    }
+
+    public String getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(final String deleted) {
+        this.deleted = deleted;
+    }
+
+    public Integer getIdGrupoSolicitante() {
+        return idGrupoSolicitante;
+    }
+
+    public void setIdGrupoSolicitante(final Integer idGrupoSolicitante) {
+        this.idGrupoSolicitante = idGrupoSolicitante;
+    }
+
+    /**
+     * @return the dataFimContrato
+     */
+    public java.sql.Date getDataFimContrato() {
+        return dataFimContrato;
+    }
+
+    /**
+     * @param dataFimContrato
+     *            the dataFimContrato to set
+     */
+    public void setDataFimContrato(final java.sql.Date dataFimContrato) {
+        this.dataFimContrato = dataFimContrato;
+    }
+
+    public java.sql.Date getCriadoEm() {
+        return criadoEm;
+    }
+
+    public void setCriadoEm(final java.sql.Date criadoEm) {
+        this.criadoEm = criadoEm;
+    }
+
+    public String getCriadoPor() {
+        return criadoPor;
+    }
+
+    public void setCriadoPor(final String criadoPor) {
+        this.criadoPor = criadoPor;
+    }
+
+    public java.sql.Date getModificadoEm() {
+        return modificadoEm;
+    }
+
+    public void setModificadoEm(final java.sql.Date modificadoEm) {
+        this.modificadoEm = modificadoEm;
+    }
+
+    public String getModificadoPor() {
+        return modificadoPor;
+    }
+
+    public void setModificadoPor(final String modificadoPor) {
+        this.modificadoPor = modificadoPor;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(final String nome) {
+        this.nome = nome;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + (idContrato == null ? 0 : idContrato.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (this.getClass() != obj.getClass()) {
+            return false;
+        }
+        final ContratoBIDTO other = (ContratoBIDTO) obj;
+        if (idContrato == null) {
+            if (other.idContrato != null) {
+                return false;
+            }
+        } else if (!idContrato.equals(other.idContrato)) {
+            return false;
+        }
+        return true;
+    }
+
+    public Integer getIdConexaoBI() {
+        return idConexaoBI;
+    }
+
+    public void setIdConexaoBI(final Integer idConexaoBI) {
+        this.idConexaoBI = idConexaoBI;
+    }
+
+    public Integer getIdSuperintendente() {
+        return idSuperintendente;
+    }
+
+    public void setIdSuperintendente(final Integer idSuperintendente) {
+        this.idSuperintendente = idSuperintendente;
+    }
+
 }

@@ -7,7 +7,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 
 import br.com.centralit.citajax.html.DocumentHTML;
@@ -39,7 +39,8 @@ public class AjaxProcessEvent extends AjaxFacade {
                         bTentarLocalizarForm = false;
                         break;
                     }
-                    classe = Class.forName(Constantes.getValue("BEAN_LOCATION_FORM" + iCodigoTentativa) + "." + CitAjaxUtil.convertePrimeiraLetra(formName, "U"));
+                    classe = Class.forName(Constantes.getValue("BEAN_LOCATION_FORM" + iCodigoTentativa) + "."
+                            + CitAjaxUtil.convertePrimeiraLetra(formName, "U"));
                 }
                 if (classe != null) {
                     bTentarLocalizarForm = true;

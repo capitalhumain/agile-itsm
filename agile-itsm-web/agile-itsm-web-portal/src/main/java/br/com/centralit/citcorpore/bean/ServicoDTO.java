@@ -20,7 +20,9 @@ import java.sql.Timestamp;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class ServicoDTO extends BaseEntity {
+
     private static final long serialVersionUID = 1L;
+
     private String conteudodados;
     private Date dataFim;
     private Date dataInicio;
@@ -67,27 +69,27 @@ public class ServicoDTO extends BaseEntity {
     private Integer tempoAtendimentoMM;
     private Double valorServico;
     private Double valorTotalServico;
-    
+
     /**
      * Valor Top List
-     * 
+     *
      * @author thyen.chang
      */
     private Integer topList;
-    
+
     public Integer getTopList() {
-		return topList;
-	}
+        return topList;
+    }
 
-    public void setTopList(Integer topList) {
-		this.topList = topList;
-	}
+    public void setTopList(final Integer topList) {
+        this.topList = topList;
+    }
 
-	public String getSlaAtendido() {
+    public String getSlaAtendido() {
         return slaAtendido;
     }
 
-    public void setSlaAtendido(String slaAtendido) {
+    public void setSlaAtendido(final String slaAtendido) {
         this.slaAtendido = slaAtendido;
     }
 
@@ -95,7 +97,7 @@ public class ServicoDTO extends BaseEntity {
         return idSolicitacao;
     }
 
-    public void setIdSolicitacao(Integer idSolicitacao) {
+    public void setIdSolicitacao(final Integer idSolicitacao) {
         this.idSolicitacao = idSolicitacao;
     }
 
@@ -103,7 +105,7 @@ public class ServicoDTO extends BaseEntity {
         return complexidade;
     }
 
-    public void setComplexidade(String complexidade) {
+    public void setComplexidade(final String complexidade) {
         this.complexidade = complexidade;
     }
 
@@ -111,7 +113,7 @@ public class ServicoDTO extends BaseEntity {
         return nomeTipoDemandaServico;
     }
 
-    public void setNomeTipoDemandaServico(String nomeTipoDemandaServico) {
+    public void setNomeTipoDemandaServico(final String nomeTipoDemandaServico) {
         this.nomeTipoDemandaServico = nomeTipoDemandaServico;
     }
 
@@ -119,22 +121,22 @@ public class ServicoDTO extends BaseEntity {
         return custoAtividade;
     }
 
-    public void setCustoAtividade(String custoAtividade) {
+    public void setCustoAtividade(final String custoAtividade) {
         this.custoAtividade = custoAtividade;
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(final Object obj) {
         if (this == obj) {
             return true;
         }
         if (obj == null) {
             return false;
         }
-        if (getClass() != obj.getClass()) {
+        if (this.getClass() != obj.getClass()) {
             return false;
         }
-        ServicoDTO other = (ServicoDTO) obj;
+        final ServicoDTO other = (ServicoDTO) obj;
         if (idServico == null) {
             if (other.idServico != null) {
                 return false;
@@ -269,127 +271,127 @@ public class ServicoDTO extends BaseEntity {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((idServico == null) ? 0 : idServico.hashCode());
+        result = prime * result + (idServico == null ? 0 : idServico.hashCode());
         return result;
     }
 
-    public void setConteudodados(String conteudodados) {
+    public void setConteudodados(final String conteudodados) {
         this.conteudodados = conteudodados;
     }
 
-    public void setDataFim(Date dataFim) {
+    public void setDataFim(final Date dataFim) {
         this.dataFim = dataFim;
     }
 
-    public void setDataInicio(java.sql.Date parm) {
+    public void setDataInicio(final java.sql.Date parm) {
         dataInicio = parm;
     }
 
-    public void setDeleted(String parm) {
+    public void setDeleted(final String parm) {
         deleted = parm;
     }
 
-    public void setDescricaoProcesso(String parm) {
+    public void setDescricaoProcesso(final String parm) {
         descricaoProcesso = parm;
     }
 
-    public void setDetalheServico(String parm) {
+    public void setDetalheServico(final String parm) {
         detalheServico = parm;
     }
 
-    public void setDispPortal(String parm) {
+    public void setDispPortal(final String parm) {
         dispPortal = parm;
     }
 
-    public void setIdBaseconhecimento(Integer idBaseconhecimento) {
+    public void setIdBaseconhecimento(final Integer idBaseconhecimento) {
         this.idBaseconhecimento = idBaseconhecimento;
     }
 
-    public void setIdCategoriaServico(Integer parm) {
+    public void setIdCategoriaServico(final Integer parm) {
         idCategoriaServico = parm;
     }
 
-    public void setIdEmpresa(Integer parm) {
+    public void setIdEmpresa(final Integer parm) {
         idEmpresa = parm;
     }
 
-    public void setIdImportanciaNegocio(Integer parm) {
+    public void setIdImportanciaNegocio(final Integer parm) {
         idImportanciaNegocio = parm;
     }
 
-    public void setIdLocalExecucaoServico(Integer parm) {
+    public void setIdLocalExecucaoServico(final Integer parm) {
         idLocalExecucaoServico = parm;
     }
 
-    public void setIdServico(Integer parm) {
+    public void setIdServico(final Integer parm) {
         idServico = parm;
     }
 
-    public void setIdSituacaoServico(Integer parm) {
+    public void setIdSituacaoServico(final Integer parm) {
         idSituacaoServico = parm;
     }
 
-    public void setIdTemplateAcompanhamento(Integer idTemplateAcompanhamento) {
+    public void setIdTemplateAcompanhamento(final Integer idTemplateAcompanhamento) {
         this.idTemplateAcompanhamento = idTemplateAcompanhamento;
     }
 
-    public void setIdTemplateSolicitacao(Integer idTemplateSolicitacao) {
+    public void setIdTemplateSolicitacao(final Integer idTemplateSolicitacao) {
         this.idTemplateSolicitacao = idTemplateSolicitacao;
     }
 
-    public void setIdTipoDemandaServico(Integer parm) {
+    public void setIdTipoDemandaServico(final Integer parm) {
         idTipoDemandaServico = parm;
     }
 
-    public void setIdTipoEventoServico(Integer parm) {
+    public void setIdTipoEventoServico(final Integer parm) {
         idTipoEventoServico = parm;
     }
 
-    public void setIdTipoServico(Integer parm) {
+    public void setIdTipoServico(final Integer parm) {
         idTipoServico = parm;
     }
 
-    public void setLinkProcesso(String parm) {
+    public void setLinkProcesso(final String parm) {
         linkProcesso = parm;
     }
 
-    public void setModificadoEm(Timestamp modificadoEm) {
+    public void setModificadoEm(final Timestamp modificadoEm) {
         this.modificadoEm = modificadoEm;
     }
 
-    public void setModificadoPor(String modificadoPor) {
+    public void setModificadoPor(final String modificadoPor) {
         this.modificadoPor = modificadoPor;
     }
 
-    public void setNomeCategoriaServico(String nomeCategoriaServico) {
+    public void setNomeCategoriaServico(final String nomeCategoriaServico) {
         this.nomeCategoriaServico = nomeCategoriaServico;
     }
 
-    public void setNomeServico(String parm) {
+    public void setNomeServico(final String parm) {
         nomeServico = parm;
     }
 
-    public void setNomeTipoServico(String nomeTipoServico) {
+    public void setNomeTipoServico(final String nomeTipoServico) {
         this.nomeTipoServico = nomeTipoServico;
     }
 
-    public void setObjetivo(String parm) {
+    public void setObjetivo(final String parm) {
         objetivo = parm;
     }
 
-    public void setPassosServico(String parm) {
+    public void setPassosServico(final String parm) {
         passosServico = parm;
     }
 
-    public void setQuadroOrientPortal(String parm) {
+    public void setQuadroOrientPortal(final String parm) {
         quadroOrientPortal = parm;
     }
 
-    public void setSiglaAbrev(String siglaAbrev) {
+    public void setSiglaAbrev(final String siglaAbrev) {
         this.siglaAbrev = siglaAbrev;
     }
 
-    public void setTipoDescProcess(String parm) {
+    public void setTipoDescProcess(final String parm) {
         tipoDescProcess = parm;
     }
 
@@ -397,7 +399,7 @@ public class ServicoDTO extends BaseEntity {
         return idContrato;
     }
 
-    public void setIdContrato(Integer idContrato) {
+    public void setIdContrato(final Integer idContrato) {
         this.idContrato = idContrato;
     }
 
@@ -405,7 +407,7 @@ public class ServicoDTO extends BaseEntity {
         return nomeSolucionador;
     }
 
-    public void setNomeSolucionador(String nomeSolucionador) {
+    public void setNomeSolucionador(final String nomeSolucionador) {
         this.nomeSolucionador = nomeSolucionador;
     }
 
@@ -413,7 +415,7 @@ public class ServicoDTO extends BaseEntity {
         return tempoAtendimentoHH;
     }
 
-    public void setTempoAtendimentoHH(Integer tempoAtendimentoHH) {
+    public void setTempoAtendimentoHH(final Integer tempoAtendimentoHH) {
         this.tempoAtendimentoHH = tempoAtendimentoHH;
     }
 
@@ -421,7 +423,7 @@ public class ServicoDTO extends BaseEntity {
         return tempoAtendimentoMM;
     }
 
-    public void setTempoAtendimentoMM(Integer tempoAtendimentoMM) {
+    public void setTempoAtendimentoMM(final Integer tempoAtendimentoMM) {
         this.tempoAtendimentoMM = tempoAtendimentoMM;
     }
 
@@ -429,7 +431,7 @@ public class ServicoDTO extends BaseEntity {
         return tempoDecorrido;
     }
 
-    public void setTempoDecorrido(String tempoDecorrido) {
+    public void setTempoDecorrido(final String tempoDecorrido) {
         this.tempoDecorrido = tempoDecorrido;
     }
 
@@ -437,7 +439,7 @@ public class ServicoDTO extends BaseEntity {
         return situacao;
     }
 
-    public void setSituacao(String situacao) {
+    public void setSituacao(final String situacao) {
         this.situacao = situacao;
     }
 
@@ -445,7 +447,7 @@ public class ServicoDTO extends BaseEntity {
         return valorServico;
     }
 
-    public void setValorServico(Double valorServico) {
+    public void setValorServico(final Double valorServico) {
         this.valorServico = valorServico;
     }
 
@@ -453,7 +455,7 @@ public class ServicoDTO extends BaseEntity {
         return valorTotalServico;
     }
 
-    public void setValorTotalServico(Double valorTotalServico) {
+    public void setValorTotalServico(final Double valorTotalServico) {
         this.valorTotalServico = valorTotalServico;
     }
 

@@ -9,7 +9,7 @@ import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * DTO de PerfilAcessoUsuario.
- * 
+ *
  * @author valdoilo.damasceno
  */
 public class PerfilAcessoUsuarioDTO extends BaseEntity {
@@ -28,64 +28,64 @@ public class PerfilAcessoUsuarioDTO extends BaseEntity {
      * @return valor do atributo idPerfilAcesso.
      */
     public Integer getIdPerfilAcesso() {
-	return idPerfilAcesso;
+        return idPerfilAcesso;
     }
 
     /**
      * Define valor do atributo idPerfilAcesso.
-     * 
+     *
      * @param idPerfilAcesso
      */
-    public void setIdPerfilAcesso(Integer idPerfilAcesso) {
-	this.idPerfilAcesso = idPerfilAcesso;
+    public void setIdPerfilAcesso(final Integer idPerfilAcesso) {
+        this.idPerfilAcesso = idPerfilAcesso;
     }
 
     /**
      * @return valor do atributo idUsuario.
      */
     public Integer getIdUsuario() {
-	return idUsuario;
+        return idUsuario;
     }
 
     /**
      * Define valor do atributo idUsuario.
-     * 
+     *
      * @param idUsuario
      */
-    public void setIdUsuario(Integer idUsuario) {
-	this.idUsuario = idUsuario;
+    public void setIdUsuario(final Integer idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     /**
      * @return valor do atributo dataInicio.
      */
     public Date getDataInicio() {
-	return dataInicio;
+        return dataInicio;
     }
 
     /**
      * Define valor do atributo dataInicio.
-     * 
+     *
      * @param dataInicio
      */
-    public void setDataInicio(Date dataInicio) {
-	this.dataInicio = dataInicio;
+    public void setDataInicio(final Date dataInicio) {
+        this.dataInicio = dataInicio;
     }
 
     /**
      * @return valor do atributo dataFim.
      */
     public Date getDataFim() {
-	return dataFim;
+        return dataFim;
     }
 
     /**
      * Define valor do atributo dataFim.
-     * 
+     *
      * @param dataFim
      */
-    public void setDataFim(Date dataFim) {
-	this.dataFim = dataFim;
+    public void setDataFim(final Date dataFim) {
+        this.dataFim = dataFim;
     }
 
 }

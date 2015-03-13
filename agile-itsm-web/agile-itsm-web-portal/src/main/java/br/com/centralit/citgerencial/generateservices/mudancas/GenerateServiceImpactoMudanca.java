@@ -71,7 +71,7 @@ public class GenerateServiceImpactoMudanca extends GerencialGenerateService {
 			 * colGrupos.addAll(colGrupos2); } }
 			 */
 
-			retorno = new ArrayList();
+			retorno = new ArrayList<>();
 
 			for (RequisicaoMudancaDTO requisicaoMudancaDto : mudancas) {
 				Collection<ItemConfiguracaoDTO> itensImpactados = new ArrayList<ItemConfiguracaoDTO>();
@@ -88,7 +88,7 @@ public class GenerateServiceImpactoMudanca extends GerencialGenerateService {
 						if (!itemValido(itemConfiguracaoDto, situacao, idTipoItemConfiguracao, idCriticidade, colGrupos))
 							continue;
 
-						HashMap<String, ItemConfiguracaoDTO> mapItens = new HashMap();
+						HashMap<String, ItemConfiguracaoDTO> mapItens = new HashMap<>();
 						itensImpactados.add(itemConfiguracaoDto);
 						mapItens.put("" + itemConfiguracaoDto.getIdItemConfiguracao(), itemConfiguracaoDto);
 						try {
@@ -128,7 +128,7 @@ public class GenerateServiceImpactoMudanca extends GerencialGenerateService {
 					int i = 0;
 					for (ItemConfiguracaoDTO itemDto : itensImpactados) {
 						if (i > 0) {
-							linha = new ArrayList();
+							linha = new ArrayList<>();
 							linha.add("" + requisicaoMudancaDto.getIdRequisicaoMudanca());
 							linha.add("");
 							linha.add("");

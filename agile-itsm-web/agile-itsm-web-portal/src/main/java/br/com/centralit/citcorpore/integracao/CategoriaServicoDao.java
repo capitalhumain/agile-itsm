@@ -20,298 +20,305 @@ import br.com.citframework.util.Constantes;
 /**
  * @author rosana.godinho
  */
-@SuppressWarnings({ "rawtypes", "unchecked" })
 public class CategoriaServicoDao extends CrudDaoDefaultImpl {
 
-	public CategoriaServicoDao() {
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
+    public CategoriaServicoDao() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
+    }
 
-	public Collection<Field> getFields() {
-		Collection<Field> listFields = new ArrayList<>();
+    @Override
+    public Collection<Field> getFields() {
+        final Collection<Field> listFields = new ArrayList<>();
 
-		listFields.add(new Field("idCategoriaServico", "idCategoriaServico", true, true, false, false));
-		listFields.add(new Field("idCategoriaServicoPai", "idCategoriaServicoPai", false, false, false, false));
-		listFields.add(new Field("idEmpresa", "idEmpresa", false, false, false, false));
-		listFields.add(new Field("nomeCategoriaServico", "nomeCategoriaServico", false, false, false, false));
-		listFields.add(new Field("DataInicio", "dataInicio", false, false, false, false));
-		listFields.add(new Field("DataFim", "dataFim", false, false, false, false));
-		listFields.add(new Field("nomeCategoriaServicoConcatenado", "nomeCategoriaServicoConcatenado", false, false, false, false));
-		
+        listFields.add(new Field("idCategoriaServico", "idCategoriaServico", true, true, false, false));
+        listFields.add(new Field("idCategoriaServicoPai", "idCategoriaServicoPai", false, false, false, false));
+        listFields.add(new Field("idEmpresa", "idEmpresa", false, false, false, false));
+        listFields.add(new Field("nomeCategoriaServico", "nomeCategoriaServico", false, false, false, false));
+        listFields.add(new Field("DataInicio", "dataInicio", false, false, false, false));
+        listFields.add(new Field("DataFim", "dataFim", false, false, false, false));
+        listFields.add(new Field("nomeCategoriaServicoConcatenado", "nomeCategoriaServicoConcatenado", false, false, false, false));
 
-		return listFields;
-	}
+        return listFields;
+    }
 
-	public String getTableName() {
-		return "CATEGORIASERVICO";
-	}
+    @Override
+    public String getTableName() {
+        return "CATEGORIASERVICO";
+    }
 
-	public Collection find(BaseEntity obj) throws PersistenceException {
-		return null;
-	}
+    @Override
+    public Collection find(final BaseEntity obj) throws PersistenceException {
+        return null;
+    }
 
-	public Collection list() throws PersistenceException {
-		List list = new ArrayList();
-		list.add(new Order("nomeCategoriaServico"));
-		return super.list(list);
-	}
+    @Override
+    public Collection list() throws PersistenceException {
+        final List list = new ArrayList<>();
+        list.add(new Order("nomeCategoriaServico"));
+        return super.list(list);
+    }
 
-	public Class getBean() {
-		return CategoriaServicoDTO.class;
-	}
-	public Collection findSemPai() throws PersistenceException {
-		String sql = "SELECT idCategoriaServico, idCategoriaServicoPai, idEmpresa, nomeCategoriaServico, DataInicio FROM CATEGORIASERVICO WHERE idCategoriaServicoPai IS NULL AND dataFim IS NULL ORDER BY nomeCategoriaServico ";
-		List colDados = this.execSQL(sql, null);
-		if (colDados != null) {
-			List fields = new ArrayList();
-			fields.add("idCategoriaServico");
-			fields.add("idCategoriaServicoPai");
-			fields.add("idEmpresa");
-			fields.add("nomeCategoriaServico");
-			fields.add("dataInicio");
-			return this.listConvertion(CategoriaServicoDTO.class, colDados, fields);
-		}
-		return null;
-	}
+    @Override
+    public Class getBean() {
+        return CategoriaServicoDTO.class;
+    }
 
-	public Collection findByIdPai(Integer idCategoriaPaiParm) throws PersistenceException {
-		String sql = "SELECT idCategoriaServico, idCategoriaServicoPai, idEmpresa, nomeCategoriaServico, DataInicio FROM CATEGORIASERVICO WHERE idCategoriaServicoPai = ? AND dataFim IS NULL ORDER BY nomeCategoriaServico ";
-		List colDados = this.execSQL(sql, new Object[] { idCategoriaPaiParm });
-		if (colDados != null) {
-			List fields = new ArrayList();
-			fields.add("idCategoriaServico");
-			fields.add("idCategoriaServicoPai");
-			fields.add("idEmpresa");
-			fields.add("nomeCategoriaServico");
-			fields.add("dataInicio");
-			return this.listConvertion(CategoriaServicoDTO.class, colDados, fields);
-		}
-		return null;
-	}
-	/**
-	 * Lista os nomes da empresa.
-	 * 
-	 * @param idEmpresa
-	 * @return
-	 * @throws Exception
-	 */
-	public Collection listByEmpresa(Integer idEmpresa) throws PersistenceException {
-		List list = new ArrayList();
-		list.add(new Order("nomeCategoriaServico"));
-		CategoriaServicoDTO obj = new CategoriaServicoDTO();
-		obj.setIdEmpresa(idEmpresa);
-		return super.find(obj, list);
-	}
+    public Collection findSemPai() throws PersistenceException {
+        final String sql = "SELECT idCategoriaServico, idCategoriaServicoPai, idEmpresa, nomeCategoriaServico, DataInicio FROM CATEGORIASERVICO WHERE idCategoriaServicoPai IS NULL AND dataFim IS NULL ORDER BY nomeCategoriaServico ";
+        final List colDados = this.execSQL(sql, null);
+        if (colDados != null) {
+            final List fields = new ArrayList<>();
+            fields.add("idCategoriaServico");
+            fields.add("idCategoriaServicoPai");
+            fields.add("idEmpresa");
+            fields.add("nomeCategoriaServico");
+            fields.add("dataInicio");
+            return this.listConvertion(CategoriaServicoDTO.class, colDados, fields);
+        }
+        return null;
+    }
 
-	/**
-	 * Retorna lista de Categoria Serviço ativas.
-	 * 
-	 * @return Collection
-	 * @throws Exception
-	 */
-	public Collection listCategoriasAtivas() throws PersistenceException {
-		List condicao = new ArrayList();
-		List ordenacao = new ArrayList();
+    public Collection findByIdPai(final Integer idCategoriaPaiParm) throws PersistenceException {
+        final String sql = "SELECT idCategoriaServico, idCategoriaServicoPai, idEmpresa, nomeCategoriaServico, DataInicio FROM CATEGORIASERVICO WHERE idCategoriaServicoPai = ? AND dataFim IS NULL ORDER BY nomeCategoriaServico ";
+        final List colDados = this.execSQL(sql, new Object[] {idCategoriaPaiParm});
+        if (colDados != null) {
+            final List fields = new ArrayList<>();
+            fields.add("idCategoriaServico");
+            fields.add("idCategoriaServicoPai");
+            fields.add("idEmpresa");
+            fields.add("nomeCategoriaServico");
+            fields.add("dataInicio");
+            return this.listConvertion(CategoriaServicoDTO.class, colDados, fields);
+        }
+        return null;
+    }
 
-		condicao.add(new Condition("dataFim", "is", null));
-		ordenacao.add(new Order("nomeCategoriaServico"));
+    /**
+     * Lista os nomes da empresa.
+     *
+     * @param idEmpresa
+     * @return
+     * @throws Exception
+     */
+    public Collection listByEmpresa(final Integer idEmpresa) throws PersistenceException {
+        final List list = new ArrayList<>();
+        list.add(new Order("nomeCategoriaServico"));
+        final CategoriaServicoDTO obj = new CategoriaServicoDTO();
+        obj.setIdEmpresa(idEmpresa);
+        return super.find(obj, list);
+    }
 
-		return super.findByCondition(condicao, ordenacao);
-	}
-	
-	/**
-	 * Retorna lista de Categoria Serviço setado idPai e idFilho.
-	 * 
-	 * @return Collection
-	 * @throws Exception
-	 */
-	public List<CategoriaServicoDTO> listCategoriasServicoidPaiFilho(CategoriaServicoDTO bean) throws PersistenceException {
-		
-		List condicao = new ArrayList();
-		List ordenacao = new ArrayList();
-		condicao.add(new Condition("nomeCategoriaServico", "=", bean.getNomeCategoriaServico()));
-		condicao.add(new Condition("idCategoriaServicoPai", "=", bean.getIdCategoriaServicoPai()));
-		return (List<CategoriaServicoDTO>) super.findByCondition(condicao, ordenacao);
-	}
-	
-	/**
-	 * Retorna lista de Categoria Serviço setado idCategoria e pai isnull.
-	 * 
-	 * @return Collection
-	 * @throws Exception
-	 */
-	public List<CategoriaServicoDTO> listCategoriasServicoidPaiIsNull(CategoriaServicoDTO bean) throws PersistenceException {
-		
-		List condicao = new ArrayList();
-		List ordenacao = new ArrayList();
-		condicao.add(new Condition("nomeCategoriaServico", "=", bean.getNomeCategoriaServico()));
-		condicao.add(new Condition("idCategoriaServicoPai", "is",null ));
-		return (List<CategoriaServicoDTO>) super.findByCondition(condicao, ordenacao);
-	}
+    /**
+     * Retorna lista de Categoria Serviço ativas.
+     *
+     * @return Collection
+     * @throws Exception
+     */
+    public Collection listCategoriasAtivas() throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
 
-	
-	
-	/**
-	 * Retorna lista de Categoria Serviço ativas.
-	 * 
-	 * @return Collection
-	 * @throws Exception
-	 */
-	public Collection listCategoriasAtivasByNomeConcatenado() throws PersistenceException {
-		List condicao = new ArrayList();
-		List ordenacao = new ArrayList();
+        condicao.add(new Condition("dataFim", "is", null));
+        ordenacao.add(new Order("nomeCategoriaServico"));
 
-		condicao.add(new Condition("dataFim", "is", null));
-		ordenacao.add(new Order("idCategoriaServico"));
+        return super.findByCondition(condicao, ordenacao);
+    }
 
-		return super.findByCondition(condicao, ordenacao);
-	}
+    /**
+     * Retorna lista de Categoria Serviço setado idPai e idFilho.
+     *
+     * @return Collection
+     * @throws Exception
+     */
+    public List<CategoriaServicoDTO> listCategoriasServicoidPaiFilho(final CategoriaServicoDTO bean) throws PersistenceException {
 
-	/**
-	 * Verifica se Categoria possui filho.
-	 * 
-	 * @param categoriaServico
-	 * @return - <b>True:</b> Possui filho. - <b>False: </b>Não possui.
-	 * @throws PersistenceException
-	 */
-	public boolean verificarSeCategoriaPossuiFilho(CategoriaServicoDTO categoriaServico) throws PersistenceException {
-		StringBuilder sql = new StringBuilder();
-		List parametros = new ArrayList();
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
+        condicao.add(new Condition("nomeCategoriaServico", "=", bean.getNomeCategoriaServico()));
+        condicao.add(new Condition("idCategoriaServicoPai", "=", bean.getIdCategoriaServicoPai()));
+        return (List<CategoriaServicoDTO>) super.findByCondition(condicao, ordenacao);
+    }
 
-		sql.append("SELECT DISTINCT categoriafilho.nomecategoriaservico FROM categoriaservico categoriapai ");
-		sql.append("INNER JOIN categoriaservico categoriafilho ON categoriapai.idcategoriaservico = categoriafilho.idcategoriaservicopai ");
-		sql.append("WHERE categoriapai.idcategoriaservico = ? AND categoriafilho.datafim IS NULL");
-		parametros.add(categoriaServico.getIdCategoriaServico());
+    /**
+     * Retorna lista de Categoria Serviço setado idCategoria e pai isnull.
+     *
+     * @return Collection
+     * @throws Exception
+     */
+    public List<CategoriaServicoDTO> listCategoriasServicoidPaiIsNull(final CategoriaServicoDTO bean) throws PersistenceException {
 
-		List filhos = execSQL(sql.toString(), parametros.toArray());
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
+        condicao.add(new Condition("nomeCategoriaServico", "=", bean.getNomeCategoriaServico()));
+        condicao.add(new Condition("idCategoriaServicoPai", "is", null));
+        return (List<CategoriaServicoDTO>) super.findByCondition(condicao, ordenacao);
+    }
 
-		if (filhos != null && !filhos.isEmpty()) {
-			return true;
-		} else {
-			return false;
-		}
-	}
+    /**
+     * Retorna lista de Categoria Serviço ativas.
+     *
+     * @return Collection
+     * @throws Exception
+     */
+    public Collection listCategoriasAtivasByNomeConcatenado() throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
 
-	/**
-	 * Verifica se Categoria possui Serviço associado
-	 * 
-	 * @param categoriaServico
-	 * @return - <b>True:</b> Possui filho. - <b>False: </b>Não possui.
-	 * @throws PersistenceException
-	 */
-	public boolean verificarSeCategoriaPossuiServico(CategoriaServicoDTO categoriaServico) throws PersistenceException {
-		StringBuilder sql = new StringBuilder();
-		List parametros = new ArrayList();
+        condicao.add(new Condition("dataFim", "is", null));
+        ordenacao.add(new Order("idCategoriaServico"));
 
-		sql.append("SELECT DISTINCT servico.nomeservico FROM categoriaservico ");
-		sql.append("INNER JOIN servico ON categoriaservico.idcategoriaservico = servico.idcategoriaservico ");
-		sql.append("WHERE categoriaservico.idcategoriaservico = ?");
-		parametros.add(categoriaServico.getIdCategoriaServico());
+        return super.findByCondition(condicao, ordenacao);
+    }
 
-		List categoriasEncontradas = execSQL(sql.toString(), parametros.toArray());
+    /**
+     * Verifica se Categoria possui filho.
+     *
+     * @param categoriaServico
+     * @return - <b>True:</b> Possui filho. - <b>False: </b>Não possui.
+     * @throws PersistenceException
+     */
+    public boolean verificarSeCategoriaPossuiFilho(final CategoriaServicoDTO categoriaServico) throws PersistenceException {
+        final StringBuilder sql = new StringBuilder();
+        final List parametros = new ArrayList<>();
 
-		if (categoriasEncontradas != null && !categoriasEncontradas.isEmpty()) {
-			return true;
-		} else {
-			return false;
-		}
-	}
+        sql.append("SELECT DISTINCT categoriafilho.nomecategoriaservico FROM categoriaservico categoriapai ");
+        sql.append("INNER JOIN categoriaservico categoriafilho ON categoriapai.idcategoriaservico = categoriafilho.idcategoriaservicopai ");
+        sql.append("WHERE categoriapai.idcategoriaservico = ? AND categoriafilho.datafim IS NULL");
+        parametros.add(categoriaServico.getIdCategoriaServico());
 
-	/**
-	 * Verifica se categoria informada já existe.
-	 * 
-	 * @param categoriaServicoDTO
-	 * @return true - existe; false - não existe;
-	 * @throws PersistenceException
-	 */
-	public boolean verificarSeCategoriaExiste(CategoriaServicoDTO categoriaServicoDTO) throws PersistenceException {
-		StringBuilder sql = new StringBuilder();
-		List parametros = new ArrayList();
+        final List filhos = this.execSQL(sql.toString(), parametros.toArray());
 
-		sql.append("SELECT nomecategoriaservico FROM categoriaservico ");
-		sql.append("WHERE datafim is null AND nomecategoriaservico like ?");
+        if (filhos != null && !filhos.isEmpty()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-		parametros.add(categoriaServicoDTO.getNomeCategoriaServico());
+    /**
+     * Verifica se Categoria possui Serviço associado
+     *
+     * @param categoriaServico
+     * @return - <b>True:</b> Possui filho. - <b>False: </b>Não possui.
+     * @throws PersistenceException
+     */
+    public boolean verificarSeCategoriaPossuiServico(final CategoriaServicoDTO categoriaServico) throws PersistenceException {
+        final StringBuilder sql = new StringBuilder();
+        final List parametros = new ArrayList<>();
 
-		List categorias = execSQL(sql.toString(), parametros.toArray());
+        sql.append("SELECT DISTINCT servico.nomeservico FROM categoriaservico ");
+        sql.append("INNER JOIN servico ON categoriaservico.idcategoriaservico = servico.idcategoriaservico ");
+        sql.append("WHERE categoriaservico.idcategoriaservico = ?");
+        parametros.add(categoriaServico.getIdCategoriaServico());
 
-		if (categorias != null && !categorias.isEmpty()) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
-	/**
-	 * Retorna lista de Categoria Serviço por nome.
-	 * 
-	 * @return Collection
-	 * @throws Exception
-	 */
-	public Collection findByNomeCategoria(CategoriaServicoDTO categoriaServicoDTO) throws PersistenceException {
-		List condicao = new ArrayList();
-		List ordenacao = new ArrayList();
+        final List categoriasEncontradas = this.execSQL(sql.toString(), parametros.toArray());
 
-		condicao.add(new Condition("nomeCategoriaServico", "=", categoriaServicoDTO.getNomeCategoriaServico())); 
-		ordenacao.add(new Order("nomeCategoriaServico"));
+        if (categoriasEncontradas != null && !categoriasEncontradas.isEmpty()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-		return super.findByCondition(condicao, ordenacao);
-	}
-	
+    /**
+     * Verifica se categoria informada já existe.
+     *
+     * @param categoriaServicoDTO
+     * @return true - existe; false - não existe;
+     * @throws PersistenceException
+     */
+    public boolean verificarSeCategoriaExiste(final CategoriaServicoDTO categoriaServicoDTO) throws PersistenceException {
+        final StringBuilder sql = new StringBuilder();
+        final List parametros = new ArrayList<>();
 
-	/**
-	 * Encontra a categoria de serviço pelo ID
-	 * @author euler.ramos
-	 */
-	public List<CategoriaServicoDTO> findByIdCategoriaServico(Integer id) throws PersistenceException {
-		List resp = new ArrayList();
+        sql.append("SELECT nomecategoriaservico FROM categoriaservico ");
+        sql.append("WHERE datafim is null AND nomecategoriaservico like ?");
 
-		Collection fields = getFields();
-		List parametro = new ArrayList();
-		List listRetorno = new ArrayList();
-		String campos = "";
-		for (Iterator it = fields.iterator(); it.hasNext();) {
-			Field field = (Field) it.next();
-			if (!campos.trim().equalsIgnoreCase("")) {
-				campos = campos + ",";
-			}
-			campos = campos + field.getFieldDB();
-			listRetorno.add(field.getFieldClass());
-		}
+        parametros.add(categoriaServicoDTO.getNomeCategoriaServico());
 
-		String sql = "SELECT " + campos + " FROM " + getTableName() + " WHERE idcategoriaservico=? and (datafim IS NULL) ORDER BY idcategoriaservico";
-		parametro.add(id);
-		resp = this.execSQL(sql, parametro.toArray());
-		
-		List result = this.engine.listConvertion(getBean(), resp, listRetorno);
-		return (result == null ? new ArrayList<CategoriaServicoDTO>() : result);
-	}
-	
-	/**
-	 * Encontra a categoria de serviço pelo nome
-	 * @author euler.ramos
-	 */
-	public List<CategoriaServicoDTO> findByNomeCategoria(String titulo) throws PersistenceException {
-		List resp = new ArrayList();
+        final List categorias = this.execSQL(sql.toString(), parametros.toArray());
 
-		Collection fields = getFields();
-		List parametro = new ArrayList();
-		List listRetorno = new ArrayList();
-		String campos = "";
-		for (Iterator it = fields.iterator(); it.hasNext();) {
-			Field field = (Field) it.next();
-			if (!campos.trim().equalsIgnoreCase("")) {
-				campos = campos + ",";
-			}
-			campos = campos + field.getFieldDB();
-			listRetorno.add(field.getFieldClass());
-		}
+        if (categorias != null && !categorias.isEmpty()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-		String sql = "SELECT " + campos + " FROM " + getTableName() + " WHERE nomecategoriaservico=? and (datafim IS NULL) ORDER BY nomecategoriaservico";
-		parametro.add(titulo);
-		resp = this.execSQL(sql, parametro.toArray());
-		
-		List result = this.engine.listConvertion(getBean(), resp, listRetorno);
-		return (result == null ? new ArrayList<CategoriaServicoDTO>() : result);
-	}
+    /**
+     * Retorna lista de Categoria Serviço por nome.
+     *
+     * @return Collection
+     * @throws Exception
+     */
+    public Collection findByNomeCategoria(final CategoriaServicoDTO categoriaServicoDTO) throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
+
+        condicao.add(new Condition("nomeCategoriaServico", "=", categoriaServicoDTO.getNomeCategoriaServico()));
+        ordenacao.add(new Order("nomeCategoriaServico"));
+
+        return super.findByCondition(condicao, ordenacao);
+    }
+
+    /**
+     * Encontra a categoria de serviço pelo ID
+     *
+     * @author euler.ramos
+     */
+    public List<CategoriaServicoDTO> findByIdCategoriaServico(final Integer id) throws PersistenceException {
+        List resp = new ArrayList<>();
+
+        final Collection fields = this.getFields();
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        String campos = "";
+        for (final Iterator it = fields.iterator(); it.hasNext();) {
+            final Field field = (Field) it.next();
+            if (!campos.trim().equalsIgnoreCase("")) {
+                campos = campos + ",";
+            }
+            campos = campos + field.getFieldDB();
+            listRetorno.add(field.getFieldClass());
+        }
+
+        final String sql = "SELECT " + campos + " FROM " + this.getTableName()
+                + " WHERE idcategoriaservico=? and (datafim IS NULL) ORDER BY idcategoriaservico";
+        parametro.add(id);
+        resp = this.execSQL(sql, parametro.toArray());
+
+        final List result = engine.listConvertion(this.getBean(), resp, listRetorno);
+        return result == null ? new ArrayList<CategoriaServicoDTO>() : result;
+    }
+
+    /**
+     * Encontra a categoria de serviço pelo nome
+     *
+     * @author euler.ramos
+     */
+    public List<CategoriaServicoDTO> findByNomeCategoria(final String titulo) throws PersistenceException {
+        List resp = new ArrayList<>();
+
+        final Collection fields = this.getFields();
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        String campos = "";
+        for (final Iterator it = fields.iterator(); it.hasNext();) {
+            final Field field = (Field) it.next();
+            if (!campos.trim().equalsIgnoreCase("")) {
+                campos = campos + ",";
+            }
+            campos = campos + field.getFieldDB();
+            listRetorno.add(field.getFieldClass());
+        }
+
+        final String sql = "SELECT " + campos + " FROM " + this.getTableName()
+                + " WHERE nomecategoriaservico=? and (datafim IS NULL) ORDER BY nomecategoriaservico";
+        parametro.add(titulo);
+        resp = this.execSQL(sql, parametro.toArray());
+
+        final List result = engine.listConvertion(this.getBean(), resp, listRetorno);
+        return result == null ? new ArrayList<CategoriaServicoDTO>() : result;
+    }
+
 }

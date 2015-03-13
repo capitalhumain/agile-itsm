@@ -13,56 +13,59 @@ import br.com.citframework.util.Constantes;
 
 /**
  * @author flavio.santana
- * 
+ *
  */
 public class InstalacaoDao extends CrudDaoDefaultImpl {
 
-	public InstalacaoDao() {
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
+    public InstalacaoDao() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
+    }
 
-	@SuppressWarnings("rawtypes")
-	public Class getBean() {
-		return InstalacaoDTO.class;
-	}
+    @Override
+    public Class getBean() {
+        return InstalacaoDTO.class;
+    }
 
-	public Collection<Field> getFields() {
-		Collection<Field> listFields = new ArrayList<Field>();
+    @Override
+    public Collection<Field> getFields() {
+        final Collection<Field> listFields = new ArrayList<Field>();
 
-		listFields.add(new Field("idinstalacao", "idinstalacao", true, true, false, true));
-		listFields.add(new Field("sucesso", "sucesso", false, false, false, true));
-		listFields.add(new Field("passo", "passo", false, false, false, true));
+        listFields.add(new Field("idinstalacao", "idinstalacao", true, true, false, true));
+        listFields.add(new Field("sucesso", "sucesso", false, false, false, true));
+        listFields.add(new Field("passo", "passo", false, false, false, true));
 
-		return listFields;
-	}
+        return listFields;
+    }
 
-	public String getTableName() {
-		return "instalacao";
-	}
+    @Override
+    public String getTableName() {
+        return "instalacao";
+    }
 
-	public boolean isSucessoInstalacao() throws PersistenceException {
-		List<Object> parametro = new ArrayList<Object>();
-		List fields = new ArrayList();
-		List list = new ArrayList();
-		String sql = "select * from " + getTableName() + " where sucesso = 'S' ";
-		list = this.execSQL(sql, parametro.toArray());
-		fields.add("idinstalacao");
-		fields.add("sucesso");
-		fields.add("passo");
-		if (list.isEmpty())
-			return false;
-		else 
-			return true;
-	}
+    public boolean isSucessoInstalacao() throws PersistenceException {
+        final List<Object> parametro = new ArrayList<Object>();
+        final List fields = new ArrayList<>();
+        List list = new ArrayList<>();
+        final String sql = "select * from " + this.getTableName() + " where sucesso = 'S' ";
+        list = this.execSQL(sql, parametro.toArray());
+        fields.add("idinstalacao");
+        fields.add("sucesso");
+        fields.add("passo");
+        if (list.isEmpty()) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 
-	@Override
-	public Collection find(BaseEntity obj) throws PersistenceException {
-		return null;
-	}
+    @Override
+    public Collection find(final BaseEntity obj) throws PersistenceException {
+        return null;
+    }
 
-	@Override
-	public Collection list() throws PersistenceException {
-		return null;
-	}
+    @Override
+    public Collection list() throws PersistenceException {
+        return null;
+    }
 
 }

@@ -49,8 +49,8 @@ public class IntegracaoSistemasExternosDao extends CrudDaoDefaultImpl {
     }
 
     public IntegracaoSistemasExternosDTO findByIdProcessoAndIdentificador(final String processo, final String identificador) throws Exception {
-        final List condicao = new ArrayList();
-        final List ordenacao = new ArrayList();
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
         condicao.add(new Condition("processo", "=", processo));
         condicao.add(new Condition("identificador", "=", identificador));
         ordenacao.add(new Order("idIntegracao"));
@@ -62,8 +62,8 @@ public class IntegracaoSistemasExternosDao extends CrudDaoDefaultImpl {
     }
 
     public IntegracaoSistemasExternosDTO findByIdProcessoAndIdObjeto(final String processo, final String idObjeto, final String situacao) throws Exception {
-        final List condicao = new ArrayList();
-        final List ordenacao = new ArrayList();
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
         condicao.add(new Condition("processo", "=", processo));
         condicao.add(new Condition("idObjeto", "=", idObjeto));
         if (situacao != null) {
@@ -75,11 +75,6 @@ public class IntegracaoSistemasExternosDao extends CrudDaoDefaultImpl {
             return result.get(0);
         }
         return null;
-    }
-
-    @Override
-    public void updateNotNull(final BaseEntity obj) throws PersistenceException {
-        super.updateNotNull(obj);
     }
 
 }

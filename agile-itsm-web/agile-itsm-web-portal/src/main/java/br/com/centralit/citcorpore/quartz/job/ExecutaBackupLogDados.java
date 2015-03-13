@@ -57,18 +57,18 @@ public class ExecutaBackupLogDados implements Job {
             }
             ObjetoNegocioDTO objetoNegocioDTO = new ObjetoNegocioDTO();
 
-            objetoNegocioDTO = getObjetoNegocioService().findByNomeObjetoNegocio("LOGDADOS");
+            objetoNegocioDTO = this.getObjetoNegocioService().findByNomeObjetoNegocio("LOGDADOS");
             String sqlDelete = "";
             String nomeTabela = "";
             final String excluirAoExportar = "S";
             StringBuilder strAux = null;
-            String extensaoArquivo = ".smart";
+            final String extensaoArquivo = ".smart";
             int contador = 0;
 
             existeDadosNaTabela = true;
             while (existeDadosNaTabela) {
-            	contador++;
-                strAux = geraRecursiveExportObjetoNegocio(objetoNegocioDTO.getIdObjetoNegocio(), sqlDelete, nomeTabela, "");
+                contador++;
+                strAux = this.geraRecursiveExportObjetoNegocio(objetoNegocioDTO.getIdObjetoNegocio(), sqlDelete, nomeTabela, "");
                 if (strAux == null) {
                     strAux = new StringBuilder();
                 }
@@ -93,12 +93,12 @@ public class ExecutaBackupLogDados implements Job {
                             }
                         }
 
-                        TransactionControler tc = getTransactionControler();
+                        final TransactionControler tc = this.getTransactionControler();
                         try {
                             final String[] strDel = sqlDelete.split(";");
                             if (strDel != null) {
                                 jdbcEngine.setTransactionControler(tc);
-                                System.out.println("Executando rotina de exclusão da tabela LOGDADOS "+contador);
+                                System.out.println("Executando rotina de exclusão da tabela LOGDADOS " + contador);
                                 for (int i = 0; i < strDel.length; i++) {
                                     try {
                                         if (tc.isStarted()) {
@@ -107,14 +107,14 @@ public class ExecutaBackupLogDados implements Job {
                                                 tc.commit();
                                             }
                                             if (!tc.isStarted()) {
-                                               tc.start();
+                                                tc.start();
                                             }
                                         }
                                     } catch (final Exception e) {
                                         e.printStackTrace();
                                     }
                                 }
-                                System.out.println("Rotina de exclusão "+contador+" finalizada.");
+                                System.out.println("Rotina de exclusão " + contador + " finalizada.");
                                 tc.commit();
                             }
                         } catch (final Exception e) {
@@ -131,25 +131,26 @@ public class ExecutaBackupLogDados implements Job {
                     }
                 }
             }
-            compactaArquivosLogDados(INFORMAR_CAMINHO_EXECUCAO_BACKUP_LOGDADOS + "/BackUpLogDados_"+UtilDatas.getDataAtual()+".zip",INFORMAR_CAMINHO_EXECUCAO_BACKUP_LOGDADOS, extensaoArquivo);
-            
+            this.compactaArquivosLogDados(INFORMAR_CAMINHO_EXECUCAO_BACKUP_LOGDADOS + "/BackUpLogDados_" + UtilDatas.getDataAtual() + ".zip",
+                    INFORMAR_CAMINHO_EXECUCAO_BACKUP_LOGDADOS, extensaoArquivo);
+
         } catch (final Exception e) {
             e.printStackTrace();
         }
     }
 
-    public StringBuilder geraRecursiveExportObjetoNegocio(final Integer idObjetoNegocio, final String sqlDelete, final String nomeTabela, final String filterAditional)
-            throws ServiceException, Exception {
-        final StringBuilder strAux = geraExportObjetoNegocio(idObjetoNegocio, sqlDelete, nomeTabela, filterAditional);
+    public StringBuilder geraRecursiveExportObjetoNegocio(final Integer idObjetoNegocio, final String sqlDelete, final String nomeTabela,
+            final String filterAditional) throws ServiceException, Exception {
+        final StringBuilder strAux = this.geraExportObjetoNegocio(idObjetoNegocio, sqlDelete, nomeTabela, filterAditional);
         return strAux;
     }
 
-    public StringBuilder geraExportObjetoNegocio(final Integer idObjetoNegocio, String sqlDelete, final String nomeTabela, final String filterAditional) throws ServiceException,
-            Exception {
+    public StringBuilder geraExportObjetoNegocio(final Integer idObjetoNegocio, String sqlDelete, final String nomeTabela, final String filterAditional)
+            throws ServiceException, Exception {
         ObjetoNegocioDTO objetoNegocioDTO = new ObjetoNegocioDTO();
         objetoNegocioDTO.setIdObjetoNegocio(idObjetoNegocio);
-        objetoNegocioDTO = (ObjetoNegocioDTO) getObjetoNegocioService().restore(objetoNegocioDTO);
-        final Collection col = getCamposObjetoNegocioService().findByIdObjetoNegocio(idObjetoNegocio);
+        objetoNegocioDTO = (ObjetoNegocioDTO) this.getObjetoNegocioService().restore(objetoNegocioDTO);
+        final Collection col = this.getCamposObjetoNegocioService().findByIdObjetoNegocio(idObjetoNegocio);
         final String sqlCondicao = "";
         String sqlCampos = "";
 
@@ -160,21 +161,21 @@ public class ExecutaBackupLogDados implements Job {
         dataBaseMetaDadosUtil.sincronizaObjNegDB(objetoNegocioDTO.getNomeTabelaDB(), false);
         System.out.println("Sincronizando tabela: " + objetoNegocioDTO.getNomeTabelaDB());
 
-//		if (col != null) {
-//			for (Iterator it = col.iterator(); it.hasNext();) {
-//				CamposObjetoNegocioDTO camposObjetoNegocioDto = (CamposObjetoNegocioDTO) it.next();
-//				if (!sqlCampos.trim().equalsIgnoreCase("")) {
-//					sqlCampos += ",";
-//				}
-//				sqlCampos = sqlCampos + camposObjetoNegocioDto.getNomeDB();
-//
-//			}
-//		}
+        // if (col != null) {
+        // for (Iterator it = col.iterator(); it.hasNext();) {
+        // CamposObjetoNegocioDTO camposObjetoNegocioDto = (CamposObjetoNegocioDTO) it.next();
+        // if (!sqlCampos.trim().equalsIgnoreCase("")) {
+        // sqlCampos += ",";
+        // }
+        // sqlCampos = sqlCampos + camposObjetoNegocioDto.getNomeDB();
+        //
+        // }
+        // }
         String sqlFinal = "SELECT ";
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.SQLSERVER)) {
             sqlFinal = sqlFinal + " top " + quantidadeDeDadosPorArquivo + " ";
         }
-		sqlCampos = " IDLOG,DTATUALIZACAO,OPERACAO,DADOS,IDUSUARIO,LOCALORIGEM,NOMETABELA,LOGDADOSCOL,DATALOG ";
+        sqlCampos = " IDLOG,DTATUALIZACAO,OPERACAO,DADOS,IDUSUARIO,LOCALORIGEM,NOMETABELA,LOGDADOSCOL,DATALOG ";
         sqlFinal += sqlCampos + " FROM " + objetoNegocioDTO.getNomeTabelaDB();
         sqlDelete = "DELETE FROM " + objetoNegocioDTO.getNomeTabelaDB();
         if (!sqlCondicao.trim().equalsIgnoreCase("")) {
@@ -280,15 +281,14 @@ public class ExecutaBackupLogDados implements Job {
 
         return strXML;
     }
-    
-    public void compactaArquivosLogDados(String nomeArquivoGravado, String CaminhoArquivo,String extensaoArquivo) throws Exception{
-    	try{
-    		UtilZip.zipDirectoryComExtensao(nomeArquivoGravado, CaminhoArquivo,extensaoArquivo);
-    	}catch(Exception e){
-    		e.printStackTrace();
-    	}
+
+    public void compactaArquivosLogDados(final String nomeArquivoGravado, final String CaminhoArquivo, final String extensaoArquivo) throws Exception {
+        try {
+            UtilZip.zipDirectoryComExtensao(nomeArquivoGravado, CaminhoArquivo, extensaoArquivo);
+        } catch (final Exception e) {
+            e.printStackTrace();
+        }
     }
-    
 
     private TransactionControler transactionControler;
 

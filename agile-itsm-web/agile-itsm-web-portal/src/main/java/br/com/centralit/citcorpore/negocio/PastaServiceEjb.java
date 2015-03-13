@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.EmpregadoDTO;
@@ -182,7 +182,7 @@ public class PastaServiceEjb extends CrudServiceImpl implements PastaService {
 		NotificacaoDao notificacaoDao = new NotificacaoDao();
 
 		NotificacaoDTO notificacaoDTO = new NotificacaoDTO();
-		Collection<EmpregadoDTO> colEmpregados = new ArrayList();
+		Collection<EmpregadoDTO> colEmpregados = new ArrayList<>();
 
 		if (transactionControler != null) {
 			empregadoDao.setTransactionControler(transactionControler);
@@ -604,7 +604,7 @@ public class PastaServiceEjb extends CrudServiceImpl implements PastaService {
 	public Collection<PastaDTO> listSubPastasFAQ(PastaDTO pasta) throws Exception {
 		Collection<PastaDTO> listSubPasta = getDao().listSubPastas(pasta);
 
-		Collection<PastaDTO> listSubPastasFAQ = new ArrayList();
+		Collection<PastaDTO> listSubPastasFAQ = new ArrayList<>();
 
 		if (listSubPasta != null && !listSubPasta.isEmpty()) {
 			for (PastaDTO subPasta : listSubPasta) {
@@ -638,7 +638,7 @@ public class PastaServiceEjb extends CrudServiceImpl implements PastaService {
 	public Collection<PastaDTO> listSubPastasErroConhecido(PastaDTO pasta) throws Exception {
 		Collection<PastaDTO> listSubPasta = getDao().listSubPastas(pasta);
 
-		Collection<PastaDTO> listSubPastasErroConhecido = new ArrayList();
+		Collection<PastaDTO> listSubPastasErroConhecido = new ArrayList<>();
 
 		if (listSubPasta != null && !listSubPasta.isEmpty()) {
 			for (PastaDTO subPasta : listSubPasta) {

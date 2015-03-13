@@ -8,7 +8,7 @@ public class Run {
 	 * @param args
 	 */
 	public static void main(String[] args)throws Exception {
-		// TODO Auto-generated method stub
+		
 		
 		Usuario usua = new Usuario();
 		usua.setNomeUsuario("W");

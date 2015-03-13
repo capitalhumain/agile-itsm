@@ -3,41 +3,43 @@ package br.com.centralit.citcorpore.bean;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class DesignerWorkflowDTO extends BaseEntity {
-	private String nome;
-	private String type;
-	private Integer numero;
-	
-	private Integer numeroDecisoes;
 
-	public String getNome() {
-		return nome;
-	}
+    private String nome;
+    private String type;
+    private Integer numero;
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    private Integer numeroDecisoes;
 
-	public String getType() {
-		return type;
-	}
+    public String getNome() {
+        return nome;
+    }
 
-	public void setType(String type) {
-		this.type = type;
-	}
+    public void setNome(final String nome) {
+        this.nome = nome;
+    }
 
-	public Integer getNumero() {
-		return numero;
-	}
+    public String getType() {
+        return type;
+    }
 
-	public void setNumero(Integer numero) {
-		this.numero = numero;
-	}
+    public void setType(final String type) {
+        this.type = type;
+    }
 
-	public Integer getNumeroDecisoes() {
-		return numeroDecisoes;
-	}
+    public Integer getNumero() {
+        return numero;
+    }
 
-	public void setNumeroDecisoes(Integer numeroDecisoes) {
-		this.numeroDecisoes = numeroDecisoes;
-	}
+    public void setNumero(final Integer numero) {
+        this.numero = numero;
+    }
+
+    public Integer getNumeroDecisoes() {
+        return numeroDecisoes;
+    }
+
+    public void setNumeroDecisoes(final Integer numeroDecisoes) {
+        this.numeroDecisoes = numeroDecisoes;
+    }
+
 }

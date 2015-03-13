@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import br.com.centralit.citcorpore.util.CITCorporeUtil;
 import br.com.centralit.citcorpore.util.Enumerados.TipoDate;
@@ -30,8 +30,8 @@ public class GenerateServiceInicioTratamentoAnalitico extends GerencialGenerateS
 	public List execute(HashMap parametersValues, Collection paramtersDefinition) throws ParseException {
 		String datainicial = (String) parametersValues.get("PARAM.dataInicial");
 		String datafinal = (String) parametersValues.get("PARAM.dataFinal");
-		List parametersValuesBusca = new ArrayList();
-		List lstRetorno = new ArrayList();
+		List parametersValuesBusca = new ArrayList<>();
+		List lstRetorno = new ArrayList<>();
 
 		Date datafim = UtilDatas.convertStringToSQLDate(TipoDate.DATE_DEFAULT, datafinal, super.getLanguage(paramtersDefinition));
 		Date datainicio = UtilDatas.convertStringToSQLDate(TipoDate.DATE_DEFAULT, datainicial, super.getLanguage(paramtersDefinition));
@@ -207,7 +207,7 @@ public class GenerateServiceInicioTratamentoAnalitico extends GerencialGenerateS
 			}
 
 			if (lstRetorno == null || lstRetorno.size() == 0) {
-				lstRetorno = new ArrayList();
+				lstRetorno = new ArrayList<>();
 				/* Desenvolvedor: Rodrigo Pecci - Data: 30/10/2013 - Horário: 14h15min - ID Citsmart: 120770
 				 * Motivo/Comentário: Se lstRetorno for null ou vazio, é necessário retornar somente um ArrayList vazio.
 				 */

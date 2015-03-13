@@ -81,19 +81,15 @@ public class AcordoNivelServicoContratoServiceEjb extends CrudServiceImpl implem
             final boolean resp = UtilDatas.dataEntreIntervalo(dataInicioSLA, dataInicioContrato, dataFimContrato);
             if (resp) {
                 return true;
-            } else {
-                return false;
             }
-        } else {
-            return false;
         }
-
+        return false;
     }
 
     @Override
     public Collection consultaResultadosEsperados(final ResultadosEsperadosDTO resultadosEsperadosDTO) throws Exception {
         final ResultadosEsperadosDAO dao = new ResultadosEsperadosDAO();
-        final Collection colRetorno = new ArrayList();
+        final Collection colRetorno = new ArrayList<>();
         try {
             final Collection col = dao.findByIdServicoContrato(resultadosEsperadosDTO.getIdServicoContrato());
             if (col != null && col.size() > 0) {

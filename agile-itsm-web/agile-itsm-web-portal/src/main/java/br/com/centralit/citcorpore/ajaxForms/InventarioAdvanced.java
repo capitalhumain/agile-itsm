@@ -10,7 +10,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 
 import br.com.centralit.citajax.html.AjaxFormAction;
 import br.com.centralit.citajax.html.DocumentHTML;
@@ -109,7 +109,7 @@ public class InventarioAdvanced extends AjaxFormAction {
 		if (colEventosMon != null) {
 			for (Iterator it = colEventosMon.iterator(); it.hasNext();) {
 				EventoMonitoramentoDTO eventoMonitoramentoDTO = (EventoMonitoramentoDTO) it.next();
-				idEventoMonitoramento.addOption("" + eventoMonitoramentoDTO.getIdEventoMonitoramento(), StringEscapeUtils.escapeJavaScript(eventoMonitoramentoDTO.getNomeEvento()));
+				idEventoMonitoramento.addOption("" + eventoMonitoramentoDTO.getIdEventoMonitoramento(), StringEscapeUtils.escapeEcmaScript(eventoMonitoramentoDTO.getNomeEvento()));
 			}
 		}
 
@@ -701,10 +701,10 @@ public class InventarioAdvanced extends AjaxFormAction {
 				}
 			}
 		} catch (ServiceException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		return lstRetorno;
@@ -985,7 +985,7 @@ public class InventarioAdvanced extends AjaxFormAction {
 				ServicoDTO servicoDTO = (ServicoDTO) it.next();
 				if (servicoDTO.getDeleted() == null || servicoDTO.getDeleted().equalsIgnoreCase("N")) {
 					if (servicoDTO.getIdSituacaoServico().intValue() == 1) { // ATIVO
-						idServico.addOptionIfNotExists("" + servicoDTO.getIdServico(), StringEscapeUtils.escapeJavaScript(servicoDTO.getNomeServico()));
+						idServico.addOptionIfNotExists("" + servicoDTO.getIdServico(), StringEscapeUtils.escapeEcmaScript(servicoDTO.getNomeServico()));
 					}
 				}
 			}

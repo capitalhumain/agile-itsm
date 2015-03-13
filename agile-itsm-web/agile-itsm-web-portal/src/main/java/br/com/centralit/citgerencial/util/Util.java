@@ -101,7 +101,7 @@ public class Util {
      * @return
      */
     public static final Collection createCollection(final Object[] objetos) {
-        final Collection c = new ArrayList();
+        final Collection c = new ArrayList<>();
         int i;
 
         for (i = 0; i < c.size(); i++) {

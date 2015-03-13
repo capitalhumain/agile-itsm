@@ -9,7 +9,7 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.BodyTagSupport;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 
 import br.com.centralit.citcorpore.bean.MenuDTO;
@@ -130,7 +130,8 @@ public class MenuPadrao extends BodyTagSupport {
                 html.append("<ul>");
                 for (final MenuDTO submenu : listaSubMenus) {
                     html.append("<li>");
-                    html.append("   <a href='" + (submenu.getLink() == null || submenu.getLink().equals("") ? "javascript:;" : CAMINHO_PAGINAS + submenu.getLink()));
+                    html.append("   <a href='"
+                            + (submenu.getLink() == null || submenu.getLink().equals("") ? "javascript:;" : CAMINHO_PAGINAS + submenu.getLink()));
                     html.append("'>");
                     html.append("");
                     html.append(UtilI18N.internacionaliza((HttpServletRequest) pageContext.getRequest(), submenu.getNome()));
@@ -191,61 +192,61 @@ public class MenuPadrao extends BodyTagSupport {
             final MenuDao menuDao = new MenuDao();
             final Integer idMenu = menuDao.buscarIdMenu(url);
 
-            if(idMenu != null){
-	            
-	            final Collection<PerfilAcessoMenuDTO> listaAcessoMenus = WebUtil.getPerfilAcessoUsuarioByMenu(request, usuario, idMenu);
-	
-	            if (listaAcessoMenus != null) {
-	                html.append("<script type=\"text/javascript\"> $(window).load(function() { ");
-	                btnGravar = false;
-	                btnExcluir = false;
-	                btnPesquisar = false;
-	                for (final PerfilAcessoMenuDTO perfilAcesso : listaAcessoMenus) {
-	                    if (perfilAcesso.getGrava().equalsIgnoreCase("S")) {
-	                        btnGravar = true;
-	                    }
-	                    if (perfilAcesso.getPesquisa().equalsIgnoreCase("S")) {
-	                        btnPesquisar = true;
-	                    }
-	                    if (perfilAcesso.getDeleta().equalsIgnoreCase("S")) {
-	                        btnExcluir = true;
-	                    }
-	                }
-	
-	                if (!btnGravar) {
-	                    html.append("$('#btnGravar').addClass('disabled'); ");
-	                    html.append("$('#btnGravar').addClass('disabledButtons'); ");
-	                    html.append("$('#btnGravar').attr('disabled', 'disabled'); ");
-	                }
-	
-	                if (!btnExcluir) {
-	                    html.append("$('#btnExcluir').addClass('disabled'); ");
-	                    html.append("$('#btnExcluir').addClass('disabledButtons'); ");
-	                    html.append("$('#btnExcluir').attr('disabled', 'disabled'); ");
-	
-	                    html.append("$('#btnUpDate').addClass('disabled'); ");
-	                    html.append("$('#btnUpDate').addClass('disabledButtons'); ");
-	                    html.append("$('#btnUpDate').attr('disabled', 'disabled'); ");
-	                }
-	
-	                if (!btnPesquisar) {
-	                    html.append("$('#btnPesquisar').addClass('disabled'); ");
-	                    html.append("$('#btnPesquisar').addClass('disabledButtons'); ");
-	                    html.append("$('#btnPesquisar').attr('disabled', 'disabled'); ");
-	
-	                    html.append("$('#campoPesquisa').attr('disabled', 'disabled'); ");
-	
-	                    html.append("$('#btnTodos').addClass('disabled'); ");
-	                    html.append("$('#btnTodos').addClass('disabledButtons'); ");
-	                    html.append("$('#btnTodos').attr('disabled', 'disabled'); ");
-	
-	                    request.getSession(true).setAttribute("habilitaPesquisa", "S");
-	                }
-	                html.append("});");
-	                html.append("</script>");
-	            }
+            if (idMenu != null) {
+
+                final Collection<PerfilAcessoMenuDTO> listaAcessoMenus = WebUtil.getPerfilAcessoUsuarioByMenu(request, usuario, idMenu);
+
+                if (listaAcessoMenus != null) {
+                    html.append("<script type=\"text/javascript\"> $(window).load(function() { ");
+                    btnGravar = false;
+                    btnExcluir = false;
+                    btnPesquisar = false;
+                    for (final PerfilAcessoMenuDTO perfilAcesso : listaAcessoMenus) {
+                        if (perfilAcesso.getGrava().equalsIgnoreCase("S")) {
+                            btnGravar = true;
+                        }
+                        if (perfilAcesso.getPesquisa().equalsIgnoreCase("S")) {
+                            btnPesquisar = true;
+                        }
+                        if (perfilAcesso.getDeleta().equalsIgnoreCase("S")) {
+                            btnExcluir = true;
+                        }
+                    }
+
+                    if (!btnGravar) {
+                        html.append("$('#btnGravar').addClass('disabled'); ");
+                        html.append("$('#btnGravar').addClass('disabledButtons'); ");
+                        html.append("$('#btnGravar').attr('disabled', 'disabled'); ");
+                    }
+
+                    if (!btnExcluir) {
+                        html.append("$('#btnExcluir').addClass('disabled'); ");
+                        html.append("$('#btnExcluir').addClass('disabledButtons'); ");
+                        html.append("$('#btnExcluir').attr('disabled', 'disabled'); ");
+
+                        html.append("$('#btnUpDate').addClass('disabled'); ");
+                        html.append("$('#btnUpDate').addClass('disabledButtons'); ");
+                        html.append("$('#btnUpDate').attr('disabled', 'disabled'); ");
+                    }
+
+                    if (!btnPesquisar) {
+                        html.append("$('#btnPesquisar').addClass('disabled'); ");
+                        html.append("$('#btnPesquisar').addClass('disabledButtons'); ");
+                        html.append("$('#btnPesquisar').attr('disabled', 'disabled'); ");
+
+                        html.append("$('#campoPesquisa').attr('disabled', 'disabled'); ");
+
+                        html.append("$('#btnTodos').addClass('disabled'); ");
+                        html.append("$('#btnTodos').addClass('disabledButtons'); ");
+                        html.append("$('#btnTodos').attr('disabled', 'disabled'); ");
+
+                        request.getSession(true).setAttribute("habilitaPesquisa", "S");
+                    }
+                    html.append("});");
+                    html.append("</script>");
+                }
             } else {
-            	return "";
+                return "";
             }
         }
         return html.toString();

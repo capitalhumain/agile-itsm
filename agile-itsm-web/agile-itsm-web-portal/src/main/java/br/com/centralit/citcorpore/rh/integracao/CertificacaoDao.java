@@ -46,9 +46,9 @@ public class CertificacaoDao extends CrudDaoDefaultImpl {
     }
 
     public Collection findByNotIdFuncao(final Integer idFuncao) throws PersistenceException {
-        List dados = new ArrayList();
-        final List fields = new ArrayList();
-        final List parametros = new ArrayList();
+        List dados = new ArrayList<>();
+        final List fields = new ArrayList<>();
+        final List parametros = new ArrayList<>();
 
         final String sql = "select idcertificacao, descricao, detalhe from  rh_certificacao where idcertificacao not "
                 + " in(select idcertificacao from rh_perspectivatecnicacertificacao where idsolicitacaoservico = ? and obrigatoriocertificacao = 'S') order by descricao ";
@@ -66,7 +66,7 @@ public class CertificacaoDao extends CrudDaoDefaultImpl {
 
     @Override
     public Collection list() throws PersistenceException {
-        final List list = new ArrayList();
+        final List list = new ArrayList<>();
         list.add(new Order("descricao"));
         return super.list(list);
     }
@@ -96,7 +96,7 @@ public class CertificacaoDao extends CrudDaoDefaultImpl {
 
         final List list = this.execSQL(sql.toString(), objs);
 
-        final List listRetorno = new ArrayList();
+        final List listRetorno = new ArrayList<>();
         listRetorno.add("idCertificacao");
         listRetorno.add("descricao");
         listRetorno.add("detalhe");
@@ -105,8 +105,8 @@ public class CertificacaoDao extends CrudDaoDefaultImpl {
     }
 
     public CertificacaoDTO findById(final Integer idCertificacao) throws PersistenceException {
-        final List condicao = new ArrayList();
-        final List ordenacao = new ArrayList();
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
 
         condicao.add(new Condition("idCertificacao", "=", idCertificacao));
         ordenacao.add(new Order("idCertificacao"));

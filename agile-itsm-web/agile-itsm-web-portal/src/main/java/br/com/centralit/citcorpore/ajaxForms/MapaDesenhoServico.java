@@ -6,7 +6,7 @@ import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 
 import br.com.centralit.citajax.html.AjaxFormAction;
 import br.com.centralit.citajax.html.DocumentHTML;
@@ -63,7 +63,7 @@ public class MapaDesenhoServico extends AjaxFormAction {
 		MapaDesenhoServicoDTO mapa = (MapaDesenhoServicoDTO) document.getBean();
 
 		String imagensItemConfiguracaoSerializado = getImagensItemConfiguracaoSerializado(mapa.getIdServico(), request);
-		imagensItemConfiguracaoSerializado = StringEscapeUtils.escapeJavaScript(imagensItemConfiguracaoSerializado);
+		imagensItemConfiguracaoSerializado = StringEscapeUtils.escapeEcmaScript(imagensItemConfiguracaoSerializado);
 		mapa.setListaItensConfiguracaoSerializada(imagensItemConfiguracaoSerializado);
 
 		itensDeletadosInesperadamente = new ArrayList<Integer>();

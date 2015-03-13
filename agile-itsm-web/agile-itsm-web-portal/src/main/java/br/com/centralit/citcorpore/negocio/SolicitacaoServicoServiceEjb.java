@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import net.htmlparser.jericho.Source;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.bpm.dto.FluxoDTO;
@@ -691,7 +691,7 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 			if (tc != null)
 				faseServicoDao.setTransactionControler(tc);
 			Collection<FaseServicoDTO> colFases = faseServicoDao.list();
-			HashMap<String, FaseServicoDTO> mapFasesCaptura = new HashMap();
+			HashMap<String, FaseServicoDTO> mapFasesCaptura = new HashMap<>();
 			if (colFases != null) {
 				for (FaseServicoDTO faseDto : colFases) {
 					if (faseDto.getFaseCaptura() != null && faseDto.getFaseCaptura().equalsIgnoreCase("S"))
@@ -851,7 +851,7 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 		Collection<SolicitacaoServicoDTO> solicitacoesSimplificada = null;
 		ArrayList<SolicitacaoServicoDTO> solicitacoesCompleta = new ArrayList<SolicitacaoServicoDTO>();
 
-		List condicoes = new ArrayList();
+		List<Condition> condicoes = new ArrayList<>();
 		if (idUsuario != null) {
 			condicoes.add(new Condition("idSolicitante", "=", idUsuario.intValue()));
 		}
@@ -1407,7 +1407,7 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 		if (tc != null)
 			this.getDao().setTransactionControler(tc);
 
-		Collection<SolicitacaoServicoDTO> listSolicitacaoServicoDto = new ArrayList();
+		Collection<SolicitacaoServicoDTO> listSolicitacaoServicoDto = new ArrayList<>();
 
 		listSolicitacaoServicoDto = this.getDao().listByTarefas(listTarefas);
 
@@ -1437,7 +1437,7 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 		if (tc != null)
 			this.getDao().setTransactionControler(tc);
 
-		Collection<SolicitacaoServicoDTO> listSolicitacaoServicoDto = new ArrayList();
+		Collection<SolicitacaoServicoDTO> listSolicitacaoServicoDto = new ArrayList<>();
 
 		listSolicitacaoServicoDto = this.getDao().listByTarefas(listTarefas, tiposSolicitacao);
 
@@ -2944,7 +2944,7 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 			}
 		}
 			} catch (PersistenceException e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
 			} finally {
 				try {
@@ -3152,8 +3152,8 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 
 
 	public Collection<SolicitacaoServicoDTO> resumoSolicitacoesServico(Collection<TarefaFluxoDTO> listTarefas, Integer idTipoDemandaServico, Integer idPrioridade) throws Exception {
-		Collection<SolicitacaoServicoDTO> listSolicitacaoServicoDto = new ArrayList();
-		HashMap hashMap = new HashMap();
+		Collection<SolicitacaoServicoDTO> listSolicitacaoServicoDto = new ArrayList<>();
+		HashMap hashMap = new HashMap<>();
 		Integer qtdEmAndamento = 0;
 		Integer qtdCancelada = 0;
 		Integer qtdSuspensa = 0;
@@ -3265,7 +3265,7 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 		Integer qtdPrazoVencido = 0;
 		Integer qtdPrazoAVencer = 0;
 		Integer qtdPrazoNormal = 0;
-		HashMap hashMap = new HashMap();
+		HashMap hashMap = new HashMap<>();
 		Collection<SolicitacaoServicoDTO> colSolicitacaoServico = new ArrayList<SolicitacaoServicoDTO>();
 		// SolicitacaoServicoDTO solicitacaoServicoDTO = new SolicitacaoServicoDTO();
 
@@ -3363,7 +3363,7 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 	public Collection<SolicitacaoServicoDTO> listByTarefas(Collection<TarefaFluxoDTO> listTarefas, Integer qtdAtual, Integer qtdAPaginacao,TransactionControler tc) throws Exception {
 		if (tc != null)
 			this.getDao().setTransactionControler(tc);
-		Collection<SolicitacaoServicoDTO> listSolicitacaoServicoDto = new ArrayList();
+		Collection<SolicitacaoServicoDTO> listSolicitacaoServicoDto = new ArrayList<>();
 
 		listSolicitacaoServicoDto = this.getDao().listByTarefas(listTarefas, qtdAtual, qtdAPaginacao);
 
@@ -3454,7 +3454,7 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 		if (tc != null)
 			this.getDao().setTransactionControler(tc);
 
-		Collection<SolicitacaoServicoDTO> listSolicitacaoServicoDto = new ArrayList();
+		Collection<SolicitacaoServicoDTO> listSolicitacaoServicoDto = new ArrayList<>();
 
 		listSolicitacaoServicoDto = this.getDao().listByTarefas(listTarefas, gerenciamentoBean, listContratoUsuarioLogado);
 
@@ -3569,7 +3569,7 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 	@Override
 	public Collection<RelatorioKpiProdutividadeDTO> listaQuantitativaEmpregadoSolicitacoesEmcaminhaExito(RelatorioKpiProdutividadeDTO relatorioKpiProdutividadeDto) throws Exception {
 
-		Collection<RelatorioKpiProdutividadeDTO> listaQuantitativaEmpregadoSolicitacoesEmcaminhaExito = new ArrayList();
+		Collection<RelatorioKpiProdutividadeDTO> listaQuantitativaEmpregadoSolicitacoesEmcaminhaExito = new ArrayList<>();
 
 		listaQuantitativaEmpregadoSolicitacoesEmcaminhaExito = this.getDao().listaQuantitativaEmpregadoSolicitacoesEmcaminhaExito(relatorioKpiProdutividadeDto);
 
@@ -3623,7 +3623,7 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 	public Collection<SolicitacaoServicoDTO> listSolicitacoesFilhasFiltradas(
 			GerenciamentoServicosDTO gerenciamentoBean,
 			Collection<ContratoDTO> listContratoUsuarioLogado) throws Exception {
-		// TODO Auto-generated method stub
+		
 		return listSolicitacoesFilhasFiltradas(gerenciamentoBean,listContratoUsuarioLogado, null);
 	}
 

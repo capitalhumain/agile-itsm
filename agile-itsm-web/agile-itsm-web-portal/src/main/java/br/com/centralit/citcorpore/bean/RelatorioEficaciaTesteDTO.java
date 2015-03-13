@@ -8,105 +8,106 @@ import br.com.agileitsm.model.support.BaseEntity;
 
 public class RelatorioEficaciaTesteDTO extends BaseEntity {
 
-	private static final long serialVersionUID = 1L;
-	private Date dataInicio;
-	private Date dataFim;
-	private String formatoArquivoRelatorio;
-	private Integer idContrato;
-	private String contrato;
-	private String listaServicos;
-	private String NomeServico;
-	private Integer numeroSolicitacao;
-	private String solicitante;
-	private Date aberturaSolicitacao;
-	private String situacao;
+    private static final long serialVersionUID = 1L;
 
-	public String getSituacao() {
-		return situacao;
-	}
+    private Date dataInicio;
+    private Date dataFim;
+    private String formatoArquivoRelatorio;
+    private Integer idContrato;
+    private String contrato;
+    private String listaServicos;
+    private String NomeServico;
+    private Integer numeroSolicitacao;
+    private String solicitante;
+    private Date aberturaSolicitacao;
+    private String situacao;
 
-	public void setSituacao(String situacao) {
-		this.situacao = situacao;
-	}
+    public String getSituacao() {
+        return situacao;
+    }
 
-	public Date getAberturaSolicitacao() {
-		return aberturaSolicitacao;
-	}
+    public void setSituacao(final String situacao) {
+        this.situacao = situacao;
+    }
 
-	public void setAberturaSolicitacao(Date aberturaSolicitacao) {
-		this.aberturaSolicitacao = aberturaSolicitacao;
-	}
+    public Date getAberturaSolicitacao() {
+        return aberturaSolicitacao;
+    }
 
-	public Date getDataInicio() {
-		return dataInicio;
-	}
+    public void setAberturaSolicitacao(final Date aberturaSolicitacao) {
+        this.aberturaSolicitacao = aberturaSolicitacao;
+    }
 
-	public void setDataInicio(Date dataInicio) {
-		this.dataInicio = dataInicio;
-	}
+    public Date getDataInicio() {
+        return dataInicio;
+    }
 
-	public Date getDataFim() {
-		return dataFim;
-	}
+    public void setDataInicio(final Date dataInicio) {
+        this.dataInicio = dataInicio;
+    }
 
-	public void setDataFim(Date dataFim) {
-		this.dataFim = dataFim;
-	}
+    public Date getDataFim() {
+        return dataFim;
+    }
 
-	public String getFormatoArquivoRelatorio() {
-		return formatoArquivoRelatorio;
-	}
+    public void setDataFim(final Date dataFim) {
+        this.dataFim = dataFim;
+    }
 
-	public void setFormatoArquivoRelatorio(String formatoArquivoRelatorio) {
-		this.formatoArquivoRelatorio = formatoArquivoRelatorio;
-	}
+    public String getFormatoArquivoRelatorio() {
+        return formatoArquivoRelatorio;
+    }
 
-	public Integer getIdContrato() {
-		return idContrato;
-	}
+    public void setFormatoArquivoRelatorio(final String formatoArquivoRelatorio) {
+        this.formatoArquivoRelatorio = formatoArquivoRelatorio;
+    }
 
-	public void setIdContrato(Integer idContrato) {
-		this.idContrato = idContrato;
-	}
+    public Integer getIdContrato() {
+        return idContrato;
+    }
 
-	public String getContrato() {
-		return contrato;
-	}
+    public void setIdContrato(final Integer idContrato) {
+        this.idContrato = idContrato;
+    }
 
-	public void setContrato(String contrato) {
-		this.contrato = contrato;
-	}
+    public String getContrato() {
+        return contrato;
+    }
 
-	public String getListaServicos() {
-		return listaServicos;
-	}
+    public void setContrato(final String contrato) {
+        this.contrato = contrato;
+    }
 
-	public void setListaServicos(String listaServicos) {
-		this.listaServicos = listaServicos;
-	}
+    public String getListaServicos() {
+        return listaServicos;
+    }
 
-	public String getNomeServico() {
-		return NomeServico;
-	}
+    public void setListaServicos(final String listaServicos) {
+        this.listaServicos = listaServicos;
+    }
 
-	public void setNomeServico(String nomeServico) {
-		NomeServico = nomeServico;
-	}
+    public String getNomeServico() {
+        return NomeServico;
+    }
 
-	public Integer getNumeroSolicitacao() {
-		return numeroSolicitacao;
-	}
+    public void setNomeServico(final String nomeServico) {
+        NomeServico = nomeServico;
+    }
 
-	public void setNumeroSolicitacao(Integer numeroSolicitacao) {
-		this.numeroSolicitacao = numeroSolicitacao;
-	}
+    public Integer getNumeroSolicitacao() {
+        return numeroSolicitacao;
+    }
 
-	public String getSolicitante() {
-		return solicitante;
-	}
+    public void setNumeroSolicitacao(final Integer numeroSolicitacao) {
+        this.numeroSolicitacao = numeroSolicitacao;
+    }
 
-	public void setSolicitante(String solicitante) {
-		this.solicitante = solicitante;
-	}
+    public String getSolicitante() {
+        return solicitante;
+    }
+
+    public void setSolicitante(final String solicitante) {
+        this.solicitante = solicitante;
+    }
 
 }

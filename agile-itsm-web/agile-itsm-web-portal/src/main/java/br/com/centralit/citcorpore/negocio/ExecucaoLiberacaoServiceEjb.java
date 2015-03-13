@@ -87,7 +87,7 @@ public class ExecucaoLiberacaoServiceEjb extends CrudServiceImpl implements Exec
             try {
                 tc.close();
             } catch (final PersistenceException e) {
-                // TODO Auto-generated catch block
+                
                 e.printStackTrace();
             }
 
@@ -114,7 +114,7 @@ public class ExecucaoLiberacaoServiceEjb extends CrudServiceImpl implements Exec
         final Gson gson = new Gson();
 
         final ObjetoNegocioDao objetoNegocioDao = new ObjetoNegocioDao();
-        final HashMap<Integer, ObjetoNegocioDTO> mapObjetos = new HashMap();
+        final HashMap<Integer, ObjetoNegocioDTO> mapObjetos = new HashMap<>();
 
         for (final CamposObjetoNegocioDTO campoDto : colCampos) {
             final String value = params.get(campoDto.getNome());
@@ -164,7 +164,7 @@ public class ExecucaoLiberacaoServiceEjb extends CrudServiceImpl implements Exec
         }
 
         Collection<GrupoVisaoCamposNegocioDTO> result = null;
-        result = new ArrayList();
+        result = new ArrayList<>();
         final Collection<ObjetoInstanciaFluxoDTO> colCampos = new ObjetoInstanciaFluxoDao().findByIdTarefa(idTarefa);
         if (colCampos != null) {
             final Gson gson = new Gson();
@@ -219,7 +219,7 @@ public class ExecucaoLiberacaoServiceEjb extends CrudServiceImpl implements Exec
         }
         usuario.setLocale(usuarioDto.getLocale());
 
-        final HashMap<String, Object> map = new HashMap();
+        final HashMap<String, Object> map = new HashMap<>();
         this.trataCamposTarefa(params, colCamposTodosPrincipal, map, "S");
         this.trataCamposTarefa(params, colCamposTodosVinc, map, "N");
         final Integer idSolicitacao = new Integer((String) map.get("IDREQUISICAOLIBERACAO"));
@@ -233,7 +233,7 @@ public class ExecucaoLiberacaoServiceEjb extends CrudServiceImpl implements Exec
         if (requisicaoLiberacaoDto.getAcaoFluxo() != null) {
             requisicaoLiberacaoDto.getAcaoFluxo();
         }
-        final HashMap<String, Object> objetos = new HashMap();
+        final HashMap<String, Object> objetos = new HashMap<>();
         final RequisicaoLiberacaoDTO liberacaoAuxDto = new RequisicaoLiberacaoServiceEjb().restoreAll(requisicaoLiberacaoDto.getIdRequisicaoLiberacao(), tc);
         new ExecucaoLiberacao(tc).executa(requisicaoLiberacaoDto.getUsuarioDto().getLogin(), liberacaoAuxDto, idTarefa, acaoFluxo, objetos);
     }

@@ -6,8 +6,8 @@ import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringEscapeUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import br.com.centralit.citajax.html.AjaxFormAction;
 import br.com.centralit.citajax.html.DocumentHTML;
@@ -269,7 +269,7 @@ public class Usuario extends AjaxFormAction {
 
         for (PerfilAcessoDTO perfilAcessoDto : perfilAcessos) {
             if (perfilAcessoDto.getDataFim() == null) {
-                comboPerfilAcessoUsuario.addOption(perfilAcessoDto.getIdPerfilAcesso().toString(), StringEscapeUtils.escapeJavaScript(perfilAcessoDto.getNomePerfilAcesso()));
+                comboPerfilAcessoUsuario.addOption(perfilAcessoDto.getIdPerfilAcesso().toString(), StringEscapeUtils.escapeEcmaScript(perfilAcessoDto.getNomePerfilAcesso()));
             }
         }
     }

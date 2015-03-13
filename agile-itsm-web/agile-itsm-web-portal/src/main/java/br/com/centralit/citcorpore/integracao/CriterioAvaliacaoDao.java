@@ -13,87 +13,93 @@ import br.com.citframework.integracao.Field;
 import br.com.citframework.integracao.Order;
 import br.com.citframework.util.Constantes;
 
-@SuppressWarnings({ "unchecked", "rawtypes" })
 public class CriterioAvaliacaoDao extends CrudDaoDefaultImpl {
-	public CriterioAvaliacaoDao() {
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
 
-	public Collection<Field> getFields() {
-		Collection<Field> listFields = new ArrayList<>();
-		listFields.add(new Field("idCriterio", "idCriterio", true, true, false, false));
-		listFields.add(new Field("descricao", "descricao", false, false, false, false));
-		listFields.add(new Field("aplicavelCotacao", "aplicavelCotacao", false, false, false, false));
-		listFields.add(new Field("aplicavelAvaliacaoSolicitante", "aplicavelAvaliacaoSolicitante", false, false, false, false));
-		listFields.add(new Field("aplicavelAvaliacaoComprador", "aplicavelAvaliacaoComprador", false, false, false, false));
-		listFields.add(new Field("aplicavelQualificacaoFornecedor", "aplicavelQualificacaoFornecedor", false, false, false, false));
-		listFields.add(new Field("tipoAvaliacao", "tipoAvaliacao", false, false, false, false));
-		return listFields;
-	}
+    public CriterioAvaliacaoDao() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
+    }
 
-	public String getTableName() {
-		return this.getOwner() + "CriterioAvaliacao";
-	}
+    @Override
+    public Collection<Field> getFields() {
+        final Collection<Field> listFields = new ArrayList<>();
+        listFields.add(new Field("idCriterio", "idCriterio", true, true, false, false));
+        listFields.add(new Field("descricao", "descricao", false, false, false, false));
+        listFields.add(new Field("aplicavelCotacao", "aplicavelCotacao", false, false, false, false));
+        listFields.add(new Field("aplicavelAvaliacaoSolicitante", "aplicavelAvaliacaoSolicitante", false, false, false, false));
+        listFields.add(new Field("aplicavelAvaliacaoComprador", "aplicavelAvaliacaoComprador", false, false, false, false));
+        listFields.add(new Field("aplicavelQualificacaoFornecedor", "aplicavelQualificacaoFornecedor", false, false, false, false));
+        listFields.add(new Field("tipoAvaliacao", "tipoAvaliacao", false, false, false, false));
+        return listFields;
+    }
 
-	public Collection list() throws PersistenceException {
-		return null;
-	}
+    @Override
+    public String getTableName() {
+        return this.getOwner() + "CriterioAvaliacao";
+    }
 
-	public Class getBean() {
-		return CriterioAvaliacaoDTO.class;
-	}
+    @Override
+    public Collection list() throws PersistenceException {
+        return null;
+    }
 
-	public Collection find(BaseEntity arg0) throws PersistenceException {
-		return null;
-	}
+    @Override
+    public Class getBean() {
+        return CriterioAvaliacaoDTO.class;
+    }
 
-	public Collection findByAplicavelCotacao() throws PersistenceException {
-		List condicao = new ArrayList();
-		List ordenacao = new ArrayList();
-		condicao.add(new Condition("aplicavelCotacao", "=", "S"));
-		ordenacao.add(new Order("descricao"));
-		return super.findByCondition(condicao, ordenacao);
-	}
+    @Override
+    public Collection find(final BaseEntity arg0) throws PersistenceException {
+        return null;
+    }
 
-	public Collection findByAplicavelAvaliacaoSolicitante() throws PersistenceException {
-		List condicao = new ArrayList();
-		List ordenacao = new ArrayList();
-		condicao.add(new Condition("aplicavelAvaliacaoSolicitante", "=", "S"));
-		ordenacao.add(new Order("descricao"));
-		return super.findByCondition(condicao, ordenacao);
-	}
+    public Collection findByAplicavelCotacao() throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
+        condicao.add(new Condition("aplicavelCotacao", "=", "S"));
+        ordenacao.add(new Order("descricao"));
+        return super.findByCondition(condicao, ordenacao);
+    }
 
-	public Collection findByAplicavelAvaliacaoComprador() throws PersistenceException {
-		List condicao = new ArrayList();
-		List ordenacao = new ArrayList();
-		condicao.add(new Condition("aplicavelAvaliacaoComprador", "=", "S"));
-		ordenacao.add(new Order("descricao"));
-		return super.findByCondition(condicao, ordenacao);
-	}
+    public Collection findByAplicavelAvaliacaoSolicitante() throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
+        condicao.add(new Condition("aplicavelAvaliacaoSolicitante", "=", "S"));
+        ordenacao.add(new Order("descricao"));
+        return super.findByCondition(condicao, ordenacao);
+    }
 
-	/**
-	 * Retorna true ou false em relação ao criterio basado
-	 * 
-	 * @param criterioAvaliacaoDto
-	 * @return boolean
-	 * @throws Exception
-	 * @author thays.araujo
-	 */
-	public boolean verificarSeCriterioExiste(CriterioAvaliacaoDTO criterioAvaliacaoDto) throws PersistenceException {
-		List parametro = new ArrayList();
-		List list = new ArrayList();
-		String sql = "select idCriterio From " + getTableName() + "  where  descricao = ?  ";
+    public Collection findByAplicavelAvaliacaoComprador() throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
+        condicao.add(new Condition("aplicavelAvaliacaoComprador", "=", "S"));
+        ordenacao.add(new Order("descricao"));
+        return super.findByCondition(condicao, ordenacao);
+    }
 
-		if (criterioAvaliacaoDto.getIdCriterio() != null) {
-			sql += " and idCriterio <> " + criterioAvaliacaoDto.getIdCriterio();
-		}
+    /**
+     * Retorna true ou false em relação ao criterio basado
+     *
+     * @param criterioAvaliacaoDto
+     * @return boolean
+     * @throws Exception
+     * @author thays.araujo
+     */
+    public boolean verificarSeCriterioExiste(final CriterioAvaliacaoDTO criterioAvaliacaoDto) throws PersistenceException {
+        final List parametro = new ArrayList<>();
+        List list = new ArrayList<>();
+        String sql = "select idCriterio From " + this.getTableName() + "  where  descricao = ?  ";
 
-		parametro.add(criterioAvaliacaoDto.getDescricao());
-		list = this.execSQL(sql, parametro.toArray());
-		if (list != null && !list.isEmpty()) {
-			return true;
-		} else {
-			return false;
-		}
-	}
+        if (criterioAvaliacaoDto.getIdCriterio() != null) {
+            sql += " and idCriterio <> " + criterioAvaliacaoDto.getIdCriterio();
+        }
+
+        parametro.add(criterioAvaliacaoDto.getDescricao());
+        list = this.execSQL(sql, parametro.toArray());
+        if (list != null && !list.isEmpty()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

@@ -77,32 +77,31 @@ public class ServicoContratoDTO extends BaseEntity {
     private List<FluxoServicoDTO> listaFluxo;
     private List<ServicoDTO> listaServico;
 
-    //para busca de checkbox
-    private  String colAllLOOKUP_SERVICOATIVOS_DIFERENTE_CONTRATO;
+    // para busca de checkbox
+    private String colAllLOOKUP_SERVICOATIVOS_DIFERENTE_CONTRATO;
     private String[] colServicosCheckado = null;
-    
+
     private Integer idInfoCatalogoServico;
 
     private String expandir;
-    
+
     private boolean permiteAnexar;
-    
+
     private boolean exibirColunaAnexar;
-    
+
     private String existeQuestionario;
-    
+
     private Integer idQuestionario;
 
     private String respostaObrigatoria;
-    
+
     private Collection<SolicitacaoServicoQuestionarioDTO> listSolicitacaoServicoQuestionario;
-	
 
     public Integer getIdServicoContrato() {
         return idServicoContrato;
     }
 
-    public void setIdServicoContrato(Integer parm) {
+    public void setIdServicoContrato(final Integer parm) {
         idServicoContrato = parm;
     }
 
@@ -110,7 +109,7 @@ public class ServicoContratoDTO extends BaseEntity {
         return idServico;
     }
 
-    public void setIdServico(Integer parm) {
+    public void setIdServico(final Integer parm) {
         idServico = parm;
     }
 
@@ -118,7 +117,7 @@ public class ServicoContratoDTO extends BaseEntity {
         return idContrato;
     }
 
-    public void setIdContrato(Integer parm) {
+    public void setIdContrato(final Integer parm) {
         idContrato = parm;
     }
 
@@ -126,7 +125,7 @@ public class ServicoContratoDTO extends BaseEntity {
         return idCondicaoOperacao;
     }
 
-    public void setIdCondicaoOperacao(Integer parm) {
+    public void setIdCondicaoOperacao(final Integer parm) {
         idCondicaoOperacao = parm;
     }
 
@@ -134,7 +133,7 @@ public class ServicoContratoDTO extends BaseEntity {
         return dataInicio;
     }
 
-    public void setDataInicio(java.sql.Date parm) {
+    public void setDataInicio(final java.sql.Date parm) {
         dataInicio = parm;
     }
 
@@ -142,7 +141,7 @@ public class ServicoContratoDTO extends BaseEntity {
         return dataFim;
     }
 
-    public void setDataFim(java.sql.Date parm) {
+    public void setDataFim(final java.sql.Date parm) {
         dataFim = parm;
     }
 
@@ -150,7 +149,7 @@ public class ServicoContratoDTO extends BaseEntity {
         return observacao;
     }
 
-    public void setObservacao(String parm) {
+    public void setObservacao(final String parm) {
         observacao = parm;
     }
 
@@ -158,7 +157,7 @@ public class ServicoContratoDTO extends BaseEntity {
         return custo;
     }
 
-    public void setCusto(Double parm) {
+    public void setCusto(final Double parm) {
         custo = parm;
     }
 
@@ -166,7 +165,7 @@ public class ServicoContratoDTO extends BaseEntity {
         return restricoesPressup;
     }
 
-    public void setRestricoesPressup(String parm) {
+    public void setRestricoesPressup(final String parm) {
         restricoesPressup = parm;
     }
 
@@ -174,7 +173,7 @@ public class ServicoContratoDTO extends BaseEntity {
         return objetivo;
     }
 
-    public void setObjetivo(String parm) {
+    public void setObjetivo(final String parm) {
         objetivo = parm;
     }
 
@@ -182,7 +181,7 @@ public class ServicoContratoDTO extends BaseEntity {
         return permiteSLANoCadInc;
     }
 
-    public void setPermiteSLANoCadInc(String parm) {
+    public void setPermiteSLANoCadInc(final String parm) {
         permiteSLANoCadInc = parm;
     }
 
@@ -190,7 +189,7 @@ public class ServicoContratoDTO extends BaseEntity {
         return linkProcesso;
     }
 
-    public void setLinkProcesso(String parm) {
+    public void setLinkProcesso(final String parm) {
         linkProcesso = parm;
     }
 
@@ -198,7 +197,7 @@ public class ServicoContratoDTO extends BaseEntity {
         return descricaoProcesso;
     }
 
-    public void setDescricaoProcesso(String parm) {
+    public void setDescricaoProcesso(final String parm) {
         descricaoProcesso = parm;
     }
 
@@ -206,7 +205,7 @@ public class ServicoContratoDTO extends BaseEntity {
         return tipoDescProcess;
     }
 
-    public void setTipoDescProcess(String parm) {
+    public void setTipoDescProcess(final String parm) {
         tipoDescProcess = parm;
     }
 
@@ -214,7 +213,7 @@ public class ServicoContratoDTO extends BaseEntity {
         return nomeServico;
     }
 
-    public void setNomeServico(String nomeServico) {
+    public void setNomeServico(final String nomeServico) {
         this.nomeServico = nomeServico;
     }
 
@@ -222,7 +221,7 @@ public class ServicoContratoDTO extends BaseEntity {
         return servicoDto;
     }
 
-    public void setServicoDto(ServicoDTO servicoDto) {
+    public void setServicoDto(final ServicoDTO servicoDto) {
         this.servicoDto = servicoDto;
     }
 
@@ -230,7 +229,7 @@ public class ServicoContratoDTO extends BaseEntity {
         return areaRequisitante;
     }
 
-    public void setAreaRequisitante(String areaRequisitante) {
+    public void setAreaRequisitante(final String areaRequisitante) {
         this.areaRequisitante = areaRequisitante;
     }
 
@@ -238,7 +237,7 @@ public class ServicoContratoDTO extends BaseEntity {
         return idModeloEmailCriacao;
     }
 
-    public void setIdModeloEmailCriacao(Integer idModeloEmailCriacao) {
+    public void setIdModeloEmailCriacao(final Integer idModeloEmailCriacao) {
         this.idModeloEmailCriacao = idModeloEmailCriacao;
     }
 
@@ -246,7 +245,7 @@ public class ServicoContratoDTO extends BaseEntity {
         return idModeloEmailFinalizacao;
     }
 
-    public void setIdModeloEmailFinalizacao(Integer idModeloEmailFinalizacao) {
+    public void setIdModeloEmailFinalizacao(final Integer idModeloEmailFinalizacao) {
         this.idModeloEmailFinalizacao = idModeloEmailFinalizacao;
     }
 
@@ -254,7 +253,7 @@ public class ServicoContratoDTO extends BaseEntity {
         return idModeloEmailAcoes;
     }
 
-    public void setIdModeloEmailAcoes(Integer idModeloEmailAcoes) {
+    public void setIdModeloEmailAcoes(final Integer idModeloEmailAcoes) {
         this.idModeloEmailAcoes = idModeloEmailAcoes;
     }
 
@@ -262,7 +261,7 @@ public class ServicoContratoDTO extends BaseEntity {
         return idGrupoNivel1;
     }
 
-    public void setIdGrupoNivel1(Integer idGrupoNivel1) {
+    public void setIdGrupoNivel1(final Integer idGrupoNivel1) {
         this.idGrupoNivel1 = idGrupoNivel1;
     }
 
@@ -270,7 +269,7 @@ public class ServicoContratoDTO extends BaseEntity {
         return idGrupoExecutor;
     }
 
-    public void setIdGrupoExecutor(Integer idGrupoExecutor) {
+    public void setIdGrupoExecutor(final Integer idGrupoExecutor) {
         this.idGrupoExecutor = idGrupoExecutor;
     }
 
@@ -278,7 +277,7 @@ public class ServicoContratoDTO extends BaseEntity {
         return idCalendario;
     }
 
-    public void setIdCalendario(Integer idCalendario) {
+    public void setIdCalendario(final Integer idCalendario) {
         this.idCalendario = idCalendario;
     }
 
@@ -286,7 +285,7 @@ public class ServicoContratoDTO extends BaseEntity {
         return permSLATempoACombinar;
     }
 
-    public void setPermSLATempoACombinar(String permSLATempoACombinar) {
+    public void setPermSLATempoACombinar(final String permSLATempoACombinar) {
         this.permSLATempoACombinar = permSLATempoACombinar;
     }
 
@@ -294,7 +293,7 @@ public class ServicoContratoDTO extends BaseEntity {
         return permMudancaSLA;
     }
 
-    public void setPermMudancaSLA(String permMudancaSLA) {
+    public void setPermMudancaSLA(final String permMudancaSLA) {
         this.permMudancaSLA = permMudancaSLA;
     }
 
@@ -302,7 +301,7 @@ public class ServicoContratoDTO extends BaseEntity {
         return permMudancaCalendario;
     }
 
-    public void setPermMudancaCalendario(String permMudancaCalendario) {
+    public void setPermMudancaCalendario(final String permMudancaCalendario) {
         this.permMudancaCalendario = permMudancaCalendario;
     }
 
@@ -310,7 +309,7 @@ public class ServicoContratoDTO extends BaseEntity {
         return deleted;
     }
 
-    public void setDeleted(String deleted) {
+    public void setDeleted(final String deleted) {
         this.deleted = deleted;
     }
 
@@ -318,7 +317,7 @@ public class ServicoContratoDTO extends BaseEntity {
         return nomeTipoDemandaServico;
     }
 
-    public void setNomeTipoDemandaServico(String nomeTipoDemandaServico) {
+    public void setNomeTipoDemandaServico(final String nomeTipoDemandaServico) {
         this.nomeTipoDemandaServico = nomeTipoDemandaServico;
     }
 
@@ -326,22 +325,22 @@ public class ServicoContratoDTO extends BaseEntity {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((idServico == null) ? 0 : idServico.hashCode());
+        result = prime * result + (idServico == null ? 0 : idServico.hashCode());
         return result;
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(final Object obj) {
         if (this == obj) {
             return true;
         }
         if (obj == null) {
             return false;
         }
-        if (getClass() != obj.getClass()) {
+        if (this.getClass() != obj.getClass()) {
             return false;
         }
-        ServicoContratoDTO other = (ServicoContratoDTO) obj;
+        final ServicoContratoDTO other = (ServicoContratoDTO) obj;
         if (idServico == null) {
             if (other.idServico != null) {
                 return false;
@@ -356,7 +355,7 @@ public class ServicoContratoDTO extends BaseEntity {
         return situacaoServico;
     }
 
-    public void setSituacaoServico(Integer situacaoServico) {
+    public void setSituacaoServico(final Integer situacaoServico) {
         this.situacaoServico = situacaoServico;
     }
 
@@ -364,7 +363,7 @@ public class ServicoContratoDTO extends BaseEntity {
         return temSLA;
     }
 
-    public void setTemSLA(boolean temSLA) {
+    public void setTemSLA(final boolean temSLA) {
         this.temSLA = temSLA;
     }
 
@@ -372,7 +371,7 @@ public class ServicoContratoDTO extends BaseEntity {
         return dentroPrazo;
     }
 
-    public void setDentroPrazo(Double dentroPrazo) {
+    public void setDentroPrazo(final Double dentroPrazo) {
         this.dentroPrazo = dentroPrazo;
     }
 
@@ -380,7 +379,7 @@ public class ServicoContratoDTO extends BaseEntity {
         return foraPrazo;
     }
 
-    public void setForaPrazo(Double foraPrazo) {
+    public void setForaPrazo(final Double foraPrazo) {
         this.foraPrazo = foraPrazo;
     }
 
@@ -388,7 +387,7 @@ public class ServicoContratoDTO extends BaseEntity {
         return qtdeDentroPrazo;
     }
 
-    public void setQtdeDentroPrazo(Integer qtdeDentroPrazo) {
+    public void setQtdeDentroPrazo(final Integer qtdeDentroPrazo) {
         this.qtdeDentroPrazo = qtdeDentroPrazo;
     }
 
@@ -396,7 +395,7 @@ public class ServicoContratoDTO extends BaseEntity {
         return qtdeForaPrazo;
     }
 
-    public void setQtdeForaPrazo(Integer qtdeForaPrazo) {
+    public void setQtdeForaPrazo(final Integer qtdeForaPrazo) {
         this.qtdeForaPrazo = qtdeForaPrazo;
     }
 
@@ -404,7 +403,7 @@ public class ServicoContratoDTO extends BaseEntity {
         return quantidade;
     }
 
-    public void setQuantidade(Integer quantidade) {
+    public void setQuantidade(final Integer quantidade) {
         this.quantidade = quantidade;
     }
 
@@ -412,7 +411,7 @@ public class ServicoContratoDTO extends BaseEntity {
         return idGrupoAprovador;
     }
 
-    public void setIdGrupoAprovador(Integer idGrupoAprovador) {
+    public void setIdGrupoAprovador(final Integer idGrupoAprovador) {
         this.idGrupoAprovador = idGrupoAprovador;
     }
 
@@ -420,7 +419,7 @@ public class ServicoContratoDTO extends BaseEntity {
         return totalItens;
     }
 
-    public void setTotalItens(Integer totalItens) {
+    public void setTotalItens(final Integer totalItens) {
         this.totalItens = totalItens;
     }
 
@@ -428,7 +427,7 @@ public class ServicoContratoDTO extends BaseEntity {
         return totalPagina;
     }
 
-    public void setTotalPagina(Integer totalPagina) {
+    public void setTotalPagina(final Integer totalPagina) {
         this.totalPagina = totalPagina;
     }
 
@@ -436,7 +435,7 @@ public class ServicoContratoDTO extends BaseEntity {
         return listaFluxo;
     }
 
-    public void setListaFluxo(List<FluxoServicoDTO> listaFluxo) {
+    public void setListaFluxo(final List<FluxoServicoDTO> listaFluxo) {
         this.listaFluxo = listaFluxo;
     }
 
@@ -444,7 +443,7 @@ public class ServicoContratoDTO extends BaseEntity {
         return listaServico;
     }
 
-    public void setListaServico(List<ServicoDTO> listaServico) {
+    public void setListaServico(final List<ServicoDTO> listaServico) {
         this.listaServico = listaServico;
     }
 
@@ -452,7 +451,7 @@ public class ServicoContratoDTO extends BaseEntity {
         return valorServico;
     }
 
-    public void setValorServico(Double valorServico) {
+    public void setValorServico(final Double valorServico) {
         this.valorServico = valorServico;
     }
 
@@ -460,7 +459,7 @@ public class ServicoContratoDTO extends BaseEntity {
         return descricao;
     }
 
-    public void setDescricao(String descricao) {
+    public void setDescricao(final String descricao) {
         this.descricao = descricao;
     }
 
@@ -468,7 +467,7 @@ public class ServicoContratoDTO extends BaseEntity {
         return nomeCategoriaServico;
     }
 
-    public void setNomeCategoriaServico(String nomeCategoriaServico) {
+    public void setNomeCategoriaServico(final String nomeCategoriaServico) {
         this.nomeCategoriaServico = nomeCategoriaServico;
     }
 
@@ -476,7 +475,7 @@ public class ServicoContratoDTO extends BaseEntity {
         return observacaoPortal;
     }
 
-    public void setObservacaoPortal(String observacaoPortal) {
+    public void setObservacaoPortal(final String observacaoPortal) {
         this.observacaoPortal = observacaoPortal;
     }
 
@@ -484,7 +483,7 @@ public class ServicoContratoDTO extends BaseEntity {
         return colAllLOOKUP_SERVICOATIVOS_DIFERENTE_CONTRATO;
     }
 
-    public void setColAllLOOKUP_SERVICOATIVOS_DIFERENTE_CONTRATO(String colAllLOOKUP_SERVICOATIVOS_DIFERENTE_CONTRATO) {
+    public void setColAllLOOKUP_SERVICOATIVOS_DIFERENTE_CONTRATO(final String colAllLOOKUP_SERVICOATIVOS_DIFERENTE_CONTRATO) {
         this.colAllLOOKUP_SERVICOATIVOS_DIFERENTE_CONTRATO = colAllLOOKUP_SERVICOATIVOS_DIFERENTE_CONTRATO;
     }
 
@@ -492,12 +491,12 @@ public class ServicoContratoDTO extends BaseEntity {
         return colServicosCheckado;
     }
 
-    public void setColServicosCheckado(String checkados) {
+    public void setColServicosCheckado(final String checkados) {
 
         if (checkados != null) {
             colServicosCheckado = checkados.split(";");
         } else {
-            colServicosCheckado = new String[]{};
+            colServicosCheckado = new String[] {};
         }
     }
 
@@ -505,79 +504,78 @@ public class ServicoContratoDTO extends BaseEntity {
         return expandir;
     }
 
-    public void setExpandir(String expandir) {
+    public void setExpandir(final String expandir) {
         this.expandir = expandir;
     }
 
-	public Integer getIdInfoCatalogoServico() {
-		return idInfoCatalogoServico;
-	}
+    public Integer getIdInfoCatalogoServico() {
+        return idInfoCatalogoServico;
+    }
 
-	public void setIdInfoCatalogoServico(Integer idInfoCatalogoServico) {
-		this.idInfoCatalogoServico = idInfoCatalogoServico;
-	}
+    public void setIdInfoCatalogoServico(final Integer idInfoCatalogoServico) {
+        this.idInfoCatalogoServico = idInfoCatalogoServico;
+    }
 
-	public boolean getPermiteAnexar() {				
-		return permiteAnexar;
-	}
+    public boolean getPermiteAnexar() {
+        return permiteAnexar;
+    }
 
-	public void setPermiteAnexar(boolean permiteAnexar) {
-		this.permiteAnexar = permiteAnexar;
-	}
+    public void setPermiteAnexar(final boolean permiteAnexar) {
+        this.permiteAnexar = permiteAnexar;
+    }
 
-	public boolean getExibirColunaAnexar() {
-		return exibirColunaAnexar;
-	}
+    public boolean getExibirColunaAnexar() {
+        return exibirColunaAnexar;
+    }
 
-	public void setExibirColunaAnexar(boolean exibirColunaAnexar) {
-		this.exibirColunaAnexar = exibirColunaAnexar;
-	}
+    public void setExibirColunaAnexar(final boolean exibirColunaAnexar) {
+        this.exibirColunaAnexar = exibirColunaAnexar;
+    }
 
-	public String getExisteQuestionario() {
-		return existeQuestionario;
-	}
+    public String getExisteQuestionario() {
+        return existeQuestionario;
+    }
 
-	public void setExisteQuestionario(String existeQuestionario) {
-		this.existeQuestionario = existeQuestionario;
-	}
+    public void setExisteQuestionario(final String existeQuestionario) {
+        this.existeQuestionario = existeQuestionario;
+    }
 
-	/**
-	 * @return the idQuestionario
-	 */
-	public Integer getIdQuestionario() {
-		return idQuestionario;
-	}
+    /**
+     * @return the idQuestionario
+     */
+    public Integer getIdQuestionario() {
+        return idQuestionario;
+    }
 
-	/**
-	 * @param idQuestionario the idQuestionario to set
-	 */
-	public void setIdQuestionario(Integer idQuestionario) {
-		this.idQuestionario = idQuestionario;
-	}
+    /**
+     * @param idQuestionario
+     *            the idQuestionario to set
+     */
+    public void setIdQuestionario(final Integer idQuestionario) {
+        this.idQuestionario = idQuestionario;
+    }
 
-	/**
-	 * @return the listSolicitacaoServicoQuestionario
-	 */
-	public Collection<SolicitacaoServicoQuestionarioDTO> getListSolicitacaoServicoQuestionario() {
-		return listSolicitacaoServicoQuestionario;
-	}
+    /**
+     * @return the listSolicitacaoServicoQuestionario
+     */
+    public Collection<SolicitacaoServicoQuestionarioDTO> getListSolicitacaoServicoQuestionario() {
+        return listSolicitacaoServicoQuestionario;
+    }
 
-	/**
-	 * @param listSolicitacaoServicoQuestionario the listSolicitacaoServicoQuestionario to set
-	 */
-	public void setListSolicitacaoServicoQuestionario(Collection<SolicitacaoServicoQuestionarioDTO> listSolicitacaoServicoQuestionario) {
-		this.listSolicitacaoServicoQuestionario = listSolicitacaoServicoQuestionario;
-	}
+    /**
+     * @param listSolicitacaoServicoQuestionario
+     *            the listSolicitacaoServicoQuestionario to set
+     */
+    public void setListSolicitacaoServicoQuestionario(final Collection<SolicitacaoServicoQuestionarioDTO> listSolicitacaoServicoQuestionario) {
+        this.listSolicitacaoServicoQuestionario = listSolicitacaoServicoQuestionario;
+    }
 
-	public String getRespostaObrigatoria() {
-		return respostaObrigatoria;
-	}
+    public String getRespostaObrigatoria() {
+        return respostaObrigatoria;
+    }
 
-	public void setRespostaObrigatoria(String respostaObrigatoria) {
-		this.respostaObrigatoria = respostaObrigatoria;
-	}
-
-	
-
+    public void setRespostaObrigatoria(final String respostaObrigatoria) {
+        this.respostaObrigatoria = respostaObrigatoria;
+    }
 
 }

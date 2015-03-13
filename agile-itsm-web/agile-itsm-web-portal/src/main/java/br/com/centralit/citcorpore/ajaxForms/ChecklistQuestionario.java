@@ -7,7 +7,7 @@ import java.util.Iterator;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 
 import br.com.centralit.citajax.html.AjaxFormAction;
 import br.com.centralit.citajax.html.DocumentHTML;
@@ -69,7 +69,7 @@ public class ChecklistQuestionario extends AjaxFormAction {
             comboQuestionario.addOption("", "-- " + UtilI18N.internacionaliza(request, "alcada.limite.todos") + " --");
             for (final QuestionarioDTO tipo : tipos) {
                 comboQuestionario.addOption(tipo.getIdQuestionario().toString(),
-                        StringEscapeUtils.escapeJavaScript(tipo.getNomeQuestionario()));
+                        StringEscapeUtils.escapeEcmaScript(tipo.getNomeQuestionario()));
             }
         }
     }

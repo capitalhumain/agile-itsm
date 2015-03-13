@@ -169,7 +169,7 @@ public class ItemRequisicaoProdutoServiceEjb extends CrudServiceImpl implements 
     @Override
     public Collection findByIdSolicitacaoServicoAndSituacao(final Integer parm, final SituacaoItemRequisicaoProduto[] situacao) throws Exception {
         try {
-            final Collection<ItemRequisicaoProdutoDTO> result = new ArrayList();
+            final Collection<ItemRequisicaoProdutoDTO> result = new ArrayList<>();
             if (situacao != null && situacao.length > 0) {
                 for (final SituacaoItemRequisicaoProduto situacaoItem : situacao) {
                     final Collection<ItemRequisicaoProdutoDTO> col = this.getDao().findByIdSolicitacaoServicoAndSituacao(parm, situacaoItem);
@@ -189,7 +189,7 @@ public class ItemRequisicaoProdutoServiceEjb extends CrudServiceImpl implements 
     public Collection findByIdSolicitacaoAndSituacaoAndTipoAtendimento(final Integer parm, final SituacaoItemRequisicaoProduto[] situacao, final String tipoAtendimento)
             throws Exception {
         try {
-            final Collection<ItemRequisicaoProdutoDTO> result = new ArrayList();
+            final Collection<ItemRequisicaoProdutoDTO> result = new ArrayList<>();
             if (situacao != null && situacao.length > 0) {
                 for (final SituacaoItemRequisicaoProduto situacaoItem : situacao) {
                     final Collection<ItemRequisicaoProdutoDTO> col = this.getDao().findByIdSolicitacaoAndSituacaoAndTipoAtendimento(parm, situacaoItem, tipoAtendimento);

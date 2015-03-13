@@ -4,17 +4,16 @@ import br.com.agileitsm.model.support.BaseEntity;
 
 public class PesquisaDTO extends BaseEntity {
 
-	private static final long serialVersionUID = 1L;
-	
-	private String pesquisa;
+    private static final long serialVersionUID = 1L;
 
-	public String getPesquisa() {
-		return pesquisa;
-	}
+    private String pesquisa;
 
-	public void setPesquisa(String pesquisa) {
-		this.pesquisa = pesquisa;
-	}
-    
-   
+    public String getPesquisa() {
+        return pesquisa;
+    }
+
+    public void setPesquisa(final String pesquisa) {
+        this.pesquisa = pesquisa;
+    }
+
 }

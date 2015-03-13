@@ -63,7 +63,7 @@ public class GenerateServiceItemCfgInventario extends GerencialGenerateService {
 			e.printStackTrace();
 		}
 
-		List parametros = new ArrayList();
+		List parametros = new ArrayList<>();
 		String sql = "Select identificacao, datainicio, dataexpiracao, numeroSerie, localidade, versao, status from itemconfiguracao where 1=1 ";
 
 		if(datainicial != null && !datainicial.isEmpty()){
@@ -137,7 +137,7 @@ public class GenerateServiceItemCfgInventario extends GerencialGenerateService {
 		}
 
 		List lista = null;
-		List listaNew = new ArrayList();
+		List listaNew = new ArrayList<>();
 
 		JdbcEngine jdbcEngine = new JdbcEngine(Constantes.getValue("DATABASE_ALIAS"), null);
 		try {
@@ -182,7 +182,7 @@ public class GenerateServiceItemCfgInventario extends GerencialGenerateService {
 		}
 
 		if (listaNew == null || listaNew.size() == 0) {
-			// listaNew = new ArrayList();
+			// listaNew = new ArrayList<>();
 			// Object[] objFinal = { "", "", "", null, "", "", "" };
 			// listaNew.add(objFinal);
 		}

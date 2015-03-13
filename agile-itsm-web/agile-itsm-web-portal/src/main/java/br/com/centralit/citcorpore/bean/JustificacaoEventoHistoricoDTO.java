@@ -5,6 +5,7 @@ package br.com.centralit.citcorpore.bean;
  *         JustificacaoFalhas, Evento e HistoricoTentativas.
  */
 public class JustificacaoEventoHistoricoDTO {
+
     private String ip;
     private Integer idItemConfiguracao;
     private Integer idBaseItemConfiguracao;
@@ -17,83 +18,83 @@ public class JustificacaoEventoHistoricoDTO {
     private Integer idHistoricoTentativa;
 
     public String getIp() {
-	return ip;
+        return ip;
     }
 
-    public void setIp(String ip) {
-	this.ip = ip;
+    public void setIp(final String ip) {
+        this.ip = ip;
     }
 
     public Integer getIdItemConfiguracao() {
-	return idItemConfiguracao;
+        return idItemConfiguracao;
     }
 
-    public void setIdItemConfiguracao(Integer idItemConfiguracao) {
-	this.idItemConfiguracao = idItemConfiguracao;
+    public void setIdItemConfiguracao(final Integer idItemConfiguracao) {
+        this.idItemConfiguracao = idItemConfiguracao;
     }
 
     public Integer getIdBaseItemConfiguracao() {
-	return idBaseItemConfiguracao;
+        return idBaseItemConfiguracao;
     }
 
-    public void setIdBaseItemConfiguracao(Integer idBaseItemConfiguracao) {
-	this.idBaseItemConfiguracao = idBaseItemConfiguracao;
+    public void setIdBaseItemConfiguracao(final Integer idBaseItemConfiguracao) {
+        this.idBaseItemConfiguracao = idBaseItemConfiguracao;
     }
 
     public String getIdentificacaoItemConfiguracao() {
-	return identificacaoItemConfiguracao;
+        return identificacaoItemConfiguracao;
     }
 
-    public void setIdentificacaoItemConfiguracao(String identificacaoItemConfiguracao) {
-	this.identificacaoItemConfiguracao = identificacaoItemConfiguracao;
+    public void setIdentificacaoItemConfiguracao(final String identificacaoItemConfiguracao) {
+        this.identificacaoItemConfiguracao = identificacaoItemConfiguracao;
     }
 
     public String getDescricaoTentativa() {
-	return descricaoTentativa;
+        return descricaoTentativa;
     }
 
-    public void setDescricaoTentativa(String descricaoTentativa) {
-	this.descricaoTentativa = descricaoTentativa;
+    public void setDescricaoTentativa(final String descricaoTentativa) {
+        this.descricaoTentativa = descricaoTentativa;
     }
 
     public Integer getIdEvento() {
-	return idEvento;
+        return idEvento;
     }
 
-    public void setIdEvento(Integer idEvento) {
-	this.idEvento = idEvento;
+    public void setIdEvento(final Integer idEvento) {
+        this.idEvento = idEvento;
     }
 
     public String getNomeGrupo() {
-	return nomeGrupo;
+        return nomeGrupo;
     }
 
-    public void setNomeGrupo(String nomeGrupo) {
-	this.nomeGrupo = nomeGrupo;
+    public void setNomeGrupo(final String nomeGrupo) {
+        this.nomeGrupo = nomeGrupo;
     }
 
     public String getNomeUnidade() {
-	return nomeUnidade;
+        return nomeUnidade;
     }
 
-    public void setNomeUnidade(String nomeUnidade) {
-	this.nomeUnidade = nomeUnidade;
+    public void setNomeUnidade(final String nomeUnidade) {
+        this.nomeUnidade = nomeUnidade;
     }
 
     public Integer getIdEmpregado() {
-	return idEmpregado;
+        return idEmpregado;
     }
 
-    public void setIdEmpregado(Integer idEmpregado) {
-	this.idEmpregado = idEmpregado;
+    public void setIdEmpregado(final Integer idEmpregado) {
+        this.idEmpregado = idEmpregado;
     }
 
     public Integer getIdHistoricoTentativa() {
-	return idHistoricoTentativa;
+        return idHistoricoTentativa;
     }
 
-    public void setIdHistoricoTentativa(Integer idHistoricoTentativa) {
-	this.idHistoricoTentativa = idHistoricoTentativa;
+    public void setIdHistoricoTentativa(final Integer idHistoricoTentativa) {
+        this.idHistoricoTentativa = idHistoricoTentativa;
     }
 
 }

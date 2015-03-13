@@ -124,9 +124,7 @@ public class LogDadosDao extends CrudDaoDefaultImpl {
         fields.add("dataLog");
         if (list != null && !list.isEmpty()) {
             return this.listConvertion(this.getBean(), list, fields);
-        } else {
-            return null;
-        }
+        } return null;
     }
 
     public Collection<LogDados> listLogs(final LogDados log) throws Exception {
@@ -188,9 +186,7 @@ public class LogDadosDao extends CrudDaoDefaultImpl {
         fields.add("dataLog");
         if (list != null && !list.isEmpty()) {
             return this.listConvertion(this.getBean(), list, fields);
-        } else {
-            return null;
-        }
+        } return null;
     }
 
     public Collection<LogDados> listNomeTabela() throws Exception {
@@ -208,9 +204,7 @@ public class LogDadosDao extends CrudDaoDefaultImpl {
         fields.add("nomeTabela");
         if (list != null && !list.isEmpty()) {
             return this.listConvertion(this.getBean(), list, fields);
-        } else {
-            return null;
-        }
+        } return null;
     }
 
     @Override

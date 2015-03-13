@@ -4,150 +4,151 @@ import br.com.agileitsm.model.support.BaseEntity;
 
 public class ProcessamentoBatchDTO extends BaseEntity {
 
-	private static final long serialVersionUID = 1060402879727020452L;
+    private static final long serialVersionUID = 1060402879727020452L;
 
-	private String ano;
-	private String conteudo;
-	private String descricao;
-	private String diaDaSemana;
-	private String diaDoMes;
-	private String expressaoCRON;
-	private String horas;
-	private Integer idProcessamentoBatch;
-	private String mes;
-	private String minutos;
-	private String nomeClasseJobService;
-	private String segundos;
-	private String situacao;
-	private String tipo;
-	private Integer idConexaoBI;
-	private String abriuAgendamentoExcecao;
-	
-	public String getAno() {
-		return ano;
-	}
+    private String ano;
+    private String conteudo;
+    private String descricao;
+    private String diaDaSemana;
+    private String diaDoMes;
+    private String expressaoCRON;
+    private String horas;
+    private Integer idProcessamentoBatch;
+    private String mes;
+    private String minutos;
+    private String nomeClasseJobService;
+    private String segundos;
+    private String situacao;
+    private String tipo;
+    private Integer idConexaoBI;
+    private String abriuAgendamentoExcecao;
 
-	public String getConteudo() {
-		return conteudo;
-	}
+    public String getAno() {
+        return ano;
+    }
 
-	public String getDescricao() {
-		return descricao;
-	}
+    public String getConteudo() {
+        return conteudo;
+    }
 
-	public String getDiaDaSemana() {
-		return diaDaSemana;
-	}
+    public String getDescricao() {
+        return descricao;
+    }
 
-	public String getDiaDoMes() {
-		return diaDoMes;
-	}
+    public String getDiaDaSemana() {
+        return diaDaSemana;
+    }
 
-	public String getExpressaoCRON() {
-		return expressaoCRON;
-	}
+    public String getDiaDoMes() {
+        return diaDoMes;
+    }
 
-	public String getHoras() {
-		return horas;
-	}
+    public String getExpressaoCRON() {
+        return expressaoCRON;
+    }
 
-	public Integer getIdProcessamentoBatch() {
-		return idProcessamentoBatch;
-	}
+    public String getHoras() {
+        return horas;
+    }
 
-	public String getMes() {
-		return mes;
-	}
+    public Integer getIdProcessamentoBatch() {
+        return idProcessamentoBatch;
+    }
 
-	public String getMinutos() {
-		return minutos;
-	}
+    public String getMes() {
+        return mes;
+    }
 
-	public String getNomeClasseJobService() {
-		return nomeClasseJobService;
-	}
+    public String getMinutos() {
+        return minutos;
+    }
 
-	public String getSegundos() {
-		return segundos;
-	}
+    public String getNomeClasseJobService() {
+        return nomeClasseJobService;
+    }
 
-	public String getSituacao() {
-		return situacao;
-	}
+    public String getSegundos() {
+        return segundos;
+    }
 
-	public String getTipo() {
-		return tipo;
-	}
+    public String getSituacao() {
+        return situacao;
+    }
 
-	public void setAno(String ano) {
-		this.ano = ano;
-	}
+    public String getTipo() {
+        return tipo;
+    }
 
-	public void setConteudo(String conteudo) {
-		this.conteudo = conteudo;
-	}
+    public void setAno(final String ano) {
+        this.ano = ano;
+    }
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
+    public void setConteudo(final String conteudo) {
+        this.conteudo = conteudo;
+    }
 
-	public void setDiaDaSemana(String diaDaSemana) {
-		this.diaDaSemana = diaDaSemana;
-	}
+    public void setDescricao(final String descricao) {
+        this.descricao = descricao;
+    }
 
-	public void setDiaDoMes(String diaDoMes) {
-		this.diaDoMes = diaDoMes;
-	}
+    public void setDiaDaSemana(final String diaDaSemana) {
+        this.diaDaSemana = diaDaSemana;
+    }
 
-	public void setExpressaoCRON(String expressaoCRON) {
-		this.expressaoCRON = expressaoCRON;
-	}
+    public void setDiaDoMes(final String diaDoMes) {
+        this.diaDoMes = diaDoMes;
+    }
 
-	public void setHoras(String horas) {
-		this.horas = horas;
-	}
+    public void setExpressaoCRON(final String expressaoCRON) {
+        this.expressaoCRON = expressaoCRON;
+    }
 
-	public void setIdProcessamentoBatch(Integer idProcessamentoBatch) {
-		this.idProcessamentoBatch = idProcessamentoBatch;
-	}
+    public void setHoras(final String horas) {
+        this.horas = horas;
+    }
 
-	public void setMes(String mes) {
-		this.mes = mes;
-	}
+    public void setIdProcessamentoBatch(final Integer idProcessamentoBatch) {
+        this.idProcessamentoBatch = idProcessamentoBatch;
+    }
 
-	public void setMinutos(String minutos) {
-		this.minutos = minutos;
-	}
+    public void setMes(final String mes) {
+        this.mes = mes;
+    }
 
-	public void setNomeClasseJobService(String nomeClasseJobService) {
-		this.nomeClasseJobService = nomeClasseJobService;
-	}
+    public void setMinutos(final String minutos) {
+        this.minutos = minutos;
+    }
 
-	public void setSegundos(String segundos) {
-		this.segundos = segundos;
-	}
+    public void setNomeClasseJobService(final String nomeClasseJobService) {
+        this.nomeClasseJobService = nomeClasseJobService;
+    }
 
-	public void setSituacao(String situacao) {
-		this.situacao = situacao;
-	}
+    public void setSegundos(final String segundos) {
+        this.segundos = segundos;
+    }
 
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
-	}
+    public void setSituacao(final String situacao) {
+        this.situacao = situacao;
+    }
 
-	public Integer getIdConexaoBI() {
-		return idConexaoBI;
-	}
+    public void setTipo(final String tipo) {
+        this.tipo = tipo;
+    }
 
-	public void setIdConexaoBI(Integer idConexaoBI) {
-		this.idConexaoBI = idConexaoBI;
-	}
-	
-	public String getAbriuAgendamentoExcecao() {
-		return abriuAgendamentoExcecao;
-	}
+    public Integer getIdConexaoBI() {
+        return idConexaoBI;
+    }
 
-	public void setAbriuAgendamentoExcecao(String abriuAgendamentoExcecao) {
-		this.abriuAgendamentoExcecao = abriuAgendamentoExcecao;
-	}
+    public void setIdConexaoBI(final Integer idConexaoBI) {
+        this.idConexaoBI = idConexaoBI;
+    }
+
+    public String getAbriuAgendamentoExcecao() {
+        return abriuAgendamentoExcecao;
+    }
+
+    public void setAbriuAgendamentoExcecao(final String abriuAgendamentoExcecao) {
+        this.abriuAgendamentoExcecao = abriuAgendamentoExcecao;
+    }
+
 }

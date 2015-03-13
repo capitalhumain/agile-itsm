@@ -320,10 +320,10 @@ public class Inventario extends AjaxFormAction {
 				}
 			}
 		} catch (ServiceException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		return lstRetorno;

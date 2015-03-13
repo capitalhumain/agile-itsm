@@ -15,38 +15,42 @@ import br.com.citframework.integracao.Field;
 import br.com.citframework.integracao.Order;
 import br.com.citframework.util.Constantes;
 
-@SuppressWarnings({ "unchecked", "rawtypes" })
 public class SituacaoDemandaDao extends CrudDaoDefaultImpl {
 
     public SituacaoDemandaDao() {
-	super(Constantes.getValue("DATABASE_ALIAS"), null);
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
     }
 
+    @Override
     public Class getBean() {
-	return SituacaoDemandaDTO.class;
+        return SituacaoDemandaDTO.class;
     }
 
+    @Override
     public Collection<Field> getFields() {
-	Collection<Field> listFields = new ArrayList<>();
+        final Collection<Field> listFields = new ArrayList<>();
 
-	listFields.add(new Field("IDSITUACAODEMANDA", "idSituacaoDemanda", true, false, false, true));
-	listFields.add(new Field("NOMESITUACAOSERVICO", "nomeSituacao", false, false, false, false));
+        listFields.add(new Field("IDSITUACAODEMANDA", "idSituacaoDemanda", true, false, false, true));
+        listFields.add(new Field("NOMESITUACAOSERVICO", "nomeSituacao", false, false, false, false));
 
-	return listFields;
+        return listFields;
     }
 
+    @Override
     public String getTableName() {
-	return "SITUACAODEMANDA";
+        return "situacaodemanda";
     }
 
-    public Collection find(BaseEntity obj) throws PersistenceException {
-	return null;
+    @Override
+    public Collection find(final BaseEntity obj) throws PersistenceException {
+        return null;
     }
 
+    @Override
     public Collection list() throws PersistenceException {
-	List list = new ArrayList();
-	list.add(new Order("nomeSituacao"));
-	return super.list(list);
+        final List list = new ArrayList<>();
+        list.add(new Order("nomeSituacao"));
+        return super.list(list);
     }
 
 }

@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import org.apache.commons.lang.StringEscapeUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import br.com.citframework.dto.FaixaEtariaDTO;
 import br.com.citframework.excecao.LogicException;
@@ -569,7 +569,7 @@ public class UtilStrings {
     	if (faixas == null || faixas.trim().equalsIgnoreCase("")){
     		return null;
     	}
-    	Collection colRetorno = new ArrayList();
+    	Collection colRetorno = new ArrayList<>();
     	String[] strAux = faixas.split(";");
     	if (strAux != null){
     		for(int i = 0; i < strAux.length; i++){
@@ -693,7 +693,7 @@ public class UtilStrings {
      */
     public static String unescapeJavaString(String st) {
         try {
-        	return StringEscapeUtils.unescapeJavaScript(st);
+        	return StringEscapeUtils.unescapeEcmaScript(st);
         } catch(Exception e) {
         	e.printStackTrace();
         	return st;

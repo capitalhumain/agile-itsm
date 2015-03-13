@@ -144,7 +144,7 @@ public class ImportManager extends AjaxFormAction {
         if (mapMatriz != null && mapMatriz.size() > 0) {
 
             final ArrayList colMatrizTratada = (ArrayList) mapMatriz.get("MATRIZ");
-            final Collection colDadosCampos = new ArrayList();
+            final Collection colDadosCampos = new ArrayList<>();
             for (final Iterator it = colMatrizTratada.iterator(); it.hasNext();) {
                 final ImportConfigCamposDTO importConfigCamposDTO = new ImportConfigCamposDTO();
                 final HashMap mapItem = (HashMap) it.next();

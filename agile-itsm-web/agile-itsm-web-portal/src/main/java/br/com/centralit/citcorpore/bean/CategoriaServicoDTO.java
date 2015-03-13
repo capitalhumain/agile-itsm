@@ -6,7 +6,7 @@ import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * @author rosana.godinho
- * 
+ *
  */
 public class CategoriaServicoDTO extends BaseEntity {
 
@@ -19,149 +19,152 @@ public class CategoriaServicoDTO extends BaseEntity {
     private Date dataFim;
     private String nomeCategoriaServicoConcatenado;
     private String nomeCategoriaServicoPai;
-    
+
     private int nivel;
-   
-  
+
     /**
      * @return valor do atributo idCategoriaServico.
      */
     public Integer getIdCategoriaServico() {
-	return idCategoriaServico;
+        return idCategoriaServico;
     }
 
     /**
      * Define valor do atributo idCategoriaServico.
-     * 
+     *
      * @param idCategoriaServico
      */
-    public void setIdCategoriaServico(Integer idCategoriaServico) {
-	this.idCategoriaServico = idCategoriaServico;
+    public void setIdCategoriaServico(final Integer idCategoriaServico) {
+        this.idCategoriaServico = idCategoriaServico;
     }
 
     /**
      * @return valor do atributo idCategoriaServicoPai.
      */
     public Integer getIdCategoriaServicoPai() {
-	return idCategoriaServicoPai;
+        return idCategoriaServicoPai;
     }
 
     /**
      * Define valor do atributo idCategoriaServicoPai.
-     * 
+     *
      * @param idCategoriaServicoPai
      */
-    public void setIdCategoriaServicoPai(Integer idCategoriaServicoPai) {
-	this.idCategoriaServicoPai = idCategoriaServicoPai;
+    public void setIdCategoriaServicoPai(final Integer idCategoriaServicoPai) {
+        this.idCategoriaServicoPai = idCategoriaServicoPai;
     }
 
     /**
      * @return valor do atributo idEmpresa.
      */
     public Integer getIdEmpresa() {
-	return idEmpresa;
+        return idEmpresa;
     }
 
     /**
      * Define valor do atributo idEmpresa.
-     * 
+     *
      * @param idEmpresa
      */
-    public void setIdEmpresa(Integer idEmpresa) {
-	this.idEmpresa = idEmpresa;
+    public void setIdEmpresa(final Integer idEmpresa) {
+        this.idEmpresa = idEmpresa;
     }
 
     /**
      * @return valor do atributo nomeCategoriaServico.
      */
     public String getNomeCategoriaServico() {
-	return nomeCategoriaServico;
+        return nomeCategoriaServico;
     }
-	public String getNomeCategoriaServicoNivel(){
-	    if (this.getNomeCategoriaServico() == null){
-		return this.nomeCategoriaServico;
-	    }
-	    String str = "";
-	    for (int i = 0; i < this.getNivel(); i++){
-		str += "....";
-	    }
-	    return str + this.nomeCategoriaServico;
-	}
+
+    public String getNomeCategoriaServicoNivel() {
+        if (this.getNomeCategoriaServico() == null) {
+            return nomeCategoriaServico;
+        }
+        String str = "";
+        for (int i = 0; i < this.getNivel(); i++) {
+            str += "....";
+        }
+        return str + nomeCategoriaServico;
+    }
+
     /**
      * Define valor do atributo nomeCategoriaServico.
-     * 
+     *
      * @param nomeCategoriaServico
      */
-    public void setNomeCategoriaServico(String nomeCategoriaServico) {
-	this.nomeCategoriaServico = nomeCategoriaServico;
+    public void setNomeCategoriaServico(final String nomeCategoriaServico) {
+        this.nomeCategoriaServico = nomeCategoriaServico;
     }
 
     /**
      * @return valor do atributo dataInicio.
      */
     public Date getDataInicio() {
-	return dataInicio;
+        return dataInicio;
     }
 
     /**
      * Define valor do atributo dataInicio.
-     * 
+     *
      * @param dataInicio
      */
-    public void setDataInicio(Date dataInicio) {
-	this.dataInicio = dataInicio;
+    public void setDataInicio(final Date dataInicio) {
+        this.dataInicio = dataInicio;
     }
-    
+
     /**
      * @return valor do atributo dataFim.
      */
     public Date getDataFim() {
-	return dataFim;
+        return dataFim;
     }
 
     /**
      * Define valor do atributo dataFim.
-     * 
+     *
      * @param dataFim
      */
-    public void setDataFim(Date dataFim) {
-	this.dataFim = dataFim;
+    public void setDataFim(final Date dataFim) {
+        this.dataFim = dataFim;
     }
 
     public int getNivel() {
         return nivel;
     }
 
-    public void setNivel(int nivel) {
+    public void setNivel(final int nivel) {
         this.nivel = nivel;
     }
 
-	/**
-	 * @return the nomeCatServicoConcatenado
-	 */
-	public String getNomeCategoriaServicoConcatenado() {
-		return nomeCategoriaServicoConcatenado;
-	}
+    /**
+     * @return the nomeCatServicoConcatenado
+     */
+    public String getNomeCategoriaServicoConcatenado() {
+        return nomeCategoriaServicoConcatenado;
+    }
 
-	/**
-	 * @param nomeCatServicoConcatenado the nomeCatServicoConcatenado to set
-	 */
-	public void setNomeCategoriaServicoConcatenado(String nomeCategoriaServicoConcatenado) {
-		this.nomeCategoriaServicoConcatenado = nomeCategoriaServicoConcatenado;
-	}
+    /**
+     * @param nomeCatServicoConcatenado
+     *            the nomeCatServicoConcatenado to set
+     */
+    public void setNomeCategoriaServicoConcatenado(final String nomeCategoriaServicoConcatenado) {
+        this.nomeCategoriaServicoConcatenado = nomeCategoriaServicoConcatenado;
+    }
 
-	/**
-	 * @return the nomeCategoriaServicoPai
-	 */
-	public String getNomeCategoriaServicoPai() {
-		return nomeCategoriaServicoPai;
-	}
+    /**
+     * @return the nomeCategoriaServicoPai
+     */
+    public String getNomeCategoriaServicoPai() {
+        return nomeCategoriaServicoPai;
+    }
 
-	/**
-	 * @param nomeCategoriaServicoPai the nomeCategoriaServicoPai to set
-	 */
-	public void setNomeCategoriaServicoPai(String nomeCategoriaServicoPai) {
-		this.nomeCategoriaServicoPai = nomeCategoriaServicoPai;
-	}
+    /**
+     * @param nomeCategoriaServicoPai
+     *            the nomeCategoriaServicoPai to set
+     */
+    public void setNomeCategoriaServicoPai(final String nomeCategoriaServicoPai) {
+        this.nomeCategoriaServicoPai = nomeCategoriaServicoPai;
+    }
 
 }

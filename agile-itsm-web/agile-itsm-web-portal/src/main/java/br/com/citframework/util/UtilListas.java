@@ -18,7 +18,7 @@ public class UtilListas {
 	 * @throws CompareException
 	 */
 	public static Collection sortListOfBensByProperty(List lst, String getProperty, String typeOrder) throws CompareException{
-		if (lst == null) return new ArrayList();
+		if (lst == null) return new ArrayList<>();
 		Collections.sort(lst, new ObjectSimpleComparator(getProperty, typeOrder));
 		return lst;
 	}

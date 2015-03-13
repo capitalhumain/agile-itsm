@@ -2,143 +2,134 @@ package br.com.citframework.dto;
 
 import br.com.agileitsm.model.support.BaseEntity;
 
-
-
 public class Usuario extends BaseEntity {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 209957399940789640L;
-	
-	private String idUsuario;
-	private String ipUsuario;
-	private String servidor;
-	private Integer idEmpresa;
-	private String nomeUsuario;
-	private String matricula;
-	private String acessos;
-	private String locale;
-	
-	private String[] grupos;
-	private Integer idProfissional;
-	
-	private Integer idUsuarioSistema;
-	private String nomeEmpresa;
 
-	public Usuario() {
-	}
-	
-	public Integer getIdEmpresa() {
-		return idEmpresa;
-	}
+    private static final long serialVersionUID = 209957399940789640L;
 
-	public void setIdEmpresa(Integer idEmpresa) {
-		this.idEmpresa = idEmpresa;
-	}
+    private String idUsuario;
+    private String ipUsuario;
+    private String servidor;
+    private Integer idEmpresa;
+    private String nomeUsuario;
+    private String matricula;
+    private String acessos;
+    private String locale;
 
-	public String getIpUsuario() {
-		return ipUsuario;
-	}
+    private String[] grupos;
+    private Integer idProfissional;
 
-	public void setIpUsuario(String ipUsuario) {
-		this.ipUsuario = ipUsuario;
-	}
+    private Integer idUsuarioSistema;
+    private String nomeEmpresa;
 
-	public String getServidor() {
-		return servidor;
-	}
+    public Usuario() {}
 
-	public void setServidor(String servidor) {
-		this.servidor = servidor;
-	}
+    public Integer getIdEmpresa() {
+        return idEmpresa;
+    }
 
-	public String getNomeUsuario() {
-		return nomeUsuario;
-	}
+    public void setIdEmpresa(final Integer idEmpresa) {
+        this.idEmpresa = idEmpresa;
+    }
 
-	public void setNomeUsuario(String nomeUsuario) {
-		this.nomeUsuario = nomeUsuario;
-	}
+    public String getIpUsuario() {
+        return ipUsuario;
+    }
 
-	public String toString() {
-		StringBuilder buffer = new StringBuilder();
-		String newLine = "\r\n";
-		if (matricula != null) {
-			buffer.append("Matricula: ");
-			buffer.append(matricula).append(newLine);
-		}
-		buffer.append("Nome do usuario: ");
-		buffer.append(nomeUsuario).append(newLine);
-		return buffer.toString();
-	}
+    public void setIpUsuario(final String ipUsuario) {
+        this.ipUsuario = ipUsuario;
+    }
 
-	public String getMatricula() {
-		return matricula;
-	}
+    public String getServidor() {
+        return servidor;
+    }
 
-	public void setMatricula(String matricula) {
-		this.matricula = matricula;
-	}
+    public void setServidor(final String servidor) {
+        this.servidor = servidor;
+    }
 
-	public String getIdUsuario() {
-		return idUsuario;
-	}
+    public String getNomeUsuario() {
+        return nomeUsuario;
+    }
 
-	public void setIdUsuario(String idUsuario) {
-		this.idUsuario = idUsuario;
-	}
+    public void setNomeUsuario(final String nomeUsuario) {
+        this.nomeUsuario = nomeUsuario;
+    }
 
-	public String getAcessos() {
-		return acessos;
-	}
+    @Override
+    public String toString() {
+        final StringBuilder buffer = new StringBuilder();
+        final String newLine = "\r\n";
+        if (matricula != null) {
+            buffer.append("Matricula: ");
+            buffer.append(matricula).append(newLine);
+        }
+        buffer.append("Nome do usuario: ");
+        buffer.append(nomeUsuario).append(newLine);
+        return buffer.toString();
+    }
 
-	public void setAcessos(String acessos) {
-		this.acessos = acessos;
-	}
+    public String getMatricula() {
+        return matricula;
+    }
 
-	public String[] getGrupos() {
-		return grupos;
-	}
+    public void setMatricula(final String matricula) {
+        this.matricula = matricula;
+    }
 
-	public void setGrupos(String[] grupos) {
-		this.grupos = grupos;
-	}
+    public String getIdUsuario() {
+        return idUsuario;
+    }
 
-	public Integer getIdProfissional() {
-		return idProfissional;
-	}
+    public void setIdUsuario(final String idUsuario) {
+        this.idUsuario = idUsuario;
+    }
 
-	public void setIdProfissional(Integer idProfissional) {
-		this.idProfissional = idProfissional;
-	}
+    public String getAcessos() {
+        return acessos;
+    }
 
-	public Integer getIdUsuarioSistema() {
-		return idUsuarioSistema;
-	}
+    public void setAcessos(final String acessos) {
+        this.acessos = acessos;
+    }
 
-	public void setIdUsuarioSistema(Integer idUsuarioSistema) {
-		this.idUsuarioSistema = idUsuarioSistema;
-	}
+    public String[] getGrupos() {
+        return grupos;
+    }
 
-	public String getNomeEmpresa() {
-		return nomeEmpresa;
-	}
+    public void setGrupos(final String[] grupos) {
+        this.grupos = grupos;
+    }
 
-	public void setNomeEmpresa(String nomeEmpresa) {
-		this.nomeEmpresa = nomeEmpresa;
-	}
+    public Integer getIdProfissional() {
+        return idProfissional;
+    }
 
-	/**
-	 * @return the locale
-	 */
-	public String getLocale() {
-		return locale;
-	}
+    public void setIdProfissional(final Integer idProfissional) {
+        this.idProfissional = idProfissional;
+    }
 
-	/**
-	 * @param locale the locale to set
-	 */
-	public void setLocale(String locale) {
-		this.locale = locale;
-	}
+    public Integer getIdUsuarioSistema() {
+        return idUsuarioSistema;
+    }
+
+    public void setIdUsuarioSistema(final Integer idUsuarioSistema) {
+        this.idUsuarioSistema = idUsuarioSistema;
+    }
+
+    public String getNomeEmpresa() {
+        return nomeEmpresa;
+    }
+
+    public void setNomeEmpresa(final String nomeEmpresa) {
+        this.nomeEmpresa = nomeEmpresa;
+    }
+
+    public String getLocale() {
+        return locale;
+    }
+
+    public void setLocale(final String locale) {
+        this.locale = locale;
+    }
+
 }

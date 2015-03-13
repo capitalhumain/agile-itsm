@@ -97,7 +97,7 @@ public class RelatorioPesquisaSatisfacao extends AjaxFormAction {
 	public void imprimirRelatorioPesquisaSatisfacao(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		PesquisaSatisfacaoDTO pesquisaSatisfacaoDTO = (PesquisaSatisfacaoDTO) document.getBean();
 		HttpSession session = ((HttpServletRequest) request).getSession();
-		Collection<PesquisaSatisfacaoDTO> listPesquisa = new ArrayList();
+		Collection<PesquisaSatisfacaoDTO> listPesquisa = new ArrayList<>();
 		PesquisaSatisfacaoService pesquisaSatisfacaoService = (PesquisaSatisfacaoService) ServiceLocator.getInstance().getService(PesquisaSatisfacaoService.class, null);
 		SolicitacaoServicoService solicitacaoService = (SolicitacaoServicoService) ServiceLocator.getInstance().getService(SolicitacaoServicoService.class, null);
 

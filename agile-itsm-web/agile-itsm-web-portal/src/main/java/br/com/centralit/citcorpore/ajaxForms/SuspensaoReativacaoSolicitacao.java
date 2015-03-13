@@ -6,7 +6,7 @@ import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 
 import br.com.centralit.citajax.html.AjaxFormAction;
 import br.com.centralit.citajax.html.DocumentHTML;
@@ -132,12 +132,12 @@ public class SuspensaoReativacaoSolicitacao extends AjaxFormAction {
 		
 		if(listaContrato!=null){
 			for (ContratoDTO contratoDTO : listaContrato) {
-				comboContrato.addOption(contratoDTO.getIdContrato().toString(), StringEscapeUtils.escapeJavaScript(contratoDTO.getNumero() + " de "+UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, contratoDTO.getDataContrato(), WebUtil.getLanguage(request))));
+				comboContrato.addOption(contratoDTO.getIdContrato().toString(), StringEscapeUtils.escapeEcmaScript(contratoDTO.getNumero() + " de "+UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, contratoDTO.getDataContrato(), WebUtil.getLanguage(request))));
 			}
 		}
 		if(listaGrupo!=null){
 			for (GrupoDTO grupoDTO : listaGrupo) {
-				comboGrupo.addOption(grupoDTO.getIdGrupo().toString(), StringEscapeUtils.escapeJavaScript(grupoDTO.getNome()));
+				comboGrupo.addOption(grupoDTO.getIdGrupo().toString(), StringEscapeUtils.escapeEcmaScript(grupoDTO.getNome()));
 			}
 		}
 		

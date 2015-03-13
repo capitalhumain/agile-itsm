@@ -4,7 +4,7 @@ import java.sql.Date;
 
 import br.com.agileitsm.model.support.BaseEntity;
 
-public class ItemGrupoAssinaturaDTO extends BaseEntity{
+public class ItemGrupoAssinaturaDTO extends BaseEntity {
 
     private static final long serialVersionUID = -6639560890633897592L;
 
@@ -15,70 +15,81 @@ public class ItemGrupoAssinaturaDTO extends BaseEntity{
     private Date dataInicio;
     private Date dataFim;
 
-    //Campos auxiliares para apresentação na tela
+    // Campos auxiliares para apresentação na tela
     private String nomeResponsavel;
     private String papel;
     private String fase;
 
     public Integer getIdItemGrupoAssinatura() {
-	return this.idItemGrupoAssinatura;
+        return idItemGrupoAssinatura;
     }
-    public void setIdItemGrupoAssinatura(Integer idItemGrupoAssinatura) {
-	this.idItemGrupoAssinatura = idItemGrupoAssinatura;
+
+    public void setIdItemGrupoAssinatura(final Integer idItemGrupoAssinatura) {
+        this.idItemGrupoAssinatura = idItemGrupoAssinatura;
     }
+
     public Integer getIdGrupoAssinatura() {
-	return this.idGrupoAssinatura;
+        return idGrupoAssinatura;
     }
-    public void setIdGrupoAssinatura(Integer idGrupoAssinatura) {
-	this.idGrupoAssinatura = idGrupoAssinatura;
+
+    public void setIdGrupoAssinatura(final Integer idGrupoAssinatura) {
+        this.idGrupoAssinatura = idGrupoAssinatura;
     }
+
     public Integer getIdAssinatura() {
-	return this.idAssinatura;
+        return idAssinatura;
     }
-    public void setIdAssinatura(Integer idAssinatura) {
-	this.idAssinatura = idAssinatura;
+
+    public void setIdAssinatura(final Integer idAssinatura) {
+        this.idAssinatura = idAssinatura;
     }
+
     public Integer getOrdem() {
-	return this.ordem;
+        return ordem;
     }
-    public void setOrdem(Integer ordem) {
-	this.ordem = ordem;
+
+    public void setOrdem(final Integer ordem) {
+        this.ordem = ordem;
     }
+
     public Date getDataInicio() {
-	return this.dataInicio;
+        return dataInicio;
     }
-    public void setDataInicio(Date dataInicio) {
-	this.dataInicio = dataInicio;
+
+    public void setDataInicio(final Date dataInicio) {
+        this.dataInicio = dataInicio;
     }
+
     public Date getDataFim() {
-	return this.dataFim;
+        return dataFim;
     }
-    public void setDataFim(Date dataFim) {
-	this.dataFim = dataFim;
+
+    public void setDataFim(final Date dataFim) {
+        this.dataFim = dataFim;
     }
 
     public String getNomeResponsavel() {
-	return this.nomeResponsavel;
+        return nomeResponsavel;
     }
 
-    public void setNomeResponsavel(String nomeResponsavel) {
-	this.nomeResponsavel = nomeResponsavel;
+    public void setNomeResponsavel(final String nomeResponsavel) {
+        this.nomeResponsavel = nomeResponsavel;
     }
 
     public String getPapel() {
-	return this.papel;
+        return papel;
     }
 
-    public void setPapel(String papel) {
-	this.papel = papel;
+    public void setPapel(final String papel) {
+        this.papel = papel;
     }
 
     public String getFase() {
-	return this.fase;
+        return fase;
     }
 
-    public void setFase(String fase) {
-	this.fase = fase;
+    public void setFase(final String fase) {
+        this.fase = fase;
     }
 
 }

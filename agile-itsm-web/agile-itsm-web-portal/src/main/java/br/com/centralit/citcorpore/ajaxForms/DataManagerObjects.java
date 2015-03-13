@@ -106,7 +106,7 @@ public class DataManagerObjects extends AjaxFormAction {
 			System.out.println("PROBLEMA COM CODIFICACAO DE CARACTERES!!! [AjaxProcessEvent.getFormFields()]");
 			e.printStackTrace();
 		}
-		HashMap formFields = new HashMap();
+		HashMap formFields = new HashMap<>();
 		Enumeration en = req.getParameterNames();
 		String[] strValores;
 		while (en.hasMoreElements()) {

@@ -698,18 +698,18 @@ public class GerenciaConfiguracaoTree extends AjaxFormAction {
 					if(itemRelacionado.getImagem() != null) {
 						json += "{";
 						if(exibeNome)
-							json += "	\"data\" : { \"title\" : \"" + StringEscapeUtils.escapeJavaScript(itemRelacionado.getNome()) + "\", \"icon\" : \"../tipoItemConfiguracao/imagens/16/" + itemRelacionado.getImagem() + "\" },";
+							json += "	\"data\" : { \"title\" : \"" + StringEscapeUtils.escapeEcmaScript(itemRelacionado.getNome()) + "\", \"icon\" : \"../tipoItemConfiguracao/imagens/16/" + itemRelacionado.getImagem() + "\" },";
 						else
-							json += "	\"data\" : { \"title\" : \"" + StringEscapeUtils.escapeJavaScript(itemRelacionado.getIdentificacao()) + "\", \"icon\" : \"../tipoItemConfiguracao/imagens/16/" + itemRelacionado.getImagem() + "\" },";
+							json += "	\"data\" : { \"title\" : \"" + StringEscapeUtils.escapeEcmaScript(itemRelacionado.getIdentificacao()) + "\", \"icon\" : \"../tipoItemConfiguracao/imagens/16/" + itemRelacionado.getImagem() + "\" },";
 
 						json += "	\"attr\" : { \"rel\" : \"itemRelacionado\", \"id\" : \"item_" + itemRelacionado.getIdItemConfiguracao() + "\" }";
 						json += "}";
 					} else {
 						json += "{";
 						if(exibeNome)
-							json += "	\"data\" : { \"title\" : \"" + StringEscapeUtils.escapeJavaScript(itemRelacionado.getNome()) + "\", \"icon\" : \"\" },";
+							json += "	\"data\" : { \"title\" : \"" + StringEscapeUtils.escapeEcmaScript(itemRelacionado.getNome()) + "\", \"icon\" : \"\" },";
 						else
-							json += "	\"data\" : { \"title\" : \"" + StringEscapeUtils.escapeJavaScript(itemRelacionado.getIdentificacao()) + "\", \"icon\" : \"\" },";
+							json += "	\"data\" : { \"title\" : \"" + StringEscapeUtils.escapeEcmaScript(itemRelacionado.getIdentificacao()) + "\", \"icon\" : \"\" },";
 						json += "	\"attr\" : { \"rel\" : \"itemRelacionado\", \"id\" : \"item_" + itemRelacionado.getIdItemConfiguracao() + "\" }";
 						json += "}";
 					}					
@@ -764,7 +764,7 @@ public class GerenciaConfiguracaoTree extends AjaxFormAction {
 			}
 
 			// ---
-			HashMap hashValoresItem = new HashMap();
+			HashMap hashValoresItem = new HashMap<>();
 			hashValoresItem.put("NOMETABELADB", "ITEMCONFIGURACAO");
 
 			String nomeTabelaItem = "ITEMCONFIGURACAO";
@@ -789,7 +789,7 @@ public class GerenciaConfiguracaoTree extends AjaxFormAction {
 			if (objetoNegocioGrpDTO == null) {
 				return;
 			}
-			HashMap hashValoresGrp = new HashMap();
+			HashMap hashValoresGrp = new HashMap<>();
 			hashValoresGrp.put("NOMETABELADB", "GRUPOITEMCONFIGURACAO");
 
 			String nomeTabelaGrp = "GRUPOITEMCONFIGURACAO";

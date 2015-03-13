@@ -17,7 +17,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.bean.AnexoBaseConhecimentoDTO;
@@ -117,8 +117,8 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
     }
 
     @Override
-    public BaseConhecimentoDTO create(BaseConhecimentoDTO baseConhecimentoDto, final Collection<UploadDTO> arquivosUpados, final Integer idEmpresa, final UsuarioDTO usuarioDto)
-            throws Exception {
+    public BaseConhecimentoDTO create(BaseConhecimentoDTO baseConhecimentoDto, final Collection<UploadDTO> arquivosUpados, final Integer idEmpresa,
+            final UsuarioDTO usuarioDto) throws Exception {
         NotificacaoDTO notificacaoDto = new NotificacaoDTO();
         final ConhecimentoProblemaDTO conhecimentoProblemaDTO = new ConhecimentoProblemaDTO();
 
@@ -129,7 +129,8 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
             prontuarioGedInternoBancoDados = "N";
         }
 
-        final String PRONTUARIO_GED_DIRETORIO = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.GedDiretorio, "/usr/local/gedCitsmart/");
+        final String PRONTUARIO_GED_DIRETORIO = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.GedDiretorio,
+                "/usr/local/gedCitsmart/");
         final String PRONTUARIO_GED_INTERNO = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.GedInterno, "S");
 
         final TransactionControler transactionControler = new TransactionControlerImpl(this.getDao().getAliasDB());
@@ -207,7 +208,7 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
             // TODO CRIAR RELACIONAMENTO ENTRE UMA BASE DE CONHECIMENTO COM UM PROBLEMA.
             if (baseConhecimentoDto.getIdProblema() != null && baseConhecimentoDto.getIdBaseConhecimento() != null) {
                 conhecimentoProblemaDao.deleteByIdBaseConhecimento(baseConhecimentoDto.getIdBaseConhecimento());
-				conhecimentoProblemaDao.deleteByIdProblema(baseConhecimentoDto.getIdProblema());
+                conhecimentoProblemaDao.deleteByIdProblema(baseConhecimentoDto.getIdProblema());
                 conhecimentoProblemaDTO.setIdProblema(baseConhecimentoDto.getIdProblema());
                 conhecimentoProblemaDTO.setIdBaseConhecimento(baseConhecimentoDto.getIdBaseConhecimento());
                 conhecimentoProblemaDao.create(conhecimentoProblemaDTO);
@@ -260,11 +261,13 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
 
                     if (PRONTUARIO_GED_INTERNO.equalsIgnoreCase("S") && !"S".equalsIgnoreCase(prontuarioGedInternoBancoDados)) {
                         if (controleGEDDTO != null) {
-                            final File arquivo = new File(PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/" + controleGEDDTO.getIdControleGED() + "."
-                                    + Util.getFileExtension(uploadDto.getNameFile()));
-                            CriptoUtils.encryptFile(uploadDto.getPath(), PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/" + controleGEDDTO.getIdControleGED()
-                                    + ".ged", System.getProperties().get("user.dir") + Constantes.getValue("CAMINHO_CHAVE_PUBLICA"));
-                            anexoBaseConhecimento.setLink(PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/" + controleGEDDTO.getIdControleGED() + ".ged");
+                            final File arquivo = new File(PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/" + controleGEDDTO.getIdControleGED()
+                                    + "." + Util.getFileExtension(uploadDto.getNameFile()));
+                            CriptoUtils.encryptFile(uploadDto.getPath(),
+                                    PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/" + controleGEDDTO.getIdControleGED() + ".ged", System
+                                    .getProperties().get("user.dir") + Constantes.getValue("CAMINHO_CHAVE_PUBLICA"));
+                            anexoBaseConhecimento.setLink(PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/" + controleGEDDTO.getIdControleGED()
+                                    + ".ged");
                             arquivo.delete();
                         }
                     }
@@ -318,17 +321,17 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
     }
 
     @Override
-    public void update(final BaseConhecimentoDTO baseConhecimentoDto, final Collection<UploadDTO> arquivosUpados, final Integer idEmpresa, final UsuarioDTO usuarioDto)
-            throws ServiceException, Exception {
+    public void update(final BaseConhecimentoDTO baseConhecimentoDto, final Collection<UploadDTO> arquivosUpados, final Integer idEmpresa,
+            final UsuarioDTO usuarioDto) throws ServiceException, Exception {
         // @Author euler.ramos
         final Lucene lucene = new Lucene();
         final ControleGEDService controleGEDService = (ControleGEDService) ServiceLocator.getInstance().getService(ControleGEDService.class, null);
-        final ImportanciaConhecimentoUsuarioService importanciaConhecimentoUsuarioService = (ImportanciaConhecimentoUsuarioService) ServiceLocator.getInstance().getService(
-                ImportanciaConhecimentoUsuarioService.class, null);
-        final ImportanciaConhecimentoGrupoService importanciaConhecimentoGrupoService = (ImportanciaConhecimentoGrupoService) ServiceLocator.getInstance().getService(
-                ImportanciaConhecimentoGrupoService.class, null);
-        final BaseConhecimentoRelacionadoService baseConhecimentoRelacionadoService = (BaseConhecimentoRelacionadoService) ServiceLocator.getInstance().getService(
-                BaseConhecimentoRelacionadoService.class, null);
+        final ImportanciaConhecimentoUsuarioService importanciaConhecimentoUsuarioService = (ImportanciaConhecimentoUsuarioService) ServiceLocator
+                .getInstance().getService(ImportanciaConhecimentoUsuarioService.class, null);
+        final ImportanciaConhecimentoGrupoService importanciaConhecimentoGrupoService = (ImportanciaConhecimentoGrupoService) ServiceLocator.getInstance()
+                .getService(ImportanciaConhecimentoGrupoService.class, null);
+        final BaseConhecimentoRelacionadoService baseConhecimentoRelacionadoService = (BaseConhecimentoRelacionadoService) ServiceLocator.getInstance()
+                .getService(BaseConhecimentoRelacionadoService.class, null);
 
         NotificacaoDTO notificacaoDto = new NotificacaoDTO();
         HistoricoBaseConhecimentoDTO historicoBaseConhecimentoDto = new HistoricoBaseConhecimentoDTO();
@@ -340,7 +343,8 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
             prontuarioGedInternoBancoDados = "N";
         }
 
-        final String PRONTUARIO_GED_DIRETORIO = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.GedDiretorio, "/usr/local/gedCitsmart/");
+        final String PRONTUARIO_GED_DIRETORIO = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.GedDiretorio,
+                "/usr/local/gedCitsmart/");
         final String PRONTUARIO_GED_INTERNO = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.GedInterno, "S");
 
         final AnexoBaseConhecimentoDAO anexoBaseConhecimentoDao = new AnexoBaseConhecimentoDAO();
@@ -438,7 +442,8 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
                         if (historicoBaseConhecimentoDto.getIdHistoricoBaseConhecimento() == null) {
                             historicoBaseConhecimentoDto = (HistoricoBaseConhecimentoDTO) historicoBaseConhecimentoDao.create(historicoBaseConhecimentoDto);
                         } else {
-                            historicoBaseConhecimentoDto = (HistoricoBaseConhecimentoDTO) historicoBaseConhecimentoDao.createWithID(historicoBaseConhecimentoDto);
+                            historicoBaseConhecimentoDto = (HistoricoBaseConhecimentoDTO) historicoBaseConhecimentoDao
+                                    .createWithID(historicoBaseConhecimentoDto);
                         }
 
                         if (novaBaseConhecimento.getIdHistoricoBaseConhecimento() == null) {
@@ -462,7 +467,7 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
                         // TODO CRIAR RELACIONAMENTO ENTRE UMA BASE DE CONHECIMENTO COM UM PROBLEMA.
                         if (novaBaseConhecimento.getIdProblema() != null && novaBaseConhecimento.getIdBaseConhecimento() != null) {
                             conhecimentoProblemaDao.deleteByIdBaseConhecimento(baseConhecimentoDto.getIdBaseConhecimento());
-							conhecimentoProblemaDao.deleteByIdProblema(novaBaseConhecimento.getIdProblema());
+                            conhecimentoProblemaDao.deleteByIdProblema(novaBaseConhecimento.getIdProblema());
                             conhecimentoProblemaDTO.setIdProblema(novaBaseConhecimento.getIdProblema());
                             conhecimentoProblemaDTO.setIdBaseConhecimento(novaBaseConhecimento.getIdBaseConhecimento());
                             conhecimentoProblemaDao.create(conhecimentoProblemaDTO);
@@ -498,14 +503,15 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
 
                                         if (controleGEDDTO != null) {
 
-                                            final File arquivo = new File(PRONTUARIO_GED_DIRETORIO + "/" + 1 + "/" + pasta + "/" + controleGEDDTO.getIdControleGED() + "."
-                                                    + Util.getFileExtension(uploadDto.getNameFile()));
+                                            final File arquivo = new File(PRONTUARIO_GED_DIRETORIO + "/" + 1 + "/" + pasta + "/"
+                                                    + controleGEDDTO.getIdControleGED() + "." + Util.getFileExtension(uploadDto.getNameFile()));
 
-                                            CriptoUtils.encryptFile(uploadDto.getPath(), PRONTUARIO_GED_DIRETORIO + "/" + 1 + "/" + pasta + "/" + controleGEDDTO.getIdControleGED()
-                                                    + ".ged", System.getProperties().get("user.dir") + Constantes.getValue("CAMINHO_CHAVE_PUBLICA"));
+                                            CriptoUtils.encryptFile(uploadDto.getPath(), PRONTUARIO_GED_DIRETORIO + "/" + 1 + "/" + pasta + "/"
+                                                    + controleGEDDTO.getIdControleGED() + ".ged",
+                                                    System.getProperties().get("user.dir") + Constantes.getValue("CAMINHO_CHAVE_PUBLICA"));
 
-                                            anexoBaseConhecimento.setLink(PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/" + controleGEDDTO.getIdControleGED()
-                                                    + ".ged");
+                                            anexoBaseConhecimento.setLink(PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/"
+                                                    + controleGEDDTO.getIdControleGED() + ".ged");
 
                                             arquivo.delete();
                                         }
@@ -545,11 +551,14 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
                                     controleGEDDTO.setNomeArquivo(uploadDto.getNameFile());
                                     controleGEDDTO = (ControleGEDDTO) controleGEDDao.create(controleGEDDTO);
 
-                                    final File arquivoAntigo = new File(PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/" + uploadDto.getPath().substring(3) + ".ged");
+                                    final File arquivoAntigo = new File(PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/"
+                                            + uploadDto.getPath().substring(3) + ".ged");
 
-                                    this.copiarArquivo(arquivoAntigo, PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/" + controleGEDDTO.getIdControleGED() + ".ged");
+                                    this.copiarArquivo(arquivoAntigo,
+                                            PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/" + controleGEDDTO.getIdControleGED() + ".ged");
 
-                                    anexoBaseConhecimento.setLink(PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/" + controleGEDDTO.getIdControleGED() + ".ged");
+                                    anexoBaseConhecimento.setLink(PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/"
+                                            + controleGEDDTO.getIdControleGED() + ".ged");
                                     anexoBaseConhecimento.setDataInicio(UtilDatas.getDataAtual());
                                     anexoBaseConhecimento.setNomeAnexo(controleGEDDTO.getNomeArquivo());
                                     anexoBaseConhecimento.setExtensao(controleGEDDTO.getExtensaoArquivo());
@@ -578,14 +587,14 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
                         importanciaConhecimentoUsuarioService.deleteByIdConhecimento(baseConhecimentoDto.getIdBaseConhecimento(), transactionControler);
                         importanciaConhecimentoGrupoService.deleteByIdConhecimento(baseConhecimentoDto.getIdBaseConhecimento(), transactionControler);
                         conhecimentoProblemaDao.deleteByIdBaseConhecimento(baseConhecimentoDto.getIdBaseConhecimento());
-						conhecimentoProblemaDao.deleteByIdProblema(baseConhecimentoDto.getIdProblema());
+                        conhecimentoProblemaDao.deleteByIdProblema(baseConhecimentoDto.getIdProblema());
                         final SolicitacaoServicoDao solicitacaoServicoDao = new SolicitacaoServicoDao();
                         final ConhecimentoSolicitacaoDao conhecimentoSolicitacaoDao = new ConhecimentoSolicitacaoDao();
                         solicitacaoServicoDao.setTransactionControler(transactionControler);
                         conhecimentoSolicitacaoDao.setTransactionControler(transactionControler);
 
-                        final List<SolicitacaoServicoDTO> listaSolicitacoes = solicitacaoServicoDao.listaSolicitacoesRelacionadasBaseconhecimento(baseConhecimentoDto
-                                .getIdBaseConhecimento());
+                        final List<SolicitacaoServicoDTO> listaSolicitacoes = solicitacaoServicoDao
+                                .listaSolicitacoesRelacionadasBaseconhecimento(baseConhecimentoDto.getIdBaseConhecimento());
 
                         conhecimentoSolicitacaoDao.deleteByIdBaseConhecimento(baseConhecimentoDto.getIdBaseConhecimento());
 
@@ -615,7 +624,8 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
 
                         // EXCLUO OS ANEXOS DA BASE DE CONHECIMENTO ANTIGA.
 
-                        final Collection<AnexoBaseConhecimentoDTO> anexosBaseConhecimento = anexoBaseConhecimentoDao.consultarAnexosDaBaseConhecimento(baseConhecimentoDto);
+                        final Collection<AnexoBaseConhecimentoDTO> anexosBaseConhecimento = anexoBaseConhecimentoDao
+                                .consultarAnexosDaBaseConhecimento(baseConhecimentoDto);
                         if (anexosBaseConhecimento != null && !anexosBaseConhecimento.isEmpty()) {
                             for (final AnexoBaseConhecimentoDTO anexo : anexosBaseConhecimento) {
                                 anexoBaseConhecimentoDao.delete(anexo);
@@ -625,8 +635,8 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
 
                         // EXCLUO OS GEDS DA BASE DE CONHECIMENTO ANTIGA.
 
-                        final Collection<ControleGEDDTO> gedsBaseConhecimento = controleGEDDao.listByIdTabelaAndIdBaseConhecimento(ControleGEDDTO.TABELA_BASECONHECIMENTO,
-                                baseConhecimentoDto.getIdBaseConhecimento());
+                        final Collection<ControleGEDDTO> gedsBaseConhecimento = controleGEDDao.listByIdTabelaAndIdBaseConhecimento(
+                                ControleGEDDTO.TABELA_BASECONHECIMENTO, baseConhecimentoDto.getIdBaseConhecimento());
                         if (gedsBaseConhecimento != null && !gedsBaseConhecimento.isEmpty()) {
                             for (final ControleGEDDTO ged : gedsBaseConhecimento) {
                                 controleGEDDao.delete(ged);
@@ -663,7 +673,8 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
                         if (historicoBaseConhecimentoDto.getIdHistoricoBaseConhecimento() == null) {
                             historicoBaseConhecimentoDto = (HistoricoBaseConhecimentoDTO) historicoBaseConhecimentoDao.create(historicoBaseConhecimentoDto);
                         } else {
-                            historicoBaseConhecimentoDto = (HistoricoBaseConhecimentoDTO) historicoBaseConhecimentoDao.createWithID(historicoBaseConhecimentoDto);
+                            historicoBaseConhecimentoDto = (HistoricoBaseConhecimentoDTO) historicoBaseConhecimentoDao
+                                    .createWithID(historicoBaseConhecimentoDto);
                         }
 
                         if (novaBaseConhecimento.getIdHistoricoBaseConhecimento() == null) {
@@ -696,7 +707,7 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
                         if (novaBaseConhecimento.getIdProblema() != null && novaBaseConhecimento.getIdBaseConhecimento() != null) {
 
                             conhecimentoProblemaDao.deleteByIdBaseConhecimento(novaBaseConhecimento.getIdBaseConhecimento());
-							conhecimentoProblemaDao.deleteByIdProblema(novaBaseConhecimento.getIdProblema());
+                            conhecimentoProblemaDao.deleteByIdProblema(novaBaseConhecimento.getIdProblema());
                             conhecimentoProblemaDTO.setIdProblema(novaBaseConhecimento.getIdProblema());
                             conhecimentoProblemaDTO.setIdBaseConhecimento(novaBaseConhecimento.getIdBaseConhecimento());
                             conhecimentoProblemaDao.create(conhecimentoProblemaDTO);
@@ -728,12 +739,13 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
 
                                     if (PRONTUARIO_GED_INTERNO.equalsIgnoreCase("S") && !"S".equalsIgnoreCase(prontuarioGedInternoBancoDados)) {
                                         if (controleGEDDTO != null) {
-                                            final File arquivo = new File(PRONTUARIO_GED_DIRETORIO + "/" + 1 + "/" + pasta + "/" + controleGEDDTO.getIdControleGED() + "."
-                                                    + Util.getFileExtension(uploadDto.getNameFile()));
-                                            CriptoUtils.encryptFile(uploadDto.getPath(), PRONTUARIO_GED_DIRETORIO + "/" + 1 + "/" + pasta + "/" + controleGEDDTO.getIdControleGED()
-                                                    + ".ged", System.getProperties().get("user.dir") + Constantes.getValue("CAMINHO_CHAVE_PUBLICA"));
-                                            anexoBaseConhecimento.setLink(PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/" + controleGEDDTO.getIdControleGED()
-                                                    + ".ged");
+                                            final File arquivo = new File(PRONTUARIO_GED_DIRETORIO + "/" + 1 + "/" + pasta + "/"
+                                                    + controleGEDDTO.getIdControleGED() + "." + Util.getFileExtension(uploadDto.getNameFile()));
+                                            CriptoUtils.encryptFile(uploadDto.getPath(), PRONTUARIO_GED_DIRETORIO + "/" + 1 + "/" + pasta + "/"
+                                                    + controleGEDDTO.getIdControleGED() + ".ged",
+                                                    System.getProperties().get("user.dir") + Constantes.getValue("CAMINHO_CHAVE_PUBLICA"));
+                                            anexoBaseConhecimento.setLink(PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/"
+                                                    + controleGEDDTO.getIdControleGED() + ".ged");
                                             arquivo.delete();
                                         }
                                     }
@@ -771,11 +783,14 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
                                     controleGEDDTO.setNomeArquivo(uploadDto.getNameFile());
                                     controleGEDDTO = (ControleGEDDTO) controleGEDDao.create(controleGEDDTO);
 
-                                    final File arquivoAntigo = new File(PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/" + uploadDto.getPath().substring(3) + ".ged");
+                                    final File arquivoAntigo = new File(PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/"
+                                            + uploadDto.getPath().substring(3) + ".ged");
 
-                                    this.copiarArquivo(arquivoAntigo, PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/" + controleGEDDTO.getIdControleGED() + ".ged");
+                                    this.copiarArquivo(arquivoAntigo,
+                                            PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/" + controleGEDDTO.getIdControleGED() + ".ged");
 
-                                    anexoBaseConhecimento.setLink(PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/" + controleGEDDTO.getIdControleGED() + ".ged");
+                                    anexoBaseConhecimento.setLink(PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/"
+                                            + controleGEDDTO.getIdControleGED() + ".ged");
                                     anexoBaseConhecimento.setDataInicio(UtilDatas.getDataAtual());
                                     anexoBaseConhecimento.setNomeAnexo(controleGEDDTO.getNomeArquivo());
                                     anexoBaseConhecimento.setExtensao(controleGEDDTO.getExtensaoArquivo());
@@ -829,7 +844,8 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
                         if (historicoBaseConhecimentoDto.getIdHistoricoBaseConhecimento() == null) {
                             historicoBaseConhecimentoDto = (HistoricoBaseConhecimentoDTO) historicoBaseConhecimentoDao.create(historicoBaseConhecimentoDto);
                         } else {
-                            historicoBaseConhecimentoDto = (HistoricoBaseConhecimentoDTO) historicoBaseConhecimentoDao.createWithID(historicoBaseConhecimentoDto);
+                            historicoBaseConhecimentoDto = (HistoricoBaseConhecimentoDTO) historicoBaseConhecimentoDao
+                                    .createWithID(historicoBaseConhecimentoDto);
                         }
 
                         if (novaBaseConhecimento.getIdHistoricoBaseConhecimento() == null) {
@@ -844,7 +860,7 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
                         if (novaBaseConhecimento.getIdProblema() != null && novaBaseConhecimento.getIdBaseConhecimento() != null) {
 
                             conhecimentoProblemaDao.deleteByIdBaseConhecimento(novaBaseConhecimento.getIdBaseConhecimento());
-							conhecimentoProblemaDao.deleteByIdProblema(novaBaseConhecimento.getIdProblema());
+                            conhecimentoProblemaDao.deleteByIdProblema(novaBaseConhecimento.getIdProblema());
                             conhecimentoProblemaDTO.setIdProblema(novaBaseConhecimento.getIdProblema());
                             conhecimentoProblemaDTO.setIdBaseConhecimento(novaBaseConhecimento.getIdBaseConhecimento());
                             conhecimentoProblemaDao.create(conhecimentoProblemaDTO);
@@ -876,12 +892,13 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
                                     if (PRONTUARIO_GED_INTERNO.equalsIgnoreCase("S") && !"S".equalsIgnoreCase(prontuarioGedInternoBancoDados)) {
 
                                         if (controleGEDDTO != null) {
-                                            final File arquivo = new File(PRONTUARIO_GED_DIRETORIO + "/" + 1 + "/" + pasta + "/" + controleGEDDTO.getIdControleGED() + "."
-                                                    + Util.getFileExtension(uploadDto.getNameFile()));
-                                            CriptoUtils.encryptFile(uploadDto.getPath(), PRONTUARIO_GED_DIRETORIO + "/" + 1 + "/" + pasta + "/" + controleGEDDTO.getIdControleGED()
-                                                    + ".ged", System.getProperties().get("user.dir") + Constantes.getValue("CAMINHO_CHAVE_PUBLICA"));
-                                            anexoBaseConhecimento.setLink(PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/" + controleGEDDTO.getIdControleGED()
-                                                    + ".ged");
+                                            final File arquivo = new File(PRONTUARIO_GED_DIRETORIO + "/" + 1 + "/" + pasta + "/"
+                                                    + controleGEDDTO.getIdControleGED() + "." + Util.getFileExtension(uploadDto.getNameFile()));
+                                            CriptoUtils.encryptFile(uploadDto.getPath(), PRONTUARIO_GED_DIRETORIO + "/" + 1 + "/" + pasta + "/"
+                                                    + controleGEDDTO.getIdControleGED() + ".ged",
+                                                    System.getProperties().get("user.dir") + Constantes.getValue("CAMINHO_CHAVE_PUBLICA"));
+                                            anexoBaseConhecimento.setLink(PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/"
+                                                    + controleGEDDTO.getIdControleGED() + ".ged");
                                             arquivo.delete();
                                         }
                                     }
@@ -916,11 +933,14 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
                                     controleGEDDTO.setNomeArquivo(uploadDto.getNameFile());
                                     controleGEDDTO = (ControleGEDDTO) controleGEDDao.create(controleGEDDTO);
 
-                                    final File arquivoAntigo = new File(PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/" + uploadDto.getPath().substring(3) + ".ged");
+                                    final File arquivoAntigo = new File(PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/"
+                                            + uploadDto.getPath().substring(3) + ".ged");
 
-                                    this.copiarArquivo(arquivoAntigo, PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/" + controleGEDDTO.getIdControleGED() + ".ged");
+                                    this.copiarArquivo(arquivoAntigo,
+                                            PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/" + controleGEDDTO.getIdControleGED() + ".ged");
 
-                                    anexoBaseConhecimento.setLink(PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/" + controleGEDDTO.getIdControleGED() + ".ged");
+                                    anexoBaseConhecimento.setLink(PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/"
+                                            + controleGEDDTO.getIdControleGED() + ".ged");
                                     anexoBaseConhecimento.setDataInicio(UtilDatas.getDataAtual());
                                     anexoBaseConhecimento.setNomeAnexo(controleGEDDTO.getNomeArquivo());
                                     anexoBaseConhecimento.setExtensao(controleGEDDTO.getExtensaoArquivo());
@@ -951,8 +971,8 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
                         solicitacaoServicoDao.setTransactionControler(transactionControler);
                         conhecimentoSolicitacaoDao.setTransactionControler(transactionControler);
 
-                        final List<SolicitacaoServicoDTO> listaSolicitacoes = solicitacaoServicoDao.listaSolicitacoesRelacionadasBaseconhecimento(baseConhecimentoDto
-                                .getIdBaseConhecimento());
+                        final List<SolicitacaoServicoDTO> listaSolicitacoes = solicitacaoServicoDao
+                                .listaSolicitacoesRelacionadasBaseconhecimento(baseConhecimentoDto.getIdBaseConhecimento());
 
                         conhecimentoSolicitacaoDao.deleteByIdBaseConhecimento(baseConhecimentoDto.getIdBaseConhecimento());
 
@@ -970,7 +990,8 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
 
                         // EXCLUO OS ANEXOS DA BASE DE CONHECIMENTO ANTIGA.
 
-                        final Collection<AnexoBaseConhecimentoDTO> anexosBaseConhecimento = anexoBaseConhecimentoDao.consultarAnexosDaBaseConhecimento(baseConhecimentoDto);
+                        final Collection<AnexoBaseConhecimentoDTO> anexosBaseConhecimento = anexoBaseConhecimentoDao
+                                .consultarAnexosDaBaseConhecimento(baseConhecimentoDto);
 
                         if (anexosBaseConhecimento != null && !anexosBaseConhecimento.isEmpty()) {
 
@@ -982,8 +1003,8 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
 
                         // EXCLUO OS GEDS DA BASE DE CONHECIMENTO ANTIGA.
 
-                        final Collection<ControleGEDDTO> gedsBaseConhecimento = controleGEDDao.listByIdTabelaAndIdBaseConhecimento(ControleGEDDTO.TABELA_BASECONHECIMENTO,
-                                baseConhecimentoDto.getIdBaseConhecimento());
+                        final Collection<ControleGEDDTO> gedsBaseConhecimento = controleGEDDao.listByIdTabelaAndIdBaseConhecimento(
+                                ControleGEDDTO.TABELA_BASECONHECIMENTO, baseConhecimentoDto.getIdBaseConhecimento());
 
                         if (gedsBaseConhecimento != null && !gedsBaseConhecimento.isEmpty()) {
                             for (final ControleGEDDTO ged : gedsBaseConhecimento) {
@@ -1024,7 +1045,8 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
                         if (historicoBaseConhecimentoDto.getIdHistoricoBaseConhecimento() == null) {
                             historicoBaseConhecimentoDto = (HistoricoBaseConhecimentoDTO) historicoBaseConhecimentoDao.create(historicoBaseConhecimentoDto);
                         } else {
-                            historicoBaseConhecimentoDto = (HistoricoBaseConhecimentoDTO) historicoBaseConhecimentoDao.createWithID(historicoBaseConhecimentoDto);
+                            historicoBaseConhecimentoDto = (HistoricoBaseConhecimentoDTO) historicoBaseConhecimentoDao
+                                    .createWithID(historicoBaseConhecimentoDto);
                         }
 
                         if (novaBaseConhecimento.getIdHistoricoBaseConhecimento() == null) {
@@ -1046,7 +1068,7 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
                         if (novaBaseConhecimento.getIdProblema() != null && novaBaseConhecimento.getIdBaseConhecimento() != null) {
 
                             conhecimentoProblemaDao.deleteByIdBaseConhecimento(novaBaseConhecimento.getIdBaseConhecimento());
-							conhecimentoProblemaDao.deleteByIdProblema(novaBaseConhecimento.getIdProblema());
+                            conhecimentoProblemaDao.deleteByIdProblema(novaBaseConhecimento.getIdProblema());
                             conhecimentoProblemaDTO.setIdProblema(novaBaseConhecimento.getIdProblema());
                             conhecimentoProblemaDTO.setIdBaseConhecimento(novaBaseConhecimento.getIdBaseConhecimento());
                             conhecimentoProblemaDao.create(conhecimentoProblemaDTO);
@@ -1084,14 +1106,15 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
 
                                         if (controleGEDDTO != null) {
 
-                                            final File arquivo = new File(PRONTUARIO_GED_DIRETORIO + "/" + 1 + "/" + pasta + "/" + controleGEDDTO.getIdControleGED() + "."
-                                                    + Util.getFileExtension(uploadDto.getNameFile()));
+                                            final File arquivo = new File(PRONTUARIO_GED_DIRETORIO + "/" + 1 + "/" + pasta + "/"
+                                                    + controleGEDDTO.getIdControleGED() + "." + Util.getFileExtension(uploadDto.getNameFile()));
 
-                                            CriptoUtils.encryptFile(uploadDto.getPath(), PRONTUARIO_GED_DIRETORIO + "/" + 1 + "/" + pasta + "/" + controleGEDDTO.getIdControleGED()
-                                                    + ".ged", System.getProperties().get("user.dir") + Constantes.getValue("CAMINHO_CHAVE_PUBLICA"));
+                                            CriptoUtils.encryptFile(uploadDto.getPath(), PRONTUARIO_GED_DIRETORIO + "/" + 1 + "/" + pasta + "/"
+                                                    + controleGEDDTO.getIdControleGED() + ".ged",
+                                                    System.getProperties().get("user.dir") + Constantes.getValue("CAMINHO_CHAVE_PUBLICA"));
 
-                                            anexoBaseConhecimento.setLink(PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/" + controleGEDDTO.getIdControleGED()
-                                                    + ".ged");
+                                            anexoBaseConhecimento.setLink(PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/"
+                                                    + controleGEDDTO.getIdControleGED() + ".ged");
 
                                             arquivo.delete();
 
@@ -1122,11 +1145,14 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
 
                                     controleGEDDTO = (ControleGEDDTO) controleGEDDao.create(controleGEDDTO);
 
-                                    final File arquivoAntigo = new File(PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/" + uploadDto.getPath().substring(3) + ".ged");
+                                    final File arquivoAntigo = new File(PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/"
+                                            + uploadDto.getPath().substring(3) + ".ged");
 
-                                    this.copiarArquivo(arquivoAntigo, PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/" + controleGEDDTO.getIdControleGED() + ".ged");
+                                    this.copiarArquivo(arquivoAntigo,
+                                            PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/" + controleGEDDTO.getIdControleGED() + ".ged");
 
-                                    anexoBaseConhecimento.setLink(PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/" + controleGEDDTO.getIdControleGED() + ".ged");
+                                    anexoBaseConhecimento.setLink(PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/"
+                                            + controleGEDDTO.getIdControleGED() + ".ged");
                                     anexoBaseConhecimento.setDataInicio(UtilDatas.getDataAtual());
                                     anexoBaseConhecimento.setNomeAnexo(controleGEDDTO.getNomeArquivo());
                                     anexoBaseConhecimento.setExtensao(controleGEDDTO.getExtensaoArquivo());
@@ -1408,7 +1434,8 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
     private boolean usuarioAprovaBaseConhecimento(final UsuarioDTO usuarioDto, final Integer idPasta) throws ServiceException, Exception {
         boolean aprovaBaseConhecimento = false;
 
-        final PerfilAcessoPastaService perfilAcessoPastaService = (PerfilAcessoPastaService) ServiceLocator.getInstance().getService(PerfilAcessoPastaService.class, null);
+        final PerfilAcessoPastaService perfilAcessoPastaService = (PerfilAcessoPastaService) ServiceLocator.getInstance().getService(
+                PerfilAcessoPastaService.class, null);
 
         aprovaBaseConhecimento = perfilAcessoPastaService.verificarSeUsuarioAprovaBaseConhecimentoParaPastaSelecionada(usuarioDto, idPasta);
 
@@ -1440,11 +1467,12 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
     }
 
     @Override
-    public void criarImportanciaConhecimentoUsuario(final BaseConhecimentoDTO baseConhecimentoDto, TransactionControler transactionControler) throws ServiceException, Exception {
+    public void criarImportanciaConhecimentoUsuario(final BaseConhecimentoDTO baseConhecimentoDto, TransactionControler transactionControler)
+            throws ServiceException, Exception {
         if (baseConhecimentoDto.getIdBaseConhecimento() != null) {
 
-            final ImportanciaConhecimentoUsuarioService importanciaConhecimentoUsuarioService = (ImportanciaConhecimentoUsuarioService) ServiceLocator.getInstance().getService(
-                    ImportanciaConhecimentoUsuarioService.class, null);
+            final ImportanciaConhecimentoUsuarioService importanciaConhecimentoUsuarioService = (ImportanciaConhecimentoUsuarioService) ServiceLocator
+                    .getInstance().getService(ImportanciaConhecimentoUsuarioService.class, null);
 
             if (transactionControler == null) {
                 transactionControler = new TransactionControlerImpl(this.getDao().getAliasDB());
@@ -1452,7 +1480,8 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
 
             importanciaConhecimentoUsuarioService.deleteByIdConhecimento(baseConhecimentoDto.getIdBaseConhecimento(), transactionControler);
 
-            final Collection<ImportanciaConhecimentoUsuarioDTO> listImportanciaConhecimentoUsuario = baseConhecimentoDto.getListImportanciaConhecimentoUsuario();
+            final Collection<ImportanciaConhecimentoUsuarioDTO> listImportanciaConhecimentoUsuario = baseConhecimentoDto
+                    .getListImportanciaConhecimentoUsuario();
             if (listImportanciaConhecimentoUsuario != null && !listImportanciaConhecimentoUsuario.isEmpty()) {
                 for (final ImportanciaConhecimentoUsuarioDTO importanciaConhecimentoUsuario : listImportanciaConhecimentoUsuario) {
                     if (importanciaConhecimentoUsuario.getIdBaseConhecimento() == null) {
@@ -1470,8 +1499,8 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
     @Override
     public void criarImportanciaConhecimentoGrupo(final BaseConhecimentoDTO baseConhecimentoDto, TransactionControler transactionControler) throws Exception {
         if (baseConhecimentoDto.getIdBaseConhecimento() != null) {
-            final ImportanciaConhecimentoGrupoService importanciaConhecimentoGrupoService = (ImportanciaConhecimentoGrupoService) ServiceLocator.getInstance().getService(
-                    ImportanciaConhecimentoGrupoService.class, null);
+            final ImportanciaConhecimentoGrupoService importanciaConhecimentoGrupoService = (ImportanciaConhecimentoGrupoService) ServiceLocator.getInstance()
+                    .getService(ImportanciaConhecimentoGrupoService.class, null);
 
             if (transactionControler == null) {
                 transactionControler = new TransactionControlerImpl(this.getDao().getAliasDB());
@@ -1495,10 +1524,11 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
     }
 
     @Override
-    public void criarRelacionamentoEntreConhecimentos(final BaseConhecimentoDTO baseConhecimentoDto, TransactionControler transactionControler) throws Exception {
+    public void criarRelacionamentoEntreConhecimentos(final BaseConhecimentoDTO baseConhecimentoDto, TransactionControler transactionControler)
+            throws Exception {
         if (baseConhecimentoDto.getIdBaseConhecimento() != null) {
-            final BaseConhecimentoRelacionadoService baseConhecimentoRelacionadoService = (BaseConhecimentoRelacionadoService) ServiceLocator.getInstance().getService(
-                    BaseConhecimentoRelacionadoService.class, null);
+            final BaseConhecimentoRelacionadoService baseConhecimentoRelacionadoService = (BaseConhecimentoRelacionadoService) ServiceLocator.getInstance()
+                    .getService(BaseConhecimentoRelacionadoService.class, null);
 
             if (transactionControler == null) {
                 transactionControler = new TransactionControlerImpl(this.getDao().getAliasDB());
@@ -1531,8 +1561,8 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
      * @author Thays
      */
     @Override
-    public void criarRelacionamentoEntreEventoMonitConhecimento(final BaseConhecimentoDTO baseConhecimentoDto, TransactionControler transactionControler) throws ServiceException,
-            Exception {
+    public void criarRelacionamentoEntreEventoMonitConhecimento(final BaseConhecimentoDTO baseConhecimentoDto, TransactionControler transactionControler)
+            throws ServiceException, Exception {
 
         if (baseConhecimentoDto.getIdBaseConhecimento() != null) {
             final EventoMonitConhecimentoService eventoMonitConhecimentoService = (EventoMonitConhecimentoService) ServiceLocator.getInstance().getService(
@@ -1555,7 +1585,8 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
     }
 
     @Override
-    public NotificacaoDTO criarNotificacao(final BaseConhecimentoDTO baseConhecimentoDto, TransactionControler transactionControler) throws ServiceException, Exception {
+    public NotificacaoDTO criarNotificacao(final BaseConhecimentoDTO baseConhecimentoDto, TransactionControler transactionControler) throws ServiceException,
+    Exception {
 
         final NotificacaoDTO notificacaoDto = new NotificacaoDTO();
 
@@ -1599,13 +1630,13 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
         return this.getDao().listarBaseConhecimentoFAQByPasta(pasta);
     }
 
-    private void enviarEmailNotificacaoConhecimento(final BaseConhecimentoDTO baseConhecimentoDTO, final TransactionControler transactionControler, final String crud)
-            throws Exception {
+    private void enviarEmailNotificacaoConhecimento(final BaseConhecimentoDTO baseConhecimentoDTO, final TransactionControler transactionControler,
+            final String crud) throws Exception {
 
         final EmpregadoDao empregadoDao = new EmpregadoDao();
         final NotificacaoDao notificacaoDao = new NotificacaoDao();
 
-        Collection<EmpregadoDTO> colEmpregados = new ArrayList();
+        Collection<EmpregadoDTO> colEmpregados = new ArrayList<>();
 
         if (transactionControler != null) {
             empregadoDao.setTransactionControler(transactionControler);
@@ -1615,11 +1646,12 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
         if (baseConhecimentoDTO.getIdNotificacao() != null && baseConhecimentoDTO.getIdNotificacao() != 0) {
 
             final String remetente = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.RemetenteNotificacoesSolicitacao, null);
-            String ID_MODELO_EMAIL_AVISAR_CRIACAO_CONHECIMENTO = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.ID_MODELO_EMAIL_AVISAR_CRIACAO_CONHECIMENTO, "8");
+            String ID_MODELO_EMAIL_AVISAR_CRIACAO_CONHECIMENTO = ParametroUtil.getValorParametroCitSmartHashMap(
+                    ParametroSistema.ID_MODELO_EMAIL_AVISAR_CRIACAO_CONHECIMENTO, "8");
             String ID_MODELO_EMAIL_AVISAR_ATUALIZACAO_CONHECIMENTO = ParametroUtil.getValorParametroCitSmartHashMap(
                     ParametroSistema.ID_MODELO_EMAIL_AVISAR_ATUALIZACAO_CONHECIMENTO, "9");
-            String ID_MODELO_EMAIL_AVISAR_EXCLUSAO_CONHECIMENTO = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.ID_MODELO_EMAIL_AVISAR_EXCLUSAO_CONHECIMENTO,
-                    "10");
+            String ID_MODELO_EMAIL_AVISAR_EXCLUSAO_CONHECIMENTO = ParametroUtil.getValorParametroCitSmartHashMap(
+                    ParametroSistema.ID_MODELO_EMAIL_AVISAR_EXCLUSAO_CONHECIMENTO, "10");
             String ID_MODELO_EMAIL = "";
 
             if (ID_MODELO_EMAIL_AVISAR_CRIACAO_CONHECIMENTO == null || ID_MODELO_EMAIL_AVISAR_CRIACAO_CONHECIMENTO.isEmpty()) {
@@ -1687,14 +1719,14 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
 
     @Override
     public Integer obterGrauDeImportanciaParaUsuario(final BaseConhecimentoDTO baseConhecimentoDto, final UsuarioDTO usuarioDto) throws Exception {
-        final ImportanciaConhecimentoGrupoService importanciaConhecimentoGrupoService = (ImportanciaConhecimentoGrupoService) ServiceLocator.getInstance().getService(
-                ImportanciaConhecimentoGrupoService.class, null);
+        final ImportanciaConhecimentoGrupoService importanciaConhecimentoGrupoService = (ImportanciaConhecimentoGrupoService) ServiceLocator.getInstance()
+                .getService(ImportanciaConhecimentoGrupoService.class, null);
         final GrupoEmpregadoService grupoEmpregadoService = (GrupoEmpregadoService) ServiceLocator.getInstance().getService(GrupoEmpregadoService.class, null);
 
         final Collection<GrupoEmpregadoDTO> listGrupoEmpregadoDto = grupoEmpregadoService.findByIdEmpregado(usuarioDto.getIdEmpregado());
 
-        final ImportanciaConhecimentoGrupoDTO importanciaConhecimento = importanciaConhecimentoGrupoService.obterGrauDeImportancia(baseConhecimentoDto, listGrupoEmpregadoDto,
-                usuarioDto);
+        final ImportanciaConhecimentoGrupoDTO importanciaConhecimento = importanciaConhecimentoGrupoService.obterGrauDeImportancia(baseConhecimentoDto,
+                listGrupoEmpregadoDto, usuarioDto);
 
         if (importanciaConhecimento != null) {
             return Integer.parseInt(importanciaConhecimento.getGrauImportancia());
@@ -1758,7 +1790,7 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
                         final ProblemaDTO problemaDTO = (ProblemaDTO) element;
 
                         final ConhecimentoProblemaDTO conhecimentoProblemaDTO = new ConhecimentoProblemaDTO();
-						conhecimentoProblemaDAO.deleteByIdProblema(problemaDTO.getIdProblema());
+                        conhecimentoProblemaDAO.deleteByIdProblema(problemaDTO.getIdProblema());
                         conhecimentoProblemaDTO.setIdProblema(problemaDTO.getIdProblema());
                         conhecimentoProblemaDTO.setIdBaseConhecimento(baseConhecimento.getIdBaseConhecimento());
 
@@ -1901,7 +1933,8 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
 
                     // Conta excluídos
                     if (baseConhecimentoDTO2.getDataFim() != null) {
-                        final boolean resp = UtilDatas.dataEntreIntervalo(baseConhecimentoDTO2.getDataFim(), baseConhecimentoDTO.getDataInicio(), baseConhecimentoDTO.getDataFim());
+                        final boolean resp = UtilDatas.dataEntreIntervalo(baseConhecimentoDTO2.getDataFim(), baseConhecimentoDTO.getDataInicio(),
+                                baseConhecimentoDTO.getDataFim());
                         if (resp) {
                             qtdExcluidos++;
                         }
@@ -1948,7 +1981,8 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
             }
 
             // Conta acessados no período
-            final ContadorAcessoService contadorAcessoService = (ContadorAcessoService) ServiceLocator.getInstance().getService(ContadorAcessoService.class, null);
+            final ContadorAcessoService contadorAcessoService = (ContadorAcessoService) ServiceLocator.getInstance().getService(ContadorAcessoService.class,
+                    null);
             final Integer contadorAcesso = contadorAcessoService.quantidadesDeAcessoPorPeriodo(baseConhecimentoDTO);
             if (contadorAcesso != null) {
                 qtdAcessados = contadorAcesso;
@@ -1962,8 +1996,8 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
             }
 
             // Conta atualizados no período
-            final HistoricoBaseConhecimentoService historicoBaseConhecimentoService = (HistoricoBaseConhecimentoService) ServiceLocator.getInstance().getService(
-                    HistoricoBaseConhecimentoService.class, null);
+            final HistoricoBaseConhecimentoService historicoBaseConhecimentoService = (HistoricoBaseConhecimentoService) ServiceLocator.getInstance()
+                    .getService(HistoricoBaseConhecimentoService.class, null);
             final Collection<HistoricoBaseConhecimentoDTO> listHistoricoAlteracao = historicoBaseConhecimentoService.list();
             if (listHistoricoAlteracao != null) {
                 for (final HistoricoBaseConhecimentoDTO historicoBaseConhecimentoDTO : listHistoricoAlteracao) {
@@ -2040,7 +2074,8 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
     public Collection<BaseConhecimentoDTO> consultaConhecimentosPublicadosPorOrigem(final BaseConhecimentoDTO baseConhecimentoDTO) throws Exception {
         List<BaseConhecimentoDTO> listaConsultaConhecimentoPublicadosPorOrigem = new ArrayList<BaseConhecimentoDTO>();
         try {
-            listaConsultaConhecimentoPublicadosPorOrigem = (List<BaseConhecimentoDTO>) this.getDao().consultaConhecimentosPublicadosPorOrigem(baseConhecimentoDTO);
+            listaConsultaConhecimentoPublicadosPorOrigem = (List<BaseConhecimentoDTO>) this.getDao().consultaConhecimentosPublicadosPorOrigem(
+                    baseConhecimentoDTO);
         } catch (final Exception e) {
             e.printStackTrace();
         }
@@ -2052,7 +2087,8 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
     public Collection<BaseConhecimentoDTO> consultaConhecimentosNaoPublicadosPorOrigem(final BaseConhecimentoDTO baseConhecimentoDTO) throws Exception {
         List<BaseConhecimentoDTO> listaConsultaConhecimentoNaoPublicadosPorOrigem = new ArrayList<BaseConhecimentoDTO>();
         try {
-            listaConsultaConhecimentoNaoPublicadosPorOrigem = (List<BaseConhecimentoDTO>) this.getDao().consultaConhecimentosNaoPublicadosPorOrigem(baseConhecimentoDTO);
+            listaConsultaConhecimentoNaoPublicadosPorOrigem = (List<BaseConhecimentoDTO>) this.getDao().consultaConhecimentosNaoPublicadosPorOrigem(
+                    baseConhecimentoDTO);
         } catch (final Exception e) {
             e.printStackTrace();
         }
@@ -2071,7 +2107,8 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
         List<BaseConhecimentoDTO> listaServico = new ArrayList<BaseConhecimentoDTO>();
 
         try {
-            listaConsultaConhecimentoQuantitativoEmLista = (List<BaseConhecimentoDTO>) this.getDao().consultaConhecimentoQuantitativoEmLista(baseConhecimentoDTO);
+            listaConsultaConhecimentoQuantitativoEmLista = (List<BaseConhecimentoDTO>) this.getDao().consultaConhecimentoQuantitativoEmLista(
+                    baseConhecimentoDTO);
             for (final BaseConhecimentoDTO baseConhecimentoDTO2 : listaConsultaConhecimentoQuantitativoEmLista) {
                 listaIncidente = (List<BaseConhecimentoDTO>) this.getDao().consultaIncidenteLista(baseConhecimentoDTO2);
                 baseConhecimentoDTO2.setListaIncidente(listaIncidente);
@@ -2140,25 +2177,27 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
             return "0";
         }
     }
-    
+
     @Override
-    public Page<BaseConhecimentoDTO> listarBaseConhecimentoPortal(final Pageable pageable, final boolean isTotalizacao) throws PersistenceException{
-    	return this.getDao().listarBaseConhecimentoPortal(pageable, isTotalizacao, null);
-    }
-    
-    @Override
-    public Page<BaseConhecimentoDTO> listarBaseConhecimentoFAQPortal(final Pageable pageable, final boolean isTotalizacao) throws PersistenceException{
-    	return this.getDao().listarBaseConhecimentoFAQPortal(pageable, isTotalizacao, null);
+    public Page<BaseConhecimentoDTO> listarBaseConhecimentoPortal(final Pageable pageable, final boolean isTotalizacao) throws PersistenceException {
+        return this.getDao().listarBaseConhecimentoPortal(pageable, isTotalizacao, null);
     }
 
-	@Override
-	public Page<BaseConhecimentoDTO> pesquisaBaseConhecimentoPortal(Pageable pageable, boolean isTotalizacao, String titulo) throws PersistenceException {
-    	return this.getDao().listarBaseConhecimentoPortal(pageable, isTotalizacao, titulo);
-	}
+    @Override
+    public Page<BaseConhecimentoDTO> listarBaseConhecimentoFAQPortal(final Pageable pageable, final boolean isTotalizacao) throws PersistenceException {
+        return this.getDao().listarBaseConhecimentoFAQPortal(pageable, isTotalizacao, null);
+    }
 
-	@Override
-	public Page<BaseConhecimentoDTO> pesquisaBaseConhecimentoFAQPortal(Pageable pageable, boolean isTotalizacao, String titulo) throws PersistenceException {
-    	return this.getDao().listarBaseConhecimentoFAQPortal(pageable, isTotalizacao, titulo);
-	}
+    @Override
+    public Page<BaseConhecimentoDTO> pesquisaBaseConhecimentoPortal(final Pageable pageable, final boolean isTotalizacao, final String titulo)
+            throws PersistenceException {
+        return this.getDao().listarBaseConhecimentoPortal(pageable, isTotalizacao, titulo);
+    }
+
+    @Override
+    public Page<BaseConhecimentoDTO> pesquisaBaseConhecimentoFAQPortal(final Pageable pageable, final boolean isTotalizacao, final String titulo)
+            throws PersistenceException {
+        return this.getDao().listarBaseConhecimentoFAQPortal(pageable, isTotalizacao, titulo);
+    }
 
 }

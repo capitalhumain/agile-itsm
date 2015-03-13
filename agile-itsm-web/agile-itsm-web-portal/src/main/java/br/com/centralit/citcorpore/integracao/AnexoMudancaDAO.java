@@ -13,39 +13,42 @@ import br.com.citframework.util.Constantes;
 public class AnexoMudancaDAO extends CrudDaoDefaultImpl {
 
     public AnexoMudancaDAO() {
-	super(Constantes.getValue("DATABASE_ALIAS"), null);
-    }
-
-    public Class getBean() {
-	return AnexoMudancaDTO.class;
-    }
-
-    public Collection<Field> getFields() {
-	Collection<Field> listFields = new ArrayList<>();
-
-	listFields.add(new Field("IDANEXOMUDANCA", "idAnexoMudanca", true, true, false, false));
-	listFields.add(new Field("IDMUDANCA", "idMudanca", false, false, false, false));
-	listFields.add(new Field("DATAINICIO", "dataInicio", false, false, false, false));
-	listFields.add(new Field("DATAFIM", "dataFim", false, false, false, false));
-	listFields.add(new Field("NOME", "nomeAnexo", false, false, false, false));
-	listFields.add(new Field("DESCRICAO", "descricao", false, false, false, false));
-	listFields.add(new Field("LINK", "link", false, false, false, false));
-	listFields.add(new Field("EXTENSAO", "extensao", false, false, false, false));
-	return listFields;
-    }
-
-    public String getTableName() {
-	return "anexomudanca";
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
     }
 
     @Override
-    public Collection find(BaseEntity arg0) throws PersistenceException {
-	return null;
+    public Class getBean() {
+        return AnexoMudancaDTO.class;
+    }
+
+    @Override
+    public Collection<Field> getFields() {
+        final Collection<Field> listFields = new ArrayList<>();
+
+        listFields.add(new Field("IDANEXOMUDANCA", "idAnexoMudanca", true, true, false, false));
+        listFields.add(new Field("IDMUDANCA", "idMudanca", false, false, false, false));
+        listFields.add(new Field("DATAINICIO", "dataInicio", false, false, false, false));
+        listFields.add(new Field("DATAFIM", "dataFim", false, false, false, false));
+        listFields.add(new Field("NOME", "nomeAnexo", false, false, false, false));
+        listFields.add(new Field("DESCRICAO", "descricao", false, false, false, false));
+        listFields.add(new Field("LINK", "link", false, false, false, false));
+        listFields.add(new Field("EXTENSAO", "extensao", false, false, false, false));
+        return listFields;
+    }
+
+    @Override
+    public String getTableName() {
+        return "anexomudanca";
+    }
+
+    @Override
+    public Collection find(final BaseEntity arg0) throws PersistenceException {
+        return null;
     }
 
     @Override
     public Collection list() throws PersistenceException {
-	return null;
+        return null;
     }
 
 }

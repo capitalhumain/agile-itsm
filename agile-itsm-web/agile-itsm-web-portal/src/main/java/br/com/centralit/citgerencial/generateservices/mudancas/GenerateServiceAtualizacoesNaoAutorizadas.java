@@ -63,13 +63,13 @@ public class GenerateServiceAtualizacoesNaoAutorizadas extends GerencialGenerate
 			 * grupoItemConfiguracaoService.listHierarquiaGrupoPaiNull(); } catch (Exception e) { e.printStackTrace(); } if (colGrupos2 != null){ colGrupos.addAll(colGrupos2); } }
 			 */
 
-			retorno = new ArrayList();
+			retorno = new ArrayList<>();
 
 			ImagemItemConfiguracaoServiceEjb imagemItemConfiguracaoService = new ImagemItemConfiguracaoServiceEjb();
 
 			ItemConfiguracaoDao itemConfiguracaoDao = new ItemConfiguracaoDao();
 			for (HistoricoItemConfiguracaoDTO historicoDto : historicoIC) {
-				Collection<ItemConfiguracaoDTO> itensImpactados = new ArrayList();
+				Collection<ItemConfiguracaoDTO> itensImpactados = new ArrayList<>();
 
 				ItemConfiguracaoDTO itemConfiguracaoDto = null;
 				try {
@@ -85,7 +85,7 @@ public class GenerateServiceAtualizacoesNaoAutorizadas extends GerencialGenerate
 				if (!itemValido(itemConfiguracaoDto, situacao, idTipoItemConfiguracao, idCriticidade, colGrupos))
 					continue;
 
-				HashMap<String, ItemConfiguracaoDTO> mapItens = new HashMap();
+				HashMap<String, ItemConfiguracaoDTO> mapItens = new HashMap<>();
 				itensImpactados.add(itemConfiguracaoDto);
 				mapItens.put("" + itemConfiguracaoDto.getIdItemConfiguracao(), itemConfiguracaoDto);
 				try {
@@ -107,7 +107,7 @@ public class GenerateServiceAtualizacoesNaoAutorizadas extends GerencialGenerate
 				}
 
 				for (ItemConfiguracaoDTO itemDto : itensImpactados) {
-					List<Object> linha = new ArrayList();
+					List<Object> linha = new ArrayList<>();
 					linha.add(UtilDatas.convertDateToString(TipoDate.TIMESTAMP_WITH_SECONDS, historicoDto.getDataHoraAlteracao(), super.getLanguage(paramtersDefinition)));
 					linha.add(itemDto.getIdentificacao());
 					linha.add(itemDto.getDataInicio());

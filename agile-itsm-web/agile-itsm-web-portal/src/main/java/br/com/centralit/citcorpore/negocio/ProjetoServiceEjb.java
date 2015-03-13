@@ -21,7 +21,6 @@ import br.com.citframework.integracao.TransactionControlerImpl;
 import br.com.citframework.service.CrudServiceImpl;
 import br.com.citframework.util.UtilDatas;
 
-@SuppressWarnings({"rawtypes", "unchecked"})
 public class ProjetoServiceEjb extends CrudServiceImpl implements ProjetoService {
 
     private ProjetoDao dao;
@@ -55,7 +54,7 @@ public class ProjetoServiceEjb extends CrudServiceImpl implements ProjetoService
             return null;
         }
 
-        final Collection colRetorno = new ArrayList();
+        final Collection colRetorno = new ArrayList<>();
         boolean bAcrescenta;
         for (final ProjetoDTO projetoDto : colSemPai) {
             bAcrescenta = true;
@@ -81,7 +80,7 @@ public class ProjetoServiceEjb extends CrudServiceImpl implements ProjetoService
             return null;
         }
 
-        final Collection colRetorno = new ArrayList();
+        final Collection colRetorno = new ArrayList<>();
 
         boolean bAcrescenta;
         for (final ProjetoDTO projetoDto : colFilhos) {

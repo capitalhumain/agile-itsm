@@ -13,46 +13,47 @@ import br.com.citframework.integracao.Order;
 import br.com.citframework.util.Constantes;
 
 /**
- *  @author Pedro
+ * @author Pedro
  *
  */
 public class TipoSubscricaoDao extends CrudDaoDefaultImpl {
 
     public TipoSubscricaoDao() {
-	super(Constantes.getValue("DATABASE_ALIAS"), null);
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
     }
 
-    @SuppressWarnings("rawtypes")
+    @Override
     public Class getBean() {
-	return TipoSubscricaoDTO.class;
+        return TipoSubscricaoDTO.class;
     }
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
+    @Override
     public Collection<Field> getFields() {
-	Collection<Field> listFields = new ArrayList<>();
+        final Collection<Field> listFields = new ArrayList<>();
 
-	listFields.add(new Field("idtiposubscricao", "idTipoSubscricao", true, true, false, false));
-	listFields.add(new Field("nometiposubscricao", "nomeTipoSubscricao", false, false, false, false));
+        listFields.add(new Field("idtiposubscricao", "idTipoSubscricao", true, true, false, false));
+        listFields.add(new Field("nometiposubscricao", "nomeTipoSubscricao", false, false, false, false));
 
-	return listFields;
+        return listFields;
     }
 
+    @Override
     public String getTableName() {
-	return "TIPOSUBSCRICAO";
+        return "tiposubscricao";
     }
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
-    public Collection find(BaseEntity obj) throws PersistenceException {
-	List ordem = new ArrayList();
-	ordem.add(new Order("nomeTipoSubscricao"));
-	return super.find(obj, ordem);
+    @Override
+    public Collection find(final BaseEntity obj) throws PersistenceException {
+        final List ordem = new ArrayList<>();
+        ordem.add(new Order("nomeTipoSubscricao"));
+        return super.find(obj, ordem);
     }
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
+    @Override
     public Collection list() throws PersistenceException {
-	List list = new ArrayList();
-	list.add(new Order("nomeTipoSubscricao"));
-	return super.list(list);
+        final List list = new ArrayList<>();
+        list.add(new Order("nomeTipoSubscricao"));
+        return super.list(list);
     }
 
 }

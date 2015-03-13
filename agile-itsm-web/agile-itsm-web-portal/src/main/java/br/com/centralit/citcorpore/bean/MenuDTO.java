@@ -6,354 +6,354 @@ import br.com.agileitsm.model.support.BaseEntity;
 
 public class MenuDTO extends BaseEntity {
 
-	private Integer idMenu;
-	private Integer idMenuPai;
-	private Integer idMenuFilho;
-	private String nome;
-	private String nomeFilho;
-	private Date dataInicio;
-	private Date dataFim;
-	private String descricao;
-	private Integer ordem;
-	private String link;
-	private String imagem;
-	private String horizontal;
-	private Integer idPerfil;
-	private Integer idGrupo;
-	private Integer idUsuario;
-	private String pesquisa;
-	private String inclui;
-	private String altera;
-	private String deleta;
-	private String nomePerfil;
-	private String menuRapido;
-	private String mostrar;
+    private Integer idMenu;
+    private Integer idMenuPai;
+    private Integer idMenuFilho;
+    private String nome;
+    private String nomeFilho;
+    private Date dataInicio;
+    private Date dataFim;
+    private String descricao;
+    private Integer ordem;
+    private String link;
+    private String imagem;
+    private String horizontal;
+    private Integer idPerfil;
+    private Integer idGrupo;
+    private Integer idUsuario;
+    private String pesquisa;
+    private String inclui;
+    private String altera;
+    private String deleta;
+    private String nomePerfil;
+    private String menuRapido;
+    private String mostrar;
 
-	
-	//variáveis auxiliares, não salvas no banco
-	private Integer idPerfilAcesso;
-	private String grava;
-	
-	/**
-	 * @return valor do atributo idMenu.
-	 */
-	public Integer getIdMenu() {
-		return idMenu;
-	}
+    // variáveis auxiliares, não salvas no banco
+    private Integer idPerfilAcesso;
+    private String grava;
 
-	/**
-	 * Define valor do atributo idMenu.
-	 * 
-	 * @param idMenu
-	 */
-	public void setIdMenu(Integer idMenu) {
-		this.idMenu = idMenu;
-	}
+    /**
+     * @return valor do atributo idMenu.
+     */
+    public Integer getIdMenu() {
+        return idMenu;
+    }
 
-	/**
-	 * @return valor do atributo idMenuPai.
-	 */
-	public Integer getIdMenuPai() {
-		return idMenuPai;
-	}
+    /**
+     * Define valor do atributo idMenu.
+     *
+     * @param idMenu
+     */
+    public void setIdMenu(final Integer idMenu) {
+        this.idMenu = idMenu;
+    }
 
-	/**
-	 * Define valor do atributo idMenuPai.
-	 * 
-	 * @param idMenuPai
-	 */
-	public void setIdMenuPai(Integer idMenuPai) {
-		this.idMenuPai = idMenuPai;
-	}
+    /**
+     * @return valor do atributo idMenuPai.
+     */
+    public Integer getIdMenuPai() {
+        return idMenuPai;
+    }
 
-	/**
-	 * @return valor do atributo nome.
-	 */
-	public String getNome() {
-		return nome;
-	}
+    /**
+     * Define valor do atributo idMenuPai.
+     *
+     * @param idMenuPai
+     */
+    public void setIdMenuPai(final Integer idMenuPai) {
+        this.idMenuPai = idMenuPai;
+    }
 
-	/**
-	 * Define valor do atributo nome.
-	 * 
-	 * @param nome
-	 */
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    /**
+     * @return valor do atributo nome.
+     */
+    public String getNome() {
+        return nome;
+    }
 
-	/**
-	 * @return valor do atributo dataInicio.
-	 */
-	public Date getDataInicio() {
-		return dataInicio;
-	}
+    /**
+     * Define valor do atributo nome.
+     *
+     * @param nome
+     */
+    public void setNome(final String nome) {
+        this.nome = nome;
+    }
 
-	/**
-	 * Define valor do atributo dataInicio.
-	 * 
-	 * @param dataInicio
-	 */
-	public void setDataInicio(Date dataInicio) {
-		this.dataInicio = dataInicio;
-	}
+    /**
+     * @return valor do atributo dataInicio.
+     */
+    public Date getDataInicio() {
+        return dataInicio;
+    }
 
-	/**
-	 * @return valor do atributo dataFim.
-	 */
-	public Date getDataFim() {
-		return dataFim;
-	}
+    /**
+     * Define valor do atributo dataInicio.
+     *
+     * @param dataInicio
+     */
+    public void setDataInicio(final Date dataInicio) {
+        this.dataInicio = dataInicio;
+    }
 
-	/**
-	 * Define valor do atributo dataFim.
-	 * 
-	 * @param dataFim
-	 */
-	public void setDataFim(Date dataFim) {
-		this.dataFim = dataFim;
-	}
+    /**
+     * @return valor do atributo dataFim.
+     */
+    public Date getDataFim() {
+        return dataFim;
+    }
 
-	/**
-	 * @return valor do atributo descricao.
-	 */
-	public String getDescricao() {
-		return descricao;
-	}
+    /**
+     * Define valor do atributo dataFim.
+     *
+     * @param dataFim
+     */
+    public void setDataFim(final Date dataFim) {
+        this.dataFim = dataFim;
+    }
 
-	/**
-	 * Define valor do atributo descricao.
-	 * 
-	 * @param descricao
-	 */
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
+    /**
+     * @return valor do atributo descricao.
+     */
+    public String getDescricao() {
+        return descricao;
+    }
 
-	/**
-	 * @return valor do atributo ordem.
-	 */
-	public Integer getOrdem() {
-		return ordem;
-	}
+    /**
+     * Define valor do atributo descricao.
+     *
+     * @param descricao
+     */
+    public void setDescricao(final String descricao) {
+        this.descricao = descricao;
+    }
 
-	/**
-	 * Define valor do atributo ordem.
-	 * 
-	 * @param ordem
-	 */
-	public void setOrdem(Integer ordem) {
-		this.ordem = ordem;
-	}
+    /**
+     * @return valor do atributo ordem.
+     */
+    public Integer getOrdem() {
+        return ordem;
+    }
 
-	/**
-	 * @return valor do atributo link.
-	 */
-	public String getLink() {
-		if(link == null)
-			link = "";
-		return link;
-	}
+    /**
+     * Define valor do atributo ordem.
+     *
+     * @param ordem
+     */
+    public void setOrdem(final Integer ordem) {
+        this.ordem = ordem;
+    }
 
-	/**
-	 * Define valor do atributo link.
-	 * 
-	 * @param link
-	 */
-	public void setLink(String link) {
-		this.link = link;
-	}
+    /**
+     * @return valor do atributo link.
+     */
+    public String getLink() {
+        if (link == null) {
+            link = "";
+        }
+        return link;
+    }
 
-	/**
-	 * @return valor do atributo imagem.
-	 */
-	public String getImagem() {
-		return imagem;
-	}
+    /**
+     * Define valor do atributo link.
+     *
+     * @param link
+     */
+    public void setLink(final String link) {
+        this.link = link;
+    }
 
-	/**
-	 * Define valor do atributo imagem.
-	 * 
-	 * @param imagem
-	 */
-	public void setImagem(String imagem) {
-		this.imagem = imagem;
-	}
+    /**
+     * @return valor do atributo imagem.
+     */
+    public String getImagem() {
+        return imagem;
+    }
 
-	public String getHorizontal() {
-		return horizontal;
-	}
+    /**
+     * Define valor do atributo imagem.
+     *
+     * @param imagem
+     */
+    public void setImagem(final String imagem) {
+        this.imagem = imagem;
+    }
 
-	public void setHorizontal(String horizontal) {
-		this.horizontal = horizontal;
-	}
+    public String getHorizontal() {
+        return horizontal;
+    }
 
-	/**
-	 * @return valor do atributo idPerfil.
-	 */
-	public Integer getIdPerfil() {
-		return idPerfil;
-	}
+    public void setHorizontal(final String horizontal) {
+        this.horizontal = horizontal;
+    }
 
-	/**
-	 * Define valor do atributo idPerfil.
-	 * 
-	 * @param idPerfil
-	 */
-	public void setIdPerfil(Integer idPerfil) {
-		this.idPerfil = idPerfil;
-	}
+    /**
+     * @return valor do atributo idPerfil.
+     */
+    public Integer getIdPerfil() {
+        return idPerfil;
+    }
 
-	/**
-	 * @return valor do atributo idGrupo.
-	 */
-	public Integer getIdGrupo() {
-		return idGrupo;
-	}
+    /**
+     * Define valor do atributo idPerfil.
+     *
+     * @param idPerfil
+     */
+    public void setIdPerfil(final Integer idPerfil) {
+        this.idPerfil = idPerfil;
+    }
 
-	/**
-	 * Define valor do atributo idGrupo.
-	 * 
-	 * @param idGrupo
-	 */
-	public void setIdGrupo(Integer idGrupo) {
-		this.idGrupo = idGrupo;
-	}
+    /**
+     * @return valor do atributo idGrupo.
+     */
+    public Integer getIdGrupo() {
+        return idGrupo;
+    }
 
-	/**
-	 * @return valor do atributo idUsuario.
-	 */
-	public Integer getIdUsuario() {
-		return idUsuario;
-	}
+    /**
+     * Define valor do atributo idGrupo.
+     *
+     * @param idGrupo
+     */
+    public void setIdGrupo(final Integer idGrupo) {
+        this.idGrupo = idGrupo;
+    }
 
-	/**
-	 * Define valor do atributo idUsuario.
-	 * 
-	 * @param idUsuario
-	 */
-	public void setIdUsuario(Integer idUsuario) {
-		this.idUsuario = idUsuario;
-	}
+    /**
+     * @return valor do atributo idUsuario.
+     */
+    public Integer getIdUsuario() {
+        return idUsuario;
+    }
 
-	/**
-	 * @return valor do atributo pesquisa.
-	 */
-	public String getPesquisa() {
-		return pesquisa;
-	}
+    /**
+     * Define valor do atributo idUsuario.
+     *
+     * @param idUsuario
+     */
+    public void setIdUsuario(final Integer idUsuario) {
+        this.idUsuario = idUsuario;
+    }
 
-	/**
-	 * Define valor do atributo pesquisa.
-	 * 
-	 * @param pesquisa
-	 */
-	public void setPesquisa(String pesquisa) {
-		this.pesquisa = pesquisa;
-	}
+    /**
+     * @return valor do atributo pesquisa.
+     */
+    public String getPesquisa() {
+        return pesquisa;
+    }
 
-	/**
-	 * @return valor do atributo inclui.
-	 */
-	public String getInclui() {
-		return inclui;
-	}
+    /**
+     * Define valor do atributo pesquisa.
+     *
+     * @param pesquisa
+     */
+    public void setPesquisa(final String pesquisa) {
+        this.pesquisa = pesquisa;
+    }
 
-	/**
-	 * Define valor do atributo inclui.
-	 * 
-	 * @param inclui
-	 */
-	public void setInclui(String inclui) {
-		this.inclui = inclui;
-	}
+    /**
+     * @return valor do atributo inclui.
+     */
+    public String getInclui() {
+        return inclui;
+    }
 
-	/**
-	 * @return valor do atributo altera.
-	 */
-	public String getAltera() {
-		return altera;
-	}
+    /**
+     * Define valor do atributo inclui.
+     *
+     * @param inclui
+     */
+    public void setInclui(final String inclui) {
+        this.inclui = inclui;
+    }
 
-	/**
-	 * Define valor do atributo altera.
-	 * 
-	 * @param altera
-	 */
-	public void setAltera(String altera) {
-		this.altera = altera;
-	}
+    /**
+     * @return valor do atributo altera.
+     */
+    public String getAltera() {
+        return altera;
+    }
 
-	/**
-	 * @return valor do atributo deleta.
-	 */
-	public String getDeleta() {
-		return deleta;
-	}
+    /**
+     * Define valor do atributo altera.
+     *
+     * @param altera
+     */
+    public void setAltera(final String altera) {
+        this.altera = altera;
+    }
 
-	/**
-	 * Define valor do atributo deleta.
-	 * 
-	 * @param deleta
-	 */
-	public void setDeleta(String deleta) {
-		this.deleta = deleta;
-	}
+    /**
+     * @return valor do atributo deleta.
+     */
+    public String getDeleta() {
+        return deleta;
+    }
 
-	public void setIdMenuFilho(Integer idMenuFilho) {
-		this.idMenuFilho = idMenuFilho;
-	}
+    /**
+     * Define valor do atributo deleta.
+     *
+     * @param deleta
+     */
+    public void setDeleta(final String deleta) {
+        this.deleta = deleta;
+    }
 
-	public Integer getIdMenuFilho() {
-		return idMenuFilho;
-	}
+    public void setIdMenuFilho(final Integer idMenuFilho) {
+        this.idMenuFilho = idMenuFilho;
+    }
 
-	public void setNomeFilho(String nomeFilho) {
-		this.nomeFilho = nomeFilho;
-	}
+    public Integer getIdMenuFilho() {
+        return idMenuFilho;
+    }
 
-	public String getNomeFilho() {
-		return nomeFilho;
-	}
+    public void setNomeFilho(final String nomeFilho) {
+        this.nomeFilho = nomeFilho;
+    }
 
-	public String getNomePerfil() {
-		return nomePerfil;
-	}
+    public String getNomeFilho() {
+        return nomeFilho;
+    }
 
-	public void setNomePerfil(String nomePerfil) {
-		this.nomePerfil = nomePerfil;
-	}
+    public String getNomePerfil() {
+        return nomePerfil;
+    }
 
-	public String getMenuRapido() {
-		return menuRapido;
-	}
+    public void setNomePerfil(final String nomePerfil) {
+        this.nomePerfil = nomePerfil;
+    }
 
-	public void setMenuRapido(String menuRapido) {
-		this.menuRapido = menuRapido;
-	}
+    public String getMenuRapido() {
+        return menuRapido;
+    }
 
-	public String getMostrar() {
-		return mostrar;
-	}
+    public void setMenuRapido(final String menuRapido) {
+        this.menuRapido = menuRapido;
+    }
 
-	public void setMostrar(String mostrar) {
-		this.mostrar = mostrar;
-	}
+    public String getMostrar() {
+        return mostrar;
+    }
 
-	public Integer getIdPerfilAcesso() {
-		return idPerfilAcesso;
-	}
+    public void setMostrar(final String mostrar) {
+        this.mostrar = mostrar;
+    }
 
-	public void setIdPerfilAcesso(Integer idPerfilAcesso) {
-		this.idPerfilAcesso = idPerfilAcesso;
-	}
+    public Integer getIdPerfilAcesso() {
+        return idPerfilAcesso;
+    }
 
-	public String getGrava() {
-		return grava;
-	}
+    public void setIdPerfilAcesso(final Integer idPerfilAcesso) {
+        this.idPerfilAcesso = idPerfilAcesso;
+    }
 
-	public void setGrava(String grava) {
-		this.grava = grava;
-	}
+    public String getGrava() {
+        return grava;
+    }
+
+    public void setGrava(final String grava) {
+        this.grava = grava;
+    }
 
 }

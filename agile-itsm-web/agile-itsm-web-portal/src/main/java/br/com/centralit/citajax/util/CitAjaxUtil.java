@@ -1,9 +1,3 @@
-/*
- * Created on 15/04/2004
- *
- * To change the template for this generated file go to
- * Window&gt;Preferences&gt;Java&gt;Code Generation&gt;Code and Comments
- */
 package br.com.centralit.citajax.util;
 
 import java.beans.XMLDecoder;
@@ -41,7 +35,7 @@ import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 
 import br.com.centralit.citajax.reflexao.CitAjaxReflexao;
@@ -60,7 +54,7 @@ public class CitAjaxUtil {
 
     private static final String ZERO_HORAS_E_MINUTOS_4DGT = "00:00h";
     private static String[] dias = {"31", "30", "31", "30", "31", "30", "31", "31", "30", "31", "30", "31"};
-    public static String[] meses = {"Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"};
+    public static String[] meses = {"Janeiro", "Fevereiro", "Marï¿½o", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"};
     public static String DIREITA = "D";
     public static String ESQUERDA = "E";
 
@@ -109,7 +103,7 @@ public class CitAjaxUtil {
     }
 
     /**
-     * Retorna uma lista de programções semanais
+     * Retorna uma lista de programï¿½ï¿½es semanais
      *
      * @param hrIncial
      *            String
@@ -129,7 +123,7 @@ public class CitAjaxUtil {
         calendarHoraInicial.setTime(horaInicial);
 
         final GregorianCalendar calendarHoraFinal = new GregorianCalendar();
-        final ArrayList horas = new ArrayList();
+        final ArrayList horas = new ArrayList<>();
         final String minuto = String.valueOf(intervalo);
 
         calendarHoraFinal.setTime(horaFinal);
@@ -146,7 +140,7 @@ public class CitAjaxUtil {
     }
 
     /**
-     * Retorna a hora do usuário(interface)
+     * Retorna a hora do usuï¿½rio(interface)
      *
      * @return String
      */
@@ -196,12 +190,12 @@ public class CitAjaxUtil {
     }
 
     /**
-     * Converte Date (String) em java.sql.Date de acordo com a Language do usuário.
+     * Converte Date (String) em java.sql.Date de acordo com a Language do usuï¿½rio.
      *
      * @param data
      *            - Data no formato String.
      * @param language
-     *            - Linguagem do usuário logado (EN, PT)
+     *            - Linguagem do usuï¿½rio logado (EN, PT)
      * @return java.sql.Date
      * @throws ParseException
      * @author valdoilo.damasceno
@@ -218,12 +212,12 @@ public class CitAjaxUtil {
     }
 
     /**
-     * Converte Date (String) em java.sql.Timestamp de acordo com a Language do usuário.
+     * Converte Date (String) em java.sql.Timestamp de acordo com a Language do usuï¿½rio.
      *
      * @param data
      *            - Data no formato String.
      * @param language
-     *            - Linguagem do usuário logado (EN, PT)
+     *            - Linguagem do usuï¿½rio logado (EN, PT)
      * @return java.sql.Date
      * @throws ParseException
      * @author valdoilo.damasceno
@@ -236,7 +230,7 @@ public class CitAjaxUtil {
         }
 
         /**
-         * Alterado por Cristian. Alguns campos estão como timestamp no DTO, porém na JSP estão com o CSS Format[Date]
+         * Alterado por Cristian. Alguns campos estï¿½o como timestamp no DTO, porï¿½m na JSP estï¿½o com o CSS Format[Date]
          */
         if (dateStr.length() < 19) {
             dateStr = dateStr.substring(0, 10) + " 00:00:00";
@@ -248,50 +242,50 @@ public class CitAjaxUtil {
     }
 
     public static String removeCaracteresEspeciais(String string) {
-        string = string.replaceAll("á", "a");
-        string = string.replaceAll("é", "e");
-        string = string.replaceAll("í", "i");
-        string = string.replaceAll("ó", "o");
-        string = string.replaceAll("ú", "u");
+        string = string.replaceAll("ï¿½", "a");
+        string = string.replaceAll("ï¿½", "e");
+        string = string.replaceAll("ï¿½", "i");
+        string = string.replaceAll("ï¿½", "o");
+        string = string.replaceAll("ï¿½", "u");
 
-        string = string.replaceAll("Á", "A");
-        string = string.replaceAll("É", "E");
-        string = string.replaceAll("Í", "I");
-        string = string.replaceAll("Ó", "O");
-        string = string.replaceAll("Ú", "U");
+        string = string.replaceAll("ï¿½", "A");
+        string = string.replaceAll("ï¿½", "E");
+        string = string.replaceAll("ï¿½", "I");
+        string = string.replaceAll("ï¿½", "O");
+        string = string.replaceAll("ï¿½", "U");
 
-        string = string.replaceAll("à", "a");
-        string = string.replaceAll("è", "e");
-        string = string.replaceAll("ì", "i");
-        string = string.replaceAll("ò", "o");
-        string = string.replaceAll("ù", "u");
+        string = string.replaceAll("ï¿½", "a");
+        string = string.replaceAll("ï¿½", "e");
+        string = string.replaceAll("ï¿½", "i");
+        string = string.replaceAll("ï¿½", "o");
+        string = string.replaceAll("ï¿½", "u");
 
-        string = string.replaceAll("À", "A");
-        string = string.replaceAll("È", "E");
-        string = string.replaceAll("Ì", "I");
-        string = string.replaceAll("Ò", "O");
-        string = string.replaceAll("Ù", "U");
+        string = string.replaceAll("ï¿½", "A");
+        string = string.replaceAll("ï¿½", "E");
+        string = string.replaceAll("ï¿½", "I");
+        string = string.replaceAll("ï¿½", "O");
+        string = string.replaceAll("ï¿½", "U");
 
-        string = string.replaceAll("â", "a");
-        string = string.replaceAll("ê", "e");
-        string = string.replaceAll("î", "i");
-        string = string.replaceAll("ô", "o");
-        string = string.replaceAll("û", "u");
+        string = string.replaceAll("ï¿½", "a");
+        string = string.replaceAll("ï¿½", "e");
+        string = string.replaceAll("ï¿½", "i");
+        string = string.replaceAll("ï¿½", "o");
+        string = string.replaceAll("ï¿½", "u");
 
-        string = string.replaceAll("Â", "A");
-        string = string.replaceAll("Ê", "E");
-        string = string.replaceAll("Î", "I");
-        string = string.replaceAll("Ô", "O");
-        string = string.replaceAll("Û", "U");
+        string = string.replaceAll("ï¿½", "A");
+        string = string.replaceAll("ï¿½", "E");
+        string = string.replaceAll("ï¿½", "I");
+        string = string.replaceAll("ï¿½", "O");
+        string = string.replaceAll("ï¿½", "U");
 
-        string = string.replaceAll("ã", "a");
-        string = string.replaceAll("õ", "o");
+        string = string.replaceAll("ï¿½", "a");
+        string = string.replaceAll("ï¿½", "o");
 
-        string = string.replaceAll("Ã", "A");
-        string = string.replaceAll("Õ", "O");
+        string = string.replaceAll("ï¿½", "A");
+        string = string.replaceAll("ï¿½", "O");
 
-        string = string.replaceAll("ç", "c");
-        string = string.replaceAll("Ç", "C");
+        string = string.replaceAll("ï¿½", "c");
+        string = string.replaceAll("ï¿½", "C");
 
         return string;
     }
@@ -335,7 +329,7 @@ public class CitAjaxUtil {
     }
 
     /**
-     * Retorna a 1.a data do mes/ano Exemplo: se passar a data 23/01/2007, retornará 01/01/2007.
+     * Retorna a 1.a data do mes/ano Exemplo: se passar a data 23/01/2007, retornarï¿½ 01/01/2007.
      *
      * @param data
      * @return
@@ -536,7 +530,7 @@ public class CitAjaxUtil {
             }
         } catch (final IllegalArgumentException iaex) {
             throw new Exception("O tipo de dado do atributo " + elemento + " da classe " + obj.getClass().getName()
-                    + " é diferente do tipo usado no banco de dados " + valor.getClass().getName());
+                    + " ï¿½ diferente do tipo usado no banco de dados " + valor.getClass().getName());
         }
 
     }
@@ -544,9 +538,7 @@ public class CitAjaxUtil {
     private static Double changeToDouble(final BigDecimal big) {
         if (big != null) {
             return new Double(big.doubleValue());
-        } else {
-            return null;
-        }
+        } return null;
     }
 
     public static int getMaxValue(final int val1, final int val2) {
@@ -759,7 +751,7 @@ public class CitAjaxUtil {
 
     public static List converteExcessao(final Throwable e) {
 
-        final List result = new ArrayList();
+        final List result = new ArrayList<>();
         final StackTraceElement[] ste = e.getStackTrace();
 
         final SimpleDateFormat spd = new SimpleDateFormat("dd/MM/yyyy  hh:mm:ss");
@@ -828,7 +820,7 @@ public class CitAjaxUtil {
     }
 
     public static List lerTXT(final String arquivo) throws Exception {
-        final List lista = new ArrayList();
+        final List lista = new ArrayList<>();
         final FileInputStream arq = new FileInputStream(arquivo);
 
         final BufferedReader br = new BufferedReader(new InputStreamReader(arq));
@@ -843,7 +835,7 @@ public class CitAjaxUtil {
     public static List carregaTxt(final String arquivo, final String separador, final List campos, final Class classe) throws Exception {
 
         final List lstArq = lerTXT(arquivo);
-        final List result = new ArrayList();
+        final List result = new ArrayList<>();
 
         final Iterator itArq = lstArq.iterator();
         while (itArq.hasNext()) {
@@ -880,7 +872,7 @@ public class CitAjaxUtil {
 
     public static Collection getResultadoImplosao(final String conta, final String mascara) {
         final String contaMask = setMascaraContabil(conta, mascara);
-        final List lista = new ArrayList();
+        final List lista = new ArrayList<>();
         final StringTokenizer tok = new StringTokenizer(contaMask, ".");
         String contaImplosao = "";
         while (tok.hasMoreTokens()) {
@@ -1056,7 +1048,7 @@ public class CitAjaxUtil {
         } else {
             strAno = " ano";
             strAnos = " anos";
-            strMes = " mês";
+            strMes = " mï¿½s";
             strMeses = " meses";
             strDia = " dia";
             strDias = " dias";
@@ -1135,7 +1127,7 @@ public class CitAjaxUtil {
         } else {
             strAno = " ano";
             strAnos = " anos";
-            strMes = " mês";
+            strMes = " mï¿½s";
             strMeses = " meses";
         }
 
@@ -1292,7 +1284,7 @@ public class CitAjaxUtil {
      * public static void verificaTamanho(String valor, String label, int
      * tamanho) throws LogicException{ if(valor!=null &&
      * valor.length()>tamanho){ throw new LogicException("Tamanho do campo
-     * "+label+"("+valor.length()+") é maior do que o
+     * "+label+"("+valor.length()+") ï¿½ maior do que o
      * permitido("+tamanho+")."); } }
      */
 
@@ -1301,7 +1293,7 @@ public class CitAjaxUtil {
 
         if (valor != null && valor.length() > tamanho) {
             req.setAttribute("FOCO_TEXTO", foco);
-            throw new LogicException("Tamanho do campo " + label + "(" + valor.length() + ") é maior do que o permitido(" + tamanho + ").");
+            throw new LogicException("Tamanho do campo " + label + "(" + valor.length() + ") ï¿½ maior do que o permitido(" + tamanho + ").");
         }
 
     }
@@ -1310,7 +1302,7 @@ public class CitAjaxUtil {
 
         if (valor == null || valor.trim().length() == 0) {
             req.setAttribute("FOCO_TEXTO", nomeCampo);
-            throw new LogicException(label + " : Campo Obrigatório");
+            throw new LogicException(label + " : Campo Obrigatï¿½rio");
         }
 
     }
@@ -1341,7 +1333,7 @@ public class CitAjaxUtil {
         if (inic != null && fim != null) {
             if (inic.intValue() > fim.intValue()) {
                 req.setAttribute("FOCO_TEXTO", foco);
-                throw new LogicException(descValores + " inicial não pode ser maior que " + descValores + " final");
+                throw new LogicException(descValores + " inicial nï¿½o pode ser maior que " + descValores + " final");
             }
         }
 
@@ -1481,7 +1473,7 @@ public class CitAjaxUtil {
     }
 
     private static Map getMapHistoricoExtintor() {
-        final Map mapHistoricoExtintor = new HashMap();
+        final Map mapHistoricoExtintor = new HashMap<>();
         mapHistoricoExtintor.put("2", "Inspecionado");
         mapHistoricoExtintor.put("3", "Reparado");
         mapHistoricoExtintor.put("4", "Instrucao");
@@ -1514,7 +1506,7 @@ public class CitAjaxUtil {
      * @author wagner.filho
      */
     public static List getListaDeToken(final String riscos, final String token) {
-        final List listaRetorno = new ArrayList();
+        final List listaRetorno = new ArrayList<>();
         final StringTokenizer st = new StringTokenizer(riscos, token);
         while (st.hasMoreTokens()) {
             listaRetorno.add(st.nextToken());
@@ -1601,29 +1593,29 @@ public class CitAjaxUtil {
      * Substitui um caracter especial por uma String
      */
     public static String ChangeCharInvalid(final char c) {
-        if (c == 'á' || c == 'â' || c == 'ã') {
+        if (c == 'ï¿½' || c == 'ï¿½' || c == 'ï¿½') {
             return "a";
-        } else if (c == 'Á' || c == 'Â' || c == 'Ã') {
+        } else if (c == 'ï¿½' || c == 'ï¿½' || c == 'ï¿½') {
             return "A";
-        } else if (c == 'é' || c == 'ê') {
+        } else if (c == 'ï¿½' || c == 'ï¿½') {
             return "e";
-        } else if (c == 'É' || c == 'Ê') {
+        } else if (c == 'ï¿½' || c == 'ï¿½') {
             return "E";
-        } else if (c == 'í' || c == 'î') {
+        } else if (c == 'ï¿½' || c == 'ï¿½') {
             return "i";
-        } else if (c == 'Í' || c == 'Î') {
+        } else if (c == 'ï¿½' || c == 'ï¿½') {
             return "I";
-        } else if (c == 'ó' || c == 'ô' || c == 'õ') {
+        } else if (c == 'ï¿½' || c == 'ï¿½' || c == 'ï¿½') {
             return "o";
-        } else if (c == 'Ó' || c == 'Ô' || c == 'Õ') {
+        } else if (c == 'ï¿½' || c == 'ï¿½' || c == 'ï¿½') {
             return "O";
-        } else if (c == 'ú' || c == 'û') {
+        } else if (c == 'ï¿½' || c == 'ï¿½') {
             return "u";
-        } else if (c == 'Ú' || c == 'Û') {
+        } else if (c == 'ï¿½' || c == 'ï¿½') {
             return "U";
-        } else if (c == 'Ç') {
+        } else if (c == 'ï¿½') {
             return "C";
-        } else if (c == 'ç') {
+        } else if (c == 'ï¿½') {
             return "c";
         } else {
             return "";
@@ -1663,7 +1655,7 @@ public class CitAjaxUtil {
 
     public static String formataSimNao(final String valor) {
         final boolean campoNaoVazio = valor != null && valor.trim().length() > 0;
-        return campoNaoVazio && valor.equalsIgnoreCase(CHAR_SIM) ? "Sim" : "Não";
+        return campoNaoVazio && valor.equalsIgnoreCase(CHAR_SIM) ? "Sim" : "Nï¿½o";
     }
 
     public static String formatarHora4Digitos(String hora4digitos) {
@@ -1671,7 +1663,7 @@ public class CitAjaxUtil {
             return ZERO_HORAS_E_MINUTOS_4DGT;
         }
         if (hora4digitos.length() > 4) {
-            throw new IllegalArgumentException("A String de hora não pode ser 'null' nem conter mais que 4 caracteres.");
+            throw new IllegalArgumentException("A String de hora nï¿½o pode ser 'null' nem conter mais que 4 caracteres.");
         }
         while (hora4digitos.length() < 4) {
             hora4digitos = '0' + hora4digitos;
@@ -1682,7 +1674,7 @@ public class CitAjaxUtil {
 
     public static String getDataAnoMaior(String data, final int qtdAnos) {
         // Retorna uma data com o ano alterado, dependendo do parametro passado,
-        // por exemplo, se os parametros passados forem (15/06/2006, 2) , o retorno será: 15/06/2008
+        // por exemplo, se os parametros passados forem (15/06/2006, 2) , o retorno serï¿½: 15/06/2008
         // note que dois anos foram adicionado a data
         try {
             final String anoAntes = data.substring(6, 10);
@@ -1777,15 +1769,15 @@ public class CitAjaxUtil {
         final StringBuilder encoded = new StringBuilder(2 * length);
         for (int i = 0; i < length; i++) {
             c = string.charAt(i);
-            if (c == 'ç') {
+            if (c == 'ï¿½') {
                 encoded.append("&ccedil;");
-            } else if (c == 'Ç') {
+            } else if (c == 'ï¿½') {
                 encoded.append("&Ccedil;");
-            } else if (c == 'á' || c == 'Á' || c == 'é' || c == 'É' || c == 'í' || c == 'Í' || c == 'ó' || c == 'Ó' || c == 'ú' || c == 'Ú') {
+            } else if (c == 'ï¿½' || c == 'ï¿½' || c == 'ï¿½' || c == 'ï¿½' || c == 'ï¿½' || c == 'ï¿½' || c == 'ï¿½' || c == 'ï¿½' || c == 'ï¿½' || c == 'ï¿½') {
                 encoded.append("&" + getLetraCorrespondente(c) + "acute;");
-            } else if (c == 'â' || c == 'Â' || c == 'ê' || c == 'Ê' || c == 'î' || c == 'Î' || c == 'ô' || c == 'Ô' || c == 'û' || c == 'Û') {
+            } else if (c == 'ï¿½' || c == 'ï¿½' || c == 'ï¿½' || c == 'ï¿½' || c == 'ï¿½' || c == 'ï¿½' || c == 'ï¿½' || c == 'ï¿½' || c == 'ï¿½' || c == 'ï¿½') {
                 encoded.append("&" + getLetraCorrespondente(c) + "circ;");
-            } else if (c == 'ã' || c == 'Ã' || c == 'õ' || c == 'Õ') {
+            } else if (c == 'ï¿½' || c == 'ï¿½' || c == 'ï¿½' || c == 'ï¿½') {
                 encoded.append("&" + getLetraCorrespondente(c) + "tilde;");
             } else {
                 encoded.append(c);
@@ -1805,25 +1797,25 @@ public class CitAjaxUtil {
      * @return
      */
     public static String getLetraCorrespondente(final char c) {
-        if (c == 'á' || c == 'â' || c == 'ã') {
+        if (c == 'ï¿½' || c == 'ï¿½' || c == 'ï¿½') {
             return "a";
-        } else if (c == 'Á' || c == 'Â' || c == 'Ã') {
+        } else if (c == 'ï¿½' || c == 'ï¿½' || c == 'ï¿½') {
             return "A";
-        } else if (c == 'é' || c == 'ê') {
+        } else if (c == 'ï¿½' || c == 'ï¿½') {
             return "e";
-        } else if (c == 'É' || c == 'Ê') {
+        } else if (c == 'ï¿½' || c == 'ï¿½') {
             return "E";
-        } else if (c == 'í' || c == 'î') {
+        } else if (c == 'ï¿½' || c == 'ï¿½') {
             return "i";
-        } else if (c == 'Í' || c == 'Î') {
+        } else if (c == 'ï¿½' || c == 'ï¿½') {
             return "I";
-        } else if (c == 'ó' || c == 'ô' || c == 'õ') {
+        } else if (c == 'ï¿½' || c == 'ï¿½' || c == 'ï¿½') {
             return "o";
-        } else if (c == 'Ó' || c == 'Ô' || c == 'Õ') {
+        } else if (c == 'ï¿½' || c == 'ï¿½' || c == 'ï¿½') {
             return "O";
-        } else if (c == 'ú' || c == 'û') {
+        } else if (c == 'ï¿½' || c == 'ï¿½') {
             return "u";
-        } else if (c == 'Ú' || c == 'Û') {
+        } else if (c == 'ï¿½' || c == 'ï¿½') {
             return "U";
         } else {
             final char auxChar[] = new char[1];
@@ -1884,7 +1876,7 @@ public class CitAjaxUtil {
     }
 
     /**
-     * Método para comparar as das e retornar o numero de dias de diferença entre elas
+     * Mï¿½todo para comparar as das e retornar o numero de dias de diferenï¿½a entre elas
      *
      * Compare two date and return the difference between them in days.
      *
@@ -1933,7 +1925,7 @@ public class CitAjaxUtil {
 
         }
 
-        // Marca que é um saldo negativo ou positivo
+        // Marca que ï¿½ um saldo negativo ou positivo
         result_months = result_months * dif_multiplier;
 
         // Retirna a diferenca de dias do total dos meses
@@ -1975,16 +1967,14 @@ public class CitAjaxUtil {
         }
         if (dataComparar.compareTo(data1) >= 0 && dataComparar.compareTo(data2) <= 0) {
             return true;
-        } else {
-            return false;
-        }
+        } return false;
     }
 
     /**
      * Retorna SimpleDateFormat de acordo com a Linguagem e o TipoData informados.
      *
      * @param language
-     *            - Linguagem do usuário (EN, PT)
+     *            - Linguagem do usuï¿½rio (EN, PT)
      * @param tipoDate
      *            - TipoData (DATE_DEFAULT: dd/MM/yyyy ou MM/dd/yyyy), (TIMESTAMP_DEFAULT: dd/MM/yyyy HH:mm ou MM/dd/yyyy HH:mm), (TIMESTAMP_WITH_SECONDS:
      *            dd/MM/yyyy HH:mm:ss ou

@@ -46,7 +46,7 @@ public class FuncionarioDao extends CrudDaoDefaultImpl {
 
     @Override
     public Collection list() throws PersistenceException {
-        final List list = new ArrayList();
+        final List list = new ArrayList<>();
         list.add(new Order("nome"));
         return super.list(list);
     }
@@ -83,7 +83,7 @@ public class FuncionarioDao extends CrudDaoDefaultImpl {
 
         final List list = this.execSQL(sql.toString(), objs);
 
-        final List listRetorno = new ArrayList();
+        final List listRetorno = new ArrayList<>();
         listRetorno.add("idFuncionario");
         listRetorno.add("nome");
         listRetorno.add("cpf");
@@ -94,7 +94,7 @@ public class FuncionarioDao extends CrudDaoDefaultImpl {
     }
 
     public FuncionarioDTO restoreByIdEmpregado(final Integer idEmpregado) throws PersistenceException {
-        final List ordem = new ArrayList();
+        final List ordem = new ArrayList<>();
         final FuncionarioDTO funcionarioDto = new FuncionarioDTO();
         funcionarioDto.setIdEmpregado(idEmpregado);
         final List col = (List) super.find(funcionarioDto, ordem);

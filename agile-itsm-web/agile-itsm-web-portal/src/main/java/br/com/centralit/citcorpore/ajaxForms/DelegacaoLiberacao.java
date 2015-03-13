@@ -208,7 +208,7 @@ public class DelegacaoLiberacao extends AjaxFormAction {
 			GrupoService grupoSegurancaService = (GrupoService) ServiceLocator.getInstance().getService(GrupoService.class, null);
 			Collection<GrupoDTO> col = grupoSegurancaService.listGruposServiceDesk();
 			if (col != null) {
-				colGrupos = new ArrayList();
+				colGrupos = new ArrayList<>();
 				for (GrupoDTO grupoSegurancaDto : col) {
 					Collection<GrupoEmpregadoDTO> colAux = grupoEmpregadoService.findByIdGrupo(grupoSegurancaDto.getIdGrupo());
 					if (colAux != null)

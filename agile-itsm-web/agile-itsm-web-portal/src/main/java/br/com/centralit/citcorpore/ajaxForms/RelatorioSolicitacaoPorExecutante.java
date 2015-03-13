@@ -146,7 +146,7 @@ public class RelatorioSolicitacaoPorExecutante extends AjaxFormAction {
 	
 	@Override
 	public Class getBeanClass() {
-		// TODO Auto-generated method stub
+		
 		return RelatorioSolicitacaoPorExecutanteDTO.class;
 	}
 	

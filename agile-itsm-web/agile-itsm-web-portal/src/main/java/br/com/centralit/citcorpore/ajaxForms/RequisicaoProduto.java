@@ -250,7 +250,7 @@ public class RequisicaoProduto extends AjaxFormAction {
             Collection<RelacionamentoProdutoDTO> colRelacionados = relacionamentoService.findByIdTipoProduto(produtoDto.getIdTipoProduto());
             if (colRelacionados != null && !colRelacionados.isEmpty()) {
                 TipoProdutoService tipoProdutoService = (TipoProdutoService) ServiceLocator.getInstance().getService(TipoProdutoService.class, WebUtil.getUsuarioSistema(request));
-                HashMap<String, CategoriaProdutoDTO> mapAcessorios = new HashMap();
+                HashMap<String, CategoriaProdutoDTO> mapAcessorios = new HashMap<>();
                 for (RelacionamentoProdutoDTO acessorioDto : colRelacionados) {
                     TipoProdutoDTO produtoAuxDto = new TipoProdutoDTO();
                     produtoAuxDto.setIdTipoProduto(acessorioDto.getIdTipoProdutoRelacionado());
@@ -258,7 +258,7 @@ public class RequisicaoProduto extends AjaxFormAction {
                     if (produtoAuxDto != null) {
                         CategoriaProdutoDTO categoriaDto = mapAcessorios.get(""+produtoAuxDto.getIdCategoria());
                         if (categoriaDto == null) {
-                            List<TipoProdutoDTO> list = new ArrayList();
+                            List<TipoProdutoDTO> list = new ArrayList<>();
                             list.add(produtoAuxDto);
                             categoriaDto = new CategoriaProdutoDTO();
                             categoriaDto.setIdCategoria(produtoAuxDto.getIdCategoria());

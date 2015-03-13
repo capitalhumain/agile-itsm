@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.bpm.dto.GrupoBpmDTO;
 import br.com.centralit.bpm.dto.TarefaFluxoDTO;
 import br.com.centralit.bpm.util.Enumerados.SituacaoItemTrabalho;
@@ -26,11 +25,6 @@ public class TarefaFluxoDao extends ItemTrabalhoFluxoDao {
         return super.findByCondition(condicao, null);
     }
 
-    @Override
-    public void updateNotNull(final BaseEntity obj) throws PersistenceException {
-        super.updateNotNull(obj);
-    }
-
     /**
      * Retorna as Tarefas do Fluxo disponíveis para o Usuário logado de acordo com o seu ID ou os Grupos em que está inserido.
      *
@@ -47,8 +41,8 @@ public class TarefaFluxoDao extends ItemTrabalhoFluxoDao {
      * @author valdoilo.damasceno
      *
      */
-    public List<TarefaFluxoDTO> findDisponiveisByIdUsuarioAndGruposBpm(final Integer idUsuario, final Collection<GrupoBpmDTO> listGrupoBpmDTO, final Integer idTarefa)
-            throws PersistenceException {
+    public List<TarefaFluxoDTO> findDisponiveisByIdUsuarioAndGruposBpm(final Integer idUsuario, final Collection<GrupoBpmDTO> listGrupoBpmDTO,
+            final Integer idTarefa) throws PersistenceException {
         final List<Object> parametros = new ArrayList<>();
 
         final StringBuilder sql = new StringBuilder();

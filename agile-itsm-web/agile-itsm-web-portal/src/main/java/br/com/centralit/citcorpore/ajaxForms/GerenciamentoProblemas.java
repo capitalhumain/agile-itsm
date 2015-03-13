@@ -7,7 +7,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 
 import br.com.centralit.bpm.dto.TarefaFluxoDTO;
 import br.com.centralit.bpm.util.Enumerados;
@@ -76,8 +76,8 @@ public class GerenciamentoProblemas extends AjaxFormAction {
                 }
             }
         }
-        final List colTarefasFiltradasFinal = new ArrayList();
-        final HashMap mapAtr = new HashMap();
+        final List colTarefasFiltradasFinal = new ArrayList<>();
+        final HashMap mapAtr = new HashMap<>();
         mapAtr.put("-- Sem Atribuição --", "-- Sem Atribuição --");
         for (final TarefaFluxoDTO tarefaDto : colTarefasFiltradas) {
             problemaDto = (ProblemaDTO) tarefaDto.getProblemaDto();
@@ -136,9 +136,9 @@ public class GerenciamentoProblemas extends AjaxFormAction {
             return null;
         }
         for (final TarefaFluxoDTO tarefaDto : colTarefas) {
-            final String elementoFluxo_serialize = StringEscapeUtils.escapeJavaScript(br.com.citframework.util.WebUtil.serializeObject(tarefaDto.getElementoFluxoDto(),
+            final String elementoFluxo_serialize = StringEscapeUtils.escapeEcmaScript(br.com.citframework.util.WebUtil.serializeObject(tarefaDto.getElementoFluxoDto(),
                     WebUtil.getLanguage(request)));
-            final String problema_serialize = StringEscapeUtils.escapeJavaScript(br.com.citframework.util.WebUtil.serializeObject(tarefaDto.getProblemaDto(),
+            final String problema_serialize = StringEscapeUtils.escapeEcmaScript(br.com.citframework.util.WebUtil.serializeObject(tarefaDto.getProblemaDto(),
                     WebUtil.getLanguage(request)));
 
             tarefaDto.setElementoFluxo_serialize(elementoFluxo_serialize);

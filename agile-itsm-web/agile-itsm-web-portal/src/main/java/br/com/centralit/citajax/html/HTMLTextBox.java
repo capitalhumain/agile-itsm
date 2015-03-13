@@ -2,13 +2,17 @@ package br.com.centralit.citajax.html;
 
 public class HTMLTextBox extends HTMLElement {
 
-	public HTMLTextBox(String idParm, DocumentHTML documentParm) {
-		super(idParm, documentParm);
-	}
-	public String getType() {
-		return TEXTBOX;
-	}
-	public void select(){
-		setCommandExecute("document.getElementById('" + this.getId() + "').select()");
-	}
+    public HTMLTextBox(final String idParm, final DocumentHTML documentParm) {
+        super(idParm, documentParm);
+    }
+
+    @Override
+    public String getType() {
+        return TEXTBOX;
+    }
+
+    public void select() {
+        this.setCommandExecute("document.getElementById('" + this.getId() + "').select()");
+    }
+
 }

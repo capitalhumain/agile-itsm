@@ -7,91 +7,90 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.BodyTagSupport;
 
-@SuppressWarnings("serial")
 public class UploadControlList extends BodyTagSupport {
 
-	/**
-	 * 
-	 */
+    private static final long serialVersionUID = 4585511707555273663L;
 
-	private String id;
-	private String style;
-	private String title;
-	private String form;
-	private String action;
-	private String disabled;
-	
-	public int doStartTag() throws JspException {
-		try {
-			//String urlIframe = "../../include/vazio.jsp";
-			String urlIframe;
-			try {
-				urlIframe = br.com.citframework.util.Constantes.getValue("SERVER_ADDRESS") + 
-						((HttpServletRequest) pageContext.getRequest()).getContextPath() +
-						"/pages/refresh" + getId() + "List/refresh" + getId() + "List.load";
-			} catch (Exception e1) {
-				throw new JspException(e1);
-			}
-			
-			JspWriter out = pageContext.getOut();
-			out.println("<div style='border:1px solid black;' id='divUpload_" + getId() + "'>\n");			
-			out.println("<div style='display:none;background:#E3F0FD;' id='divMostraResultadoUpload_" + getId() + "'></div>\n");
-			out.println("<iframe name='fraUpload_" + getId() + "' id='fraUpload_" + getId() + "' style='" + getStyle() + ";width:100%; border: none;' src='" + urlIframe + "'></iframe>\n");
-			out.println("</div>\n");
-			
-			
-		} catch (IOException e) {
-			throw new JspException(e);
-		}
-		
-		return SKIP_BODY;
-	}
+    private String id;
+    private String style;
+    private String title;
+    private String form;
+    private String action;
+    private String disabled;
 
-	public String getId() {
-		return id;
-	}
+    @Override
+    public int doStartTag() throws JspException {
+        try {
+            String urlIframe;
+            try {
+                urlIframe = br.com.citframework.util.Constantes.getValue("SERVER_ADDRESS") + ((HttpServletRequest) pageContext.getRequest()).getContextPath()
+                        + "/pages/refresh" + this.getId() + "List/refresh" + this.getId() + "List.load";
+            } catch (final Exception e1) {
+                throw new JspException(e1);
+            }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+            final JspWriter out = pageContext.getOut();
+            out.println("<div style='border:1px solid black;' id='divUpload_" + this.getId() + "'>\n");
+            out.println("<div style='display:none;background:#E3F0FD;' id='divMostraResultadoUpload_" + this.getId() + "'></div>\n");
+            out.println("<iframe name='fraUpload_" + this.getId() + "' id='fraUpload_" + this.getId() + "' style='" + this.getStyle()
+                    + ";width:100%; border: none;' src='" + urlIframe + "'></iframe>\n");
+            out.println("</div>\n");
 
-	public String getStyle() {
-		return style;
-	}
+        } catch (final IOException e) {
+            throw new JspException(e);
+        }
 
-	public void setStyle(String style) {
-		this.style = style;
-	}
+        return SKIP_BODY;
+    }
 
-	public String getTitle() {
-		return title;
-	}
+    @Override
+    public String getId() {
+        return id;
+    }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    @Override
+    public void setId(final String id) {
+        this.id = id;
+    }
 
-	public String getForm() {
-		return form;
-	}
+    public String getStyle() {
+        return style;
+    }
 
-	public void setForm(String form) {
-		this.form = form;
-	}
+    public void setStyle(final String style) {
+        this.style = style;
+    }
 
-	public String getAction() {
-		return action;
-	}
+    public String getTitle() {
+        return title;
+    }
 
-	public void setAction(String action) {
-		this.action = action;
-	}
+    public void setTitle(final String title) {
+        this.title = title;
+    }
 
-	public String getDisabled() {
-		return disabled;
-	}
+    public String getForm() {
+        return form;
+    }
 
-	public void setDisabled(String disabled) {
-		this.disabled = disabled;
-	}
+    public void setForm(final String form) {
+        this.form = form;
+    }
+
+    public String getAction() {
+        return action;
+    }
+
+    public void setAction(final String action) {
+        this.action = action;
+    }
+
+    public String getDisabled() {
+        return disabled;
+    }
+
+    public void setDisabled(final String disabled) {
+        this.disabled = disabled;
+    }
+
 }

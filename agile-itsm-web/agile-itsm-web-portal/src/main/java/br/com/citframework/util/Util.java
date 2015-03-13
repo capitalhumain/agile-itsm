@@ -54,7 +54,7 @@ public class Util {
         calendarHoraInicial.setTime(horaInicial);
 
         final GregorianCalendar calendarHoraFinal = new GregorianCalendar();
-        final ArrayList horas = new ArrayList();
+        final ArrayList horas = new ArrayList<>();
         final String minuto = String.valueOf(intervalo);
 
         calendarHoraFinal.setTime(horaFinal);
@@ -141,7 +141,7 @@ public class Util {
 
     public static List converteExcessao(final Throwable e) {
 
-        final List result = new ArrayList();
+        final List result = new ArrayList<>();
         final StackTraceElement[] ste = e.getStackTrace();
 
         final SimpleDateFormat spd = new SimpleDateFormat("dd/MM/yyyy  hh:mm:ss");
@@ -156,7 +156,7 @@ public class Util {
 
     public static Collection getResultadoImplosao(final String conta, final String mascara) {
         final String contaMask = setMascaraContabil(conta, mascara);
-        final List lista = new ArrayList();
+        final List lista = new ArrayList<>();
         final StringTokenizer tok = new StringTokenizer(contaMask, ".");
         String contaImplosao = "";
         while (tok.hasMoreTokens()) {
@@ -354,7 +354,7 @@ public class Util {
     }
 
     private static Map getMapHistoricoExtintor() {
-        final Map mapHistoricoExtintor = new HashMap();
+        final Map mapHistoricoExtintor = new HashMap<>();
         mapHistoricoExtintor.put("2", "Inspecionado");
         mapHistoricoExtintor.put("3", "Reparado");
         mapHistoricoExtintor.put("4", "Instrucao");
@@ -371,7 +371,7 @@ public class Util {
      * @author wagner.filho
      */
     public static List getListaDeToken(final String riscos, final String token) {
-        final List listaRetorno = new ArrayList();
+        final List listaRetorno = new ArrayList<>();
         final StringTokenizer st = new StringTokenizer(riscos, token);
         while (st.hasMoreTokens()) {
             listaRetorno.add(st.nextToken());

@@ -66,7 +66,7 @@ public class InformacoesContratoConfig {
 	public void load(){
 		if (doc == null) return;
 		String nome = "", descricao = "", path = "";
-		prontuarioItens = new ArrayList();
+		prontuarioItens = new ArrayList<>();
 		InformacoesContratoItem item;
 		Node noRoot = doc.getChildNodes().item(0);
 		for(int j = 0; j < noRoot.getChildNodes().getLength(); j++){
@@ -90,8 +90,8 @@ public class InformacoesContratoConfig {
 	}
 	public void loadFromDB(Collection colItensEmDB, UsuarioDTO user) throws ServiceException, Exception{
 		if (colItensEmDB == null) return; 
-		prontuarioItens = new ArrayList();
-		Collection prontuarioTratamento = new ArrayList();
+		prontuarioItens = new ArrayList<>();
+		Collection prontuarioTratamento = new ArrayList<>();
 		InformacoesContratoItem item;
 		
 		if (user == null){
@@ -125,7 +125,7 @@ public class InformacoesContratoConfig {
 		if (col == null){
 			return null;
 		}
-		Collection colAjustada = new ArrayList();
+		Collection colAjustada = new ArrayList<>();
 		for(Iterator it = col.iterator(); it.hasNext();){
 			InformacoesContratoItem prontuarioEletronicoItem = (InformacoesContratoItem)it.next();
 			
@@ -185,7 +185,7 @@ public class InformacoesContratoConfig {
                 item = getSubTree(item, noMenuItem);
                 Collection col = p.getColSubItens();
                 if (col == null){
-                	col = new ArrayList();
+                	col = new ArrayList<>();
                 	p.setColSubItens(col);
                 }
                 col.add(item);
@@ -223,7 +223,7 @@ public class InformacoesContratoConfig {
 					item = getSubTreeDB(item, informacoesContratoConfigDTOAux, user);
 					Collection col = prontuarioEletronicoItem.getColSubItens();
 					if (col == null){
-						col = new ArrayList();
+						col = new ArrayList<>();
 						prontuarioEletronicoItem.setColSubItens(col);
 					}
 					col.add(item);

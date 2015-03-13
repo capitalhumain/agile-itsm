@@ -13,7 +13,6 @@ import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.Condition;
 import br.com.citframework.service.CrudServiceImpl;
 
-@SuppressWarnings("rawtypes")
 public class SoftwaresListaNegraServiceEjb extends CrudServiceImpl implements SoftwaresListaNegraService {
 
     private SoftwaresListaNegraDao dao;
@@ -26,14 +25,6 @@ public class SoftwaresListaNegraServiceEjb extends CrudServiceImpl implements So
         return dao;
     }
 
-    public Collection list(final List ordenacao) throws LogicException, ServiceException {
-        return null;
-    }
-
-    public Collection list(final String ordenacao) throws LogicException, ServiceException {
-        return null;
-    }
-
     @Override
     public BaseEntity create(final BaseEntity model) throws ServiceException, LogicException {
         final SoftwaresListaNegraDTO softwaresListaNegraDTO = (SoftwaresListaNegraDTO) model;
@@ -42,7 +33,7 @@ public class SoftwaresListaNegraServiceEjb extends CrudServiceImpl implements So
 
     @Override
     public boolean verficiarSoftwareListaNegraMesmoNome(final String nome) {
-        final ArrayList<Condition> condicoes = new ArrayList<Condition>();
+        final List<Condition> condicoes = new ArrayList<Condition>();
         condicoes.add(new Condition("nomeSoftwaresListaNegra", "=", nome));
         Collection retorno = null;
         try {

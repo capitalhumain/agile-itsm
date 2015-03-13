@@ -245,7 +245,7 @@ public class DashBoardViewInternal extends AjaxFormAction {
 		return parms;
 	}
 	public HashMap geraSubstituicaoParametros(String parmsSubst){
-		HashMap hash = new HashMap();
+		HashMap hash = new HashMap<>();
 		String sAux = parmsSubst;
 		if (sAux == null){
 			sAux = "";
@@ -838,7 +838,7 @@ public class DashBoardViewInternal extends AjaxFormAction {
 		if (noItem == null){
             return null;
 		}
-		List colParameters = new ArrayList();
+		List colParameters = new ArrayList<>();
 		GerencialParameterDTO gerencialParameter;
         if (noItem.getChildNodes() != null){
             for (int i = 0; i < noItem.getChildNodes().getLength(); i++){
@@ -911,7 +911,7 @@ public class DashBoardViewInternal extends AjaxFormAction {
 	public Collection getSubTreeOptions(Node noItem){
 		if (noItem == null) return null;
 
-		Collection colRetorno = new ArrayList();
+		Collection colRetorno = new ArrayList<>();
         if (noItem.getChildNodes() != null){
             for (int i = 0; i < noItem.getChildNodes().getLength(); i++){
             	Node noSubItem = noItem.getChildNodes().item(i);
@@ -955,7 +955,7 @@ public class DashBoardViewInternal extends AjaxFormAction {
 	}
 	public HashMap getParametrosInformados(HttpServletRequest request) {
 		Enumeration x = request.getParameterNames();
-		HashMap hashRetorno = new HashMap();
+		HashMap hashRetorno = new HashMap<>();
 		String[] aux;
 		while (x.hasMoreElements()) {
 			String nameElement = (String) x.nextElement();

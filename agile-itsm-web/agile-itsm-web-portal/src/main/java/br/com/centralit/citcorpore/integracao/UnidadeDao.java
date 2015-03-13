@@ -273,7 +273,8 @@ public class UnidadeDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Procura pelas unidades ativas do contrato se o id passado for maior que zero do contrário traz todas as unidades ativas que possuem no nome o texto passado como parâmetro.
+     * Procura pelas unidades ativas do contrato se o id passado for maior que zero do contrário traz todas as unidades ativas que possuem no nome o texto
+     * passado como parâmetro.
      *
      * @author euler.ramos
      * @param nome
@@ -294,12 +295,12 @@ public class UnidadeDao extends CrudDaoDefaultImpl {
             final StringBuilder sql = new StringBuilder();
             sql.append("select ");
 
-            //Limitando registros para não pesar a construção da lista hierárquica no autocomplete
-			if (CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.SQLSERVER) && limite != null && limite.intValue() > 0 ){
-				if ((limite != null)&&(limite.intValue()>0)){
-					sql.append("TOP "+limite.toString()+" ");
-				}
-			}
+            // Limitando registros para não pesar a construção da lista hierárquica no autocomplete
+            if (CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.SQLSERVER) && limite != null && limite.intValue() > 0) {
+                if (limite != null && limite.intValue() > 0) {
+                    sql.append("TOP " + limite.toString() + " ");
+                }
+            }
 
             sql.append("u.idunidade, u.nome, u.idunidadepai from unidade as u ");
 
@@ -325,8 +326,9 @@ public class UnidadeDao extends CrudDaoDefaultImpl {
 
             sql.append("order by u.nome");
 
-            if ((CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.POSTGRESQL)
-                    || CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.MYSQL)) && limite != null && limite.intValue() > 0) {
+            if ((CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.POSTGRESQL) || CITCorporeUtil.SGBD_PRINCIPAL.trim()
+                    .toUpperCase().equalsIgnoreCase(SQLConfig.MYSQL))
+                    && limite != null && limite.intValue() > 0) {
                 sql.append(" LIMIT ? ");
                 parametro.add(limite);
             }
@@ -345,53 +347,53 @@ public class UnidadeDao extends CrudDaoDefaultImpl {
     }
 
     /**
-	 * @author euler.ramos
-	 * @param idUnidade
-	 * @param idContrato
-	 * @return Retorna a unidade pesquisada pelo seu id, se o idContrato está vinculado a ela
-	 */
-	public Collection<UnidadeDTO> findByIdEcontrato(Integer idUnidade, Integer idContrato) {
-		List result;
-		try {
-			
-			List resp = new ArrayList();
-			List parametro = new ArrayList();
-			List listRetorno = new ArrayList();
-			
-			listRetorno.add("idUnidade");
-			listRetorno.add("nome");
-			listRetorno.add("idUnidadePai");
-			
-			StringBuilder sql = new StringBuilder();
-			sql.append("select ");
-			sql.append("u.idunidade, u.nome, u.idunidadepai from unidade as u ");
-			
-			if ((idContrato!=null)&&(idContrato!=0)){
-				sql.append("join contratosunidades as c on c.idcontrato=? and u.idunidade = c.idunidade ");
-				parametro.add(idContrato);
-			}
-			
-			sql.append("where ");
-			
-			if ((idUnidade!=null)&&(idUnidade>0)){
-				sql.append("(u.idunidade=?) and ");
-				parametro.add(idUnidade);
-			}
-			
-			sql.append("(u.dataFim IS NULL)");
-			
-			resp = this.execSQL(sql.toString(), parametro.toArray());
-			
-			result = this.engine.listConvertion(getBean(), resp, listRetorno);
-		} catch (PersistenceException e) {
-			e.printStackTrace();
-			result = null;
-		} catch (Exception e) {
-			e.printStackTrace();
-			result = null;
-		}
-		return (((result == null)||(result.size()<=0)) ? new ArrayList<UnidadeDTO>() : result);
-	}
+     * @author euler.ramos
+     * @param idUnidade
+     * @param idContrato
+     * @return Retorna a unidade pesquisada pelo seu id, se o idContrato está vinculado a ela
+     */
+    public Collection<UnidadeDTO> findByIdEcontrato(final Integer idUnidade, final Integer idContrato) {
+        List result;
+        try {
+
+            List resp = new ArrayList<>();
+            final List parametro = new ArrayList<>();
+            final List listRetorno = new ArrayList<>();
+
+            listRetorno.add("idUnidade");
+            listRetorno.add("nome");
+            listRetorno.add("idUnidadePai");
+
+            final StringBuilder sql = new StringBuilder();
+            sql.append("select ");
+            sql.append("u.idunidade, u.nome, u.idunidadepai from unidade as u ");
+
+            if (idContrato != null && idContrato != 0) {
+                sql.append("join contratosunidades as c on c.idcontrato=? and u.idunidade = c.idunidade ");
+                parametro.add(idContrato);
+            }
+
+            sql.append("where ");
+
+            if (idUnidade != null && idUnidade > 0) {
+                sql.append("(u.idunidade=?) and ");
+                parametro.add(idUnidade);
+            }
+
+            sql.append("(u.dataFim IS NULL)");
+
+            resp = this.execSQL(sql.toString(), parametro.toArray());
+
+            result = engine.listConvertion(this.getBean(), resp, listRetorno);
+        } catch (final PersistenceException e) {
+            e.printStackTrace();
+            result = null;
+        } catch (final Exception e) {
+            e.printStackTrace();
+            result = null;
+        }
+        return result == null || result.size() <= 0 ? new ArrayList<UnidadeDTO>() : result;
+    }
 
     /**
      * Recupera a lista hierárquica da unidade passada como parâmetro
@@ -408,8 +410,9 @@ public class UnidadeDao extends CrudDaoDefaultImpl {
             do {
                 hierarquiaUnidade.add(0, unAux); // Desta forma ficará na ordem de hierarquia
                 unAux = this.retornaUnidadePai(unAux);
-            } while (unAux != null && this.naoFoiAdicionado(unAux, hierarquiaUnidade)); // Pensar como evitar looping, por causa de elementos já presentes na hierarquia (Erro
-                                                                                        // de dados no banco)!!!!
+            } while (unAux != null && this.naoFoiAdicionado(unAux, hierarquiaUnidade)); // Pensar como evitar looping, por causa de elementos já presentes na
+                                                                                        // hierarquia (Erro
+            // de dados no banco)!!!!
         }
         return hierarquiaUnidade;
     }
@@ -457,7 +460,7 @@ public class UnidadeDao extends CrudDaoDefaultImpl {
     public String retornaNomeUnidadeByID(final Integer id) throws Exception {
         UnidadeDTO unidadeDTO = new UnidadeDTO();
         final List<UnidadeDTO> listaPai = (ArrayList<UnidadeDTO>) this.findById(id);
-        if ((listaPai != null) && (listaPai.size() > 0)) {
+        if (listaPai != null && listaPai.size() > 0) {
             unidadeDTO = listaPai.get(0);
         }
         if (unidadeDTO != null) {
@@ -466,70 +469,72 @@ public class UnidadeDao extends CrudDaoDefaultImpl {
         return null;
     }
 
-    public String obtenIDsUnidadesUsuario(UsuarioDTO usuarioLogado) throws ServiceException, Exception {
-		String resultado = "";
-		if ((usuarioLogado!=null)&&(usuarioLogado.getIdUsuario()!=null)&&(usuarioLogado.getIdUsuario().intValue()>0)) {
-			EmpregadoDTO empregadoDTO = new EmpregadoDTO();
-			try {
-				EmpregadoService empregadoService = (EmpregadoService) ServiceLocator.getInstance().getService(EmpregadoService.class, null);
-				empregadoDTO.setIdEmpregado(usuarioLogado.getIdEmpregado());
-				empregadoDTO = (EmpregadoDTO) empregadoService.restore(empregadoDTO);
-			} catch (LogicException e1) {
-				e1.printStackTrace();
-			} catch (ServiceException e1) {
-				e1.printStackTrace();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			Integer idUnidadeColaborador = ((empregadoDTO.getIdUnidade() != null) && (empregadoDTO.getIdUnidade().intValue() > 0)) ? empregadoDTO.getIdUnidade() : 0;
+    public String obtenIDsUnidadesUsuario(final UsuarioDTO usuarioLogado) throws ServiceException, Exception {
+        String resultado = "";
+        if (usuarioLogado != null && usuarioLogado.getIdUsuario() != null && usuarioLogado.getIdUsuario().intValue() > 0) {
+            EmpregadoDTO empregadoDTO = new EmpregadoDTO();
+            try {
+                final EmpregadoService empregadoService = (EmpregadoService) ServiceLocator.getInstance().getService(EmpregadoService.class, null);
+                empregadoDTO.setIdEmpregado(usuarioLogado.getIdEmpregado());
+                empregadoDTO = (EmpregadoDTO) empregadoService.restore(empregadoDTO);
+            } catch (final LogicException e1) {
+                e1.printStackTrace();
+            } catch (final ServiceException e1) {
+                e1.printStackTrace();
+            } catch (final Exception e) {
+                e.printStackTrace();
+            }
+            final Integer idUnidadeColaborador = empregadoDTO.getIdUnidade() != null && empregadoDTO.getIdUnidade().intValue() > 0 ? empregadoDTO
+                    .getIdUnidade() : 0;
 
-			String tipoHierarquia = ParametroUtil.getValorParametroCitSmartHashMap(br.com.centralit.citcorpore.util.Enumerados.ParametroSistema.TIPO_HIERARQUIA_UNIDADE, "1");
+            final String tipoHierarquia = ParametroUtil.getValorParametroCitSmartHashMap(
+                    br.com.centralit.citcorpore.util.Enumerados.ParametroSistema.TIPO_HIERARQUIA_UNIDADE, "1");
 
-			Arvore arvore = new Arvore();
-			UnidadeService unidadeService = (UnidadeService) ServiceLocator.getInstance().getService(UnidadeService.class, null);
-			arvore = unidadeService.obtemArvoreUnidades("", 0, idUnidadeColaborador, tipoHierarquia, 0);
+            Arvore arvore = new Arvore();
+            final UnidadeService unidadeService = (UnidadeService) ServiceLocator.getInstance().getService(UnidadeService.class, null);
+            arvore = unidadeService.obtemArvoreUnidades("", 0, idUnidadeColaborador, tipoHierarquia, 0);
 
-			List<Integer> listaID = arvore.getListaID();
-			for (Integer id : listaID) {
-				if (resultado.length()>0){
-					resultado +=',';
-				}
-				resultado += id.toString();
-			}
-		}
-		return (resultado.length()>0)?resultado:"0";
-	}
-
-    public UnidadeDTO checkIsInContrato(Integer idUnidade, Integer idContrato) throws Exception{
-    	StringBuilder sql = new StringBuilder();
-    	List parametros = new ArrayList();
-    	List retorno = new ArrayList();
-    	
-    	sql.append("SELECT u.idUnidade, u.nome, u.idUnidadePai ");
-    	sql.append("FROM unidade u ");
-    	sql.append("JOIN contratosunidades c ON c.idUnidade = u.idUnidade ");
-    	if(idUnidade != null){
-    		sql.append("AND u.idUnidade = ? ");
-    		parametros.add(idUnidade);
-    	}
-    	if(idContrato != null){
-    		sql.append("AND c.idcontrato = ? ");
-    		parametros.add(idContrato);
-    	}
-    	
-    	List resposta = execSQL(sql.toString(), parametros.toArray());
-    	
-    	retorno.add("idUnidade");
-    	retorno.add("nome");
-    	retorno.add("idUnidadePai");
-    	
-    	retorno = this.engine.listConvertion(getBean(), resposta, retorno);
-    	
-    	if(retorno != null && !retorno.isEmpty()){
-    		return (UnidadeDTO) retorno.toArray()[0];
-    	}
-    	return null;
-    	
-    	
+            final List<Integer> listaID = arvore.getListaID();
+            for (final Integer id : listaID) {
+                if (resultado.length() > 0) {
+                    resultado += ',';
+                }
+                resultado += id.toString();
+            }
+        }
+        return resultado.length() > 0 ? resultado : "0";
     }
+
+    public UnidadeDTO checkIsInContrato(final Integer idUnidade, final Integer idContrato) throws Exception {
+        final StringBuilder sql = new StringBuilder();
+        final List parametros = new ArrayList<>();
+        List retorno = new ArrayList<>();
+
+        sql.append("SELECT u.idUnidade, u.nome, u.idUnidadePai ");
+        sql.append("FROM unidade u ");
+        sql.append("JOIN contratosunidades c ON c.idUnidade = u.idUnidade ");
+        if (idUnidade != null) {
+            sql.append("AND u.idUnidade = ? ");
+            parametros.add(idUnidade);
+        }
+        if (idContrato != null) {
+            sql.append("AND c.idcontrato = ? ");
+            parametros.add(idContrato);
+        }
+
+        final List resposta = this.execSQL(sql.toString(), parametros.toArray());
+
+        retorno.add("idUnidade");
+        retorno.add("nome");
+        retorno.add("idUnidadePai");
+
+        retorno = engine.listConvertion(this.getBean(), resposta, retorno);
+
+        if (retorno != null && !retorno.isEmpty()) {
+            return (UnidadeDTO) retorno.toArray()[0];
+        }
+        return null;
+
+    }
+
 }

@@ -13,223 +13,241 @@ import br.com.citframework.util.DateTimeAdapter;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "AprovacaoMudanca")
-public class AprovacaoMudancaDTO  extends BaseEntity{
+public class AprovacaoMudancaDTO extends BaseEntity {
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 */
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((idEmpregado == null) ? 0 : idEmpregado.hashCode());
-		return result;
-	}
+    /*
+     * (non-Javadoc)
+     * @see java.lang.Object#hashCode()
+     */
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + (idEmpregado == null ? 0 : idEmpregado.hashCode());
+        return result;
+    }
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		AprovacaoMudancaDTO other = (AprovacaoMudancaDTO) obj;
-		if (idEmpregado == null) {
-			if (other.idEmpregado != null)
-				return false;
-		} else if (!idEmpregado.equals(other.idEmpregado))
-			return false;
-		return true;
-	}
+    /*
+     * (non-Javadoc)
+     * @see java.lang.Object#equals(java.lang.Object)
+     */
+    @Override
+    public boolean equals(final Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (this.getClass() != obj.getClass()) {
+            return false;
+        }
+        final AprovacaoMudancaDTO other = (AprovacaoMudancaDTO) obj;
+        if (idEmpregado == null) {
+            if (other.idEmpregado != null) {
+                return false;
+            }
+        } else if (!idEmpregado.equals(other.idEmpregado)) {
+            return false;
+        }
+        return true;
+    }
 
-	/**
-	 *
-	 */
-	private static final long serialVersionUID = 1L;
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
 
-	private  Integer idAprovacaoMudanca;
+    private Integer idAprovacaoMudanca;
 
-	private  Integer idRequisicaoMudanca;
+    private Integer idRequisicaoMudanca;
 
-	private  Integer idEmpregado;
+    private Integer idEmpregado;
 
-	private String nomeEmpregado;
+    private String nomeEmpregado;
 
-	private String voto ;
+    private String voto;
 
-	private String comentario;
+    private String comentario;
 
-	@XmlElement(name = "dataHoraInicio")
-	@XmlJavaTypeAdapter(DateTimeAdapter.class)
-	private Timestamp dataHoraInicio;
+    @XmlElement(name = "dataHoraInicio")
+    @XmlJavaTypeAdapter(DateTimeAdapter.class)
+    private Timestamp dataHoraInicio;
 
-	private Integer quantidadeVotoAprovada;
+    private Integer quantidadeVotoAprovada;
 
-	private Integer quantidadeVotoRejeitada;
+    private Integer quantidadeVotoRejeitada;
 
-	private Integer quantidadeAprovacaoMudanca;
+    private Integer quantidadeAprovacaoMudanca;
 
-	private String dataHoraVotacao;
+    private String dataHoraVotacao;
 
-	private Integer idHistoricoMudanca;
-	/**
-	 * @return the idAprovacaoMudanca
-	 */
-	public Integer getIdAprovacaoMudanca() {
-		return idAprovacaoMudanca;
-	}
+    private Integer idHistoricoMudanca;
 
-	/**
-	 * @param idAprovacaoMudanca the idAprovacaoMudanca to set
-	 */
-	public void setIdAprovacaoMudanca(Integer idAprovacaoMudanca) {
-		this.idAprovacaoMudanca = idAprovacaoMudanca;
-	}
+    /**
+     * @return the idAprovacaoMudanca
+     */
+    public Integer getIdAprovacaoMudanca() {
+        return idAprovacaoMudanca;
+    }
 
-	/**
-	 * @return the idRequisicaoMudanca
-	 */
-	public Integer getIdRequisicaoMudanca() {
-		return idRequisicaoMudanca;
-	}
+    /**
+     * @param idAprovacaoMudanca
+     *            the idAprovacaoMudanca to set
+     */
+    public void setIdAprovacaoMudanca(final Integer idAprovacaoMudanca) {
+        this.idAprovacaoMudanca = idAprovacaoMudanca;
+    }
 
-	/**
-	 * @param idRequisicaoMudanca the idRequisicaoMudanca to set
-	 */
-	public void setIdRequisicaoMudanca(Integer idRequisicaoMudanca) {
-		this.idRequisicaoMudanca = idRequisicaoMudanca;
-	}
+    /**
+     * @return the idRequisicaoMudanca
+     */
+    public Integer getIdRequisicaoMudanca() {
+        return idRequisicaoMudanca;
+    }
 
-	/**
-	 * @return the idEmpregado
-	 */
-	public Integer getIdEmpregado() {
-		return idEmpregado;
-	}
+    /**
+     * @param idRequisicaoMudanca
+     *            the idRequisicaoMudanca to set
+     */
+    public void setIdRequisicaoMudanca(final Integer idRequisicaoMudanca) {
+        this.idRequisicaoMudanca = idRequisicaoMudanca;
+    }
 
-	/**
-	 * @param idEmpregado the idEmpregado to set
-	 */
-	public void setIdEmpregado(Integer idEmpregado) {
-		this.idEmpregado = idEmpregado;
-	}
+    /**
+     * @return the idEmpregado
+     */
+    public Integer getIdEmpregado() {
+        return idEmpregado;
+    }
 
-	/**
-	 * @return the nomeEmpregado
-	 */
-	public String getNomeEmpregado() {
-		return nomeEmpregado;
-	}
+    /**
+     * @param idEmpregado
+     *            the idEmpregado to set
+     */
+    public void setIdEmpregado(final Integer idEmpregado) {
+        this.idEmpregado = idEmpregado;
+    }
 
-	/**
-	 * @param nomeEmpregado the nomeEmpregado to set
-	 */
-	public void setNomeEmpregado(String nomeEmpregado) {
-		this.nomeEmpregado = nomeEmpregado;
-	}
+    /**
+     * @return the nomeEmpregado
+     */
+    public String getNomeEmpregado() {
+        return nomeEmpregado;
+    }
 
-	/**
-	 * @return the voto
-	 */
-	public String getVoto() {
-		return voto;
-	}
+    /**
+     * @param nomeEmpregado
+     *            the nomeEmpregado to set
+     */
+    public void setNomeEmpregado(final String nomeEmpregado) {
+        this.nomeEmpregado = nomeEmpregado;
+    }
 
-	/**
-	 * @param voto the voto to set
-	 */
-	public void setVoto(String voto) {
-		this.voto = voto;
-	}
+    /**
+     * @return the voto
+     */
+    public String getVoto() {
+        return voto;
+    }
 
-	/**
-	 * @return the comentario
-	 */
-	public String getComentario() {
-		return comentario;
-	}
+    /**
+     * @param voto
+     *            the voto to set
+     */
+    public void setVoto(final String voto) {
+        this.voto = voto;
+    }
 
-	/**
-	 * @param comentario the comentario to set
-	 */
-	public void setComentario(String comentario) {
-		this.comentario = comentario;
-	}
+    /**
+     * @return the comentario
+     */
+    public String getComentario() {
+        return comentario;
+    }
 
-	/**
-	 * @return the dataHoraInicio
-	 */
-	public Timestamp getDataHoraInicio() {
-		return dataHoraInicio;
-	}
+    /**
+     * @param comentario
+     *            the comentario to set
+     */
+    public void setComentario(final String comentario) {
+        this.comentario = comentario;
+    }
 
-	/**
-	 * @param dataHoraInicio the dataHoraInicio to set
-	 */
-	public void setDataHoraInicio(Timestamp dataHoraInicio) {
-		this.dataHoraInicio = dataHoraInicio;
-	}
+    /**
+     * @return the dataHoraInicio
+     */
+    public Timestamp getDataHoraInicio() {
+        return dataHoraInicio;
+    }
 
-	/**
-	 * @return the quantidadeVotoAprovada
-	 */
-	public Integer getQuantidadeVotoAprovada() {
-		return quantidadeVotoAprovada;
-	}
+    /**
+     * @param dataHoraInicio
+     *            the dataHoraInicio to set
+     */
+    public void setDataHoraInicio(final Timestamp dataHoraInicio) {
+        this.dataHoraInicio = dataHoraInicio;
+    }
 
-	/**
-	 * @param quantidadeVotoAprovada the quantidadeVotoAprovada to set
-	 */
-	public void setQuantidadeVotoAprovada(Integer quantidadeVotoAprovada) {
-		this.quantidadeVotoAprovada = quantidadeVotoAprovada;
-	}
+    /**
+     * @return the quantidadeVotoAprovada
+     */
+    public Integer getQuantidadeVotoAprovada() {
+        return quantidadeVotoAprovada;
+    }
 
-	/**
-	 * @return the quantidadeVotoRejeitada
-	 */
-	public Integer getQuantidadeVotoRejeitada() {
-		return quantidadeVotoRejeitada;
-	}
+    /**
+     * @param quantidadeVotoAprovada
+     *            the quantidadeVotoAprovada to set
+     */
+    public void setQuantidadeVotoAprovada(final Integer quantidadeVotoAprovada) {
+        this.quantidadeVotoAprovada = quantidadeVotoAprovada;
+    }
 
-	/**
-	 * @param quantidadeVotoRejeitada the quantidadeVotoRejeitada to set
-	 */
-	public void setQuantidadeVotoRejeitada(Integer quantidadeVotoRejeitada) {
-		this.quantidadeVotoRejeitada = quantidadeVotoRejeitada;
-	}
+    /**
+     * @return the quantidadeVotoRejeitada
+     */
+    public Integer getQuantidadeVotoRejeitada() {
+        return quantidadeVotoRejeitada;
+    }
 
-	/**
-	 * @return the quantidadeAprovacaoMudanca
-	 */
-	public Integer getQuantidadeAprovacaoMudanca() {
-		return quantidadeAprovacaoMudanca;
-	}
+    /**
+     * @param quantidadeVotoRejeitada
+     *            the quantidadeVotoRejeitada to set
+     */
+    public void setQuantidadeVotoRejeitada(final Integer quantidadeVotoRejeitada) {
+        this.quantidadeVotoRejeitada = quantidadeVotoRejeitada;
+    }
 
-	/**
-	 * @param quantidadeAprovacaoMudanca the quantidadeAprovacaoMudanca to set
-	 */
-	public void setQuantidadeAprovacaoMudanca(Integer quantidadeAprovacaoMudanca) {
-		this.quantidadeAprovacaoMudanca = quantidadeAprovacaoMudanca;
-	}
+    /**
+     * @return the quantidadeAprovacaoMudanca
+     */
+    public Integer getQuantidadeAprovacaoMudanca() {
+        return quantidadeAprovacaoMudanca;
+    }
 
-	public String getDataHoraVotacao() {
-		return dataHoraVotacao;
-	}
+    /**
+     * @param quantidadeAprovacaoMudanca
+     *            the quantidadeAprovacaoMudanca to set
+     */
+    public void setQuantidadeAprovacaoMudanca(final Integer quantidadeAprovacaoMudanca) {
+        this.quantidadeAprovacaoMudanca = quantidadeAprovacaoMudanca;
+    }
 
-	public void setDataHoraVotacao(String dataHoraVotacao) {
-		this.dataHoraVotacao = dataHoraVotacao;
-	}
+    public String getDataHoraVotacao() {
+        return dataHoraVotacao;
+    }
 
-	public Integer getIdHistoricoMudanca() {
-		return idHistoricoMudanca;
-	}
+    public void setDataHoraVotacao(final String dataHoraVotacao) {
+        this.dataHoraVotacao = dataHoraVotacao;
+    }
 
-	public void setIdHistoricoMudanca(Integer idHistoricoMudanca) {
-		this.idHistoricoMudanca = idHistoricoMudanca;
-	}
+    public Integer getIdHistoricoMudanca() {
+        return idHistoricoMudanca;
+    }
+
+    public void setIdHistoricoMudanca(final Integer idHistoricoMudanca) {
+        this.idHistoricoMudanca = idHistoricoMudanca;
+    }
 
 }

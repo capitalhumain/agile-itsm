@@ -2,159 +2,158 @@ package br.com.centralit.citcorpore.bean;
 
 import br.com.agileitsm.model.support.BaseEntity;
 
-@SuppressWarnings("serial")
 public class ObjetivoMonitoramentoDTO extends BaseEntity {
-	private Integer idObjetivoMonitoramento;
-	private Integer idObjetivoPlanoMelhoria;
-	private String tituloMonitoramento;
-	private String fatorCriticoSucesso;
-	private String kpi;
-	private String metrica;
-	private String medicao;
-	private String relatorios;
-	private String responsavel;
-	private String criadoPor;
-	private String modificadoPor;
-	private java.sql.Date dataCriacao;
-	private java.sql.Date ultModificacao;
 
-	private String tituloObjetivoPlanoMelhoria;
-	
-	private Integer sequecialObjetivoMonitoramento;
-	
-	
+    private Integer idObjetivoMonitoramento;
+    private Integer idObjetivoPlanoMelhoria;
+    private String tituloMonitoramento;
+    private String fatorCriticoSucesso;
+    private String kpi;
+    private String metrica;
+    private String medicao;
+    private String relatorios;
+    private String responsavel;
+    private String criadoPor;
+    private String modificadoPor;
+    private java.sql.Date dataCriacao;
+    private java.sql.Date ultModificacao;
 
-	public Integer getIdObjetivoMonitoramento() {
-		return this.idObjetivoMonitoramento;
-	}
+    private String tituloObjetivoPlanoMelhoria;
 
-	public void setIdObjetivoMonitoramento(Integer parm) {
-		this.idObjetivoMonitoramento = parm;
-	}
+    private Integer sequecialObjetivoMonitoramento;
 
-	public Integer getIdObjetivoPlanoMelhoria() {
-		return this.idObjetivoPlanoMelhoria;
-	}
+    public Integer getIdObjetivoMonitoramento() {
+        return idObjetivoMonitoramento;
+    }
 
-	public void setIdObjetivoPlanoMelhoria(Integer parm) {
-		this.idObjetivoPlanoMelhoria = parm;
-	}
+    public void setIdObjetivoMonitoramento(final Integer parm) {
+        idObjetivoMonitoramento = parm;
+    }
 
-	public String getTituloMonitoramento() {
-		return this.tituloMonitoramento;
-	}
+    public Integer getIdObjetivoPlanoMelhoria() {
+        return idObjetivoPlanoMelhoria;
+    }
 
-	public void setTituloMonitoramento(String parm) {
-		this.tituloMonitoramento = parm;
-	}
+    public void setIdObjetivoPlanoMelhoria(final Integer parm) {
+        idObjetivoPlanoMelhoria = parm;
+    }
 
-	public String getFatorCriticoSucesso() {
-		return this.fatorCriticoSucesso;
-	}
+    public String getTituloMonitoramento() {
+        return tituloMonitoramento;
+    }
 
-	public void setFatorCriticoSucesso(String parm) {
-		this.fatorCriticoSucesso = parm;
-	}
+    public void setTituloMonitoramento(final String parm) {
+        tituloMonitoramento = parm;
+    }
 
-	public String getKpi() {
-		return this.kpi;
-	}
+    public String getFatorCriticoSucesso() {
+        return fatorCriticoSucesso;
+    }
 
-	public void setKpi(String parm) {
-		this.kpi = parm;
-	}
+    public void setFatorCriticoSucesso(final String parm) {
+        fatorCriticoSucesso = parm;
+    }
 
-	public String getMetrica() {
-		return this.metrica;
-	}
+    public String getKpi() {
+        return kpi;
+    }
 
-	public void setMetrica(String parm) {
-		this.metrica = parm;
-	}
+    public void setKpi(final String parm) {
+        kpi = parm;
+    }
 
-	public String getMedicao() {
-		return this.medicao;
-	}
+    public String getMetrica() {
+        return metrica;
+    }
 
-	public void setMedicao(String parm) {
-		this.medicao = parm;
-	}
+    public void setMetrica(final String parm) {
+        metrica = parm;
+    }
 
-	public String getRelatorios() {
-		return this.relatorios;
-	}
+    public String getMedicao() {
+        return medicao;
+    }
 
-	public void setRelatorios(String parm) {
-		this.relatorios = parm;
-	}
+    public void setMedicao(final String parm) {
+        medicao = parm;
+    }
 
-	public String getResponsavel() {
-		return this.responsavel;
-	}
+    public String getRelatorios() {
+        return relatorios;
+    }
 
-	public void setResponsavel(String parm) {
-		this.responsavel = parm;
-	}
+    public void setRelatorios(final String parm) {
+        relatorios = parm;
+    }
 
-	public String getCriadoPor() {
-		return this.criadoPor;
-	}
+    public String getResponsavel() {
+        return responsavel;
+    }
 
-	public void setCriadoPor(String parm) {
-		this.criadoPor = parm;
-	}
+    public void setResponsavel(final String parm) {
+        responsavel = parm;
+    }
 
-	public String getModificadoPor() {
-		return this.modificadoPor;
-	}
+    public String getCriadoPor() {
+        return criadoPor;
+    }
 
-	public void setModificadoPor(String parm) {
-		this.modificadoPor = parm;
-	}
+    public void setCriadoPor(final String parm) {
+        criadoPor = parm;
+    }
 
-	public java.sql.Date getDataCriacao() {
-		return this.dataCriacao;
-	}
+    public String getModificadoPor() {
+        return modificadoPor;
+    }
 
-	public void setDataCriacao(java.sql.Date parm) {
-		this.dataCriacao = parm;
-	}
+    public void setModificadoPor(final String parm) {
+        modificadoPor = parm;
+    }
 
-	public java.sql.Date getUltModificacao() {
-		return this.ultModificacao;
-	}
+    public java.sql.Date getDataCriacao() {
+        return dataCriacao;
+    }
 
-	public void setUltModificacao(java.sql.Date parm) {
-		this.ultModificacao = parm;
-	}
+    public void setDataCriacao(final java.sql.Date parm) {
+        dataCriacao = parm;
+    }
 
-	/**
-	 * @return the tituloObjetivoPlanoMelhoria
-	 */
-	public String getTituloObjetivoPlanoMelhoria() {
-		return tituloObjetivoPlanoMelhoria;
-	}
+    public java.sql.Date getUltModificacao() {
+        return ultModificacao;
+    }
 
-	/**
-	 * @param tituloObjetivoPlanoMelhoria
-	 *            the tituloObjetivoPlanoMelhoria to set
-	 */
-	public void setTituloObjetivoPlanoMelhoria(String tituloObjetivoPlanoMelhoria) {
-		this.tituloObjetivoPlanoMelhoria = tituloObjetivoPlanoMelhoria;
-	}
+    public void setUltModificacao(final java.sql.Date parm) {
+        ultModificacao = parm;
+    }
 
-	/**
-	 * @return the sequecialObjetivoMonitoramento
-	 */
-	public Integer getSequecialObjetivoMonitoramento() {
-		return sequecialObjetivoMonitoramento;
-	}
+    /**
+     * @return the tituloObjetivoPlanoMelhoria
+     */
+    public String getTituloObjetivoPlanoMelhoria() {
+        return tituloObjetivoPlanoMelhoria;
+    }
 
-	/**
-	 * @param sequecialObjetivoMonitoramento the sequecialObjetivoMonitoramento to set
-	 */
-	public void setSequecialObjetivoMonitoramento(Integer sequecialObjetivoMonitoramento) {
-		this.sequecialObjetivoMonitoramento = sequecialObjetivoMonitoramento;
-	}
+    /**
+     * @param tituloObjetivoPlanoMelhoria
+     *            the tituloObjetivoPlanoMelhoria to set
+     */
+    public void setTituloObjetivoPlanoMelhoria(final String tituloObjetivoPlanoMelhoria) {
+        this.tituloObjetivoPlanoMelhoria = tituloObjetivoPlanoMelhoria;
+    }
+
+    /**
+     * @return the sequecialObjetivoMonitoramento
+     */
+    public Integer getSequecialObjetivoMonitoramento() {
+        return sequecialObjetivoMonitoramento;
+    }
+
+    /**
+     * @param sequecialObjetivoMonitoramento
+     *            the sequecialObjetivoMonitoramento to set
+     */
+    public void setSequecialObjetivoMonitoramento(final Integer sequecialObjetivoMonitoramento) {
+        this.sequecialObjetivoMonitoramento = sequecialObjetivoMonitoramento;
+    }
 
 }

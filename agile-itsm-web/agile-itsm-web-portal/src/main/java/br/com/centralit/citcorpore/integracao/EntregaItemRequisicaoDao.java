@@ -15,129 +15,153 @@ import br.com.citframework.integracao.Order;
 import br.com.citframework.util.Constantes;
 
 public class EntregaItemRequisicaoDao extends CrudDaoDefaultImpl {
-	public EntregaItemRequisicaoDao() {
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
-	public Collection<Field> getFields() {
-		Collection<Field> listFields = new ArrayList<>();
-		listFields.add(new Field("idEntrega" ,"idEntrega", true, true, false, false));
-		listFields.add(new Field("idPedido" ,"idPedido", false, false, false, false));
-		listFields.add(new Field("idColetaPreco" ,"idColetaPreco", false, false, false, false));
-		listFields.add(new Field("idItemRequisicaoProduto" ,"idItemRequisicaoProduto", false, false, false, false));
-	    listFields.add(new Field("idSolicitacaoServico" ,"idSolicitacaoServico", false, false, false, false));
-        listFields.add(new Field("idItemTrabalho" ,"idItemTrabalho", false, false, false, false));
-        listFields.add(new Field("idParecer" ,"idParecer", false, false, false, false));
-		listFields.add(new Field("quantidadeEntregue" ,"quantidadeEntregue", false, false, false, false));
-        listFields.add(new Field("situacao" ,"situacao", false, false, false, false));
-		return listFields;
-	}
-	public String getTableName() {
-		return this.getOwner() + "EntregaItemRequisicao";
-	}
-	public Collection list() throws PersistenceException {
-		return null;
-	}
 
-	public Class getBean() {
-		return EntregaItemRequisicaoDTO.class;
-	}
-	public Collection find(BaseEntity arg0) throws PersistenceException {
-		return null;
-	}
-    public Collection findDisponiveisInspecaoByIdSolicitacaoServico(Integer idSolicitacaoServico) throws PersistenceException {
-        List condicao = new ArrayList();
-        List ordenacao = new ArrayList();
+    public EntregaItemRequisicaoDao() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
+    }
+
+    @Override
+    public Collection<Field> getFields() {
+        final Collection<Field> listFields = new ArrayList<>();
+        listFields.add(new Field("idEntrega", "idEntrega", true, true, false, false));
+        listFields.add(new Field("idPedido", "idPedido", false, false, false, false));
+        listFields.add(new Field("idColetaPreco", "idColetaPreco", false, false, false, false));
+        listFields.add(new Field("idItemRequisicaoProduto", "idItemRequisicaoProduto", false, false, false, false));
+        listFields.add(new Field("idSolicitacaoServico", "idSolicitacaoServico", false, false, false, false));
+        listFields.add(new Field("idItemTrabalho", "idItemTrabalho", false, false, false, false));
+        listFields.add(new Field("idParecer", "idParecer", false, false, false, false));
+        listFields.add(new Field("quantidadeEntregue", "quantidadeEntregue", false, false, false, false));
+        listFields.add(new Field("situacao", "situacao", false, false, false, false));
+        return listFields;
+    }
+
+    @Override
+    public String getTableName() {
+        return this.getOwner() + "EntregaItemRequisicao";
+    }
+
+    @Override
+    public Collection list() throws PersistenceException {
+        return null;
+    }
+
+    @Override
+    public Class getBean() {
+        return EntregaItemRequisicaoDTO.class;
+    }
+
+    @Override
+    public Collection find(final BaseEntity arg0) throws PersistenceException {
+        return null;
+    }
+
+    public Collection findDisponiveisInspecaoByIdSolicitacaoServico(final Integer idSolicitacaoServico) throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
         condicao.add(new Condition("idSolicitacaoServico", "=", idSolicitacaoServico));
         condicao.add(new Condition("situacao", "=", SituacaoEntregaItemRequisicao.Aguarda.name()));
         condicao.add(new Condition("idItemTrabalho", "IS", null));
         ordenacao.add(new Order("idItemRequisicaoProduto"));
         return super.findByCondition(condicao, ordenacao);
     }
-    public Collection findInspecaoByIdSolicitacaoServico(Integer idSolicitacaoServico) throws PersistenceException {
-        List condicao = new ArrayList();
-        List ordenacao = new ArrayList();
+
+    public Collection findInspecaoByIdSolicitacaoServico(final Integer idSolicitacaoServico) throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
         condicao.add(new Condition("idSolicitacaoServico", "=", idSolicitacaoServico));
         condicao.add(new Condition("situacao", "=", SituacaoEntregaItemRequisicao.Aguarda.name()));
         condicao.add(new Condition("idItemTrabalho", "IS NOT", null));
         ordenacao.add(new Order("idItemRequisicaoProduto"));
         return super.findByCondition(condicao, ordenacao);
     }
-	public Collection findByIdPedido(Integer parm) throws PersistenceException {
-		List condicao = new ArrayList();
-		List ordenacao = new ArrayList();
-		condicao.add(new Condition("idPedido", "=", parm));
-		ordenacao.add(new Order("idEntrega"));
-		return super.findByCondition(condicao, ordenacao);
-	}
-    public Collection findByIdSolicitacaoServico(Integer parm) throws PersistenceException {
-        List condicao = new ArrayList();
-        List ordenacao = new ArrayList();
+
+    public Collection findByIdPedido(final Integer parm) throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
+        condicao.add(new Condition("idPedido", "=", parm));
+        ordenacao.add(new Order("idEntrega"));
+        return super.findByCondition(condicao, ordenacao);
+    }
+
+    public Collection findByIdSolicitacaoServico(final Integer parm) throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
         condicao.add(new Condition("idSolicitacaoServico", "=", parm));
         ordenacao.add(new Order("idEntrega"));
         return super.findByCondition(condicao, ordenacao);
     }
-    public void excluiRelacionamentos(Collection<EntregaItemRequisicaoDTO> col) throws PersistenceException {
-        if (col == null)
+
+    public void excluiRelacionamentos(final Collection<EntregaItemRequisicaoDTO> col) throws PersistenceException {
+        if (col == null) {
             return;
-        InspecaoEntregaItemDao inspecaoEntregaDao = new InspecaoEntregaItemDao();
+        }
+        final InspecaoEntregaItemDao inspecaoEntregaDao = new InspecaoEntregaItemDao();
         inspecaoEntregaDao.setTransactionControler(this.getTransactionControler());
-        for (EntregaItemRequisicaoDTO entregaDto : col) {
+        for (final EntregaItemRequisicaoDTO entregaDto : col) {
             inspecaoEntregaDao.deleteByIdEntrega(entregaDto.getIdEntrega());
         }
     }
-	public void deleteByIdPedido(Integer parm) throws PersistenceException {
-	    Collection col = findByIdPedido(parm);
-	    excluiRelacionamentos(col);
-		List condicao = new ArrayList();
-		condicao.add(new Condition("idPedido", "=", parm));
-		super.deleteByCondition(condicao);
-	}
-	public Collection findByIdColetaPreco(Integer parm) throws PersistenceException {
-		List condicao = new ArrayList();
-		List ordenacao = new ArrayList();
-		condicao.add(new Condition("idColetaPreco", "=", parm));
-		ordenacao.add(new Order("idEntrega"));
-		return super.findByCondition(condicao, ordenacao);
-	}
-	public void deleteByIdColetaPreco(Integer parm) throws PersistenceException {
-        Collection col = findByIdColetaPreco(parm);
-        excluiRelacionamentos(col);
-		List condicao = new ArrayList();
-		condicao.add(new Condition("idColetaPreco", "=", parm));
-		super.deleteByCondition(condicao);
-	}
-	public Collection findByIdItemRequisicaoProduto(Integer parm) throws PersistenceException {
-		List condicao = new ArrayList();
-		List ordenacao = new ArrayList();
-		condicao.add(new Condition("idItemRequisicaoProduto", "=", parm));
-		ordenacao.add(new Order("idEntrega"));
-		return super.findByCondition(condicao, ordenacao);
-	}
-	public void deleteByIdItemRequisicaoProduto(Integer parm) throws PersistenceException {
-        Collection col = findByIdItemRequisicaoProduto(parm);
-        excluiRelacionamentos(col);
-		List condicao = new ArrayList();
-		condicao.add(new Condition("idItemRequisicaoProduto", "=", parm));
-		super.deleteByCondition(condicao);
-	}
-    public Collection findByIdItemRequisicaoAndIdColetaPreco(Integer idItemRequisicaoProduto, Integer idColetaPreco) throws PersistenceException {
-        List condicao = new ArrayList();
-        List ordenacao = new ArrayList();
+
+    public void deleteByIdPedido(final Integer parm) throws PersistenceException {
+        final Collection col = this.findByIdPedido(parm);
+        this.excluiRelacionamentos(col);
+        final List<Condition> condicao = new ArrayList<>();
+        condicao.add(new Condition("idPedido", "=", parm));
+        super.deleteByCondition(condicao);
+    }
+
+    public Collection findByIdColetaPreco(final Integer parm) throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
+        condicao.add(new Condition("idColetaPreco", "=", parm));
+        ordenacao.add(new Order("idEntrega"));
+        return super.findByCondition(condicao, ordenacao);
+    }
+
+    public void deleteByIdColetaPreco(final Integer parm) throws PersistenceException {
+        final Collection col = this.findByIdColetaPreco(parm);
+        this.excluiRelacionamentos(col);
+        final List<Condition> condicao = new ArrayList<>();
+        condicao.add(new Condition("idColetaPreco", "=", parm));
+        super.deleteByCondition(condicao);
+    }
+
+    public Collection findByIdItemRequisicaoProduto(final Integer parm) throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
+        condicao.add(new Condition("idItemRequisicaoProduto", "=", parm));
+        ordenacao.add(new Order("idEntrega"));
+        return super.findByCondition(condicao, ordenacao);
+    }
+
+    public void deleteByIdItemRequisicaoProduto(final Integer parm) throws PersistenceException {
+        final Collection col = this.findByIdItemRequisicaoProduto(parm);
+        this.excluiRelacionamentos(col);
+        final List<Condition> condicao = new ArrayList<>();
+        condicao.add(new Condition("idItemRequisicaoProduto", "=", parm));
+        super.deleteByCondition(condicao);
+    }
+
+    public Collection findByIdItemRequisicaoAndIdColetaPreco(final Integer idItemRequisicaoProduto, final Integer idColetaPreco) throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
         condicao.add(new Condition("idItemRequisicaoProduto", "=", idItemRequisicaoProduto));
         condicao.add(new Condition("idColetaPreco", "=", idColetaPreco));
         ordenacao.add(new Order("idEntrega"));
         return super.findByCondition(condicao, ordenacao);
     }
-    public void deleteByIdItemRequisicaoAndIdColetaPreco(Integer idItemRequisicaoProduto, Integer idColetaPreco) throws PersistenceException {
-        Collection col = findByIdItemRequisicaoAndIdColetaPreco(idItemRequisicaoProduto, idColetaPreco);
-        excluiRelacionamentos(col);
-        List condicao = new ArrayList();
+
+    public void deleteByIdItemRequisicaoAndIdColetaPreco(final Integer idItemRequisicaoProduto, final Integer idColetaPreco) throws PersistenceException {
+        final Collection col = this.findByIdItemRequisicaoAndIdColetaPreco(idItemRequisicaoProduto, idColetaPreco);
+        this.excluiRelacionamentos(col);
+        final List<Condition> condicao = new ArrayList<>();
         condicao.add(new Condition("idItemRequisicaoProduto", "=", idItemRequisicaoProduto));
         condicao.add(new Condition("idColetaPreco", "=", idColetaPreco));
         super.deleteByCondition(condicao);
     }
+
     private StringBuilder getSQLRestoreAll() {
-        StringBuilder sql = new StringBuilder();
+        final StringBuilder sql = new StringBuilder();
         sql.append("SELECT ei.idEntrega, ei.idColetaPreco, ei.idItemRequisicaoProduto, ei.idItemTrabalho, ei.idSolicitacaoServico, ei.quantidadeEntregue, ");
         sql.append("       ei.situacao, ei.idParecer, ped.numeroPedido, ped.dataEntrega, item.descricaoItem, forn.cnpj, forn.nomeFantasia, forn.tipoPessoa ");
         sql.append("  FROM entregaitemrequisicao ei ");
@@ -150,7 +174,7 @@ public class EntregaItemRequisicaoDao extends CrudDaoDefaultImpl {
     }
 
     private List getColunasRestoreAll() {
-        List listRetorno = new ArrayList();
+        final List listRetorno = new ArrayList<>();
         listRetorno.add("idEntrega");
         listRetorno.add("idColetaPreco");
         listRetorno.add("idItemRequisicaoProduto");
@@ -168,24 +192,25 @@ public class EntregaItemRequisicaoDao extends CrudDaoDefaultImpl {
         return listRetorno;
     }
 
-    public Collection findByIdItemTrabalho(Integer parm) throws PersistenceException {
-        List parametro = new ArrayList();
+    public Collection findByIdItemTrabalho(final Integer parm) throws PersistenceException {
+        final List parametro = new ArrayList<>();
 
-        StringBuilder sql = getSQLRestoreAll();
+        final StringBuilder sql = this.getSQLRestoreAll();
         sql.append("  WHERE ei.idItemTrabalho = ? ");
 
         parametro.add(parm);
         sql.append("ORDER BY item.descricaoItem");
 
-        List lista = new ArrayList();
+        List lista = new ArrayList<>();
         lista = this.execSQL(sql.toString(), parametro.toArray());
 
-        return this.engine.listConvertion(getBean(), lista, getColunasRestoreAll());
+        return engine.listConvertion(this.getBean(), lista, this.getColunasRestoreAll());
     }
-    public Collection<EntregaItemRequisicaoDTO> findNaoAprovadasByIdSolicitacaoServico(Integer idSolicitacaoServico) throws PersistenceException {
-        List parametro = new ArrayList();
 
-        StringBuilder sql = getSQLRestoreAll();
+    public Collection<EntregaItemRequisicaoDTO> findNaoAprovadasByIdSolicitacaoServico(final Integer idSolicitacaoServico) throws PersistenceException {
+        final List parametro = new ArrayList<>();
+
+        final StringBuilder sql = this.getSQLRestoreAll();
         sql.append("  WHERE ei.idSolicitacaoServico = ? ");
         sql.append("    AND ei.situacao = ? ");
 
@@ -193,14 +218,16 @@ public class EntregaItemRequisicaoDao extends CrudDaoDefaultImpl {
         parametro.add(SituacaoEntregaItemRequisicao.NaoAprovada.name());
         sql.append("ORDER BY item.descricaoItem");
 
-        List lista = new ArrayList();
+        List lista = new ArrayList<>();
         lista = this.execSQL(sql.toString(), parametro.toArray());
 
-        return this.engine.listConvertion(getBean(), lista, getColunasRestoreAll());
+        return engine.listConvertion(this.getBean(), lista, this.getColunasRestoreAll());
     }
-    public Collection<EntregaItemRequisicaoDTO> findNaoAprovadasEDisponiveisByIdSolicitacaoServico(Integer idSolicitacaoServico) throws PersistenceException {
-        List condicao = new ArrayList();
-        List ordenacao = new ArrayList();
+
+    public Collection<EntregaItemRequisicaoDTO> findNaoAprovadasEDisponiveisByIdSolicitacaoServico(final Integer idSolicitacaoServico)
+            throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
         condicao.add(new Condition("idSolicitacaoServico", "=", idSolicitacaoServico));
         condicao.add(new Condition("situacao", "=", SituacaoEntregaItemRequisicao.NaoAprovada.name()));
         condicao.add(new Condition("idItemTrabalho", "IS", null));
@@ -208,8 +235,4 @@ public class EntregaItemRequisicaoDao extends CrudDaoDefaultImpl {
         return super.findByCondition(condicao, ordenacao);
     }
 
-    @Override
-    public void updateNotNull(BaseEntity obj) throws PersistenceException {
-    	super.updateNotNull(obj);
-    }
 }

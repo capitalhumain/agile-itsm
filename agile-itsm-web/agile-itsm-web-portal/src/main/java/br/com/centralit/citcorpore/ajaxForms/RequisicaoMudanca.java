@@ -31,7 +31,7 @@ import net.sf.jasperreports.engine.fill.JRAbstractLRUVirtualizer;
 import net.sf.jasperreports.engine.fill.JRSwapFileVirtualizer;
 import net.sf.jasperreports.engine.util.JRSwapFile;
 
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 
 import br.com.centralit.citajax.html.AjaxFormAction;
 import br.com.centralit.citajax.html.DocumentHTML;
@@ -763,7 +763,7 @@ public class RequisicaoMudanca extends AjaxFormAction {
                 for (final LocalidadeUnidadeDTO localidadeUnidadeDto : listaIdlocalidadePorUnidade) {
                     localidadeDto.setIdLocalidade(localidadeUnidadeDto.getIdLocalidade());
                     localidadeDto = (LocalidadeDTO) localidadeService.restore(localidadeDto);
-                    comboLocalidade.addOption(localidadeDto.getIdLocalidade().toString(), StringEscapeUtils.escapeJavaScript(localidadeDto.getNomeLocalidade().toString()));
+                    comboLocalidade.addOption(localidadeDto.getIdLocalidade().toString(), StringEscapeUtils.escapeEcmaScript(localidadeDto.getNomeLocalidade().toString()));
                 }
 
             }
@@ -774,7 +774,7 @@ public class RequisicaoMudanca extends AjaxFormAction {
                 for (final LocalidadeDTO localidadeDTO : listaIdlocalidade) {
                     localidadeDto.setIdLocalidade(localidadeDTO.getIdLocalidade());
                     localidadeDto = (LocalidadeDTO) localidadeService.restore(localidadeDto);
-                    comboLocalidade.addOption(localidadeDto.getIdLocalidade().toString(), StringEscapeUtils.escapeJavaScript(localidadeDto.getNomeLocalidade().toString()));
+                    comboLocalidade.addOption(localidadeDto.getIdLocalidade().toString(), StringEscapeUtils.escapeEcmaScript(localidadeDto.getNomeLocalidade().toString()));
                 }
             }
 
@@ -864,7 +864,7 @@ public class RequisicaoMudanca extends AjaxFormAction {
                     if (unidades != null) {
                         for (final UnidadeDTO unidade : unidades) {
                             if (unidade.getDataFim() == null) {
-                                comboUnidade.addOption(unidade.getIdUnidade().toString(), StringEscapeUtils.escapeJavaScript(unidade.getNomeNivel().toString()));
+                                comboUnidade.addOption(unidade.getIdUnidade().toString(), StringEscapeUtils.escapeEcmaScript(unidade.getNomeNivel().toString()));
                             }
 
                         }
@@ -874,7 +874,7 @@ public class RequisicaoMudanca extends AjaxFormAction {
                     if (unidades != null) {
                         for (final UnidadeDTO unidade : unidades) {
                             if (unidade.getDataFim() == null) {
-                                comboUnidade.addOption(unidade.getIdUnidade().toString(), StringEscapeUtils.escapeJavaScript(unidade.getNomeNivel().toString()));
+                                comboUnidade.addOption(unidade.getIdUnidade().toString(), StringEscapeUtils.escapeEcmaScript(unidade.getNomeNivel().toString()));
                             }
                         }
                     }
@@ -912,7 +912,7 @@ public class RequisicaoMudanca extends AjaxFormAction {
                         for (final LocalidadeUnidadeDTO localidadeUnidadeDto : listaIdlocalidadePorUnidade) {
                             localidadeDto.setIdLocalidade(localidadeUnidadeDto.getIdLocalidade());
                             localidadeDto = (LocalidadeDTO) localidadeService.restore(localidadeDto);
-                            comboLocalidade.addOption(localidadeDto.getIdLocalidade().toString(), StringEscapeUtils.escapeJavaScript(localidadeDto.getNomeLocalidade()));
+                            comboLocalidade.addOption(localidadeDto.getIdLocalidade().toString(), StringEscapeUtils.escapeEcmaScript(localidadeDto.getNomeLocalidade()));
                         }
 
                     }
@@ -923,7 +923,7 @@ public class RequisicaoMudanca extends AjaxFormAction {
                         for (final LocalidadeDTO localidadeDTO : listaIdlocalidade) {
                             localidadeDto.setIdLocalidade(localidadeDTO.getIdLocalidade());
                             localidadeDto = (LocalidadeDTO) localidadeService.restore(localidadeDto);
-                            comboLocalidade.addOption(localidadeDto.getIdLocalidade().toString(), StringEscapeUtils.escapeJavaScript(localidadeDto.getNomeLocalidade()));
+                            comboLocalidade.addOption(localidadeDto.getIdLocalidade().toString(), StringEscapeUtils.escapeEcmaScript(localidadeDto.getNomeLocalidade()));
                         }
                     }
                 }
@@ -958,7 +958,7 @@ public class RequisicaoMudanca extends AjaxFormAction {
                 if (unidades != null) {
                     for (final UnidadeDTO unidade : unidades) {
                         if (unidade.getDataFim() == null) {
-                            comboUnidade.addOption(unidade.getIdUnidade().toString(), StringEscapeUtils.escapeJavaScript(unidade.getNomeNivel().toString()));
+                            comboUnidade.addOption(unidade.getIdUnidade().toString(), StringEscapeUtils.escapeEcmaScript(unidade.getNomeNivel().toString()));
                         }
 
                     }
@@ -968,7 +968,7 @@ public class RequisicaoMudanca extends AjaxFormAction {
                 if (unidades != null) {
                     for (final UnidadeDTO unidade : unidades) {
                         if (unidade.getDataFim() == null) {
-                            comboUnidade.addOption(unidade.getIdUnidade().toString(), StringEscapeUtils.escapeJavaScript(unidade.getNomeNivel().toString()));
+                            comboUnidade.addOption(unidade.getIdUnidade().toString(), StringEscapeUtils.escapeEcmaScript(unidade.getNomeNivel().toString()));
                         }
                     }
                 }
@@ -1169,7 +1169,7 @@ public class RequisicaoMudanca extends AjaxFormAction {
                 String comando = "mostraMensagemInsercao('" + UtilI18N.internacionaliza(request, "MSG05") + ".<br>"
                         + UtilI18N.internacionaliza(request, "gerenciamentoMudanca.numerorequisicao") + " <b><u>" + this.getRequisicaoMudancaDto().getIdRequisicaoMudanca()
                         + "</u></b> " + UtilI18N.internacionaliza(request, "citcorpore.comum.crida") + ".<br><br>" + UtilI18N.internacionaliza(request, "contrato.tipo") + ":"
-                        + StringEscapeUtils.escapeJavaScript(tipoMudanca.getNomeTipoMudanca().toString()) + ".<br>";
+                        + StringEscapeUtils.escapeEcmaScript(tipoMudanca.getNomeTipoMudanca().toString()) + ".<br>";
                 comando = comando + "')";
                 document.executeScript(comando);
                 return;
@@ -1293,7 +1293,7 @@ public class RequisicaoMudanca extends AjaxFormAction {
         atividadePeriodicaDTO.setIdContrato(requisicaoMudancaDto.getIdContrato());
         atividadePeriodicaDTO.setOrientacaoTecnica(orient);
 
-        final Collection colItens = new ArrayList();
+        final Collection colItens = new ArrayList<>();
         final ProgramacaoAtividadeDTO programacaoAtividadeDTO = new ProgramacaoAtividadeDTO();
         programacaoAtividadeDTO.setTipoAgendamento("U");
         programacaoAtividadeDTO.setDataInicio(atividadePeriodicaDTO.getDataInicio());
@@ -1423,7 +1423,7 @@ public class RequisicaoMudanca extends AjaxFormAction {
         if (listTipoMudanca != null) {
             for (final TipoMudancaDTO tipoMudancaDTO : listTipoMudanca) {
                 if (tipoMudancaDTO.getIdTipoMudanca() != null || tipoMudancaDTO.getIdTipoMudanca() > 0) {
-                    comboTipoMudanca.addOption(tipoMudancaDTO.getIdTipoMudanca().toString(), StringEscapeUtils.escapeJavaScript(tipoMudancaDTO.getNomeTipoMudanca().toString()));
+                    comboTipoMudanca.addOption(tipoMudancaDTO.getIdTipoMudanca().toString(), StringEscapeUtils.escapeEcmaScript(tipoMudancaDTO.getNomeTipoMudanca().toString()));
                 }
             }
         }
@@ -1439,7 +1439,7 @@ public class RequisicaoMudanca extends AjaxFormAction {
                 descricaoItemConfiguracao = requisicaoMudancaDto.getHiddenDescricaoItemConfiguracao();
                 descricaoItemConfiguracao = descricaoItemConfiguracao.replaceAll("\"", "");
                 descricaoItemConfiguracao = descricaoItemConfiguracao.replaceAll("\'", "");
-                descricaoTratada = StringEscapeUtils.escapeJavaScript(descricaoItemConfiguracao.toString().trim());
+                descricaoTratada = StringEscapeUtils.escapeEcmaScript(descricaoItemConfiguracao.toString().trim());
 
                 final ItemConfiguracaoService itemConfiguracaoService = (ItemConfiguracaoService) ServiceLocator.getInstance().getService(ItemConfiguracaoService.class, null);
                 requisicaoMudancaDto.getHiddenIdItemConfiguracao();

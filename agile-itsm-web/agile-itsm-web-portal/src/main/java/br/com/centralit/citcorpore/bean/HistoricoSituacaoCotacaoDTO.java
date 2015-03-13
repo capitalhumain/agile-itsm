@@ -5,45 +5,51 @@ import java.sql.Timestamp;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class HistoricoSituacaoCotacaoDTO extends BaseEntity {
-	private Integer idHistorico;
-	private Integer idCotacao;
-	private Integer idResponsavel;
-	private Timestamp dataHora;
-	private String situacao;
 
-	public Integer getIdHistorico(){
-		return this.idHistorico;
-	}
-	public void setIdHistorico(Integer parm){
-		this.idHistorico = parm;
-	}
+    private Integer idHistorico;
+    private Integer idCotacao;
+    private Integer idResponsavel;
+    private Timestamp dataHora;
+    private String situacao;
 
-	public Integer getIdCotacao(){
-		return this.idCotacao;
-	}
-	public void setIdCotacao(Integer parm){
-		this.idCotacao = parm;
-	}
+    public Integer getIdHistorico() {
+        return idHistorico;
+    }
 
-	public Integer getIdResponsavel(){
-		return this.idResponsavel;
-	}
-	public void setIdResponsavel(Integer parm){
-		this.idResponsavel = parm;
-	}
+    public void setIdHistorico(final Integer parm) {
+        idHistorico = parm;
+    }
 
-	public Timestamp getDataHora(){
-		return this.dataHora;
-	}
-	public void setDataHora(Timestamp parm){
-		this.dataHora = parm;
-	}
+    public Integer getIdCotacao() {
+        return idCotacao;
+    }
 
-	public String getSituacao(){
-		return this.situacao;
-	}
-	public void setSituacao(String parm){
-		this.situacao = parm;
-	}
+    public void setIdCotacao(final Integer parm) {
+        idCotacao = parm;
+    }
+
+    public Integer getIdResponsavel() {
+        return idResponsavel;
+    }
+
+    public void setIdResponsavel(final Integer parm) {
+        idResponsavel = parm;
+    }
+
+    public Timestamp getDataHora() {
+        return dataHora;
+    }
+
+    public void setDataHora(final Timestamp parm) {
+        dataHora = parm;
+    }
+
+    public String getSituacao() {
+        return situacao;
+    }
+
+    public void setSituacao(final String parm) {
+        situacao = parm;
+    }
 
 }

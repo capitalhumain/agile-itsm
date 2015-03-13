@@ -176,7 +176,7 @@ public class PersistenceEngine extends JdbcEngine {
         }
     }
 
-    public Collection list(final List ordenacao) throws PersistenceException {
+    public Collection list(final List<Order> ordenacao) throws PersistenceException {
         try {
             final SqlConfiguration conf = persistenceUtil.getConfigurationList(ordenacao);
             final List lista = this.execSQL(conf.getSql(), null, maxRows);
@@ -249,7 +249,7 @@ public class PersistenceEngine extends JdbcEngine {
     /**
      * Faz a busca dos dados atraves dos campos que estiverem preenchidos no bean, ou seja que nao estejam nulos. O segundo parametro permite ordenacao.
      *
-     * ## IMPORTANTE: ## O segundo parametro eh uma lista de String com o nome dos campos na classe que devem ser ordenados. Exemplo: List lst = new ArrayList(); lst.add("nomeUf");
+     * ## IMPORTANTE: ## O segundo parametro eh uma lista de String com o nome dos campos na classe que devem ser ordenados. Exemplo: List lst = new ArrayList<>(); lst.add("nomeUf");
      * lst.add("siglaUf");
      *
      * findNotNull(obj, lst);
@@ -259,7 +259,7 @@ public class PersistenceEngine extends JdbcEngine {
      * @return
      * @throws PersistenceException
      */
-    public Collection findNotNull(final Object obj, final List ordenacao) throws PersistenceException {
+    public Collection findNotNull(final Object obj, final List<Order> ordenacao) throws PersistenceException {
         try {
             final SqlConfiguration conf = persistenceUtil.getConfigurationFindNotNull(obj, ordenacao);
             final Object[] params = conf.getParametros();
@@ -276,7 +276,7 @@ public class PersistenceEngine extends JdbcEngine {
         }
     }
 
-    public Collection findByCondition(final List condicao, final List ordenacao) throws PersistenceException {
+    public Collection findByCondition(final List<Condition> condicao, final List<Order> ordenacao) throws PersistenceException {
         try {
             final SqlConfiguration conf = persistenceUtil.getConfigurationFindByCondition(condicao, ordenacao);
             final Object[] params = conf.getParametros();
@@ -295,7 +295,7 @@ public class PersistenceEngine extends JdbcEngine {
         }
     }
 
-    public int updateByCondition(final Object obj, final List condicao) throws PersistenceException {
+    public int updateByCondition(final Object obj, final List<Condition> condicao) throws PersistenceException {
         int result = 0;
 
         try {
@@ -337,7 +337,7 @@ public class PersistenceEngine extends JdbcEngine {
         }
     }
 
-    public int updateNotNullByCondition(final Object obj, final List condicao) throws PersistenceException {
+    public int updateNotNullByCondition(final Object obj, final List<Condition> condicao) throws PersistenceException {
         int result = 0;
 
         try {
@@ -359,7 +359,7 @@ public class PersistenceEngine extends JdbcEngine {
         return result;
     }
 
-    public int deleteByCondition(final List condicao) throws PersistenceException {
+    public int deleteByCondition(final List<Condition> condicao) throws PersistenceException {
         int result = 0;
 
         try {

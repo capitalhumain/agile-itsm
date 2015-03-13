@@ -3,441 +3,457 @@ package br.com.centralit.citcorpore.bean;
 import java.sql.Date;
 
 public class PesquisaRequisicaoLiberacaoDTO {
-	
-	private Date dataInicio ;
-	
-	
-	private Date dataFim ;
-	
-	private Date dataInicioFechamento ;
-	
-	private Date dataFimFechamento ;
-	
-	private Integer idRequisicaoLiberacaoPesquisa;
-	
-	private Integer idRequisicaoLiberacao;
-	
-	private Integer idContrato;
-	
-	private Integer idItemConfiguracao;
-	
-	private Integer idSolicitante;
-	
-	private Integer idResponsavel;
-	
-	private Integer idUnidade;
-	
-	private Integer idServico;
-	
-	private String situacao;
-	
-	private Integer idPrioridade ;
-	
-	private Integer idOrigem ;
-	
-	private Integer idFaseAtual ;
-	
-	private String ordenacao ;
-	
-	private Integer idGrupoAtual;
-	
-	private String palavraChave ;
-	
-	private Integer idTipoDemandaServico;
-	
-	private String exibirCampoDescricao;
-	
-	private String nomeItemConfiguracao;
-	
-	private String nomeSolicitante ;
-	
-	private String nomeTipoDemandaServico;
-	
-	private String faseAtual ;
-	
-	private String prioridade;
-	
-	private String grupoAtual;
-	
-	private String origem;
-	
-	private Integer idContato;
-	
-	private String nomeContato;
-	
-	/**
-	 * @return the nomeContato
-	 */
-	public String getNomeContato() {
-		return nomeContato;
-	}
 
-	/**
-	 * @param nomeContato
-	 */
-	public void setNomeContato(String nomeContato) {
-		this.nomeContato = nomeContato;
-	}
+    private Date dataInicio;
 
-	/**
-	 * @return the idContato
-	 */
-	public Integer getIdContato() {
-		return idContato;
-	}
+    private Date dataFim;
 
-	/**
-	 * @param idContato
-	 */
-	public void setIdContato(Integer idContato) {
-		this.idContato = idContato;
-	}
+    private Date dataInicioFechamento;
 
-	/**
-	 * @return the dataInicio
-	 */
-	public Date getDataInicio() {
-		return dataInicio;
-	}
+    private Date dataFimFechamento;
 
-	/**
-	 * @param dataInicio the dataInicio to set
-	 */
-	public void setDataInicio(Date dataInicio) {
-		this.dataInicio = dataInicio;
-	}
+    private Integer idRequisicaoLiberacaoPesquisa;
 
-	/**
-	 * @return the dataFim
-	 */
-	public Date getDataFim() {
-		return dataFim;
-	}
+    private Integer idRequisicaoLiberacao;
 
-	/**
-	 * @param dataFim the dataFim to set
-	 */
-	public void setDataFim(Date dataFim) {
-		this.dataFim = dataFim;
-	}
+    private Integer idContrato;
 
-	/**
-	 * @return the dataInicioFechamento
-	 */
-	public Date getDataInicioFechamento() {
-		return dataInicioFechamento;
-	}
+    private Integer idItemConfiguracao;
 
-	/**
-	 * @param dataInicioFechamento the dataInicioFechamento to set
-	 */
-	public void setDataInicioFechamento(Date dataInicioFechamento) {
-		this.dataInicioFechamento = dataInicioFechamento;
-	}
+    private Integer idSolicitante;
 
-	/**
-	 * @return the dataFimFechamento
-	 */
-	public Date getDataFimFechamento() {
-		return dataFimFechamento;
-	}
+    private Integer idResponsavel;
 
-	/**
-	 * @param dataFimFechamento the dataFimFechamento to set
-	 */
-	public void setDataFimFechamento(Date dataFimFechamento) {
-		this.dataFimFechamento = dataFimFechamento;
-	}
+    private Integer idUnidade;
 
-	/**
-	 * @return the idSolicitacaoServicoPesquisa
-	 */
-	public Integer getIdRequisicaoLiberacaoPesquisa() {
-		return idRequisicaoLiberacaoPesquisa;
-	}
+    private Integer idServico;
 
-	/**
-	 * @param idRequisicaoLiberacaoPesquisa the idSolicitacaoServicoPesquisa to set
-	 */
-	public void setIdRequisicaoLiberacaoPesquisa(Integer idRequisicaoLiberacaoPesquisa) {
-		this.idRequisicaoLiberacaoPesquisa = idRequisicaoLiberacaoPesquisa;
-	}
+    private String situacao;
 
-	/**
-	 * @return the idContrato
-	 */
-	public Integer getIdContrato() {
-		return idContrato;
-	}
+    private Integer idPrioridade;
 
-	/**
-	 * @param idContrato the idContrato to set
-	 */
-	public void setIdContrato(Integer idContrato) {
-		this.idContrato = idContrato;
-	}
+    private Integer idOrigem;
 
-	/**
-	 * @return the idItemConfiguracao
-	 */
-	public Integer getIdItemConfiguracao() {
-		return idItemConfiguracao;
-	}
+    private Integer idFaseAtual;
 
-	/**
-	 * @param idItemConfiguracao the idItemConfiguracao to set
-	 */
-	public void setIdItemConfiguracao(Integer idItemConfiguracao) {
-		this.idItemConfiguracao = idItemConfiguracao;
-	}
+    private String ordenacao;
 
-	/**
-	 * @return the idSolicitante
-	 */
-	public Integer getIdSolicitante() {
-		return idSolicitante;
-	}
+    private Integer idGrupoAtual;
 
-	/**
-	 * @param idSolicitante the idSolicitante to set
-	 */
-	public void setIdSolicitante(Integer idSolicitante) {
-		this.idSolicitante = idSolicitante;
-	}
+    private String palavraChave;
 
-	/**
-	 * @return the idResponsavel
-	 */
-	public Integer getIdResponsavel() {
-		return idResponsavel;
-	}
+    private Integer idTipoDemandaServico;
 
-	/**
-	 * @param idResponsavel the idResponsavel to set
-	 */
-	public void setIdResponsavel(Integer idResponsavel) {
-		this.idResponsavel = idResponsavel;
-	}
+    private String exibirCampoDescricao;
 
-	/**
-	 * @return the idUnidade
-	 */
-	public Integer getIdUnidade() {
-		return idUnidade;
-	}
+    private String nomeItemConfiguracao;
 
-	/**
-	 * @param idUnidade the idUnidade to set
-	 */
-	public void setIdUnidade(Integer idUnidade) {
-		this.idUnidade = idUnidade;
-	}
+    private String nomeSolicitante;
 
-	/**
-	 * @return the idServico
-	 */
-	public Integer getIdServico() {
-		return idServico;
-	}
+    private String nomeTipoDemandaServico;
 
-	/**
-	 * @param idServico the idServico to set
-	 */
-	public void setIdServico(Integer idServico) {
-		this.idServico = idServico;
-	}
+    private String faseAtual;
 
-	/**
-	 * @return the situacao
-	 */
-	public String getSituacao() {
-		return situacao;
-	}
+    private String prioridade;
 
-	/**
-	 * @param situacao the situacao to set
-	 */
-	public void setSituacao(String situacao) {
-		this.situacao = situacao;
-	}
+    private String grupoAtual;
 
-	/**
-	 * @return the idPrioridade
-	 */
-	public Integer getIdPrioridade() {
-		return idPrioridade;
-	}
+    private String origem;
 
-	/**
-	 * @param idPrioridade the idPrioridade to set
-	 */
-	public void setIdPrioridade(Integer idPrioridade) {
-		this.idPrioridade = idPrioridade;
-	}
+    private Integer idContato;
 
-	/**
-	 * @return the idOrigem
-	 */
-	public Integer getIdOrigem() {
-		return idOrigem;
-	}
+    private String nomeContato;
 
-	/**
-	 * @param idOrigem the idOrigem to set
-	 */
-	public void setIdOrigem(Integer idOrigem) {
-		this.idOrigem = idOrigem;
-	}
+    /**
+     * @return the nomeContato
+     */
+    public String getNomeContato() {
+        return nomeContato;
+    }
 
-	/**
-	 * @return the idFaseAtual
-	 */
-	public Integer getIdFaseAtual() {
-		return idFaseAtual;
-	}
+    /**
+     * @param nomeContato
+     */
+    public void setNomeContato(final String nomeContato) {
+        this.nomeContato = nomeContato;
+    }
 
-	/**
-	 * @param idFaseAtual the idFaseAtual to set
-	 */
-	public void setIdFaseAtual(Integer idFaseAtual) {
-		this.idFaseAtual = idFaseAtual;
-	}
+    /**
+     * @return the idContato
+     */
+    public Integer getIdContato() {
+        return idContato;
+    }
 
-	/**
-	 * @return the ordenacao
-	 */
-	public String getOrdenacao() {
-		return ordenacao;
-	}
+    /**
+     * @param idContato
+     */
+    public void setIdContato(final Integer idContato) {
+        this.idContato = idContato;
+    }
 
-	/**
-	 * @param ordenacao the ordenacao to set
-	 */
-	public void setOrdenacao(String ordenacao) {
-		this.ordenacao = ordenacao;
-	}
+    /**
+     * @return the dataInicio
+     */
+    public Date getDataInicio() {
+        return dataInicio;
+    }
 
-	/**
-	 * @return the idGrupoAtual
-	 */
-	public Integer getIdGrupoAtual() {
-		return idGrupoAtual;
-	}
+    /**
+     * @param dataInicio
+     *            the dataInicio to set
+     */
+    public void setDataInicio(final Date dataInicio) {
+        this.dataInicio = dataInicio;
+    }
 
-	/**
-	 * @param idGrupoAtual the idGrupoAtual to set
-	 */
-	public void setIdGrupoAtual(Integer idGrupoAtual) {
-		this.idGrupoAtual = idGrupoAtual;
-	}
+    /**
+     * @return the dataFim
+     */
+    public Date getDataFim() {
+        return dataFim;
+    }
 
-	/**
-	 * @return the palavraChave
-	 */
-	public String getPalavraChave() {
-		return palavraChave;
-	}
+    /**
+     * @param dataFim
+     *            the dataFim to set
+     */
+    public void setDataFim(final Date dataFim) {
+        this.dataFim = dataFim;
+    }
 
-	/**
-	 * @param palavraChave the palavraChave to set
-	 */
-	public void setPalavraChave(String palavraChave) {
-		this.palavraChave = palavraChave;
-	}
+    /**
+     * @return the dataInicioFechamento
+     */
+    public Date getDataInicioFechamento() {
+        return dataInicioFechamento;
+    }
 
-	/**
-	 * @return the idTipoDemandaServico
-	 */
-	public Integer getIdTipoDemandaServico() {
-		return idTipoDemandaServico;
-	}
+    /**
+     * @param dataInicioFechamento
+     *            the dataInicioFechamento to set
+     */
+    public void setDataInicioFechamento(final Date dataInicioFechamento) {
+        this.dataInicioFechamento = dataInicioFechamento;
+    }
 
-	/**
-	 * @param idTipoDemandaServico the idTipoDemandaServico to set
-	 */
-	public void setIdTipoDemandaServico(Integer idTipoDemandaServico) {
-		this.idTipoDemandaServico = idTipoDemandaServico;
-	}
+    /**
+     * @return the dataFimFechamento
+     */
+    public Date getDataFimFechamento() {
+        return dataFimFechamento;
+    }
 
-	/**
-	 * @return the exibirCampoDescricao
-	 */
-	public String getExibirCampoDescricao() {
-		return exibirCampoDescricao;
-	}
+    /**
+     * @param dataFimFechamento
+     *            the dataFimFechamento to set
+     */
+    public void setDataFimFechamento(final Date dataFimFechamento) {
+        this.dataFimFechamento = dataFimFechamento;
+    }
 
-	/**
-	 * @param exibirCampoDescricao the exibirCampoDescricao to set
-	 */
-	public void setExibirCampoDescricao(String exibirCampoDescricao) {
-		this.exibirCampoDescricao = exibirCampoDescricao;
-	}
+    /**
+     * @return the idSolicitacaoServicoPesquisa
+     */
+    public Integer getIdRequisicaoLiberacaoPesquisa() {
+        return idRequisicaoLiberacaoPesquisa;
+    }
 
-	public String getNomeItemConfiguracao() {
-		return nomeItemConfiguracao;
-	}
+    /**
+     * @param idRequisicaoLiberacaoPesquisa
+     *            the idSolicitacaoServicoPesquisa to set
+     */
+    public void setIdRequisicaoLiberacaoPesquisa(final Integer idRequisicaoLiberacaoPesquisa) {
+        this.idRequisicaoLiberacaoPesquisa = idRequisicaoLiberacaoPesquisa;
+    }
 
-	public void setNomeItemConfiguracao(String nomeItemConfiguracao) {
-		this.nomeItemConfiguracao = nomeItemConfiguracao;
-	}
+    /**
+     * @return the idContrato
+     */
+    public Integer getIdContrato() {
+        return idContrato;
+    }
 
-	public String getNomeSolicitante() {
-		return nomeSolicitante;
-	}
+    /**
+     * @param idContrato
+     *            the idContrato to set
+     */
+    public void setIdContrato(final Integer idContrato) {
+        this.idContrato = idContrato;
+    }
 
-	public void setNomeSolicitante(String nomeSolicitante) {
-		this.nomeSolicitante = nomeSolicitante;
-	}
+    /**
+     * @return the idItemConfiguracao
+     */
+    public Integer getIdItemConfiguracao() {
+        return idItemConfiguracao;
+    }
 
-	public String getNomeTipoDemandaServico() {
-		return nomeTipoDemandaServico;
-	}
+    /**
+     * @param idItemConfiguracao
+     *            the idItemConfiguracao to set
+     */
+    public void setIdItemConfiguracao(final Integer idItemConfiguracao) {
+        this.idItemConfiguracao = idItemConfiguracao;
+    }
 
-	public void setNomeTipoDemandaServico(String nomeTipoDemandaServico) {
-		this.nomeTipoDemandaServico = nomeTipoDemandaServico;
-	}
+    /**
+     * @return the idSolicitante
+     */
+    public Integer getIdSolicitante() {
+        return idSolicitante;
+    }
 
-	public String getFaseAtual() {
-		return faseAtual;
-	}
+    /**
+     * @param idSolicitante
+     *            the idSolicitante to set
+     */
+    public void setIdSolicitante(final Integer idSolicitante) {
+        this.idSolicitante = idSolicitante;
+    }
 
-	public void setFaseAtual(String faseAtual) {
-		this.faseAtual = faseAtual;
-	}
+    /**
+     * @return the idResponsavel
+     */
+    public Integer getIdResponsavel() {
+        return idResponsavel;
+    }
 
-	public String getPrioridade() {
-		return prioridade;
-	}
+    /**
+     * @param idResponsavel
+     *            the idResponsavel to set
+     */
+    public void setIdResponsavel(final Integer idResponsavel) {
+        this.idResponsavel = idResponsavel;
+    }
 
-	public void setPrioridade(String prioridade) {
-		this.prioridade = prioridade;
-	}
+    /**
+     * @return the idUnidade
+     */
+    public Integer getIdUnidade() {
+        return idUnidade;
+    }
 
-	public String getGrupoAtual() {
-		return grupoAtual;
-	}
+    /**
+     * @param idUnidade
+     *            the idUnidade to set
+     */
+    public void setIdUnidade(final Integer idUnidade) {
+        this.idUnidade = idUnidade;
+    }
 
-	public void setGrupoAtual(String grupoAtual) {
-		this.grupoAtual = grupoAtual;
-	}
+    /**
+     * @return the idServico
+     */
+    public Integer getIdServico() {
+        return idServico;
+    }
 
-	public String getOrigem() {
-		return origem;
-	}
+    /**
+     * @param idServico
+     *            the idServico to set
+     */
+    public void setIdServico(final Integer idServico) {
+        this.idServico = idServico;
+    }
 
-	public void setOrigem(String origem) {
-		this.origem = origem;
-	}
+    /**
+     * @return the situacao
+     */
+    public String getSituacao() {
+        return situacao;
+    }
 
-	public Integer getIdRequisicaoLiberacao() {
-		return idRequisicaoLiberacao;
-	}
+    /**
+     * @param situacao
+     *            the situacao to set
+     */
+    public void setSituacao(final String situacao) {
+        this.situacao = situacao;
+    }
 
-	public void setIdRequisicaoLiberacao(Integer idRequisicaoLiberacao) {
-		this.idRequisicaoLiberacao = idRequisicaoLiberacao;
-	}
-	
-	
-	
+    /**
+     * @return the idPrioridade
+     */
+    public Integer getIdPrioridade() {
+        return idPrioridade;
+    }
+
+    /**
+     * @param idPrioridade
+     *            the idPrioridade to set
+     */
+    public void setIdPrioridade(final Integer idPrioridade) {
+        this.idPrioridade = idPrioridade;
+    }
+
+    /**
+     * @return the idOrigem
+     */
+    public Integer getIdOrigem() {
+        return idOrigem;
+    }
+
+    /**
+     * @param idOrigem
+     *            the idOrigem to set
+     */
+    public void setIdOrigem(final Integer idOrigem) {
+        this.idOrigem = idOrigem;
+    }
+
+    /**
+     * @return the idFaseAtual
+     */
+    public Integer getIdFaseAtual() {
+        return idFaseAtual;
+    }
+
+    /**
+     * @param idFaseAtual
+     *            the idFaseAtual to set
+     */
+    public void setIdFaseAtual(final Integer idFaseAtual) {
+        this.idFaseAtual = idFaseAtual;
+    }
+
+    /**
+     * @return the ordenacao
+     */
+    public String getOrdenacao() {
+        return ordenacao;
+    }
+
+    /**
+     * @param ordenacao
+     *            the ordenacao to set
+     */
+    public void setOrdenacao(final String ordenacao) {
+        this.ordenacao = ordenacao;
+    }
+
+    /**
+     * @return the idGrupoAtual
+     */
+    public Integer getIdGrupoAtual() {
+        return idGrupoAtual;
+    }
+
+    /**
+     * @param idGrupoAtual
+     *            the idGrupoAtual to set
+     */
+    public void setIdGrupoAtual(final Integer idGrupoAtual) {
+        this.idGrupoAtual = idGrupoAtual;
+    }
+
+    /**
+     * @return the palavraChave
+     */
+    public String getPalavraChave() {
+        return palavraChave;
+    }
+
+    /**
+     * @param palavraChave
+     *            the palavraChave to set
+     */
+    public void setPalavraChave(final String palavraChave) {
+        this.palavraChave = palavraChave;
+    }
+
+    /**
+     * @return the idTipoDemandaServico
+     */
+    public Integer getIdTipoDemandaServico() {
+        return idTipoDemandaServico;
+    }
+
+    /**
+     * @param idTipoDemandaServico
+     *            the idTipoDemandaServico to set
+     */
+    public void setIdTipoDemandaServico(final Integer idTipoDemandaServico) {
+        this.idTipoDemandaServico = idTipoDemandaServico;
+    }
+
+    /**
+     * @return the exibirCampoDescricao
+     */
+    public String getExibirCampoDescricao() {
+        return exibirCampoDescricao;
+    }
+
+    /**
+     * @param exibirCampoDescricao
+     *            the exibirCampoDescricao to set
+     */
+    public void setExibirCampoDescricao(final String exibirCampoDescricao) {
+        this.exibirCampoDescricao = exibirCampoDescricao;
+    }
+
+    public String getNomeItemConfiguracao() {
+        return nomeItemConfiguracao;
+    }
+
+    public void setNomeItemConfiguracao(final String nomeItemConfiguracao) {
+        this.nomeItemConfiguracao = nomeItemConfiguracao;
+    }
+
+    public String getNomeSolicitante() {
+        return nomeSolicitante;
+    }
+
+    public void setNomeSolicitante(final String nomeSolicitante) {
+        this.nomeSolicitante = nomeSolicitante;
+    }
+
+    public String getNomeTipoDemandaServico() {
+        return nomeTipoDemandaServico;
+    }
+
+    public void setNomeTipoDemandaServico(final String nomeTipoDemandaServico) {
+        this.nomeTipoDemandaServico = nomeTipoDemandaServico;
+    }
+
+    public String getFaseAtual() {
+        return faseAtual;
+    }
+
+    public void setFaseAtual(final String faseAtual) {
+        this.faseAtual = faseAtual;
+    }
+
+    public String getPrioridade() {
+        return prioridade;
+    }
+
+    public void setPrioridade(final String prioridade) {
+        this.prioridade = prioridade;
+    }
+
+    public String getGrupoAtual() {
+        return grupoAtual;
+    }
+
+    public void setGrupoAtual(final String grupoAtual) {
+        this.grupoAtual = grupoAtual;
+    }
+
+    public String getOrigem() {
+        return origem;
+    }
+
+    public void setOrigem(final String origem) {
+        this.origem = origem;
+    }
+
+    public Integer getIdRequisicaoLiberacao() {
+        return idRequisicaoLiberacao;
+    }
+
+    public void setIdRequisicaoLiberacao(final Integer idRequisicaoLiberacao) {
+        this.idRequisicaoLiberacao = idRequisicaoLiberacao;
+    }
 
 }

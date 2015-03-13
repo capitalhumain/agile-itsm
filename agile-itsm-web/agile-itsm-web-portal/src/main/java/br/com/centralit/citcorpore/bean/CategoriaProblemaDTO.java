@@ -5,129 +5,126 @@ import java.sql.Date;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class CategoriaProblemaDTO extends BaseEntity {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	private Integer idCategoriaProblemaPai;
-	private Integer idCategoriaProblema;
-	private String nomeCategoria;
-	private int nivel;
-	private Integer idTemplate;
-	
-	
-	/**
-	 * @author geber.costa
-	 * criação de atributos idTipoFluxo, idGrupoExecutor, dataInicio e dataFim
-	 */
-	
-	private Integer idTipoFluxo;
-	private Integer idGrupoExecutor;
-	private Date dataInicio;
-	private Date dataFim;
-	
-	private String impacto;
-	
-	private String urgencia;
-	
-	public String getNomeNivel() {
-		if (this.getNomeCategoria() == null) {
-			return this.nomeCategoria;
-		}
-		String str = "";
-		for (int i = 0; i < this.getNivel(); i++) {
-			str += "....";
-		}
-		return str + this.nomeCategoria;
-	}
 
-	public int getNivel() {
-		return nivel;
-	}
+    private static final long serialVersionUID = 1L;
 
-	public void setNivel(int nivel) {
-		this.nivel = nivel;
-	}
+    private Integer idCategoriaProblemaPai;
+    private Integer idCategoriaProblema;
+    private String nomeCategoria;
+    private int nivel;
+    private Integer idTemplate;
 
-	public Integer getIdCategoriaProblema() {
-		return this.idCategoriaProblema;
-	}
+    /**
+     * @author geber.costa
+     *         criação de atributos idTipoFluxo, idGrupoExecutor, dataInicio e dataFim
+     */
 
-	public void setIdCategoriaProblema(Integer parm) {
-		this.idCategoriaProblema = parm;
-	}
+    private Integer idTipoFluxo;
+    private Integer idGrupoExecutor;
+    private Date dataInicio;
+    private Date dataFim;
 
-	public String getNomeCategoria() {
-		return this.nomeCategoria;
-	}
+    private String impacto;
 
-	public void setNomeCategoria(String parm) {
-		this.nomeCategoria = parm;
-	}
+    private String urgencia;
 
-	public Integer getIdCategoriaProblemaPai() {
-		return idCategoriaProblemaPai;
-	}
+    public String getNomeNivel() {
+        if (this.getNomeCategoria() == null) {
+            return nomeCategoria;
+        }
+        String str = "";
+        for (int i = 0; i < this.getNivel(); i++) {
+            str += "....";
+        }
+        return str + nomeCategoria;
+    }
 
-	public void setIdCategoriaProblemaPai(Integer idCategoriaProblemaPai) {
-		this.idCategoriaProblemaPai = idCategoriaProblemaPai;
-	}
+    public int getNivel() {
+        return nivel;
+    }
 
+    public void setNivel(final int nivel) {
+        this.nivel = nivel;
+    }
 
-	public Date getDataInicio() {
-		return dataInicio;
-	}
+    public Integer getIdCategoriaProblema() {
+        return idCategoriaProblema;
+    }
 
-	public void setDataInicio(Date dataInicio) {
-		this.dataInicio = dataInicio;
-	}
+    public void setIdCategoriaProblema(final Integer parm) {
+        idCategoriaProblema = parm;
+    }
 
-	public Date getDataFim() {
-		return dataFim;
-	}
+    public String getNomeCategoria() {
+        return nomeCategoria;
+    }
 
-	public void setDataFim(Date dataFim) {
-		this.dataFim = dataFim;
-	}
+    public void setNomeCategoria(final String parm) {
+        nomeCategoria = parm;
+    }
 
-	public Integer getIdTipoFluxo() {
-		return idTipoFluxo;
-	}
+    public Integer getIdCategoriaProblemaPai() {
+        return idCategoriaProblemaPai;
+    }
 
-	public void setIdTipoFluxo(Integer idTipoFluxo) {
-		this.idTipoFluxo = idTipoFluxo;
-	}
+    public void setIdCategoriaProblemaPai(final Integer idCategoriaProblemaPai) {
+        this.idCategoriaProblemaPai = idCategoriaProblemaPai;
+    }
 
-	public Integer getIdGrupoExecutor() {
-		return idGrupoExecutor;
-	}
+    public Date getDataInicio() {
+        return dataInicio;
+    }
 
-	public void setIdGrupoExecutor(Integer idGrupoExecutor) {
-		this.idGrupoExecutor = idGrupoExecutor;
-	}
+    public void setDataInicio(final Date dataInicio) {
+        this.dataInicio = dataInicio;
+    }
 
-	public Integer getIdTemplate() {
-		return idTemplate;
-	}
+    public Date getDataFim() {
+        return dataFim;
+    }
 
-	public void setIdTemplate(Integer idTemplate) {
-		this.idTemplate = idTemplate;
-	}
+    public void setDataFim(final Date dataFim) {
+        this.dataFim = dataFim;
+    }
 
-	public String getImpacto() {
-		return impacto;
-	}
+    public Integer getIdTipoFluxo() {
+        return idTipoFluxo;
+    }
 
-	public void setImpacto(String impacto) {
-		this.impacto = impacto;
-	}
+    public void setIdTipoFluxo(final Integer idTipoFluxo) {
+        this.idTipoFluxo = idTipoFluxo;
+    }
 
-	public String getUrgencia() {
-		return urgencia;
-	}
+    public Integer getIdGrupoExecutor() {
+        return idGrupoExecutor;
+    }
 
-	public void setUrgencia(String urgencia) {
-		this.urgencia = urgencia;
-	}
-	
+    public void setIdGrupoExecutor(final Integer idGrupoExecutor) {
+        this.idGrupoExecutor = idGrupoExecutor;
+    }
+
+    public Integer getIdTemplate() {
+        return idTemplate;
+    }
+
+    public void setIdTemplate(final Integer idTemplate) {
+        this.idTemplate = idTemplate;
+    }
+
+    public String getImpacto() {
+        return impacto;
+    }
+
+    public void setImpacto(final String impacto) {
+        this.impacto = impacto;
+    }
+
+    public String getUrgencia() {
+        return urgencia;
+    }
+
+    public void setUrgencia(final String urgencia) {
+        this.urgencia = urgencia;
+    }
+
 }

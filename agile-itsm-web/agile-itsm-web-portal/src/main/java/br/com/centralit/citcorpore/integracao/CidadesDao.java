@@ -76,9 +76,7 @@ public class CidadesDao extends CrudDaoDefaultImpl {
         final List<?> result = engine.listConvertion(this.getBean(), lista, listRetorno);
         if (result != null && result.size() > 0) {
             return (CidadesDTO) result.get(0);
-        } else {
-            return null;
-        }
+        } return null;
     }
 
     public Collection<CidadesDTO> listByIdCidades(final CidadesDTO obj) throws PersistenceException {
@@ -93,9 +91,7 @@ public class CidadesDao extends CrudDaoDefaultImpl {
         final Collection<CidadesDTO> result = engine.listConvertion(this.getBean(), list, fields);
         if (result != null && result.size() > 0) {
             return result;
-        } else {
-            return null;
-        }
+        } return null;
     }
 
     /**

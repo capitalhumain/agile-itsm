@@ -68,8 +68,8 @@ public class AtitudeIndividualDao extends CrudDaoDefaultImpl {
 
     public Collection<AtitudeIndividualDTO> findByIdSolicitacaoServico(final Integer idSolicitacaoServico) throws PersistenceException {
         final StringBuilder sql = new StringBuilder();
-        final List listRetorno = new ArrayList();
-        final List listParametro = new ArrayList();
+        final List listRetorno = new ArrayList<>();
+        final List listParametro = new ArrayList<>();
 
         sql.append("select ai.descricao, rai.idAtitudeIndividual from rh_requisicaoatitudeindividual rai ");
         sql.append("inner join rh_atitudeindividual ai on rai.idatitudeindividual = ai.idatitudeindividual ");

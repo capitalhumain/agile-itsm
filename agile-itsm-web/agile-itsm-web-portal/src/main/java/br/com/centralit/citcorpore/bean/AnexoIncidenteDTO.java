@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package br.com.centralit.citcorpore.bean;
 
@@ -9,7 +9,7 @@ import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * @author breno.guimaraes
- * 
+ *
  */
 public class AnexoIncidenteDTO extends BaseEntity {
 
@@ -34,75 +34,75 @@ public class AnexoIncidenteDTO extends BaseEntity {
     private String textoDocumento;
 
     public Integer getIdAnexoIncidente() {
-	return idAnexoIncidente;
+        return idAnexoIncidente;
     }
 
-    public void setIdAnexoIncidente(Integer idAnexoIncidente) {
-	this.idAnexoIncidente = idAnexoIncidente;
+    public void setIdAnexoIncidente(final Integer idAnexoIncidente) {
+        this.idAnexoIncidente = idAnexoIncidente;
     }
 
     public Integer getIdIncidente() {
-	return idIncidente;
+        return idIncidente;
     }
 
-    public void setIdIncidente(Integer idIncidente) {
-	this.idIncidente = idIncidente;
+    public void setIdIncidente(final Integer idIncidente) {
+        this.idIncidente = idIncidente;
     }
 
     public Date getDataInicio() {
-	return dataInicio;
+        return dataInicio;
     }
 
-    public void setDataInicio(Date dataInicio) {
-	this.dataInicio = dataInicio;
+    public void setDataInicio(final Date dataInicio) {
+        this.dataInicio = dataInicio;
     }
 
     public Date getDataFim() {
-	return dataFim;
+        return dataFim;
     }
 
-    public void setDataFim(Date dataFim) {
-	this.dataFim = dataFim;
+    public void setDataFim(final Date dataFim) {
+        this.dataFim = dataFim;
     }
 
     public String getNomeAnexo() {
-	return nomeAnexo;
+        return nomeAnexo;
     }
 
-    public void setNomeAnexo(String nomeAnexo) {
-	this.nomeAnexo = nomeAnexo;
+    public void setNomeAnexo(final String nomeAnexo) {
+        this.nomeAnexo = nomeAnexo;
     }
 
     public String getDescricao() {
-	return descricao;
+        return descricao;
     }
 
-    public void setDescricao(String descricao) {
-	this.descricao = descricao;
+    public void setDescricao(final String descricao) {
+        this.descricao = descricao;
     }
 
     public String getLink() {
-	return link;
+        return link;
     }
 
-    public void setLink(String link) {
-	this.link = link;
+    public void setLink(final String link) {
+        this.link = link;
     }
 
     public String getExtensao() {
-	return extensao;
+        return extensao;
     }
 
-    public void setExtensao(String extensao) {
-	this.extensao = extensao;
+    public void setExtensao(final String extensao) {
+        this.extensao = extensao;
     }
 
     public String getTextoDocumento() {
-	return textoDocumento;
+        return textoDocumento;
     }
 
-    public void setTextoDocumento(String textoDocumento) {
-	this.textoDocumento = textoDocumento;
+    public void setTextoDocumento(final String textoDocumento) {
+        this.textoDocumento = textoDocumento;
     }
 
 }

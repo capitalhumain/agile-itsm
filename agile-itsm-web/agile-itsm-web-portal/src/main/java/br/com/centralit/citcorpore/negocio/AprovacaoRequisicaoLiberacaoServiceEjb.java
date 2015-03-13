@@ -42,20 +42,20 @@ public class AprovacaoRequisicaoLiberacaoServiceEjb extends CrudServiceImpl impl
 
     @Override
     public void delete(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {
-        // TODO Auto-generated method stub
+        
 
     }
 
     @SuppressWarnings("rawtypes")
     @Override
     public Collection findByIdSolicitacaoServico(final Integer parm) throws Exception {
-        // TODO Auto-generated method stub
+        
         return null;
     }
 
     @Override
     public void deleteByIdSolicitacaoServico(final Integer parm) throws Exception {
-        // TODO Auto-generated method stub
+        
 
     }
 

@@ -1,20 +1,16 @@
 package br.com.centralit.citcorpore.negocio;
 
 import java.util.Collection;
-import java.util.List;
 
 import br.com.centralit.citcorpore.bean.ItemPrestacaoContasViagemDTO;
 import br.com.centralit.citcorpore.bean.PrestacaoContasViagemDTO;
 import br.com.centralit.citcorpore.integracao.ItemPrestacaoContasViagemDao;
-import br.com.citframework.excecao.LogicException;
-import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.CrudServiceImpl;
 
 /**
  * @author ronnie.lopes
  *
  */
-@SuppressWarnings("rawtypes")
 public class ItemPrestacaoContasViagemServiceEjb extends CrudServiceImpl implements ItemPrestacaoContasViagemService {
 
     private ItemPrestacaoContasViagemDao dao;
@@ -25,14 +21,6 @@ public class ItemPrestacaoContasViagemServiceEjb extends CrudServiceImpl impleme
             dao = new ItemPrestacaoContasViagemDao();
         }
         return dao;
-    }
-
-    public Collection list(final List ordenacao) throws LogicException, ServiceException {
-        return null;
-    }
-
-    public Collection list(final String ordenacao) throws LogicException, ServiceException {
-        return null;
     }
 
     @Override

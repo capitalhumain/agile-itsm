@@ -48,14 +48,14 @@ public class ListagemDao extends CrudDaoDefaultImpl {
     @Override
     public BaseEntity restore(final BaseEntity obj) throws PersistenceException {
         if (obj != null) {
-            final Collection linhas = new ArrayList();
+            final Collection linhas = new ArrayList<>();
             final List lista = execSQL(((ListagemDTO) obj).getSQL(), null);
 
             for (Integer l = 0; l <= lista.size() - 1; l++) {
                 final Object[] row = (Object[]) lista.get(l);
 
                 final ListagemLinhaDTO linha = new ListagemLinhaDTO();
-                final Collection dados = new ArrayList();
+                final Collection dados = new ArrayList<>();
                 String descricao = "";
 
                 int c = 0;

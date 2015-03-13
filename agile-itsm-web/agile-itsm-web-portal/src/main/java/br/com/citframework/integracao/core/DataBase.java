@@ -1,6 +1,6 @@
 package br.com.citframework.integracao.core;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * Enumerado de SBGDs que são suportados

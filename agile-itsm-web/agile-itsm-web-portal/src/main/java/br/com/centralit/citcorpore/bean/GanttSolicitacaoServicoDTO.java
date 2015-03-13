@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package br.com.centralit.citcorpore.bean;
 
@@ -9,7 +9,7 @@ import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * @author valdoilo.damasceno
- * 
+ *
  */
 public class GanttSolicitacaoServicoDTO extends BaseEntity {
 
@@ -25,97 +25,97 @@ public class GanttSolicitacaoServicoDTO extends BaseEntity {
 
     private String idGruposSeguranca;
     private String apenasMeus;
-    
+
     private Date dataInicio;
     private Date dataFim;
-    
+
     private String situacao;
 
     /**
      * @return valor do atributo name.
      */
     public String getName() {
-	return name;
+        return name;
     }
 
     /**
      * Define valor do atributo name.
-     * 
+     *
      * @param name
      */
-    public void setName(String name) {
-	this.name = name;
+    public void setName(final String name) {
+        this.name = name;
     }
 
     /**
      * @return valor do atributo desc.
      */
     public String getDesc() {
-	return desc;
+        return desc;
     }
 
     /**
      * Define valor do atributo desc.
-     * 
+     *
      * @param desc
      */
-    public void setDesc(String desc) {
-	this.desc = desc;
+    public void setDesc(final String desc) {
+        this.desc = desc;
     }
 
     /**
      * @return valor do atributo values.
      */
     public ValueGanttDTO getValues() {
-	return values;
+        return values;
     }
 
     /**
      * Define valor do atributo values.
-     * 
+     *
      * @param values
      */
-    public void setValues(ValueGanttDTO values) {
-	this.values = values;
+    public void setValues(final ValueGanttDTO values) {
+        this.values = values;
     }
 
     /**
      * @return valor do atributo tipoDemandaServico.
      */
     public String getTipoDemandaServico() {
-	return tipoDemandaServico;
+        return tipoDemandaServico;
     }
 
     /**
      * Define valor do atributo tipoDemandaServico.
-     * 
+     *
      * @param tipoDemandaServico
      */
-    public void setTipoDemandaServico(String tipoDemandaServico) {
-	this.tipoDemandaServico = tipoDemandaServico;
+    public void setTipoDemandaServico(final String tipoDemandaServico) {
+        this.tipoDemandaServico = tipoDemandaServico;
     }
 
     /**
      * @return valor do atributo idGruposSeguranca.
      */
     public String getIdGruposSeguranca() {
-	return idGruposSeguranca;
+        return idGruposSeguranca;
     }
 
     /**
      * Define valor do atributo idGruposSeguranca.
-     * 
+     *
      * @param idGruposSeguranca
      */
-    public void setIdGruposSeguranca(String idGruposSeguranca) {
-	this.idGruposSeguranca = idGruposSeguranca;
+    public void setIdGruposSeguranca(final String idGruposSeguranca) {
+        this.idGruposSeguranca = idGruposSeguranca;
     }
 
     public String getApenasMeus() {
         return apenasMeus;
     }
 
-    public void setApenasMeus(String apenasMeus) {
+    public void setApenasMeus(final String apenasMeus) {
         this.apenasMeus = apenasMeus;
     }
 
@@ -123,7 +123,7 @@ public class GanttSolicitacaoServicoDTO extends BaseEntity {
         return dataInicio;
     }
 
-    public void setDataInicio(Date dataInicio) {
+    public void setDataInicio(final Date dataInicio) {
         this.dataInicio = dataInicio;
     }
 
@@ -131,7 +131,7 @@ public class GanttSolicitacaoServicoDTO extends BaseEntity {
         return dataFim;
     }
 
-    public void setDataFim(Date dataFim) {
+    public void setDataFim(final Date dataFim) {
         this.dataFim = dataFim;
     }
 
@@ -139,7 +139,7 @@ public class GanttSolicitacaoServicoDTO extends BaseEntity {
         return situacao;
     }
 
-    public void setSituacao(String situacao) {
+    public void setSituacao(final String situacao) {
         this.situacao = situacao;
     }
 

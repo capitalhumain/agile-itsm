@@ -53,7 +53,7 @@ public class TipoLiberacaoServiceEjb extends CrudServiceImpl implements TipoLibe
 
     @Override
     public Collection<TipoLiberacaoDTO> tiposAtivosPorNome(final String nome) {
-        final List condicoes = new ArrayList<Condition>();
+        final List<Condition> condicoes = new ArrayList<Condition>();
         condicoes.add(new Condition("nomeTipoLiberacao", "=", nome));
         condicoes.add(new Condition("datafim", "!=", "null"));
         try {

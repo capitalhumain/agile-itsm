@@ -4,92 +4,105 @@ import br.com.agileitsm.model.support.BaseEntity;
 
 public class GlosaOSBIDTO extends BaseEntity {
 
-	private static final long serialVersionUID = -5747818983870515883L;
-	private Integer idGlosaOS;
-	private Integer idOs;
-	private java.sql.Date dataCriacao;
-	private java.sql.Date dataUltModificacao;
-	private String descricaoGlosa;
-	private String ocorrencias;
-	private Double percAplicado;
-	private Double custoGlosa;
-	private Double numeroOcorrencias;
-	private Integer sequencia;
-	private Integer idConexaoBI;
+    private static final long serialVersionUID = -5747818983870515883L;
+    private Integer idGlosaOS;
+    private Integer idOs;
+    private java.sql.Date dataCriacao;
+    private java.sql.Date dataUltModificacao;
+    private String descricaoGlosa;
+    private String ocorrencias;
+    private Double percAplicado;
+    private Double custoGlosa;
+    private Double numeroOcorrencias;
+    private Integer sequencia;
+    private Integer idConexaoBI;
 
-	public Integer getIdGlosaOS(){
-		return this.idGlosaOS;
-	}
-	public void setIdGlosaOS(Integer parm){
-		this.idGlosaOS = parm;
-	}
+    public Integer getIdGlosaOS() {
+        return idGlosaOS;
+    }
 
-	public Integer getIdOs(){
-		return this.idOs;
-	}
-	public void setIdOs(Integer parm){
-		this.idOs = parm;
-	}
+    public void setIdGlosaOS(final Integer parm) {
+        idGlosaOS = parm;
+    }
 
-	public java.sql.Date getDataCriacao(){
-		return this.dataCriacao;
-	}
-	public void setDataCriacao(java.sql.Date parm){
-		this.dataCriacao = parm;
-	}
+    public Integer getIdOs() {
+        return idOs;
+    }
 
-	public java.sql.Date getDataUltModificacao(){
-		return this.dataUltModificacao;
-	}
-	public void setDataUltModificacao(java.sql.Date parm){
-		this.dataUltModificacao = parm;
-	}
+    public void setIdOs(final Integer parm) {
+        idOs = parm;
+    }
 
-	public String getDescricaoGlosa(){
-		return this.descricaoGlosa;
-	}
-	public void setDescricaoGlosa(String parm){
-		this.descricaoGlosa = parm;
-	}
+    public java.sql.Date getDataCriacao() {
+        return dataCriacao;
+    }
 
-	public String getOcorrencias(){
-		return this.ocorrencias;
-	}
-	public void setOcorrencias(String parm){
-		this.ocorrencias = parm;
-	}
+    public void setDataCriacao(final java.sql.Date parm) {
+        dataCriacao = parm;
+    }
 
-	public Double getPercAplicado(){
-		return this.percAplicado;
-	}
-	public void setPercAplicado(Double parm){
-		this.percAplicado = parm;
-	}
+    public java.sql.Date getDataUltModificacao() {
+        return dataUltModificacao;
+    }
 
-	public Double getCustoGlosa(){
-		return this.custoGlosa;
-	}
-	public void setCustoGlosa(Double parm){
-		this.custoGlosa = parm;
-	}
+    public void setDataUltModificacao(final java.sql.Date parm) {
+        dataUltModificacao = parm;
+    }
 
-	public Double getNumeroOcorrencias(){
-		return this.numeroOcorrencias;
-	}
-	public void setNumeroOcorrencias(Double parm){
-		this.numeroOcorrencias = parm;
-	}
-	public Integer getSequencia() {
-		return sequencia;
-	}
-	public void setSequencia(Integer sequencia) {
-		this.sequencia = sequencia;
-	}
-	public Integer getIdConexaoBI() {
-		return idConexaoBI;
-	}
-	public void setIdConexaoBI(Integer idConexaoBI) {
-		this.idConexaoBI = idConexaoBI;
-	}
+    public String getDescricaoGlosa() {
+        return descricaoGlosa;
+    }
+
+    public void setDescricaoGlosa(final String parm) {
+        descricaoGlosa = parm;
+    }
+
+    public String getOcorrencias() {
+        return ocorrencias;
+    }
+
+    public void setOcorrencias(final String parm) {
+        ocorrencias = parm;
+    }
+
+    public Double getPercAplicado() {
+        return percAplicado;
+    }
+
+    public void setPercAplicado(final Double parm) {
+        percAplicado = parm;
+    }
+
+    public Double getCustoGlosa() {
+        return custoGlosa;
+    }
+
+    public void setCustoGlosa(final Double parm) {
+        custoGlosa = parm;
+    }
+
+    public Double getNumeroOcorrencias() {
+        return numeroOcorrencias;
+    }
+
+    public void setNumeroOcorrencias(final Double parm) {
+        numeroOcorrencias = parm;
+    }
+
+    public Integer getSequencia() {
+        return sequencia;
+    }
+
+    public void setSequencia(final Integer sequencia) {
+        this.sequencia = sequencia;
+    }
+
+    public Integer getIdConexaoBI() {
+        return idConexaoBI;
+    }
+
+    public void setIdConexaoBI(final Integer idConexaoBI) {
+        this.idConexaoBI = idConexaoBI;
+    }
 
 }

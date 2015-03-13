@@ -3,36 +3,42 @@ package br.com.centralit.citcorpore.bean;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class CriterioCotacaoCategoriaDTO extends BaseEntity {
-	private Integer idCategoria;
-	private Integer idCriterio;
-	private Integer pesoCotacao;
 
-	private Integer sequencia;
-	
-	public Integer getIdCategoria(){
-		return this.idCategoria;
-	}
-	public void setIdCategoria(Integer parm){
-		this.idCategoria = parm;
-	}
+    private Integer idCategoria;
+    private Integer idCriterio;
+    private Integer pesoCotacao;
 
-	public Integer getIdCriterio(){
-		return this.idCriterio;
-	}
-	public void setIdCriterio(Integer parm){
-		this.idCriterio = parm;
-	}
+    private Integer sequencia;
 
-	public Integer getPesoCotacao(){
-		return this.pesoCotacao;
-	}
-	public void setPesoCotacao(Integer parm){
-		this.pesoCotacao = parm;
-	}
+    public Integer getIdCategoria() {
+        return idCategoria;
+    }
+
+    public void setIdCategoria(final Integer parm) {
+        idCategoria = parm;
+    }
+
+    public Integer getIdCriterio() {
+        return idCriterio;
+    }
+
+    public void setIdCriterio(final Integer parm) {
+        idCriterio = parm;
+    }
+
+    public Integer getPesoCotacao() {
+        return pesoCotacao;
+    }
+
+    public void setPesoCotacao(final Integer parm) {
+        pesoCotacao = parm;
+    }
+
     public Integer getSequencia() {
         return sequencia;
     }
-    public void setSequencia(Integer sequencia) {
+
+    public void setSequencia(final Integer sequencia) {
         this.sequencia = sequencia;
     }
 

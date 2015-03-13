@@ -6,7 +6,7 @@ import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 
 import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citajax.html.AjaxFormAction;
@@ -280,7 +280,7 @@ public class Empregado extends AjaxFormAction {
             for (final UnidadeDTO unidade : unidades) {
                 if (unidade.getDataFim() == null) {
                     comboUnidade.addOption(unidade.getIdUnidade().toString(),
-                            StringEscapeUtils.escapeJavaScript(unidade.getNomeNivel()));
+                            StringEscapeUtils.escapeEcmaScript(unidade.getNomeNivel()));
                 }
             }
         }
@@ -301,7 +301,7 @@ public class Empregado extends AjaxFormAction {
             for (final UnidadeDTO unidade : unidades) {
                 if (unidade.getDataFim() == null) {
                     comboUnidade.addOption(unidade.getIdUnidade().toString(),
-                            StringEscapeUtils.escapeJavaScript(unidade.getNomeNivel()));
+                            StringEscapeUtils.escapeEcmaScript(unidade.getNomeNivel()));
                 }
             }
         }

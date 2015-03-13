@@ -56,15 +56,15 @@ public class MovimentacaoPessoalDao extends CrudDaoDefaultImpl {
     }
 
     public Collection findByIdEmpregado(final Integer parm) throws PersistenceException {
-        final List condicao = new ArrayList();
-        final List ordenacao = new ArrayList();
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
         condicao.add(new Condition("idEmpregado", "=", parm));
         ordenacao.add(new Order("idEmpregado"));
         return super.findByCondition(condicao, ordenacao);
     }
 
     public void deleteByIdEmpregado(final Integer parm) throws PersistenceException {
-        final List condicao = new ArrayList();
+        final List<Condition> condicao = new ArrayList<>();
         condicao.add(new Condition("idEmpregado", "=", parm));
         super.deleteByCondition(condicao);
     }

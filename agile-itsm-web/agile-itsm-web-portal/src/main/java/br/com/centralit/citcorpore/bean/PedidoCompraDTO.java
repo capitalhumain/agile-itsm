@@ -7,199 +7,237 @@ import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.citcorpore.util.Enumerados.SituacaoPedidoCompra;
 
 public class PedidoCompraDTO extends BaseEntity {
-	private Integer idPedido;
-	private Integer idCotacao;
-	private Integer idEmpresa;
-	private Integer idFornecedor;
-	private Date dataPedido;
-	private String numeroPedido;
-	private String identificacaoEntrega;
-	private Double valorFrete;
-	private Double valorSeguro;
-	private Double outrasDespesas;
-	private String numeroNF;
-	private Integer idEnderecoEntrega;
-	private Date dataEntrega;
-	private Date dataPrevistaEntrega;
-	private String situacao;
-	private String observacoes;
-	
-	private Integer idColetaPreco;
-	private Integer idItemPedido;
-	private Double quantidade;
+
+    private Integer idPedido;
+    private Integer idCotacao;
+    private Integer idEmpresa;
+    private Integer idFornecedor;
+    private Date dataPedido;
+    private String numeroPedido;
+    private String identificacaoEntrega;
+    private Double valorFrete;
+    private Double valorSeguro;
+    private Double outrasDespesas;
+    private String numeroNF;
+    private Integer idEnderecoEntrega;
+    private Date dataEntrega;
+    private Date dataPrevistaEntrega;
+    private String situacao;
+    private String observacoes;
+
+    private Integer idColetaPreco;
+    private Integer idItemPedido;
+    private Double quantidade;
     private String descrSituacao;
-	
+
     private UsuarioDTO usuarioDto;
-    
-	private String nomeFornecedor;
-	private Collection<UploadDTO> anexos;
-	private Collection<ItemPedidoCompraDTO> colItens;
-	private Collection<InspecaoPedidoCompraDTO> colInspecao;
 
-	public Integer getIdPedido(){
-		return this.idPedido;
-	}
-	public void setIdPedido(Integer parm){
-		this.idPedido = parm;
-	}
+    private String nomeFornecedor;
+    private Collection<UploadDTO> anexos;
+    private Collection<ItemPedidoCompraDTO> colItens;
+    private Collection<InspecaoPedidoCompraDTO> colInspecao;
 
-	public Integer getIdCotacao(){
-		return this.idCotacao;
-	}
-	public void setIdCotacao(Integer parm){
-		this.idCotacao = parm;
-	}
+    public Integer getIdPedido() {
+        return idPedido;
+    }
 
-	public Integer getIdEmpresa(){
-		return this.idEmpresa;
-	}
-	public void setIdEmpresa(Integer parm){
-		this.idEmpresa = parm;
-	}
+    public void setIdPedido(final Integer parm) {
+        idPedido = parm;
+    }
 
-	public Integer getIdFornecedor(){
-		return this.idFornecedor;
-	}
-	public void setIdFornecedor(Integer parm){
-		this.idFornecedor = parm;
-	}
+    public Integer getIdCotacao() {
+        return idCotacao;
+    }
 
-	public Date getDataPedido(){
-		return this.dataPedido;
-	}
-	public void setDataPedido(Date parm){
-		this.dataPedido = parm;
-	}
+    public void setIdCotacao(final Integer parm) {
+        idCotacao = parm;
+    }
 
-	public String getNumeroPedido(){
-		return this.numeroPedido;
-	}
-	public void setNumeroPedido(String parm){
-		this.numeroPedido = parm;
-	}
+    public Integer getIdEmpresa() {
+        return idEmpresa;
+    }
 
-	public String getIdentificacaoEntrega(){
-		return this.identificacaoEntrega;
-	}
-	public void setIdentificacaoEntrega(String parm){
-		this.identificacaoEntrega = parm;
-	}
+    public void setIdEmpresa(final Integer parm) {
+        idEmpresa = parm;
+    }
 
-	public Double getValorFrete(){
-		return this.valorFrete;
-	}
-	public void setValorFrete(Double parm){
-		this.valorFrete = parm;
-	}
+    public Integer getIdFornecedor() {
+        return idFornecedor;
+    }
 
-	public Double getValorSeguro(){
-		return this.valorSeguro;
-	}
-	public void setValorSeguro(Double parm){
-		this.valorSeguro = parm;
-	}
+    public void setIdFornecedor(final Integer parm) {
+        idFornecedor = parm;
+    }
 
-	public Double getOutrasDespesas(){
-		return this.outrasDespesas;
-	}
-	public void setOutrasDespesas(Double parm){
-		this.outrasDespesas = parm;
-	}
+    public Date getDataPedido() {
+        return dataPedido;
+    }
 
-	public String getNumeroNF(){
-		return this.numeroNF;
-	}
-	public void setNumeroNF(String parm){
-		this.numeroNF = parm;
-	}
+    public void setDataPedido(final Date parm) {
+        dataPedido = parm;
+    }
 
-	public Integer getIdEnderecoEntrega(){
-		return this.idEnderecoEntrega;
-	}
-	public void setIdEnderecoEntrega(Integer parm){
-		this.idEnderecoEntrega = parm;
-	}
+    public String getNumeroPedido() {
+        return numeroPedido;
+    }
 
-	public Date getDataEntrega(){
-		return this.dataEntrega;
-	}
-	public void setDataEntrega(Date parm){
-		this.dataEntrega = parm;
-	}
+    public void setNumeroPedido(final String parm) {
+        numeroPedido = parm;
+    }
 
-	public String getSituacao(){
-		return this.situacao;
-	}
-	public void setSituacao(String parm){
-		this.situacao = parm;
-	}
+    public String getIdentificacaoEntrega() {
+        return identificacaoEntrega;
+    }
+
+    public void setIdentificacaoEntrega(final String parm) {
+        identificacaoEntrega = parm;
+    }
+
+    public Double getValorFrete() {
+        return valorFrete;
+    }
+
+    public void setValorFrete(final Double parm) {
+        valorFrete = parm;
+    }
+
+    public Double getValorSeguro() {
+        return valorSeguro;
+    }
+
+    public void setValorSeguro(final Double parm) {
+        valorSeguro = parm;
+    }
+
+    public Double getOutrasDespesas() {
+        return outrasDespesas;
+    }
+
+    public void setOutrasDespesas(final Double parm) {
+        outrasDespesas = parm;
+    }
+
+    public String getNumeroNF() {
+        return numeroNF;
+    }
+
+    public void setNumeroNF(final String parm) {
+        numeroNF = parm;
+    }
+
+    public Integer getIdEnderecoEntrega() {
+        return idEnderecoEntrega;
+    }
+
+    public void setIdEnderecoEntrega(final Integer parm) {
+        idEnderecoEntrega = parm;
+    }
+
+    public Date getDataEntrega() {
+        return dataEntrega;
+    }
+
+    public void setDataEntrega(final Date parm) {
+        dataEntrega = parm;
+    }
+
+    public String getSituacao() {
+        return situacao;
+    }
+
+    public void setSituacao(final String parm) {
+        situacao = parm;
+    }
+
     public String getNomeFornecedor() {
         return nomeFornecedor;
     }
-    public void setNomeFornecedor(String nomeFornecedor) {
+
+    public void setNomeFornecedor(final String nomeFornecedor) {
         this.nomeFornecedor = nomeFornecedor;
     }
+
     public Collection<UploadDTO> getAnexos() {
         return anexos;
     }
-    public void setAnexos(Collection<UploadDTO> anexos) {
+
+    public void setAnexos(final Collection<UploadDTO> anexos) {
         this.anexos = anexos;
     }
+
     public Date getDataPrevistaEntrega() {
         return dataPrevistaEntrega;
     }
-    public void setDataPrevistaEntrega(Date dataPrevistaEntrega) {
+
+    public void setDataPrevistaEntrega(final Date dataPrevistaEntrega) {
         this.dataPrevistaEntrega = dataPrevistaEntrega;
     }
+
     public Integer getIdColetaPreco() {
         return idColetaPreco;
     }
-    public void setIdColetaPreco(Integer idColetaPreco) {
+
+    public void setIdColetaPreco(final Integer idColetaPreco) {
         this.idColetaPreco = idColetaPreco;
     }
+
     public Integer getIdItemPedido() {
         return idItemPedido;
     }
-    public void setIdItemPedido(Integer idItemPedido) {
+
+    public void setIdItemPedido(final Integer idItemPedido) {
         this.idItemPedido = idItemPedido;
     }
+
     public Double getQuantidade() {
         return quantidade;
     }
-    public void setQuantidade(Double quantidade) {
+
+    public void setQuantidade(final Double quantidade) {
         this.quantidade = quantidade;
     }
+
     public Collection<ItemPedidoCompraDTO> getColItens() {
         return colItens;
     }
-    public void setColItens(Collection<ItemPedidoCompraDTO> colItens) {
+
+    public void setColItens(final Collection<ItemPedidoCompraDTO> colItens) {
         this.colItens = colItens;
     }
+
     public String getDescrSituacao() {
         descrSituacao = "";
-        if (situacao != null)
+        if (situacao != null) {
             descrSituacao = SituacaoPedidoCompra.valueOf(situacao).getDescricao();
+        }
         return descrSituacao;
     }
-    public void setDescrSituacao(String descrSituacao) {
+
+    public void setDescrSituacao(final String descrSituacao) {
         this.descrSituacao = descrSituacao;
     }
+
     public String getObservacoes() {
         return observacoes;
     }
-    public void setObservacoes(String observacoes) {
+
+    public void setObservacoes(final String observacoes) {
         this.observacoes = observacoes;
     }
+
     public Collection<InspecaoPedidoCompraDTO> getColInspecao() {
         return colInspecao;
     }
-    public void setColInspecao(Collection<InspecaoPedidoCompraDTO> colInspecao) {
+
+    public void setColInspecao(final Collection<InspecaoPedidoCompraDTO> colInspecao) {
         this.colInspecao = colInspecao;
     }
+
     public UsuarioDTO getUsuarioDto() {
         return usuarioDto;
     }
-    public void setUsuarioDto(UsuarioDTO usuarioDto) {
+
+    public void setUsuarioDto(final UsuarioDTO usuarioDto) {
         this.usuarioDto = usuarioDto;
     }
 

@@ -11,267 +11,269 @@ import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * DTO de Pasta.
- * 
+ *
  * @author valdoilo.damasceno
  */
 public class PastaDTO extends BaseEntity {
 
-	private static final long serialVersionUID = -1725700162484294191L;
+    private static final long serialVersionUID = -1725700162484294191L;
 
-	private Integer id;
+    private Integer id;
 
-	private String nome;
+    private String nome;
 
-	private Integer idPastaPai;
+    private Integer idPastaPai;
 
-	private Date dataInicio;
+    private Date dataInicio;
 
-	private Date dataFim;
+    private Date dataFim;
 
-	private Collection<PerfilAcessoPastaDTO> perfisDeAcesso;
+    private Collection<PerfilAcessoPastaDTO> perfisDeAcesso;
 
-	private int nivel;
+    private int nivel;
 
-	private Integer idPerfilAcesso;
+    private Integer idPerfilAcesso;
 
-	private String herdaPermissoes;
+    private String herdaPermissoes;
 
-	private Integer idNotificacao;
+    private Integer idNotificacao;
 
-	private String titulo;
+    private String titulo;
 
-	private String tipoNotificacao;
+    private String tipoNotificacao;
 
-	private ArrayList<NotificacaoUsuarioDTO> listaDeUsuario;
+    private ArrayList<NotificacaoUsuarioDTO> listaDeUsuario;
 
-	private ArrayList<NotificacaoGrupoDTO> listaDeGrupo;
-	
-	public PastaDTO(Integer id) {
-		this.id = id;
-	}
+    private ArrayList<NotificacaoGrupoDTO> listaDeGrupo;
 
-	public PastaDTO() {
-		
-	}
+    public PastaDTO(final Integer id) {
+        this.id = id;
+    }
 
-	public String getNomeNivel() {
-		if (this.getNome() == null) {
-			return this.nome;
-		}
-		String str = "";
-		for (int i = 0; i < this.getNivel(); i++) {
-			str += "....";
-		}
-		return str + this.nome;
-	}
+    public PastaDTO() {
 
-	public int getNivel() {
-		return nivel;
-	}
+    }
 
-	public void setNivel(int nivel) {
-		this.nivel = nivel;
-	}
+    public String getNomeNivel() {
+        if (this.getNome() == null) {
+            return nome;
+        }
+        String str = "";
+        for (int i = 0; i < this.getNivel(); i++) {
+            str += "....";
+        }
+        return str + nome;
+    }
 
-	/**
-	 * @return valor do atributo id.
-	 */
-	public Integer getId() {
-		return id;
-	}
+    public int getNivel() {
+        return nivel;
+    }
 
-	/**
-	 * Define valor do atributo id.
-	 * 
-	 * @param id
-	 */
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    public void setNivel(final int nivel) {
+        this.nivel = nivel;
+    }
 
-	/**
-	 * @return valor do atributo nome.
-	 */
-	public String getNome() {
-		return nome;
-	}
+    /**
+     * @return valor do atributo id.
+     */
+    @Override
+    public Integer getId() {
+        return id;
+    }
 
-	/**
-	 * Define valor do atributo nome.
-	 * 
-	 * @param nome
-	 */
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    /**
+     * Define valor do atributo id.
+     *
+     * @param id
+     */
+    @Override
+    public void setId(final Integer id) {
+        this.id = id;
+    }
 
-	/**
-	 * @return valor do atributo idPastaPai.
-	 */
-	public Integer getIdPastaPai() {
-		return idPastaPai;
-	}
+    /**
+     * @return valor do atributo nome.
+     */
+    public String getNome() {
+        return nome;
+    }
 
-	/**
-	 * Define valor do atributo idPastaPai.
-	 * 
-	 * @param idPastaPai
-	 */
-	public void setIdPastaPai(Integer idPastaPai) {
-		this.idPastaPai = idPastaPai;
-	}
+    /**
+     * Define valor do atributo nome.
+     *
+     * @param nome
+     */
+    public void setNome(final String nome) {
+        this.nome = nome;
+    }
 
-	/**
-	 * @return valor do atributo dataInicio.
-	 */
-	public Date getDataInicio() {
-		return dataInicio;
-	}
+    /**
+     * @return valor do atributo idPastaPai.
+     */
+    public Integer getIdPastaPai() {
+        return idPastaPai;
+    }
 
-	/**
-	 * Define valor do atributo dataInicio.
-	 * 
-	 * @param dataInicio
-	 */
-	public void setDataInicio(Date dataInicio) {
-		this.dataInicio = dataInicio;
-	}
+    /**
+     * Define valor do atributo idPastaPai.
+     *
+     * @param idPastaPai
+     */
+    public void setIdPastaPai(final Integer idPastaPai) {
+        this.idPastaPai = idPastaPai;
+    }
 
-	/**
-	 * @return valor do atributo dataFim.
-	 */
-	public Date getDataFim() {
-		return dataFim;
-	}
+    /**
+     * @return valor do atributo dataInicio.
+     */
+    public Date getDataInicio() {
+        return dataInicio;
+    }
 
-	/**
-	 * Define valor do atributo dataFim.
-	 * 
-	 * @param dataFim
-	 */
-	public void setDataFim(Date dataFim) {
-		this.dataFim = dataFim;
-	}
+    /**
+     * Define valor do atributo dataInicio.
+     *
+     * @param dataInicio
+     */
+    public void setDataInicio(final Date dataInicio) {
+        this.dataInicio = dataInicio;
+    }
 
-	/**
-	 * @return valor do atributo perfisDeAcesso.
-	 */
-	public Collection<PerfilAcessoPastaDTO> getPerfisDeAcesso() {
-		return perfisDeAcesso;
-	}
+    /**
+     * @return valor do atributo dataFim.
+     */
+    public Date getDataFim() {
+        return dataFim;
+    }
 
-	/**
-	 * Define valor do atributo perfisDeAcesso.
-	 * 
-	 * @param perfisDeAcesso
-	 */
-	public void setPerfisDeAcesso(Collection<PerfilAcessoPastaDTO> perfisDeAcesso) {
-		this.perfisDeAcesso = perfisDeAcesso;
-	}
+    /**
+     * Define valor do atributo dataFim.
+     *
+     * @param dataFim
+     */
+    public void setDataFim(final Date dataFim) {
+        this.dataFim = dataFim;
+    }
 
-	/**
-	 * @return the idPerfilAcesso
-	 */
-	public Integer getIdPerfilAcesso() {
-		return idPerfilAcesso;
-	}
+    /**
+     * @return valor do atributo perfisDeAcesso.
+     */
+    public Collection<PerfilAcessoPastaDTO> getPerfisDeAcesso() {
+        return perfisDeAcesso;
+    }
 
-	/**
-	 * @param idPerfilAcesso
-	 *            the idPerfilAcesso to set
-	 */
-	public void setIdPerfilAcesso(Integer idPerfilAcesso) {
-		this.idPerfilAcesso = idPerfilAcesso;
-	}
+    /**
+     * Define valor do atributo perfisDeAcesso.
+     *
+     * @param perfisDeAcesso
+     */
+    public void setPerfisDeAcesso(final Collection<PerfilAcessoPastaDTO> perfisDeAcesso) {
+        this.perfisDeAcesso = perfisDeAcesso;
+    }
 
-	/**
-	 * @return the herdaPermissoes
-	 */
-	public String getHerdaPermissoes() {
-		return herdaPermissoes;
-	}
+    /**
+     * @return the idPerfilAcesso
+     */
+    public Integer getIdPerfilAcesso() {
+        return idPerfilAcesso;
+    }
 
-	/**
-	 * @param herdaPermissoes
-	 *            the herdaPermissoes to set
-	 */
-	public void setHerdaPermissoes(String herdaPermissoes) {
-		this.herdaPermissoes = herdaPermissoes;
-	}
+    /**
+     * @param idPerfilAcesso
+     *            the idPerfilAcesso to set
+     */
+    public void setIdPerfilAcesso(final Integer idPerfilAcesso) {
+        this.idPerfilAcesso = idPerfilAcesso;
+    }
 
-	/**
-	 * @return the idNotificacao
-	 */
-	public Integer getIdNotificacao() {
-		return idNotificacao;
-	}
+    /**
+     * @return the herdaPermissoes
+     */
+    public String getHerdaPermissoes() {
+        return herdaPermissoes;
+    }
 
-	/**
-	 * @param idNotificacao
-	 *            the idNotificacao to set
-	 */
-	public void setIdNotificacao(Integer idNotificacao) {
-		this.idNotificacao = idNotificacao;
-	}
+    /**
+     * @param herdaPermissoes
+     *            the herdaPermissoes to set
+     */
+    public void setHerdaPermissoes(final String herdaPermissoes) {
+        this.herdaPermissoes = herdaPermissoes;
+    }
 
-	/**
-	 * @return the titulo
-	 */
-	public String getTitulo() {
-		return titulo;
-	}
+    /**
+     * @return the idNotificacao
+     */
+    public Integer getIdNotificacao() {
+        return idNotificacao;
+    }
 
-	/**
-	 * @param titulo
-	 *            the titulo to set
-	 */
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
+    /**
+     * @param idNotificacao
+     *            the idNotificacao to set
+     */
+    public void setIdNotificacao(final Integer idNotificacao) {
+        this.idNotificacao = idNotificacao;
+    }
 
-	/**
-	 * @return the tipoNotificacao
-	 */
-	public String getTipoNotificacao() {
-		return tipoNotificacao;
-	}
+    /**
+     * @return the titulo
+     */
+    public String getTitulo() {
+        return titulo;
+    }
 
-	/**
-	 * @param tipoNotificacao
-	 *            the tipoNotificacao to set
-	 */
-	public void setTipoNotificacao(String tipoNotificacao) {
-		this.tipoNotificacao = tipoNotificacao;
-	}
+    /**
+     * @param titulo
+     *            the titulo to set
+     */
+    public void setTitulo(final String titulo) {
+        this.titulo = titulo;
+    }
 
-	/**
-	 * @return the listaDeUsuario
-	 */
-	public ArrayList<NotificacaoUsuarioDTO> getListaDeUsuario() {
-		return listaDeUsuario;
-	}
+    /**
+     * @return the tipoNotificacao
+     */
+    public String getTipoNotificacao() {
+        return tipoNotificacao;
+    }
 
-	/**
-	 * @param listaDeUsuario
-	 *            the listaDeUsuario to set
-	 */
-	public void setListaDeUsuario(ArrayList<NotificacaoUsuarioDTO> listaDeUsuario) {
-		this.listaDeUsuario = listaDeUsuario;
-	}
+    /**
+     * @param tipoNotificacao
+     *            the tipoNotificacao to set
+     */
+    public void setTipoNotificacao(final String tipoNotificacao) {
+        this.tipoNotificacao = tipoNotificacao;
+    }
 
-	/**
-	 * @return the listaDeGrupo
-	 */
-	public ArrayList<NotificacaoGrupoDTO> getListaDeGrupo() {
-		return listaDeGrupo;
-	}
+    /**
+     * @return the listaDeUsuario
+     */
+    public ArrayList<NotificacaoUsuarioDTO> getListaDeUsuario() {
+        return listaDeUsuario;
+    }
 
-	/**
-	 * @param litaDeGrupo
-	 *            the listaDeGrupo to set
-	 */
-	public void setListaDeGrupo(ArrayList<NotificacaoGrupoDTO> listaDeGrupo) {
-		this.listaDeGrupo = listaDeGrupo;
-	}
+    /**
+     * @param listaDeUsuario
+     *            the listaDeUsuario to set
+     */
+    public void setListaDeUsuario(final ArrayList<NotificacaoUsuarioDTO> listaDeUsuario) {
+        this.listaDeUsuario = listaDeUsuario;
+    }
+
+    /**
+     * @return the listaDeGrupo
+     */
+    public ArrayList<NotificacaoGrupoDTO> getListaDeGrupo() {
+        return listaDeGrupo;
+    }
+
+    /**
+     * @param litaDeGrupo
+     *            the listaDeGrupo to set
+     */
+    public void setListaDeGrupo(final ArrayList<NotificacaoGrupoDTO> listaDeGrupo) {
+        this.listaDeGrupo = listaDeGrupo;
+    }
 
 }

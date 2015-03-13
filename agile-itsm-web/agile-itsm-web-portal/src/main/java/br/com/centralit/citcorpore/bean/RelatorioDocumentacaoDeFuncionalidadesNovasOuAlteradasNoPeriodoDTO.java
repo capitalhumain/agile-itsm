@@ -8,96 +8,97 @@ import br.com.agileitsm.model.support.BaseEntity;
 
 public class RelatorioDocumentacaoDeFuncionalidadesNovasOuAlteradasNoPeriodoDTO extends BaseEntity {
 
-	private static final long serialVersionUID = 1L;
-	private Date dataInicio;
-	private Date dataFim;
-	private String formatoArquivoRelatorio;
-	private Integer idContrato;
-	private String contrato;
-	private String listaServicos;
-	private String nomeServico;
-	private Integer totalAberto;
-	private Integer qtdeSoliciatacoesCanceladasFinalizadas;
-	private String porcentagemExecutada;
+    private static final long serialVersionUID = 1L;
 
-	public Date getDataInicio() {
-		return dataInicio;
-	}
+    private Date dataInicio;
+    private Date dataFim;
+    private String formatoArquivoRelatorio;
+    private Integer idContrato;
+    private String contrato;
+    private String listaServicos;
+    private String nomeServico;
+    private Integer totalAberto;
+    private Integer qtdeSoliciatacoesCanceladasFinalizadas;
+    private String porcentagemExecutada;
 
-	public void setDataInicio(Date dataInicio) {
-		this.dataInicio = dataInicio;
-	}
+    public Date getDataInicio() {
+        return dataInicio;
+    }
 
-	public Date getDataFim() {
-		return dataFim;
-	}
+    public void setDataInicio(final Date dataInicio) {
+        this.dataInicio = dataInicio;
+    }
 
-	public void setDataFim(Date dataFim) {
-		this.dataFim = dataFim;
-	}
+    public Date getDataFim() {
+        return dataFim;
+    }
 
-	public String getFormatoArquivoRelatorio() {
-		return formatoArquivoRelatorio;
-	}
+    public void setDataFim(final Date dataFim) {
+        this.dataFim = dataFim;
+    }
 
-	public void setFormatoArquivoRelatorio(String formatoArquivoRelatorio) {
-		this.formatoArquivoRelatorio = formatoArquivoRelatorio;
-	}
+    public String getFormatoArquivoRelatorio() {
+        return formatoArquivoRelatorio;
+    }
 
-	public Integer getIdContrato() {
-		return idContrato;
-	}
+    public void setFormatoArquivoRelatorio(final String formatoArquivoRelatorio) {
+        this.formatoArquivoRelatorio = formatoArquivoRelatorio;
+    }
 
-	public void setIdContrato(Integer idContrato) {
-		this.idContrato = idContrato;
-	}
+    public Integer getIdContrato() {
+        return idContrato;
+    }
 
-	public String getContrato() {
-		return contrato;
-	}
+    public void setIdContrato(final Integer idContrato) {
+        this.idContrato = idContrato;
+    }
 
-	public void setContrato(String contrato) {
-		this.contrato = contrato;
-	}
+    public String getContrato() {
+        return contrato;
+    }
 
-	public String getListaServicos() {
-		return listaServicos;
-	}
+    public void setContrato(final String contrato) {
+        this.contrato = contrato;
+    }
 
-	public void setListaServicos(String listaServicos) {
-		this.listaServicos = listaServicos;
-	}
+    public String getListaServicos() {
+        return listaServicos;
+    }
 
-	public String getNomeServico() {
-		return nomeServico;
-	}
+    public void setListaServicos(final String listaServicos) {
+        this.listaServicos = listaServicos;
+    }
 
-	public void setNomeServico(String nomeServico) {
-		this.nomeServico = nomeServico;
-	}
+    public String getNomeServico() {
+        return nomeServico;
+    }
 
-	public Integer getTotalAberto() {
-		return totalAberto;
-	}
+    public void setNomeServico(final String nomeServico) {
+        this.nomeServico = nomeServico;
+    }
 
-	public void setTotalAberto(Integer totalAberto) {
-		this.totalAberto = totalAberto;
-	}
+    public Integer getTotalAberto() {
+        return totalAberto;
+    }
 
-	public Integer getQtdeSoliciatacoesCanceladasFinalizadas() {
-		return qtdeSoliciatacoesCanceladasFinalizadas;
-	}
+    public void setTotalAberto(final Integer totalAberto) {
+        this.totalAberto = totalAberto;
+    }
 
-	public void setQtdeSoliciatacoesCanceladasFinalizadas(Integer qtdeSoliciatacoesCanceladasFinalizadas) {
-		this.qtdeSoliciatacoesCanceladasFinalizadas = qtdeSoliciatacoesCanceladasFinalizadas;
-	}
+    public Integer getQtdeSoliciatacoesCanceladasFinalizadas() {
+        return qtdeSoliciatacoesCanceladasFinalizadas;
+    }
 
-	public String getPorcentagemExecutada() {
-		return porcentagemExecutada;
-	}
+    public void setQtdeSoliciatacoesCanceladasFinalizadas(final Integer qtdeSoliciatacoesCanceladasFinalizadas) {
+        this.qtdeSoliciatacoesCanceladasFinalizadas = qtdeSoliciatacoesCanceladasFinalizadas;
+    }
 
-	public void setPorcentagemExecutada(String porcentagemExecutada) {
-		this.porcentagemExecutada = porcentagemExecutada;
-	}
+    public String getPorcentagemExecutada() {
+        return porcentagemExecutada;
+    }
+
+    public void setPorcentagemExecutada(final String porcentagemExecutada) {
+        this.porcentagemExecutada = porcentagemExecutada;
+    }
 
 }

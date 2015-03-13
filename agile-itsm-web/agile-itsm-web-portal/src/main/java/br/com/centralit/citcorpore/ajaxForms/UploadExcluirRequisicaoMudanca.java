@@ -26,9 +26,9 @@ public class UploadExcluirRequisicaoMudanca extends AjaxFormAction {
 		// ControleGEDDTO controleGEDDTO = new ControleGEDDTO();
 		Collection colUploadsGED = (Collection) request.getSession(true).getAttribute("colUploadRequisicaoMudancaGED");
 		if (colUploadsGED == null) {
-			colUploadsGED = new ArrayList();
+			colUploadsGED = new ArrayList<>();
 		}
-		Collection col2 = new ArrayList();
+		Collection col2 = new ArrayList<>();
 		for (Iterator it = colUploadsGED.iterator(); it.hasNext();) {
 			UploadDTO uploadAux = (UploadDTO) it.next();
 			if (!uploadAux.getPath().equalsIgnoreCase(uploadDTO.getPath().replace("\\", "\\\\"))) {

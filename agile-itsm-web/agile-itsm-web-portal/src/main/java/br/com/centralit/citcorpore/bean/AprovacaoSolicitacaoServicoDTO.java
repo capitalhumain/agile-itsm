@@ -6,80 +6,92 @@ import java.text.SimpleDateFormat;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class AprovacaoSolicitacaoServicoDTO extends BaseEntity {
-	private Integer idAprovacaoSolicitacaoServico;
-	private Integer idSolicitacaoServico;
-	private Integer idResponsavel;
-	private Integer idTarefa;
-	private Integer idJustificativa;
-	private Timestamp dataHora;
-	private String complementoJustificativa;
-	private String observacoes;
-	private String aprovacao;
 
-	public Integer getIdAprovacaoSolicitacaoServico(){
-		return this.idAprovacaoSolicitacaoServico;
-	}
-	public void setIdAprovacaoSolicitacaoServico(Integer parm){
-		this.idAprovacaoSolicitacaoServico = parm;
-	}
+    private Integer idAprovacaoSolicitacaoServico;
+    private Integer idSolicitacaoServico;
+    private Integer idResponsavel;
+    private Integer idTarefa;
+    private Integer idJustificativa;
+    private Timestamp dataHora;
+    private String complementoJustificativa;
+    private String observacoes;
+    private String aprovacao;
 
-	public Integer getIdSolicitacaoServico(){
-		return this.idSolicitacaoServico;
-	}
-	public void setIdSolicitacaoServico(Integer parm){
-		this.idSolicitacaoServico = parm;
-	}
+    public Integer getIdAprovacaoSolicitacaoServico() {
+        return idAprovacaoSolicitacaoServico;
+    }
 
-	public Integer getIdResponsavel(){
-		return this.idResponsavel;
-	}
-	public void setIdResponsavel(Integer parm){
-		this.idResponsavel = parm;
-	}
+    public void setIdAprovacaoSolicitacaoServico(final Integer parm) {
+        idAprovacaoSolicitacaoServico = parm;
+    }
 
-	public Integer getIdTarefa(){
-		return this.idTarefa;
-	}
-	public void setIdTarefa(Integer parm){
-		this.idTarefa = parm;
-	}
+    public Integer getIdSolicitacaoServico() {
+        return idSolicitacaoServico;
+    }
 
-	public Integer getIdJustificativa(){
-		return this.idJustificativa;
-	}
-	public void setIdJustificativa(Integer parm){
-		this.idJustificativa = parm;
-	}
+    public void setIdSolicitacaoServico(final Integer parm) {
+        idSolicitacaoServico = parm;
+    }
 
-	public Timestamp getDataHora(){
-		return this.dataHora;
-	}
-	public void setDataHora(Timestamp parm){
-		this.dataHora = parm;
-	}
+    public Integer getIdResponsavel() {
+        return idResponsavel;
+    }
 
-	public String getComplementoJustificativa(){
-		return this.complementoJustificativa;
-	}
-	public void setComplementoJustificativa(String parm){
-		this.complementoJustificativa = parm;
-	}
+    public void setIdResponsavel(final Integer parm) {
+        idResponsavel = parm;
+    }
 
-	public String getObservacoes(){
-		return this.observacoes;
-	}
-	public void setObservacoes(String parm){
-		this.observacoes = parm;
-	}
+    public Integer getIdTarefa() {
+        return idTarefa;
+    }
 
-	public String getAprovacao(){
-		return this.aprovacao;
-	}
-	public void setAprovacao(String parm){
-		this.aprovacao = parm;
-	}
-	public String getDataHoraStr() {
-        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+    public void setIdTarefa(final Integer parm) {
+        idTarefa = parm;
+    }
+
+    public Integer getIdJustificativa() {
+        return idJustificativa;
+    }
+
+    public void setIdJustificativa(final Integer parm) {
+        idJustificativa = parm;
+    }
+
+    public Timestamp getDataHora() {
+        return dataHora;
+    }
+
+    public void setDataHora(final Timestamp parm) {
+        dataHora = parm;
+    }
+
+    public String getComplementoJustificativa() {
+        return complementoJustificativa;
+    }
+
+    public void setComplementoJustificativa(final String parm) {
+        complementoJustificativa = parm;
+    }
+
+    public String getObservacoes() {
+        return observacoes;
+    }
+
+    public void setObservacoes(final String parm) {
+        observacoes = parm;
+    }
+
+    public String getAprovacao() {
+        return aprovacao;
+    }
+
+    public void setAprovacao(final String parm) {
+        aprovacao = parm;
+    }
+
+    public String getDataHoraStr() {
+        final SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         return format.format(dataHora);
-	}
+    }
+
 }

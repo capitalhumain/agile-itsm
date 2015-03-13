@@ -3,45 +3,51 @@ package br.com.centralit.citcorpore.bean;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class TempoAcordoNivelServicoDTO extends BaseEntity {
-	private Integer idAcordoNivelServico;
-	private Integer idPrioridade;
-	private Integer idFase;
-	private Integer tempoHH;
-	private Integer tempoMM;
 
-	public Integer getIdAcordoNivelServico(){
-		return this.idAcordoNivelServico;
-	}
-	public void setIdAcordoNivelServico(Integer parm){
-		this.idAcordoNivelServico = parm;
-	}
+    private Integer idAcordoNivelServico;
+    private Integer idPrioridade;
+    private Integer idFase;
+    private Integer tempoHH;
+    private Integer tempoMM;
 
-	public Integer getIdPrioridade(){
-		return this.idPrioridade;
-	}
-	public void setIdPrioridade(Integer parm){
-		this.idPrioridade = parm;
-	}
+    public Integer getIdAcordoNivelServico() {
+        return idAcordoNivelServico;
+    }
 
-	public Integer getIdFase(){
-		return this.idFase;
-	}
-	public void setIdFase(Integer parm){
-		this.idFase = parm;
-	}
+    public void setIdAcordoNivelServico(final Integer parm) {
+        idAcordoNivelServico = parm;
+    }
 
-	public Integer getTempoHH(){
-		return this.tempoHH;
-	}
-	public void setTempoHH(Integer parm){
-		this.tempoHH = parm;
-	}
+    public Integer getIdPrioridade() {
+        return idPrioridade;
+    }
 
-	public Integer getTempoMM(){
-		return this.tempoMM;
-	}
-	public void setTempoMM(Integer parm){
-		this.tempoMM = parm;
-	}
+    public void setIdPrioridade(final Integer parm) {
+        idPrioridade = parm;
+    }
+
+    public Integer getIdFase() {
+        return idFase;
+    }
+
+    public void setIdFase(final Integer parm) {
+        idFase = parm;
+    }
+
+    public Integer getTempoHH() {
+        return tempoHH;
+    }
+
+    public void setTempoHH(final Integer parm) {
+        tempoHH = parm;
+    }
+
+    public Integer getTempoMM() {
+        return tempoMM;
+    }
+
+    public void setTempoMM(final Integer parm) {
+        tempoMM = parm;
+    }
 
 }

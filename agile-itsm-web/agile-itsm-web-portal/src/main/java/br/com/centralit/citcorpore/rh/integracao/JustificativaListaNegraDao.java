@@ -53,7 +53,7 @@ public class JustificativaListaNegraDao extends CrudDaoDefaultImpl {
 
     @Override
     public Collection list() throws PersistenceException {
-        final List list = new ArrayList();
+        final List list = new ArrayList<>();
         list.add(new Order("justificativa"));
         return super.list(list);
     }

@@ -19,54 +19,57 @@ import br.com.citframework.util.Constantes;
 public class ComandoSistemaOperacionalDao extends CrudDaoDefaultImpl {
 
     public ComandoSistemaOperacionalDao() {
-	super(Constantes.getValue("DATABASE_ALIAS"), null);
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
     }
 
-    @SuppressWarnings("rawtypes")
+    @Override
     public Class getBean() {
-	return ComandoSistemaOperacionalDTO.class;
+        return ComandoSistemaOperacionalDTO.class;
     }
 
+    @Override
     public Collection<Field> getFields() {
-	Collection<Field> listFields = new ArrayList<>();
+        final Collection<Field> listFields = new ArrayList<>();
 
-	listFields.add(new Field("ID", "id", true, true, false, false) );
-	listFields.add(new Field("IDCOMANDO", "idComando", false, false, false, false) );
-	listFields.add(new Field("IDSISTEMAOPERACIONAL", "idSistemaOperacional", false, false, false, false) );
-	listFields.add(new Field("COMANDO", "comando", false, false, false, false, "Comando!") );
+        listFields.add(new Field("ID", "id", true, true, false, false));
+        listFields.add(new Field("IDCOMANDO", "idComando", false, false, false, false));
+        listFields.add(new Field("IDSISTEMAOPERACIONAL", "idSistemaOperacional", false, false, false, false));
+        listFields.add(new Field("COMANDO", "comando", false, false, false, false, "Comando!"));
 
-	return listFields;
+        return listFields;
     }
 
+    @Override
     public String getTableName() {
-	return "COMANDOSISTEMAOPERACIONAL";
+        return "COMANDOSISTEMAOPERACIONAL";
     }
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
-    public Collection find(BaseEntity obj) throws PersistenceException {
-	List ordem = new ArrayList();
-	ordem.add(new Order("comando"));
-	return super.find(obj, ordem);
+    @Override
+    public Collection find(final BaseEntity obj) throws PersistenceException {
+        final List ordem = new ArrayList<>();
+        ordem.add(new Order("comando"));
+        return super.find(obj, ordem);
     }
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
+    @Override
+    @SuppressWarnings({"rawtypes", "unchecked"})
     public Collection list() throws PersistenceException {
-	List list = new ArrayList();
-	list.add(new Order("comando"));
-	return super.list(list);
+        final List list = new ArrayList<>();
+        list.add(new Order("comando"));
+        return super.list(list);
     }
 
-    public ComandoSistemaOperacionalDTO pegarComandoSO(String so, String tipoExecucao) throws PersistenceException {
-	String sql = "select cso.comando from comandosistemaoperacional cso join comando c on c.id = cso.idcomando "
-		+ "join sistemaoperacional so on so.id = cso.idsistemaoperacional where upper(so.nome) = ? and upper(c.descricao) = ?";
-	List dados = this.execSQL(sql, new Object[] { so, tipoExecucao });
-	List fields = new ArrayList();
-	fields.add("comando");
-	List result = this.listConvertion(ComandoSistemaOperacionalDTO.class, dados, fields);
-	if (result != null && result.size() > 0) {
-	    return (ComandoSistemaOperacionalDTO) result.get(0);
-	}
-	return null;
+    public ComandoSistemaOperacionalDTO pegarComandoSO(final String so, final String tipoExecucao) throws PersistenceException {
+        final String sql = "select cso.comando from comandosistemaoperacional cso join comando c on c.id = cso.idcomando "
+                + "join sistemaoperacional so on so.id = cso.idsistemaoperacional where upper(so.nome) = ? and upper(c.descricao) = ?";
+        final List dados = this.execSQL(sql, new Object[] {so, tipoExecucao});
+        final List fields = new ArrayList<>();
+        fields.add("comando");
+        final List result = this.listConvertion(ComandoSistemaOperacionalDTO.class, dados, fields);
+        if (result != null && result.size() > 0) {
+            return (ComandoSistemaOperacionalDTO) result.get(0);
+        }
+        return null;
     }
 
 }

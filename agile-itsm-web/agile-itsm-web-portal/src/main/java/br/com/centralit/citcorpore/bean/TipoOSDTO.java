@@ -3,37 +3,42 @@ package br.com.centralit.citcorpore.bean;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class TipoOSDTO extends BaseEntity {
-	private Integer idClassificacaoOS;
-	private Integer idContrato;
-	private String descricao;
-	private String detalhamento;
 
-	public Integer getIdClassificacaoOS(){
-		return this.idClassificacaoOS;
-	}
-	public void setIdClassificacaoOS(Integer parm){
-		this.idClassificacaoOS = parm;
-	}
+    private Integer idClassificacaoOS;
+    private Integer idContrato;
+    private String descricao;
+    private String detalhamento;
 
-	public Integer getIdContrato(){
-		return this.idContrato;
-	}
-	public void setIdContrato(Integer parm){
-		this.idContrato = parm;
-	}
+    public Integer getIdClassificacaoOS() {
+        return idClassificacaoOS;
+    }
 
-	public String getDescricao(){
-		return this.descricao;
-	}
-	public void setDescricao(String parm){
-		this.descricao = parm;
-	}
+    public void setIdClassificacaoOS(final Integer parm) {
+        idClassificacaoOS = parm;
+    }
 
-	public String getDetalhamento(){
-		return this.detalhamento;
-	}
-	public void setDetalhamento(String parm){
-		this.detalhamento = parm;
-	}
+    public Integer getIdContrato() {
+        return idContrato;
+    }
+
+    public void setIdContrato(final Integer parm) {
+        idContrato = parm;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(final String parm) {
+        descricao = parm;
+    }
+
+    public String getDetalhamento() {
+        return detalhamento;
+    }
+
+    public void setDetalhamento(final String parm) {
+        detalhamento = parm;
+    }
 
 }

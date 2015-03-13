@@ -9,138 +9,138 @@ import br.com.agileitsm.model.support.BaseEntity;
 
 public class RelatorioMudancaItemConfiguracaoDTO extends BaseEntity {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	// Atributos para a mudança
+    // Atributos para a mudança
 
-	private Integer idNumeroMudanca;
-	private String tituloMudanca;
-	private String grupoMudanca;
-	private Date dataMudanca;
-	private String descricaoProblemaMudanca;
+    private Integer idNumeroMudanca;
+    private String tituloMudanca;
+    private String grupoMudanca;
+    private Date dataMudanca;
+    private String descricaoProblemaMudanca;
 
-	// Atributos para o item de configuração
-	private Integer idItemConfig;
-	private String nomeItem;
-	// Atributos par aos parametros da tela
-	private Date dataInicio;
-	private Date dataFim;
-	private String proprietario;
-	private String formatoArquivoRelatorio;
-	private Integer idContrato;
-	private String contrato;
-	private Collection<ItemConfiguracaoDTO> listaItensConfiguracao;
+    // Atributos para o item de configuração
+    private Integer idItemConfig;
+    private String nomeItem;
+    // Atributos par aos parametros da tela
+    private Date dataInicio;
+    private Date dataFim;
+    private String proprietario;
+    private String formatoArquivoRelatorio;
+    private Integer idContrato;
+    private String contrato;
+    private Collection<ItemConfiguracaoDTO> listaItensConfiguracao;
 
-	public Collection<ItemConfiguracaoDTO> getListaItensConfiguracao() {
-		return listaItensConfiguracao;
-	}
+    public Collection<ItemConfiguracaoDTO> getListaItensConfiguracao() {
+        return listaItensConfiguracao;
+    }
 
-	public void setListaItensConfiguracao(Collection<ItemConfiguracaoDTO> list) {
-		this.listaItensConfiguracao = list;
-	}
+    public void setListaItensConfiguracao(final Collection<ItemConfiguracaoDTO> list) {
+        listaItensConfiguracao = list;
+    }
 
-	public String getTituloMudanca() {
-		return tituloMudanca;
-	}
+    public String getTituloMudanca() {
+        return tituloMudanca;
+    }
 
-	public void setTituloMudanca(String tituloMudanca) {
-		this.tituloMudanca = tituloMudanca;
-	}
+    public void setTituloMudanca(final String tituloMudanca) {
+        this.tituloMudanca = tituloMudanca;
+    }
 
-	public String getGrupoMudanca() {
-		return grupoMudanca;
-	}
+    public String getGrupoMudanca() {
+        return grupoMudanca;
+    }
 
-	public void setGrupoMudanca(String grupoMudanca) {
-		this.grupoMudanca = grupoMudanca;
-	}
+    public void setGrupoMudanca(final String grupoMudanca) {
+        this.grupoMudanca = grupoMudanca;
+    }
 
-	public Date getDataMudanca() {
-		return dataMudanca;
-	}
+    public Date getDataMudanca() {
+        return dataMudanca;
+    }
 
-	public void setDataMudanca(Date dataMudanca) {
-		this.dataMudanca = dataMudanca;
-	}
+    public void setDataMudanca(final Date dataMudanca) {
+        this.dataMudanca = dataMudanca;
+    }
 
-	public String getDescricaoProblemaMudanca() {
-		return descricaoProblemaMudanca;
-	}
+    public String getDescricaoProblemaMudanca() {
+        return descricaoProblemaMudanca;
+    }
 
-	public void setDescricaoProblemaMudanca(String descricaoProblemaMudanca) {
-		this.descricaoProblemaMudanca = descricaoProblemaMudanca;
-	}
+    public void setDescricaoProblemaMudanca(final String descricaoProblemaMudanca) {
+        this.descricaoProblemaMudanca = descricaoProblemaMudanca;
+    }
 
-	public String getNomeItem() {
-		return nomeItem;
-	}
+    public String getNomeItem() {
+        return nomeItem;
+    }
 
-	public void setNomeItem(String nomeItem) {
-		this.nomeItem = nomeItem;
-	}
+    public void setNomeItem(final String nomeItem) {
+        this.nomeItem = nomeItem;
+    }
 
-	public Integer getIdNumeroMudanca() {
-		return idNumeroMudanca;
-	}
+    public Integer getIdNumeroMudanca() {
+        return idNumeroMudanca;
+    }
 
-	public void setIdNumeroMudanca(Integer idNumeroMudanca) {
-		this.idNumeroMudanca = idNumeroMudanca;
-	}
+    public void setIdNumeroMudanca(final Integer idNumeroMudanca) {
+        this.idNumeroMudanca = idNumeroMudanca;
+    }
 
-	public Integer getIdItemConfig() {
-		return idItemConfig;
-	}
+    public Integer getIdItemConfig() {
+        return idItemConfig;
+    }
 
-	public void setIdItemConfig(Integer idItemConfig) {
-		this.idItemConfig = idItemConfig;
-	}
+    public void setIdItemConfig(final Integer idItemConfig) {
+        this.idItemConfig = idItemConfig;
+    }
 
-	public Integer getIdContrato() {
-		return idContrato;
-	}
+    public Integer getIdContrato() {
+        return idContrato;
+    }
 
-	public void setIdContrato(Integer idContrato) {
-		this.idContrato = idContrato;
-	}
+    public void setIdContrato(final Integer idContrato) {
+        this.idContrato = idContrato;
+    }
 
-	public String getContrato() {
-		return contrato;
-	}
+    public String getContrato() {
+        return contrato;
+    }
 
-	public void setContrato(String contrato) {
-		this.contrato = contrato;
-	}
+    public void setContrato(final String contrato) {
+        this.contrato = contrato;
+    }
 
-	public Date getDataInicio() {
-		return dataInicio;
-	}
+    public Date getDataInicio() {
+        return dataInicio;
+    }
 
-	public void setDataInicio(Date dataInicio) {
-		this.dataInicio = dataInicio;
-	}
+    public void setDataInicio(final Date dataInicio) {
+        this.dataInicio = dataInicio;
+    }
 
-	public Date getDataFim() {
-		return dataFim;
-	}
+    public Date getDataFim() {
+        return dataFim;
+    }
 
-	public void setDataFim(Date dataFim) {
-		this.dataFim = dataFim;
-	}
+    public void setDataFim(final Date dataFim) {
+        this.dataFim = dataFim;
+    }
 
-	public String getProprietario() {
-		return proprietario;
-	}
+    public String getProprietario() {
+        return proprietario;
+    }
 
-	public void setProprietario(String proprietario) {
-		this.proprietario = proprietario;
-	}
+    public void setProprietario(final String proprietario) {
+        this.proprietario = proprietario;
+    }
 
-	public String getFormatoArquivoRelatorio() {
-		return formatoArquivoRelatorio;
-	}
+    public String getFormatoArquivoRelatorio() {
+        return formatoArquivoRelatorio;
+    }
 
-	public void setFormatoArquivoRelatorio(String formatoArquivoRelatorio) {
-		this.formatoArquivoRelatorio = formatoArquivoRelatorio;
-	}
+    public void setFormatoArquivoRelatorio(final String formatoArquivoRelatorio) {
+        this.formatoArquivoRelatorio = formatoArquivoRelatorio;
+    }
 
 }

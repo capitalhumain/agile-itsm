@@ -14,59 +14,69 @@ import br.com.citframework.integracao.Order;
 import br.com.citframework.util.Constantes;
 
 public class TipoEventoServicoDao extends CrudDaoDefaultImpl {
-	public TipoEventoServicoDao() {
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
-	public Collection<Field> getFields() {
-		Collection<Field> listFields = new ArrayList<>();
-		listFields.add(new Field("idTipoEventoServico" ,"idTipoEventoServico", true, true, false, false));
-		listFields.add(new Field("nomeTipoEventoServico" ,"nomeTipoEventoServico", false, false, false, false));
-		return listFields;
-	}
-	public String getTableName() {
-		return this.getOwner() + "TipoEventoServico";
-	}
-	public Collection list() throws PersistenceException {
-		return null;
-	}
 
-	public Class getBean() {
-		return TipoEventoServicoDTO.class;
-	}
-	public Collection find(BaseEntity arg0) throws PersistenceException {
-		return null;
-	}
-	
-	/**
-	 * Retorna lista de Tipo Demanda por nome.
-	 * 
-	 * @return Collection
-	 * @throws Exception
-	 */
-	public Collection findByNome(TipoEventoServicoDTO tipoEventoServicoDTO) throws PersistenceException {
-		List condicao = new ArrayList();
-		List ordenacao = new ArrayList();
+    public TipoEventoServicoDao() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
+    }
 
-		condicao.add(new Condition("nomeTipoEventoServico", "=", tipoEventoServicoDTO.getNomeTipoEventoServico())); 
-		ordenacao.add(new Order("nomeTipoEventoServico"));
-		return super.findByCondition(condicao, ordenacao);
-	}
-	
-	
-	public boolean tipoEventoVinculadoServico (Integer idTipoEventoServico) throws PersistenceException {
-		List parametro = new ArrayList();
-		StringBuilder sql = new StringBuilder();
-		
-	    sql.append(" select idtipoeventoservico from servico where idtipoeventoservico = ? and (deleted <> 'y' or deleted is null)");
+    @Override
+    public Collection<Field> getFields() {
+        final Collection<Field> listFields = new ArrayList<>();
+        listFields.add(new Field("idTipoEventoServico", "idTipoEventoServico", true, true, false, false));
+        listFields.add(new Field("nomeTipoEventoServico", "nomeTipoEventoServico", false, false, false, false));
+        return listFields;
+    }
 
-	    parametro.add(idTipoEventoServico);            
-	    
-	    List lista = new ArrayList();
-	    lista = this.execSQL(sql.toString(), parametro.toArray());
-	    if(lista.size()>0) return true;
-	    
-	    return false;
-	}
-	
-	
+    @Override
+    public String getTableName() {
+        return this.getOwner() + "TipoEventoServico";
+    }
+
+    @Override
+    public Collection list() throws PersistenceException {
+        return null;
+    }
+
+    @Override
+    public Class getBean() {
+        return TipoEventoServicoDTO.class;
+    }
+
+    @Override
+    public Collection find(final BaseEntity arg0) throws PersistenceException {
+        return null;
+    }
+
+    /**
+     * Retorna lista de Tipo Demanda por nome.
+     *
+     * @return Collection
+     * @throws Exception
+     */
+    public Collection findByNome(final TipoEventoServicoDTO tipoEventoServicoDTO) throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
+
+        condicao.add(new Condition("nomeTipoEventoServico", "=", tipoEventoServicoDTO.getNomeTipoEventoServico()));
+        ordenacao.add(new Order("nomeTipoEventoServico"));
+        return super.findByCondition(condicao, ordenacao);
+    }
+
+    public boolean tipoEventoVinculadoServico(final Integer idTipoEventoServico) throws PersistenceException {
+        final List parametro = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
+
+        sql.append(" select idtipoeventoservico from servico where idtipoeventoservico = ? and (deleted <> 'y' or deleted is null)");
+
+        parametro.add(idTipoEventoServico);
+
+        List lista = new ArrayList<>();
+        lista = this.execSQL(sql.toString(), parametro.toArray());
+        if (lista.size() > 0) {
+            return true;
+        }
+
+        return false;
+    }
+
 }

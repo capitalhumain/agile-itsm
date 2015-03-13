@@ -61,7 +61,7 @@ public class AnexoIncidente extends AjaxFormAction {
 
 	Collection<AnexoIncidenteDTO> anexos = this.getBarraFerramentasService().consultarAnexosIncidentes(1);
 
-	Collection colUploadsGED = new ArrayList();
+	Collection colUploadsGED = new ArrayList<>();
 	String nomeDoArquivo = null;
 	if (anexos != null && !anexos.isEmpty()) {
 	    for (AnexoIncidenteDTO anexo : anexos) {

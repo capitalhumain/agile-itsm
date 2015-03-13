@@ -4,5 +4,7 @@ import java.util.Collection;
 import java.util.HashMap;
 
 public abstract class GerencialProcessParameters {
-	public abstract String processParameters(HashMap hsmParms, Collection colParmsUtilizadosNoSQL, Collection colDefinicaoParametros);
+
+    public abstract String processParameters(final HashMap hsmParms, final Collection colParmsUtilizadosNoSQL, final Collection colDefinicaoParametros);
+
 }

@@ -350,7 +350,7 @@ public class PesquisaSolicitacoesServicosPortal extends AjaxFormAction {
         html.append("</th>");
         html.append("<th>" + UtilI18N.internacionaliza(request, "solicitacaoServico.responsavelatual.desc"));
         html.append("</tr>");
-        final HashMap<String, PermissoesFluxoDTO> mapPermissoes = new HashMap();
+        final HashMap<String, PermissoesFluxoDTO> mapPermissoes = new HashMap<>();
         for (final SolicitacaoServicoDTO r : resumo) {
             final SolicitacaoServicoDTO solDto = new SolicitacaoServicoDTO();
             solDto.setIdSolicitacaoServico(r.getIdSolicitacaoServico());

@@ -28,7 +28,7 @@ public class AtribuicaoRequisicaoFuncaoDao extends CrudDaoDefaultImpl {
     @Override
     public Collection getFields() {
 
-        final Collection listFields = new ArrayList();
+        final Collection listFields = new ArrayList<>();
 
         listFields.add(new Field("IDATRIBUICAO", "idAtribuicao", true, true, false, false));
         listFields.add(new Field("DESCRICAO", "descricao", false, false, false, false));
@@ -46,7 +46,7 @@ public class AtribuicaoRequisicaoFuncaoDao extends CrudDaoDefaultImpl {
 
     @Override
     public Collection list() throws PersistenceException {
-        final List list = new ArrayList();
+        final List list = new ArrayList<>();
         list.add(new Order("descricao"));
         return super.list(list);
     }
@@ -64,8 +64,8 @@ public class AtribuicaoRequisicaoFuncaoDao extends CrudDaoDefaultImpl {
      * @throws Exception
      */
     public boolean consultarAtribuicoesAtivas(final AtribuicaoRequisicaoFuncaoDTO obj) throws PersistenceException {
-        final List parametro = new ArrayList();
-        List list = new ArrayList();
+        final List parametro = new ArrayList<>();
+        List list = new ArrayList<>();
         String sql = "select idatribuicao From " + this.getTableName() + "  where  descricao = ? ";
 
         if (obj.getIdAtribuicao() != null) {
@@ -76,14 +76,12 @@ public class AtribuicaoRequisicaoFuncaoDao extends CrudDaoDefaultImpl {
         list = this.execSQL(sql, parametro.toArray());
         if (list != null && !list.isEmpty()) {
             return true;
-        } else {
-            return false;
-        }
+        } return false;
     }
 
     public Collection<AtribuicaoRequisicaoFuncaoDTO> seAtribuicaoJaCadastrada(final AtribuicaoRequisicaoFuncaoDTO atribuicaoRequisicaoFuncaoDTO) throws PersistenceException {
-        final List parametro = new ArrayList();
-        List list = new ArrayList();
+        final List parametro = new ArrayList<>();
+        List list = new ArrayList<>();
         String sql = "";
         sql = " select lower(descricao) from rh_atribuicao where descricao = lower(?) ";
 
@@ -93,8 +91,8 @@ public class AtribuicaoRequisicaoFuncaoDao extends CrudDaoDefaultImpl {
     }
 
     public Collection<AtribuicaoRequisicaoFuncaoDTO> listarAtivos() throws PersistenceException {
-        final List condicao = new ArrayList();
-        final List ordenacao = new ArrayList();
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
 
         ordenacao.add(new Order("descricao"));
         condicao.add(new Condition("datafim", "=", null));

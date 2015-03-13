@@ -5,45 +5,52 @@ import java.util.Collection;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class ObjetoNegocioDTO extends BaseEntity {
-	private Integer idObjetoNegocio;
-	private String nomeObjetoNegocio;
-	private String nomeTabelaDB;
-	private String situacao;
-	
-	private Collection colCampos;
 
-	public Integer getIdObjetoNegocio(){
-		return this.idObjetoNegocio;
-	}
-	public void setIdObjetoNegocio(Integer parm){
-		this.idObjetoNegocio = parm;
-	}
+    private Integer idObjetoNegocio;
+    private String nomeObjetoNegocio;
+    private String nomeTabelaDB;
+    private String situacao;
 
-	public String getNomeObjetoNegocio(){
-		return this.nomeObjetoNegocio;
-	}
-	public void setNomeObjetoNegocio(String parm){
-		this.nomeObjetoNegocio = parm;
-	}
+    private Collection colCampos;
 
-	public String getNomeTabelaDB(){
-		return this.nomeTabelaDB;
-	}
-	public void setNomeTabelaDB(String parm){
-		this.nomeTabelaDB = parm;
-	}
+    public Integer getIdObjetoNegocio() {
+        return idObjetoNegocio;
+    }
 
-	public String getSituacao(){
-		return this.situacao;
-	}
-	public void setSituacao(String parm){
-		this.situacao = parm;
-	}
-	public Collection getColCampos() {
-		return colCampos;
-	}
-	public void setColCampos(Collection colCampos) {
-		this.colCampos = colCampos;
-	}
+    public void setIdObjetoNegocio(final Integer parm) {
+        idObjetoNegocio = parm;
+    }
+
+    public String getNomeObjetoNegocio() {
+        return nomeObjetoNegocio;
+    }
+
+    public void setNomeObjetoNegocio(final String parm) {
+        nomeObjetoNegocio = parm;
+    }
+
+    public String getNomeTabelaDB() {
+        return nomeTabelaDB;
+    }
+
+    public void setNomeTabelaDB(final String parm) {
+        nomeTabelaDB = parm;
+    }
+
+    public String getSituacao() {
+        return situacao;
+    }
+
+    public void setSituacao(final String parm) {
+        situacao = parm;
+    }
+
+    public Collection getColCampos() {
+        return colCampos;
+    }
+
+    public void setColCampos(final Collection colCampos) {
+        this.colCampos = colCampos;
+    }
 
 }

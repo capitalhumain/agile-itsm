@@ -3,37 +3,42 @@ package br.com.centralit.citcorpore.bean;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class UnidadeMedidaDTO extends BaseEntity {
-	private Integer idUnidadeMedida;
-	private String nomeUnidadeMedida;
-	private String siglaUnidadeMedida;
-	private String situacao;
 
-	public Integer getIdUnidadeMedida(){
-		return this.idUnidadeMedida;
-	}
-	public void setIdUnidadeMedida(Integer parm){
-		this.idUnidadeMedida = parm;
-	}
+    private Integer idUnidadeMedida;
+    private String nomeUnidadeMedida;
+    private String siglaUnidadeMedida;
+    private String situacao;
 
-	public String getNomeUnidadeMedida(){
-		return this.nomeUnidadeMedida;
-	}
-	public void setNomeUnidadeMedida(String parm){
-		this.nomeUnidadeMedida = parm;
-	}
+    public Integer getIdUnidadeMedida() {
+        return idUnidadeMedida;
+    }
 
-	public String getSiglaUnidadeMedida(){
-		return this.siglaUnidadeMedida;
-	}
-	public void setSiglaUnidadeMedida(String parm){
-		this.siglaUnidadeMedida = parm;
-	}
+    public void setIdUnidadeMedida(final Integer parm) {
+        idUnidadeMedida = parm;
+    }
 
-	public String getSituacao(){
-		return this.situacao;
-	}
-	public void setSituacao(String parm){
-		this.situacao = parm;
-	}
+    public String getNomeUnidadeMedida() {
+        return nomeUnidadeMedida;
+    }
+
+    public void setNomeUnidadeMedida(final String parm) {
+        nomeUnidadeMedida = parm;
+    }
+
+    public String getSiglaUnidadeMedida() {
+        return siglaUnidadeMedida;
+    }
+
+    public void setSiglaUnidadeMedida(final String parm) {
+        siglaUnidadeMedida = parm;
+    }
+
+    public String getSituacao() {
+        return situacao;
+    }
+
+    public void setSituacao(final String parm) {
+        situacao = parm;
+    }
 
 }

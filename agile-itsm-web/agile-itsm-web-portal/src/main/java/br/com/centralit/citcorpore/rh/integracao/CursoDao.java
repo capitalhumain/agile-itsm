@@ -36,9 +36,9 @@ public class CursoDao extends CrudDaoDefaultImpl {
     }
 
     public Collection findByNotIdFuncao(final Integer idFuncao) throws PersistenceException {
-        List dados = new ArrayList();
-        final List fields = new ArrayList();
-        final List parametros = new ArrayList();
+        List dados = new ArrayList<>();
+        final List fields = new ArrayList<>();
+        final List parametros = new ArrayList<>();
 
         final String sql = "select idcurso, descricao, detalhe from  rh_curso where idcurso not  in(select idcurso from rh_perspectivatecnicacurso where idsolicitacaoservico = ? and obrigatoriocurso = 'S') order by descricao ";
 
@@ -65,7 +65,7 @@ public class CursoDao extends CrudDaoDefaultImpl {
 
     @Override
     public Collection list() throws PersistenceException {
-        final List list = new ArrayList();
+        final List list = new ArrayList<>();
         list.add(new Order("descricao"));
         return super.list(list);
     }
@@ -98,7 +98,7 @@ public class CursoDao extends CrudDaoDefaultImpl {
 
         final List list = this.execSQL(sql.toString(), objs);
 
-        final List listRetorno = new ArrayList();
+        final List listRetorno = new ArrayList<>();
         listRetorno.add("idCurso");
         listRetorno.add("descricao");
         listRetorno.add("detalhe");

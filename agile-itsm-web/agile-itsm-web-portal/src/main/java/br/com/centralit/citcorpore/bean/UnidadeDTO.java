@@ -5,7 +5,6 @@ import java.util.List;
 
 import br.com.agileitsm.model.support.BaseEntity;
 
-@SuppressWarnings("rawtypes")
 public class UnidadeDTO extends BaseEntity {
 
     private static final long serialVersionUID = 638687400065001805L;

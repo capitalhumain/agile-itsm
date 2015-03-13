@@ -50,7 +50,7 @@ public class ManualCursoDao extends CrudDaoDefaultImpl {
 
     @Override
     public Collection list() throws PersistenceException {
-        final List list = new ArrayList();
+        final List list = new ArrayList<>();
         list.add(new Order("descricao"));
         return super.list(list);
     }
@@ -83,7 +83,7 @@ public class ManualCursoDao extends CrudDaoDefaultImpl {
 
         final List list = this.execSQL(sql.toString(), objs);
 
-        final List listRetorno = new ArrayList();
+        final List listRetorno = new ArrayList<>();
         listRetorno.add("idManualCurso");
         listRetorno.add("descricao");
         listRetorno.add("detalhe");
@@ -104,7 +104,7 @@ public class ManualCursoDao extends CrudDaoDefaultImpl {
 
         final List list = this.execSQL(sql.toString(), objs);
 
-        final List listRetorno = new ArrayList();
+        final List listRetorno = new ArrayList<>();
         listRetorno.add("idManualCurso");
         listRetorno.add("descricao");
         listRetorno.add("detalhe");
@@ -115,14 +115,14 @@ public class ManualCursoDao extends CrudDaoDefaultImpl {
     }
 
     public void deleteByIdManualFuncaoRA(final Integer idManualFuncao) throws PersistenceException {
-        final List condicao = new ArrayList();
+        final List<Condition> condicao = new ArrayList<>();
         condicao.add(new Condition("idManualFuncao", "=", idManualFuncao));
         condicao.add(new Condition("RAouRF", "=", "RA"));
         super.deleteByCondition(condicao);
     }
 
     public void deleteByIdManualFuncaoRF(final Integer idManualFuncao) throws PersistenceException {
-        final List condicao = new ArrayList();
+        final List<Condition> condicao = new ArrayList<>();
         condicao.add(new Condition("idManualFuncao", "=", idManualFuncao));
         condicao.add(new Condition("RAouRF", "=", "RF"));
         super.deleteByCondition(condicao);

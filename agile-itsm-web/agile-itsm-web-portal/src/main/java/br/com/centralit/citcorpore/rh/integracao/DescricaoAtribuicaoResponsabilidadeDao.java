@@ -45,14 +45,14 @@ public class DescricaoAtribuicaoResponsabilidadeDao extends CrudDaoDefaultImpl {
 
     @Override
     public Collection list() throws PersistenceException {
-        final List list = new ArrayList();
+        final List list = new ArrayList<>();
         list.add(new Order("descricao"));
         return super.list(list);
     }
 
     public Collection listAtivos() throws PersistenceException {
-        final List condicao = new ArrayList();
-        final List ordenacao = new ArrayList();
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
 
         condicao.add(new Condition("situacao", "=", "A"));
         ordenacao.add(new Order("descricao"));
@@ -88,7 +88,7 @@ public class DescricaoAtribuicaoResponsabilidadeDao extends CrudDaoDefaultImpl {
 
         final List list = this.execSQL(sql.toString(), objs);
 
-        final List listRetorno = new ArrayList();
+        final List listRetorno = new ArrayList<>();
         listRetorno.add("idDescricao");
         listRetorno.add("descricao");
         listRetorno.add("situaca");

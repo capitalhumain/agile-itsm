@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package br.com.centralit.citcorpore.bean;
 
@@ -10,262 +10,260 @@ import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * @author valdoilo
- * 
+ *
  */
 public class PesquisaSatisfacaoDTO extends BaseEntity {
 
-	private static final long serialVersionUID = -5106909887258593160L;
+    private static final long serialVersionUID = -5106909887258593160L;
 
-	private String comentario;
+    private String comentario;
 
-	private String Contrato;
+    private String Contrato;
 
-	private Date dataFim;
+    private Date dataFim;
 
-	private Timestamp dataHoraFim;
+    private Timestamp dataHoraFim;
 
-	private Timestamp dataHoraInicio;
+    private Timestamp dataHoraInicio;
 
-	private Date dataInicio;
+    private Date dataInicio;
 
-	private String frame;
+    private String frame;
 
-	private String hash;
+    private String hash;
 
-	private Integer idContrato;
+    private Integer idContrato;
 
-	private Integer idPesquisaSatisfacao;
+    private Integer idPesquisaSatisfacao;
 
-	private Integer idSolicitacaoServico;
+    private Integer idSolicitacaoServico;
 
-	private Integer idSolicitante;
+    private Integer idSolicitante;
 
-	private String nomeSolicitante;
+    private String nomeSolicitante;
 
-	private Integer nota;
+    private Integer nota;
 
-	private String operador;
+    private String operador;
 
-	private String valorNota;
-	
-	private String tipoRelatorio;
-	
-	private String locale;
-	
-	private Integer idResponsavelAtual;
-	
-	private String nomeResponsavelAtual;
-	
-	/**
-	 * Valor de elementos a serem retornados na pesquisa
-	 * 
-	 * @author thyen.chang
-	 */
-	private Integer valorTopList;
-	
-	public Integer getValorTopList() {
-		return valorTopList;
-	}
+    private String valorNota;
 
-	public void setValorTopList(Integer valorTopList) {
-		this.valorTopList = valorTopList;
-	}
+    private String tipoRelatorio;
 
-	/**
-	 * @return the comentario
-	 */
-	public String getComentario() {
-		return comentario;
-	}
+    private String locale;
 
-	public String getContrato() {
-		return Contrato;
-	}
+    private Integer idResponsavelAtual;
 
-	public Date getDataFim() {
-		return dataFim;
-	}
+    private String nomeResponsavelAtual;
 
-	public Timestamp getDataHoraFim() {
-		return dataHoraFim;
-	}
+    /**
+     * Valor de elementos a serem retornados na pesquisa
+     *
+     * @author thyen.chang
+     */
+    private Integer valorTopList;
 
-	public Timestamp getDataHoraInicio() {
-		return dataHoraInicio;
-	}
+    public Integer getValorTopList() {
+        return valorTopList;
+    }
 
-	public Date getDataInicio() {
-		return dataInicio;
-	}
+    public void setValorTopList(final Integer valorTopList) {
+        this.valorTopList = valorTopList;
+    }
 
-	public String getFrame() {
-		return frame;
-	}
+    /**
+     * @return the comentario
+     */
+    public String getComentario() {
+        return comentario;
+    }
 
-	public String getHash() {
-		return hash;
-	}
+    public String getContrato() {
+        return Contrato;
+    }
 
-	public Integer getIdContrato() {
-		return idContrato;
-	}
+    public Date getDataFim() {
+        return dataFim;
+    }
 
-	/**
-	 * @return the idPesquisaSatisfacao
-	 */
-	public Integer getIdPesquisaSatisfacao() {
-		return idPesquisaSatisfacao;
-	}
+    public Timestamp getDataHoraFim() {
+        return dataHoraFim;
+    }
 
-	/**
-	 * @return the idSolicitacaoServico
-	 */
-	public Integer getIdSolicitacaoServico() {
-		return idSolicitacaoServico;
-	}
+    public Timestamp getDataHoraInicio() {
+        return dataHoraInicio;
+    }
 
-	public Integer getIdSolicitante() {
-		return idSolicitante;
-	}
+    public Date getDataInicio() {
+        return dataInicio;
+    }
 
-	public String getNomeSolicitante() {
-		return nomeSolicitante;
-	}
+    public String getFrame() {
+        return frame;
+    }
 
-	/**
-	 * @return the nota
-	 */
-	public Integer getNota() {
-		return nota;
-	}
+    public String getHash() {
+        return hash;
+    }
 
-	public String getOperador() {
-		return operador;
-	}
+    public Integer getIdContrato() {
+        return idContrato;
+    }
 
-	public String getValorNota() {
-		return valorNota;
-	}
+    /**
+     * @return the idPesquisaSatisfacao
+     */
+    public Integer getIdPesquisaSatisfacao() {
+        return idPesquisaSatisfacao;
+    }
 
-	/**
-	 * @param comentario
-	 *            the comentario to set
-	 */
-	public void setComentario(String comentario) {
-		this.comentario = comentario;
-	}
+    /**
+     * @return the idSolicitacaoServico
+     */
+    public Integer getIdSolicitacaoServico() {
+        return idSolicitacaoServico;
+    }
 
-	public void setContrato(String contrato) {
-		Contrato = contrato;
-	}
+    public Integer getIdSolicitante() {
+        return idSolicitante;
+    }
 
-	public void setDataFim(Date dataFim) {
-		this.dataFim = dataFim;
-	}
+    public String getNomeSolicitante() {
+        return nomeSolicitante;
+    }
 
-	public void setDataHoraFim(Timestamp dataHoraFim) {
-		this.dataHoraFim = dataHoraFim;
-	}
+    /**
+     * @return the nota
+     */
+    public Integer getNota() {
+        return nota;
+    }
 
-	public void setDataHoraInicio(Timestamp dataHoraInicio) {
-		this.dataHoraInicio = dataHoraInicio;
-	}
+    public String getOperador() {
+        return operador;
+    }
 
-	public void setDataInicio(Date dataInicio) {
-		this.dataInicio = dataInicio;
-	}
+    public String getValorNota() {
+        return valorNota;
+    }
 
-	public void setFrame(String frame) {
-		this.frame = frame;
-	}
+    /**
+     * @param comentario
+     *            the comentario to set
+     */
+    public void setComentario(final String comentario) {
+        this.comentario = comentario;
+    }
 
-	public void setHash(String hash) {
-		this.hash = hash;
-	}
+    public void setContrato(final String contrato) {
+        Contrato = contrato;
+    }
 
-	public void setIdContrato(Integer idContrato) {
-		this.idContrato = idContrato;
-	}
+    public void setDataFim(final Date dataFim) {
+        this.dataFim = dataFim;
+    }
 
-	/**
-	 * @param idPesquisaSatisfacao
-	 *            the idPesquisaSatisfacao to set
-	 */
-	public void setIdPesquisaSatisfacao(Integer idPesquisaSatisfacao) {
-		this.idPesquisaSatisfacao = idPesquisaSatisfacao;
-	}
+    public void setDataHoraFim(final Timestamp dataHoraFim) {
+        this.dataHoraFim = dataHoraFim;
+    }
 
-	/**
-	 * @param idSolicitacaoServico
-	 *            the idSolicitacaoServico to set
-	 */
-	public void setIdSolicitacaoServico(Integer idSolicitacaoServico) {
-		this.idSolicitacaoServico = idSolicitacaoServico;
-	}
+    public void setDataHoraInicio(final Timestamp dataHoraInicio) {
+        this.dataHoraInicio = dataHoraInicio;
+    }
 
-	public void setIdSolicitante(Integer idSolicitante) {
-		this.idSolicitante = idSolicitante;
-	}
+    public void setDataInicio(final Date dataInicio) {
+        this.dataInicio = dataInicio;
+    }
 
-	public void setNomeSolicitante(String nomeSolicitante) {
-		this.nomeSolicitante = nomeSolicitante;
-	}
+    public void setFrame(final String frame) {
+        this.frame = frame;
+    }
 
-	/**
-	 * @param nota
-	 *            the nota to set
-	 */
-	public void setNota(Integer nota) {
-		this.nota = nota;
-	}
+    public void setHash(final String hash) {
+        this.hash = hash;
+    }
 
-	public void setOperador(String operador) {
-		this.operador = operador;
-	}
+    public void setIdContrato(final Integer idContrato) {
+        this.idContrato = idContrato;
+    }
 
-	public void setValorNota(String valorNota) {
-		this.valorNota = valorNota;
-	}
+    /**
+     * @param idPesquisaSatisfacao
+     *            the idPesquisaSatisfacao to set
+     */
+    public void setIdPesquisaSatisfacao(final Integer idPesquisaSatisfacao) {
+        this.idPesquisaSatisfacao = idPesquisaSatisfacao;
+    }
 
-	public String getTipoRelatorio() {
-		return tipoRelatorio;
-	}
+    /**
+     * @param idSolicitacaoServico
+     *            the idSolicitacaoServico to set
+     */
+    public void setIdSolicitacaoServico(final Integer idSolicitacaoServico) {
+        this.idSolicitacaoServico = idSolicitacaoServico;
+    }
 
-	public void setTipoRelatorio(String tipoRelatorio) {
-		this.tipoRelatorio = tipoRelatorio;
-	}
+    public void setIdSolicitante(final Integer idSolicitante) {
+        this.idSolicitante = idSolicitante;
+    }
 
-	public String getLocale() {
-		return locale;
-	}
+    public void setNomeSolicitante(final String nomeSolicitante) {
+        this.nomeSolicitante = nomeSolicitante;
+    }
 
-	public void setLocale(String locale) {
-		this.locale = locale;
-	}
+    /**
+     * @param nota
+     *            the nota to set
+     */
+    public void setNota(final Integer nota) {
+        this.nota = nota;
+    }
 
+    public void setOperador(final String operador) {
+        this.operador = operador;
+    }
 
-	public Integer getIdResponsavelAtual() {
-		return idResponsavelAtual;
-	}
+    public void setValorNota(final String valorNota) {
+        this.valorNota = valorNota;
+    }
 
-	public void setIdResponsavelAtual(Integer idResponsavelAtual) {
-		this.idResponsavelAtual = idResponsavelAtual;
-	}
+    public String getTipoRelatorio() {
+        return tipoRelatorio;
+    }
 
-	/**
-	 * @return the nomeResponsavelAtual
-	 */
-	public String getNomeResponsavelAtual() {
-		return nomeResponsavelAtual;
-	}
+    public void setTipoRelatorio(final String tipoRelatorio) {
+        this.tipoRelatorio = tipoRelatorio;
+    }
 
-	/**
-	 * @param nomeResponsavelAtual the nomeResponsavelAtual to set
-	 */
-	public void setNomeResponsavelAtual(String nomeResponsavelAtual) {
-		this.nomeResponsavelAtual = nomeResponsavelAtual;
-	}
-	
-	
+    public String getLocale() {
+        return locale;
+    }
+
+    public void setLocale(final String locale) {
+        this.locale = locale;
+    }
+
+    public Integer getIdResponsavelAtual() {
+        return idResponsavelAtual;
+    }
+
+    public void setIdResponsavelAtual(final Integer idResponsavelAtual) {
+        this.idResponsavelAtual = idResponsavelAtual;
+    }
+
+    /**
+     * @return the nomeResponsavelAtual
+     */
+    public String getNomeResponsavelAtual() {
+        return nomeResponsavelAtual;
+    }
+
+    /**
+     * @param nomeResponsavelAtual
+     *            the nomeResponsavelAtual to set
+     */
+    public void setNomeResponsavelAtual(final String nomeResponsavelAtual) {
+        this.nomeResponsavelAtual = nomeResponsavelAtual;
+    }
 
 }

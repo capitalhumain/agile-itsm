@@ -72,7 +72,7 @@ public class CustoAdicionalProjeto extends AjaxFormAction {
 		prjPesq.setIdCliente(custoAdicional.getIdCliente());
 		prjPesq.setSituacao("A");
 		
-		Collection colProjetos = new ArrayList();
+		Collection colProjetos = new ArrayList<>();
 		if (custoAdicional.getIdCliente() != null){
 			colProjetos = projetoService.find(prjPesq);
 		}
@@ -114,7 +114,7 @@ public class CustoAdicionalProjeto extends AjaxFormAction {
 		prjPesq.setIdCliente(custoAdicional.getIdCliente());
 		prjPesq.setSituacao("A");
 		
-		Collection colProjetos = new ArrayList();
+		Collection colProjetos = new ArrayList<>();
 		if (custoAdicional.getIdCliente() != null){
 			colProjetos = projetoService.find(prjPesq);
 		}

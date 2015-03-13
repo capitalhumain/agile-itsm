@@ -82,7 +82,7 @@ public class PedidoCompra extends AjaxFormAction {
         ItemPedidoCompraService itemPedidoService = (ItemPedidoCompraService) ServiceLocator.getInstance().getService(ItemPedidoCompraService.class, null);
         Collection<ColetaPrecoDTO> colColetas = coletaPrecoService.findHabilitadasByIdCotacao(pedidoCompraDto.getIdCotacao());
         if (colColetas != null) {
-        	Collection<ItemPedidoCompraDTO> itensPedido = new ArrayList();
+        	Collection<ItemPedidoCompraDTO> itensPedido = new ArrayList<>();
             for (ColetaPrecoDTO coletaPrecoDto : colColetas) {
                 if (coletaPrecoDto.getIdFornecedor().intValue() != pedidoCompraDto.getIdFornecedor().intValue())
                     continue;
@@ -144,7 +144,7 @@ public class PedidoCompra extends AjaxFormAction {
             ColetaPrecoService coletaPrecoService = (ColetaPrecoService) ServiceLocator.getInstance().getService(ColetaPrecoService.class, null);
             Collection<ColetaPrecoDTO> colColetas = coletaPrecoService.findHabilitadasByIdCotacao(pedidoCompraDto.getIdCotacao());
             if (colColetas != null) {
-                HashMap<String, ColetaPrecoDTO> mapFornecedor = new HashMap();
+                HashMap<String, ColetaPrecoDTO> mapFornecedor = new HashMap<>();
                 for (ColetaPrecoDTO coletaPrecoDto : colColetas) {
                     if (mapFornecedor.get(""+coletaPrecoDto.getIdFornecedor()) != null)
                         continue;

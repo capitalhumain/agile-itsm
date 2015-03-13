@@ -5,31 +5,33 @@ import java.sql.Date;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class AvaliacaoContratoDTO extends BaseEntity {
-	private Integer idContrato;
-	private Date dataInicio;
-	private Date dataFim;
 
-	public Integer getIdContrato() {
-		return idContrato;
-	}
+    private Integer idContrato;
+    private Date dataInicio;
+    private Date dataFim;
 
-	public void setIdContrato(Integer idContrato) {
-		this.idContrato = idContrato;
-	}
+    public Integer getIdContrato() {
+        return idContrato;
+    }
 
-	public Date getDataInicio() {
-		return dataInicio;
-	}
+    public void setIdContrato(final Integer idContrato) {
+        this.idContrato = idContrato;
+    }
 
-	public void setDataInicio(Date dataInicio) {
-		this.dataInicio = dataInicio;
-	}
+    public Date getDataInicio() {
+        return dataInicio;
+    }
 
-	public Date getDataFim() {
-		return dataFim;
-	}
+    public void setDataInicio(final Date dataInicio) {
+        this.dataInicio = dataInicio;
+    }
 
-	public void setDataFim(Date dataFim) {
-		this.dataFim = dataFim;
-	}
+    public Date getDataFim() {
+        return dataFim;
+    }
+
+    public void setDataFim(final Date dataFim) {
+        this.dataFim = dataFim;
+    }
+
 }

@@ -13,7 +13,6 @@ import br.com.citframework.integracao.Field;
 import br.com.citframework.integracao.Order;
 import br.com.citframework.util.Constantes;
 
-@SuppressWarnings({"rawtypes", "unchecked"})
 public class RequisicaoViagemDAO extends CrudDaoDefaultImpl {
 
     public RequisicaoViagemDAO() {
@@ -51,7 +50,7 @@ public class RequisicaoViagemDAO extends CrudDaoDefaultImpl {
 
     @Override
     public String getTableName() {
-        return getOwner() + "requisicaoviagem";
+        return this.getOwner() + "requisicaoviagem";
     }
 
     @Override
@@ -64,11 +63,6 @@ public class RequisicaoViagemDAO extends CrudDaoDefaultImpl {
         return RequisicaoViagemDTO.class;
     }
 
-    @Override
-    public void updateNotNull(final BaseEntity obj) throws PersistenceException {
-        super.updateNotNull(obj);
-    }
-
     /**
      * Busca uma coleção de requisicao de viagem pelo idCentroCusto
      *
@@ -77,8 +71,8 @@ public class RequisicaoViagemDAO extends CrudDaoDefaultImpl {
      * @throws Exception
      */
     public Collection findByIdCentroCusto(final Integer parm) throws PersistenceException {
-        final List condicao = new ArrayList();
-        final List ordenacao = new ArrayList();
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
         condicao.add(new Condition("idCentroCusto", "=", parm));
         ordenacao.add(new Order("idSolicitacaoServico"));
         return super.findByCondition(condicao, ordenacao);
@@ -93,7 +87,7 @@ public class RequisicaoViagemDAO extends CrudDaoDefaultImpl {
      */
     public RequisicaoViagemDTO findByIdSolicitacao(final Integer idSolicitacaoServico) throws PersistenceException {
 
-        final List condicao = new ArrayList();
+        final List<Condition> condicao = new ArrayList<>();
         condicao.add(new Condition("idSolicitacaoServico", "=", idSolicitacaoServico));
 
         List result = new ArrayList<RequisicaoViagemDTO>();
@@ -101,9 +95,8 @@ public class RequisicaoViagemDAO extends CrudDaoDefaultImpl {
 
         if (result != null && !result.isEmpty()) {
             return (RequisicaoViagemDTO) result.get(0);
-        } else {
-            return null;
         }
+        return null;
 
     }
 
@@ -117,9 +110,9 @@ public class RequisicaoViagemDAO extends CrudDaoDefaultImpl {
      */
     public List<RequisicaoViagemDTO> retornaRequisicaoByTemplateAndIdsolicitacao(final Integer idSolicitacaoServico, final String template)
             throws PersistenceException {
-        final List parametro = new ArrayList();
-        final List listRetorno = new ArrayList();
-        List lista = new ArrayList();
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        List lista = new ArrayList<>();
         final StringBuilder sql = new StringBuilder();
         sql.append("SELECT DISTINCT req.idsolicitacaoservico, ");
         sql.append("                req.idprojeto, ");
@@ -168,8 +161,8 @@ public class RequisicaoViagemDAO extends CrudDaoDefaultImpl {
         listRetorno.add("tarefaIniciada");
         listRetorno.add("remarcacao");
 
-        lista = execSQL(sql.toString(), parametro.toArray());
-        return listConvertion(getBean(), lista, listRetorno);
+        lista = this.execSQL(sql.toString(), parametro.toArray());
+        return this.listConvertion(this.getBean(), lista, listRetorno);
     }
 
 }

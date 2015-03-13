@@ -10,7 +10,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.TimeZone;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import br.com.centralit.citcorpore.util.Enumerados.TipoDate;
 import br.com.citframework.excecao.LogicException;
@@ -19,9 +19,10 @@ public class UtilDatas {
 
     private static final String ZERO_HORAS_E_MINUTOS_4DGT = "00:00h";
     private static String[] dias = {"31", "30", "31", "30", "31", "30", "31", "31", "30", "31", "30", "31"};
-    public static String[] meses = {"citcorpore.texto.mes.janeiro", "citcorpore.texto.mes.fevereiro", "citcorpore.texto.mes.marco", "citcorpore.texto.mes.abril",
-        "citcorpore.texto.mes.maio", "citcorpore.texto.mes.junho", "citcorpore.texto.mes.julho", "citcorpore.texto.mes.agosto", "citcorpore.texto.mes.setembro",
-        "citcorpore.texto.mes.outubro", "citcorpore.texto.mes.novembro", "citcorpore.texto.mes.dezembro"};
+    public static String[] meses = {"citcorpore.texto.mes.janeiro", "citcorpore.texto.mes.fevereiro", "citcorpore.texto.mes.marco",
+            "citcorpore.texto.mes.abril", "citcorpore.texto.mes.maio", "citcorpore.texto.mes.junho", "citcorpore.texto.mes.julho",
+            "citcorpore.texto.mes.agosto", "citcorpore.texto.mes.setembro", "citcorpore.texto.mes.outubro", "citcorpore.texto.mes.novembro",
+            "citcorpore.texto.mes.dezembro"};
 
     /**
      * Retorna a data corrente
@@ -791,7 +792,8 @@ public class UtilDatas {
     }
 
     /**
-     * Faz o calculo da idade com base na data passada como parametro e a data de referencia. retorna apenas os anos retorna um numero representando a quantidade de anos.
+     * Faz o calculo da idade com base na data passada como parametro e a data de referencia. retorna apenas os anos retorna um numero representando a
+     * quantidade de anos.
      *
      * @param dDataNasc
      *            - Data de Nascimento
@@ -1311,9 +1313,7 @@ public class UtilDatas {
         }
         if (dataComparar.compareTo(data1) >= 0 && dataComparar.compareTo(data2) <= 0) {
             return true;
-        } else {
-            return false;
-        }
+        } return false;
     }
 
     /**
@@ -1720,7 +1720,6 @@ public class UtilDatas {
     }
 
     /**
-     * TODO
      *
      * @param tipoDate
      * @param data
@@ -1731,7 +1730,8 @@ public class UtilDatas {
      * @author valdoilo.damasceno
      * @since 11.02.2014
      */
-    public static final Timestamp convertStringToTimestamp(final TipoDate tipoDate, final String data, final String language) throws LogicException, ParseException {
+    public static final Timestamp convertStringToTimestamp(final TipoDate tipoDate, final String data, final String language) throws LogicException,
+            ParseException {
         if (data == null || data.length() == 0) {
             return null;
         }
@@ -1739,7 +1739,8 @@ public class UtilDatas {
     }
 
     /**
-     * Retorna a Data informada, no formato Timestamp, com a última hora do dia, portanto 23:59:59. Método utilizado para as consultas em que é informado a DataFim.
+     * Retorna a Data informada, no formato Timestamp, com a última hora do dia, portanto 23:59:59. Método utilizado para as consultas em que é informado a
+     * DataFim.
      *
      * @param data
      *            - Data do tipo Date.

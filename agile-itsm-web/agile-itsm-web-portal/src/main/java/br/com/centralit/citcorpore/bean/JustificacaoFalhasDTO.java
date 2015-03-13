@@ -6,10 +6,8 @@ import br.com.agileitsm.model.support.BaseEntity;
 
 public class JustificacaoFalhasDTO extends BaseEntity {
 
-    /**
-     * 
-     */
     private static final long serialVersionUID = 1L;
+
     // Variáveis do banco
     private Integer idHistoricoTentativa;
     private Integer idJustificacaoFalha;
@@ -29,115 +27,115 @@ public class JustificacaoFalhasDTO extends BaseEntity {
     private Date dataFinal;
 
     public Integer getIdJustificacaoFalha() {
-	return idJustificacaoFalha;
+        return idJustificacaoFalha;
     }
 
-    public void setIdJustificacaoFalha(Integer idJustificacaoFalha) {
-	this.idJustificacaoFalha = idJustificacaoFalha;
+    public void setIdJustificacaoFalha(final Integer idJustificacaoFalha) {
+        this.idJustificacaoFalha = idJustificacaoFalha;
     }
 
     public Integer getIdItemConfiguracao() {
-	return idItemConfiguracao;
+        return idItemConfiguracao;
     }
 
-    public void setIdItemConfiguracao(Integer idItemConfiguracao) {
-	this.idItemConfiguracao = idItemConfiguracao;
+    public void setIdItemConfiguracao(final Integer idItemConfiguracao) {
+        this.idItemConfiguracao = idItemConfiguracao;
     }
 
     public Integer getIdBaseItemConfiguracao() {
-	return idBaseItemConfiguracao;
+        return idBaseItemConfiguracao;
     }
 
-    public void setIdBaseItemConfiguracao(Integer idBaseItemConfiguracao) {
-	this.idBaseItemConfiguracao = idBaseItemConfiguracao;
+    public void setIdBaseItemConfiguracao(final Integer idBaseItemConfiguracao) {
+        this.idBaseItemConfiguracao = idBaseItemConfiguracao;
     }
 
     public Integer getIdEvento() {
-	return idEvento;
+        return idEvento;
     }
 
-    public void setIdEvento(Integer idEvento) {
-	this.idEvento = idEvento;
+    public void setIdEvento(final Integer idEvento) {
+        this.idEvento = idEvento;
     }
 
     public Integer getIdEmpregado() {
-	return idEmpregado;
+        return idEmpregado;
     }
 
-    public void setIdEmpregado(Integer idEmpregado) {
-	this.idEmpregado = idEmpregado;
+    public void setIdEmpregado(final Integer idEmpregado) {
+        this.idEmpregado = idEmpregado;
     }
 
     public String getDescricao() {
-	return descricao;
+        return descricao;
     }
 
-    public void setDescricao(String descricao) {
-	this.descricao = descricao;
+    public void setDescricao(final String descricao) {
+        this.descricao = descricao;
     }
 
     public Date getData() {
-	return data;
+        return data;
     }
 
-    public void setData(Date data) {
-	this.data = data;
+    public void setData(final Date data) {
+        this.data = data;
     }
 
     public String getHora() {
-	return hora;
+        return hora;
     }
 
-    public void setHora(String hora) {
-	this.hora = hora;
+    public void setHora(final String hora) {
+        this.hora = hora;
     }
 
     public String getListaItensSerializado() {
-	return listaItensSerializado;
+        return listaItensSerializado;
     }
 
-    public void setListaItensSerializado(String listaItensSerializado) {
-	this.listaItensSerializado = listaItensSerializado;
+    public void setListaItensSerializado(final String listaItensSerializado) {
+        this.listaItensSerializado = listaItensSerializado;
     }
 
     public Integer getIdGrupo() {
-	return idGrupo;
+        return idGrupo;
     }
 
-    public void setIdGrupo(Integer idGrupo) {
-	this.idGrupo = idGrupo;
+    public void setIdGrupo(final Integer idGrupo) {
+        this.idGrupo = idGrupo;
     }
 
     public Integer getIdUnidade() {
-	return idUnidade;
+        return idUnidade;
     }
 
-    public void setIdUnidade(Integer idUnidade) {
-	this.idUnidade = idUnidade;
+    public void setIdUnidade(final Integer idUnidade) {
+        this.idUnidade = idUnidade;
     }
 
     public Date getDataInicial() {
-	return dataInicial;
+        return dataInicial;
     }
 
-    public void setDataInicial(Date dataInicial) {
-	this.dataInicial = dataInicial;
+    public void setDataInicial(final Date dataInicial) {
+        this.dataInicial = dataInicial;
     }
 
     public Date getDataFinal() {
-	return dataFinal;
+        return dataFinal;
     }
 
-    public void setDataFinal(Date dataFinal) {
-	this.dataFinal = dataFinal;
+    public void setDataFinal(final Date dataFinal) {
+        this.dataFinal = dataFinal;
     }
 
     public Integer getIdHistoricoTentativa() {
-	return idHistoricoTentativa;
+        return idHistoricoTentativa;
     }
 
-    public void setIdHistoricoTentativa(Integer idHistoricoTentativa) {
-	this.idHistoricoTentativa = idHistoricoTentativa;
+    public void setIdHistoricoTentativa(final Integer idHistoricoTentativa) {
+        this.idHistoricoTentativa = idHistoricoTentativa;
     }
 
 }

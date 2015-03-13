@@ -3,53 +3,60 @@ package br.com.centralit.citcorpore.bean;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class SolicitacaoServicoEvtMonDTO extends BaseEntity {
-	private Integer idSolicitacaoServico;
-	private Integer idEventoMonitoramento;
-	private Integer idRecurso;
-	private String nomeHost;
-	private String nomeService;
-	private String infoAdd;
 
-	public Integer getIdSolicitacaoServico(){
-		return this.idSolicitacaoServico;
-	}
-	public void setIdSolicitacaoServico(Integer parm){
-		this.idSolicitacaoServico = parm;
-	}
+    private Integer idSolicitacaoServico;
+    private Integer idEventoMonitoramento;
+    private Integer idRecurso;
+    private String nomeHost;
+    private String nomeService;
+    private String infoAdd;
 
-	public Integer getIdEventoMonitoramento(){
-		return this.idEventoMonitoramento;
-	}
-	public void setIdEventoMonitoramento(Integer parm){
-		this.idEventoMonitoramento = parm;
-	}
+    public Integer getIdSolicitacaoServico() {
+        return idSolicitacaoServico;
+    }
 
-	public Integer getIdRecurso(){
-		return this.idRecurso;
-	}
-	public void setIdRecurso(Integer parm){
-		this.idRecurso = parm;
-	}
+    public void setIdSolicitacaoServico(final Integer parm) {
+        idSolicitacaoServico = parm;
+    }
 
-	public String getNomeHost(){
-		return this.nomeHost;
-	}
-	public void setNomeHost(String parm){
-		this.nomeHost = parm;
-	}
+    public Integer getIdEventoMonitoramento() {
+        return idEventoMonitoramento;
+    }
 
-	public String getNomeService(){
-		return this.nomeService;
-	}
-	public void setNomeService(String parm){
-		this.nomeService = parm;
-	}
+    public void setIdEventoMonitoramento(final Integer parm) {
+        idEventoMonitoramento = parm;
+    }
 
-	public String getInfoAdd(){
-		return this.infoAdd;
-	}
-	public void setInfoAdd(String parm){
-		this.infoAdd = parm;
-	}
+    public Integer getIdRecurso() {
+        return idRecurso;
+    }
+
+    public void setIdRecurso(final Integer parm) {
+        idRecurso = parm;
+    }
+
+    public String getNomeHost() {
+        return nomeHost;
+    }
+
+    public void setNomeHost(final String parm) {
+        nomeHost = parm;
+    }
+
+    public String getNomeService() {
+        return nomeService;
+    }
+
+    public void setNomeService(final String parm) {
+        nomeService = parm;
+    }
+
+    public String getInfoAdd() {
+        return infoAdd;
+    }
+
+    public void setInfoAdd(final String parm) {
+        infoAdd = parm;
+    }
 
 }

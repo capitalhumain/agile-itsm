@@ -62,7 +62,7 @@ public class RespostaItemQuestionarioServiceBean extends CrudServiceImpl impleme
         respItemOpcoesDao.setTransactionControler(tc);
         respostaItemQuestionarioAnexosDao.setTransactionControler(tc);
 
-        final Collection result = new ArrayList(); // Esta collection apenas armazena os CIDS. Para verificacao entre outro passo sobre vigilancia epidemiologica.
+        final Collection result = new ArrayList<>(); // Esta collection apenas armazena os CIDS. Para verificacao entre outro passo sobre vigilancia epidemiologica.
 
         if (colAnexos != null && colAnexos.size() > 0) {
             boolean bPrimVez = true;
@@ -352,9 +352,9 @@ public class RespostaItemQuestionarioServiceBean extends CrudServiceImpl impleme
         riqoDao.setTransactionControler(tc);
         tc.start();
 
-        final List where = new ArrayList();
+        final List where = new ArrayList<>();
         where.add(new Condition("idIdentificadorResposta", "=", resposta.getIdIdentificadorResposta()));
-        final Collection respostas = dao.findByCondition(where, new ArrayList());
+        final Collection respostas = dao.findByCondition(where, new ArrayList<>());
 
         if (respostas != null && !respostas.isEmpty()) {
             RespostaItemQuestionarioDTO resp = null;

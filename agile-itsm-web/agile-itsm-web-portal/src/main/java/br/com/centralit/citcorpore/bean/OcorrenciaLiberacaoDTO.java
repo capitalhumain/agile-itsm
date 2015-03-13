@@ -7,13 +7,10 @@ import br.com.centralit.citcorpore.util.Enumerados;
 
 /**
  * @author breno.guimaraes
- * 
+ *
  */
 public class OcorrenciaLiberacaoDTO extends BaseEntity {
 
-    /**
-     * 
-     */
     private static final long serialVersionUID = -3055161845325828805L;
 
     private Integer idOcorrencia;
@@ -31,115 +28,114 @@ public class OcorrenciaLiberacaoDTO extends BaseEntity {
     private String registradopor;
     private Integer idItemTrabalho;
     private String dadosLiberacao;
-    
-    
+
     private Integer idJustificativa;
     private String complementoJustificativa;
-    
+
     private Integer idCategoriaOcorrencia;
     private Integer idOrigemOcorrencia;
 
     public Integer getIdOcorrencia() {
-	return idOcorrencia;
+        return idOcorrencia;
     }
 
-    public void setIdOcorrencia(Integer idOcorrencia) {
-	this.idOcorrencia = idOcorrencia;
+    public void setIdOcorrencia(final Integer idOcorrencia) {
+        this.idOcorrencia = idOcorrencia;
     }
 
     public String getCategoria() {
-	return categoria;
+        return categoria;
     }
-    public String getCategoriaDescricao() {
-	if (categoria == null){
-	    return "";
-	}
-	for(Enumerados.CategoriaOcorrencia c : Enumerados.CategoriaOcorrencia.values()){
-	    if (categoria.equalsIgnoreCase(c.getSigla().toString())){
-		return c.getDescricao();
-	    }
-	}	
-	return "";
-    }    
 
-    public void setCategoria(String categoria) {
-	this.categoria = categoria;
+    public String getCategoriaDescricao() {
+        if (categoria == null) {
+            return "";
+        }
+        for (final Enumerados.CategoriaOcorrencia c : Enumerados.CategoriaOcorrencia.values()) {
+            if (categoria.equalsIgnoreCase(c.getSigla().toString())) {
+                return c.getDescricao();
+            }
+        }
+        return "";
+    }
+
+    public void setCategoria(final String categoria) {
+        this.categoria = categoria;
     }
 
     public String getOrigem() {
-	return origem;
+        return origem;
     }
-    
-    public String getOrigemDescricao() {
-	if (origem == null){
-	    return "";
-	}
-	for(Enumerados.OrigemOcorrencia o : Enumerados.OrigemOcorrencia.values()){
-	    if (origem.equalsIgnoreCase(o.getSigla().toString())){
-		return o.getDescricao();
-	    }
-	}	
-	return "";
-    }    
 
-    public void setOrigem(String origem) {
-	this.origem = origem;
+    public String getOrigemDescricao() {
+        if (origem == null) {
+            return "";
+        }
+        for (final Enumerados.OrigemOcorrencia o : Enumerados.OrigemOcorrencia.values()) {
+            if (origem.equalsIgnoreCase(o.getSigla().toString())) {
+                return o.getDescricao();
+            }
+        }
+        return "";
+    }
+
+    public void setOrigem(final String origem) {
+        this.origem = origem;
     }
 
     public String getDescricao() {
-	return descricao;
+        return descricao;
     }
 
-    public void setDescricao(String descricao) {
-	this.descricao = descricao;
+    public void setDescricao(final String descricao) {
+        this.descricao = descricao;
     }
 
     public String getOcorrencia() {
-	return ocorrencia;
+        return ocorrencia;
     }
 
-    public void setOcorrencia(String ocorrencia) {
-	this.ocorrencia = ocorrencia;
+    public void setOcorrencia(final String ocorrencia) {
+        this.ocorrencia = ocorrencia;
     }
 
     public String getInformacoesContato() {
-	return informacoesContato;
+        return informacoesContato;
     }
 
-    public void setInformacoesContato(String informacoesContato) {
-	this.informacoesContato = informacoesContato;
+    public void setInformacoesContato(final String informacoesContato) {
+        this.informacoesContato = informacoesContato;
     }
 
     public Integer getTempoGasto() {
-	return tempoGasto;
+        return tempoGasto;
     }
 
-    public void setTempoGasto(Integer tempoGasto) {
-	this.tempoGasto = tempoGasto;
+    public void setTempoGasto(final Integer tempoGasto) {
+        this.tempoGasto = tempoGasto;
     }
-
 
     public Date getDataInicio() {
-	return dataInicio;
+        return dataInicio;
     }
 
-    public void setDataInicio(Date dataInicio) {
-	this.dataInicio = dataInicio;
+    public void setDataInicio(final Date dataInicio) {
+        this.dataInicio = dataInicio;
     }
 
     public Date getDataFim() {
-	return dataFim;
+        return dataFim;
     }
 
-    public void setDataFim(Date dataFim) {
-	this.dataFim = dataFim;
+    public void setDataFim(final Date dataFim) {
+        this.dataFim = dataFim;
     }
 
     public Date getDataregistro() {
         return dataregistro;
     }
 
-    public void setDataregistro(Date dataregistro) {
+    public void setDataregistro(final Date dataregistro) {
         this.dataregistro = dataregistro;
     }
 
@@ -147,7 +143,7 @@ public class OcorrenciaLiberacaoDTO extends BaseEntity {
         return horaregistro;
     }
 
-    public void setHoraregistro(String horaregistro) {
+    public void setHoraregistro(final String horaregistro) {
         this.horaregistro = horaregistro;
     }
 
@@ -155,64 +151,64 @@ public class OcorrenciaLiberacaoDTO extends BaseEntity {
         return registradopor;
     }
 
-    public void setRegistradopor(String registradopor) {
+    public void setRegistradopor(final String registradopor) {
         this.registradopor = registradopor;
     }
 
-	public Integer getIdItemTrabalho() {
-		return idItemTrabalho;
-	}
+    public Integer getIdItemTrabalho() {
+        return idItemTrabalho;
+    }
 
-	public void setIdItemTrabalho(Integer idItemTrabalho) {
-		this.idItemTrabalho = idItemTrabalho;
-	}
+    public void setIdItemTrabalho(final Integer idItemTrabalho) {
+        this.idItemTrabalho = idItemTrabalho;
+    }
 
-	public Integer getIdJustificativa() {
-		return idJustificativa;
-	}
+    public Integer getIdJustificativa() {
+        return idJustificativa;
+    }
 
-	public void setIdJustificativa(Integer idJustificativa) {
-		this.idJustificativa = idJustificativa;
-	}
+    public void setIdJustificativa(final Integer idJustificativa) {
+        this.idJustificativa = idJustificativa;
+    }
 
-	public String getComplementoJustificativa() {
-		return complementoJustificativa;
-	}
+    public String getComplementoJustificativa() {
+        return complementoJustificativa;
+    }
 
-	public void setComplementoJustificativa(String complementoJustificativa) {
-		this.complementoJustificativa = complementoJustificativa;
-	}
+    public void setComplementoJustificativa(final String complementoJustificativa) {
+        this.complementoJustificativa = complementoJustificativa;
+    }
 
-	public Integer getIdRequisicaoLiberacao() {
-		return idRequisicaoLiberacao;
-	}
+    public Integer getIdRequisicaoLiberacao() {
+        return idRequisicaoLiberacao;
+    }
 
-	public void setIdRequisicaoLiberacao(Integer idRequisicaoLiberacao) {
-		this.idRequisicaoLiberacao = idRequisicaoLiberacao;
-	}
+    public void setIdRequisicaoLiberacao(final Integer idRequisicaoLiberacao) {
+        this.idRequisicaoLiberacao = idRequisicaoLiberacao;
+    }
 
-	public String getDadosLiberacao() {
-		return dadosLiberacao;
-	}
+    public String getDadosLiberacao() {
+        return dadosLiberacao;
+    }
 
-	public void setDadosLiberacao(String dadosLiberacao) {
-		this.dadosLiberacao = dadosLiberacao;
-	}
+    public void setDadosLiberacao(final String dadosLiberacao) {
+        this.dadosLiberacao = dadosLiberacao;
+    }
 
-	public Integer getIdCategoriaOcorrencia() {
-		return idCategoriaOcorrencia;
-	}
+    public Integer getIdCategoriaOcorrencia() {
+        return idCategoriaOcorrencia;
+    }
 
-	public void setIdCategoriaOcorrencia(Integer idCategoriaOcorrencia) {
-		this.idCategoriaOcorrencia = idCategoriaOcorrencia;
-	}
+    public void setIdCategoriaOcorrencia(final Integer idCategoriaOcorrencia) {
+        this.idCategoriaOcorrencia = idCategoriaOcorrencia;
+    }
 
-	public Integer getIdOrigemOcorrencia() {
-		return idOrigemOcorrencia;
-	}
+    public Integer getIdOrigemOcorrencia() {
+        return idOrigemOcorrencia;
+    }
 
-	public void setIdOrigemOcorrencia(Integer idOrigemOcorrencia) {
-		this.idOrigemOcorrencia = idOrigemOcorrencia;
-	}
+    public void setIdOrigemOcorrencia(final Integer idOrigemOcorrencia) {
+        this.idOrigemOcorrencia = idOrigemOcorrencia;
+    }
 
 }

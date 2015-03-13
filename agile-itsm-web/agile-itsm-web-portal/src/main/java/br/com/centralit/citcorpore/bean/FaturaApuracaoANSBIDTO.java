@@ -2,104 +2,104 @@ package br.com.centralit.citcorpore.bean;
 
 import br.com.agileitsm.model.support.BaseEntity;
 
-@SuppressWarnings("serial")
 public class FaturaApuracaoANSBIDTO extends BaseEntity {
-	private Integer idFaturaApuracaoANS;
-	private Integer idFatura;
-	private Integer idAcordoNivelServicoContrato;
-	private Double valorApurado;
-	private String detalhamento;
-	private Double percentualGlosa;
-	private Double valorGlosa;
-	private java.sql.Date dataApuracao;
-	private String descricao;
-	private Integer idConexaoBI;
 
-	public Integer getIdFaturaApuracaoANS() {
-		return this.idFaturaApuracaoANS;
-	}
+    private Integer idFaturaApuracaoANS;
+    private Integer idFatura;
+    private Integer idAcordoNivelServicoContrato;
+    private Double valorApurado;
+    private String detalhamento;
+    private Double percentualGlosa;
+    private Double valorGlosa;
+    private java.sql.Date dataApuracao;
+    private String descricao;
+    private Integer idConexaoBI;
 
-	public void setIdFaturaApuracaoANS(Integer parm) {
-		this.idFaturaApuracaoANS = parm;
-	}
+    public Integer getIdFaturaApuracaoANS() {
+        return idFaturaApuracaoANS;
+    }
 
-	public Integer getIdFatura() {
-		return this.idFatura;
-	}
+    public void setIdFaturaApuracaoANS(final Integer parm) {
+        idFaturaApuracaoANS = parm;
+    }
 
-	public void setIdFatura(Integer parm) {
-		this.idFatura = parm;
-	}
+    public Integer getIdFatura() {
+        return idFatura;
+    }
 
-	public Integer getIdAcordoNivelServicoContrato() {
-		return this.idAcordoNivelServicoContrato;
-	}
+    public void setIdFatura(final Integer parm) {
+        idFatura = parm;
+    }
 
-	public void setIdAcordoNivelServicoContrato(Integer parm) {
-		this.idAcordoNivelServicoContrato = parm;
-	}
+    public Integer getIdAcordoNivelServicoContrato() {
+        return idAcordoNivelServicoContrato;
+    }
 
-	public Double getValorApurado() {
-		return this.valorApurado;
-	}
+    public void setIdAcordoNivelServicoContrato(final Integer parm) {
+        idAcordoNivelServicoContrato = parm;
+    }
 
-	public void setValorApurado(Double parm) {
-		this.valorApurado = parm;
-	}
+    public Double getValorApurado() {
+        return valorApurado;
+    }
 
-	public String getDetalhamento() {
-		return this.detalhamento;
-	}
+    public void setValorApurado(final Double parm) {
+        valorApurado = parm;
+    }
 
-	public void setDetalhamento(String parm) {
-		this.detalhamento = parm;
-	}
+    public String getDetalhamento() {
+        return detalhamento;
+    }
 
-	public Double getPercentualGlosa() {
-		return this.percentualGlosa;
-	}
+    public void setDetalhamento(final String parm) {
+        detalhamento = parm;
+    }
 
-	public void setPercentualGlosa(Double parm) {
-		this.percentualGlosa = parm;
-	}
+    public Double getPercentualGlosa() {
+        return percentualGlosa;
+    }
 
-	public Double getValorGlosa() {
-		return this.valorGlosa;
-	}
+    public void setPercentualGlosa(final Double parm) {
+        percentualGlosa = parm;
+    }
 
-	public void setValorGlosa(Double parm) {
-		this.valorGlosa = parm;
-	}
+    public Double getValorGlosa() {
+        return valorGlosa;
+    }
 
-	public java.sql.Date getDataApuracao() {
-		return this.dataApuracao;
-	}
+    public void setValorGlosa(final Double parm) {
+        valorGlosa = parm;
+    }
 
-	public void setDataApuracao(java.sql.Date parm) {
-		this.dataApuracao = parm;
-	}
+    public java.sql.Date getDataApuracao() {
+        return dataApuracao;
+    }
 
-	/**
-	 * @return the descricao
-	 */
-	public String getDescricao() {
-		return descricao;
-	}
+    public void setDataApuracao(final java.sql.Date parm) {
+        dataApuracao = parm;
+    }
 
-	/**
-	 * @param descricao
-	 *            the descricao to set
-	 */
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
+    /**
+     * @return the descricao
+     */
+    public String getDescricao() {
+        return descricao;
+    }
 
-	public Integer getIdConexaoBI() {
-		return idConexaoBI;
-	}
+    /**
+     * @param descricao
+     *            the descricao to set
+     */
+    public void setDescricao(final String descricao) {
+        this.descricao = descricao;
+    }
 
-	public void setIdConexaoBI(Integer idConexaoBI) {
-		this.idConexaoBI = idConexaoBI;
-	}
-	
+    public Integer getIdConexaoBI() {
+        return idConexaoBI;
+    }
+
+    public void setIdConexaoBI(final Integer idConexaoBI) {
+        this.idConexaoBI = idConexaoBI;
+    }
+
 }

@@ -76,7 +76,7 @@ public class ColetaPreco extends AjaxFormAction {
         FornecedorCotacaoService fornecedorCotacaoService = (FornecedorCotacaoService) ServiceLocator.getInstance().getService(FornecedorCotacaoService.class, null);
         Collection<FornecedorCotacaoDTO> colFornecedorCotacao = fornecedorCotacaoService.findByIdCotacao(coletaPrecoDto.getIdCotacao());
         if (colFornecedorCotacao != null) {
-            Collection<FornecedorDTO> colFornecedores = new ArrayList();
+            Collection<FornecedorDTO> colFornecedores = new ArrayList<>();
             FornecedorService fornecedorService = (FornecedorService) ServiceLocator.getInstance().getService(FornecedorService.class, null);
             for (FornecedorCotacaoDTO fornecedorCotacaoDto : colFornecedorCotacao) {
                 FornecedorDTO fornecedorDto = new FornecedorDTO();

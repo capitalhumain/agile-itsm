@@ -76,7 +76,7 @@ public class LookupInfo {
 		String scriptRefAux = scriptRef;
 		scriptRefAux += ";";
 		String str[] = scriptRefAux.split(";");
-		this.colScriptRef = new ArrayList();
+		this.colScriptRef = new ArrayList<>();
 		if (str != null){
 			for(int i=0; i < str.length; i++){
 				this.colScriptRef.add(str[i]);

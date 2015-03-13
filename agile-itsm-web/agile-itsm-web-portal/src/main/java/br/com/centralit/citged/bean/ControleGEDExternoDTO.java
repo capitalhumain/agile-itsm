@@ -3,90 +3,89 @@ package br.com.centralit.citged.bean;
 import java.sql.Timestamp;
 import java.util.HashMap;
 
-
 public class ControleGEDExternoDTO extends ControleGEDDTO {
-	private HashMap mapDemaisDados;
-	private String caminhoCompletoDocumento;
-	private String caminhoCompletoAssinaturaDigital;
-	private String caminhoCompletoCarimboTempo;
-	private byte[] conteudoDocumento;
-	private byte[] conteudoAssinaturaDigital;
-	private byte[] conteudoCarimboTempo;
-	private Timestamp dataGeracaoConteudo;
-	
-	private String numeroRetorno;
 
-	public HashMap getMapDemaisDados() {
-		return mapDemaisDados;
-	}
+    private HashMap mapDemaisDados;
+    private String caminhoCompletoDocumento;
+    private String caminhoCompletoAssinaturaDigital;
+    private String caminhoCompletoCarimboTempo;
+    private byte[] conteudoDocumento;
+    private byte[] conteudoAssinaturaDigital;
+    private byte[] conteudoCarimboTempo;
+    private Timestamp dataGeracaoConteudo;
 
-	public void setMapDemaisDados(HashMap mapDemaisDados) {
-		this.mapDemaisDados = mapDemaisDados;
-	}
+    private String numeroRetorno;
 
-	public byte[] getConteudoDocumento() {
-		return conteudoDocumento;
-	}
+    public HashMap getMapDemaisDados() {
+        return mapDemaisDados;
+    }
 
-	public void setConteudoDocumento(byte[] conteudoDocumento) {
-		this.conteudoDocumento = conteudoDocumento;
-	}
+    public void setMapDemaisDados(final HashMap mapDemaisDados) {
+        this.mapDemaisDados = mapDemaisDados;
+    }
 
-	public byte[] getConteudoAssinaturaDigital() {
-		return conteudoAssinaturaDigital;
-	}
+    public byte[] getConteudoDocumento() {
+        return conteudoDocumento;
+    }
 
-	public void setConteudoAssinaturaDigital(byte[] conteudoAssinaturaDigital) {
-		this.conteudoAssinaturaDigital = conteudoAssinaturaDigital;
-	}
+    public void setConteudoDocumento(final byte[] conteudoDocumento) {
+        this.conteudoDocumento = conteudoDocumento;
+    }
 
-	public byte[] getConteudoCarimboTempo() {
-		return conteudoCarimboTempo;
-	}
+    public byte[] getConteudoAssinaturaDigital() {
+        return conteudoAssinaturaDigital;
+    }
 
-	public void setConteudoCarimboTempo(byte[] conteudoCarimboTempo) {
-		this.conteudoCarimboTempo = conteudoCarimboTempo;
-	}
+    public void setConteudoAssinaturaDigital(final byte[] conteudoAssinaturaDigital) {
+        this.conteudoAssinaturaDigital = conteudoAssinaturaDigital;
+    }
 
-	public String getCaminhoCompletoDocumento() {
-		return caminhoCompletoDocumento;
-	}
+    public byte[] getConteudoCarimboTempo() {
+        return conteudoCarimboTempo;
+    }
 
-	public void setCaminhoCompletoDocumento(String caminhoCompletoDocumento) {
-		this.caminhoCompletoDocumento = caminhoCompletoDocumento;
-	}
+    public void setConteudoCarimboTempo(final byte[] conteudoCarimboTempo) {
+        this.conteudoCarimboTempo = conteudoCarimboTempo;
+    }
 
-	public String getCaminhoCompletoAssinaturaDigital() {
-		return caminhoCompletoAssinaturaDigital;
-	}
+    public String getCaminhoCompletoDocumento() {
+        return caminhoCompletoDocumento;
+    }
 
-	public void setCaminhoCompletoAssinaturaDigital(
-			String caminhoCompletoAssinaturaDigital) {
-		this.caminhoCompletoAssinaturaDigital = caminhoCompletoAssinaturaDigital;
-	}
+    public void setCaminhoCompletoDocumento(final String caminhoCompletoDocumento) {
+        this.caminhoCompletoDocumento = caminhoCompletoDocumento;
+    }
 
-	public String getCaminhoCompletoCarimboTempo() {
-		return caminhoCompletoCarimboTempo;
-	}
+    public String getCaminhoCompletoAssinaturaDigital() {
+        return caminhoCompletoAssinaturaDigital;
+    }
 
-	public void setCaminhoCompletoCarimboTempo(String caminhoCompletoCarimboTempo) {
-		this.caminhoCompletoCarimboTempo = caminhoCompletoCarimboTempo;
-	}
+    public void setCaminhoCompletoAssinaturaDigital(final String caminhoCompletoAssinaturaDigital) {
+        this.caminhoCompletoAssinaturaDigital = caminhoCompletoAssinaturaDigital;
+    }
 
-	public Timestamp getDataGeracaoConteudo() {
-		return dataGeracaoConteudo;
-	}
+    public String getCaminhoCompletoCarimboTempo() {
+        return caminhoCompletoCarimboTempo;
+    }
 
-	public void setDataGeracaoConteudo(Timestamp dataGeracaoConteudo) {
-		this.dataGeracaoConteudo = dataGeracaoConteudo;
-	}
+    public void setCaminhoCompletoCarimboTempo(final String caminhoCompletoCarimboTempo) {
+        this.caminhoCompletoCarimboTempo = caminhoCompletoCarimboTempo;
+    }
 
-	public String getNumeroRetorno() {
-		return numeroRetorno;
-	}
+    public Timestamp getDataGeracaoConteudo() {
+        return dataGeracaoConteudo;
+    }
 
-	public void setNumeroRetorno(String numeroRetorno) {
-		this.numeroRetorno = numeroRetorno;
-	}
-	
+    public void setDataGeracaoConteudo(final Timestamp dataGeracaoConteudo) {
+        this.dataGeracaoConteudo = dataGeracaoConteudo;
+    }
+
+    public String getNumeroRetorno() {
+        return numeroRetorno;
+    }
+
+    public void setNumeroRetorno(final String numeroRetorno) {
+        this.numeroRetorno = numeroRetorno;
+    }
+
 }

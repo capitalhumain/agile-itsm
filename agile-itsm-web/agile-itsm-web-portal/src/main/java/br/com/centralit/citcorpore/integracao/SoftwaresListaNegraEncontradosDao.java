@@ -16,7 +16,6 @@ import br.com.citframework.util.Constantes;
  * @author ronnie.lopes
  *
  */
-@SuppressWarnings({"rawtypes", "unchecked"})
 public class SoftwaresListaNegraEncontradosDao extends CrudDaoDefaultImpl {
 
     public SoftwaresListaNegraEncontradosDao() {
@@ -41,7 +40,7 @@ public class SoftwaresListaNegraEncontradosDao extends CrudDaoDefaultImpl {
 
     @Override
     public String getTableName() {
-        return "SoftwaresListaNegraEncontrados";
+        return "softwareslistanegraencontrados";
     }
 
     @Override
@@ -51,7 +50,7 @@ public class SoftwaresListaNegraEncontradosDao extends CrudDaoDefaultImpl {
 
     @Override
     public Collection<SoftwaresListaNegraEncontradosDTO> list() throws PersistenceException {
-        final List list = new ArrayList();
+        final List list = new ArrayList<>();
         list.add(new Order("idsoftwareslistanegraencontrad"));
         return super.list(list);
     }

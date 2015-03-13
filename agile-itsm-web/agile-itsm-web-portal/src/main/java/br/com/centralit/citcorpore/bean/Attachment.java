@@ -2,44 +2,45 @@ package br.com.centralit.citcorpore.bean;
 
 /**
  * @author breno.guimaraes
- * Conteúdo de emails recebidos.
+ *         Conteúdo de emails recebidos.
  */
 public class Attachment {
-	private String	contenttype;
-	private String	filename;
-	private byte[]	content;
-	private String	contentid;
 
-	public String getContenttype() {
-		return contenttype;
-	}
+    private String contenttype;
+    private String filename;
+    private byte[] content;
+    private String contentid;
 
-	public void setContenttype(String contenttype) {
-		this.contenttype = contenttype;
-	}
+    public String getContenttype() {
+        return contenttype;
+    }
 
-	public String getFilename() {
-		return filename;
-	}
+    public void setContenttype(final String contenttype) {
+        this.contenttype = contenttype;
+    }
 
-	public void setFilename(String filename) {
-		this.filename = filename;
-	}
+    public String getFilename() {
+        return filename;
+    }
 
-	public byte[] getContent() {
-		return content;
-	}
+    public void setFilename(final String filename) {
+        this.filename = filename;
+    }
 
-	public void setContent(byte[] content) {
-		this.content = content;
-	}
+    public byte[] getContent() {
+        return content;
+    }
 
-	public String getContentid() {
-		return contentid;
-	}
+    public void setContent(final byte[] content) {
+        this.content = content;
+    }
 
-	public void setContentid(String contentid) {
-		this.contentid = contentid;
-	}
+    public String getContentid() {
+        return contentid;
+    }
+
+    public void setContentid(final String contentid) {
+        this.contentid = contentid;
+    }
 
 }

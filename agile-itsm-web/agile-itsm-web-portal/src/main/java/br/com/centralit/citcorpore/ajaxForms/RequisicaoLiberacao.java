@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.htmlparser.jericho.Source;
 
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 
 import br.com.centralit.citajax.html.AjaxFormAction;
 import br.com.centralit.citajax.html.DocumentHTML;
@@ -759,7 +759,7 @@ public class RequisicaoLiberacao extends AjaxFormAction {
                 "citcorpore.comum.selecione"));
         if (listTipoLiberacao != null) {
             for (TipoLiberacaoDTO tipoLiberacaoDTO : listTipoLiberacao) {
-                tipoLiberacaoDTO.setNomeTipoLiberacao(StringEscapeUtils.escapeJavaScript(tipoLiberacaoDTO.getNomeTipoLiberacao()));
+                tipoLiberacaoDTO.setNomeTipoLiberacao(StringEscapeUtils.escapeEcmaScript(tipoLiberacaoDTO.getNomeTipoLiberacao()));
                 if (tipoLiberacaoDTO.getIdTipoLiberacao() != null
                         || tipoLiberacaoDTO.getIdTipoLiberacao() > 0) {
                     comboTipoLiberacao.addOption(tipoLiberacaoDTO.getIdTipoLiberacao().toString(), tipoLiberacaoDTO.getNomeTipoLiberacao());
@@ -900,7 +900,7 @@ public class RequisicaoLiberacao extends AjaxFormAction {
             if (unidades != null) {
                 for (UnidadeDTO unidade : unidades) {
                     if (unidade.getDataFim() == null) {
-                        comboUnidade.addOption(unidade.getIdUnidade().toString(), StringEscapeUtils.escapeJavaScript(unidade.getNomeNivel().toString()));
+                        comboUnidade.addOption(unidade.getIdUnidade().toString(), StringEscapeUtils.escapeEcmaScript(unidade.getNomeNivel().toString()));
                         if (setUnidade) {
                             if(unidade.getIdUnidade().equals(empregadoDTO.getIdUnidade())){
                                 verifica = true;
@@ -920,7 +920,7 @@ public class RequisicaoLiberacao extends AjaxFormAction {
             if (unidades != null) {
                 for (UnidadeDTO unidade : unidades) {
                     if (unidade.getDataFim() == null) {
-                        comboUnidade.addOption(unidade.getIdUnidade().toString(), StringEscapeUtils.escapeJavaScript(unidade.getNomeNivel().toString()));
+                        comboUnidade.addOption(unidade.getIdUnidade().toString(), StringEscapeUtils.escapeEcmaScript(unidade.getNomeNivel().toString()));
                     }
                 }
             }
@@ -1264,7 +1264,7 @@ public class RequisicaoLiberacao extends AjaxFormAction {
         HistoricoLiberacaoService liberacaoService = (HistoricoLiberacaoService) ServiceLocator.getInstance().getService(HistoricoLiberacaoService.class, null);
         HistoricoMudancaService mudancaService = (HistoricoMudancaService) ServiceLocator.getInstance().getService(HistoricoMudancaService.class, null);
         /*RequisicaoLiberacaoDTO requisicaoLiberacaoDTO = (RequisicaoLiberacaoDTO) document.getBean();*/
-        Collection<String> colbaselines = new ArrayList();
+        Collection<String> colbaselines = new ArrayList<>();
 
         HTMLElement divPrincipal = document.getElementById("contentBaseline");
         StringBuilder subDiv = new StringBuilder();
@@ -2204,7 +2204,7 @@ public class RequisicaoLiberacao extends AjaxFormAction {
         atividadePeriodicaDTO.setIdContrato(requisicaoLiberacaoDto.getIdContrato());
         atividadePeriodicaDTO.setOrientacaoTecnica(orient);
 
-        Collection colItens = new ArrayList();
+        Collection colItens = new ArrayList<>();
         ProgramacaoAtividadeDTO programacaoAtividadeDTO = new ProgramacaoAtividadeDTO();
         programacaoAtividadeDTO.setTipoAgendamento("U");
         programacaoAtividadeDTO.setDataInicio(atividadePeriodicaDTO.getDataInicio());

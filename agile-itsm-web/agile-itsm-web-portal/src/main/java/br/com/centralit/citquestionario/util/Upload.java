@@ -80,8 +80,8 @@ public class Upload {
 			if (str == null || str.equalsIgnoreCase("")){
 				str = DIRETORIO_TEMP_UPLOAD_ARQUIVOS;
 			}
-			hshRetorno[0] = new HashMap();  //Retorna os campos de formulário
-			hshRetorno[1] = new HashMap();  //Retorna os nomes de arquivos
+			hshRetorno[0] = new HashMap<>();  //Retorna os campos de formulário
+			hshRetorno[1] = new HashMap<>();  //Retorna os nomes de arquivos
 			
 			List fileItems = fu.parseRequest(request);
 			Iterator i = fileItems.iterator();

@@ -14,51 +14,51 @@ public class EventoEmpregadoDTO extends BaseEntity {
     private String nome;
 
     public Integer getIdEvento() {
-	return idEvento;
+        return idEvento;
     }
 
-    public void setIdEvento(Integer idEvento) {
-	this.idEvento = idEvento;
+    public void setIdEvento(final Integer idEvento) {
+        this.idEvento = idEvento;
     }
 
     public Integer getIdGrupo() {
-	return idGrupo;
+        return idGrupo;
     }
 
-    public void setIdGrupo(Integer idGrupo) {
-	this.idGrupo = idGrupo;
+    public void setIdGrupo(final Integer idGrupo) {
+        this.idGrupo = idGrupo;
     }
 
     public Integer getIdUnidade() {
-	return idUnidade;
+        return idUnidade;
     }
 
-    public void setIdUnidade(Integer idUnidade) {
-	this.idUnidade = idUnidade;
+    public void setIdUnidade(final Integer idUnidade) {
+        this.idUnidade = idUnidade;
     }
 
     public Integer getIdEmpregado() {
-	return idEmpregado;
+        return idEmpregado;
     }
 
-    public void setIdEmpregado(Integer idEmpregado) {
-	this.idEmpregado = idEmpregado;
+    public void setIdEmpregado(final Integer idEmpregado) {
+        this.idEmpregado = idEmpregado;
     }
 
     public String getNome() {
-	return nome;
+        return nome;
     }
 
-    public void setNome(String nome) {
-	this.nome = nome;
+    public void setNome(final String nome) {
+        this.nome = nome;
     }
 
     public Integer getIdItemConfiguracaoPai() {
-	return idItemConfiguracaoPai;
+        return idItemConfiguracaoPai;
     }
 
-    public void setIdItemConfiguracaoPai(Integer idItemConfiguracaoPai) {
-	this.idItemConfiguracaoPai = idItemConfiguracaoPai;
+    public void setIdItemConfiguracaoPai(final Integer idItemConfiguracaoPai) {
+        this.idItemConfiguracaoPai = idItemConfiguracaoPai;
     }
 
 }

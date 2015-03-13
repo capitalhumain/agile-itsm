@@ -7,9 +7,6 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import org.apache.commons.lang.StringEscapeUtils;
-import org.apache.commons.lang.StringUtils;
-
 import br.com.centralit.citcorpore.bean.ContratosGruposDTO;
 import br.com.centralit.citcorpore.bean.UsuarioDTO;
 import br.com.centralit.citcorpore.negocio.ContratosGruposService;
@@ -25,13 +22,13 @@ import br.com.citframework.util.UtilFormatacao;
 
 public class LookupProcessContrato extends LookupProcessDefaultDao {
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public List processLookup(LookupDTO lookupObject) throws LogicException, Exception{
+    @SuppressWarnings({"rawtypes", "unchecked"})
+    public List processLookup(final LookupDTO lookupObject) throws LogicException, Exception {
         String sql = "";
-        // Collection colRetorno = new ArrayList();
+        // Collection colRetorno = new ArrayList<>();
 
-        LookupFieldUtil lookUpField = new LookupFieldUtil();
-        Collection colCamposRet = lookUpField.getCamposRetorno(lookupObject.getNomeLookup());
+        final LookupFieldUtil lookUpField = new LookupFieldUtil();
+        final Collection colCamposRet = lookUpField.getCamposRetorno(lookupObject.getNomeLookup());
         Iterator itRet = colCamposRet.iterator();
         Campo cp;
         while (itRet.hasNext()) {
@@ -43,30 +40,33 @@ public class LookupProcessContrato extends LookupProcessDefaultDao {
         }
 
         sql = "SELECT " + sql;
-		sql += "  FROM CONTRATOS PRJ INNER JOIN CLIENTES CLI on CLI.idCliente = PRJ.idCliente INNER JOIN Fornecedor FORN on FORN.idFornecedor = PRJ.idFornecedor ";
-		String where = " (PRJ.deleted IS NULL or PRJ.deleted = 'N')";
+        sql += "  FROM CONTRATOS PRJ INNER JOIN CLIENTES CLI on CLI.idCliente = PRJ.idCliente INNER JOIN Fornecedor FORN on FORN.idFornecedor = PRJ.idFornecedor ";
+        String where = " (PRJ.deleted IS NULL or PRJ.deleted = 'N')";
 
-        ContratosGruposService contratosGruposService = (ContratosGruposService) ServiceLocator.getInstance().getService(ContratosGruposService.class, null);
+        final ContratosGruposService contratosGruposService = (ContratosGruposService) ServiceLocator.getInstance().getService(ContratosGruposService.class,
+                null);
 
-        String COLABORADORES_VINC_CONTRATOS = ParametroUtil.getValorParametroCitSmartHashMap(br.com.centralit.citcorpore.util.Enumerados.ParametroSistema.COLABORADORES_VINC_CONTRATOS, "N");
-        if (COLABORADORES_VINC_CONTRATOS == null)
+        String COLABORADORES_VINC_CONTRATOS = ParametroUtil.getValorParametroCitSmartHashMap(
+                br.com.centralit.citcorpore.util.Enumerados.ParametroSistema.COLABORADORES_VINC_CONTRATOS, "N");
+        if (COLABORADORES_VINC_CONTRATOS == null) {
             COLABORADORES_VINC_CONTRATOS = "N";
+        }
         if (COLABORADORES_VINC_CONTRATOS.equalsIgnoreCase("S")) {
             where += " AND PRJ.idContrato in (-1";
-            UsuarioDTO usuarioDto = (UsuarioDTO) lookupObject.getUser();
+            final UsuarioDTO usuarioDto = (UsuarioDTO) lookupObject.getUser();
             if (usuarioDto != null) {
-                Collection<ContratosGruposDTO> colContratosColab = contratosGruposService.findByIdEmpregado(usuarioDto.getIdEmpregado());
+                final Collection<ContratosGruposDTO> colContratosColab = contratosGruposService.findByIdEmpregado(usuarioDto.getIdEmpregado());
                 if (colContratosColab != null) {
-                    for (ContratosGruposDTO contratosGruposDto : colContratosColab) {
-                        where += ","+contratosGruposDto.getIdContrato();
+                    for (final ContratosGruposDTO contratosGruposDto : colContratosColab) {
+                        where += "," + contratosGruposDto.getIdContrato();
                     }
                 }
             }
             where += ")";
         }
 
-        Collection colCamposPesq = lookUpField.getCamposPesquisa(lookupObject.getNomeLookup());
-        Iterator itPesq = colCamposPesq.iterator();
+        final Collection colCamposPesq = lookUpField.getCamposPesquisa(lookupObject.getNomeLookup());
+        final Iterator itPesq = colCamposPesq.iterator();
         String obj = null;
         int count = 1;
         while (itPesq.hasNext()) {
@@ -74,7 +74,7 @@ public class LookupProcessContrato extends LookupProcessDefaultDao {
             obj = null;
             obj = this.getValueParmLookup(lookupObject, count);
             if (obj != null) {
-                String[] trataGetNomeFisico = cp.getNomeFisico().split("\\.");
+                final String[] trataGetNomeFisico = cp.getNomeFisico().split("\\.");
                 String nomeFisico = cp.getNomeFisico();
                 if (trataGetNomeFisico.length > 1) {
                     cp.setNomeFisico(trataGetNomeFisico[1]);
@@ -84,8 +84,9 @@ public class LookupProcessContrato extends LookupProcessDefaultDao {
                     if (!where.equalsIgnoreCase("")) {
                         where = where + " AND ";
                     }
-                    if (cp.getType().equalsIgnoreCase(Constantes.getValue("FIELDTYPE_TEXT").trim()) || cp.getType().equalsIgnoreCase(Constantes.getValue("FIELDTYPE_TEXTAREA").trim())) {
-                        String func = Constantes.getValue("FUNCAO_CONVERTE_MAIUSCULO");
+                    if (cp.getType().equalsIgnoreCase(Constantes.getValue("FIELDTYPE_TEXT").trim())
+                            || cp.getType().equalsIgnoreCase(Constantes.getValue("FIELDTYPE_TEXTAREA").trim())) {
+                        final String func = Constantes.getValue("FUNCAO_CONVERTE_MAIUSCULO");
                         if (func != null && !func.trim().equalsIgnoreCase("")) {
                             where = where + func + "(" + nomeFisico + ")";
                         } else {
@@ -111,12 +112,9 @@ public class LookupProcessContrato extends LookupProcessDefaultDao {
                         obj = obj.replaceAll("[^\\p{ASCII}]", "");
                     }
 
-                    if (StringUtils.contains(obj, "'") && !cp.getType().equalsIgnoreCase(Constantes.getValue("FIELDTYPE_COMBO").trim())) {
-                        obj = StringEscapeUtils.escapeSql(obj);
-                    }
-
                     where = where + obj;
-                    if (cp.getType().equalsIgnoreCase(Constantes.getValue("FIELDTYPE_TEXT").trim()) || cp.getType().equalsIgnoreCase(Constantes.getValue("FIELDTYPE_TEXTAREA").trim())) {
+                    if (cp.getType().equalsIgnoreCase(Constantes.getValue("FIELDTYPE_TEXT").trim())
+                            || cp.getType().equalsIgnoreCase(Constantes.getValue("FIELDTYPE_TEXTAREA").trim())) {
                         where = where + "%'";
                     } else if (cp.getType().equalsIgnoreCase("DATE")) {
                         where = where + "'";
@@ -143,8 +141,8 @@ public class LookupProcessContrato extends LookupProcessDefaultDao {
             }
         }
 
-        Collection colCamposOrd = lookUpField.getCamposOrdenacao(lookupObject.getNomeLookup());
-        Iterator itOrd = colCamposOrd.iterator();
+        final Collection colCamposOrd = lookUpField.getCamposOrdenacao(lookupObject.getNomeLookup());
+        final Iterator itOrd = colCamposOrd.iterator();
         String ordem = "";
         while (itOrd.hasNext()) {
             cp = (Campo) itOrd.next();
@@ -159,9 +157,9 @@ public class LookupProcessContrato extends LookupProcessDefaultDao {
         }
 
         sql = sql.toUpperCase();
-        List lista = execSQL(sql, null);
+        final List lista = this.execSQL(sql, null);
         if (lista == null || lista.size() == 0) {
-            TransactionControler tc = this.getTransactionControler();
+            final TransactionControler tc = this.getTransactionControler();
             if (tc != null) {
                 tc.close();
             }
@@ -170,9 +168,9 @@ public class LookupProcessContrato extends LookupProcessDefaultDao {
         }
 
         // Processa o resultado.
-        List result = new ArrayList();
+        final List result = new ArrayList<>();
         if (lista == null || lista.size() == 0) {
-            TransactionControler tc = this.getTransactionControler();
+            final TransactionControler tc = this.getTransactionControler();
             if (tc != null) {
                 tc.close();
             }
@@ -180,36 +178,38 @@ public class LookupProcessContrato extends LookupProcessDefaultDao {
             return result;
         }
         if (lista.size() > 400) {
-            TransactionControler tc = this.getTransactionControler();
+            final TransactionControler tc = this.getTransactionControler();
             if (tc != null) {
                 tc.close();
             }
 
             throw new LogicException("citcorpore.comum.consultaEstourouLimite");
         }
-        Iterator it = lista.iterator();
+        final Iterator it = lista.iterator();
         Campo campoAux;
         int i;
         Collection colAux;
         Object auxObj;
         while (it.hasNext()) {
-            Object[] row = (Object[]) it.next();
+            final Object[] row = (Object[]) it.next();
             itRet = colCamposRet.iterator();
             i = 0;
             campoAux = null;
-            colAux = new ArrayList();
+            colAux = new ArrayList<>();
             while (itRet.hasNext()) {
                 cp = (Campo) itRet.next();
                 campoAux = new Campo(cp.getNomeFisico(), cp.getDescricao(), cp.isObrigatorio(), cp.getType(), cp.getTamanho());
-                if (cp.getType().equalsIgnoreCase(Constantes.getValue("FIELDTYPE_TEXT").trim()) || cp.getType().equalsIgnoreCase(Constantes.getValue("FIELDTYPE_TEXTAREA").trim())) {
+                if (cp.getType().equalsIgnoreCase(Constantes.getValue("FIELDTYPE_TEXT").trim())
+                        || cp.getType().equalsIgnoreCase(Constantes.getValue("FIELDTYPE_TEXTAREA").trim())) {
                     if (row[i] == null) {
                         auxObj = new String("");
                     } else {
-                        String str = new String(row[i].toString());
+                        final String str = new String(row[i].toString());
                         auxObj = str.replaceAll("\"", "&quot;").replaceAll("'", "&#180;");
 
                         /*
-                         * alteracao feita por Cleon, pois ao tentar restaurar através de uma lookup um elemento textarea com quebra de linha, o setretorno nao estava comportando de forma correta
+                         * alteracao feita por Cleon, pois ao tentar restaurar através de uma lookup um elemento textarea com quebra de linha, o setretorno nao
+                         * estava comportando de forma correta
                          * disparando um erro
                          */
                         auxObj = str.replaceAll("\n", " ");
@@ -220,9 +220,9 @@ public class LookupProcessContrato extends LookupProcessDefaultDao {
                         campoAux.setObjValue(null);
                     } else {
                         auxObj = row[i];
-                        if ((auxObj instanceof java.sql.Date)) {
+                        if (auxObj instanceof java.sql.Date) {
                             campoAux.setObjValue(UtilDatas.dateToSTR((java.sql.Date) auxObj));
-                        } else if ((auxObj instanceof java.sql.Timestamp)) {
+                        } else if (auxObj instanceof java.sql.Timestamp) {
                             campoAux.setObjValue(UtilDatas.dateToSTR((java.sql.Timestamp) auxObj));
                         } else {
                             campoAux.setObjValue(auxObj.toString());
@@ -234,10 +234,10 @@ public class LookupProcessContrato extends LookupProcessDefaultDao {
                     } else {
                         auxObj = row[i];
                         String valorTransf = null;
-                        if ((auxObj instanceof Double)) {
+                        if (auxObj instanceof Double) {
                             valorTransf = UtilFormatacao.formatBigDecimal(new BigDecimal(((Double) auxObj).doubleValue()), 2);
-                        } else if ((auxObj instanceof BigDecimal)) {
-                            valorTransf = UtilFormatacao.formatBigDecimal(((BigDecimal) auxObj), 2);
+                        } else if (auxObj instanceof BigDecimal) {
+                            valorTransf = UtilFormatacao.formatBigDecimal((BigDecimal) auxObj, 2);
                         } else {
                             valorTransf = auxObj.toString();
                         }
@@ -250,11 +250,11 @@ public class LookupProcessContrato extends LookupProcessDefaultDao {
             result.add(colAux);
         }
 
-        TransactionControler tc = this.getTransactionControler();
+        final TransactionControler tc = this.getTransactionControler();
         if (tc != null) {
             tc.close();
         }
 
         return result;
-	}
+    }
 }

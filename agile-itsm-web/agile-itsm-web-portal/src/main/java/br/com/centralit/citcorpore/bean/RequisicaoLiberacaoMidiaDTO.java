@@ -5,79 +5,81 @@ import java.sql.Date;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class RequisicaoLiberacaoMidiaDTO extends BaseEntity {
-	
-	private Integer idRequisicaoLiberacaoMidia;
-	private Integer idMidiaSoftware;
-	private Integer idRequisicaoLiberacao;
-	private String nomeMidia;
-	private Date dataFim;
-	
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @return the idRequisicaoLiberacaoMidia
-	 */
-	public Integer getIdRequisicaoLiberacaoMidia() {
-		return idRequisicaoLiberacaoMidia;
-	}
+    private Integer idRequisicaoLiberacaoMidia;
+    private Integer idMidiaSoftware;
+    private Integer idRequisicaoLiberacao;
+    private String nomeMidia;
+    private Date dataFim;
 
-	/**
-	 * @param idRequisicaoLiberacaoMidia the idRequisicaoLiberacaoMidia to set
-	 */
-	public void setIdRequisicaoLiberacaoMidia(Integer idRequisicaoLiberacaoMidia) {
-		this.idRequisicaoLiberacaoMidia = idRequisicaoLiberacaoMidia;
-	}
+    private static final long serialVersionUID = 1L;
 
-	/**
-	 * @return the idRequisicaoLiberacao
-	 */
-	public Integer getIdRequisicaoLiberacao() {
-		return idRequisicaoLiberacao;
-	}
+    /**
+     * @return the idRequisicaoLiberacaoMidia
+     */
+    public Integer getIdRequisicaoLiberacaoMidia() {
+        return idRequisicaoLiberacaoMidia;
+    }
 
-	/**
-	 * @param idRequisicaoLiberacao the idRequisicaoLiberacao to set
-	 */
-	public void setIdRequisicaoLiberacao(Integer idRequisicaoLiberacao) {
-		this.idRequisicaoLiberacao = idRequisicaoLiberacao;
-	}
+    /**
+     * @param idRequisicaoLiberacaoMidia
+     *            the idRequisicaoLiberacaoMidia to set
+     */
+    public void setIdRequisicaoLiberacaoMidia(final Integer idRequisicaoLiberacaoMidia) {
+        this.idRequisicaoLiberacaoMidia = idRequisicaoLiberacaoMidia;
+    }
 
-	/**
-	 * @return the idMidiaSoftware
-	 */
-	public Integer getIdMidiaSoftware() {
-		return idMidiaSoftware;
-	}
+    /**
+     * @return the idRequisicaoLiberacao
+     */
+    public Integer getIdRequisicaoLiberacao() {
+        return idRequisicaoLiberacao;
+    }
 
-	/**
-	 * @param idMidiaSoftware the idMidiaSoftware to set
-	 */
-	public void setIdMidiaSoftware(Integer idMidiaSoftware) {
-		this.idMidiaSoftware = idMidiaSoftware;
-	}
+    /**
+     * @param idRequisicaoLiberacao
+     *            the idRequisicaoLiberacao to set
+     */
+    public void setIdRequisicaoLiberacao(final Integer idRequisicaoLiberacao) {
+        this.idRequisicaoLiberacao = idRequisicaoLiberacao;
+    }
 
-	/**
-	 * @return the nomeMidia
-	 */
-	public String getNomeMidia() {
-		return nomeMidia;
-	}
+    /**
+     * @return the idMidiaSoftware
+     */
+    public Integer getIdMidiaSoftware() {
+        return idMidiaSoftware;
+    }
 
-	/**
-	 * @param nomeMidia the nomeMidia to set
-	 */
-	public void setNomeMidia(String nomeMidia) {
-		this.nomeMidia = nomeMidia;
-	}
+    /**
+     * @param idMidiaSoftware
+     *            the idMidiaSoftware to set
+     */
+    public void setIdMidiaSoftware(final Integer idMidiaSoftware) {
+        this.idMidiaSoftware = idMidiaSoftware;
+    }
 
-	public Date getDataFim() {
-		return dataFim;
-	}
+    /**
+     * @return the nomeMidia
+     */
+    public String getNomeMidia() {
+        return nomeMidia;
+    }
 
-	public void setDataFim(Date dataFim) {
-		this.dataFim = dataFim;
-	}
-	
-	
+    /**
+     * @param nomeMidia
+     *            the nomeMidia to set
+     */
+    public void setNomeMidia(final String nomeMidia) {
+        this.nomeMidia = nomeMidia;
+    }
+
+    public Date getDataFim() {
+        return dataFim;
+    }
+
+    public void setDataFim(final Date dataFim) {
+        this.dataFim = dataFim;
+    }
 
 }

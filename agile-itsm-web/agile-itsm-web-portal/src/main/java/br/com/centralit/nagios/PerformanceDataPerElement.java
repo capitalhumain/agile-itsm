@@ -4,62 +4,56 @@ package br.com.centralit.nagios;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PerformanceDataPerElement
-{
-	String lastCheckTime = "";
-	final protected List<DataSource> dataSources = new ArrayList<DataSource>();
+public class PerformanceDataPerElement {
 
-	public DataSource add(String source)
-	{
-		for(DataSource current : dataSources)
-		{
-			if (current.getDataSourceName().equals(source))
-				return current;
-		}
+    String lastCheckTime = "";
+    final protected List<DataSource> dataSources = new ArrayList<DataSource>();
 
-		DataSource newDataSource = new DataSource(source);
-		dataSources.add(newDataSource);
+    public DataSource add(final String source) {
+        for (final DataSource current : dataSources) {
+            if (current.getDataSourceName().equals(source)) {
+                return current;
+            }
+        }
 
-		return newDataSource;
-	}
+        final DataSource newDataSource = new DataSource(source);
+        dataSources.add(newDataSource);
 
-	public void setDataSourceUnit(String name, String unit)
-	{
-		getDataSource(name).setUnit(unit);
-	}
+        return newDataSource;
+    }
 
-	public void setCheckTime(String checkTime)
-	{
-		lastCheckTime = checkTime;
-	}
+    public void setDataSourceUnit(final String name, final String unit) {
+        this.getDataSource(name).setUnit(unit);
+    }
 
-	public DataSource add(String source, double value)
-	{
-		DataSource newDataSource = add(source);
+    public void setCheckTime(final String checkTime) {
+        lastCheckTime = checkTime;
+    }
 
-		newDataSource.add(value);
+    public DataSource add(final String source, final double value) {
+        final DataSource newDataSource = this.add(source);
 
-		return newDataSource;
-	}
+        newDataSource.add(value);
 
-	public String getCheckTime()
-	{
-		return lastCheckTime;
-	}
+        return newDataSource;
+    }
 
-	public DataSource getDataSource(String name)
-	{
-		for(DataSource current : dataSources)
-		{
-			if (current.getDataSourceName().equals(name))
-				return current;
-		}
+    public String getCheckTime() {
+        return lastCheckTime;
+    }
 
-		return null;
-	}
+    public DataSource getDataSource(final String name) {
+        for (final DataSource current : dataSources) {
+            if (current.getDataSourceName().equals(name)) {
+                return current;
+            }
+        }
 
-	public List<DataSource> getAllDataSources()
-	{
-		return dataSources;
-	}
+        return null;
+    }
+
+    public List<DataSource> getAllDataSources() {
+        return dataSources;
+    }
+
 }

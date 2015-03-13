@@ -17,7 +17,6 @@ import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.CrudServiceImpl;
 import br.com.citframework.util.UtilStrings;
 
-@SuppressWarnings({"rawtypes", "unchecked"})
 public class CategoriaServicoServiceEjb extends CrudServiceImpl implements CategoriaServicoService {
 
     private CategoriaServicoDao dao;
@@ -47,9 +46,8 @@ public class CategoriaServicoServiceEjb extends CrudServiceImpl implements Categ
     public boolean verificarSeCategoriaPossuiServicoOuSubCategoria(final CategoriaServicoDTO categoriaServico) throws PersistenceException, ServiceException {
         if (this.getDao().verificarSeCategoriaPossuiFilho(categoriaServico) || this.getDao().verificarSeCategoriaPossuiServico(categoriaServico)) {
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
     @Override
@@ -59,7 +57,7 @@ public class CategoriaServicoServiceEjb extends CrudServiceImpl implements Categ
 
     @Override
     public Collection listHierarquia() throws Exception {
-        final Collection colFinal = new ArrayList();
+        final Collection colFinal = new ArrayList<>();
         try {
             final Collection col = this.getDao().findSemPai();
             if (col != null) {
@@ -81,7 +79,7 @@ public class CategoriaServicoServiceEjb extends CrudServiceImpl implements Categ
 
     public Collection getCollectionHierarquia(final Integer idUnidade, final Integer nivel) throws Exception {
         final Collection col = this.getDao().findByIdPai(idUnidade);
-        final Collection colFinal = new ArrayList();
+        final Collection colFinal = new ArrayList<>();
         if (col != null) {
             for (final Iterator it = col.iterator(); it.hasNext();) {
                 final CategoriaServicoDTO dto = (CategoriaServicoDTO) it.next();
@@ -97,8 +95,8 @@ public class CategoriaServicoServiceEjb extends CrudServiceImpl implements Categ
     }
 
     @Override
-    public List<CategoriaServicoDTO> listCategoriaHierarquia(final CategoriaServicoDTO categoriaServicoDTO, final List<CategoriaServicoDTO> listCategoriaHierarquia)
-            throws Exception {
+    public List<CategoriaServicoDTO> listCategoriaHierarquia(final CategoriaServicoDTO categoriaServicoDTO,
+            final List<CategoriaServicoDTO> listCategoriaHierarquia) throws Exception {
         CategoriaServicoDTO bean = new CategoriaServicoDTO();
         listCategoriaHierarquia.add(categoriaServicoDTO);
         if (categoriaServicoDTO.getIdCategoriaServicoPai() != null) {
@@ -130,9 +128,8 @@ public class CategoriaServicoServiceEjb extends CrudServiceImpl implements Categ
         }
         if (listaCategoriaServico != null && listaCategoriaServico.size() > 0) {
             return String.valueOf(listaCategoriaServico.get(0).getIdCategoriaServico());
-        } else {
-            return "0";
         }
+        return "0";
     }
 
 }

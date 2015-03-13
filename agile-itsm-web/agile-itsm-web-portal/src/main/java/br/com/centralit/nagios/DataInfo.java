@@ -1,42 +1,37 @@
 /* Released under the GPL2. See license.txt for details. */
 package br.com.centralit.nagios;
 
-public class DataInfo
-{
-	double min, max, avg, sd;
-	int n;
+public class DataInfo {
 
-	public DataInfo(double min, double max, double avg, double sd, int n)
-	{
-		this.min = min;
-		this.max = max;
-		this.avg = avg;
-		this.sd  = sd ;
-		this.n = n;
-	}
+    double min, max, avg, sd;
+    int n;
 
-	public double getMin()
-	{
-		return min;
-	}
+    public DataInfo(final double min, final double max, final double avg, final double sd, final int n) {
+        this.min = min;
+        this.max = max;
+        this.avg = avg;
+        this.sd = sd;
+        this.n = n;
+    }
 
-	public double getMax()
-	{
-		return max;
-	}
+    public double getMin() {
+        return min;
+    }
 
-	public double getAvg()
-	{
-		return avg;
-	}
+    public double getMax() {
+        return max;
+    }
 
-	public double getSd()
-	{
-		return sd;
-	}
+    public double getAvg() {
+        return avg;
+    }
 
-	public int getN()
-	{
-		return n;
-	}
+    public double getSd() {
+        return sd;
+    }
+
+    public int getN() {
+        return n;
+    }
+
 }

@@ -10,7 +10,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.bpm.dto.ElementoFluxoDTO;
@@ -59,7 +59,6 @@ import br.com.citframework.util.SQLConfig;
 import br.com.citframework.util.UtilDatas;
 import br.com.citframework.util.UtilStrings;
 
-@SuppressWarnings({ "unchecked", "rawtypes" })
 public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
     public static String strSGBDPrincipal = null;
@@ -76,7 +75,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      * @param gerenciamentoBean
      * @throws Exception
      */
-    public void adicionarFiltroPesquisa(StringBuilder sql, GerenciamentoServicosDTO gerenciamentoBean, List parametros) throws Exception {
+    public void adicionarFiltroPesquisa(final StringBuilder sql, final GerenciamentoServicosDTO gerenciamentoBean, final List parametros) throws Exception {
         if (gerenciamentoBean != null) {
             if (gerenciamentoBean.getIdSolicitacao() != null && !gerenciamentoBean.getIdSolicitacao().equals(new Integer(-1))) {
                 sql.append(" AND sol.idSolicitacaoServico = ? ");
@@ -126,90 +125,91 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
     }
 
-    public void atualizaDataHoraCaptura(SolicitacaoServicoDTO solicitacaoDto) {
-        StringBuilder sql = new StringBuilder();
-        sql.append("UPDATE " + getTableName() + " SET dataHoraCaptura = ? WHERE idsolicitacaoservico = ?");
-        Object[] params = { solicitacaoDto.getDataHoraCaptura(), solicitacaoDto.getIdSolicitacaoServico() };
+    public void atualizaDataHoraCaptura(final SolicitacaoServicoDTO solicitacaoDto) {
+        final StringBuilder sql = new StringBuilder();
+        sql.append("UPDATE " + this.getTableName() + " SET dataHoraCaptura = ? WHERE idsolicitacaoservico = ?");
+        final Object[] params = {solicitacaoDto.getDataHoraCaptura(), solicitacaoDto.getIdSolicitacaoServico()};
         try {
             this.execUpdate(sql.toString(), params);
-        } catch (PersistenceException e) {
+        } catch (final PersistenceException e) {
             System.out.println("Problemas com atualização da solicitacaoServico.");
             e.printStackTrace();
         }
     }
 
-    public void atualizaIdTarefaEncerramento(SolicitacaoServicoDTO solicitacaoServicoDto) {
-        StringBuilder sql = new StringBuilder();
+    public void atualizaIdTarefaEncerramento(final SolicitacaoServicoDTO solicitacaoServicoDto) {
+        final StringBuilder sql = new StringBuilder();
         Object[] params = null;
         if (solicitacaoServicoDto.getIdTarefaEncerramento() != null) {
-            sql.append("UPDATE " + getTableName() + " SET idTarefaEncerramento = ? WHERE idsolicitacaoservico = ?");
-            params = new Object[] { solicitacaoServicoDto.getIdTarefaEncerramento(), solicitacaoServicoDto.getIdSolicitacaoServico() };
+            sql.append("UPDATE " + this.getTableName() + " SET idTarefaEncerramento = ? WHERE idsolicitacaoservico = ?");
+            params = new Object[] {solicitacaoServicoDto.getIdTarefaEncerramento(), solicitacaoServicoDto.getIdSolicitacaoServico()};
         } else {
-            sql.append("UPDATE " + getTableName() + " SET idTarefaEncerramento = null WHERE idsolicitacaoservico = ?");
-            params = new Object[] { solicitacaoServicoDto.getIdSolicitacaoServico() };
+            sql.append("UPDATE " + this.getTableName() + " SET idTarefaEncerramento = null WHERE idsolicitacaoservico = ?");
+            params = new Object[] {solicitacaoServicoDto.getIdSolicitacaoServico()};
         }
         try {
             this.execUpdate(sql.toString(), params);
-        } catch (PersistenceException e) {
+        } catch (final PersistenceException e) {
             System.out.println("Problemas com atualização da tarefa de encerramento da solicitação.");
             e.printStackTrace();
         }
     }
 
-    public void atualizaIdUltimaAprovacao(SolicitacaoServicoDTO solicitacaoServicoDto) throws Exception {
-        StringBuilder sql = new StringBuilder();
-        sql.append("UPDATE " + getTableName() + " SET idultimaaprovacao = ? WHERE idsolicitacaoservico = ?");
-        Object[] params = { solicitacaoServicoDto.getIdUltimaAprovacao(), solicitacaoServicoDto.getIdSolicitacaoServico() };
+    public void atualizaIdUltimaAprovacao(final SolicitacaoServicoDTO solicitacaoServicoDto) throws Exception {
+        final StringBuilder sql = new StringBuilder();
+        sql.append("UPDATE " + this.getTableName() + " SET idultimaaprovacao = ? WHERE idsolicitacaoservico = ?");
+        final Object[] params = {solicitacaoServicoDto.getIdUltimaAprovacao(), solicitacaoServicoDto.getIdSolicitacaoServico()};
         try {
             this.execUpdate(sql.toString(), params);
-        } catch (PersistenceException e) {
+        } catch (final PersistenceException e) {
             System.out.println("Problemas na aprovação da solicitacao de serviço.");
             e.printStackTrace();
         }
     }
 
-    public void atualizaIdUsuarioResponsavel(SolicitacaoServicoDTO solicitacaoServicoDto) throws Exception {
-        StringBuilder sql = new StringBuilder();
-        sql.append("UPDATE " + getTableName() + " SET idusuarioresponsavelatual = ? WHERE (idsolicitacaoservico = ?)");
-        Object[] params = { solicitacaoServicoDto.getIdUsuarioResponsavelAtual(), solicitacaoServicoDto.getIdSolicitacaoServico() };
+    public void atualizaIdUsuarioResponsavel(final SolicitacaoServicoDTO solicitacaoServicoDto) throws Exception {
+        final StringBuilder sql = new StringBuilder();
+        sql.append("UPDATE " + this.getTableName() + " SET idusuarioresponsavelatual = ? WHERE (idsolicitacaoservico = ?)");
+        final Object[] params = {solicitacaoServicoDto.getIdUsuarioResponsavelAtual(), solicitacaoServicoDto.getIdSolicitacaoServico()};
         try {
             this.execUpdate(sql.toString(), params);
-        } catch (PersistenceException e) {
+        } catch (final PersistenceException e) {
             System.out.println("Problemas com atualização da solicitacaoServico.");
             e.printStackTrace();
         }
     }
 
-    public void atualizaSituacao(SolicitacaoServicoDTO solicitacaoServicoDto) throws Exception {
-        StringBuilder sql = new StringBuilder();
-        sql.append("UPDATE " + getTableName() + " SET situacao = ? WHERE (idsolicitacaoservico = ?)");
-        Object[] params = { solicitacaoServicoDto.getSituacao(), solicitacaoServicoDto.getIdSolicitacaoServico() };
+    public void atualizaSituacao(final SolicitacaoServicoDTO solicitacaoServicoDto) throws Exception {
+        final StringBuilder sql = new StringBuilder();
+        sql.append("UPDATE " + this.getTableName() + " SET situacao = ? WHERE (idsolicitacaoservico = ?)");
+        final Object[] params = {solicitacaoServicoDto.getSituacao(), solicitacaoServicoDto.getIdSolicitacaoServico()};
         try {
             this.execUpdate(sql.toString(), params);
-        } catch (PersistenceException e) {
+        } catch (final PersistenceException e) {
             System.out.println("Problemas com atualização da solicitacaoServico.");
             e.printStackTrace();
         }
     }
 
-    public void atualizaUrgenciaImpacto(SolicitacaoServicoDTO solicitacaoServicoDto) throws Exception {
-        StringBuilder sql = new StringBuilder();
-        sql.append("UPDATE " + getTableName() + " SET urgencia = ?, impacto = ?, idprioridade = ? WHERE (idsolicitacaoservico = ?)");
-        Object[] params = { solicitacaoServicoDto.getUrgencia(), solicitacaoServicoDto.getImpacto(), solicitacaoServicoDto.getIdPrioridade(), solicitacaoServicoDto.getIdSolicitacaoServico() };
+    public void atualizaUrgenciaImpacto(final SolicitacaoServicoDTO solicitacaoServicoDto) throws Exception {
+        final StringBuilder sql = new StringBuilder();
+        sql.append("UPDATE " + this.getTableName() + " SET urgencia = ?, impacto = ?, idprioridade = ? WHERE (idsolicitacaoservico = ?)");
+        final Object[] params = {solicitacaoServicoDto.getUrgencia(), solicitacaoServicoDto.getImpacto(), solicitacaoServicoDto.getIdPrioridade(),
+                solicitacaoServicoDto.getIdSolicitacaoServico()};
         try {
             this.execUpdate(sql.toString(), params);
-        } catch (PersistenceException e) {
+        } catch (final PersistenceException e) {
             System.out.println("Problemas com atualização da solicitacaoServico.");
             e.printStackTrace();
         }
     }
 
-    public SolicitacaoServicoDTO buscarNumeroItemTrabalhoPorNumeroSolicitacao(int idSolicitacao) throws Exception {
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
-        List list = new ArrayList();
+    public SolicitacaoServicoDTO buscarNumeroItemTrabalhoPorNumeroSolicitacao(final int idSolicitacao) throws Exception {
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        List list = new ArrayList<>();
 
-        StringBuilder sql = new StringBuilder();
+        final StringBuilder sql = new StringBuilder();
         sql.append("SELECT bpm_itemtrabalhofluxo.iditemtrabalho as idItemFluxoTrabalho FROM ");
         sql.append("solicitacaoservico solicitacaoservico ");
         sql.append("INNER JOIN execucaosolicitacao ON execucaosolicitacao.idsolicitacaoservico = solicitacaoservico.idsolicitacaoservico ");
@@ -219,8 +219,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             sql.append("ORDER BY bpm_itemtrabalhofluxo.iditemtrabalho desc TOP 1 ");
         } else if (CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.ORACLE)) {
             sql.append("ORDER BY bpm_itemtrabalhofluxo.iditemtrabalho desc ROWNUM 1 ");
-        } else if (((CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.POSTGRESQL)) || (CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase()
-                .equalsIgnoreCase(SQLConfig.MYSQL)))) {
+        } else if (CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.POSTGRESQL)
+                || CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.MYSQL)) {
             sql.append(" ORDER BY bpm_itemtrabalhofluxo.iditemtrabalho desc LIMIT 1 ");
         }
         parametro.add(idSolicitacao);
@@ -230,15 +230,14 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("idItemFluxoTrabalho");
 
         if (list != null && !list.isEmpty()) {
-            return (SolicitacaoServicoDTO) this.listConvertion(getBean(), list, listRetorno).get(0);
-        } else {
-            return null;
+            return (SolicitacaoServicoDTO) this.listConvertion(this.getBean(), list, listRetorno).get(0);
         }
+        return null;
     }
 
-    public boolean confirmaEncerramento(RelatorioQuantitativoRetornoDTO relatorioQuantitativoRetornoDTO, Integer idElemento) throws Exception {
-        List parametro = new ArrayList();
-        StringBuilder sb = new StringBuilder();
+    public boolean confirmaEncerramento(final RelatorioQuantitativoRetornoDTO relatorioQuantitativoRetornoDTO, final Integer idElemento) throws Exception {
+        final List parametro = new ArrayList<>();
+        final StringBuilder sb = new StringBuilder();
 
         sb.append("select * ");
         sb.append("from bpm_itemtrabalhofluxo ");
@@ -248,37 +247,34 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         parametro.add(relatorioQuantitativoRetornoDTO.getIdInstancia());
         parametro.add(idElemento);
 
-        List listaDados = this.execSQL(sb.toString(), parametro.toArray());
+        final List listaDados = this.execSQL(sb.toString(), parametro.toArray());
         if (listaDados != null && listaDados.size() == 1) {
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
-    public boolean existeSolicitacaoServico(SolicitacaoServicoDTO solicitacaoservico) throws Exception {
-
-        List parametro = new ArrayList();
-        List list = new ArrayList();
-        String sql = "select idsolicitacaoservico From " + getTableName() + " where idsolicitacaoservico = ?";
+    public boolean existeSolicitacaoServico(final SolicitacaoServicoDTO solicitacaoservico) throws Exception {
+        final List parametro = new ArrayList<>();
+        List list = new ArrayList<>();
+        final String sql = "select idsolicitacaoservico From " + this.getTableName() + " where idsolicitacaoservico = ?";
         parametro.add(solicitacaoservico.getIdSolicitacaoServico());
         list = this.execSQL(sql, parametro.toArray());
         if (list != null && !list.isEmpty()) {
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
-    public List<TarefaFluxoDTO> filtrarElementosDaLista(Collection<TarefaFluxoDTO> listTarefa, GerenciamentoServicosDTO dto) throws Exception {
-        String tipoVisualizacao = dto.getTipoVisualizacao() == null ? "" : dto.getTipoVisualizacao();
-        String situacaoSla = dto.getSituacaoSla() == null ? "" : dto.getSituacaoSla();
-        List<TarefaFluxoDTO> listaRetornoTipoVisualizacao = new ArrayList<TarefaFluxoDTO>();
-        List<TarefaFluxoDTO> listaRetornoSituacaoSla = new ArrayList<TarefaFluxoDTO>();
+    public List<TarefaFluxoDTO> filtrarElementosDaLista(final Collection<TarefaFluxoDTO> listTarefa, final GerenciamentoServicosDTO dto) throws Exception {
+        final String tipoVisualizacao = dto.getTipoVisualizacao() == null ? "" : dto.getTipoVisualizacao();
+        final String situacaoSla = dto.getSituacaoSla() == null ? "" : dto.getSituacaoSla();
+        final List<TarefaFluxoDTO> listaRetornoTipoVisualizacao = new ArrayList<TarefaFluxoDTO>();
+        final List<TarefaFluxoDTO> listaRetornoSituacaoSla = new ArrayList<TarefaFluxoDTO>();
         List<TarefaFluxoDTO> listaRetornoFinal = new ArrayList<TarefaFluxoDTO>();
 
         // tipo de visualização
-        for (TarefaFluxoDTO tarefaFluxoDTO : listTarefa) {
+        for (final TarefaFluxoDTO tarefaFluxoDTO : listTarefa) {
             if (tipoVisualizacao.equals("possoExecutar")) {
                 if (tarefaFluxoDTO.isSomenteAcompanhamento() == false) {
                     listaRetornoTipoVisualizacao.add(tarefaFluxoDTO);
@@ -292,12 +288,13 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             }
         }
         // tipo de Sla
-        for (TarefaFluxoDTO tarefaFluxoDTO : listaRetornoTipoVisualizacao) {
-            SolicitacaoServicoDTO solicitacaoDto = (SolicitacaoServicoDTO) tarefaFluxoDTO.getSolicitacaoDto();
-            ElementoFluxoDTO eletmentoFluxoDto = tarefaFluxoDTO.getElementoFluxoDto();
+        for (final TarefaFluxoDTO tarefaFluxoDTO : listaRetornoTipoVisualizacao) {
+            final SolicitacaoServicoDTO solicitacaoDto = (SolicitacaoServicoDTO) tarefaFluxoDTO.getSolicitacaoDto();
+            final ElementoFluxoDTO eletmentoFluxoDto = tarefaFluxoDTO.getElementoFluxoDto();
 
             boolean aCombinar;
-            if ((solicitacaoDto.getPrazoHH().equals(0) || solicitacaoDto.getPrazoHH() == null) && (solicitacaoDto.getPrazoMM().equals(0) || solicitacaoDto.getPrazoMM() == null)
+            if ((solicitacaoDto.getPrazoHH().equals(0) || solicitacaoDto.getPrazoHH() == null)
+                    && (solicitacaoDto.getPrazoMM().equals(0) || solicitacaoDto.getPrazoMM() == null)
                     && !solicitacaoDto.getSituacao().equals(SituacaoSolicitacaoServico.Suspensa.name())) {
                 aCombinar = true;
             } else {
@@ -307,32 +304,31 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             if (situacaoSla.equals("vencido")) {
                 if (tarefaFluxoDTO.getDataHoraFinalizacao() != null) {
                     if (tarefaFluxoDTO.getDataHoraLimite() != null && tarefaFluxoDTO.getDataHoraFinalizacao().after(tarefaFluxoDTO.getDataHoraLimite())
-                            && !solicitacaoDto.getSituacao().equalsIgnoreCase(SituacaoSolicitacaoServico.Suspensa.name()) && solicitacaoDto.getSituacaoSLA().equals(SituacaoSLA.A.name())
-                            && aCombinar != true) {
+                            && !solicitacaoDto.getSituacao().equalsIgnoreCase(SituacaoSolicitacaoServico.Suspensa.name())
+                            && solicitacaoDto.getSituacaoSLA().equals(SituacaoSLA.A.name()) && aCombinar != true) {
                         listaRetornoSituacaoSla.add(tarefaFluxoDTO);
                     }
                 } else {
                     if (tarefaFluxoDTO.getDataHoraLimite() != null) {
                         if (UtilDatas.getDataHoraAtual().compareTo(tarefaFluxoDTO.getDataHoraLimite()) > 0
-                                && !solicitacaoDto.getSituacao().equalsIgnoreCase(SituacaoSolicitacaoServico.Suspensa.name()) && solicitacaoDto.getSituacaoSLA().equals("A") && aCombinar != true) {
+                                && !solicitacaoDto.getSituacao().equalsIgnoreCase(SituacaoSolicitacaoServico.Suspensa.name())
+                                && solicitacaoDto.getSituacaoSLA().equals("A") && aCombinar != true) {
                             listaRetornoSituacaoSla.add(tarefaFluxoDTO);
                         }
-                        // foi definido que a regra não é pra trazer solicitações suspensas, mesmo que estejam suspensas e vencidas
-                        // else if (solicitacaoDto.getSituacaoSLA() != null && solicitacaoDto.getSituacaoSLA().equalsIgnoreCase(SituacaoSLA.S.name())
-                        // && solicitacaoDto.getDataHoraSuspensaoSLA().compareTo(solicitacaoDto.getDataHoraLimite()) > 0) {
-                        // listaRetornoSituacaoSla.add(tarefaFluxoDTO);
-                        // }
                     }
                 }
             } else if (situacaoSla.equals("aguardandoAprovacao")) {
-                if (eletmentoFluxoDto != null && eletmentoFluxoDto.getDocumentacao() != null && eletmentoFluxoDto.getDocumentacao().equalsIgnoreCase("Aprovar requisição")) {// Comparação feita com o nome da tarefa que está no Banco
+                if (eletmentoFluxoDto != null && eletmentoFluxoDto.getDocumentacao() != null
+                        && eletmentoFluxoDto.getDocumentacao().equalsIgnoreCase("Aprovar requisição")) {// Comparação feita com o nome da tarefa que está no
+                    // Banco
                     listaRetornoSituacaoSla.add(tarefaFluxoDTO);
                 }
             } else if (situacaoSla.equals("avencer30min")) {
                 if (tarefaFluxoDTO.getDataHoraLimite() != null) {
-                    if (!UtilDatas.getDataHoraAtual().after(tarefaFluxoDTO.getDataHoraLimite()) && !solicitacaoDto.getSituacao().equalsIgnoreCase(SituacaoSolicitacaoServico.Suspensa.name())
+                    if (!UtilDatas.getDataHoraAtual().after(tarefaFluxoDTO.getDataHoraLimite())
+                            && !solicitacaoDto.getSituacao().equalsIgnoreCase(SituacaoSolicitacaoServico.Suspensa.name())
                             && solicitacaoDto.getSituacaoSLA().equals("A") && aCombinar != true) {
-                        double minutos = ((UtilDatas.calculaDiferencaTempoEmMilisegundos(tarefaFluxoDTO.getDataHoraLimite(), UtilDatas.getDataHoraAtual()) / 1000) / 60);
+                        final double minutos = UtilDatas.calculaDiferencaTempoEmMilisegundos(tarefaFluxoDTO.getDataHoraLimite(), UtilDatas.getDataHoraAtual()) / 1000 / 60;
                         if (minutos <= 30) {
                             listaRetornoSituacaoSla.add(tarefaFluxoDTO);
                         }
@@ -340,9 +336,10 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                 }
             } else if (situacaoSla.equals("avencer60min")) {
                 if (tarefaFluxoDTO.getDataHoraLimite() != null) {
-                    if (!UtilDatas.getDataHoraAtual().after(tarefaFluxoDTO.getDataHoraLimite()) && !solicitacaoDto.getSituacao().equalsIgnoreCase(SituacaoSolicitacaoServico.Suspensa.name())
+                    if (!UtilDatas.getDataHoraAtual().after(tarefaFluxoDTO.getDataHoraLimite())
+                            && !solicitacaoDto.getSituacao().equalsIgnoreCase(SituacaoSolicitacaoServico.Suspensa.name())
                             && solicitacaoDto.getSituacaoSLA().equals("A") && aCombinar != true) {
-                        long minutos = ((UtilDatas.calculaDiferencaTempoEmMilisegundos(tarefaFluxoDTO.getDataHoraLimite(), UtilDatas.getDataHoraAtual()) / 1000) / 60);
+                        final long minutos = UtilDatas.calculaDiferencaTempoEmMilisegundos(tarefaFluxoDTO.getDataHoraLimite(), UtilDatas.getDataHoraAtual()) / 1000 / 60;
                         if (minutos <= 60) {
                             listaRetornoSituacaoSla.add(tarefaFluxoDTO);
                         }
@@ -350,9 +347,10 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                 }
             } else if (situacaoSla.equals("avencer90min")) {
                 if (tarefaFluxoDTO.getDataHoraLimite() != null) {
-                    if (!UtilDatas.getDataHoraAtual().after(tarefaFluxoDTO.getDataHoraLimite()) && !solicitacaoDto.getSituacao().equalsIgnoreCase(SituacaoSolicitacaoServico.Suspensa.name())
+                    if (!UtilDatas.getDataHoraAtual().after(tarefaFluxoDTO.getDataHoraLimite())
+                            && !solicitacaoDto.getSituacao().equalsIgnoreCase(SituacaoSolicitacaoServico.Suspensa.name())
                             && solicitacaoDto.getSituacaoSLA().equals("A") && aCombinar != true) {
-                        double minutos = ((UtilDatas.calculaDiferencaTempoEmMilisegundos(tarefaFluxoDTO.getDataHoraLimite(), UtilDatas.getDataHoraAtual()) / 1000) / 60);
+                        final double minutos = UtilDatas.calculaDiferencaTempoEmMilisegundos(tarefaFluxoDTO.getDataHoraLimite(), UtilDatas.getDataHoraAtual()) / 1000 / 60;
                         if (minutos <= 90) {
                             listaRetornoSituacaoSla.add(tarefaFluxoDTO);
                         }
@@ -360,9 +358,10 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                 }
             } else if (situacaoSla.equals("avencer2h")) {
                 if (tarefaFluxoDTO.getDataHoraLimite() != null) {
-                    if (!UtilDatas.getDataHoraAtual().after(tarefaFluxoDTO.getDataHoraLimite()) && !solicitacaoDto.getSituacao().equalsIgnoreCase(SituacaoSolicitacaoServico.Suspensa.name())
+                    if (!UtilDatas.getDataHoraAtual().after(tarefaFluxoDTO.getDataHoraLimite())
+                            && !solicitacaoDto.getSituacao().equalsIgnoreCase(SituacaoSolicitacaoServico.Suspensa.name())
                             && solicitacaoDto.getSituacaoSLA().equals("A") && aCombinar != true) {
-                        double minutos = ((UtilDatas.calculaDiferencaTempoEmMilisegundos(tarefaFluxoDTO.getDataHoraLimite(), UtilDatas.getDataHoraAtual()) / 1000) / 60);
+                        final double minutos = UtilDatas.calculaDiferencaTempoEmMilisegundos(tarefaFluxoDTO.getDataHoraLimite(), UtilDatas.getDataHoraAtual()) / 1000 / 60;
                         if (minutos <= 120) {
                             listaRetornoSituacaoSla.add(tarefaFluxoDTO);
                         }
@@ -371,9 +370,10 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
             } else if (situacaoSla.equals("avencer3h")) {
                 if (tarefaFluxoDTO.getDataHoraLimite() != null) {
-                    if (!UtilDatas.getDataHoraAtual().after(tarefaFluxoDTO.getDataHoraLimite()) && !solicitacaoDto.getSituacao().equalsIgnoreCase(SituacaoSolicitacaoServico.Suspensa.name())
+                    if (!UtilDatas.getDataHoraAtual().after(tarefaFluxoDTO.getDataHoraLimite())
+                            && !solicitacaoDto.getSituacao().equalsIgnoreCase(SituacaoSolicitacaoServico.Suspensa.name())
                             && solicitacaoDto.getSituacaoSLA().equals("A") && aCombinar != true) {
-                        double minutos = ((UtilDatas.calculaDiferencaTempoEmMilisegundos(tarefaFluxoDTO.getDataHoraLimite(), UtilDatas.getDataHoraAtual()) / 1000) / 60);
+                        final double minutos = UtilDatas.calculaDiferencaTempoEmMilisegundos(tarefaFluxoDTO.getDataHoraLimite(), UtilDatas.getDataHoraAtual()) / 1000 / 60;
                         if (minutos <= 180) {
                             listaRetornoSituacaoSla.add(tarefaFluxoDTO);
                         }
@@ -381,9 +381,10 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                 }
             } else if (situacaoSla.equals("avencerHoje")) {
                 if (tarefaFluxoDTO.getDataHoraLimite() != null) {
-                    Date DataAtual = UtilDatas.getDataAtual();
-                    Date DataLimit = new Date(tarefaFluxoDTO.getDataHoraLimite().getTime());
-                    if (DataAtual.toString().equals(DataLimit.toString()) && !solicitacaoDto.getSituacao().equalsIgnoreCase(SituacaoSolicitacaoServico.Suspensa.name())
+                    final Date DataAtual = UtilDatas.getDataAtual();
+                    final Date DataLimit = new Date(tarefaFluxoDTO.getDataHoraLimite().getTime());
+                    if (DataAtual.toString().equals(DataLimit.toString())
+                            && !solicitacaoDto.getSituacao().equalsIgnoreCase(SituacaoSolicitacaoServico.Suspensa.name())
                             && solicitacaoDto.getSituacaoSLA().equals("A") && aCombinar != true) {
                         if (!UtilDatas.getDataHoraAtual().after(tarefaFluxoDTO.getDataHoraLimite())) {
                             listaRetornoSituacaoSla.add(tarefaFluxoDTO);
@@ -391,10 +392,10 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                     }
                 }
             } else if (situacaoSla.equals("avencerProxDiaUtil")) {
-                CalendarioServiceEjb serviceCalendario = new CalendarioServiceEjb();
-                CalendarioServiceEjb calendarioService = new CalendarioServiceEjb();
+                final CalendarioServiceEjb serviceCalendario = new CalendarioServiceEjb();
+                final CalendarioServiceEjb calendarioService = new CalendarioServiceEjb();
 
-                CalendarioDTO calendarioDto = calendarioService.recuperaCalendario(solicitacaoDto.getIdCalendario());
+                final CalendarioDTO calendarioDto = calendarioService.recuperaCalendario(solicitacaoDto.getIdCalendario());
 
                 JornadaTrabalhoDTO jornadaDtoVerificaSeExiste = null;
                 Timestamp diaUtilSeguinte = null;
@@ -407,15 +408,18 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                         diaUtilSeguinte = serviceCalendario.incrementaDias(diaUtilSeguinte, 1);
                     }
 
-                    Date dataRef = new Date(diaUtilSeguinte.getTime());
-                    jornadaDtoVerificaSeExiste = calendarioService.recuperaJornada(calendarioDto, dataRef, Util.getHoraDbl(UtilDatas.getHoraHHMM(diaUtilSeguinte)));
+                    final Date dataRef = new Date(diaUtilSeguinte.getTime());
+                    jornadaDtoVerificaSeExiste = calendarioService.recuperaJornada(calendarioDto, dataRef,
+                            Util.getHoraDbl(UtilDatas.getHoraHHMM(diaUtilSeguinte)));
                 } while (jornadaDtoVerificaSeExiste == null);
                 if (tarefaFluxoDTO.getDataHoraLimite() != null) {
-                    Date DataDiaSeguinte = new Date(diaUtilSeguinte.getTime());
-                    Date DataLimit = new Date(tarefaFluxoDTO.getDataHoraLimite().getTime());
-                    Date DataAtual = UtilDatas.getDataAtual();
-                    if (jornadaDtoVerificaSeExiste != null && (DataDiaSeguinte.toString().equals(DataLimit.toString())) || (DataAtual.toString().equals(DataLimit.toString()))
-                            && !solicitacaoDto.getSituacao().equalsIgnoreCase(SituacaoSolicitacaoServico.Suspensa.name()) && solicitacaoDto.getSituacaoSLA().equals("A") && aCombinar != true) {
+                    final Date DataDiaSeguinte = new Date(diaUtilSeguinte.getTime());
+                    final Date DataLimit = new Date(tarefaFluxoDTO.getDataHoraLimite().getTime());
+                    final Date DataAtual = UtilDatas.getDataAtual();
+                    if (jornadaDtoVerificaSeExiste != null && DataDiaSeguinte.toString().equals(DataLimit.toString())
+                            || DataAtual.toString().equals(DataLimit.toString())
+                            && !solicitacaoDto.getSituacao().equalsIgnoreCase(SituacaoSolicitacaoServico.Suspensa.name())
+                            && solicitacaoDto.getSituacaoSLA().equals("A") && aCombinar != true) {
                         if (!UtilDatas.getDataHoraAtual().after(tarefaFluxoDTO.getDataHoraLimite())) {
                             listaRetornoSituacaoSla.add(tarefaFluxoDTO);
                         }
@@ -438,9 +442,9 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      * @throws Exception
      * @author bruno.aquino Filtra a lista de Solicitações de Acordo com os Filtros Selecionados
      */
-    public void filtroExternoDosElementos(StringBuilder sql, GerenciamentoServicosDTO dto) throws Exception {
-        String tipoVisualizacao = dto.getTipoVisualizacao() == null ? "" : dto.getTipoVisualizacao();
-        String situacaoSla = dto.getSituacaoSla() == null ? "" : dto.getSituacaoSla();
+    public void filtroExternoDosElementos(final StringBuilder sql, final GerenciamentoServicosDTO dto) throws Exception {
+        final String tipoVisualizacao = dto.getTipoVisualizacao() == null ? "" : dto.getTipoVisualizacao();
+        final String situacaoSla = dto.getSituacaoSla() == null ? "" : dto.getSituacaoSla();
 
         /* tipo de visualização */
         if (tipoVisualizacao.equals("possoExecutar")) {
@@ -454,7 +458,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         } else if (situacaoSla.equals("aguardandoAprovacao")) {
             sql.append("");
         } else if (situacaoSla.equals("avencer30min")) {
-            Date dt = new Date(System.currentTimeMillis());
+            final Date dt = new Date(System.currentTimeMillis());
             sql.append(" and " + dt.getTime() + " - sol.datahoralimite");
         } else if (situacaoSla.equals("avencer60min")) {
             sql.append("");
@@ -472,14 +476,14 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     @Override
-    public Collection find(BaseEntity solicitacaoServicoDTO) throws PersistenceException {
-        List ordenacao = new ArrayList();
+    public Collection find(final BaseEntity solicitacaoServicoDTO) throws PersistenceException {
+        final List<Order> ordenacao = new ArrayList<>();
         ordenacao.add(new Order("idSolicitacaoServico"));
         return super.find(solicitacaoServicoDTO, ordenacao);
     }
 
-    public Collection<SolicitacaoServicoDTO> findByCodigoExterno(String codigoExterno) throws Exception {
-        List condicao = new ArrayList();
+    public Collection<SolicitacaoServicoDTO> findByCodigoExterno(final String codigoExterno) throws Exception {
+        final List<Condition> condicao = new ArrayList<>();
         condicao.add(new Condition("codigoExterno", "=", codigoExterno));
         return super.findByCondition(condicao, null);
     }
@@ -492,11 +496,11 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      * @throws Exception
      * @author Vadoilo Damasceno
      */
-    public List<SolicitacaoServicoDTO> findByConhecimento(BaseConhecimentoDTO baseConhecimentoDto) throws Exception {
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
-        List list = new ArrayList();
-        StringBuilder sql = new StringBuilder();
+    public List<SolicitacaoServicoDTO> findByConhecimento(final BaseConhecimentoDTO baseConhecimentoDto) throws Exception {
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        List list = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
 
         sql.append("select solicitacaoservico.idsolicitacaoservico, servico.nomeservico ");
         sql.append("from solicitacaoservico ");
@@ -514,7 +518,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
         if (list != null && !list.isEmpty()) {
 
-            return this.listConvertion(getBean(), list, listRetorno);
+            return this.listConvertion(this.getBean(), list, listRetorno);
 
         } else {
 
@@ -522,25 +526,27 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
     }
 
-    public Collection<SolicitacaoServicoDTO> findByIdContratoPaginada(PesquisaSolicitacaoServicoDTO pesquisaSolicitacaoServicoDto, String paginacao, Integer pagAtual, Integer pagAtualAux,
-            Integer totalPag, Integer quantidadePaginator, String campoPesquisa) throws Exception {
+    public Collection<SolicitacaoServicoDTO> findByIdContratoPaginada(final PesquisaSolicitacaoServicoDTO pesquisaSolicitacaoServicoDto,
+            final String paginacao, final Integer pagAtual, final Integer pagAtualAux, Integer totalPag, final Integer quantidadePaginator,
+            final String campoPesquisa) throws Exception {
         if (strSGBDPrincipal == null) {
             strSGBDPrincipal = CITCorporeUtil.SGBD_PRINCIPAL;
             strSGBDPrincipal = UtilStrings.nullToVazio(strSGBDPrincipal).trim();
         }
 
-        List listRetorno = new ArrayList();
+        final List listRetorno = new ArrayList<>();
 
-        StringBuilder sql = new StringBuilder();
+        final StringBuilder sql = new StringBuilder();
 
-        List listaTotal = new ArrayList();
+        List listaTotal = new ArrayList<>();
 
-        List parametros = new ArrayList();
-        List parametros2 = new ArrayList();
-        List parametros3 = new ArrayList();
+        final List parametros = new ArrayList<>();
+        final List parametros2 = new ArrayList<>();
+        final List parametros3 = new ArrayList<>();
 
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 10h00min - ID Citsmart: 120770 Motivo/Comentário: A tabela origematendimento, faseservico e empregados estava utilizando INNER
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 10h00min - ID Citsmart: 120770 Motivo/Comentário: A tabela origematendimento, faseservico
+         * e empregados estava utilizando INNER
          * JOIN, isso fazia com que as solicitações que não possuem origem contrato, fase ou solicitante não fossem retornadas. Alterado para LEFT JOIN
          */
 
@@ -638,24 +644,25 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
             sql.append("AND (to_char(solicitacaoservico.datahorasolicitacao, 'YYYY-MM-DD') BETWEEN ? AND ? )");
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
             parametros.add(formatter.format(pesquisaSolicitacaoServicoDto.getDataInicio()));
             parametros.add(formatter.format(pesquisaSolicitacaoServicoDto.getDataFim()));
         } else {
             sql.append("AND (solicitacaoservico.datahorasolicitacao BETWEEN ? AND ?) ");
             parametros.add(pesquisaSolicitacaoServicoDto.getDataInicio());
-            parametros.add(transformaHoraFinal(pesquisaSolicitacaoServicoDto.getDataFim()));
+            parametros.add(this.transformaHoraFinal(pesquisaSolicitacaoServicoDto.getDataFim()));
         }
-        if (pesquisaSolicitacaoServicoDto.getDataInicioFechamento() != null && !StringUtils.equalsIgnoreCase(pesquisaSolicitacaoServicoDto.getDataInicioFechamento().toString(), "1970-01-01")) {
+        if (pesquisaSolicitacaoServicoDto.getDataInicioFechamento() != null
+                && !StringUtils.equalsIgnoreCase(pesquisaSolicitacaoServicoDto.getDataInicioFechamento().toString(), "1970-01-01")) {
             if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
                 sql.append("AND (to_char(solicitacaoservico.datahorasolicitacao, 'YYYY-MM-DD') BETWEEN ? AND ? )");
-                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
                 parametros.add(formatter.format(pesquisaSolicitacaoServicoDto.getDataInicioFechamento()));
                 parametros.add(formatter.format(pesquisaSolicitacaoServicoDto.getDataFimFechamento()));
             } else {
                 sql.append("AND (solicitacaoservico.datahorafim BETWEEN ? AND ?) ");
                 parametros.add(pesquisaSolicitacaoServicoDto.getDataInicioFechamento());
-                parametros.add(transformaHoraFinal(pesquisaSolicitacaoServicoDto.getDataFimFechamento()));
+                parametros.add(this.transformaHoraFinal(pesquisaSolicitacaoServicoDto.getDataFimFechamento()));
             }
 
         }
@@ -680,8 +687,10 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                 quantidadePaginator2 = quantidadePaginator + pagAtual;
 
                 /*
-                 * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 10h00min - ID Citsmart: 120770 Motivo/Comentário: A tabela origematendimento, faseservico e empregados estava utilizando
-                 * INNER JOIN, isso fazia com que as solicitações que não possuem origem contrato, fase ou solicitante não fossem retornadas. Alterado para LEFT JOIN
+                 * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 10h00min - ID Citsmart: 120770 Motivo/Comentário: A tabela origematendimento,
+                 * faseservico e empregados estava utilizando
+                 * INNER JOIN, isso fazia com que as solicitações que não possuem origem contrato, fase ou solicitante não fossem retornadas. Alterado para LEFT
+                 * JOIN
                  */
 
                 sql.append("SELECT tempoAtendimentoHH,tempoAtendimentoMM,datahorainicio, datahorafim, idsolicitacaoservico, nomeservico, unidade.nome AS NOMEUNIDADE, CASE WHEN solicitacaoservico.situacao = 'EmAndamento' THEN 'Em Andamento' ELSE solicitacaoservico.situacao END AS situacao, dataHoraSolicitacao, dataHoraLimite, nomeTipoDemandaServico, prazohh, prazomm, ");
@@ -774,15 +783,16 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                 }
                 if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
                     sql.append("AND (to_char(solicitacaoservico.datahorasolicitacao, 'YYYY-MM-DD') BETWEEN ? AND ? )");
-                    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                    final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
                     parametros2.add(formatter.format(pesquisaSolicitacaoServicoDto.getDataInicio()));
                     parametros2.add(formatter.format(pesquisaSolicitacaoServicoDto.getDataFim()));
                 }
 
-                if (pesquisaSolicitacaoServicoDto.getDataInicioFechamento() != null && !StringUtils.equalsIgnoreCase(pesquisaSolicitacaoServicoDto.getDataInicioFechamento().toString(), "1970-01-01")) {
+                if (pesquisaSolicitacaoServicoDto.getDataInicioFechamento() != null
+                        && !StringUtils.equalsIgnoreCase(pesquisaSolicitacaoServicoDto.getDataInicioFechamento().toString(), "1970-01-01")) {
                     if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
                         sql.append("AND (to_char(solicitacaoservico.datahorasolicitacao, 'YYYY-MM-DD') BETWEEN ? AND ? )");
-                        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                        final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
                         parametros2.add(formatter.format(pesquisaSolicitacaoServicoDto.getDataInicioFechamento()));
                         parametros2.add(formatter.format(pesquisaSolicitacaoServicoDto.getDataFimFechamento()));
                     }
@@ -790,8 +800,10 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                 }
 
                 /*
-                 * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 10h00min - ID Citsmart: 120770 Motivo/Comentário: A tabela origematendimento, faseservico e empregados estava utilizando
-                 * INNER JOIN, isso fazia com que as solicitações que não possuem origem contrato, fase ou solicitante não fossem retornadas. Alterado para LEFT JOIN
+                 * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 10h00min - ID Citsmart: 120770 Motivo/Comentário: A tabela origematendimento,
+                 * faseservico e empregados estava utilizando
+                 * INNER JOIN, isso fazia com que as solicitações que não possuem origem contrato, fase ou solicitante não fossem retornadas. Alterado para LEFT
+                 * JOIN
                  */
 
                 sql.append(" AND IDSOLICITACAOSERVICO IN(SELECT IDSOLICITACAOSERVICO FROM(SELECT row_.*, ROWNUM ROWNUM_ FROM (SELECT COUNT(*) OVER() AS TOTALROWCOUNT, ");
@@ -885,15 +897,16 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                 }
                 if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
                     sql.append("AND (to_char(solicitacaoservico.datahorasolicitacao, 'YYYY-MM-DD') BETWEEN ? AND ? )");
-                    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                    final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
                     parametros2.add(formatter.format(pesquisaSolicitacaoServicoDto.getDataInicio()));
                     parametros2.add(formatter.format(pesquisaSolicitacaoServicoDto.getDataFim()));
                 }
 
-                if (pesquisaSolicitacaoServicoDto.getDataInicioFechamento() != null && !StringUtils.equalsIgnoreCase(pesquisaSolicitacaoServicoDto.getDataInicioFechamento().toString(), "1970-01-01")) {
+                if (pesquisaSolicitacaoServicoDto.getDataInicioFechamento() != null
+                        && !StringUtils.equalsIgnoreCase(pesquisaSolicitacaoServicoDto.getDataInicioFechamento().toString(), "1970-01-01")) {
                     if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
                         sql.append("AND (to_char(solicitacaoservico.datahorasolicitacao, 'YYYY-MM-DD') BETWEEN ? AND ? )");
-                        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                        final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
                         parametros2.add(formatter.format(pesquisaSolicitacaoServicoDto.getDataInicioFechamento()));
                         parametros2.add(formatter.format(pesquisaSolicitacaoServicoDto.getDataFimFechamento()));
                     }
@@ -914,8 +927,10 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                 quantidadePaginator2 = quantidadePaginator + pagAtual;
 
                 /*
-                 * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 10h00min - ID Citsmart: 120770 Motivo/Comentário: A tabela origematendimento, faseservico e empregados estava utilizando
-                 * INNER JOIN, isso fazia com que as solicitações que não possuem origem contrato, fase ou solicitante não fossem retornadas. Alterado para LEFT JOIN
+                 * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 10h00min - ID Citsmart: 120770 Motivo/Comentário: A tabela origematendimento,
+                 * faseservico e empregados estava utilizando
+                 * INNER JOIN, isso fazia com que as solicitações que não possuem origem contrato, fase ou solicitante não fossem retornadas. Alterado para LEFT
+                 * JOIN
                  */
 
                 sql.append(";WITH TabelaTemporaria AS ( ");
@@ -1006,7 +1021,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                     sql.append("AND (solicitacaoservico.descricao like '%" + pesquisaSolicitacaoServicoDto.getPalavraChave() + "%' ) ");
                 }
 
-                if (pesquisaSolicitacaoServicoDto.getDataInicioFechamento() != null && !StringUtils.equalsIgnoreCase(pesquisaSolicitacaoServicoDto.getDataInicioFechamento().toString(), "1970-01-01")) {
+                if (pesquisaSolicitacaoServicoDto.getDataInicioFechamento() != null
+                        && !StringUtils.equalsIgnoreCase(pesquisaSolicitacaoServicoDto.getDataInicioFechamento().toString(), "1970-01-01")) {
                     sql.append(" AND (solicitacaoservico.datahorafim BETWEEN ? AND ?) ");
                     parametros3.add(pesquisaSolicitacaoServicoDto.getDataInicioFechamento());
                     parametros3.add(pesquisaSolicitacaoServicoDto.getDataFimFechamento());
@@ -1014,7 +1030,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
                 sql.append("AND (solicitacaoservico.datahorasolicitacao BETWEEN ? AND ?) ");
                 parametros3.add(pesquisaSolicitacaoServicoDto.getDataInicio());
-                parametros3.add(transformaHoraFinal(pesquisaSolicitacaoServicoDto.getDataFim()));
+                parametros3.add(this.transformaHoraFinal(pesquisaSolicitacaoServicoDto.getDataFim()));
 
                 sql.append(" ) SELECT * FROM TabelaTemporaria WHERE Row>" + pagAtual + " and Row<" + (quantidadePaginator2 + 1) + " ");
 
@@ -1024,7 +1040,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         if (listaTotal != null) {
             pesquisaSolicitacaoServicoDto.setTotalItens(listaTotal.size());
             if (listaTotal.size() > quantidadePaginator) {
-                totalPag = ((listaTotal.size() / quantidadePaginator));
+                totalPag = listaTotal.size() / quantidadePaginator;
                 if (listaTotal.size() % quantidadePaginator != 0) {
                     totalPag = totalPag + 1;
                 }
@@ -1036,24 +1052,24 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         List lista;
 
         if (strSGBDPrincipal.equalsIgnoreCase("ORACLE")) {
-            lista = execSQL(sql.toString().toUpperCase(), parametros2.toArray());
+            lista = this.execSQL(sql.toString().toUpperCase(), parametros2.toArray());
         } else if (strSGBDPrincipal.equalsIgnoreCase("SQLSERVER")) {
-            lista = execSQL(sql.toString().toUpperCase(), parametros3.toArray());
+            lista = this.execSQL(sql.toString().toUpperCase(), parametros3.toArray());
         } else {
-            lista = execSQL(sql.toString().toUpperCase(), parametros.toArray());
+            lista = this.execSQL(sql.toString().toUpperCase(), parametros.toArray());
         }
 
         if (lista == null || lista.size() == 0) {
-            TransactionControler tc = this.getTransactionControler();
+            final TransactionControler tc = this.getTransactionControler();
             if (tc != null) {
                 tc.close();
             }
             return null;
         }
 
-        List result = new ArrayList();
+        final List result = new ArrayList<>();
         if (lista == null || lista.size() == 0) {
-            TransactionControler tc = this.getTransactionControler();
+            final TransactionControler tc = this.getTransactionControler();
             if (tc != null) {
                 tc.close();
             }
@@ -1061,7 +1077,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             return result;
         }
 
-        TransactionControler tc = this.getTransactionControler();
+        final TransactionControler tc = this.getTransactionControler();
         if (tc != null) {
             tc.close();
         }
@@ -1091,31 +1107,32 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("contrato");
         listRetorno.add("idUsuarioResponsavelAtual");
 
-        List listaSolicitacoes = engine.listConvertion(getBean(), lista, listRetorno);
+        final List listaSolicitacoes = engine.listConvertion(this.getBean(), lista, listRetorno);
 
         return listaSolicitacoes;
     }
 
-    
-    public Collection<SolicitacaoServicoDTO> findByIdContratoPaginada(PesquisaSolicitacaoServicoDTO pesquisaSolicitacaoServicoDto, String paginacao, Integer pagAtual, Integer pagAtualAux,
-            Integer totalPag, Integer quantidadePaginator, String campoPesquisa, Collection<UnidadeDTO> unidadesColaborador) throws Exception {
+    public Collection<SolicitacaoServicoDTO> findByIdContratoPaginada(final PesquisaSolicitacaoServicoDTO pesquisaSolicitacaoServicoDto,
+            final String paginacao, final Integer pagAtual, final Integer pagAtualAux, Integer totalPag, final Integer quantidadePaginator,
+            final String campoPesquisa, final Collection<UnidadeDTO> unidadesColaborador) throws Exception {
         if (strSGBDPrincipal == null) {
             strSGBDPrincipal = CITCorporeUtil.SGBD_PRINCIPAL;
             strSGBDPrincipal = UtilStrings.nullToVazio(strSGBDPrincipal).trim();
         }
 
-        List listRetorno = new ArrayList();
+        final List listRetorno = new ArrayList<>();
 
-        StringBuilder sql = new StringBuilder();
+        final StringBuilder sql = new StringBuilder();
 
-        List listaTotal = new ArrayList();
+        List listaTotal = new ArrayList<>();
 
-        List parametros = new ArrayList();
-        List parametros2 = new ArrayList();
-        List parametros3 = new ArrayList();
+        final List parametros = new ArrayList<>();
+        final List parametros2 = new ArrayList<>();
+        final List parametros3 = new ArrayList<>();
 
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 10h00min - ID Citsmart: 120770 Motivo/Comentário: A tabela origematendimento, faseservico e empregados estava utilizando INNER
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 10h00min - ID Citsmart: 120770 Motivo/Comentário: A tabela origematendimento, faseservico
+         * e empregados estava utilizando INNER
          * JOIN, isso fazia com que as solicitações que não possuem origem contrato, fase ou solicitante não fossem retornadas. Alterado para LEFT JOIN
          */
 
@@ -1213,47 +1230,49 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
             sql.append("AND (to_char(solicitacaoservico.datahorasolicitacao, 'YYYY-MM-DD') BETWEEN ? AND ? )");
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
             parametros.add(formatter.format(pesquisaSolicitacaoServicoDto.getDataInicio()));
             parametros.add(formatter.format(pesquisaSolicitacaoServicoDto.getDataFim()));
         } else {
             sql.append("AND (solicitacaoservico.datahorasolicitacao BETWEEN ? AND ?) ");
             parametros.add(pesquisaSolicitacaoServicoDto.getDataInicio());
-            parametros.add(transformaHoraFinal(pesquisaSolicitacaoServicoDto.getDataFim()));
+            parametros.add(this.transformaHoraFinal(pesquisaSolicitacaoServicoDto.getDataFim()));
         }
-        if (pesquisaSolicitacaoServicoDto.getDataInicioFechamento() != null && !StringUtils.equalsIgnoreCase(pesquisaSolicitacaoServicoDto.getDataInicioFechamento().toString(), "1970-01-01")) {
+        if (pesquisaSolicitacaoServicoDto.getDataInicioFechamento() != null
+                && !StringUtils.equalsIgnoreCase(pesquisaSolicitacaoServicoDto.getDataInicioFechamento().toString(), "1970-01-01")) {
             if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
                 sql.append("AND (to_char(solicitacaoservico.datahorasolicitacao, 'YYYY-MM-DD') BETWEEN ? AND ? )");
-                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
                 parametros.add(formatter.format(pesquisaSolicitacaoServicoDto.getDataInicioFechamento()));
                 parametros.add(formatter.format(pesquisaSolicitacaoServicoDto.getDataFimFechamento()));
             } else {
                 sql.append("AND (solicitacaoservico.datahorafim BETWEEN ? AND ?) ");
                 parametros.add(pesquisaSolicitacaoServicoDto.getDataInicioFechamento());
-                parametros.add(transformaHoraFinal(pesquisaSolicitacaoServicoDto.getDataFimFechamento()));
+                parametros.add(this.transformaHoraFinal(pesquisaSolicitacaoServicoDto.getDataFimFechamento()));
             }
 
         }
-        
+
         /**
          * @author Cristian: obtém as unidades que o usuário logado tem permissão para acessar
          */
-        
-        if ((unidadesColaborador!=null) && (unidadesColaborador.size()>0)) {
+
+        if (unidadesColaborador != null && unidadesColaborador.size() > 0) {
             sql.append("AND (solicitacaoservico.idunidade in ( ");
-            
-            
-        	StringBuilder sb = new StringBuilder();
-        	for (UnidadeDTO n : unidadesColaborador) { 
-        	    if (sb.length() > 0) sb.append(',');
-        	    sb.append(String.valueOf(n.getIdUnidade()));
-        	}
-        	  
-        	sql.append(sb.toString()+") ) ");
-        	
+
+            final StringBuilder sb = new StringBuilder();
+            for (final UnidadeDTO n : unidadesColaborador) {
+                if (sb.length() > 0) {
+                    sb.append(',');
+                }
+                sb.append(String.valueOf(n.getIdUnidade()));
+            }
+
+            sql.append(sb.toString() + ") ) ");
+
         }
 
-        if ((pesquisaSolicitacaoServicoDto.getOrdenacao() != null) && (pesquisaSolicitacaoServicoDto.getOrdenacao().trim().isEmpty()==false)) {
+        if (pesquisaSolicitacaoServicoDto.getOrdenacao() != null && pesquisaSolicitacaoServicoDto.getOrdenacao().trim().isEmpty() == false) {
             sql.append(" ORDER BY " + pesquisaSolicitacaoServicoDto.getOrdenacao() + "");
         }
 
@@ -1273,8 +1292,10 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                 quantidadePaginator2 = quantidadePaginator + pagAtual;
 
                 /*
-                 * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 10h00min - ID Citsmart: 120770 Motivo/Comentário: A tabela origematendimento, faseservico e empregados estava utilizando
-                 * INNER JOIN, isso fazia com que as solicitações que não possuem origem contrato, fase ou solicitante não fossem retornadas. Alterado para LEFT JOIN
+                 * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 10h00min - ID Citsmart: 120770 Motivo/Comentário: A tabela origematendimento,
+                 * faseservico e empregados estava utilizando
+                 * INNER JOIN, isso fazia com que as solicitações que não possuem origem contrato, fase ou solicitante não fossem retornadas. Alterado para LEFT
+                 * JOIN
                  */
 
                 sql.append("SELECT tempoAtendimentoHH,tempoAtendimentoMM,datahorainicio, datahorafim, idsolicitacaoservico, nomeservico, unidade.nome AS NOMEUNIDADE, CASE WHEN solicitacaoservico.situacao = 'EmAndamento' THEN 'Em Andamento' ELSE solicitacaoservico.situacao END AS situacao, dataHoraSolicitacao, dataHoraLimite, nomeTipoDemandaServico, prazohh, prazomm, ");
@@ -1367,15 +1388,16 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                 }
                 if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
                     sql.append("AND (to_char(solicitacaoservico.datahorasolicitacao, 'YYYY-MM-DD') BETWEEN ? AND ? )");
-                    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                    final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
                     parametros2.add(formatter.format(pesquisaSolicitacaoServicoDto.getDataInicio()));
                     parametros2.add(formatter.format(pesquisaSolicitacaoServicoDto.getDataFim()));
                 }
 
-                if (pesquisaSolicitacaoServicoDto.getDataInicioFechamento() != null && !StringUtils.equalsIgnoreCase(pesquisaSolicitacaoServicoDto.getDataInicioFechamento().toString(), "1970-01-01")) {
+                if (pesquisaSolicitacaoServicoDto.getDataInicioFechamento() != null
+                        && !StringUtils.equalsIgnoreCase(pesquisaSolicitacaoServicoDto.getDataInicioFechamento().toString(), "1970-01-01")) {
                     if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
                         sql.append("AND (to_char(solicitacaoservico.datahorasolicitacao, 'YYYY-MM-DD') BETWEEN ? AND ? )");
-                        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                        final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
                         parametros2.add(formatter.format(pesquisaSolicitacaoServicoDto.getDataInicioFechamento()));
                         parametros2.add(formatter.format(pesquisaSolicitacaoServicoDto.getDataFimFechamento()));
                     }
@@ -1383,8 +1405,10 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                 }
 
                 /*
-                 * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 10h00min - ID Citsmart: 120770 Motivo/Comentário: A tabela origematendimento, faseservico e empregados estava utilizando
-                 * INNER JOIN, isso fazia com que as solicitações que não possuem origem contrato, fase ou solicitante não fossem retornadas. Alterado para LEFT JOIN
+                 * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 10h00min - ID Citsmart: 120770 Motivo/Comentário: A tabela origematendimento,
+                 * faseservico e empregados estava utilizando
+                 * INNER JOIN, isso fazia com que as solicitações que não possuem origem contrato, fase ou solicitante não fossem retornadas. Alterado para LEFT
+                 * JOIN
                  */
 
                 sql.append(" AND IDSOLICITACAOSERVICO IN(SELECT IDSOLICITACAOSERVICO FROM(SELECT row_.*, ROWNUM ROWNUM_ FROM (SELECT COUNT(*) OVER() AS TOTALROWCOUNT, ");
@@ -1478,15 +1502,16 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                 }
                 if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
                     sql.append("AND (to_char(solicitacaoservico.datahorasolicitacao, 'YYYY-MM-DD') BETWEEN ? AND ? )");
-                    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                    final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
                     parametros2.add(formatter.format(pesquisaSolicitacaoServicoDto.getDataInicio()));
                     parametros2.add(formatter.format(pesquisaSolicitacaoServicoDto.getDataFim()));
                 }
 
-                if (pesquisaSolicitacaoServicoDto.getDataInicioFechamento() != null && !StringUtils.equalsIgnoreCase(pesquisaSolicitacaoServicoDto.getDataInicioFechamento().toString(), "1970-01-01")) {
+                if (pesquisaSolicitacaoServicoDto.getDataInicioFechamento() != null
+                        && !StringUtils.equalsIgnoreCase(pesquisaSolicitacaoServicoDto.getDataInicioFechamento().toString(), "1970-01-01")) {
                     if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
                         sql.append("AND (to_char(solicitacaoservico.datahorasolicitacao, 'YYYY-MM-DD') BETWEEN ? AND ? )");
-                        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                        final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
                         parametros2.add(formatter.format(pesquisaSolicitacaoServicoDto.getDataInicioFechamento()));
                         parametros2.add(formatter.format(pesquisaSolicitacaoServicoDto.getDataFimFechamento()));
                     }
@@ -1507,8 +1532,10 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                 quantidadePaginator2 = quantidadePaginator + pagAtual;
 
                 /*
-                 * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 10h00min - ID Citsmart: 120770 Motivo/Comentário: A tabela origematendimento, faseservico e empregados estava utilizando
-                 * INNER JOIN, isso fazia com que as solicitações que não possuem origem contrato, fase ou solicitante não fossem retornadas. Alterado para LEFT JOIN
+                 * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 10h00min - ID Citsmart: 120770 Motivo/Comentário: A tabela origematendimento,
+                 * faseservico e empregados estava utilizando
+                 * INNER JOIN, isso fazia com que as solicitações que não possuem origem contrato, fase ou solicitante não fossem retornadas. Alterado para LEFT
+                 * JOIN
                  */
 
                 sql.append(";WITH TabelaTemporaria AS ( ");
@@ -1599,7 +1626,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                     sql.append("AND (solicitacaoservico.descricao like '%" + pesquisaSolicitacaoServicoDto.getPalavraChave() + "%' ) ");
                 }
 
-                if (pesquisaSolicitacaoServicoDto.getDataInicioFechamento() != null && !StringUtils.equalsIgnoreCase(pesquisaSolicitacaoServicoDto.getDataInicioFechamento().toString(), "1970-01-01")) {
+                if (pesquisaSolicitacaoServicoDto.getDataInicioFechamento() != null
+                        && !StringUtils.equalsIgnoreCase(pesquisaSolicitacaoServicoDto.getDataInicioFechamento().toString(), "1970-01-01")) {
                     sql.append(" AND (solicitacaoservico.datahorafim BETWEEN ? AND ?) ");
                     parametros3.add(pesquisaSolicitacaoServicoDto.getDataInicioFechamento());
                     parametros3.add(pesquisaSolicitacaoServicoDto.getDataFimFechamento());
@@ -1607,7 +1635,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
                 sql.append("AND (solicitacaoservico.datahorasolicitacao BETWEEN ? AND ?) ");
                 parametros3.add(pesquisaSolicitacaoServicoDto.getDataInicio());
-                parametros3.add(transformaHoraFinal(pesquisaSolicitacaoServicoDto.getDataFim()));
+                parametros3.add(this.transformaHoraFinal(pesquisaSolicitacaoServicoDto.getDataFim()));
 
                 sql.append(" ) SELECT * FROM TabelaTemporaria WHERE Row>" + pagAtual + " and Row<" + (quantidadePaginator2 + 1) + " ");
 
@@ -1617,7 +1645,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         if (listaTotal != null) {
             pesquisaSolicitacaoServicoDto.setTotalItens(listaTotal.size());
             if (listaTotal.size() > quantidadePaginator) {
-                totalPag = ((listaTotal.size() / quantidadePaginator));
+                totalPag = listaTotal.size() / quantidadePaginator;
                 if (listaTotal.size() % quantidadePaginator != 0) {
                     totalPag = totalPag + 1;
                 }
@@ -1629,24 +1657,24 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         List lista;
 
         if (strSGBDPrincipal.equalsIgnoreCase("ORACLE")) {
-            lista = execSQL(sql.toString().toUpperCase(), parametros2.toArray());
+            lista = this.execSQL(sql.toString().toUpperCase(), parametros2.toArray());
         } else if (strSGBDPrincipal.equalsIgnoreCase("SQLSERVER")) {
-            lista = execSQL(sql.toString().toUpperCase(), parametros3.toArray());
+            lista = this.execSQL(sql.toString().toUpperCase(), parametros3.toArray());
         } else {
-            lista = execSQL(sql.toString().toUpperCase(), parametros.toArray());
+            lista = this.execSQL(sql.toString().toUpperCase(), parametros.toArray());
         }
 
         if (lista == null || lista.size() == 0) {
-            TransactionControler tc = this.getTransactionControler();
+            final TransactionControler tc = this.getTransactionControler();
             if (tc != null) {
                 tc.close();
             }
             return null;
         }
 
-        List result = new ArrayList();
+        final List result = new ArrayList<>();
         if (lista == null || lista.size() == 0) {
-            TransactionControler tc = this.getTransactionControler();
+            final TransactionControler tc = this.getTransactionControler();
             if (tc != null) {
                 tc.close();
             }
@@ -1654,7 +1682,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             return result;
         }
 
-        TransactionControler tc = this.getTransactionControler();
+        final TransactionControler tc = this.getTransactionControler();
         if (tc != null) {
             tc.close();
         }
@@ -1684,18 +1712,17 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("contrato");
         listRetorno.add("idUsuarioResponsavelAtual");
 
-        List listaSolicitacoes = engine.listConvertion(getBean(), lista, listRetorno);
+        final List listaSolicitacoes = engine.listConvertion(this.getBean(), lista, listRetorno);
 
         return listaSolicitacoes;
     }
-    
-    
-    public Collection<SolicitacaoServicoDTO> findByIdGrupo(Integer idGrupo) throws Exception {
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
-        List list = new ArrayList();
 
-        StringBuilder sql = new StringBuilder();
+    public Collection<SolicitacaoServicoDTO> findByIdGrupo(final Integer idGrupo) throws Exception {
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        List list = new ArrayList<>();
+
+        final StringBuilder sql = new StringBuilder();
         sql.append("select sol.idsolicitacaoservico, sol.situacao from solicitacaoservico sol where sol.idgrupoatual = ? and (sol.prazohh <> 0 or sol.prazomm <> 0) and situacao <> 'Cancelada'");
         parametro.add(idGrupo);
 
@@ -1705,20 +1732,20 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("situacao");
 
         if (list != null && !list.isEmpty()) {
-            return this.listConvertion(getBean(), list, listRetorno);
-        } else {
-            return null;
+            return this.listConvertion(this.getBean(), list, listRetorno);
         }
+        return null;
     }
 
-    public Collection<SolicitacaoServicoDTO> findByIdGrupoEDataAlta(Integer idGrupo, Date dataInicio, Date dataFim) throws Exception {
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
-        List list = new ArrayList();
+    public Collection<SolicitacaoServicoDTO> findByIdGrupoEDataAlta(final Integer idGrupo, final Date dataInicio, final Date dataFim) throws Exception {
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        List list = new ArrayList<>();
 
-        StringBuilder sql = new StringBuilder();
+        final StringBuilder sql = new StringBuilder();
         sql.append("select sol.idsolicitacaoservico, sol.situacao, sol.idprioridade, sol.urgencia from solicitacaoservico sol "
-                + "inner join servicocontrato sc on sc.idservicocontrato = sol.idservicocontrato " + "inner join grupo g on sc.idgrupoexecutor = g.idgrupo "
+                + "inner join servicocontrato sc on sc.idservicocontrato = sol.idservicocontrato "
+                + "inner join grupo g on sc.idgrupoexecutor = g.idgrupo "
                 + "where g.idgrupo = ? and datahorainiciosla between ? and ? and urgencia like ? and (sol.prazohh <> 0 or sol.prazomm <> 0) and situacao <> 'Cancelada'");
         parametro.add(idGrupo);
         parametro.add(dataInicio);
@@ -1733,19 +1760,18 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("urgencia");
 
         if (list != null && !list.isEmpty()) {
-            return this.listConvertion(getBean(), list, listRetorno);
-        } else {
-            return null;
+            return this.listConvertion(this.getBean(), list, listRetorno);
         }
+        return null;
     }
 
-    public Collection<SolicitacaoServicoDTO> findByIdGrupoEDataAtendidasAlta(Integer idGrupo, Date dataInicio, Date dataFim) throws Exception {
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
-        List list = new ArrayList();
-        Date dataAtual = UtilDatas.getDataAtual();
+    public Collection<SolicitacaoServicoDTO> findByIdGrupoEDataAtendidasAlta(final Integer idGrupo, final Date dataInicio, final Date dataFim) throws Exception {
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        List list = new ArrayList<>();
+        final Date dataAtual = UtilDatas.getDataAtual();
 
-        StringBuilder sql = new StringBuilder();
+        final StringBuilder sql = new StringBuilder();
         sql.append("select sol.idsolicitacaoservico, sol.situacao, sol.idprioridade, sol.urgencia from solicitacaoservico sol "
                 + "inner join servicocontrato sc on sc.idservicocontrato = sol.idservicocontrato "
                 + "inner join grupo g on sc.idgrupoexecutor = g.idgrupo "
@@ -1766,19 +1792,19 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("urgencia");
 
         if (list != null && !list.isEmpty()) {
-            return this.listConvertion(getBean(), list, listRetorno);
-        } else {
-            return null;
+            return this.listConvertion(this.getBean(), list, listRetorno);
         }
+        return null;
     }
 
-    public Collection<SolicitacaoServicoDTO> findByIdGrupoEDataAtendidasBaixa(Integer idGrupo, Date dataInicio, Date dataFim) throws Exception {
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
-        List list = new ArrayList();
-        Date dataAtual = UtilDatas.getDataAtual();
+    public Collection<SolicitacaoServicoDTO> findByIdGrupoEDataAtendidasBaixa(final Integer idGrupo, final Date dataInicio, final Date dataFim)
+            throws Exception {
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        List list = new ArrayList<>();
+        final Date dataAtual = UtilDatas.getDataAtual();
 
-        StringBuilder sql = new StringBuilder();
+        final StringBuilder sql = new StringBuilder();
         sql.append("select sol.idsolicitacaoservico, sol.situacao, sol.idprioridade, sol.urgencia from solicitacaoservico sol "
                 + "inner join servicocontrato sc on sc.idservicocontrato = sol.idservicocontrato "
                 + "inner join grupo g on sc.idgrupoexecutor = g.idgrupo "
@@ -1798,19 +1824,19 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("urgencia");
 
         if (list != null && !list.isEmpty()) {
-            return this.listConvertion(getBean(), list, listRetorno);
-        } else {
-            return null;
+            return this.listConvertion(this.getBean(), list, listRetorno);
         }
+        return null;
     }
 
-    public Collection<SolicitacaoServicoDTO> findByIdGrupoEDataAtendidasMedia(Integer idGrupo, Date dataInicio, Date dataFim) throws Exception {
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
-        List list = new ArrayList();
-        Date dataAtual = UtilDatas.getDataAtual();
+    public Collection<SolicitacaoServicoDTO> findByIdGrupoEDataAtendidasMedia(final Integer idGrupo, final Date dataInicio, final Date dataFim)
+            throws Exception {
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        List list = new ArrayList<>();
+        final Date dataAtual = UtilDatas.getDataAtual();
 
-        StringBuilder sql = new StringBuilder();
+        final StringBuilder sql = new StringBuilder();
         sql.append("select sol.idsolicitacaoservico, sol.situacao, sol.idprioridade, sol.urgencia from solicitacaoservico sol "
                 + "inner join servicocontrato sc on sc.idservicocontrato = sol.idservicocontrato "
                 + "inner join grupo g on sc.idgrupoexecutor = g.idgrupo "
@@ -1831,20 +1857,21 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("urgencia");
 
         if (list != null && !list.isEmpty()) {
-            return this.listConvertion(getBean(), list, listRetorno);
-        } else {
-            return null;
+            return this.listConvertion(this.getBean(), list, listRetorno);
         }
+        return null;
     }
 
-    public Collection<SolicitacaoServicoDTO> findByIdGrupoEDataAtendidasTotal(Integer idGrupo, Date dataInicio, Date dataFim) throws Exception {
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
-        List list = new ArrayList();
-        Date dataAtual = UtilDatas.getDataAtual();
+    public Collection<SolicitacaoServicoDTO> findByIdGrupoEDataAtendidasTotal(final Integer idGrupo, final Date dataInicio, final Date dataFim)
+            throws Exception {
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        List list = new ArrayList<>();
+        final Date dataAtual = UtilDatas.getDataAtual();
 
-        StringBuilder sql = new StringBuilder();
-        sql.append("select sol.idsolicitacaoservico, sol.situacao, sol.idprioridade from solicitacaoservico sol " + "inner join servicocontrato sc on sc.idservicocontrato = sol.idservicocontrato "
+        final StringBuilder sql = new StringBuilder();
+        sql.append("select sol.idsolicitacaoservico, sol.situacao, sol.idprioridade from solicitacaoservico sol "
+                + "inner join servicocontrato sc on sc.idservicocontrato = sol.idservicocontrato "
                 + "inner join grupo g on sc.idgrupoexecutor = g.idgrupo "
                 + "where g.idgrupo = ? and datahorainiciosla between ? and ? and datahorafim < datahoralimite and (sol.prazohh <> 0 or sol.prazomm <> 0) and situacao <> 'Cancelada' "
                 + "and situacao <> 'Suspensa' and (datahoralimite < ?)");
@@ -1860,21 +1887,22 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("idPrioridade");
 
         if (list != null && !list.isEmpty()) {
-            return this.listConvertion(getBean(), list, listRetorno);
-        } else {
-            return null;
+            return this.listConvertion(this.getBean(), list, listRetorno);
         }
+        return null;
     }
 
-    public Collection<SolicitacaoServicoDTO> findByIdGrupoEDataAtrasadasTotal(Integer idGrupo, Date dataInicio, Date dataFim) throws Exception {
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
-        List list = new ArrayList();
-        Date dataAtual = UtilDatas.getDataAtual();
+    public Collection<SolicitacaoServicoDTO> findByIdGrupoEDataAtrasadasTotal(final Integer idGrupo, final Date dataInicio, final Date dataFim)
+            throws Exception {
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        List list = new ArrayList<>();
+        final Date dataAtual = UtilDatas.getDataAtual();
 
-        StringBuilder sql = new StringBuilder();
-        sql.append("select sol.idsolicitacaoservico from solicitacaoservico sol " + "inner join servicocontrato sc on sc.idservicocontrato = sol.idservicocontrato "
-                + "inner join grupo g on sc.idgrupoexecutor = g.idgrupo " + "where g.idgrupo = ? and datahorainiciosla between ? and ? "
+        final StringBuilder sql = new StringBuilder();
+        sql.append("select sol.idsolicitacaoservico from solicitacaoservico sol "
+                + "inner join servicocontrato sc on sc.idservicocontrato = sol.idservicocontrato " + "inner join grupo g on sc.idgrupoexecutor = g.idgrupo "
+                + "where g.idgrupo = ? and datahorainiciosla between ? and ? "
                 + "and (datahorafim > datahoralimite or (datahorafim is null and datahoralimite > ?)) "
                 + "and (sol.prazohh <> 0 or sol.prazomm <> 0) and situacao <> 'Cancelada' and situacao <> 'Suspensa' " + "and (datahoralimite < ?)");
 
@@ -1889,20 +1917,20 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("idSolicitacaoServico");
 
         if (list != null && !list.isEmpty()) {
-            return this.listConvertion(getBean(), list, listRetorno);
-        } else {
-            return null;
+            return this.listConvertion(this.getBean(), list, listRetorno);
         }
+        return null;
     }
 
-    public Collection<SolicitacaoServicoDTO> findByIdGrupoEDataBaixa(Integer idGrupo, Date dataInicio, Date dataFim) throws Exception {
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
-        List list = new ArrayList();
+    public Collection<SolicitacaoServicoDTO> findByIdGrupoEDataBaixa(final Integer idGrupo, final Date dataInicio, final Date dataFim) throws Exception {
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        List list = new ArrayList<>();
 
-        StringBuilder sql = new StringBuilder();
+        final StringBuilder sql = new StringBuilder();
         sql.append("select sol.idsolicitacaoservico, sol.situacao, sol.idprioridade, sol.urgencia from solicitacaoservico sol "
-                + "inner join servicocontrato sc on sc.idservicocontrato = sol.idservicocontrato " + "inner join grupo g on sc.idgrupoexecutor = g.idgrupo "
+                + "inner join servicocontrato sc on sc.idservicocontrato = sol.idservicocontrato "
+                + "inner join grupo g on sc.idgrupoexecutor = g.idgrupo "
                 + "where g.idgrupo = ? and datahorainiciosla between ? and ? and urgencia like ? and (sol.prazohh <> 0 or sol.prazomm <> 0) and situacao <> 'Cancelada'");
         parametro.add(idGrupo);
         parametro.add(dataInicio);
@@ -1917,20 +1945,20 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("urgencia");
 
         if (list != null && !list.isEmpty()) {
-            return this.listConvertion(getBean(), list, listRetorno);
-        } else {
-            return null;
+            return this.listConvertion(this.getBean(), list, listRetorno);
         }
+        return null;
     }
 
-    public Collection<SolicitacaoServicoDTO> findByIdGrupoEDataMedia(Integer idGrupo, Date dataInicio, Date dataFim) throws Exception {
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
-        List list = new ArrayList();
+    public Collection<SolicitacaoServicoDTO> findByIdGrupoEDataMedia(final Integer idGrupo, final Date dataInicio, final Date dataFim) throws Exception {
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        List list = new ArrayList<>();
 
-        StringBuilder sql = new StringBuilder();
+        final StringBuilder sql = new StringBuilder();
         sql.append("select sol.idsolicitacaoservico, sol.situacao, sol.idprioridade, sol.urgencia from solicitacaoservico sol "
-                + "inner join servicocontrato sc on sc.idservicocontrato = sol.idservicocontrato " + "inner join grupo g on sc.idgrupoexecutor = g.idgrupo "
+                + "inner join servicocontrato sc on sc.idservicocontrato = sol.idservicocontrato "
+                + "inner join grupo g on sc.idgrupoexecutor = g.idgrupo "
                 + "where g.idgrupo = ? and datahorainiciosla between ? and ? and urgencia like ? and (sol.prazohh <> 0 or sol.prazomm <> 0) and situacao <> 'Cancelada' order by idsolicitacaoservico ");
         parametro.add(idGrupo);
         parametro.add(dataInicio);
@@ -1945,20 +1973,21 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("urgencia");
 
         if (list != null && !list.isEmpty()) {
-            return this.listConvertion(getBean(), list, listRetorno);
-        } else {
-            return null;
+            return this.listConvertion(this.getBean(), list, listRetorno);
         }
+        return null;
     }
 
-    public Collection<SolicitacaoServicoDTO> findByIdGrupoEDataSuspensasTotal(Integer idGrupo, Date dataInicio, Date dataFim) throws Exception {
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
-        List list = new ArrayList();
+    public Collection<SolicitacaoServicoDTO> findByIdGrupoEDataSuspensasTotal(final Integer idGrupo, final Date dataInicio, final Date dataFim)
+            throws Exception {
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        List list = new ArrayList<>();
 
-        StringBuilder sql = new StringBuilder();
+        final StringBuilder sql = new StringBuilder();
         sql.append("select sol.idsolicitacaoservico, sol.situacao, sol.idprioridade, sol.urgencia, sol.datahorafim, sol.datahoralimite from solicitacaoservico sol "
-                + "inner join servicocontrato sc on sc.idservicocontrato = sol.idservicocontrato " + "inner join grupo g on sc.idgrupoexecutor = g.idgrupo "
+                + "inner join servicocontrato sc on sc.idservicocontrato = sol.idservicocontrato "
+                + "inner join grupo g on sc.idgrupoexecutor = g.idgrupo "
                 + "where g.idgrupo = ? and datahorainiciosla between ? and ? and situacao = 'Suspensa'");
 
         parametro.add(idGrupo);
@@ -1975,20 +2004,20 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("dataHoraLimite");
 
         if (list != null && !list.isEmpty()) {
-            return this.listConvertion(getBean(), list, listRetorno);
-        } else {
-            return null;
+            return this.listConvertion(this.getBean(), list, listRetorno);
         }
+        return null;
     }
 
-    public Collection<SolicitacaoServicoDTO> findByIdGrupoEDataTotal(Integer idGrupo, Date dataInicio, Date dataFim) throws Exception {
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
-        List list = new ArrayList();
+    public Collection<SolicitacaoServicoDTO> findByIdGrupoEDataTotal(final Integer idGrupo, final Date dataInicio, final Date dataFim) throws Exception {
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        List list = new ArrayList<>();
 
-        StringBuilder sql = new StringBuilder();
+        final StringBuilder sql = new StringBuilder();
         sql.append("select sol.idsolicitacaoservico, sol.situacao, sol.idprioridade, sol.urgencia, sol.datahorafim, sol.datahoralimite from solicitacaoservico sol "
-                + "inner join servicocontrato sc on sc.idservicocontrato = sol.idservicocontrato " + "inner join grupo g on sc.idgrupoexecutor = g.idgrupo "
+                + "inner join servicocontrato sc on sc.idservicocontrato = sol.idservicocontrato "
+                + "inner join grupo g on sc.idgrupoexecutor = g.idgrupo "
                 + "where g.idgrupo = ? and datahorainiciosla between ? and ? and datahoralimite < ? and (sol.prazohh <> 0 or sol.prazomm <> 0) and situacao <> 'Cancelada'");
         parametro.add(idGrupo);
         parametro.add(dataInicio);
@@ -2005,21 +2034,22 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("dataHoraLimite");
 
         if (list != null && !list.isEmpty()) {
-            return this.listConvertion(getBean(), list, listRetorno);
-        } else {
-            return null;
+            return this.listConvertion(this.getBean(), list, listRetorno);
         }
+        return null;
     }
 
-    public Collection<SolicitacaoServicoDTO> findByIdPessoaEData(Integer idGrupo, Integer idPessoa, Date dataInicio, Date dataFim) throws Exception {
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
-        List list = new ArrayList();
+    public Collection<SolicitacaoServicoDTO> findByIdPessoaEData(final Integer idGrupo, final Integer idPessoa, final Date dataInicio, final Date dataFim)
+            throws Exception {
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        List list = new ArrayList<>();
 
-        StringBuilder sql = new StringBuilder();
+        final StringBuilder sql = new StringBuilder();
         sql.append("select sol.idsolicitacaoservico, sol.situacao, sol.idprioridade, sol.urgencia, sol.datahorafim, sol.datahoralimite from solicitacaoservico sol "
-                + "inner join servicocontrato sc on sc.idservicocontrato = sol.idservicocontrato " + "inner join grupo g on sc.idgrupoexecutor = g.idgrupo " + "where g.idgrupo = ? "
-                + "and datahorainiciosla between ? and ? and idresponsavel = ?");
+                + "inner join servicocontrato sc on sc.idservicocontrato = sol.idservicocontrato "
+                + "inner join grupo g on sc.idgrupoexecutor = g.idgrupo "
+                + "where g.idgrupo = ? " + "and datahorainiciosla between ? and ? and idresponsavel = ?");
         parametro.add(idGrupo);
         parametro.add(dataInicio);
         parametro.add(dataFim);
@@ -2035,22 +2065,26 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("dataHoraLimite");
 
         if (list != null && !list.isEmpty()) {
-            return this.listConvertion(getBean(), list, listRetorno);
-        } else {
-            return null;
+            return this.listConvertion(this.getBean(), list, listRetorno);
         }
+        return null;
     }
 
-    public Collection<SolicitacaoServicoDTO> findByIdPessoaEData(Integer idGrupo, String login, String nome, Date dataInicio, Date dataFim) throws Exception {
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
-        List list = new ArrayList();
+    public Collection<SolicitacaoServicoDTO> findByIdPessoaEData(final Integer idGrupo, final String login, final String nome, final Date dataInicio,
+            final Date dataFim) throws Exception {
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        List list = new ArrayList<>();
 
-        StringBuilder sql = new StringBuilder();
+        final StringBuilder sql = new StringBuilder();
         sql.append("select distinct sol.idsolicitacaoservico, sol.situacao, sol.idprioridade, sol.urgencia, sol.datahorafim, sol.datahoralimite from solicitacaoservico sol "
-                + "inner join servicocontrato sc on sc.idservicocontrato = sol.idservicocontrato " + "inner join grupo g on sc.idgrupoexecutor = g.idgrupo "
-                + "inner join ocorrenciasolicitacao o on sol.idsolicitacaoservico = o.idsolicitacaoservico " + "where g.idgrupo = ? " + "and datahorainiciosla between ? and ? "
-                + "and (o.registradopor like ? or o.registradopor like ?) " + "and o.ocorrencia like 'Execução da tarefa \"Desenvolvimento\"' "
+                + "inner join servicocontrato sc on sc.idservicocontrato = sol.idservicocontrato "
+                + "inner join grupo g on sc.idgrupoexecutor = g.idgrupo "
+                + "inner join ocorrenciasolicitacao o on sol.idsolicitacaoservico = o.idsolicitacaoservico "
+                + "where g.idgrupo = ? "
+                + "and datahorainiciosla between ? and ? "
+                + "and (o.registradopor like ? or o.registradopor like ?) "
+                + "and o.ocorrencia like 'Execução da tarefa \"Desenvolvimento\"' "
                 + "and o.descricao like '%Registro de Execução%' and (sol.prazohh <> 0 or sol.prazomm <> 0) and situacao <> 'Cancelada'");
 
         parametro.add(idGrupo);
@@ -2069,20 +2103,21 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("dataHoraLimite");
 
         if (list != null && !list.isEmpty()) {
-            return this.listConvertion(getBean(), list, listRetorno);
-        } else {
-            return null;
+            return this.listConvertion(this.getBean(), list, listRetorno);
         }
+        return null;
     }
 
-    public Collection<SolicitacaoServicoDTO> findByIdPessoaEDataAtendidas(Integer idGrupo, Integer idPessoa, Date dataInicio, Date dataFim) throws Exception {
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
-        List list = new ArrayList();
+    public Collection<SolicitacaoServicoDTO> findByIdPessoaEDataAtendidas(final Integer idGrupo, final Integer idPessoa, final Date dataInicio,
+            final Date dataFim) throws Exception {
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        List list = new ArrayList<>();
 
-        StringBuilder sql = new StringBuilder();
+        final StringBuilder sql = new StringBuilder();
         sql.append("select sol.idsolicitacaoservico, sol.situacao, sol.idprioridade, sol.urgencia, sol.datahorafim, sol.datahoralimite from solicitacaoservico sol "
-                + "inner join servicocontrato sc on sc.idservicocontrato = sol.idservicocontrato " + "inner join grupo g on sc.idgrupoexecutor = g.idgrupo "
+                + "inner join servicocontrato sc on sc.idservicocontrato = sol.idservicocontrato "
+                + "inner join grupo g on sc.idgrupoexecutor = g.idgrupo "
                 + "where g.idgrupo = ? and datahorainiciosla between ? and ? and datahorafim < datahoralimite and sol.idresponsavel = ?");
         parametro.add(idGrupo);
         parametro.add(dataInicio);
@@ -2099,22 +2134,24 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("dataHoraLimite");
 
         if (list != null && !list.isEmpty()) {
-            return this.listConvertion(getBean(), list, listRetorno);
-        } else {
-            return null;
+            return this.listConvertion(this.getBean(), list, listRetorno);
         }
+        return null;
     }
 
-    public Collection<SolicitacaoServicoDTO> findByIdPessoaEDataAtendidas(Integer idGrupo, String login, String nome, Date dataInicio, Date dataFim) throws Exception {
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
-        List list = new ArrayList();
+    public Collection<SolicitacaoServicoDTO> findByIdPessoaEDataAtendidas(final Integer idGrupo, final String login, final String nome, final Date dataInicio,
+            final Date dataFim) throws Exception {
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        List list = new ArrayList<>();
 
-        StringBuilder sql = new StringBuilder();
+        final StringBuilder sql = new StringBuilder();
         sql.append("select distinct sol.idsolicitacaoservico, sol.situacao, sol.idprioridade, sol.urgencia, sol.datahorafim, sol.datahoralimite from solicitacaoservico sol "
-                + "inner join servicocontrato sc on sc.idservicocontrato = sol.idservicocontrato " + "inner join grupo g on sc.idgrupoexecutor = g.idgrupo "
+                + "inner join servicocontrato sc on sc.idservicocontrato = sol.idservicocontrato "
+                + "inner join grupo g on sc.idgrupoexecutor = g.idgrupo "
                 + "inner join ocorrenciasolicitacao o on sol.idsolicitacaoservico = o.idsolicitacaoservico "
-                + "where g.idgrupo = ? and datahorainiciosla between ? and ? and datahorafim < datahoralimite " + "and (o.registradopor like ? or o.registradopor like ?) "
+                + "where g.idgrupo = ? and datahorainiciosla between ? and ? and datahorafim < datahoralimite "
+                + "and (o.registradopor like ? or o.registradopor like ?) "
                 + "and o.ocorrencia like 'Execução da tarefa \"Desenvolvimento\"' "
                 + "and o.descricao like '%Registro de Execução%' and (sol.prazohh <> 0 or sol.prazomm <> 0) and situacao <> 'Cancelada'");
         parametro.add(idGrupo);
@@ -2133,20 +2170,20 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("dataHoraLimite");
 
         if (list != null && !list.isEmpty()) {
-            return this.listConvertion(getBean(), list, listRetorno);
-        } else {
-            return null;
+            return this.listConvertion(this.getBean(), list, listRetorno);
         }
+        return null;
     }
 
-    public Collection<SolicitacaoServicoDTO> findByIdPessoaEDataNaoAtendidas(Integer idGrupo, Date dataInicio, Date dataFim) throws Exception {
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
-        List list = new ArrayList();
+    public Collection<SolicitacaoServicoDTO> findByIdPessoaEDataNaoAtendidas(final Integer idGrupo, final Date dataInicio, final Date dataFim) throws Exception {
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        List list = new ArrayList<>();
 
-        StringBuilder sql = new StringBuilder();
+        final StringBuilder sql = new StringBuilder();
         sql.append("select sol.idResponsavel, sol.idsolicitacaoservico, sol.situacao, sol.idprioridade, sol.urgencia from solicitacaoservico sol "
-                + "inner join servicocontrato sc on sc.idservicocontrato = sol.idservicocontrato " + "inner join grupo g on sc.idgrupoexecutor = g.idgrupo " + "where g.idgrupo = ? "
+                + "inner join servicocontrato sc on sc.idservicocontrato = sol.idservicocontrato " + "inner join grupo g on sc.idgrupoexecutor = g.idgrupo "
+                + "where g.idgrupo = ? "
                 + "and datahorainiciosla between ? and ? and datahoralimite > ? and (sol.prazohh <> 0 or sol.prazomm <> 0) and situacao <> 'Cancelada'");
         parametro.add(idGrupo);
         parametro.add(dataInicio);
@@ -2162,14 +2199,13 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("urgencia");
 
         if (list != null && !list.isEmpty()) {
-            return this.listConvertion(getBean(), list, listRetorno);
-        } else {
-            return null;
+            return this.listConvertion(this.getBean(), list, listRetorno);
         }
+        return null;
     }
 
-    public Collection<SolicitacaoServicoDTO> findByIdSolicitacaoPai(Integer idSolicitacaoPai) throws Exception {
-        List condicao = new ArrayList();
+    public Collection<SolicitacaoServicoDTO> findByIdSolicitacaoPai(final Integer idSolicitacaoPai) throws Exception {
+        final List<Condition> condicao = new ArrayList<>();
         condicao.add(new Condition("idSolicitacaoPai", "=", idSolicitacaoPai));
         return super.findByCondition(condicao, null);
     }
@@ -2181,14 +2217,15 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      * @return
      * @throws Exception
      */
-    public SolicitacaoServicoDTO findByIdSolicitacaoServico(Integer idSolicitacaoServico) throws Exception {
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
-        List list = new ArrayList();
+    public SolicitacaoServicoDTO findByIdSolicitacaoServico(final Integer idSolicitacaoServico) throws Exception {
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        List list = new ArrayList<>();
 
-        StringBuilder sql = new StringBuilder();
+        final StringBuilder sql = new StringBuilder();
         sql.append("select sol.idsolicitacaoservico, ser.nomeservico , sol.situacao from solicitacaoservico sol inner join servicocontrato "
-                + "sercont on  sol.idservicocontrato =  sercont.idservicocontrato inner join servico ser on ser.idservico = sercont.idservico " + "where sol.idsolicitacaoservico = ?");
+                + "sercont on  sol.idservicocontrato =  sercont.idservicocontrato inner join servico ser on ser.idservico = sercont.idservico "
+                + "where sol.idsolicitacaoservico = ?");
         parametro.add(idSolicitacaoServico);
 
         list = this.execSQL(sql.toString(), parametro.toArray());
@@ -2198,20 +2235,20 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("situacao");
 
         if (list != null && !list.isEmpty()) {
-            return (SolicitacaoServicoDTO) this.listConvertion(getBean(), list, listRetorno).get(0);
-        } else {
-            return null;
+            return (SolicitacaoServicoDTO) this.listConvertion(this.getBean(), list, listRetorno).get(0);
         }
+        return null;
     }
 
     /**
      * Executando em: sqlServer, mySql e POstgreSQL
      **/
-    public Collection<SolicitacaoServicoDTO> findByServico(Integer idServico) throws Exception {
-        List parametro = new ArrayList();
-        List fields = new ArrayList();
-        List list = new ArrayList();
-        String sql = "   select nometiposervico, nomeservico, nomecategoriaservico, idServico from servico " + "inner join tiposervico  on servico.idtiposervico = tiposervico.idtiposervico "
+    public Collection<SolicitacaoServicoDTO> findByServico(final Integer idServico) throws Exception {
+        final List parametro = new ArrayList<>();
+        final List fields = new ArrayList<>();
+        List list = new ArrayList<>();
+        String sql = "   select nometiposervico, nomeservico, nomecategoriaservico, idServico from servico "
+                + "inner join tiposervico  on servico.idtiposervico = tiposervico.idtiposervico "
                 + "inner join categoriaservico on servico.idcategoriaservico = categoriaservico.idcategoriaservico " + "where ";
 
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.POSTGRESQL)) {
@@ -2228,21 +2265,21 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         fields.add("nomeCategoriaServico");
         fields.add("idServico");
         if (list != null && !list.isEmpty()) {
-            return this.listConvertion(getBean(), list, fields);
-        } else {
-            return null;
+            return this.listConvertion(this.getBean(), list, fields);
         }
+        return null;
 
     }
 
     /**
      * Executando em: sqlServer, mySql e POstgreSQL
      **/
-    public Collection<SolicitacaoServicoDTO> findByServico(Integer idServico, String nome) throws Exception {
-        List parametro = new ArrayList();
-        List fields = new ArrayList();
-        List list = new ArrayList();
-        String sql = "   select nometiposervico, nomeservico, nomecategoriaservico, idServico from servico " + "inner join tiposervico  on servico.idtiposervico = tiposervico.idtiposervico "
+    public Collection<SolicitacaoServicoDTO> findByServico(final Integer idServico, final String nome) throws Exception {
+        final List parametro = new ArrayList<>();
+        final List fields = new ArrayList<>();
+        List list = new ArrayList<>();
+        String sql = "   select nometiposervico, nomeservico, nomecategoriaservico, idServico from servico "
+                + "inner join tiposervico  on servico.idtiposervico = tiposervico.idtiposervico "
                 + "inner join categoriaservico on servico.idcategoriaservico = categoriaservico.idcategoriaservico " + "where ";
 
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.POSTGRESQL)) {
@@ -2259,17 +2296,16 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         fields.add("nomeCategoriaServico");
         fields.add("idServico");
         if (list != null && !list.isEmpty()) {
-            return this.listConvertion(getBean(), list, fields);
-        } else {
-            return null;
+            return this.listConvertion(this.getBean(), list, fields);
         }
+        return null;
 
     }
 
-    public SolicitacaoServicoDTO findInfosCriacaoProblemaByIdSolServico(SolicitacaoServicoDTO solServico) throws Exception {
-        Object[] params = new Object[] { solServico.getIdSolicitacaoServico() };
-        List listRetorno = new ArrayList();
-        StringBuilder sql = new StringBuilder();
+    public SolicitacaoServicoDTO findInfosCriacaoProblemaByIdSolServico(final SolicitacaoServicoDTO solServico) throws Exception {
+        final Object[] params = new Object[] {solServico.getIdSolicitacaoServico()};
+        final List listRetorno = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
         sql.append("select C.NOMECONTATO, C.TELEFONECONTATO, C.EMAILCONTATO, SE.IDCONTRATO " + " from solicitacaoservico S "
                 + " INNER JOIN CONTATOSOLICITACAOSERVICO C ON S.idcontatosolicitacaoservico= C.idcontatosolicitacaoservico "
                 + " INNER JOIN SERVICOCONTRATO SE ON S.IDSERVICOCONTRATO = SE.IDSERVICOCONTRATO " + " WHERE S.IDSOLICITACAOSERVICO = ?");
@@ -2279,19 +2315,18 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("emailcontato");
         listRetorno.add("idContrato");
 
-        List list = this.execSQL(sql.toString(), params);
+        final List list = this.execSQL(sql.toString(), params);
         if (list != null && !list.isEmpty()) {
-            return (SolicitacaoServicoDTO) this.listConvertion(getBean(), list, listRetorno).get(0);
-        } else {
-            return null;
+            return (SolicitacaoServicoDTO) this.listConvertion(this.getBean(), list, listRetorno).get(0);
         }
+        return null;
     }
 
-    public Collection<SolicitacaoServicoDTO> findResponsavelAtual(Integer idSolicitacaoServico) throws Exception {
-        StringBuilder sql = new StringBuilder();
-        List parametro = new ArrayList();
+    public Collection<SolicitacaoServicoDTO> findResponsavelAtual(final Integer idSolicitacaoServico) throws Exception {
+        final StringBuilder sql = new StringBuilder();
+        final List parametro = new ArrayList<>();
 
-        List list = new ArrayList();
+        List list = new ArrayList<>();
 
         sql.append("SELECT bpm_itemtrabalhofluxo.idresponsavelatual ");
         sql.append("FROM solicitacaoservico solicitacaoservico ");
@@ -2306,21 +2341,20 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         parametro.add(idSolicitacaoServico);
 
         list = this.execSQL(sql.toString(), parametro.toArray());
-        List listRetorno = new ArrayList();
+        final List listRetorno = new ArrayList<>();
         listRetorno.add("idUsuarioResponsavelAtual");
-        List result = engine.listConvertion(getBean(), list, listRetorno);
+        final List result = engine.listConvertion(this.getBean(), list, listRetorno);
         if (result != null && !result.isEmpty()) {
             return result;
-        } else {
-            return null;
         }
+        return null;
     }
 
-
-    public ArrayList<SolicitacaoServicoDTO> findSolicitacoesServicosUsuario(Integer idUsuario, String status, String campoBusca) throws Exception {
-        List listRetorno = new ArrayList();
-        List list = new ArrayList();
-        StringBuilder sql = new StringBuilder();
+    public ArrayList<SolicitacaoServicoDTO> findSolicitacoesServicosUsuario(final Integer idUsuario, final String status, final String campoBusca)
+            throws Exception {
+        final List listRetorno = new ArrayList<>();
+        List list = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
 
         sql.append("select idSolicitacaoServico");
         sql.append(" from solicitacaoservico");
@@ -2338,7 +2372,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             sql.append(" or upper(descricao) like upper('%" + Util.encodeHTML(campoBusca) + "%')");
             sql.append(" or upper(resposta) like upper('%" + campoBusca + "%')");
             sql.append(" or upper(resposta) like upper('%" + Util.encodeHTML(campoBusca) + "%')");
-            if (isInteger(campoBusca)) {
+            if (this.isInteger(campoBusca)) {
                 sql.append(" or idSolicitacaoServico = " + campoBusca);
             }
             sql.append(")");
@@ -2349,10 +2383,9 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("idSolicitacaoServico");
 
         if (list != null && !list.isEmpty()) {
-            return (ArrayList<SolicitacaoServicoDTO>) this.listConvertion(getBean(), list, listRetorno);
-        } else {
-            return null;
+            return (ArrayList<SolicitacaoServicoDTO>) this.listConvertion(this.getBean(), list, listRetorno);
         }
+        return null;
     }
 
     @Override
@@ -2454,18 +2487,19 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      * Executando em: sqlServer, mySql e POstgreSQL
      **/
     public Collection getEmAndamentoParaTratamentoBatch() throws Exception {
-        String sql = "SELECT s.idsolicitacaoservico, s.idAcordoNivelServico, ans.tempoauto, ans.idprioridadeauto1, ans.idgrupo1, s.idprioridade FROM solicitacaoservico s "
-                + "INNER JOIN acordonivelservico ans on ans.idacordonivelservico = s.idacordonivelservico " + "where UPPER(s.situacao) not in ('FECHADA', 'CANCELADA', 'RESOLVIDA', 'SUSPENSA') ";
-        List listDados = this.execSQL(sql, null);
+        final String sql = "SELECT s.idsolicitacaoservico, s.idAcordoNivelServico, ans.tempoauto, ans.idprioridadeauto1, ans.idgrupo1, s.idprioridade FROM solicitacaoservico s "
+                + "INNER JOIN acordonivelservico ans on ans.idacordonivelservico = s.idacordonivelservico "
+                + "where UPPER(s.situacao) not in ('FECHADA', 'CANCELADA', 'RESOLVIDA', 'SUSPENSA') ";
+        final List listDados = this.execSQL(sql, null);
         if (listDados != null) {
-            List fields = new ArrayList();
+            final List fields = new ArrayList<>();
             fields.add("idSolicitacaoServico");
             fields.add("idAcordoNivelServico");
             fields.add("tempoAuto");
             fields.add("idPrioridadeAuto1");
             fields.add("idGrupo1");
             fields.add("idPrioridade");
-            List lstReturn = this.listConvertion(SolicitacaoServicoDTO.class, listDados, fields);
+            final List lstReturn = this.listConvertion(SolicitacaoServicoDTO.class, listDados, fields);
             return lstReturn;
         }
         return null;
@@ -2473,7 +2507,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
     @Override
     public Collection<Field> getFields() {
-        Collection<Field> listFields = new ArrayList<>();
+        final Collection<Field> listFields = new ArrayList<>();
         listFields.add(new Field("idSolicitacaoServico", "idSolicitacaoServico", true, true, false, false));
         listFields.add(new Field("idbaseconhecimento", "idBaseConhecimento", false, false, false, false));
         listFields.add(new Field("idServicoContrato", "idServicoContrato", false, false, false, false));
@@ -2550,8 +2584,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     /**
      * Executando em: sqlServer, mySql e POstgreSQL
      **/
-    public Collection<SolicitacaoServicoDTO> getHistoricoByIdSolicitacao(Integer idSolicitacao) throws Exception {
-        List listRetorno = new ArrayList();
+    public Collection<SolicitacaoServicoDTO> getHistoricoByIdSolicitacao(final Integer idSolicitacao) throws Exception {
+        final List listRetorno = new ArrayList<>();
         String sql = "";
         sql = "select s.idsolicitacaoservico, ";
         sql += "       e.seqreabertura, ";
@@ -2582,8 +2616,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         sql += "  and s.idsolicitacaoservico = ? ";
         sql += "  order by s.idsolicitacaoservico, h.datahora, u.login ";
 
-        List lista = new ArrayList();
-        List lstParms = new ArrayList();
+        List lista = new ArrayList<>();
+        final List lstParms = new ArrayList<>();
         lstParms.add(idSolicitacao);
         lista = this.execSQL(sql, lstParms.toArray());
         listRetorno.add("idSolicitacaoServico");
@@ -2595,7 +2629,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("siglaGrupo");
         listRetorno.add("nomeUsuario");
 
-        List listSolicitacoes = engine.listConvertion(getBean(), lista, listRetorno);
+        final List listSolicitacoes = engine.listConvertion(this.getBean(), lista, listRetorno);
 
         return listSolicitacoes;
     }
@@ -2603,27 +2637,29 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     /**
      * Executando em: sqlServer, mySql e POstgreSQL
      **/
-    public Integer getQuantidadeByIdServico(int idServico) throws Exception {
-        List parametro = new ArrayList();
-        String sql = "SELECT count(*) FROM solicitacaoservico ss, servicocontrato sc " + "where ss.idservicocontrato =  sc.idservicocontrato and sc.idservico = ?";
+    public Integer getQuantidadeByIdServico(final int idServico) throws Exception {
+        final List parametro = new ArrayList<>();
+        final String sql = "SELECT count(*) FROM solicitacaoservico ss, servicocontrato sc "
+                + "where ss.idservicocontrato =  sc.idservicocontrato and sc.idservico = ?";
         parametro.add(idServico);
-        List resultado = this.execSQL(sql.toString(), parametro.toArray());
-        List<String> listRetorno = new ArrayList<String>();
+        final List resultado = this.execSQL(sql.toString(), parametro.toArray());
+        final List<String> listRetorno = new ArrayList<String>();
         listRetorno.add("quantidade");
-        List result = engine.listConvertion(SolicitacaoServicoDTO.class, resultado, listRetorno);
-        SolicitacaoServicoDTO solicitacaoServicoDTO = (SolicitacaoServicoDTO) result.get(0);
+        final List result = engine.listConvertion(SolicitacaoServicoDTO.class, resultado, listRetorno);
+        final SolicitacaoServicoDTO solicitacaoServicoDTO = (SolicitacaoServicoDTO) result.get(0);
         return solicitacaoServicoDTO.getQuantidade();
     }
 
-    public Integer getQuantidadeByIdServicoContrato(int idServicoContrato) throws Exception {
-        List parametro = new ArrayList();
-        String sql = "SELECT count(*) FROM solicitacaoservico ss, servicocontrato sc " + "where ss.idservicocontrato =  sc.idservicocontrato and sc.idServicoContrato = ?";
+    public Integer getQuantidadeByIdServicoContrato(final int idServicoContrato) throws Exception {
+        final List parametro = new ArrayList<>();
+        final String sql = "SELECT count(*) FROM solicitacaoservico ss, servicocontrato sc "
+                + "where ss.idservicocontrato =  sc.idservicocontrato and sc.idServicoContrato = ?";
         parametro.add(idServicoContrato);
-        List resultado = this.execSQL(sql.toString(), parametro.toArray());
-        List<String> listRetorno = new ArrayList<String>();
+        final List resultado = this.execSQL(sql.toString(), parametro.toArray());
+        final List<String> listRetorno = new ArrayList<String>();
         listRetorno.add("quantidade");
-        List result = engine.listConvertion(SolicitacaoServicoDTO.class, resultado, listRetorno);
-        SolicitacaoServicoDTO solicitacaoServicoDTO = (SolicitacaoServicoDTO) result.get(0);
+        final List result = engine.listConvertion(SolicitacaoServicoDTO.class, resultado, listRetorno);
+        final SolicitacaoServicoDTO solicitacaoServicoDTO = (SolicitacaoServicoDTO) result.get(0);
         return solicitacaoServicoDTO.getQuantidade();
     }
 
@@ -2631,7 +2667,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      * Executando em: sqlServer, mySql e POstgreSQL
      **/
     private String getSQLRestoreAll() {
-        StringBuilder sql = new StringBuilder();
+        final StringBuilder sql = new StringBuilder();
         sql.append("SELECT sol.idSolicitacaoServico, sol.idbaseconhecimento, sol.idServicoContrato, sol.idSolicitante, ");
         sql.append("       sol.idItemConfiguracao, sol.idItemConfiguracaoFilho, sol.idtipodemandaservico, sol.idcontatosolicitacaoservico, ");
         sql.append("       sol.idOrigem, sol.idResponsavel, sol.idTipoProblema, sol.idPrioridade, sol.idUnidade, sol.idFaseAtual, ");
@@ -2673,8 +2709,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         return TABLE_NAME;
     }
 
-    public boolean hasSolicitacoesServicosUsuario(Integer idUsuario, String status) throws Exception {
-        StringBuilder sql = new StringBuilder();
+    public boolean hasSolicitacoesServicosUsuario(final Integer idUsuario, final String status) throws Exception {
+        final StringBuilder sql = new StringBuilder();
         sql.append("select idSolicitacaoServico");
         sql.append(" from solicitacaoservico");
         sql.append(" where idSolicitante = " + idUsuario.toString());
@@ -2682,14 +2718,14 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             sql.append(" and situacao like '%" + status + "%'");
         }
 
-        List list = this.execSQL(sql.toString(), null);
-        return (list != null && !list.isEmpty());
+        final List list = this.execSQL(sql.toString(), null);
+        return list != null && !list.isEmpty();
     }
 
-    public Collection incidentesPorContrato(Integer idContrato) throws Exception {
-        StringBuilder sql = new StringBuilder();
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
+    public Collection incidentesPorContrato(final Integer idContrato) throws Exception {
+        final StringBuilder sql = new StringBuilder();
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
 
         sql.append(" SELECT idsolicitacaoservico, nomeservico, contratos.numero ,empregado.nome, usuario.nome");
         sql.append(" FROM solicitacaoservico");
@@ -2707,32 +2743,31 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("nome");
         listRetorno.add("nomeUsu");
 
-        List list = execSQL(sql.toString(), parametro.toArray());
-        List result = engine.listConvertion(SolicitacaoServicoDTO.class, list, listRetorno);
+        final List list = this.execSQL(sql.toString(), parametro.toArray());
+        final List result = engine.listConvertion(SolicitacaoServicoDTO.class, list, listRetorno);
 
         if (result != null && !result.isEmpty()) {
             return result;
-        } else {
-            return null;
         }
+        return null;
     }
 
-    public boolean isInteger(String input) {
+    public boolean isInteger(final String input) {
         try {
             Integer.parseInt(input);
             return true;
-        } catch (Exception e) {
+        } catch (final Exception e) {
             return false;
         }
     }
 
-    public void limpaDataReativacao(SolicitacaoServicoDTO solicitacaoDto) {
-        StringBuilder sql = new StringBuilder();
-        sql.append("UPDATE " + getTableName() + " SET dataHoraReativacao = NULL WHERE idsolicitacaoservico = ?");
-        Object[] params = { solicitacaoDto.getIdSolicitacaoServico() };
+    public void limpaDataReativacao(final SolicitacaoServicoDTO solicitacaoDto) {
+        final StringBuilder sql = new StringBuilder();
+        sql.append("UPDATE " + this.getTableName() + " SET dataHoraReativacao = NULL WHERE idsolicitacaoservico = ?");
+        final Object[] params = {solicitacaoDto.getIdSolicitacaoServico()};
         try {
             this.execUpdate(sql.toString(), params);
-        } catch (PersistenceException e) {
+        } catch (final PersistenceException e) {
             System.out.println("Problemas com atualização da solicitacaoServico.");
             e.printStackTrace();
         }
@@ -2740,17 +2775,17 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
     @Override
     public Collection list() throws PersistenceException {
-        List list = new ArrayList();
+        final List list = new ArrayList<>();
         list.add(new Order("idSolicitacaoServico"));
         return super.list(list);
     }
 
-    public SolicitacaoServicoDTO restoreByIdTarefa(Integer idTarefa) throws Exception {
+    public SolicitacaoServicoDTO restoreByIdTarefa(final Integer idTarefa) throws Exception {
         final List<Integer> parametro = new ArrayList<>();
-        StringBuilder sb = new StringBuilder();
+        final StringBuilder sb = new StringBuilder();
         sb.append("SELECT  ");
 
-        for (String fildesDB : this.getListNamesFieldDB()) {
+        for (final String fildesDB : this.getListNamesFieldDB()) {
             sb.append("solicitacao.");
             sb.append(fildesDB);
             sb.append(", ");
@@ -2764,24 +2799,24 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
         parametro.add(idTarefa);
 
-        List dados = this.execSQL(sb.toString(), parametro.toArray());
+        final List dados = this.execSQL(sb.toString(), parametro.toArray());
 
         if (dados != null && !dados.isEmpty()) {
-            List<SolicitacaoServicoDTO> listRestore = listConvertion(getBean(), dados, this.getListFields());
-            return (SolicitacaoServicoDTO) listRestore.get(0);
+            final List<SolicitacaoServicoDTO> listRestore = this.listConvertion(this.getBean(), dados, this.getListFields());
+            return listRestore.get(0);
         }
         return null;
     }
-    
+
     private List getListFields() {
-        final List<String> listFields = getListNamesFieldClass();
+        final List<String> listFields = this.getListNamesFieldClass();
         listFields.add("idTarefa");
         return listFields;
     }
 
-    public SolicitacaoServicoDTO listaIdItemTrabalho(Integer idInstancia) throws Exception {
-        List parametro = new ArrayList();
-        StringBuilder sb = new StringBuilder();
+    public SolicitacaoServicoDTO listaIdItemTrabalho(final Integer idInstancia) throws Exception {
+        final List parametro = new ArrayList<>();
+        final StringBuilder sb = new StringBuilder();
         sb.append("SELECT bpm_itemtrabalhofluxo.iditemtrabalho ");
         sb.append("FROM bpm_itemtrabalhofluxo bpm_itemtrabalhofluxo ");
         sb.append("INNER JOIN execucaosolicitacao execucaosolicitacao ");
@@ -2791,35 +2826,35 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
         parametro.add(idInstancia);
 
-        List lista = this.execSQL(sb.toString(), parametro.toArray());
-        List<String> listRetorno = new ArrayList<String>();
+        final List lista = this.execSQL(sb.toString(), parametro.toArray());
+        final List<String> listRetorno = new ArrayList<String>();
         listRetorno.add("idItemTrabalho");
-        List result = engine.listConvertion(SolicitacaoServicoDTO.class, lista, listRetorno);
+        final List result = engine.listConvertion(SolicitacaoServicoDTO.class, lista, listRetorno);
         return (SolicitacaoServicoDTO) result.get(0);
     }
 
-    public Collection<SolicitacaoServicoDTO> listaIDSolicitacaoNaoRespondida(Date dataLimite) throws Exception {
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
-        List list = new ArrayList();
-        Collection<SolicitacaoServicoDTO> solicitacoes = new ArrayList();
-        StringBuilder sql = new StringBuilder();
+    public Collection<SolicitacaoServicoDTO> listaIDSolicitacaoNaoRespondida(final Date dataLimite) throws Exception {
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        List list = new ArrayList<>();
+        Collection<SolicitacaoServicoDTO> solicitacoes = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
 
         sql.append("select idsolicitacaoservico from (");
         sql.append("select solicitacaoservico.idsolicitacaoservico ");
         sql.append("from solicitacaoservico ");
         sql.append("INNER JOIN execucaosolicitacao ON execucaosolicitacao.idsolicitacaoservico = solicitacaoservico.idsolicitacaoservico ");
-		sql.append("left join pesquisasatisfacao on solicitacaoservico.idsolicitacaoservico=pesquisasatisfacao.idsolicitacaoservico ");
+        sql.append("left join pesquisasatisfacao on solicitacaoservico.idsolicitacaoservico=pesquisasatisfacao.idsolicitacaoservico ");
         sql.append("where (solicitacaoservico.datahorafim <= ?) and (pesquisasatisfacao.idsolicitacaoservico is null)) as s;");
 
-        parametro.add(transformaHoraFinal(dataLimite));
+        parametro.add(this.transformaHoraFinal(dataLimite));
 
         list = this.execSQL(sql.toString(), parametro.toArray());
 
         listRetorno.add("idSolicitacaoServico");
 
         if (list != null && !list.isEmpty()) {
-            solicitacoes = this.listConvertion(getBean(), list, listRetorno);
+            solicitacoes = this.listConvertion(this.getBean(), list, listRetorno);
         }
         return solicitacoes;
     }
@@ -2827,11 +2862,11 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     /**
      * Executando em: sqlServer, mySql e POstgreSQL
      **/
-    public Collection<SolicitacaoServicoDTO> listAllIncidentes(Integer idEmpregado) throws Exception {
-        List parametro = new ArrayList();
-        List fields = new ArrayList();
-        List list = new ArrayList();
-        String sql = "SELECT solicitacaoservico.idSolicitacaoServico, solicitacaoservico.dataHoraSolicitacao, solicitacaoservico.dataHoraLimite, "
+    public Collection<SolicitacaoServicoDTO> listAllIncidentes(final Integer idEmpregado) throws Exception {
+        final List parametro = new ArrayList<>();
+        final List fields = new ArrayList<>();
+        List list = new ArrayList<>();
+        final String sql = "SELECT solicitacaoservico.idSolicitacaoServico, solicitacaoservico.dataHoraSolicitacao, solicitacaoservico.dataHoraLimite, "
                 + "solicitacaoservico.Situacao, faseservico.nomeFase as faseAtual, prioridade.nomePrioridade " + "FROM solicitacaoservico "
                 + "INNER JOIN faseservico ON solicitacaoservico.idfaseatual = faseservico.idfase "
                 + "INNER JOIN prioridade ON solicitacaoservico.idprioridade = prioridade.idprioridade WHERE solicitacaoservico.idSolicitante = ?";
@@ -2845,10 +2880,9 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         fields.add("prioridade");
 
         if (list != null && !list.isEmpty()) {
-            return this.listConvertion(getBean(), list, fields);
-        } else {
-            return null;
+            return this.listConvertion(this.getBean(), list, fields);
         }
+        return null;
 
     }
 
@@ -2856,10 +2890,11 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      * Executando em: sqlServer, mySql e POstgreSQL
      **/
     public Collection<SolicitacaoServicoDTO> listAllServicos() throws Exception {
-        List parametro = new ArrayList();
-        List fields = new ArrayList();
-        List list = new ArrayList();
-        String sql = "select nometiposervico, nomeservico, nomecategoriaservico, idServico from servico " + "inner join tiposervico  on servico.idtiposervico = tiposervico.idtiposervico "
+        final List parametro = new ArrayList<>();
+        final List fields = new ArrayList<>();
+        List list = new ArrayList<>();
+        String sql = "select nometiposervico, nomeservico, nomecategoriaservico, idServico from servico "
+                + "inner join tiposervico  on servico.idtiposervico = tiposervico.idtiposervico "
                 + "inner join categoriaservico on servico.idcategoriaservico = categoriaservico.idcategoriaservico " + "where ";
 
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.POSTGRESQL)) {
@@ -2875,21 +2910,21 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         fields.add("nomeCategoriaServico");
         fields.add("idServico");
         if (list != null && !list.isEmpty()) {
-            return this.listConvertion(getBean(), list, fields);
-        } else {
-            return null;
+            return this.listConvertion(this.getBean(), list, fields);
         }
+        return null;
 
     }
 
     /**
      * Executando em: sqlServer, mySql e POstgreSQL
      **/
-    public Collection<SolicitacaoServicoDTO> listAllServicosLikeNomeServico(String nome) throws Exception {
-        List parametro = new ArrayList();
-        List fields = new ArrayList();
-        List list = new ArrayList();
-        String sql = "   select nometiposervico, nomeservico, nomecategoriaservico, idServico from servico " + "inner join tiposervico  on servico.idtiposervico = tiposervico.idtiposervico "
+    public Collection<SolicitacaoServicoDTO> listAllServicosLikeNomeServico(final String nome) throws Exception {
+        final List parametro = new ArrayList<>();
+        final List fields = new ArrayList<>();
+        List list = new ArrayList<>();
+        String sql = "   select nometiposervico, nomeservico, nomecategoriaservico, idServico from servico "
+                + "inner join tiposervico  on servico.idtiposervico = tiposervico.idtiposervico "
                 + "inner join categoriaservico on servico.idcategoriaservico = categoriaservico.idcategoriaservico " + "where ";
 
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.POSTGRESQL)) {
@@ -2905,19 +2940,18 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         fields.add("nomeCategoriaServico");
         fields.add("idServico");
         if (list != null && !list.isEmpty()) {
-            return this.listConvertion(getBean(), list, fields);
-        } else {
-            return null;
+            return this.listConvertion(this.getBean(), list, fields);
         }
+        return null;
 
     }
 
-    public Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorFase(SolicitacaoServicoDTO solicitacaoDto) throws Exception {
-        List listRetorno = new ArrayList();
-        List parametro = new ArrayList();
-        StringBuilder sql = new StringBuilder();
+    public Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorFase(final SolicitacaoServicoDTO solicitacaoDto) throws Exception {
+        final List listRetorno = new ArrayList<>();
+        final List parametro = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
 
-        sql.append("select  fase.nomefase, count(*)  from " + getTableName() + " solicitacaoservico ");
+        sql.append("select  fase.nomefase, count(*)  from " + this.getTableName() + " solicitacaoservico ");
         sql.append("inner join  faseservico fase   on solicitacaoservico.idfaseatual = fase.idfase ");
         sql.append("INNER JOIN execucaosolicitacao es ON es.idsolicitacaoservico = solicitacaoservico.idsolicitacaoservico ");
         sql.append("inner join servicocontrato servicocontrato on solicitacaoservico.idservicocontrato = servicocontrato.idservicocontrato ");
@@ -2940,15 +2974,16 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             sql.append(" and prioridadeservicounidade.idprioridade <> 1 ");
         }
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
             parametro.add(formatter.format(solicitacaoDto.getDataInicio()));
             parametro.add(formatter.format(solicitacaoDto.getDataFim()));
         } else {
             parametro.add(solicitacaoDto.getDataInicio());
-            parametro.add(transformaHoraFinal(solicitacaoDto.getDataFim()));
+            parametro.add(this.transformaHoraFinal(solicitacaoDto.getDataFim()));
         }
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h21min - ID Citsmart: 120770 Motivo/Comentário: Removida a condição que não exibia solicitações com contrato de serviços que
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h21min - ID Citsmart: 120770 Motivo/Comentário: Removida a condição que não exibia
+         * solicitações com contrato de serviços que
          * foram deletados. Todos devem ser exibidos.
          */
         if (solicitacaoDto.getIdContrato() != null) {
@@ -2960,32 +2995,33 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             parametro.add(solicitacaoDto.getSituacao());
         }
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h17min - ID Citsmart: 120770 Motivo/Comentário: Adicionado "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h17min - ID Citsmart: 120770 Motivo/Comentário: Adicionado
+         * "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
          * retornar solicitações de serviço sem tipo demanda (inconsistentes)
          */
         sql.append(" AND solicitacaoservico.idtipodemandaservico is not null ");
         sql.append(" group by fase.nomefase");
-        List lista = new ArrayList();
+        List lista = new ArrayList<>();
         lista = this.execSQL(sql.toString(), parametro.toArray());
         listRetorno.add("fase");
         listRetorno.add("quantidadeFase");
         if (lista != null && !lista.isEmpty()) {
-            List listaQuantidadeSolicitacaoPorPrioridade = engine.listConvertion(RelatorioQuantitativoSolicitacaoDTO.class, lista, listRetorno);
+            final List listaQuantidadeSolicitacaoPorPrioridade = engine.listConvertion(RelatorioQuantitativoSolicitacaoDTO.class, lista, listRetorno);
             return listaQuantidadeSolicitacaoPorPrioridade;
 
-        } else {
-            return null;
         }
+        return null;
     }
 
-    public Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorGrupo(SolicitacaoServicoDTO solicitacaoDto) throws Exception {
-        List listRetorno = new ArrayList();
-        List parametro = new ArrayList();
-        List listaQuantidadeSolicitacaoPorGrupo = new ArrayList();
-        StringBuilder sql = new StringBuilder();
+    public Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorGrupo(final SolicitacaoServicoDTO solicitacaoDto) throws Exception {
+        final List listRetorno = new ArrayList<>();
+        final List parametro = new ArrayList<>();
+        List listaQuantidadeSolicitacaoPorGrupo = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
 
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 23/10/2013 - Horário: 10h47min - ID Citsmart: 120770 Motivo/Comentário: O grupo estava utilizando INNER JOIN e quando não existia relacionamento o
+         * Desenvolvedor: Rodrigo Pecci - Data: 23/10/2013 - Horário: 10h47min - ID Citsmart: 120770 Motivo/Comentário: O grupo estava utilizando INNER JOIN e
+         * quando não existia relacionamento o
          * resultado do grupo não era retornado.
          */
         sql.append("select (CASE WHEN grupo.sigla IS NULL THEN 'SEM ATRIBUIÇÃO' ELSE grupo.sigla end), servico.nomeservico, count(*) from solicitacaoservico solicitacaoservico  ");
@@ -3009,15 +3045,16 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
 
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
             parametro.add(formatter.format(solicitacaoDto.getDataInicio()));
             parametro.add(formatter.format(solicitacaoDto.getDataFim()));
         } else {
             parametro.add(solicitacaoDto.getDataInicio());
-            parametro.add(transformaHoraFinal(solicitacaoDto.getDataFim()));
+            parametro.add(this.transformaHoraFinal(solicitacaoDto.getDataFim()));
         }
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h21min - ID Citsmart: 120770 Motivo/Comentário: Removida a condição que não exibia solicitações com contrato de serviços que
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h21min - ID Citsmart: 120770 Motivo/Comentário: Removida a condição que não exibia
+         * solicitações com contrato de serviços que
          * foram deletados. Todos devem ser exibidos.
          */
         if (solicitacaoDto.getIdContrato() != null) {
@@ -3030,7 +3067,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
 
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h17min - ID Citsmart: 120770 Motivo/Comentário: Adicionado "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h17min - ID Citsmart: 120770 Motivo/Comentário: Adicionado
+         * "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
          * retornar solicitações de serviço sem tipo demanda (inconsistentes)
          */
         sql.append(" AND solicitacaoservico.idtipodemandaservico is not null ");
@@ -3038,7 +3076,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         sql.append(" group by grupo.sigla, servico.nomeservico");
         sql.append(" order by grupo.sigla, servico.nomeservico");
 
-        List lista = new ArrayList();
+        List lista = new ArrayList<>();
         lista = this.execSQL(sql.toString(), parametro.toArray());
         listRetorno.add("grupo");
         listRetorno.add("servico");
@@ -3049,18 +3087,21 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         return listaQuantidadeSolicitacaoPorGrupo;
     }
 
-    public Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorHoraAbertura(SolicitacaoServicoDTO solicitacaoDto) throws Exception {
-        List listRetorno = new ArrayList();
-        List parametro = new ArrayList();
-        StringBuilder sql = new StringBuilder();
+    public Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorHoraAbertura(final SolicitacaoServicoDTO solicitacaoDto)
+            throws Exception {
+        final List listRetorno = new ArrayList<>();
+        final List parametro = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.SQLSERVER)) {
-            sql.append("select datepart(hour, solicitacaoservico.datahorasolicitacao) as int, count(*) from " + getTableName() + " solicitacaoservico ");
+            sql.append("select datepart(hour, solicitacaoservico.datahorasolicitacao) as int, count(*) from " + this.getTableName() + " solicitacaoservico ");
         } else if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.POSTGRESQL)) {
-            sql.append("select cast(extract(hour from solicitacaoservico.datahorasolicitacao) as int), count(*) from " + getTableName() + " solicitacaoservico ");
+            sql.append("select cast(extract(hour from solicitacaoservico.datahorasolicitacao) as int), count(*) from " + this.getTableName()
+                    + " solicitacaoservico ");
         } else if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
-            sql.append("select to_char(solicitacaoservico.datahorasolicitacao, 'hh24') datahorasolicitacao, count(*) from " + getTableName() + " solicitacaoservico ");
+            sql.append("select to_char(solicitacaoservico.datahorasolicitacao, 'hh24') datahorasolicitacao, count(*) from " + this.getTableName()
+                    + " solicitacaoservico ");
         } else {
-            sql.append("select extract(hour from solicitacaoservico.datahorasolicitacao), count(*) from " + getTableName() + " solicitacaoservico ");
+            sql.append("select extract(hour from solicitacaoservico.datahorasolicitacao), count(*) from " + this.getTableName() + " solicitacaoservico ");
         }
         // if (solicitacaoDto.getIdContrato() != null) {
         sql.append("INNER JOIN execucaosolicitacao es ON es.idsolicitacaoservico = solicitacaoservico.idsolicitacaoservico ");
@@ -3086,15 +3127,16 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
 
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
             parametro.add(formatter.format(solicitacaoDto.getDataInicio()));
             parametro.add(formatter.format(solicitacaoDto.getDataFim()));
         } else {
             parametro.add(solicitacaoDto.getDataInicio());
-            parametro.add(transformaHoraFinal(solicitacaoDto.getDataFim()));
+            parametro.add(this.transformaHoraFinal(solicitacaoDto.getDataFim()));
         }
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h21min - ID Citsmart: 120770 Motivo/Comentário: Removida a condição que não exibia solicitações com contrato de serviços que
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h21min - ID Citsmart: 120770 Motivo/Comentário: Removida a condição que não exibia
+         * solicitações com contrato de serviços que
          * foram deletados. Todos devem ser exibidos.
          */
         if (solicitacaoDto.getIdContrato() != null) {
@@ -3107,7 +3149,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
 
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h17min - ID Citsmart: 120770 Motivo/Comentário: Adicionado "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h17min - ID Citsmart: 120770 Motivo/Comentário: Adicionado
+         * "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
          * retornar solicitações de serviço sem tipo demanda (inconsistentes)
          */
         sql.append(" AND solicitacaoservico.idtipodemandaservico is not null ");
@@ -3120,16 +3163,15 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             sql.append(" group by extract(hour from solicitacaoservico.datahorasolicitacao)");
         }
 
-        List lista = new ArrayList();
+        List lista = new ArrayList<>();
         lista = this.execSQL(sql.toString(), parametro.toArray());
         listRetorno.add("horaAbertura");
         listRetorno.add("quantidadeHoraAbertura");
         if (lista != null && !lista.isEmpty()) {
-            List listaQuantidadeSolicitacaoPorTipo = engine.listConvertion(RelatorioQuantitativoSolicitacaoDTO.class, lista, listRetorno);
+            final List listaQuantidadeSolicitacaoPorTipo = engine.listConvertion(RelatorioQuantitativoSolicitacaoDTO.class, lista, listRetorno);
             return listaQuantidadeSolicitacaoPorTipo;
-        } else {
-            return null;
         }
+        return null;
     }
 
     /**
@@ -3140,13 +3182,15 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      * @throws Exception
      * @author rodrigo.acorse - Data: 23/10/2013 - Horário: 10h47min - ID Citsmart: 120770
      */
-    public Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorItemConfiguracao(SolicitacaoServicoDTO solicitacaoDto) throws Exception {
-        List listRetorno = new ArrayList();
-        List parametro = new ArrayList();
-        StringBuilder sql = new StringBuilder();
+    public Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorItemConfiguracao(final SolicitacaoServicoDTO solicitacaoDto)
+            throws Exception {
+        final List listRetorno = new ArrayList<>();
+        final List parametro = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
 
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 23/10/2013 - Horário: 10h47min - ID Citsmart: 120770 Motivo/Comentário: O item de configuração estava utilizando INNER JOIN e quando não existia
+         * Desenvolvedor: Rodrigo Pecci - Data: 23/10/2013 - Horário: 10h47min - ID Citsmart: 120770 Motivo/Comentário: O item de configuração estava utilizando
+         * INNER JOIN e quando não existia
          * relacionamento o resultado do item não era retornado.
          */
         sql.append("select (CASE WHEN itemconfiguracao.identificacao IS NULL THEN 'SEM ATRIBUIÇÃO' ELSE itemconfiguracao.identificacao end), count(*)   from solicitacaoservico solicitacaoservico  ");
@@ -3172,15 +3216,16 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             sql.append(" and prioridadeservicounidade.idprioridade <> 1 ");
         }
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
             parametro.add(formatter.format(solicitacaoDto.getDataInicio()));
             parametro.add(formatter.format(solicitacaoDto.getDataFim()));
         } else {
             parametro.add(solicitacaoDto.getDataInicio());
-            parametro.add(transformaHoraFinal(solicitacaoDto.getDataFim()));
+            parametro.add(this.transformaHoraFinal(solicitacaoDto.getDataFim()));
         }
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h21min - ID Citsmart: 120770 Motivo/Comentário: Removida a condição que não exibia solicitações com contrato de serviços que
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h21min - ID Citsmart: 120770 Motivo/Comentário: Removida a condição que não exibia
+         * solicitações com contrato de serviços que
          * foram deletados. Todos devem ser exibidos.
          */
         if (solicitacaoDto.getIdContrato() != null) {
@@ -3193,37 +3238,39 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
 
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h17min - ID Citsmart: 120770 Motivo/Comentário: Adicionado "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h17min - ID Citsmart: 120770 Motivo/Comentário: Adicionado
+         * "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
          * retornar solicitações de serviço sem tipo demanda (inconsistentes)
          */
         sql.append(" AND solicitacaoservico.idtipodemandaservico is not null ");
 
         sql.append(" group by itemconfiguracao.identificacao ");
-        List lista = new ArrayList();
+        List lista = new ArrayList<>();
         lista = this.execSQL(sql.toString(), parametro.toArray());
         listRetorno.add("itemConfiguracao");
         listRetorno.add("quantidadeItemConfiguracao");
         if (lista != null && !lista.isEmpty()) {
-            List listaQuantidadeSolicitacaoPorItemConfiguracao = engine.listConvertion(RelatorioQuantitativoSolicitacaoDTO.class, lista, listRetorno);
+            final List listaQuantidadeSolicitacaoPorItemConfiguracao = engine.listConvertion(RelatorioQuantitativoSolicitacaoDTO.class, lista, listRetorno);
             return listaQuantidadeSolicitacaoPorItemConfiguracao;
-        } else {
-            return null;
         }
+        return null;
     }
 
     /**
-     * Retorna a quantidade de solicitações separado por item de configuração. Alterado o script para mostrar todas os serviços com a origem fazia com o nome 'SEM ATRIBUIÇÃO'
+     * Retorna a quantidade de solicitações separado por item de configuração. Alterado o script para mostrar todas os serviços com a origem fazia com o nome
+     * 'SEM ATRIBUIÇÃO'
      *
      * @param solicitacaoDto
      * @return Collection<RelatorioQuantitativoSolicitacaoDTO>
      * @throws Exception
      * @author bruno.aquino - Data: 23/10/2013 - Horário: 15h32min - ID Citsmart: 120770|122034
      */
-    public Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorOrigem(SolicitacaoServicoDTO solicitacaoDto) throws Exception {
-        List listRetorno = new ArrayList();
-        List parametro = new ArrayList();
-        StringBuilder sql = new StringBuilder();
-        sql.append("select  (CASE WHEN origem.descricao IS NULL THEN 'SEM ATRIBUIÇÃO' ELSE origem.descricao end), count(*)  from " + getTableName() + " solicitacaoservico ");
+    public Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorOrigem(final SolicitacaoServicoDTO solicitacaoDto) throws Exception {
+        final List listRetorno = new ArrayList<>();
+        final List parametro = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
+        sql.append("select  (CASE WHEN origem.descricao IS NULL THEN 'SEM ATRIBUIÇÃO' ELSE origem.descricao end), count(*)  from " + this.getTableName()
+                + " solicitacaoservico ");
         sql.append("left join origematendimento origem   on solicitacaoservico.idorigem = origem.idorigem ");
         // if (solicitacaoDto.getIdContrato() != null) {
         sql.append("INNER JOIN execucaosolicitacao es ON es.idsolicitacaoservico = solicitacaoservico.idsolicitacaoservico ");
@@ -3249,15 +3296,16 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
 
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
             parametro.add(formatter.format(solicitacaoDto.getDataInicio()));
             parametro.add(formatter.format(solicitacaoDto.getDataFim()));
         } else {
             parametro.add(solicitacaoDto.getDataInicio());
-            parametro.add(transformaHoraFinal(solicitacaoDto.getDataFim()));
+            parametro.add(this.transformaHoraFinal(solicitacaoDto.getDataFim()));
         }
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h21min - ID Citsmart: 120770 Motivo/Comentário: Removida a condição que não exibia solicitações com contrato de serviços que
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h21min - ID Citsmart: 120770 Motivo/Comentário: Removida a condição que não exibia
+         * solicitações com contrato de serviços que
          * foram deletados. Todos devem ser exibidos.
          */
         if (solicitacaoDto.getIdContrato() != null) {
@@ -3270,23 +3318,23 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
 
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h17min - ID Citsmart: 120770 Motivo/Comentário: Adicionado "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h17min - ID Citsmart: 120770 Motivo/Comentário: Adicionado
+         * "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
          * retornar solicitações de serviço sem tipo demanda (inconsistentes)
          */
         sql.append(" AND solicitacaoservico.idtipodemandaservico is not null ");
 
         sql.append(" group by origem.descricao");
-        List lista = new ArrayList();
+        List lista = new ArrayList<>();
         lista = this.execSQL(sql.toString(), parametro.toArray());
         listRetorno.add("origem");
         listRetorno.add("quantidadeOrigem");
         if (lista != null && !lista.isEmpty()) {
-            List listaQuantidadeSolicitacaoPorOrigem = engine.listConvertion(RelatorioQuantitativoSolicitacaoDTO.class, lista, listRetorno);
+            final List listaQuantidadeSolicitacaoPorOrigem = engine.listConvertion(RelatorioQuantitativoSolicitacaoDTO.class, lista, listRetorno);
             return listaQuantidadeSolicitacaoPorOrigem;
 
-        } else {
-            return null;
         }
+        return null;
     }
 
     /**
@@ -3296,11 +3344,12 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      * @return Collection<RelatorioQuantitativoSolicitacaoDTO>
      * @throws Exception
      */
-    public Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorPesquisaSatisfacao(SolicitacaoServicoDTO solicitacaoDto) throws Exception {
-        List listRetorno = new ArrayList();
-        List parametro = new ArrayList();
-        List listaQuantidadeSolicitacaoPorGrupo = new ArrayList();
-        StringBuilder sql = new StringBuilder();
+    public Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorPesquisaSatisfacao(final SolicitacaoServicoDTO solicitacaoDto)
+            throws Exception {
+        final List listRetorno = new ArrayList<>();
+        final List parametro = new ArrayList<>();
+        List listaQuantidadeSolicitacaoPorGrupo = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
         sql.append("select (CASE WHEN grupo.sigla IS NULL THEN 'SEM ATRIBUIÇÃO' ELSE grupo.sigla end), servico.nomeservico, count(*) from solicitacaoservico solicitacaoservico  ");
         sql.append("inner join pesquisasatisfacao pesquisasatisfacao  on pesquisasatisfacao.idsolicitacaoservico = solicitacaoservico.idsolicitacaoservico  ");
         sql.append("left join grupo grupo  on solicitacaoservico.idgrupoatual = grupo.idgrupo  ");
@@ -3323,15 +3372,16 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
 
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
             parametro.add(formatter.format(solicitacaoDto.getDataInicio()));
             parametro.add(formatter.format(solicitacaoDto.getDataFim()));
         } else {
             parametro.add(solicitacaoDto.getDataInicio());
-            parametro.add(transformaHoraFinal(solicitacaoDto.getDataFim()));
+            parametro.add(this.transformaHoraFinal(solicitacaoDto.getDataFim()));
         }
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h21min - ID Citsmart: 120770 Motivo/Comentário: Removida a condição que não exibia solicitações com contrato de serviços que
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h21min - ID Citsmart: 120770 Motivo/Comentário: Removida a condição que não exibia
+         * solicitações com contrato de serviços que
          * foram deletados. Todos devem ser exibidos.
          */
         if (solicitacaoDto.getIdContrato() != null) {
@@ -3344,7 +3394,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
 
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h17min - ID Citsmart: 120770 Motivo/Comentário: Adicionado "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h17min - ID Citsmart: 120770 Motivo/Comentário: Adicionado
+         * "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
          * retornar solicitações de serviço sem tipo demanda (inconsistentes)
          */
         sql.append(" AND solicitacaoservico.idtipodemandaservico is not null ");
@@ -3352,7 +3403,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         sql.append(" group by grupo.sigla, servico.nomeservico");
         sql.append(" order by grupo.sigla, servico.nomeservico");
 
-        List lista = new ArrayList();
+        List lista = new ArrayList<>();
         lista = this.execSQL(sql.toString(), parametro.toArray());
         listRetorno.add("grupoPesquisaSatisfacao");
         listRetorno.add("servicoPesquisaSatisfacao");
@@ -3363,11 +3414,11 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         return listaQuantidadeSolicitacaoPorGrupo;
     }
 
-    public Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorPrioridade(SolicitacaoServicoDTO solicitacaoDto) throws Exception {
-        List listRetorno = new ArrayList();
-        List parametro = new ArrayList();
-        StringBuilder sql = new StringBuilder();
-        sql.append("select  prioridade.nomeprioridade, count(*)  from " + getTableName() + " solicitacaoservico ");
+    public Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorPrioridade(final SolicitacaoServicoDTO solicitacaoDto) throws Exception {
+        final List listRetorno = new ArrayList<>();
+        final List parametro = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
+        sql.append("select  prioridade.nomeprioridade, count(*)  from " + this.getTableName() + " solicitacaoservico ");
         sql.append("inner join prioridade prioridade   on solicitacaoservico.idprioridade = prioridade.idprioridade ");
         // if (solicitacaoDto.getIdContrato() != null) {
         sql.append("INNER JOIN execucaosolicitacao es ON es.idsolicitacaoservico = solicitacaoservico.idsolicitacaoservico ");
@@ -3392,15 +3443,16 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             sql.append(" and prioridadeservicounidade.idprioridade <> 1 ");
         }
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
             parametro.add(formatter.format(solicitacaoDto.getDataInicio()));
             parametro.add(formatter.format(solicitacaoDto.getDataFim()));
         } else {
             parametro.add(solicitacaoDto.getDataInicio());
-            parametro.add(transformaHoraFinal(solicitacaoDto.getDataFim()));
+            parametro.add(this.transformaHoraFinal(solicitacaoDto.getDataFim()));
         }
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h21min - ID Citsmart: 120770 Motivo/Comentário: Removida a condição que não exibia solicitações com contrato de serviços que
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h21min - ID Citsmart: 120770 Motivo/Comentário: Removida a condição que não exibia
+         * solicitações com contrato de serviços que
          * foram deletados. Todos devem ser exibidos.
          */
         if (solicitacaoDto.getIdContrato() != null) {
@@ -3413,29 +3465,30 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
 
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h17min - ID Citsmart: 120770 Motivo/Comentário: Adicionado "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h17min - ID Citsmart: 120770 Motivo/Comentário: Adicionado
+         * "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
          * retornar solicitações de serviço sem tipo demanda (inconsistentes)
          */
         sql.append(" AND solicitacaoservico.idtipodemandaservico is not null ");
 
         sql.append(" group by prioridade.nomeprioridade");
-        List lista = new ArrayList();
+        List lista = new ArrayList<>();
         lista = this.execSQL(sql.toString(), parametro.toArray());
         listRetorno.add("prioridade");
         listRetorno.add("quantidadePrioridade");
         if (lista != null && !lista.isEmpty()) {
-            List listaQuantidadeSolicitacaoPorPrioridade = engine.listConvertion(RelatorioQuantitativoSolicitacaoDTO.class, lista, listRetorno);
+            final List listaQuantidadeSolicitacaoPorPrioridade = engine.listConvertion(RelatorioQuantitativoSolicitacaoDTO.class, lista, listRetorno);
             return listaQuantidadeSolicitacaoPorPrioridade;
 
-        } else {
-            return null;
         }
+        return null;
     }
 
-    public Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorResponsavel(SolicitacaoServicoDTO solicitacaoDto) throws Exception {
-        List listRetorno = new ArrayList();
-        List parametro = new ArrayList();
-        StringBuilder sql = new StringBuilder();
+    public Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorResponsavel(final SolicitacaoServicoDTO solicitacaoDto)
+            throws Exception {
+        final List listRetorno = new ArrayList<>();
+        final List parametro = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
         sql.append("select  ");
         sql.append("	ltrim(usuario.nome), count(*) ");
         sql.append("from ");
@@ -3467,15 +3520,16 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             sql.append(" and prioridadeservicounidade.idprioridade <> 1 ");
         }
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
             parametro.add(formatter.format(solicitacaoDto.getDataInicio()));
             parametro.add(formatter.format(solicitacaoDto.getDataFim()));
         } else {
             parametro.add(solicitacaoDto.getDataInicio());
-            parametro.add(transformaHoraFinal(solicitacaoDto.getDataFim()));
+            parametro.add(this.transformaHoraFinal(solicitacaoDto.getDataFim()));
         }
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h21min - ID Citsmart: 120770 Motivo/Comentário: Removida a condição que não exibia solicitações com contrato de serviços que
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h21min - ID Citsmart: 120770 Motivo/Comentário: Removida a condição que não exibia
+         * solicitações com contrato de serviços que
          * foram deletados. Todos devem ser exibidos.
          */
         if (solicitacaoDto.getIdContrato() != null) {
@@ -3488,34 +3542,36 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
 
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h17min - ID Citsmart: 120770 Motivo/Comentário: Adicionado "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h17min - ID Citsmart: 120770 Motivo/Comentário: Adicionado
+         * "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
          * retornar solicitações de serviço sem tipo demanda (inconsistentes)
          */
         sql.append(" and solicitacaoservico.idtipodemandaservico is not null ");
-        sql.append(" and bpm_itemtrabalhofluxo.situacao in ( '"+SituacaoItemTrabalho.Executado+"' , '"+SituacaoItemTrabalho.EmAndamento+"' ) ");
+        sql.append(" and bpm_itemtrabalhofluxo.situacao in ( '" + SituacaoItemTrabalho.Executado + "' , '" + SituacaoItemTrabalho.EmAndamento + "' ) ");
         sql.append(" and bpm_itemtrabalhofluxo.datahorafinalizacao is null ");
 
         sql.append(" group by usuario.nome order by ltrim(usuario.nome) ");
-        List lista = new ArrayList();
+        List lista = new ArrayList<>();
         lista = this.execSQL(sql.toString(), parametro.toArray());
         listRetorno.add("responsavel");
         listRetorno.add("quantidadeResponsavel");
         if (lista != null && !lista.isEmpty()) {
-            List listaQuantidadeSolicitacaoSolicitante = engine.listConvertion(RelatorioQuantitativoSolicitacaoDTO.class, lista, listRetorno);
+            final List listaQuantidadeSolicitacaoSolicitante = engine.listConvertion(RelatorioQuantitativoSolicitacaoDTO.class, lista, listRetorno);
             return listaQuantidadeSolicitacaoSolicitante;
-        } else {
-            return null;
         }
+        return null;
     }
 
     /* Seleciona o servico e a quantidade de servicos dentro das solicitações por contrato */
-    public Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorServico(SolicitacaoServicoDTO solicitacaoServicoDto) throws Exception {
-        StringBuilder sql = new StringBuilder();
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
+    public Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorServico(final SolicitacaoServicoDTO solicitacaoServicoDto)
+            throws Exception {
+        final StringBuilder sql = new StringBuilder();
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
 
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 31/10/2013 - Horário: 15h35min - ID Citsmart: 120770 Motivo/Comentário: Foi adicionado um join com o fluxo de trabalho e novas cláusulas foram no where
+         * Desenvolvedor: Rodrigo Pecci - Data: 31/10/2013 - Horário: 15h35min - ID Citsmart: 120770 Motivo/Comentário: Foi adicionado um join com o fluxo de
+         * trabalho e novas cláusulas foram no where
          * para garantir a consistência do relatório.
          */
 
@@ -3525,7 +3581,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         } else {
             sql.append("select * from (SELECT nomeServico, tiposervico.nometiposervico, servicocontrato.idServico, count(servicocontrato.idServico) cont ");
         }
-        sql.append("FROM " + getTableName() + " solicitacaoservico ");
+        sql.append("FROM " + this.getTableName() + " solicitacaoservico ");
         sql.append("INNER JOIN execucaosolicitacao es ON es.idsolicitacaoservico = solicitacaoservico.idsolicitacaoservico ");
         sql.append("INNER JOIN servicocontrato ON solicitacaoservico.idservicocontrato = servicocontrato.idservicocontrato ");
         sql.append("INNER JOIN servico ON servicocontrato.idservico = servico.idservico ");
@@ -3544,15 +3600,16 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         sql.append("and (upper(contratos.deleted) = 'N' or contratos.deleted is null) ");
 
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
             parametro.add(formatter.format(solicitacaoServicoDto.getDataInicio()));
             parametro.add(formatter.format(solicitacaoServicoDto.getDataFim()));
         } else {
             parametro.add(solicitacaoServicoDto.getDataInicio());
-            parametro.add(transformaHoraFinal(solicitacaoServicoDto.getDataFim()));
+            parametro.add(this.transformaHoraFinal(solicitacaoServicoDto.getDataFim()));
         }
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h21min - ID Citsmart: 120770 Motivo/Comentário: Removida a condição que não exibia solicitações com contrato de serviços que
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h21min - ID Citsmart: 120770 Motivo/Comentário: Removida a condição que não exibia
+         * solicitações com contrato de serviços que
          * foram deletados. Todos devem ser exibidos.
          */
         if (solicitacaoServicoDto.getIdContrato() != null) {
@@ -3561,14 +3618,16 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
 
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h17min - ID Citsmart: 120770 Motivo/Comentário: Adicionado "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h17min - ID Citsmart: 120770 Motivo/Comentário: Adicionado
+         * "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
          * retornar solicitações de serviço sem tipo demanda (inconsistentes)
          */
         sql.append(" AND solicitacaoservico.idtipodemandaservico is not null ");
 
         /*
          * Desenvolvedor: Thiago Matias - Data: 29/10/2013 - Horário: 11h00 - ID Citsmart: 122025 Motivo/Comentário: Adicionado
-         * "AND solicitacaoservico.situacao != 'EmAndamento' AND solicitacaoservico.situacao != 'Suspensa'" para não retornar solicitações de serviço em andamento ou suspensa
+         * "AND solicitacaoservico.situacao != 'EmAndamento' AND solicitacaoservico.situacao != 'Suspensa'" para não retornar solicitações de serviço em
+         * andamento ou suspensa
          */
         sql.append(" AND solicitacaoservico.situacao in ('Fechada', 'Cancelada', 'Resolvida') ");
 
@@ -3580,35 +3639,37 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             }
         } else {
             if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
-                sql.append(" GROUP BY nomeServico, tiposervico.nometiposervico, servicocontrato.idServico ORDER BY cont DESC) aux where rownum <= " + solicitacaoServicoDto.getNumeroRegistros() + " ");
+                sql.append(" GROUP BY nomeServico, tiposervico.nometiposervico, servicocontrato.idServico ORDER BY cont DESC) aux where rownum <= "
+                        + solicitacaoServicoDto.getNumeroRegistros() + " ");
             } else if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.SQLSERVER)) {
                 sql.append("GROUP BY nomeservico, servicocontrato.idServico,tiposervico.nometiposervico ) as solicitacaoservico where solicitacaoservico.RowNum BETWEEN 1 and "
                         + solicitacaoServicoDto.getNumeroRegistros() + " ");
 
             } else {
-                sql.append(" GROUP BY nomeservico, servicocontrato.idServico,tiposervico.nometiposervico ORDER BY cont DESC) aux LIMIT " + solicitacaoServicoDto.getNumeroRegistros() + " ");
+                sql.append(" GROUP BY nomeservico, servicocontrato.idServico,tiposervico.nometiposervico ORDER BY cont DESC) aux LIMIT "
+                        + solicitacaoServicoDto.getNumeroRegistros() + " ");
             }
 
         }
 
-        List list = execSQL(sql.toString(), parametro.toArray());
+        final List list = this.execSQL(sql.toString(), parametro.toArray());
         listRetorno.add("nomeServico");
         listRetorno.add("nometiposervico");
         listRetorno.add("idServico");
         listRetorno.add("quantidadeServico");
 
         if (list != null && !list.isEmpty()) {
-            List listaQuantidadeSolicitacaoServico = this.listConvertion(RelatorioQuantitativoSolicitacaoDTO.class, list, listRetorno);
+            final List listaQuantidadeSolicitacaoServico = this.listConvertion(RelatorioQuantitativoSolicitacaoDTO.class, list, listRetorno);
             return listaQuantidadeSolicitacaoServico;
         }
         return null;
     }
 
-    public Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorSituacao(SolicitacaoServicoDTO solicitacaoDto) throws Exception {
-        List listRetorno = new ArrayList();
-        List parametro = new ArrayList();
-        StringBuilder sql = new StringBuilder();
-        sql.append("select solicitacaoservico.situacao, count(*)  from " + getTableName() + " solicitacaoservico   ");
+    public Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorSituacao(final SolicitacaoServicoDTO solicitacaoDto) throws Exception {
+        final List listRetorno = new ArrayList<>();
+        final List parametro = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
+        sql.append("select solicitacaoservico.situacao, count(*)  from " + this.getTableName() + " solicitacaoservico   ");
         sql.append("INNER JOIN execucaosolicitacao es ON es.idsolicitacaoservico = solicitacaoservico.idsolicitacaoservico ");
         sql.append("inner join servicocontrato servicocontrato on solicitacaoservico.idservicocontrato = servicocontrato.idservicocontrato ");
         if ("usuarioVip".equals(solicitacaoDto.getTipoUsuario()) || "usuarioNormal".equals(solicitacaoDto.getTipoUsuario())) {
@@ -3629,15 +3690,16 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             sql.append(" and prioridadeservicounidade.idprioridade <> 1 ");
         }
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
             parametro.add(formatter.format(solicitacaoDto.getDataInicio()));
             parametro.add(formatter.format(solicitacaoDto.getDataFim()));
         } else {
             parametro.add(solicitacaoDto.getDataInicio());
-            parametro.add(transformaHoraFinal(solicitacaoDto.getDataFim()));
+            parametro.add(this.transformaHoraFinal(solicitacaoDto.getDataFim()));
         }
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h21min - ID Citsmart: 120770 Motivo/Comentário: Removida a condição que não exibia solicitações com contrato de serviços que
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h21min - ID Citsmart: 120770 Motivo/Comentário: Removida a condição que não exibia
+         * solicitações com contrato de serviços que
          * foram deletados. Todos devem ser exibidos.
          */
         if (solicitacaoDto.getIdContrato() != null) {
@@ -3646,35 +3708,36 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
 
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h17min - ID Citsmart: 120770 Motivo/Comentário: Adicionado "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h17min - ID Citsmart: 120770 Motivo/Comentário: Adicionado
+         * "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
          * retornar solicitações de serviço sem tipo demanda (inconsistentes)
          */
         sql.append(" AND solicitacaoservico.idtipodemandaservico is not null ");
 
         sql.append(" group by solicitacaoservico.situacao");
-        List lista = new ArrayList();
+        List lista = new ArrayList<>();
         lista = this.execSQL(sql.toString(), parametro.toArray());
         listRetorno.add("situacao");
         listRetorno.add("quantidadeSituacao");
         if (lista != null && !lista.isEmpty()) {
-            List listaQuantidadeSolicitacaoPorSituacao = engine.listConvertion(RelatorioQuantitativoSolicitacaoDTO.class, lista, listRetorno);
+            final List listaQuantidadeSolicitacaoPorSituacao = engine.listConvertion(RelatorioQuantitativoSolicitacaoDTO.class, lista, listRetorno);
             return listaQuantidadeSolicitacaoPorSituacao;
-        } else {
-            return null;
         }
+        return null;
     }
 
-    public List<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorSituacaoSLA(SolicitacaoServicoDTO solicitacaoDto) throws Exception {
-        List listRetorno = new ArrayList();
-        List listaQuantidadeSolicitacaoPorPrioridade = new ArrayList();
-        List parametro = new ArrayList();
+    public List<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorSituacaoSLA(final SolicitacaoServicoDTO solicitacaoDto) throws Exception {
+        final List listRetorno = new ArrayList<>();
+        List listaQuantidadeSolicitacaoPorPrioridade = new ArrayList<>();
+        final List parametro = new ArrayList<>();
 
         // String dataInicio = solicitacaoDto.getDataInicio().toString();
-        // String dataFim = (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE) ? solicitacaoDto.getDataFim() : transformaHoraFinal(solicitacaoDto.getDataFim())).toString();
+        // String dataFim = (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE) ? solicitacaoDto.getDataFim() :
+        // transformaHoraFinal(solicitacaoDto.getDataFim())).toString();
 
-        StringBuilder from_where = new StringBuilder();
+        final StringBuilder from_where = new StringBuilder();
 
-        from_where.append("FROM " + getTableName() + " solicitacaoservico ");
+        from_where.append("FROM " + this.getTableName() + " solicitacaoservico ");
         from_where.append("INNER JOIN execucaosolicitacao exs ON exs.idsolicitacaoservico = solicitacaoservico.idsolicitacaoservico ");
 
         if (solicitacaoDto.getIdContrato() != null) {
@@ -3700,7 +3763,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             from_where.append("AND prioridadeservicounidade.idprioridade <> 1 ");
         }
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h21min - ID Citsmart: 120770 Motivo/Comentário: Removida a condição que não exibia solicitações com contrato de serviços que
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h21min - ID Citsmart: 120770 Motivo/Comentário: Removida a condição que não exibia
+         * solicitações com contrato de serviços que
          * foram deletados. Todos devem ser exibidos.
          */
         if (solicitacaoDto.getIdContrato() != null) {
@@ -3711,12 +3775,13 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
 
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h17min - ID Citsmart: 120770 Motivo/Comentário: Adicionado "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h17min - ID Citsmart: 120770 Motivo/Comentário: Adicionado
+         * "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
          * retornar solicitações de serviço sem tipo demanda (inconsistentes)
          */
         from_where.append(" AND solicitacaoservico.idtipodemandaservico is not null ");
 
-        StringBuilder sql = new StringBuilder();
+        final StringBuilder sql = new StringBuilder();
         // quantidade de solcitacoes ATRASADAS
         sql.append("SELECT Count(*), 'a' ");
         sql.append(from_where);
@@ -3734,19 +3799,19 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         sql.append("     END <= solicitacaoservico.datahoralimite ");
 
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
             parametro.add(formatter.format(solicitacaoDto.getDataInicio()));
             parametro.add(formatter.format(solicitacaoDto.getDataFim()));
             parametro.add(formatter.format(solicitacaoDto.getDataInicio()));
             parametro.add(formatter.format(solicitacaoDto.getDataFim()));
         } else {
             parametro.add(solicitacaoDto.getDataInicio());
-            parametro.add(transformaHoraFinal(solicitacaoDto.getDataFim()));
+            parametro.add(this.transformaHoraFinal(solicitacaoDto.getDataFim()));
             parametro.add(solicitacaoDto.getDataInicio());
-            parametro.add(transformaHoraFinal(solicitacaoDto.getDataFim()));
+            parametro.add(this.transformaHoraFinal(solicitacaoDto.getDataFim()));
         }
 
-        List lista = new ArrayList();
+        List lista = new ArrayList<>();
         lista = this.execSQL(sql.toString(), parametro.toArray());
         // List lista = this.execSQL(sql.toString(), null);
         listRetorno.add("quantidadeSituacaoSLA");
@@ -3756,14 +3821,16 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         return listaQuantidadeSolicitacaoPorPrioridade;
     }
 
-    public Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorSolicitante(SolicitacaoServicoDTO solicitacaoDto) throws Exception {
-        List listRetorno = new ArrayList();
-        List parametro = new ArrayList();
-        StringBuilder sql = new StringBuilder();
+    public Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorSolicitante(final SolicitacaoServicoDTO solicitacaoDto)
+            throws Exception {
+        final List listRetorno = new ArrayList<>();
+        final List parametro = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
         sql.append("select ltrim(empregado.nome), count(*) from solicitacaoservico solicitacaoservico ");
         sql.append("inner join empregados empregado on solicitacaoservico.idsolicitante = empregado.idempregado ");
         /*
-         * if (solicitacaoDto.getIdContrato() != null) { sql.append("inner join servicocontrato servicocontrato on solicitacaoservico.idservicocontrato = servicocontrato.idservicocontrato "); }
+         * if (solicitacaoDto.getIdContrato() != null) {
+         * sql.append("inner join servicocontrato servicocontrato on solicitacaoservico.idservicocontrato = servicocontrato.idservicocontrato "); }
          */
         sql.append("INNER JOIN execucaosolicitacao es ON es.idsolicitacaoservico = solicitacaoservico.idsolicitacaoservico ");
         sql.append("inner join servicocontrato servicocontrato on solicitacaoservico.idservicocontrato = servicocontrato.idservicocontrato ");
@@ -3788,15 +3855,16 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             sql.append(" and prioridadeservicounidade.idprioridade <> 1 ");
         }
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
             parametro.add(formatter.format(solicitacaoDto.getDataInicio()));
             parametro.add(formatter.format(solicitacaoDto.getDataFim()));
         } else {
             parametro.add(solicitacaoDto.getDataInicio());
-            parametro.add(transformaHoraFinal(solicitacaoDto.getDataFim()));
+            parametro.add(this.transformaHoraFinal(solicitacaoDto.getDataFim()));
         }
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h21min - ID Citsmart: 120770 Motivo/Comentário: Removida a condição que não exibia solicitações com contrato de serviços que
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h21min - ID Citsmart: 120770 Motivo/Comentário: Removida a condição que não exibia
+         * solicitações com contrato de serviços que
          * foram deletados. Todos devem ser exibidos.
          */
         if (solicitacaoDto.getIdContrato() != null) {
@@ -3810,29 +3878,29 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
 
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h17min - ID Citsmart: 120770 Motivo/Comentário: Adicionado "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h17min - ID Citsmart: 120770 Motivo/Comentário: Adicionado
+         * "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
          * retornar solicitações de serviço sem tipo demanda (inconsistentes)
          */
         sql.append(" AND solicitacaoservico.idtipodemandaservico is not null ");
 
         sql.append(" group by empregado.nome order by ltrim(empregado.nome) ");
-        List lista = new ArrayList();
+        List lista = new ArrayList<>();
         lista = this.execSQL(sql.toString(), parametro.toArray());
         listRetorno.add("solicitante");
         listRetorno.add("quantidadeSolicitante");
         if (lista != null && !lista.isEmpty()) {
-            List listaQuantidadeSolicitacaoSolicitante = engine.listConvertion(RelatorioQuantitativoSolicitacaoDTO.class, lista, listRetorno);
+            final List listaQuantidadeSolicitacaoSolicitante = engine.listConvertion(RelatorioQuantitativoSolicitacaoDTO.class, lista, listRetorno);
             return listaQuantidadeSolicitacaoSolicitante;
-        } else {
-            return null;
         }
+        return null;
     }
 
-    public Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorTipo(SolicitacaoServicoDTO solicitacaoDto) throws Exception {
-        List listRetorno = new ArrayList();
-        List parametro = new ArrayList();
-        StringBuilder sql = new StringBuilder();
-        sql.append("select  tipodemandaservico.nometipodemandaservico, count(*)  from " + getTableName() + " solicitacaoservico ");
+    public Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorTipo(final SolicitacaoServicoDTO solicitacaoDto) throws Exception {
+        final List listRetorno = new ArrayList<>();
+        final List parametro = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
+        sql.append("select  tipodemandaservico.nometipodemandaservico, count(*)  from " + this.getTableName() + " solicitacaoservico ");
         // if (solicitacaoDto.getIdContrato() != null) {
         sql.append("INNER JOIN execucaosolicitacao es ON es.idsolicitacaoservico = solicitacaoservico.idsolicitacaoservico ");
         sql.append("inner join servicocontrato servicocontrato on solicitacaoservico.idservicocontrato = servicocontrato.idservicocontrato ");
@@ -3860,15 +3928,16 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
 
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
             parametro.add(formatter.format(solicitacaoDto.getDataInicio()));
             parametro.add(formatter.format(solicitacaoDto.getDataFim()));
         } else {
             parametro.add(solicitacaoDto.getDataInicio());
-            parametro.add(transformaHoraFinal(solicitacaoDto.getDataFim()));
+            parametro.add(this.transformaHoraFinal(solicitacaoDto.getDataFim()));
         }
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h21min - ID Citsmart: 120770 Motivo/Comentário: Removida a condição que não exibia solicitações com contrato de serviços que
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h21min - ID Citsmart: 120770 Motivo/Comentário: Removida a condição que não exibia
+         * solicitações com contrato de serviços que
          * foram deletados. Todos devem ser exibidos.
          */
         if (solicitacaoDto.getIdContrato() != null) {
@@ -3880,24 +3949,24 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             parametro.add(solicitacaoDto.getSituacao());
         }
         sql.append(" group by tipodemandaservico.nometipodemandaservico");
-        List lista = new ArrayList();
+        List lista = new ArrayList<>();
         lista = this.execSQL(sql.toString(), parametro.toArray());
         listRetorno.add("tipo");
         listRetorno.add("quantidadeTipo");
         if (lista != null && !lista.isEmpty()) {
-            List listaQuantidadeSolicitacaoPorTipo = engine.listConvertion(RelatorioQuantitativoSolicitacaoDTO.class, lista, listRetorno);
+            final List listaQuantidadeSolicitacaoPorTipo = engine.listConvertion(RelatorioQuantitativoSolicitacaoDTO.class, lista, listRetorno);
             return listaQuantidadeSolicitacaoPorTipo;
-        } else {
-            return null;
         }
+        return null;
     }
 
-    public Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorTipoServico(SolicitacaoServicoDTO solicitacaoDto) throws Exception {
-        List listRetorno = new ArrayList();
-        List parametro = new ArrayList();
-        StringBuilder sql = new StringBuilder();
+    public Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorTipoServico(final SolicitacaoServicoDTO solicitacaoDto)
+            throws Exception {
+        final List listRetorno = new ArrayList<>();
+        final List parametro = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
 
-        sql.append("select tiposervico.nometiposervico, count(*)  from " + getTableName() + " solicitacaoservico ");
+        sql.append("select tiposervico.nometiposervico, count(*)  from " + this.getTableName() + " solicitacaoservico ");
         sql.append("INNER JOIN execucaosolicitacao es ON es.idsolicitacaoservico = solicitacaoservico.idsolicitacaoservico ");
         sql.append("inner join servicocontrato servicocontrato on solicitacaoservico.idservicocontrato = servicocontrato.idservicocontrato ");
         sql.append("inner join servico servico on servico.idservico = servicocontrato.idservico  ");
@@ -3917,15 +3986,16 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             sql.append(" and prioridadeservicounidade.idprioridade <> 1 ");
         }
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
             parametro.add(formatter.format(solicitacaoDto.getDataInicio()));
             parametro.add(formatter.format(solicitacaoDto.getDataFim()));
         } else {
             parametro.add(solicitacaoDto.getDataInicio());
-            parametro.add(transformaHoraFinal(solicitacaoDto.getDataFim()));
+            parametro.add(this.transformaHoraFinal(solicitacaoDto.getDataFim()));
         }
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h21min - ID Citsmart: 120770 Motivo/Comentário: Removida a condição que não exibia solicitações com contrato de serviços que
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h21min - ID Citsmart: 120770 Motivo/Comentário: Removida a condição que não exibia
+         * solicitações com contrato de serviços que
          * foram deletados. Todos devem ser exibidos.
          */
         if (solicitacaoDto.getIdContrato() != null) {
@@ -3937,46 +4007,45 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             parametro.add(solicitacaoDto.getSituacao());
         }
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h17min - ID Citsmart: 120770 Motivo/Comentário: Adicionado "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h17min - ID Citsmart: 120770 Motivo/Comentário: Adicionado
+         * "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
          * retornar solicitações de serviço sem tipo demanda (inconsistentes)
          */
         sql.append(" AND solicitacaoservico.idtipodemandaservico is not null ");
         sql.append(" group by tiposervico.nometiposervico");
-        List lista = new ArrayList();
+        List lista = new ArrayList<>();
         lista = this.execSQL(sql.toString(), parametro.toArray());
         listRetorno.add("tipoServico");
         listRetorno.add("quantidadeTipoServico");
         if (lista != null && !lista.isEmpty()) {
-            List listaQuantidadeSolicitacaoPorPrioridade = engine.listConvertion(RelatorioQuantitativoSolicitacaoDTO.class, lista, listRetorno);
+            final List listaQuantidadeSolicitacaoPorPrioridade = engine.listConvertion(RelatorioQuantitativoSolicitacaoDTO.class, lista, listRetorno);
             return listaQuantidadeSolicitacaoPorPrioridade;
 
-        } else {
-            return null;
         }
+        return null;
     }
 
     public Collection<SolicitacaoServicoDTO> listarSLA() throws Exception {
-        StringBuilder sql = new StringBuilder();
+        final StringBuilder sql = new StringBuilder();
         sql.append("select distinct prazohh, prazomm from solicitacaoservico order by prazohh,prazomm");
 
-        List lista = this.execSQL(sql.toString(), null);
-        List<String> listRetorno = new ArrayList<String>();
+        final List lista = this.execSQL(sql.toString(), null);
+        final List<String> listRetorno = new ArrayList<String>();
         listRetorno.add("prazoHH");
         listRetorno.add("prazoMM");
-        List result = engine.listConvertion(SolicitacaoServicoDTO.class, lista, listRetorno);
+        final List result = engine.listConvertion(SolicitacaoServicoDTO.class, lista, listRetorno);
         if (result != null) {
             return result;
-        } else {
-            return null;
         }
+        return null;
     }
 
-    public Collection<SolicitacaoServicoDTO> listarSolicitacoesAbertasEmAndamentoPorGrupo(int idGrupoAtual, String situacaoSla) throws Exception {
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
-        List list = new ArrayList();
+    public Collection<SolicitacaoServicoDTO> listarSolicitacoesAbertasEmAndamentoPorGrupo(final int idGrupoAtual, final String situacaoSla) throws Exception {
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        List list = new ArrayList<>();
 
-        StringBuilder sql = new StringBuilder();
+        final StringBuilder sql = new StringBuilder();
         sql.append("SELECT *  from solicitacaoservico ss,tipodemandaservico td where situacao LIKE 'EmAndamento' AND ss.datahorafim IS NULL AND ss.idgrupoatual = ? AND situacaosla LIKE ? AND td.classificacao LIKE 'R'");
         parametro.add(idGrupoAtual);
         parametro.add(situacaoSla);
@@ -3986,18 +4055,17 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("idSolicitacaoServico");
 
         if (list != null && !list.isEmpty()) {
-            return this.listConvertion(getBean(), list, listRetorno);
-        } else {
-            return null;
+            return this.listConvertion(this.getBean(), list, listRetorno);
         }
+        return null;
     }
 
-    public Collection<SolicitacaoServicoDTO> listarSolicitacoesMultadasSuspensasPorGrupo(int idGrupoAtual, String situacaoSla) throws Exception {
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
-        List list = new ArrayList();
+    public Collection<SolicitacaoServicoDTO> listarSolicitacoesMultadasSuspensasPorGrupo(final int idGrupoAtual, final String situacaoSla) throws Exception {
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        List list = new ArrayList<>();
 
-        StringBuilder sql = new StringBuilder();
+        final StringBuilder sql = new StringBuilder();
         sql.append("SELECT *  from solicitacaoservico ss,tipodemandaservico td where situacao like 'Suspensa' and ss.datahorafim is null and ss.idgrupoatual = ? and td.classificacao LIKE 'R' and situacaosla LIKE ?");
         parametro.add(idGrupoAtual);
         parametro.add(situacaoSla);
@@ -4007,23 +4075,22 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("idSolicitacaoServico");
 
         if (list != null && !list.isEmpty()) {
-            return this.listConvertion(getBean(), list, listRetorno);
-        } else {
-            return null;
+            return this.listConvertion(this.getBean(), list, listRetorno);
         }
+        return null;
     }
 
-    public String listaServico(int idsolicitacaoservico) throws Exception {
-        List parametro = new ArrayList();
-        String sql = "SELECT s.nomeservico FROM solicitacaoservico ss, servicocontrato sc, servico s "
+    public String listaServico(final int idsolicitacaoservico) throws Exception {
+        final List parametro = new ArrayList<>();
+        final String sql = "SELECT s.nomeservico FROM solicitacaoservico ss, servicocontrato sc, servico s "
                 + "where ss.idservicocontrato =  sc.idservicocontrato and sc.idservico = s.idservico and ss.idsolicitacaoservico = ?";
         parametro.add(idsolicitacaoservico);
-        List resultado = this.execSQL(sql.toString(), parametro.toArray());
-        List<String> listRetorno = new ArrayList<String>();
+        final List resultado = this.execSQL(sql.toString(), parametro.toArray());
+        final List<String> listRetorno = new ArrayList<String>();
         listRetorno.add("servico");
-        List result = engine.listConvertion(SolicitacaoServicoDTO.class, resultado, listRetorno);
-        SolicitacaoServicoDTO solicitacaoServicoDTO = (SolicitacaoServicoDTO) result.get(0);
-        String servico = solicitacaoServicoDTO.getServico();
+        final List result = engine.listConvertion(SolicitacaoServicoDTO.class, resultado, listRetorno);
+        final SolicitacaoServicoDTO solicitacaoServicoDTO = (SolicitacaoServicoDTO) result.get(0);
+        final String servico = solicitacaoServicoDTO.getServico();
         return servico;
 
     }
@@ -4036,11 +4103,11 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      * @throws Exception
      * @author thays.araujo
      */
-    public Collection<RelatorioQuantitativoSolicitacaoProblemaPorServicoDTO> listaServicoPorSolicitacaoServico(RelatorioQuantitativoSolicitacaoProblemaPorServicoDTO relatorioAnaliseServicoDto)
-            throws Exception {
-        List parametro = new ArrayList();
+    public Collection<RelatorioQuantitativoSolicitacaoProblemaPorServicoDTO> listaServicoPorSolicitacaoServico(
+            final RelatorioQuantitativoSolicitacaoProblemaPorServicoDTO relatorioAnaliseServicoDto) throws Exception {
+        final List parametro = new ArrayList<>();
 
-        StringBuilder sql = new StringBuilder();
+        final StringBuilder sql = new StringBuilder();
 
         sql.append("select    servicocontrato.idServico from solicitacaoservico solicitacaoservico  ");
         sql.append("INNER JOIN servicocontrato ON solicitacaoservico.idservicocontrato = servicocontrato.idservicocontrato ");
@@ -4054,12 +4121,12 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
 
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
             parametro.add(formatter.format(relatorioAnaliseServicoDto.getDataInicio()));
             parametro.add(formatter.format(relatorioAnaliseServicoDto.getDataFim()));
         } else {
             parametro.add(relatorioAnaliseServicoDto.getDataInicio());
-            parametro.add(transformaHoraFinal(relatorioAnaliseServicoDto.getDataFim()));
+            parametro.add(this.transformaHoraFinal(relatorioAnaliseServicoDto.getDataFim()));
         }
 
         if (relatorioAnaliseServicoDto.getIdContrato() != null) {
@@ -4069,36 +4136,37 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
         sql.append("group by  servicocontrato.idServico ");
 
-        List lista = this.execSQL(sql.toString(), parametro.toArray());
-        List<String> listRetorno = new ArrayList<String>();
+        final List lista = this.execSQL(sql.toString(), parametro.toArray());
+        final List<String> listRetorno = new ArrayList<String>();
         listRetorno.add("idServico");
 
         if (lista != null && !lista.isEmpty()) {
             Collection<RelatorioQuantitativoSolicitacaoProblemaPorServicoDTO> listaServicoPorSolicitacaoServico = new ArrayList<RelatorioQuantitativoSolicitacaoProblemaPorServicoDTO>();
             listaServicoPorSolicitacaoServico = engine.listConvertion(RelatorioQuantitativoSolicitacaoProblemaPorServicoDTO.class, lista, listRetorno);
             return listaServicoPorSolicitacaoServico;
-        } else {
-            return null;
         }
+        return null;
     }
 
-    public Collection<RelatorioQuantitativoSolicitacaoDTO> listaServicosAbertosAprovados(SolicitacaoServicoDTO solicitacaoServicoDto) throws Exception {
+    public Collection<RelatorioQuantitativoSolicitacaoDTO> listaServicosAbertosAprovados(final SolicitacaoServicoDTO solicitacaoServicoDto) throws Exception {
 
-        StringBuilder sql = new StringBuilder();
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
+        final StringBuilder sql = new StringBuilder();
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
         /**
          * Checa se há limite para pesquisa
+         *
          * @author thyen.chang
          */
-        boolean seLimita = !solicitacaoServicoDto.getTopList().equals(0);
+        final boolean seLimita = !solicitacaoServicoDto.getTopList().equals(0);
         /**
          * Limita pesquisa no SQLServer
+         *
          * @author thyen.chang
          */
         sql.append("select ");
-        if ((seLimita)&&(CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.SQLSERVER))){
-            sql.append("TOP "+solicitacaoServicoDto.getTopList().toString()+" ");
+        if (seLimita && CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.SQLSERVER)) {
+            sql.append("TOP " + solicitacaoServicoDto.getTopList().toString() + " ");
         }
         sql.append("solicitacaoservico.idsolicitacaoservico, servico.nomeservico,empregados.nome,solicitacaoservico.datahorasolicitacao, solicitacaoservico.situacao, contratos.numero ");
         sql.append("  from solicitacaoservico  ");
@@ -4122,9 +4190,10 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             sql.append("WHERE ");
             /**
              * Limita pesquisa no Oracle
+             *
              * @author thyen.chang
              */
-            if ((seLimita)&&(CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.ORACLE))){
+            if (seLimita && CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.ORACLE)) {
                 sql.append(" ROWNUM <= ? AND ");
                 parametro.add(solicitacaoServicoDto.getTopList());
             }
@@ -4145,9 +4214,10 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             sql.append("WHERE ");
             /**
              * Limita pesquisa no Oracle
+             *
              * @author thyen.chang
              */
-            if ((seLimita)&&(CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.ORACLE))){
+            if (seLimita && CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.ORACLE)) {
                 sql.append(" ROWNUM <= ? AND ");
                 parametro.add(solicitacaoServicoDto.getTopList());
             }
@@ -4162,12 +4232,12 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
 
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
             parametro.add(formatter.format(solicitacaoServicoDto.getDataInicio()));
             parametro.add(formatter.format(solicitacaoServicoDto.getDataFim()));
         } else {
             parametro.add(solicitacaoServicoDto.getDataInicio());
-            parametro.add(transformaHoraFinal(solicitacaoServicoDto.getDataFim()));
+            parametro.add(this.transformaHoraFinal(solicitacaoServicoDto.getDataFim()));
         }
 
         if (solicitacaoServicoDto.getIdContrato() != null) {
@@ -4178,14 +4248,17 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         sql.append("ORDER BY solicitacaoservico.idsolicitacaoservico");
         /**
          * Limita pesquisa no Postgres e MySQL
+         *
          * @author thyen.chang]
          */
-        if((seLimita) && ((CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.POSTGRESQL))||(CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.MYSQL))) ){
+        if (seLimita
+                && (CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.POSTGRESQL) || CITCorporeUtil.SGBD_PRINCIPAL.trim()
+                        .toUpperCase().equalsIgnoreCase(SQLConfig.MYSQL))) {
             sql.append(" LIMIT ? ");
             parametro.add(solicitacaoServicoDto.getTopList());
         }
 
-        List list = execSQL(sql.toString(), parametro.toArray());
+        final List list = this.execSQL(sql.toString(), parametro.toArray());
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("nomeServico");
         listRetorno.add("nome");
@@ -4194,24 +4267,24 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("numero");
 
         if (list != null && !list.isEmpty()) {
-            List listaQuantidadeSolicitacaoServico = this.listConvertion(RelatorioQuantitativoSolicitacaoDTO.class, list, listRetorno);
+            final List listaQuantidadeSolicitacaoServico = this.listConvertion(RelatorioQuantitativoSolicitacaoDTO.class, list, listRetorno);
             return listaQuantidadeSolicitacaoServico;
         }
         return null;
     }
 
-    public Collection<SolicitacaoServicoDTO> listaServicosPorResponsavelNoPeriodo(RelatorioKpiProdutividadeDTO dto) throws Exception {
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
-        List list = new ArrayList();
-        StringBuilder sql = new StringBuilder();
+    public Collection<SolicitacaoServicoDTO> listaServicosPorResponsavelNoPeriodo(final RelatorioKpiProdutividadeDTO dto) throws Exception {
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        List list = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
 
         sql.append("SELECT solicitacaoservico.idsolicitacaoservico, solicitacaoservico.datahorainicio, solicitacaoservico.datahoralimite, solicitacaoservico.dataHoraFim,solicitacaoservico.prazohh, solicitacaoservico.prazomm ,solicitacaoservico.idtipodemandaservico, servico.nomeServico, servico.idservico ");
         sql.append("FROM solicitacaoservico " + "INNER JOIN servicocontrato ON servicocontrato.idservicocontrato = solicitacaoservico.idservicocontrato "
                 + "INNER JOIN servico ON servicocontrato.idservico = servico.idservico "
                 + "INNER JOIN execucaosolicitacao ON execucaosolicitacao.idsolicitacaoservico = solicitacaoservico.idsolicitacaoservico "
-                + "INNER JOIN bpm_itemtrabalhofluxo ON execucaosolicitacao.idinstanciafluxo = bpm_itemtrabalhofluxo.idinstancia " + "WHERE " + "bpm_itemtrabalhofluxo.idresponsavelatual = ? "
-                + "AND solicitacaoservico.datahorainicio BETWEEN ? AND ? ");
+                + "INNER JOIN bpm_itemtrabalhofluxo ON execucaosolicitacao.idinstanciafluxo = bpm_itemtrabalhofluxo.idinstancia " + "WHERE "
+                + "bpm_itemtrabalhofluxo.idresponsavelatual = ? " + "AND solicitacaoservico.datahorainicio BETWEEN ? AND ? ");
         parametro.add(Integer.valueOf(dto.getFuncionario()));
         parametro.add(dto.getDataInicio());
         parametro.add(dto.getDataFim());
@@ -4239,17 +4312,17 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("idServico");
 
         if (list != null && !list.isEmpty()) {
-            return this.listConvertion(getBean(), list, listRetorno);
-        } else {
-            return null;
+            return this.listConvertion(this.getBean(), list, listRetorno);
         }
+        return null;
     }
 
-    public Collection<SolicitacaoServicoDTO> listaServicosPorAbertosParaDocumentacao(Date dataIncio, Date dataFim, boolean mostrarIncidentes, boolean mostrarRequisicoes) throws Exception {
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
-        List list = new ArrayList();
-        StringBuilder sql = new StringBuilder();
+    public Collection<SolicitacaoServicoDTO> listaServicosPorAbertosParaDocumentacao(final Date dataIncio, final Date dataFim, final boolean mostrarIncidentes,
+            final boolean mostrarRequisicoes) throws Exception {
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        List list = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
 
         sql.append("SELECT DISTINCT solicitacaoservico.idsolicitacaoservico, solicitacaoservico.datahorainicio, solicitacaoservico.datahoralimite, solicitacaoservico.dataHoraFim,solicitacaoservico.prazohh, solicitacaoservico.prazomm ,solicitacaoservico.idtipodemandaservico, servico.nomeServico, servico.idservico, solicitacaoservico.situacao ");
         sql.append("FROM solicitacaoservico solicitacaoservico"
@@ -4260,7 +4333,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                 + " (servico.nomeServico like 'Fabrica.Sistemas.Documentacao.Manutencao.Corretiva' or servico.nomeServico LIKE 'Fabrica.Sistemas.Documentacao.Manutencao.Evolutiva') "
                 + " AND solicitacaoservico.datahorainicio BETWEEN ? AND ? ");
         parametro.add(dataIncio);
-        Timestamp dtfim = this.transformaHoraFinal(dataFim);
+        final Timestamp dtfim = this.transformaHoraFinal(dataFim);
         parametro.add(dtfim);
 
         if (mostrarIncidentes == true && mostrarRequisicoes == false) {
@@ -4289,17 +4362,17 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("situacao");
 
         if (list != null && !list.isEmpty()) {
-            return this.listConvertion(getBean(), list, listRetorno);
-        } else {
-            return null;
+            return this.listConvertion(this.getBean(), list, listRetorno);
         }
+        return null;
     }
 
-    public Collection<SolicitacaoServicoDTO> listaServicosPorAbertosPelotesteParaValidacao(Date dataIncio, Date dataFim, boolean mostrarIncidentes, boolean mostrarRequisicoes) throws Exception {
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
-        List list = new ArrayList();
-        StringBuilder sql = new StringBuilder();
+    public Collection<SolicitacaoServicoDTO> listaServicosPorAbertosPelotesteParaValidacao(final Date dataIncio, final Date dataFim,
+            final boolean mostrarIncidentes, final boolean mostrarRequisicoes) throws Exception {
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        List list = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
 
         sql.append("SELECT DISTINCT solicitacaoservico.idsolicitacaoservico, solicitacaoservico.datahorainicio, solicitacaoservico.datahoralimite, solicitacaoservico.dataHoraFim,solicitacaoservico.prazohh,"
                 + " solicitacaoservico.prazomm ,solicitacaoservico.idtipodemandaservico, servico.nomeServico, servico.idservico, solicitacaoservico.situacao,solicitacaoservico.idsolicitante ");
@@ -4308,10 +4381,10 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                 + "Inner JOIN tipodemandaservico ON tipodemandaservico.idtipodemandaservico = solicitacaoservico.idtipodemandaservico "
                 + " INNER JOIN execucaosolicitacao ON execucaosolicitacao.idsolicitacaoservico = solicitacaoservico.idsolicitacaoservico INNER JOIN bpm_itemtrabalhofluxo ON execucaosolicitacao.idinstanciafluxo = bpm_itemtrabalhofluxo.idinstancia "
                 + " INNER JOIN servico ON servicocontrato.idservico = servico.idservico  WHERE (servico.nomeServico LIKE '"
-                + ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.SERVICO_TIPO_REQUISICAO_TESTE, "Homolocacao.Release.Evolutiva.Aplicativo") + "') "
-                + " AND solicitacaoservico.datahorainicio BETWEEN ? AND ? ");
+                + ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.SERVICO_TIPO_REQUISICAO_TESTE, "Homolocacao.Release.Evolutiva.Aplicativo")
+                + "') " + " AND solicitacaoservico.datahorainicio BETWEEN ? AND ? ");
         parametro.add(dataIncio);
-        Timestamp dtfim = this.transformaHoraFinal(dataFim);
+        final Timestamp dtfim = this.transformaHoraFinal(dataFim);
         parametro.add(dtfim);
 
         if (mostrarIncidentes == true && mostrarRequisicoes == false) {
@@ -4341,18 +4414,17 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("idSolicitante");
 
         if (list != null && !list.isEmpty()) {
-            return this.listConvertion(getBean(), list, listRetorno);
-        } else {
-            return null;
+            return this.listConvertion(this.getBean(), list, listRetorno);
         }
+        return null;
     }
 
-    public Collection<SolicitacaoServicoDTO> listaServicosPorResponsavelNoPeriodo(Date dataIncio, Date dataFim, int idFuncionario, boolean mostrarIncidentes, boolean mostrarRequisicoes,String situacao)
-            throws Exception {
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
-        List list = new ArrayList();
-        StringBuilder sql = new StringBuilder();
+    public Collection<SolicitacaoServicoDTO> listaServicosPorResponsavelNoPeriodo(final Date dataIncio, final Date dataFim, final int idFuncionario,
+            final boolean mostrarIncidentes, final boolean mostrarRequisicoes, final String situacao) throws Exception {
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        List list = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
 
         sql.append("SELECT DISTINCT solicitacaoservico.idsolicitacaoservico, solicitacaoservico.datahorainicio, solicitacaoservico.datahoralimite, solicitacaoservico.dataHoraFim,solicitacaoservico.prazohh, solicitacaoservico.prazomm ,solicitacaoservico.idtipodemandaservico, servico.nomeServico, servico.idservico ");
         sql.append("FROM solicitacaoservico " + "INNER JOIN servicocontrato ON servicocontrato.idservicocontrato = solicitacaoservico.idservicocontrato "
@@ -4360,13 +4432,13 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                 + "INNER JOIN execucaosolicitacao ON execucaosolicitacao.idsolicitacaoservico = solicitacaoservico.idsolicitacaoservico "
                 + "Inner JOIN tipodemandaservico ON tipodemandaservico.idtipodemandaservico = solicitacaoservico.idtipodemandaservico "
                 + "INNER JOIN bpm_itemtrabalhofluxo ON execucaosolicitacao.idinstanciafluxo = bpm_itemtrabalhofluxo.idinstancia "
-                + "INNER JOIN bpm_elementofluxo ON bpm_elementofluxo.idelemento = bpm_itemtrabalhofluxo.idelemento "
-                + "WHERE " + "bpm_itemtrabalhofluxo.idresponsavelatual = ? AND "
-                + "bpm_elementofluxo.nome like '%"+ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.BPM_ELEMENTO_EXECUCAO, "Atender solicita")
+                + "INNER JOIN bpm_elementofluxo ON bpm_elementofluxo.idelemento = bpm_itemtrabalhofluxo.idelemento " + "WHERE "
+                + "bpm_itemtrabalhofluxo.idresponsavelatual = ? AND " + "bpm_elementofluxo.nome like '%"
+                + ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.BPM_ELEMENTO_EXECUCAO, "Atender solicita")
                 + "%' AND solicitacaoservico.datahorainicio BETWEEN ? AND ?  ");
-        parametro.add(idFuncionario);/*%Atender solicitacao%Trabalhos*/
+        parametro.add(idFuncionario);/* %Atender solicitacao%Trabalhos */
         parametro.add(dataIncio);
-        Timestamp dtfim = this.transformaHoraFinal(dataFim);
+        final Timestamp dtfim = this.transformaHoraFinal(dataFim);
         parametro.add(dtfim);
 
         if (mostrarIncidentes == true && mostrarRequisicoes == false) {
@@ -4381,10 +4453,10 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             parametro.add("I");
         }
 
-        if(!situacao.equalsIgnoreCase("")){
+        if (!situacao.equalsIgnoreCase("")) {
             sql.append(" and solicitacaoservico.situacao like ? ");
             parametro.add(situacao);
-        }else{
+        } else {
             sql.append(" and (solicitacaoservico.situacao like 'Fechada' or solicitacaoservico.situacao like 'Cancelada' or solicitacaoservico.situacao like 'Resolvida' ) ");
         }
 
@@ -4401,21 +4473,21 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("idServico");
 
         if (list != null && !list.isEmpty()) {
-            return this.listConvertion(getBean(), list, listRetorno);
-        } else {
-            return null;
+            return this.listConvertion(this.getBean(), list, listRetorno);
         }
+        return null;
     }
 
-    public Collection<SolicitacaoServicoDTO> listaServicosPorResponsavelNoPeriodoDocumentacao(Date dataIncio, Date dataFim, int idFuncionario, boolean mostrarIncidentes, boolean mostrarRequisicoes)
-            throws Exception {
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
-        List list = new ArrayList();
-        StringBuilder sql = new StringBuilder();
+    public Collection<SolicitacaoServicoDTO> listaServicosPorResponsavelNoPeriodoDocumentacao(final Date dataIncio, final Date dataFim,
+            final int idFuncionario, final boolean mostrarIncidentes, final boolean mostrarRequisicoes) throws Exception {
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        List list = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
 
         sql.append("SELECT DISTINCT solicitacaoservico.idsolicitacaoservico, solicitacaoservico.datahorainicio, solicitacaoservico.datahoralimite, solicitacaoservico.dataHoraFim,solicitacaoservico.prazohh, solicitacaoservico.prazomm ,solicitacaoservico.idtipodemandaservico, servico.nomeServico, servico.idservico, solicitacaoservico.situacao ");
-        sql.append("FROM solicitacaoservico solicitacaoservico" + " INNER JOIN servicocontrato ON servicocontrato.idservicocontrato = solicitacaoservico.idservicocontrato"
+        sql.append("FROM solicitacaoservico solicitacaoservico"
+                + " INNER JOIN servicocontrato ON servicocontrato.idservicocontrato = solicitacaoservico.idservicocontrato"
                 + " INNER JOIN execucaosolicitacao ON execucaosolicitacao.idsolicitacaoservico = solicitacaoservico.idsolicitacaoservico "
                 + " INNER JOIN bpm_itemtrabalhofluxo ON execucaosolicitacao.idinstanciafluxo = bpm_itemtrabalhofluxo.idinstancia"
                 + "Inner JOIN tipodemandaservico ON tipodemandaservico.idtipodemandaservico = solicitacaoservico.idtipodemandaservico "
@@ -4425,7 +4497,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                 + " AND solicitacaoservico.datahorainicio BETWEEN ? AND ? ");
         parametro.add(idFuncionario);
         parametro.add(dataIncio);
-        Timestamp dtfim = this.transformaHoraFinal(dataFim);
+        final Timestamp dtfim = this.transformaHoraFinal(dataFim);
         parametro.add(dtfim);
 
         if (mostrarIncidentes == true && mostrarRequisicoes == false) {
@@ -4454,21 +4526,22 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("situacao");
 
         if (list != null && !list.isEmpty()) {
-            return this.listConvertion(getBean(), list, listRetorno);
-        } else {
-            return null;
+            return this.listConvertion(this.getBean(), list, listRetorno);
         }
+        return null;
     }
 
-    public Collection<SolicitacaoServicoDTO> listaServicosPorResponsavelNoPeriodoDocumentacaoPorServico(Date dataIncio, Date dataFim, int idFuncionario, boolean mostrarIncidentes,
-            boolean mostrarRequisicoes, String listaIdsServicosHomologacaoDocumentacao) throws Exception {
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
-        List list = new ArrayList();
-        StringBuilder sql = new StringBuilder();
+    public Collection<SolicitacaoServicoDTO> listaServicosPorResponsavelNoPeriodoDocumentacaoPorServico(final Date dataIncio, final Date dataFim,
+            final int idFuncionario, final boolean mostrarIncidentes, final boolean mostrarRequisicoes, final String listaIdsServicosHomologacaoDocumentacao)
+            throws Exception {
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        List list = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
 
         sql.append("SELECT DISTINCT solicitacaoservico.idsolicitacaoservico, solicitacaoservico.datahorainicio, solicitacaoservico.datahoralimite, solicitacaoservico.dataHoraFim,solicitacaoservico.prazohh, solicitacaoservico.prazomm ,solicitacaoservico.idtipodemandaservico, servico.nomeServico, servico.idservico, solicitacaoservico.situacao ");
-        sql.append("FROM solicitacaoservico solicitacaoservico" + " INNER JOIN servicocontrato ON servicocontrato.idservicocontrato = solicitacaoservico.idservicocontrato"
+        sql.append("FROM solicitacaoservico solicitacaoservico"
+                + " INNER JOIN servicocontrato ON servicocontrato.idservicocontrato = solicitacaoservico.idservicocontrato"
                 + " INNER JOIN execucaosolicitacao ON execucaosolicitacao.idsolicitacaoservico = solicitacaoservico.idsolicitacaoservico "
                 + "Inner JOIN tipodemandaservico ON tipodemandaservico.idtipodemandaservico = solicitacaoservico.idtipodemandaservico "
                 + " INNER JOIN bpm_itemtrabalhofluxo ON execucaosolicitacao.idinstanciafluxo = bpm_itemtrabalhofluxo.idinstancia"
@@ -4476,7 +4549,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                 + " bpm_itemtrabalhofluxo.idresponsavelatual = ? " + " AND solicitacaoservico.datahorainicio BETWEEN ? AND ? AND ");
         parametro.add(idFuncionario);
         parametro.add(dataIncio);
-        Timestamp dtfim = this.transformaHoraFinal(dataFim);
+        final Timestamp dtfim = this.transformaHoraFinal(dataFim);
         parametro.add(dtfim);
 
         int aux = 1;
@@ -4484,13 +4557,13 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         if (listaIdsServicosHomologacaoDocumentacao != null && listaIdsServicosHomologacaoDocumentacao.contains(";")) {
             listaIdServicos = listaIdsServicosHomologacaoDocumentacao.split(";");
             sql.append(" ( ");
-            for (int i = 0; i < listaIdServicos.length; i++) {
+            for (final String listaIdServico : listaIdServicos) {
                 if (listaIdServicos.length > aux) {
                     sql.append(" servico.idservico = ? or ");
-                    parametro.add(listaIdServicos[i]);
+                    parametro.add(listaIdServico);
                 } else {
                     sql.append(" servico.idservico = ? ");
-                    parametro.add(listaIdServicos[i]);
+                    parametro.add(listaIdServico);
                 }
                 aux++;
             }
@@ -4526,18 +4599,17 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("situacao");
 
         if (list != null && !list.isEmpty()) {
-            return this.listConvertion(getBean(), list, listRetorno);
-        } else {
-            return null;
+            return this.listConvertion(this.getBean(), list, listRetorno);
         }
+        return null;
     }
 
-    public Collection<SolicitacaoServicoDTO> listaServicosPorSolicitanteNoPeriodoEnviadosAoteste(Date dataIncio, Date dataFim, int idFuncionario, boolean mostrarIncidentes, boolean mostrarRequisicoes)
-            throws Exception {
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
-        List list = new ArrayList();
-        StringBuilder sql = new StringBuilder();
+    public Collection<SolicitacaoServicoDTO> listaServicosPorSolicitanteNoPeriodoEnviadosAoteste(final Date dataIncio, final Date dataFim,
+            final int idFuncionario, final boolean mostrarIncidentes, final boolean mostrarRequisicoes) throws Exception {
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        List list = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
 
         sql.append("SELECT solicitacaoservico.idsolicitacaoservico, solicitacaoservico.datahorainicio, solicitacaoservico.datahoralimite, solicitacaoservico.dataHoraFim,solicitacaoservico.prazohh, solicitacaoservico.prazomm ,solicitacaoservico.idtipodemandaservico, servico.nomeServico, servico.idservico, solicitacaoservico.situacao ");
         sql.append("FROM solicitacaoservico solicitacaoservico"
@@ -4549,7 +4621,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                 + " AND solicitacaoservico.datahorainicio BETWEEN ? AND ? ");
         parametro.add(idFuncionario);
         parametro.add(dataIncio);
-        Timestamp dtfim = this.transformaHoraFinal(dataFim);
+        final Timestamp dtfim = this.transformaHoraFinal(dataFim);
         parametro.add(dtfim);
 
         if (mostrarIncidentes == true && mostrarRequisicoes == false) {
@@ -4577,16 +4649,16 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("situacao");
 
         if (list != null && !list.isEmpty()) {
-            return this.listConvertion(getBean(), list, listRetorno);
-        } else {
-            return null;
+            return this.listConvertion(this.getBean(), list, listRetorno);
         }
+        return null;
     }
 
-    public Collection<RelatorioQuantitativoRetornoDTO> listaServicosRetorno(SolicitacaoServicoDTO solicitacaoServicoDTO, String grupoRetorno) throws Exception {
-        List parametro = new ArrayList();
+    public Collection<RelatorioQuantitativoRetornoDTO> listaServicosRetorno(final SolicitacaoServicoDTO solicitacaoServicoDTO, final String grupoRetorno)
+            throws Exception {
+        final List parametro = new ArrayList<>();
 
-        StringBuilder sql = new StringBuilder();
+        final StringBuilder sql = new StringBuilder();
 
         sql.append("select distinct bpm_itemtrabalhofluxo.idinstancia,ocorrenciasolicitacao.idsolicitacaoservico,bpm_itemtrabalhofluxo.iditemtrabalho,bpm_elementofluxo.idelemento,bpm_elementofluxo.idfluxo   ");
         sql.append("from bpm_itemtrabalhofluxo    ");
@@ -4605,13 +4677,13 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
             sql.append(" AND to_char(solicitacaoservico.datahorasolicitacao, 'YYYY-MM-DD') BETWEEN ? AND ? ");
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
             parametro.add(formatter.format(solicitacaoServicoDTO.getDataInicio()));
             parametro.add(formatter.format(solicitacaoServicoDTO.getDataFim()));
         } else {
             sql.append(" AND solicitacaoservico.datahorasolicitacao BETWEEN ? AND ?  ");
             parametro.add(solicitacaoServicoDTO.getDataInicio());
-            parametro.add(transformaHoraFinal(solicitacaoServicoDTO.getDataFim()));
+            parametro.add(this.transformaHoraFinal(solicitacaoServicoDTO.getDataFim()));
         }
         sql.append("AND bpm_itemtrabalhofluxo.idinstancia in(   ");
         sql.append("select idinstancia from (   ");
@@ -4632,15 +4704,16 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
             sql.append(" AND to_char(solicitacaoservico.datahorasolicitacao, 'YYYY-MM-DD') BETWEEN ? AND ? ");
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
             parametro.add(formatter.format(solicitacaoServicoDTO.getDataInicio()));
             parametro.add(formatter.format(solicitacaoServicoDTO.getDataFim()));
         } else {
             sql.append(" AND solicitacaoservico.datahorasolicitacao BETWEEN ? AND ?  ");
             parametro.add(solicitacaoServicoDTO.getDataInicio());
-            parametro.add(transformaHoraFinal(solicitacaoServicoDTO.getDataFim()));
+            parametro.add(this.transformaHoraFinal(solicitacaoServicoDTO.getDataFim()));
         }
-        if (solicitacaoServicoDTO != null && solicitacaoServicoDTO.getIdGrupoAtual() != null && !StringUtils.isNotBlank(solicitacaoServicoDTO.getIdGrupoAtual().toString())) {
+        if (solicitacaoServicoDTO != null && solicitacaoServicoDTO.getIdGrupoAtual() != null
+                && !StringUtils.isNotBlank(solicitacaoServicoDTO.getIdGrupoAtual().toString())) {
             sql.append(" AND historicosolicitacaoservico.idgrupo = ?  ");
             parametro.add(solicitacaoServicoDTO.getIdGrupoAtual());
         }
@@ -4649,8 +4722,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         sql.append("group by idinstancia   ");
         sql.append("having count(idinstancia) > 1)   ");
 
-        List lista = this.execSQL(sql.toString(), parametro.toArray());
-        List<String> listRetorno = new ArrayList<String>();
+        final List lista = this.execSQL(sql.toString(), parametro.toArray());
+        final List<String> listRetorno = new ArrayList<String>();
         listRetorno.add("idInstancia");
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("idItemTrabalho");
@@ -4661,15 +4734,15 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             Collection<RelatorioQuantitativoRetornoDTO> listaQuantitativoRetorno = new ArrayList<RelatorioQuantitativoRetornoDTO>();
             listaQuantitativoRetorno = engine.listConvertion(RelatorioQuantitativoRetornoDTO.class, lista, listRetorno);
             return listaQuantitativoRetorno;
-        } else {
-            return null;
         }
+        return null;
     }
 
-    public Collection<RelatorioQuantitativoRetornoDTO> listaServicosRetornoNomeResponsavel(RelatorioQuantitativoRetornoDTO relatorioQuantitativoRetornoDTO) throws Exception {
-        List parametro = new ArrayList();
+    public Collection<RelatorioQuantitativoRetornoDTO> listaServicosRetornoNomeResponsavel(final RelatorioQuantitativoRetornoDTO relatorioQuantitativoRetornoDTO)
+            throws Exception {
+        final List parametro = new ArrayList<>();
 
-        StringBuilder sql = new StringBuilder();
+        final StringBuilder sql = new StringBuilder();
 
         sql.append("SELECT usuario.nome,bpm_itemtrabalhofluxo.idresponsavelatual ");
         sql.append("FROM   bpm_itemtrabalhofluxo bpm_itemtrabalhofluxo  ");
@@ -4684,8 +4757,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         parametro.add(relatorioQuantitativoRetornoDTO.getIdOcorrencia());
         parametro.add(relatorioQuantitativoRetornoDTO.getIdInstancia());
 
-        List lista = this.execSQL(sql.toString(), parametro.toArray());
-        List<String> listRetorno = new ArrayList<String>();
+        final List lista = this.execSQL(sql.toString(), parametro.toArray());
+        final List<String> listRetorno = new ArrayList<String>();
         listRetorno.add("nome");
         listRetorno.add("idUsuario");
 
@@ -4694,13 +4767,14 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         return listaQuantitativoRetorno;
     }
 
-    public Collection<SolicitacaoServicoDTO> listaSolicitacaoPorBaseConhecimento(SolicitacaoServicoDTO solicitacao) throws Exception {
-        StringBuilder sql = new StringBuilder();
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
+    public Collection<SolicitacaoServicoDTO> listaSolicitacaoPorBaseConhecimento(final SolicitacaoServicoDTO solicitacao) throws Exception {
+        final StringBuilder sql = new StringBuilder();
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
 
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 10h00min - ID Citsmart: 120770 Motivo/Comentário: A tabela origematendimento, faseservico e empregados estava utilizando INNER
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 10h00min - ID Citsmart: 120770 Motivo/Comentário: A tabela origematendimento, faseservico
+         * e empregados estava utilizando INNER
          * JOIN, isso fazia com que as solicitações que não possuem origem contrato, fase ou solicitante não fossem retornadas. Alterado para LEFT JOIN
          */
 
@@ -4742,9 +4816,10 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("origem");
         listRetorno.add("prioridade");
 
-        List list = execSQL(sql.toString(), parametro.toArray());
+        final List list = this.execSQL(sql.toString(), parametro.toArray());
         if (list != null && !list.isEmpty()) {
-            Collection<SolicitacaoServicoDTO> listaSolicitacaoServicoPorBaseConhecimento = this.listConvertion(SolicitacaoServicoDTO.class, list, listRetorno);
+            final Collection<SolicitacaoServicoDTO> listaSolicitacaoServicoPorBaseConhecimento = this.listConvertion(SolicitacaoServicoDTO.class, list,
+                    listRetorno);
             return listaSolicitacaoServicoPorBaseConhecimento;
         }
 
@@ -4752,8 +4827,10 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Retorna uma lista de solicitacao serviço de acordo com os parametro passados com o principal objetivo de trazer somente solicitações fechadas ou canceladas. Foi adicionado o seguinte trecho de
-     * código no script 'and solicitacaoservico.idtipodemandaservico is not null' para não deixar mostrar na lista do relatório os dados que estiverem com o campo idtipodemandaservico vazio.
+     * Retorna uma lista de solicitacao serviço de acordo com os parametro passados com o principal objetivo de trazer somente solicitações fechadas ou
+     * canceladas. Foi adicionado o seguinte trecho de
+     * código no script 'and solicitacaoservico.idtipodemandaservico is not null' para não deixar mostrar na lista do relatório os dados que estiverem com o
+     * campo idtipodemandaservico vazio.
      *
      * @param relatorioSolicitacaoPorSolucionarDto
      * @return Collection
@@ -4761,24 +4838,27 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      * @author thays.araujo
      * @author bruno.aquino - Data: 24/10/2013 - Horário: 14h24min - ID Citsmart: 122034
      */
-    public Collection<RelatorioSolicitacaoPorExecutanteDTO> listaSolicitacaoPorExecutante(RelatorioSolicitacaoPorExecutanteDTO relatorioSolicitacaoPorSolucionarDto) throws Exception {
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
-        List list = new ArrayList();
+    public Collection<RelatorioSolicitacaoPorExecutanteDTO> listaSolicitacaoPorExecutante(
+            final RelatorioSolicitacaoPorExecutanteDTO relatorioSolicitacaoPorSolucionarDto) throws Exception {
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        List list = new ArrayList<>();
 
         /**
          * Checa de há limite para pesquisa
+         *
          * @author thyen.chang
          */
-        boolean seLimita = !relatorioSolicitacaoPorSolucionarDto.getTopList().equals(0);
-        StringBuilder sql = new StringBuilder();
+        final boolean seLimita = !relatorioSolicitacaoPorSolucionarDto.getTopList().equals(0);
+        final StringBuilder sql = new StringBuilder();
         sql.append("select  ");
         /**
          * Limita pesquisa no SQLServer
+         *
          * @author thyen.chang
          */
-        if ((seLimita)&&(CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.SQLSERVER))){
-            sql.append("TOP "+relatorioSolicitacaoPorSolucionarDto.getTopList().toString()+" ");
+        if (seLimita && CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.SQLSERVER)) {
+            sql.append("TOP " + relatorioSolicitacaoPorSolucionarDto.getTopList().toString() + " ");
         }
         sql.append("solicitacaoservico.idsolicitacaoservico, servico.nomeservico, usuario.nome, solicitacaoservico.situacao from solicitacaoservico  ");
         sql.append("inner join servicocontrato on  servicocontrato.idservicocontrato = solicitacaoservico.idservicocontrato ");
@@ -4794,20 +4874,21 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                 sql.append("where ");
                 /**
                  * Limita pesquisa no Oracle
+                 *
                  * @author thyen.chang
                  */
-                if(seLimita){
+                if (seLimita) {
                     sql.append(" ROWNUM <= ? AND ");
                     parametro.add(relatorioSolicitacaoPorSolucionarDto.getTopList());
                 }
                 sql.append("to_char(solicitacaoservico.datahorafim, 'YYYY-MM-DD') BETWEEN ? AND ? ");
-                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
                 parametro.add(formatter.format(relatorioSolicitacaoPorSolucionarDto.getDataInicio()));
                 parametro.add(formatter.format(relatorioSolicitacaoPorSolucionarDto.getDataFim()));
             } else {
                 sql.append("where solicitacaoservico.datahorafim BETWEEN ? AND ? ");
                 parametro.add(relatorioSolicitacaoPorSolucionarDto.getDataInicio());
-                parametro.add(transformaHoraFinal(relatorioSolicitacaoPorSolucionarDto.getDataFim()));
+                parametro.add(this.transformaHoraFinal(relatorioSolicitacaoPorSolucionarDto.getDataFim()));
             }
         }
 
@@ -4838,9 +4919,12 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         sql.append(" ORDER BY usuario.nome ");
         /**
          * Limita pesquisa no Postgres e MySQL
+         *
          * @author thyen.chang
          */
-        if((seLimita) && ((CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.POSTGRESQL))||(CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.MYSQL))) ){
+        if (seLimita
+                && (CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.POSTGRESQL) || CITCorporeUtil.SGBD_PRINCIPAL.trim()
+                        .toUpperCase().equalsIgnoreCase(SQLConfig.MYSQL))) {
             sql.append(" LIMIT ? ");
             parametro.add(relatorioSolicitacaoPorSolucionarDto.getTopList());
         }
@@ -4856,9 +4940,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             Collection<RelatorioSolicitacaoPorExecutanteDTO> listaSolicitacaoPorExecutante;
             listaSolicitacaoPorExecutante = this.listConvertion(RelatorioSolicitacaoPorExecutanteDTO.class, list, listRetorno);
             return listaSolicitacaoPorExecutante;
-        } else {
-            return null;
         }
+        return null;
     }
 
     /**
@@ -4868,33 +4951,31 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      * @throws Exception
      * @author thays.araujo
      */
-    public Collection<SolicitacaoServicoDTO> listaSolicitacaoServicoPorCriterios(PesquisaSolicitacaoServicoDTO pesquisaSolicitacaoServicoDto) throws Exception {
-        List listRetorno = new ArrayList();
+    public Collection<SolicitacaoServicoDTO> listaSolicitacaoServicoPorCriterios(final PesquisaSolicitacaoServicoDTO pesquisaSolicitacaoServicoDto)
+            throws Exception {
+        final List listRetorno = new ArrayList<>();
 
-        StringBuilder sql = new StringBuilder();
+        final StringBuilder sql = new StringBuilder();
 
-        List lista = new ArrayList();
+        List lista = new ArrayList<>();
 
-        List parametros = new ArrayList();
+        final List parametros = new ArrayList<>();
 
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 10h00min - ID Citsmart: 120770 Motivo/Comentário: A tabela origematendimento e faseservico estava utilizando INNER JOIN, isso
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 10h00min - ID Citsmart: 120770 Motivo/Comentário: A tabela origematendimento e faseservico
+         * estava utilizando INNER JOIN, isso
          * fazia com que as solicitações que não possuem origem contrato ou fase não fossem retornadas. Alterado para LEFT JOIN
          */
 
         /* String SGBD = CITCorporeUtil.SGBD_PRINCIPAL; */
         sql.append("SELECT ");
         sql.append("tempoAtendimentoHH,tempoAtendimentoMM,solicitacaoservico.datahorainicio, solicitacaoservico.datahorafim, solicitacaoservico.idsolicitacaoservico, "
-        		+ "nomeservico, unidade.nome, solicitacaoservico.situacao, dataHoraSolicitacao, dataHoraLimite, nomeTipoDemandaServico, "
-        		+ "solicitacaoservico.prazohh, solicitacaoservico.prazomm, ");
+                + "nomeservico, unidade.nome, solicitacaoservico.situacao, dataHoraSolicitacao, dataHoraLimite, nomeTipoDemandaServico, "
+                + "solicitacaoservico.prazohh, solicitacaoservico.prazomm, ");
         sql.append("solicitacaoservico.descricaoSemFormatacao, resposta, grupo.sigla, solicitacaoservico.seqreabertura, empregado.nome, "
-        		+ "faseservico.nomefase, origematendimento.descricao,prioridade.nomeprioridade, usuario.nome, contratos.numero, idUsuarioResponsavelAtual,  ");
-        sql.append("grupo.nome, localidade.nomelocalidade, u.nome AS responsavelAtual, itf.iditemtrabalho as idtarefa, "
-        		+ "ef.nome AS nometarefa ");
-        sql.append(montaSql(parametros, pesquisaSolicitacaoServicoDto, 0, true));
-        /*sql.append("GROUP BY solicitacaoservico.idsolicitacaoservico, servico.nomeservico, unidade.nome, tipodemandaservico.nometipodemandaservico, "
-        		+ " grupo.sigla, empregado.nome, faseservico.nomefase, origematendimento.descricao, prioridade.nomeprioridade, usuario.nome, "
-        		+ " contratos.numero, grupo.nome, localidade.nomelocalidade, u.nome ");*/
+                + "faseservico.nomefase, origematendimento.descricao,prioridade.nomeprioridade, usuario.nome, contratos.numero, idUsuarioResponsavelAtual,  ");
+        sql.append("grupo.nome, localidade.nomelocalidade, u.nome AS responsavelAtual, itf.iditemtrabalho as idtarefa, " + "ef.nome AS nometarefa ");
+        sql.append(this.montaSql(parametros, pesquisaSolicitacaoServicoDto, 0, true));
 
         lista = this.execSQL(sql.toString(), parametros.toArray());
 
@@ -4927,44 +5008,46 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("responsavelAtual");
         listRetorno.add("idTarefa");
         listRetorno.add("nomeTarefa");
-        List listaSolicitacoes = engine.listConvertion(getBean(), lista, listRetorno);
-
-        return listaSolicitacoes;
+        return engine.listConvertion(this.getBean(), lista, listRetorno);
     }
 
-    public Collection<SolicitacaoServicoDTO> listaSolicitacaoServicoPorServicoContrato(Integer idServicoContratoContabil) throws Exception {
-        List condicao = new ArrayList();
+    public Collection<SolicitacaoServicoDTO> listaSolicitacaoServicoPorServicoContrato(final Integer idServicoContratoContabil) throws Exception {
+        final List<Object> condicao = new ArrayList<>();
 
-        StringBuilder sql = new StringBuilder();
+        final StringBuilder sql = new StringBuilder();
 
-        List listRetorno = new ArrayList();
+        final List listRetorno = new ArrayList<>();
 
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("descricao");
 
-
         sql.append("select sol.idsolicitacaoservico,sol.descricao from solicitacaoservico sol ");
         sql.append("inner join servicocontrato on sol.idservicocontrato = servicocontrato.idservicocontrato ");
         sql.append("inner join servico on servicocontrato.idservico = servico.idservico ");
-        if(idServicoContratoContabil!=null){
+        if (idServicoContratoContabil != null) {
             sql.append("where servico.idservico = ? and sol.situacao = ? ");
             condicao.add(idServicoContratoContabil);
             condicao.add(Enumerados.SituacaoSolicitacaoServico.Fechada.toString());
         }
-        List lista = new ArrayList();
+        List lista = new ArrayList<>();
         lista = this.execSQL(sql.toString(), condicao.toArray());
 
-        if(lista!=null){
-            Collection<SolicitacaoServicoDTO> listaSolicitacaoServicoPorServicoContrato =  engine.listConvertion(SolicitacaoServicoDTO.class, lista, listRetorno);
+        if (lista != null) {
+            final Collection<SolicitacaoServicoDTO> listaSolicitacaoServicoPorServicoContrato = engine.listConvertion(SolicitacaoServicoDTO.class, lista,
+                    listRetorno);
             return listaSolicitacaoServicoPorServicoContrato;
         }
         return null;
 
-        /*condicao.add(new Condition("idServicoContrato", "=", idServicoContratoContabil.intValue()));
-		condicao.add(new Condition("situacao", "=", Enumerados.SituacaoSolicitacaoServico.Fechada.toString()));*/
-        /*List ordenacao = new ArrayList();
-		ordenacao.add(new Order("idSolicitacaoServico"));
-		return super.findByCondition(condicao, ordenacao);*/
+        /*
+         * condicao.add(new Condition("idServicoContrato", "=", idServicoContratoContabil.intValue()));
+         * condicao.add(new Condition("situacao", "=", Enumerados.SituacaoSolicitacaoServico.Fechada.toString()));
+         */
+        /*
+         * List<Order> ordenacao = new ArrayList<>();
+         * ordenacao.add(new Order("idSolicitacaoServico"));
+         * return super.findByCondition(condicao, ordenacao);
+         */
     }
 
     /**
@@ -4975,11 +5058,11 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      * @throws Exception
      * @author thays.araujo
      */
-    public Collection<RelatorioQuantitativoSolicitacaoProblemaPorServicoDTO> listaSolicitacaoServicoProblemaPorServico(RelatorioQuantitativoSolicitacaoProblemaPorServicoDTO relatorioAnaliseServicoDto)
-            throws Exception {
-        List parametro = new ArrayList();
+    public Collection<RelatorioQuantitativoSolicitacaoProblemaPorServicoDTO> listaSolicitacaoServicoProblemaPorServico(
+            final RelatorioQuantitativoSolicitacaoProblemaPorServicoDTO relatorioAnaliseServicoDto) throws Exception {
+        final List parametro = new ArrayList<>();
 
-        StringBuilder sql = new StringBuilder();
+        final StringBuilder sql = new StringBuilder();
 
         sql.append("select  solicitacaoservico.idsolicitacaoservico, problema.idproblema,servico.nomeServico  from solicitacaoservico solicitacaoservico ");
         sql.append("inner join servicocontrato on solicitacaoservico.idservicocontrato = servicocontrato.idservicocontrato ");
@@ -4994,8 +5077,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
         sql.append("group by problema.idproblema,solicitacaoservico.idsolicitacaoservico,servico.nomeServico  ");
 
-        List lista = this.execSQL(sql.toString(), parametro.toArray());
-        List<String> listRetorno = new ArrayList<String>();
+        final List lista = this.execSQL(sql.toString(), parametro.toArray());
+        final List<String> listRetorno = new ArrayList<String>();
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("idProblema");
         listRetorno.add("servico");
@@ -5004,9 +5087,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             Collection<RelatorioQuantitativoSolicitacaoProblemaPorServicoDTO> listaServicoPorSolicitacaoServico = new ArrayList<RelatorioQuantitativoSolicitacaoProblemaPorServicoDTO>();
             listaServicoPorSolicitacaoServico = engine.listConvertion(RelatorioQuantitativoSolicitacaoProblemaPorServicoDTO.class, lista, listRetorno);
             return listaServicoPorSolicitacaoServico;
-        } else {
-            return null;
         }
+        return null;
     }
 
     /**
@@ -5018,10 +5100,11 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      * @return
      * @throws Exception
      */
-    public Collection<SolicitacaoServicoDTO> listaSolicitacoesPorIdEmpregado(Integer pgAtual, Integer qtdPaginacao, GerenciamentoServicosDTO gerenciamentoBean, Collection<ContratoDTO> listContratoUsuarioLogado) throws Exception {
+    public Collection<SolicitacaoServicoDTO> listaSolicitacoesPorIdEmpregado(Integer pgAtual, final Integer qtdPaginacao,
+            final GerenciamentoServicosDTO gerenciamentoBean, final Collection<ContratoDTO> listContratoUsuarioLogado) throws Exception {
 
         String ordernarPor = gerenciamentoBean.getOrdenarPor() == null ? "" : gerenciamentoBean.getOrdenarPor();
-        String direcaoOrdenacao = gerenciamentoBean.getDirecaoOrdenacao() == null ? "" : gerenciamentoBean.getDirecaoOrdenacao() + " ";
+        final String direcaoOrdenacao = gerenciamentoBean.getDirecaoOrdenacao() == null ? "" : gerenciamentoBean.getDirecaoOrdenacao() + " ";
 
         if (ordernarPor.equals("NSolicitacao")) {
             ordernarPor = " ORDER BY sol.idsolicitacaoservico ";
@@ -5042,10 +5125,10 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         } else {
             ordernarPor = " ORDER BY sol.idresponsavel ";
         }
-        
+
         ordernarPor += direcaoOrdenacao;
-    	
-        List listRetorno = new ArrayList();
+
+        final List listRetorno = new ArrayList<>();
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("idbaseconhecimento");
         listRetorno.add("idServicoContrato");
@@ -5130,8 +5213,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("idLocalidade");
         listRetorno.add("idInstanciaFluxo");
 
-        StringBuilder sql = new StringBuilder();
-        List parametros = new ArrayList();
+        final StringBuilder sql = new StringBuilder();
+        final List parametros = new ArrayList<>();
 
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.SQLSERVER)) {
             sql.append(" ;WITH TabelaTemporaria AS ( ");
@@ -5178,13 +5261,12 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         sql.append(" INNER JOIN execucaosolicitacao es ON es.idsolicitacaoservico = sol.idsolicitacaoservico ");
         sql.append("WHERE sol.idsolicitacaopai is null ");
 
-
         if (listContratoUsuarioLogado != null && !listContratoUsuarioLogado.isEmpty()) {
             // FILTRA CONTRATO DO USUÁRIO LOGADO - Só retorna as Solicitações dos Contratos em que o usuário logado está inserido.
             if (listContratoUsuarioLogado != null && !listContratoUsuarioLogado.isEmpty()) {
                 sql.append(" AND c.idcontrato in ( ");
                 boolean verifica = true;
-                for (ContratoDTO contrato : listContratoUsuarioLogado) {
+                for (final ContratoDTO contrato : listContratoUsuarioLogado) {
                     if (verifica) {
                         sql.append(contrato.getIdContrato());
                         verifica = false;
@@ -5199,23 +5281,23 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
 
         // Adiciona o filtro de pesquisa caso houver filtro
-        adicionarFiltroPesquisa(sql, gerenciamentoBean, parametros);
+        this.adicionarFiltroPesquisa(sql, gerenciamentoBean, parametros);
 
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.POSTGRESQL)) {
-            Integer pgTotal = pgAtual * qtdPaginacao;
+            final Integer pgTotal = pgAtual * qtdPaginacao;
             if (pgTotal > 0) {
                 pgAtual = pgTotal - qtdPaginacao;
             }
-//            sql.append(" ORDER BY sol.idSolicitacaoServico LIMIT " + qtdPaginacao + " OFFSET " + pgAtual);
+            // sql.append(" ORDER BY sol.idSolicitacaoServico LIMIT " + qtdPaginacao + " OFFSET " + pgAtual);
             sql.append(ordernarPor + " LIMIT " + qtdPaginacao + " OFFSET " + pgAtual);
         }
 
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.MYSQL)) {
-            Integer pgTotal = pgAtual * qtdPaginacao;
+            final Integer pgTotal = pgAtual * qtdPaginacao;
             if (pgTotal > 0) {
                 pgAtual = pgTotal - qtdPaginacao;
             }
-//            sql.append(" LIMIT " + pgAtual + ", " + qtdPaginacao);
+            // sql.append(" LIMIT " + pgAtual + ", " + qtdPaginacao);
             sql.append(ordernarPor + " LIMIT " + pgAtual + ", " + qtdPaginacao);
         }
 
@@ -5223,7 +5305,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             Integer quantidadePaginator2 = new Integer(0);
             if (pgAtual > 0) {
                 quantidadePaginator2 = qtdPaginacao * pgAtual;
-                pgAtual = (pgAtual * qtdPaginacao) - qtdPaginacao;
+                pgAtual = pgAtual * qtdPaginacao - qtdPaginacao;
             } else {
                 quantidadePaginator2 = qtdPaginacao;
                 pgAtual = 0;
@@ -5236,19 +5318,19 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             Integer quantidadePaginator2 = new Integer(0);
             if (pgAtual > 1) {
                 quantidadePaginator2 = qtdPaginacao * pgAtual;
-                pgAtual = (pgAtual * qtdPaginacao) - qtdPaginacao;
+                pgAtual = pgAtual * qtdPaginacao - qtdPaginacao;
                 pgAtual = pgAtual + 1;
             } else {
                 quantidadePaginator2 = qtdPaginacao;
                 pgAtual = 0;
             }
-            int intInicio = pgAtual;
-            int intLimite = quantidadePaginator2;
+            final int intInicio = pgAtual;
+            final int intLimite = quantidadePaginator2;
             sqlOracle = sql + ordernarPor;
-            sqlOracle = paginacaoOracle(sql.toString(), intInicio, intLimite);
+            sqlOracle = this.paginacaoOracle(sql.toString(), intInicio, intLimite);
         }
 
-        List lista = new ArrayList();
+        List lista = new ArrayList<>();
 
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
             lista = this.execSQL(sqlOracle, parametros.toArray());
@@ -5258,13 +5340,10 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
         if (lista != null && !lista.isEmpty()) {
             return engine.listConvertion(SolicitacaoServicoDTO.class, lista, listRetorno);
-        } else {
-            return null;
         }
+        return null;
     }
 
-    
-    
     /**
      * Lista todas as solicitações pelo id do empregado, inclusive as solicitações resolvidas
      * Este método inclui o parâmetro "situacao", que permite o filtro das solicitações por situaçãõ (Fechado, Em Andamento, etc.)
@@ -5275,8 +5354,9 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      * @return
      * @throws Exception
      */
-    public Collection<SolicitacaoServicoDTO> listaSolicitacoesPorIdEmpregado(Integer pgAtual, Integer qtdPaginacao, GerenciamentoServicosDTO gerenciamentoBean, Collection<ContratoDTO> listContratoUsuarioLogado, String[] filtro) throws Exception {
-        List listRetorno = new ArrayList();
+    public Collection<SolicitacaoServicoDTO> listaSolicitacoesPorIdEmpregado(Integer pgAtual, final Integer qtdPaginacao,
+            final GerenciamentoServicosDTO gerenciamentoBean, final Collection<ContratoDTO> listContratoUsuarioLogado, final String[] filtro) throws Exception {
+        final List listRetorno = new ArrayList<>();
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("idbaseconhecimento");
         listRetorno.add("idServicoContrato");
@@ -5361,8 +5441,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("idLocalidade");
         listRetorno.add("idInstanciaFluxo");
 
-        StringBuilder sql = new StringBuilder();
-        List parametros = new ArrayList();
+        final StringBuilder sql = new StringBuilder();
+        final List parametros = new ArrayList<>();
 
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.SQLSERVER)) {
             sql.append(" ;WITH TabelaTemporaria AS ( ");
@@ -5409,13 +5489,12 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         sql.append(" INNER JOIN execucaosolicitacao es ON es.idsolicitacaoservico = sol.idsolicitacaoservico ");
         sql.append("WHERE sol.idsolicitacaopai is null ");
 
-
         if (listContratoUsuarioLogado != null && !listContratoUsuarioLogado.isEmpty()) {
             // FILTRA CONTRATO DO USUÁRIO LOGADO - Só retorna as Solicitações dos Contratos em que o usuário logado está inserido.
             if (listContratoUsuarioLogado != null && !listContratoUsuarioLogado.isEmpty()) {
                 sql.append(" AND c.idcontrato in ( ");
                 boolean verifica = true;
-                for (ContratoDTO contrato : listContratoUsuarioLogado) {
+                for (final ContratoDTO contrato : listContratoUsuarioLogado) {
                     if (verifica) {
                         sql.append(contrato.getIdContrato());
                         verifica = false;
@@ -5428,20 +5507,19 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             }
 
         }
-        
+
         /**
          * Cristian em 03/12/2014: Implemntação do filtro por situação
          */
-        
-        
-        String stringDelimitada = UtilStrings.StringArrayParaStringDelimitadaComVirgula(filtro);
-        sql.append(" AND sol.situacao in ("+stringDelimitada+") ");
-        
+
+        final String stringDelimitada = UtilStrings.StringArrayParaStringDelimitadaComVirgula(filtro);
+        sql.append(" AND sol.situacao in (" + stringDelimitada + ") ");
+
         // Adiciona o filtro de pesquisa caso houver filtro
-        adicionarFiltroPesquisa(sql, gerenciamentoBean, parametros);
+        this.adicionarFiltroPesquisa(sql, gerenciamentoBean, parametros);
 
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.POSTGRESQL)) {
-            Integer pgTotal = pgAtual * qtdPaginacao;
+            final Integer pgTotal = pgAtual * qtdPaginacao;
             if (pgTotal > 0) {
                 pgAtual = pgTotal - qtdPaginacao;
             }
@@ -5449,7 +5527,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
 
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.MYSQL)) {
-            Integer pgTotal = pgAtual * qtdPaginacao;
+            final Integer pgTotal = pgAtual * qtdPaginacao;
             if (pgTotal > 0) {
                 pgAtual = pgTotal - qtdPaginacao;
             }
@@ -5460,7 +5538,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             Integer quantidadePaginator2 = new Integer(0);
             if (pgAtual > 0) {
                 quantidadePaginator2 = qtdPaginacao * pgAtual;
-                pgAtual = (pgAtual * qtdPaginacao) - qtdPaginacao;
+                pgAtual = pgAtual * qtdPaginacao - qtdPaginacao;
             } else {
                 quantidadePaginator2 = qtdPaginacao;
                 pgAtual = 0;
@@ -5473,18 +5551,18 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             Integer quantidadePaginator2 = new Integer(0);
             if (pgAtual > 1) {
                 quantidadePaginator2 = qtdPaginacao * pgAtual;
-                pgAtual = (pgAtual * qtdPaginacao) - qtdPaginacao;
+                pgAtual = pgAtual * qtdPaginacao - qtdPaginacao;
                 pgAtual = pgAtual + 1;
             } else {
                 quantidadePaginator2 = qtdPaginacao;
                 pgAtual = 0;
             }
-            int intInicio = pgAtual;
-            int intLimite = quantidadePaginator2;
-            sqlOracle = paginacaoOracle(sql.toString(), intInicio, intLimite);
+            final int intInicio = pgAtual;
+            final int intLimite = quantidadePaginator2;
+            sqlOracle = this.paginacaoOracle(sql.toString(), intInicio, intLimite);
         }
 
-        List lista = new ArrayList();
+        List lista = new ArrayList<>();
 
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
             lista = this.execSQL(sqlOracle, parametros.toArray());
@@ -5494,40 +5572,36 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
         if (lista != null && !lista.isEmpty()) {
             return engine.listConvertion(SolicitacaoServicoDTO.class, lista, listRetorno);
-        } else {
-            return null;
         }
+        return null;
     }
-    
-    
 
     public Collection listaSolicitacoesSemPesquisaSatisfacao() throws Exception {
-        List listRetorno = new ArrayList();
-        List parametro = new ArrayList();
-        StringBuilder sql = new StringBuilder();
-        sql.append("select idsolicitacaoservico from " + getTableName() + " solicitacaoservico  ");
+        final List listRetorno = new ArrayList<>();
+        final List parametro = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
+        sql.append("select idsolicitacaoservico from " + this.getTableName() + " solicitacaoservico  ");
         sql.append("where solicitacaoservico.idsolicitacaoservico NOT IN (select idsolicitacaoservico from pesquisasatisfacao) ");
         sql.append(" and UPPER(situacao) = 'FECHADA' ");
-        List lista = new ArrayList();
+        List lista = new ArrayList<>();
         lista = this.execSQL(sql.toString(), parametro.toArray());
         listRetorno.add("idSolicitacaoServico");
         if (lista != null && !lista.isEmpty()) {
-            List listaResult = engine.listConvertion(SolicitacaoServicoDTO.class, lista, listRetorno);
+            final List listaResult = engine.listConvertion(SolicitacaoServicoDTO.class, lista, listRetorno);
             return listaResult;
-        } else {
-            return null;
         }
+        return null;
     }
 
-    public Collection<SolicitacaoServicoDTO> listBySituacao(SituacaoSolicitacaoServico situacao) throws Exception {
-        List condicao = new ArrayList();
+    public Collection<SolicitacaoServicoDTO> listBySituacao(final SituacaoSolicitacaoServico situacao) throws Exception {
+        final List<Condition> condicao = new ArrayList<>();
         condicao.add(new Condition("situacao", "=", situacao.name()));
         return super.findByCondition(condicao, null);
     }
 
-    public Collection<SolicitacaoServicoDTO> listByTarefas(Collection<TarefaFluxoDTO> listTarefa) throws Exception {
+    public Collection<SolicitacaoServicoDTO> listByTarefas(final Collection<TarefaFluxoDTO> listTarefa) throws Exception {
 
-        List listRetorno = new ArrayList();
+        final List listRetorno = new ArrayList<>();
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("idbaseconhecimento");
         listRetorno.add("idServicoContrato");
@@ -5613,7 +5687,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("idInstanciaFluxo");
         listRetorno.add("vencendo");
 
-        StringBuilder sql = new StringBuilder();
+        final StringBuilder sql = new StringBuilder();
         sql.append("SELECT sol.idSolicitacaoServico, sol.idbaseconhecimento, sol.idServicoContrato, sol.idSolicitante, ");
         sql.append("       sol.idItemConfiguracao, sol.idItemConfiguracaoFilho, sol.idtipodemandaservico, sol.idcontatosolicitacaoservico, ");
         sql.append("       sol.idOrigem, sol.idResponsavel, sol.idTipoProblema, sol.idPrioridade, sol.idUnidade, sol.idFaseAtual, ");
@@ -5658,19 +5732,19 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                 sql.append("and es.idInstanciaFluxo in  ( ");
             }
 
-            int size = listTarefa.size();
+            final int size = listTarefa.size();
             int max = 1;
             int aux = 0;
-            int CONSTANT = 999;
+            final int CONSTANT = 999;
             // Hack oracle
             if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
-                for (TarefaFluxoDTO tarefaFluxoDto : listTarefa) {
+                for (final TarefaFluxoDTO tarefaFluxoDto : listTarefa) {
                     aux += 1;
                     sql.append(tarefaFluxoDto.getIdInstancia());
 
                     if (aux == size) {
                         sql.append(")))");
-                    } else if (aux > (CONSTANT * (max - 1)) && aux <= (CONSTANT * max)) {
+                    } else if (aux > CONSTANT * (max - 1) && aux <= CONSTANT * max) {
                         sql.append("))  union  select * from table(sys.odcinumberlist( ");
                         max++;
                     } else {
@@ -5678,7 +5752,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                     }
                 }
             } else {
-                for (TarefaFluxoDTO tarefaFluxoDto : listTarefa) {
+                for (final TarefaFluxoDTO tarefaFluxoDto : listTarefa) {
                     aux += 1;
                     sql.append(tarefaFluxoDto.getIdInstancia());
 
@@ -5695,18 +5769,18 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             return null;
         }
 
-        List lista = new ArrayList();
+        List lista = new ArrayList<>();
         lista = this.execSQL(sql.toString(), null);
 
         if (lista != null && !lista.isEmpty()) {
             return engine.listConvertion(SolicitacaoServicoDTO.class, lista, listRetorno);
-        } else {
-            return null;
         }
+        return null;
     }
 
     /**
-     * Utilizado para a RENDERIZAÇÃO do GRÁFICO, pois no Gráfico não é necessário a utilização de Paginação. Esta consulta considera o Login do Usuário Logado, os Contratos em que está inserido e os
+     * Utilizado para a RENDERIZAÇÃO do GRÁFICO, pois no Gráfico não é necessário a utilização de Paginação. Esta consulta considera o Login do Usuário Logado,
+     * os Contratos em que está inserido e os
      * Filtros Selecionados na tela de Gerenciamento de Serviços.
      *
      * @param listTarefa
@@ -5717,10 +5791,10 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      * @author valdoilo.damasceno
      * @since 05.11.2013
      */
-    public Collection<SolicitacaoServicoDTO> listByTarefas(Collection<TarefaFluxoDTO> listTarefa, GerenciamentoServicosDTO gerenciamentoBean, Collection<ContratoDTO> listContratoUsuarioLogado)
-            throws Exception {
+    public Collection<SolicitacaoServicoDTO> listByTarefas(final Collection<TarefaFluxoDTO> listTarefa, final GerenciamentoServicosDTO gerenciamentoBean,
+            final Collection<ContratoDTO> listContratoUsuarioLogado) throws Exception {
 
-        List listRetorno = new ArrayList();
+        final List listRetorno = new ArrayList<>();
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("idbaseconhecimento");
         listRetorno.add("idServicoContrato");
@@ -5807,8 +5881,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("vencendo");
         listRetorno.add("idTarefa");
 
-        StringBuilder sql = new StringBuilder();
-        List parametros = new ArrayList();
+        final StringBuilder sql = new StringBuilder();
+        final List parametros = new ArrayList<>();
 
         sql.append("SELECT sol.idSolicitacaoServico, sol.idbaseconhecimento, sol.idServicoContrato, sol.idSolicitante, ");
         sql.append("       sol.idItemConfiguracao, sol.idItemConfiguracaoFilho, sol.idtipodemandaservico, sol.idcontatosolicitacaoservico, ");
@@ -5854,19 +5928,19 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                 sql.append("and it.iditemtrabalho in  ( ");
             }
 
-            int size = listTarefa.size();
+            final int size = listTarefa.size();
             int max = 1;
             int aux = 0;
-            int CONSTANT = 999;
+            final int CONSTANT = 999;
             // Hack oracle
             if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
-                for (TarefaFluxoDTO tarefaFluxoDto : listTarefa) {
+                for (final TarefaFluxoDTO tarefaFluxoDto : listTarefa) {
                     aux += 1;
                     sql.append(tarefaFluxoDto.getIdItemTrabalho());
 
                     if (aux == size) {
                         sql.append(")))");
-                    } else if (aux > (CONSTANT * (max - 1)) && aux <= (CONSTANT * max)) {
+                    } else if (aux > CONSTANT * (max - 1) && aux <= CONSTANT * max) {
                         sql.append("))  union  select * from table(sys.odcinumberlist( ");
                         max++;
                     } else {
@@ -5874,7 +5948,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                     }
                 }
             } else {
-                for (TarefaFluxoDTO tarefaFluxoDto : listTarefa) {
+                for (final TarefaFluxoDTO tarefaFluxoDto : listTarefa) {
                     aux += 1;
                     sql.append(tarefaFluxoDto.getIdItemTrabalho());
 
@@ -5890,7 +5964,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             if (listContratoUsuarioLogado != null && !listContratoUsuarioLogado.isEmpty()) {
                 sql.append(" AND c.idcontrato in ( ");
                 boolean verifica = true;
-                for (ContratoDTO contrato : listContratoUsuarioLogado) {
+                for (final ContratoDTO contrato : listContratoUsuarioLogado) {
                     if (verifica) {
                         sql.append(contrato.getIdContrato());
                         verifica = false;
@@ -5907,22 +5981,22 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
 
         // Adiciona o filtro de pesquisa caso houver filtro
-        adicionarFiltroPesquisa(sql, gerenciamentoBean, parametros);
+        this.adicionarFiltroPesquisa(sql, gerenciamentoBean, parametros);
 
-        List lista = new ArrayList();
+        List lista = new ArrayList<>();
         lista = this.execSQL(sql.toString(), parametros.toArray());
 
         if (lista != null && !lista.isEmpty()) {
             return engine.listConvertion(SolicitacaoServicoDTO.class, lista, listRetorno);
-        } else {
-            return null;
         }
+        return null;
     }
 
     @SuppressWarnings("unused")
-    public Collection<SolicitacaoServicoDTO> listByTarefas(Collection<TarefaFluxoDTO> listTarefa, Integer pgAtual, Integer qtdPaginacao) throws Exception {
+    public Collection<SolicitacaoServicoDTO> listByTarefas(final Collection<TarefaFluxoDTO> listTarefa, Integer pgAtual, final Integer qtdPaginacao)
+            throws Exception {
 
-        List listRetorno = new ArrayList();
+        final List listRetorno = new ArrayList<>();
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("idbaseconhecimento");
         listRetorno.add("idServicoContrato");
@@ -6007,7 +6081,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("idLocalidade");
         listRetorno.add("idInstanciaFluxo");
 
-        StringBuilder sql = new StringBuilder();
+        final StringBuilder sql = new StringBuilder();
 
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.SQLSERVER)) {
             sql.append(" ;WITH TabelaTemporaria AS ( ");
@@ -6054,7 +6128,6 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         sql.append(" INNER JOIN execucaosolicitacao es ON es.idsolicitacaoservico = sol.idsolicitacaoservico ");
         sql.append("WHERE sol.idsolicitacaopai is null ");
 
-        int qtdIds = 0;
         if (listTarefa != null && !listTarefa.isEmpty()) {
             // Hack oracle
             if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
@@ -6063,28 +6136,27 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                 sql.append("and es.idInstanciaFluxo in  ( ");
             }
 
-            int size = listTarefa.size();
+            final int size = listTarefa.size();
             int max = 1;
             int aux = 0;
-            int CONSTANT = 999;
+            final int CONSTANT = 999;
             // Hack oracle
             if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
-                for (TarefaFluxoDTO tarefaFluxoDto : listTarefa) {
+                for (final TarefaFluxoDTO tarefaFluxoDto : listTarefa) {
                     aux += 1;
                     sql.append(tarefaFluxoDto.getIdInstancia());
 
                     if (aux == size) {
                         sql.append(")))");
-                    } else if (aux > (CONSTANT * (max - 1)) && aux <= (CONSTANT * max)) {
+                    } else if (aux > CONSTANT * (max - 1) && aux <= CONSTANT * max) {
                         sql.append("))  union  select * from table(sys.odcinumberlist( ");
-                        qtdIds++;
                         max++;
                     } else {
                         sql.append(",");
                     }
                 }
             } else {
-                for (TarefaFluxoDTO tarefaFluxoDto : listTarefa) {
+                for (final TarefaFluxoDTO tarefaFluxoDto : listTarefa) {
                     aux += 1;
                     sql.append(tarefaFluxoDto.getIdInstancia());
                     if (aux == size) {
@@ -6101,13 +6173,13 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
 
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.POSTGRESQL)) {
-            Integer pgTotal = pgAtual * qtdPaginacao;
+            final Integer pgTotal = pgAtual * qtdPaginacao;
             pgAtual = pgTotal - qtdPaginacao;
             sql.append(" ORDER BY sol.idSolicitacaoServico LIMIT " + qtdPaginacao + " OFFSET " + pgAtual);
         }
 
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.MYSQL)) {
-            Integer pgTotal = pgAtual * qtdPaginacao;
+            final Integer pgTotal = pgAtual * qtdPaginacao;
             pgAtual = pgTotal - qtdPaginacao;
             sql.append(" LIMIT " + pgAtual + ", " + qtdPaginacao);
         }
@@ -6116,7 +6188,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             Integer quantidadePaginator2 = new Integer(0);
             if (pgAtual > 0) {
                 quantidadePaginator2 = qtdPaginacao * pgAtual;
-                pgAtual = (pgAtual * qtdPaginacao) - qtdPaginacao;
+                pgAtual = pgAtual * qtdPaginacao - qtdPaginacao;
             } else {
                 quantidadePaginator2 = qtdPaginacao;
                 pgAtual = 0;
@@ -6129,18 +6201,18 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             Integer quantidadePaginator2 = new Integer(0);
             if (pgAtual > 1) {
                 quantidadePaginator2 = qtdPaginacao * pgAtual;
-                pgAtual = (pgAtual * qtdPaginacao) - qtdPaginacao;
+                pgAtual = pgAtual * qtdPaginacao - qtdPaginacao;
                 pgAtual = pgAtual + 1;
             } else {
                 quantidadePaginator2 = qtdPaginacao;
                 pgAtual = 0;
             }
-            int intInicio = pgAtual;
-            int intLimite = quantidadePaginator2;
-            sqlOracle = paginacaoOracle(sql.toString(), intInicio, intLimite);
+            final int intInicio = pgAtual;
+            final int intLimite = quantidadePaginator2;
+            sqlOracle = this.paginacaoOracle(sql.toString(), intInicio, intLimite);
         }
 
-        List lista = new ArrayList();
+        List lista = new ArrayList<>();
 
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
             lista = this.execSQL(sqlOracle, null);
@@ -6150,13 +6222,13 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
         if (lista != null && !lista.isEmpty()) {
             return engine.listConvertion(SolicitacaoServicoDTO.class, lista, listRetorno);
-        } else {
-            return null;
         }
+        return null;
     }
 
     /**
-     * Retorna a Lista de TarefaDTO com SolicitacaoServidoDTO de acordo com o Login, Lista de Contratos do Usuário Logado e os Filtros Selecionados na Tela de Gerenciamento de Serviços.
+     * Retorna a Lista de TarefaDTO com SolicitacaoServidoDTO de acordo com o Login, Lista de Contratos do Usuário Logado e os Filtros Selecionados na Tela de
+     * Gerenciamento de Serviços.
      *
      * @param listTarefas
      * @param qtdAtual
@@ -6168,8 +6240,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      * @author valdoilo.damasceno
      * @since 05.11.2013
      */
-    public Collection<SolicitacaoServicoDTO> listByTarefas(Collection<TarefaFluxoDTO> listTarefa, Integer pgAtual, Integer qtdPaginacao, GerenciamentoServicosDTO gerenciamentoBean,
-            Collection<ContratoDTO> listContratoUsuarioLogado) throws Exception {
+    public Collection<SolicitacaoServicoDTO> listByTarefas(final Collection<TarefaFluxoDTO> listTarefa, Integer pgAtual, final Integer qtdPaginacao,
+            final GerenciamentoServicosDTO gerenciamentoBean, final Collection<ContratoDTO> listContratoUsuarioLogado) throws Exception {
 
         String ordernarPor = gerenciamentoBean.getOrdenarPor() == null ? "" : gerenciamentoBean.getOrdenarPor();
 
@@ -6193,7 +6265,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             ordernarPor = " ORDER BY sol.idresponsavel ";
         }
 
-        List listRetorno = new ArrayList();
+        final List listRetorno = new ArrayList<>();
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("idbaseconhecimento");
         listRetorno.add("idServicoContrato");
@@ -6283,8 +6355,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("qtdefilhas");
         listRetorno.add("qtdeItensConfiguracaoRelacionados");
 
-        StringBuilder sql = new StringBuilder();
-        List parametros = new ArrayList();
+        final StringBuilder sql = new StringBuilder();
+        final List parametros = new ArrayList<>();
 
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.SQLSERVER)) {
             sql.append(" ;WITH TabelaTemporaria AS ( ");
@@ -6336,8 +6408,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
         sql.append(" WHERE sol.idsolicitacaopai is null ");
 
-        List<TarefaFluxoDTO> listaFiltrada = filtrarElementosDaLista(listTarefa, gerenciamentoBean);
-        int size = listaFiltrada.size();
+        final List<TarefaFluxoDTO> listaFiltrada = this.filtrarElementosDaLista(listTarefa, gerenciamentoBean);
+        final int size = listaFiltrada.size();
         if (size != 0) {
             // Hack oracle
             if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
@@ -6348,11 +6420,11 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
             int max = 1;
             int aux = 1;
-            int CONSTANT = 999;
+            final int CONSTANT = 999;
             if (size != 0) {
                 // Hack oracle
                 if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
-                    for (TarefaFluxoDTO tarefaFluxoDto : listaFiltrada) {
+                    for (final TarefaFluxoDTO tarefaFluxoDto : listaFiltrada) {
                         aux += 1;
                         sql.append(tarefaFluxoDto.getIdItemTrabalho());
 
@@ -6360,7 +6432,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                         // if (aux == size) {
                         if (aux > size) {
                             sql.append(")))");
-                        } else if (aux > (CONSTANT * (max - 1)) && aux <= (CONSTANT * max)) {
+                        } else if (aux > CONSTANT * (max - 1) && aux <= CONSTANT * max) {
                             sql.append("))  union  select * from table(sys.odcinumberlist( ");
                             max++;
                         } else {
@@ -6368,7 +6440,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                         }
                     }
                 } else {
-                    for (TarefaFluxoDTO tarefaFluxoDto : listaFiltrada) {
+                    for (final TarefaFluxoDTO tarefaFluxoDto : listaFiltrada) {
                         sql.append(tarefaFluxoDto.getIdItemTrabalho());
                         if (aux == size) {
                             sql.append(")");
@@ -6385,7 +6457,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             if (listContratoUsuarioLogado != null && !listContratoUsuarioLogado.isEmpty()) {
                 sql.append(" AND c.idcontrato in ( ");
                 boolean verifica = true;
-                for (ContratoDTO contrato : listContratoUsuarioLogado) {
+                for (final ContratoDTO contrato : listContratoUsuarioLogado) {
                     if (verifica) {
                         sql.append(contrato.getIdContrato());
                         verifica = false;
@@ -6402,10 +6474,10 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
 
         // Adiciona o filtro de pesquisa caso houver filtro
-        adicionarFiltroPesquisa(sql, gerenciamentoBean, parametros);
+        this.adicionarFiltroPesquisa(sql, gerenciamentoBean, parametros);
 
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.POSTGRESQL)) {
-            Integer pgTotal = pgAtual * qtdPaginacao;
+            final Integer pgTotal = pgAtual * qtdPaginacao;
             if (pgTotal > 0) {
                 pgAtual = pgTotal - qtdPaginacao;
             }
@@ -6413,7 +6485,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
 
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.MYSQL)) {
-            Integer pgTotal = pgAtual * qtdPaginacao;
+            final Integer pgTotal = pgAtual * qtdPaginacao;
             if (pgTotal > 0) {
                 pgAtual = pgTotal - qtdPaginacao;
             }
@@ -6424,7 +6496,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             Integer quantidadePaginator2 = new Integer(0);
             if (pgAtual > 0) {
                 quantidadePaginator2 = qtdPaginacao * pgAtual;
-                pgAtual = (pgAtual * qtdPaginacao) - qtdPaginacao;
+                pgAtual = pgAtual * qtdPaginacao - qtdPaginacao;
             } else {
                 quantidadePaginator2 = qtdPaginacao;
                 pgAtual = 0;
@@ -6437,21 +6509,22 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             Integer quantidadePaginator2 = new Integer(0);
             if (pgAtual > 1) {
                 quantidadePaginator2 = qtdPaginacao * pgAtual;
-                pgAtual = (pgAtual * qtdPaginacao) - qtdPaginacao;
+                pgAtual = pgAtual * qtdPaginacao - qtdPaginacao;
                 pgAtual = pgAtual + 1;
             } else {
                 quantidadePaginator2 = qtdPaginacao;
                 pgAtual = 0;
             }
-            int intInicio = pgAtual;
-            int intLimite = quantidadePaginator2;
+            final int intInicio = pgAtual;
+            final int intLimite = quantidadePaginator2;
             // Modelo antigo
             // sqlOracle = sqlOracle + ordernarPor;
             sqlOracle = sql + ordernarPor;
-            sqlOracle = "SELECT * FROM (SELECT PAGING.*, ROWNUM PAGING_RN FROM" + " (" + sqlOracle + ") PAGING WHERE (ROWNUM <= " + intLimite + "))" + " WHERE (PAGING_RN >= " + intInicio + ") ";
+            sqlOracle = "SELECT * FROM (SELECT PAGING.*, ROWNUM PAGING_RN FROM" + " (" + sqlOracle + ") PAGING WHERE (ROWNUM <= " + intLimite + "))"
+                    + " WHERE (PAGING_RN >= " + intInicio + ") ";
         }
 
-        List lista = new ArrayList();
+        List lista = new ArrayList<>();
 
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
             lista = this.execSQL(sqlOracle, parametros.toArray());
@@ -6461,19 +6534,19 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
         if (lista != null && !lista.isEmpty()) {
             return engine.listConvertion(SolicitacaoServicoDTO.class, lista, listRetorno);
-        } else {
-            return null;
         }
+        return null;
     }
 
-    public Collection<SolicitacaoServicoDTO> listByTarefas(Collection<TarefaFluxoDTO> listTarefa, TipoSolicitacaoServico[] tiposSolicitacao) throws Exception {
+    public Collection<SolicitacaoServicoDTO> listByTarefas(final Collection<TarefaFluxoDTO> listTarefa, final TipoSolicitacaoServico[] tiposSolicitacao)
+            throws Exception {
         boolean bIncidentes = false;
         boolean bRequisicoes = false;
         boolean bCompras = false;
         boolean bViagens = false;
         boolean bRH = false;
         if (tiposSolicitacao != null) {
-            for (TipoSolicitacaoServico tipo : tiposSolicitacao) {
+            for (final TipoSolicitacaoServico tipo : tiposSolicitacao) {
                 if (!bIncidentes && tipo.equals(TipoSolicitacaoServico.INCIDENTE)) {
                     bIncidentes = true;
                 }
@@ -6492,7 +6565,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             }
         }
 
-        List listRetorno = new ArrayList();
+        final List listRetorno = new ArrayList<>();
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("idbaseconhecimento");
         listRetorno.add("idServicoContrato");
@@ -6581,7 +6654,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("idRequisicaoPessoal");
         listRetorno.add("classificacao");
 
-        StringBuilder sql = new StringBuilder();
+        final StringBuilder sql = new StringBuilder();
         sql.append("SELECT sol.idSolicitacaoServico, sol.idbaseconhecimento, sol.idServicoContrato, sol.idSolicitante, ");
         sql.append("       sol.idItemConfiguracao, sol.idItemConfiguracaoFilho, sol.idtipodemandaservico, sol.idcontatosolicitacaoservico, ");
         sql.append("       sol.idOrigem, sol.idResponsavel, sol.idTipoProblema, sol.idPrioridade, sol.idUnidade, sol.idFaseAtual, ");
@@ -6682,19 +6755,19 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                 sql.append("and es.idInstanciaFluxo in  ( ");
             }
 
-            int size = listTarefa.size();
+            final int size = listTarefa.size();
             int max = 1;
             int aux = 0;
-            int CONSTANT = 999;
+            final int CONSTANT = 999;
             // Hack oracle
             if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
-                for (TarefaFluxoDTO tarefaFluxoDto : listTarefa) {
+                for (final TarefaFluxoDTO tarefaFluxoDto : listTarefa) {
                     aux += 1;
                     sql.append(tarefaFluxoDto.getIdInstancia());
 
                     if (aux == size) {
                         sql.append(")))");
-                    } else if (aux > (CONSTANT * (max - 1)) && aux <= (CONSTANT * max)) {
+                    } else if (aux > CONSTANT * (max - 1) && aux <= CONSTANT * max) {
                         sql.append("))  union  select * from table(sys.odcinumberlist( ");
                         max++;
                     } else {
@@ -6702,7 +6775,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                     }
                 }
             } else {
-                for (TarefaFluxoDTO tarefaFluxoDto : listTarefa) {
+                for (final TarefaFluxoDTO tarefaFluxoDto : listTarefa) {
                     aux += 1;
                     sql.append(tarefaFluxoDto.getIdInstancia());
 
@@ -6719,7 +6792,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             return null;
         }
 
-        List lista = new ArrayList();
+        List lista = new ArrayList<>();
         lista = this.execSQL(sql.toString(), null);
 
         Collection<SolicitacaoServicoDTO> result = null;
@@ -6728,7 +6801,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
 
         if (result != null) {
-            for (SolicitacaoServicoDTO solicitacaoDto : result) {
+            for (final SolicitacaoServicoDTO solicitacaoDto : result) {
                 if (solicitacaoDto.getIdRequisicaoProduto() != null) {
                     solicitacaoDto.setTipoSolicitacao(TipoSolicitacaoServico.COMPRA);
                 } else if (solicitacaoDto.getIdRequisicaoViagem() != null) {
@@ -6746,21 +6819,21 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         return result;
     }
 
-    public SolicitacaoServicoDTO listIdentificacao(Integer idItemConfiguracao) throws Exception {
-        List parametro = new ArrayList();
-        StringBuilder sb = new StringBuilder();
+    public SolicitacaoServicoDTO listIdentificacao(final Integer idItemConfiguracao) throws Exception {
+        final List parametro = new ArrayList<>();
+        final StringBuilder sb = new StringBuilder();
         sb.append("select identificacao from ITEMCONFIGURACAO where iditemconfiguracao = " + idItemConfiguracao + " ");
-        List lista = this.execSQL(sb.toString(), parametro.toArray());
-        List<String> listRetorno = new ArrayList<String>();
+        final List lista = this.execSQL(sb.toString(), parametro.toArray());
+        final List<String> listRetorno = new ArrayList<String>();
         listRetorno.add("itemConfiguracao");
-        List result = engine.listConvertion(SolicitacaoServicoDTO.class, lista, listRetorno);
+        final List result = engine.listConvertion(SolicitacaoServicoDTO.class, lista, listRetorno);
         return (SolicitacaoServicoDTO) result.get(0);
     }
 
     public Collection<SolicitacaoServicoDTO> listIncidentesNaoFinalizados() throws Exception {
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
-        StringBuilder sql = new StringBuilder();
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
 
         sql.append("SELECT idsolicitacaoservico, situacao, datahorasolicitacao, datahoralimite, nometipodemandaservico, datahorafim ");
         sql.append("FROM solicitacaoservico ");
@@ -6774,7 +6847,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         sql.append("(UPPER(solicitacaoservico.situacao) <> 'FECHADA' AND UPPER(solicitacaoservico.situacao) <> 'CANCELADA' ");
         sql.append(" AND UPPER(solicitacaoservico.situacao) <> 'RECLASSIFICADA')");
 
-        List lista = new ArrayList();
+        List lista = new ArrayList<>();
         lista = this.execSQL(sql.toString(), parametro.toArray());
 
         listRetorno.add("idSolicitacaoServico");
@@ -6784,7 +6857,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("nomeTipoDemandaServico");
         listRetorno.add("dataHoraFim");
 
-        List listSolicitacoes = engine.listConvertion(getBean(), lista, listRetorno);
+        final List listSolicitacoes = engine.listConvertion(this.getBean(), lista, listRetorno);
 
         return listSolicitacoes;
     }
@@ -6799,11 +6872,11 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      * @throws Exception
      * @author valdoilo
      */
-    public Collection<SolicitacaoServicoDTO> listSolicitacaoServico(String tipoDemandaServico, GrupoDTO grupoSeguranca, UsuarioDTO usuario, Date dataInicio, Date dataFim, String situacao)
-            throws Exception {
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
-        StringBuilder sql = new StringBuilder();
+    public Collection<SolicitacaoServicoDTO> listSolicitacaoServico(final String tipoDemandaServico, final GrupoDTO grupoSeguranca, final UsuarioDTO usuario,
+            final Date dataInicio, final Date dataFim, final String situacao) throws Exception {
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
 
         sql.append("SELECT idsolicitacaoservico, situacao, datahorasolicitacao, datahoralimite, nometipodemandaservico, datahorafim ");
         sql.append("FROM solicitacaoservico ");
@@ -6865,7 +6938,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         parametro.add(dataInicio);
         parametro.add(dataFim);
 
-        List lista = new ArrayList();
+        List lista = new ArrayList<>();
         lista = this.execSQL(sql.toString(), parametro.toArray());
 
         listRetorno.add("idSolicitacaoServico");
@@ -6875,7 +6948,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("nomeTipoDemandaServico");
         listRetorno.add("dataHoraFim");
 
-        List listSolicitacoes = engine.listConvertion(getBean(), lista, listRetorno);
+        final List listSolicitacoes = engine.listConvertion(this.getBean(), lista, listRetorno);
 
         return listSolicitacoes;
     }
@@ -6887,11 +6960,12 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      * @throws Exception
      * @author emauri
      */
-    public Collection<SolicitacaoServicoDTO> listSolicitacaoServicoByCriterios(Collection colCriterios) throws Exception {
-        List listRetorno = new ArrayList();
+    public Collection<SolicitacaoServicoDTO> listSolicitacaoServicoByCriterios(final Collection colCriterios) throws Exception {
+        final List listRetorno = new ArrayList<>();
 
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 10h00min - ID Citsmart: 120770 Motivo/Comentário: A tabela origematendimento, faseservico e empregados estava utilizando INNER
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 10h00min - ID Citsmart: 120770 Motivo/Comentário: A tabela origematendimento, faseservico
+         * e empregados estava utilizando INNER
          * JOIN, isso fazia com que as solicitações que não possuem origem contrato, fase ou solicitante não fossem retornadas. Alterado para LEFT JOIN
          */
 
@@ -6928,14 +7002,14 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
         Date dataInicio = null;
         Timestamp dataFim = null;
-        Date dataInicioFechamento = null;
-        Timestamp dataFimFechamento = null;
-        for (Iterator it = colCriterios.iterator(); it.hasNext();) {
-            Condition condition = (Condition) it.next();
+        final Date dataInicioFechamento = null;
+        final Timestamp dataFimFechamento = null;
+        for (final Iterator it = colCriterios.iterator(); it.hasNext();) {
+            final Condition condition = (Condition) it.next();
             if (condition.getFiledClass().equalsIgnoreCase("dataInicial")) {
                 dataInicio = (Date) condition.getValue();
             } else if (condition.getFiledClass().equalsIgnoreCase("dataFinal")) {
-                Object obj = condition.getValue();
+                final Object obj = condition.getValue();
                 if (Date.class.isInstance(obj)) {
                     dataFim = new Timestamp(((Date) obj).getTime());
                 } else if (Timestamp.class.isInstance(obj)) {
@@ -6945,8 +7019,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                 sql = sql.replaceAll("\\{PARAM." + condition.getFiledClass() + "\\}", "" + condition.getValue());
             }
         }
-        List lista = new ArrayList();
-        List parametros = new ArrayList();
+        List lista = new ArrayList<>();
+        final List parametros = new ArrayList<>();
         parametros.add(dataInicio);
         parametros.add(dataFim);
         parametros.add(dataInicioFechamento);
@@ -6976,17 +7050,18 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("responsavel");
         listRetorno.add("contrato");
 
-        List listSolicitacoes = engine.listConvertion(getBean(), lista, listRetorno);
+        final List listSolicitacoes = engine.listConvertion(this.getBean(), lista, listRetorno);
 
         return listSolicitacoes;
     }
 
-    public List<SolicitacaoServicoDTO> listSolicitacaoServicoByItemConfiguracao(Integer idItemConfiguracao) throws Exception {
-        List parametro = new ArrayList();
-        StringBuilder sb = new StringBuilder();
+    public List<SolicitacaoServicoDTO> listSolicitacaoServicoByItemConfiguracao(final Integer idItemConfiguracao) throws Exception {
+        final List parametro = new ArrayList<>();
+        final StringBuilder sb = new StringBuilder();
         sb.append("SELECT sol.idsolicitacaoservico, ser.nomeServico, tempoAtendimentoHH, tempoAtendimentoMM, datahorainicio, datahorafim, ");
-        /**Alterado select [...] nome para emp.nome para evitar conflitos com novo campo nome na tabela itemconfiguracao
-         * 
+        /**
+         * Alterado select [...] nome para emp.nome para evitar conflitos com novo campo nome na tabela itemconfiguracao
+         *
          * @author thyen.chang
          */
         sb.append(" sol.situacao, dataHoraSolicitacao, dataHoraLimite, sol.descricao, emp.nome ");
@@ -7011,8 +7086,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
          */
         parametro.add(idItemConfiguracao);
 
-        List lista = this.execSQL(sb.toString(), parametro.toArray());
-        List<String> listRetorno = new ArrayList<String>();
+        final List lista = this.execSQL(sb.toString(), parametro.toArray());
+        final List<String> listRetorno = new ArrayList<String>();
 
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("nomeServico");
@@ -7026,15 +7101,15 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("descricao");
         listRetorno.add("nomeSolicitante");
 
-        List result = engine.listConvertion(SolicitacaoServicoDTO.class, lista, listRetorno);
+        final List result = engine.listConvertion(SolicitacaoServicoDTO.class, lista, listRetorno);
 
         return result;
     }
 
-    public Collection<SolicitacaoServicoDTO> listSolicitacaoServicoEmAndamento(Integer idSolicitacaoServico) {
+    public Collection<SolicitacaoServicoDTO> listSolicitacaoServicoEmAndamento(final Integer idSolicitacaoServico) {
 
-        ArrayList<Condition> condicoes = new ArrayList<Condition>();
-        List<Order> ordenacao = new ArrayList<Order>();
+        final ArrayList<Condition> condicoes = new ArrayList<Condition>();
+        final List<Order> ordenacao = new ArrayList<Order>();
 
         condicoes.add(new Condition("idSolicitacaoPai", "IS", null));
         condicoes.add(new Condition("situacao", "=", "EmAndamento"));
@@ -7049,7 +7124,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
             listSolicitacoesPai = this.findByCondition(condicoes, ordenacao);
 
-        } catch (Exception e) {
+        } catch (final Exception e) {
 
             e.printStackTrace();
 
@@ -7059,9 +7134,9 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     public Collection<SolicitacaoServicoDTO> listSolicitacaoServicoNaoFinalizadas() throws Exception {
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
-        StringBuilder sql = new StringBuilder();
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
 
         sql.append("SELECT idsolicitacaoservico, situacao, datahorasolicitacao, datahoralimite, nometipodemandaservico, datahorafim ");
         sql.append("FROM solicitacaoservico ");
@@ -7075,7 +7150,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         sql.append("(UPPER(solicitacaoservico.situacao) <> 'FECHADA' AND UPPER(solicitacaoservico.situacao) <> 'CANCELADA' ");
         sql.append(" AND UPPER(solicitacaoservico.situacao) <> 'RECLASSIFICADA')");
 
-        List lista = new ArrayList();
+        List lista = new ArrayList<>();
         lista = this.execSQL(sql.toString(), parametro.toArray());
 
         listRetorno.add("idSolicitacaoServico");
@@ -7085,15 +7160,15 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("nomeTipoDemandaServico");
         listRetorno.add("dataHoraFim");
 
-        List listSolicitacoes = engine.listConvertion(getBean(), lista, listRetorno);
+        final List listSolicitacoes = engine.listConvertion(this.getBean(), lista, listRetorno);
 
         return listSolicitacoes;
     }
 
-    public Collection<SolicitacaoServicoDTO> listSolicitacaoServicoRelacionada(int idSolicitacaoPai) {
+    public Collection<SolicitacaoServicoDTO> listSolicitacaoServicoRelacionada(final int idSolicitacaoPai) {
 
-        ArrayList<Condition> condicoes = new ArrayList<Condition>();
-        List<Order> ordenacao = new ArrayList<Order>();
+        final ArrayList<Condition> condicoes = new ArrayList<Condition>();
+        final List<Order> ordenacao = new ArrayList<Order>();
 
         condicoes.add(new Condition("idSolicitacaoPai", "=", idSolicitacaoPai));
 
@@ -7105,7 +7180,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
             listSolicitacoesPai = this.findByCondition(condicoes, ordenacao);
 
-        } catch (Exception e) {
+        } catch (final Exception e) {
 
             e.printStackTrace();
 
@@ -7114,10 +7189,10 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         return listSolicitacoesPai;
     }
 
-    public Collection<SolicitacaoServicoDTO> listSolicitacaoServicoRelacionadaPai(int idSolicitacaoRelacionada) {
+    public Collection<SolicitacaoServicoDTO> listSolicitacaoServicoRelacionadaPai(final int idSolicitacaoRelacionada) {
 
-        ArrayList<Condition> condicoes = new ArrayList<Condition>();
-        List<Order> ordenacao = new ArrayList<Order>();
+        final ArrayList<Condition> condicoes = new ArrayList<Condition>();
+        final List<Order> ordenacao = new ArrayList<Order>();
 
         condicoes.add(new Condition("idSolicitacaoRelacionada", "=", idSolicitacaoRelacionada));
 
@@ -7129,7 +7204,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
             listSolicitacoesPai = this.findByCondition(condicoes, ordenacao);
 
-        } catch (Exception e) {
+        } catch (final Exception e) {
 
             e.printStackTrace();
 
@@ -7139,8 +7214,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     public Collection listSolicitacoesByRegra() throws Exception {
-        List listRetorno = new ArrayList();
-        StringBuilder sql = new StringBuilder();
+        final List listRetorno = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
         sql.append("SELECT distinct (s.idsolicitacaoservico), s.idAcordoNivelServico, ans.tempoauto, ans.idprioridadeauto1, ans.idgrupo1, s.impacto, s.urgencia, ");
         sql.append("s.idprioridade, s.datahoralimite,  regra1.idcontrato as idcontrato, regra2.idservico as idservico, regra3.idsolicitante as idsolicitante, ");
         sql.append("regra4.idgrupo as idgrupo, regra5.idtipodemandaservico as idtipodemandaservico, s.vencendo, s.criouProblemaAutomatico, s.datahorasolicitacao, s.datahoralimite, s.prazohh, s.prazomm ");
@@ -7180,23 +7255,23 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("prazoHH");
         listRetorno.add("prazoMM");
 
-        List list = this.execSQL(sql.toString(), null);
+        final List list = this.execSQL(sql.toString(), null);
         if (list != null && !list.isEmpty()) {
-            return this.listConvertion(getBean(), list, listRetorno);
-        } else {
-            return null;
+            return this.listConvertion(this.getBean(), list, listRetorno);
         }
+        return null;
     }
 
     public Collection<SolicitacaoServicoDTO> listSolicitacoesFilhas() throws Exception {
-        List condicao = new ArrayList();
+        final List<Condition> condicao = new ArrayList<>();
         condicao.add(new Condition("idSolicitacaoPai", "is not", null));
         return super.findByCondition(condicao, null);
     }
 
-    public SolicitacaoServicoDTO obterQuantidadeSolicitacoesServico(Integer idServicoContrato, java.util.Date dataInicio, java.util.Date dataFim) throws Exception {
-        List parametros = new ArrayList();
-        StringBuilder sql = new StringBuilder();
+    public SolicitacaoServicoDTO obterQuantidadeSolicitacoesServico(final Integer idServicoContrato, final java.util.Date dataInicio,
+            final java.util.Date dataFim) throws Exception {
+        final List parametros = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
 
         sql.append(" select ");
         sql.append(" count(ss.idsolicitacaoservico) quantidade ");
@@ -7223,26 +7298,26 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
          */
 
         /* parametros.add(String.format("%d-%d-%d 23:59:59", ano, mes, dia)); */
-        parametros.add(transformaHoraFinal((Date) dataFim));
+        parametros.add(this.transformaHoraFinal((Date) dataFim));
 
-        List lista = new ArrayList();
+        List lista = new ArrayList<>();
         lista = this.execSQL(sql.toString(), parametros.toArray());
 
-        List<String> listRetorno = new ArrayList<String>();
+        final List<String> listRetorno = new ArrayList<String>();
         listRetorno.add("quantidade");
-        List result = engine.listConvertion(SolicitacaoServicoDTO.class, lista, listRetorno);
+        final List result = engine.listConvertion(SolicitacaoServicoDTO.class, lista, listRetorno);
 
         if (result != null && !result.isEmpty()) {
             return (SolicitacaoServicoDTO) result.get(0);
-        } else {
-            return null;
         }
+        return null;
     }
 
-    public List<SolicitacaoServicoDTO> obterSolicitacoesServico(Date dataInicio, Date dataFim, int idContrato, int idServico) throws Exception {
+    public List<SolicitacaoServicoDTO> obterSolicitacoesServico(final Date dataInicio, final Date dataFim, final int idContrato, final int idServico)
+            throws Exception {
         List<SolicitacaoServicoDTO> solicitacoesServicoDTO = null;
 
-        StringBuilder sql = new StringBuilder();
+        final StringBuilder sql = new StringBuilder();
 
         sql.append(" select ");
         sql.append(" ss.idsolicitacaoservico, s.nomeservico, ss.datahorainicio, ss.datahorafim, vsc.datainicio, vsc.datafim ");
@@ -7270,26 +7345,28 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         sql.append(" vsc.datainicio, ");
         sql.append(" vsc.datafim");
 
-        Object[] params = { dataInicio, transformaHoraFinal(dataFim), idContrato, idServico };
+        final Object[] params = {dataInicio, this.transformaHoraFinal(dataFim), idContrato, idServico};
 
         try {
             solicitacoesServicoDTO = this.execSQL(sql.toString(), params);
-        } catch (PersistenceException e) {
+        } catch (final PersistenceException e) {
             System.out.println("Problemas com atualização da solicitacaoServico.");
             e.printStackTrace();
         }
         return solicitacoesServicoDTO;
     }
 
-    public String paginacaoOracle(String strSQL, int intInicio, int intLimite) {
+    public String paginacaoOracle(String strSQL, final int intInicio, final int intLimite) {
         strSQL = strSQL + " order by sol.idsolicitacaoservico ";
-        return "SELECT * FROM (SELECT PAGING.*, ROWNUM PAGING_RN FROM" + " (" + strSQL + ") PAGING WHERE (ROWNUM <= " + intLimite + "))" + " WHERE (PAGING_RN >= " + intInicio + ") ";
+        return "SELECT * FROM (SELECT PAGING.*, ROWNUM PAGING_RN FROM" + " (" + strSQL + ") PAGING WHERE (ROWNUM <= " + intLimite + "))"
+                + " WHERE (PAGING_RN >= " + intInicio + ") ";
     }
 
     @SuppressWarnings("unused")
-    public Integer qtdTipoDemandaPrioridade(List<TarefaFluxoDTO> listTarefa, Integer idTipoDemandaServico, Integer idPrioridade) throws Exception {
+    public Integer qtdTipoDemandaPrioridade(final List<TarefaFluxoDTO> listTarefa, final Integer idTipoDemandaServico, final Integer idPrioridade)
+            throws Exception {
 
-        StringBuilder sql = new StringBuilder();
+        final StringBuilder sql = new StringBuilder();
         Integer total = 0;
 
         sql.append("SELECT COUNT(*) as quantidade ");
@@ -7315,7 +7392,6 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         sql.append(" INNER JOIN execucaosolicitacao es ON es.idsolicitacaoservico = sol.idsolicitacaoservico ");
         sql.append("WHERE sol.idsolicitacaopai is null ");
 
-        int qtdIds = 0;
         if (listTarefa != null && !listTarefa.isEmpty()) {
             // Hack oracle
             if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
@@ -7324,28 +7400,27 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                 sql.append("and es.idInstanciaFluxo in  ( ");
             }
 
-            int size = listTarefa.size();
+            final int size = listTarefa.size();
             int max = 1;
             int aux = 0;
-            int CONSTANT = 999;
+            final int CONSTANT = 999;
             // Hack oracle
             if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
-                for (TarefaFluxoDTO tarefaFluxoDto : listTarefa) {
+                for (final TarefaFluxoDTO tarefaFluxoDto : listTarefa) {
                     aux += 1;
                     sql.append(tarefaFluxoDto.getIdInstancia());
 
                     if (aux == size) {
                         sql.append(")))");
-                    } else if (aux > (CONSTANT * (max - 1)) && aux <= (CONSTANT * max)) {
+                    } else if (aux > CONSTANT * (max - 1) && aux <= CONSTANT * max) {
                         sql.append("))  union  select * from table(sys.odcinumberlist( ");
-                        qtdIds++;
                         max++;
                     } else {
                         sql.append(",");
                     }
                 }
             } else {
-                for (TarefaFluxoDTO tarefaFluxoDto : listTarefa) {
+                for (final TarefaFluxoDTO tarefaFluxoDto : listTarefa) {
                     aux += 1;
                     sql.append(tarefaFluxoDto.getIdInstancia());
                     if (aux == size) {
@@ -7368,12 +7443,13 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             Long quantidadeLong = 0l;
             BigDecimal totalLinhaBigDecimal;
             Integer totalLinhaInteger;
-            List lista = new ArrayList();
+            List lista = new ArrayList<>();
             lista = this.execSQL(sql.toString(), null);
             if (lista != null) {
-                Object[] listObject = (Object[]) lista.get(0);
+                final Object[] listObject = (Object[]) lista.get(0);
                 if (listObject != null && listObject.length > 0) {
-                    if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.POSTGRESQL) || CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.MYSQL)) {
+                    if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.POSTGRESQL)
+                            || CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.MYSQL)) {
                         quantidadeLong = (Long) listObject[0];
                     }
                     if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
@@ -7395,10 +7471,10 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         return total;
     }
 
-    public Collection<SolicitacaoServicoDTO> quantidadeSolicitacaoPorBaseConhecimento(SolicitacaoServicoDTO solicitacao) throws Exception {
-        StringBuilder sql = new StringBuilder();
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
+    public Collection<SolicitacaoServicoDTO> quantidadeSolicitacaoPorBaseConhecimento(final SolicitacaoServicoDTO solicitacao) throws Exception {
+        final StringBuilder sql = new StringBuilder();
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
 
         sql.append("select idbaseconhecimento,count(idbaseconhecimento) from solicitacaoservico where idbaseconhecimento = ? group by idbaseconhecimento");
 
@@ -7406,9 +7482,10 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("idBaseConhecimento");
         listRetorno.add("quantidade");
 
-        List list = execSQL(sql.toString(), parametro.toArray());
+        final List list = this.execSQL(sql.toString(), parametro.toArray());
         if (list != null && !list.isEmpty()) {
-            Collection<SolicitacaoServicoDTO> listaQuantidadeSolicitacaoServicoPorBaseConhecimento = this.listConvertion(SolicitacaoServicoDTO.class, list, listRetorno);
+            final Collection<SolicitacaoServicoDTO> listaQuantidadeSolicitacaoServicoPorBaseConhecimento = this.listConvertion(SolicitacaoServicoDTO.class,
+                    list, listRetorno);
             return listaQuantidadeSolicitacaoServicoPorBaseConhecimento;
             /*
              * for(SolicitacaoServicoDTO solicitacaoDto : listaQuantidadeSolicitacaoServicoPorBaseConhecimento){ return solicitacaoDto.getQuantidade(); }
@@ -7417,12 +7494,13 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         return null;
     }
 
-    public Collection<SolicitacaoServicoDTO> relatorioControleSla(SolicitacaoServicoDTO solicitacaoServicoDTO) throws Exception {
-        List parametro = new ArrayList();
-        StringBuilder sql = new StringBuilder();
+    public Collection<SolicitacaoServicoDTO> relatorioControleSla(final SolicitacaoServicoDTO solicitacaoServicoDTO) throws Exception {
+        final List parametro = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
 
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 10h00min - ID Citsmart: 120770 Motivo/Comentário: A tabela empregados estava utilizando INNER JOIN, isso fazia com que as
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 10h00min - ID Citsmart: 120770 Motivo/Comentário: A tabela empregados estava utilizando
+         * INNER JOIN, isso fazia com que as
          * solicitações que não possuem solicitante não fossem retornadas. Alterado para LEFT JOIN
          */
 
@@ -7483,7 +7561,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         sql.append("   INNER JOIN contratos co  ");
         sql.append("           ON co.idcontrato = sc.idcontrato  ");
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 23/10/2013 - Horário: 10h47min - ID Citsmart: 120770 Motivo/Comentário: O grupo estava utilizando INNER JOIN e quando não existia relacionamento o
+         * Desenvolvedor: Rodrigo Pecci - Data: 23/10/2013 - Horário: 10h47min - ID Citsmart: 120770 Motivo/Comentário: O grupo estava utilizando INNER JOIN e
+         * quando não existia relacionamento o
          * resultado do grupo não era retornado.
          */
         sql.append("   LEFT JOIN grupo g  ");
@@ -7502,15 +7581,16 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                 }
 
                 if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
-                    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                    final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
                     parametro.add(formatter.format(solicitacaoServicoDTO.getDataInicio()));
                     parametro.add(formatter.format(solicitacaoServicoDTO.getDataFim()));
                 } else {
                     parametro.add(solicitacaoServicoDTO.getDataInicio());
-                    parametro.add(transformaHoraFinal(solicitacaoServicoDTO.getDataFim()));
+                    parametro.add(this.transformaHoraFinal(solicitacaoServicoDTO.getDataFim()));
                 }
                 /*
-                 * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h21min - ID Citsmart: 120770 Motivo/Comentário: Removida a condição que não exibia solicitações com contrato de serviços
+                 * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 14h21min - ID Citsmart: 120770 Motivo/Comentário: Removida a condição que não
+                 * exibia solicitações com contrato de serviços
                  * que foram deletados. Todos devem ser exibidos.
                  */
                 if (solicitacaoServicoDTO.getIdContrato() != null) {
@@ -7538,12 +7618,14 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                     sql.append("AND s.idtiposervico = ? ");
                     parametro.add(solicitacaoServicoDTO.getIdTipoServico());
                 }
-				if (solicitacaoServicoDTO.getIdUnidade() != null && !solicitacaoServicoDTO.getIdUnidade().equals(-1) && solicitacaoServicoDTO.getIdUnidade()!= 0) {
+                if (solicitacaoServicoDTO.getIdUnidade() != null && !solicitacaoServicoDTO.getIdUnidade().equals(-1)
+                        && solicitacaoServicoDTO.getIdUnidade() != 0) {
                     sql.append("AND ss.idUnidade = ? ");
                     parametro.add(solicitacaoServicoDTO.getIdUnidade());
                 }
                 if (solicitacaoServicoDTO.getNomeServico() != null && !solicitacaoServicoDTO.getNomeServico().isEmpty()) {
-                    sql.append("AND (s.nomeservico like '%" + solicitacaoServicoDTO.getNomeServico() + "%' or s.nomeservico like '%" + solicitacaoServicoDTO.getNomeServico().toUpperCase() + "%') ");
+                    sql.append("AND (s.nomeservico like '%" + solicitacaoServicoDTO.getNomeServico() + "%' or s.nomeservico like '%"
+                            + solicitacaoServicoDTO.getNomeServico().toUpperCase() + "%') ");
                 }
 
                 if (solicitacaoServicoDTO.getIdOrigem() != null && !solicitacaoServicoDTO.getIdOrigem().equals(-1)) {
@@ -7552,7 +7634,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                 }
 
                 if (solicitacaoServicoDTO.getSla() != null && !solicitacaoServicoDTO.getSla().isEmpty()) {
-                    String[] dividirSLA = solicitacaoServicoDTO.getSla().split(":");
+                    final String[] dividirSLA = solicitacaoServicoDTO.getSla().split(":");
                     sql.append("AND ss.prazohh = ? AND ss.prazomm = ? ");
                     parametro.add(Integer.parseInt(dividirSLA[0]));
                     parametro.add(Integer.parseInt(dividirSLA[1]));
@@ -7564,15 +7646,15 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                 }
 
                 if (solicitacaoServicoDTO.getClassificacao() != null && !solicitacaoServicoDTO.getClassificacao().equalsIgnoreCase("")) {
-                    sql.append("AND (td.classificacao like '%" + solicitacaoServicoDTO.getClassificacao() + "%' or td.classificacao like '%" + solicitacaoServicoDTO.getClassificacao().toUpperCase()
-                            + "%') ");
+                    sql.append("AND (td.classificacao like '%" + solicitacaoServicoDTO.getClassificacao() + "%' or td.classificacao like '%"
+                            + solicitacaoServicoDTO.getClassificacao().toUpperCase() + "%') ");
                 }
 
                 sql.append("ORDER BY ss.idsolicitacaoservico");
             }
         }
-        List lista = this.execSQL(sql.toString(), parametro.toArray());
-        List<String> listRetorno = new ArrayList<String>();
+        final List lista = this.execSQL(sql.toString(), parametro.toArray());
+        final List<String> listRetorno = new ArrayList<String>();
         listRetorno.add("prazoHH");
         listRetorno.add("prazoMM");
         listRetorno.add("idSolicitacaoServico");
@@ -7596,62 +7678,59 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("tempoAtendimentoMM");
         listRetorno.add("grupoAtual");
         listRetorno.add("atrasoSLAStr");
-        List result = engine.listConvertion(SolicitacaoServicoDTO.class, lista, listRetorno);
+        final List result = engine.listConvertion(SolicitacaoServicoDTO.class, lista, listRetorno);
         if (result != null) {
             return result;
-        } else {
-            return null;
         }
+        return null;
     }
 
-    public SolicitacaoServicoDTO restoreAll(Integer idSolicitacao) throws Exception {
-        List parametro = new ArrayList();
+    public SolicitacaoServicoDTO restoreAll(final Integer idSolicitacao) throws Exception {
+        final List parametro = new ArrayList<>();
         parametro.add(idSolicitacao);
 
-        String sql = getSQLRestoreAll();
+        String sql = this.getSQLRestoreAll();
         sql += "  WHERE sol.idsolicitacaoservico = ? ";
 
-        List lista = this.execSQL(sql.toString(), parametro.toArray());
+        final List lista = this.execSQL(sql.toString(), parametro.toArray());
 
         if (lista != null && !lista.isEmpty()) {
-            List listaResult = engine.listConvertion(SolicitacaoServicoDTO.class, lista, getColunasRestoreAll());
+            final List listaResult = engine.listConvertion(SolicitacaoServicoDTO.class, lista, this.getColunasRestoreAll());
             return (SolicitacaoServicoDTO) listaResult.get(0);
-        } else {
-            return null;
         }
+        return null;
     }
 
-    public SolicitacaoServicoDTO restoreByIdInstanciaFluxo(Integer idInstanciaFluxo) throws Exception {
-        List parametro = new ArrayList();
+    public SolicitacaoServicoDTO restoreByIdInstanciaFluxo(final Integer idInstanciaFluxo) throws Exception {
+        final List parametro = new ArrayList<>();
         parametro.add(idInstanciaFluxo);
 
-        String sql = getSQLRestoreAll();
+        String sql = this.getSQLRestoreAll();
         sql += " INNER JOIN execucaosolicitacao es ON es.idsolicitacaoservico = sol.idsolicitacaoservico ";
         sql += " WHERE sol.idsolicitacaopai is null and es.idInstanciaFluxo = ? ";
 
-        List lista = new ArrayList();
+        List lista = new ArrayList<>();
         lista = this.execSQL(sql.toString(), parametro.toArray());
 
         if (lista != null && !lista.isEmpty()) {
-            List listaResult = engine.listConvertion(SolicitacaoServicoDTO.class, lista, getColunasRestoreAll());
+            final List listaResult = engine.listConvertion(SolicitacaoServicoDTO.class, lista, this.getColunasRestoreAll());
             return (SolicitacaoServicoDTO) listaResult.get(0);
-        } else {
-            return null;
         }
+        return null;
     }
 
-    public SolicitacaoServicoDTO restoreInfoEmails(Integer idSolicitacao) throws Exception {
-        List parametro = new ArrayList();
+    public SolicitacaoServicoDTO restoreInfoEmails(final Integer idSolicitacao) throws Exception {
+        final List parametro = new ArrayList<>();
         parametro.add(idSolicitacao);
 
-        String sql = "select o.ocorrencia as registroexecucao, o.dataregistro as dataRegistroOcorrencia, o.horaregistro as horaRegistroOcorrencia, o.registradopor, o.categoria as categoriaocorrencia "
+        final String sql = "select o.ocorrencia as registroexecucao, o.dataregistro as dataRegistroOcorrencia, o.horaregistro as horaRegistroOcorrencia, o.registradopor, o.categoria as categoriaocorrencia "
                 + " from solicitacaoservico sol "
                 + " inner join ocorrenciasolicitacao o on sol.idsolicitacaoservico = o.idsolicitacaoservico "
                 + " where sol.idsolicitacaoservico = ? order by idocorrencia desc";
 
-        List lista = this.execSQL(sql.toString(), parametro.toArray());
+        final List lista = this.execSQL(sql.toString(), parametro.toArray());
 
-        List<String> listRetorno = new ArrayList<String>();
+        final List<String> listRetorno = new ArrayList<String>();
         listRetorno.add("registroexecucao");
         listRetorno.add("dataRegistroOcorrencia");
         listRetorno.add("horaRegistroOcorrencia");
@@ -7659,32 +7738,32 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("categoriaOcorrencia");
 
         if (lista != null && !lista.isEmpty()) {
-            List listaResult = engine.listConvertion(SolicitacaoServicoDTO.class, lista, listRetorno);
+            final List listaResult = engine.listConvertion(SolicitacaoServicoDTO.class, lista, listRetorno);
             if (listaResult.size() >= 2) {
                 return (SolicitacaoServicoDTO) listaResult.get(1);
             } else {
                 return null;
             }
-        } else {
-            return null;
         }
+        return null;
     }
 
-    public RelatorioQuantitativoRetornoDTO retornarIdEncerramento(String encerramento, RelatorioQuantitativoRetornoDTO relatorioQuantitativoRetornoDTO) throws Exception {
+    public RelatorioQuantitativoRetornoDTO retornarIdEncerramento(final String encerramento,
+            final RelatorioQuantitativoRetornoDTO relatorioQuantitativoRetornoDTO) throws Exception {
 
-        List parametro = new ArrayList();
-        StringBuilder sb = new StringBuilder();
+        final List parametro = new ArrayList<>();
+        final StringBuilder sb = new StringBuilder();
 
         sb.append("select idelemento from bpm_elementofluxo where nome LIKE '" + encerramento + "'  and idFluxo = ?");
 
         parametro.add(relatorioQuantitativoRetornoDTO.getIdFluxo());
 
-        List lista = this.execSQL(sb.toString(), parametro.toArray());
-        List<String> listRetorno = new ArrayList<String>();
+        final List lista = this.execSQL(sb.toString(), parametro.toArray());
+        final List<String> listRetorno = new ArrayList<String>();
         listRetorno.add("idElemento");
 
         if (lista != null && !lista.isEmpty()) {
-            List result = engine.listConvertion(RelatorioQuantitativoRetornoDTO.class, lista, listRetorno);
+            final List result = engine.listConvertion(RelatorioQuantitativoRetornoDTO.class, lista, listRetorno);
             return (RelatorioQuantitativoRetornoDTO) result.get(0);
         } else {
             return new RelatorioQuantitativoRetornoDTO();
@@ -7698,27 +7777,26 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      * @return
      * @throws Exception
      */
-    public SolicitacaoServicoDTO retornaSolicitacaoServicoComInformacoesDoContato(String nomeContato) throws Exception {
-        List parametro = new ArrayList();
+    public SolicitacaoServicoDTO retornaSolicitacaoServicoComInformacoesDoContato(final String nomeContato) throws Exception {
+        final List parametro = new ArrayList<>();
 
-        StringBuilder sb = new StringBuilder();
+        final StringBuilder sb = new StringBuilder();
 
         sb.append("SELECT nome, email, telefone FROM EMPREGADOS WHERE nome = ? ");
         parametro.add(nomeContato);
-        List lista = this.execSQL(sb.toString(), parametro.toArray());
+        final List lista = this.execSQL(sb.toString(), parametro.toArray());
 
-        List<String> listRetorno = new ArrayList<String>();
+        final List<String> listRetorno = new ArrayList<String>();
         listRetorno.add("nomecontato");
         listRetorno.add("emailcontato");
         listRetorno.add("telefonecontato");
 
-        List result = engine.listConvertion(SolicitacaoServicoDTO.class, lista, listRetorno);
+        final List result = engine.listConvertion(SolicitacaoServicoDTO.class, lista, listRetorno);
 
         if (result != null && !result.isEmpty()) {
             return (SolicitacaoServicoDTO) result.get(0);
-        } else {
-            return null;
         }
+        return null;
     }
 
     /**
@@ -7728,30 +7806,29 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      * @return SolicitacaoServicoDTO
      * @throws Exception
      */
-    public SolicitacaoServicoDTO retornaSolicitacaoServicoComItemConfiguracaoDoSolicitante(String login) throws Exception {
-        List parametro = new ArrayList();
+    public SolicitacaoServicoDTO retornaSolicitacaoServicoComItemConfiguracaoDoSolicitante(final String login) throws Exception {
+        final List parametro = new ArrayList<>();
 
-        StringBuilder sb = new StringBuilder();
+        final StringBuilder sb = new StringBuilder();
 
         sb.append("SELECT identificacao,idItemConfiguracao FROM ITEMCONFIGURACAO WHERE IDITEMCONFIGURACAOPAI IS NULL AND DATAFIM IS NULL and identificacao  ");
         sb.append("like ?  order by datainicio desc");
         parametro.add(login + "%");
-        List lista = this.execSQL(sb.toString(), parametro.toArray());
-        List<String> listRetorno = new ArrayList<String>();
+        final List lista = this.execSQL(sb.toString(), parametro.toArray());
+        final List<String> listRetorno = new ArrayList<String>();
         listRetorno.add("itemConfiguracao");
         listRetorno.add("idItemConfiguracao");
-        List result = engine.listConvertion(SolicitacaoServicoDTO.class, lista, listRetorno);
+        final List result = engine.listConvertion(SolicitacaoServicoDTO.class, lista, listRetorno);
 
         if (result != null && !result.isEmpty()) {
             return (SolicitacaoServicoDTO) result.get(0);
-        } else {
-            return null;
         }
+        return null;
     }
 
-    public RelatorioQuantitativoRetornoDTO servicoRetorno(RelatorioQuantitativoRetornoDTO relatorioQuantitativoRetornoDTO) throws Exception {
-        List parametro = new ArrayList();
-        StringBuilder sql = new StringBuilder();
+    public RelatorioQuantitativoRetornoDTO servicoRetorno(final RelatorioQuantitativoRetornoDTO relatorioQuantitativoRetornoDTO) throws Exception {
+        final List parametro = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
 
         sql.append("select ocorrenciasolicitacao.idocorrencia,ocorrenciasolicitacao.dataregistro, ocorrenciasolicitacao.horaregistro ");
         sql.append("from ocorrenciasolicitacao ocorrenciasolicitacao ");
@@ -7766,23 +7843,22 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         parametro.add(relatorioQuantitativoRetornoDTO.getIdInstancia());
         parametro.add(relatorioQuantitativoRetornoDTO.getIdItemTrabalho());
 
-        List lista = this.execSQL(sql.toString(), parametro.toArray());
-        List<String> listRetorno = new ArrayList<String>();
+        final List lista = this.execSQL(sql.toString(), parametro.toArray());
+        final List<String> listRetorno = new ArrayList<String>();
         listRetorno.add("idOcorrencia");
         listRetorno.add("dataRegistro");
         listRetorno.add("horaRegistro");
 
         if (lista != null && !lista.isEmpty()) {
-            List result = engine.listConvertion(RelatorioQuantitativoRetornoDTO.class, lista, listRetorno);
+            final List result = engine.listConvertion(RelatorioQuantitativoRetornoDTO.class, lista, listRetorno);
             return (RelatorioQuantitativoRetornoDTO) result.get(0);
-        } else {
-            return null;
         }
+        return null;
 
     }
 
-    public Integer totalDePaginas(Integer itensPorPagina, Collection<TarefaFluxoDTO> listTarefa) throws Exception {
-        StringBuilder sql = new StringBuilder();
+    public Integer totalDePaginas(final Integer itensPorPagina, final Collection<TarefaFluxoDTO> listTarefa) throws Exception {
+        final StringBuilder sql = new StringBuilder();
         // String ids = idsInstancia.toString();
 
         sql.append(" SELECT COUNT(*) ");
@@ -7815,19 +7891,19 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                 sql.append("and es.idInstanciaFluxo in  ( ");
             }
 
-            int size = listTarefa.size();
+            final int size = listTarefa.size();
             int max = 1;
             int aux = 0;
-            int CONSTANT = 999;
+            final int CONSTANT = 999;
             // Hack oracle
             if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
-                for (TarefaFluxoDTO tarefaFluxoDto : listTarefa) {
+                for (final TarefaFluxoDTO tarefaFluxoDto : listTarefa) {
                     aux += 1;
                     sql.append(tarefaFluxoDto.getIdInstancia());
 
                     if (aux == size) {
                         sql.append(")))");
-                    } else if (aux > (CONSTANT * (max - 1)) && aux <= (CONSTANT * max)) {
+                    } else if (aux > CONSTANT * (max - 1) && aux <= CONSTANT * max) {
                         sql.append("))  union  select * from table(sys.odcinumberlist( ");
                         max++;
                     } else {
@@ -7835,7 +7911,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                     }
                 }
             } else {
-                for (TarefaFluxoDTO tarefaFluxoDto : listTarefa) {
+                for (final TarefaFluxoDTO tarefaFluxoDto : listTarefa) {
                     aux += 1;
                     sql.append(tarefaFluxoDto.getIdInstancia());
                     if (aux == size) {
@@ -7856,13 +7932,14 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         Integer total = 0;
         BigDecimal totalLinhaBigDecimal;
         Integer totalLinhaInteger;
-        int intLimite = itensPorPagina;
-        List lista = new ArrayList();
+        final int intLimite = itensPorPagina;
+        List lista = new ArrayList<>();
         lista = this.execSQL(sql.toString(), null);
         if (lista != null) {
-            Object[] totalLinha = (Object[]) lista.get(0);
+            final Object[] totalLinha = (Object[]) lista.get(0);
             if (totalLinha != null && totalLinha.length > 0) {
-                if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.POSTGRESQL) || CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.MYSQL)) {
+                if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.POSTGRESQL)
+                        || CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.MYSQL)) {
                     totalLinhaLong = (Long) totalLinha[0];
                 }
                 if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
@@ -7877,7 +7954,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
 
         if (totalLinhaLong > 0) {
-            totalPagina = (totalLinhaLong / intLimite);
+            totalPagina = totalLinhaLong / intLimite;
             if (totalLinhaLong % intLimite != 0) {
                 totalPagina = totalPagina + 1;
             }
@@ -7887,7 +7964,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Retorna o Total de Páginas (Quantidade Total de Solicitações dividido pela QTDE de Itens por Página) de acordo com as Tarefas e os Contratos do Usuário Logado.
+     * Retorna o Total de Páginas (Quantidade Total de Solicitações dividido pela QTDE de Itens por Página) de acordo com as Tarefas e os Contratos do Usuário
+     * Logado.
      *
      * @param itensPorPagina
      * @param listTarefa
@@ -7897,11 +7975,11 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      * @author valdoilo.damasceno
      * @since 05.11.2013
      */
-    public Integer totalDePaginas(Integer itensPorPagina, Collection<TarefaFluxoDTO> listTarefa, GerenciamentoServicosDTO gerenciamentoServicosDTO, Collection<ContratoDTO> listContratoUsuarioLogado)
-            throws Exception {
+    public Integer totalDePaginas(final Integer itensPorPagina, final Collection<TarefaFluxoDTO> listTarefa,
+            final GerenciamentoServicosDTO gerenciamentoServicosDTO, final Collection<ContratoDTO> listContratoUsuarioLogado) throws Exception {
 
-        StringBuilder sql = new StringBuilder();
-        List parametros = new ArrayList();
+        final StringBuilder sql = new StringBuilder();
+        final List parametros = new ArrayList<>();
 
         sql.append(" SELECT COUNT(*) ");
         sql.append(" FROM solicitacaoservico sol ");
@@ -7925,13 +8003,14 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         sql.append("        INNER JOIN bpm_itemtrabalhofluxo it ON it.idinstancia = es.idinstanciafluxo ");
         sql.append(" WHERE sol.idsolicitacaopai is null ");
 
-        List<TarefaFluxoDTO> listaFiltrada = filtrarElementosDaLista(listTarefa, gerenciamentoServicosDTO);
-        int size = listaFiltrada.size();
+        final List<TarefaFluxoDTO> listaFiltrada = this.filtrarElementosDaLista(listTarefa, gerenciamentoServicosDTO);
+        final int size = listaFiltrada.size();
 
         if (listaFiltrada != null && size != 0 && listContratoUsuarioLogado != null && !listContratoUsuarioLogado.isEmpty()) {
             // Hack oracle
             if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
-                // O oracle possui uma restrição de apenas 1000 registros na função IN por isso foi necessário realizar um UNION a cada 1000 registros. Realizado por Flávio.
+                // O oracle possui uma restrição de apenas 1000 registros na função IN por isso foi necessário realizar um UNION a cada 1000 registros.
+                // Realizado por Flávio.
                 sql.append(" AND it.iditemtrabalho IN ( select * from table(sys.odcinumberlist( ");
             } else {
                 sql.append(" AND it.iditemtrabalho IN  ( ");
@@ -7939,17 +8018,17 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
             int max = 1;
             int aux = 0;
-            int CONSTANT = 999;
+            final int CONSTANT = 999;
 
             // Hack oracle
             if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
-                for (TarefaFluxoDTO tarefaFluxoDto : listaFiltrada) {
+                for (final TarefaFluxoDTO tarefaFluxoDto : listaFiltrada) {
                     aux += 1;
                     sql.append(tarefaFluxoDto.getIdItemTrabalho());
 
                     if (aux == size) {
                         sql.append(")))");
-                    } else if (aux > (CONSTANT * (max - 1)) && aux <= (CONSTANT * max)) {
+                    } else if (aux > CONSTANT * (max - 1) && aux <= CONSTANT * max) {
                         sql.append("))  UNION  SELECT * from table(sys.odcinumberlist( ");
                         max++;
                     } else {
@@ -7957,7 +8036,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                     }
                 }
             } else {
-                for (TarefaFluxoDTO tarefaFluxoDto : listaFiltrada) {
+                for (final TarefaFluxoDTO tarefaFluxoDto : listaFiltrada) {
                     aux += 1;
                     sql.append(tarefaFluxoDto.getIdItemTrabalho());
                     if (aux == size) {
@@ -7973,7 +8052,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             if (listContratoUsuarioLogado != null && !listContratoUsuarioLogado.isEmpty()) {
                 sql.append(" AND c.idcontrato in ( ");
                 boolean a = true;
-                for (ContratoDTO contrato : listContratoUsuarioLogado) {
+                for (final ContratoDTO contrato : listContratoUsuarioLogado) {
                     if (a) {
                         sql.append(contrato.getIdContrato());
                         a = false;
@@ -7996,15 +8075,16 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         Integer total = 0;
         BigDecimal totalLinhaBigDecimal;
         Integer totalLinhaInteger;
-        int intLimite = itensPorPagina;
-        List lista = new ArrayList();
+        final int intLimite = itensPorPagina;
+        List lista = new ArrayList<>();
 
         lista = this.execSQL(sql.toString(), parametros.toArray());
 
         if (lista != null) {
-            Object[] totalLinha = (Object[]) lista.get(0);
+            final Object[] totalLinha = (Object[]) lista.get(0);
             if (totalLinha != null && totalLinha.length > 0) {
-                if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.POSTGRESQL) || CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.MYSQL)) {
+                if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.POSTGRESQL)
+                        || CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.MYSQL)) {
                     totalLinhaLong = (Long) totalLinha[0];
                 }
                 if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
@@ -8019,7 +8099,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
 
         if (totalLinhaLong > 0) {
-            totalPagina = (totalLinhaLong / intLimite);
+            totalPagina = totalLinhaLong / intLimite;
             if (totalLinhaLong % intLimite != 0) {
                 totalPagina = totalPagina + 1;
             }
@@ -8030,31 +8110,27 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         return total;
     }
 
-    private Timestamp transformaHoraFinal(Date data) throws ParseException {
-        String dataHora = data + " 23:59:59";
-        String pattern = "yyyy-MM-dd hh:mm:ss";
-        SimpleDateFormat sdf = new SimpleDateFormat(pattern);
-        java.util.Date d = sdf.parse(dataHora);
-        java.sql.Timestamp sqlDate = new java.sql.Timestamp(d.getTime());
+    private Timestamp transformaHoraFinal(final Date data) throws ParseException {
+        final String dataHora = data + " 23:59:59";
+        final String pattern = "yyyy-MM-dd hh:mm:ss";
+        final SimpleDateFormat sdf = new SimpleDateFormat(pattern);
+        final java.util.Date d = sdf.parse(dataHora);
+        final java.sql.Timestamp sqlDate = new java.sql.Timestamp(d.getTime());
         return sqlDate;
     }
 
-    @Override
-    public void updateNotNull(BaseEntity obj) throws PersistenceException {
-        super.updateNotNull(obj);
-    }
-
-
     /**
      * Total de página para o portal
+     *
      * @param itensPorPagina
      * @param listTarefa
      * @return
      * @throws Exception
      */
-    public Integer totalDePaginasPortal(Integer itensPorPagina, Collection<TarefaFluxoDTO> listTarefa, GerenciamentoServicosDTO gerenciamentoServicosDTO, Collection<ContratoDTO> listContratoUsuarioLogado) throws Exception {
-        StringBuilder sql = new StringBuilder();
-        List parametros = new ArrayList();
+    public Integer totalDePaginasPortal(final Integer itensPorPagina, final Collection<TarefaFluxoDTO> listTarefa,
+            final GerenciamentoServicosDTO gerenciamentoServicosDTO, final Collection<ContratoDTO> listContratoUsuarioLogado) throws Exception {
+        final StringBuilder sql = new StringBuilder();
+        final List parametros = new ArrayList<>();
 
         sql.append(" SELECT COUNT(*) ");
         sql.append(" FROM solicitacaoservico sol ");
@@ -8083,7 +8159,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             if (listContratoUsuarioLogado != null && !listContratoUsuarioLogado.isEmpty()) {
                 sql.append(" AND c.idcontrato in ( ");
                 boolean verifica = true;
-                for (ContratoDTO contrato : listContratoUsuarioLogado) {
+                for (final ContratoDTO contrato : listContratoUsuarioLogado) {
                     if (verifica) {
                         sql.append(contrato.getIdContrato());
                         verifica = false;
@@ -8097,21 +8173,21 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
 
         // Adiciona o filtro de pesquisa caso houver filtro
-        adicionarFiltroPesquisa(sql, gerenciamentoServicosDTO, parametros);
-
+        this.adicionarFiltroPesquisa(sql, gerenciamentoServicosDTO, parametros);
 
         Long totalLinhaLong = 0l;
         Long totalPagina = 0l;
         Integer total = 0;
         BigDecimal totalLinhaBigDecimal;
         Integer totalLinhaInteger;
-        int intLimite = itensPorPagina;
-        List lista = new ArrayList();
+        final int intLimite = itensPorPagina;
+        List lista = new ArrayList<>();
         lista = this.execSQL(sql.toString(), parametros.toArray());
         if (lista != null) {
-            Object[] totalLinha = (Object[]) lista.get(0);
+            final Object[] totalLinha = (Object[]) lista.get(0);
             if (totalLinha != null && totalLinha.length > 0) {
-                if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.POSTGRESQL) || CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.MYSQL)) {
+                if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.POSTGRESQL)
+                        || CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.MYSQL)) {
                     totalLinhaLong = (Long) totalLinha[0];
                 }
                 if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
@@ -8126,7 +8202,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
 
         if (totalLinhaLong > 0) {
-            totalPagina = (totalLinhaLong / intLimite);
+            totalPagina = totalLinhaLong / intLimite;
             if (totalLinhaLong % intLimite != 0) {
                 totalPagina = totalPagina + 1;
             }
@@ -8135,9 +8211,6 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         return total;
     }
 
-
-
-
     /**
      * Seta uma solicitação como filha de outra.
      *
@@ -8145,21 +8218,21 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      * @param condicoes
      * @author breno.guimaraes
      */
-    public void updateSolicitacaoPai(Integer idSolicitacaoServicoFilha, Integer idSolicitacaoServicoPai) {
-        StringBuilder sql = new StringBuilder();
-        sql.append("UPDATE " + getTableName() + " SET idsolicitacaopai = ? WHERE (idsolicitacaoservico = ?)");
-        Object[] params = { idSolicitacaoServicoPai, idSolicitacaoServicoFilha };
+    public void updateSolicitacaoPai(final Integer idSolicitacaoServicoFilha, final Integer idSolicitacaoServicoPai) {
+        final StringBuilder sql = new StringBuilder();
+        sql.append("UPDATE " + this.getTableName() + " SET idsolicitacaopai = ? WHERE (idsolicitacaoservico = ?)");
+        final Object[] params = {idSolicitacaoServicoPai, idSolicitacaoServicoFilha};
         try {
             this.execUpdate(sql.toString(), params);
-        } catch (PersistenceException e) {
+        } catch (final PersistenceException e) {
             System.out.println("Problemas com atualização da solicitacaoServico.");
             e.printStackTrace();
         }
     }
 
-    public boolean validaQuantidadeRetorno(RelatorioQuantitativoRetornoDTO relatorioQuantitativoRetornoDTO) throws Exception {
-        List parametro = new ArrayList();
-        StringBuilder sb = new StringBuilder();
+    public boolean validaQuantidadeRetorno(final RelatorioQuantitativoRetornoDTO relatorioQuantitativoRetornoDTO) throws Exception {
+        final List parametro = new ArrayList<>();
+        final StringBuilder sb = new StringBuilder();
 
         sb.append("select count(idelemento) as total ");
         sb.append("from bpm_itemtrabalhofluxo ");
@@ -8170,46 +8243,45 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         parametro.add(relatorioQuantitativoRetornoDTO.getIdInstancia());
         parametro.add(relatorioQuantitativoRetornoDTO.getIdElemento());
 
-        List listaDados = this.execSQL(sb.toString(), parametro.toArray());
+        final List listaDados = this.execSQL(sb.toString(), parametro.toArray());
         Integer total = 0;
         if (listaDados != null) {
-            Object[] row = (Object[]) listaDados.get(0);
+            final Object[] row = (Object[]) listaDados.get(0);
             total = Integer.parseInt(row[0].toString());
         }
         if (total == 1) {
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
-    public boolean verificarExistenciaDeUnidade(Integer idUnidade) throws Exception {
-        Object[] objs = new Object[] { idUnidade };
-        String sql = "SELECT distinct idunidade FROM " + getTableName() + " WHERE idunidade = ?  ";
-        List lista = this.execSQL(sql, objs);
+    public boolean verificarExistenciaDeUnidade(final Integer idUnidade) throws Exception {
+        final Object[] objs = new Object[] {idUnidade};
+        final String sql = "SELECT distinct idunidade FROM " + this.getTableName() + " WHERE idunidade = ?  ";
+        final List lista = this.execSQL(sql, objs);
 
-        List listRetorno = new ArrayList();
+        final List listRetorno = new ArrayList<>();
         listRetorno.add("idUnidade");
         if (lista != null && !lista.isEmpty()) {
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
-    public Collection<RelatorioEficaciaTesteDTO> listaSolicitacaoPorServicosAbertosNoPerido(Date dataIncio, Date dataFim, List<ServicoDTO> listaServicos) throws Exception {
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
-        List list = new ArrayList();
-        StringBuilder sql = new StringBuilder();
+    public Collection<RelatorioEficaciaTesteDTO> listaSolicitacaoPorServicosAbertosNoPerido(final Date dataIncio, final Date dataFim,
+            final List<ServicoDTO> listaServicos) throws Exception {
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        List list = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
 
         sql.append(" SELECT DISTINCT  solicitacaoservico.idsolicitacaoservico as numeroSolicitacao,servico.nomeServico as nomeServico,empregados.nome as solicitante,solicitacaoservico.datahorasolicitacao as aberturaSolicitacao,solicitacaoservico.situacao as situacao");
         sql.append(" FROM solicitacaoservico solicitacaoservico INNER JOIN servicocontrato ON solicitacaoservico.datahorasolicitacao BETWEEN ? AND ? ");
         sql.append(" AND solicitacaoservico.situacao <> 'Cancelada' AND servicocontrato.idservicocontrato = solicitacaoservico.idservicocontrato INNER JOIN tipodemandaservico ON tipodemandaservico.idtipodemandaservico = solicitacaoservico.idtipodemandaservico");
         sql.append(" INNER JOIN servico ON servicocontrato.idservico IN ( ");
-        for (int i = 0; i<listaServicos.size();i++) {
-            if( i != listaServicos.size()-1) {
-                sql.append(listaServicos.get(i).getIdServico()+",");
+        for (int i = 0; i < listaServicos.size(); i++) {
+            if (i != listaServicos.size() - 1) {
+                sql.append(listaServicos.get(i).getIdServico() + ",");
             } else {
                 sql.append(listaServicos.get(i).getIdServico());
             }
@@ -8217,7 +8289,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
         sql.append(" ) AND servicocontrato.idservico = servico.idservico INNER JOIN empregados ON solicitacaoservico.idsolicitante = empregados.idempregado ORDER BY servico.nomeServico, solicitacaoservico.idsolicitacaoservico");
         parametro.add(dataIncio);
-        Timestamp dtfim = this.transformaHoraFinal(dataFim);
+        final Timestamp dtfim = this.transformaHoraFinal(dataFim);
         parametro.add(dtfim);
 
         list = this.execSQL(sql.toString(), parametro.toArray());
@@ -8228,24 +8300,23 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("aberturaSolicitacao");
         listRetorno.add("situacao");
 
-
         if (list != null && !list.isEmpty()) {
-            return  this.listConvertion(RelatorioEficaciaTesteDTO.class, list, listRetorno);
-        } else {
-            return null;
+            return this.listConvertion(RelatorioEficaciaTesteDTO.class, list, listRetorno);
         }
+        return null;
     }
 
-    public Collection<RelatorioDocumentacaoDeFuncionalidadesNovasOuAlteradasNoPeriodoDTO> listaQtdSolicitacoesCanceladasFinalizadasporServicoNoPeriodo(Date dataIncio, Date dataFim, List<ServicoDTO> listaServicos) throws Exception {
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
+    public Collection<RelatorioDocumentacaoDeFuncionalidadesNovasOuAlteradasNoPeriodoDTO> listaQtdSolicitacoesCanceladasFinalizadasporServicoNoPeriodo(
+            final Date dataIncio, final Date dataFim, final List<ServicoDTO> listaServicos) throws Exception {
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
         String servicos = "";
-        List list = new ArrayList();
-        StringBuilder sql = new StringBuilder();
+        List list = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
 
-        for (int i = 0; i<listaServicos.size();i++) {
-            if( i != listaServicos.size()-1) {
-                servicos += listaServicos.get(i).getIdServico()+",";
+        for (int i = 0; i < listaServicos.size(); i++) {
+            if (i != listaServicos.size() - 1) {
+                servicos += listaServicos.get(i).getIdServico() + ",";
             } else {
                 servicos += listaServicos.get(i).getIdServico().toString();
             }
@@ -8253,18 +8324,19 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         sql.append("SELECT DISTINCT	servico.nomeServico as nomeServico,TotalAberto as totalAberto,qtdeSoliciatacoesCanceladasFinalizadas as qtdeSoliciatacoesCanceladasFinalizadas  FROM servico ");
 
         sql.append("JOIN (SELECT DISTINCT idservico ,COUNT(idservico) as TotalAberto	FROM solicitacaoservico solicitacaoservico JOIN servicocontrato ON solicitacaoservico.datahorasolicitacao BETWEEN ? AND ? AND  ");
-        sql.append("servicocontrato.idservicocontrato = solicitacaoservico.idservicocontrato AND servicocontrato.idservico IN ("+servicos+")GROUP BY idservico) abertas on servico.idservico = abertas.idservico ");
+        sql.append("servicocontrato.idservicocontrato = solicitacaoservico.idservicocontrato AND servicocontrato.idservico IN (" + servicos
+                + ")GROUP BY idservico) abertas on servico.idservico = abertas.idservico ");
 
         sql.append("left JOIN (SELECT DISTINCT idservico, COUNT(idservico) as qtdeSoliciatacoesCanceladasFinalizadas FROM solicitacaoservico solicitacaoservico JOIN servicocontrato ON solicitacaoservico.datahorasolicitacao BETWEEN ? AND ? AND  ");
-        sql.append("servicocontrato.idservicocontrato = solicitacaoservico.idservicocontrato AND servicocontrato.idservico IN ("+servicos+") and (solicitacaoservico.situacao ='Cancelada' or solicitacaoservico.situacao = 'Fechada' ) ");
+        sql.append("servicocontrato.idservicocontrato = solicitacaoservico.idservicocontrato AND servicocontrato.idservico IN (" + servicos
+                + ") and (solicitacaoservico.situacao ='Cancelada' or solicitacaoservico.situacao = 'Fechada' ) ");
         sql.append("GROUP BY idservico) fechadasFinalizadas on servico.idservico = fechadasFinalizadas.idservico ORDER BY servico.nomeServico ");
 
-        Timestamp dtfim = this.transformaHoraFinal(dataFim);
+        final Timestamp dtfim = this.transformaHoraFinal(dataFim);
         parametro.add(dataIncio);
         parametro.add(dtfim);
         parametro.add(dataIncio);
         parametro.add(dtfim);
-
 
         list = this.execSQL(sql.toString(), parametro.toArray());
 
@@ -8272,12 +8344,10 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("totalAberto");
         listRetorno.add("qtdeSoliciatacoesCanceladasFinalizadas");
 
-
         if (list != null && !list.isEmpty()) {
-            return  this.listConvertion(RelatorioDocumentacaoDeFuncionalidadesNovasOuAlteradasNoPeriodoDTO.class, list, listRetorno);
-        } else {
-            return null;
+            return this.listConvertion(RelatorioDocumentacaoDeFuncionalidadesNovasOuAlteradasNoPeriodoDTO.class, list, listRetorno);
         }
+        return null;
     }
 
     /**
@@ -8286,12 +8356,13 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      * @throws Exception
      * @author bruno.aquino
      */
-    public Collection<SolicitacaoServicoDTO> findSolicitacoesNaoResolvidasNoPrazoKPI(RelatorioIncidentesNaoResolvidosDTO relatorioIncidentesNaoResolvidosDTO) throws Exception {
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
-        List list = new ArrayList();
+    public Collection<SolicitacaoServicoDTO> findSolicitacoesNaoResolvidasNoPrazoKPI(
+            final RelatorioIncidentesNaoResolvidosDTO relatorioIncidentesNaoResolvidosDTO) throws Exception {
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        List list = new ArrayList<>();
 
-        StringBuilder sql = new StringBuilder();
+        final StringBuilder sql = new StringBuilder();
         sql.append("select ss.idsolicitacaoservico, t.nometipodemandaservico, ss.idusuarioresponsavelatual, u.nome as responsavelAtual, ");
         sql.append("e.nome as nomeSolicitante, g.nome as nomeGrupo, ");
         sql.append("ss.idsolicitante, ss.situacao, servico.nomeservico, datahorasolicitacao, c.numero as nomeContrato ");
@@ -8377,10 +8448,9 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("nomeContrato");
 
         if (list != null && !list.isEmpty()) {
-            return this.listConvertion(getBean(), list, listRetorno);
-        } else {
-            return null;
+            return this.listConvertion(this.getBean(), list, listRetorno);
         }
+        return null;
     }
 
     /**
@@ -8389,12 +8459,13 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      * @throws Exception
      * @author bruno.aquino
      */
-    public Collection<SolicitacaoServicoDTO> findSolicitacoesNaoResolvidasEntrePrazoKPI(RelatorioIncidentesNaoResolvidosDTO relatorioIncidentesNaoResolvidosDTO) throws Exception {
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
-        List list = new ArrayList();
+    public Collection<SolicitacaoServicoDTO> findSolicitacoesNaoResolvidasEntrePrazoKPI(
+            final RelatorioIncidentesNaoResolvidosDTO relatorioIncidentesNaoResolvidosDTO) throws Exception {
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        List list = new ArrayList<>();
 
-        StringBuilder sql = new StringBuilder();
+        final StringBuilder sql = new StringBuilder();
         sql.append("select ss.idsolicitacaoservico, t.nometipodemandaservico, ss.idusuarioresponsavelatual, u.nome as responsavelAtual, ");
         sql.append("e.nome as nomeSolicitante, g.nome as nomeGrupo, ");
         sql.append("ss.idsolicitante, ss.situacao, servico.nomeservico, datahorasolicitacao, c.numero as nomeContrato ");
@@ -8481,27 +8552,27 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("nomeContrato");
 
         if (list != null && !list.isEmpty()) {
-            return this.listConvertion(getBean(), list, listRetorno);
-        } else {
-            return null;
+            return this.listConvertion(this.getBean(), list, listRetorno);
         }
+        return null;
     }
-
 
     /**
      * lista com os quantitativos por empregado de solicitações serviços emcaminhadas e foram concluidas com exito.
+     *
      * @param relatorioKpiProdutividadeDto
      * @return
      * @throws Exception
      * @author thays.araujo
      *
      */
-    public Collection<RelatorioKpiProdutividadeDTO> listaQuantitativaEmpregadoSolicitacoesEmcaminhaExito(RelatorioKpiProdutividadeDTO relatorioKpiProdutividadeDto) throws Exception{
+    public Collection<RelatorioKpiProdutividadeDTO> listaQuantitativaEmpregadoSolicitacoesEmcaminhaExito(
+            final RelatorioKpiProdutividadeDTO relatorioKpiProdutividadeDto) throws Exception {
 
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
-        List list = new ArrayList();
-        StringBuilder sql = new StringBuilder();
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        List list = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
 
         sql.append("SELECT empregados.idempregado, ");
         sql.append("       empregados.nome, ");
@@ -8511,14 +8582,14 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         sql.append("               nome ");
         sql.append("        FROM   empregados ");
 
-        if(relatorioKpiProdutividadeDto.getListaEmpregado() != null){
+        if (relatorioKpiProdutividadeDto.getListaEmpregado() != null) {
             sql.append("where idempregado in ( ");
-            for(Iterator<EmpregadoDTO> i = relatorioKpiProdutividadeDto.getListaEmpregado().iterator(); i.hasNext();){
-                EmpregadoDTO empregadoDto = i.next();
-                if(!i.hasNext()){
+            for (final Iterator<EmpregadoDTO> i = relatorioKpiProdutividadeDto.getListaEmpregado().iterator(); i.hasNext();) {
+                final EmpregadoDTO empregadoDto = i.next();
+                if (!i.hasNext()) {
                     sql.append("  ? ");
                     parametro.add(empregadoDto.getIdEmpregado());
-                }else{
+                } else {
                     sql.append("  ?, ");
                     parametro.add(empregadoDto.getIdEmpregado());
                 }
@@ -8533,14 +8604,14 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         sql.append("                    FROM   ( (SELECT idempregado ");
         sql.append("                            FROM   empregados ");
 
-        if(relatorioKpiProdutividadeDto.getListaEmpregado() != null){
+        if (relatorioKpiProdutividadeDto.getListaEmpregado() != null) {
             sql.append("where idempregado  in ( ");
-            for(Iterator<EmpregadoDTO> i = relatorioKpiProdutividadeDto.getListaEmpregado().iterator(); i.hasNext();){
-                EmpregadoDTO empregadoDto = i.next();
+            for (final Iterator<EmpregadoDTO> i = relatorioKpiProdutividadeDto.getListaEmpregado().iterator(); i.hasNext();) {
+                final EmpregadoDTO empregadoDto = i.next();
                 if (!i.hasNext()) {
                     sql.append("  ? ");
                     parametro.add(empregadoDto.getIdEmpregado());
-                }else{
+                } else {
                     sql.append("  ?, ");
                     parametro.add(empregadoDto.getIdEmpregado());
                 }
@@ -8556,14 +8627,14 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         sql.append("                                               JOIN solicitacaoservico  ss ");
         sql.append("                                                 ON sc.idcontrato = ? ");
         parametro.add(relatorioKpiProdutividadeDto.getIdContrato());
-        if(relatorioKpiProdutividadeDto.getListaServicos()!=null){
+        if (relatorioKpiProdutividadeDto.getListaServicos() != null) {
             sql.append("                                                    AND ( sc.idservico IN ( ");
-            for(Iterator<ServicoDTO> i = relatorioKpiProdutividadeDto.getListaServicos().iterator(); i.hasNext();){
-                ServicoDTO servicoDto = i.next();
+            for (final Iterator<ServicoDTO> i = relatorioKpiProdutividadeDto.getListaServicos().iterator(); i.hasNext();) {
+                final ServicoDTO servicoDto = i.next();
                 if (!i.hasNext()) {
                     sql.append("  ? ");
                     parametro.add(servicoDto.getIdServico());
-                }else{
+                } else {
                     sql.append("  ?, ");
                     parametro.add(servicoDto.getIdServico());
                 }
@@ -8575,14 +8646,14 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
         sql.append("                                                    AND sc.idservicocontrato = ");
         sql.append("                                                        ss.idservicocontrato ");
-        if(relatorioKpiProdutividadeDto.getListaEmpregado() != null){
+        if (relatorioKpiProdutividadeDto.getListaEmpregado() != null) {
             sql.append("                                                    AND ( ss.idsolicitante IN (");
-            for(Iterator<EmpregadoDTO> i = relatorioKpiProdutividadeDto.getListaEmpregado().iterator(); i.hasNext();){
-                EmpregadoDTO empregadoDto = i.next();
+            for (final Iterator<EmpregadoDTO> i = relatorioKpiProdutividadeDto.getListaEmpregado().iterator(); i.hasNext();) {
+                final EmpregadoDTO empregadoDto = i.next();
                 if (!i.hasNext()) {
                     sql.append("  ? ");
                     parametro.add(empregadoDto.getIdEmpregado());
-                }else{
+                } else {
                     sql.append("  ?, ");
                     parametro.add(empregadoDto.getIdEmpregado());
                 }
@@ -8599,26 +8670,26 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
             sql.append("AND ((ss.datahorasolicitacao) BETWEEN to_date(?,'YYYY-MM-DD' ) AND to_date(?,'YYYY-MM-DD hh24:mi:ss' ) )");
             parametro.add(relatorioKpiProdutividadeDto.getDataInicio());
-            parametro.add(relatorioKpiProdutividadeDto.getDataFim() +" 23:59:59");
-        } else{
+            parametro.add(relatorioKpiProdutividadeDto.getDataFim() + " 23:59:59");
+        } else {
             sql.append("AND ( ss.datahorasolicitacao ");
             sql.append("      BETWEEN ");
             sql.append("      ? AND ");
             sql.append("      ? ");
             sql.append("    ) ");
             parametro.add(relatorioKpiProdutividadeDto.getDataInicio());
-            parametro.add(transformaHoraFinal(relatorioKpiProdutividadeDto.getDataFim()));
+            parametro.add(this.transformaHoraFinal(relatorioKpiProdutividadeDto.getDataFim()));
         }
 
-        if(!relatorioKpiProdutividadeDto.getListaCausaIncidentes().isEmpty()){
+        if (!relatorioKpiProdutividadeDto.getListaCausaIncidentes().isEmpty()) {
             sql.append("AND ( ( ss.idcausaincidente NOT IN ");
             sql.append("        ( ");
-            for(Iterator<CausaIncidenteDTO> i = relatorioKpiProdutividadeDto.getListaCausaIncidentes().iterator(); i.hasNext();){
-                CausaIncidenteDTO causaIncidenteDto = i.next();
+            for (final Iterator<CausaIncidenteDTO> i = relatorioKpiProdutividadeDto.getListaCausaIncidentes().iterator(); i.hasNext();) {
+                final CausaIncidenteDTO causaIncidenteDto = i.next();
                 if (!i.hasNext()) {
                     sql.append("  ? ");
                     parametro.add(causaIncidenteDto.getIdCausaIncidente());
-                }else{
+                } else {
                     sql.append("  ?, ");
                     parametro.add(causaIncidenteDto.getIdCausaIncidente());
                 }
@@ -8635,14 +8706,14 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         sql.append("count(idsolicitacaoservico)  qtdeexito ");
         sql.append("FROM   ( (SELECT idempregado ");
         sql.append("FROM   empregados ");
-        if(relatorioKpiProdutividadeDto.getListaEmpregado() != null){
+        if (relatorioKpiProdutividadeDto.getListaEmpregado() != null) {
             sql.append("WHERE  idempregado IN (  ");
-            for(Iterator<EmpregadoDTO> i = relatorioKpiProdutividadeDto.getListaEmpregado().iterator(); i.hasNext();){
-                EmpregadoDTO empregadoDto = i.next();
+            for (final Iterator<EmpregadoDTO> i = relatorioKpiProdutividadeDto.getListaEmpregado().iterator(); i.hasNext();) {
+                final EmpregadoDTO empregadoDto = i.next();
                 if (!i.hasNext()) {
                     sql.append("  ? ");
                     parametro.add(empregadoDto.getIdEmpregado());
-                }else{
+                } else {
                     sql.append("  ?, ");
                     parametro.add(empregadoDto.getIdEmpregado());
                 }
@@ -8658,14 +8729,14 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         sql.append("JOIN solicitacaoservico  ss ");
         sql.append("ON sc.idcontrato = ? ");
         parametro.add(relatorioKpiProdutividadeDto.getIdContrato());
-        if(relatorioKpiProdutividadeDto.getListaServicos()!=null){
+        if (relatorioKpiProdutividadeDto.getListaServicos() != null) {
             sql.append("AND ( sc.idservico IN ( ");
-            for(Iterator<ServicoDTO> i = relatorioKpiProdutividadeDto.getListaServicos().iterator(); i.hasNext();){
-                ServicoDTO servicoDto = i.next();
+            for (final Iterator<ServicoDTO> i = relatorioKpiProdutividadeDto.getListaServicos().iterator(); i.hasNext();) {
+                final ServicoDTO servicoDto = i.next();
                 if (!i.hasNext()) {
                     sql.append("  ? ");
                     parametro.add(servicoDto.getIdServico());
-                }else{
+                } else {
                     sql.append("  ?, ");
                     parametro.add(servicoDto.getIdServico());
                 }
@@ -8675,14 +8746,14 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
         sql.append("AND sc.idservicocontrato = ");
         sql.append("    ss.idservicocontrato ");
-        if(relatorioKpiProdutividadeDto.getListaEmpregado() != null){
+        if (relatorioKpiProdutividadeDto.getListaEmpregado() != null) {
             sql.append("AND ( ss.idsolicitante IN ( ");
-            for(Iterator<EmpregadoDTO> i = relatorioKpiProdutividadeDto.getListaEmpregado().iterator(); i.hasNext();){
-                EmpregadoDTO empregadoDto = i.next();
+            for (final Iterator<EmpregadoDTO> i = relatorioKpiProdutividadeDto.getListaEmpregado().iterator(); i.hasNext();) {
+                final EmpregadoDTO empregadoDto = i.next();
                 if (!i.hasNext()) {
                     sql.append("  ? ");
                     parametro.add(empregadoDto.getIdEmpregado());
-                }else{
+                } else {
                     sql.append("  ?, ");
                     parametro.add(empregadoDto.getIdEmpregado());
                 }
@@ -8695,27 +8766,27 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
             sql.append("AND ((ss.datahorasolicitacao) BETWEEN to_date(?,'YYYY-MM-DD' ) AND to_date(?,'YYYY-MM-DD hh24:mi:ss' ) )");
             parametro.add(relatorioKpiProdutividadeDto.getDataInicio());
-            parametro.add(relatorioKpiProdutividadeDto.getDataFim() +" 23:59:59");
+            parametro.add(relatorioKpiProdutividadeDto.getDataFim() + " 23:59:59");
 
-        } else{
+        } else {
             sql.append("AND ( ss.datahorasolicitacao ");
             sql.append("      BETWEEN ");
             sql.append("      ? AND ");
             sql.append("      ? ");
             sql.append("    ) ");
             parametro.add(relatorioKpiProdutividadeDto.getDataInicio());
-            parametro.add(transformaHoraFinal(relatorioKpiProdutividadeDto.getDataFim()));
+            parametro.add(this.transformaHoraFinal(relatorioKpiProdutividadeDto.getDataFim()));
 
         }
 
-        if(!relatorioKpiProdutividadeDto.getListaCausaIncidentes().isEmpty()){
+        if (!relatorioKpiProdutividadeDto.getListaCausaIncidentes().isEmpty()) {
             sql.append("AND ( ( ss.idcausaincidente NOT IN (");
-            for(Iterator<CausaIncidenteDTO> i = relatorioKpiProdutividadeDto.getListaCausaIncidentes().iterator(); i.hasNext();){
-                CausaIncidenteDTO causaIncidenteDto = i.next();
+            for (final Iterator<CausaIncidenteDTO> i = relatorioKpiProdutividadeDto.getListaCausaIncidentes().iterator(); i.hasNext();) {
+                final CausaIncidenteDTO causaIncidenteDto = i.next();
                 if (!i.hasNext()) {
                     sql.append("  ? ");
                     parametro.add(causaIncidenteDto.getIdCausaIncidente());
-                }else{
+                } else {
                     sql.append("  ?, ");
                     parametro.add(causaIncidenteDto.getIdCausaIncidente());
                 }
@@ -8739,15 +8810,15 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("qtdeencaminhadas");
         listRetorno.add("qtdeexito");
 
-
         if (list != null && !list.isEmpty()) {
-            return  this.listConvertion(RelatorioKpiProdutividadeDTO.class, list, listRetorno);
+            return this.listConvertion(RelatorioKpiProdutividadeDTO.class, list, listRetorno);
         }
         return null;
     }
 
-    public Collection<SolicitacaoServicoDTO> listSolicitacoesFilhasFiltradas(GerenciamentoServicosDTO gerenciamentoBean, Collection<ContratoDTO> listContratoUsuarioLogado) throws Exception {
-        List listRetorno = new ArrayList();
+    public Collection<SolicitacaoServicoDTO> listSolicitacoesFilhasFiltradas(final GerenciamentoServicosDTO gerenciamentoBean,
+            final Collection<ContratoDTO> listContratoUsuarioLogado) throws Exception {
+        final List listRetorno = new ArrayList<>();
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("idbaseconhecimento");
         listRetorno.add("idServicoContrato");
@@ -8832,8 +8903,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("idLocalidade");
         listRetorno.add("vencendo");
 
-        StringBuilder sql = new StringBuilder();
-        List parametros = new ArrayList();
+        final StringBuilder sql = new StringBuilder();
+        final List parametros = new ArrayList<>();
 
         sql.append("SELECT sol.idSolicitacaoServico, sol.idbaseconhecimento, sol.idServicoContrato, sol.idSolicitante, ");
         sql.append("       sol.idItemConfiguracao, sol.idItemConfiguracaoFilho, sol.idtipodemandaservico, sol.idcontatosolicitacaoservico, ");
@@ -8873,7 +8944,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         if (listContratoUsuarioLogado != null && !listContratoUsuarioLogado.isEmpty()) {
             sql.append(" AND c.idcontrato in ( ");
             boolean verifica = true;
-            for (ContratoDTO contrato : listContratoUsuarioLogado) {
+            for (final ContratoDTO contrato : listContratoUsuarioLogado) {
                 if (verifica) {
                     sql.append(contrato.getIdContrato());
                     verifica = false;
@@ -8886,76 +8957,72 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
 
         // Adiciona o filtro de pesquisa caso houver filtro
-        adicionarFiltroPesquisa(sql, gerenciamentoBean, parametros);
+        this.adicionarFiltroPesquisa(sql, gerenciamentoBean, parametros);
 
-        List lista = new ArrayList();
+        List lista = new ArrayList<>();
         lista = this.execSQL(sql.toString(), parametros.toArray());
 
         if (lista != null && !lista.isEmpty()) {
             return engine.listConvertion(SolicitacaoServicoDTO.class, lista, listRetorno);
-        } else {
-            return null;
         }
+        return null;
     }
 
-    public List<SolicitacaoServicoDTO> listaSolicitacoesRelacionadasBaseconhecimento(Integer idBaseconhecimento)  throws Exception {
-        List parametro = new ArrayList();
-        StringBuilder sb = new StringBuilder();
+    public List<SolicitacaoServicoDTO> listaSolicitacoesRelacionadasBaseconhecimento(final Integer idBaseconhecimento) throws Exception {
+        final List parametro = new ArrayList<>();
+        final StringBuilder sb = new StringBuilder();
         sb.append("select con.idsolicitacaoservico");
         sb.append(" from conhecimentosolicitacaoservico con");
         sb.append(" inner join baseconhecimento bas on bas.idbaseconhecimento = con.idbaseconhecimento");
         sb.append(" where bas.idbaseconhecimento = ?");
 
         parametro.add(idBaseconhecimento);
-        List listRetorno = new ArrayList();
+        final List listRetorno = new ArrayList<>();
         listRetorno.add("idSolicitacaoServico");
 
-        List list = this.execSQL(sb.toString(), parametro.toArray());
+        final List list = this.execSQL(sb.toString(), parametro.toArray());
         if (list != null && !list.isEmpty()) {
             return this.listConvertion(SolicitacaoServicoDTO.class, list, listRetorno);
-        } else {
-            return null;
         }
+        return null;
     }
 
-    public boolean verificaPermGestorSolicitanteRH(Integer idSolicitante) throws PersistenceException {
-        List parametro = new ArrayList();
-        List list = new ArrayList();
-        StringBuilder sql = new StringBuilder();
+    public boolean verificaPermGestorSolicitanteRH(final Integer idSolicitante) throws PersistenceException {
+        final List parametro = new ArrayList<>();
+        List list = new ArrayList<>();
+        final StringBuilder sql = new StringBuilder();
         /*
          * Permite funcionários do mesmo grupo
-		sql.append("select distinct empregados.idempregado ");
-		sql.append("from alcada join limitealcada on alcada.idalcada = limitealcada.idalcada and alcada.situacao = 'A' ");
-		sql.append("join grupo on grupo.idgrupo = limitealcada.idgrupo ");
-		sql.append("join gruposempregados on gruposempregados.idgrupo = grupo.idgrupo ");
-		sql.append("join empregados on empregados.idempregado = gruposempregados.idempregado ");
-		sql.append("where empregados.idempregado = ? and alcada.tipoalcada = 'Pessoal'  order by grupo.nome, empregados.nome");
+         * sql.append("select distinct empregados.idempregado ");
+         * sql.append("from alcada join limitealcada on alcada.idalcada = limitealcada.idalcada and alcada.situacao = 'A' ");
+         * sql.append("join grupo on grupo.idgrupo = limitealcada.idgrupo ");
+         * sql.append("join gruposempregados on gruposempregados.idgrupo = grupo.idgrupo ");
+         * sql.append("join empregados on empregados.idempregado = gruposempregados.idempregado ");
+         * sql.append("where empregados.idempregado = ? and alcada.tipoalcada = 'Pessoal'  order by grupo.nome, empregados.nome");
          */
 
-        //Somente o Responsável poderá solicitar
+        // Somente o Responsável poderá solicitar
         sql.append("select distinct alcadacentroresultado.idempregado ");
         sql.append("from alcada join alcadacentroresultado on alcada.tipoalcada = 'Pessoal' and alcada.situacao = 'A' and ");
         sql.append("alcada.idalcada = alcadacentroresultado.idalcada and ");
         sql.append("alcadacentroresultado.idempregado=?");
-
 
         parametro.add(idSolicitante);
 
         list = this.execSQL(sql.toString(), parametro.toArray());
 
         if (list != null && !list.isEmpty()) {
-            return list.size()>0;
-        } else {
-            return false;
+            return list.size() > 0;
         }
+        return false;
     }
 
-    public Collection<RelatorioCausaSolucaoDTO> listaCausaSolicitacao(RelatorioCausaSolucaoDTO relatorioCausaSolicitacao) throws Exception {
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
-        List list = new ArrayList();
+    public Collection<RelatorioCausaSolucaoDTO> listaCausaSolicitacao(final RelatorioCausaSolucaoDTO relatorioCausaSolicitacao) throws Exception {
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        List list = new ArrayList<>();
 
-        StringBuilder sql = new StringBuilder();
+        final StringBuilder sql = new StringBuilder();
         sql.append("select c.idcausaincidente, descricaocausa, count(idsolicitacaoservico) as numeroSolicitacoes from solicitacaoservico ss ");
         sql.append("left join causaincidente c on c.idcausaincidente = ss.idcausaincidente ");
         sql.append("inner join servicocontrato sc on ss.idservicocontrato = sc.idservicocontrato ");
@@ -8963,13 +9030,13 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         if (relatorioCausaSolicitacao.getDataInicio() != null) {
             if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
                 sql.append("where to_char(ss.datahorafim, 'YYYY-MM-DD') BETWEEN ? AND ? ");
-                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
                 parametro.add(formatter.format(relatorioCausaSolicitacao.getDataInicio()));
                 parametro.add(formatter.format(relatorioCausaSolicitacao.getDataFim()));
             } else {
                 sql.append("where ss.datahorafim BETWEEN ? AND ? ");
                 parametro.add(relatorioCausaSolicitacao.getDataInicio());
-                parametro.add(transformaHoraFinal(relatorioCausaSolicitacao.getDataFim()));
+                parametro.add(this.transformaHoraFinal(relatorioCausaSolicitacao.getDataFim()));
             }
         }
 
@@ -8999,7 +9066,9 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
 
         if (relatorioCausaSolicitacao.getIdCausas() != null) {
-            sql.append("and (" + (relatorioCausaSolicitacao.getExibeSemCausa() != null && relatorioCausaSolicitacao.getExibeSemCausa().equalsIgnoreCase("s") ? "ss.idcausaincidente is NULL OR " : "") + " ss.idcausaincidente IN (" + StringUtils.join(relatorioCausaSolicitacao.getIdCausas(), ", ") + ")) ");
+            sql.append("and ("
+                    + (relatorioCausaSolicitacao.getExibeSemCausa() != null && relatorioCausaSolicitacao.getExibeSemCausa().equalsIgnoreCase("s") ? "ss.idcausaincidente is NULL OR "
+                            : "") + " ss.idcausaincidente IN (" + StringUtils.join(relatorioCausaSolicitacao.getIdCausas(), ", ") + ")) ");
         }
 
         sql.append("group by c.idcausaincidente, descricaocausa");
@@ -9016,17 +9085,16 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             Collection<RelatorioCausaSolucaoDTO> listaSolicitacaoPorExecutante;
             listaSolicitacaoPorExecutante = this.listConvertion(RelatorioCausaSolucaoDTO.class, list, listRetorno);
             return listaSolicitacaoPorExecutante;
-        } else {
-            return null;
         }
+        return null;
     }
 
-    public Collection<RelatorioCausaSolucaoDTO> listaSolucaoSolicitacao(RelatorioCausaSolucaoDTO relatorioCausaSolicitacao) throws Exception {
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
-        List list = new ArrayList();
+    public Collection<RelatorioCausaSolucaoDTO> listaSolucaoSolicitacao(final RelatorioCausaSolucaoDTO relatorioCausaSolicitacao) throws Exception {
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        List list = new ArrayList<>();
 
-        StringBuilder sql = new StringBuilder();
+        final StringBuilder sql = new StringBuilder();
         sql.append("select cs.idcategoriasolucao, descricaocategoriasolucao, count(idsolicitacaoservico) as numeroSolicitacoes from solicitacaoservico ss ");
         sql.append("left join categoriasolucao cs on cs.idcategoriasolucao = ss.idcategoriasolucao ");
         sql.append("inner join servicocontrato sc on ss.idservicocontrato = sc.idservicocontrato ");
@@ -9034,13 +9102,13 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         if (relatorioCausaSolicitacao.getDataInicio() != null) {
             if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
                 sql.append("where to_char(ss.datahorafim, 'YYYY-MM-DD') BETWEEN ? AND ? ");
-                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
                 parametro.add(formatter.format(relatorioCausaSolicitacao.getDataInicio()));
                 parametro.add(formatter.format(relatorioCausaSolicitacao.getDataFim()));
             } else {
                 sql.append("where ss.datahorafim BETWEEN ? AND ? ");
                 parametro.add(relatorioCausaSolicitacao.getDataInicio());
-                parametro.add(transformaHoraFinal(relatorioCausaSolicitacao.getDataFim()));
+                parametro.add(this.transformaHoraFinal(relatorioCausaSolicitacao.getDataFim()));
             }
         }
 
@@ -9070,7 +9138,9 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
 
         if (relatorioCausaSolicitacao.getIdSolucoes() != null) {
-            sql.append("and (" + (relatorioCausaSolicitacao.getExibeSemSolucao() != null && relatorioCausaSolicitacao.getExibeSemSolucao().equalsIgnoreCase("s") ? "ss.idcategoriaSolucao is NULL OR " : "") + " ss.idcategoriaSolucao IN (" + StringUtils.join(relatorioCausaSolicitacao.getIdSolucoes(), ", ") + ")) ");
+            sql.append("and ("
+                    + (relatorioCausaSolicitacao.getExibeSemSolucao() != null && relatorioCausaSolicitacao.getExibeSemSolucao().equalsIgnoreCase("s") ? "ss.idcategoriaSolucao is NULL OR "
+                            : "") + " ss.idcategoriaSolucao IN (" + StringUtils.join(relatorioCausaSolicitacao.getIdSolucoes(), ", ") + ")) ");
         }
 
         sql.append("group by cs.idcategoriasolucao, descricaocategoriasolucao");
@@ -9087,17 +9157,16 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             Collection<RelatorioCausaSolucaoDTO> listaSolicitacaoPorExecutante;
             listaSolicitacaoPorExecutante = this.listConvertion(RelatorioCausaSolucaoDTO.class, list, listRetorno);
             return listaSolicitacaoPorExecutante;
-        } else {
-            return null;
         }
+        return null;
     }
 
-    public Collection<RelatorioCausaSolucaoDTO> listaCausaSolucaoAnalitico(RelatorioCausaSolucaoDTO relatorioCausaSolicitacao) throws Exception {
-        List parametro = new ArrayList();
-        List listRetorno = new ArrayList();
-        List list = new ArrayList();
+    public Collection<RelatorioCausaSolucaoDTO> listaCausaSolucaoAnalitico(final RelatorioCausaSolucaoDTO relatorioCausaSolicitacao) throws Exception {
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        List list = new ArrayList<>();
 
-        StringBuilder sql = new StringBuilder();
+        final StringBuilder sql = new StringBuilder();
         sql.append("select ss.idsolicitacaoservico, ss.situacao as status, s.nomeservico, c.descricaocausa, cs.descricaocategoriasolucao from solicitacaoservico ss ");
         sql.append("join servicocontrato sc on ss.idservicocontrato = sc.idservicocontrato ");
         sql.append("join servico s on sc.idservico = s.idservico ");
@@ -9107,13 +9176,13 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         if (relatorioCausaSolicitacao.getDataInicio() != null) {
             if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
                 sql.append("where to_char(ss.datahorafim, 'YYYY-MM-DD') BETWEEN ? AND ? ");
-                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
                 parametro.add(formatter.format(relatorioCausaSolicitacao.getDataInicio()));
                 parametro.add(formatter.format(relatorioCausaSolicitacao.getDataFim()));
             } else {
                 sql.append("where ss.datahorafim BETWEEN ? AND ? ");
                 parametro.add(relatorioCausaSolicitacao.getDataInicio());
-                parametro.add(transformaHoraFinal(relatorioCausaSolicitacao.getDataFim()));
+                parametro.add(this.transformaHoraFinal(relatorioCausaSolicitacao.getDataFim()));
             }
         }
 
@@ -9145,10 +9214,14 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         if (relatorioCausaSolicitacao.getIdCausas() != null || relatorioCausaSolicitacao.getIdSolucoes() != null) {
             sql.append("and ( ");
             if (relatorioCausaSolicitacao.getIdCausas() != null) {
-                sql.append((relatorioCausaSolicitacao.getExibeSemCausa() != null && relatorioCausaSolicitacao.getExibeSemCausa().equalsIgnoreCase("s") ? "ss.idcausaincidente is NULL OR " : "") + " ss.idcausaincidente IN (" + StringUtils.join(relatorioCausaSolicitacao.getIdCausas(), ", ") + ") ");
+                sql.append((relatorioCausaSolicitacao.getExibeSemCausa() != null && relatorioCausaSolicitacao.getExibeSemCausa().equalsIgnoreCase("s") ? "ss.idcausaincidente is NULL OR "
+                        : "")
+                        + " ss.idcausaincidente IN (" + StringUtils.join(relatorioCausaSolicitacao.getIdCausas(), ", ") + ") ");
             }
             if (relatorioCausaSolicitacao.getIdSolucoes() != null) {
-                sql.append((relatorioCausaSolicitacao.getIdCausas() != null ? " OR " : "") + (relatorioCausaSolicitacao.getExibeSemSolucao() != null && relatorioCausaSolicitacao.getExibeSemSolucao().equalsIgnoreCase("s") ? "ss.idcategoriaSolucao is NULL OR " : "") + " ss.idcategoriaSolucao IN (" + StringUtils.join(relatorioCausaSolicitacao.getIdSolucoes(), ", ") + ") ");
+                sql.append((relatorioCausaSolicitacao.getIdCausas() != null ? " OR " : "")
+                        + (relatorioCausaSolicitacao.getExibeSemSolucao() != null && relatorioCausaSolicitacao.getExibeSemSolucao().equalsIgnoreCase("s") ? "ss.idcategoriaSolucao is NULL OR "
+                                : "") + " ss.idcategoriaSolucao IN (" + StringUtils.join(relatorioCausaSolicitacao.getIdSolucoes(), ", ") + ") ");
             }
             sql.append(") ");
         }
@@ -9167,25 +9240,24 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             Collection<RelatorioCausaSolucaoDTO> listaSolicitacaoPorExecutante;
             listaSolicitacaoPorExecutante = this.listConvertion(RelatorioCausaSolucaoDTO.class, list, listRetorno);
             return listaSolicitacaoPorExecutante;
-        } else {
-            return null;
         }
+        return null;
     }
-    
+
     /**
      * Método para listar número de solicitações fora do período fornecido pelo usuário
-     * 
+     *
      * @param relatorioIncidentesNaoResolvidosDTO
      * @return
      * @throws PersistenceException
      * @author thyen.chang
      */
-    public Integer numeroSolicitacoesForaPeriodo(RelatorioIncidentesNaoResolvidosDTO relatorioIncidentesNaoResolvidosDTO) throws PersistenceException{
-        List parametro = new ArrayList();
-        List retorno = new ArrayList();
-        
-        StringBuilder sql = new StringBuilder();
-        
+    public Integer numeroSolicitacoesForaPeriodo(final RelatorioIncidentesNaoResolvidosDTO relatorioIncidentesNaoResolvidosDTO) throws PersistenceException {
+        final List parametro = new ArrayList<>();
+        List retorno = new ArrayList<>();
+
+        final StringBuilder sql = new StringBuilder();
+
         sql.append("SELECT idsolicitacaoservico ");
         sql.append("FROM solicitacaoservico ss ");
         sql.append("INNER JOIN servicocontrato sc ON ss.idservicocontrato = sc.idservicocontrato ");
@@ -9198,7 +9270,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         sql.append("INNER JOIN grupo g ON ss.idgrupoatual = g.idgrupo ");
         sql.append("WHERE (ss.situacao NOT LIKE '%Fechada%' AND ss.situacao NOT LIKE'%Cancelada%') ");
         sql.append("AND datahorasolicitacao < ? ");
-        
+
         parametro.add(relatorioIncidentesNaoResolvidosDTO.getPeriodoReferencia());
 
         if (relatorioIncidentesNaoResolvidosDTO.getListaServicos() != null && !relatorioIncidentesNaoResolvidosDTO.getListaServicos().isEmpty()) {
@@ -9270,86 +9342,88 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         return lstRetorno;
     }
 
-    public Long listaRelatorioGetQuantidadeRegistros(PesquisaSolicitacaoServicoDTO pesquisaSolicitacaoServicoDto) throws ServiceException, Exception{
-    	StringBuilder sql = new StringBuilder();
-    	
-    	List parametros = new ArrayList();
-    	
-    	List lista = new ArrayList();
-    	
-    	sql.append("SELECT COUNT(*) ");
-        sql.append(montaSql(parametros, pesquisaSolicitacaoServicoDto, 0, true));
-        
-        lista = this.execSQL(sql.toString(), parametros.toArray());
-        
-        if(lista != null && !lista.isEmpty() && lista.get(0) != null)
-        	if(CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.SQLSERVER))
-        		return ((Integer) ((Object[]) lista.get(0))[0]).longValue();
-        	else if (CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.ORACLE))
-        		return ((BigDecimal) ((Object[]) lista.get(0))[0]).longValue();
-        	else
-        	return (Long) ((Object[]) lista.get(0))[0];
-        else
-        	return 0L;
-    }
-    
-    public List<SolicitacaoServicoDTO> listRelatorioGetListaPaginada(PesquisaSolicitacaoServicoDTO pesquisaSolicitacaoServicoDto, Integer paginaAtual, Integer quantidadePorPagina) throws Exception{
+    public Long listaRelatorioGetQuantidadeRegistros(final PesquisaSolicitacaoServicoDTO pesquisaSolicitacaoServicoDto) throws ServiceException, Exception {
+        final StringBuilder sql = new StringBuilder();
 
-    	StringBuilder sql = new StringBuilder();
-    	
-    	List parametros = new ArrayList();
-    	
-    	List lista = new ArrayList();
-    	
-    	List listRetorno = new ArrayList();
-    	
-    	if(CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.SQLSERVER)){
-    		sql.append(";WITH ResultadoTemporario AS ( ");
-    	}
-    	
-    	if(CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.ORACLE)){
-    		sql.append("SELECT * FROM( "
-    				+ "SELECT rowNum AS rnum, a.* FROM ( ");
-    	}
-    	
-    	sql.append("SELECT tempoAtendimentoHH,tempoAtendimentoMM, solicitacaoservico.datahorainicio, solicitacaoservico.datahorafim, solicitacaoservico.idsolicitacaoservico, "
-        		+ "nomeservico, unidade.nome AS nomeUnidadeSolicitante, solicitacaoservico.situacao, dataHoraSolicitacao, dataHoraLimite, nomeTipoDemandaServico, "
-        		+ "solicitacaoservico.prazohh, solicitacaoservico.prazomm, ");
+        final List parametros = new ArrayList<>();
+
+        List lista = new ArrayList<>();
+
+        sql.append("SELECT COUNT(*) ");
+        sql.append(this.montaSql(parametros, pesquisaSolicitacaoServicoDto, 0, true));
+
+        lista = this.execSQL(sql.toString(), parametros.toArray());
+
+        if (lista != null && !lista.isEmpty() && lista.get(0) != null) {
+            if (CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.SQLSERVER)) {
+                return ((Integer) ((Object[]) lista.get(0))[0]).longValue();
+            } else if (CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.ORACLE)) {
+                return ((BigDecimal) ((Object[]) lista.get(0))[0]).longValue();
+            } else {
+                return (Long) ((Object[]) lista.get(0))[0];
+            }
+        } else {
+            return 0L;
+        }
+    }
+
+    public List<SolicitacaoServicoDTO> listRelatorioGetListaPaginada(final PesquisaSolicitacaoServicoDTO pesquisaSolicitacaoServicoDto,
+            final Integer paginaAtual, final Integer quantidadePorPagina) throws Exception {
+
+        final StringBuilder sql = new StringBuilder();
+
+        final List parametros = new ArrayList<>();
+
+        List lista = new ArrayList<>();
+
+        final List listRetorno = new ArrayList<>();
+
+        if (CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.SQLSERVER)) {
+            sql.append(";WITH ResultadoTemporario AS ( ");
+        }
+
+        if (CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.ORACLE)) {
+            sql.append("SELECT * FROM( " + "SELECT rowNum AS rnum, a.* FROM ( ");
+        }
+
+        sql.append("SELECT tempoAtendimentoHH,tempoAtendimentoMM, solicitacaoservico.datahorainicio, solicitacaoservico.datahorafim, solicitacaoservico.idsolicitacaoservico, "
+                + "nomeservico, unidade.nome AS nomeUnidadeSolicitante, solicitacaoservico.situacao, dataHoraSolicitacao, dataHoraLimite, nomeTipoDemandaServico, "
+                + "solicitacaoservico.prazohh, solicitacaoservico.prazomm, ");
         sql.append("solicitacaoservico.descricaoSemFormatacao, resposta, grupo.sigla, solicitacaoservico.seqreabertura, empregado.nome AS nomeSolicitante, "
-        		+ "faseservico.nomefase, origematendimento.descricao,prioridade.nomeprioridade, usuario.nome AS nomeResponsavel, contratos.numero, idUsuarioResponsavelAtual,  ");
+                + "faseservico.nomefase, origematendimento.descricao,prioridade.nomeprioridade, usuario.nome AS nomeResponsavel, contratos.numero, idUsuarioResponsavelAtual,  ");
         sql.append("grupo.nome AS grupoAtual, localidade.nomelocalidade ");
-        
-    	if(CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.SQLSERVER)){
-    		sql.append(", ROW_NUMBER() OVER (ORDER BY solicitacaoservico.idsolicitacaoservico) as rowNum ");
-    	}
-    	
-        sql.append(montaSql(parametros, pesquisaSolicitacaoServicoDto, 0, false));
-        
-    	if(CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.SQLSERVER)){
-    		sql.append(") SELECT * FROM ResultadoTemporario ");
-    		sql.append("WHERE rowNum > " + ((paginaAtual - 1) * quantidadePorPagina) + " ");
-    		sql.append("AND rowNum <= " + (paginaAtual * quantidadePorPagina) + " ");
-    	}
-    	
-        if (pesquisaSolicitacaoServicoDto.getOrdenacao() != null && !(CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.SQLSERVER))) {
+
+        if (CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.SQLSERVER)) {
+            sql.append(", ROW_NUMBER() OVER (ORDER BY solicitacaoservico.idsolicitacaoservico) as rowNum ");
+        }
+
+        sql.append(this.montaSql(parametros, pesquisaSolicitacaoServicoDto, 0, false));
+
+        if (CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.SQLSERVER)) {
+            sql.append(") SELECT * FROM ResultadoTemporario ");
+            sql.append("WHERE rowNum > " + (paginaAtual - 1) * quantidadePorPagina + " ");
+            sql.append("AND rowNum <= " + paginaAtual * quantidadePorPagina + " ");
+        }
+
+        if (pesquisaSolicitacaoServicoDto.getOrdenacao() != null && !CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.SQLSERVER)) {
             sql.append(" ORDER BY " + pesquisaSolicitacaoServicoDto.getOrdenacao() + "");
         }
-        
-        if(CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.ORACLE)){
-    		sql.append(") a "
-    				+ "WHERE rowNum <=" + (paginaAtual * quantidadePorPagina) + " "
-					+ ") WHERE rnum > " + ((paginaAtual - 1) * quantidadePorPagina) + " ");
-    	}
-        
-        if(CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.MYSQL) || CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.POSTGRESQL)){
-		    sql.append(" LIMIT ? OFFSET ? ");
-		    parametros.add(quantidadePorPagina);
-		    parametros.add(quantidadePorPagina * (paginaAtual - 1));
+
+        if (CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.ORACLE)) {
+            sql.append(") a " + "WHERE rowNum <=" + paginaAtual * quantidadePorPagina + " " + ") WHERE rnum > " + (paginaAtual - 1) * quantidadePorPagina + " ");
         }
-        
+
+        if (CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.MYSQL)
+                || CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.POSTGRESQL)) {
+            sql.append(" LIMIT ? OFFSET ? ");
+            parametros.add(quantidadePorPagina);
+            parametros.add(quantidadePorPagina * (paginaAtual - 1));
+        }
+
         lista = this.execSQL(sql.toString(), parametros.toArray());
-        if(CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.ORACLE))
-        	listRetorno.add("rowNumOracle");
+        if (CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.ORACLE)) {
+            listRetorno.add("rowNumOracle");
+        }
         listRetorno.add("tempoAtendimentoHH");
         listRetorno.add("tempoAtendimentoMM");
         listRetorno.add("dataHoraInicio");
@@ -9376,107 +9450,113 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("idUsuarioResponsavelAtual");
         listRetorno.add("grupoAtual");
         listRetorno.add("localidade");
-        
-        List listaSolicitacoes = engine.listConvertion(getBean(), lista, listRetorno);
+
+        final List listaSolicitacoes = engine.listConvertion(this.getBean(), lista, listRetorno);
 
         return listaSolicitacoes;
     }
-    
-    private String montaSql(List parametros, PesquisaSolicitacaoServicoDTO pesquisaSolicitacaoServicoDto, Integer limiteConsulta, boolean isRelatorio) throws ServiceException, Exception{
-    	StringBuilder sql = new StringBuilder();
-    	UnidadeDao unidadeDao = new UnidadeDao();
-    	
-    	sql.append("FROM solicitacaoservico JOIN servicocontrato ON ");
-        if ((pesquisaSolicitacaoServicoDto.getIdSolicitacaoServicoPesquisa() != null)&&(pesquisaSolicitacaoServicoDto.getIdSolicitacaoServicoPesquisa().intValue()>0)) {
+
+    private String montaSql(final List parametros, final PesquisaSolicitacaoServicoDTO pesquisaSolicitacaoServicoDto, final Integer limiteConsulta,
+            final boolean isRelatorio) throws ServiceException, Exception {
+        final StringBuilder sql = new StringBuilder();
+        final UnidadeDao unidadeDao = new UnidadeDao();
+
+        sql.append("FROM solicitacaoservico JOIN servicocontrato ON ");
+        if (pesquisaSolicitacaoServicoDto.getIdSolicitacaoServicoPesquisa() != null
+                && pesquisaSolicitacaoServicoDto.getIdSolicitacaoServicoPesquisa().intValue() > 0) {
             sql.append("(solicitacaoservico.idSolicitacaoServico = ?) AND ");
             parametros.add(pesquisaSolicitacaoServicoDto.getIdSolicitacaoServicoPesquisa());
         }
-        if ((pesquisaSolicitacaoServicoDto.getIdPrioridade() != null)&&(pesquisaSolicitacaoServicoDto.getIdPrioridade().intValue()>0)) {
+        if (pesquisaSolicitacaoServicoDto.getIdPrioridade() != null && pesquisaSolicitacaoServicoDto.getIdPrioridade().intValue() > 0) {
             sql.append("(solicitacaoservico.idprioridade = ? ) AND ");
             parametros.add(pesquisaSolicitacaoServicoDto.getIdPrioridade());
         }
-        if ((pesquisaSolicitacaoServicoDto.getIdOrigem() != null)&&(pesquisaSolicitacaoServicoDto.getIdOrigem().intValue()>0)) {
+        if (pesquisaSolicitacaoServicoDto.getIdOrigem() != null && pesquisaSolicitacaoServicoDto.getIdOrigem().intValue() > 0) {
             sql.append("(solicitacaoservico.idorigem = ? ) AND ");
             parametros.add(pesquisaSolicitacaoServicoDto.getIdOrigem());
         }
-        if ((pesquisaSolicitacaoServicoDto.getIdUnidade() != null)&&(pesquisaSolicitacaoServicoDto.getIdUnidade().intValue()>0)) {
+        if (pesquisaSolicitacaoServicoDto.getIdUnidade() != null && pesquisaSolicitacaoServicoDto.getIdUnidade().intValue() > 0) {
             sql.append("(solicitacaoservico.idunidade = ? ) AND ");
             parametros.add(pesquisaSolicitacaoServicoDto.getIdUnidade());
         }
-        
-        if ((pesquisaSolicitacaoServicoDto.getUsuarioLogado()!=null)&&(pesquisaSolicitacaoServicoDto.getUsuarioLogado().getIdUsuario()!=null)&&(pesquisaSolicitacaoServicoDto.getUsuarioLogado().getIdUsuario().intValue()>0)) {
-        	sql.append("(solicitacaoservico.idunidade in ("+unidadeDao.obtenIDsUnidadesUsuario(pesquisaSolicitacaoServicoDto.getUsuarioLogado())+")) AND ");
+
+        if (pesquisaSolicitacaoServicoDto.getUsuarioLogado() != null && pesquisaSolicitacaoServicoDto.getUsuarioLogado().getIdUsuario() != null
+                && pesquisaSolicitacaoServicoDto.getUsuarioLogado().getIdUsuario().intValue() > 0) {
+            sql.append("(solicitacaoservico.idunidade in (" + unidadeDao.obtenIDsUnidadesUsuario(pesquisaSolicitacaoServicoDto.getUsuarioLogado()) + ")) AND ");
         }
 
-        if ((pesquisaSolicitacaoServicoDto.getIdFaseAtual() != null)&&(pesquisaSolicitacaoServicoDto.getIdFaseAtual().intValue()>0)) {
+        if (pesquisaSolicitacaoServicoDto.getIdFaseAtual() != null && pesquisaSolicitacaoServicoDto.getIdFaseAtual().intValue() > 0) {
             sql.append("(solicitacaoservico.idfaseatual = ? ) AND ");
             parametros.add(pesquisaSolicitacaoServicoDto.getIdFaseAtual());
         }
-        if ((pesquisaSolicitacaoServicoDto.getIdGrupoAtual() != null)&&(pesquisaSolicitacaoServicoDto.getIdGrupoAtual().intValue()>0)) {
+        if (pesquisaSolicitacaoServicoDto.getIdGrupoAtual() != null && pesquisaSolicitacaoServicoDto.getIdGrupoAtual().intValue() > 0) {
             sql.append("(solicitacaoservico.idgrupoatual = ? ) AND ");
             parametros.add(pesquisaSolicitacaoServicoDto.getIdGrupoAtual());
         }
-        if ((pesquisaSolicitacaoServicoDto.getSituacao() != null) && (pesquisaSolicitacaoServicoDto.getSituacao().length()>0)) {
+        if (pesquisaSolicitacaoServicoDto.getSituacao() != null && pesquisaSolicitacaoServicoDto.getSituacao().length() > 0) {
             sql.append("(solicitacaoservico.situacao = ? ) AND ");
             parametros.add(pesquisaSolicitacaoServicoDto.getSituacao());
         }
-        if ((pesquisaSolicitacaoServicoDto.getIdSolicitante() != null)&&(pesquisaSolicitacaoServicoDto.getIdSolicitante().intValue()>0)) {
+        if (pesquisaSolicitacaoServicoDto.getIdSolicitante() != null && pesquisaSolicitacaoServicoDto.getIdSolicitante().intValue() > 0) {
             sql.append("(solicitacaoservico.idsolicitante = ? ) AND ");
             parametros.add(pesquisaSolicitacaoServicoDto.getIdSolicitante());
         }
-        if ((pesquisaSolicitacaoServicoDto.getIdItemConfiguracao() != null)&&(pesquisaSolicitacaoServicoDto.getIdItemConfiguracao().intValue()>0)) {
+        if (pesquisaSolicitacaoServicoDto.getIdItemConfiguracao() != null && pesquisaSolicitacaoServicoDto.getIdItemConfiguracao().intValue() > 0) {
             sql.append("(solicitacaoservico.iditemconfiguracao = ? ) AND ");
             parametros.add(pesquisaSolicitacaoServicoDto.getIdItemConfiguracao());
         }
-        if ((pesquisaSolicitacaoServicoDto.getIdTipoDemandaServico() != null)&&(pesquisaSolicitacaoServicoDto.getIdTipoDemandaServico().intValue()>0)) {
+        if (pesquisaSolicitacaoServicoDto.getIdTipoDemandaServico() != null && pesquisaSolicitacaoServicoDto.getIdTipoDemandaServico().intValue() > 0) {
             sql.append("(solicitacaoservico.idTipoDemandaServico = ? ) AND ");
             parametros.add(pesquisaSolicitacaoServicoDto.getIdTipoDemandaServico());
         }
-        if ((pesquisaSolicitacaoServicoDto.getIdResponsavel() != null)&&(pesquisaSolicitacaoServicoDto.getIdResponsavel().intValue()>0)) {
+        if (pesquisaSolicitacaoServicoDto.getIdResponsavel() != null && pesquisaSolicitacaoServicoDto.getIdResponsavel().intValue() > 0) {
             sql.append("(solicitacaoservico.idResponsavel = ?  ) AND ");
             parametros.add(pesquisaSolicitacaoServicoDto.getIdResponsavel());
         }
-        if ((pesquisaSolicitacaoServicoDto.getIdUsuarioResponsavelAtual() != null)&&(pesquisaSolicitacaoServicoDto.getIdUsuarioResponsavelAtual().intValue()>0)) {
+        if (pesquisaSolicitacaoServicoDto.getIdUsuarioResponsavelAtual() != null && pesquisaSolicitacaoServicoDto.getIdUsuarioResponsavelAtual().intValue() > 0) {
             sql.append("(solicitacaoservico.idusuarioresponsavelatual = ?  ) AND ");
             parametros.add(pesquisaSolicitacaoServicoDto.getIdUsuarioResponsavelAtual());
         }
         if (pesquisaSolicitacaoServicoDto.getPalavraChave() != null && !pesquisaSolicitacaoServicoDto.getPalavraChave().equalsIgnoreCase("")) {
-        	if(CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.SQLSERVER))
-                sql.append("(solicitacaoservico.descricao like '%" + pesquisaSolicitacaoServicoDto.getPalavraChave() + "%' COLLATE SQL_Latin1_General_CP1_CI_AS) AND ");
-        	else
-        		sql.append("(UPPER(solicitacaoservico.descricao) like UPPER('%" + pesquisaSolicitacaoServicoDto.getPalavraChave() + "%')) AND ");
+            if (CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.SQLSERVER)) {
+                sql.append("(solicitacaoservico.descricao like '%" + pesquisaSolicitacaoServicoDto.getPalavraChave()
+                        + "%' COLLATE SQL_Latin1_General_CP1_CI_AS) AND ");
+            } else {
+                sql.append("(UPPER(solicitacaoservico.descricao) like UPPER('%" + pesquisaSolicitacaoServicoDto.getPalavraChave() + "%')) AND ");
+            }
         }
-		if(pesquisaSolicitacaoServicoDto.getDataInicio() != null && pesquisaSolicitacaoServicoDto.getDataFim() != null) {
-			sql.append("(solicitacaoservico.datahorasolicitacao BETWEEN ? AND ?) AND ");
-			parametros.add(UtilDatas.getSqlDate(pesquisaSolicitacaoServicoDto.getDataInicio()));
-			parametros.add(UtilDatas.getTimeStampComUltimaHoraDoDia(pesquisaSolicitacaoServicoDto.getDataFim()));
-			}
-		if ((pesquisaSolicitacaoServicoDto.getDataInicioFechamento() != null)&&(pesquisaSolicitacaoServicoDto.getDataFimFechamento() != null)&&(!StringUtils.equalsIgnoreCase(pesquisaSolicitacaoServicoDto.getDataInicioFechamento().toString(), "1970-01-01"))) {
-			sql.append("(solicitacaoservico.datahorafim BETWEEN ? AND ?) AND ");
-			parametros.add(UtilDatas.getSqlDate(pesquisaSolicitacaoServicoDto.getDataInicioFechamento()));
-			parametros.add(UtilDatas.getTimeStampComUltimaHoraDoDia(pesquisaSolicitacaoServicoDto.getDataFimFechamento()));
-		}
-        if ((pesquisaSolicitacaoServicoDto.getIdContrato() != null)&&(pesquisaSolicitacaoServicoDto.getIdContrato().intValue()>0)) {
+        if (pesquisaSolicitacaoServicoDto.getDataInicio() != null && pesquisaSolicitacaoServicoDto.getDataFim() != null) {
+            sql.append("(solicitacaoservico.datahorasolicitacao BETWEEN ? AND ?) AND ");
+            parametros.add(UtilDatas.getSqlDate(pesquisaSolicitacaoServicoDto.getDataInicio()));
+            parametros.add(UtilDatas.getTimeStampComUltimaHoraDoDia(pesquisaSolicitacaoServicoDto.getDataFim()));
+        }
+        if (pesquisaSolicitacaoServicoDto.getDataInicioFechamento() != null && pesquisaSolicitacaoServicoDto.getDataFimFechamento() != null
+                && !StringUtils.equalsIgnoreCase(pesquisaSolicitacaoServicoDto.getDataInicioFechamento().toString(), "1970-01-01")) {
+            sql.append("(solicitacaoservico.datahorafim BETWEEN ? AND ?) AND ");
+            parametros.add(UtilDatas.getSqlDate(pesquisaSolicitacaoServicoDto.getDataInicioFechamento()));
+            parametros.add(UtilDatas.getTimeStampComUltimaHoraDoDia(pesquisaSolicitacaoServicoDto.getDataFimFechamento()));
+        }
+        if (pesquisaSolicitacaoServicoDto.getIdContrato() != null && pesquisaSolicitacaoServicoDto.getIdContrato().intValue() > 0) {
             sql.append("(servicocontrato.idcontrato = ?) AND ");
             parametros.add(pesquisaSolicitacaoServicoDto.getIdContrato());
-            }
-        if ((pesquisaSolicitacaoServicoDto.getIdServico() != null)&&(pesquisaSolicitacaoServicoDto.getIdServico().intValue()>0)) {
+        }
+        if (pesquisaSolicitacaoServicoDto.getIdServico() != null && pesquisaSolicitacaoServicoDto.getIdServico().intValue() > 0) {
             sql.append("(servicocontrato.idservico = ?) AND ");
             parametros.add(pesquisaSolicitacaoServicoDto.getIdServico());
         }
         sql.append("solicitacaoservico.idservicocontrato = servicocontrato.idservicocontrato ");
 
         sql.append("JOIN contratos ON servicocontrato.idcontrato = contratos.idcontrato ");
-    	sql.append("JOIN servico ON servicocontrato.idservico = servico.idservico ");
-    	sql.append("JOIN tipodemandaservico ON solicitacaoservico.idtipodemandaservico = tipodemandaservico.idtipodemandaservico ");
-    	sql.append("JOIN usuario on usuario.idusuario = solicitacaoservico.idresponsavel ");
-    	if(isRelatorio){
-	    	sql.append("JOIN execucaosolicitacao es ON es.idsolicitacaoservico = solicitacaoservico.idsolicitacaoservico ");
-	        sql.append("JOIN bpm_instanciafluxo ifluxo ON ifluxo.idinstancia = es.idinstanciafluxo AND ifluxo.idfluxo = es.idfluxo ");
-	        sql.append("JOIN bpm_itemtrabalhofluxo itf ON ifluxo.idinstancia = itf.idinstancia ");
-	        sql.append("JOIN bpm_elementofluxo ef ON itf.idelemento = ef.idelemento ");
-	        sql.append("LEFT JOIN usuario u ON u.idusuario = itf.idresponsavelatual ");
-    	}
+        sql.append("JOIN servico ON servicocontrato.idservico = servico.idservico ");
+        sql.append("JOIN tipodemandaservico ON solicitacaoservico.idtipodemandaservico = tipodemandaservico.idtipodemandaservico ");
+        sql.append("JOIN usuario on usuario.idusuario = solicitacaoservico.idresponsavel ");
+        if (isRelatorio) {
+            sql.append("JOIN execucaosolicitacao es ON es.idsolicitacaoservico = solicitacaoservico.idsolicitacaoservico ");
+            sql.append("JOIN bpm_instanciafluxo ifluxo ON ifluxo.idinstancia = es.idinstanciafluxo AND ifluxo.idfluxo = es.idfluxo ");
+            sql.append("JOIN bpm_itemtrabalhofluxo itf ON ifluxo.idinstancia = itf.idinstancia ");
+            sql.append("JOIN bpm_elementofluxo ef ON itf.idelemento = ef.idelemento ");
+            sql.append("LEFT JOIN usuario u ON u.idusuario = itf.idresponsavelatual ");
+        }
         sql.append("LEFT JOIN faseservico ON faseservico.idfase = solicitacaoservico.idfaseAtual ");
         sql.append("LEFT JOIN grupo ON grupo.idgrupo = solicitacaoservico.idgrupoatual ");
         sql.append("LEFT JOIN empregados empregado ON empregado.idempregado = solicitacaoservico.idsolicitante ");
@@ -9485,21 +9565,21 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         sql.append("LEFT JOIN unidade ON unidade.idunidade = solicitacaoservico.idunidade ");
         sql.append("LEFT JOIN contatosolicitacaoservico ON contatosolicitacaoservico.idcontatosolicitacaoservico = solicitacaoservico.idcontatosolicitacaoservico ");
         sql.append("LEFT JOIN localidade ON contatosolicitacaoservico.idlocalidade = localidade.idlocalidade ");
-        
-        if(limiteConsulta != null && limiteConsulta > 0 && (CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.ORACLE))){
-			sql.append("WHERE ROWNUM <= ? ");
-			parametros.add(limiteConsulta);
-			if ((pesquisaSolicitacaoServicoDto.getIdLocalidade() != null) && (pesquisaSolicitacaoServicoDto.getIdLocalidade().intValue() > 0)) {
-    			sql.append("AND localidade.idlocalidade = ?  ");
-    			parametros.add(pesquisaSolicitacaoServicoDto.getIdLocalidade());
-    		}
-        }else{
-        	if ((pesquisaSolicitacaoServicoDto.getIdLocalidade() != null) && (pesquisaSolicitacaoServicoDto.getIdLocalidade().intValue() > 0)) {
-    			sql.append("WHERE localidade.idlocalidade = ?  ");
-    			parametros.add(pesquisaSolicitacaoServicoDto.getIdLocalidade());
-    		}
+
+        if (limiteConsulta != null && limiteConsulta > 0 && CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.ORACLE)) {
+            sql.append("WHERE ROWNUM <= ? ");
+            parametros.add(limiteConsulta);
+            if (pesquisaSolicitacaoServicoDto.getIdLocalidade() != null && pesquisaSolicitacaoServicoDto.getIdLocalidade().intValue() > 0) {
+                sql.append("AND localidade.idlocalidade = ?  ");
+                parametros.add(pesquisaSolicitacaoServicoDto.getIdLocalidade());
+            }
+        } else {
+            if (pesquisaSolicitacaoServicoDto.getIdLocalidade() != null && pesquisaSolicitacaoServicoDto.getIdLocalidade().intValue() > 0) {
+                sql.append("WHERE localidade.idlocalidade = ?  ");
+                parametros.add(pesquisaSolicitacaoServicoDto.getIdLocalidade());
+            }
         }
-    	return sql.toString();
+        return sql.toString();
     }
 
 }

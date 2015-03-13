@@ -11,44 +11,45 @@ import br.com.citframework.integracao.CrudDaoDefaultImpl;
 import br.com.citframework.integracao.Field;
 import br.com.citframework.util.Constantes;
 
-public class ControleRendimentoGrupoDao extends CrudDaoDefaultImpl{
+public class ControleRendimentoGrupoDao extends CrudDaoDefaultImpl {
 
-	public ControleRendimentoGrupoDao(String aliasDB, Usuario usuario) {
-		super(aliasDB, usuario);
-	}
+    public ControleRendimentoGrupoDao(final String aliasDB, final Usuario usuario) {
+        super(aliasDB, usuario);
+    }
 
-	public ControleRendimentoGrupoDao(){
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
-	@Override
-	public Collection find(BaseEntity obj) throws PersistenceException {
-				return null;
-	}
+    public ControleRendimentoGrupoDao() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
+    }
 
-	@Override
-	public Collection<Field> getFields() {
-		Collection<Field> listFields = new ArrayList<>();
+    @Override
+    public Collection find(final BaseEntity obj) throws PersistenceException {
+        return null;
+    }
 
-		listFields.add(new Field("idControleRendimentoGrupo", "idControleRendimentoGrupo", true, true, false, true));
-		listFields.add(new Field("idControleRendimento", "idControleRendimento", false, false, false, false));
-		listFields.add(new Field("idGrupo", "idGrupo", false, false, false, false));
+    @Override
+    public Collection<Field> getFields() {
+        final Collection<Field> listFields = new ArrayList<>();
 
-		return listFields;
-	}
+        listFields.add(new Field("idControleRendimentoGrupo", "idControleRendimentoGrupo", true, true, false, true));
+        listFields.add(new Field("idControleRendimento", "idControleRendimento", false, false, false, false));
+        listFields.add(new Field("idGrupo", "idGrupo", false, false, false, false));
 
-	@Override
-	public String getTableName() {
-		return "controlerendimentogrupo";
-	}
+        return listFields;
+    }
 
-	@Override
-	public Collection list() throws PersistenceException {
-				return null;
-	}
+    @Override
+    public String getTableName() {
+        return "controlerendimentogrupo";
+    }
 
-	@Override
-	public Class getBean() {
-		return ControleRendimentoGrupoDTO.class;
-	}
+    @Override
+    public Collection list() throws PersistenceException {
+        return null;
+    }
+
+    @Override
+    public Class getBean() {
+        return ControleRendimentoGrupoDTO.class;
+    }
 
 }

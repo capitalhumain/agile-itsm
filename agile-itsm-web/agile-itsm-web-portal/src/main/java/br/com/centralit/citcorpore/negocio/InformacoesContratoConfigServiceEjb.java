@@ -157,7 +157,7 @@ public class InformacoesContratoConfigServiceEjb extends CrudServiceImpl impleme
             return null;
         }
 
-        final Collection colRetorno = new ArrayList();
+        final Collection colRetorno = new ArrayList<>();
         InformacoesContratoConfigDTO undDto;
         boolean bAcrescenta;
         for (final Iterator it = colSemPai.iterator(); it.hasNext();) {
@@ -187,7 +187,7 @@ public class InformacoesContratoConfigServiceEjb extends CrudServiceImpl impleme
             return null;
         }
 
-        final Collection colRetorno = new ArrayList();
+        final Collection colRetorno = new ArrayList<>();
 
         InformacoesContratoConfigDTO undDto;
         boolean bAcrescenta;

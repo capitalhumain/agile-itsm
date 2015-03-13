@@ -15,8 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.htmlparser.jericho.Source;
 
-import org.apache.commons.lang.StringEscapeUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.bpm.dto.TarefaFluxoDTO;
@@ -874,7 +874,7 @@ public class Problema extends AjaxFormAction {
         if (listaCategoriaAux != null) {
             for (final CategoriaProblemaDTO categoriaProblemaDto : listaCategoriaAux) {
                 combo.addOption(categoriaProblemaDto.getIdCategoriaProblema().toString(),
-                        StringEscapeUtils.escapeJavaScript(categoriaProblemaDto.getNomeCategoria()));
+                        StringEscapeUtils.escapeEcmaScript(categoriaProblemaDto.getNomeCategoria()));
 
             }
         }
@@ -1430,7 +1430,7 @@ public class Problema extends AjaxFormAction {
             if (unidades != null) {
                 for (final UnidadeDTO unidade : unidades) {
                     if (unidade.getDataFim() == null) {
-                        comboUnidade.addOption(unidade.getIdUnidade().toString(), StringEscapeUtils.escapeJavaScript(unidade.getNomeNivel()));
+                        comboUnidade.addOption(unidade.getIdUnidade().toString(), StringEscapeUtils.escapeEcmaScript(unidade.getNomeNivel()));
                     }
 
                 }
@@ -1440,7 +1440,7 @@ public class Problema extends AjaxFormAction {
             if (unidades != null) {
                 for (final UnidadeDTO unidade : unidades) {
                     if (unidade.getDataFim() == null) {
-                        comboUnidade.addOption(unidade.getIdUnidade().toString(), StringEscapeUtils.escapeJavaScript(unidade.getNomeNivel()));
+                        comboUnidade.addOption(unidade.getIdUnidade().toString(), StringEscapeUtils.escapeEcmaScript(unidade.getNomeNivel()));
                     }
                 }
             }
@@ -1628,7 +1628,7 @@ public class Problema extends AjaxFormAction {
                         if (unidades != null) {
                             for (final UnidadeDTO unidade : unidades) {
                                 if (unidade.getDataFim() == null) {
-                                    comboUnidade.addOption(unidade.getIdUnidade().toString(), StringEscapeUtils.escapeJavaScript(unidade.getNomeNivel()));
+                                    comboUnidade.addOption(unidade.getIdUnidade().toString(), StringEscapeUtils.escapeEcmaScript(unidade.getNomeNivel()));
                                 }
 
                             }
@@ -1638,7 +1638,7 @@ public class Problema extends AjaxFormAction {
                         if (unidades != null) {
                             for (final UnidadeDTO unidade : unidades) {
                                 if (unidade.getDataFim() == null) {
-                                    comboUnidade.addOption(unidade.getIdUnidade().toString(), StringEscapeUtils.escapeJavaScript(unidade.getNomeNivel()));
+                                    comboUnidade.addOption(unidade.getIdUnidade().toString(), StringEscapeUtils.escapeEcmaScript(unidade.getNomeNivel()));
                                 }
                             }
                         }
@@ -1713,7 +1713,7 @@ public class Problema extends AjaxFormAction {
         if (listOrigem != null) {
             for (final OrigemAtendimentoDTO origemDTO : listOrigem) {
                 if (origemDTO.getIdOrigem() != null || origemDTO.getIdOrigem() > 0) {
-                    comboOrigem.addOption(origemDTO.getIdOrigem().toString(), StringEscapeUtils.escapeJavaScript(origemDTO.getDescricao()));
+                    comboOrigem.addOption(origemDTO.getIdOrigem().toString(), StringEscapeUtils.escapeEcmaScript(origemDTO.getDescricao()));
                 }
             }
         }
@@ -1819,7 +1819,7 @@ public class Problema extends AjaxFormAction {
         if (calendarioDTO != null) {
             for (final CalendarioDTO calendario : calendarioDTO) {
 
-                comboCalendario.addOption(calendario.getIdCalendario().toString(), StringEscapeUtils.escapeJavaScript(calendario.getDescricao()));
+                comboCalendario.addOption(calendario.getIdCalendario().toString(), StringEscapeUtils.escapeEcmaScript(calendario.getDescricao()));
             }
         }
 

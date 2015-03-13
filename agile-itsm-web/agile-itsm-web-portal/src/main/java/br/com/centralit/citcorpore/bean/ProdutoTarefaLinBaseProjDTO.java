@@ -3,21 +3,24 @@ package br.com.centralit.citcorpore.bean;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class ProdutoTarefaLinBaseProjDTO extends BaseEntity {
-	private Integer idTarefaLinhaBaseProjeto;
-	private Integer idProdutoContrato;
 
-	public Integer getIdTarefaLinhaBaseProjeto(){
-		return this.idTarefaLinhaBaseProjeto;
-	}
-	public void setIdTarefaLinhaBaseProjeto(Integer parm){
-		this.idTarefaLinhaBaseProjeto = parm;
-	}
+    private Integer idTarefaLinhaBaseProjeto;
+    private Integer idProdutoContrato;
 
-	public Integer getIdProdutoContrato(){
-		return this.idProdutoContrato;
-	}
-	public void setIdProdutoContrato(Integer parm){
-		this.idProdutoContrato = parm;
-	}
+    public Integer getIdTarefaLinhaBaseProjeto() {
+        return idTarefaLinhaBaseProjeto;
+    }
+
+    public void setIdTarefaLinhaBaseProjeto(final Integer parm) {
+        idTarefaLinhaBaseProjeto = parm;
+    }
+
+    public Integer getIdProdutoContrato() {
+        return idProdutoContrato;
+    }
+
+    public void setIdProdutoContrato(final Integer parm) {
+        idProdutoContrato = parm;
+    }
 
 }

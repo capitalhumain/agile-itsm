@@ -13,165 +13,165 @@ import br.com.citframework.integracao.Field;
 import br.com.citframework.util.Constantes;
 
 public class OcorrenciaDao extends CrudDaoDefaultImpl {
-	
-	private static final String SQL_OCORRENCIA_DEMANDA = "SELECT O.ocorrencia, O.tipoOcorrencia, O.respostaOcorrencia, O.data, E.nome, O.idOcorrencia, O.idDemanda " +
-		"FROM OCORRENCIAS O " +
-		" INNER JOIN EMPREGADOS E on E.idEmpregado = O.idEmpregado " +
-		"where idDemanda = ? order by data";
-	
-	public OcorrenciaDao() {
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
 
-	public Class getBean() {
-		return OcorrenciaDTO.class;
-	}
+    private static final String SQL_OCORRENCIA_DEMANDA = "SELECT O.ocorrencia, O.tipoOcorrencia, O.respostaOcorrencia, O.data, E.nome, O.idOcorrencia, O.idDemanda "
+            + "FROM OCORRENCIAS O " + " INNER JOIN EMPREGADOS E on E.idEmpregado = O.idEmpregado " + "where idDemanda = ? order by data";
 
-	public Collection<Field> getFields() {
-		Collection<Field> listFields = new ArrayList<>();
-		
-		listFields.add(new Field("idOcorrencia", "idOcorrencia", true, true, false, false));
-		listFields.add(new Field("idDemanda", "idDemanda", false, false, false, false));
-		listFields.add(new Field("ocorrencia", "ocorrencia", false, false, false, false));
-		listFields.add(new Field("tipoOcorrencia", "tipoOcorrencia", false, false, false, false));
-		listFields.add(new Field("respostaOcorrencia", "respostaOcorrencia", false, false, false, false));
-		listFields.add(new Field("data", "data", false, false, false, false));
-		listFields.add(new Field("idEmpregado", "idEmpregado", false, false, false, false));
-		
-		return listFields;
-	}
+    public OcorrenciaDao() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
+    }
 
-	public String getTableName() {
-		return "OCORRENCIAS";
-	}
+    @Override
+    public Class getBean() {
+        return OcorrenciaDTO.class;
+    }
 
-	public Collection find(BaseEntity obj) throws PersistenceException {
-		return null;
-	}
+    @Override
+    public Collection<Field> getFields() {
+        final Collection<Field> listFields = new ArrayList<>();
 
-	public Collection list() throws PersistenceException {
-		return null;
-	}
+        listFields.add(new Field("idOcorrencia", "idOcorrencia", true, true, false, false));
+        listFields.add(new Field("idDemanda", "idDemanda", false, false, false, false));
+        listFields.add(new Field("ocorrencia", "ocorrencia", false, false, false, false));
+        listFields.add(new Field("tipoOcorrencia", "tipoOcorrencia", false, false, false, false));
+        listFields.add(new Field("respostaOcorrencia", "respostaOcorrencia", false, false, false, false));
+        listFields.add(new Field("data", "data", false, false, false, false));
+        listFields.add(new Field("idEmpregado", "idEmpregado", false, false, false, false));
 
-	public Collection findByDemanda(Integer idDemanda) throws PersistenceException {
-		Object[] objs = new Object[] {idDemanda};
-		
-		String sql = SQL_OCORRENCIA_DEMANDA;
-		
-		List lista = this.execSQL(sql, objs);
-		
-		List listRetorno = new ArrayList();
-		listRetorno.add("ocorrencia");
-		listRetorno.add("tipoOcorrencia");
-		listRetorno.add("respostaOcorrencia");
-		listRetorno.add("data");
-		listRetorno.add("nomeEmpregado");
-		listRetorno.add("idOcorrencia");
-		listRetorno.add("idDemanda");
+        return listFields;
+    }
 
-		List result = this.engine.listConvertion(getBean(), lista, listRetorno);
-		if (result == null || result.size() == 0) return null;
-		return result;
-	}
-	
-	public void updateResposta(BaseEntity obj) throws PersistenceException {
-		OcorrenciaDTO ocorrencia = (OcorrenciaDTO)obj;
-		OcorrenciaDTO ocorrenciaUpdate = new OcorrenciaDTO();
-		
-		ocorrenciaUpdate.setIdOcorrencia(ocorrencia.getIdOcorrencia());
-		ocorrenciaUpdate.setRespostaOcorrencia(ocorrencia.getRespostaOcorrencia());
-				
-		super.updateNotNull(ocorrenciaUpdate);
-	}	
-	
-	public Collection<OcorrenciaDTO> findByIdSolicitacao(Integer idSolicitacao) throws PersistenceException {
-		List parametro = new ArrayList();
-		List listRetorno = new ArrayList();
-		List list = new ArrayList();
-		
-		StringBuilder sql = new StringBuilder();
-		sql.append("select ocorrencia from ocorrenciasolicitacao where idsolicitacaoservico = ?");
-		parametro.add(idSolicitacao);
+    @Override
+    public String getTableName() {
+        return "OCORRENCIAS";
+    }
 
-		list = this.execSQL(sql.toString(), parametro.toArray());
+    @Override
+    public Collection find(final BaseEntity obj) throws PersistenceException {
+        return null;
+    }
 
-		listRetorno.add("ocorrencia");
+    @Override
+    public Collection list() throws PersistenceException {
+        return null;
+    }
 
+    public Collection findByDemanda(final Integer idDemanda) throws PersistenceException {
+        final Object[] objs = new Object[] {idDemanda};
 
-		if (list != null && !list.isEmpty()) {
-			return (Collection<OcorrenciaDTO>) this.listConvertion(getBean(), list, listRetorno);
-		} else {
-			return null;
-		}
-	}
-	
-	public OcorrenciaDTO findSiglaGrupoExecutorByIdSolicitacao(Integer idSolicitacao) throws PersistenceException {
-		List parametro = new ArrayList();
-		List listRetorno = new ArrayList();
-		List list = new ArrayList();
-		
-		StringBuilder sql = new StringBuilder();
-		sql.append("select  sigla from ocorrenciasolicitacao o "
-				+ "inner join solicitacaoservico ss on o.idsolicitacaoservico = ss.idsolicitacaoservico "
-				+ "inner join servicocontrato sc on sc.idservicocontrato = ss.idservicocontrato "
-				+ "inner join grupo g on sc.idgrupoexecutor = g.idgrupo "
-				+ "where o.idsolicitacaoservico = ?");
-		
-		parametro.add(idSolicitacao);
+        final String sql = SQL_OCORRENCIA_DEMANDA;
 
-		list = this.execSQL(sql.toString(), parametro.toArray());
+        final List lista = this.execSQL(sql, objs);
 
-		listRetorno.add("sigla");
+        final List listRetorno = new ArrayList<>();
+        listRetorno.add("ocorrencia");
+        listRetorno.add("tipoOcorrencia");
+        listRetorno.add("respostaOcorrencia");
+        listRetorno.add("data");
+        listRetorno.add("nomeEmpregado");
+        listRetorno.add("idOcorrencia");
+        listRetorno.add("idDemanda");
 
+        final List result = engine.listConvertion(this.getBean(), lista, listRetorno);
+        if (result == null || result.size() == 0) {
+            return null;
+        }
+        return result;
+    }
 
-		if (list != null && !list.isEmpty()) {
-			return (OcorrenciaDTO) (this.listConvertion(getBean(), list, listRetorno)).get(0);
-		} else {
-			return null;
-		}
-	}
+    public void updateResposta(final BaseEntity obj) throws PersistenceException {
+        final OcorrenciaDTO ocorrencia = (OcorrenciaDTO) obj;
+        final OcorrenciaDTO ocorrenciaUpdate = new OcorrenciaDTO();
 
-	/**
-	 * @param idSolicitacaoServico
-	 * @return
-	 * @throws Exception
-	 */
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public DadosEmailRegOcorrenciaDTO obterDadosResponsavelEmailRegOcorrencia(Integer idSolicitacaoServico) throws PersistenceException {
-		
-		StringBuilder query = new StringBuilder();
-				
-		query.append("select emp.idempregado,sol.idresponsavel,emp.email, emp.nome, sol.idgrupoatual from solicitacaoservico sol ");
+        ocorrenciaUpdate.setIdOcorrencia(ocorrencia.getIdOcorrencia());
+        ocorrenciaUpdate.setRespostaOcorrencia(ocorrencia.getRespostaOcorrencia());
 
-		query.append("INNER JOIN empregados emp on emp.idempregado = sol.idresponsavel ");
+        super.updateNotNull(ocorrenciaUpdate);
+    }
 
-		query.append("where sol.idsolicitacaoservico =? ");
-		
-		List parametros = new ArrayList<>();
-		
-		parametros.add(idSolicitacaoServico);
-		
-		List list = this.execSQL(query.toString(), parametros.toArray());
-		
-		List listRetorno = new ArrayList();
-		
-		listRetorno.add("idEmpregado");
-		
-		listRetorno.add("idResponsavelAtual");
-		
-		listRetorno.add("email");
-		
-		listRetorno.add("nome");
-		
-		listRetorno.add("idGrupoAtual");
-		
-		if (list != null && !list.isEmpty()) {
-			
-			return (DadosEmailRegOcorrenciaDTO) (this.listConvertion(DadosEmailRegOcorrenciaDTO.class, list, listRetorno)).get(0);
-			
-		} else {
-			return null;
-		}
-	}	
-	
+    public Collection<OcorrenciaDTO> findByIdSolicitacao(final Integer idSolicitacao) throws PersistenceException {
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        List list = new ArrayList<>();
+
+        final StringBuilder sql = new StringBuilder();
+        sql.append("select ocorrencia from ocorrenciasolicitacao where idsolicitacaoservico = ?");
+        parametro.add(idSolicitacao);
+
+        list = this.execSQL(sql.toString(), parametro.toArray());
+
+        listRetorno.add("ocorrencia");
+
+        if (list != null && !list.isEmpty()) {
+            return this.listConvertion(this.getBean(), list, listRetorno);
+        } else {
+            return null;
+        }
+    }
+
+    public OcorrenciaDTO findSiglaGrupoExecutorByIdSolicitacao(final Integer idSolicitacao) throws PersistenceException {
+        final List parametro = new ArrayList<>();
+        final List listRetorno = new ArrayList<>();
+        List list = new ArrayList<>();
+
+        final StringBuilder sql = new StringBuilder();
+        sql.append("select  sigla from ocorrenciasolicitacao o " + "inner join solicitacaoservico ss on o.idsolicitacaoservico = ss.idsolicitacaoservico "
+                + "inner join servicocontrato sc on sc.idservicocontrato = ss.idservicocontrato " + "inner join grupo g on sc.idgrupoexecutor = g.idgrupo "
+                + "where o.idsolicitacaoservico = ?");
+
+        parametro.add(idSolicitacao);
+
+        list = this.execSQL(sql.toString(), parametro.toArray());
+
+        listRetorno.add("sigla");
+
+        if (list != null && !list.isEmpty()) {
+            return (OcorrenciaDTO) this.listConvertion(this.getBean(), list, listRetorno).get(0);
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * @param idSolicitacaoServico
+     * @return
+     * @throws Exception
+     */
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    public DadosEmailRegOcorrenciaDTO obterDadosResponsavelEmailRegOcorrencia(final Integer idSolicitacaoServico) throws PersistenceException {
+
+        final StringBuilder query = new StringBuilder();
+
+        query.append("select emp.idempregado,sol.idresponsavel,emp.email, emp.nome, sol.idgrupoatual from solicitacaoservico sol ");
+
+        query.append("INNER JOIN empregados emp on emp.idempregado = sol.idresponsavel ");
+
+        query.append("where sol.idsolicitacaoservico =? ");
+
+        final List parametros = new ArrayList<>();
+
+        parametros.add(idSolicitacaoServico);
+
+        final List list = this.execSQL(query.toString(), parametros.toArray());
+
+        final List listRetorno = new ArrayList<>();
+
+        listRetorno.add("idEmpregado");
+
+        listRetorno.add("idResponsavelAtual");
+
+        listRetorno.add("email");
+
+        listRetorno.add("nome");
+
+        listRetorno.add("idGrupoAtual");
+
+        if (list != null && !list.isEmpty()) {
+
+            return (DadosEmailRegOcorrenciaDTO) this.listConvertion(DadosEmailRegOcorrenciaDTO.class, list, listRetorno).get(0);
+
+        }
+        return null;
+    }
+
 }

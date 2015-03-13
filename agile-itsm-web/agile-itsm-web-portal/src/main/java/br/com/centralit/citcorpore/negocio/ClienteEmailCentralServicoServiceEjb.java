@@ -21,8 +21,8 @@ import javax.mail.search.SearchTerm;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.ArrayUtils;
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 
 import br.com.centralit.citajax.html.DocumentHTML;
 import br.com.centralit.citcorpore.bean.ClienteEmailCentralServicoDTO;
@@ -244,7 +244,7 @@ public class ClienteEmailCentralServicoServiceEjb extends CrudServiceImpl implem
 						
 						if (content != null) {
 				            //content = content.replaceAll("(\r\n|\r|\n)", "<br />");
-				            content = StringEscapeUtils.escapeJavaScript(content);
+				            content = StringEscapeUtils.escapeEcmaScript(content);
 				            
 				            clienteEmailMessagesDto.setMessageContent(content);
 						}

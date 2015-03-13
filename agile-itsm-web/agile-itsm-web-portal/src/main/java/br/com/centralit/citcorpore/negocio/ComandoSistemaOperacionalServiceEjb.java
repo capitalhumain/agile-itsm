@@ -6,7 +6,6 @@ import java.util.List;
 
 import br.com.centralit.citcorpore.bean.ComandoSistemaOperacionalDTO;
 import br.com.centralit.citcorpore.integracao.ComandoSistemaOperacionalDao;
-import br.com.citframework.excecao.LogicException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.Condition;
 import br.com.citframework.service.CrudServiceImpl;
@@ -16,7 +15,6 @@ import br.com.citframework.service.CrudServiceImpl;
  *
  */
 
-@SuppressWarnings("rawtypes")
 public class ComandoSistemaOperacionalServiceEjb extends CrudServiceImpl implements ComandoSistemaOperacionalService {
 
     private ComandoSistemaOperacionalDao dao;
@@ -27,14 +25,6 @@ public class ComandoSistemaOperacionalServiceEjb extends CrudServiceImpl impleme
             dao = new ComandoSistemaOperacionalDao();
         }
         return dao;
-    }
-
-    public Collection list(final List ordenacao) throws LogicException, ServiceException {
-        return null;
-    }
-
-    public Collection list(final String ordenacao) throws LogicException, ServiceException {
-        return null;
     }
 
     @Override

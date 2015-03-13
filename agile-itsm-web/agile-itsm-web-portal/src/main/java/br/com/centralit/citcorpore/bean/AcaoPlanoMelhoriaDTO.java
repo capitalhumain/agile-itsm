@@ -2,209 +2,209 @@ package br.com.centralit.citcorpore.bean;
 
 import br.com.agileitsm.model.support.BaseEntity;
 
-@SuppressWarnings("serial")
 public class AcaoPlanoMelhoriaDTO extends BaseEntity {
-	private Integer idAcaoPlanoMelhoria;
-	private Integer idPlanoMelhoria;
-	private Integer idObjetivoPlanoMelhoria;
-	private String tituloAcao;
-	private String detalhamentoAcao;
-	private java.sql.Date dataInicio;
-	private java.sql.Date dataFim;
-	private String responsavel;
-	private java.sql.Date dataConclusao;
-	private String criadoPor;
-	private String modificadoPor;
-	private java.sql.Date dataCriacao;
-	private java.sql.Date ultModificacao;
 
-	private String tituloObjetivoPlanoMelhoria;
+    private Integer idAcaoPlanoMelhoria;
+    private Integer idPlanoMelhoria;
+    private Integer idObjetivoPlanoMelhoria;
+    private String tituloAcao;
+    private String detalhamentoAcao;
+    private java.sql.Date dataInicio;
+    private java.sql.Date dataFim;
+    private String responsavel;
+    private java.sql.Date dataConclusao;
+    private String criadoPor;
+    private String modificadoPor;
+    private java.sql.Date dataCriacao;
+    private java.sql.Date ultModificacao;
 
-	private String resultadoEsperadoPlanoMelhoria;
+    private String tituloObjetivoPlanoMelhoria;
 
-	private String medicaoPlanoMelhoria;
+    private String resultadoEsperadoPlanoMelhoria;
 
-	private Integer sequencialObjetivo;
+    private String medicaoPlanoMelhoria;
 
-	private Integer sequencialAcao;
+    private Integer sequencialObjetivo;
 
-	public Integer getIdAcaoPlanoMelhoria() {
-		return this.idAcaoPlanoMelhoria;
-	}
+    private Integer sequencialAcao;
 
-	public void setIdAcaoPlanoMelhoria(Integer parm) {
-		this.idAcaoPlanoMelhoria = parm;
-	}
+    public Integer getIdAcaoPlanoMelhoria() {
+        return idAcaoPlanoMelhoria;
+    }
 
-	public Integer getIdPlanoMelhoria() {
-		return this.idPlanoMelhoria;
-	}
+    public void setIdAcaoPlanoMelhoria(final Integer parm) {
+        idAcaoPlanoMelhoria = parm;
+    }
 
-	public void setIdPlanoMelhoria(Integer parm) {
-		this.idPlanoMelhoria = parm;
-	}
+    public Integer getIdPlanoMelhoria() {
+        return idPlanoMelhoria;
+    }
 
-	public Integer getIdObjetivoPlanoMelhoria() {
-		return this.idObjetivoPlanoMelhoria;
-	}
+    public void setIdPlanoMelhoria(final Integer parm) {
+        idPlanoMelhoria = parm;
+    }
 
-	public void setIdObjetivoPlanoMelhoria(Integer parm) {
-		this.idObjetivoPlanoMelhoria = parm;
-	}
+    public Integer getIdObjetivoPlanoMelhoria() {
+        return idObjetivoPlanoMelhoria;
+    }
 
-	public String getTituloAcao() {
-		return this.tituloAcao;
-	}
+    public void setIdObjetivoPlanoMelhoria(final Integer parm) {
+        idObjetivoPlanoMelhoria = parm;
+    }
 
-	public void setTituloAcao(String parm) {
-		this.tituloAcao = parm;
-	}
+    public String getTituloAcao() {
+        return tituloAcao;
+    }
 
-	public String getDetalhamentoAcao() {
-		return this.detalhamentoAcao;
-	}
+    public void setTituloAcao(final String parm) {
+        tituloAcao = parm;
+    }
 
-	public void setDetalhamentoAcao(String parm) {
-		this.detalhamentoAcao = parm;
-	}
+    public String getDetalhamentoAcao() {
+        return detalhamentoAcao;
+    }
 
-	public java.sql.Date getDataInicio() {
-		return this.dataInicio;
-	}
+    public void setDetalhamentoAcao(final String parm) {
+        detalhamentoAcao = parm;
+    }
 
-	public void setDataInicio(java.sql.Date parm) {
-		this.dataInicio = parm;
-	}
+    public java.sql.Date getDataInicio() {
+        return dataInicio;
+    }
 
-	public java.sql.Date getDataFim() {
-		return this.dataFim;
-	}
+    public void setDataInicio(final java.sql.Date parm) {
+        dataInicio = parm;
+    }
 
-	public void setDataFim(java.sql.Date parm) {
-		this.dataFim = parm;
-	}
+    public java.sql.Date getDataFim() {
+        return dataFim;
+    }
 
-	public String getResponsavel() {
-		return this.responsavel;
-	}
+    public void setDataFim(final java.sql.Date parm) {
+        dataFim = parm;
+    }
 
-	public void setResponsavel(String parm) {
-		this.responsavel = parm;
-	}
+    public String getResponsavel() {
+        return responsavel;
+    }
 
-	public java.sql.Date getDataConclusao() {
-		return this.dataConclusao;
-	}
+    public void setResponsavel(final String parm) {
+        responsavel = parm;
+    }
 
-	public void setDataConclusao(java.sql.Date parm) {
-		this.dataConclusao = parm;
-	}
+    public java.sql.Date getDataConclusao() {
+        return dataConclusao;
+    }
 
-	public String getCriadoPor() {
-		return this.criadoPor;
-	}
+    public void setDataConclusao(final java.sql.Date parm) {
+        dataConclusao = parm;
+    }
 
-	public void setCriadoPor(String parm) {
-		this.criadoPor = parm;
-	}
+    public String getCriadoPor() {
+        return criadoPor;
+    }
 
-	public String getModificadoPor() {
-		return this.modificadoPor;
-	}
+    public void setCriadoPor(final String parm) {
+        criadoPor = parm;
+    }
 
-	public void setModificadoPor(String parm) {
-		this.modificadoPor = parm;
-	}
+    public String getModificadoPor() {
+        return modificadoPor;
+    }
 
-	public java.sql.Date getDataCriacao() {
-		return this.dataCriacao;
-	}
+    public void setModificadoPor(final String parm) {
+        modificadoPor = parm;
+    }
 
-	public void setDataCriacao(java.sql.Date parm) {
-		this.dataCriacao = parm;
-	}
+    public java.sql.Date getDataCriacao() {
+        return dataCriacao;
+    }
 
-	public java.sql.Date getUltModificacao() {
-		return this.ultModificacao;
-	}
+    public void setDataCriacao(final java.sql.Date parm) {
+        dataCriacao = parm;
+    }
 
-	public void setUltModificacao(java.sql.Date parm) {
-		this.ultModificacao = parm;
-	}
+    public java.sql.Date getUltModificacao() {
+        return ultModificacao;
+    }
 
-	/**
-	 * @return the tituloObjetivoPlanoMelhoria
-	 */
-	public String getTituloObjetivoPlanoMelhoria() {
-		return tituloObjetivoPlanoMelhoria;
-	}
+    public void setUltModificacao(final java.sql.Date parm) {
+        ultModificacao = parm;
+    }
 
-	/**
-	 * @param tituloObjetivoPlanoMelhoria
-	 *            the tituloObjetivoPlanoMelhoria to set
-	 */
-	public void setTituloObjetivoPlanoMelhoria(String tituloObjetivoPlanoMelhoria) {
-		this.tituloObjetivoPlanoMelhoria = tituloObjetivoPlanoMelhoria;
-	}
+    /**
+     * @return the tituloObjetivoPlanoMelhoria
+     */
+    public String getTituloObjetivoPlanoMelhoria() {
+        return tituloObjetivoPlanoMelhoria;
+    }
 
-	/**
-	 * @return the sequencialObjetivo
-	 */
-	public Integer getSequencialObjetivo() {
-		return sequencialObjetivo;
-	}
+    /**
+     * @param tituloObjetivoPlanoMelhoria
+     *            the tituloObjetivoPlanoMelhoria to set
+     */
+    public void setTituloObjetivoPlanoMelhoria(final String tituloObjetivoPlanoMelhoria) {
+        this.tituloObjetivoPlanoMelhoria = tituloObjetivoPlanoMelhoria;
+    }
 
-	/**
-	 * @param sequencialObjetivo
-	 *            the sequencialObjetivo to set
-	 */
-	public void setSequencialObjetivo(Integer sequencialObjetivo) {
-		this.sequencialObjetivo = sequencialObjetivo;
-	}
+    /**
+     * @return the sequencialObjetivo
+     */
+    public Integer getSequencialObjetivo() {
+        return sequencialObjetivo;
+    }
 
-	/**
-	 * @return the sequencialAcao
-	 */
-	public Integer getSequencialAcao() {
-		return sequencialAcao;
-	}
+    /**
+     * @param sequencialObjetivo
+     *            the sequencialObjetivo to set
+     */
+    public void setSequencialObjetivo(final Integer sequencialObjetivo) {
+        this.sequencialObjetivo = sequencialObjetivo;
+    }
 
-	/**
-	 * @param sequencialAcao
-	 *            the sequencialAcao to set
-	 */
-	public void setSequencialAcao(Integer sequencialAcao) {
-		this.sequencialAcao = sequencialAcao;
-	}
+    /**
+     * @return the sequencialAcao
+     */
+    public Integer getSequencialAcao() {
+        return sequencialAcao;
+    }
 
-	/**
-	 * @return the resultadoEsperadoPlanoMelhoria
-	 */
-	public String getResultadoEsperadoPlanoMelhoria() {
-		return resultadoEsperadoPlanoMelhoria;
-	}
+    /**
+     * @param sequencialAcao
+     *            the sequencialAcao to set
+     */
+    public void setSequencialAcao(final Integer sequencialAcao) {
+        this.sequencialAcao = sequencialAcao;
+    }
 
-	/**
-	 * @param resultadoEsperadoPlanoMelhoria
-	 *            the resultadoEsperadoPlanoMelhoria to set
-	 */
-	public void setResultadoEsperadoPlanoMelhoria(String resultadoEsperadoPlanoMelhoria) {
-		this.resultadoEsperadoPlanoMelhoria = resultadoEsperadoPlanoMelhoria;
-	}
+    /**
+     * @return the resultadoEsperadoPlanoMelhoria
+     */
+    public String getResultadoEsperadoPlanoMelhoria() {
+        return resultadoEsperadoPlanoMelhoria;
+    }
 
-	/**
-	 * @return the medicaoPlanoMelhoria
-	 */
-	public String getMedicaoPlanoMelhoria() {
-		return medicaoPlanoMelhoria;
-	}
+    /**
+     * @param resultadoEsperadoPlanoMelhoria
+     *            the resultadoEsperadoPlanoMelhoria to set
+     */
+    public void setResultadoEsperadoPlanoMelhoria(final String resultadoEsperadoPlanoMelhoria) {
+        this.resultadoEsperadoPlanoMelhoria = resultadoEsperadoPlanoMelhoria;
+    }
 
-	/**
-	 * @param medicaoPlanoMelhoria
-	 *            the medicaoPlanoMelhoria to set
-	 */
-	public void setMedicaoPlanoMelhoria(String medicaoPlanoMelhoria) {
-		this.medicaoPlanoMelhoria = medicaoPlanoMelhoria;
-	}
+    /**
+     * @return the medicaoPlanoMelhoria
+     */
+    public String getMedicaoPlanoMelhoria() {
+        return medicaoPlanoMelhoria;
+    }
+
+    /**
+     * @param medicaoPlanoMelhoria
+     *            the medicaoPlanoMelhoria to set
+     */
+    public void setMedicaoPlanoMelhoria(final String medicaoPlanoMelhoria) {
+        this.medicaoPlanoMelhoria = medicaoPlanoMelhoria;
+    }
 
 }

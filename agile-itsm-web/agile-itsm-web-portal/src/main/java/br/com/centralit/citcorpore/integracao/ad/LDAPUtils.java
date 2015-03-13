@@ -21,7 +21,7 @@ import javax.naming.ldap.LdapContext;
 import javax.naming.ldap.PagedResultsControl;
 import javax.naming.ldap.PagedResultsResponseControl;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import br.com.centralit.citcorpore.bean.ADUserDTO;
 import br.com.centralit.citcorpore.bean.ServidorContextoDTO;
@@ -31,7 +31,7 @@ import br.com.centralit.citcorpore.util.Enumerados.ParametroSistema;
 import br.com.centralit.citcorpore.util.ParametroUtil;
 import br.com.citframework.service.ServiceLocator;
 
-@SuppressWarnings({ "unchecked", "rawtypes" })
+@SuppressWarnings({"unchecked", "rawtypes"})
 public final class LDAPUtils {
 
     protected static LDAPUtils instanceLdap;
@@ -48,7 +48,7 @@ public final class LDAPUtils {
 
     public static String BASE_DN = "";// = "dc=stj,dc=gov,dc=br";
 
-    public static String SUB_DOMINIO = ""; //"ou =*, dc=*";
+    public static String SUB_DOMINIO = ""; // "ou =*, dc=*";
 
     public static String MSG_ERROR_LDAP_CONNECTION = "Não foi possível obter um contexto LDAP";
 
@@ -65,7 +65,6 @@ public final class LDAPUtils {
     public static String ID_PERFIL_ACESSO_DEFAULT = "";
 
     public static String NUMERO_COLABORADORES_CONSULTA_AD = "";
-
 
     private LDAPUtils() {}
 
@@ -97,7 +96,7 @@ public final class LDAPUtils {
                 loginAd = admin_dn_login.split(";");
                 ldad_sufixo = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.LDAD_SUFIXO_DOMINIO, " ").trim().split(";");
                 for (int i = 0; i < ldad_sufixo.length; i++) {
-                    admin_dominio += loginAd[i]+ldad_sufixo[i]+";";
+                    admin_dominio += loginAd[i] + ldad_sufixo[i] + ";";
                 }
                 ADMIN_DN = admin_dominio;
             }
@@ -128,14 +127,15 @@ public final class LDAPUtils {
                 GRUPOPADRAO = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.ID_GRUPO_PADRAO_LDAP, " ").trim();
             }
             if (!ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.NUMERO_COLABORADORES_CONSULTA_AD, " ").trim().equalsIgnoreCase("")) {
-                NUMERO_COLABORADORES_CONSULTA_AD = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.NUMERO_COLABORADORES_CONSULTA_AD, " ").trim();
+                NUMERO_COLABORADORES_CONSULTA_AD = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.NUMERO_COLABORADORES_CONSULTA_AD,
+                        " ").trim();
             }
-        } catch (Exception e) {
+        } catch (final Exception e) {
             e.printStackTrace();
         }
     }
 
-    public static ADUserDTO autenticacaoAD(String login, String password) throws Exception {
+    public static ADUserDTO autenticacaoAD(final String login, final String password) throws Exception {
 
         inicializaDados();
         ADUserDTO adUserAux = null;
@@ -152,7 +152,7 @@ public final class LDAPUtils {
 
         listContexto = createLdapConnection();
 
-        for (ServidorContextoDTO dirContext : listContexto) {
+        for (final ServidorContextoDTO dirContext : listContexto) {
 
             if (dirContext != null && dirContext.isAtivo()) {
 
@@ -162,14 +162,13 @@ public final class LDAPUtils {
                 searchUser = new SearchControls();
                 searchUser.setSearchScope(SearchControls.SUBTREE_SCOPE);
 
-
-                String[] atributosParaRetornar = new String[1];
+                final String[] atributosParaRetornar = new String[1];
                 /**
                  * Realiza a Validação Caso o parametro openLDAP esteja ativo
                  * sambaNTPassword - Atributo de Senha configurada para o openLDAP
                  * distinguishedName - (Default) Atributo de senha padrão
                  */
-                String parametroOpenLdap = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.LDAP_OPEN_LDAP, "N");
+                final String parametroOpenLdap = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.LDAP_OPEN_LDAP, "N");
                 if (parametroOpenLdap.equals("S")) {
                     atributosParaRetornar[0] = "uid";
                 } else {
@@ -178,7 +177,7 @@ public final class LDAPUtils {
 
                 searchUser.setReturningAttributes(atributosParaRetornar);
 
-                String[] atributosRetorno = getADFieldList();
+                final String[] atributosRetorno = getADFieldList();
                 search.setReturningAttributes(atributosRetorno);
 
                 /**
@@ -193,30 +192,30 @@ public final class LDAPUtils {
 
                 try {
 
-                    String subDominioValido ="";
+                    String subDominioValido = "";
                     cursor = dirContext.getDirContext().search(dirContext.getBaseDominio(), filtro, searchUser);
 
                     if (cursor.hasMoreElements()) {
 
-                        SearchResult result = (SearchResult) cursor.nextElement();
-                        Attributes att = result.getAttributes();
+                        final SearchResult result = (SearchResult) cursor.nextElement();
+                        final Attributes att = result.getAttributes();
                         String dn = "";
                         /**
                          * sambaNTPassword - Atributo de Senha configurada para o openLDAP distinguishedName - (Default) Atributo de senha padrão
                          */
                         if (parametroOpenLdap.equals("S")) {
                             dn = (String) att.get("uid").get();
-                            if(dirContext.getSubDominio() != null){
-                                String[] subDomino = dirContext.getSubDominio().split(";");
-                                for(int i = 0 ;i < subDomino.length;i++){
-                                    if(validateUser("uid=" + dn + "," + subDomino[i]+","+dirContext.getBaseDominio(),  password)){
-                                        subDominioValido = subDomino[i];
+                            if (dirContext.getSubDominio() != null) {
+                                final String[] subDomino = dirContext.getSubDominio().split(";");
+                                for (final String element : subDomino) {
+                                    if (validateUser("uid=" + dn + "," + element + "," + dirContext.getBaseDominio(), password)) {
+                                        subDominioValido = element;
                                         usuarioAutenticado = true;
                                         break;
                                     }
                                 }
-                            }else{
-                                usuarioAutenticado = validateUser("uid=" + dn + "," + dirContext.getBaseDominio(),  password);
+                            } else {
+                                usuarioAutenticado = validateUser("uid=" + dn + "," + dirContext.getBaseDominio(), password);
                             }
                         } else {
                             dn = (String) att.get("distinguishedName").get();
@@ -225,9 +224,9 @@ public final class LDAPUtils {
                     }
 
                     if (usuarioAutenticado) {
-                        if(subDominioValido!=""){
-                            results = dirContext.getDirContext().search(subDominioValido+","+dirContext.getBaseDominio(), filtro, search);
-                        }else{
+                        if (subDominioValido != "") {
+                            results = dirContext.getDirContext().search(subDominioValido + "," + dirContext.getBaseDominio(), filtro, search);
+                        } else {
                             results = dirContext.getDirContext().search(dirContext.getBaseDominio(), filtro, search);
                         }
 
@@ -240,15 +239,15 @@ public final class LDAPUtils {
                                 System.out.println("------------- INÍCIO --------------");
                                 String retorno = null;
 
-                                SearchResult searchResult = (SearchResult) results.next();
+                                final SearchResult searchResult = (SearchResult) results.next();
 
-                                for (int i = 0; i < atributosRetorno.length; i++) {
+                                for (final String element : atributosRetorno) {
 
-                                    if (searchResult.getAttributes().get(atributosRetorno[i]) != null) {
+                                    if (searchResult.getAttributes().get(element) != null) {
 
-                                        retorno = nullToNaoDisponivel(searchResult.getAttributes().get(atributosRetorno[i]).toString());
+                                        retorno = nullToNaoDisponivel(searchResult.getAttributes().get(element).toString());
 
-                                        setPropertyToAdUserDTO(adUserAux, atributosRetorno[i], retorno.split(":")[1]);
+                                        setPropertyToAdUserDTO(adUserAux, element, retorno.split(":")[1]);
                                     }
                                 }
 
@@ -262,7 +261,7 @@ public final class LDAPUtils {
                         }
                     }
 
-                } catch (NamingException e) {
+                } catch (final NamingException e) {
                     System.out.println(MSG_ERROR_LDAP_CONNECTION);
                     e.printStackTrace();
                 }
@@ -281,7 +280,7 @@ public final class LDAPUtils {
     public static synchronized Collection<ADUserDTO> sincronizaUsuariosAD() throws Exception {
 
         UsuarioService usuarioService;
-        ArrayList<ADUserDTO> listaUsuariosAD = new ArrayList<ADUserDTO>();
+        final ArrayList<ADUserDTO> listaUsuariosAD = new ArrayList<ADUserDTO>();
         inicializaDados();
         ADUserDTO adUserAux = null;
 
@@ -290,12 +289,11 @@ public final class LDAPUtils {
         SearchControls searchControls = null;
         String filtro = null;
 
-        for (ServidorContextoDTO context : dadosConexao()) {
+        for (final ServidorContextoDTO context : dadosConexao()) {
 
             LdapContext ldapContexto = context.getLdapContext();
 
-            String var = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.LDAP_OPEN_LDAP, "N");
-
+            final String var = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.LDAP_OPEN_LDAP, "N");
 
             if (ldapContexto != null) {
 
@@ -309,10 +307,10 @@ public final class LDAPUtils {
 
                     if (context.getNumeroColaboradores() != null && !context.getNumeroColaboradores().equals("")) {
                         numColaboradoresPorPag = context.getNumeroColaboradores();
-                    }else{
-                        numColaboradoresPorPag = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.NUMERO_COLABORADORES_CONSULTA_AD, "4000").trim();
+                    } else {
+                        numColaboradoresPorPag = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.NUMERO_COLABORADORES_CONSULTA_AD, "4000")
+                                .trim();
                     }
-
 
                     if (numColaboradoresPorPag != null && !StringUtils.isEmpty(numColaboradoresPorPag)) {
 
@@ -321,29 +319,28 @@ public final class LDAPUtils {
 
                     byte[] cookie = null;
                     int contador = 0;
-                    int total;
                     int numPagina = 0;
 
-                    String[] atributosRetorno = getADFieldList();
+                    final String[] atributosRetorno = getADFieldList();
                     searchControls.setReturningAttributes(atributosRetorno);
 
-                    //filtro caso venha pelo context ele pega esse valor, senão pega o valor padrão do parametro;
+                    // filtro caso venha pelo context ele pega esse valor, senão pega o valor padrão do parametro;
                     if (context.getLdpaFiltro() != null && context.getLdpaFiltro().equals("")) {
                         filtro = context.getLdpaFiltro();
-                    }else{
+                    } else {
                         filtro = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.LDAP_FILTRO, "(&(objectCategory=person)(objectClass=user))");
                     }
 
-                    if(filtro.indexOf(";") > 0) {
+                    if (filtro.indexOf(";") > 0) {
                         filtro = context.getLdpaFiltro().split(";")[0];
                     }
 
                     usuarioService = (UsuarioService) ServiceLocator.getInstance().getService(UsuarioService.class, null);
 
-                    if(var.equals("S")) {
-                        ldapContexto.setRequestControls(new Control[] { new PagedResultsControl(pageSize, Control.NONCRITICAL) });
+                    if (var.equals("S")) {
+                        ldapContexto.setRequestControls(new Control[] {new PagedResultsControl(pageSize, Control.NONCRITICAL)});
                     } else {
-                        ldapContexto.setRequestControls(new Control[] { new PagedResultsControl(pageSize, Control.CRITICAL) });
+                        ldapContexto.setRequestControls(new Control[] {new PagedResultsControl(pageSize, Control.CRITICAL)});
                     }
 
                     do {
@@ -362,14 +359,14 @@ public final class LDAPUtils {
                             System.out.println("---------------------------------------");
 
                             String retorno = null;
-                            SearchResult searchResult = (SearchResult) results.next();
+                            final SearchResult searchResult = (SearchResult) results.next();
 
-                            for (int i = 0; i < atributosRetorno.length; i++) {
+                            for (final String element : atributosRetorno) {
 
-                                if (searchResult.getAttributes().get(atributosRetorno[i]) != null) {
+                                if (searchResult.getAttributes().get(element) != null) {
 
-                                    retorno = nullToNaoDisponivel(searchResult.getAttributes().get(atributosRetorno[i]).toString());
-                                    setPropertyToAdUserDTO(adUserAux, atributosRetorno[i], retorno.split(":")[1]);
+                                    retorno = nullToNaoDisponivel(searchResult.getAttributes().get(element).toString());
+                                    setPropertyToAdUserDTO(adUserAux, element, retorno.split(":")[1]);
                                 }
 
                             }
@@ -384,12 +381,12 @@ public final class LDAPUtils {
                         }
 
                         // Examine the paged results control response
-                        Control[] controls = ldapContexto.getResponseControls();
+                        final Control[] controls = ldapContexto.getResponseControls();
                         if (controls != null) {
-                            for (int i = 0; i < controls.length; i++) {
-                                if (controls[i] instanceof PagedResultsResponseControl) {
-                                    PagedResultsResponseControl prrc = (PagedResultsResponseControl) controls[i];
-                                    total = prrc.getResultSize();
+                            for (final Control control : controls) {
+                                if (control instanceof PagedResultsResponseControl) {
+                                    final PagedResultsResponseControl prrc = (PagedResultsResponseControl) control;
+                                    prrc.getResultSize();
                                     cookie = prrc.getCookie();
                                 } else {
                                     // Handle other response controls (if any)
@@ -398,10 +395,10 @@ public final class LDAPUtils {
                         }
 
                         // Re-activate paged results]
-                        if(var.equals("S")) {
-                            ldapContexto.setRequestControls(new Control[] { new PagedResultsControl(pageSize, cookie, Control.NONCRITICAL) });
+                        if (var.equals("S")) {
+                            ldapContexto.setRequestControls(new Control[] {new PagedResultsControl(pageSize, cookie, Control.NONCRITICAL)});
                         } else {
-                            ldapContexto.setRequestControls(new Control[] { new PagedResultsControl(pageSize, cookie, Control.CRITICAL) });
+                            ldapContexto.setRequestControls(new Control[] {new PagedResultsControl(pageSize, cookie, Control.CRITICAL)});
                         }
 
                     } while (cookie != null);
@@ -409,10 +406,10 @@ public final class LDAPUtils {
                     System.out.println("LDAP - ROTINA DE SINCRONIZAÇÃO COM AD FINALIZADA.");
                     System.out.println("LDAP - TOTAL DE REGISTROS RECUPERADOS = " + contador);
 
-                } catch (AuthenticationException ex) {
+                } catch (final AuthenticationException ex) {
 
-                    String[] erro = ex.toString().split(":");
-                    String[] e = erro[erro.length - 1].split(",");
+                    final String[] erro = ex.toString().split(":");
+                    final String[] e = erro[erro.length - 1].split(",");
 
                     if (e[1].compareTo(" data 525") == 0) {
                         System.out.println("Usuario invalido");
@@ -420,25 +417,25 @@ public final class LDAPUtils {
                         System.out.println("Senha invalida");
                     }
 
-                } catch (SizeLimitExceededException sizeLimit) {
+                } catch (final SizeLimitExceededException sizeLimit) {
 
                     System.out.println("Limite excedeu...");
                     sizeLimit.printStackTrace();
 
-                } catch (NamingException ex) {
+                } catch (final NamingException ex) {
                     ex.printStackTrace();
                     System.out.println("NamingException is: " + ex);
 
-                } catch (IOException ie) {
+                } catch (final IOException ie) {
                     System.err.println("LDAP - IOException ");
                     ie.printStackTrace();
-                } catch (Exception e) {
+                } catch (final Exception e) {
                     e.printStackTrace();
                 } finally {
                     try {
                         ldapContexto.close();
                         ldapContexto = null;
-                    } catch (NamingException e) {
+                    } catch (final NamingException e) {
                         System.out.println("LDAP - NamingException - não foi possível fechar ldapContexto.");
                         e.printStackTrace();
                     }
@@ -456,7 +453,7 @@ public final class LDAPUtils {
      * @return ADUserDTO
      * @throws Exception
      */
-    public static ArrayList<ADUserDTO> consultaEmpregado(String login, Integer idGrupoSolicitante) throws Exception {
+    public static ArrayList<ADUserDTO> consultaEmpregado(final String login, final Integer idGrupoSolicitante) throws Exception {
 
         UsuarioService usuarioService;
 
@@ -464,23 +461,18 @@ public final class LDAPUtils {
         ADUserDTO adUserAux = null;
 
         NamingEnumeration results = null;
-        NamingEnumeration cursor = null;
-
         String flag = null;
-        Hashtable active = new Hashtable();
-        //	DirContext contexto = null;
+        new Hashtable();
+        // DirContext contexto = null;
         Collection<ServidorContextoDTO> listContexto = null;
         SearchControls search = null;
         SearchControls searchUser = null;
-        ArrayList<ADUserDTO> listaUsuariosAD = new ArrayList<ADUserDTO>();
+        final ArrayList<ADUserDTO> listaUsuariosAD = new ArrayList<ADUserDTO>();
         String filtro = null;
-        boolean usuarioAutenticado = false;
-
         listContexto = createLdapConnection();
 
-        for (ServidorContextoDTO dirContext : listContexto) {
-            String var = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.LDAP_OPEN_LDAP, "N");
-
+        for (final ServidorContextoDTO dirContext : listContexto) {
+            final String var = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.LDAP_OPEN_LDAP, "N");
 
             if (dirContext != null) {
 
@@ -490,9 +482,9 @@ public final class LDAPUtils {
                 searchUser = new SearchControls();
                 searchUser.setSearchScope(SearchControls.SUBTREE_SCOPE);
 
-                String[] atributosParaRetornar = new String[1];
+                final String[] atributosParaRetornar = new String[1];
 
-                if(var.equals("S")) {
+                if (var.equals("S")) {
                     atributosParaRetornar[0] = "uid";
                 } else {
                     atributosParaRetornar[0] = "distinguishedName";
@@ -500,10 +492,10 @@ public final class LDAPUtils {
 
                 searchUser.setReturningAttributes(atributosParaRetornar);
 
-                String[] atributosRetorno = getADFieldList();
+                final String[] atributosRetorno = getADFieldList();
                 search.setReturningAttributes(atributosRetorno);
 
-                if(var.equals("S")) {
+                if (var.equals("S")) {
                     filtro = "(&(uid=" + login + "))";
                 } else {
                     filtro = "(&(sAMAccountName=" + login + "))";
@@ -524,15 +516,15 @@ public final class LDAPUtils {
                             System.out.println("------------- INÍCIO --------------");
                             String retorno = null;
 
-                            SearchResult searchResult = (SearchResult) results.next();
+                            final SearchResult searchResult = (SearchResult) results.next();
 
-                            for (int i = 0; i < atributosRetorno.length; i++) {
+                            for (final String element : atributosRetorno) {
 
-                                if (searchResult.getAttributes().get(atributosRetorno[i]) != null) {
+                                if (searchResult.getAttributes().get(element) != null) {
 
-                                    retorno = nullToNaoDisponivel(searchResult.getAttributes().get(atributosRetorno[i]).toString());
+                                    retorno = nullToNaoDisponivel(searchResult.getAttributes().get(element).toString());
 
-                                    setPropertyToAdUserDTO(adUserAux, atributosRetorno[i], retorno.split(":")[1]);
+                                    setPropertyToAdUserDTO(adUserAux, element, retorno.split(":")[1]);
                                 }
                             }
 
@@ -544,10 +536,10 @@ public final class LDAPUtils {
                             listaUsuariosAD.add(adUserAux);
                         }
                     }
-                } catch (AuthenticationException ex) {
+                } catch (final AuthenticationException ex) {
 
-                    String[] erro = ex.toString().split(":");
-                    String[] e = erro[erro.length - 1].split(",");
+                    final String[] erro = ex.toString().split(":");
+                    final String[] e = erro[erro.length - 1].split(",");
 
                     if (e[1].compareTo(" data 525") == 0) {
                         flag = "Usuario invalido";
@@ -555,11 +547,11 @@ public final class LDAPUtils {
                         flag = "Sennha invalida";
                     }
 
-                } catch (NamingException ex) {
+                } catch (final NamingException ex) {
 
                     System.out.println("NamingException is: " + ex);
 
-                } catch (Exception e) {
+                } catch (final Exception e) {
 
                     e.printStackTrace();
 
@@ -574,11 +566,11 @@ public final class LDAPUtils {
         return listaUsuariosAD;
     }
 
-    private static void setPropertyToAdUserDTO(ADUserDTO adUserObject, String name, String value) throws Exception {
-        String var = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.LDAP_OPEN_LDAP, "N");
+    private static void setPropertyToAdUserDTO(final ADUserDTO adUserObject, final String name, final String value) throws Exception {
+        final String var = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.LDAP_OPEN_LDAP, "N");
         if (name.equalsIgnoreCase("CN")) {
             adUserObject.setCN(value);
-            if(var.equals("S")) {
+            if (var.equals("S")) {
                 adUserObject.setUserPrincipalName(value);
             }
             return;
@@ -721,32 +713,32 @@ public final class LDAPUtils {
     }
 
     public static String[] getADFieldList() {
-        String[] fields = { "CN", "description", "displayName", "DN", "givenName", "homeDrive", "name", "objectCategory", "objectClass", "physicalDeliveryOfficeName", "profilePath", "sAMAccountName", "SN",
-                "userAccountControl", "userPrincipalName", "homeMDB", "legacyExchangeDN", "mail", "mAPIRecipient", "mailNickname", "c", "company", "department", "homephone", "l", "location", "manager", "mobile", "OU",
-                "postalCode", "st", "streetAddress", "telephoneNumber", "uid" };
+        final String[] fields = {"CN", "description", "displayName", "DN", "givenName", "homeDrive", "name", "objectCategory", "objectClass",
+                "physicalDeliveryOfficeName", "profilePath", "sAMAccountName", "SN", "userAccountControl", "userPrincipalName", "homeMDB", "legacyExchangeDN",
+                "mail", "mAPIRecipient", "mailNickname", "c", "company", "department", "homephone", "l", "location", "manager", "mobile", "OU", "postalCode",
+                "st", "streetAddress", "telephoneNumber", "uid"};
 
         return fields;
     }
 
-    public static String nullToNaoDisponivel(String value) {
+    public static String nullToNaoDisponivel(final String value) {
         return value == null ? "Não disponível" : value;
     }
 
     private static Collection<ServidorContextoDTO> createLdapConnection() {
 
         DirContext contexto = null;
-        Hashtable env = new Hashtable();
-        Collection<DirContext> ctx = new ArrayList<DirContext>();
+        final Hashtable env = new Hashtable();
+        new ArrayList<DirContext>();
         ServidorContextoDTO servidorContextoDTO = null;
-        Collection<ServidorContextoDTO> listServidor = new ArrayList<ServidorContextoDTO>();
+        final Collection<ServidorContextoDTO> listServidor = new ArrayList<ServidorContextoDTO>();
 
         // Especifica INITIAL CONTEXT
         env.put(Context.INITIAL_CONTEXT_FACTORY, INITIAL_CTX);
 
-        String[] servidor = SERVIDOR.trim().split(";");
-        String[] admin_dn = ADMIN_DN.trim().split(";");
-        String[] admin_pw = ADMIN_PW.trim().split(";");
-
+        final String[] servidor = SERVIDOR.trim().split(";");
+        final String[] admin_dn = ADMIN_DN.trim().split(";");
+        final String[] admin_pw = ADMIN_PW.trim().split(";");
 
         String[] ldap_filtro = null;
         String[] ldap_atributo = null;
@@ -760,16 +752,16 @@ public final class LDAPUtils {
             ldap_filtro = LDAP_FILTRO.trim().split(";");
         }
         if (!LDAP_ATRIBUTO.equals("")) {
-            ldap_atributo  = LDAP_ATRIBUTO.trim().split(";");
+            ldap_atributo = LDAP_ATRIBUTO.trim().split(";");
         }
         if (!GRUPOPADRAO.equals("")) {
-            grupo_padrao = GRUPOPADRAO .trim().split(";");
+            grupo_padrao = GRUPOPADRAO.trim().split(";");
         }
         if (!ID_PERFIL_ACESSO_DEFAULT.equals("")) {
-            perfil_acesso  = ID_PERFIL_ACESSO_DEFAULT.trim().split(";");
+            perfil_acesso = ID_PERFIL_ACESSO_DEFAULT.trim().split(";");
         }
         if (!NUMERO_COLABORADORES_CONSULTA_AD.equals("")) {
-            numero_colaboradores   = NUMERO_COLABORADORES_CONSULTA_AD .trim().split(";");
+            numero_colaboradores = NUMERO_COLABORADORES_CONSULTA_AD.trim().split(";");
         }
         if (!BASE_DN.equals("")) {
             base_dominio = BASE_DN.trim().split(";");
@@ -823,8 +815,8 @@ public final class LDAPUtils {
                     listServidor.add(servidorContextoDTO);
                 }
 
-                //contexto.close();
-            } catch (NamingException e) {
+                // contexto.close();
+            } catch (final NamingException e) {
                 servidorContextoDTO.setDirContext(contexto);
                 servidorContextoDTO.setServidor(servidor[i]);
                 servidorContextoDTO.setAtivo(false);
@@ -838,19 +830,19 @@ public final class LDAPUtils {
         return listServidor;
     }
 
-    private static boolean validateUser(String dn, String senha) {
+    private static boolean validateUser(final String dn, final String senha) {
 
         DirContext ldapCtx = null;
         boolean bResult = false;
 
-        Hashtable env = new Hashtable();
-        String[] servidor = SERVIDOR.trim().split(";");
+        final Hashtable env = new Hashtable();
+        final String[] servidor = SERVIDOR.trim().split(";");
 
-        for (int i = 0; i < servidor.length; i++) {
+        for (final String element : servidor) {
             // Especifica INITIAL CONTEXT
             env.put(Context.INITIAL_CONTEXT_FACTORY, INITIAL_CTX);
             // Especifica o IP/Nome e a porta do servidor LDAP
-            env.put(Context.PROVIDER_URL, servidor[i]);
+            env.put(Context.PROVIDER_URL, element);
             // Ldap Distingued Name
             env.put(Context.SECURITY_PRINCIPAL, dn);
             // Senha Usuário
@@ -861,14 +853,15 @@ public final class LDAPUtils {
             try {
                 // Cria um Initial Context
                 ldapCtx = new InitialDirContext(env);
-            } catch (AuthenticationException auEx) {
-            	/**
-				 * A forma como esta rotina está implementada faz com que o sistema tente autenticar o usuário para cada subdomínio, até o final da lista. Para cada subdomínio, portanto, é exibida
-				 * essa mensagem, caso o usuário não consiga autenticação. Para evitar a poluição do LOG esta mensagem foi comentada. valdoilo.damasceno
-				 */
-                //System.out.println(MSG_ERROR_LDAP_VALIDATION_USER + "[LDAP: error code 49 - Invalid Credentials]");
-                //auEx.printStackTrace();
-            } catch (NamingException ne) {
+            } catch (final AuthenticationException auEx) {
+                /**
+                 * A forma como esta rotina está implementada faz com que o sistema tente autenticar o usuário para cada subdomínio, até o final da lista. Para
+                 * cada subdomínio, portanto, é exibida
+                 * essa mensagem, caso o usuário não consiga autenticação. Para evitar a poluição do LOG esta mensagem foi comentada. valdoilo.damasceno
+                 */
+                // System.out.println(MSG_ERROR_LDAP_VALIDATION_USER + "[LDAP: error code 49 - Invalid Credentials]");
+                // auEx.printStackTrace();
+            } catch (final NamingException ne) {
                 System.out.println(MSG_ERROR_LDAP_CONNECTION);
                 ne.printStackTrace();
             } finally {
@@ -876,7 +869,7 @@ public final class LDAPUtils {
                     bResult = true;
                     try {
                         ldapCtx.close();
-                    } catch (NamingException e) {
+                    } catch (final NamingException e) {
                         e.printStackTrace();
                     }
                     break;
@@ -895,92 +888,81 @@ public final class LDAPUtils {
      */
     public static Collection<ADUserDTO> testarConexao() throws Exception {
 
-        UsuarioService usuarioService;
-
         inicializaDados();
         ADUserDTO adUserAux = null;
 
         NamingEnumeration results = null;
-        Collection<ADUserDTO> listAdUserAux = new ArrayList<ADUserDTO>();
-        Hashtable active = new Hashtable();
+        final Collection<ADUserDTO> listAdUserAux = new ArrayList<ADUserDTO>();
+        new Hashtable();
 
         SearchControls searchControls = null;
         String filtro = null;
-        boolean usuarioAutenticado = false;
-
-        for (ServidorContextoDTO context : dadosConexao()) {
+        for (final ServidorContextoDTO context : dadosConexao()) {
             adUserAux = new ADUserDTO();
             LdapContext ldapContexto = context.getLdapContext();
 
-            ArrayList<ADUserDTO> listaUsuariosAD = new ArrayList<ADUserDTO>();
-            String var = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.LDAP_OPEN_LDAP, "N");
+            new ArrayList<ADUserDTO>();
+            final String var = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.LDAP_OPEN_LDAP, "N");
 
             if (ldapContexto != null) {
                 searchControls = new SearchControls();
                 searchControls.setSearchScope(SearchControls.SUBTREE_SCOPE);
 
                 try {
-                    Integer pageSize = new Integer(1);
+                    final Integer pageSize = new Integer(1);
 
-                    byte[] cookie = null;
                     int contador = 0;
-                    int total;
-                    int numPagina = 0;
-
-                    String[] atributosRetorno = getADFieldList();
+                    final String[] atributosRetorno = getADFieldList();
                     searchControls.setReturningAttributes(atributosRetorno);
 
-                    //filtro caso venha pelo context ele pega esse valor, senão pega o valor padrão do parametro;
+                    // filtro caso venha pelo context ele pega esse valor, senão pega o valor padrão do parametro;
                     if (context.getLdpaFiltro() != null && !context.getLdpaFiltro().equalsIgnoreCase("")) {
                         filtro = context.getLdpaFiltro();
-                    }else{
+                    } else {
                         filtro = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.LDAP_FILTRO, "(&(objectCategory=person)(objectClass=user))");
                     }
 
-                    usuarioService = (UsuarioService) ServiceLocator.getInstance().getService(UsuarioService.class, null);
-
-                    if(var.equals("S")) {
-                        ldapContexto.setRequestControls(new Control[] { new PagedResultsControl(pageSize, Control.NONCRITICAL) });
+                    if (var.equals("S")) {
+                        ldapContexto.setRequestControls(new Control[] {new PagedResultsControl(pageSize, Control.NONCRITICAL)});
                     } else {
-                        ldapContexto.setRequestControls(new Control[] { new PagedResultsControl(pageSize, Control.CRITICAL) });
+                        ldapContexto.setRequestControls(new Control[] {new PagedResultsControl(pageSize, Control.CRITICAL)});
                     }
 
-                    numPagina++;
                     results = ldapContexto.search(context.getBaseDominio(), filtro, searchControls);
 
                     while (results != null && results.hasMoreElements() && contador < 1) {
                         contador++;
 
                         String retorno = null;
-                        SearchResult searchResult = (SearchResult) results.next();
+                        final SearchResult searchResult = (SearchResult) results.next();
 
-                        for (int i = 0; i < atributosRetorno.length; i++) {
-                            if (searchResult.getAttributes().get(atributosRetorno[i]) != null) {
-                                retorno = nullToNaoDisponivel(searchResult.getAttributes().get(atributosRetorno[i]).toString());
-                                setPropertyToAdUserDTO(adUserAux, atributosRetorno[i], retorno.split(":")[1]);
+                        for (final String element : atributosRetorno) {
+                            if (searchResult.getAttributes().get(element) != null) {
+                                retorno = nullToNaoDisponivel(searchResult.getAttributes().get(element).toString());
+                                setPropertyToAdUserDTO(adUserAux, element, retorno.split(":")[1]);
                             }
 
                         }
                     }
-                } catch (AuthenticationException ex) {
-                    String[] erro = ex.toString().split(":");
-                    String[] e = erro[erro.length - 1].split(",");
+                } catch (final AuthenticationException ex) {
+                    final String[] erro = ex.toString().split(":");
+                    final String[] e = erro[erro.length - 1].split(",");
 
                     if (e[1].compareTo(" data 525") == 0) {
                         System.out.println("Usuario invalido");
                     } else if (e[1].compareTo(" data 52e") == 0) {
                         System.out.println("Senha invalida");
                     }
-                } catch (SizeLimitExceededException sizeLimit) {
+                } catch (final SizeLimitExceededException sizeLimit) {
                     System.out.println("Limite excedeu...");
                     sizeLimit.printStackTrace();
-                } catch (NamingException ex) {
+                } catch (final NamingException ex) {
                     ex.printStackTrace();
                     System.out.println("NamingException is: " + ex);
-                } catch (IOException ie) {
+                } catch (final IOException ie) {
                     System.err.println("LDAP - IOException ");
                     ie.printStackTrace();
-                } catch (Exception e) {
+                } catch (final Exception e) {
                     e.printStackTrace();
                 } finally {
                     try {
@@ -989,32 +971,32 @@ public final class LDAPUtils {
                         adUserAux.setAtivo(true);
                         adUserAux.setServer(context.getServidor());
                         listAdUserAux.add(adUserAux);
-                    } catch (NamingException e) {
+                    } catch (final NamingException e) {
                         System.out.println("LDAP - NamingException - não foi possível fechar ldapContexto.");
                         e.printStackTrace();
                     }
                 }
-            }else{
+            } else {
                 adUserAux.setAtivo(false);
                 adUserAux.setServer(context.getServidor());
                 listAdUserAux.add(adUserAux);
             }
         }
 
-        return listAdUserAux;//olhar
+        return listAdUserAux;// olhar
     }
 
     private static Collection<ServidorContextoDTO> dadosConexao() throws Exception {
 
-        Collection<DirContext> dirContext = new ArrayList<DirContext>();
-        Collection<ServidorContextoDTO> listServidor = new ArrayList<ServidorContextoDTO>();
-        Hashtable env = new Hashtable();
+        new ArrayList<DirContext>();
+        final Collection<ServidorContextoDTO> listServidor = new ArrayList<ServidorContextoDTO>();
+        final Hashtable env = new Hashtable();
 
         LdapContext contexto = null;
 
-        String[] servidor = SERVIDOR.trim().split(";");
-        String[] admin_dn = ADMIN_DN.trim().split(";");
-        String[] admin_pw = ADMIN_PW.trim().split(";");
+        final String[] servidor = SERVIDOR.trim().split(";");
+        final String[] admin_dn = ADMIN_DN.trim().split(";");
+        final String[] admin_pw = ADMIN_PW.trim().split(";");
 
         String[] ldap_filtro = null;
         String[] ldap_atributo = null;
@@ -1027,23 +1009,23 @@ public final class LDAPUtils {
             ldap_filtro = LDAP_FILTRO.trim().split(";");
         }
         if (!LDAP_ATRIBUTO.equals("")) {
-            ldap_atributo  = LDAP_ATRIBUTO.trim().split(";");
+            ldap_atributo = LDAP_ATRIBUTO.trim().split(";");
         }
         if (!GRUPOPADRAO.equals("")) {
-            grupo_padrao = GRUPOPADRAO .trim().split(";");
+            grupo_padrao = GRUPOPADRAO.trim().split(";");
         }
         if (!ID_PERFIL_ACESSO_DEFAULT.equals("")) {
-            perfil_acesso  = ID_PERFIL_ACESSO_DEFAULT.trim().split(";");
+            perfil_acesso = ID_PERFIL_ACESSO_DEFAULT.trim().split(";");
         }
         if (!NUMERO_COLABORADORES_CONSULTA_AD.equals("")) {
-            numero_colaboradores   = NUMERO_COLABORADORES_CONSULTA_AD .trim().split(";");
+            numero_colaboradores = NUMERO_COLABORADORES_CONSULTA_AD.trim().split(";");
         }
         if (!BASE_DN.equals("")) {
             base_dominio = BASE_DN.trim().split(";");
         }
 
         for (int i = 0; i < servidor.length; i++) {
-            ServidorContextoDTO servidorContextoDTO = new ServidorContextoDTO();
+            final ServidorContextoDTO servidorContextoDTO = new ServidorContextoDTO();
 
             env.put(Context.INITIAL_CONTEXT_FACTORY, INITIAL_CTX);
 
@@ -1084,8 +1066,8 @@ public final class LDAPUtils {
                     listServidor.add(servidorContextoDTO);
                 }
 
-                //contexto.close();
-            } catch (NamingException e) {
+                // contexto.close();
+            } catch (final NamingException e) {
                 servidorContextoDTO.setAtivo(false);
                 listServidor.add(servidorContextoDTO);
                 System.out.println(MSG_ERROR_LDAP_CONNECTION);
@@ -1094,4 +1076,5 @@ public final class LDAPUtils {
         }
         return listServidor;
     }
+
 }

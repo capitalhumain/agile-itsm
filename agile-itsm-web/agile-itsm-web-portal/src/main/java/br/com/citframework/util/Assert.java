@@ -1,6 +1,6 @@
 package br.com.citframework.util;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * Utilitário pra facilitar asserções e validações

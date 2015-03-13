@@ -30,7 +30,7 @@ public class DesignerWorkflow extends AjaxFormAction{
 			HttpServletResponse response) throws Exception {
 		Collection col = (Collection) request.getSession().getAttribute("workflow");
 		if (col == null){
-			col = new ArrayList();
+			col = new ArrayList<>();
 		}
 		DesignerWorkflowDTO designerWorkflowDTO = (DesignerWorkflowDTO)document.getBean();
 		col.add(designerWorkflowDTO);
@@ -45,7 +45,7 @@ public class DesignerWorkflow extends AjaxFormAction{
 			HttpServletResponse response) throws Exception {
 		Collection col = (Collection) request.getSession().getAttribute("workflow");
 		if (col == null){
-			col = new ArrayList();
+			col = new ArrayList<>();
 		}
 		String strDrawWorkflow = "";
 		int i = 0;

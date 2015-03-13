@@ -1,6 +1,3 @@
-/**
- * 
- */
 package br.com.citframework.dto;
 
 import java.sql.Date;
@@ -10,116 +7,114 @@ import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * @author karem.ricarte
- * 
+ *
  */
 public class LogDados extends BaseEntity {
 
-	/**
-	 * @author karem.ricarte
-	 */
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	private Long idlog;
-	private Timestamp dtAtualizacao;
-	private String operacao;
-	private String dados;
-	private Integer idUsuario;
-	private String localOrigem;
-	private String nomeTabela;
-	/*Usado apenas para filtro de pesquisa*/
-	private Date dataInicio;
-	private Date dataFim;
-	
-	private Timestamp dataLog;
-	
-	private String nomeUsuario;
+    private Long idlog;
+    private Timestamp dtAtualizacao;
+    private String operacao;
+    private String dados;
+    private Integer idUsuario;
+    private String localOrigem;
+    private String nomeTabela;
 
-	public Long getIdlog() {
-		return idlog;
-	}
+    /* Usado apenas para filtro de pesquisa */
+    private Date dataInicio;
+    private Date dataFim;
 
-	public void setIdlog(Long idlog) {
-		this.idlog = idlog;
-	}
+    private Timestamp dataLog;
 
-	public Timestamp getDtAtualizacao() {
-		return dtAtualizacao;
-	}
+    private String nomeUsuario;
 
-	public void setDtAtualizacao(Timestamp dtAtualizacao) {
-		this.dtAtualizacao = dtAtualizacao;
-	}
+    public Long getIdlog() {
+        return idlog;
+    }
 
-	public String getOperacao() {
-		return operacao;
-	}
+    public void setIdlog(final Long idlog) {
+        this.idlog = idlog;
+    }
 
-	public void setOperacao(String operacao) {
-		this.operacao = operacao;
-	}
+    public Timestamp getDtAtualizacao() {
+        return dtAtualizacao;
+    }
 
-	public String getDados() {
-		return dados;
-	}
+    public void setDtAtualizacao(final Timestamp dtAtualizacao) {
+        this.dtAtualizacao = dtAtualizacao;
+    }
 
-	public void setDados(String dados) {
-		this.dados = dados;
-	}
+    public String getOperacao() {
+        return operacao;
+    }
 
-	public Integer getIdUsuario() {
-		return idUsuario;
-	}
+    public void setOperacao(final String operacao) {
+        this.operacao = operacao;
+    }
 
-	public void setIdUsuario(Integer idUsuario) {
-		this.idUsuario = idUsuario;
-	}
+    public String getDados() {
+        return dados;
+    }
 
-	public String getLocalOrigem() {
-		return localOrigem;
-	}
+    public void setDados(final String dados) {
+        this.dados = dados;
+    }
 
-	public void setLocalOrigem(String localOrigem) {
-		this.localOrigem = localOrigem;
-	}
+    public Integer getIdUsuario() {
+        return idUsuario;
+    }
 
-	public String getNomeTabela() {
-		return nomeTabela;
-	}
+    public void setIdUsuario(final Integer idUsuario) {
+        this.idUsuario = idUsuario;
+    }
 
-	public void setNomeTabela(String nomeTabela) {
-		this.nomeTabela = nomeTabela;
-	}
+    public String getLocalOrigem() {
+        return localOrigem;
+    }
 
-	public Date getDataInicio() {
-		return dataInicio;
-	}
+    public void setLocalOrigem(final String localOrigem) {
+        this.localOrigem = localOrigem;
+    }
 
-	public void setDataInicio(Date dataInicio) {
-		this.dataInicio = dataInicio;
-	}
+    public String getNomeTabela() {
+        return nomeTabela;
+    }
 
-	public Date getDataFim() {
-		return dataFim;
-	}
+    public void setNomeTabela(final String nomeTabela) {
+        this.nomeTabela = nomeTabela;
+    }
 
-	public void setDataFim(Date dataFim) {
-		this.dataFim = dataFim;
-	}
+    public Date getDataInicio() {
+        return dataInicio;
+    }
 
-	public String getNomeUsuario() {
-		return nomeUsuario;
-	}
+    public void setDataInicio(final Date dataInicio) {
+        this.dataInicio = dataInicio;
+    }
 
-	public void setNomeUsuario(String nomeUsuario) {
-		this.nomeUsuario = nomeUsuario;
-	}
+    public Date getDataFim() {
+        return dataFim;
+    }
 
-	public Timestamp getDataLog() {
-		return dataLog;
-	}
+    public void setDataFim(final Date dataFim) {
+        this.dataFim = dataFim;
+    }
 
-	public void setDataLog(Timestamp dataLog) {
-		this.dataLog = dataLog;
-	}
+    public String getNomeUsuario() {
+        return nomeUsuario;
+    }
+
+    public void setNomeUsuario(final String nomeUsuario) {
+        this.nomeUsuario = nomeUsuario;
+    }
+
+    public Timestamp getDataLog() {
+        return dataLog;
+    }
+
+    public void setDataLog(final Timestamp dataLog) {
+        this.dataLog = dataLog;
+    }
 
 }

@@ -7,7 +7,6 @@ import br.com.centralit.citged.bean.ControleGEDDTO;
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.service.CrudService;
 
-@SuppressWarnings("rawtypes")
 public interface ControleGEDService extends CrudService {
 
     String getProximaPastaArmazenar() throws Exception;
@@ -26,7 +25,8 @@ public interface ControleGEDService extends CrudService {
      * @throws PersistenceException
      * @throws Exception
      */
-    Collection listByIdTabelaAndIdBaseConhecimentoPaiEFilho(final Integer idTabela, final Integer idBasePai, final Integer idBaseFilho) throws PersistenceException, Exception;
+    Collection listByIdTabelaAndIdBaseConhecimentoPaiEFilho(final Integer idTabela, final Integer idBasePai, final Integer idBaseFilho)
+            throws PersistenceException, Exception;
 
     Collection listByIdTabelaAndIdBaseConhecimento(final Integer idTabela, final Integer idBaseConhecimento) throws Exception;
 

@@ -15,55 +15,69 @@ import br.com.citframework.integracao.Order;
 import br.com.citframework.util.Constantes;
 
 public class ExcecaoCalendarioDao extends CrudDaoDefaultImpl {
-	public ExcecaoCalendarioDao() {
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
-	public Collection<Field> getFields() {
-		Collection<Field> listFields = new ArrayList<>();
-		listFields.add(new Field("idExcecaoCalendario" ,"idExcecaoCalendario", true, true, false, false));
-		listFields.add(new Field("idCalendario" ,"idCalendario", false, false, false, false));
-		listFields.add(new Field("idJornada" ,"idJornada", false, false, false, false));
-		listFields.add(new Field("tipo" ,"tipo", false, false, false, false));
-		listFields.add(new Field("dataInicio" ,"dataInicio", false, false, false, false));
-		listFields.add(new Field("dataTermino" ,"dataTermino", false, false, false, false));
-		return listFields;
-	}
-	public String getTableName() {
-		return this.getOwner() + "ExcecaoCalendario";
-	}
-	public Collection list() throws PersistenceException {
-		return null;
-	}
 
-	public Class getBean() {
-		return ExcecaoCalendarioDTO.class;
-	}
-	public Collection find(BaseEntity arg0) throws PersistenceException {
-		return null;
-	}
-	public Collection findByIdCalendario(Integer idCalendario) throws PersistenceException {
-		List condicao = new ArrayList();
-		List ordenacao = new ArrayList(); 
-		condicao.add(new Condition("idCalendario", "=", idCalendario)); 
-		ordenacao.add(new Order("dataInicio"));
-		return super.findByCondition(condicao, ordenacao);
-	}
-	public void deleteByIdCalendario(Integer idCalendario) throws PersistenceException {
-		List condicao = new ArrayList();
-		condicao.add(new Condition("idCalendario", "=", idCalendario));
-		super.deleteByCondition(condicao);
-	}
-	public ExcecaoCalendarioDTO findByIdCalendarioAndData(Integer idCalendario, Date data) throws PersistenceException {
-		List condicao = new ArrayList();
-		List ordenacao = new ArrayList(); 
-		condicao.add(new Condition("idCalendario", "=", idCalendario)); 
-		condicao.add(new Condition("dataInicio", "<=", data)); 
-		condicao.add(new Condition("dataTermino", ">=", data)); 
-		ordenacao.add(new Order("dataInicio"));
-		List result = (List) super.findByCondition(condicao, ordenacao);
-		if (result != null && !result.isEmpty())
-			return (ExcecaoCalendarioDTO) result.get(0);
-		else
-			return null;
-	}
+    public ExcecaoCalendarioDao() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
+    }
+
+    @Override
+    public Collection<Field> getFields() {
+        final Collection<Field> listFields = new ArrayList<>();
+        listFields.add(new Field("idExcecaoCalendario", "idExcecaoCalendario", true, true, false, false));
+        listFields.add(new Field("idCalendario", "idCalendario", false, false, false, false));
+        listFields.add(new Field("idJornada", "idJornada", false, false, false, false));
+        listFields.add(new Field("tipo", "tipo", false, false, false, false));
+        listFields.add(new Field("dataInicio", "dataInicio", false, false, false, false));
+        listFields.add(new Field("dataTermino", "dataTermino", false, false, false, false));
+        return listFields;
+    }
+
+    @Override
+    public String getTableName() {
+        return this.getOwner() + "ExcecaoCalendario";
+    }
+
+    @Override
+    public Collection list() throws PersistenceException {
+        return null;
+    }
+
+    @Override
+    public Class getBean() {
+        return ExcecaoCalendarioDTO.class;
+    }
+
+    @Override
+    public Collection find(final BaseEntity arg0) throws PersistenceException {
+        return null;
+    }
+
+    public Collection findByIdCalendario(final Integer idCalendario) throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
+        condicao.add(new Condition("idCalendario", "=", idCalendario));
+        ordenacao.add(new Order("dataInicio"));
+        return super.findByCondition(condicao, ordenacao);
+    }
+
+    public void deleteByIdCalendario(final Integer idCalendario) throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        condicao.add(new Condition("idCalendario", "=", idCalendario));
+        super.deleteByCondition(condicao);
+    }
+
+    public ExcecaoCalendarioDTO findByIdCalendarioAndData(final Integer idCalendario, final Date data) throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
+        condicao.add(new Condition("idCalendario", "=", idCalendario));
+        condicao.add(new Condition("dataInicio", "<=", data));
+        condicao.add(new Condition("dataTermino", ">=", data));
+        ordenacao.add(new Order("dataInicio"));
+        final List result = (List) super.findByCondition(condicao, ordenacao);
+        if (result != null && !result.isEmpty()) {
+            return (ExcecaoCalendarioDTO) result.get(0);
+        }
+        return null;
+    }
+
 }

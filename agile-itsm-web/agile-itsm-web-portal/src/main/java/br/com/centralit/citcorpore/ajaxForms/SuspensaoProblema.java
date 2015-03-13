@@ -5,7 +5,7 @@ import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 
 import br.com.centralit.citajax.html.AjaxFormAction;
 import br.com.centralit.citajax.html.DocumentHTML;
@@ -55,7 +55,7 @@ public class SuspensaoProblema extends AjaxFormAction {
 		comboJustificativa.addOption("", UtilI18N.internacionaliza(request, "citcorpore.comum.selecione"));
 		if (colJustificativas != null){
 			for(JustificativaProblemaDTO justificativa : colJustificativas){
-				comboJustificativa.addOption(justificativa.getIdJustificativaProblema().toString(), StringEscapeUtils.escapeJavaScript(justificativa.getDescricaoProblema()));
+				comboJustificativa.addOption(justificativa.getIdJustificativaProblema().toString(), StringEscapeUtils.escapeEcmaScript(justificativa.getDescricaoProblema()));
 			}
 		}
 		form.setValues(problemaDto);

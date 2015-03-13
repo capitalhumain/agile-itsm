@@ -15,25 +15,25 @@ import br.com.citframework.util.DateAdapter;
 
 /**
  * Bean de Valor.
- * 
+ *
  * @author valdoilo.damasceno
- * 
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "Valor") 
+@XmlRootElement(name = "Valor")
 public class ValorDTO extends BaseEntity {
 
     public ValorDTO() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+        super();
 
-	public ValorDTO(String valorStr) {
-		super();
-		this.valorStr = valorStr;
-	}
+    }
 
-	private static final long serialVersionUID = 6983999542590171032L;
+    public ValorDTO(final String valorStr) {
+        super();
+        this.valorStr = valorStr;
+    }
+
+    private static final long serialVersionUID = 6983999542590171032L;
 
     private Integer idValor;
     private Integer idItemConfiguracao;
@@ -45,10 +45,10 @@ public class ValorDTO extends BaseEntity {
     private Double valorDecimal;
 
     @XmlElement(name = "valorDate")
-	@XmlJavaTypeAdapter(DateAdapter.class)	
-    private java.sql.Date valorDate;    
+    @XmlJavaTypeAdapter(DateAdapter.class)
+    private java.sql.Date valorDate;
 
-    private String tag;     
+    private String tag;
     private String tagtipoitemconfiguracao;
 
     /**
@@ -63,7 +63,7 @@ public class ValorDTO extends BaseEntity {
      *
      * @param tag
      */
-    public void setTag(String tag) {
+    public void setTag(final String tag) {
         this.tag = tag;
     }
 
@@ -71,146 +71,147 @@ public class ValorDTO extends BaseEntity {
      * @return valor do atributo idValor.
      */
     public Integer getIdValor() {
-	return idValor;
+        return idValor;
     }
 
     /**
      * Define valor do atributo idValor.
-     * 
+     *
      * @param idValor
      */
-    public void setIdValor(Integer idValor) {
-	this.idValor = idValor;
+    public void setIdValor(final Integer idValor) {
+        this.idValor = idValor;
     }
 
     /**
      * @return valor do atributo idItemConfiguracao.
      */
     public Integer getIdItemConfiguracao() {
-	return idItemConfiguracao;
+        return idItemConfiguracao;
     }
 
     /**
      * Define valor do atributo idItemConfiguracao.
-     * 
+     *
      * @param idItemConfiguracao
      */
-    public void setIdItemConfiguracao(Integer idItemConfiguracao) {
-	this.idItemConfiguracao = idItemConfiguracao;
+    public void setIdItemConfiguracao(final Integer idItemConfiguracao) {
+        this.idItemConfiguracao = idItemConfiguracao;
     }
 
     /**
      * @return valor do atributo idCaracteristica.
      */
     public Integer getIdCaracteristica() {
-	return idCaracteristica;
+        return idCaracteristica;
     }
 
     /**
      * Define valor do atributo idCaracteristica.
-     * 
+     *
      * @param idCaracteristica
      */
-    public void setIdCaracteristica(Integer idCaracteristica) {
-	this.idCaracteristica = idCaracteristica;
+    public void setIdCaracteristica(final Integer idCaracteristica) {
+        this.idCaracteristica = idCaracteristica;
     }
 
     /**
      * @return valor do atributo idBaseItemConfiguracao.
      */
     public Integer getIdBaseItemConfiguracao() {
-	return idBaseItemConfiguracao;
+        return idBaseItemConfiguracao;
     }
 
     /**
      * Define valor do atributo idBaseItemConfiguracao.
-     * 
+     *
      * @param idBaseItemConfiguracao
      */
-    public void setIdBaseItemConfiguracao(Integer idBaseItemConfiguracao) {
-	this.idBaseItemConfiguracao = idBaseItemConfiguracao;
+    public void setIdBaseItemConfiguracao(final Integer idBaseItemConfiguracao) {
+        this.idBaseItemConfiguracao = idBaseItemConfiguracao;
     }
 
     /**
      * @return valor do atributo valorStr.
      */
     public String getValorStr() {
-	return valorStr;
+        return valorStr;
     }
 
     /**
      * Define valor do atributo valorStr.
-     * 
+     *
      * @param valorStr
      */
     public void setValorStr(String valorStr) {
-	if(valorStr == null)
-	    valorStr = "";
-	this.valorStr = valorStr;
+        if (valorStr == null) {
+            valorStr = "";
+        }
+        this.valorStr = valorStr;
     }
 
     /**
      * @return valor do atributo valorLongo.
      */
     public String getValorLongo() {
-	return valorLongo;
+        return valorLongo;
     }
 
     /**
      * Define valor do atributo valorLongo.
-     * 
+     *
      * @param valorLongo
      */
-    public void setValorLongo(String valorLongo) {
-	this.valorLongo = valorLongo;
+    public void setValorLongo(final String valorLongo) {
+        this.valorLongo = valorLongo;
     }
 
     /**
      * @return valor do atributo valorDecimal.
      */
     public Double getValorDecimal() {
-	return valorDecimal;
+        return valorDecimal;
     }
 
     /**
      * Define valor do atributo valorDecimal.
-     * 
+     *
      * @param valorDecimal
      */
-    public void setValorDecimal(Double valorDecimal) {
-	this.valorDecimal = valorDecimal;
+    public void setValorDecimal(final Double valorDecimal) {
+        this.valorDecimal = valorDecimal;
     }
 
     /**
      * @return valor do atributo valorDate.
      */
     public java.sql.Date getValorDate() {
-	return valorDate;
+        return valorDate;
     }
 
     /**
      * Define valor do atributo valorDate.
-     * 
+     *
      * @param valorDate
      */
-    public void setValorDate(java.sql.Date valorDate) {
-	this.valorDate = valorDate;
+    public void setValorDate(final java.sql.Date valorDate) {
+        this.valorDate = valorDate;
     }
 
     /**
      * @return valor do atributo nomeCaracteristica.
      */
     public String getNomeCaracteristica() {
-	return nomeCaracteristica;
+        return nomeCaracteristica;
     }
 
     /**
      * Define valor do atributo nomeCaracteristica.
-     * 
+     *
      * @param nomeCaracteristica
      */
-    public void setNomeCaracteristica(String nomeCaracteristica) {
-	this.nomeCaracteristica = nomeCaracteristica;
+    public void setNomeCaracteristica(final String nomeCaracteristica) {
+        this.nomeCaracteristica = nomeCaracteristica;
     }
 
     /**
@@ -221,9 +222,10 @@ public class ValorDTO extends BaseEntity {
     }
 
     /**
-     * @param tagtipoitemconfiguracao the tagtipoitemconfiguracao to set
+     * @param tagtipoitemconfiguracao
+     *            the tagtipoitemconfiguracao to set
      */
-    public void setTagtipoitemconfiguracao(String tagtipoitemconfiguracao) {
+    public void setTagtipoitemconfiguracao(final String tagtipoitemconfiguracao) {
         this.tagtipoitemconfiguracao = tagtipoitemconfiguracao;
     }
 

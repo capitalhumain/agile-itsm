@@ -3,69 +3,78 @@ package br.com.centralit.citcorpore.bean;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class TemplateImpressaoDTO extends BaseEntity {
-	private Integer idTemplateImpressao;
-	private String nomeTemplate;
-	private String htmlCabecalho;
-	private String htmlCorpo;
-	private String htmlRodape;
-	private Integer idTipoTemplateImp;
-	private Integer tamCabecalho;
-	private Integer tamRodape;
 
-	public Integer getIdTemplateImpressao(){
-		return this.idTemplateImpressao;
-	}
-	public void setIdTemplateImpressao(Integer parm){
-		this.idTemplateImpressao = parm;
-	}
+    private Integer idTemplateImpressao;
+    private String nomeTemplate;
+    private String htmlCabecalho;
+    private String htmlCorpo;
+    private String htmlRodape;
+    private Integer idTipoTemplateImp;
+    private Integer tamCabecalho;
+    private Integer tamRodape;
 
-	public String getNomeTemplate(){
-		return this.nomeTemplate;
-	}
-	public void setNomeTemplate(String parm){
-		this.nomeTemplate = parm;
-	}
+    public Integer getIdTemplateImpressao() {
+        return idTemplateImpressao;
+    }
 
-	public String getHtmlCabecalho(){
-		return this.htmlCabecalho;
-	}
-	public void setHtmlCabecalho(String parm){
-		this.htmlCabecalho = parm;
-	}
+    public void setIdTemplateImpressao(final Integer parm) {
+        idTemplateImpressao = parm;
+    }
 
-	public String getHtmlCorpo(){
-		return this.htmlCorpo;
-	}
-	public void setHtmlCorpo(String parm){
-		this.htmlCorpo = parm;
-	}
+    public String getNomeTemplate() {
+        return nomeTemplate;
+    }
 
-	public String getHtmlRodape(){
-		return this.htmlRodape;
-	}
-	public void setHtmlRodape(String parm){
-		this.htmlRodape = parm;
-	}
+    public void setNomeTemplate(final String parm) {
+        nomeTemplate = parm;
+    }
 
-	public Integer getIdTipoTemplateImp(){
-		return this.idTipoTemplateImp;
-	}
-	public void setIdTipoTemplateImp(Integer parm){
-		this.idTipoTemplateImp = parm;
-	}
+    public String getHtmlCabecalho() {
+        return htmlCabecalho;
+    }
 
-	public Integer getTamCabecalho(){
-		return this.tamCabecalho;
-	}
-	public void setTamCabecalho(Integer parm){
-		this.tamCabecalho = parm;
-	}
+    public void setHtmlCabecalho(final String parm) {
+        htmlCabecalho = parm;
+    }
 
-	public Integer getTamRodape(){
-		return this.tamRodape;
-	}
-	public void setTamRodape(Integer parm){
-		this.tamRodape = parm;
-	}
+    public String getHtmlCorpo() {
+        return htmlCorpo;
+    }
+
+    public void setHtmlCorpo(final String parm) {
+        htmlCorpo = parm;
+    }
+
+    public String getHtmlRodape() {
+        return htmlRodape;
+    }
+
+    public void setHtmlRodape(final String parm) {
+        htmlRodape = parm;
+    }
+
+    public Integer getIdTipoTemplateImp() {
+        return idTipoTemplateImp;
+    }
+
+    public void setIdTipoTemplateImp(final Integer parm) {
+        idTipoTemplateImp = parm;
+    }
+
+    public Integer getTamCabecalho() {
+        return tamCabecalho;
+    }
+
+    public void setTamCabecalho(final Integer parm) {
+        tamCabecalho = parm;
+    }
+
+    public Integer getTamRodape() {
+        return tamRodape;
+    }
+
+    public void setTamRodape(final Integer parm) {
+        tamRodape = parm;
+    }
 
 }

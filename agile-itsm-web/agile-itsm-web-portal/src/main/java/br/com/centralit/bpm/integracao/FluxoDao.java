@@ -60,7 +60,7 @@ public class FluxoDao extends CrudDaoDefaultImpl {
             final ElementoFluxoEventoDao fluxoEventoDao = new ElementoFluxoEventoDao();
             final SequenciaFluxoDao fluxoSequenciaDao = new SequenciaFluxoDao();
 
-            final TransactionControler tc = getTransactionControler();
+            final TransactionControler tc = this.getTransactionControler();
             fluxoInicioDao.setTransactionControler(tc);
             fluxoFinalizacaoDao.setTransactionControler(tc);
             fluxoTarefaDao.setTransactionControler(tc);
@@ -117,21 +117,21 @@ public class FluxoDao extends CrudDaoDefaultImpl {
     @Override
     public Collection list() throws PersistenceException {
         final String sql = SQL_RESTORE + " WHERE f.dataFim IS NULL  ORDER BY t.nomeFluxo, f.idFluxo";
-        final List<?> lista = execSQL(sql, null);
+        final List<?> lista = this.execSQL(sql, null);
 
         /** A recuperação da estrutura não é necessária. Operação Usain Bolt - 27.01.2015 - carlos.santos */
         // return this.recuperaEstrutura(engine.listConvertion(this.getBean(), lista, this.getListaDeCampos()));
-        return engine.listConvertion(getBean(), lista, getListaDeCampos());
+        return engine.listConvertion(this.getBean(), lista, this.getListaDeCampos());
     }
 
     public Collection listAll() throws PersistenceException {
         final String sql = SQL_RESTORE + " ORDER BY t.nomeFluxo, f.idFluxo";
 
-        final List<?> lista = execSQL(sql, null);
+        final List<?> lista = this.execSQL(sql, null);
 
         /** A recuperação da estrutura não é necessária. Operação Usain Bolt - 27.01.2015 - carlos.santos */
         // return this.recuperaEstrutura(engine.listConvertion(this.getBean(), lista, this.getListaDeCampos()));
-        return engine.listConvertion(getBean(), lista, getListaDeCampos());
+        return engine.listConvertion(this.getBean(), lista, this.getListaDeCampos());
     }
 
     @Override
@@ -143,9 +143,9 @@ public class FluxoDao extends CrudDaoDefaultImpl {
 
         parametros.add(((FluxoDTO) obj).getIdFluxo());
 
-        final List<?> lista = execSQL(sql.toString(), parametros.toArray());
+        final List<?> lista = this.execSQL(sql.toString(), parametros.toArray());
 
-        final List<FluxoDTO> result = engine.listConvertion(getBean(), lista, getListaDeCampos());
+        final List<FluxoDTO> result = engine.listConvertion(this.getBean(), lista, this.getListaDeCampos());
 
         if (result != null && !result.isEmpty()) {
             /** A recuperação da estrutura não é necessária. Operação Usain Bolt - 27.01.2015 - carlos.santos */
@@ -158,11 +158,11 @@ public class FluxoDao extends CrudDaoDefaultImpl {
     public FluxoDTO findByTipoFluxo(final Integer idTipoFluxo) throws PersistenceException {
         final String sql = SQL_RESTORE + " WHERE f.dataFim IS NULL   AND f.idTipoFluxo = ? ";
 
-        final List<?> lista = execSQL(sql, new Object[] {idTipoFluxo});
+        final List<?> lista = this.execSQL(sql, new Object[] {idTipoFluxo});
 
         /** A recuperação da estrutura não é necessária. Operação Usain Bolt - 27.01.2015 - carlos.santos */
         // final List result = this.recuperaEstrutura(engine.listConvertion(this.getBean(), lista, this.getListaDeCampos()));
-        final List result = engine.listConvertion(getBean(), lista, getListaDeCampos());
+        final List result = engine.listConvertion(this.getBean(), lista, this.getListaDeCampos());
         if (result != null && !result.isEmpty()) {
             return (FluxoDTO) result.get(0);
         }
@@ -172,21 +172,21 @@ public class FluxoDao extends CrudDaoDefaultImpl {
     public Collection findTodosByTipoFluxo(final Integer idTipoFluxo) throws PersistenceException {
         final String sql = SQL_RESTORE + " WHERE f.idTipoFluxo = ? ";
 
-        final List<?> lista = execSQL(sql, new Object[] {idTipoFluxo});
+        final List<?> lista = this.execSQL(sql, new Object[] {idTipoFluxo});
 
         /** A recuperação da estrutura não é necessária. Operação Usain Bolt - 27.01.2015 - carlos.santos */
         // return this.recuperaEstrutura(engine.listConvertion(this.getBean(), lista, this.getListaDeCampos()));
-        return engine.listConvertion(getBean(), lista, getListaDeCampos());
+        return engine.listConvertion(this.getBean(), lista, this.getListaDeCampos());
     }
 
     public FluxoDTO findByVersao(final FluxoDTO fluxoDto) throws PersistenceException {
         final String sql = SQL_RESTORE + " WHERE t.nomeFluxo = ?   AND f.versao    = ? ";
 
-        final List lista = execSQL(sql, new Object[] {fluxoDto.getNomeFluxo(), fluxoDto.getVersao()});
+        final List lista = this.execSQL(sql, new Object[] {fluxoDto.getNomeFluxo(), fluxoDto.getVersao()});
 
         /** A recuperação da estrutura não é necessária. Operação Usain Bolt - 27.01.2015 - carlos.santos */
         // final List result = this.recuperaEstrutura(engine.listConvertion(this.getBean(), lista, this.getListaDeCampos()));
-        final List result = engine.listConvertion(getBean(), lista, getListaDeCampos());
+        final List result = engine.listConvertion(this.getBean(), lista, this.getListaDeCampos());
         if (result != null && !result.isEmpty()) {
             return (FluxoDTO) result.get(0);
         }
@@ -196,30 +196,25 @@ public class FluxoDao extends CrudDaoDefaultImpl {
     public FluxoDTO findByNome(final String nomeFluxo) throws PersistenceException {
         final String sql = SQL_RESTORE + " WHERE t.nomeFluxo = ?   AND f.dataFim IS NULL ";
 
-        final List<?> lista = execSQL(sql, new Object[] {nomeFluxo});
+        final List<?> lista = this.execSQL(sql, new Object[] {nomeFluxo});
 
         /** A recuperação da estrutura não é necessária. Operação Usain Bolt - 27.01.2015 - carlos.santos */
         // final List result = this.recuperaEstrutura(engine.listConvertion(this.getBean(), lista, this.getListaDeCampos()));
-        final List result = engine.listConvertion(getBean(), lista, getListaDeCampos());
+        final List result = engine.listConvertion(this.getBean(), lista, this.getListaDeCampos());
         if (result != null && !result.isEmpty()) {
             return (FluxoDTO) result.get(0);
         }
         return null;
     }
 
-    @Override
-    public void updateNotNull(final BaseEntity obj) throws PersistenceException {
-        super.updateNotNull(obj);
-    }
-
     public Collection findByIdProcessoNegocio(final Integer parm) throws PersistenceException {
         final String sql = SQL_RESTORE + " WHERE t.idProcessoNegocio = ? ";
 
-        final List<?> lista = execSQL(sql, new Object[] {parm});
+        final List<?> lista = this.execSQL(sql, new Object[] {parm});
 
         /** A recuperação da estrutura não é necessária. Operação Usain Bolt - 27.01.2015 - carlos.santos */
         // return this.recuperaEstrutura(engine.listConvertion(this.getBean(), lista, this.getListaDeCampos()));
-        return engine.listConvertion(getBean(), lista, getListaDeCampos());
+        return engine.listConvertion(this.getBean(), lista, this.getListaDeCampos());
     }
 
     /**
@@ -233,8 +228,8 @@ public class FluxoDao extends CrudDaoDefaultImpl {
      */
     private FluxoDTO recuperaEstrutura(final FluxoDTO fluxoDto) throws PersistenceException {
 
-        final TransactionControler tc = getTransactionControler();
-        getElementoFluxoDao().setTransactionControler(tc);
+        final TransactionControler tc = this.getTransactionControler();
+        this.getElementoFluxoDao().setTransactionControler(tc);
 
         String id = fluxoDto.getNomeFluxo().trim();
 
@@ -243,7 +238,7 @@ public class FluxoDao extends CrudDaoDefaultImpl {
         }
         fluxoDto.setIdentificador(id);
 
-        final List<ElementoFluxoDTO> listElementoFluxoDto = getElementoFluxoDao().findAllByIdFluxo(fluxoDto.getIdFluxo());
+        final List<ElementoFluxoDTO> listElementoFluxoDto = this.getElementoFluxoDao().findAllByIdFluxo(fluxoDto.getIdFluxo());
 
         final List<ElementoFluxoDTO> listTarefa = new ArrayList<ElementoFluxoDTO>();
         final List<ElementoFluxoDTO> listScript = new ArrayList<ElementoFluxoDTO>();
@@ -288,7 +283,7 @@ public class FluxoDao extends CrudDaoDefaultImpl {
         fluxoDto.setColPortas(listPorta);
         fluxoDto.setColEventos(listEvento);
         fluxoDto.setColFinalizacoes(listFinalizacao);
-        fluxoDto.setColSequenciamentos(getSequenciaFluxoDao().findByIdFluxo(fluxoDto.getIdFluxo()));
+        fluxoDto.setColSequenciamentos(this.getSequenciaFluxoDao().findByIdFluxo(fluxoDto.getIdFluxo()));
         fluxoDto.setColElementos(listElementoFluxoDto);
 
         return fluxoDto;
@@ -332,12 +327,12 @@ public class FluxoDao extends CrudDaoDefaultImpl {
 
         parametros.add(((FluxoDTO) obj).getIdFluxo());
 
-        final List<?> lista = execSQL(sql.toString(), parametros.toArray());
+        final List<?> lista = this.execSQL(sql.toString(), parametros.toArray());
 
-        List<FluxoDTO> result = engine.listConvertion(getBean(), lista, getListaDeCampos());
+        List<FluxoDTO> result = engine.listConvertion(this.getBean(), lista, this.getListaDeCampos());
 
         if (result != null && !result.isEmpty()) {
-            result = this.recuperaEstrutura(engine.listConvertion(getBean(), lista, getListaDeCampos()));
+            result = this.recuperaEstrutura(engine.listConvertion(this.getBean(), lista, this.getListaDeCampos()));
             return result.get(0);
         }
         return null;

@@ -15,49 +15,48 @@ import br.com.citframework.integracao.Order;
 import br.com.citframework.integracao.TransactionControler;
 import br.com.citframework.util.Constantes;
 
-@SuppressWarnings({ "rawtypes", "unchecked" })
 public class MoedaBIDao extends CrudDaoDefaultImpl {
 
-	public MoedaBIDao() {
-		super(Constantes.getValue("DATABASE_BI_ALIAS"), null);
-	}
+    public MoedaBIDao() {
+        super(Constantes.getValue("DATABASE_BI_ALIAS"), null);
+    }
 
-	public MoedaBIDao(TransactionControler tc, Usuario usuario)
-			throws InvalidTransactionControler {
-		super(tc, usuario);		
-	}
+    public MoedaBIDao(final TransactionControler tc, final Usuario usuario) throws InvalidTransactionControler {
+        super(tc, usuario);
+    }
 
-	@Override
-	public Collection find(BaseEntity arg0) throws PersistenceException {
-		return null;
-	}
+    @Override
+    public Collection find(final BaseEntity arg0) throws PersistenceException {
+        return null;
+    }
 
-	@Override
-	public Collection<Field> getFields() {
-		Collection<Field> listFields = new ArrayList<>();
-		listFields.add(new Field("idMoeda", "idMoeda", true, true, false, false));
-		listFields.add(new Field("nomeMoeda", "nomeMoeda", false, false, false, false));
-		listFields.add(new Field("usarCotacao", "usarCotacao", false, false, false, false));
-		listFields.add(new Field("dataInicio", "dataInicio", false, false, false, false));
-		listFields.add(new Field("dataFim", "dataFim", false, false, false, false));
-		listFields.add(new Field("idConexaoBI", "idConexaoBI", false, false, false, false));
-		return listFields;
-	}
+    @Override
+    public Collection<Field> getFields() {
+        final Collection<Field> listFields = new ArrayList<>();
+        listFields.add(new Field("idMoeda", "idMoeda", true, true, false, false));
+        listFields.add(new Field("nomeMoeda", "nomeMoeda", false, false, false, false));
+        listFields.add(new Field("usarCotacao", "usarCotacao", false, false, false, false));
+        listFields.add(new Field("dataInicio", "dataInicio", false, false, false, false));
+        listFields.add(new Field("dataFim", "dataFim", false, false, false, false));
+        listFields.add(new Field("idConexaoBI", "idConexaoBI", false, false, false, false));
+        return listFields;
+    }
 
-	@Override
-	public String getTableName() {
-		return "MOEDAS";
-	}
+    @Override
+    public String getTableName() {
+        return "MOEDAS";
+    }
 
-	@Override
-	public Collection list() throws PersistenceException {
-		List list = new ArrayList();
-		list.add(new Order("nomeMoeda"));
-        return super.list(list);	}
+    @Override
+    public Collection list() throws PersistenceException {
+        final List list = new ArrayList<>();
+        list.add(new Order("nomeMoeda"));
+        return super.list(list);
+    }
 
-	@Override
-	public Class getBean() {
-		return MoedaBIDTO.class;
-	}
+    @Override
+    public Class getBean() {
+        return MoedaBIDTO.class;
+    }
 
 }

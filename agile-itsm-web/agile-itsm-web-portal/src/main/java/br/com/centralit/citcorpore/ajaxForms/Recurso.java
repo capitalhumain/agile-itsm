@@ -7,7 +7,7 @@ import java.util.Iterator;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 
 import br.com.centralit.citajax.html.AjaxFormAction;
 import br.com.centralit.citajax.html.DocumentHTML;
@@ -63,7 +63,7 @@ public class Recurso extends AjaxFormAction {
 			for (Iterator it = colGrupos.iterator(); it.hasNext();) {
 				GrupoRecursosDTO grupoRecursosDTO = (GrupoRecursosDTO) it.next();
 				if (grupoRecursosDTO.getDeleted() == null	|| grupoRecursosDTO.getDeleted().equalsIgnoreCase("n")) {
-					idGrupoRecurso.addOption("" + grupoRecursosDTO.getIdGrupoRecurso(),StringEscapeUtils.escapeJavaScript(grupoRecursosDTO.getNomeGrupoRecurso()));
+					idGrupoRecurso.addOption("" + grupoRecursosDTO.getIdGrupoRecurso(),StringEscapeUtils.escapeEcmaScript(grupoRecursosDTO.getNomeGrupoRecurso()));
 				}
 			}
 		}
@@ -78,7 +78,7 @@ public class Recurso extends AjaxFormAction {
 				RecursoDTO recursoDTO = (RecursoDTO) it.next();
 				if (recursoDTO.getDeleted() == null
 						|| recursoDTO.getDeleted().equalsIgnoreCase("n")) {
-					idRecursoPai.addOption("" + recursoDTO.getIdRecurso(),StringEscapeUtils.escapeJavaScript(recursoDTO.getNomeRecurso()));
+					idRecursoPai.addOption("" + recursoDTO.getIdRecurso(),StringEscapeUtils.escapeEcmaScript(recursoDTO.getNomeRecurso()));
 				}
 			}
 		}
@@ -91,7 +91,7 @@ public class Recurso extends AjaxFormAction {
 		if (colNagiosConexao != null) {
 			for (Iterator it = colNagiosConexao.iterator(); it.hasNext();) {
 				NagiosConexaoDTO nagiosConexaoDTO = (NagiosConexaoDTO) it.next();
-				idNagiosConexao.addOption("" + nagiosConexaoDTO.getIdNagiosConexao(), StringEscapeUtils.escapeJavaScript(nagiosConexaoDTO.getNome()));
+				idNagiosConexao.addOption("" + nagiosConexaoDTO.getIdNagiosConexao(), StringEscapeUtils.escapeEcmaScript(nagiosConexaoDTO.getNome()));
 			}
 		}	
 		
@@ -103,7 +103,7 @@ public class Recurso extends AjaxFormAction {
 		if (colCalendarios != null) {
 			for (Iterator it = colCalendarios.iterator(); it.hasNext();) {
 				CalendarioDTO calendarioDTO = (CalendarioDTO) it.next();
-				idCalendario.addOption("" + calendarioDTO.getIdCalendario(), StringEscapeUtils.escapeJavaScript(calendarioDTO.getDescricao()));
+				idCalendario.addOption("" + calendarioDTO.getIdCalendario(), StringEscapeUtils.escapeEcmaScript(calendarioDTO.getDescricao()));
 			}
 		}	
 		
@@ -115,7 +115,7 @@ public class Recurso extends AjaxFormAction {
 		if (colEventosMon != null) {
 			for (Iterator it = colEventosMon.iterator(); it.hasNext();) {
 				EventoMonitoramentoDTO eventoMonitoramentoDTO = (EventoMonitoramentoDTO) it.next();
-				idEventoMonitoramento.addOption("" + eventoMonitoramentoDTO.getIdEventoMonitoramento(), StringEscapeUtils.escapeJavaScript(eventoMonitoramentoDTO.getNomeEvento()));
+				idEventoMonitoramento.addOption("" + eventoMonitoramentoDTO.getIdEventoMonitoramento(), StringEscapeUtils.escapeEcmaScript(eventoMonitoramentoDTO.getNomeEvento()));
 			}
 		}			
 		
@@ -205,7 +205,7 @@ public class Recurso extends AjaxFormAction {
 				ServicoDTO servicoDTO = (ServicoDTO) it.next();
 				if (servicoDTO.getDeleted() == null || servicoDTO.getDeleted().equalsIgnoreCase("N")) {
 					if (servicoDTO.getIdSituacaoServico().intValue() == 1) { // ATIVO
-						idServico.addOptionIfNotExists("" + servicoDTO.getIdServico(), StringEscapeUtils.escapeJavaScript(servicoDTO.getNomeServico()));
+						idServico.addOptionIfNotExists("" + servicoDTO.getIdServico(), StringEscapeUtils.escapeEcmaScript(servicoDTO.getNomeServico()));
 					}
 				}
 			}
@@ -224,7 +224,7 @@ public class Recurso extends AjaxFormAction {
 	
 				for (Iterator it = col.iterator(); it.hasNext();) {
 					ItemConfiguracaoDTO itemConfiguracaoDTO = (ItemConfiguracaoDTO) it.next();
-					idItemConfiguracao.addOptionIfNotExists("" + itemConfiguracaoDTO.getIdItemConfiguracao(), StringEscapeUtils.escapeJavaScript(itemConfiguracaoDTO.getIdentificacao()));
+					idItemConfiguracao.addOptionIfNotExists("" + itemConfiguracaoDTO.getIdItemConfiguracao(), StringEscapeUtils.escapeEcmaScript(itemConfiguracaoDTO.getIdentificacao()));
 				}
 			}
 		}
@@ -374,7 +374,7 @@ public class Recurso extends AjaxFormAction {
 					
 								for (Iterator it = col.iterator(); it.hasNext();) {
 									ItemConfiguracaoDTO itemConfiguracaoAuxDTO = (ItemConfiguracaoDTO) it.next();
-									idItemConfiguracao.addOptionIfNotExists("" + itemConfiguracaoAuxDTO.getIdItemConfiguracao(), StringEscapeUtils.escapeJavaScript(itemConfiguracaoAuxDTO.getIdentificacao()));
+									idItemConfiguracao.addOptionIfNotExists("" + itemConfiguracaoAuxDTO.getIdItemConfiguracao(), StringEscapeUtils.escapeEcmaScript(itemConfiguracaoAuxDTO.getIdentificacao()));
 								}
 								idItemConfiguracao.setValue("" + itemConfiguracaoDTO.getIdItemConfiguracao());
 							}

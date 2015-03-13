@@ -3,52 +3,60 @@ package br.com.centralit.citcorpore.bean;
 import br.com.agileitsm.model.support.BaseEntity;
 
 public class GrupoAtvPeriodicaDTO extends BaseEntity {
-	private Integer idGrupoAtvPeriodica;
-	private String nomeGrupoAtvPeriodica;
-	private String descGrupoAtvPeriodica;
-	private String deleted;
-	private java.sql.Date dataInicio;
-	private java.sql.Date dataFim;
 
-	public Integer getIdGrupoAtvPeriodica(){
-		return this.idGrupoAtvPeriodica;
-	}
-	public void setIdGrupoAtvPeriodica(Integer parm){
-		this.idGrupoAtvPeriodica = parm;
-	}
+    private Integer idGrupoAtvPeriodica;
+    private String nomeGrupoAtvPeriodica;
+    private String descGrupoAtvPeriodica;
+    private String deleted;
+    private java.sql.Date dataInicio;
+    private java.sql.Date dataFim;
 
-	public String getNomeGrupoAtvPeriodica(){
-		return this.nomeGrupoAtvPeriodica;
-	}
-	public void setNomeGrupoAtvPeriodica(String parm){
-		this.nomeGrupoAtvPeriodica = parm;
-	}
+    public Integer getIdGrupoAtvPeriodica() {
+        return idGrupoAtvPeriodica;
+    }
 
-	public String getDescGrupoAtvPeriodica(){
-		return this.descGrupoAtvPeriodica;
-	}
-	public void setDescGrupoAtvPeriodica(String parm){
-		this.descGrupoAtvPeriodica = parm;
-	}
+    public void setIdGrupoAtvPeriodica(final Integer parm) {
+        idGrupoAtvPeriodica = parm;
+    }
 
-	public java.sql.Date getDataInicio(){
-		return this.dataInicio;
-	}
-	public void setDataInicio(java.sql.Date parm){
-		this.dataInicio = parm;
-	}
+    public String getNomeGrupoAtvPeriodica() {
+        return nomeGrupoAtvPeriodica;
+    }
 
-	public java.sql.Date getDataFim(){
-		return this.dataFim;
-	}
-	public void setDataFim(java.sql.Date parm){
-		this.dataFim = parm;
-	}
-	public String getDeleted() {
-		return deleted;
-	}
-	public void setDeleted(String deleted) {
-		this.deleted = deleted;
-	}
+    public void setNomeGrupoAtvPeriodica(final String parm) {
+        nomeGrupoAtvPeriodica = parm;
+    }
+
+    public String getDescGrupoAtvPeriodica() {
+        return descGrupoAtvPeriodica;
+    }
+
+    public void setDescGrupoAtvPeriodica(final String parm) {
+        descGrupoAtvPeriodica = parm;
+    }
+
+    public java.sql.Date getDataInicio() {
+        return dataInicio;
+    }
+
+    public void setDataInicio(final java.sql.Date parm) {
+        dataInicio = parm;
+    }
+
+    public java.sql.Date getDataFim() {
+        return dataFim;
+    }
+
+    public void setDataFim(final java.sql.Date parm) {
+        dataFim = parm;
+    }
+
+    public String getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(final String deleted) {
+        this.deleted = deleted;
+    }
 
 }

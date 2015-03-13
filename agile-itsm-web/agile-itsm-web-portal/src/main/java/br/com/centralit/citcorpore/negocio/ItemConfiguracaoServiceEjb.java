@@ -15,8 +15,8 @@ import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.lang.StringEscapeUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.mozilla.javascript.Context;
 import org.mozilla.javascript.Scriptable;
 
@@ -858,7 +858,7 @@ public class ItemConfiguracaoServiceEjb extends CrudServiceImpl implements ItemC
 			try {
 				transactionControler.close();
 			} catch (PersistenceException e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
 			}
 
@@ -1087,7 +1087,7 @@ public class ItemConfiguracaoServiceEjb extends CrudServiceImpl implements ItemC
 			try {
 				transactionControler.close();
 			} catch (PersistenceException e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
 			}
 
@@ -1184,7 +1184,7 @@ public class ItemConfiguracaoServiceEjb extends CrudServiceImpl implements ItemC
 					try {
 						transactionControler.close();
 					} catch (PersistenceException e) {
-						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 					}
 
@@ -1637,7 +1637,7 @@ public class ItemConfiguracaoServiceEjb extends CrudServiceImpl implements ItemC
 			auditoriaItemConfigDTO.setDataHoraAlteracao(UtilDatas.getDataHoraAtual());
 
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		return auditoriaItemConfigDTO;
@@ -1652,7 +1652,7 @@ public class ItemConfiguracaoServiceEjb extends CrudServiceImpl implements ItemC
 				getDao().finalizarItemConfiguracao(itemConfiguracaoDto);
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 	}
@@ -1726,8 +1726,8 @@ public class ItemConfiguracaoServiceEjb extends CrudServiceImpl implements ItemC
 
 	@Override
 	public Collection<ItemConfiguracaoDTO> listByIdentificacao(String identif) throws Exception {
-		List condicao = new ArrayList();
-		List ordenacao = new ArrayList();
+		List<Condition> condicao = new ArrayList<>();
+		List<Order> ordenacao = new ArrayList<>();
 		condicao.add(new Condition("identificacao", "like", "%" + identif + "%"));
 		condicao.add(new Condition("idItemConfiguracaoPai", "IS", null));
 

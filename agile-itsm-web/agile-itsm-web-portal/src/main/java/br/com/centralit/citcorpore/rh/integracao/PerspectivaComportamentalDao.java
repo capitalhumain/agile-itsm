@@ -51,14 +51,14 @@ public class PerspectivaComportamentalDao extends CrudDaoDefaultImpl {
 
     @Override
     public Collection list() throws PersistenceException {
-        final List list = new ArrayList();
+        final List list = new ArrayList<>();
         list.add(new Order("cmbCompetenciaComportamental"));
         return super.list(list);
     }
 
     public Collection findByidSolicitacao(final Integer parm) throws PersistenceException {
-        final List condicao = new ArrayList();
-        final List ordenacao = new ArrayList();
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
         condicao.add(new Condition("idSolicitacaoServico", "=", parm));
         ordenacao.add(new Order("idPerspectivaComportamental"));
         return super.findByCondition(condicao, ordenacao);
@@ -92,7 +92,7 @@ public class PerspectivaComportamentalDao extends CrudDaoDefaultImpl {
 
         final List list = this.execSQL(sql.toString(), objs);
 
-        final List listRetorno = new ArrayList();
+        final List listRetorno = new ArrayList<>();
         listRetorno.add("idPerspectivaTecnica");
         listRetorno.add("cmbCompetenciaComportamental");
         listRetorno.add("comportamento");
@@ -113,7 +113,7 @@ public class PerspectivaComportamentalDao extends CrudDaoDefaultImpl {
 
         final List list = this.execSQL(sql.toString(), objs);
 
-        final List listRetorno = new ArrayList();
+        final List listRetorno = new ArrayList<>();
         listRetorno.add("idPerspectivaComportamental");
         listRetorno.add("cmbCompetenciaComportamental");
         listRetorno.add("comportamento");
@@ -123,7 +123,7 @@ public class PerspectivaComportamentalDao extends CrudDaoDefaultImpl {
     }
 
     public void deleteByIdManualFuncao(final Integer idManualFuncao) throws PersistenceException {
-        final List condicao = new ArrayList();
+        final List<Condition> condicao = new ArrayList<>();
         condicao.add(new Condition("idManualFuncao", "=", idManualFuncao));
         super.deleteByCondition(condicao);
     }

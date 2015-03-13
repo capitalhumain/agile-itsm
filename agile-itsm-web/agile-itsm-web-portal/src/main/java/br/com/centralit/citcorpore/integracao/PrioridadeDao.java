@@ -12,44 +12,49 @@ import br.com.citframework.integracao.CrudDaoDefaultImpl;
 import br.com.citframework.integracao.Field;
 import br.com.citframework.integracao.Order;
 import br.com.citframework.util.Constantes;
-@SuppressWarnings({ "unchecked", "rawtypes" })
+
 public class PrioridadeDao extends CrudDaoDefaultImpl {
 
-	public PrioridadeDao() {
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-	}
-	
-	public Class getBean() {
-		return PrioridadeDTO.class;
-	}
+    public PrioridadeDao() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
+    }
 
-	
-	public Collection<Field> getFields() {
-		Collection<Field> listFields = new ArrayList<>();
-		
-		listFields.add(new Field("idPrioridade", "idPrioridade", true, true, false, false));
-		listFields.add(new Field("idEmpresa", "idEmpresa", false, false, false, false));
-		listFields.add(new Field("nomePrioridade", "nomePrioridade", false, false, false, false));
-		listFields.add(new Field("situacao", "situacao", false, false, false, false));
-		listFields.add(new Field("grupoPrioridade", "grupoPrioridade", false, false, false, false));
-		return listFields;
-	}
+    @Override
+    public Class getBean() {
+        return PrioridadeDTO.class;
+    }
 
-	public String getTableName() {
-		return "PRIORIDADE";
-	}
+    @Override
+    public Collection<Field> getFields() {
+        final Collection<Field> listFields = new ArrayList<>();
 
-	public Collection find(BaseEntity obj) throws PersistenceException {
-		List ordem = new ArrayList();
-		ordem.add(new Order("nomePrioridade"));
-		return super.find(obj, ordem);
-	}
+        listFields.add(new Field("idPrioridade", "idPrioridade", true, true, false, false));
+        listFields.add(new Field("idEmpresa", "idEmpresa", false, false, false, false));
+        listFields.add(new Field("nomePrioridade", "nomePrioridade", false, false, false, false));
+        listFields.add(new Field("situacao", "situacao", false, false, false, false));
+        listFields.add(new Field("grupoPrioridade", "grupoPrioridade", false, false, false, false));
+        return listFields;
+    }
 
-	public Collection list() throws PersistenceException {
-		List condicao = new ArrayList();
-		List ordenacao = new ArrayList();
-		condicao.add(new Condition("situacao", "=", "A"));
-		ordenacao.add(new Order("nomePrioridade"));
-		return super.findByCondition(condicao, ordenacao);
-	}
+    @Override
+    public String getTableName() {
+        return "PRIORIDADE";
+    }
+
+    @Override
+    public Collection find(final BaseEntity obj) throws PersistenceException {
+        final List ordem = new ArrayList<>();
+        ordem.add(new Order("nomePrioridade"));
+        return super.find(obj, ordem);
+    }
+
+    @Override
+    public Collection list() throws PersistenceException {
+        final List<Condition> condicao = new ArrayList<>();
+        final List<Order> ordenacao = new ArrayList<>();
+        condicao.add(new Condition("situacao", "=", "A"));
+        ordenacao.add(new Order("nomePrioridade"));
+        return super.findByCondition(condicao, ordenacao);
+    }
+
 }

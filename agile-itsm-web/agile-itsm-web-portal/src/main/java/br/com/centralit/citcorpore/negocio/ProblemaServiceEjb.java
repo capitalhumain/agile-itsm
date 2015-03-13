@@ -12,7 +12,7 @@ import java.util.List;
 
 import net.htmlparser.jericho.Source;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import br.com.agileitsm.model.support.BaseEntity;
 import br.com.centralit.bpm.dto.PermissoesFluxoDTO;
@@ -1387,7 +1387,7 @@ public class ProblemaServiceEjb extends CrudServiceImpl implements ProblemaServi
 	}
 
 	public Collection<ProblemaDTO> listByTarefas(Collection<TarefaFluxoDTO> listTarefas) throws Exception {
-		Collection<ProblemaDTO> listProblemaDto = new ArrayList();
+		Collection<ProblemaDTO> listProblemaDto = new ArrayList<>();
 
 		listProblemaDto = getDao().listByTarefas(listTarefas);
 
@@ -1555,7 +1555,7 @@ public class ProblemaServiceEjb extends CrudServiceImpl implements ProblemaServi
 
 					Collection listaBaseConhecimentoDTO = null;
 
-					List condicao = new ArrayList();
+					List<Condition> condicao = new ArrayList<>();
 
 					condicao.add(new Condition("idBaseConhecimento", "=", 0));
 

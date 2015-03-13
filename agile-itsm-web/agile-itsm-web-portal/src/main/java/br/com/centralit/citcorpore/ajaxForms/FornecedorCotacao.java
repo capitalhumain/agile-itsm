@@ -66,7 +66,7 @@ public class FornecedorCotacao extends AjaxFormAction {
         FornecedorCotacaoService fornecedorCotacaoService = (FornecedorCotacaoService) ServiceLocator.getInstance().getService(FornecedorCotacaoService.class, null);
         Collection<FornecedorCotacaoDTO> colFornecedorCotacao = fornecedorCotacaoService.findByIdCotacao(cotacaoDto.getIdCotacao());
         if (colFornecedorCotacao != null && !colFornecedorCotacao.isEmpty()) {
-            Collection<FornecedorDTO> colFornecedores = new ArrayList();
+            Collection<FornecedorDTO> colFornecedores = new ArrayList<>();
             FornecedorService fornecedorService = (FornecedorService) ServiceLocator.getInstance().getService(FornecedorService.class, null);
             AvaliacaoFornecedorService avaliacaoFornecedorService = (AvaliacaoFornecedorService) ServiceLocator.getInstance().getService(AvaliacaoFornecedorService.class, null);
             for (FornecedorCotacaoDTO fornecedorCotacaoDto : colFornecedorCotacao) {

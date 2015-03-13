@@ -28,110 +28,97 @@ import br.com.citframework.util.UtilStrings;
 
 public class DataBaseMetaDados extends AjaxFormAction {
 
-	private ObjetoNegocioService objetoNegocioService;
-	private CamposObjetoNegocioService camposObjetoNegocioService;
+    private ObjetoNegocioService objetoNegocioService;
+    private CamposObjetoNegocioService camposObjetoNegocioService;
 
-	@Override
+    @Override
     public Class<DataBaseMetaDadosDTO> getBeanClass() {
-		return DataBaseMetaDadosDTO.class;
-	}
+        return DataBaseMetaDadosDTO.class;
+    }
 
-	@Override
-    public void load(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response)
-            throws Exception {
+    @Override
+    public void load(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
 
-	}
+    }
 
-    public void carregaMetaDados(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws Exception {
-        final DataBaseMetaDadosService data = (DataBaseMetaDadosService) ServiceLocator.getInstance().getService(
-                DataBaseMetaDadosService.class, null);
+    public void carregaMetaDados(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
+        final DataBaseMetaDadosService data = (DataBaseMetaDadosService) ServiceLocator.getInstance().getService(DataBaseMetaDadosService.class, null);
         final DataBaseMetaDadosDTO dataBaseMetaDadosDTO = (DataBaseMetaDadosDTO) document.getBean();
 
         final DataBaseMetaDadosUtil dataBaseMetaDadosUtil = new DataBaseMetaDadosUtil();
-		String carregados = dataBaseMetaDadosUtil.sincronizaObjNegDB(dataBaseMetaDadosDTO.getNomeTabela(), true);
-		carregados = UtilStrings.nullToVazio(carregados).replaceAll(",", "<br>");
+        String carregados = dataBaseMetaDadosUtil.sincronizaObjNegDB(dataBaseMetaDadosDTO.getNomeTabela(), true);
+        carregados = UtilStrings.nullToVazio(carregados).replaceAll(",", "<br>");
 
-		data.corrigeTabelaComplexidade();
-		data.corrigeTabelaSla();
-		data.corrigeTabelaFluxoServico();
+        data.corrigeTabelaComplexidade();
+        data.corrigeTabelaSla();
+        data.corrigeTabelaFluxoServico();
 
-		carregados = "<b>Finalizado!</b> <br><b>Tabelas carregadas:</b> <br>" + carregados;
-		document.getElementById("divRetorno").setInnerHTML(carregados);
-	}
+        carregados = "<b>Finalizado!</b> <br><b>Tabelas carregadas:</b> <br>" + carregados;
+        document.getElementById("divRetorno").setInnerHTML(carregados);
+    }
 
-    public void carregaTodosMetaDados(final DocumentHTML document, final HttpServletRequest request,
-            final HttpServletResponse response) throws Exception {
-        final DataBaseMetaDadosService data = (DataBaseMetaDadosService) ServiceLocator.getInstance().getService(
-                DataBaseMetaDadosService.class, null);
+    public void carregaTodosMetaDados(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
+        final DataBaseMetaDadosService data = (DataBaseMetaDadosService) ServiceLocator.getInstance().getService(DataBaseMetaDadosService.class, null);
         final DataBaseMetaDadosUtil dataBaseMetaDadosUtil = new DataBaseMetaDadosUtil();
         final VisaoDao visaoDao = new VisaoDao();
         final Connection con = visaoDao.getTransactionControler().getConnection();
-		String DB_SCHEMA = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.DB_SCHEMA,"");
-		if(CITCorporeUtil.SGBD_PRINCIPAL.equalsIgnoreCase(SQLConfig.SQLSERVER)) {
-			DB_SCHEMA = null;
-		} else if (DB_SCHEMA == null || DB_SCHEMA.trim().equalsIgnoreCase("")){
-		    DB_SCHEMA = "citsmart";
-		}
+        String DB_SCHEMA = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.DB_SCHEMA, "");
+        if (CITCorporeUtil.SGBD_PRINCIPAL.equalsIgnoreCase(SQLConfig.SQLSERVER)) {
+            DB_SCHEMA = null;
+        } else if (DB_SCHEMA == null || DB_SCHEMA.trim().equalsIgnoreCase("")) {
+            DB_SCHEMA = "citsmart";
+        }
 
-		//Desabilitando as tabelas para garantir que as que não existam mais não fiquem ativas
-		desabilitaTabelas();
+        // Desabilitando as tabelas para garantir que as que não existam mais não fiquem ativas
+        this.desabilitaTabelas();
 
         final Collection colObsNegocio = dataBaseMetaDadosUtil.readTables(con, DB_SCHEMA, DB_SCHEMA, null, true);
-		con.close();
+        con.close();
 
-		String carregados = "";
+        String carregados = "";
 
         for (final Iterator it = colObsNegocio.iterator(); it.hasNext();) {
             final ObjetoNegocioDTO objetoNegocioDTO = (ObjetoNegocioDTO) it.next();
 
-			System.out.println("-----: Objeto de Negocio: " + objetoNegocioDTO.getNomeTabelaDB());
-			carregados += objetoNegocioDTO.getNomeTabelaDB() + "<br>";
+            System.out.println("-----: Objeto de Negocio: " + objetoNegocioDTO.getNomeTabelaDB());
+            carregados += objetoNegocioDTO.getNomeTabelaDB() + "<br>";
 
-            final Collection colObjs = getObjetoNegocioService().findByNomeTabelaDB(objetoNegocioDTO.getNomeTabelaDB());
-			if (colObjs == null || colObjs.size() == 0){
-				System.out.println("----------: Criando....  " + objetoNegocioDTO.getNomeTabelaDB());
-				getObjetoNegocioService().create(objetoNegocioDTO);
-			}else{
+            final Collection colObjs = this.getObjetoNegocioService().findByNomeTabelaDB(objetoNegocioDTO.getNomeTabelaDB());
+            if (colObjs == null || colObjs.size() == 0) {
+                System.out.println("----------: Criando....  " + objetoNegocioDTO.getNomeTabelaDB());
+                this.getObjetoNegocioService().create(objetoNegocioDTO);
+            } else {
                 final ObjetoNegocioDTO objetoNegocioAux = (ObjetoNegocioDTO) ((List) colObjs).get(0);
-				objetoNegocioDTO.setIdObjetoNegocio(objetoNegocioAux.getIdObjetoNegocio());
-                System.out.println("----------: Atualizando....  " + objetoNegocioDTO.getNomeTabelaDB()
-                        + "    Id Interno: " + objetoNegocioAux.getIdObjetoNegocio());
-				getObjetoNegocioService().update(objetoNegocioDTO);
-			}
-		}
+                objetoNegocioDTO.setIdObjetoNegocio(objetoNegocioAux.getIdObjetoNegocio());
+                System.out.println("----------: Atualizando....  " + objetoNegocioDTO.getNomeTabelaDB() + "    Id Interno: "
+                        + objetoNegocioAux.getIdObjetoNegocio());
+                this.getObjetoNegocioService().update(objetoNegocioDTO);
+            }
+        }
 
-		data.corrigeTabelaComplexidade();
-		data.corrigeTabelaSla();
-		data.corrigeTabelaFluxoServico();
+        data.corrigeTabelaComplexidade();
+        data.corrigeTabelaSla();
+        data.corrigeTabelaFluxoServico();
 
-		carregados = "<b>Finalizado!</b> <br><b>Tabelas carregadas:</b> <br>" + carregados;
-		document.getElementById("divRetorno").setInnerHTML(carregados);
-	}
+        carregados = "<b>Finalizado!</b> <br><b>Tabelas carregadas:</b> <br>" + carregados;
+        document.getElementById("divRetorno").setInnerHTML(carregados);
+    }
 
-	private void desabilitaTabelas() throws LogicException, ServiceException, Exception{
-        final Collection<ObjetoNegocioDTO> listObjetoNegocio = getObjetoNegocioService().list();
+    private void desabilitaTabelas() throws LogicException, ServiceException, Exception {
+        final Collection<ObjetoNegocioDTO> listObjetoNegocio = this.getObjetoNegocioService().list();
 
         for (final ObjetoNegocioDTO objetoNegocioDTO : listObjetoNegocio) {
-			objetoNegocioDTO.setSituacao("I");
-			getObjetoNegocioService().updateDisable(objetoNegocioDTO);
-		}
-
-	}
-
-	private ObjetoNegocioService getObjetoNegocioService() throws ServiceException, Exception{
-		if(objetoNegocioService == null){
-			return (ObjetoNegocioService) ServiceLocator.getInstance().getService(ObjetoNegocioService.class, null);
+            objetoNegocioDTO.setSituacao("I");
+            this.getObjetoNegocioService().updateDisable(objetoNegocioDTO);
         }
-			return objetoNegocioService;
-		}
 
-	private CamposObjetoNegocioService getCamposObjetoNegocioService() throws ServiceException, Exception {
-		if(camposObjetoNegocioService == null){
-            return (CamposObjetoNegocioService) ServiceLocator.getInstance().getService(
-                    CamposObjetoNegocioService.class, null);
+    }
+
+    private ObjetoNegocioService getObjetoNegocioService() throws ServiceException, Exception {
+        if (objetoNegocioService == null) {
+            return (ObjetoNegocioService) ServiceLocator.getInstance().getService(ObjetoNegocioService.class, null);
         }
-			return camposObjetoNegocioService;
-		}
+        return objetoNegocioService;
+    }
 
 }

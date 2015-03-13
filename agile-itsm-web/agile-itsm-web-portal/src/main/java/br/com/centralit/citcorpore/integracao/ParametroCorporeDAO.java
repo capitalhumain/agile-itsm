@@ -19,7 +19,7 @@ import br.com.citframework.util.Constantes;
  */
 public class ParametroCorporeDAO extends CrudDaoDefaultImpl {
 
-    private final String SQL_UPDATE_PARAMETRO = "update " + getTableName() + " set valor = ? where IDPARAMETROCORPORE = ?";
+    private final String SQL_UPDATE_PARAMETRO = "update " + this.getTableName() + " set valor = ? where IDPARAMETROCORPORE = ?";
     private final String SQL_GET_PARAMETRO_CITCORPORE = "SELECT IDPARAMETROCORPORE, NOMEPARAMETROCORPORE, VALOR, IDEMPRESA, DATAINICIO, DATAFIM FROM parametrocorpore ";
 
     public ParametroCorporeDAO() {
@@ -66,7 +66,7 @@ public class ParametroCorporeDAO extends CrudDaoDefaultImpl {
      * @author Maycon.Fernandes
      */
     public ParametroCorporeDTO getParamentroAtivo(final Integer id) throws PersistenceException {
-        final List objs = new ArrayList();
+        final List objs = new ArrayList<>();
         objs.add(id);
 
         String sql = SQL_GET_PARAMETRO_CITCORPORE;
@@ -75,11 +75,11 @@ public class ParametroCorporeDAO extends CrudDaoDefaultImpl {
         sql += " (IDPARAMETROCORPORE = ?) AND (DATAFIM IS NULL) ";
 
         sql += " ORDER BY NOMEPARAMETROCORPORE, DATAINICIO DESC, DATAFIM";
-        final List lista = execSQL(sql, objs.toArray());
+        final List lista = this.execSQL(sql, objs.toArray());
 
-        final List listRetorno = prepararListaDeRetorno();
+        final List listRetorno = this.prepararListaDeRetorno();
 
-        final List result = engine.listConvertion(getBean(), lista, listRetorno);
+        final List result = engine.listConvertion(this.getBean(), lista, listRetorno);
         if (result == null || result.size() == 0) {
             return null;
         }
@@ -96,11 +96,11 @@ public class ParametroCorporeDAO extends CrudDaoDefaultImpl {
         sql.append(" (IDPARAMETROCORPORE = ?) ");
 
         sql.append(" ORDER BY NOMEPARAMETROCORPORE");
-        final List lista = execSQL(sql.toString(), objs.toArray());
+        final List lista = this.execSQL(sql.toString(), objs.toArray());
 
-        final List listRetorno = prepararListaDeRetorno();
+        final List listRetorno = this.prepararListaDeRetorno();
 
-        final List result = engine.listConvertion(getBean(), lista, listRetorno);
+        final List result = engine.listConvertion(this.getBean(), lista, listRetorno);
         if (result == null || result.size() == 0) {
             return null;
         }
@@ -110,11 +110,6 @@ public class ParametroCorporeDAO extends CrudDaoDefaultImpl {
     @Override
     public Class<ParametroCorporeDTO> getBean() {
         return ParametroCorporeDTO.class;
-    }
-
-    @Override
-    public void updateNotNull(final BaseEntity obj) throws PersistenceException {
-        super.updateNotNull(obj);
     }
 
     private List prepararListaDeRetorno() {

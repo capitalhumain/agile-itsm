@@ -12,55 +12,47 @@ import br.com.citframework.integracao.Field;
 import br.com.citframework.integracao.Order;
 import br.com.citframework.util.Constantes;
 
-@SuppressWarnings({ "rawtypes", "unchecked" })
 public class ChecklistQuestionarioDao extends CrudDaoDefaultImpl {
 
-	public ChecklistQuestionarioDao() {
-		super(Constantes.getValue("DATABASE_ALIAS"), null);
-		// TODO Auto-generated constructor stub
-	}
+    public ChecklistQuestionarioDao() {
+        super(Constantes.getValue("DATABASE_ALIAS"), null);
 
-	@Override
-	public Collection find(BaseEntity obj) throws PersistenceException {
+    }
 
-		return null;
-	}
+    @Override
+    public Collection find(final BaseEntity obj) throws PersistenceException {
 
-	@Override
-	public Collection<Field> getFields() {
+        return null;
+    }
 
-		Collection<Field> listFields = new ArrayList<>();
+    @Override
+    public Collection<Field> getFields() {
 
-		listFields.add(new Field("IDCARGO", "idCargo", true, true, false, false));
-		listFields.add(new Field("NOMECARGO", "nomeCargo", false, false, false, false));
-		listFields.add(new Field("DATAINICIO", "dataInicio", false, false, false, false));
-		listFields.add(new Field("DATAFIM", "dataFim", false, false, false, false));
+        final Collection<Field> listFields = new ArrayList<>();
 
-		return listFields;
-	}
+        listFields.add(new Field("IDCARGO", "idCargo", true, true, false, false));
+        listFields.add(new Field("NOMECARGO", "nomeCargo", false, false, false, false));
+        listFields.add(new Field("DATAINICIO", "dataInicio", false, false, false, false));
+        listFields.add(new Field("DATAFIM", "dataFim", false, false, false, false));
 
-	@Override
-	public String getTableName() {
-		return "CHECKLISTQUESTIONARIO";
-	}
+        return listFields;
+    }
 
-	@Override
-	public Collection list() throws PersistenceException {
-		List list = new ArrayList();
-		list.add(new Order("nomeCargo"));
-		return super.list(list);
-	}
+    @Override
+    public String getTableName() {
+        return "CHECKLISTQUESTIONARIO";
+    }
 
-	@Override
-	public Class getBean() {
-		return ChecklistQuestionarioDTO.class;
-	}
+    @Override
+    public Collection list() throws PersistenceException {
+        final List list = new ArrayList<>();
+        list.add(new Order("nomeCargo"));
+        return super.list(list);
+    }
 
-
-
-
-
-
-
+    @Override
+    public Class getBean() {
+        return ChecklistQuestionarioDTO.class;
+    }
 
 }

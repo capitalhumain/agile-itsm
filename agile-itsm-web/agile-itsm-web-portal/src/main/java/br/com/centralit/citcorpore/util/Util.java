@@ -26,7 +26,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import br.com.centralit.citcorpore.constantes.Constantes;
 import br.com.centralit.citcorpore.exception.BusinessException;
@@ -44,8 +44,6 @@ public class Util implements Serializable {
     public static int DIA = 1;
     public static int MES = 2;
     public static int ANO = 3;
-
-    private static final String STMT_EXISTE = "SELECT * FROM T#";
 
     // Time constants (in milliseconds)
     private static final long SECOND = 1000;
@@ -81,7 +79,8 @@ public class Util implements Serializable {
      *
      * @param url
      */
-    public static final void ReencaminhaURL(final HttpServletRequest request, final HttpServletResponse response, final String url) throws ServletException, IOException {
+    public static final void ReencaminhaURL(final HttpServletRequest request, final HttpServletResponse response, final String url) throws ServletException,
+            IOException {
         final RequestDispatcher dispatcher = request.getRequestDispatcher(url);
         dispatcher.forward(request, response);
     }
@@ -104,7 +103,7 @@ public class Util implements Serializable {
      * @return
      */
     public static final Collection createCollection(final Object[] objetos) {
-        final Collection c = new ArrayList();
+        final Collection c = new ArrayList<>();
         int i;
 
         for (i = 0; i < c.size(); i++) {
@@ -361,8 +360,8 @@ public class Util implements Serializable {
         String textoValido = "";
         for (i = 0; i < string.length(); i++) {
             letra = string.charAt(i);
-            if (letra == ' ' || letra == '>' || letra == '<' || letra == '*' || letra == '|' || letra == '\\' || letra == '/' || letra == ':' || letra == '&' || letra == '#'
-                    || letra == '$' || letra == '@' || letra == '!' || letra == '"' || letra == '\'' || letra == '?' || letra == ';') {
+            if (letra == ' ' || letra == '>' || letra == '<' || letra == '*' || letra == '|' || letra == '\\' || letra == '/' || letra == ':' || letra == '&'
+                    || letra == '#' || letra == '$' || letra == '@' || letra == '!' || letra == '"' || letra == '\'' || letra == '?' || letra == ';') {
                 textoValido = textoValido + '_';
             } else {
                 textoValido = textoValido + Util.getLetraCorrespondente(letra);
@@ -1075,7 +1074,8 @@ public class Util implements Serializable {
      * @return
      * @throws SystemException
      */
-    public static StringBuilder createItemsCombo(final Collection col, final Class classe, String campoId, String campoDesc, final int valor) throws SystemException {
+    public static StringBuilder createItemsCombo(final Collection col, final Class classe, String campoId, String campoDesc, final int valor)
+            throws SystemException {
         final StringBuilder retorno = new StringBuilder();
         final Iterator it = col.iterator();
         Object objeto, objAux, objAux2;
@@ -1135,7 +1135,8 @@ public class Util implements Serializable {
      * @return
      * @throws SystemException
      */
-    public static StringBuilder createItemsComboStrStr(final Collection col, final Class classe, String campoId, String campoDesc, final String valor) throws SystemException {
+    public static StringBuilder createItemsComboStrStr(final Collection col, final Class classe, String campoId, String campoDesc, final String valor)
+            throws SystemException {
         final StringBuilder retorno = new StringBuilder();
         final Iterator it = col.iterator();
         Object objeto, objAux1, objAux2;
@@ -1249,7 +1250,7 @@ public class Util implements Serializable {
     public static String getStringRequest(final HttpServletRequest request, final String identificador) {
         String aux = (String) request.getAttribute(identificador);
         if (aux == null) { // Se getParameter for nulo, tenta pegar em
-                           // getAttribute.
+            // getAttribute.
             aux = request.getParameter(identificador);
         }
         if (aux == null) {
@@ -1261,7 +1262,7 @@ public class Util implements Serializable {
     public static String getStringRequest(final HttpServletRequest request, final String identificador, final int i) {
         String aux = (String) request.getAttribute(identificador);
         if (aux == null) { // Se getParameter for nulo, tenta pegar em
-                           // getAttribute.
+            // getAttribute.
             aux = request.getParameter(identificador);
         }
         if (aux == null) {
@@ -1280,7 +1281,7 @@ public class Util implements Serializable {
     public static int getLenStringRequest(final HttpServletRequest request, final String identificador) {
         String aux = (String) request.getAttribute(identificador);
         if (aux == null) { // Se getParameter for nulo, tenta pegar em
-                           // getAttribute.
+            // getAttribute.
             aux = request.getParameter(identificador);
         }
         if (aux == null) {
@@ -1992,7 +1993,8 @@ public class Util implements Serializable {
         return dataSql;
     }
 
-    public static double calculaDuracaoEmMinutos(final Date dataInicial, final String horaInicialStr, final Date dataFinal, final String horaFinalStr) throws Exception {
+    public static double calculaDuracaoEmMinutos(final Date dataInicial, final String horaInicialStr, final Date dataFinal, final String horaFinalStr)
+            throws Exception {
         final double horaInicial = Util.getHoraDbl(horaInicialStr);
         final double horaFinal = Util.getHoraDbl(horaFinalStr);
         double duracao = 0.0;
