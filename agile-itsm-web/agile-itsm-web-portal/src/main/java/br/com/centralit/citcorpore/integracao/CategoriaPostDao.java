@@ -17,7 +17,7 @@ import br.com.citframework.integracao.Order;
 import br.com.citframework.util.Constantes;
 
 /**
- * @author Fl·vio.santana
+ * @author Fl√°vio.santana
  */
 @SuppressWarnings({ "rawtypes", "unchecked" })
 public class CategoriaPostDao extends CrudDaoDefaultImpl {
@@ -100,7 +100,7 @@ public class CategoriaPostDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * Retorna lista de Categoria ServiÁo setado idPai e idFilho.
+	 * Retorna lista de Categoria Servi√ßo setado idPai e idFilho.
 	 * 
 	 * @return Collection
 	 * @throws Exception
@@ -115,7 +115,7 @@ public class CategoriaPostDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * Retorna lista de Categoria ServiÁo setado idCategoria e pai isnull.
+	 * Retorna lista de Categoria Servi√ßo setado idCategoria e pai isnull.
 	 * 
 	 * @return Collection
 	 * @throws Exception
@@ -131,10 +131,10 @@ public class CategoriaPostDao extends CrudDaoDefaultImpl {
 
 
 	/**
-	 * Verifica se categoria informada j· existe.
+	 * Verifica se categoria informada j√° existe.
 	 * 
 	 * @param categoriaPostDTO
-	 * @return true - existe; false - n„o existe;
+	 * @return true - existe; false - n√£o existe;
 	 * @throws PersistenceException
 	 */
 	public boolean verificarSeCategoriaExiste(CategoriaPostDTO categoriaPostDTO) throws PersistenceException {
@@ -156,7 +156,7 @@ public class CategoriaPostDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * Retorna lista de Categoria ServiÁo por nome.
+	 * Retorna lista de Categoria Servi√ßo por nome.
 	 * 
 	 * @return Collection
 	 * @throws Exception
@@ -175,7 +175,7 @@ public class CategoriaPostDao extends CrudDaoDefaultImpl {
 	 * Verifica se Categoria possui filho.
 	 * 
 	 * @param categoriaServico
-	 * @return - <b>True:</b> Possui filho. - <b>False: </b>N„o possui.
+	 * @return - <b>True:</b> Possui filho. - <b>False: </b>N√£o possui.
 	 * @throws PersistenceException
 	 */
 	public boolean verificarSeCategoriaPossuiFilho(CategoriaPostDTO categoriaPost) throws PersistenceException {
@@ -197,10 +197,10 @@ public class CategoriaPostDao extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Verifica se Categoria possui ServiÁo associado
+	 * Verifica se Categoria possui Servi√ßo associado
 	 * 
 	 * @param categoriaServico
-	 * @return - <b>True:</b> Possui filho. - <b>False: </b>N„o possui.
+	 * @return - <b>True:</b> Possui filho. - <b>False: </b>N√£o possui.
 	 * @throws PersistenceException
 	 */
 	public boolean verificarSeCategoriaPossuiPost(CategoriaPostDTO categoriaServico) throws PersistenceException {

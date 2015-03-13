@@ -7,7 +7,7 @@ function ValidacaoUtils() { }
 
 ValidacaoUtils.validaRequired = function(field, label){
 	if(StringUtils.isBlank(HTMLUtils.getValue(field.id))){
-		alert(label + 'Campo obrigatório');
+		alert(label + 'Campo obrigatÃ³rio');
 		try{
 			field.focus();
 		}catch(e){
@@ -238,7 +238,7 @@ ValidacaoUtils.validaHora = function(campoHora, label){
          return true;
      }
      if(hora.length != 5){
-         alert(label + 'Formato de hora inválido (hh:mm)');
+         alert(label + 'Formato de hora invÃ¡lido (hh:mm)');
          campoHora.focus();
          campoHora.select();
          return false;
@@ -248,7 +248,7 @@ ValidacaoUtils.validaHora = function(campoHora, label){
      m  = hora.substring(3,5);
      
      if(h > 23 || h < 0){
-         alert(label + 'Hora inválida(de 00 a 23)');
+         alert(label + 'Hora invÃ¡lida(de 00 a 23)');
          campoHora.focus();
          campoHora.select();
          return false;
@@ -256,7 +256,7 @@ ValidacaoUtils.validaHora = function(campoHora, label){
       
      if(m>59 || m<0){
      
-         alert(label + 'Minuto inválido(de 00 a 59)');
+         alert(label + 'Minuto invÃ¡lido(de 00 a 59)');
          campoHora.focus();
          campoHora.select();
          return false;
@@ -313,7 +313,7 @@ ValidacaoUtils.validaData = function(field, label){
 	}
 	var ret = DateTimeUtil.isValidDate(field.value);
 	if (!ret){
-		alert(label + 'Data Inválida');
+		alert(label + 'Data InvÃ¡lida');
 		field.focus();
 	}
 	return ret;

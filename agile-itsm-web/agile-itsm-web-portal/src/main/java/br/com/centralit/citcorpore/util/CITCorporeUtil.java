@@ -43,7 +43,7 @@ public class CITCorporeUtil {
     public static boolean START_VERIFICA_EVENTOS = true;
 
     /**
-     * Define se o monitoramento de ativos ser· executado nessa inst‚ncia. Esse valor ser· alterado conforme definiÁ„o no arquivo citsmart.cfg.
+     * Define se o monitoramento de ativos ser√° executado nessa inst√¢ncia. Esse valor ser√° alterado conforme defini√ß√£o no arquivo citsmart.cfg.
      */
     public static boolean START_MONITORING_ASSETS = false;
 
@@ -354,7 +354,7 @@ public class CITCorporeUtil {
     }
 
     /**
-     * Limpa formul·rio.
+     * Limpa formul√°rio.
      *
      * @param document
      * @return HTMLForm

@@ -80,7 +80,7 @@ public class RelatorioQuantitativoPorServico extends AjaxFormAction {
 	}
 
 	/**
-	 * Faz a impressão do relatório no formato pdf.
+	 * Faz a impressÃ£o do relatÃ³rio no formato pdf.
 	 * 
 	 * @param document
 	 * @param request
@@ -140,8 +140,8 @@ public class RelatorioQuantitativoPorServico extends AjaxFormAction {
 
 		Map<String, Object> parametros = new HashMap<String, Object>();
 		parametros = UtilRelatorio.trataInternacionalizacaoLocale(session, parametros);
-		/* Desenvolvedor: Thiago Matias - Data: 29/10/2013 - Horário: 09:50 - ID Citsmart: 122025 - 
-		* Motivo/Comentário: foi alterado o titulo do relatorio */
+		/* Desenvolvedor: Thiago Matias - Data: 29/10/2013 - HorÃ¡rio: 09:50 - ID Citsmart: 122025 - 
+		* Motivo/ComentÃ¡rio: foi alterado o titulo do relatorio */
 		parametros.put("TITULO_RELATORIO", UtilI18N.internacionaliza(request, "relatorioQuantitativoDeServicosConcluidosSintetico.titulo"));
 		parametros.put("CIDADE", UtilI18N.internacionaliza(request, "citcorpore.comum.relatorioCidade"));
 		parametros.put("DATA_HORA", UtilDatas.getDataHoraAtual());
@@ -186,7 +186,7 @@ public class RelatorioQuantitativoPorServico extends AjaxFormAction {
 	}
 
 	/**
-	 * Faz a impressão do relatório no formato xls.
+	 * Faz a impressÃ£o do relatÃ³rio no formato xls.
 	 * 
 	 * @param document
 	 * @param request

@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.citframework.dto.Usuario"%>
@@ -9,7 +11,7 @@
 	iframe = request.getParameter("iframe");
 %>
 <%@include file="/include/header.jsp"%>
-<title><fmt:message key="citcorpore.comum.title" /></title>
+<%@include file="/novoLayout/common/include/titulo.jsp" %>
 <%@include file="/include/menu/menuConfig.jsp"%>
 <%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 

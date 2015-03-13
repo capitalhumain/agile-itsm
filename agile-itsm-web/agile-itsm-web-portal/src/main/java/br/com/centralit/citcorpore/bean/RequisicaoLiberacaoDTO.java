@@ -154,7 +154,7 @@ public class RequisicaoLiberacaoDTO extends ObjetoNegocioFluxoDTO {
 	//campo para cadastrar agendamento direto da jsp requisicaoMudanca
 	private Integer idGrupoAtvPeriodica;
 	
-	//campo auxiliar, não é salvo no banco
+	//campo auxiliar, nÃ£o Ã© salvo no banco
 	private String responsavelAtual;
 	
 	public String getHoraAgendamentoFinal() {
@@ -174,7 +174,7 @@ public class RequisicaoLiberacaoDTO extends ObjetoNegocioFluxoDTO {
 	//atributos docs gerais
 	private Collection<UploadDTO> colDocsGerais;
 	
-	//atributos aprovação
+	//atributos aprovaÃ§Ã£o
 	public Collection<UploadDTO> getColArquivosUploadDocsLegais() {
 		return colArquivosUploadDocsLegais;
 	}
@@ -797,12 +797,12 @@ public class RequisicaoLiberacaoDTO extends ObjetoNegocioFluxoDTO {
 	public String getDadosStr() {
 		StringBuilder str = new StringBuilder();
 		if (getIdRequisicaoLiberacao() != null) {
-			str.append("Número da requisição: " + getIdRequisicaoLiberacao() + "\n");
+			str.append("NÃºmero da requisiÃ§Ã£o: " + getIdRequisicaoLiberacao() + "\n");
 			if (getDataHoraInicio() != null) {
 				str.append("Criada em: " + getDataHoraInicio() + "\n");
 			}
 			if (getDescrSituacao() != null) {
-				str.append("Situação: " + getDescrSituacao() + "\n");
+				str.append("SituaÃ§Ã£o: " + getDescrSituacao() + "\n");
 			}
 			if (!suspensa()) {
 				if (getPrazoHH() != null) {
@@ -1009,7 +1009,7 @@ public class RequisicaoLiberacaoDTO extends ObjetoNegocioFluxoDTO {
 		this.colProblemas = colProblemas;
 	}
 	/**
-	 * @param Responsáveis
+	 * @param ResponsÃ¡veis
 	 */
 	public Collection<RequisicaoLiberacaoResponsavelDTO> getColResponsaveis() {
 		return colResponsaveis;

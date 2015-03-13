@@ -65,7 +65,7 @@ public class FormatDate extends WriteTag{
 		    data = (Date)value;
 		    
 		}else{
-		    throw new JspException("Tipo do atributo "+getProperty()+" inv·lido pata convers„o de Data");
+		    throw new JspException("Tipo do atributo "+getProperty()+" inv√°lido pata convers√£o de Data");
 		}
 		    
 		    

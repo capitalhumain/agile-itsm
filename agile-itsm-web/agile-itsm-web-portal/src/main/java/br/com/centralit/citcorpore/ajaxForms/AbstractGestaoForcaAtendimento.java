@@ -41,7 +41,7 @@ import br.com.citframework.util.UtilI18N;
 import com.google.gson.Gson;
 
 /**
- * {@link AjaxFormAction} contendo operações comuns entre os controllers das telas da {@code Gestão da Força de Atendimento}
+ * {@link AjaxFormAction} contendo operaÃ§Ãµes comuns entre os controllers das telas da {@code GestÃ£o da ForÃ§a de Atendimento}
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  *

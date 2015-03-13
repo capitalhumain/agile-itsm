@@ -15,7 +15,7 @@ public interface ComplemInfProblemaServicoService extends CrudService {
     public void validaUpdate(SolicitacaoServicoDTO solicitacaoServicoDto, BaseEntity model) throws Exception;
 	
 	 /**
-	  * Metodo de criação da entidade.
+	  * Metodo de criaÃ§Ã£o da entidade.
 	 * @param tc
 	 * @param problemaDto
 	 * @param model
@@ -26,7 +26,7 @@ public interface ComplemInfProblemaServicoService extends CrudService {
 	public BaseEntity create(TransactionControler tc, ProblemaDTO problemaDto, BaseEntity model) throws Exception;
 	 
 	 /**
-	  * Metodo de alteração da entidade
+	  * Metodo de alteraÃ§Ã£o da entidade
 	 * @param tc
 	 * @param problemaDto
 	 * @param model

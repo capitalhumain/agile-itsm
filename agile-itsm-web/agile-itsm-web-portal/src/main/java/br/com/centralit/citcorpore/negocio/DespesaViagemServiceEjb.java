@@ -46,7 +46,7 @@ public class DespesaViagemServiceEjb extends ComplemInfSolicitacaoServicoService
     @Override
     public void validaCreate(final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {
         if (!this.validaPrazoItens(solicitacaoServicoDto.getIdSolicitacaoServico())) {
-            throw new LogicException("Prazo cotaÁ„o expirado ou maior que a data fim viagem, favor refazer a cotaÁ„o dos itens novamente!");
+            throw new LogicException("Prazo cota√ß√£o expirado ou maior que a data fim viagem, favor refazer a cota√ß√£o dos itens novamente!");
         }
     }
 
@@ -58,7 +58,7 @@ public class DespesaViagemServiceEjb extends ComplemInfSolicitacaoServicoService
     @Override
     public void validaUpdate(final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {
         if (!this.validaPrazoItens(solicitacaoServicoDto.getIdSolicitacaoServico())) {
-            throw new LogicException("Prazo cotaÁ„o expirado ou maior que a data fim viagem, favor refazer a cotaÁ„o dos itens novamente!");
+            throw new LogicException("Prazo cota√ß√£o expirado ou maior que a data fim viagem, favor refazer a cota√ß√£o dos itens novamente!");
         }
     }
 
@@ -96,7 +96,7 @@ public class DespesaViagemServiceEjb extends ComplemInfSolicitacaoServicoService
 
             if (solicitacaoServicoDto.getIdSolicitante().intValue() == solicitacaoServicoDto.getUsuarioDto().getIdEmpregado().intValue()
                     && !(despesaViagemDTO != null && despesaViagemDTO.getCancelarRequisicao() != null && despesaViagemDTO.getCancelarRequisicao().equalsIgnoreCase("S"))) {
-                throw new LogicException("Usu·rio sem permiss„o para ExecuÁ„o!");
+                throw new LogicException("Usu√°rio sem permiss√£o para Execu√ß√£o!");
             }
 
             despesaViagemDAO.setTransactionControler(tc);
@@ -162,7 +162,7 @@ public class DespesaViagemServiceEjb extends ComplemInfSolicitacaoServicoService
     }
 
     /**
-     * Valida se os itens de despesa est„o com a cotaÁ„o vencida
+     * Valida se os itens de despesa est√£o com a cota√ß√£o vencida
      *
      * @param idSolicitacaoServico
      * @return
@@ -222,7 +222,7 @@ public class DespesaViagemServiceEjb extends ComplemInfSolicitacaoServicoService
     }
 
     /**
-     * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+     * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
      */
     @Override
     public Collection<DespesaViagemDTO> findHitoricoDespesaViagemByIdRoteiro(final Integer idRoteiro) throws Exception {

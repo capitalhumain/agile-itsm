@@ -27,7 +27,7 @@ import br.com.citframework.util.Constantes;
 import br.com.citframework.util.UtilI18N;
 
 /**
- * Esta classe È utilizada apenas para a RenderizaÁ„o da PaginaÁ„o.
+ * Esta classe √© utilizada apenas para a Renderiza√ß√£o da Pagina√ß√£o.
  */
 @SuppressWarnings({ "rawtypes", "unused" })
 public class GerenciamentoServicosImpl extends GerenciamentoServicos implements GerenciamentoProcessos {
@@ -35,7 +35,7 @@ public class GerenciamentoServicosImpl extends GerenciamentoServicos implements 
 	private static boolean verificaGrupoUsuario;
 
 	public void iniciar(StringBuilder sb, HttpServletRequest request, Integer itensPorPagina, Integer paginaSelecionada, Integer tipoLista) throws Exception {
-		// validaÁ„o necess·ria de usu·rio graÁas ao uso da taglib GerenciamentoField, se n„o tiver usu·rio logado, retornar para a taglib
+		// valida√ß√£o necess√°ria de usu√°rio gra√ßas ao uso da taglib GerenciamentoField, se n√£o tiver usu√°rio logado, retornar para a taglib
 		UsuarioDTO usuarioLogado = (UsuarioDTO) request.getSession().getAttribute(Constantes.getValue("USUARIO_SESSAO") + "_CITCORPORE");
 
 		if (usuarioLogado == null) {
@@ -44,7 +44,7 @@ public class GerenciamentoServicosImpl extends GerenciamentoServicos implements 
 
 		criarScriptPaginacao(sb);
 
-		/** O mÈtodo atualizarListaTarefasAndReturnTotalPaginas unificou as funcionalidades dos mÈtodos atualizaListaTarefas e totalPaginas. 27.01.2015. OperaÁ„o Usain Bolt. valdoilo.damasceno */
+		/** O m√©todo atualizarListaTarefasAndReturnTotalPaginas unificou as funcionalidades dos m√©todos atualizaListaTarefas e totalPaginas. 27.01.2015. Opera√ß√£o Usain Bolt. valdoilo.damasceno */
 		Pageable pageable = new PageRequest(paginaSelecionada - 1, itensPorPagina);
 		Integer totalPaginasFinal = super.getExecucaoSolicitacaoService().atualizarListaTarefasAndReturnTotalPaginas(usuarioLogado, this.getGerenciamentoServicosDTO(), pageable);
 
@@ -75,7 +75,7 @@ public class GerenciamentoServicosImpl extends GerenciamentoServicos implements 
 
 		Collection<GrupoDTO> listGrupoExecutor = grupoService.getGruposByIdEmpregado(WebUtil.getUsuario(request).getIdEmpregado());
 		/*
-		 * Desenvolvedor: Pedro Lino - Data: 08/11/2013 - Hor·rio: 11:00 - ID Citsmart: 120948 - Motivo/Coment·rio: Retirado bot„o de busca na pagina a pedido do Jorge Santos(Consultoria)
+		 * Desenvolvedor: Pedro Lino - Data: 08/11/2013 - Hor√°rio: 11:00 - ID Citsmart: 120948 - Motivo/Coment√°rio: Retirado bot√£o de busca na pagina a pedido do Jorge Santos(Consultoria)
 		 */
 		StringBuilder sbFiltro = new StringBuilder();
 		if (flag) {
@@ -275,7 +275,7 @@ public class GerenciamentoServicosImpl extends GerenciamentoServicos implements 
 	}
 
 	public synchronized void carregarCabecalhoGerenciamento(Integer totalPaginas, StringBuilder sb, Integer paginaSelecionada, HttpServletRequest request, Integer tipoLista) throws Exception {
-		// isto È necess·rio para passar o locale correto da seÁ„o para evitar problemas com concorrÍncia
+		// isto √© necess√°rio para passar o locale correto da se√ß√£o para evitar problemas com concorr√™ncia
 		String locale = (String) request.getSession().getAttribute("locale");
 		if (locale == null) {
 			locale = "pt";
@@ -358,7 +358,7 @@ public class GerenciamentoServicosImpl extends GerenciamentoServicos implements 
 	}
 
 	/**
-	 * Cria os scipts que ser„o usados na tela de gerenciamento de serviÁos
+	 * Cria os scipts que ser√£o usados na tela de gerenciamento de servi√ßos
 	 *
 	 * @param sb
 	 */
@@ -427,7 +427,7 @@ public class GerenciamentoServicosImpl extends GerenciamentoServicos implements 
 	}
 
 	/**
-	 * Realiza a paginaÁ„o dos itens e recarrega a lista de solicitaÁıes
+	 * Realiza a pagina√ß√£o dos itens e recarrega a lista de solicita√ß√µes
 	 *
 	 * @param document
 	 * @param request

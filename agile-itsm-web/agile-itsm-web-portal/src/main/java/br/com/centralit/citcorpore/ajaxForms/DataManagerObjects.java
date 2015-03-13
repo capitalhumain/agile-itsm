@@ -101,7 +101,7 @@ public class DataManagerObjects extends AjaxFormAction {
 
 	private HashMap getFormFields(HttpServletRequest req) {
 		try {
-			req.setCharacterEncoding("ISO-8859-1");
+			req.setCharacterEncoding("UTF-8");
 		} catch (UnsupportedEncodingException e) {
 			System.out.println("PROBLEMA COM CODIFICACAO DE CARACTERES!!! [AjaxProcessEvent.getFormFields()]");
 			e.printStackTrace();

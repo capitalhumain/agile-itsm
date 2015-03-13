@@ -16,7 +16,7 @@ import br.com.centralit.citcorpore.bean.Attachment;
 /**
  * @author breno.guimaraes
  * @author Dj
- * Classe de tratamento e extração de conteúdo de email com a API JavaMail.
+ * Classe de tratamento e extraÃ§Ã£o de conteÃºdo de email com a API JavaMail.
  */
 public class RenderableMessage implements Renderable {
     

@@ -72,7 +72,7 @@ public class IPAddress {
     
 	public boolean ping(){
 		/*
-		 * Emauri - 06/12/2013 - Inicio, Retirar o isReachable, pois n„o tem o efeito desejado e onera com abertura de sockets.
+		 * Emauri - 06/12/2013 - Inicio, Retirar o isReachable, pois n√£o tem o efeito desejado e onera com abertura de sockets.
 		 * 
 	    InetAddress inet;
 		try {
@@ -153,7 +153,7 @@ public class IPAddress {
         		System.out.println(ip1 + " >>>: " + ip1.ping());
                 ip1 = ip1.next();
 			} catch (Exception e) {
-				System.out.println("Problema de Permiss„o da Rede para dar Ping");
+				System.out.println("Problema de Permiss√£o da Rede para dar Ping");
 			}
         	
 

@@ -14,7 +14,8 @@ import br.com.citframework.integracao.Field;
 import br.com.citframework.integracao.Order;
 import br.com.citframework.util.Constantes;
 
-public class InformacoesContratoPerfSegDao extends CrudDaoDefaultImpl {
+public class InformacoesContratoPerfSegDao extends CrudDaoDefaultImpl {
+
 
 	public InformacoesContratoPerfSegDao() {
 		super(Constantes.getValue("DATABASE_ALIAS"), null);

@@ -297,7 +297,7 @@ public class PedidoCompra extends AjaxFormAction {
                     continue;
                 double qtdePedido = itemPedidoService.obtemQtdePedidoColetaPreco(coletaPrecoDto.getIdColetaPreco());
                 if (qtdePedido < coletaPrecoDto.getQuantidadeDisponivel() || idColeta == coletaPrecoDto.getIdColetaPreco())
-                    idColetaPreco.addOption(""+coletaPrecoDto.getIdColetaPreco(), "Coleta de preço "+coletaPrecoDto.getIdColetaPreco()+" - "+coletaPrecoDto.getDescricaoItem());
+                    idColetaPreco.addOption(""+coletaPrecoDto.getIdColetaPreco(), "Coleta de preÃ§o "+coletaPrecoDto.getIdColetaPreco()+" - "+coletaPrecoDto.getDescricaoItem());
             }
             if (idColeta > 0)
                 idColetaPreco.setValue(""+idColeta);

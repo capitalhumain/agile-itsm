@@ -12,7 +12,7 @@ import br.com.centralit.citcorpore.util.WebUtil;
 import br.com.citframework.service.ServiceLocator;
 
 /**
- * @author Fl·vio
+ * @author Fl√°vio
  *
  */
 public class MeuCatalogo extends AjaxFormAction {

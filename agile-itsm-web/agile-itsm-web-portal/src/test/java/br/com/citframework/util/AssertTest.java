@@ -3,7 +3,7 @@ package br.com.citframework.util;
 import org.junit.Test;
 
 /**
- * Classe de testes para validação do comportamento de {@link Assert}
+ * Classe de testes para validaÃ§Ã£o do comportamento de {@link Assert}
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 02/10/2014

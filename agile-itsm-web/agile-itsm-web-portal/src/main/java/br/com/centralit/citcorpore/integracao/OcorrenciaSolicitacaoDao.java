@@ -141,7 +141,7 @@ public class OcorrenciaSolicitacaoDao extends CrudDaoDefaultImpl {
 		List parametro = new ArrayList();
 		List listRetorno = new ArrayList();
 		List list = new ArrayList();
-		String strOcorr = "EscalaÁ„o autom·tica";
+		String strOcorr = "Escala√ß√£o autom√°tica";
 
 		StringBuilder sql = new StringBuilder();
 		sql.append("select o.idocorrencia, o.idjustificativa, o.idsolicitacaoservico, o.iditemtrabalho, o.dataregistro, o.horaregistro, o.registradopor, "
@@ -190,7 +190,7 @@ public class OcorrenciaSolicitacaoDao extends CrudDaoDefaultImpl {
 		Collection<SolicitacaoServicoDTO> solicitacoes = new ArrayList();
 		StringBuilder sql = new StringBuilder();
 
-		String string = "ExecuÁ„o da tarefa \"Testes/Controle de qualidade\"";
+		String string = "Execu√ß√£o da tarefa \"Testes/Controle de qualidade\"";
 
 		sql.append("select o.ocorrencia, u.idusuario from ocorrenciasolicitacao o " + " inner join solicitacaoservico s on o.idsolicitacaoservico = s.idsolicitacaoservico "
 				+ " inner join usuario u on o.registradopor = u.login " + " where o.ocorrencia like '%" + string + "%' and s.idsolicitacaoservico = ?");
@@ -244,7 +244,7 @@ public class OcorrenciaSolicitacaoDao extends CrudDaoDefaultImpl {
 				+ " from ocorrenciasolicitacao ocorrenciasolicitacao " + " INNER JOIN solicitacaoservico solicitacaoservico "
 				+ " ON solicitacaoservico.idsolicitacaoservico = ocorrenciasolicitacao.idsolicitacaoservico " + " INNER JOIN historicosolicitacaoservico historicosolicitacaoservico "
 				+ " ON historicosolicitacaoservico.idocorrencia = ocorrenciasolicitacao.idocorrencia " + " INNER JOIN usuario usuario "
-				+ " ON usuario.idusuario = historicosolicitacaoservico.idresponsavelatual " + " WHERE ocorrenciasolicitacao.ocorrencia like '%ExecuÁ„o da tarefa \"Testes/Controle de qualidade\"%' "
+				+ " ON usuario.idusuario = historicosolicitacaoservico.idresponsavelatual " + " WHERE ocorrenciasolicitacao.ocorrencia like '%Execu√ß√£o da tarefa \"Testes/Controle de qualidade\"%' "
 				+ " and solicitacaoservico.datahorainiciosla between ? and ? " + " and solicitacaoservico.datahorafim < solicitacaoservico.datahoralimite "
 				+ " and historicosolicitacaoservico.idresponsavelatual = ? " + " group by solicitacaoservico.idsolicitacaoservico " + " order by solicitacaoservico.idsolicitacaoservico ");
 
@@ -276,7 +276,7 @@ public class OcorrenciaSolicitacaoDao extends CrudDaoDefaultImpl {
 				+ " solicitacaoservico.datahoralimite, solicitacaoservico.datahorafim " + " from ocorrenciasolicitacao ocorrenciasolicitacao " + " INNER JOIN solicitacaoservico solicitacaoservico "
 				+ " ON solicitacaoservico.idsolicitacaoservico = ocorrenciasolicitacao.idsolicitacaoservico " + " INNER JOIN historicosolicitacaoservico historicosolicitacaoservico "
 				+ " ON historicosolicitacaoservico.idocorrencia = ocorrenciasolicitacao.idocorrencia " + " INNER JOIN usuario usuario "
-				+ " ON usuario.idusuario = historicosolicitacaoservico.idresponsavelatual " + " WHERE ocorrenciasolicitacao.ocorrencia like '%ExecuÁ„o da tarefa \"Testes/Controle de qualidade\"%' "
+				+ " ON usuario.idusuario = historicosolicitacaoservico.idresponsavelatual " + " WHERE ocorrenciasolicitacao.ocorrencia like '%Execu√ß√£o da tarefa \"Testes/Controle de qualidade\"%' "
 				+ " and solicitacaoservico.datahorainiciosla between ? and ? " + " and historicosolicitacaoservico.idresponsavelatual = ? " + " group by solicitacaoservico.idsolicitacaoservico "
 				+ " order by solicitacaoservico.idsolicitacaoservico ");
 

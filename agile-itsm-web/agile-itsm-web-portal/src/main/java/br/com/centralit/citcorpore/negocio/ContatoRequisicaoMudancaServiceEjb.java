@@ -32,7 +32,7 @@ public class ContatoRequisicaoMudancaServiceEjb extends CrudServiceImpl implemen
             contatoRequisicaoMudancaDTO = (ContatoRequisicaoMudancaDTO) this.getDao().restore(contatoRequisicaoMudancaDTO);
         } catch (final Exception e) {
             e.printStackTrace();
-            System.out.println("Contato Requisicao Liberac„o n„o foi encontrado com esse ID");
+            System.out.println("Contato Requisicao Liberac√£o n√£o foi encontrado com esse ID");
         }
         return contatoRequisicaoMudancaDTO;
     }

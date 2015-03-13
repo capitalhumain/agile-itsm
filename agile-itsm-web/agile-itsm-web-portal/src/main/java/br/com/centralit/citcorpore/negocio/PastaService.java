@@ -27,7 +27,7 @@ import br.com.citframework.service.CrudService;
 public interface PastaService extends CrudService {
 
 	/**
-	 * Lista Pasta e Subpastas conforme PERFIL DE ACESSO do Usu·rio LOGADO.
+	 * Lista Pasta e Subpastas conforme PERFIL DE ACESSO do Usu√°rio LOGADO.
 	 * 
 	 * @param usuario
 	 * @return Collection<PastaDTO>
@@ -45,7 +45,7 @@ public interface PastaService extends CrudService {
 	public Collection<PastaDTO> listPastasESubpastas() throws Exception;
 
 	/**
-	 * Consulta Pastas Ativas. Pastas que n„o possuem dataFim.
+	 * Consulta Pastas Ativas. Pastas que n√£o possuem dataFim.
 	 * 
 	 * @return pastasAtivas
 	 * @throws ServiceException
@@ -86,7 +86,7 @@ public interface PastaService extends CrudService {
 	public boolean excluirPasta(PastaDTO pastaBean) throws Exception;
 
 	/**
-	 * Lista Pastas Ativas que n„o possuem pasta pai.
+	 * Lista Pastas Ativas que n√£o possuem pasta pai.
 	 * 
 	 * @return listaPastas
 	 * @throws ServiceException
@@ -96,7 +96,7 @@ public interface PastaService extends CrudService {
 	public Collection listPastaSuperiorSemPai() throws Exception;
 
 	/**
-	 * Consulta Pastas que n„o possuam Pastas Filhas.
+	 * Consulta Pastas que n√£o possuam Pastas Filhas.
 	 * 
 	 * @return listaPastas
 	 * @throws ServiceException
@@ -117,7 +117,7 @@ public interface PastaService extends CrudService {
 	public List<PastaDTO> listPastaByUsuario(UsuarioDTO usuario) throws Exception;
 
 	/**
-	 * MÈtodo para verificar se caso exista uma pasta com o mesmo nome
+	 * M√©todo para verificar se caso exista uma pasta com o mesmo nome
 	 * 
 	 * @author rodrigo.oliveira
 	 * @param pastaDTO
@@ -127,30 +127,30 @@ public interface PastaService extends CrudService {
 	public boolean verificaSeExistePasta(PastaDTO pastaDTO) throws Exception;
 
 	/**
-	 * Verifica se Usu·rio possui acesso a pasta informada.
+	 * Verifica se Usu√°rio possui acesso a pasta informada.
 	 * 
 	 * @param pastaDto
 	 * @param usuarioDto
-	 * @return true - caso possua; false - se n„o possuir.
+	 * @return true - caso possua; false - se n√£o possuir.
 	 * @throws Exception
 	 * @throws ServiceException
 	 */
 	public boolean verificarSeUsuarioPossuiAcessoPasta(PastaDTO pastaDto, UsuarioDTO usuarioDto) throws Exception;
 
 	/**
-	 * Verifica se usu·rio possui acesso a pasta, considerando a sua hierarquia superior de pastas. Caso o usu·rio n„o possua acesso a alguma pasta superior, o usu·rio n„o possuir· acesso a subpasta
+	 * Verifica se usu√°rio possui acesso a pasta, considerando a sua hierarquia superior de pastas. Caso o usu√°rio n√£o possua acesso a alguma pasta superior, o usu√°rio n√£o possuir√° acesso a subpasta
 	 * informada.
 	 * 
 	 * @param pastaDto
 	 * @param usuarioDto
-	 * @return true - se possuir acesso; false - se n„o possuir acesso.
+	 * @return true - se possuir acesso; false - se n√£o possuir acesso.
 	 * @throws ServiceException
 	 * @throws Exception
 	 */
 	public boolean verificaPermissaoDeAcessoPasta(PastaDTO pastaDto, UsuarioDTO usuarioDto) throws ServiceException, Exception;
 
 	/**
-	 * Retorna PastaDTO que da permiss„o para Pasta Informada.
+	 * Retorna PastaDTO que da permiss√£o para Pasta Informada.
 	 * 
 	 * @param subPasta
 	 * @return PastaDTO
@@ -171,7 +171,7 @@ public interface PastaService extends CrudService {
 	public Collection<PastaDTO> listSubPastas(PastaDTO pastaSuperior) throws Exception;
 
 	/**
-	 * Cria NotificaÁ„o
+	 * Cria Notifica√ß√£o
 	 * 
 	 * @param pastaDto
 	 * @param transactionControler

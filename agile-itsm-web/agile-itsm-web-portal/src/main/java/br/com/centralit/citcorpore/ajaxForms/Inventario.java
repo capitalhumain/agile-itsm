@@ -123,7 +123,7 @@ public class Inventario extends AjaxFormAction {
 
 		/*	} catch (Exception e) {
 			System.out.println("Problema ao pesquisar lista de IPs: " + e.getMessage());
-			doc.alert("Problema ao pesquisar lista de IPs, confira os par‚mentros do sistema.");
+			doc.alert("Problema ao pesquisar lista de IPs, confira os par√¢mentros do sistema.");
 			e.printStackTrace();
 		}*/
 		return listnetMap;
@@ -233,7 +233,7 @@ public class Inventario extends AjaxFormAction {
 	}
 
 	/**
-	 * Verifica quais ips Est„o Ativos e seta CHECKED
+	 * Verifica quais ips Est√£o Ativos e seta CHECKED
 	 *
 	 * @param lstPesquisa
 	 *            NetMapDTO

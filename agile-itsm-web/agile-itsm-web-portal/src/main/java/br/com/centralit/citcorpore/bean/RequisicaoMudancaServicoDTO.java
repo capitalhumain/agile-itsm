@@ -21,7 +21,7 @@ public class RequisicaoMudancaServicoDTO extends BaseEntity {
     private Integer idRequisicaoMudanca;
     private Integer idServico;
 
-    // campos para mera visualização
+    // campos para mera visualizaÃ§Ã£o
     private String nome;
     private String descricao;
 

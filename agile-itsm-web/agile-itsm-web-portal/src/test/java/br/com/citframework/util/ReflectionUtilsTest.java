@@ -12,7 +12,7 @@ import java.lang.reflect.Modifier;
 import org.junit.Test;
 
 /**
- * Classe de testes para validação do comportamento de {@link ReflectionUtils}
+ * Classe de testes para validaÃ§Ã£o do comportamento de {@link ReflectionUtils}
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 18/08/2014

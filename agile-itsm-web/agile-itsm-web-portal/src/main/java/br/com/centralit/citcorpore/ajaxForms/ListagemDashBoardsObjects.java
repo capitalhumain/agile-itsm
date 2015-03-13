@@ -70,7 +70,7 @@ public class ListagemDashBoardsObjects extends AjaxFormAction {
 
     private HashMap getFormFields(final HttpServletRequest req) {
         try {
-            req.setCharacterEncoding("ISO-8859-1");
+            req.setCharacterEncoding("UTF-8");
         } catch (final UnsupportedEncodingException e) {
             System.out.println("PROBLEMA COM CODIFICACAO DE CARACTERES!!! [AjaxProcessEvent.getFormFields()]");
             e.printStackTrace();

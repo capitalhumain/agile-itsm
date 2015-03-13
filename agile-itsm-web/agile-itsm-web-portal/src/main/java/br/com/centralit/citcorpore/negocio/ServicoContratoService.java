@@ -22,7 +22,7 @@ public interface ServicoContratoService extends CrudService {
 	public void deleteByIdServico(Integer parm) throws Exception;
 
 	/**
-	 * Instancia DAO das classe para realizar a exclus„o lÛgica.
+	 * Instancia DAO das classe para realizar a exclus√£o l√≥gica.
 	 * @param model
 	 * @param document
 	 * @throws ServiceException

@@ -166,7 +166,7 @@ public class AuditoriaItemConfigDTO extends BaseEntity {
 		this.valor = valor;
 	}
 	/**
-	 * Alterado para utilizar a nova convers„o de datas.
+	 * Alterado para utilizar a nova convers√£o de datas.
 	 * 
 	 * @return the dataAlteracaoStr
 	 * @author rodrigo.acorse

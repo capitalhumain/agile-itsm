@@ -67,10 +67,10 @@ public class RegraEscalonamentoDAO extends CrudDaoDefaultImpl {
 		return RegraEscalonamentoDTO.class;
 	}
 	
-	/*Define os tipos de Solicitação as serem filtrados
-	 * 1- Solicitação serviço/Incidente
+	/*Define os tipos de SolicitaÃ§Ã£o as serem filtrados
+	 * 1- SolicitaÃ§Ã£o serviÃ§o/Incidente
 	 * 2- Problema
-	 * 3- Mudança
+	 * 3- MudanÃ§a
 	 */
 	public Collection findByTipoSolicitacao(int idTipoGerenciamento) throws PersistenceException {
 		List parametro = new ArrayList();

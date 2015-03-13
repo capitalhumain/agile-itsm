@@ -11,7 +11,7 @@ import br.com.citframework.integracao.Field;
 import br.com.citframework.util.Constantes;
 
 /**
- * Classe DAO da tabela rh_manualFuncao. Responsável por editar as informações de RequisicaoFuncao. Vínculo realizado pelo idSolicitacaoServico.
+ * Classe DAO da tabela rh_manualFuncao. ResponsÃ¡vel por editar as informaÃ§Ãµes de RequisicaoFuncao. VÃ­nculo realizado pelo idSolicitacaoServico.
  *
  * @author CentralIT
  *

@@ -1,5 +1,5 @@
 /**
- * Objetos JAXB que representam o domínio de request e response dos serviços V2 para mobile
+ * Objetos JAXB que representam o domÃ­nio de request e response dos serviÃ§os V2 para mobile
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 22/09/2014

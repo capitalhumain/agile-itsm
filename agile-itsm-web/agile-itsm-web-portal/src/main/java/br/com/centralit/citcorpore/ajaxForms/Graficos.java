@@ -64,10 +64,10 @@ public class Graficos extends AjaxFormAction{
 	    buffer += "<table>";	
 	    buffer += "<tr>";
 	    buffer += "<td class='linhaSubtituloGridOcorr'>";
-	    	buffer += "Número";
+	    	buffer += "NÃºmero";
 	    buffer += "</td>";
 	    buffer += "<td class='linhaSubtituloGridOcorr'>";
-	    	buffer += "Data/hora solicitação";
+	    	buffer += "Data/hora solicitaÃ§Ã£o";
 	    buffer += "</td>";
 	    buffer += "<td class='linhaSubtituloGridOcorr'>";
     		buffer += "Data/hora limite";

@@ -71,7 +71,7 @@ public class OcorrenciaDTO extends BaseEntity {
 	public String getTipoOcorrenciaStr() {
 		if (tipoOcorrencia == null) return "";
 		if (tipoOcorrencia.equalsIgnoreCase("D") ){
-			return "Dúvida";
+			return "DÃºvida";
 		}
 		if (tipoOcorrencia.equalsIgnoreCase("O") ){
 			return "Diversos";

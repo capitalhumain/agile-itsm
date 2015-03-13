@@ -91,10 +91,10 @@ public class AprovacaoSolicitacaoServicoServiceEjb extends ComplemInfSolicitacao
         final AprovacaoSolicitacaoServicoDTO aprovacaoDto = (AprovacaoSolicitacaoServicoDTO) model;
 
         if (aprovacaoDto.getAprovacao() == null || aprovacaoDto.getAprovacao().trim().length() == 0) {
-            throw new LogicException("AprovaÁ„o n„o informada");
+            throw new LogicException("Aprova√ß√£o n√£o informada");
         }
         if (aprovacaoDto.getAprovacao().equalsIgnoreCase("N") && aprovacaoDto.getIdJustificativa() == null) {
-            throw new LogicException("Justificativa n„o informada");
+            throw new LogicException("Justificativa n√£o informada");
         }
     }
 

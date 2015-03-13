@@ -72,7 +72,7 @@ public class GanttSolicitacaoServico extends AjaxFormAction {
     }
 
     /**
-     * Filtra GANTT de acordo com Tipo de Solicitacao e Grupo de Seguran�a selecionado.
+     * Filtra GANTT de acordo com Tipo de Solicitacao e Grupo de Seguranï¿½a selecionado.
      * 
      * @param document
      * @param request
@@ -142,7 +142,7 @@ public class GanttSolicitacaoServico extends AjaxFormAction {
     }
 
     /**
-     * Gera GANTT a partir da Lista de Solicita��es de Servi�o.
+     * Gera GANTT a partir da Lista de Solicitaçï¿½es de Serviço.
      * 
      * @param listaSolicitacaoServico
      * @return <code>StringBuilder</code>
@@ -158,7 +158,7 @@ public class GanttSolicitacaoServico extends AjaxFormAction {
 
 	for (SolicitacaoServicoDTO solicitacao : listaSolicitacaoServico) {
 	    gantt.append("{");
-	    if(solicitacao.getNomeTipoDemandaServico().equalsIgnoreCase("Requisi��o")){
+	    if(solicitacao.getNomeTipoDemandaServico().equalsIgnoreCase("Requisição")){
 	    	gantt.append("name: '" + UtilI18N.internacionaliza(request, "requisicaoProduto.requisicao") + " " + solicitacao.getIdSolicitacaoServico() + "',");
 	    } else if (solicitacao.getNomeTipoDemandaServico().equalsIgnoreCase("Incidente")) {
 	    	gantt.append("name: '" + UtilI18N.internacionaliza(request, "requisitosla.incidente") + " " + solicitacao.getIdSolicitacaoServico() + "',");
@@ -191,7 +191,7 @@ public class GanttSolicitacaoServico extends AjaxFormAction {
 	    }
 	    gantt.append("from: '/Date(" + date.getTime() + ")/',");
 	    gantt.append("to: '/Date(" + dateFim.getTime() + ")/', ");
-	    if(solicitacao.getNomeTipoDemandaServico().equalsIgnoreCase("Requisi��o")){
+	    if(solicitacao.getNomeTipoDemandaServico().equalsIgnoreCase("Requisição")){
 	    	gantt.append("label: '" + UtilI18N.internacionaliza(request, "requisicaoProduto.requisicao") + " " + solicitacao.getIdSolicitacaoServico() + "',");
 	    } else if (solicitacao.getNomeTipoDemandaServico().equalsIgnoreCase("Incidente")) {
 	    	gantt.append("label: '" + UtilI18N.internacionaliza(request, "requisitosla.incidente") + " " + solicitacao.getIdSolicitacaoServico() + "',");
@@ -219,7 +219,7 @@ public class GanttSolicitacaoServico extends AjaxFormAction {
     }
 
     /**
-     * Gera Combo de Pastas que n�o possuem SubPastas.
+     * Gera Combo de Pastas que não possuem SubPastas.
      * 
      * Somente elas podem armazenar Base de Conhecimento.
      * 
@@ -238,7 +238,7 @@ public class GanttSolicitacaoServico extends AjaxFormAction {
     }
 
     /**
-     * Gera combo de Grupos de Seguran�a.
+     * Gera combo de Grupos de Seguranï¿½a.
      * 
      * @param document
      * @throws Exception

@@ -233,7 +233,7 @@ public class RemarcacaoViagem extends AjaxFormAction {
 	        HTMLTable tblRequisicoesViagem = document.getTableById("tblRequisicoesViagem");
 	        tblRequisicoesViagem.deleteAllRows();
 	        
-	        //metodo que recupera a coleÁ„o dos itens da pagina referenciada
+	        //metodo que recupera a cole√ß√£o dos itens da pagina referenciada
 	        Collection<IntegranteViagemDTO> colIntegrantes = integranteViagemService.recuperaIntegrantesRemarcacao(integranteViagemDTO, integranteViagemDTO.getEOu());
 	        CidadesService cidadesService = (CidadesService)ServiceLocator.getInstance().getService(CidadesService.class, null);
 	        CidadesDTO cidadesDTO = new CidadesDTO();
@@ -262,7 +262,7 @@ public class RemarcacaoViagem extends AjaxFormAction {
 	}
 	
 	/**
-	 * Busca as informaÁıes do integrante selecionado para remarcaÁ„o.
+	 * Busca as informa√ß√µes do integrante selecionado para remarca√ß√£o.
 	 * 
 	 * @param document
 	 * @param request
@@ -312,7 +312,7 @@ public class RemarcacaoViagem extends AjaxFormAction {
 	}
 	
 	/**
-	 * Carrega informaÁıes da popup de item de despesa
+	 * Carrega informa√ß√µes da popup de item de despesa
 	 * 
 	 * @param document
 	 * @param request
@@ -326,7 +326,7 @@ public class RemarcacaoViagem extends AjaxFormAction {
 	}
 	
 	/**
-	 * Carrega a grid com o historico de itens de despesa de remarcaÁıes do integrante
+	 * Carrega a grid com o historico de itens de despesa de remarca√ß√µes do integrante
 	 * 
 	 * @param document
 	 * @param request
@@ -561,11 +561,11 @@ public class RemarcacaoViagem extends AjaxFormAction {
 	 * @throws Exception
 	 * @author geber.costa
 	 * 
-	 * Faz o tratamento do tipo da movimentaÁ„o financeira.
-	 * Se a ClassificaÁ„o for igual a di·ria ent„o o adiantamento = valorUnit·rio * (quantidade + 1), se a classificaÁ„o for qualquer outro diferente
-	 * ent„o adiantamento = valorUnit·rio * di·ria
-	 * O tratamento para o adiantamento È feito , ele calcula e seta o valor na tela automaticamente.
-	 * Esse mÈtodo tambÈm faz o tratamento para casas decimais 
+	 * Faz o tratamento do tipo da movimenta√ß√£o financeira.
+	 * Se a Classifica√ß√£o for igual a di√°ria ent√£o o adiantamento = valorUnit√°rio * (quantidade + 1), se a classifica√ß√£o for qualquer outro diferente
+	 * ent√£o adiantamento = valorUnit√°rio * di√°ria
+	 * O tratamento para o adiantamento √© feito , ele calcula e seta o valor na tela automaticamente.
+	 * Esse m√©todo tamb√©m faz o tratamento para casas decimais 
 	 * 
 	 */
 	public void tratarValoresTipoMovimentacao(DocumentHTML document, HttpServletRequest request, HttpServletResponse response)throws ServiceException,Exception{

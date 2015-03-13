@@ -1,4 +1,4 @@
-//Thiago Fernandes - 29/10/2013 - 18:49 - Sol. 121468 - CriaÁ„o de Upload para requisiÁ„o mudanÁa para evitar conflitos com outras telas do sistema que us„o upload.
+//Thiago Fernandes - 29/10/2013 - 18:49 - Sol. 121468 - Cria√ß√£o de Upload para requisi√ß√£o mudan√ßa para evitar conflitos com outras telas do sistema que us√£o upload.
 package br.com.centralit.citcorpore.ajaxForms;
 
 import java.io.File;
@@ -70,7 +70,7 @@ public class UploadRequisicaoProblemaList extends AjaxFormAction {
 					UploadDTO uploadDTO = new UploadDTO();
 					uploadDTO.setDescricao(descUploadFile);
 					uploadDTO.setNameFile(CITCorporeUtil.getNameFile(fi.getName()));
-					uploadDTO.setSituacao("Tempor·rio");
+					uploadDTO.setSituacao("Tempor√°rio");
 					uploadDTO.setTemporario("S");
 					uploadDTO.setNotaTecnicaUpload(notaTecnicaUpload);
 					uploadDTO.setPath(CITCorporeUtil.CAMINHO_REAL_APP + "tempUpload/" + uploadDTO.getNameFile());

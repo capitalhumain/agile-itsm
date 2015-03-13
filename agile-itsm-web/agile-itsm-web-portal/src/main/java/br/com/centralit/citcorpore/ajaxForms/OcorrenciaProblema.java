@@ -103,7 +103,7 @@ public class OcorrenciaProblema extends AjaxFormAction {
     }
       
     /**
-	 * Retorna uma lista de informações da entidade ocorrencia
+	 * Retorna uma lista de informaÃ§Ãµes da entidade ocorrencia
 	 * @param ocorrenciaProblema
 	 * @param request
 	 * @return
@@ -112,8 +112,8 @@ public class OcorrenciaProblema extends AjaxFormAction {
 	 * @author geber.costa
 	 */
 	
-    /* Desenvolvedor: Pedro Lino - Data: 30/10/2013 - Horário: 17:33 - ID Citsmart: 120948 - 
-     * Motivo/Comentário: Table no padrão antigo / Tabela no novo layout */
+    /* Desenvolvedor: Pedro Lino - Data: 30/10/2013 - HorÃ¡rio: 17:33 - ID Citsmart: 120948 - 
+     * Motivo/ComentÃ¡rio: Table no padrÃ£o antigo / Tabela no novo layout */
 	public String listInfoRegExecucaoProblema(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws ServiceException, Exception {
 		JustificativaSolicitacaoService justificativaService = (JustificativaSolicitacaoService) ServiceLocator.getInstance().getService(JustificativaSolicitacaoService.class, null);
 
@@ -215,7 +215,7 @@ public class OcorrenciaProblema extends AjaxFormAction {
 	        	strBuffer += " - </b>" + UtilI18N.internacionaliza(request, "ocorrenciaProblema.registradopor") + ": <b>" + ocorrenciaProblemaDto.getRegistradopor() + "</b>";
 	        	strBuffer += "</td>";
 	        	
-	        	// Categoria Ocorrência
+	        	// Categoria OcorrÃªncia
 	        	strBuffer += "<td >";
 	        	if (ocorrenciaProblemaDto.getIdCategoriaOcorrencia() != null && ocorrenciaProblemaDto.getIdCategoriaOcorrencia() != 0) {
 	        		categoriaOcorrenciaDTO.setIdCategoriaOcorrencia(ocorrenciaProblemaDto.getIdCategoriaOcorrencia() );
@@ -226,7 +226,7 @@ public class OcorrenciaProblema extends AjaxFormAction {
 	        	}				
 	        	strBuffer += "</td>";
 				
-	        	// Origem Ocorrência
+	        	// Origem OcorrÃªncia
 				strBuffer += "<td >";
 				if (ocorrenciaProblemaDto.getIdOrigemOcorrencia() != null && ocorrenciaProblemaDto.getIdOrigemOcorrencia() != 0) {
 					origemOcorrenciaDTO.setIdOrigemOcorrencia(ocorrenciaProblemaDto.getIdOrigemOcorrencia() );

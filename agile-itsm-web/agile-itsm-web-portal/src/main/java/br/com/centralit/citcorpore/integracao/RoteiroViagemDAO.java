@@ -82,7 +82,7 @@ public class RoteiroViagemDAO extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * Retorna uma coleÁ„o de roteiros passados ligados ao idintegrante passado
+	 * Retorna uma cole√ß√£o de roteiros passados ligados ao idintegrante passado
 	 * 
 	 * @param idIntegrante
 	 * @return
@@ -106,7 +106,7 @@ public class RoteiroViagemDAO extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	public Collection<RoteiroViagemDTO> findByIdSolicitacaoServico(Integer idSolicitacaoServico) throws PersistenceException {
 		List result = new ArrayList<RoteiroViagemDTO>();
@@ -126,7 +126,7 @@ public class RoteiroViagemDAO extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	public Collection<RoteiroViagemDTO> findByIdSolicitacaoServicoTodos(Integer idSolicitacaoServico) throws PersistenceException {
 		List result = new ArrayList<RoteiroViagemDTO>();
@@ -145,7 +145,7 @@ public class RoteiroViagemDAO extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * Retorna uma coleÁ„o de roteiros atuais ligados ao idintegrante passado
+	 * Retorna uma cole√ß√£o de roteiros atuais ligados ao idintegrante passado
 	 * 
 	 * @param idIntegrante
 	 * @return
@@ -169,7 +169,7 @@ public class RoteiroViagemDAO extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * Retorna uma coleÁ„o com todos os roteiros ligados ao idintegrante passado
+	 * Retorna uma cole√ß√£o com todos os roteiros ligados ao idintegrante passado
 	 * 
 	 * @param idIntegrante
 	 * @return

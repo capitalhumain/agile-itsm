@@ -979,7 +979,7 @@
 
                                     //var top = tools.getCellSize() * 3 + 2 + parseInt(topEl.attr("offset"),10);
                                     
-                                    //Corrigindo bug de layout ao passar para segunda página
+                                    //Corrigindo bug de layout ao passar para segunda pÃ¡gina
                                     var top = 3 + topEl.position().top;
                                     _bar.css({ 'margin-top': top, 'margin-left': Math.floor(cFrom) });
 
@@ -1023,7 +1023,7 @@
 
                                     //var top = tools.getCellSize() * 3 + 2 + parseInt(topEl.attr("offset"),10);
                                     
-                                    //Corrigindo bug de layout ao passar para segunda página
+                                    //Corrigindo bug de layout ao passar para segunda pÃ¡gina
                                     var top = 3 + topEl.position().top;
                                     _bar.css({ 'margin-top': top, 'margin-left': Math.floor(cFrom) });
 
@@ -1065,7 +1065,7 @@
 
                                     //var top = tools.getCellSize() * 2 + 2 + parseInt(topEl.attr("offset"),10);
                                     
-                                    //Corrigindo bug de layout ao passar para segunda página
+                                    //Corrigindo bug de layout ao passar para segunda pÃ¡gina
                                     var top = 3 + topEl.position().top;
                                     _bar.css({ 'margin-top': top, 'margin-left': Math.floor(cFrom) });
 
@@ -1094,7 +1094,7 @@
 
                                     //var top = tools.getCellSize() * 4 + 2 + parseInt(topEl.attr("offset"),10);
                                    
-                                    //Corrigindo bug de layout ao passar para segunda página
+                                    //Corrigindo bug de layout ao passar para segunda pÃ¡gina
                                     var top = 3 + topEl.position().top;
                                     _bar.css({ 'margin-top': top, 'margin-left': Math.floor(cFrom) });
 

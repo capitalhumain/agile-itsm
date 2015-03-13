@@ -24,9 +24,9 @@ public class AutoCompleteSolicitante extends AbstractAutoComplete {
 
     @Override
     public void load(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
-        // Corrige o enconding do par‚metro desejado.
+        // Corrige o enconding do par√¢metro desejado.
         if (request.getParameter("query") != null) {
-            final String consulta = new String(request.getParameter("query").getBytes("ISO-8859-1"), "UTF-8");
+            final String consulta = new String(request.getParameter("query").getBytes("UTF-8"), "UTF-8");
 
             final String idContratoStr = request.getParameter("contrato");
             Integer idContrato = null;

@@ -54,7 +54,7 @@ public class RegraProgramacaoAtividade_S extends RegraProgramacaoAtividade {
     
     public void valida(ProgramacaoAtividadeDTO programacaoAtividadeDto) throws Exception {
         if (programacaoAtividadeDto.getPeriodicidadeSemanal() == null)
-            throw new LogicException("Periodicidade da programação semanal não foi informada");
+            throw new LogicException("Periodicidade da programaÃ§Ã£o semanal nÃ£o foi informada");
         if (programacaoAtividadeDto.getSeg() == null)
             programacaoAtividadeDto.setSeg("N");
         if (programacaoAtividadeDto.getTer() == null)
@@ -72,24 +72,24 @@ public class RegraProgramacaoAtividade_S extends RegraProgramacaoAtividade {
         if (programacaoAtividadeDto.getSeg().equals("N") && programacaoAtividadeDto.getTer().equals("N") && 
             programacaoAtividadeDto.getQua().equals("N") && programacaoAtividadeDto.getQui().equals("N") &&
             programacaoAtividadeDto.getSex().equals("N") && programacaoAtividadeDto.getSab().equals("N") && programacaoAtividadeDto.getDom().equals("N"))
-            throw new LogicException("Não foi informado nenhum dia da semana");
+            throw new LogicException("NÃ£o foi informado nenhum dia da semana");
         String[] dias = new String[] {"", programacaoAtividadeDto.getDom(), programacaoAtividadeDto.getSeg(), programacaoAtividadeDto.getTer()
                                         , programacaoAtividadeDto.getQua(), programacaoAtividadeDto.getQui(), programacaoAtividadeDto.getSex(), programacaoAtividadeDto.getSab()};
         int diaSemana = Util.getDiaSemana(programacaoAtividadeDto.getDataInicio());
         if (dias[diaSemana].equals("N"))
-            throw new LogicException("Data de início não coincide com nenhum dia da semana informado");
+            throw new LogicException("Data de inÃ­cio nÃ£o coincide com nenhum dia da semana informado");
     }    
     
     public String getDetalhamento(ProgramacaoAtividadeDTO programacaoAtividadeDto) throws Exception {
         String descricao = "";      
-        descricao = "Às "+programacaoAtividadeDto.getHoraInicio()+" todo(a)";
+        descricao = "Ã€s "+programacaoAtividadeDto.getHoraInicio()+" todo(a)";
         String dias = "";
         if (programacaoAtividadeDto.getSeg().equals("S"))
             dias += " segunda";
         if (programacaoAtividadeDto.getTer().equals("S")) {
             if (dias.length() > 0)
                 dias += ",";
-            dias += " terça";
+            dias += " terÃ§a";
         }
         if (programacaoAtividadeDto.getQua().equals("S")) {
             if (dias.length() > 0)
@@ -109,7 +109,7 @@ public class RegraProgramacaoAtividade_S extends RegraProgramacaoAtividade {
         if (programacaoAtividadeDto.getSab().equals("S")) {
             if (dias.length() > 0)
                 dias += ",";
-            dias += " sábado";
+            dias += " sÃ¡bado";
         }
         if (programacaoAtividadeDto.getDom().equals("S")) {
             if (dias.length() > 0)

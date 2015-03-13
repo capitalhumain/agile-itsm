@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 public class HistoricoLiberacaoDTO extends RequisicaoLiberacaoDTO {
 
 	/**@author murilo.pacheco
-	 * classe de historicos de alterações das liberações
+	 * classe de historicos de alteraÃ§Ãµes das liberaÃ§Ãµes
 	 */
 	private static final long serialVersionUID = 1L;
 	/**
@@ -14,7 +14,7 @@ public class HistoricoLiberacaoDTO extends RequisicaoLiberacaoDTO {
 	private Integer idHistoricoLiberacao;
 	private Timestamp dataHoraModificacao;
 	private Integer idExecutorModificacao;
-	private String tipoModificacao; // C - criação / U - update
+	private String tipoModificacao; // C - criaÃ§Ã£o / U - update
 	private Double historicoVersao;
 	private String nomeProprietario;
 	private String baseLine;

@@ -93,7 +93,7 @@ public class GenerateServiceMudancaPorImpacto extends GerencialGenerateService {
 		 * if(colBaixa != null && !colBaixa.isEmpty()){ listaRetorno = (List) colBaixa; }else{ listaRetorno = new ArrayList(); }
 		 */
 
-		// resetando par‚metro
+		// resetando par√¢metro
 		setNovoParametro(null);
 
 		return listaRetorno;

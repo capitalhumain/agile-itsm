@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 <%@ include file="/WEB-INF/templates/taglibs.jsp"%>
 
@@ -12,7 +12,7 @@
 <script type="text/javascript" src="${ctx}/js/LookupFind.js"></script>
 <script type="text/javascript" src="${ctx}/js/ObjectUtils.js"></script>
 <script type="text/javascript" src="${ctx}/js/DateTimeUtil.js"></script>
-<script type="text/javascript" src="${ctx}/js/ValidacaoUtils.js" charset="ISO-8859-1"></script>
+<script type="text/javascript" src="${ctx}/js/ValidacaoUtils.js"></script>
 <script type="text/javascript" src="${ctx}/js/StringUtils.js"></script>
 <script type="text/javascript" src="${ctx}/js/NumberUtil.js"></script>
 <script type="text/javascript" src="${ctx}/js/AjaxUtils.js"></script>

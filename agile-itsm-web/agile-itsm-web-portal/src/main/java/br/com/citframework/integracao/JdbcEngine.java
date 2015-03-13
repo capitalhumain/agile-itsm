@@ -205,7 +205,7 @@ public class JdbcEngine {
 
     public PreparedStatement getPreparedStatement(final Connection con, final String sql, final Object[] parametros) throws Exception {
         if (con == null || con.isClosed()) {
-            throw new IllegalArgumentException("A conex„o n„o pode ser nula ou estar fechada.");
+            throw new IllegalArgumentException("A conex√£o n√£o pode ser nula ou estar fechada.");
         }
 
         PreparedStatement ps = null;

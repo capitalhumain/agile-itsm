@@ -53,7 +53,7 @@ public class RelatorioDocumentosAcessadosBaseConhecimentoDAO extends CrudDaoDefa
 	
 	
 	/**
-	 * Metodo para buscar os usu·rios que acessaram as bases de conhecimento
+	 * Metodo para buscar os usu√°rios que acessaram as bases de conhecimento
 	 * @param relatorioDocumentosAcessadosBaseConhecimentoDTO
 	 * @return
 	 */

@@ -41,7 +41,7 @@ public class TimeSheet extends AjaxFormAction {
 		empregadoBean = (EmpregadoDTO) empregadoService.restore(empregadoBean);
 		
 		if (empregadoBean == null){
-			document.alert("ERRO: Não foi possivel recuperar dados do empregado logado!");
+			document.alert("ERRO: NÃ£o foi possivel recuperar dados do empregado logado!");
 			return;
 		}
 		
@@ -73,7 +73,7 @@ public class TimeSheet extends AjaxFormAction {
 		tabelaConsultaTimeSheet.addRowsByCollection(col, 
 				new String[] {"dataStr", "qtdeHorasStr", "nomeEmpregado", "detalhamento"}, 
 				null, 
-				"Já existe registrado este registro na tabela", 
+				"JÃ¡ existe registrado este registro na tabela", 
 				null, 
 				null, 
 				null);

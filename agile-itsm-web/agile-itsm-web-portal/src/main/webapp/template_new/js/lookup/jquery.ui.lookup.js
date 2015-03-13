@@ -1,4 +1,4 @@
-﻿/*!
+/*!
  * jQuery UI Lookup 0.1.0
  *
  * Copyright 2011, Simon Bartlett

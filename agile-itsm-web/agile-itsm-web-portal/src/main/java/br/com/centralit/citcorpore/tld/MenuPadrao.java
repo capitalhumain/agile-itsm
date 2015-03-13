@@ -44,11 +44,11 @@ public class MenuPadrao extends BodyTagSupport {
     private final String CAMINHO_PAGINAS = Constantes.getValue("CONTEXTO_APLICACAO") + "/pages";
 
     /**
-     * Mapa com todos os menus que o usu·rio pode acessar
+     * Mapa com todos os menus que o usu√°rio pode acessar
      * Map<idMenuPai, List<MenusFilhos> >
      *
      * @author thyen.chang
-     * @since 26/01/2015 - OPERA«√O USAIN BOLT
+     * @since 26/01/2015 - OPERA√á√ÉO USAIN BOLT
      */
     private Map<Integer, List<MenuDTO>> mapaMenu;
 
@@ -86,8 +86,8 @@ public class MenuPadrao extends BodyTagSupport {
     /***
      * Gera o HTML do menu principal
      *
-     * @since 26/01/2015 - OPERA«√O USAIN BOLT
-     *        Adicionado mÈtodo para pegar mapa com todos os menus que o usu·rio tem permiss„o de acessar
+     * @since 26/01/2015 - OPERA√á√ÉO USAIN BOLT
+     *        Adicionado m√©todo para pegar mapa com todos os menus que o usu√°rio tem permiss√£o de acessar
      * @author thyen.chang
      * @param usuario
      * @return
@@ -115,8 +115,8 @@ public class MenuPadrao extends BodyTagSupport {
     /**
      * Gera o HTML dos subMenus
      *
-     * @since 16/01/2014 - OPERA«√O USAIN BOLT
-     *        Alterado mÈtodo de busca de filhos para pegar do Mapa
+     * @since 16/01/2014 - OPERA√á√ÉO USAIN BOLT
+     *        Alterado m√©todo de busca de filhos para pegar do Mapa
      * @author thyen.chang
      * @param html
      * @param idMenu
@@ -150,7 +150,7 @@ public class MenuPadrao extends BodyTagSupport {
      * Retorna Lista com menus filhos do Mapa
      *
      * @author thyen.chang
-     * @since 26/01/2015 - OPERA«√O USAIN BOLT
+     * @since 26/01/2015 - OPERA√á√ÉO USAIN BOLT
      * @param idMenu
      * @return
      */
@@ -159,10 +159,10 @@ public class MenuPadrao extends BodyTagSupport {
     }
 
     /**
-     * ObtÈm as permissıes do menu atravÈs de um mapa est·tico gravado na seÁ„o do usu·rio
+     * Obt√©m as permiss√µes do menu atrav√©s de um mapa est√°tico gravado na se√ß√£o do usu√°rio
      *
      * @author thyen.chang
-     * @since 28/01/2015 - OPERA«√O USAIN BOLT
+     * @since 28/01/2015 - OPERA√á√ÉO USAIN BOLT
      * @param request
      * @param usuario
      * @return

@@ -57,7 +57,7 @@ public class JustificativaRequisicaoFuncaoDao extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Retorna lista de status de usu·rio.
+	 * Retorna lista de status de usu√°rio.
 	 * 
 	 * @param obj
 	 * @return
@@ -82,7 +82,7 @@ public class JustificativaRequisicaoFuncaoDao extends CrudDaoDefaultImpl {
 	}
 	
 	//TODO
-	// remoÁ„o do mÈtodo
+	// remo√ß√£o do m√©todo
 	public boolean validaInsert(JustificativaRequisicaoFuncaoDTO obj){
 		
 		

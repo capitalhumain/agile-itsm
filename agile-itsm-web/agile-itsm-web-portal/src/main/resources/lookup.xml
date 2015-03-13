@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <lookups>
     <lookup name="LOOKUP_PESQUISAITEMCONFIGURACAODDESENHOSERVICO"
         daoProcessor="br.com.citframework.integracao.LookupProcessICDao"
@@ -3275,7 +3275,7 @@
     </lookup>
 
     <lookup name="LOOKUP_PROBLEMA_CONCLUIDO" daoProcessor="DEFAULT"
-        tabela="problema" where="upper(status) LIKE upper('Concluída')">
+        tabela="problema" where="upper(status) LIKE upper('ConcluÃ­da')">
         <camposPesquisa>
             <campo nome="idproblema" descricao="lookup.numeroproblema"
                 obrigatorio="sim" tipo="NUMBER" tamanho="40" />

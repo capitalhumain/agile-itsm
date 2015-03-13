@@ -98,7 +98,7 @@ public class GenerateServiceRequisicoesProdPorUnidade extends GerencialGenerateS
 			listaRetorno = new ArrayList();
 		}
 
-		// resetando par‚metro
+		// resetando par√¢metro
 		setNovoParametro(null);
 
 		return listaRetorno;

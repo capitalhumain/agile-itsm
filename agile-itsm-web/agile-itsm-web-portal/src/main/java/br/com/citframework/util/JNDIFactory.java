@@ -25,7 +25,7 @@ public final class JNDIFactory implements IContextFactory<Object> {
     private Context context;
 
     /**
-     * Constrói um {@link JNDIFactory} com propriedades padrão do contexto
+     * ConstrÃ³i um {@link JNDIFactory} com propriedades padrÃ£o do contexto
      *
      */
     public JNDIFactory() {
@@ -38,7 +38,7 @@ public final class JNDIFactory implements IContextFactory<Object> {
     }
 
     /**
-     * Constrói um {@link JNDIFactory} informado propriedades do contexto
+     * ConstrÃ³i um {@link JNDIFactory} informado propriedades do contexto
      *
      * @param properties
      *            propriedades a serem utilizadas no contexto
@@ -57,7 +57,7 @@ public final class JNDIFactory implements IContextFactory<Object> {
         try {
             return context.lookup(normalizeJNDIResourceName(resourceName));
         } catch (final NamingException e) {
-            final String mensagem = "Ocorreu um erro ao tentar localizar objeto na referência " + resourceName
+            final String mensagem = "Ocorreu um erro ao tentar localizar objeto na referÃªncia " + resourceName
                     + " no servidor: " + e.getMessage();
             LOGGER.log(Level.SEVERE, mensagem, e);
             throw new ResourceException(mensagem, e);
@@ -70,7 +70,7 @@ public final class JNDIFactory implements IContextFactory<Object> {
             context.bind(name, object);
             return true;
         } catch (final NamingException e) {
-            LOGGER.log(Level.WARNING, "Não foi possível fazer bind do objeto: " + e.getMessage(), e);
+            LOGGER.log(Level.WARNING, "NÃ£o foi possÃ­vel fazer bind do objeto: " + e.getMessage(), e);
         }
         return false;
     }

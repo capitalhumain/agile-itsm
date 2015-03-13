@@ -39,7 +39,7 @@ public interface EmpregadoService extends CrudService {
     EmpregadoDTO restoreByIdEmpregado(final Integer idEmpregado) throws Exception;
 
     /**
-     * Calcula Custo da Hora e o Custo do Mï¿½s do empregado.
+     * Calcula Custo da Hora e o Custo do MÃ¯Â¿Â½s do empregado.
      *
      * @param empregado
      * @return EmpregadoDTO
@@ -53,7 +53,7 @@ public interface EmpregadoService extends CrudService {
      * Lista empregados.
      *
      * @param idGrupo
-     *            Identificador ï¿½nicio do grupo.
+     *            Identificador Ã¯Â¿Â½nicio do grupo.
      * @return Collection<EmpregadoDTO>
      * @throws ServiceException
      * @author daniel
@@ -84,7 +84,7 @@ public interface EmpregadoService extends CrudService {
     		ArrayList<UnidadeDTO> listaUnidadeContrato) throws Exception;
 
     /**
-     * Faz a exclusão logica de empregado.
+     * Faz a exclusÃ£o logica de empregado.
      *
      * @param model
      * @throws ServiceException
@@ -103,7 +103,7 @@ public interface EmpregadoService extends CrudService {
     Integer consultaUnidadeDoEmpregado(final Integer idEmpregado) throws Exception;
 
     /**
-     * Retorna uma lista de email de empregados que receberão notificações de base de conhecimento
+     * Retorna uma lista de email de empregados que receberÃ£o notificaÃ§Ãµes de base de conhecimento
      *
      * @param idConhecimento
      * @return
@@ -145,7 +145,7 @@ public interface EmpregadoService extends CrudService {
     EmpregadoDTO restauraTodos(final EmpregadoDTO param) throws Exception;
 
     /**
-     * Retorna EmpregadoDTO (idEmpregado e Nome). Esta consulta é a mesma da LOOKUP_SOLICITANTE_CONTRATO.
+     * Retorna EmpregadoDTO (idEmpregado e Nome). Esta consulta Ã© a mesma da LOOKUP_SOLICITANTE_CONTRATO.
      *
      * @param nome
      *            - Nome do Empregado (Campo Nome da tabela Empregados)
@@ -159,8 +159,8 @@ public interface EmpregadoService extends CrudService {
 
     /**
      * Pesquisa Empregado por Telefone ou Ramal. Retorna o primeiro Empregado encontrado para o Ramal ou Telefone
-     * informado. <<< ATENÇÃO >> o parâmetro Telefone antes de ser enviado para o método, deve ser tratado com o Método
-     * mascaraProcuraSql() da Classe Utilitária br.com.centralit.citcorpore.util.Telefone.java;
+     * informado. <<< ATENÃ‡ÃƒO >> o parÃ¢metro Telefone antes de ser enviado para o mÃ©todo, deve ser tratado com o MÃ©todo
+     * mascaraProcuraSql() da Classe UtilitÃ¡ria br.com.centralit.citcorpore.util.Telefone.java;
      *
      * @param telefone
      * @return EmpregadoDTO
@@ -169,7 +169,7 @@ public interface EmpregadoService extends CrudService {
     EmpregadoDTO findByTelefoneOrRamal(final String telefone) throws Exception;
 
     /**
-     * Restaura o EmpregadoDTO com o ID do Contrato Padrão (Primeiro contrato encontrado para o Empregado) a partir do
+     * Restaura o EmpregadoDTO com o ID do Contrato PadrÃ£o (Primeiro contrato encontrado para o Empregado) a partir do
      * ID Empregado informado.
      *
      * @param idEmpregado
@@ -201,11 +201,11 @@ public interface EmpregadoService extends CrudService {
     Collection<EmpregadoDTO> consultarNomeNaoEmpregado(final String nome) throws Exception;
 
     /**
-     * Restaura Empregado pelo ID do Usuário.
+     * Restaura Empregado pelo ID do UsuÃ¡rio.
      * 
      * @param idUsuario
-     *            - Identificador do Usuário.
-     * @return EmpregadoDTO - Empregado do Usuário.
+     *            - Identificador do UsuÃ¡rio.
+     * @return EmpregadoDTO - Empregado do UsuÃ¡rio.
      * @author valdoilo.damasceno
      * @since 16.06.2014
      */

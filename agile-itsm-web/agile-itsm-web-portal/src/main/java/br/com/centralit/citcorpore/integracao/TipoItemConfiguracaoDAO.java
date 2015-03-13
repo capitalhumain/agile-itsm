@@ -27,7 +27,7 @@ public class TipoItemConfiguracaoDAO extends CrudDaoDefaultImpl {
 			+ "FROM TIPOITEMCONFIGURACAO " + "where UPPER(NOMETIPOITEMCONFIGURACAO) = ? order by NOMETIPOITEMCONFIGURACAO";
 
 	/**
-	 * Construtor padr„o.
+	 * Construtor padr√£o.
 	 */
 	public TipoItemConfiguracaoDAO() {
 		super(Constantes.getValue("DATABASE_ALIAS"), null);
@@ -83,7 +83,7 @@ public class TipoItemConfiguracaoDAO extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Consulta Tipo Item ConfiguraÁ„o por nome.
+	 * Consulta Tipo Item Configura√ß√£o por nome.
 	 * 
 	 * @param nomeTipoItemConfiguracao
 	 * @return List
@@ -119,10 +119,10 @@ public class TipoItemConfiguracaoDAO extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Verifica se Tipo Item ConfiguraÁ„o informada existe.
+	 * Verifica se Tipo Item Configura√ß√£o informada existe.
 	 * 
 	 * @param grupo
-	 * @return true - existe; false - n„o existe;
+	 * @return true - existe; false - n√£o existe;
 	 * @throws PersistenceException
 	 */
 	public boolean verificarSeTipoItemConfiguracaoExiste(TipoItemConfiguracaoDTO tipoItemConfiguracao) throws PersistenceException {
@@ -157,7 +157,7 @@ public class TipoItemConfiguracaoDAO extends CrudDaoDefaultImpl {
 		sql.append("WHERE idtipoitemconfiguracao = ?");
 		parametros.add(tipoItemConfiguracao.getId());
 		list = this.execSQL(sql.toString(), parametros.toArray());
-		if(list != null && !list.isEmpty()) //Caso exista algum item, isso significa que o Tipo item ConfiguraÁ„o possui uma associaÁ„o com Item ConfiguraÁ„o
+		if(list != null && !list.isEmpty()) //Caso exista algum item, isso significa que o Tipo item Configura√ß√£o possui uma associa√ß√£o com Item Configura√ß√£o
 			return true;
 		else
 			return false;

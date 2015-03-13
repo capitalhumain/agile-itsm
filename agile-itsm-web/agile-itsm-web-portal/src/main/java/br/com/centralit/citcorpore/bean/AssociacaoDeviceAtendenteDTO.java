@@ -6,7 +6,7 @@ import br.com.agileitsm.model.support.BaseEntity;
 import br.com.citframework.push.DevicePlatformType;
 
 /**
- * DTO para persistência dos dados de alocação de um device a um atendente
+ * DTO para persistÃªncia dos dados de alocaÃ§Ã£o de um device a um atendente
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 15/11/2014

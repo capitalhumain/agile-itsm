@@ -35,7 +35,7 @@ public class HistoricoExecucao extends AjaxFormAction {
 		tabelaConsultaHist.addRowsByCollection(col, 
 				new String[] {"dataStr", "horaStr", "nomeEmpregado", "detalhamentoConv", "situacaoDesc"}, 
 				null, 
-				"Já existe registrado este registro na tabela", 
+				"JÃ¡ existe registrado este registro na tabela", 
 				null, 
 				null, 
 				null);

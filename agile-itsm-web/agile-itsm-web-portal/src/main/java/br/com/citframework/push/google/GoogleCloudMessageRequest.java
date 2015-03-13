@@ -5,7 +5,7 @@ import java.util.List;
 import br.com.citframework.push.MessageRequest;
 
 /**
- * Padr„o de mensagem de request que o <a href="http://developer.android.com/google/gcm/gs.html">Google Cloud Message</a> espera
+ * Padr√£o de mensagem de request que o <a href="http://developer.android.com/google/gcm/gs.html">Google Cloud Message</a> espera
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 15/11/2014

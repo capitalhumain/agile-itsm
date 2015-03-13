@@ -67,7 +67,7 @@ public class PastaDAO extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Consulta Pastas que n„o possuem Pasta Pai. Ou seja, retorna Primeiras Pastas da Arvore de Pastas.
+	 * Consulta Pastas que n√£o possuem Pasta Pai. Ou seja, retorna Primeiras Pastas da Arvore de Pastas.
 	 * 
 	 * @return listaDePastas
 	 * @throws Exception
@@ -92,7 +92,7 @@ public class PastaDAO extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Verifica se Pasta est· sendo utilizada.
+	 * Verifica se Pasta est√° sendo utilizada.
 	 * 
 	 * @param pastaBean
 	 * @return boolean
@@ -110,7 +110,7 @@ public class PastaDAO extends CrudDaoDefaultImpl {
 	 * Verifica se pasta possui Base de Conhecimento.
 	 * 
 	 * @param pastaBean
-	 * @return true - se possui; false - se n„o possui.
+	 * @return true - se possui; false - se n√£o possui.
 	 * @throws PersistenceException
 	 * @author valdoilo.damasceno
 	 */
@@ -134,7 +134,7 @@ public class PastaDAO extends CrudDaoDefaultImpl {
 	 * Verifica se pasta possui subPasta.
 	 * 
 	 * @param pastaBean
-	 * @return true - se possui; false - se n„o possui.
+	 * @return true - se possui; false - se n√£o possui.
 	 * @throws PersistenceException
 	 * @author valdoilo.damasceno
 	 */
@@ -240,7 +240,7 @@ public class PastaDAO extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Lista Subpastas de acordo com o Perfil de Acesso do Usu·rio informado.
+	 * Lista Subpastas de acordo com o Perfil de Acesso do Usu√°rio informado.
 	 * 
 	 * @param pastaSuperior
 	 * @param usuario
@@ -361,7 +361,7 @@ public class PastaDAO extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * MÈtodo para verificar se caso exista uma pasta com o mesmo nome
+	 * M√©todo para verificar se caso exista uma pasta com o mesmo nome
 	 * 
 	 * @author rodrigo.oliveira
 	 * @param pastaDTO
@@ -432,7 +432,7 @@ public class PastaDAO extends CrudDaoDefaultImpl {
 	 * Verifica se Pasta Informada porssui conhecimento do tipo FAQ.
 	 * 
 	 * @param pastaDto
-	 * @return true = Pasta possui FAQ; false = Pasta n„o possui FAQ.
+	 * @return true = Pasta possui FAQ; false = Pasta n√£o possui FAQ.
 	 * @throws Exception
 	 */
 	public boolean verificarSePastaPossuiFaq(PastaDTO pastaDto) throws PersistenceException {
@@ -465,7 +465,7 @@ public class PastaDAO extends CrudDaoDefaultImpl {
 	 * Verifica se Pasta Informada porssui conhecimento do tipo ERRO CONHECIDO.
 	 * 
 	 * @param pastaDto
-	 * @return true = Pasta possui FAQ; false = Pasta n„o possui FAQ.
+	 * @return true = Pasta possui FAQ; false = Pasta n√£o possui FAQ.
 	 * @throws Exception
 	 */
 	public boolean verificarSePastaPossuiErroConhecido(PastaDTO pastaDto) throws PersistenceException {

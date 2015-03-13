@@ -8,7 +8,7 @@
    
 
     /*Alterado por
-      desenvolvedor: rcs (Rafael C�sar Soyer)
+      desenvolvedor: rcs (Rafael Cï¿½sar Soyer)
       data: 07/01/2015
     */
     function imprimirRelatorioValorServicoContrato(){
@@ -17,7 +17,7 @@
     }
 
     /*Alterado por
-      desenvolvedor: rcs (Rafael C�sar Soyer)
+      desenvolvedor: rcs (Rafael Cï¿½sar Soyer)
       data: 07/01/2015
     */
     function imprimirRelatorioValorServicoContratoXls(){
@@ -26,7 +26,7 @@
     }
 
     /*Alterado por
-      desenvolvedor: rcs (Rafael C�sar Soyer)
+      desenvolvedor: rcs (Rafael Cï¿½sar Soyer)
       data: 07/01/2015
     */
     function meuLimpar(){
@@ -34,8 +34,8 @@
         limpar();
 
         /*
-        * � necess�rio, j� que ao limpar o contrato muda
-        * sendo necess�rio carregar os seus servi�os
+        * ï¿½ necessï¿½rio, jï¿½ que ao limpar o contrato muda
+        * sendo necessï¿½rio carregar os seus serviï¿½os
         */
         document.form.fireEvent("preencherComboboxServico");
     }

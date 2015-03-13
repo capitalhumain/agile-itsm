@@ -137,7 +137,7 @@ public class ConstrutorConsultas extends AjaxFormAction {
 		name = name + ".citreport";
 		FileOutputStream fOut = new FileOutputStream(diretorioExport + "/" + name);
 
-		XStream x = new XStream(new DomDriver("ISO-8859-1"));
+		XStream x = new XStream(new DomDriver("UTF-8"));
 		biConsultaDTO.setIdConsulta(null);
 		x.toXML(biConsultaDTO, fOut);
 
@@ -158,11 +158,11 @@ public class ConstrutorConsultas extends AjaxFormAction {
 			while(it.hasNext()){
 				fi = (FileItem)it.next();
 
-				XStream x = new XStream(new DomDriver("ISO-8859-1"));
+				XStream x = new XStream(new DomDriver("UTF-8"));
 
 				//System.out.println("Dados importados: " + fi.get().toString());
 
-				String str = new String(fi.get(), "ISO-8859-1");
+				String str = new String(fi.get(), "UTF-8");
 				biConsultaDTO = (BIConsultaDTO) x.fromXML(str);
 			}
 		}

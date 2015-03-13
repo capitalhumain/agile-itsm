@@ -8,9 +8,9 @@ public class GrupoItemConfiguracaoDTO extends BaseEntity {
 
 	private static final long serialVersionUID = -2207719425970001340L;
 
-	public static final String GRUPO_PADRAO_DESENVOLVIMENTO = "Desenvolvimento - Padr„o";
-	public static final String GRUPO_PADRAO_HOMOLOGACAO = "HomologaÁ„o - Padr„o";
-	public static final String GRUPO_PADRAO_PRODUCAO = "ProduÁ„o - Padr„o";
+	public static final String GRUPO_PADRAO_DESENVOLVIMENTO = "Desenvolvimento - Padr√£o";
+	public static final String GRUPO_PADRAO_HOMOLOGACAO = "Homologa√ß√£o - Padr√£o";
+	public static final String GRUPO_PADRAO_PRODUCAO = "Produ√ß√£o - Padr√£o";
 	
 	private Integer idGrupoItemConfiguracao;
 	private String nomeGrupoItemConfiguracao;

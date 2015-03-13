@@ -1,4 +1,4 @@
--- CARLOS SANTOS - 10/05 - Alteração nas tarefas do fluxo
+-- CARLOS SANTOS - 10/05 - AlteraÃ§Ã£o nas tarefas do fluxo
 
 alter table solicitacaoservico 
 	add column idtarefaencerramento bigint null default null,   

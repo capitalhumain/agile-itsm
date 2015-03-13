@@ -113,12 +113,12 @@ public class EndPageGerencialControl extends PdfPageEventHelper {
 			    // the URL is not in a valid form
 				e.printStackTrace();
 				url = null;
-				//throw new LogicException("Falha no estabelecimento de conex„o com a url");
+				//throw new LogicException("Falha no estabelecimento de conex√£o com a url");
 			} catch (IOException e) {
 			    // the connection couldn't be established
 				e.printStackTrace();
 				url = null;
-				//throw new LogicException("Falha no estabelecimento de conex„o com a url");
+				//throw new LogicException("Falha no estabelecimento de conex√£o com a url");
 			}
 
 			if (url == null) {
@@ -170,7 +170,7 @@ public class EndPageGerencialControl extends PdfPageEventHelper {
 				tableContent.addCell(cAux);
 			}
 
-			/*Adicionado o Titulo do relatÛrio*/
+			/*Adicionado o Titulo do relat√≥rio*/
 			PdfPCell titulo = new PdfPCell(new Phrase(titleReport, new Font(Font.HELVETICA, 14, Font.BOLD, new Color(0, 0, 0))));
 			titulo.setColspan(2);
 			titulo.setRowspan(1);

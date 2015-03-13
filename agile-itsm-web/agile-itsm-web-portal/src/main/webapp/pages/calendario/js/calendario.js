@@ -141,7 +141,7 @@
 
 		}
 	<!--			$('.tabs').tabs('select', 0);-->
-			//configuraçães iniciais da popup
+			//configuraÃ§Ã£es iniciais da popup
 			function salvar(){
 				//salvar excecoes
 				document.form.listaExecoesSerializada.value = ObjectUtils.serializeObjects(tabExcecoes.getExcecoes());

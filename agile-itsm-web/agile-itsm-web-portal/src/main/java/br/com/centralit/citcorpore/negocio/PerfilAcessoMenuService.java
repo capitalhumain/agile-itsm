@@ -13,10 +13,10 @@ public interface PerfilAcessoMenuService extends CrudService{
     public Collection<PerfilAcessoMenuDTO> restoreMenusAcesso(BaseEntity obj) throws Exception ;
     public void atualizaPerfis() throws Exception;
     /**
-     * ObtÈm um Mapa<idMenu, List<PerfilAcessoMenu> > de todos os menus deste usu·rio
+     * Obt√©m um Mapa<idMenu, List<PerfilAcessoMenu> > de todos os menus deste usu√°rio
      * 
      * @author thyen.chang
-     * @since 28/01/2015 - OPERA«√O USAIN BOLT
+     * @since 28/01/2015 - OPERA√á√ÉO USAIN BOLT
      * @param usuario
      * @return
      * @throws Exception

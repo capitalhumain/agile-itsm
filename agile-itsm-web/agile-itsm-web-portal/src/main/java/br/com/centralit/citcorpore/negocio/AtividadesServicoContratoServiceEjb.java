@@ -76,7 +76,7 @@ public class AtividadesServicoContratoServiceEjb extends CrudServiceImpl impleme
     }
 
     /**
-     * MÈtodo para atualizar a observacao de os que est„o em criaÁ„o
+     * M√©todo para atualizar a observacao de os que est√£o em cria√ß√£o
      *
      * @param mapFields
      * @throws Exception
@@ -100,7 +100,7 @@ public class AtividadesServicoContratoServiceEjb extends CrudServiceImpl impleme
 
         Double result = null;
 
-        // Pegando valores do par‚metro recebido
+        // Pegando valores do par√¢metro recebido
         final String idContratoTxt = (String) mapFields.get("IDSERVICOCONTRATO");
         String horaTxt = (String) mapFields.get("HORA");
         final String complexidade = (String) mapFields.get("COMPLEXIDADE");
@@ -145,7 +145,7 @@ public class AtividadesServicoContratoServiceEjb extends CrudServiceImpl impleme
     public Double calculaFormula(final AtividadesServicoContratoDTO atividadesServicoContrato) throws Exception {
         Double result = null;
 
-        // Pegando valores do par‚metro recebido
+        // Pegando valores do par√¢metro recebido
         final Integer idServicoContrato = atividadesServicoContrato.getIdServicoContrato();
         final Double hora = atividadesServicoContrato.getHora();
         final String complexidade = atividadesServicoContrato.getComplexidade();

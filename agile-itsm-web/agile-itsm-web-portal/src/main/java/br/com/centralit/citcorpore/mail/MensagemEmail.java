@@ -93,7 +93,7 @@ public class MensagemEmail {
 		modeloEmailDto = (ModeloEmailDTO) modeloEmailService.restore(modeloEmailDto);
 
 		if (modeloEmailDto == null)
-			throw new LogicException("Modelo de E-mail n„o parametrizado.");
+			throw new LogicException("Modelo de E-mail n√£o parametrizado.");
 
 		String texto = modeloEmailDto.getTexto();
 		String titulo = modeloEmailDto.getTitulo();
@@ -111,7 +111,7 @@ public class MensagemEmail {
 			e.printStackTrace();
 		}
 
-		// remove possÌveis chaves que n„o encontraram valores no map
+		// remove poss√≠veis chaves que n√£o encontraram valores no map
 		if (texto != null) {
 			texto = texto.replaceAll("\\$\\{[^}]*\\}", "");
 		}

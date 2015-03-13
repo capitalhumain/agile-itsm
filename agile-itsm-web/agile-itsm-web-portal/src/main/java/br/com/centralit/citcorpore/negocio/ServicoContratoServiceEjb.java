@@ -244,7 +244,7 @@ public class ServicoContratoServiceEjb extends CrudServiceImpl implements Servic
 
     @Override
     public boolean validaServicoContrato(final HashMap mapFields) throws Exception {
-        // Pegando valores do parâmetro recebido
+        // Pegando valores do parÃ¢metro recebido
         final String idContratoTxt = (String) mapFields.get("IDCONTRATO");
         final String idServicoTxt = (String) mapFields.get("IDSERVICO");
 
@@ -276,7 +276,7 @@ public class ServicoContratoServiceEjb extends CrudServiceImpl implements Servic
 
     @Override
     public String existeServicoContratoByIdServico(final HashMap mapFields) throws Exception {
-        // Pegando valores do parâmetro recebido
+        // Pegando valores do parÃ¢metro recebido
         final String idServicoTxt = (String) mapFields.get("IDSERVICO");
 
         Integer idServico = null;
@@ -307,8 +307,8 @@ public class ServicoContratoServiceEjb extends CrudServiceImpl implements Servic
         final String idContratoStr = (String) map.get("IDCONTRATO");
 
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 03/11/2013 - Horário: 16h20min
-         * Motivo/Comentário: Foi adicionada a validação para garantir que o id do contrato existe
+         * Desenvolvedor: Rodrigo Pecci - Data: 03/11/2013 - HorÃ¡rio: 16h20min
+         * Motivo/ComentÃ¡rio: Foi adicionada a validaÃ§Ã£o para garantir que o id do contrato existe
          */
         if (idContratoStr == null || idContratoStr.equals("")) {
             document.alert(UtilI18N.internacionaliza(request, "dinamicview.nenhumRegistroSelecionado"));

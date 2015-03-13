@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.citframework.dto.Usuario"%>
@@ -10,9 +12,8 @@
 <head>
 <%@include file="/include/header.jsp"%>
 
-<%@include file="/include/security/security.jsp"%>
 
-<title><fmt:message key="citcorpore.comum.title"/></title>
+<%@include file="/novoLayout/common/include/titulo.jsp" %>
 
 <%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 
@@ -130,7 +131,7 @@
 				var arrayIdUsuario = document.form.idUsuario;
 				for (var i = 0; i < arrayIdUsuario.length; i++){
 					if (arrayIdUsuario[i].value == id){
-						alert('Regristro já adicionado!');
+						alert('Regristro jÃ¡ adicionado!');
 						return false;
 					}
 
@@ -138,7 +139,7 @@
 			} else if (lastRow == 2){
 				var idUsuario = document.form.idUsuario;
 				if (idUsuario.value == id){
-					alert('Regristro já adicionado!');
+					alert('Regristro jÃ¡ adicionado!');
 					return false;
 				}
 			}
@@ -189,7 +190,7 @@
 				var arrayIdGrupo = document.form.idGrupo;
 				for ( var i = 0; i < arrayIdGrupo.length; i++) {
 					if (arrayIdGrupo[i].value == id) {
-						alert('Regristro já adicionado!');
+						alert('Regristro jÃ¡ adicionado!');
 						return false;
 					}
 
@@ -197,7 +198,7 @@
 			} else if (lastRow == 2) {
 				var idGrupo = document.form.idGrupo;
 				if (idGrupo.value == id) {
-					alert('Regristro já adicionado!');
+					alert('Regristro jÃ¡ adicionado!');
 					return false;
 				}
 			}

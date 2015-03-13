@@ -45,7 +45,7 @@ public class CargaCatalagoServicoServiceEjb extends CrudServiceImpl implements C
     @Override
     public List<CargaCatalagoServicoDTO> gerarCarga(final File carga, final Integer idEmpresa) throws ServiceException, Exception {
         System.out.println("Iniciando carga de Catalogo de Servicos...");
-        // Daos das Transação
+        // Daos das TransaÃ§Ã£o
         final CategoriaServicoDao categoriaServicoDao = new CategoriaServicoDao();
         final TipoServicoDao tipoServicoDao = new TipoServicoDao();
         final TipoDemandaServicoDao tipoDemandaServicoDao = new TipoDemandaServicoDao();
@@ -95,7 +95,7 @@ public class CargaCatalagoServicoServiceEjb extends CrudServiceImpl implements C
                     for (final String string : linhaQuebrada) {
                         final String[] colunasArray = string.split(";");
 
-                        // Verifica se já inicio dos dados
+                        // Verifica se jÃ¡ inicio dos dados
                         if (colunasArray.length > 24) {
                             System.out.println("Linha OK... " + linha);
                             if (primeiraLinha) {
@@ -200,12 +200,12 @@ public class CargaCatalagoServicoServiceEjb extends CrudServiceImpl implements C
 
                                     if (coluna.equalsIgnoreCase("Incidente")) {
                                         beanTipoDemandaServicoDTO.setClassificacao("I");
-                                    } else if (coluna.equalsIgnoreCase("Solicitação")) {
+                                    } else if (coluna.equalsIgnoreCase("SolicitaÃ§Ã£o")) {
                                         beanTipoDemandaServicoDTO.setClassificacao("R");
-                                        beanTipoDemandaServicoDTO.setNomeTipoDemandaServico("Requisição");
-                                    } else if (coluna.equalsIgnoreCase("Requisição")) {
+                                        beanTipoDemandaServicoDTO.setNomeTipoDemandaServico("RequisiÃ§Ã£o");
+                                    } else if (coluna.equalsIgnoreCase("RequisiÃ§Ã£o")) {
                                         beanTipoDemandaServicoDTO.setClassificacao("R");
-                                    } else if (coluna.toLowerCase().contains("Ordem de Serviço".toLowerCase())) {
+                                    } else if (coluna.toLowerCase().contains("Ordem de ServiÃ§o".toLowerCase())) {
                                         beanTipoDemandaServicoDTO.setClassificacao("O");
                                     }
                                     beanTipoDemandaServicoDTO = this.existeTipoDemandaPorNome(beanTipoDemandaServicoDTO.getNomeTipoDemandaServico(), tipoDemandaServicoDao);
@@ -214,12 +214,12 @@ public class CargaCatalagoServicoServiceEjb extends CrudServiceImpl implements C
                                         /* tipoDemandaDTO.setIdTipoDemanda(tipoServicoDTO.getIdTipoServico()); */
                                         if (coluna.equalsIgnoreCase("Incidente")) {
                                             beanTipoDemandaServicoDTO.setClassificacao("I");
-                                        } else if (coluna.equalsIgnoreCase("Solicitação")) {
+                                        } else if (coluna.equalsIgnoreCase("SolicitaÃ§Ã£o")) {
                                             beanTipoDemandaServicoDTO.setClassificacao("R");
-                                            beanTipoDemandaServicoDTO.setNomeTipoDemandaServico("Requisição");
-                                        } else if (coluna.equalsIgnoreCase("Requisição")) {
+                                            beanTipoDemandaServicoDTO.setNomeTipoDemandaServico("RequisiÃ§Ã£o");
+                                        } else if (coluna.equalsIgnoreCase("RequisiÃ§Ã£o")) {
                                             beanTipoDemandaServicoDTO.setClassificacao("R");
-                                        } else if (coluna.toLowerCase().contains("Ordem de Serviço".toLowerCase())) {
+                                        } else if (coluna.toLowerCase().contains("Ordem de ServiÃ§o".toLowerCase())) {
                                             beanTipoDemandaServicoDTO.setClassificacao("O");
                                         }
                                         // System.out.println("Criando tipo de demanda de servicos... " + beanTipoDemandaServicoDTO.getNomeTipoDemandaServico());

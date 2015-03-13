@@ -13,7 +13,7 @@ function filtroListaJs(campoBusca, lista){
             $(this).toggle(showCurrentLi);
         });  
    	}else{
-   		// Quando não há nada digitado, mostra a tabela com todos os dados
+   		// Quando nÃ£o hÃ¡ nada digitado, mostra a tabela com todos os dados
    		$('#' + lista + ' ul > li').each(function(){
    	            var currentLiText = $(this).text(),
    	                showCurrentLi = currentLiText.toLowerCase().indexOf(searchText) == -1;

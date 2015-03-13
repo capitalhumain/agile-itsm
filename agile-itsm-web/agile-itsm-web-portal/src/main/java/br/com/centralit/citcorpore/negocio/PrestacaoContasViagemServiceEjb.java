@@ -178,7 +178,7 @@ public class PrestacaoContasViagemServiceEjb extends ComplemInfSolicitacaoServic
     }
 
     /**
-     * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+     * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
      */
     public AdiantamentoViagemDTO recuperaAdiantamentoViagem(final Integer idSolicitacaoServico, final Integer idEmpregado) throws Exception {
         final AdiantamentoViagemService adiantamentoViagemService = (AdiantamentoViagemService) ServiceLocator.getInstance().getService(AdiantamentoViagemService.class, null);
@@ -278,7 +278,7 @@ public class PrestacaoContasViagemServiceEjb extends ComplemInfSolicitacaoServic
     }
 
     /**
-     * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+     * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
      */
     @Override
     public Integer recuperaIdPrestacaoSeExistir(final Integer idSolicitacaoServico, final String nomeNaoFunc) throws ServiceException, Exception {
@@ -294,7 +294,7 @@ public class PrestacaoContasViagemServiceEjb extends ComplemInfSolicitacaoServic
     }
 
     /**
-     * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+     * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
      */
     public boolean validaPeriodo(final PrestacaoContasViagemDTO prestacaoContasViagemDto) throws ServiceException, Exception {
         RequisicaoViagemDTO requisicaoViagemDto = new RequisicaoViagemDTO();
@@ -316,7 +316,7 @@ public class PrestacaoContasViagemServiceEjb extends ComplemInfSolicitacaoServic
     }
 
     /**
-     * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+     * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
      */
     @Override
     public PrestacaoContasViagemDTO recuperaCorrecao(final PrestacaoContasViagemDTO prestacaoContasViagemDto) throws Exception {

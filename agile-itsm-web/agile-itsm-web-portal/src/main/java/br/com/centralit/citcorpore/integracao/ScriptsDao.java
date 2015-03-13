@@ -237,7 +237,7 @@ public class ScriptsDao extends CrudDaoDefaultImpl {
     public List<ScriptsDTO> pesquisaScriptsComFaltaPermissao() throws PersistenceException {
         String descricao = null;
         if (CITCorporeUtil.SGBD_PRINCIPAL.equalsIgnoreCase(SQLConfig.SQLSERVER)) {
-            // PARA O SQLSERVER, O QUE DEFINE O CASE INSENSITIVE DA COLUNA … O COLLATE SQL_Latin1_General_CP1_CI_AS
+            // PARA O SQLSERVER, O QUE DEFINE O CASE INSENSITIVE DA COLUNA √â O COLLATE SQL_Latin1_General_CP1_CI_AS
             descricao = "descricao COLLATE SQL_Latin1_General_CP1_CI_AS";
         } else {
             descricao = "UPPER(descricao)";
@@ -251,7 +251,7 @@ public class ScriptsDao extends CrudDaoDefaultImpl {
         sql.append("       AND ").append(descricao).append(" LIKE 'ERRO%' ");
         sql.append("       AND ( ").append(descricao).append(" LIKE '%COMMAND DENIED%' ");
         sql.append("              OR ").append(descricao).append(" LIKE '%PERMISSION DENIED%' ");
-        sql.append("              OR ").append(descricao).append(" LIKE '%PERMISS√O NEGADA%' ");
+        sql.append("              OR ").append(descricao).append(" LIKE '%PERMISS√ÉO NEGADA%' ");
         sql.append("              OR ").append(descricao).append(" LIKE '%MUST BE OWNER%' ");
         sql.append("              OR ").append(descricao).append(" LIKE '%DEVE SER O DONO%' ");
         sql.append("              OR ").append(descricao).append(" LIKE '%INSUFFICIENT PRIVILEGES%' ");
@@ -298,7 +298,7 @@ public class ScriptsDao extends CrudDaoDefaultImpl {
      * Retorna todos os scripts da tabela de script
      * 
      * @author thyen.chang
-     * @since 03/02/2015 - OPERA«√O USAIN BOLT
+     * @since 03/02/2015 - OPERA√á√ÉO USAIN BOLT
      * @return Lista com todos os scripts
      * @throws PersistenceException
      */

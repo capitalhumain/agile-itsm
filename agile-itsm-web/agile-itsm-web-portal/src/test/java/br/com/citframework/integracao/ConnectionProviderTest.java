@@ -8,25 +8,25 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- * Classe de testes para validaÁ„o do comportamento de {@link ConnectionProvider}
+ * Classe de testes para valida√ß√£o do comportamento de {@link ConnectionProvider}
  *
  * {@link #testGetConnection()} - deve {@link Assert#assertNotNull(Object)} em um {@link Connection} <br>
  * {@link #testGetConnectionReadOnly()} - deve {@link Assert#assertNotNull(Object)} em um {@link Connection} <br>
  * {@link #testGetConnectionJNDI()} - deve {@link Assert#assertNotNull(Object)} em um {@link Connection} de {@link DataSource} publicado <br>
  * {@link #testGetConnectionJNDIWithoutPrefix()} - deve {@link Assert#assertNotNull(Object)} em um {@link Connection} de {@link DataSource} publicado <br>
  * {@link #testGetConnectionJNDIReadOnly()} - deve {@link Assert#assertNotNull(Object)} em um {@link Connection} de {@link DataSource} publicado <br>
- * {@link #testGetConnectionJNDINotFound()} - deve lanÁar uma {@link Exception}, pois o recurso n„o est· publicado <br>
- * {@link #testGetConnectionJNDIReadOnlyNotFound()} - deve lanÁar uma {@link Exception}, pois o recurso n„o est· publicado <br>
+ * {@link #testGetConnectionJNDINotFound()} - deve lan√ßar uma {@link Exception}, pois o recurso n√£o est√° publicado <br>
+ * {@link #testGetConnectionJNDIReadOnlyNotFound()} - deve lan√ßar uma {@link Exception}, pois o recurso n√£o est√° publicado <br>
  * {@link #testGetConnectionWithClassURLUserPassword()} - deve {@link Assert#assertNotNull(Object)} em um {@link Connection} <br>
- * {@link #testGetConnectionWithoutClass()} - deve lanÁar uma {@link Exception}, pois o class do driver È obrigatÛrio <br>
- * {@link #testGetConnectionWithoutURL()} - deve lanÁar uma {@link Exception}, pois a URL de conex„o È obrigatÛria <br>
- * {@link #testGetConnectionWithoutUser()} - deve lanÁar uma {@link Exception}, pois o usu·rio para conex„o È obrigatÛrio <br>
- * {@link #testGetConnectionWithoutPassword()} - deve lanÁar uma {@link Exception}, pois a senha para ocnex„o È obrigatÛria <br>
+ * {@link #testGetConnectionWithoutClass()} - deve lan√ßar uma {@link Exception}, pois o class do driver √© obrigat√≥rio <br>
+ * {@link #testGetConnectionWithoutURL()} - deve lan√ßar uma {@link Exception}, pois a URL de conex√£o √© obrigat√≥ria <br>
+ * {@link #testGetConnectionWithoutUser()} - deve lan√ßar uma {@link Exception}, pois o usu√°rio para conex√£o √© obrigat√≥rio <br>
+ * {@link #testGetConnectionWithoutPassword()} - deve lan√ßar uma {@link Exception}, pois a senha para ocnex√£o √© obrigat√≥ria <br>
  * {@link #testGetConnectionWithClassURLUserPasswordReadOnly()} - deve {@link Assert#assertNotNull(Object)} em um {@link Connection} <br>
  * {@link #testGetConnectionFromJNDI()} - deve {@link Assert#assertNotNull(Object)} em um {@link Connection} de {@link DataSource} publicado <br>
  * {@link #testGetConnectionFromJNDIReadOnly()} - deve {@link Assert#assertNotNull(Object)} em um {@link Connection} de {@link DataSource} publicado <br>
- * {@link #testGetConnectionFromJNDINotFound()} - deve lanÁar uma {@link Exception}, pois o recurso n„o est· publicado <br>
- * {@link #testGetConnectionFromJNDIReadOnlyNotFound()} - deve lanÁar uma {@link Exception}, pois o recurso n„o est· publicado
+ * {@link #testGetConnectionFromJNDINotFound()} - deve lan√ßar uma {@link Exception}, pois o recurso n√£o est√° publicado <br>
+ * {@link #testGetConnectionFromJNDIReadOnlyNotFound()} - deve lan√ßar uma {@link Exception}, pois o recurso n√£o est√° publicado
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 19/08/2014

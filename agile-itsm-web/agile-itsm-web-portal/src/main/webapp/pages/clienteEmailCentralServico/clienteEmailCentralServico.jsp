@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.citframework.dto.Usuario"%>
@@ -5,9 +7,8 @@
 <!doctype html public "">
 <html>
 <head>
-	<%@include file="/include/security/security.jsp" %>
 	<%@include file="/include/header.jsp"%>
-	<title><fmt:message key="citcorpore.comum.title" /></title>
+	<%@include file="/novoLayout/common/include/titulo.jsp" %>
 	<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp" %>
 
 <style type="text/css">
@@ -54,13 +55,13 @@
 			<%@include file="/include/menu_horizontal.jsp"%>
 
 			<div class="flat_area grid_16">
-				<h2>E-mails - Central de Serviços</h2>
+				<h2>E-mails - Central de ServiÃ§os</h2>
 			</div>
 			<form name='form' action='${ctx}/pages/ClienteEmailCentralServico/ClienteEmailCentralServico'>
 				<div class="box grid_16 tabs">
 					<table>
 						<tr>
-							<td>Trazer mensagen(s) do(s) último(s)</td>
+							<td>Trazer mensagen(s) do(s) Ãºltimo(s)</td>
 							<td><input size="3" type="text" id="ultimosXDias" name="ultimosXDias" /></td>
 							<td>dia(s)</td>
 							<td> <a href="#" onclick="atualizarEmail()">atualizar</a> </td>

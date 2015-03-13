@@ -19,7 +19,7 @@ public class UsuarioGrupo implements IUsuarioGrupo {
 			try {
 				singleton = (IUsuarioGrupo) Class.forName(classe).newInstance();
 			} catch (Exception e) {
-				throw new Exception("Classe de configuraÁ„o de usu·rios e grupos n„o encontrada");
+				throw new Exception("Classe de configura√ß√£o de usu√°rios e grupos n√£o encontrada");
 			}
 		}
 		return singleton;

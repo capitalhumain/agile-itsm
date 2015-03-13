@@ -1,7 +1,7 @@
 package br.com.centralit.citcorpore.util;
 
 /**
- * Esta classe será removida em breve. Dê preferência no uso de {@link CITCorporeUtil}
+ * Esta classe serÃ¡ removida em breve. DÃª preferÃªncia no uso de {@link CITCorporeUtil}
  */
 @Deprecated
 public class CitCorporeConstantes {

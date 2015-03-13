@@ -33,7 +33,7 @@ public class TimeSheetAvulso extends AjaxFormAction {
 			HttpServletResponse arg2) throws Exception {
 		UsuarioDTO usuario = WebUtil.getUsuario(arg1);
 		if (usuario == null){
-			document.alert("Sess„o expirada! Favor efetuar logon novamente!");
+			document.alert("Sess√£o expirada! Favor efetuar logon novamente!");
 			document.executeScript("window.location = '" + Constantes.getValue("SERVER_ADDRESS") + arg1.getContextPath() + "'");
 			return;
 		}		
@@ -76,7 +76,7 @@ public class TimeSheetAvulso extends AjaxFormAction {
 		
 		UsuarioDTO usuario = WebUtil.getUsuario(request);
 		if (usuario == null){
-			document.alert("Sess„o expirada! Favor efetuar logon novamente!");
+			document.alert("Sess√£o expirada! Favor efetuar logon novamente!");
 			document.executeScript("window.location = '" + request.getContextPath() + "'");
 			return;
 		}		
@@ -95,7 +95,7 @@ public class TimeSheetAvulso extends AjaxFormAction {
 		empregadoBean = (EmpregadoDTO) empregadoService.restore(empregadoBean);
 		
 		if (empregadoBean == null){
-			document.alert("ERRO: N„o foi possivel recuperar dados do empregado logado!");
+			document.alert("ERRO: N√£o foi possivel recuperar dados do empregado logado!");
 			return;
 		}
 		

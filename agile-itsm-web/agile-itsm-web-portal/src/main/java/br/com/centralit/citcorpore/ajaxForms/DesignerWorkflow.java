@@ -162,7 +162,7 @@ public class DesignerWorkflow extends AjaxFormAction{
 		}
 		strDecisions += "<td>";
 		strDecisions += "<div id='conteudoDecisao_" + designerWorkflowDTO.getNumero() + "_0' style='text-align: center; border: 1px solid black'>";
-		strDecisions += "	Padr„o<br>";
+		strDecisions += "	Padr√£o<br>";
 		strDecisions += "			<img src='" + Constantes.getValue("SERVER_ADDRESS") + Constantes.getValue("CONTEXTO_APLICACAO") + "/imagens/plus.png' border='0' style='cursor: pointer' onclick='mostraAddObj();'/>";
 		strDecisions += "</div>";
 		strDecisions += "</td>";
@@ -195,7 +195,7 @@ public class DesignerWorkflow extends AjaxFormAction{
 		}
 		strDecisions += "<td>";
 		strDecisions += "<div id='conteudoDecisao_" + designerWorkflowDTO.getNumero() + "_0' style='text-align: center; border: 1px solid black'>";
-		strDecisions += "	Padr„o<br>";
+		strDecisions += "	Padr√£o<br>";
 		strDecisions += "			<img src='" + Constantes.getValue("SERVER_ADDRESS") + Constantes.getValue("CONTEXTO_APLICACAO") + "/imagens/plus.png' border='0' style='cursor: pointer' onclick='mostraAddObj();'/>";
 		strDecisions += "</div>";
 		strDecisions += "</td>";

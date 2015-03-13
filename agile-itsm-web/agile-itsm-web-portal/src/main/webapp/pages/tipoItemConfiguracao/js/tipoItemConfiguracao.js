@@ -62,23 +62,23 @@
 				}
 		    }
 
-	       /*desenvolvedor: rcs (Rafael CÈsar Soyer)
+	       /*desenvolvedor: rcs (Rafael C√©sar Soyer)
             data: 12/12/2014
-            A funÁ„o reinicia, a partir de 0, a vari·vel global 'countCaracteristica'
+            A fun√ß√£o reinicia, a partir de 0, a vari√°vel global 'countCaracteristica'
            */
 		    function reiniciaVarCountCaracteristica(){
 		    	countCaracteristica = 0;
 			}
 
 
-           /*desenvolvedor: rcs (Rafael CÈsar Soyer)
+           /*desenvolvedor: rcs (Rafael C√©sar Soyer)
             data: 16/12/2014
            */
             function decrementaVarCountCaracteristica(){
                 countCaracteristica--;
             }
 
-            /*desenvolvedor: rcs (Rafael CÈsar Soyer)
+            /*desenvolvedor: rcs (Rafael C√©sar Soyer)
             data: 17/12/2014
             */
             function setVarCountCaracteristica(novoValorCountCaracteristica){
@@ -97,7 +97,7 @@
 				var valor = desc.split(' - ');
 
 				var coluna = row.insertCell(0);
-				coluna.innerHTML = '<img id="imgExcluiCaracteristica' + countCaracteristica + '" style="cursor: pointer;" title="Excluir CaracterÌstica!" src="' + ctx +'/imagens/delete.png" onclick="removeLinhaTabela(\'tabelaCaracteristica\', this.parentNode.parentNode.rowIndex);">';
+				coluna.innerHTML = '<img id="imgExcluiCaracteristica' + countCaracteristica + '" style="cursor: pointer;" title="Excluir Caracter√≠stica!" src="' + ctx +'/imagens/delete.png" onclick="removeLinhaTabela(\'tabelaCaracteristica\', this.parentNode.parentNode.rowIndex);">';
 
 				coluna = row.insertCell(1);
 				coluna.innerHTML = valor[0] + '<input type="hidden" id="idCaracteristica' + countCaracteristica + '" name="idCaracteristica" value="' + id + '" />';
@@ -117,7 +117,7 @@
 				setVarCountCaracteristica(lastRow);
 
 				var coluna = row.insertCell(0);
-				coluna.innerHTML = '<img id="imgExcluiCaracteristica' + countCaracteristica	+ '" style="cursor: pointer;" title="Excluir CaracterÌstica!" src="'+ctx+'/imagens/delete.png" onclick="removeLinhaTabela(\'tabelaCaracteristica\', this.parentNode.parentNode.rowIndex);">';
+				coluna.innerHTML = '<img id="imgExcluiCaracteristica' + countCaracteristica	+ '" style="cursor: pointer;" title="Excluir Caracter√≠stica!" src="'+ctx+'/imagens/delete.png" onclick="removeLinhaTabela(\'tabelaCaracteristica\', this.parentNode.parentNode.rowIndex);">';
 
 				coluna = row.insertCell(1);
 				coluna.innerHTML = '<input type="hidden" id="idCaracteristica' + countCaracteristica + '" name="idCaracteristica"/><input style="width: 100%; border: 0 none;" readonly="readonly" type="text" id="caracteristica' + countCaracteristica + '" name="caracteristica"/>';
@@ -155,10 +155,10 @@
 				}
 			}
 
-			/*desenvolvedor: rcs (Rafael CÈsar Soyer)
+			/*desenvolvedor: rcs (Rafael C√©sar Soyer)
 			  data: 12/12/2014
-			  A funÁ„o reinicia, a partir de 1, o numero que acompanha as tag's id
-			  Inicialmente, foi pensado para ser usado logo apÛs uma remoÁ„o de uma linha da tabela caracterÌstica.
+			  A fun√ß√£o reinicia, a partir de 1, o numero que acompanha as tag's id
+			  Inicialmente, foi pensado para ser usado logo ap√≥s uma remo√ß√£o de uma linha da tabela caracter√≠stica.
 			*/
 			function reiniciaTagsId(){
                 var lenghtTableCaracteristicas = document.getElementById('tabelaCaracteristica').rows.length - 1;

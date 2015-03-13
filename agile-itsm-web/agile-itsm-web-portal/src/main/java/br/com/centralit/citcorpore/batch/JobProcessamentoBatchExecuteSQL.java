@@ -97,7 +97,7 @@ public class JobProcessamentoBatchExecuteSQL implements Job {
         int num = 0;
         try {
         	num = engineDb.execUpdate(sql, null);
-        	System.out.println(nomeJob + " - EXECUÇÃO OK! Número de Linhas atualizadas: " + num);
+        	System.out.println(nomeJob + " - EXECUÃ‡ÃƒO OK! NÃºmero de Linhas atualizadas: " + num);
 		} catch (PersistenceException e1) {
 			System.out.println(nomeJob + " - Problemas na execucao: ");
 			e1.printStackTrace();
@@ -106,7 +106,7 @@ public class JobProcessamentoBatchExecuteSQL implements Job {
 		    e1.printStackTrace(printWriter);
 		    return writer.toString();			
 		}  		
-		return "EXECUÇÃO OK! Número de Linhas atualizadas: " + num;
+		return "EXECUÃ‡ÃƒO OK! NÃºmero de Linhas atualizadas: " + num;
 	}
 	
 	private String executaClasse(String pathClasseParm, String nomeJob){
@@ -172,10 +172,10 @@ public class JobProcessamentoBatchExecuteSQL implements Job {
 			return "PROBLEMA: METODO NAO ENCONTRADAO (executar)!";
 		}
 		
-		return "EXECUÇÃO OK!" ;
+		return "EXECUÃ‡ÃƒO OK!" ;
 	}
 	/*Refatorando o metodo executa classe com novo paramentro de contexto
-	 * Alterado também o metodo a ser executado para 'execute'
+	 * Alterado tambÃ©m o metodo a ser executado para 'execute'
 	 * 
 	 * */
 	private String executaClasse(String pathClasseParm, String nomeJob, JobExecutionContext jobExecutionContext) throws JobExecutionException, ClassNotFoundException{
@@ -198,7 +198,7 @@ public class JobProcessamentoBatchExecuteSQL implements Job {
 				throw new JobExecutionException(ex.getMessage());
 			}
 		
-		return "EXECUÇÃO OK!" ;
+		return "EXECUÃ‡ÃƒO OK!" ;
 	}
 
 }

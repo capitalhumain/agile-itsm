@@ -1,13 +1,13 @@
--- inicio - Bruno CÈsar (22/09/2014)
+-- inicio - Bruno C√©sar (22/09/2014)
 alter table endereco add latitude numeric(17, 15);
 alter table endereco add longitude numeric(18, 15);
 
 create index endereco_coordinates_ix ON endereco (radians(latitude), radians(longitude));
 
 alter table dicionario alter column valor type character varying(500);
--- fim - Bruno CÈsar (22/09/2014)
+-- fim - Bruno C√©sar (22/09/2014)
 
--- inicio - Bruno CÈsar (03/10/2014)
+-- inicio - Bruno C√©sar (03/10/2014)
 create table motivonegacaocheckin (
 	idmotivo integer not null,
 	descricao character varying(100) not null,
@@ -15,9 +15,9 @@ create table motivonegacaocheckin (
 );
 
 alter table motivonegacaocheckin add constraint pk_motivonegacaocheckin primary key (idmotivo);
--- fim - Bruno CÈsar (03/10/2014)
+-- fim - Bruno C√©sar (03/10/2014)
 
--- inicio - Bruno CÈsar (06/10/2014)
+-- inicio - Bruno C√©sar (06/10/2014)
 create table posicionamentoatendente (
 	id bigint not null,
 	idusuario integer not null,
@@ -29,14 +29,14 @@ create table posicionamentoatendente (
 
 alter table posicionamentoatendente add constraint pk_posicionamentoatendente primary key (id);
 alter table posicionamentoatendente add constraint fk_posicionamento_usuario foreign key (idusuario) references usuario (idusuario);
--- fim - Bruno CÈsar (06/10/2014)
+-- fim - Bruno C√©sar (06/10/2014)
 
--- inicio - Bruno CÈsar (08/10/2014)
+-- inicio - Bruno C√©sar (08/10/2014)
 alter table solicitacaoservico add latitude numeric(17, 15);
 alter table solicitacaoservico add longitude numeric(18, 15);
--- fim - Bruno CÈsar (08/10/2014)
+-- fim - Bruno C√©sar (08/10/2014)
 
--- inicio - Bruno CÈsar (09/10/2014)
+-- inicio - Bruno C√©sar (09/10/2014)
 create table atribuicaosolicitacao (
 	id bigint not null,
 	idsolicitacao bigint not null,
@@ -52,7 +52,7 @@ create table atribuicaosolicitacao (
 alter table atribuicaosolicitacao add constraint pk_atribsolicit primary key (id);
 alter table atribuicaosolicitacao add constraint fk_atribsolicit_usuario foreign key (idusuario) references usuario (idusuario);
 alter table atribuicaosolicitacao add constraint fk_atribsolicit_solicitacao foreign key (idsolicitacao) references solicitacaoservico (idsolicitacaoservico);
--- fim - Bruno CÈsar (09/10/2014)
+-- fim - Bruno C√©sar (09/10/2014)
 
 -- inicio - Maycon Fernandes (29/10/2014)
 create table checkin (
@@ -108,22 +108,22 @@ alter table checkindenied add constraint fk_checkindenied_motivo foreign key (id
 INSERT INTO rest_operation (idrestoperation, name, description, operationtype, classtype, javaclass, status, generatelog) VALUES ($id_idrestoperation_01,'service_coordinates','Recebe a coordenada da unidade check -in Unidade','Sync','Java','br.com.centralit.citsmart.rest.v2.operation.RESTOperation','A','Y');
 INSERT INTO rest_operation (idrestoperation, name, description, operationtype, classtype, javaclass, status, generatelog) VALUES ($id_idrestoperation_02,'service_listContracts','Retornar lista de  Contratos ativos do Citsmart','Sync','Java','br.com.centralit.citsmart.rest.v2.operation.RESTOperation','A','N');
 INSERT INTO rest_operation (idrestoperation, name, description, operationtype, classtype, javaclass, status, generatelog) VALUES ($id_idrestoperation_03,'service_listDeniedReasons','Lista de Justificativa','Sync','Java','br.com.centralit.citsmart.rest.v2.operation.RESTOperation','A','N');
-INSERT INTO rest_operation (idrestoperation, name, description, operationtype, classtype, javaclass, status, generatelog) VALUES ($id_idrestoperation_04,'service_listSolicitationStatus','Lista status da solicitaÁ„o de serviÁo','Sync','Java','br.com.centralit.citsmart.rest.v2.operation.RESTOperation','A','N');
+INSERT INTO rest_operation (idrestoperation, name, description, operationtype, classtype, javaclass, status, generatelog) VALUES ($id_idrestoperation_04,'service_listSolicitationStatus','Lista status da solicita√ß√£o de servi√ßo','Sync','Java','br.com.centralit.citsmart.rest.v2.operation.RESTOperation','A','N');
 INSERT INTO rest_operation (idrestoperation, name, description, operationtype, classtype, javaclass, status, generatelog) VALUES ($id_idrestoperation_05,'service_listUnits','Lista de unidade de um contrato','Sync','Java','br.com.centralit.citsmart.rest.v2.operation.RESTOperation','A','N');
-INSERT INTO rest_operation (idrestoperation, name, description, operationtype, classtype, javaclass, status, generatelog) VALUES ($id_idrestoperation_06,'notification_attendantLocation','LocalizaÁ„o de um atendente','Sync','Java','br.com.centralit.citsmart.rest.v2.operation.RESTMobile','A','Y');
-INSERT INTO rest_operation (idrestoperation, name, description, operationtype, classtype, javaclass, status, generatelog) VALUES ($id_idrestoperation_07,'notification_getNewest','Lista de solicitaÁ„o novas ','Sync','Java','br.com.centralit.citsmart.rest.v2.operation.RESTMobile','A','N');
-INSERT INTO rest_operation (idrestoperation, name, description, operationtype, classtype, javaclass, status, generatelog) VALUES ($id_idrestoperation_08,'notification_getOldest','Lista de solicitaÁıes destinadas ao usu·ria novas','Sync','Java','br.com.centralit.citsmart.rest.v2.operation.RESTMobile','A','N');
-INSERT INTO rest_operation (idrestoperation, name, description, operationtype, classtype, javaclass, status, generatelog) VALUES ($id_idrestoperation_09,'notification_checkin','Check - in da solicitaÁ„o  ','Sync','Java','br.com.centralit.citsmart.rest.v2.operation.RESTMobile','A','Y');
-INSERT INTO rest_operation (idrestoperation, name, description, operationtype, classtype, javaclass, status, generatelog) VALUES ($id_idrestoperation_10,'notification_checkinDenied','NegaÁ„o de Check - in de uma sugest„o de solicitaÁ„o de serviÁo','Sync','Java','br.com.centralit.citsmart.rest.v2.operation.RESTMobile','A','Y');
-INSERT INTO rest_operation (idrestoperation, name, description, operationtype, classtype, javaclass, status, generatelog) VALUES ($id_idrestoperation_11,'notification_checkout','Check - out, finalizaÁ„o de uma solicitaÁ„o de serviÁo','Sync','Java','br.com.centralit.citsmart.rest.v2.operation.RESTMobile','A','Y');
-INSERT INTO rest_operation (idrestoperation, name, description, operationtype, classtype, javaclass, status, generatelog) VALUES ($id_idrestoperation_12,'notification_getByCoordinates','Lista de solicitaÁ„o novas - Coordenadas','Sync','Java','br.com.centralit.citsmart.rest.v2.operation.RESTMobile','A','N');
-INSERT INTO rest_operation (idrestoperation, name, description, operationtype, classtype, javaclass, status, generatelog) VALUES ($id_idrestoperation_13,'notification_attendRequest','Atender SolicitaÁ„o','Sync','Java','br.com.centralit.citsmart.rest.v2.operation.RESTMobile','A','Y');
+INSERT INTO rest_operation (idrestoperation, name, description, operationtype, classtype, javaclass, status, generatelog) VALUES ($id_idrestoperation_06,'notification_attendantLocation','Localiza√ß√£o de um atendente','Sync','Java','br.com.centralit.citsmart.rest.v2.operation.RESTMobile','A','Y');
+INSERT INTO rest_operation (idrestoperation, name, description, operationtype, classtype, javaclass, status, generatelog) VALUES ($id_idrestoperation_07,'notification_getNewest','Lista de solicita√ß√£o novas ','Sync','Java','br.com.centralit.citsmart.rest.v2.operation.RESTMobile','A','N');
+INSERT INTO rest_operation (idrestoperation, name, description, operationtype, classtype, javaclass, status, generatelog) VALUES ($id_idrestoperation_08,'notification_getOldest','Lista de solicita√ß√µes destinadas ao usu√°ria novas','Sync','Java','br.com.centralit.citsmart.rest.v2.operation.RESTMobile','A','N');
+INSERT INTO rest_operation (idrestoperation, name, description, operationtype, classtype, javaclass, status, generatelog) VALUES ($id_idrestoperation_09,'notification_checkin','Check - in da solicita√ß√£o  ','Sync','Java','br.com.centralit.citsmart.rest.v2.operation.RESTMobile','A','Y');
+INSERT INTO rest_operation (idrestoperation, name, description, operationtype, classtype, javaclass, status, generatelog) VALUES ($id_idrestoperation_10,'notification_checkinDenied','Nega√ß√£o de Check - in de uma sugest√£o de solicita√ß√£o de servi√ßo','Sync','Java','br.com.centralit.citsmart.rest.v2.operation.RESTMobile','A','Y');
+INSERT INTO rest_operation (idrestoperation, name, description, operationtype, classtype, javaclass, status, generatelog) VALUES ($id_idrestoperation_11,'notification_checkout','Check - out, finaliza√ß√£o de uma solicita√ß√£o de servi√ßo','Sync','Java','br.com.centralit.citsmart.rest.v2.operation.RESTMobile','A','Y');
+INSERT INTO rest_operation (idrestoperation, name, description, operationtype, classtype, javaclass, status, generatelog) VALUES ($id_idrestoperation_12,'notification_getByCoordinates','Lista de solicita√ß√£o novas - Coordenadas','Sync','Java','br.com.centralit.citsmart.rest.v2.operation.RESTMobile','A','N');
+INSERT INTO rest_operation (idrestoperation, name, description, operationtype, classtype, javaclass, status, generatelog) VALUES ($id_idrestoperation_13,'notification_attendRequest','Atender Solicita√ß√£o','Sync','Java','br.com.centralit.citsmart.rest.v2.operation.RESTMobile','A','Y');
 INSERT INTO rest_operation (idrestoperation, name, description, operationtype, classtype, javaclass, status, generatelog) VALUES ($id_idrestoperation_14,'service_deviceDisassociate','Desassociar device do Atendente','Sync','Java','br.com.centralit.citsmart.rest.v2.operation.RESTOperation','A','Y');
-INSERT INTO rest_operation (idrestoperation, name, description, operationtype, classtype, javaclass, status, generatelog) VALUES ($id_idrestoperation_15,'notification_updateNotification','Restaura tarefas e permissıes de uma solicitaÁ„o de serviÁo','Sync','Java','br.com.centralit.citsmart.rest.v2.operation.RESTMobile','A','Y');
-INSERT INTO rest_operation (idrestoperation, name, description, operationtype, classtype, javaclass, status, generatelog) VALUES ($id_idrestoperation_16,'notification_getById_v2','Retorna detalhes de uma notificaÁ„o para Mobile','Sync','Java','br.com.centralit.citsmart.rest.v2.operation.RESTMobile','A','N');
+INSERT INTO rest_operation (idrestoperation, name, description, operationtype, classtype, javaclass, status, generatelog) VALUES ($id_idrestoperation_15,'notification_updateNotification','Restaura tarefas e permiss√µes de uma solicita√ß√£o de servi√ßo','Sync','Java','br.com.centralit.citsmart.rest.v2.operation.RESTMobile','A','Y');
+INSERT INTO rest_operation (idrestoperation, name, description, operationtype, classtype, javaclass, status, generatelog) VALUES ($id_idrestoperation_16,'notification_getById_v2','Retorna detalhes de uma notifica√ß√£o para Mobile','Sync','Java','br.com.centralit.citsmart.rest.v2.operation.RESTMobile','A','N');
 -- fim - Maycon Fernandes (31/10/2014)
 
--- inicio - Bruno CÈsar (15/11/2014)
+-- inicio - Bruno C√©sar (15/11/2014)
 create table associacaodeviceatendente (
 	id bigint not null,
 	idusuario int not null,
@@ -138,9 +138,9 @@ alter table associacaodeviceatendente add constraint pk_associacaodevice primary
 alter table associacaodeviceatendente add constraint fk_associacaodevice_usuario foreign key (idusuario) references usuario (idusuario);
 
 create index associacao_device_ix ON associacaodeviceatendente (token, connection, idusuario, active);
--- fim - Bruno CÈsar (15/11/2014)
+-- fim - Bruno C√©sar (15/11/2014)
 
--- inicio - Bruno CÈsar (28/11/2014)
+-- inicio - Bruno C√©sar (28/11/2014)
 create table posatendentehistorico (
 	id bigint not null,
 	idusuario integer not null,
@@ -262,9 +262,9 @@ CREATE TRIGGER populate_posatendentehistorico
 	ON posicionamentoatendente
 	FOR EACH ROW
 	EXECUTE PROCEDURE generate_historico_posicionamento();
--- fim - Bruno CÈsar (28/11/2014)
+-- fim - Bruno C√©sar (28/11/2014)
 
--- inicio - Bruno CÈsar (08/12/2014)
+-- inicio - Bruno C√©sar (08/12/2014)
 create table historicopushmessage (
 	id bigint not null,
 	idusuario integer not null,
@@ -274,7 +274,7 @@ create table historicopushmessage (
 
 alter table historicopushmessage add constraint pk_historicopush primary key (id);
 alter table historicopushmessage add constraint fk_historicopush_usuario foreign key (idusuario) references usuario (idusuario);
--- fim - Bruno CÈsar (08/12/2014)
+-- fim - Bruno C√©sar (08/12/2014)
 
 
 -- inicio - Ezequiel (02/01/2014)
@@ -300,13 +300,13 @@ ALTER TABLE historicoitemrequisicao ADD atributosatuais         TEXT;
 
 -- FIM - CARLOS ALBERTO DOS SANTOS - 15/01/2015
 
--- INICIO - OPERA«√O USAIN BOLT - 30/01/2015
+-- INICIO - OPERA√á√ÉO USAIN BOLT - 30/01/2015
 
 CREATE INDEX idx_situacao ON bpm_itemtrabalhofluxo (situacao);
 CREATE INDEX idx_idtabela ON controleged (idtabela, id);
 CREATE INDEX idx_tipo ON bpm_atribuicaofluxo (tipo);
 
--- FIM - OPERA«√O USAIN BOLT - 30/01/2015
+-- FIM - OPERA√á√ÉO USAIN BOLT - 30/01/2015
 
 -- INICIO - THYEN CHANG - 06/02/2015
 

@@ -51,13 +51,13 @@ public class SuspensaoSolicitacao extends AjaxFormAction {
 	}
 
 	/**
-	 * Salva a Suspens„o da SolicitaÁ„o.
+	 * Salva a Suspens√£o da Solicita√ß√£o.
 	 * 
 	 * @param document
 	 * @param request
 	 * @param response
 	 * @throws Exception
-	 * @author valdoilo.damasceno Data: 25/10/2013 - Hor·rio: 16:00. Chamada parent.pesquisarItensFiltro()
+	 * @author valdoilo.damasceno Data: 25/10/2013 - Hor√°rio: 16:00. Chamada parent.pesquisarItensFiltro()
 	 */
 	public void save(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		UsuarioDTO usuario = WebUtil.getUsuario(request);

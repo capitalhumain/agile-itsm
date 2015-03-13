@@ -1,5 +1,5 @@
 /**
- * Endepoints para a vers„o V2 de endpoints REST para mobile
+ * Endepoints para a vers√£o V2 de endpoints REST para mobile
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 22/09/2014

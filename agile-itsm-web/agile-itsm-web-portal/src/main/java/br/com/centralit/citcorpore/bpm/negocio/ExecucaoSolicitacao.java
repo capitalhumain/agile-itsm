@@ -166,7 +166,7 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
 		TipoFluxoDao tipoFluxoDao = new TipoFluxoDao();
 		TipoFluxoDTO tipoFluxoDto = tipoFluxoDao.findByNome(nomeFluxo);
 		if (tipoFluxoDto == null)
-			throw new Exception("Fluxo " + nomeFluxo + " n„o existe");
+			throw new Exception("Fluxo " + nomeFluxo + " n√£o existe");
 
 		return inicia(new FluxoDao().findByTipoFluxo(tipoFluxoDto.getIdTipoFluxo()), idFase);
 	}
@@ -180,10 +180,10 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
 		} else {
 			String fluxoPadrao = ParametroUtil.getValor(ParametroSistema.NomeFluxoPadraoServicos, getTransacao(), null);
 			if (fluxoPadrao == null)
-				throw new Exception("Fluxo padr„o n„o parametrizado");
+				throw new Exception("Fluxo padr√£o n√£o parametrizado");
 			String idFaseStr = ParametroUtil.getValor(ParametroSistema.IDFaseExecucaoServicos, getTransacao(), null);
 			if (idFaseStr == null)
-				throw new Exception("Fase padr„o de execuÁ„o n„o encontrada");
+				throw new Exception("Fase padr√£o de execu√ß√£o n√£o encontrada");
 			result = inicia(fluxoPadrao, new Integer(idFaseStr));
 		}
 
@@ -204,14 +204,14 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
 						if (idModeloEmailCriacao != null) {
 							enviaEmailGrupo(Integer.parseInt(idModeloEmailCriacao), solicitacaoServicoRelacionada.getIdGrupoAtual());
 						} else {
-							throw new Exception("N„o h· modelo de e-mail setado nos par‚metros.");
+							throw new Exception("N√£o h√° modelo de e-mail setado nos par√¢metros.");
 						}
 					}
 				}
 				enviaEmailGrupo(Integer.parseInt(ParametroUtil.getValor(ParametroSistema.ID_MODELO_EMAIL_GRUPO_DESTINO, getTransacao(), null)), getSolicitacaoServicoDto().getIdGrupoAtual());
 			}
 		} catch (NumberFormatException e) {
-			System.out.println("N„o h· modelo de e-mail setado nos par‚metros.");
+			System.out.println("N√£o h√° modelo de e-mail setado nos par√¢metros.");
 		}
 		return result;
 	}
@@ -219,7 +219,7 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
 	@Override
 	public InstanciaFluxo inicia(FluxoDTO fluxoDto, Integer idFase) throws Exception {
 		if (fluxoDto == null)
-			throw new Exception("Fluxo n„o encontrado");
+			throw new Exception("Fluxo n√£o encontrado");
 
 		Integer idFaseFluxo = idFase;
 		this.fluxoDto = fluxoDto;
@@ -229,7 +229,7 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
 			FluxoServicoDao fluxoServicoDao = new FluxoServicoDao();
 			fluxoServicoDto = fluxoServicoDao.findByIdServicoContratoAndIdTipoFluxo(getSolicitacaoServicoDto().getIdServicoContrato(), fluxoDto.getIdTipoFluxo());
 			if (fluxoServicoDto == null)
-				throw new Exception("Fluxo " + fluxoDto.getNomeFluxo() + " n„o est· associado a este tipo de solicitaÁ„o");
+				throw new Exception("Fluxo " + fluxoDto.getNomeFluxo() + " n√£o est√° associado a este tipo de solicita√ß√£o");
 			idFaseFluxo = fluxoServicoDto.getIdFase();
 		}
 
@@ -276,7 +276,7 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
 		tempoDto.setIdFase(getSolicitacaoServicoDto().getIdFaseAtual());
 		tempoDto = (TempoAcordoNivelServicoDTO) tempoDao.restore(tempoDto);
 		if (tempoDto == null)
-			throw new Exception("N„o existem prazos de atendimento associados ao serviÁo/prioridade desta solicitaÁ„o");
+			throw new Exception("N√£o existem prazos de atendimento associados ao servi√ßo/prioridade desta solicita√ß√£o");
 
 		HashMap<String, Object> map = new HashMap();
 		mapObjetoNegocio(map);
@@ -331,7 +331,7 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
 		getSolicitacaoServicoDto().setNomeTarefa(tarefaFluxoDto.getElementoFluxoDto().getDocumentacao());
 
 		if (getSolicitacaoServicoDto().getIdGrupoNivel1() == null || getSolicitacaoServicoDto().getIdGrupoNivel1().intValue() == 0)
-			throw new LogicException("Grupo nÌvel 1 n„o informado ou erro na recuperaÁ„o do atributo");
+			throw new LogicException("Grupo n√≠vel 1 n√£o informado ou erro na recupera√ß√£o do atributo");
 
 		usuarioDTO = new UsuarioDTO();
 		usuarioDTO = new UsuarioDao().restoreByLogin(loginUsuario);
@@ -341,8 +341,8 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
 
 		if (acao.equals(Enumerados.ACAO_INICIAR)) {
 			instanciaFluxo.iniciaItemTrabalho(loginUsuario, tarefaFluxoDto.getIdItemTrabalho(), map);
-			ocorrenciaSolicitacao = OcorrenciaSolicitacaoServiceEjb.create(getSolicitacaoServicoDto(), tarefaFluxoDto, "ExecuÁ„o da tarefa \"" + tarefaFluxoDto.getElementoFluxoDto().getDocumentacao()
-					+ "\"", OrigemOcorrencia.OUTROS, CategoriaOcorrencia.Execucao, "n„o se aplica", CategoriaOcorrencia.Execucao.getDescricao(), usuarioDTO, 0, null, getTransacao());
+			ocorrenciaSolicitacao = OcorrenciaSolicitacaoServiceEjb.create(getSolicitacaoServicoDto(), tarefaFluxoDto, "Execu√ß√£o da tarefa \"" + tarefaFluxoDto.getElementoFluxoDto().getDocumentacao()
+					+ "\"", OrigemOcorrencia.OUTROS, CategoriaOcorrencia.Execucao, "n√£o se aplica", CategoriaOcorrencia.Execucao.getDescricao(), usuarioDTO, 0, null, getTransacao());
 			popularHistorico(getSolicitacaoServicoDto(), ocorrenciaSolicitacao, "Executa", usuarioDTO);
 		} else if (acao.equals(Enumerados.ACAO_EXECUTAR)) {
 			instanciaFluxo.executaItemTrabalho(loginUsuario, tarefaFluxoDto.getIdItemTrabalho(), map);
@@ -354,11 +354,11 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
 				calculoDto = new CalendarioServiceEjb().calculaPrazoDecorrido(calculoDto, UtilDatas.getDataHoraAtual(), getTransacao());
 				tempo = calculoDto.getTempoDecorridoHH() * 60 + calculoDto.getTempoDecorridoMM();
 			} catch (Exception e) {
-				System.out.println("#### Erro no c·lculo do tempo decorrido da tarefa");
+				System.out.println("#### Erro no c√°lculo do tempo decorrido da tarefa");
 				e.printStackTrace();
 			}
-			ocorrenciaSolicitacao = OcorrenciaSolicitacaoServiceEjb.create(getSolicitacaoServicoDto(), tarefaFluxoDto, "ExecuÁ„o da tarefa \"" + tarefaFluxoDto.getElementoFluxoDto().getDocumentacao()
-					+ "\"", OrigemOcorrencia.OUTROS, CategoriaOcorrencia.Execucao, "n„o se aplica", CategoriaOcorrencia.Execucao.getDescricao(), usuarioDTO, tempo.intValue(), null, getTransacao());
+			ocorrenciaSolicitacao = OcorrenciaSolicitacaoServiceEjb.create(getSolicitacaoServicoDto(), tarefaFluxoDto, "Execu√ß√£o da tarefa \"" + tarefaFluxoDto.getElementoFluxoDto().getDocumentacao()
+					+ "\"", OrigemOcorrencia.OUTROS, CategoriaOcorrencia.Execucao, "n√£o se aplica", CategoriaOcorrencia.Execucao.getDescricao(), usuarioDTO, tempo.intValue(), null, getTransacao());
 			popularHistorico(getSolicitacaoServicoDto(), ocorrenciaSolicitacao, "Executa", usuarioDTO);
 		}
 
@@ -382,7 +382,7 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
 					if (idModeloEmailAcoes != null) {
 						enviaEmailGrupo(Integer.parseInt(idModeloEmailAcoes), solicitacaoServicoRelacionada.getIdGrupoAtual());
 					} else {
-						throw new Exception("N„o h· modelo de e-mail setado nos par‚metros.");
+						throw new Exception("N√£o h√° modelo de e-mail setado nos par√¢metros.");
 					}
 
 				}
@@ -420,11 +420,11 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
 
 		String ocorr = "Compartilhamento da tarefa \"" + tarefaFluxoDto.getElementoFluxoDto().getDocumentacao() + "\"";
 		if (usuarioDestino != null)
-			ocorr += " com o usu·rio " + usuarioBpmDto.getNome();
+			ocorr += " com o usu√°rio " + usuarioBpmDto.getNome();
 		if (grupoDestino != null)
 			ocorr += " com o grupo " + grupoDestino;
 
-		OcorrenciaSolicitacaoServiceEjb.create(getSolicitacaoServicoDto(), tarefaFluxoDto, ocorr, OrigemOcorrencia.OUTROS, CategoriaOcorrencia.Compartilhamento, "n„o se aplica",
+		OcorrenciaSolicitacaoServiceEjb.create(getSolicitacaoServicoDto(), tarefaFluxoDto, ocorr, OrigemOcorrencia.OUTROS, CategoriaOcorrencia.Compartilhamento, "n√£o se aplica",
 				CategoriaOcorrencia.Compartilhamento.getDescricao(), usuarioDTO, 0, null, getTransacao());
 	}
 
@@ -466,7 +466,7 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
 						String ocorr = "Direcionamento da tarefa \"" + itemTrabalho.getElementoFluxoDto().getDocumentacao() + "\"";
 						ocorr += " para o grupo " + grupoAtendimento;
 
-						OcorrenciaSolicitacaoServiceEjb.create(getSolicitacaoServicoDto(), itemTrabalhoFluxoDto, ocorr, OrigemOcorrencia.OUTROS, CategoriaOcorrencia.Direcionamento, "n„o se aplica",
+						OcorrenciaSolicitacaoServiceEjb.create(getSolicitacaoServicoDto(), itemTrabalhoFluxoDto, ocorr, OrigemOcorrencia.OUTROS, CategoriaOcorrencia.Direcionamento, "n√£o se aplica",
 								CategoriaOcorrencia.Direcionamento.getDescricao(), usuarioDTO, 0, null, getTransacao());
 					}
 				}
@@ -479,7 +479,7 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
 				enviaEmailGrupo(Integer.parseInt(ParametroUtil.getValor(ParametroSistema.ID_MODELO_EMAIL_GRUPO_DESTINO, getTransacao(), null)), grupoAtendimentoDto.getIdGrupo());
 			}
 		} catch (NumberFormatException e) {
-			System.out.println("N„o h· modelo de e-mail setado nos par‚metros.");
+			System.out.println("N√£o h√° modelo de e-mail setado nos par√¢metros.");
 		}
 	}
 
@@ -756,7 +756,7 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
 	public String getRemetenteEmail() throws Exception {
 		String remetente = ParametroUtil.getValor(ParametroSistema.RemetenteNotificacoesSolicitacao, getTransacao(), null);
 		if (remetente == null)
-			throw new LogicException("Remetente para notificaÁıes de solicitaÁ„o de serviÁo n„o foi parametrizado");
+			throw new LogicException("Remetente para notifica√ß√µes de solicita√ß√£o de servi√ßo n√£o foi parametrizado");
 		return remetente;
 	}
 
@@ -767,7 +767,7 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
 			solicitacaoServicoDto.setHashPesquisaSatisfacao(idHashValidacao);
 			solicitacaoServicoDto.setUrlSistema(urlSistema);
 			solicitacaoServicoDto.setLinkPesquisaSatisfacao("<a href=\"" + urlSistema + "/pages/pesquisaSatisfacao/pesquisaSatisfacao.load?idSolicitacaoServico="
-					+ solicitacaoServicoDto.getIdSolicitacaoServico() + "&hash=" + idHashValidacao + "\">Clique aqui para fazer a avaliaÁ„o do Atendimento</a>");
+					+ solicitacaoServicoDto.getIdSolicitacaoServico() + "&hash=" + idHashValidacao + "\">Clique aqui para fazer a avalia√ß√£o do Atendimento</a>");
 		}
 	}
 
@@ -810,14 +810,14 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
 
 		// System.out.println("#################### ENVIANDO EMAIL ####################");
 		// System.out.println("### Modelo: " + identificador);
-		// System.out.println("### No. solicitaÁ„o: " + solicitacaoAuxDto.getIdSolicitacaoServico());
+		// System.out.println("### No. solicita√ß√£o: " + solicitacaoAuxDto.getIdSolicitacaoServico());
 		// if (solicitacaoAuxDto.getNomeTarefa() != null)
 		// System.out.println("### Tarefa: " + solicitacaoAuxDto.getNomeTarefa());
 
 		MensagemEmail mensagem = new MensagemEmail(modeloEmailDto.getIdModeloEmail(), new BaseEntity[] { solicitacaoAuxDto });
 		try {
 			for (String para : destinatarios) {
-				// System.out.println("### Destinat·rio: " + para);
+				// System.out.println("### Destinat√°rio: " + para);
 				mensagem.envia(para, null, remetente);
 				Thread.sleep(50);
 			}
@@ -889,16 +889,16 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
 			solicitacaoAuxDto.setHoraRegistroOcorrencia("--");
 		}
 
-		// Esse registro de execuÁ„o na verdade deve ser as informaÁıes da ocorrÍncia da solicitaÁ„o, caso comece com "ExecuÁ„o da Tarefa" quer dizer que foi gerado pelo sistema,
-		// logo, n„o tem import‚ncia
-		if (solicitacaoAuxiliarEmail != null && solicitacaoAuxiliarEmail.getRegistroexecucao() != null && solicitacaoAuxiliarEmail.getRegistroexecucao().startsWith("ExecuÁ„o da tarefa")) {
+		// Esse registro de execu√ß√£o na verdade deve ser as informa√ß√µes da ocorr√™ncia da solicita√ß√£o, caso comece com "Execu√ß√£o da Tarefa" quer dizer que foi gerado pelo sistema,
+		// logo, n√£o tem import√¢ncia
+		if (solicitacaoAuxiliarEmail != null && solicitacaoAuxiliarEmail.getRegistroexecucao() != null && solicitacaoAuxiliarEmail.getRegistroexecucao().startsWith("Execu√ß√£o da tarefa")) {
 			solicitacaoAuxDto.setRegistroexecucao("--");
 			solicitacaoAuxDto.setRegistradoPor("--");
 			solicitacaoAuxDto.setDataRegistroOcorrenciaStr("");
 			solicitacaoAuxDto.setHoraRegistroOcorrencia("--");
 		}
 
-		// C·lculo do sla para enviar para o e-mail
+		// C√°lculo do sla para enviar para o e-mail
 		if (solicitacaoAuxDto != null && solicitacaoAuxiliarEmail != null) {
 			if ((solicitacaoAuxDto.getPrazoHH() != null && solicitacaoAuxDto.getPrazoHH() != 0) || (solicitacaoAuxDto.getPrazoMM() != null && solicitacaoAuxDto.getPrazoMM() != 0)) {
 				if (solicitacaoAuxDto.getPrazoHH() == 0) {
@@ -909,7 +909,7 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
 					solicitacaoAuxDto.setSla(solicitacaoAuxDto.getPrazoHH() + ":" + solicitacaoAuxDto.getPrazoMM());
 				}
 			} else {
-				solicitacaoAuxDto.setSla("Sla ‡ combinar");
+				solicitacaoAuxDto.setSla("Sla √† combinar");
 			}
 		}
 
@@ -955,7 +955,7 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
 
 		String remetente = ParametroUtil.getValor(ParametroSistema.RemetenteNotificacoesSolicitacao, getTransacao(), null);
 		if (remetente == null)
-			throw new LogicException("Remetente para notificaÁıes de solicitaÁ„o de serviÁo n„o foi parametrizado");
+			throw new LogicException("Remetente para notifica√ß√µes de solicita√ß√£o de servi√ßo n√£o foi parametrizado");
 
 		SolicitacaoServicoDTO solicitacaoAuxDto = new SolicitacaoServicoServiceEjb().restoreAll(getSolicitacaoServicoDto().getIdSolicitacaoServico(), getTransacao());
 		if (solicitacaoAuxDto == null) {
@@ -1017,7 +1017,7 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
 		}
 		servicoContratoDto = (ServicoContratoDTO) servicoContratoDao.restore(servicoContratoDto);
 		if (servicoContratoDto == null)
-			throw new LogicException("ServiÁo contrato n„o localizado");
+			throw new LogicException("Servi√ßo contrato n√£o localizado");
 		return servicoContratoDto;
 	}
 
@@ -1025,7 +1025,7 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
 	public void encerra() throws Exception {
 		SolicitacaoServicoDTO solicitacaoServicoDto = getSolicitacaoServicoDto();
 		if (solicitacaoServicoDto == null)
-			throw new Exception("SolicitaÁ„o de serviÁo n„o encontrada");
+			throw new Exception("Solicita√ß√£o de servi√ßo n√£o encontrada");
 
 		if (solicitacaoServicoDto.encerrada())
 			return;
@@ -1035,7 +1035,7 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
 		// if (!solicitacaoServicoDto.atendida() &&
 		// !solicitacaoServicoDto.reclassificada())
 		// throw new
-		// Exception("SolicitaÁ„o de serviÁo n„o permite encerramento");
+		// Exception("Solicita√ß√£o de servi√ßo n√£o permite encerramento");
 
 		Collection<ExecucaoSolicitacaoDTO> colExecucao = new ExecucaoSolicitacaoDao().listByIdSolicitacao(getSolicitacaoServicoDto().getIdSolicitacaoServico());
 		if (colExecucao != null) {
@@ -1056,7 +1056,7 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
 
 		OcorrenciaSolicitacaoDTO ocorrenciaSolicitacaoDTO = new OcorrenciaSolicitacaoDTO();
 		usuarioDTO = new UsuarioDTO();
-		usuarioDTO.setLogin("Autom·tico");
+		usuarioDTO.setLogin("Autom√°tico");
 		ocorrenciaSolicitacaoDTO = OcorrenciaSolicitacaoServiceEjb.create(getSolicitacaoServicoDto(), null, null, OrigemOcorrencia.OUTROS, CategoriaOcorrencia.Encerramento, null,
 				CategoriaOcorrencia.Encerramento.getDescricao(), usuarioDTO, 0, null, getTransacao());
 
@@ -1076,7 +1076,7 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
 					if (idModeloEmailEncerramento != null) {
 						enviaEmailGrupo(Integer.parseInt(idModeloEmailEncerramento), solicitacaoServicoRelacionada.getIdGrupoAtual());
 					} else {
-						throw new Exception("N„o h· modelo de e-mail setado nos par‚metros.");
+						throw new Exception("N√£o h√° modelo de e-mail setado nos par√¢metros.");
 					}
 
 				}
@@ -1104,10 +1104,10 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
 	public void reabre(String loginUsuario) throws Exception {
 		SolicitacaoServicoDTO solicitacaoServicoDto = getSolicitacaoServicoDto();
 		if (solicitacaoServicoDto == null)
-			throw new Exception("SolicitaÁ„o de ServiÁo n„o encontrada");
+			throw new Exception("Solicita√ß√£o de Servi√ßo n√£o encontrada");
 
 		if (!solicitacaoServicoDto.encerrada())
-			throw new Exception("SolicitaÁ„o de ServiÁoo n„o permite reabertura");
+			throw new Exception("Solicita√ß√£o de Servi√ßoo n√£o permite reabertura");
 
 		usuarioDTO = new UsuarioDTO();
 		usuarioDTO = new UsuarioDao().restoreByLogin(loginUsuario);
@@ -1179,7 +1179,7 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
 		}
 
 		if (!solicitacaoServicoDto.suspensa())
-			throw new Exception("SolicitaÁ„o de ServiÁo n„o permite reativaÁ„o");
+			throw new Exception("Solicita√ß√£o de Servi√ßo n√£o permite reativa√ß√£o");
 
 		setTransacaoDao(getSolicitacaoServicoDAO());
 
@@ -1204,7 +1204,7 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
 		if (solicitacaoServicoDto.getIdCalendario() == null) {
 			ServicoContratoDTO servicoContratoDto = new ServicoContratoDao().findByIdContratoAndIdServico(solicitacaoServicoDto.getIdContrato(), solicitacaoServicoDto.getIdServico());
 			if (servicoContratoDto == null)
-				throw new LogicException("ServiÁo n„o localizado para o contrato");
+				throw new LogicException("Servi√ßo n√£o localizado para o contrato");
 			idCalendario = servicoContratoDto.getIdCalendario();
 		}
 		return idCalendario;
@@ -1282,7 +1282,7 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
 		// int horasAux = (solicitacaoServicoDto.getTempoDecorridoMM().intValue() + calculoDto.getTempoDecorridoMM().intValue()) / 60;
 		// int minAux = (solicitacaoServicoDto.getTempoDecorridoMM().intValue() + calculoDto.getTempoDecorridoMM().intValue()) % 60;
 
-		// Foi verificado que o tempo de atendimento È o tempo decorrido, ele estava calculando duas vezes.
+		// Foi verificado que o tempo de atendimento √© o tempo decorrido, ele estava calculando duas vezes.
 		solicitacaoServicoDto.setTempoAtendimentoHH(new Integer(calculoDto.getTempoDecorridoHH().intValue()));
 		solicitacaoServicoDto.setTempoAtendimentoMM(new Integer(calculoDto.getTempoDecorridoMM()));
 	}
@@ -1340,7 +1340,7 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
 
 			SolicitacaoServicoDTO solicitacaoServicoDto = getSolicitacaoServicoDAO().restoreByIdInstanciaFluxo(eventoFluxoDto.getIdInstancia());
 			if (solicitacaoServicoDto == null)
-				throw new LogicException("SolicitaÁ„o de serviÁo do evento " + eventoFluxoDto.getIdItemTrabalho() + " n„o encontrada");
+				throw new LogicException("Solicita√ß√£o de servi√ßo do evento " + eventoFluxoDto.getIdItemTrabalho() + " n√£o encontrada");
 
 			setObjetoNegocioDto(solicitacaoServicoDto);
 			InstanciaFluxo instanciaFluxo = new InstanciaFluxo(this, eventoFluxoDto.getIdInstancia());
@@ -1375,7 +1375,7 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
 
 		usuarioDTO = new UsuarioDTO();
 		usuarioDTO.setLogin("Sistema");
-		OcorrenciaSolicitacaoServiceEjb.create(getSolicitacaoServicoDto(), tarefaFluxoDto, ocorrencia, OrigemOcorrencia.OUTROS, CategoriaOcorrencia.CancelamentoTarefa, "n„o se aplica",
+		OcorrenciaSolicitacaoServiceEjb.create(getSolicitacaoServicoDto(), tarefaFluxoDto, ocorrencia, OrigemOcorrencia.OUTROS, CategoriaOcorrencia.CancelamentoTarefa, "n√£o se aplica",
 				CategoriaOcorrencia.CancelamentoTarefa.getDescricao(), usuarioDTO, tempo.intValue(), null, getTransacao());
 	}
 
@@ -1386,11 +1386,11 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
 	public String recuperaGrupoAprovador() throws Exception {
 		SolicitacaoServicoDTO solicitacaoServicoDto = getSolicitacaoServicoDto();
 		if (solicitacaoServicoDto == null)
-			throw new Exception("SolicitaÁ„o de ServiÁo n„o encontrada.");
+			throw new Exception("Solicita√ß√£o de Servi√ßo n√£o encontrada.");
 
 		ServicoContratoDTO servicoContratoDto = recuperaServicoContrato();
 		if (servicoContratoDto.getIdGrupoAprovador() == null)
-			throw new Exception("Grupo aprovador n„o parametrizado. Verifique o serviÁo do contrato.");
+			throw new Exception("Grupo aprovador n√£o parametrizado. Verifique o servi√ßo do contrato.");
 
 		GrupoDao grupoDao = new GrupoDao();
 		setTransacaoDao(grupoDao);
@@ -1398,7 +1398,7 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
 		grupoDto.setIdGrupo(servicoContratoDto.getIdGrupoAprovador());
 		grupoDto = (GrupoDTO) grupoDao.restore(grupoDto);
 		if (grupoDto == null)
-			throw new Exception("Grupo aprovador n„o encontrado.");
+			throw new Exception("Grupo aprovador n√£o encontrado.");
 
 		return grupoDto.getSigla();
 	}
@@ -1407,7 +1407,7 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
 	public void verificaSLA(ItemTrabalho itemTrabalho) throws Exception {
 		SolicitacaoServicoDTO solicitacaoServicoDto = getSolicitacaoServicoDto();
 		if (solicitacaoServicoDto == null)
-			throw new Exception("SolicitaÁ„o de ServiÁo n„o encontrada.");
+			throw new Exception("Solicita√ß√£o de Servi√ßo n√£o encontrada.");
 
 		boolean bContabilizaSLA = true;
 		if (itemTrabalho.getContabilizaSLA() != null)
@@ -1482,7 +1482,7 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
 		new SolicitacaoServicoServiceEjb().determinaPrazoLimite(solicitacaoDto, null, getTransacao());
 
 		usuarioDTO = new UsuarioDTO();
-		usuarioDTO.setLogin("Autom·tico");
+		usuarioDTO.setLogin("Autom√°tico");
 
 		OcorrenciaSolicitacaoServiceEjb.create(getSolicitacaoServicoDto(), null, null, OrigemOcorrencia.OUTROS, CategoriaOcorrencia.InicioSLA, null, CategoriaOcorrencia.InicioSLA.getDescricao(),
 				usuarioDTO, 0, null, getTransacao());
@@ -1516,7 +1516,7 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
 		solicitacaoDto.setDataHoraReativacaoSLA(null);
 
 		usuarioDTO = new UsuarioDTO();
-		usuarioDTO.setLogin("Autom·tico");
+		usuarioDTO.setLogin("Autom√°tico");
 
 		OcorrenciaSolicitacaoServiceEjb.create(getSolicitacaoServicoDto(), null, null, OrigemOcorrencia.OUTROS, CategoriaOcorrencia.SuspensaoSLA, null,
 				CategoriaOcorrencia.SuspensaoSLA.getDescricao(), usuarioDTO, 0, null, getTransacao());
@@ -1540,7 +1540,7 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
 		solicitacaoDto.setDataHoraSuspensaoSLA(null);
 		solicitacaoDto.setDataHoraReativacaoSLA(tsAtual);
 		usuarioDTO = new UsuarioDTO();
-		usuarioDTO.setLogin("Autom·tico");
+		usuarioDTO.setLogin("Autom√°tico");
 		OcorrenciaSolicitacaoServiceEjb.create(getSolicitacaoServicoDto(), null, null, OrigemOcorrencia.OUTROS, CategoriaOcorrencia.ReativacaoSLA, null,
 				CategoriaOcorrencia.ReativacaoSLA.getDescricao(), usuarioDTO, 0, null, getTransacao());
 	}
@@ -1613,7 +1613,7 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
 	}
 
 	/**
-	 * Retorna a Lista de TarefaDTO com SolicitacaoServidoDTO de acordo com o Login e a Lista de Contratos do Usu·rio Logado.
+	 * Retorna a Lista de TarefaDTO com SolicitacaoServidoDTO de acordo com o Login e a Lista de Contratos do Usu√°rio Logado.
 	 *
 	 * @param pgAtual
 	 * @param qtdAPaginacao
@@ -1689,8 +1689,8 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
 	}
 
 	/**
-	 * Utilizado para a RENDERIZA«√O do GR¡FICO, pois no Gr·fico n„o È necess·rio a utilizaÁ„o de PaginaÁ„o. Esta consulta considera o Login do Usu·rio Logado, os Contratos em que est· inserido e os
-	 * Filtros Selecionados na tela de Gerenciamento de ServiÁos.
+	 * Utilizado para a RENDERIZA√á√ÉO do GR√ÅFICO, pois no Gr√°fico n√£o √© necess√°rio a utiliza√ß√£o de Pagina√ß√£o. Esta consulta considera o Login do Usu√°rio Logado, os Contratos em que est√° inserido e os
+	 * Filtros Selecionados na tela de Gerenciamento de Servi√ßos.
 	 *
 	 * @param loginUsuario
 	 * @param gerenciamentoBean
@@ -1826,14 +1826,14 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
 	}
 
 	/**
-	 * Consulta utilizada para a RENDERIZA«√O da LISTAGEM SOLICITACAO SERVI«O. Retorna a Lista de TarefaDTO com SolicitacaoServidoDTO de acordo com po aramRecuperacaoTarefasDto.
+	 * Consulta utilizada para a RENDERIZA√á√ÉO da LISTAGEM SOLICITACAO SERVI√áO. Retorna a Lista de TarefaDTO com SolicitacaoServidoDTO de acordo com po aramRecuperacaoTarefasDto.
 	 *
 	 * @param ParamRecuperacaoTarefasDTO
 	 *            paramRecuperacaoTarefasDto
 	 * @return List<TarefaFluxoDTO - Com SolicitacaoServicoDTO recuperados.
 	 * @throws Exception
 	 * @author carlos.santos
-	 * @since 27.01.2015 - OperaÁ„o Usain Bolt.
+	 * @since 27.01.2015 - Opera√ß√£o Usain Bolt.
 	 */
 	public Page<TarefaFluxoDTO> recuperaTarefas(ParamRecuperacaoTarefasDTO paramRecuperacaoTarefas, Pageable pageable) throws Exception {
 		List<TarefaFluxoDTO> tarefas = new ArrayList<>();
@@ -1941,7 +1941,7 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
 							e.printStackTrace();
 						}
 						if (elementoFluxo == null)
-							throw new LogicException("Erro na recuperaÁ„o do elemento de fluxo com ID " + tarefaFluxo.getIdElemento() + " na inst‚ncia " + tarefaFluxo.getIdInstancia());
+							throw new LogicException("Erro na recupera√ß√£o do elemento de fluxo com ID " + tarefaFluxo.getIdElemento() + " na inst√¢ncia " + tarefaFluxo.getIdInstancia());
 						mapElementos.put("" + tarefaFluxo.getIdElemento(), elementoFluxo);
 					}
 

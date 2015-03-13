@@ -8,14 +8,14 @@ import br.com.centralit.citcorpore.metainfo.bean.TableSearchDTO;
 import br.com.citframework.service.CrudService;
 
 /**
- * Service respons·vel pelas consultas das telas que s„o DinamicViews.
+ * Service respons√°vel pelas consultas das telas que s√£o DinamicViews.
  *
  */
 @SuppressWarnings("rawtypes")
 public interface TableSearchService extends CrudService {
 
     /**
-     * Realiza consulta nas Telas que s„o DinamicViews.
+     * Realiza consulta nas Telas que s√£o DinamicViews.
      *
      * @param parm
      * @param tableVinc

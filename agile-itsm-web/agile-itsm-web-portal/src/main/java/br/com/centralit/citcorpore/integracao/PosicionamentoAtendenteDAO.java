@@ -18,7 +18,7 @@ import br.com.citframework.util.Constantes;
 import br.com.citframework.util.UtilDatas;
 
 /**
- * DAO para persistência de {@link PosicionamentoAtendenteDTO}
+ * DAO para persistÃªncia de {@link PosicionamentoAtendenteDTO}
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 06/10/2014

@@ -1,11 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <!doctype html public "">
 <html>
 <head>
 <%@include file="/include/header.jsp"%>	
 <%@include file="/novoLayout/common/include/libCabecalho.jsp" %>
-<%@include file="/include/security/security.jsp"%>
-<title><fmt:message key="citcorpore.comum.title" /></title>
+<%@include file="/novoLayout/common/include/titulo.jsp" %>
 <%@include file="/novoLayout/common/include/titulo.jsp" %>
 <link type="text/css" rel="stylesheet" href="../../novoLayout/common/include/css/template.css"/>
 <link rel="stylesheet" type="text/css" href="./css/tipoMovimFinanceiraViagem.css" />

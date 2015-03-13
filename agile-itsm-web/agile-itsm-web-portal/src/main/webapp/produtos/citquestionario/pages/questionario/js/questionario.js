@@ -1026,11 +1026,11 @@ atualizarQuestaoFunction = function(  textoConteudo,
 
 atualizarSubFormulario = function(){
     if (document.getElementById('idSubQuestionario').value == ''){
-        alert('Informe o Formul·rio!');
+        alert('Informe o Formul√°rio!');
         return;
     }
     if (document.getElementById('abaResultSubForm').value == ''){
-        alert('Informe a Aba para associar os resultados dos registros no Prontu·rio!');
+        alert('Informe a Aba para associar os resultados dos registros no Prontu√°rio!');
         return;
     }
 
@@ -1040,7 +1040,7 @@ atualizarSubFormulario = function(){
     idIndex = document.getElementById('idIndex').value;
 
     var questaoDto = new CIT_QuestaoQuestionarioDTO();
-    questaoDto.tituloQuestaoQuestionario = 'SubFormul·rio';
+    questaoDto.tituloQuestaoQuestionario = 'SubFormul√°rio';
     questaoDto.sigla = document.getElementById('siglaSubFormulario').value;
     questaoDto.tipo = 'F';
     questaoDto.tipoQuestao = 'F';
@@ -1066,7 +1066,7 @@ atualizarSubFormulario = function(){
 
 atualizarInfoHistSessao = function(){
     if (document.getElementById('abaResultSubFormHS').value == ''){
-        alert('Informe a(s) guia(s) do Prontu·rio!');
+        alert('Informe a(s) guia(s) do Prontu√°rio!');
         return;
     }
 
@@ -1076,7 +1076,7 @@ atualizarInfoHistSessao = function(){
     idIndex = document.getElementById('idIndex').value;
 
     var questaoDto = new CIT_QuestaoQuestionarioDTO();
-    questaoDto.tituloQuestaoQuestionario = 'HistÛrico de Sessıes';
+    questaoDto.tituloQuestaoQuestionario = 'Hist√≥rico de Sess√µes';
     //questaoDto.sigla = document.getElementById('siglaSubFormulario').value;
     questaoDto.tipo = 'H';
     questaoDto.tipoQuestao = 'F';
@@ -1101,7 +1101,7 @@ atualizarInfoHistSessao = function(){
 
 atualizarInformaHistoricas = function(){
     if (document.getElementById('abaResultSubFormIH').value == ''){
-        alert('Informe a guia do Prontu·rio!');
+        alert('Informe a guia do Prontu√°rio!');
         return;
     }
 
@@ -1111,7 +1111,7 @@ atualizarInformaHistoricas = function(){
     idIndex = document.getElementById('idIndex').value;
 
     var questaoDto = new CIT_QuestaoQuestionarioDTO();
-    questaoDto.tituloQuestaoQuestionario = 'InformaÁıes HistÛricas';
+    questaoDto.tituloQuestaoQuestionario = 'Informa√ß√µes Hist√≥ricas';
     //questaoDto.sigla = document.getElementById('siglaSubFormulario').value;
     questaoDto.tipo = 'I';
     questaoDto.tipoQuestao = 'F';
@@ -1146,7 +1146,7 @@ atualizarFormDinamico = function(){
     idIndex = document.getElementById('idIndex').value;
 
     var questaoDto = new CIT_QuestaoQuestionarioDTO();
-    questaoDto.tituloQuestaoQuestionario = 'Formul·rio Din‚mico';
+    questaoDto.tituloQuestaoQuestionario = 'Formul√°rio Din√¢mico';
     //questaoDto.sigla = document.getElementById('siglaSubFormulario').value;
     questaoDto.tipo = 'D';
     questaoDto.tipoQuestao = 'F';
@@ -1608,10 +1608,10 @@ listagemQuestionario = function(){
 abrirQuestionario = function(){
     if (document.getElementById('lstQuestionarios').selectedIndex == null || document.getElementById('lstQuestionarios').selectedIndex == undefined ||
         document.getElementById('lstQuestionarios').selectedIndex < 0){
-        alert('Informe o question·rio que deseja abrir!');
+        alert('Informe o question√°rio que deseja abrir!');
         return;
     }
-    JANELA_AGUARDE_MENU.setTitle('Aguarde... abrindo o question·rio...');
+    JANELA_AGUARDE_MENU.setTitle('Aguarde... abrindo o question√°rio...');
     JANELA_AGUARDE_MENU.show();
 
     document.form.restore();
@@ -1741,12 +1741,12 @@ novoQuestionario = function(){
 
     document.getElementById('spanTitulo').innerHTML = '';
 
-    //Faz o refresh da p·gina para limpar o id de question·rio da url e evitar conflito ao gravar.
+    //Faz o refresh da p√°gina para limpar o id de question√°rio da url e evitar conflito ao gravar.
     window.location.href=ctx + '/pages/questionario/questionario.load';
     return false;
 };
 
-<!-- MÈtodos para Matriz e Tabela -->
+<!-- M√©todos para Matriz e Tabela -->
 existeQuestaoAgrupada = function(linha, coluna){
     var result = false;
     if (objsQuestoesAgrupadas[linha-1] != undefined && objsQuestoesAgrupadas[linha-1] != null){
@@ -1790,7 +1790,7 @@ preparaInclusaoQuestaoAgrupada = function(){
     document.formQuestaoAgrupada.tipo[1].disabled = editandoComplementoOpcao == 'S';
 
     /**
-         OpÁ„o comentada, pois a opÁıes de matriz e tabela foram retiradas do question·rio.
+         Op√ß√£o comentada, pois a op√ß√µes de matriz e tabela foram retiradas do question√°rio.
     **/
     //document.formQuestaoAgrupada.tipo[2].disabled = (document.formQuestao.tipo[3].checked || editandoComplementoOpcao == 'S');  // Se tabela, desabilita texto fixo
     document.getElementById('divQuestaoAgrupada').style.display = 'none';
@@ -1951,7 +1951,7 @@ adicionarOpcaoQuestaoAgrupada = function(){
             opcao = document.formQuestaoAgrupada.lstOpcoesAgrupada.options[i].text;
             peso = opcao.substring(opcao.indexOf('[')+6,opcao.indexOf(']'));
             if (parseInt(peso) == parseInt(document.formQuestaoAgrupada.peso.value)) {
-                alert('Este peso j· foi informado!');
+                alert('Este peso j√° foi informado!');
                 document.formQuestaoAgrupada.peso.focus();
                 return;
             }
@@ -2207,8 +2207,8 @@ montarMatriz = function() {
                 s = s + '<td><input type="text" name="cabecalhoLinha_'+ l + '" id="cabecalhoLinha_'+ l + '" size="10" maxlength="50"/></td>';
             }
             for(var c = 1; c <= qtdeColunas; c++){
-                s = s + '<td><table><tr><td>('+l+'.'+c+') </td><td><img src="'+ctx+'/produtos/citquestionario/imagens/configurar.gif" title="Clique aqui para configurar a quest„o (linha ' + l + ', coluna ' + c + ')" border="0" onclick="configurarQuestaoAgrupada('+l+','+c+')"/></td>';
-                s = s + '<td><img src="'+ctx+'/produtos/citquestionario/imagens/copiar.gif" title="Clique aqui para copiar esta configuraÁ„o para outras cÈlulas" border="0" id="btnCopiarQuestao_' + l +'_' + c+'" onclick="copiarQuestaoAgrupada('+l+','+c+')" style="display:none"/></td></tr></table></td>';
+                s = s + '<td><table><tr><td>('+l+'.'+c+') </td><td><img src="'+ctx+'/produtos/citquestionario/imagens/configurar.gif" title="Clique aqui para configurar a quest√£o (linha ' + l + ', coluna ' + c + ')" border="0" onclick="configurarQuestaoAgrupada('+l+','+c+')"/></td>';
+                s = s + '<td><img src="'+ctx+'/produtos/citquestionario/imagens/copiar.gif" title="Clique aqui para copiar esta configura√ß√£o para outras c√©lulas" border="0" id="btnCopiarQuestao_' + l +'_' + c+'" onclick="copiarQuestaoAgrupada('+l+','+c+')" style="display:none"/></td></tr></table></td>';
             }
             s = s + '</tr>';
         }
@@ -2275,8 +2275,8 @@ montarTabela = function(comValidacao) {
         var qtdeColunas = document.formQuestao.qtdeColunasTabela.value;
         var s = '<table id="tblQuestoesAgrupadas" cellpadding="0" cellspacing="0" width="100%" border = "1"><tr>';
         for(var c = 1; c <= qtdeColunas; c++){
-            s = s + '<td><table><tr><td>('+c+') </td><td><img src="'+ctx+'/produtos/citquestionario/imagens/configurar.gif" title="Clique aqui para configurar a quest„o (coluna ' + c + ')" border="0" onclick="configurarQuestaoAgrupada(1,'+c+')"/></td>';
-            s = s + '<td><img src="'+ctx+'/produtos/citquestionario/imagens/copiar.gif" title="Clique aqui para copiar esta configuraÁ„o para outras colunas" border="0" id="btnCopiarQuestao_1_'+c+'" onclick="copiarQuestaoAgrupada(1,'+c+')" style="display:none"/></td></tr></table></td>';
+            s = s + '<td><table><tr><td>('+c+') </td><td><img src="'+ctx+'/produtos/citquestionario/imagens/configurar.gif" title="Clique aqui para configurar a quest√£o (coluna ' + c + ')" border="0" onclick="configurarQuestaoAgrupada(1,'+c+')"/></td>';
+            s = s + '<td><img src="'+ctx+'/produtos/citquestionario/imagens/copiar.gif" title="Clique aqui para copiar esta configura√ß√£o para outras colunas" border="0" id="btnCopiarQuestao_1_'+c+'" onclick="copiarQuestaoAgrupada(1,'+c+')" style="display:none"/></td></tr></table></td>';
         }
         s = s + '</tr>';
         document.getElementById('divQuestoesTabela').innerHTML = s;
@@ -2291,7 +2291,7 @@ validarQuestoesMatriz = function(){
     for(var l = 1; l <= qtdeLinhas; l++){
         for(var c = 1; c <= qtdeColunas; c++){
             if (!existeQuestaoAgrupada(l,c)){
-                alert('Quest„o n„o definida (linha ' + l + ', coluna ' + c + ')!');
+                alert('Quest√£o n√£o definida (linha ' + l + ', coluna ' + c + ')!');
                 return false;
             }
         }
@@ -2303,7 +2303,7 @@ validarQuestoesTabela = function(){
     var qtdeColunas = document.formQuestao.qtdeColunasTabela.value;
     for(var c = 1; c <= qtdeColunas; c++){
         if (!existeQuestaoAgrupada(1,c)){
-            alert('Quest„o n„o definida (coluna ' + c + ')!');
+            alert('Quest√£o n√£o definida (coluna ' + c + ')!');
             return false;
         }
     }
@@ -2325,7 +2325,7 @@ copiarQuestaoAgrupada = function (linha, coluna) {
                 if (linha != l || coluna != c) {
                     s = 'Linha ' + l + ', Coluna ' + c;
                     if (existeQuestaoAgrupada(l,c)){
-                        s = s + ' (j· configurada)';
+                        s = s + ' (j√° configurada)';
                     }
                     HTMLUtils.addOption('lstQuestoes', s, l+'#'+c);
                 }
@@ -2345,7 +2345,7 @@ copiarQuestaoTabela = function (coluna) {
         if (c != coluna) {
             s = 'Coluna ' + c;
             if (existeQuestaoAgrupada(1,c)){
-                s = s + ' (j· configurada)';
+                s = s + ' (j√° configurada)';
             }
             HTMLUtils.addOption('lstQuestoes', s, '1#'+c);
         }
@@ -2362,7 +2362,7 @@ copiarQuestaoFunction = function() {
             var linha = parseInt(s.substring(0,parseInt(s.indexOf('#'))));
             var coluna = parseInt(s.substring(s.indexOf('#')+1));
             if (!confirmou && existeQuestaoAgrupada(linha,coluna)) {
-                if (!confirm('Todas as questıes j· configuradas ser„o substituÌdas. Deseja prosseguir')) {
+                if (!confirm('Todas as quest√µes j√° configuradas ser√£o substitu√≠das. Deseja prosseguir')) {
                     //POPUP_COPIAR_QUESTAO.hide();
                     $("#POPUP_COPIAR_QUESTAO").dialog("close");
                     return;

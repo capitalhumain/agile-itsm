@@ -148,7 +148,7 @@ public class CentroResultadoDao extends CrudDaoDefaultImpl {
 	
 	
 	/**
-	 * Metodo que consulta todos os centro de custos filhos vinculados a uma alçada
+	 * Metodo que consulta todos os centro de custos filhos vinculados a uma alÃ§ada
 	 * 
 	 * @param idPai = Centro de resultado Pai
 	 * @return
@@ -186,7 +186,7 @@ public class CentroResultadoDao extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Metodo que consulta todos os centro de custos filhos vinculados a uma alçada de viagem
+	 * Metodo que consulta todos os centro de custos filhos vinculados a uma alÃ§ada de viagem
 	 * 
 	 * @param idPai = Centro de resultado Pai
 	 * @return

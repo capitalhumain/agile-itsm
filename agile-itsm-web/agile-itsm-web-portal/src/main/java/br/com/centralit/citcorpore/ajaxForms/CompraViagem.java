@@ -149,7 +149,7 @@ public class CompraViagem extends AjaxFormAction{
 	}
 
 	/**
-	 * Preenche a combo de 'Centro Resultado' do formul·rio HTML
+	 * Preenche a combo de 'Centro Resultado' do formul√°rio HTML
 	 *
 	 * @param document
 	 * @param request
@@ -172,7 +172,7 @@ public class CompraViagem extends AjaxFormAction{
 	}
 
 	/**
-	 * Preenche a combo de 'Projeto' do formul·rio HTML
+	 * Preenche a combo de 'Projeto' do formul√°rio HTML
 	 *
 	 * @param document
 	 * @param request
@@ -206,7 +206,7 @@ public class CompraViagem extends AjaxFormAction{
 	}
 
 	/**
-	 * Preenche combo de 'justificativa solicitaÁ„o'.
+	 * Preenche combo de 'justificativa solicita√ß√£o'.
 	 *
 	 * @param document
 	 * @param request
@@ -306,7 +306,7 @@ public class CompraViagem extends AjaxFormAction{
 
 									despesaViagemHTML.append("				<li class='expandable'>");
 									despesaViagemHTML.append("					<div class='hitarea collapsable-hitarea lastCollapsable-hitarea'></div>");
-									despesaViagemHTML.append("					<span class='folder '><span class='glyphicons " + tipoMovimFinanceiraViagemDTO.getImagem() + "'><i></i>&nbsp;</span>" + tipoMovimFinanceiraViagemDTO.getClassificacao() + " - " + (despesaViagem.getOriginal() != null && despesaViagem.getOriginal().equalsIgnoreCase("N") ? "RemarcaÁ„o" : "Original") + "/" + (despesaViagem.getSituacao() != null && despesaViagem.getSituacao().equalsIgnoreCase("Comprado") ? "Confirmando" : "N„o confirmado") + "</span>");
+									despesaViagemHTML.append("					<span class='folder '><span class='glyphicons " + tipoMovimFinanceiraViagemDTO.getImagem() + "'><i></i>&nbsp;</span>" + tipoMovimFinanceiraViagemDTO.getClassificacao() + " - " + (despesaViagem.getOriginal() != null && despesaViagem.getOriginal().equalsIgnoreCase("N") ? "Remarca√ß√£o" : "Original") + "/" + (despesaViagem.getSituacao() != null && despesaViagem.getSituacao().equalsIgnoreCase("Comprado") ? "Confirmando" : "N√£o confirmado") + "</span>");
 									despesaViagemHTML.append("					<ul style='display: none;'>");
 									despesaViagemHTML.append("						<li class='file'>");
 									despesaViagemHTML.append("							<p>" + quantidade.format(despesaViagem.getQuantidade()) + " <strong>" + tipoMovimFinanceiraViagemDTO.getClassificacao() + "</strong> no total de R$ " + despesaViagem.getTotalFormatado() + " - <strong>" + parceiroDTO.getNome() + "</strong></p>");
@@ -333,7 +333,7 @@ public class CompraViagem extends AjaxFormAction{
 
 					if(contador > 0) {
 						despesaViagemHTML.append("				<li>");
-						despesaViagemHTML.append("					<strong>Valor total a ser confirmado:</strong> R$ " + decimal.format(totalASerConfirmado) + " - <strong>Valor total j· confirmado:</strong> R$ " + decimal.format(totalJaConfirmado));
+						despesaViagemHTML.append("					<strong>Valor total a ser confirmado:</strong> R$ " + decimal.format(totalASerConfirmado) + " - <strong>Valor total j√° confirmado:</strong> R$ " + decimal.format(totalJaConfirmado));
 						despesaViagemHTML.append("				</li>");
 					} else {
 						despesaViagemHTML.append("				<li>"+UtilI18N.internacionaliza(request, "autorizacaoViagem.naoItensComprasAdicionadosIntegrante")+"!</li>");

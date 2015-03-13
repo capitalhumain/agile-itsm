@@ -61,7 +61,7 @@ public class UtilClasses {
     }
 
     /**
-     * Verifica se uma classe implementa uma interface (mesmo na hierarquia - heranças)
+     * Verifica se uma classe implementa uma interface (mesmo na hierarquia - heranÃ§as)
      *
      * @param classeAnalisar
      * @param nomeCompletoInterfaceComPacote

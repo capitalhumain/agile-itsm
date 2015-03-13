@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.CitCorporeConstantes"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
@@ -20,7 +22,7 @@
         <script type="text/javascript" src="${ctx}/cit/objects/RequisicaoViagemDTO.js"></script>
         <script type="text/javascript" src="${ctx}/cit/objects/IntegranteViagemDTO.js"></script>
 
-        <title><fmt:message key="citcorpore.comum.title"/></title>
+        <%@include file="/novoLayout/common/include/titulo.jsp" %>
 
     </head>
     <cit:janelaAguarde id="JANELA_AGUARDE_MENU"  title="" style="display:none;top:325px;width:300px;left:500px;height:50px;position:absolute;"></cit:janelaAguarde>

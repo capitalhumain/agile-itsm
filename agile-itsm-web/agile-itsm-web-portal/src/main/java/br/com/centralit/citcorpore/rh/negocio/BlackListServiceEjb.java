@@ -34,9 +34,9 @@ public class BlackListServiceEjb extends CrudServiceImpl implements BlackListSer
     }
 
     /**
-     * Desenvolvedor: David Rodrigues - Data: 26/03/2014 - Hor·rio: 14:36 - ID Citsmart: 0
+     * Desenvolvedor: David Rodrigues - Data: 26/03/2014 - Hor√°rio: 14:36 - ID Citsmart: 0
      *
-     * Motivo/Coment·rio: AdaptaÁ„o no codido para funcionamento do Historico Funcional (Item Historico Funcional)
+     * Motivo/Coment√°rio: Adapta√ß√£o no codido para funcionamento do Historico Funcional (Item Historico Funcional)
      */
     @Override
     public void inserirRegistroHistorico(final Integer idCandidato, final Integer idResponsavel, final boolean listaNegra) throws Exception {
@@ -53,11 +53,11 @@ public class BlackListServiceEjb extends CrudServiceImpl implements BlackListSer
         descricao.append("Candidato ");
 
         if (listaNegra) {
-            titulo = "Inclus„o na Lista Negra";
+            titulo = "Inclus√£o na Lista Negra";
             descricao.append(candidatoDto.getNome());
-            descricao.append(", foi incluÌdo na Lista Negra");
+            descricao.append(", foi inclu√≠do na Lista Negra");
         } else {
-            titulo = "RemoÁ„o da Lista Negra";
+            titulo = "Remo√ß√£o da Lista Negra";
             descricao.append(candidatoDto.getNome());
             descricao.append(", foi removido da Lista Negra");
         }

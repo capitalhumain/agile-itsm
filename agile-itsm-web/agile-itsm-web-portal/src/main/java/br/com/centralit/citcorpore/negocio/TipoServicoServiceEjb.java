@@ -37,7 +37,7 @@ public class TipoServicoServiceEjb extends CrudServiceImpl implements TipoServic
     }
 
     /**
-     * Metodo responsavel por verificar se existe vinculo entre o tipo de serviço e cadastro de serviço
+     * Metodo responsavel por verificar se existe vinculo entre o tipo de serviÃ§o e cadastro de serviÃ§o
      *
      * @param idTipoServico
      * @author Ezequiel

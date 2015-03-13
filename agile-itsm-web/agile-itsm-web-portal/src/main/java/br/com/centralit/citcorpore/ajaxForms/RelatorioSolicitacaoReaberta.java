@@ -126,7 +126,7 @@ public class RelatorioSolicitacaoReaberta extends AjaxFormAction {
 		try {
 
 			JRDataSource dataSource;
-			//Obtendo informações
+			//Obtendo informaÃ§Ãµes
 			RelatorioSolicitacaoReabertaService relatorioSolicitacaoReabertaService = (RelatorioSolicitacaoReabertaService) ServiceLocator.getInstance().getService(RelatorioSolicitacaoReabertaService.class, WebUtil.getUsuarioSistema(request));
 			ArrayList<RelatorioSolicitacaoReabertaDTO> listaSolicitacoesReabertas = relatorioSolicitacaoReabertaService.listSolicitacaoReaberta(relatorioSolicitacaoReabertaDTO);
 			ArrayList<RelatorioSolicitacaoReabertaDTO> listaSolicitacoesReabertasFormatadas = new ArrayList<>();
@@ -134,7 +134,7 @@ public class RelatorioSolicitacaoReaberta extends AjaxFormAction {
 				document.alert(UtilI18N.internacionaliza(request, "citcorpore.comum.relatorioVazio") );
 				return;
 			}else {
-				//metodo para retirar formatação do campo descrição.
+				//metodo para retirar formataÃ§Ã£o do campo descriÃ§Ã£o.
 				for (RelatorioSolicitacaoReabertaDTO relatorioSolicitacaoReaberta : listaSolicitacoesReabertas ){
 					if (!relatorioSolicitacaoReaberta.getDescricaoServico().equals("") && relatorioSolicitacaoReaberta.getDescricaoServico() != null ){
 						relatorioSolicitacaoReaberta.setDescricaoServico(relatorioSolicitacaoReaberta.getDescricaoServicoSemFormatacao());
@@ -147,12 +147,12 @@ public class RelatorioSolicitacaoReaberta extends AjaxFormAction {
 			listaSolicitacoesReabertas.addAll(listaSolicitacoesReabertasFormatadas);
 
 			dataSource = new JRBeanCollectionDataSource(listaSolicitacoesReabertas);
-			// quantidade de Solicitações encontradas
+			// quantidade de SolicitaÃ§Ãµes encontradas
 			relatorioSolicitacaoReabertaDTO.setQuantidade(listaSolicitacoesReabertas.size());
-			//Alimentando os parâmetros de filtragem para serem mostrados no relatório
+			//Alimentando os parÃ¢metros de filtragem para serem mostrados no relatÃ³rio
 			Map<String, Object> parametros = this.alimentaParametros(relatorioSolicitacaoReabertaDTO, usuario, UtilI18N.internacionaliza(request, "relatorio.solicitacaoReaberta.titulo"), document, request, response);
 
-			//Configurando dados para geração do Relatório
+			//Configurando dados para geraÃ§Ã£o do RelatÃ³rio
 			StringBuilder jasperArqRel = new StringBuilder();
 			jasperArqRel.append("RelatorioSolicitacaoReaberta");
 			Date dt = new Date();
@@ -162,7 +162,7 @@ public class RelatorioSolicitacaoReaberta extends AjaxFormAction {
 			String diretorioRelativo = Constantes.getValue("SERVER_ADDRESS") + Constantes.getValue("CONTEXTO_APLICACAO") + "/tempFiles";
 			String arquivoRelatorio = "/"+ jasperArqRel + strMiliSegundos + "_" + usuario.getIdUsuario();
 
-			//Chamando o relatório
+			//Chamando o relatÃ³rio
 			if (relatorioSolicitacaoReabertaDTO.getFormato().equalsIgnoreCase("PDF")){
 				abreRelatorioPDF(dataSource, parametros, diretorioTemp, caminhoJasper, jasperArqRel.toString(), diretorioRelativo, arquivoRelatorio, document, request, response);
 			} else {
@@ -174,7 +174,7 @@ public class RelatorioSolicitacaoReaberta extends AjaxFormAction {
 	}
 
 	/**
-	 * Metodo que carrega na página o resultado da Pesquisa da Solicitações Reabertas de  acordo com o filtro
+	 * Metodo que carrega na pÃ¡gina o resultado da Pesquisa da SolicitaÃ§Ãµes Reabertas de  acordo com o filtro
 	 *
 	 * @param relatorioSolicitacaoReabertaDTO
 	 * @param usuario
@@ -205,7 +205,7 @@ public class RelatorioSolicitacaoReaberta extends AjaxFormAction {
 	private Map<String, Object> alimentaParametros(RelatorioSolicitacaoReabertaDTO relatorioSolicitacaoReabertaDTO, UsuarioDTO usuario, String titulo, DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws ServiceException, Exception{
 		HttpSession session = ((HttpServletRequest) request).getSession();
 		Map<String, Object> parametros = new HashMap<String, Object>();
-		// setando o nome do Grupo para que seja apresentado no cabeçalho
+		// setando o nome do Grupo para que seja apresentado no cabeÃ§alho
 		GrupoService grupoService =  (GrupoService) ServiceLocator.getInstance().getService(GrupoService.class, WebUtil.getUsuarioSistema(request));
 		if (relatorioSolicitacaoReabertaDTO.getIdGrupo() != 0){
 			GrupoDTO grupoDTO = (GrupoDTO) grupoService.listGrupoById(relatorioSolicitacaoReabertaDTO.getIdGrupo());
@@ -231,7 +231,7 @@ public class RelatorioSolicitacaoReaberta extends AjaxFormAction {
 			parametros.put("NOME_USUARIO", "-");
 		}
 
-		//Tratamento para internacionalização do intervalo de datas
+		//Tratamento para internacionalizaÃ§Ã£o do intervalo de datas
 		StringBuilder intervaloDasDatas = new StringBuilder();
 		String pattern;
 		if (usuario != null && StringUtils.isNotBlank(usuario.getLocale()) && usuario.getLocale().toString().equals("en_US")){

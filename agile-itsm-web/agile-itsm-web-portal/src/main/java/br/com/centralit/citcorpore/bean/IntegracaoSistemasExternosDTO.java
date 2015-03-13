@@ -9,7 +9,7 @@ import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * @author Carlos Santos
- * DTO para integração de sistemas externos
+ * DTO para integraÃ§Ã£o de sistemas externos
  */
 public class IntegracaoSistemasExternosDTO extends BaseEntity {
 

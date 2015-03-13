@@ -77,7 +77,7 @@ public class CotacaoServiceEjb extends CrudServiceImpl implements CotacaoService
 
     private void validaAtualizacao(final CotacaoDTO cotacaoDto) throws Exception {
         if (cotacaoDto.getDataFinalPrevista() != null && cotacaoDto.getDataFinalPrevista().compareTo(UtilDatas.getDataAtual()) < 0) {
-            throw new LogicException("Data final previsao n„o pode ser menor que a data atual");
+            throw new LogicException("Data final previsao n√£o pode ser menor que a data atual");
         }
     }
 
@@ -143,15 +143,15 @@ public class CotacaoServiceEjb extends CrudServiceImpl implements CotacaoService
 
         cotacaoDto = (CotacaoDTO) this.getDao().restore(cotacaoDto);
         if (cotacaoDto == null) {
-            throw new LogicException("CotaÁ„o n„o encontrada");
+            throw new LogicException("Cota√ß√£o n√£o encontrada");
         }
 
         if (cotacaoDto.getSituacao().equals(SituacaoCotacao.Finalizada.name())) {
-            throw new LogicException("CotaÁ„o j· est· encerrada");
+            throw new LogicException("Cota√ß√£o j√° est√° encerrada");
         }
 
         if (cotacaoDto.getSituacao().equals(SituacaoCotacao.Cancelada.name())) {
-            throw new LogicException("CotaÁ„o est· cancelada");
+            throw new LogicException("Cota√ß√£o est√° cancelada");
         }
 
         if (cotacaoDto.getSituacao().equals(SituacaoCotacao.Pedido.name())) {
@@ -161,7 +161,7 @@ public class CotacaoServiceEjb extends CrudServiceImpl implements CotacaoService
                 for (final ColetaPrecoDTO coletaPrecoDto : colColetas) {
                     final Collection<ItemPedidoCompraDTO> colItensPedido = itemPedidoDao.findByIdColetaPreco(coletaPrecoDto.getIdColetaPreco());
                     if (colItensPedido == null || colItensPedido.size() == 0) {
-                        throw new LogicException("Existe pelo menos um pedido de compra ainda n„o gerado");
+                        throw new LogicException("Existe pelo menos um pedido de compra ainda n√£o gerado");
                     }
                 }
             }
@@ -170,7 +170,7 @@ public class CotacaoServiceEjb extends CrudServiceImpl implements CotacaoService
             if (colPedidos != null) {
                 for (final PedidoCompraDTO pedidoDto : colPedidos) {
                     if (!pedidoDto.getSituacao().equals(SituacaoPedidoCompra.Entregue.name())) {
-                        throw new LogicException("Existe pelo menos um pedido de compra ainda n„o entregue");
+                        throw new LogicException("Existe pelo menos um pedido de compra ainda n√£o entregue");
                     }
                 }
             }
@@ -230,7 +230,7 @@ public class CotacaoServiceEjb extends CrudServiceImpl implements CotacaoService
                 if (idProduto == null) {
                     idProduto = itemRequisicaoDto.getIdProduto();
                 } else if (itemRequisicaoDto.getIdProduto().intValue() != idProduto.intValue()) {
-                    throw new LogicException("Todos os itens de requisiÁ„o deve estar associados ao mesmo produto");
+                    throw new LogicException("Todos os itens de requisi√ß√£o deve estar associados ao mesmo produto");
                 }
             }
             if (itemCotacaoRef == null) {
@@ -463,9 +463,9 @@ public class CotacaoServiceEjb extends CrudServiceImpl implements CotacaoService
                         r = r * (1 + coletaPrecoDto.getTaxaJuros() / 100);
                         coletaPrecoDto.setResultPreco(r / coletaPrecoDto.getQuantidadeCotada() * itemCotacaoDto.getPesoPreco());
                         coletaPrecoDto.setResultJuros(coletaPrecoDto.getTaxaJuros() * itemCotacaoDto.getPesoTaxaJuros());
-                        coletaPrecoDto.setResultPrazoEntrega(coletaPrecoDto.getPrazoEntrega().intValue() * itemCotacaoDto.getPesoPrazoEntrega()); // Modificado uso do mÈtodo do
+                        coletaPrecoDto.setResultPrazoEntrega(coletaPrecoDto.getPrazoEntrega().intValue() * itemCotacaoDto.getPesoPrazoEntrega()); // Modificado uso do m√©todo do
                                                                                                                                                   // prazo de entrega para refletir
-                                                                                                                                                  // a mudanÁa de tipo de double
+                                                                                                                                                  // a mudan√ßa de tipo de double
                                                                                                                                                   // para int
                         final double resultCriterios = coletaPrecoDto.getResultPreco().doubleValue() + coletaPrecoDto.getResultJuros().doubleValue()
                                 + coletaPrecoDto.getResultPrazoEntrega().doubleValue();
@@ -583,7 +583,7 @@ public class CotacaoServiceEjb extends CrudServiceImpl implements CotacaoService
     public void publicaResultado(final CotacaoDTO cotacaoDto) throws Exception {
         final boolean bValido = this.todosItensValidos(cotacaoDto);
         if (!bValido) {
-            throw new LogicException("Resultado n„o pode ser publicado. Existe pelo menos um item de cotaÁ„o com problemas de validaÁ„o");
+            throw new LogicException("Resultado n√£o pode ser publicado. Existe pelo menos um item de cota√ß√£o com problemas de valida√ß√£o");
         }
 
         final CotacaoDao cotacaoDao = new CotacaoDao();
@@ -661,7 +661,7 @@ public class CotacaoServiceEjb extends CrudServiceImpl implements CotacaoService
                                     itemRequisicaoDto.setQtdeCotada(itemRequisicaoDto.getQtdeCotada().doubleValue() + qtdeItem);
                                     itemRequisicaoDao.update(itemRequisicaoDto);
                                     itemRequisicaoService.geraHistorico(tc, cotacaoDto.getUsuarioDto(), itemRequisicaoDto, AcaoItemRequisicaoProduto.Publicacao,
-                                            "PublicaÁ„o dos resultados da cotacao No. " + cotacaoDto.getIdCotacao(),
+                                            "Publica√ß√£o dos resultados da cotacao No. " + cotacaoDto.getIdCotacao(),
                                             SituacaoItemRequisicaoProduto.valueOf(itemRequisicaoDto.getSituacao()));
 
                                     coletaPrecoDto.setQuantidadeAprovada(qtdeAprovada);
@@ -724,7 +724,7 @@ public class CotacaoServiceEjb extends CrudServiceImpl implements CotacaoService
             for (final ItemCotacaoDTO itemCotacaoDto : colItens) {
                 final ExecucaoSolicitacaoService execucaoSolicitacaoService = new ExecucaoSolicitacaoServiceEjb();
                 final String loginUsuario = cotacaoDto.getUsuarioDto().getLogin();
-                final String motivo = "Reabertura das coletas de preÁos da cotaÁ„o";
+                final String motivo = "Reabertura das coletas de pre√ßos da cota√ß√£o";
                 final List<ColetaPrecoDTO> colColetas = (List<ColetaPrecoDTO>) coletaPrecoDao.findByIdItemCotacao(itemCotacaoDto.getIdItemCotacao());
                 if (colColetas != null) {
                     new ItemRequisicaoProdutoServiceEjb();
@@ -748,7 +748,7 @@ public class CotacaoServiceEjb extends CrudServiceImpl implements CotacaoService
                                     execucaoSolicitacaoService.cancelaTarefa(loginUsuario, cotacaoItemRequisicaoDto.getIdItemTrabalho(), motivo, tc);
                                 }
                                 // itemRequisicaoService.alteraSituacao(cotacaoDto.getUsuarioDto(), cotacaoItemRequisicaoDto.getIdItemRequisicaoProduto(),
-                                // SituacaoItemRequisicaoProduto.AguardandoPedido, "CotaÁ„o No. "+cotacaoDto.getIdCotacao(), tc);
+                                // SituacaoItemRequisicaoProduto.AguardandoPedido, "Cota√ß√£o No. "+cotacaoDto.getIdCotacao(), tc);
                                 cotacaoItemRequisicaoDao.delete(cotacaoItemRequisicaoDto);
                             }
                         }
@@ -762,7 +762,7 @@ public class CotacaoServiceEjb extends CrudServiceImpl implements CotacaoService
                         itemRequisicaoDto.setSituacao(SituacaoItemRequisicaoProduto.AguardandoCotacao.name());
                         itemRequisicaoDao.update(itemRequisicaoDto);
                         itemRequisicaoService.geraHistorico(tc, cotacaoDto.getUsuarioDto(), itemRequisicaoDto, AcaoItemRequisicaoProduto.Reabertura,
-                                "Reabertura das coletas de preÁo da cotacao No. " + cotacaoDto.getIdCotacao(),
+                                "Reabertura das coletas de pre√ßo da cotacao No. " + cotacaoDto.getIdCotacao(),
                                 SituacaoItemRequisicaoProduto.valueOf(itemRequisicaoDto.getSituacao()));
                     }
                 }

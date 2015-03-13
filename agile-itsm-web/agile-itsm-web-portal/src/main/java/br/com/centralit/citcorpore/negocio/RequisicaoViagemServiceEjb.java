@@ -231,7 +231,7 @@ public class RequisicaoViagemServiceEjb extends ComplemInfSolicitacaoServicoServ
 
         if (solicitacaoServicoDto.getIdSolicitante().intValue() == solicitacaoServicoDto.getUsuarioDto().getIdEmpregado().intValue()
                 && !solicitacaoServicoDto.getSituacao().equalsIgnoreCase(Enumerados.SituacaoSolicitacaoServico.Cancelada.name())) {
-            throw new LogicException("Usu·rio sem permiss„o para ExecuÁ„o!");
+            throw new LogicException("Usu√°rio sem permiss√£o para Execu√ß√£o!");
         }
 
         this.validaUpdate(solicitacaoServicoDto, model);
@@ -297,7 +297,7 @@ public class RequisicaoViagemServiceEjb extends ComplemInfSolicitacaoServicoServ
     }
 
     /**
-     * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+     * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
      */
     public void atualizarRemarcacaoDeViagem(final TransactionControler tc, final SolicitacaoServicoDTO solicitacaoServicoDto, final BaseEntity model) throws Exception {
 
@@ -353,7 +353,7 @@ public class RequisicaoViagemServiceEjb extends ComplemInfSolicitacaoServicoServ
     }
 
     /**
-     * Retorna uma coleÁ„o com todos os integrantes adicionados em uma solicitaÁ„o de viagem.
+     * Retorna uma cole√ß√£o com todos os integrantes adicionados em uma solicita√ß√£o de viagem.
      *
      * @param idSolicitacaoServico
      * @return

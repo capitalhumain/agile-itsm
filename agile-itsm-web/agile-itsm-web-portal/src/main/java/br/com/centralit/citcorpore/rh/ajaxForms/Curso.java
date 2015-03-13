@@ -121,7 +121,7 @@ public class Curso extends AjaxFormAction {
 	  		if(idFuncao != null && !idFuncao.equalsIgnoreCase("")){
 	  			colCursos = cursosService.findByNotIdFuncao(new Integer(idFuncao));
 	  		}else{
-	  			document.alert("Selecione uma função!");
+	  			document.alert("Selecione uma funÃ§Ã£o!");
 	  		}
     	  
           if (colCursos != null) {

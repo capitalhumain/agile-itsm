@@ -17,7 +17,7 @@ public class GerencialItemInformationDTO extends BaseEntity {
 	private boolean report;
 	private boolean graph;
 	private String reportPageLayout;
-	private String defaultVisualization; /* T - Tabela; G:Type - Gr·fico + Tipo do Grafico */
+	private String defaultVisualization; /* T - Tabela; G:Type - Gr√°fico + Tipo do Grafico */
 	
 	private GerencialSQLDTO gerencialSQL = null;
 	private GerencialServiceInformationDTO gerencialService = null;

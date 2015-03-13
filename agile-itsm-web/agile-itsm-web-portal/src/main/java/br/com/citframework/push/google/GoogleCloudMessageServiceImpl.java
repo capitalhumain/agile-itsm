@@ -23,7 +23,7 @@ import br.com.citframework.util.Assert;
 import com.google.gson.Gson;
 
 /**
- * Implemetação para push messages utilização do <a href="http://developer.android.com/google/gcm/gs.html">Google Cloude Message</a>
+ * ImplemetaÃ§Ã£o para push messages utilizaÃ§Ã£o do <a href="http://developer.android.com/google/gcm/gs.html">Google Cloude Message</a>
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 15/11/2014
@@ -40,14 +40,14 @@ public class GoogleCloudMessageServiceImpl extends AbstractPushMessageServiceImp
     public GoogleCloudMessageResponse sendMessage(final GoogleCloudMessageRequest<?> request) throws PushServiceException {
         Assert.notNull(this.getConfig(), "Set config before use Push Service.");
 
-        LOGGER.debug("Envio de message push para GCM - início");
+        LOGGER.debug("Envio de message push para GCM - inÃ­cio");
         final HttpPost post = new HttpPost(GCM_CONSTANT_URL);
         this.makeHTTPRequestHeader(post);
 
         HttpResponse response;
         final String content = GSON.toJson(request);
         try {
-            LOGGER.debug(String.format("Conteúdo enviado para GCM: %s", content));
+            LOGGER.debug(String.format("ConteÃºdo enviado para GCM: %s", content));
             final HttpEntity entity = new StringEntity(content);
             post.setEntity(entity);
             response = CLIENT.execute(post);
@@ -69,7 +69,7 @@ public class GoogleCloudMessageServiceImpl extends AbstractPushMessageServiceImp
             final HttpEntity content = httpResponse.getEntity();
             IOUtils.copy(content.getContent(), writer, null);
             final String theString = writer.toString();
-            LOGGER.debug(String.format("Conteúdo recebido da GCM: %s", theString));
+            LOGGER.debug(String.format("ConteÃºdo recebido da GCM: %s", theString));
             response = GSON.fromJson(theString, GoogleCloudMessageResponse.class);
             response.setHttpCode(httpResponse.getStatusLine().getStatusCode());
         }

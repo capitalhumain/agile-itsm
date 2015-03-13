@@ -64,7 +64,7 @@ public class UsuarioServiceEjb extends CrudServiceImpl implements UsuarioService
     }
 
     /**
-     * Cria usu·rio e perfil acesso.
+     * Cria usu√°rio e perfil acesso.
      *
      * @see br.com.citframework.service.CrudServiceImpl#create(br.com.agileitsm.model.support.BaseEntity)
      */
@@ -214,7 +214,7 @@ public class UsuarioServiceEjb extends CrudServiceImpl implements UsuarioService
     }
 
     /**
-     * Cria ou atualiza perfil de acesso do usu·rio.
+     * Cria ou atualiza perfil de acesso do usu√°rio.
      *
      * @param transaction
      * @param perfilAcessoUsuarioDao
@@ -372,7 +372,7 @@ public class UsuarioServiceEjb extends CrudServiceImpl implements UsuarioService
                 usuarioDTO.setIdPerfilAcessoUsuario(Integer.parseInt(idPerfilAcessoDefault.trim()));
             }
         } catch (final NumberFormatException e) {
-            System.out.println("Par‚metro de perfil default n„o definido.");
+            System.out.println("Par√¢metro de perfil default n√£o definido.");
         }
     }
 
@@ -574,7 +574,7 @@ public class UsuarioServiceEjb extends CrudServiceImpl implements UsuarioService
                 if (empregadoDTO.getTelefone() == null) {
                     empregadoDTO.setTelefone(LDAPUtils.nullToNaoDisponivel(usuarioAd.getTelephoneNumber()));
                 } else {
-                    if (empregadoDTO.getTelefone().equals("N„o disponÌvel")) {
+                    if (empregadoDTO.getTelefone().equals("N√£o dispon√≠vel")) {
                         empregadoDTO.setTelefone(LDAPUtils.nullToNaoDisponivel(usuarioAd.getTelephoneNumber()));
                     }
                 }
@@ -591,7 +591,7 @@ public class UsuarioServiceEjb extends CrudServiceImpl implements UsuarioService
                 if (empregadoDTO.getNome() == null) {
                     empregadoDTO.setNome(LDAPUtils.nullToNaoDisponivel(novoUsuarioDoAD.getNomeUsuario()));
                 } else {
-                    if (empregadoDTO.getNome().equals("N„o disponÌvel")) {
+                    if (empregadoDTO.getNome().equals("N√£o dispon√≠vel")) {
                         empregadoDTO.setNome(LDAPUtils.nullToNaoDisponivel(novoUsuarioDoAD.getNomeUsuario()));
                     }
                 }
@@ -599,7 +599,7 @@ public class UsuarioServiceEjb extends CrudServiceImpl implements UsuarioService
                 if (empregadoDTO.getNomeProcura() == null) {
                     empregadoDTO.setNomeProcura(LDAPUtils.nullToNaoDisponivel(novoUsuarioDoAD.getNomeUsuario()));
                 } else {
-                    if (empregadoDTO.getNomeProcura().equals("N„o disponÌvel")) {
+                    if (empregadoDTO.getNomeProcura().equals("N√£o dispon√≠vel")) {
                         empregadoDTO.setNomeProcura(LDAPUtils.nullToNaoDisponivel(novoUsuarioDoAD.getNomeUsuario()));
                     }
                 }
@@ -753,7 +753,7 @@ public class UsuarioServiceEjb extends CrudServiceImpl implements UsuarioService
                     empregadoDTO.setTelefone(LDAPUtils.nullToNaoDisponivel(usuarioAd.getTelephoneNumber()));
 
                 } else {
-                    if (empregadoDTO.getTelefone().equals("N„o disponÌvel")) {
+                    if (empregadoDTO.getTelefone().equals("N√£o dispon√≠vel")) {
                         empregadoDTO.setTelefone(LDAPUtils.nullToNaoDisponivel(usuarioAd.getTelephoneNumber()));
                     }
                 }
@@ -762,28 +762,28 @@ public class UsuarioServiceEjb extends CrudServiceImpl implements UsuarioService
 
                     empregadoDTO.setEmail(LDAPUtils.nullToNaoDisponivel(usuarioAd.getMail()));
                 } else {
-                    if (empregadoDTO.getEmail().equals("N„o disponÌvel")) {
+                    if (empregadoDTO.getEmail().equals("N√£o dispon√≠vel")) {
                         empregadoDTO.setEmail(LDAPUtils.nullToNaoDisponivel(usuarioAd.getMail()));
                     }
                 }
 
-                empregadoDTO.setEmail(empregadoDTO.getEmail().trim().toLowerCase()); // Caixa baixa para todos os emails, pois em algum servidores o envio n„o acontece
+                empregadoDTO.setEmail(empregadoDTO.getEmail().trim().toLowerCase()); // Caixa baixa para todos os emails, pois em algum servidores o envio n√£o acontece
 
                 if (empregadoDTO.getNome() == null) {
                     empregadoDTO.setNome(LDAPUtils.nullToNaoDisponivel(novoUsuarioDoAD.getNomeUsuario()));
 
                 } else {
-                    if (empregadoDTO.getNome().equals("N„o disponÌvel") || !empregadoDTO.getNome().equalsIgnoreCase(novoUsuarioDoAD.getNomeUsuario())) {
+                    if (empregadoDTO.getNome().equals("N√£o dispon√≠vel") || !empregadoDTO.getNome().equalsIgnoreCase(novoUsuarioDoAD.getNomeUsuario())) {
                         empregadoDTO.setNome(LDAPUtils.nullToNaoDisponivel(novoUsuarioDoAD.getNomeUsuario()));
                     }
                 }
 
-                empregadoDTO.setNome(empregadoDTO.getNome().trim()); // Removendo os spaÁos no nome do usu·rio
+                empregadoDTO.setNome(empregadoDTO.getNome().trim()); // Removendo os spa√ßos no nome do usu√°rio
 
                 if (empregadoDTO.getNomeProcura() == null) {
                     empregadoDTO.setNomeProcura(LDAPUtils.nullToNaoDisponivel(novoUsuarioDoAD.getNomeUsuario()));
                 } else {
-                    if (empregadoDTO.getNomeProcura().equals("N„o disponÌvel")) {
+                    if (empregadoDTO.getNomeProcura().equals("N√£o dispon√≠vel")) {
                         empregadoDTO.setNomeProcura(LDAPUtils.nullToNaoDisponivel(novoUsuarioDoAD.getNomeUsuario()));
                     }
                 }
@@ -808,7 +808,7 @@ public class UsuarioServiceEjb extends CrudServiceImpl implements UsuarioService
                     final Collection gruposEmpregado = grupoEmpregadoDao.findAtivosByIdEmpregado(empregadoDTO.getIdEmpregado());
 
                     if ((gruposEmpregado == null || gruposEmpregado.isEmpty()) && idGrupoPadrao != null) {
-                        // Verifica se J· tem o grupo padr„o mesmo deletado sen„o d· erro de chave duplicada
+                        // Verifica se J√° tem o grupo padr√£o mesmo deletado sen√£o d√° erro de chave duplicada
                         final Collection colPadrao = grupoEmpregadoDao.findEmpregado(idGrupoPadrao, empregadoDTO.getIdEmpregado());
                         if (colPadrao == null || colPadrao.isEmpty()) {
                             final GrupoEmpregadoDTO grupoEmpregadoDto = new GrupoEmpregadoDTO();
@@ -907,10 +907,10 @@ public class UsuarioServiceEjb extends CrudServiceImpl implements UsuarioService
     }
 
     /**
-     * Verifica se usu·rio informado È um usu·rio do AD.
+     * Verifica se usu√°rio informado √© um usu√°rio do AD.
      *
      * @param usuarioDto
-     * @return true - Usu·rio do AD; false - Usu·rio cadastrado pelo sistema.
+     * @return true - Usu√°rio do AD; false - Usu√°rio cadastrado pelo sistema.
      * @throws Exception
      */
     @Override
@@ -967,7 +967,7 @@ public class UsuarioServiceEjb extends CrudServiceImpl implements UsuarioService
                     final String[] colunasArray = string.split(";");
 
                     if (colunasArray.length > 0) {
-                        // TÕTULO
+                        // T√çTULO
                         if (primeiraLinha) {
                             primeiraLinha = false;
                             break;
@@ -1017,12 +1017,12 @@ public class UsuarioServiceEjb extends CrudServiceImpl implements UsuarioService
 
                                 contador++;
 
-                                System.out.println(">>> SUCESSO NA GRAVA«√O  >> Usu·rio >> " + contador + " >>> " + usuarioAd.getSN() + "Login: >> " + login.getUser());
+                                System.out.println(">>> SUCESSO NA GRAVA√á√ÉO  >> Usu√°rio >> " + contador + " >>> " + usuarioAd.getSN() + "Login: >> " + login.getUser());
                             } catch (final ServiceException e) {
-                                System.out.println(">>> ERROR >> Erro ao gravar o usu·rio >>> " + usuarioAd.getSN());
+                                System.out.println(">>> ERROR >> Erro ao gravar o usu√°rio >>> " + usuarioAd.getSN());
                                 e.printStackTrace();
                             } catch (final Exception e) {
-                                System.out.println(">>> ERROR >> Erro ao gravar o usu·rio >>> " + usuarioAd.getSN());
+                                System.out.println(">>> ERROR >> Erro ao gravar o usu√°rio >>> " + usuarioAd.getSN());
                                 e.printStackTrace();
                             }
                         }
@@ -1034,7 +1034,7 @@ public class UsuarioServiceEjb extends CrudServiceImpl implements UsuarioService
     }
 
     /**
-     * Obtem Nome do Usu·rio de acordo com o Par‚metro LDAP_ATRIBUTO.
+     * Obtem Nome do Usu√°rio de acordo com o Par√¢metro LDAP_ATRIBUTO.
      *
      * @param usuarioAd
      * @param numeroRegistros

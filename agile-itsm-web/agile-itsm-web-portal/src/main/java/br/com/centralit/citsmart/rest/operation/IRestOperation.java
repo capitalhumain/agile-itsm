@@ -8,7 +8,7 @@ import br.com.centralit.citsmart.rest.schema.CtMessage;
 import br.com.centralit.citsmart.rest.schema.CtMessageResp;
 
 /**
- * Interface para execuÁ„o de uma operaÁ„o REST cadastrada no sistema {@link RestOperationDTO}
+ * Interface para execu√ß√£o de uma opera√ß√£o REST cadastrada no sistema {@link RestOperationDTO}
  *
  * @param <T>
  *            objeto JAXB da request
@@ -18,12 +18,12 @@ import br.com.centralit.citsmart.rest.schema.CtMessageResp;
 public interface IRestOperation<T extends CtMessage, U extends CtMessageResp> {
 
     /**
-     * Executa uma operaÁ„o REST previamente cadastrada no sistema
+     * Executa uma opera√ß√£o REST previamente cadastrada no sistema
      *
      * @param session
-     *            sess„o do usu·rio que realizou a chamada
+     *            sess√£o do usu√°rio que realizou a chamada
      * @param operation
-     *            operaÁ„o REST
+     *            opera√ß√£o REST
      * @param message
      *            {@code T extends CtMessage}, request a ser processada
      * @return {@code U extends CtMessageResp}, response a ser serializada

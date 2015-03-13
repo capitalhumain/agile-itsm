@@ -209,7 +209,7 @@ public class LookupProcessContrato extends LookupProcessDefaultDao {
                         auxObj = str.replaceAll("\"", "&quot;").replaceAll("'", "&#180;");
 
                         /*
-                         * alteracao feita por Cleon, pois ao tentar restaurar através de uma lookup um elemento textarea com quebra de linha, o setretorno nao estava comportando de forma correta
+                         * alteracao feita por Cleon, pois ao tentar restaurar atravÃ©s de uma lookup um elemento textarea com quebra de linha, o setretorno nao estava comportando de forma correta
                          * disparando um erro
                          */
                         auxObj = str.replaceAll("\n", " ");

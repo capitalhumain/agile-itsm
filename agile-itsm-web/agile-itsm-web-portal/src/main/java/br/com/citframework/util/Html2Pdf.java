@@ -15,7 +15,7 @@ import com.lowagie.text.html.HtmlParser;
 public class Html2Pdf {   
 	  
     public static void convert(String input, OutputStream out) throws DocumentException, UnsupportedEncodingException{   
-        convert(new ByteArrayInputStream(input.getBytes("ISO-8859-1")), out);   
+        convert(new ByteArrayInputStream(input.getBytes("UTF-8")), out);   
     }   
     
     /**

@@ -25,7 +25,7 @@ import br.com.citframework.util.Constantes;
 public class BaseItemConfiguracaoDAO extends CrudDaoDefaultImpl {
 
     /**
-     * Construtor padr„o.
+     * Construtor padr√£o.
      */
     public BaseItemConfiguracaoDAO() {
         super(Constantes.getValue("DATABASE_ALIAS"), null);
@@ -123,7 +123,7 @@ public class BaseItemConfiguracaoDAO extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Busca na tabela se existe cadastro para a baseItemConfiguraÁ„o
+     * Busca na tabela se existe cadastro para a baseItemConfigura√ß√£o
      *
      * @param obj
      * @param nomePai

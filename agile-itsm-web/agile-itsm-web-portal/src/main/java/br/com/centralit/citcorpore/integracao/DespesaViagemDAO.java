@@ -15,7 +15,8 @@ import br.com.citframework.util.Constantes;
 
 @SuppressWarnings({"rawtypes","unchecked"})
 public class DespesaViagemDAO extends CrudDaoDefaultImpl {
-	
+	
+
 
 	public DespesaViagemDAO(){
 		super(Constantes.getValue("DATABASE_ALIAS"), null);
@@ -118,7 +119,7 @@ public class DespesaViagemDAO extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * Retorna a despesa do integrante com o idroteiro e se permite ('S') ou n„o adiantamento ('N')
+	 * Retorna a despesa do integrante com o idroteiro e se permite ('S') ou n√£o adiantamento ('N')
 	 * 
 	 * @param idRoteiro
 	 * @param permiteAdiantamento
@@ -148,7 +149,7 @@ public class DespesaViagemDAO extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * Busca o valor total da viagem pelo idsolicitacao, e calculado todo o valor desde os itens originais atÈ os de remarcaÁ„o
+	 * Busca o valor total da viagem pelo idsolicitacao, e calculado todo o valor desde os itens originais at√© os de remarca√ß√£o
 	 * 
 	 * @param idSolicitacao
 	 * @return
@@ -205,7 +206,7 @@ public class DespesaViagemDAO extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * Busca o valor de historico da viagem, È calculado apenas o valor dos itens originais
+	 * Busca o valor de historico da viagem, √© calculado apenas o valor dos itens originais
 	 * 
 	 * @param idSolicitacao
 	 * @return
@@ -306,7 +307,7 @@ public class DespesaViagemDAO extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	public Collection<DespesaViagemDTO> findHitoricoDespesaViagemByIdRoteiro(Integer idroteiro) throws PersistenceException {
 		List condicao = new ArrayList();
@@ -324,7 +325,7 @@ public class DespesaViagemDAO extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * Retorna o valor total apenas dos itens que exigem prestaÁ„o de contas
+	 * Retorna o valor total apenas dos itens que exigem presta√ß√£o de contas
 	 * 
 	 * @param idSolicitacao
 	 * @param idEmpregado

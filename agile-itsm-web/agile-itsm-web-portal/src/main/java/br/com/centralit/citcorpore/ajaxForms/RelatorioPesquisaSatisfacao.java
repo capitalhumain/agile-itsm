@@ -85,7 +85,7 @@ public class RelatorioPesquisaSatisfacao extends AjaxFormAction {
 	}
 
 	/**
-	 * Faz a impress„o do relatÛrio no formato pdf.
+	 * Faz a impress√£o do relat√≥rio no formato pdf.
 	 * 
 	 * @param document
 	 * @param request

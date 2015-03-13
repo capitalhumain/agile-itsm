@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.metainfo.bean.VisaoDTO"%>
 <%@page import="br.com.centralit.citcorpore.metainfo.util.MetaUtil"%>
 
@@ -98,7 +100,7 @@ VisaoDTO visaoDTO = (VisaoDTO)request.getAttribute("visaoComplementar");
 		str = str + '		&nbsp;';
 		str = str + '	</td>';		
 		str = str + '	<td class="linhaSubtituloGrid">';
-		str = str + '		ServiÁo';
+		str = str + '		Servi√ßo';
 		str = str + '	</td>';
 		str = str + '	<td class="linhaSubtituloGrid">';
 		str = str + '		ANS';
@@ -165,7 +167,7 @@ VisaoDTO visaoDTO = (VisaoDTO)request.getAttribute("visaoComplementar");
 </script>
 	<img src='${ctx}/imagens/plus.png' border='0' style='cursor:pointer' onclick='mostra_POPUP_COMPL_SERVICO_CONTRATO()'/>
 	<div id='divListagemServicosContrato'>
-		N„o h· serviÁos selecionados!
+		N√£o h√° servi√ßos selecionados!
 	</div>
 
 <div id="POPUP_COMPL_SERVICO_CONTRATO" style='width: 600px; height: 600px' >
@@ -181,11 +183,11 @@ VisaoDTO visaoDTO = (VisaoDTO)request.getAttribute("visaoComplementar");
          </tr>	
          <tr>
          	<td>
-	         		<cit:grid id="GRID_ITENS" columnHeaders="Complexidade;Atividade;ObservaÁıes;Custo Total" styleCells="linhaGrid">
+	         		<cit:grid id="GRID_ITENS" columnHeaders="Complexidade;Atividade;Observa√ß√µes;Custo Total" styleCells="linhaGrid">
 	         			<cit:column idGrid="GRID_ITENS" number="001">
 	         				<select name='complexidade#SEQ#' id='complexidade#SEQ#'>
 	         					<option value='B'>Baixa</option>
-	         					<option value='I'>Intermedi·ria</option>
+	         					<option value='I'>Intermedi√°ria</option>
 	         					<option value='M'>Mediana</option>
 	         					<option value='A'>Alta</option>
 	         					<option value='E'>Especialista</option>
@@ -221,7 +223,7 @@ VisaoDTO visaoDTO = (VisaoDTO)request.getAttribute("visaoComplementar");
 </div>
 <script>
 	$( "#POPUP_COMPL_SERVICO_CONTRATO" ).dialog({
-		title: 'ServiÁos do Contrato',
+		title: 'Servi√ßos do Contrato',
 		width: 800,
 		height: 500,
 		modal: true,

@@ -92,7 +92,7 @@ public class ParametroCorporeServiceEjb extends CrudServiceImpl implements Param
                         dao.updateNotNull(parametro);
                         ParametroUtil.atualizarHashMapParametroCitSmart(parametroCitSmart.id(), parametro.getValor());
                     } catch (final Exception e) {
-                        System.out.println("ERRO AO ATUALIZAR PARÂMETRO " + parametroCitSmart);
+                        System.out.println("ERRO AO ATUALIZAR PARÃ‚METRO " + parametroCitSmart);
                         e.printStackTrace();
                     }
                 } else {
@@ -107,7 +107,7 @@ public class ParametroCorporeServiceEjb extends CrudServiceImpl implements Param
                         dao.create(parametro);
                         ParametroUtil.atualizarHashMapParametroCitSmart(parametroCitSmart.id(), parametro.getValor());
                     } catch (final Exception e) {
-                        System.out.println("ERRO AO CRIAR PARÂMETRO " + parametroCitSmart);
+                        System.out.println("ERRO AO CRIAR PARÃ‚METRO " + parametroCitSmart);
                         e.printStackTrace();
                     }
                 }

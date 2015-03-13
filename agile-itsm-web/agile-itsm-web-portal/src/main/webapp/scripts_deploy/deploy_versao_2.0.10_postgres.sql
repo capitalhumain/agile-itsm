@@ -8,19 +8,19 @@ alter table tipomudanca add column  urgencia char(1) NULL;
 
 -- Fim Thays
 
--- Início Thays 09/07/13
+-- InÃ­cio Thays 09/07/13
 
-insert into categoriaproblema (idcategoriaproblema, cat_idcategoriaproblema, idcategoriaproblemapai, nomecategoria, idtipofluxo, idgrupoexecutor, datainicio, datafim, nomecategoriaproblema, idtemplate) values (1, null, null, null, 50, 1, '2013-07-09', null, 'Categoria Padrão', null);
+insert into categoriaproblema (idcategoriaproblema, cat_idcategoriaproblema, idcategoriaproblemapai, nomecategoria, idtipofluxo, idgrupoexecutor, datainicio, datafim, nomecategoriaproblema, idtemplate) values (1, null, null, null, 50, 1, '2013-07-09', null, 'Categoria PadrÃ£o', null);
 
 -- Fim Thays
 
--- Início Riubbe 09/07/13
+-- InÃ­cio Riubbe 09/07/13
 
 alter table permissoesfluxo add cancelar char(1) NULL;
 
 -- Fim Riubbe
 
--- Início Bruno 09/07/13
+-- InÃ­cio Bruno 09/07/13
 
 ALTER TABLE requisicaomudanca ADD idgrupoatvperiodica INT NULL;
 
@@ -28,13 +28,13 @@ ALTER TABLE liberacao ADD idgrupoatvperiodica INT NULL;
 
 -- Fim Bruno
 
--- Início Thiago Fernandes 15/07/13
+-- InÃ­cio Thiago Fernandes 15/07/13
 
 alter table requisicaoliberacaocompras add iditemrequisicaoproduto integer;
 
 -- Fim Thiago Fernandes
 
--- Início Bruno 16/07/13
+-- InÃ­cio Bruno 16/07/13
 
 CREATE TABLE controlerendimento (
   idcontrolerendimento int NOT NULL,
@@ -83,7 +83,7 @@ CREATE TABLE controlerendimentousuario (
 
 -- Fim Bruno
 
--- Início Bruno 17/07/13
+-- InÃ­cio Bruno 17/07/13
 
 alter table categoriaproblema add column  impacto char(1) NULL;
 
@@ -91,7 +91,7 @@ alter table categoriaproblema add column  urgencia char(1) NULL;
 
 -- Fim Bruno
 
--- Início Pedro Lino/Emauri 19/07/13
+-- InÃ­cio Pedro Lino/Emauri 19/07/13
 
 create table linhabaseprojeto (
    idlinhabaseprojeto   int4                 not null,
@@ -305,7 +305,7 @@ alter table projetos add constraint fk_proj_ref_liber foreign key (idliberacao) 
 	  	  
 -- Fim Pedro Lino/Emauri
 
--- Início Bruno 19/07/13
+-- InÃ­cio Bruno 19/07/13
 
 ALTER TABLE requisicaomudanca ADD COLUMN idcategoriasolucao int;
 
@@ -313,7 +313,7 @@ ALTER TABLE liberacao ADD COLUMN idcategoriasolucao int;
 
 -- Fim Bruno
 
--- Início Danillo Sardinha 19/07/13
+-- InÃ­cio Danillo Sardinha 19/07/13
 
 create table historicomudanca (
   idhistoricomudanca integer not null,
@@ -438,7 +438,7 @@ alter table liberacaomudanca add column idhistoricomudanca integer default null;
 
 -- Fim Danillo Sardinha
 
--- Início Murilo Pacheco 22/07/13
+-- InÃ­cio Murilo Pacheco 22/07/13
 
 alter table historicomudanca add column registroexecucao character varying default null;
 
@@ -452,7 +452,7 @@ alter table controleged add column versao character varying default null;
 
 -- Fim Murilo Pacheco
 
--- Início Geber 22/07/13
+-- InÃ­cio Geber 22/07/13
 
 create table formapagamento(
   idformapagamento integer not null,
@@ -463,7 +463,7 @@ create table formapagamento(
 
 -- Fim Geber
 
--- Início Ronnie 24/07/13
+-- InÃ­cio Ronnie 24/07/13
 
 create table tipomovimfinanceiraviagem (
   idtipomovimfinanceiraviagem integer not null,
@@ -482,13 +482,13 @@ alter table tipomovimfinanceiraviagem add constraint tipomovimfinanceiraviagem_p
 
 -- Fim Ronnie
 
--- Início Geber 24/07/13
+-- InÃ­cio Geber 24/07/13
 
 alter table justificativasolicitacao add column viagem char(1);
 
 -- Fim Geber
 
--- Início Thays 29/07/13
+-- InÃ­cio Thays 29/07/13
 
 update justificativasolicitacao set viagem = 'n' where idjustificativa > 0;
 
@@ -535,19 +535,19 @@ alter table integranteviagem add constraint fk_integranteviagem_reference_empreg
 
 -- Fim Thays
 
--- Início Bruno 01/08/13
+-- InÃ­cio Bruno 01/08/13
 
 alter table tipomudanca add exigeaprovacao char(1);
 
 -- Fim Bruno
 
--- Início Bruno 02/08/13
+-- InÃ­cio Bruno 02/08/13
 
 alter table tarefalinhabaseprojeto add column depends varchar(40);
 
 -- Fim Bruno
 
--- Início Thiago Matias 09/08/13
+-- InÃ­cio Thiago Matias 09/08/13
 
 alter table infocatalogoservico add idServicoContrato integer not null;
 
@@ -555,7 +555,7 @@ alter table infocatalogoservico add nomeServicoContrato varchar(500) null;
 
 -- Fim Thiago Matias
 
--- Início Thiago Matias 21/08/13
+-- InÃ­cio Thiago Matias 21/08/13
 
 alter table infocatalogoservico rename column idservicocontrato to idservicocatalogo;
 
@@ -563,7 +563,7 @@ alter table infocatalogoservico alter idservicocatalogo drop not null;
 
 -- Fim Thiago Matias
 
--- Início Flávio 21/08/13
+-- InÃ­cio FlÃ¡vio 21/08/13
 
 CREATE  TABLE pedidoportal (
   idpedidoportal INT NOT NULL ,
@@ -597,9 +597,9 @@ CREATE  TABLE itempedidoportal (
     ON UPDATE NO ACTION);
 
 
--- Fim Flávio
+-- Fim FlÃ¡vio
 
--- Início Mário  30/08/13
+-- InÃ­cio MÃ¡rio  30/08/13
 
 alter table itemconfiguracao ADD column  idcontrato INT NULL;
 
@@ -607,4 +607,4 @@ alter table itemconfiguracao ADD column idresponsavel INT NULL;
 
 alter table itemconfiguracao ADD column ativofixo VARCHAR(255) NULL;
 
--- Fim Mário
+-- Fim MÃ¡rio

@@ -334,7 +334,7 @@ public class PastaServiceEjb extends CrudServiceImpl implements PastaService {
 	}
 
 	/**
-	 * Lista Subpastas de acordo com o PERFILACESSO do USU¡RIO.
+	 * Lista Subpastas de acordo com o PERFILACESSO do USU√ÅRIO.
 	 *
 	 * @param pastaSuperior
 	 * @param nivel
@@ -438,13 +438,13 @@ public class PastaServiceEjb extends CrudServiceImpl implements PastaService {
 	}
 
 	/**
-	 * Verifica se usu·rio possui acesso a pasta, considerando a sua hierarquia superior de pastas. Caso o usu·rio n„o possua acesso a alguma pasta superior, o usu·rio n„o possuir·
+	 * Verifica se usu√°rio possui acesso a pasta, considerando a sua hierarquia superior de pastas. Caso o usu√°rio n√£o possua acesso a alguma pasta superior, o usu√°rio n√£o possuir√°
 	 * acesso a subpasta
 	 * informada.
 	 *
 	 * @param pastaDto
 	 * @param usuarioDto
-	 * @return true - se possuir acesso; false - se n„o possuir acesso.
+	 * @return true - se possuir acesso; false - se n√£o possuir acesso.
 	 * @throws ServiceException
 	 * @throws Exception
 	 */
@@ -472,11 +472,11 @@ public class PastaServiceEjb extends CrudServiceImpl implements PastaService {
 	}
 
 	/**
-	 * Verifica se Usu·rio possui acesso a pasta informada.
+	 * Verifica se Usu√°rio possui acesso a pasta informada.
 	 *
 	 * @param pastaDto
 	 * @param usuarioDto
-	 * @return true - caso possua; false - se n„o possuir.
+	 * @return true - caso possua; false - se n√£o possuir.
 	 * @throws Exception
 	 * @throws ServiceException
 	 */

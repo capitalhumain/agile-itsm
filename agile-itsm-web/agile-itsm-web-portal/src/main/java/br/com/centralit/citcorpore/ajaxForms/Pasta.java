@@ -122,7 +122,7 @@ public class Pasta extends AjaxFormAction {
 				return;
 			}
 			if(pastaDto.getTipoNotificacao()==null && pastaDto.getTipoNotificacao().equalsIgnoreCase("")){
-				document.alert("Tipo NotificaÁ„o : campo obrigatorio");
+				document.alert("Tipo Notifica√ß√£o : campo obrigatorio");
 				return;
 			}*/
 
@@ -436,7 +436,7 @@ public class Pasta extends AjaxFormAction {
 	}
 
 	/**
-	 * Ativa Checkbox "Herdar Permissıes" caso a pasta
+	 * Ativa Checkbox "Herdar Permiss√µes" caso a pasta
 	 *
 	 * @param document
 	 * @param request

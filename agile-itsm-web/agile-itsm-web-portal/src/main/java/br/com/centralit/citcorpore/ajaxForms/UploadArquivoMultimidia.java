@@ -37,7 +37,7 @@ public class UploadArquivoMultimidia extends AjaxFormAction {
 	public void load(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		UsuarioDTO user = WebUtil.getUsuario(request);
 		if (user == null){
-			document.alert("O usu·rio n„o est· logado! Favor logar no sistema!");
+			document.alert("O usu√°rio n√£o est√° logado! Favor logar no sistema!");
 			return;
 		}
 		Upload upload = new Upload();
@@ -167,13 +167,13 @@ public class UploadArquivoMultimidia extends AjaxFormAction {
 			if (booleanBorda){
 				borda = " border=\"1\" ";
 			}
-			String strObs = "N„o h·";
+			String strObs = "N√£o h√°";
 			if (arquivoMultimidia.getObservacao() != null){
 				strObs = arquivoMultimidia.getObservacao();
 			}
 
 			strTable += "<td>";
-				strTable += "<a href=\"" + arquivoMultimidia.getUrlArquivo() + "\" target=_blank><img style=\"cursor:hand\" src=\""  + caminhoAnexo + "\" width=\"150px\" height=\"150px\" " + borda + " title=\"header=[ObservaÁıes:] body=[" + strObs + "]\"/></a> <br> ";
+				strTable += "<a href=\"" + arquivoMultimidia.getUrlArquivo() + "\" target=_blank><img style=\"cursor:hand\" src=\""  + caminhoAnexo + "\" width=\"150px\" height=\"150px\" " + borda + " title=\"header=[Observa√ß√µes:] body=[" + strObs + "]\"/></a> <br> ";
 			strTable += "</td>";
 			strTable += "<td>";
 				strTable += "&nbsp;";

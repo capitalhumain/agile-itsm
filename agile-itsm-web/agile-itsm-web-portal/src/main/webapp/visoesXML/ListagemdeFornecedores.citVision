@@ -16,7 +16,7 @@
         <br.com.centralit.citcorpore.metainfo.bean.GrupoVisaoCamposNegocioDTO>
           <idGrupoVisao>38</idGrupoVisao>
           <idCamposObjetoNegocio>1252</idCamposObjetoNegocio>
-          <descricaoNegocio>CÛdigo</descricaoNegocio>
+          <descricaoNegocio>C√≥digo</descricaoNegocio>
           <tipoNegocio>HIDDEN</tipoNegocio>
           <ordem>1</ordem>
           <situacao>A</situacao>
@@ -31,7 +31,7 @@
         <br.com.centralit.citcorpore.metainfo.bean.GrupoVisaoCamposNegocioDTO>
           <idGrupoVisao>38</idGrupoVisao>
           <idCamposObjetoNegocio>1253</idCamposObjetoNegocio>
-          <descricaoNegocio>Nome/Raz„o Social</descricaoNegocio>
+          <descricaoNegocio>Nome/Raz√£o Social</descricaoNegocio>
           <tipoNegocio>TEXT</tipoNegocio>
           <ordem>2</ordem>
           <situacao>A</situacao>

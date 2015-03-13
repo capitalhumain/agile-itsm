@@ -50,7 +50,7 @@ public class AjaxProcessEvent extends AjaxFacade {
             }
         }
         if (classe == null) {
-            LOGGER.warn("Form n„o encontrado: " + CitAjaxUtil.convertePrimeiraLetra(formName, "U"));
+            LOGGER.warn("Form n√£o encontrado: " + CitAjaxUtil.convertePrimeiraLetra(formName, "U"));
             return null;
         }
         final Object objeto = classe.newInstance();
@@ -67,7 +67,7 @@ public class AjaxProcessEvent extends AjaxFacade {
         final ParserRequest parser = new ParserRequest();
         final Map<String, Object> hashValores = parser.getFormFields(request);
 
-        /** IncluÌdo por valdoilo.damasceno */
+        /** Inclu√≠do por valdoilo.damasceno */
         String language = UtilI18N.PORTUGUESE_SIGLA;
         if (request != null && request.getSession() != null && request.getSession().getAttribute("locale") != null) {
             language = (String) request.getSession().getAttribute("locale");
@@ -80,7 +80,7 @@ public class AjaxProcessEvent extends AjaxFacade {
         document.setBean(objBean);
         document.setValuesForm(hashValores);
 
-        /** IncluÌdo por valdoilo.damasceno */
+        /** Inclu√≠do por valdoilo.damasceno */
         document.setLanguage(language);
 
         document.setIgnoreNextMethod(false);

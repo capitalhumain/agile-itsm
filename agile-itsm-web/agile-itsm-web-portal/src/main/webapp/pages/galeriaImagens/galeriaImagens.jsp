@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.citframework.util.Constantes"%>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
@@ -10,14 +12,12 @@
 <%
 	String retorno = "${ctx}/pages/index/index.load";
 
-	//identifica se a página foi aberta a partir de um iframe (popup de cadastro rápido)
+	//identifica se a pÃ¡gina foi aberta a partir de um iframe (popup de cadastro rÃ¡pido)
 	String iframe = "";
 	iframe = request.getParameter("iframe");
 %>
 <%@include file="/include/header.jsp"%>
-
-<%@include file="/include/security/security.jsp" %>
-<title><fmt:message key="citcorpore.comum.title"/></title>
+<%@include file="/novoLayout/common/include/titulo.jsp" %>
 
 <%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 <link rel="stylesheet" type="text/css" href="./css/galeriaImagens.css" />
@@ -49,8 +49,8 @@
 					<fmt:message key="menu.nome.galeriaImagens" />
 				</h2>
 			</div>
-<!-- 	Desenvolvedor: Pedro Lino - Data: 289/10/2013 - Horário: 17:00 - ID Citsmart: 120948 -
-		* Motivo/Comentário: Alterado todo layout para div, no novo padrão
+<!-- 	Desenvolvedor: Pedro Lino - Data: 289/10/2013 - HorÃ¡rio: 17:00 - ID Citsmart: 120948 -
+		* Motivo/ComentÃ¡rio: Alterado todo layout para div, no novo padrÃ£o
 		* Adicionado div Janela aguarde ao carregar as imagens -->
 <div class="box grid_16 tabs">
 	<div id="areautil">

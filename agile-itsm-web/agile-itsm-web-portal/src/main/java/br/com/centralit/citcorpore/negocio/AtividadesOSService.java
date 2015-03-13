@@ -30,7 +30,7 @@ public interface AtividadesOSService extends CrudService {
 	public Double retornarGlosaAtividadeOSByIdOs(Integer idOs) throws Exception;
 
 	/**
-	 * Retorna a quantidade de execução
+	 * Retorna a quantidade de execuÃ§Ã£o
 	 * 
 	 * @param idOs
 	 * @return

@@ -24,7 +24,7 @@ public class WebUtil {
     }
 
     /**
-     * Obtem o valor do identificador que est· na requisiÁ„o.
+     * Obtem o valor do identificador que est√° na requisi√ß√£o.
      *
      * @param request
      *            -> Objeto HttpServletRequest
@@ -44,7 +44,7 @@ public class WebUtil {
     }
 
     /**
-     * Obtem o valor do identificador que est· na requisiÁ„o para o Indice informado
+     * Obtem o valor do identificador que est√° na requisi√ß√£o para o Indice informado
      *
      * @param request
      *            -> Objeto HttpServletRequest
@@ -53,7 +53,7 @@ public class WebUtil {
      * @param i
      *            -> indice a ser retornado o valor.
      * @param caracterSeparador
-     *            -> caracter separador de separaÁ„o do atributo que est· na requisiÁ„o.
+     *            -> caracter separador de separa√ß√£o do atributo que est√° na requisi√ß√£o.
      * @return
      */
     public static String getStringRequest(final HttpServletRequest request, final String identificador, final int i, final String caracterSeparador) {
@@ -113,12 +113,12 @@ public class WebUtil {
             return null;
         }
 
-        /** Alterado por valdoilo.damasceno para chamar mÈtodo em que eu passe o request. */
+        /** Alterado por valdoilo.damasceno para chamar m√©todo em que eu passe o request. */
         return deserializeCollectionFromString(classe, strParser, WebUtil.getLanguage(request));
     }
 
     /**
-     * Deserializa uma coleÁ„o de objetos serializados em uma String. Para os campos do tipo Data È considerado a linguagem do usu·rio informada via par‚metro.
+     * Deserializa uma cole√ß√£o de objetos serializados em uma String. Para os campos do tipo Data √© considerado a linguagem do usu√°rio informada via par√¢metro.
      *
      * @param classe
      * @param valor
@@ -216,7 +216,7 @@ public class WebUtil {
     /**
      * Recebe a classe que deve ser deserializada e a string contendo o objeto serializado Exemplo: deserializeObject(Lotacao.class, "idFuncao\47\6idCargo\49\6...."); Onde isso
      * representa:
-     * idFuncao=7;idCargo=9; Para os campos Data È considerado a linguagem do usu·rio logado passada por par‚metro.
+     * idFuncao=7;idCargo=9; Para os campos Data √© considerado a linguagem do usu√°rio logado passada por par√¢metro.
      *
      * @param classe
      * @param value
@@ -391,11 +391,11 @@ public class WebUtil {
     }
 
     /**
-     * Serializa uma coleÁ„o de objetos tratando os campos de Data de acordo coma linguagem do usu·rio passado por par‚metro. Este mÈtodo tambÈm est· em String
+     * Serializa uma cole√ß√£o de objetos tratando os campos de Data de acordo coma linguagem do usu√°rio passado por par√¢metro. Este m√©todo tamb√©m est√° em String
      * br.com.citframework.util.WebUtil.serializeObjects(Collection col, String language) throws Exception
      *
      * @param language
-     *            - String com a linguagem do usu·rio.
+     *            - String com a linguagem do usu√°rio.
      * @throws Exception
      * @author valdoilo.damasceno
      * @since 17.02.2014
@@ -416,14 +416,14 @@ public class WebUtil {
     }
 
     /**
-     * Serializa um objeto em String. Os campos do tipo data s„o tratados de acordo com a linguagem passada por par‚metro. Este mÈtodo tambÈm est· em String
+     * Serializa um objeto em String. Os campos do tipo data s√£o tratados de acordo com a linguagem passada por par√¢metro. Este m√©todo tamb√©m est√° em String
      * br.com.centralit.citajax.util.CitAjaxWebUtil.serializeObject(Object objeto, boolean naoCodificaApostrofeAspas, String language) throws Exception
      *
      * @param objeto
      *            - Objeto a ser serializado.
      * @param naoCodificaApostrofeAspas
      * @param language
-     *            - String coma linguagem do usu·rio.
+     *            - String coma linguagem do usu√°rio.
      * @return String do objeto serializado.
      * @throws Exception
      * @author valdoilo.damasceno
@@ -578,10 +578,10 @@ public class WebUtil {
     }
 
     /**
-     * Recupera da request a URL de chamada. Por exemplo, {@code "http://localhost:8080/path1/path2"} ir· retornar {@code "http://localhost:8080"}
+     * Recupera da request a URL de chamada. Por exemplo, {@code "http://localhost:8080/path1/path2"} ir√° retornar {@code "http://localhost:8080"}
      *
      * @param request
-     *            {@link HttpServletRequest} de onde ser· recuperada a URL
+     *            {@link HttpServletRequest} de onde ser√° recuperada a URL
      * @return URL recuperada
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      * @date 20/11/2014

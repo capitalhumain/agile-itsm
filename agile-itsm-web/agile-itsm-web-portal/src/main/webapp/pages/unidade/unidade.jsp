@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@ page import="br.com.citframework.util.UtilStrings" %>
 <%@ page import="br.com.centralit.citcorpore.util.Enumerados" %>
 <%@ page import="br.com.centralit.citcorpore.util.ParametroUtil" %>
@@ -37,16 +39,14 @@
 		%>
 
 		<%@include file="/include/header.jsp"%>
-		<title><fmt:message key="citcorpore.comum.title" /></title>
+		<%@include file="/novoLayout/common/include/titulo.jsp" %>
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-		<%@ include file="/include/security/security.jsp" %>
 
 		<%@ include file="/include/javaScriptsComuns/javaScriptsComuns.jsp" %>
 
 		<%
-			//se for chamado por iframe deixa apenas a parte de cadastro da página
+			//se for chamado por iframe deixa apenas a parte de cadastro da pÃ¡gina
 			if (iframe != null) {
 		%>
 		<style>
@@ -359,7 +359,7 @@
 			<!-- Fim da Pagina de Conteudo -->
 		</div>
 
-		<script charset="ISO-8859-1" type="text/javascript" src="${ctx}/js/PopupManager.js"></script>
+		<script charset="UTF-8" type="text/javascript" src="${ctx}/js/PopupManager.js"></script>
 
 		<link rel="stylesheet" type="text/css" href="css/unidade.css" />
 		<link rel="stylesheet" type="text/css" href="${ctx}/css/custom-maps.css" />

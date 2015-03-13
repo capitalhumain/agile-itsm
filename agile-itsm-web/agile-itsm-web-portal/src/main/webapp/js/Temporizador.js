@@ -1,6 +1,6 @@
 /**
  * @author breno.guimaraes
- * @param iconeTimer ID do componente que servir· de bot„o para ativaÁ„o do timer.
+ * @param iconeTimer ID do componente que servir√° de bot√£o para ativa√ß√£o do timer.
  */
 
 function Temporizador(iconeTimer){
@@ -73,10 +73,10 @@ function Temporizador(iconeTimer){
 }
 
 /**
- * @param idComponenteRelogio ID do componente onde ser· renderizado o relÛgio.
- * @param idComponenteProgressBar ID do componente onde ser· renderizada a barra de progresso.
- * @param dataHoraLimite Data limite para encerramento da solicitaÁ„o.
- * @param dataHoraSolicitacao Data de abertura da solicitaÁ„o.
+ * @param idComponenteRelogio ID do componente onde ser√° renderizado o rel√≥gio.
+ * @param idComponenteProgressBar ID do componente onde ser√° renderizada a barra de progresso.
+ * @param dataHoraLimite Data limite para encerramento da solicita√ß√£o.
+ * @param dataHoraSolicitacao Data de abertura da solicita√ß√£o.
  */
 function Solicitacao(_idComponenteRelogio, _idComponenteProgressBar, _dataHoraSolicitacao, _dataHoraLimite){
 	this.idComponenteRelogio = _idComponenteRelogio;
@@ -115,7 +115,7 @@ function Solicitacao(_idComponenteRelogio, _idComponenteProgressBar, _dataHoraSo
 		var tempo;
 		
 		
-		//Usa as variv·veis para obter a data de abertura da solicitaÁ„o
+		//Usa as variv√°veis para obter a data de abertura da solicita√ß√£o
 		dataCompleta = solicitacao.dataHoraSolicitacao.split(" ")[0];
 		horaCompleta = solicitacao.dataHoraSolicitacao.split(" ")[1];
 		ano = NumberUtil.toInteger(dataCompleta.split("-")[0]);
@@ -126,9 +126,9 @@ function Solicitacao(_idComponenteRelogio, _idComponenteProgressBar, _dataHoraSo
 		segundo =  NumberUtil.toInteger(horaCompleta.split(":")[2].substring(0, horaCompleta.split(":")[2].length-2));
 		dataAberturaSolicitacao = new Date(ano, mes-1, dia, hora, minuto, segundo); 
 		
-		//Utiliza as mesmas vari·veis para pegar a data limite para encerramento da solicitaÁ„o
+		//Utiliza as mesmas vari√°veis para pegar a data limite para encerramento da solicita√ß√£o
 		hoje = new Date();
-		//Thiago Fernandes. Caso seja uma solicitaÁ„o sem data hora limite prenchido, n„o deve ser feito a contabilizaÁ„o da data hora solicitaÁ„o e data hora limite para saber a diferenÁa enrte as duas.
+		//Thiago Fernandes. Caso seja uma solicita√ß√£o sem data hora limite prenchido, n√£o deve ser feito a contabiliza√ß√£o da data hora solicita√ß√£o e data hora limite para saber a diferen√ßa enrte as duas.
 		if (solicitacao.dataHoraLimite != '--' && solicitacao.dataHoraLimite != '') {
 			dataCompleta = solicitacao.dataHoraLimite.split(" ")[0];
 			horaCompleta = solicitacao.dataHoraLimite.split(" ")[1];
@@ -140,7 +140,7 @@ function Solicitacao(_idComponenteRelogio, _idComponenteProgressBar, _dataHoraSo
 			segundo =  NumberUtil.toInteger(horaCompleta.split(":")[2].substring(0, horaCompleta.split(":")[2].length-2));
 			futuro = new Date(ano, mes-1, dia, hora, minuto, segundo);
 			
-			//calcula a diferenÁa entre horas para saber o tempo restante
+			//calcula a diferen√ßa entre horas para saber o tempo restante
 			ss = parseInt((futuro - hoje) / 1000); 
 			mm = parseInt(ss / 60); 
 			hh = parseInt(mm / 60); 

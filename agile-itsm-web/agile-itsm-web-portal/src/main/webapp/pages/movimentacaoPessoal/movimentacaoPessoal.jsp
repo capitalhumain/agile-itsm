@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.citframework.util.Constantes"%>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
@@ -11,7 +13,7 @@
     %>
 	<%@include file="/include/header.jsp"%>
 
-    <title><fmt:message key="citcorpore.comum.title"/></title>
+    <%@include file="/novoLayout/common/include/titulo.jsp" %>
     <%@include file="/include/menu/menuConfig.jsp" %>
 
     <%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp" %>
@@ -193,7 +195,7 @@
                    </div>
                    <div class="col_25">
                         <fieldset style="height: 70px;">
-                            <label class="campoObrigatorio"><fmt:message key="Número Requisição Pessoal" /></label>
+                            <label class="campoObrigatorio"><fmt:message key="NÃºmero RequisiÃ§Ã£o Pessoal" /></label>
                             <div>
                                 <input type='text' name='numero' size='10' maxlength="100"/>
                             </div>
@@ -203,19 +205,19 @@
 	        	         <fieldset style="height: 70px;">
 	                         <label class="campoObrigatorio"><fmt:message key="Data" /></label>
 	                         <div>
-	                             <input type='text' name='data' size="10" maxlength="10" class='Format[Date] Description[Data de Início]'/>
+	                             <input type='text' name='data' size="10" maxlength="10" class='Format[Date] Description[Data de InÃ­cio]'/>
 	                         </div>
 	                     </fieldset>
 	        	    </div>
                 </div>
 
-                <!--  --------------------------------------- ALTERAÇÃO  --------------------------------------- -->
+                <!--  --------------------------------------- ALTERAÃ‡ÃƒO  --------------------------------------- -->
                 <div class="col_100" style="background:#F5F5F5">
                 	<fieldset style="height: 50px;">
                 		<div class="col_33">
                 			<input type="radio" name="tipoMovimentacao" value="M" onclick="configuraPainelMovimentacao()"/>
                 		</div>
-                		<h2><fmt:message key="ALTERAÇÃO"/></h2>
+                		<h2><fmt:message key="ALTERAÃ‡ÃƒO"/></h2>
                 	</fieldset>
                 </div>
                 <div id="divAlteracao" style="display: none;">
@@ -230,7 +232,7 @@
 	        	    </div>
 	        	    <div class="col_33">
 	        	         <fieldset style="height: 70px;">
-	                         <label class="campoObrigatorio"><fmt:message key="Lotação" /></label>
+	                         <label class="campoObrigatorio"><fmt:message key="LotaÃ§Ã£o" /></label>
 	                         <div>
 	                              <select name='idLotacao'></select>
 	                          </div>
@@ -256,7 +258,7 @@
 	        	    </div>
 		        	 <div class="col_33">
 	        	         <fieldset style="height: 70px;">
-	                         <label class="campoObrigatorio"><fmt:message key="Salário" /></label>
+	                         <label class="campoObrigatorio"><fmt:message key="SalÃ¡rio" /></label>
 	                         <div>
 	                              <input type='text' name='salario' size='10' maxlength="100" class='Format[Moeda]'/>
 	                          </div>
@@ -287,13 +289,13 @@
         	    </div>
 
 
-        	     <!--  --------------------------------------- DEMISSÃO  --------------------------------------- -->
+        	     <!--  --------------------------------------- DEMISSÃƒO  --------------------------------------- -->
                 <div class="col_100" style="background:#F5F5F5">
                     <fieldset style="height: 50px;">
                 	    <div class="col_33">
                 			<input type="radio" name="tipoMovimentacao" value="D" onclick="configuraPainelMovimentacao()"/>
                 		</div>
-                	    <h2><fmt:message key="DEMISSÃO"/></h2>
+                	    <h2><fmt:message key="DEMISSÃƒO"/></h2>
                 	</fieldset>
                 </div>
 				<div id="divDemissao" style="display: none;">
@@ -313,13 +315,13 @@
 		               <div class="col_33">
 		                    <fieldset style="height: 70px;">
 		                         <input type="radio" name="tipoDemissao" value="C"/>
-		                         <label class="campoNaoObrigatorio"><fmt:message key="Término de Contrato" /></label>
+		                         <label class="campoNaoObrigatorio"><fmt:message key="TÃ©rmino de Contrato" /></label>
 		                     </fieldset>
 		      			</div>
                    </div>
                    <div class="col_100">
 					  <fieldset>
-						  <label class="campoNaoObrigatorio"><fmt:message key="Observações" /></label>
+						  <label class="campoNaoObrigatorio"><fmt:message key="ObservaÃ§Ãµes" /></label>
 						  <div>
 							 <textarea rows="5" cols="122" name='observacoes'></textarea>
 						  </div>

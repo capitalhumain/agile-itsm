@@ -97,7 +97,7 @@ public class NetMapDao extends CrudDaoDefaultImpl {
 	/**
 	 * @author flavio.santana
 	 * Obtem a lista de ips
-	 * - A coluna date n„o funciona no oracle pois È reconhecida como palavra chave
+	 * - A coluna date n√£o funciona no oracle pois √© reconhecida como palavra chave
 	 * @param dataInventario
 	 * @return
 	 * @throws Exception

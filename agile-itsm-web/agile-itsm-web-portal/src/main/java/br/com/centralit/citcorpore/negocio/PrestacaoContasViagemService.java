@@ -15,12 +15,12 @@ public interface PrestacaoContasViagemService extends ComplemInfSolicitacaoServi
 	Integer recuperaIdPrestacaoSeExistir(Integer idSolicitacaoServico, Integer idEmpregado) throws ServiceException, Exception;
 	
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	Integer recuperaIdPrestacaoSeExistir(Integer idSolicitacaoServico, String nomeNaoFunc) throws ServiceException, Exception;
 	
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	public PrestacaoContasViagemDTO recuperaCorrecao(PrestacaoContasViagemDTO prestacaoContasViagemDto) throws Exception;
 	public Collection<IntegranteViagemDTO> restoreByIntegranteSolicitacao(IntegranteViagemDTO integrante) throws Exception;

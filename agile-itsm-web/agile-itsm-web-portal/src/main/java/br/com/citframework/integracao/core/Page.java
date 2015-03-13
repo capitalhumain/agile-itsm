@@ -3,7 +3,7 @@ package br.com.citframework.integracao.core;
 import java.util.List;
 
 /**
- * Representação de página, que é uma sublista de uma lista de objetos.
+ * RepresentaÃ§Ã£o de pÃ¡gina, que Ã© uma sublista de uma lista de objetos.
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 01/10/2014
@@ -12,9 +12,9 @@ import java.util.List;
 public interface Page<T> extends Iterable<T> {
 
     /**
-     * Retorna o número total de páginas
+     * Retorna o nÃºmero total de pÃ¡ginas
      *
-     * @return {@code int}: número total de páginas
+     * @return {@code int}: nÃºmero total de pÃ¡ginas
      */
     int getTotalPages();
 
@@ -26,9 +26,9 @@ public interface Page<T> extends Iterable<T> {
     long getTotalElements();
 
     /**
-     * Retorna o número da {@link Page} atual. É sempre não negativa
+     * Retorna o nÃºmero da {@link Page} atual. Ã‰ sempre nÃ£o negativa
      *
-     * @return {@code int}: o número da {@link Page} atual
+     * @return {@code int}: o nÃºmero da {@link Page} atual
      */
     int getNumber();
 
@@ -40,65 +40,65 @@ public interface Page<T> extends Iterable<T> {
     int getSize();
 
     /**
-     * Retorna o número de elementos da {@link Page}
+     * Retorna o nÃºmero de elementos da {@link Page}
      *
-     * @return {@code int} número de elementos da {@link Page}
+     * @return {@code int} nÃºmero de elementos da {@link Page}
      */
     int getNumberOfElements();
 
     /**
-     * Recupera, como uma {@link List}, o conteúdo de uma página
+     * Recupera, como uma {@link List}, o conteÃºdo de uma pÃ¡gina
      *
-     * @return {@link List}: conteúdo da {@link Page}
+     * @return {@link List}: conteÃºdo da {@link Page}
      */
     List<T> getContent();
 
     /**
-     * Verifica se a {@link Page} possui conteúdo
+     * Verifica se a {@link Page} possui conteÃºdo
      *
-     * @return {@code true}, caso possua conteúdo {@link Page}. {@code false}, caso contrário
+     * @return {@code true}, caso possua conteÃºdo {@link Page}. {@code false}, caso contrÃ¡rio
      */
     boolean hasContent();
 
     /**
-     * Retorna se a {@link Page} é a primeira
+     * Retorna se a {@link Page} Ã© a primeira
      *
-     * @return {@code true}, caso seja a primeira {@link Page}. {@code false}, caso contrário
+     * @return {@code true}, caso seja a primeira {@link Page}. {@code false}, caso contrÃ¡rio
      */
     boolean isFirst();
 
     /**
-     * Retorna se a {@link Page} é a última
+     * Retorna se a {@link Page} Ã© a Ãºltima
      *
-     * @return {@code true}, caso seja a última {@link Page}. {@code false}, caso contrário
+     * @return {@code true}, caso seja a Ãºltima {@link Page}. {@code false}, caso contrÃ¡rio
      */
     boolean isLast();
 
     /**
-     * Retorna existência de próxima página
+     * Retorna existÃªncia de prÃ³xima pÃ¡gina
      *
-     * @return {@code true}, caso tenha próxima {@link Page}. {@code false}, caso contrário
+     * @return {@code true}, caso tenha prÃ³xima {@link Page}. {@code false}, caso contrÃ¡rio
      */
     boolean hasNext();
 
     /**
-     * Retorna existência de página anterior
+     * Retorna existÃªncia de pÃ¡gina anterior
      *
-     * @return {@code true}, caso tenha uma {@link Page} anterior. {@code false}, caso contrário
+     * @return {@code true}, caso tenha uma {@link Page} anterior. {@code false}, caso contrÃ¡rio
      */
     boolean hasPrevious();
 
     /**
-     * Recupera a {@link Pageable} para solicita a próxima {@link Page}. Pode ser {@code null} caso a {@link Page} atual seja a última. Usuários devem checar, chamando
-     * {@link #hasNext()} antes de chamar este método para ter certeza que o valor retornado não será {@code null}
+     * Recupera a {@link Pageable} para solicita a prÃ³xima {@link Page}. Pode ser {@code null} caso a {@link Page} atual seja a Ãºltima. UsuÃ¡rios devem checar, chamando
+     * {@link #hasNext()} antes de chamar este mÃ©todo para ter certeza que o valor retornado nÃ£o serÃ¡ {@code null}
      *
      * @return {@link Pageable}
      */
     Pageable nextPageable();
 
     /**
-     * Recupera a {@link Pageable} para solicita a {@link Page} anterior. Pode ser {@code null} caso a {@link Page} atual seja a primeira. Usuários devem checar, chamando
-     * {@link #hasPrevious()} antes de chamar este método para ter certeza que o valor retornado não será {@code null}
+     * Recupera a {@link Pageable} para solicita a {@link Page} anterior. Pode ser {@code null} caso a {@link Page} atual seja a primeira. UsuÃ¡rios devem checar, chamando
+     * {@link #hasPrevious()} antes de chamar este mÃ©todo para ter certeza que o valor retornado nÃ£o serÃ¡ {@code null}
      *
      * @return {@link Pageable}
      */

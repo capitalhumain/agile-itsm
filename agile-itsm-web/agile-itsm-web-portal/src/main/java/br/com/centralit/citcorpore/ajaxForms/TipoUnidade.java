@@ -28,7 +28,7 @@ public class TipoUnidade extends AjaxFormAction {
 		}
 
 		/*
-		 * if (!WebUtil.isUserInGroup(request, Constantes.getValue("GRUPO_DIRETORIA"))){ document.alert("Você não tem permissão para acessar esta funcionalidade!" );
+		 * if (!WebUtil.isUserInGroup(request, Constantes.getValue("GRUPO_DIRETORIA"))){ document.alert("VocÃª nÃ£o tem permissÃ£o para acessar esta funcionalidade!" );
 		 * document.executeScript("window.location = '" + Constantes.getValue("SERVER_ADDRESS") + request.getContextPath() + "/pages/index/index.jsp'"); return; }
 		 */
 

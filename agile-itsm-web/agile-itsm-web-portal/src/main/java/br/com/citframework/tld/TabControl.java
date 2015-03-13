@@ -27,7 +27,7 @@ public class TabControl extends BodyTagSupport{
 			abas = this.getTabs().split(";");
 			titulos = this.getDescs().split(";");
 			if (titulos.length != abas.length){
-				throw new JspException("Numero de Parametros em [tabs] é diferente de [desc]");
+				throw new JspException("Numero de Parametros em [tabs] Ã© diferente de [desc]");
 			}
 		}else{
 			abas = new String[1];

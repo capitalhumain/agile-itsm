@@ -225,7 +225,7 @@ public class ComplementoContratos_MostrarHistAudit {
 									if (contratoHistoricoDTO.getConteudodados() != null){
 										/*
 										 * Rodrigo Pecci Acorse - 02/12/2013 16h30 - #126028
-										 * A string estava retornando erro de encoding. Foi feita a convers„o para corrigir a acentuaÁ„o. 
+										 * A string estava retornando erro de encoding. Foi feita a convers√£o para corrigir a acentua√ß√£o. 
 										 */
 										String conteudo = contratoHistoricoDTO.getConteudodados().replaceAll("\n", "<br>");
 										strTable += UtilHTML.encodeHTML(conteudo);

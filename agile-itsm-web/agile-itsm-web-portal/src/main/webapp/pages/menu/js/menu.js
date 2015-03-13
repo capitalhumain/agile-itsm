@@ -12,7 +12,7 @@
     	$("#btnTodos").css('display','none');
 		$("#btnLimpar").css('display','none');
 		
-		/* Ao clicar na imagem o item é checado
+		/* Ao clicar na imagem o item Ã© checado
 		 * Autor: flavio.santana
 		 * Data/Hora 31/10/2013 08:53
 		 * */

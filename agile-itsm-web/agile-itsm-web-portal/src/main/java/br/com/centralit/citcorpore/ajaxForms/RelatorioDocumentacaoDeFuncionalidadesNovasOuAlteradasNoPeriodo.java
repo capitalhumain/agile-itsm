@@ -72,7 +72,7 @@ public class RelatorioDocumentacaoDeFuncionalidadesNovasOuAlteradasNoPeriodo ext
 		ArrayList<ServicoDTO> listaServicos = new ArrayList<ServicoDTO>();
 		Collection<RelatorioDocumentacaoDeFuncionalidadesNovasOuAlteradasNoPeriodoDTO> listaParaEnvio = new ArrayList<RelatorioDocumentacaoDeFuncionalidadesNovasOuAlteradasNoPeriodoDTO>();
 		Collection<RelatorioDocumentacaoDeFuncionalidadesNovasOuAlteradasNoPeriodoDTO> listaAux = new ArrayList<RelatorioDocumentacaoDeFuncionalidadesNovasOuAlteradasNoPeriodoDTO>();
-		// Restaura o usu·rio selecionado
+		// Restaura o usu√°rio selecionado
 		if (relatorioDocumentacaoDeFuncionalidadesNovasOuAlteradasNoPeriodoDTO.getListaServicos() != null) {
 			String[] listaServicosTela;
 			listaServicosTela = relatorioDocumentacaoDeFuncionalidadesNovasOuAlteradasNoPeriodoDTO.getListaServicos().split(";");

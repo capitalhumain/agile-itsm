@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.citframework.dto.Usuario"%>
@@ -48,7 +50,7 @@
 						<div class="widget">
 							<!-- inicio das tabs -->
 							<!--
-								Correção do layout da aba
+								CorreÃ§Ã£o do layout da aba
 								@autor flavio.santana
 								@since 29/10/2013
 							 -->
@@ -65,7 +67,7 @@
 							<!-- fim das tabs -->
 							<div class="tab-content">
 								<div class="separator top"></div>
-								<!-- inicio da tab gerenciamento de serviços -->
+								<!-- inicio da tab gerenciamento de serviÃ§os -->
 								<div class="tab-pane active" style="min-height:650px" id="tabgerenc">
 									<div class="innerLR">
 										<div class="widget" data-toggle="collapse-widget">
@@ -124,7 +126,7 @@
 																<input type="hidden" name="tituloPesquisaFaq" id="tituloPesquisaFaq" />
 
 
-																<!-- Início listagem de itens -->
+																<!-- InÃ­cio listagem de itens -->
 																<div class="shop-client-products list" id="listaServicos"></div>
 																<!-- Fim listagem de itens -->
 															</form>
@@ -215,7 +217,7 @@
 										</div>
 									</div>
 								</div> <!-- fim da tab gerenciamento -->
-								<!-- início da tab Base de Conhecimento -->
+								<!-- inÃ­cio da tab Base de Conhecimento -->
 								<div class="tab-pane" style="min-height:650px" id="tabbase">
 									<div class="innerLR">
 										<div class="widget" data-toggle="collapse-widget">
@@ -241,7 +243,7 @@
 									</div>
 								</div>
 								<!-- fim da tab Base de Conhecimento -->
-								<!-- início da tab FAQ -->
+								<!-- inÃ­cio da tab FAQ -->
 								<div class="tab-pane" style="min-height:650px" id="tabfaq">
 									<div class="innerLR">
 										<div class="widget" data-toggle="">
@@ -290,7 +292,7 @@
 	<div class="modal hide fade" id="modal_novaSolicitacao" tabindex="-1" data-backdrop="static" data-keyboard="false">
 		<!-- Modal heading -->
 		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal">×</button>
+			<button type="button" class="close" data-dismiss="modal">Ã—</button>
 			<h3><fmt:message key="citcorpore.comum.solicitacao"/></h3>
 		</div>
 		<!-- // Modal heading END -->
@@ -310,8 +312,8 @@
 	<div class="modal hide fade in" id="modal_ocorrencia" data-backdrop="static" aria-hidden="false">
 		<!-- Modal heading -->
 		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-			<h3>Ocorrências</h3>
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
+			<h3>OcorrÃªncias</h3>
 		</div>
 		<!-- // Modal heading END -->
 		<!-- Modal body -->
@@ -329,7 +331,7 @@
 	<div class="modal hide fade in" id="modal_pesquisaGeralSolicitacao" aria-hidden="false">
 		<!-- Modal heading -->
 		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
 			<h3><fmt:message key="citcorpore.comum.solicitacao" /></h3>
 		</div>
 		<!-- // Modal heading END -->
@@ -352,7 +354,7 @@
 	<div class="modal hide fade" id="modal_upload_files" tabindex="-1" data-backdrop="static" data-keyboard="false">
 		<!-- Modal heading -->
 		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
 			<h3><fmt:message key="citcorpore.comum.anexos" /></h3>
 		</div>
 		<!-- // Modal heading END -->
@@ -376,8 +378,8 @@
 	<div class="modal hide fade in" id="modal_questionario" data-backdrop="static" aria-hidden="false" style="width: 750px !important;">
 		<!-- Modal heading -->
 		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-			<h3>Solicitação</h3>
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
+			<h3>SolicitaÃ§Ã£o</h3>
 		</div>
 		<!-- // Modal heading END -->
 		<!-- Modal body -->

@@ -88,11 +88,11 @@ public interface ItemConfiguracaoService extends CrudService {
 	public Collection findByIdItemConfiguracaoPai(Integer parm) throws Exception;
 
 	/**
-	 * Restaura o Item de Configuração filho de acordo com o idItemConfiguracaoPai, Identificacao e IdTipoItemConfiguracao.
+	 * Restaura o Item de ConfiguraÃ§Ã£o filho de acordo com o idItemConfiguracaoPai, Identificacao e IdTipoItemConfiguracao.
 	 * 
 	 * @param itemConfiguracaoFilho
-	 *            - Item de Configuração Filho.
-	 * @return ItemConfiguracaoDTO - Item de Configuração encontrado.
+	 *            - Item de ConfiguraÃ§Ã£o Filho.
+	 * @return ItemConfiguracaoDTO - Item de ConfiguraÃ§Ã£o encontrado.
 	 * @throws Exception
 	 * @author valdoilo.damasceno
 	 * @since 19.01.2015
@@ -102,7 +102,7 @@ public interface ItemConfiguracaoService extends CrudService {
 	public Integer quantidadeMidiaSoftware(ItemConfiguracaoDTO itemDTO) throws Exception;
 
 	/**
-	 * Retorna Itens de Configuração associados ao conhecimento informado.
+	 * Retorna Itens de ConfiguraÃ§Ã£o associados ao conhecimento informado.
 	 * 
 	 * @param baseConhecimentoDto
 	 * @return Collection

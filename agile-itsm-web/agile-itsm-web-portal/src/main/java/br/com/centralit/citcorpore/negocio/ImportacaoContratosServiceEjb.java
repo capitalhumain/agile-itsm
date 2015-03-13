@@ -67,14 +67,14 @@ public class ImportacaoContratosServiceEjb extends CrudServiceImpl implements Im
             colRecordsGeral.addAll(colRecords);
         }
 
-        // Utiliza o primeiro registro somente para fazer algumas validações básicas antes de entrar no loop
+        // Utiliza o primeiro registro somente para fazer algumas validaÃ§Ãµes bÃ¡sicas antes de entrar no loop
         ImportInfoRecord importInfoRecord = (ImportInfoRecord) colRecordsGeral.get(0);
 
-        // Se um contrato foi selecionado na importação, verifica se a exportação foi feita utilizando um contrato.
+        // Se um contrato foi selecionado na importaÃ§Ã£o, verifica se a exportaÃ§Ã£o foi feita utilizando um contrato.
         if (idContrato != null && !idContrato.equals("")) {
             if (importInfoRecord.getFilter() != null && !importInfoRecord.getFilter().equals("")) {
                 // System.out.println("SUCESSO -> " + importInfoRecord.getTableName() +
-                // " - Registro para atualização de ID - IDCONTRATO: " + importInfoRecord.getFilter() + " para " +
+                // " - Registro para atualizaÃ§Ã£o de ID - IDCONTRATO: " + importInfoRecord.getFilter() + " para " +
                 // idContrato.toString());
                 mapChanges.put("IDCONTRATO" + importInfoRecord.getFilter(), idContrato.toString());
             } else {
@@ -126,13 +126,13 @@ public class ImportacaoContratosServiceEjb extends CrudServiceImpl implements Im
                     }
                 }
 
-                // Atualiza os ids gerados na exportação para os ids corretos da importação
+                // Atualiza os ids gerados na exportaÃ§Ã£o para os ids corretos da importaÃ§Ã£o
                 if (mapChanges.get(importInfoField.getNameField() + importInfoField.getValueField()) != null
                         && StringUtils.isNotBlank(mapChanges.get(importInfoField.getNameField() + importInfoField.getValueField()))) {
                     importInfoField.setValueField(mapChanges.get(importInfoField.getNameField() + importInfoField.getValueField()).toString());
                 }
 
-                // Se for CHECK, adiciona o WHERE para validação
+                // Se for CHECK, adiciona o WHERE para validaÃ§Ã£o
                 if (importInfoField.isCheck()) {
                     if (where.trim().equals("")) {
                         where = importInfoField.getNameField() + " = ?";
@@ -243,7 +243,7 @@ public class ImportacaoContratosServiceEjb extends CrudServiceImpl implements Im
 
             }
 
-            // Execução do insert ou update
+            // ExecuÃ§Ã£o do insert ou update
             String sqlMensagemErro = null;
 
             try {
@@ -267,7 +267,7 @@ public class ImportacaoContratosServiceEjb extends CrudServiceImpl implements Im
                                 }
 
                                 sqlMensagemErro = "<b>Erro de insert</b>:<br/><b>Tabela:</b> " + importInfoRecord.getTableName() + "<br/><b>SQL:</b> " + sqlInsert
-                                        + "<br/><b>Parâmetros:</b> " + lstParmsInsert;
+                                        + "<br/><b>ParÃ¢metros:</b> " + lstParmsInsert;
                                 jdbcEngine.execUpdate(sqlInsert, lstParmsInsert.toArray());
                             }
                         } else {
@@ -278,7 +278,7 @@ public class ImportacaoContratosServiceEjb extends CrudServiceImpl implements Im
 
                                     sqlUpdate = "UPDATE " + table + " SET " + sqlUpdate + " WHERE " + key + " = " + newKey;
                                     sqlMensagemErro = "<b>Erro de update</b>:<br/><b>Tabela:</b> " + importInfoRecord.getTableName() + "<br/><b>SQL:</b> " + sqlUpdate
-                                            + "<br/><b>Parâmetros:</b> " + lstParmsUpdate;
+                                            + "<br/><b>ParÃ¢metros:</b> " + lstParmsUpdate;
                                     jdbcEngine.execUpdate(sqlUpdate, lstParmsUpdate.toArray());
                                 }
                             }
@@ -286,7 +286,7 @@ public class ImportacaoContratosServiceEjb extends CrudServiceImpl implements Im
                         }
                     }
 
-                    // Registra a alteração dos ids gerados na exportação para os ids corretos da importação
+                    // Registra a alteraÃ§Ã£o dos ids gerados na exportaÃ§Ã£o para os ids corretos da importaÃ§Ã£o
                     if (importInfoRecord.getType().equalsIgnoreCase("concrete") && !key.equals("") && !keyValue.equals("")) {
                         mapChanges.put(key + keyValue, newKey);
                     }
@@ -297,7 +297,7 @@ public class ImportacaoContratosServiceEjb extends CrudServiceImpl implements Im
                             if (!sqlInsert.trim().equals("") && !sqlInsertValues.trim().equals("")) {
                                 sqlInsert = "INSERT INTO " + table + "(" + sqlInsert + ") VALUES (" + sqlInsertValues + ")";
                                 sqlMensagemErro = "<b>Erro de insert</b>:<br/><b>Tabela:</b> " + importInfoRecord.getTableName() + "<br/><b>SQL:</b> " + sqlInsert
-                                        + "<br/><b>Parâmetros:</b> " + lstParmsInsert;
+                                        + "<br/><b>ParÃ¢metros:</b> " + lstParmsInsert;
                                 jdbcEngine.execUpdate(sqlInsert, lstParmsInsert.toArray());
                             }
                         } else {
@@ -305,7 +305,7 @@ public class ImportacaoContratosServiceEjb extends CrudServiceImpl implements Im
                                 lstParmsUpdate.addAll(lstParmsWhere);
                                 sqlUpdate = "UPDATE " + table + " SET " + sqlUpdate + " WHERE " + where;
                                 sqlMensagemErro = "<b>Erro de update</b>:<br/><b>Tabela:</b> " + importInfoRecord.getTableName() + "<br/><b>SQL:</b> " + sqlUpdate
-                                        + "<br/><b>Parâmetros:</b> " + lstParmsUpdate;
+                                        + "<br/><b>ParÃ¢metros:</b> " + lstParmsUpdate;
                                 jdbcEngine.execUpdate(sqlUpdate, lstParmsUpdate.toArray());
                             }
                         }

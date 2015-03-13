@@ -14,8 +14,8 @@ public interface FluxoServicoService extends CrudService {
 	 * Retorna FluxoServicoDTO Principal Ativo de acordo com o idServicoContrato informado.
 	 * 
 	 * @param idServicoContrato
-	 *            - Identificador do serviço contrato.
-	 * @return FluxoServicoDTO - DTO de Fluxo Serviço.
+	 *            - Identificador do serviÃ§o contrato.
+	 * @return FluxoServicoDTO - DTO de Fluxo ServiÃ§o.
 	 * @throws Exception
 	 * @author valdoilo.damasceno
 	 */

@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@ page import="br.com.centralit.citcorpore.util.WebUtil" %>
 <%@page import="br.com.centralit.citcorpore.bean.NivelAutoridadeDTO"%>
 <%@page import="br.com.centralit.bpm.dto.TipoFluxoDTO"%>
@@ -11,11 +13,8 @@
 			iframe = request.getParameter("iframe");
 		%>
 		<%@include file="/include/header.jsp"%>
-		<%@ include file="/include/security/security.jsp" %>
 
-		<title>
-			<fmt:message key="citcorpore.comum.title" />
-		</title>
+		<%@include file="/novoLayout/common/include/titulo.jsp" %>
 
 		<%@ include file="/include/menu/menuConfig.jsp" %>
 		<%@ include file="/include/javaScriptsComuns/javaScriptsComuns.jsp" %>
@@ -25,7 +24,7 @@
 		<script type="text/javascript" src="./js/delegacaoCentroResultadoResp.js"></script>
 
 	<%
-		// Se for chamado por iframe deixa apenas a parte de cadastro da página
+		// Se for chamado por iframe deixa apenas a parte de cadastro da pÃ¡gina
 		if (iframe != null) {
 	%>
 		<link rel="stylesheet" type="text/css" href="./css/delegacaoCentroResultadoRespIFrame.css" />
@@ -196,7 +195,7 @@
 							<fieldset>
 								<label>&nbsp;</label>
 								<div>
-									<input type='text' name="requisiçoes" id="requisiçoes"/>
+									<input type='text' name="requisiÃ§oes" id="requisiÃ§oes"/>
 								</div>
 							</fieldset>
 						</div>

@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.metainfo.bean.HtmlCodeVisaoDTO"%>
 <%@page import="br.com.centralit.citcorpore.metainfo.bean.BotaoAcaoVisaoDTO"%>
 <%@page import="java.util.ArrayList"%>
@@ -17,10 +19,8 @@
 <!doctype html public "">
 <html>
 <head>
-<%@include file="/include/security/security.jsp"%>
-
-<title>CIT Corpore</title>
 <%@include file="/include/header.jsp"%>
+<%@include file="/novoLayout/common/include/titulo.jsp" %>
 <%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 
 <link rel="stylesheet" type="text/css" href="${ctx}/template_new/js/DataTables/css/demo_table.css">

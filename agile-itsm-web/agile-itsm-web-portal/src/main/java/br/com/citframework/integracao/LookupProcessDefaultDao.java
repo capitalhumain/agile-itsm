@@ -140,7 +140,7 @@ public class LookupProcessDefaultDao extends LookupDao {
                                     obj = (UtilDatas.strToSQLDate(obj)).toString();
                                 }
                             } catch (LogicException e) {
-                                throw new LogicException("Data Inv·lida");
+                                throw new LogicException("Data Inv√°lida");
                             }
                         } else {
                             where = where + cp.getNomeFisico();
@@ -455,7 +455,7 @@ public class LookupProcessDefaultDao extends LookupDao {
         }
         // Ignorando acentos na pesquisa alterando o parametro nls_sort
         if (strSGBDPrincipal.equalsIgnoreCase("ORACLE") || strSGBDPrincipal.equalsIgnoreCase("ORACLE")) {
-            // verifica se os parametros j· foram alterados na sess„o para n„o alterar v·rias vezes sem necessidade - melhoria de performace
+            // verifica se os parametros j√° foram alterados na sess√£o para n√£o alterar v√°rias vezes sem necessidade - melhoria de performace
             String sql1 = "alter session set nls_comp = linguistic";
             try {
                 execSQL(sql1, null);

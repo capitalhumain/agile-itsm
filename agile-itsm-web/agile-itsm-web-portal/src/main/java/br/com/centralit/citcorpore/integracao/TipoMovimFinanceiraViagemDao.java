@@ -76,7 +76,7 @@ public class TipoMovimFinanceiraViagemDao extends CrudDaoDefaultImpl {
 	 * @throws Exception
 	 * geber.costa
 	 * 
-	 * MÈtodo que traz todos os nomes da classificaÁ„o escolhida(passada por par‚metro)
+	 * M√©todo que traz todos os nomes da classifica√ß√£o escolhida(passada por par√¢metro)
 	 */
 	public List<TipoMovimFinanceiraViagemDTO> listByClassificacao(String classificacao) throws PersistenceException {
 			String sql = "select nome,idtipoMovimFinanceiraViagem from "+getTableName()+" where classificacao = ? and situacao like 'A'";

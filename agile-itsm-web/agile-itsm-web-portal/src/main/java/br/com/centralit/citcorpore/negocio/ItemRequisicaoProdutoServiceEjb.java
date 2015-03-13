@@ -255,7 +255,7 @@ public class ItemRequisicaoProdutoServiceEjb extends CrudServiceImpl implements 
         // itemRequisicaoAuxDto.setSituacao(SituacaoItemRequisicaoProduto.AguardandoPedido.name());
         itemRequisicaoDao.update(itemRequisicaoAuxDto);
 
-        // geraHistorico(tc, usuarioDto, itemRequisicaoDto, "Cotação No. "+itemCotacaoDto.getIdCotacao(), SituacaoItemRequisicaoProduto.AguardandoPedido);
+        // geraHistorico(tc, usuarioDto, itemRequisicaoDto, "CotaÃ§Ã£o No. "+itemCotacaoDto.getIdCotacao(), SituacaoItemRequisicaoProduto.AguardandoPedido);
     }
 
     public void desassociaItemCotacao(final UsuarioDTO usuarioDto, final ItemCotacaoDTO itemCotacaoDto, final AcaoItemRequisicaoProduto acao, final TransactionControler tc)

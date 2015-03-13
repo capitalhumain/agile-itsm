@@ -22,7 +22,7 @@ import br.com.citframework.service.ServiceLocator;
 import br.com.citframework.util.UtilDatas;
 
 /**
- * EJB de CaracterÌstica Service.
+ * EJB de Caracter√≠stica Service.
  *
  * @author valdoilo.damasceno
  *
@@ -42,8 +42,8 @@ public class CaracteristicaServiceEjb extends CrudServiceImpl implements Caracte
     @Override
     public void create(final CaracteristicaDTO caracteristica, final HttpServletRequest request) throws ServiceException, LogicException {
         /*
-         * Retirado da rotina para validaÁ„o da pink elephant caracteristica.setSistema("N");
-         * Acrescentado novamente por apresentar erro ao gravar caracterÌstica. No Oracle, campo n„o pode ser Null.
+         * Retirado da rotina para valida√ß√£o da pink elephant caracteristica.setSistema("N");
+         * Acrescentado novamente por apresentar erro ao gravar caracter√≠stica. No Oracle, campo n√£o pode ser Null.
          */
         caracteristica.setSistema("N");
         caracteristica.setNome(caracteristica.getNome().replaceAll("[<>]", ""));
@@ -57,7 +57,7 @@ public class CaracteristicaServiceEjb extends CrudServiceImpl implements Caracte
     @Override
     public void excluirCaracteristica(final CaracteristicaDTO caracteristica) throws ServiceException, Exception {
         if (this.getCaracteristicaTipoItemConfiguracaoDao().existeAssociacaoComCaracteristica(caracteristica.getIdCaracteristica(), null)) {
-            throw new LogicException("CaracterÌstica n„o pode ser excluÌda!");
+            throw new LogicException("Caracter√≠stica n√£o pode ser exclu√≠da!");
         } else {
             caracteristica.setDataFim(UtilDatas.getDataAtual());
             super.update(caracteristica);

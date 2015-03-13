@@ -63,7 +63,7 @@ public class IntegranteViagemDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * Retorna uma coleÁ„o de todos os integrante ligados a idsolicitacao
+	 * Retorna uma cole√ß√£o de todos os integrante ligados a idsolicitacao
 	 * 
 	 * @param idSolicitacao
 	 * @return
@@ -77,7 +77,7 @@ public class IntegranteViagemDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	public Collection<IntegranteViagemDTO> findAllByIdSolicitacaoRemarcacaoNao(Integer idSolicitacao) throws PersistenceException {
 		List condicao = new ArrayList();
@@ -87,7 +87,7 @@ public class IntegranteViagemDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * Retorna uma coleÁ„o de integrante que foram remarcados e est„o ligados a idsolicitacao
+	 * Retorna uma cole√ß√£o de integrante que foram remarcados e est√£o ligados a idsolicitacao
 	 * 
 	 * @param idSolicitacao
 	 * @return
@@ -101,7 +101,7 @@ public class IntegranteViagemDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * Busca um coleÁ„o de integrantes que n„o est„o na etapa de prestaÁ„o de contas com base no idsolicitacao passado
+	 * Busca um cole√ß√£o de integrantes que n√£o est√£o na etapa de presta√ß√£o de contas com base no idsolicitacao passado
 	 * 
 	 * @param idSolicitacao
 	 * @return
@@ -117,7 +117,7 @@ public class IntegranteViagemDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	public Collection<IntegranteViagemDTO> findAllPrestacaoContasByIdSolicitacaoTarefa(Integer idSolicitacao, Integer idTarefa) throws PersistenceException {
 		ArrayList parametros = new ArrayList();
@@ -140,7 +140,7 @@ public class IntegranteViagemDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	public IntegranteViagemDTO findByIdSolicitacaoServicoIdEmpregado(Integer idSolicitacao, Integer idEmpregado) throws PersistenceException {
 		ArrayList parametros = new ArrayList();
@@ -174,7 +174,7 @@ public class IntegranteViagemDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	public Collection<IntegranteViagemDTO> findAllByIdSolicitacaoAndViagemRemarcada(SolicitacaoServicoDTO solicitacaoServicoDTO) throws PersistenceException {
 		List condicao = new ArrayList();
@@ -184,7 +184,7 @@ public class IntegranteViagemDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * Atualiza os dados de remarcaÁ„o do integrante com base no integranteDTO passado 
+	 * Atualiza os dados de remarca√ß√£o do integrante com base no integranteDTO passado 
 	 * 
 	 * @param integrante
 	 * @return
@@ -212,7 +212,7 @@ public class IntegranteViagemDao extends CrudDaoDefaultImpl {
 	}	
 	
 	/**
-	 * Verifica se houve remarcaÁ„o para a solicitacao passada
+	 * Verifica se houve remarca√ß√£o para a solicitacao passada
 	 * 
 	 * @param idsolicitacaoservico
 	 * @return
@@ -267,7 +267,7 @@ public class IntegranteViagemDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * Retorna uma coleÁ„o de integrantes com base nos dados de idsolicitacaoservico e idempregado do integranteDTO passado
+	 * Retorna uma cole√ß√£o de integrantes com base nos dados de idsolicitacaoservico e idempregado do integranteDTO passado
 	 * 
 	 * @param integrante
 	 * @return
@@ -304,7 +304,7 @@ public class IntegranteViagemDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	public Integer retornaQtdeIntegrantes(Integer idSolicitacao) throws PersistenceException {
 		
@@ -318,7 +318,7 @@ public class IntegranteViagemDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * Recupera uma coleÁ„o de integrantes ornenados pelo idempregado com base no idsolicitacaoservico e idempregado passados
+	 * Recupera uma cole√ß√£o de integrantes ornenados pelo idempregado com base no idsolicitacaoservico e idempregado passados
 	 * 
 	 * @param idsolicitacaoServico
 	 * @param idEmpregado
@@ -338,7 +338,7 @@ public class IntegranteViagemDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * Recupera uma coleÁ„o de integrantes ordenados por idempregado com base no idsolicitacaoservico e idresponsavel passados
+	 * Recupera uma cole√ß√£o de integrantes ordenados por idempregado com base no idsolicitacaoservico e idresponsavel passados
 	 * 
 	 * @param idsolicitacaoServico
 	 * @param idResponsavel
@@ -358,7 +358,7 @@ public class IntegranteViagemDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	public Collection<IntegranteViagemDTO> recuperaIntegranteByNomeNaoFuncionario(Integer idsolicitacaoServico, String nomeNaoFuncionario) throws PersistenceException {
 		List condicao = new ArrayList();
@@ -424,7 +424,7 @@ public class IntegranteViagemDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	public IntegranteViagemDTO recuperaIntegrante(Integer idsolicitacaoServico,Integer idEmpregado,String funcionario) throws PersistenceException {
 		
@@ -454,7 +454,7 @@ public class IntegranteViagemDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	public IntegranteViagemDTO recuperaIntegranteNaoFuncionario(Integer idsolicitacaoServico, String nomeNaoFuncionario) throws PersistenceException {
 		
@@ -469,7 +469,7 @@ public class IntegranteViagemDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	public IntegranteViagemDTO findById(Integer idIntegranteViagem) throws PersistenceException {
 		
@@ -489,7 +489,7 @@ public class IntegranteViagemDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	public void atualizarIdItemTrabalho(Integer idTarefa, Integer idSolicitacaoServico){
 		
@@ -510,7 +510,7 @@ public class IntegranteViagemDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	public void atualizarRemarcacaoDoIntegrante(Integer idIntegrante){
 		
@@ -545,7 +545,7 @@ public class IntegranteViagemDao extends CrudDaoDefaultImpl {
 		sql.append("SELECT distinct iv.idintegranteviagem, iv.nome, iv.estado ");
 		sql.append("FROM   integranteviagem  iv ");
 		sql.append("inner join roteiroviagem rt on rt.idintegrante = iv.idintegranteviagem ");
-		sql.append("WHERE (iv.estado = 'Aguardando Adiantamento' or  iv.estado = 'Aguardando PrestaÁ„o de Contas')");
+		sql.append("WHERE (iv.estado = 'Aguardando Adiantamento' or  iv.estado = 'Aguardando Presta√ß√£o de Contas')");
 		sql.append("and rt.volta >= CURDATE() ");
 		sql.append("and rt.datafim is null ");
 		
@@ -616,7 +616,7 @@ public class IntegranteViagemDao extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	public Collection<IntegranteViagemDTO> recuperaIntegrantesViagemByCompras(Integer idSolicitacaoServico) throws PersistenceException {
 
@@ -659,7 +659,7 @@ public class IntegranteViagemDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * Recupera uma coleÁ„o de integrantes que podem estar ou n„o na etapa de prestacao de contas depende do parametro "prestContas" e do "estado" passados. 
+	 * Recupera uma cole√ß√£o de integrantes que podem estar ou n√£o na etapa de prestacao de contas depende do parametro "prestContas" e do "estado" passados. 
 	 * 
 	 * @param idSolicitacao
 	 * @param estado

@@ -130,7 +130,7 @@ public class PesquisaSolicitacoesServicosPortal extends AjaxFormAction {
     }
 
     /**
-     * Alterado mÈtodo de paginaÁ„o para um mais eficiente.
+     * Alterado m√©todo de pagina√ß√£o para um mais eficiente.
      *
      * @since 29/12/2014
      * @author thyen.chang
@@ -232,7 +232,7 @@ public class PesquisaSolicitacoesServicosPortal extends AjaxFormAction {
             pagAtualAux = 1;
         }
 
-        // Passamos o usu·rio para que o sistema possa obter os IDs das unidades que ele pode acessar!
+        // Passamos o usu√°rio para que o sistema possa obter os IDs das unidades que ele pode acessar!
         pesquisaSolicitacaoServicoDto.setUsuarioLogado(usuario);
 
         final ArrayList<SolicitacaoServicoDTO> listaSolicitacaoServicoPorCriterios = (ArrayList<SolicitacaoServicoDTO>) solicitacaoService.listRelatorioGetListaPaginada(
@@ -281,7 +281,7 @@ public class PesquisaSolicitacoesServicosPortal extends AjaxFormAction {
 
         Integer noTotalItens, noTotalPaginas, quantidadePorPagina;
 
-        // Passamos o usu·rio para que o sistema possa obter os IDs das unidades que ele pode acessar!
+        // Passamos o usu√°rio para que o sistema possa obter os IDs das unidades que ele pode acessar!
         pesquisaSolicitacaoServicoDto.setUsuarioLogado(usuario);
 
         noTotalItens = solicitacaoService.listaRelatorioGetQuantidadeRegistros(pesquisaSolicitacaoServicoDto).intValue();
@@ -323,7 +323,7 @@ public class PesquisaSolicitacoesServicosPortal extends AjaxFormAction {
         final SolicitacaoServicoService solicitacaoService = (SolicitacaoServicoService) ServiceLocator.getInstance().getService(SolicitacaoServicoService.class,
                 WebUtil.getUsuarioSistema(request));
         final PermissoesFluxoService permissoesFluxoService = (PermissoesFluxoService) ServiceLocator.getInstance().getService(PermissoesFluxoService.class, null);
-        /* Foi necess·rio diminuir a fonte e porcetagem da largura da table para adequear ao modal */
+        /* Foi necess√°rio diminuir a fonte e porcetagem da largura da table para adequear ao modal */
         html.append("<table class='dynamicTable table  table-bordered table-condensed dataTable' id='tbRetorno' width='98%' style = 'font-size: 9px' >");
         html.append("<tr>");
         html.append("<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>");
@@ -426,9 +426,9 @@ public class PesquisaSolicitacoesServicosPortal extends AjaxFormAction {
 
             /*
              * -- Para internacionalizar corretamente -- A query possui um case when para colocar "Em Andamento" se a
-             * situaÁ„o for "EmAndamento" Essa query È utilizada em outros programas Por esse motivo, o mais simples e
-             * menos arriscado È colocar esse teste em vez de mudar a query e arriscar bagunÁar em outro lugar Quando a
-             * query for melhorada retirando o case when, esse if n„o ser· mais utilizado Uelen Paulo - 26/09/2013
+             * situa√ß√£o for "EmAndamento" Essa query √© utilizada em outros programas Por esse motivo, o mais simples e
+             * menos arriscado √© colocar esse teste em vez de mudar a query e arriscar bagun√ßar em outro lugar Quando a
+             * query for melhorada retirando o case when, esse if n√£o ser√° mais utilizado Uelen Paulo - 26/09/2013
              */
             if (r.getSituacao().equalsIgnoreCase("Em Andamento")) {
 
@@ -583,7 +583,7 @@ public class PesquisaSolicitacoesServicosPortal extends AjaxFormAction {
             pesquisaSolicitacaoServicoDto.setSituacao("Fechada");
         }
 
-        // Passamos o usu·rio para que o sistema possa obter os IDs das unidades que ele pode acessar!
+        // Passamos o usu√°rio para que o sistema possa obter os IDs das unidades que ele pode acessar!
         pesquisaSolicitacaoServicoDto.setUsuarioLogado(usuario);
 
         Collection<SolicitacaoServicoDTO> listaSolicitacaoServicoPorCriterios = solicitacaoService.listaSolicitacaoServicoPorCriterios(pesquisaSolicitacaoServicoDto);
@@ -606,7 +606,7 @@ public class PesquisaSolicitacoesServicosPortal extends AjaxFormAction {
             solicitacaoServico.setDescricao(UtilStrings.unescapeJavaString(solicitacaoServico.getDescricao()));
 
             /*
-             * Internacionaliza a situaÁ„o
+             * Internacionaliza a situa√ß√£o
              */
             solicitacaoServico.setSituacao(solicitacaoServico.obterSituacaoInternacionalizada(request));
 
@@ -634,7 +634,7 @@ public class PesquisaSolicitacoesServicosPortal extends AjaxFormAction {
         parametros = UtilRelatorio.trataInternacionalizacaoLocale(session, parametros);
 
         parametros.put("TITULO_RELATORIO", UtilI18N.internacionaliza(request, "citcorporeRelatorio.pesquisaSolicitacoesServicos"));
-        parametros.put("CIDADE", "BrasÌlia,");
+        parametros.put("CIDADE", "Bras√≠lia,");
         parametros.put("DATA_HORA", UtilDatas.getDataHoraAtual());
         parametros.put("NOME_USUARIO", usuario.getNomeUsuario());
         parametros.put("dataInicio", pesquisaSolicitacaoServicoDto.getDataInicio() == null ? pesquisaSolicitacaoServicoDto.getDataInicioFechamento()
@@ -752,10 +752,10 @@ public class PesquisaSolicitacoesServicosPortal extends AjaxFormAction {
 
             JRAbstractLRUVirtualizer virtualizer = new JRGzipVirtualizer(50);
 
-            // Seta o parametro REPORT_VIRTUALIZER com a inst‚ncia da virtualizaÁ„o
+            // Seta o parametro REPORT_VIRTUALIZER com a inst√¢ncia da virtualiza√ß√£o
             parametros.put(JRParameter.REPORT_VIRTUALIZER, virtualizer);
 
-            // Preenche o relatÛrio e exibe numa GUI
+            // Preenche o relat√≥rio e exibe numa GUI
             final Timestamp ts1 = UtilDatas.getDataHoraAtual();
             final JasperPrint jp = JasperFillManager.fillReport(caminhoJasper, parametros, dataSource);
             final Timestamp ts2 = UtilDatas.getDataHoraAtual();
@@ -768,10 +768,10 @@ public class PesquisaSolicitacoesServicosPortal extends AjaxFormAction {
             virtualizer = null;
             dataSource = null;
             listaSolicitacaoServicoPorCriterios = null;
-        } catch (final OutOfMemoryError e) { // TODO capturar error n„o nÈ amig„o??
+        } catch (final OutOfMemoryError e) { // TODO capturar error n√£o n√© amig√£o??
             /*
-             * Desenvolvedor: Thiago Matias - Data: 30/10/2013 - Hor·rio: 15h35min - ID Citsmart: 122665 -
-             * Motivo/Coment·rio: alterando o a chave de citcorpore.erro.memoria para citsmart.erro.memoria
+             * Desenvolvedor: Thiago Matias - Data: 30/10/2013 - Hor√°rio: 15h35min - ID Citsmart: 122665 -
+             * Motivo/Coment√°rio: alterando o a chave de citcorpore.erro.memoria para citsmart.erro.memoria
              */
             document.alert(UtilI18N.internacionaliza(request, "citsmart.erro.memoria"));
         }
@@ -817,7 +817,7 @@ public class PesquisaSolicitacoesServicosPortal extends AjaxFormAction {
             pesquisaSolicitacaoServicoDto.setSituacao("Fechada");
         }
 
-        // Passamos o usu·rio para que o sistema possa obter os IDs das unidades que ele pode acessar!
+        // Passamos o usu√°rio para que o sistema possa obter os IDs das unidades que ele pode acessar!
         pesquisaSolicitacaoServicoDto.setUsuarioLogado(usuario);
 
         final List<SolicitacaoServicoDTO> listaSolicitacaoServicoPorCriterios = (ArrayList<SolicitacaoServicoDTO>) solicitacaoService
@@ -841,7 +841,7 @@ public class PesquisaSolicitacoesServicosPortal extends AjaxFormAction {
             solicitacaoServico.setDescricao(UtilStrings.unescapeJavaString(solicitacaoServico.getDescricao()));
 
             /*
-             * Internacionaliza a situaÁ„o
+             * Internacionaliza a situa√ß√£o
              */
             solicitacaoServico.setSituacao(solicitacaoServico.obterSituacaoInternacionalizada(request));
 
@@ -858,7 +858,7 @@ public class PesquisaSolicitacoesServicosPortal extends AjaxFormAction {
             }
 
             if (solicitacaoServico != null && solicitacaoServico.getResposta() != null) {
-                solicitacaoServico.setResposta(PesquisaSolicitacoesServicos.formataCaracteresInv·lidos(solicitacaoServico.getResposta()));
+                solicitacaoServico.setResposta(PesquisaSolicitacoesServicos.formataCaracteresInv√°lidos(solicitacaoServico.getResposta()));
             }
         }
 
@@ -872,7 +872,7 @@ public class PesquisaSolicitacoesServicosPortal extends AjaxFormAction {
         parametros = UtilRelatorio.trataInternacionalizacaoLocale(session, parametros);
 
         parametros.put("TITULO_RELATORIO", UtilI18N.internacionaliza(request, "citcorporeRelatorio.pesquisaSolicitacoesServicos"));
-        parametros.put("CIDADE", "BrasÌlia,");
+        parametros.put("CIDADE", "Bras√≠lia,");
         parametros.put("DATA_HORA", UtilDatas.getDataHoraAtual());
         parametros.put("NOME_USUARIO", usuario.getNomeUsuario());
         parametros.put("dataInicio", pesquisaSolicitacaoServicoDto.getDataInicio() == null ? pesquisaSolicitacaoServicoDto.getDataInicioFechamento()

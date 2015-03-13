@@ -7,7 +7,7 @@ function load() {
 }
 
 /**
- * Motivo: Criando flag de atualização 
+ * Motivo: Criando flag de atualizaÃ§Ã£o 
  * Autor: flavio.santana
  * Data/Hora: 13/11/2013 15:56
  */
@@ -132,7 +132,7 @@ function StatusMsg(){
 	alert(i18n_message("bi.painelControle.conexao.statusAlteradoSucesso"));
 	document.location.reload();
 }
-//agendamento excecao e especifico utilizam o mesmo modal por isso o titulo do mesmo é definido no load
+//agendamento excecao e especifico utilizam o mesmo modal por isso o titulo do mesmo Ã© definido no load
 function setTituloModalAgendamento(titulo){
 	if (titulo == "excecao"){
 		$('.modal-header h3').text(i18n_message("bi.painelControle.conexao.agendamentoExcecao"));

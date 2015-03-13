@@ -121,7 +121,7 @@ public class Idioma extends AjaxFormAction {
 			if(idFuncao != null && !idFuncao.equalsIgnoreCase("")){
 				colIdioma = idiomasService.findByNotIdFuncao(new Integer(idFuncao));
 			}else{
-				document.alert("Selecione uma função!");
+				document.alert("Selecione uma funÃ§Ã£o!");
 			}
 	      
 		  if (colIdioma != null) {

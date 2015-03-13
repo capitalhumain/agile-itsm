@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.util.ParametroUtil"%>
 <%@page import="br.com.centralit.citcorpore.util.Enumerados.ParametroSistema"%>
@@ -10,7 +12,7 @@
 
 <!-- Wrapper -->
 <div class="wrapper">
-<!-- //Desenvolvedor: Thiago Matias - Data: 06/11/2013 - Horário: 10:50 - ID Citsmart: 123357 - Motivo/Comentário: quando estiver no portal ao clicar na logo redicionará para o portal, quando estiver no sistema ao clicar na logo redicionará para o sistema   -->
+<!-- //Desenvolvedor: Thiago Matias - Data: 06/11/2013 - HorÃ¡rio: 10:50 - ID Citsmart: 123357 - Motivo/ComentÃ¡rio: quando estiver no portal ao clicar na logo redicionarÃ¡ para o portal, quando estiver no sistema ao clicar na logo redicionarÃ¡ para o sistema   -->
 
 	<div class="g-first" id="header-logo">
 		<a href="javascript:;">
@@ -38,9 +40,9 @@
 					}
 				}%>
 				<ul class="dropdown-menu pull-left">
-					<li class="active"><a href="javascript:;" onclick="internacionalizar('')" title="Portugues"><img src="${ctx}/novoLayout/common/theme/images/lang/br.png" alt="Portugues"> Português BR</a></li>
+					<li class="active"><a href="javascript:;" onclick="internacionalizar('')" title="Portugues"><img src="${ctx}/novoLayout/common/theme/images/lang/br.png" alt="Portugues"> PortuguÃªs BR</a></li>
 					<li><a href="javascript:;" onclick="internacionalizar('en')" title="English"><img src="${ctx}/novoLayout/common/theme/images/lang/us.png" alt="English"> English</a></li>
-					<li><a href="javascript:;" onclick="internacionalizar('es')" title="Español"><img src="${ctx}/novoLayout/common/theme/images/lang/es.png" alt="Espanhol"> Español</a></li>
+					<li><a href="javascript:;" onclick="internacionalizar('es')" title="EspaÃ±ol"><img src="${ctx}/novoLayout/common/theme/images/lang/es.png" alt="Espanhol"> EspaÃ±ol</a></li>
 				</ul>
 			</li>
 			<!-- Language menu END -->
@@ -61,7 +63,7 @@
 	<!-- // Top Menu Right END -->
 	<ul class="topnav pull-right rimless">
 		<!--
-		* Procedimento para corrigir problema de quebra do cabeçalho
+		* Procedimento para corrigir problema de quebra do cabeÃ§alho
 		* @autor luiz.borges
 		* 26/11/2013 16:54
 		 -->
@@ -77,7 +79,7 @@
 				<%} else {%>
 				<li class="profile">
 					<span>
-						<a href="javascript:;" data-toggle="" class="glyphicons phone"><i></i><span> +55 (61) 3966 - 4349 (Brasília)</span></a>
+						<a href="javascript:;" data-toggle="" class="glyphicons phone"><i></i><span> +55 (61) 3966 - 4349 (BrasÃ­lia)</span></a>
 					</span>
 				</li>
 				<li class="profile">
@@ -103,7 +105,7 @@
 <div class="modal hide fade in" id="modal_sobreCitsmart" data-width="800">
 	<!-- Modal heading -->
 	<div class="modal-header">
-		 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
 		<h3><fmt:message key="citcorpore.comum.sobre"/></h3>
 	</div>
 	<!-- // Modal heading END -->

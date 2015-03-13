@@ -39,11 +39,11 @@ public class MidiaSoftware extends AjaxFormAction {
 		selectMidia.removeAllOptions();
 		selectMidia.addOption("", UtilI18N.internacionaliza(request, "citcorpore.comum.selecione"));
 		for (MidiaDTO sis : lista) {
-			if(sis.getNome().equalsIgnoreCase("Cart„o de MemÛria")){
+			if(sis.getNome().equalsIgnoreCase("Cart√£o de Mem√≥ria")){
 				selectMidia.addOption(String.valueOf(sis.getIdMidia()),UtilI18N.internacionaliza(request, "midiaSoftware.cartaoMemoria"));
 			} else if(sis.getNome().equalsIgnoreCase("Disquete")){
 				selectMidia.addOption(String.valueOf(sis.getIdMidia()), UtilI18N.internacionaliza(request, "midiaSoftware.disquete"));
-			} else if(sis.getNome().equalsIgnoreCase("Fita MagnÈtica")){
+			} else if(sis.getNome().equalsIgnoreCase("Fita Magn√©tica")){
 				selectMidia.addOption(String.valueOf(sis.getIdMidia()), UtilI18N.internacionaliza(request, "midiaSoftware.fitaMagnetica"));
 			} else if(sis.getNome().equalsIgnoreCase("Outros")){
 				selectMidia.addOption(String.valueOf(sis.getIdMidia()), UtilI18N.internacionaliza(request, "colaborador.outros"));
@@ -60,9 +60,9 @@ public class MidiaSoftware extends AjaxFormAction {
 		selectTipo.removeAllOptions();
 		selectTipo.addOption("", UtilI18N.internacionaliza(request, "citcorpore.comum.selecione"));
 		for (TipoSoftwareDTO sis : lista2) {
-			if(sis.getNome().equalsIgnoreCase("Auxiliar de EscritÛrio")){
+			if(sis.getNome().equalsIgnoreCase("Auxiliar de Escrit√≥rio")){
 				selectTipo.addOption(String.valueOf(sis.getIdTipoSoftware()), UtilI18N.internacionaliza(request, "midiaSoftware.auxiliarDeEscritorio"));
-			}else if(sis.getNome().equalsIgnoreCase("Comunicador Instant‚neo")){
+			}else if(sis.getNome().equalsIgnoreCase("Comunicador Instant√¢neo")){
 				selectTipo.addOption(String.valueOf(sis.getIdTipoSoftware()), UtilI18N.internacionaliza(request, "midiaSoftware.comunicadorInstantaneo"));
 			}else if(sis.getNome().equalsIgnoreCase("Editor de Imagem")){
 				selectTipo.addOption(String.valueOf(sis.getIdTipoSoftware()), UtilI18N.internacionaliza(request, "midiaSoftware.editorImagem"));
@@ -142,7 +142,7 @@ public class MidiaSoftware extends AjaxFormAction {
 			document.executeScript("limpar()");
 			document.alert(UtilI18N.internacionaliza(request, "MSG07"));
 		}else {
-			document.alert("MÌdia possui vÌnculos a Item de configuraÁ„o");
+			document.alert("M√≠dia possui v√≠nculos a Item de configura√ß√£o");
 		}
 	}
 

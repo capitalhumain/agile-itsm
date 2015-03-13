@@ -93,7 +93,7 @@ public class GrupoItemConfiguracaoDAO extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Apenas verica se existe n„o aplicando a data fim
+	 * Apenas verica se existe n√£o aplicando a data fim
 	 * (Antigamente duplicado)
 	 *
 	 * @param grupoItemConfiguracao
@@ -220,7 +220,7 @@ public class GrupoItemConfiguracaoDAO extends CrudDaoDefaultImpl {
 	 * @return Collection<GrupoItemConfiguracaoDTO>
 	 * @throws Exception
 	 */
-	///*Thiago Fernandes - 03/11/2013 - 09:40 - Sol. 121468 - CorreÁ„o de sql de busca por lista os grupos associados ao evento passado como parametro.
+	///*Thiago Fernandes - 03/11/2013 - 09:40 - Sol. 121468 - Corre√ß√£o de sql de busca por lista os grupos associados ao evento passado como parametro.
 	public Collection<GrupoItemConfiguracaoDTO> listByIdGrupoItemConfiguracaoDesenvolvimento(Integer idGrupoItemConfiguracaoPai) throws PersistenceException {
 		String sql = "SELECT idgrupoitemconfiguracao, nomegrupoitemconfiguracao FROM "
 				+ getTableName() +"  WHERE (idGrupoItemConfiguracaoPai = ? OR idGrupoItemConfiguracaoPai IS NULL) AND dataFim IS NULL";

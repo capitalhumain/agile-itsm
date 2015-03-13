@@ -64,11 +64,11 @@ public class Menu extends BodyTagSupport {
 
         try {
             if (usrSession != null && usrSession.getStatus().equals("I")) {
-                pageContext.getOut().println("<p style='color:#990000'>Usu·rio n„o cadastrado. Contate o administrador.</p>");
+                pageContext.getOut().println("<p style='color:#990000'>Usu√°rio n√£o cadastrado. Contate o administrador.</p>");
                 return SKIP_BODY;
             }
             if (usrSession != null && usrSession.getIdPerfilAcessoUsuario() == null) {
-                pageContext.getOut().println("<p style='color:#990000'>Usu·rio n„o cadastrado. Contate o administrador.</p>");
+                pageContext.getOut().println("<p style='color:#990000'>Usu√°rio n√£o cadastrado. Contate o administrador.</p>");
                 return SKIP_BODY;
             }
             if (this.getRapido() == null) {
@@ -244,7 +244,7 @@ public class Menu extends BodyTagSupport {
         final StringBuilder html = new StringBuilder();
         final Collection<MenuDTO> menusRapido = menuDao.listarMenusPorPerfil(usrSession, null, true);
         if (this.permiteAdicionarMenu()) {
-            html.append("<li class=\"li_menu tooltip_bottom\" title=\"Ramal onde se encontra o usu·rio\">");
+            html.append("<li class=\"li_menu tooltip_bottom\" title=\"Ramal onde se encontra o usu√°rio\">");
             html.append("<img onclick=\"abreRamalTelefone();\" src=\"");
             html.append(CAMINHO_IMAGENS_LARGE);
             html.append("phone.png\">");

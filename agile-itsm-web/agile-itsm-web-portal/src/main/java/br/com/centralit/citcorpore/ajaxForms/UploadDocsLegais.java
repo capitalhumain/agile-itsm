@@ -45,7 +45,7 @@ public class UploadDocsLegais extends AjaxFormAction {
 				nameUploadFile = UtilStrings.nullToVazio(nameUploadFile);
 				}
 			/**
-			 * Verificação no caso de dois ou mais uploads na mesma requisição.
+			 * VerificaÃ§Ã£o no caso de dois ou mais uploads na mesma requisiÃ§Ã£o.
 			 * 
 			 * **/
 			

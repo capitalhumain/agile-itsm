@@ -208,8 +208,8 @@ public class GenerateServiceInicioTratamentoAnalitico extends GerencialGenerateS
 
 			if (lstRetorno == null || lstRetorno.size() == 0) {
 				lstRetorno = new ArrayList();
-				/* Desenvolvedor: Rodrigo Pecci - Data: 30/10/2013 - Horário: 14h15min - ID Citsmart: 120770
-				 * Motivo/Comentário: Se lstRetorno for null ou vazio, é necessário retornar somente um ArrayList vazio.
+				/* Desenvolvedor: Rodrigo Pecci - Data: 30/10/2013 - HorÃ¡rio: 14h15min - ID Citsmart: 120770
+				 * Motivo/ComentÃ¡rio: Se lstRetorno for null ou vazio, Ã© necessÃ¡rio retornar somente um ArrayList vazio.
 				 */
 				//lstRetorno.add(new Object[] { "", "", "", "", "", "", "", "", "", "", "" });
 			}
@@ -228,10 +228,10 @@ public class GenerateServiceInicioTratamentoAnalitico extends GerencialGenerateS
 	}
 
 	/**
-	 * Retorna o Número Máximo de registros que deverá ser retornado na consulta.
+	 * Retorna o NÃºmero MÃ¡ximo de registros que deverÃ¡ ser retornado na consulta.
 	 * 
 	 * @param parametros
-	 * @return Número Máximo de Registros
+	 * @return NÃºmero MÃ¡ximo de Registros
 	 * @author valdoilo.damasceno
 	 */
 	private Integer obterValorParametroNumeroMaximoDeRegistros(HashMap parametros) {
@@ -255,12 +255,12 @@ public class GenerateServiceInicioTratamentoAnalitico extends GerencialGenerateS
 	}
 
 	/**
-	 * Acrescenta no SQL a condição para limitar o retorno de registros de acordo com o valor selecionado.
+	 * Acrescenta no SQL a condiÃ§Ã£o para limitar o retorno de registros de acordo com o valor selecionado.
 	 * 
 	 * @param sql
 	 *            - String SQL.
 	 * @param maximoRegistros
-	 *            - Número máximo de registros.
+	 *            - NÃºmero mÃ¡ximo de registros.
 	 * @author valdoilo.damasceno
 	 */
 	private void acrescentarNaSqlOLimitadorDeRegistros(StringBuilder sql, Integer maximoRegistros) {

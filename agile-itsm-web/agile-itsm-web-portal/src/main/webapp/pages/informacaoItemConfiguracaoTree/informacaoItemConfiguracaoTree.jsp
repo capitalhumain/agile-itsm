@@ -1,11 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.centralit.citcorpore.bean.InformacaoItemConfiguracaoDTO"%>
 <html>
 <head>
-<%@include file="/include/security/security.jsp"%>
 <%@ include file="/WEB-INF/templates/taglibs.jsp"%>
-<title><fmt:message key="citcorpore.comum.title" /></title>
+<%@include file="/novoLayout/common/include/titulo.jsp" %>
 <%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 <%
 request.setCharacterEncoding("UTF-8");

@@ -40,7 +40,7 @@ public class GerenciamentoMudancas extends AjaxFormAction {
     }
 
     /**
-     * Exibe as tarefas para o gerenciamento de mudanÁas
+     * Exibe as tarefas para o gerenciamento de mudan√ßas
      *
      * @param document
      * @param request
@@ -79,7 +79,7 @@ public class GerenciamentoMudancas extends AjaxFormAction {
         }
         final List colTarefasFiltradasFinal = new ArrayList();
         final HashMap mapAtr = new HashMap();
-        mapAtr.put("-- Sem AtribuiÁ„o --", "-- Sem AtribuiÁ„o --");
+        mapAtr.put("-- Sem Atribui√ß√£o --", "-- Sem Atribui√ß√£o --");
         for (final TarefaFluxoDTO tarefaDto : colTarefasFiltradas) {
             final RequisicaoMudancaDTO requisicaoMudancaDto = (RequisicaoMudancaDTO) tarefaDto.getRequisicaoMudancaDto();
             requisicaoMudancaDto.setDataHoraLimiteToString(""); // Apenas forca atualizacao
@@ -127,7 +127,7 @@ public class GerenciamentoMudancas extends AjaxFormAction {
     public void preparaExecucaoTarefa(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         final UsuarioDTO usuario = WebUtil.getUsuario(request);
         if (usuario == null) {
-            document.alert("Sess„o expirada! Favor efetuar logon novamente!");
+            document.alert("Sess√£o expirada! Favor efetuar logon novamente!");
             document.executeScript("window.location = '" + Constantes.getValue("SERVER_ADDRESS") + request.getContextPath() + "'");
             return;
         }
@@ -148,7 +148,7 @@ public class GerenciamentoMudancas extends AjaxFormAction {
                 document.executeScript("exibirVisao('Executar tarefa " + tarefaDto.getElementoFluxoDto().getDocumentacao() + "','" + tarefaDto.getIdVisao() + "','"
                         + tarefaDto.getElementoFluxoDto().getIdFluxo() + "','" + tarefaDto.getIdItemTrabalho() + "','" + gerenciamentoBean.getAcaoFluxo() + "');");
             } else {
-                document.alert("Vis„o para tarefa \"" + tarefaDto.getElementoFluxoDto().getDocumentacao() + "\" n„o encontrada");
+                document.alert("Vis√£o para tarefa \"" + tarefaDto.getElementoFluxoDto().getDocumentacao() + "\" n√£o encontrada");
             }
         } else {
             String caracterParmURL = "?";
@@ -164,7 +164,7 @@ public class GerenciamentoMudancas extends AjaxFormAction {
     public void reativaRequisicao(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         final UsuarioDTO usuario = WebUtil.getUsuario(request);
         if (usuario == null) {
-            document.alert("Sess„o expirada! Favor efetuar logon novamente!");
+            document.alert("Sess√£o expirada! Favor efetuar logon novamente!");
             document.executeScript("window.location = '" + Constantes.getValue("SERVER_ADDRESS") + request.getContextPath() + "'");
             return;
         }

@@ -1403,10 +1403,10 @@ fieldset>div {
 	font-weight: bold;
 	color: #DA202C;
 }
-/* Desenvolvedor: Pedro Lino - Data: 23/10/2013 - Horário: 17:33 - ID Citsmart: 120948 - 
-* Motivo/Comentário: Campos sem borda, dificultando a visão/ alterado propriedade border para valor 1 */
-/* Desenvolvedor: Pedro Lino - Data: 28/10/2013 - Horário: 08:25 - ID Citsmart: 120948 - 
-* Motivo/Comentário: Campos sem borda, dificultando a visão/ alterado propriedade border para valor 1px solid #CCCCCC */
+/* Desenvolvedor: Pedro Lino - Data: 23/10/2013 - HorÃ¡rio: 17:33 - ID Citsmart: 120948 - 
+* Motivo/ComentÃ¡rio: Campos sem borda, dificultando a visÃ£o/ alterado propriedade border para valor 1 */
+/* Desenvolvedor: Pedro Lino - Data: 28/10/2013 - HorÃ¡rio: 08:25 - ID Citsmart: 120948 - 
+* Motivo/ComentÃ¡rio: Campos sem borda, dificultando a visÃ£o/ alterado propriedade border para valor 1px solid #CCCCCC */
 input.text,.textarea,.ui-multiselect,table input.text {
 	width: 100% !important;
 	-webkit-box-sizing: border-box;

@@ -32,7 +32,7 @@ import br.com.citframework.util.UtilDatas;
 import br.com.citframework.util.UtilI18N;
 
 /**
- * @author Fl·vio
+ * @author Fl√°vio
  *
  */
 public class LogController extends AjaxFormAction {
@@ -120,7 +120,7 @@ public class LogController extends AjaxFormAction {
     }
     
 	/**
-	 * Faz a impress„o do relatÛrio no formato pdf.
+	 * Faz a impress√£o do relat√≥rio no formato pdf.
 	 * 
 	 * @param document
 	 * @param request

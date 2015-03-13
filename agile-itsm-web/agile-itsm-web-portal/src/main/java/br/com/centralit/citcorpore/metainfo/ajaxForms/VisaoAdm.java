@@ -749,9 +749,9 @@ public class VisaoAdm extends AjaxFormAction {
         diretorioExport = diretorioExport + "exportXML";
         diretorioRelativoExport = diretorioRelativoExport + "exportXML";
 
-        final XStream x = new XStream(new DomDriver("ISO-8859-1"));
+        final XStream x = new XStream(new DomDriver("UTF-8"));
 
-        // Recebe os ID's das visıes para serem exportadas
+        // Recebe os ID's das vis√µes para serem exportadas
         final List<VisaoDTO> listVisao = (List) WebUtil.deserializeCollectionFromRequest(VisaoDTO.class, "visoesSerializadas", request);
         if (listVisao != null) {
             if (listVisao.size() > 1) {
@@ -816,12 +816,12 @@ public class VisaoAdm extends AjaxFormAction {
     private VisaoDTO montaVisaoParaExportar(VisaoDTO visaoDTO) throws LogicException, ServiceException, Exception {
         final GrupoVisaoDTO grupoVisaoDto = new GrupoVisaoDTO();
 
-        // Restaura vis„o
+        // Restaura vis√£o
         if (visaoDTO != null) {
             visaoDTO = (VisaoDTO) this.getVisaoService().restore(visaoDTO);
         }
 
-        // Restaura GrupoVis„o
+        // Restaura GrupoVis√£o
         List<GrupoVisaoDTO> listGrupoVisao = new ArrayList<GrupoVisaoDTO>();
         if (visaoDTO != null) {
             listGrupoVisao = (List<GrupoVisaoDTO>) this.getGrupoVisaoService().findByIdVisao(visaoDTO.getIdVisao());
@@ -846,7 +846,7 @@ public class VisaoAdm extends AjaxFormAction {
                 if (colGrpVisCpsNeg != null) {
                     for (final Iterator it2 = colGrpVisCpsNeg.iterator(); it2.hasNext();) {
                         final GrupoVisaoCamposNegocioDTO grupoVisaoCamposNegocioAux = (GrupoVisaoCamposNegocioDTO) it2.next();
-                        // Restaura Campos do Objeto de NegÛcio
+                        // Restaura Campos do Objeto de Neg√≥cio
                         CamposObjetoNegocioDTO camposObjetoNegocioValid = new CamposObjetoNegocioDTO();
                         camposObjetoNegocioValid.setIdCamposObjetoNegocio(grupoVisaoCamposNegocioAux.getIdCamposObjetoNegocio());
                         camposObjetoNegocioValid = (CamposObjetoNegocioDTO) this.getCamposObjetoNegocioService().restore(camposObjetoNegocioValid);
@@ -877,7 +877,7 @@ public class VisaoAdm extends AjaxFormAction {
                         grupoVisaoCamposNegocioAux.setValoresOpcoes(valoresOpcoes);
                         grupoVisaoCamposNegocioAux.setColValores(colValores);
 
-                        // Restaura ligaÁ„o dos objeto de negÛcio
+                        // Restaura liga√ß√£o dos objeto de neg√≥cio
                         final Collection colLigacao = this.getGrupoVisaoCamposNegocioLigacaoService().findByIdGrupoVisaoAndIdCamposObjetoNegocio(grupoVisao.getIdGrupoVisao(),
                                 grupoVisaoCamposNegocioAux.getIdCamposObjetoNegocio());
                         if (colLigacao != null) {
@@ -960,7 +960,7 @@ public class VisaoAdm extends AjaxFormAction {
         }
         if (listMatrizVisao != null) {
             for (final MatrizVisaoDTO matrizVisaoDTO : listMatrizVisao) {
-                // Restaurando Objeto NegÛcio
+                // Restaurando Objeto Neg√≥cio
                 ObjetoNegocioDTO obNeg = new ObjetoNegocioDTO();
                 obNeg.setIdObjetoNegocio(matrizVisaoDTO.getIdObjetoNegocio());
                 obNeg = (ObjetoNegocioDTO) this.getObjetoNegocioService().restore(obNeg);
@@ -1010,13 +1010,13 @@ public class VisaoAdm extends AjaxFormAction {
             visaoDTO.setColHtmlCode(listHtmlCodeVisao);
         }
 
-        // Restaura Botıes
+        // Restaura Bot√µes
         List<BotaoAcaoVisaoDTO> listBotoesVisao = new ArrayList<BotaoAcaoVisaoDTO>();
         if (visaoDTO != null) {
             listBotoesVisao = (List<BotaoAcaoVisaoDTO>) this.getBotaoAcaoVisaoService().findByIdVisao(visaoDTO.getIdVisao());
             visaoDTO.setColBotoes(listBotoesVisao);
         }
-        // Restaura VÌnculo Vis„o
+        // Restaura V√≠nculo Vis√£o
         Collection colVisRel = null;
         if (visaoDTO != null) {
             colVisRel = this.getVisaoRelacionadaService().findByIdVisaoPaiAtivos(visaoDTO.getIdVisao());
@@ -1349,7 +1349,7 @@ public class VisaoAdm extends AjaxFormAction {
         name = name + ".citVision";
         final FileOutputStream fOut = new FileOutputStream(diretorioExport + "/VisoesExportadas/" + name);
 
-        final XStream x = new XStream(new DomDriver("ISO-8859-1"));
+        final XStream x = new XStream(new DomDriver("UTF-8"));
         x.toXML(visaoDto, fOut);
 
         fOut.close();
@@ -1384,13 +1384,13 @@ public class VisaoAdm extends AjaxFormAction {
                         final byte[] conteudoEmByte = new byte[fileInputStream.available()];
                         fileInputStream.read(conteudoEmByte);
 
-                        final String conteudoDoArquivo = new String(conteudoEmByte, "ISO-8859-1");
+                        final String conteudoDoArquivo = new String(conteudoEmByte, "UTF-8");
 
                         final XStream x = new XStream();
                         visaoDtoXML = (VisaoDTO) x.fromXML(conteudoDoArquivo);
 
                         visaoAtual = visaoService.visaoExistente(visaoDtoXML.getIdentificador());
-                        // Determina o tipo da importaÁ„o
+                        // Determina o tipo da importa√ß√£o
                         if (visaoAtual == null) {
                             try {
                                 visaoService.importar(visaoDtoXML);
@@ -1440,12 +1440,12 @@ public class VisaoAdm extends AjaxFormAction {
                         final byte[] conteudoEmByte = new byte[fileInputStream.available()];
                         fileInputStream.read(conteudoEmByte);
 
-                        final String conteudoDoArquivo = new String(conteudoEmByte, "ISO-8859-1");
+                        final String conteudoDoArquivo = new String(conteudoEmByte, "UTF-8");
 
                         final XStream x = new XStream();
                         visaoDtoXML = (VisaoDTO) x.fromXML(conteudoDoArquivo);
                         visaoAtual = this.visaoExistente(visaoDtoXML.getIdentificador());
-                        // Determina o tipo da importaÁ„o
+                        // Determina o tipo da importa√ß√£o
                         if (visaoAtual == null) {
                             try {
                                 this.importar(visaoDtoXML, document, request, response);
@@ -1503,14 +1503,14 @@ public class VisaoAdm extends AjaxFormAction {
             colCampos = (List<GrupoVisaoCamposNegocioDTO>) grupoVisaoDTO.getColCamposVisao();
             if (colCampos != null) {
                 for (final GrupoVisaoCamposNegocioDTO grupoVisaoCamposNegocioDTO : colCampos) {
-                    if (grupoVisaoCamposNegocioDTO.getNomeTabelaDB() != null) {// Restaura id do Grupo Vis„o
+                    if (grupoVisaoCamposNegocioDTO.getNomeTabelaDB() != null) {// Restaura id do Grupo Vis√£o
                         final List<GrupoVisaoDTO> listGrupoVisaoTemp = (List<GrupoVisaoDTO>) this.getGrupoVisaoService().findByIdVisao(visaoXML.getIdVisao());
                         if (listGrupoVisaoTemp != null) {
                             for (final GrupoVisaoDTO grupoVisaoDTO2 : listGrupoVisaoTemp) {
                                 grupoVisaoCamposNegocioDTO.setIdGrupoVisao(grupoVisaoDTO2.getIdGrupoVisao());
                             }
                         }
-                        // Restaura id dos Campos Objeto NegÛcio
+                        // Restaura id dos Campos Objeto Neg√≥cio
                         Integer idObjetoNegocio = null;
                         final List<ObjetoNegocioDTO> colObjNegocio = (List<ObjetoNegocioDTO>) this.getObjetoNegocioService().findByNomeTabelaDB(
                                 grupoVisaoCamposNegocioDTO.getNomeTabelaDB());
@@ -1532,9 +1532,9 @@ public class VisaoAdm extends AjaxFormAction {
                                 }
                             }
                         }
-                        // Restaura visıes de ligaÁ„o caso exista
+                        // Restaura vis√µes de liga√ß√£o caso exista
                         if (grupoVisaoCamposNegocioDTO.getTipoNegocio().equalsIgnoreCase(MetaUtil.RELATION)) {
-                            // Restaura id do objeto negÛcio ligaÁ„o
+                            // Restaura id do objeto neg√≥cio liga√ß√£o
                             final List<ObjetoNegocioDTO> listObjNegTemp = (List<ObjetoNegocioDTO>) this.getObjetoNegocioService().findByNomeTabelaDB(
                                     grupoVisaoCamposNegocioDTO.getNomeTabelaDBLigacao());
                             if (listObjNegTemp != null) {
@@ -1542,7 +1542,7 @@ public class VisaoAdm extends AjaxFormAction {
                                     grupoVisaoCamposNegocioDTO.setIdObjetoNegocioLigacao(objetoNegocioDTO.getIdObjetoNegocio());
                                 }
                             }
-                            // Restaura id do campo objeto negÛcio ligaÁ„o
+                            // Restaura id do campo objeto neg√≥cio liga√ß√£o
                             final List<CamposObjetoNegocioDTO> listCamposObjNegTemp2 = (List<CamposObjetoNegocioDTO>) this.getCamposObjetoNegocioService()
                                     .findByIdObjetoNegocioAndNomeDB(grupoVisaoCamposNegocioDTO.getIdObjetoNegocioLigacao(), grupoVisaoCamposNegocioDTO.getNomeDBLigacao());
                             if (listCamposObjNegTemp2 != null) {
@@ -1550,7 +1550,7 @@ public class VisaoAdm extends AjaxFormAction {
                                     grupoVisaoCamposNegocioDTO.setIdCamposObjetoNegocioLigacao(camposObjetoNegocioDTO.getIdCamposObjetoNegocio());
                                 }
                             }
-                            // Restaura id do campo objeto negÛcio ligaÁ„o vinculado
+                            // Restaura id do campo objeto neg√≥cio liga√ß√£o vinculado
                             final List<CamposObjetoNegocioDTO> listCamposObjNegTemp3 = (List<CamposObjetoNegocioDTO>) this.getCamposObjetoNegocioService()
                                     .findByIdObjetoNegocioAndNomeDB(grupoVisaoCamposNegocioDTO.getIdObjetoNegocioLigacao(), grupoVisaoCamposNegocioDTO.getNomeDBLigacaoVinc());
                             if (listCamposObjNegTemp3 != null) {
@@ -1558,7 +1558,7 @@ public class VisaoAdm extends AjaxFormAction {
                                     grupoVisaoCamposNegocioDTO.setIdCamposObjetoNegocioLigacaoVinc(camposObjetoNegocioDTO.getIdCamposObjetoNegocio());
                                 }
                             }
-                            // Restaura id do campo objeto negÛcio ligaÁ„o order
+                            // Restaura id do campo objeto neg√≥cio liga√ß√£o order
                             final List<CamposObjetoNegocioDTO> listCamposObjNegTemp4 = (List<CamposObjetoNegocioDTO>) this.getCamposObjetoNegocioService()
                                     .findByIdObjetoNegocioAndNomeDB(grupoVisaoCamposNegocioDTO.getIdObjetoNegocioLigacao(), grupoVisaoCamposNegocioDTO.getNomeDBLigacaoOrder());
                             if (listCamposObjNegTemp4 != null) {
@@ -1618,13 +1618,13 @@ public class VisaoAdm extends AjaxFormAction {
         if (visaoXML != null && visaoXML.getColVisoesRelacionadas() != null && visaoXML.getColVisoesRelacionadas().size() > 0) {
             final List<VisaoRelacionadaDTO> listVisaoRelacionada = (List<VisaoRelacionadaDTO>) visaoXML.getColVisoesRelacionadas();
             for (final VisaoRelacionadaDTO visaoRelacionadaDTO : listVisaoRelacionada) {
-                // Restaura ID da Vis„o Relacionada Filha
+                // Restaura ID da Vis√£o Relacionada Filha
                 final VisaoDTO visaoDTOFilha = this.getVisaoService().findByIdentificador(visaoRelacionadaDTO.getIdentificacaoVisaoFilha());
                 if (visaoDTOFilha != null) {
                     visaoRelacionadaDTO.setIdVisaoFilha(visaoDTOFilha.getIdVisao());
                 }
 
-                // Preenche campos do vÌnculo
+                // Preenche campos do v√≠nculo
                 final List<VinculoVisaoDTO> listVinculoVisao = (List<VinculoVisaoDTO>) visaoRelacionadaDTO.getColVinculosVisao();
                 if (listVinculoVisao != null) {
                     final GrupoVisaoDTO grupoVisaoDTO = (GrupoVisaoDTO) ((List) visaoXML.getColGrupos()).get(0);
@@ -1711,10 +1711,10 @@ public class VisaoAdm extends AjaxFormAction {
     private void atualizarVisao(final VisaoDTO visaoAtual, final VisaoDTO visaoXML, final DocumentHTML document, final HttpServletRequest request,
             final HttpServletResponse response) throws Exception {
 
-        // Primeiro obtem vis„o atual a ser atualizada
+        // Primeiro obtem vis√£o atual a ser atualizada
         if (visaoAtual != null && visaoXML != null && visaoAtual.getIdVisao() != null) {
             visaoXML.setIdVisao(visaoAtual.getIdVisao());
-            // Segundo obtem vis„o vinda do XML
+            // Segundo obtem vis√£o vinda do XML
             List<GrupoVisaoCamposNegocioDTO> colCamposVisaoXML = new ArrayList<>();
 
             if (visaoXML.getColGrupos() != null && visaoXML.getColGrupos().size() > 0) {
@@ -1723,14 +1723,14 @@ public class VisaoAdm extends AjaxFormAction {
                 if (colCamposVisaoXML != null) {
                     for (final GrupoVisaoCamposNegocioDTO grupoVisaoCamposNegocioDTO : colCamposVisaoXML) {
                         if (grupoVisaoCamposNegocioDTO.getNomeTabelaDB() != null) {
-                            // Restaura id do Grupo Vis„o
+                            // Restaura id do Grupo Vis√£o
                             final List<GrupoVisaoDTO> listGrupoVisaoTemp = (List<GrupoVisaoDTO>) this.getGrupoVisaoService().findByIdVisao(visaoXML.getIdVisao());
                             if (listGrupoVisaoTemp != null) {
                                 for (final GrupoVisaoDTO grupoVisaoDTO2 : listGrupoVisaoTemp) {
                                     grupoVisaoCamposNegocioDTO.setIdGrupoVisao(grupoVisaoDTO2.getIdGrupoVisao());
                                 }
                             }
-                            // Restaura id dos Campos Objeto NegÛcio
+                            // Restaura id dos Campos Objeto Neg√≥cio
                             Integer idObjetoNegocio = null;
                             final List<ObjetoNegocioDTO> colObjNegocio = (List<ObjetoNegocioDTO>) this.getObjetoNegocioService().findByNomeTabelaDB(
                                     grupoVisaoCamposNegocioDTO.getNomeTabelaDB());
@@ -1751,9 +1751,9 @@ public class VisaoAdm extends AjaxFormAction {
                                     }
                                 }
                             }
-                            // Restaura visıes de ligaÁ„o caso exista
+                            // Restaura vis√µes de liga√ß√£o caso exista
                             if (grupoVisaoCamposNegocioDTO.getTipoNegocio().equalsIgnoreCase(MetaUtil.RELATION)) {
-                                // Restaura id do objeto negÛcio ligaÁ„o
+                                // Restaura id do objeto neg√≥cio liga√ß√£o
                                 final List<ObjetoNegocioDTO> listObjNegTemp = (List<ObjetoNegocioDTO>) this.getObjetoNegocioService().findByNomeTabelaDB(
                                         grupoVisaoCamposNegocioDTO.getNomeTabelaDBLigacao());
                                 if (listObjNegTemp != null) {
@@ -1761,7 +1761,7 @@ public class VisaoAdm extends AjaxFormAction {
                                         grupoVisaoCamposNegocioDTO.setIdObjetoNegocioLigacao(objetoNegocioDTO.getIdObjetoNegocio());
                                     }
                                 }
-                                // Restaura id do campo objeto negÛcio ligaÁ„o
+                                // Restaura id do campo objeto neg√≥cio liga√ß√£o
                                 final List<CamposObjetoNegocioDTO> listCamposObjNegTemp2 = (List<CamposObjetoNegocioDTO>) this.getCamposObjetoNegocioService()
                                         .findByIdObjetoNegocioAndNomeDB(grupoVisaoCamposNegocioDTO.getIdObjetoNegocioLigacao(), grupoVisaoCamposNegocioDTO.getNomeDBLigacao());
                                 if (listCamposObjNegTemp2 != null) {
@@ -1769,7 +1769,7 @@ public class VisaoAdm extends AjaxFormAction {
                                         grupoVisaoCamposNegocioDTO.setIdCamposObjetoNegocioLigacao(camposObjetoNegocioDTO.getIdCamposObjetoNegocio());
                                     }
                                 }
-                                // Restaura id do campo objeto negÛcio ligaÁ„o vinculado
+                                // Restaura id do campo objeto neg√≥cio liga√ß√£o vinculado
                                 final List<CamposObjetoNegocioDTO> listCamposObjNegTemp3 = (List<CamposObjetoNegocioDTO>) this.getCamposObjetoNegocioService()
                                         .findByIdObjetoNegocioAndNomeDB(grupoVisaoCamposNegocioDTO.getIdObjetoNegocioLigacao(), grupoVisaoCamposNegocioDTO.getNomeDBLigacaoVinc());
                                 if (listCamposObjNegTemp3 != null) {
@@ -1777,7 +1777,7 @@ public class VisaoAdm extends AjaxFormAction {
                                         grupoVisaoCamposNegocioDTO.setIdCamposObjetoNegocioLigacaoVinc(camposObjetoNegocioDTO.getIdCamposObjetoNegocio());
                                     }
                                 }
-                                // Restaura id do campo objeto negÛcio ligaÁ„o order
+                                // Restaura id do campo objeto neg√≥cio liga√ß√£o order
                                 final List<CamposObjetoNegocioDTO> listCamposObjNegTemp4 = (List<CamposObjetoNegocioDTO>) this.getCamposObjetoNegocioService()
                                         .findByIdObjetoNegocioAndNomeDB(grupoVisaoCamposNegocioDTO.getIdObjetoNegocioLigacao(), grupoVisaoCamposNegocioDTO.getNomeDBLigacaoOrder());
                                 if (listCamposObjNegTemp4 != null) {
@@ -1837,13 +1837,13 @@ public class VisaoAdm extends AjaxFormAction {
             if (visaoXML.getColVisoesRelacionadas() != null && visaoXML.getColVisoesRelacionadas().size() > 0) {
                 final List<VisaoRelacionadaDTO> listVisaoRelacionada = (List<VisaoRelacionadaDTO>) visaoXML.getColVisoesRelacionadas();
                 for (final VisaoRelacionadaDTO visaoRelacionadaDTO : listVisaoRelacionada) {
-                    // Restaura ID da Vis„o Relacionada Filha
+                    // Restaura ID da Vis√£o Relacionada Filha
                     final VisaoDTO visaoDTOFilha = this.getVisaoService().findByIdentificador(visaoRelacionadaDTO.getIdentificacaoVisaoFilha());
                     if (visaoDTOFilha != null) {
                         visaoRelacionadaDTO.setIdVisaoFilha(visaoDTOFilha.getIdVisao());
                     }
 
-                    // Preenche campos do vÌnculo
+                    // Preenche campos do v√≠nculo
                     final List<VinculoVisaoDTO> listVinculoVisao = (List<VinculoVisaoDTO>) visaoRelacionadaDTO.getColVinculosVisao();
                     if (listVinculoVisao != null) {
                         final GrupoVisaoDTO grupoVisaoDTO = (GrupoVisaoDTO) ((List) visaoXML.getColGrupos()).get(0);
@@ -1922,7 +1922,7 @@ public class VisaoAdm extends AjaxFormAction {
 
             }
 
-            // Salva alteraÁıes
+            // Salva altera√ß√µes
             if (visaoXML != null) {
                 this.getVisaoService().update(visaoXML);
             }

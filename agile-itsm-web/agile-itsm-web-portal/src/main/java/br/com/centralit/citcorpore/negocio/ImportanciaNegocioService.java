@@ -8,7 +8,7 @@ public interface ImportanciaNegocioService extends CrudService {
 	boolean existeRegistro(String nome);
 	
 	/**
-	 * Metodo reponsavel por verificar se existe um vinculo entre Inmportancia Negocio e Cadastro de Serviço
+	 * Metodo reponsavel por verificar se existe um vinculo entre Inmportancia Negocio e Cadastro de ServiÃ§o
 	 * 
 	 * @param idImportanciaNegocio
 	 * @author Ezequiel

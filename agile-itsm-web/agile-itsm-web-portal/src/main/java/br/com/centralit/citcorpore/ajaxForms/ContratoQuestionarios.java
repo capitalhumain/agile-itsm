@@ -461,7 +461,7 @@ public class ContratoQuestionarios extends QuestionarioResponser {
     public void listarCertificados(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         final UsuarioDTO usuario = WebUtil.getUsuario(request);
         if (usuario == null) {
-            document.alert("Sess�o expirada! Favor efetuar logon novamente!");
+            document.alert("Sessï¿½o expirada! Favor efetuar logon novamente!");
             return;
         }
         final ContratoQuestionariosDTO pesQuestBean = (ContratoQuestionariosDTO) document.getBean();
@@ -491,7 +491,7 @@ public class ContratoQuestionarios extends QuestionarioResponser {
                 strTable += "</tr>";
             } else {
                 String strUso = "";
-                String strAdequado = "N�o";
+                String strAdequado = "Nï¿½o";
                 String strAtencao = "";
                 if (vCertDigDto.getInfoCertificadoDigital().isKeyUsageDigitalSignature()) {
                     strUso += "Assinatura digital";
@@ -550,7 +550,7 @@ public class ContratoQuestionarios extends QuestionarioResponser {
                         if (UtilDatas.getDataAtual().compareTo(vCertDigDto.getInfoCertificadoDigital().getDataInicioValidade()) >= 0) {
                             strAdequado = "Sim";
                         } else {
-                            strAtencao = "<font color='red'><b>Certificado ainda n�o entrou em validade!</font></b>";
+                            strAtencao = "<font color='red'><b>Certificado ainda nï¿½o entrou em validade!</font></b>";
                         }
                     } else {
                         strAtencao = "<font color='red'><b>Certificado vencido!</font></b>";
@@ -592,8 +592,8 @@ public class ContratoQuestionarios extends QuestionarioResponser {
                         + " a "
                         + UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, vCertDigDto.getInfoCertificadoDigital().getDataFimValidade(),
                                         WebUtil.getLanguage(request)) + "</b><br>";
-                strTable += "Utiliza��es permitidas: <b>" + strUso + "</b><br>";
-                strTable += "Adequado para informa��es m�dicas: <b>" + strAdequado + "</b><br>";
+                strTable += "Utilizaï¿½ï¿½es permitidas: <b>" + strUso + "</b><br>";
+                strTable += "Adequado para informaï¿½ï¿½es mï¿½dicas: <b>" + strAdequado + "</b><br>";
                 strTable += strAtencao;
                 strTable += "</td>";
                 strTable += "</tr>";
@@ -706,7 +706,7 @@ public class ContratoQuestionarios extends QuestionarioResponser {
             throws Exception {
         final UsuarioDTO usuario = WebUtil.getUsuario(request);
         if (usuario == null) {
-            document.alert("Sess�o expirada! Favor efetuar logon novamente!");
+            document.alert("Sessï¿½o expirada! Favor efetuar logon novamente!");
             return "";
         }
 
@@ -755,7 +755,7 @@ public class ContratoQuestionarios extends QuestionarioResponser {
                     final InformacoesContratoConfigDTO prontuarioEletronicoConfigDTO = (InformacoesContratoConfigDTO) ((List) colItem).get(0);
                     final Collection colPerfisAssociados = prontuarioEletronicoPerfSegService.findByIdProntuarioEletronicoConfig(prontuarioEletronicoConfigDTO
                             .getIdInformacoesContratoConfig());
-                    if (isPerfilUsuarioLogadoInCollection(colPerfisAssociados, usuario)) { // Se tiver acesso a aquela ABA, ent�o gera
+                    if (isPerfilUsuarioLogadoInCollection(colPerfisAssociados, usuario)) { // Se tiver acesso a aquela ABA, entï¿½o gera
                         // historico.
                         String str = "";
                         if (bPrimeiroItem) {
@@ -776,7 +776,7 @@ public class ContratoQuestionarios extends QuestionarioResponser {
                         } else {
                             final String conteudoImp = geraDadosFormularioSemAssinatura(idEmpresa, contratoQuestionariosAux, true, false, false);
 
-                            // -- Se chegar � que nao havia sido gravado, entao grava.
+                            // -- Se chegar ï¿½ que nao havia sido gravado, entao grava.
                             try {
                                 pesQuestBean.setConteudoImpresso(conteudoImp);
                                 contratoQuestionarioService.updateConteudoImpresso(contratoQuestionariosAux.getIdContratoQuestionario(), conteudoImp);
@@ -800,7 +800,7 @@ public class ContratoQuestionarios extends QuestionarioResponser {
     public void gerarHistoricoGeralPaciente(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         final UsuarioDTO usuario = WebUtil.getUsuario(request);
         if (usuario == null) {
-            document.alert("Sess�o expirada! Favor efetuar logon novamente!");
+            document.alert("Sessï¿½o expirada! Favor efetuar logon novamente!");
             return;
         }
         final String usuarioImpressao = usuario.getNomeUsuario();
@@ -842,7 +842,7 @@ public class ContratoQuestionarios extends QuestionarioResponser {
             final BaseFont bf = BaseFont.createFont("Helvetica", BaseFont.WINANSI, false);
             over.setFontAndSize(bf, 8);
             over.setTextMatrix(30, 30);
-            over.showText("Pagina: " + i + " de " + (total - 1) + "     prontu�rio impresso em: "
+            over.showText("Pagina: " + i + " de " + (total - 1) + "     prontuï¿½rio impresso em: "
                     + UtilDatas.convertDateToString(TipoDate.TIMESTAMP_WITH_SECONDS, UtilDatas.getDataHoraAtual(), WebUtil.getLanguage(request)) + " por: "
                     + usuarioImpressao);
             over.endText();
@@ -875,7 +875,7 @@ public class ContratoQuestionarios extends QuestionarioResponser {
 
         final UsuarioDTO usuario = WebUtil.getUsuario(request);
         if (usuario == null) {
-            document.alert("Sess�o expirada! Favor efetuar logon novamente!");
+            document.alert("Sessï¿½o expirada! Favor efetuar logon novamente!");
             return;
         }
 
@@ -946,14 +946,14 @@ public class ContratoQuestionarios extends QuestionarioResponser {
             outputStream.close();
         } catch (final Exception e) {
             e.printStackTrace();
-            document.alert("Ocorreu um erro ao realizar a impress�o! " + e.getMessage());
+            document.alert("Ocorreu um erro ao realizar a impressï¿½o! " + e.getMessage());
         }
     }
 
     public void listarProdutosQuestionario(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         final UsuarioDTO usuario = WebUtil.getUsuario(request);
         if (usuario == null) {
-            document.alert("Sess�o expirada! Favor efetuar logon novamente!");
+            document.alert("Sessï¿½o expirada! Favor efetuar logon novamente!");
             return;
         }
 
@@ -983,14 +983,14 @@ public class ContratoQuestionarios extends QuestionarioResponser {
     public void visualizarHistoricoCampo(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         final UsuarioDTO usuario = WebUtil.getUsuario(request);
         if (usuario == null) {
-            document.alert("Sess�o expirada! Favor efetuar logon novamente!");
+            document.alert("Sessï¿½o expirada! Favor efetuar logon novamente!");
             return;
         }
         final ContratoQuestionariosDTO contrQuestBean = (ContratoQuestionariosDTO) document.getBean();
 
         String strTable = "<table width='100%' border='1'>";
 
-        strTable += "<tr><td><b>Data do Atendimento</b></td><td><b>Conte�do</b></td></tr>";
+        strTable += "<tr><td><b>Data do Atendimento</b></td><td><b>Conteï¿½do</b></td></tr>";
 
         String strItem = "";
 
@@ -1209,11 +1209,11 @@ public class ContratoQuestionarios extends QuestionarioResponser {
         // do grafico)
         chart.setBorderVisible(false); // Visibilidade da borda do grafico
 
-        // Marcador de M�dia de Resolubilidade
+        // Marcador de Mï¿½dia de Resolubilidade
         // IntervalMarker target = new IntervalMarker(y - 0.3, y + 0.3);// A
-        // principio, a m�dia ser� o TOTAL-MF
+        // principio, a mï¿½dia serï¿½ o TOTAL-MF
         /*
-         * target.setLabel(" Resolubilidade M�dia"); target.setLabelFont(new
+         * target.setLabel(" Resolubilidade Mï¿½dia"); target.setLabelFont(new
          * Font("arial", Font.BOLD, 12)); target.setLabelPaint(Color.RED);
          * target.setLabelAnchor(RectangleAnchor.CENTER);
          * target.setLabelTextAnchor(TextAnchor.BOTTOM_CENTER);

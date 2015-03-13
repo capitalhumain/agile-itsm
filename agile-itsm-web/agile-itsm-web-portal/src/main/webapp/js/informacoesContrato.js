@@ -2,7 +2,7 @@ var procedimentosSolicitados = null;
 var verificarAbandonoSistema = true;
 function fecharJanela(evt) {
 	if (verificarAbandonoSistema) {
-		var message = 'Você clicou no botão fechar do Browser, você quer fechar esta janela e sair do sistema ?';
+		var message = 'VocÃª clicou no botÃ£o fechar do Browser, vocÃª quer fechar esta janela e sair do sistema ?';
 		if (typeof evt == 'undefined') {
 			evt = window.event;
 		}

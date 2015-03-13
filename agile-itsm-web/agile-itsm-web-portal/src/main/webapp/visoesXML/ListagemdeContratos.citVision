@@ -16,7 +16,7 @@
         <br.com.centralit.citcorpore.metainfo.bean.GrupoVisaoCamposNegocioDTO>
           <idGrupoVisao>40</idGrupoVisao>
           <idCamposObjetoNegocio>135</idCamposObjetoNegocio>
-          <descricaoNegocio>Código</descricaoNegocio>
+          <descricaoNegocio>CÃ³digo</descricaoNegocio>
           <tipoNegocio>HIDDEN</tipoNegocio>
           <ordem>1</ordem>
           <situacao>A</situacao>
@@ -73,7 +73,7 @@
         <br.com.centralit.citcorpore.metainfo.bean.GrupoVisaoCamposNegocioDTO>
           <idGrupoVisao>40</idGrupoVisao>
           <idCamposObjetoNegocio>139</idCamposObjetoNegocio>
-          <descricaoNegocio>Número</descricaoNegocio>
+          <descricaoNegocio>NÃºmero</descricaoNegocio>
           <tipoNegocio>TEXT</tipoNegocio>
           <ordem>4</ordem>
           <situacao>A</situacao>

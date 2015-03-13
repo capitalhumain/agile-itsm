@@ -67,7 +67,7 @@ public class Projeto extends AjaxFormAction {
 		}
 		/*
 		if (!WebUtil.isUserInGroup(request, Constantes.getValue("GRUPO_DIRETORIA"))){
-			document.alert("VocÍ n„o tem permiss„o para acessar esta funcionalidade!");
+			document.alert("Voc√™ n√£o tem permiss√£o para acessar esta funcionalidade!");
 			document.executeScript("window.location = '" + Constantes.getValue("SERVER_ADDRESS") + request.getContextPath() + "/pages/index/index.jsp'");
 			return;
 		}
@@ -159,7 +159,7 @@ public class Projeto extends AjaxFormAction {
 		ProjetoDTO projeto = (ProjetoDTO) document.getBean();
 
 
-		//vou tirar o ultimo n˙mero do idEmpregado, que foi colocado no jsp para diferenciar os ids das linhas da assinaturaAprovacao
+		//vou tirar o ultimo n√∫mero do idEmpregado, que foi colocado no jsp para diferenciar os ids das linhas da assinaturaAprovacao
 		if(colAssinaturas != null && colAssinaturas.size()>0){
 			for (AssinaturaAprovacaoProjetoDTO assinaturaAprovacaoProjetoDTO : colAssinaturas) {
 				if(assinaturaAprovacaoProjetoDTO.getIdEmpregadoAssinatura() != null){
@@ -238,8 +238,8 @@ public class Projeto extends AjaxFormAction {
 			projeto.setVinculoOS("S");
 			document.getElementById("divOS").setVisible(true);
 		}
-		/* Desenvolvedor: Pedro Lino - Data: 28/10/2013 - Hor·rio: 13:58 - ID Citsmart: 120948 -
-		* Motivo/Coment·rio: Erro de javascript ao usar setvalue e settext/ novo padr„o de lookup nao h· necessidade */
+		/* Desenvolvedor: Pedro Lino - Data: 28/10/2013 - Hor√°rio: 13:58 - ID Citsmart: 120948 -
+		* Motivo/Coment√°rio: Erro de javascript ao usar setvalue e settext/ novo padr√£o de lookup nao h√° necessidade */
 		form.setValues(projeto);
 		if (projeto.getIdRequisicaoMudanca() != null){
 			RequisicaoMudancaDTO requisicaoMudancaDTO = new RequisicaoMudancaDTO();
@@ -254,8 +254,8 @@ public class Projeto extends AjaxFormAction {
 				document.executeScript("LOOKUP_MUDANCA.settext('" + aux + "')");*/
 			}
 		}
-		/* Desenvolvedor: Pedro Lino - Data: 28/10/2013 - Hor·rio: 13:58 - ID Citsmart: 120948 -
-		* Motivo/Coment·rio: Erro de javascript ao usar setvalue e settext/ novo padr„o de lookup nao h· necessidade */
+		/* Desenvolvedor: Pedro Lino - Data: 28/10/2013 - Hor√°rio: 13:58 - ID Citsmart: 120948 -
+		* Motivo/Coment√°rio: Erro de javascript ao usar setvalue e settext/ novo padr√£o de lookup nao h√° necessidade */
 		if (projeto.getIdLiberacao() != null){
 			RequisicaoLiberacaoDTO requisicaoLiberacaoDTO = new RequisicaoLiberacaoDTO();
 			requisicaoLiberacaoDTO.setIdRequisicaoLiberacao(projeto.getIdLiberacao());
@@ -307,10 +307,10 @@ public class Projeto extends AjaxFormAction {
 		//document.alert("Registro recuperado !");
 	}
 
-	/* Desenvolvedor: Bruno Rodrigues  Data: 28/10/2013 - Hor·rio: 10h27min  ID Citsmart: 120948  Motivo/Coment·rio: Problema na internacionalizaÁ„o dos labels dessa tabela e do bot„o de autorizar mudanÁa. */
+	/* Desenvolvedor: Bruno Rodrigues  Data: 28/10/2013 - Hor√°rio: 10h27min  ID Citsmart: 120948  Motivo/Coment√°rio: Problema na internacionaliza√ß√£o dos labels dessa tabela e do bot√£o de autorizar mudan√ßa. */
 
-	/* Desenvolvedor: Pedro Lino - Data: 28/10/2013 - Hor·rio: 13:58 - ID Citsmart: 120948 -
-	* Motivo/Coment·rio: Tabela com dificil visualizaÁ„o/ alterado layout: retirado algumas bordas */
+	/* Desenvolvedor: Pedro Lino - Data: 28/10/2013 - Hor√°rio: 13:58 - ID Citsmart: 120948 -
+	* Motivo/Coment√°rio: Tabela com dificil visualiza√ß√£o/ alterado layout: retirado algumas bordas */
 	public void carregaInfoLinhaBase(DocumentHTML document, HttpServletRequest request, Integer idProjeto) throws ServiceException, Exception{
 		LinhaBaseProjetoService linhaBaseProjetoService = (LinhaBaseProjetoService) ServiceLocator.getInstance().getService(LinhaBaseProjetoService.class, null);
 		Collection colLinhasBase = linhaBaseProjetoService.findByIdProjeto(idProjeto);
@@ -357,7 +357,7 @@ public class Projeto extends AjaxFormAction {
 				strTableLnBase += "</td>";
 				strTableLnBase += "<td style='border:1px solid #7C7C7C; font-family: arial; font-size: 12px;'>";
 				if (UtilStrings.nullToVazio(linhaBaseProjetoDTO.getSituacao()).equalsIgnoreCase("E")){
-					strTableLnBase += "Em execuÁ„o";
+					strTableLnBase += "Em execu√ß√£o";
 				}else if (UtilStrings.nullToVazio(linhaBaseProjetoDTO.getSituacao()).equalsIgnoreCase("I")){
 					strTableLnBase += "Inativa";
 				}else {
@@ -366,8 +366,8 @@ public class Projeto extends AjaxFormAction {
 				strTableLnBase += "</td>";
 				strTableLnBase += "<td style='border:1px solid #7C7C7C; font-family: arial; font-size: 12px;'>";
 				if (UtilStrings.nullToVazio(linhaBaseProjetoDTO.getSituacao()).equalsIgnoreCase("E")){
-					/*strTableLnBase += "<img src='" + Constantes.getValue("CONTEXTO_APLICACAO") + "/imagens/mudancasla.png' border='0' style='cursor:pointer' title='Registrar autorizaÁ„o para mudanÁa' onclick='registrarAutorizacao(\"" + linhaBaseProjetoDTO.getIdLinhaBaseProjeto() + "\")'/>";*/
-					strTableLnBase += "<button type='button' title='Registrar autorizaÁ„o para mudanÁa' class='icon_only text_only' onclick='registrarAutorizacao(\"" + linhaBaseProjetoDTO.getIdLinhaBaseProjeto() + "\")'/>"+ UtilI18N.internacionaliza(request, "projeto.autorizarMudanca")  +"</button>";
+					/*strTableLnBase += "<img src='" + Constantes.getValue("CONTEXTO_APLICACAO") + "/imagens/mudancasla.png' border='0' style='cursor:pointer' title='Registrar autoriza√ß√£o para mudan√ßa' onclick='registrarAutorizacao(\"" + linhaBaseProjetoDTO.getIdLinhaBaseProjeto() + "\")'/>";*/
+					strTableLnBase += "<button type='button' title='Registrar autoriza√ß√£o para mudan√ßa' class='icon_only text_only' onclick='registrarAutorizacao(\"" + linhaBaseProjetoDTO.getIdLinhaBaseProjeto() + "\")'/>"+ UtilI18N.internacionaliza(request, "projeto.autorizarMudanca")  +"</button>";
 				}else{
 					strTableLnBase += "&nbsp;";
 				}
@@ -502,7 +502,7 @@ public class Projeto extends AjaxFormAction {
 		AssinaturaAprovacaoProjetoService assinaturaAprovacaoService = (AssinaturaAprovacaoProjetoService) ServiceLocator.getInstance().getService(AssinaturaAprovacaoProjetoService.class, null);
 
 		if (projetoDto.getIdProjeto().intValue() > 0) {
-             //tratar exclus„o
+             //tratar exclus√£o
 			//Se existe vinculo com linha de base
 			if (linhaBaseProjetoService.findByIdProjeto(projetoDto.getIdProjeto())!=null) {
 				document.alert(UtilI18N.internacionaliza(request, "citcorpore.comum.registroNaoPodeSerExcluidoLinhaBase"));

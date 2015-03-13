@@ -33,7 +33,7 @@ public interface RequisicaoLiberacaoService extends CrudService {
     void updateSimples(BaseEntity model);
 
     /**
-     * suspende a requisiÁ„o mudanÁa
+     * suspende a requisi√ß√£o mudan√ßa
      *
      * @param usuarioDto
      * @param solicitacaoServicoDto
@@ -66,7 +66,7 @@ public interface RequisicaoLiberacaoService extends CrudService {
     void atualizaInformacoesQuestionario(RequisicaoQuestionarioDTO requisicaoQuestionarioDTO) throws Exception;
 
     /**
-     * O metodo atualiza somente os campos setados os campos anteriores continuar· intacto.
+     * O metodo atualiza somente os campos setados os campos anteriores continuar√° intacto.
      *
      * @param RequisicaoLiberacaoDTO
      * @throws Exception
@@ -81,7 +81,7 @@ public interface RequisicaoLiberacaoService extends CrudService {
     void reabre(UsuarioDTO usuarioDto, RequisicaoLiberacaoDTO requisicaoLiberacaoDto) throws Exception;
 
     /**
-     * Retorna uma lista de LiberaÁoes que estejam relacionada a um determinado item de cofiguraÁ„o.
+     * Retorna uma lista de Libera√ßoes que estejam relacionada a um determinado item de cofigura√ß√£o.
      *
      * @param Integer
      * @return List<RequisicaoLiberacaoDTO>

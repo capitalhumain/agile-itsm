@@ -91,7 +91,7 @@
 .btn-toggle-code{position:absolute;bottom:0;right:0;z-index:1000;-webkit-border-radius:0 0 0 0;-moz-border-radius:0 0 0 0;border-radius:0 0 0 0;}
 .btn-toggle-code.outside{bottom:-24px;}
 
-/* Não retirar porque em algumas telas fica faltando esta configuração */
+/* NÃ£o retirar porque em algumas telas fica faltando esta configuraÃ§Ã£o */
  #modal_Telefonia{
 	width: 700px!important;
 	z-index: 10001!important;

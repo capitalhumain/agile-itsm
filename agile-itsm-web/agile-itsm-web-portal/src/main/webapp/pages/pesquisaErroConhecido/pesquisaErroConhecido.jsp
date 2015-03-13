@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.ParametroUtil"%>
 <%@page import="br.com.centralit.citcorpore.util.Enumerados"%>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
@@ -10,7 +12,7 @@
 	<%@include file="/include/header.jsp"%>
 	<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 
-	<title><fmt:message key="citcorpore.comum.title"/></title>
+	<%@include file="/novoLayout/common/include/titulo.jsp" %>
 
 	<link type="text/css" rel="stylesheet" href="${ctx}/css/layout-default-latest.css"/>
 	<link type="text/css" rel="stylesheet" href="${ctx}/css/jquery.ui.all.css"/>

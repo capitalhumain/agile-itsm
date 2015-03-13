@@ -50,10 +50,10 @@ public class RequisicaoProdutoDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * Adicionado par‚metros para adicionar limite na consulta
+	 * Adicionado par√¢metros para adicionar limite na consulta
 	 * 
 	 * @param seLimita - Se existe limite para listagem
-	 * @param limite - Quantidade m·xima de elementos da listagem
+	 * @param limite - Quantidade m√°xima de elementos da listagem
 	 * @return
 	 * @author thyen.chang
 	 */

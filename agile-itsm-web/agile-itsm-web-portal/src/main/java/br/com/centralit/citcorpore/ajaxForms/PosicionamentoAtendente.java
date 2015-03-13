@@ -14,7 +14,7 @@ import br.com.centralit.citcorpore.negocio.PosicionamentoAtendenteService;
 import br.com.citframework.service.ServiceLocator;
 
 /**
- * Controlador para visualização do posionamento dos atendentes
+ * Controlador para visualizaÃ§Ã£o do posionamento dos atendentes
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 06/10/2014

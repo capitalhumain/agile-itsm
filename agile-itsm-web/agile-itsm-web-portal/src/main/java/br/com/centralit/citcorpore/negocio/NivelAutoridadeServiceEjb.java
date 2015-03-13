@@ -37,11 +37,11 @@ public class NivelAutoridadeServiceEjb extends CrudServiceImpl implements NivelA
 
     private void validaHierarquia(final NivelAutoridadeDTO arg0) throws Exception {
         if (arg0.getHierarquia() == null) {
-            throw new LogicException("Hierarquia n„o informdada");
+            throw new LogicException("Hierarquia n√£o informdada");
         }
         final Collection<NivelAutoridadeDTO> col = this.getDao().findByHierarquiaAndNotIdNivelAutoridade(arg0.getHierarquia(), arg0.getIdNivelAutoridade());
         if (col != null && !col.isEmpty()) {
-            throw new LogicException("Hierarquia j· existente");
+            throw new LogicException("Hierarquia j√° existente");
         }
     }
 
@@ -77,7 +77,7 @@ public class NivelAutoridadeServiceEjb extends CrudServiceImpl implements NivelA
         if (nivelAutoridadeDto.getColGrupos() != null) {
             for (final GrupoNivelAutoridadeDTO grupoDto : nivelAutoridadeDto.getColGrupos()) {
                 if (grupoDto.getIdGrupo() == null) {
-                    throw new Exception("Grupo n„o informado");
+                    throw new Exception("Grupo n√£o informado");
                 }
                 grupoDto.setIdNivelAutoridade(nivelAutoridadeDto.getIdNivelAutoridade());
                 grupoNivelAutoridadeDao.create(grupoDto);

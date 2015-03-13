@@ -64,7 +64,7 @@ public class Painel extends AjaxFormAction {
 	}
 
 	/*
-	 * Faz o carregamento do menu no event de mudanÁa da combo
+	 * Faz o carregamento do menu no event de mudan√ßa da combo
 	 */
 	public void changeCombo(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
 
@@ -118,7 +118,7 @@ public class Painel extends AjaxFormAction {
 		String dataInicial = (String) hashParametros.get("PARAM.dataInicial");
 		String dataFinal = (String) hashParametros.get("PARAM.dataFinal");
 
-		/* VisualizaÁ„o da data no painel principal */
+		/* Visualiza√ß√£o da data no painel principal */
 		if (dataInicial != null || dataFinal != null) {
 			HTMLElement parametros = document.getElementById("parametros");
 			parametros.setInnerHTML("<h2>" + UtilI18N.internacionaliza(request, "citcorpore.comum.datainicio") + " - " + UtilI18N.internacionaliza(request, "citcorpore.comum.datafim") + "</h2>");
@@ -154,7 +154,7 @@ public class Painel extends AjaxFormAction {
 
 				document.executeScript("var div" + i + " = document.createElement('div')");
 
-				/* Ferramentas de opÁıes */
+				/* Ferramentas de op√ß√µes */
 				document.executeScript("var internaTools" + i + " = document.createElement('div')");
 				document.executeScript("internaTools" + i + ".id = 'internaTools" + i + "'");
 				document.executeScript("internaTools" + i + ".className = 'internaTools'");
@@ -284,8 +284,8 @@ public class Painel extends AjaxFormAction {
 			tamAMaisBarra = 19;
 		}
 		
-		/* Desenvolvedor: Rodrigo Pecci - Data: 31/10/2013 - Hor·rio: 11h07min - ID Citsmart: 120770
-		 * Motivo/Coment·rio: A largura do gr·fico gerado estava ultrapassando a largura da tabela. Foi corrigido para pegar a largura correta. 
+		/* Desenvolvedor: Rodrigo Pecci - Data: 31/10/2013 - Hor√°rio: 11h07min - ID Citsmart: 120770
+		 * Motivo/Coment√°rio: A largura do gr√°fico gerado estava ultrapassando a largura da tabela. Foi corrigido para pegar a largura correta. 
 		 */
 		document.executeScript("interna" + i + ".style.cssText  = 'width:" + gerencialItemPainelAuxDto.getWidth() + "px !important;height:" + gerencialItemPainelAuxDto.getHeigth() + "px !important;'");
 		//document.executeScript("interna" + i + ".style.width  = '" + gerencialItemPainelAuxDto.getWidth() + "px'");
@@ -422,7 +422,7 @@ public class Painel extends AjaxFormAction {
 
 		infoGenerate.setHashParametros(hashParametros);
 
-		// Internacionaliza os GerencialOptionDTO nos par‚mentros
+		// Internacionaliza os GerencialOptionDTO nos par√¢mentros
 		for (Object parameter : gerencialPainelDto.getListParameters()) {
 			if (parameter instanceof GerencialParameterDTO && ((GerencialParameterDTO) parameter).getColOptions() != null) {
 				for (Object objeto : ((GerencialParameterDTO) parameter).getColOptions()) {
@@ -569,7 +569,7 @@ public class Painel extends AjaxFormAction {
 				BufferedWriter out = null;
 				try {
 					/**
-					 * Alterado codificaÁ„o do Writer para ANSI
+					 * Alterado codifica√ß√£o do Writer para ANSI
 					 * @author thyen.chang
 					 * 17/12/2014
 					 */

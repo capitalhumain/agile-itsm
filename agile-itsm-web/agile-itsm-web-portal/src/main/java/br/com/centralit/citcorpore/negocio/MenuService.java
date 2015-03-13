@@ -30,7 +30,7 @@ public interface MenuService extends CrudService {
 	public void updateNotNull(Collection<MenuDTO> menus);
 
 	/**
-	 * MÈtodo para verificar se caso exista um menu com o mesmo nome
+	 * M√©todo para verificar se caso exista um menu com o mesmo nome
 	 * 
 	 * @author rodrigo.oliveira
 	 * @param menuDTO
@@ -53,9 +53,9 @@ public interface MenuService extends CrudService {
 	public void deletaMenusSemReferencia() throws Exception;
 	
 	/**
-	 * MÈtodo para obter um mapa com todos os menus que o usu·rio pode acessar
+	 * M√©todo para obter um mapa com todos os menus que o usu√°rio pode acessar
 	 * @author thyen.chang
-	 * @since 16/01/2015 - OPERA«√O USAIN BOLT
+	 * @since 16/01/2015 - OPERA√á√ÉO USAIN BOLT
 	 * @param usuario
 	 * @return
 	 * @throws Exception

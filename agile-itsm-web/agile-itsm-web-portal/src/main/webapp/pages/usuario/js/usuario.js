@@ -46,11 +46,11 @@
 	    	var senha2 = document.getElementById("senhaNovamente").value;
 
 	    	if (idUsuario != null && idUsuario != ""){
-	    		//N�o � um usu�rio LDAP
+	    		//Nï¿½o ï¿½ um usuï¿½rio LDAP
 		    	if (ldap != null && ldap == "S"){
 		    		document.form.save();
 			    }else{
-					//� um usu�rio j� cadastrado no BD
+					//ï¿½ um usuï¿½rio jï¿½ cadastrado no BD
 					if ($('#divSenha').is(':visible')) {
 						if( senha === null || senha === undefined || senha === ""){
 							alert(i18n_message("candidato.senhaObrigatorio"));

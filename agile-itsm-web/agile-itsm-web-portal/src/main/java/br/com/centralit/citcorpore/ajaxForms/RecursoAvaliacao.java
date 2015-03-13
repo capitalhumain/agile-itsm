@@ -133,14 +133,14 @@ public class RecursoAvaliacao extends AjaxFormAction {
 		ProgramacaoAtividadeService programacaoAtividadeService = (ProgramacaoAtividadeService)ServiceLocator.getInstance().getService(ProgramacaoAtividadeService.class, null);
 		NagiosConexaoDTO nagiosConexaoDTO = new NagiosConexaoDTO();
 		if (recursoDTO.getIdNagiosConexao() == null){
-			document.alert("N„o h· configuraÁ„o de conex„o ao Nagios para o recursos: " + recursoDTO.getNomeRecurso());
+			document.alert("N√£o h√° configura√ß√£o de conex√£o ao Nagios para o recursos: " + recursoDTO.getNomeRecurso());
 		}
 		nagiosConexaoDTO.setIdNagiosConexao(recursoDTO.getIdNagiosConexao());
 		if (recursoDTO.getIdNagiosConexao() != null){
 			nagiosConexaoDTO = (NagiosConexaoDTO) nagiosConexaoService.restore(nagiosConexaoDTO);
 		}
 		if (nagiosConexaoDTO == null){
-			document.alert("N„o h· configuraÁ„o correta de conex„o ao Nagios para o recursos: " + recursoDTO.getNomeRecurso());
+			document.alert("N√£o h√° configura√ß√£o correta de conex√£o ao Nagios para o recursos: " + recursoDTO.getNomeRecurso());
 		}
 		
 		Collection colMudancasIC = null;
@@ -224,7 +224,7 @@ public class RecursoAvaliacao extends AjaxFormAction {
 		}
 		table += "<tr>";
 		table += "<td colspan='4'>";
-			table += "<b>Volume de Horas do PerÌodo: " + UtilFormatacao.formatDouble(qtdeHorasTotais,2) + "</b>";
+			table += "<b>Volume de Horas do Per√≠odo: " + UtilFormatacao.formatDouble(qtdeHorasTotais,2) + "</b>";
 		table += "</td>";
 		table += "</tr>";				
 		
@@ -325,7 +325,7 @@ public class RecursoAvaliacao extends AjaxFormAction {
 		if (colBlackoutsTotais.size() > 0){
 			table += "<tr>";
 			table += "<td colspan='4' style='border:1px solid black'>";
-			table += "<b>MudanÁas planejadas (blackouts)</b>";
+			table += "<b>Mudan√ßas planejadas (blackouts)</b>";
 			table += "</td>";	
 			table += "</tr>";			
 			table += "<tr>";
@@ -351,7 +351,7 @@ public class RecursoAvaliacao extends AjaxFormAction {
 		if (!quedas){
 			table += "<tr>";
 			table += "<td colspan='4' style='border:1px solid black'>";
-			table += "<b>N„o h· informaÁ„o de queda.</b>";
+			table += "<b>N√£o h√° informa√ß√£o de queda.</b>";
 			table += "</td>";	
 			table += "</tr>";
 		}else{
@@ -367,7 +367,7 @@ public class RecursoAvaliacao extends AjaxFormAction {
 			table += "</tr>";
 			table += "<tr>";
 			table += "<td style='border:1px solid black'>";
-			table += "<b>Tempo Total de Blackout (por mudanÁas):</b>";
+			table += "<b>Tempo Total de Blackout (por mudan√ßas):</b>";
 			table += "</td>";		
 			table += "<td colspan='3' style='border:1px solid black'>";
 			totalHorasBlackoutMudancasMilli = totalHorasBlackoutMudancas * 60 * 1000;
@@ -423,7 +423,7 @@ public class RecursoAvaliacao extends AjaxFormAction {
 				if (acordoNivelServicoDTO.getDisponibilidade() != null){
 					table += "<tr>";
 					table += "<td style='border:1px solid black'>";
-					table += "<b>Acordo de NÌvel de ServiÁo:</b>";
+					table += "<b>Acordo de N√≠vel de Servi√ßo:</b>";
 					table += "</td>";	
 					
 					table += "<td colspan='3' style='border:1px solid black'>";
@@ -557,14 +557,14 @@ public class RecursoAvaliacao extends AjaxFormAction {
 		ProgramacaoAtividadeService programacaoAtividadeService = (ProgramacaoAtividadeService)ServiceLocator.getInstance().getService(ProgramacaoAtividadeService.class, null);
 		NagiosConexaoDTO nagiosConexaoDTO = new NagiosConexaoDTO();
 		if (recursoDTO.getIdNagiosConexao() == null){
-			document.alert("N„o h· configuraÁ„o de conex„o ao Nagios para o recursos: " + recursoDTO.getNomeRecurso());
+			document.alert("N√£o h√° configura√ß√£o de conex√£o ao Nagios para o recursos: " + recursoDTO.getNomeRecurso());
 		}
 		nagiosConexaoDTO.setIdNagiosConexao(recursoDTO.getIdNagiosConexao());
 		if (recursoDTO.getIdNagiosConexao() != null){
 			nagiosConexaoDTO = (NagiosConexaoDTO) nagiosConexaoService.restore(nagiosConexaoDTO);
 		}
 		if (nagiosConexaoDTO == null){
-			document.alert("N„o h· configuraÁ„o correta de conex„o ao Nagios para o recursos: " + recursoDTO.getNomeRecurso());
+			document.alert("N√£o h√° configura√ß√£o correta de conex√£o ao Nagios para o recursos: " + recursoDTO.getNomeRecurso());
 		}
 		
 		Collection colMudancasIC = null;
@@ -649,7 +649,7 @@ public class RecursoAvaliacao extends AjaxFormAction {
 		}
 		table += "<tr>";
 		table += "<td colspan='4'>";
-			table += "<b>Volume de Horas do PerÌodo: " + UtilFormatacao.formatDouble(qtdeHorasTotais,2) + "</b>";
+			table += "<b>Volume de Horas do Per√≠odo: " + UtilFormatacao.formatDouble(qtdeHorasTotais,2) + "</b>";
 		table += "</td>";
 		table += "</tr>";				
 		
@@ -750,7 +750,7 @@ public class RecursoAvaliacao extends AjaxFormAction {
 		if (colBlackoutsTotais.size() > 0){
 			table += "<tr>";
 			table += "<td colspan='4' style='border:1px solid black'>";
-			table += "<b>MudanÁas planejadas (blackouts)</b>";
+			table += "<b>Mudan√ßas planejadas (blackouts)</b>";
 			table += "</td>";	
 			table += "</tr>";			
 			table += "<tr>";
@@ -776,7 +776,7 @@ public class RecursoAvaliacao extends AjaxFormAction {
 		if (!quedas){
 			table += "<tr>";
 			table += "<td colspan='4' style='border:1px solid black'>";
-			table += "<b>N„o h· informaÁ„o de queda.</b>";
+			table += "<b>N√£o h√° informa√ß√£o de queda.</b>";
 			table += "</td>";	
 			table += "</tr>";
 		}else{
@@ -792,7 +792,7 @@ public class RecursoAvaliacao extends AjaxFormAction {
 			table += "</tr>";
 			table += "<tr>";
 			table += "<td style='border:1px solid black'>";
-			table += "<b>Tempo Total de Blackout (por mudanÁas):</b>";
+			table += "<b>Tempo Total de Blackout (por mudan√ßas):</b>";
 			table += "</td>";		
 			table += "<td colspan='3' style='border:1px solid black'>";
 			totalHorasBlackoutMudancasMilli = totalHorasBlackoutMudancas * 60 * 1000;
@@ -848,7 +848,7 @@ public class RecursoAvaliacao extends AjaxFormAction {
 				if (acordoNivelServicoDTO.getDisponibilidade() != null){
 					table += "<tr>";
 					table += "<td style='border:1px solid black'>";
-					table += "<b>Acordo de NÌvel de ServiÁo:</b>";
+					table += "<b>Acordo de N√≠vel de Servi√ßo:</b>";
 					table += "</td>";	
 					
 					table += "<td colspan='3' style='border:1px solid black'>";

@@ -18,7 +18,7 @@
 
 
     /*Alterado por
-      desenvolvedor: rcs (Rafael C�sar Soyer)
+      desenvolvedor: rcs (Rafael Cï¿½sar Soyer)
       data: 06/01/2015
     */
     function imprimirRelatorioBaseConhecimento(){
@@ -27,7 +27,7 @@
     }
 
      /*Alterado por
-     desenvolvedor: rcs (Rafael C�sar Soyer)
+     desenvolvedor: rcs (Rafael Cï¿½sar Soyer)
      data: 06/01/2015
    */
     function imprimirRelatorioBaseConhecimentoXls(){
@@ -35,7 +35,7 @@
         imprimirRelatorioPeloNomeDoRelatorio (str_nomeDoRelatorio);
     }
 
-     /*desenvolvedor: rcs (Rafael C�sar Soyer)
+     /*desenvolvedor: rcs (Rafael Cï¿½sar Soyer)
      data: 06/01/2015
    */
     var str_html_inputDtInicioDtFim =
@@ -55,12 +55,12 @@
 
 
      /*Alterado por
-     desenvolvedor: rcs (Rafael C�sar Soyer)
+     desenvolvedor: rcs (Rafael Cï¿½sar Soyer)
      data: 06/01/2015
    */
     function mudaDivPeriodo(tipoPeriodo){
         if (tipoPeriodo != null && tipoPeriodo != '') {
-            // LIMPA CAMPOS DE PER�ODO
+            // LIMPA CAMPOS DE PERï¿½ODO
             document.getElementById('dataInicio').value = '';
             document.getElementById('dataFim').value = '';
 
@@ -83,10 +83,10 @@
             });
         });
 
-     /*desenvolvedor: rcs (Rafael C�sar Soyer)
+     /*desenvolvedor: rcs (Rafael Cï¿½sar Soyer)
        data: 06/01/2015
      */
-      //adiciona conte�do da string � div, ao carregar p�gina
+      //adiciona conteï¿½do da string ï¿½ div, ao carregar pï¿½gina
       (function($) {
             $(function() {
                 $( "#divPeriodoCriacao" ).html(str_html_inputDtInicioDtFim);

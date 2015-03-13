@@ -1,8 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.citframework.util.Constantes"%>
 <%@page import="br.com.citframework.util.UtilDatas"%>
 <%
-	response.setCharacterEncoding("ISO-8859-1");
+	response.setCharacterEncoding("UTF-8");
 
 	String tabela100 = request.getParameter("tabela100");
 	if (tabela100 == null || tabela100.equalsIgnoreCase("")){
@@ -41,7 +42,7 @@
 
 
 	<%@include file="/include/header.jsp"%>
-	<%@include file="/include/titleComum/titleComum.jsp" %>
+	<%@include file="/novoLayout/common/include/titulo.jsp" %>
 	<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp" %>
 	<%@include file="/include/cssComuns/cssComuns.jsp" %>
 

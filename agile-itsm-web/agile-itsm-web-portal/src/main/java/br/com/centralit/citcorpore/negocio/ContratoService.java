@@ -32,7 +32,7 @@ public interface ContratoService extends CrudService {
 	public Collection listByIdAcordoNivelServicoAndTipo(Integer idAcordoNivelServicoParm, String tipoParm) throws Exception;
 
 	/**
-	 * Lista Contratos Ativos (SituaÁ„o Ativa e DataFim maior que a data Atual).
+	 * Lista Contratos Ativos (Situa√ß√£o Ativa e DataFim maior que a data Atual).
 	 * 
 	 * @return Collection<ContratoDTO> - Lista de Contratos Ativos.
 	 * @throws Exception
@@ -44,7 +44,7 @@ public interface ContratoService extends CrudService {
 	public Collection findByIdGrupo(Integer idGrupo) throws Exception;
 
 	/**
-	 * Retorna a Lista de Contratos (SituaÁ„o Ativa e DataFim maior que a data Atual) que est„o relacionados aos Grupos informados.
+	 * Retorna a Lista de Contratos (Situa√ß√£o Ativa e DataFim maior que a data Atual) que est√£o relacionados aos Grupos informados.
 	 * 
 	 * @param listGrupoDto
 	 *            - Lista de GrupoDTO.
@@ -56,7 +56,7 @@ public interface ContratoService extends CrudService {
 	public Collection<ContratoDTO> findAtivosByGrupos(Collection<GrupoDTO> listGrupoDto) throws Exception;
 
 	/**
-	 * Retorna Lista de Contratos Ativos (SituaÁ„o Ativa e DataFim maior que a data Atual) que est„o relacionados aos Grupos do Empregado informado.
+	 * Retorna Lista de Contratos Ativos (Situa√ß√£o Ativa e DataFim maior que a data Atual) que est√£o relacionados aos Grupos do Empregado informado.
 	 * 
 	 * @param idEmpregado
 	 *            - Identificador do Empregado.
@@ -72,7 +72,7 @@ public interface ContratoService extends CrudService {
 	String verificaIdFornecedor(HashMap mapFields) throws Exception;
 
 	/**
-	 * Retorna a lista de Contratos com o nome da Raz„o Social do Cliente do Contrato.
+	 * Retorna a lista de Contratos com o nome da Raz√£o Social do Cliente do Contrato.
 	 * 
 	 * @return Collection<ContratoDTO>
 	 * @throws ServiceException

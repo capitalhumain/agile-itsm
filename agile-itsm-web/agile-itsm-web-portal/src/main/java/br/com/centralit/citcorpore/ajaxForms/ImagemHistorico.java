@@ -56,7 +56,7 @@ public class ImagemHistorico extends AjaxFormAction {
         try {
             final UsuarioDTO user = WebUtil.getUsuario(request);
             if (user == null) {
-                document.alert("O usu·rio n„o est· logado! Favor logar no sistema!");
+                document.alert("O usu√°rio n√£o est√° logado! Favor logar no sistema!");
                 return;
             }
             String PRONTUARIO_TIPO_CAPT_CERT_DIGITAL = "";

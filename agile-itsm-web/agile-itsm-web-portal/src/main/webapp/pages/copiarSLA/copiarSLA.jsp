@@ -1,17 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.centralit.citcorpore.util.CitCorporeConstantes"%>
 
 <%
-	response.setCharacterEncoding("ISO-8859-1");
+	response.setCharacterEncoding("UTF-8");
 %>
  <!DOCTYPE head PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
 <head>
 	<%@include file="/include/header.jsp"%>
-	<%@include file="/include/titleComum/titleComum.jsp" %>
+	<%@include file="/novoLayout/common/include/titulo.jsp" %>
 
 	<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 

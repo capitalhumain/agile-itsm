@@ -136,7 +136,7 @@ public class ThreadProcessaInventario extends Thread {
 							arquivoExiste = true;
 						} else {
 							MonitoraAtivosDiscovery.MENSAGEM_PROCESSAMENTO = "mostrarStatusInventario.inventarioDoAtivo" + "#" + nameOrIp + "#"
-									+ "mostrarStatusInventario.problemaAoCapturarInformações";
+									+ "mostrarStatusInventario.problemaAoCapturarInformaÃ§Ãµes";
 						}
 					} else {
 						// Deu certo, entao grava na lista para processamento
@@ -301,11 +301,11 @@ public class ThreadProcessaInventario extends Thread {
 		try {
 			echoSocket = new Socket(nomeHostIPServer, MonitoraAtivosDiscovery.PORTA_AGENTE_DOTNET);
 
-			// corretiva 162506 - Esta alteração corrige problema de retorno de
-			// Caracteres não convertidos para o CharSet correto.
-			out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(echoSocket.getOutputStream(), "ISO-8859-1")), true);
+			// corretiva 162506 - Esta alteraÃ§Ã£o corrige problema de retorno de
+			// Caracteres nÃ£o convertidos para o CharSet correto.
+			out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(echoSocket.getOutputStream(), "UTF-8")), true);
 
-			in = new BufferedReader(new InputStreamReader(this.echoSocket.getInputStream(), "ISO-8859-1"));
+			in = new BufferedReader(new InputStreamReader(this.echoSocket.getInputStream(), "UTF-8"));
 
 		} catch (UnknownHostException e) {
 			// System.err.println("Don't know about host: localhost.");

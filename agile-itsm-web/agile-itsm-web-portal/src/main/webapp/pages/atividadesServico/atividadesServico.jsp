@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.citframework.util.UtilStrings"%>
 <%@page import="br.com.citframework.util.Constantes"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
@@ -9,7 +11,6 @@
 <html>
 	<head>
 		<%@include file="/include/header.jsp"%>
-		<%@include file="/include/security/security.jsp"%>
 				<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 
 		<%
@@ -20,17 +21,17 @@
 			pageContext.setAttribute("idServicoContrato", idServicoContrato);
 		%>
 
-		<%//se for chamado por iframe deixa apenas a parte de cadastro da página
+		<%//se for chamado por iframe deixa apenas a parte de cadastro da pÃ¡gina
 		if (iframe != null) {%>
 			<link rel="stylesheet" type="text/css" href="./css/atividadesSer.css"/>
 		<%}%>
 		
 		<html lang="en-us" class="no-js">
-		<title><fmt:message key="citcorpore.comum.title"/></title>
+		<%@include file="/novoLayout/common/include/titulo.jsp" %>
 		
 		<script type="text/javascript" src="../../cit/objects/ServicoContratoDTO.js"></script>
 		<script type="text/javascript" src="../../cit/objects/ServicoDTO.js"></script>
-		<script  charset="ISO-8859-1" type="text/javascript" src="${ctx}/js/ValidacaoUtils.js"></script>
+		<script  charset="UTF-8" type="text/javascript" src="${ctx}/js/ValidacaoUtils.js"></script>
 
 	</head>
 	<cit:janelaAguarde id="JANELA_AGUARDE_MENU"  title="" style="display:none;top:325px;width:300px;left:500px;height:50px;position:absolute;"></cit:janelaAguarde>

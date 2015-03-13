@@ -6,7 +6,7 @@ import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * @author euler.ramos
- * Guarda as informações para a geração do gráfico de Gantt
+ * Guarda as informaÃ§Ãµes para a geraÃ§Ã£o do grÃ¡fico de Gantt
  */
 public class TendenciaGanttDTO extends BaseEntity{
 

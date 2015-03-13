@@ -43,7 +43,7 @@ public class CheckoutDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Retorna as quantidades existentes no banco para checkin e checkout. O primeiro objeto da lista ser· sempre a quantidade de checkins
+     * Retorna as quantidades existentes no banco para checkin e checkout. O primeiro objeto da lista ser√° sempre a quantidade de checkins
      *
      * @return {@link List} lista com as quantidades
      * @throws Exception

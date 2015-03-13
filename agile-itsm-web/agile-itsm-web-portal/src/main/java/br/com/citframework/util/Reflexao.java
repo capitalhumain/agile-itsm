@@ -42,7 +42,7 @@ public class Reflexao {
      *
      * Reflexao.clearAllProperties(usuario);
      *
-     * Apos a execucao do metodo anterior, o objeto usuario estar· limpo (todas as propriedades nulas).
+     * Apos a execucao do metodo anterior, o objeto usuario estar√° limpo (todas as propriedades nulas).
      *
      * @param obj
      * @throws Exception
@@ -254,7 +254,7 @@ public class Reflexao {
      * @param dest
      *            - dest - Objeto destino (para onde serao copiadas as propriedades)
      * @param language
-     *            - Linguagem do usu·rio logado que ser· considerado para converter os campos do tipo Data.
+     *            - Linguagem do usu√°rio logado que ser√° considerado para converter os campos do tipo Data.
      * @throws Exception
      * @author valdoilo.damasceno
      * @since 17.02.2014
@@ -453,11 +453,11 @@ public class Reflexao {
      * @param obj
      *            - Objeto.
      * @param propName
-     *            - Nome do atributo que ser· atribuÌdo o valor.
+     *            - Nome do atributo que ser√° atribu√≠do o valor.
      * @param value
-     *            - Valor a ser atribuÌdo.
+     *            - Valor a ser atribu√≠do.
      * @param language
-     *            - Linguagem do usu·rio.
+     *            - Linguagem do usu√°rio.
      * @throws Exception
      * @author valdoilo.damasceno
      * @since 27.02.2014
@@ -472,11 +472,11 @@ public class Reflexao {
      * @param bean
      *            - Objeto.
      * @param value
-     *            - Valor a ser atribuÌdo.
+     *            - Valor a ser atribu√≠do.
      * @param attributeName
      *            - Nome do atributo.
      * @param language
-     *            - Linguagem do usu·rio.
+     *            - Linguagem do usu√°rio.
      * @throws Exception
      * @author valdoilo.damasceno
      * @since 17.02.2014
@@ -529,7 +529,7 @@ public class Reflexao {
                 }
 
                 /*
-                 * Rodrigo Pecci Acorse - 14/11/2013 - #124212 A reflex„o n„o previa (e n„o fazia a convers„o) caso o valor a ser setado fosse do tipo Long e o tipo no DTO fosse
+                 * Rodrigo Pecci Acorse - 14/11/2013 - #124212 A reflex√£o n√£o previa (e n√£o fazia a convers√£o) caso o valor a ser setado fosse do tipo Long e o tipo no DTO fosse
                  * String.
                  */
                 if (value instanceof Long && parameterClass == String.class) {
@@ -596,7 +596,7 @@ public class Reflexao {
                 } catch (final Exception e) {
                     if (value != null) {
                         throw new Exception(
-                                "tipo de dado incompatÌvel com o banco de dados " + value.getClass().getName() + " :" + bean.getClass().getName() + " " + attributeName, e);
+                                "tipo de dado incompat√≠vel com o banco de dados " + value.getClass().getName() + " :" + bean.getClass().getName() + " " + attributeName, e);
                     }
                     throw e;
                 }
@@ -609,7 +609,7 @@ public class Reflexao {
                 if (valueOfCurrent == null) {
                     final Method setter = getSetter(bean, currentAttributeName);
                     if (setter == null) {
-                        throw new RuntimeException("N„o foi encontrado setter para o atributo '" + currentAttributeName + "' em '" + bean.getClass() + "'.");
+                        throw new RuntimeException("N√£o foi encontrado setter para o atributo '" + currentAttributeName + "' em '" + bean.getClass() + "'.");
                     }
                     final Class[] params = setter.getParameterTypes();
                     if (params.length != 1) {
@@ -619,7 +619,7 @@ public class Reflexao {
                     try {
                         setter.invoke(bean, new Object[] {valueOfCurrent});
                     } catch (final Exception e) {
-                        throw new Exception("tipo de dado incompatÌvel com o banco de dados " + value.getClass().getName() + " :" + bean.getClass().getName() + " " + attributeName);
+                        throw new Exception("tipo de dado incompat√≠vel com o banco de dados " + value.getClass().getName() + " :" + bean.getClass().getName() + " " + attributeName);
                     }
                 }
                 setNested(valueOfCurrent, value, attributeName.substring(dotIndex + 1), language);
@@ -690,16 +690,16 @@ public class Reflexao {
     }
 
     /**
-     * Atribui valor ao bean de acordo com o set. Para os campos do tipo Data s„o consi
+     * Atribui valor ao bean de acordo com o set. Para os campos do tipo Data s√£o consi
      *
      * @param bean
      *            - DTO
      * @param value
-     *            - Valor a ser atribuÌdo.
+     *            - Valor a ser atribu√≠do.
      * @param attributeName
      *            - Nome do atributo.
      * @param language
-     *            - Linguagem do usu·rio logado.
+     *            - Linguagem do usu√°rio logado.
      * @throws Exception
      * @author valdoilo.damasceno
      * @since 11.02.2014

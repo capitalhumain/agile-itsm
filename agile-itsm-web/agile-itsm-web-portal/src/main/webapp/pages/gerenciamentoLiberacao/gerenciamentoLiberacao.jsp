@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@page import="br.com.centralit.citcorpore.util.ParametroUtil" %>
 <%@page import="br.com.centralit.citcorpore.util.Enumerados" %>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil" %>
@@ -9,8 +9,6 @@
 <%@page import="br.com.centralit.citcorpore.util.CitCorporeConstantes" %>
 
 <%
-	response.setCharacterEncoding("ISO-8859-1");
-
 	String login = "";
 	UsuarioDTO usuario = WebUtil.getUsuario(request);
 	if (usuario != null) {
@@ -30,7 +28,7 @@
 	<%@include file="/novoLayout/common/include/libCabecalho.jsp" %>
 	<link href="${ctx}/novoLayout/common/theme/css/atualiza-antigo.css" rel="stylesheet" />
 
-	<title><fmt:message key="citcorpore.comum.title"/></title>
+	<%@include file="/novoLayout/common/include/titulo.jsp" %>
 	<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp" %>
 
 	<link type="text/css" rel="stylesheet" href="${ctx}/css/layout-default-latest.css"/>

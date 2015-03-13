@@ -31,7 +31,7 @@ public class ComandoDao extends CrudDaoDefaultImpl {
 	Collection<Field> listFields = new ArrayList<>();
 
 	listFields.add(new Field("ID", "id", true, true, false, false));
-	listFields.add(new Field("DESCRICAO", "descricao", false, false, false, true,"Descrição!"));
+	listFields.add(new Field("DESCRICAO", "descricao", false, false, false, true,"DescriÃ§Ã£o!"));
 
 	return listFields;
     }

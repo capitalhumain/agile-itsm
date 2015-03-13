@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="br.com.centralit.citcorpore.util.ParametroUtil"%>
 <%@page import="br.com.citframework.util.Constantes"%>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
@@ -118,7 +118,7 @@ function abrirPopup(id, text){
 						<form name='form' action='${ctx}/pages/listagemConsultas/listagemConsultas'>
 							<input type='hidden' name='idObjetoNegocio' />
 							<div>
-								<div id="infoDiv" style="font-weight: bold;">Consultas/Relatórios</div>
+								<div id="infoDiv" style="font-weight: bold;">Consultas/RelatÃ³rios</div>
 								<br>
 								<ul id="tt" class="easyui-tree" data-options="url:'${ctx}/pages/listagemConsultasObjects/listagemConsultasObjects.load',animate: true, onClick: function(node){
 											abrirPopup(node.id, node.text);

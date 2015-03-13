@@ -40,7 +40,7 @@ public class DisparaEvento implements Job {
                     listItemConfiguracao = new ArrayList<EventoItemConfigRelDTO>();
                 }
 
-                // Busca Itens de Configuração relacionados ao grupo
+                // Busca Itens de ConfiguraÃ§Ã£o relacionados ao grupo
                 final GrupoItemConfiguracaoDTO grupoItemConfiguracaoDTO = new GrupoItemConfiguracaoDTO();
                 for (final EventoGrupoDTO eventoGrupoDTO : lstGrupo) {
                     final Integer idGrupo = eventoGrupoDTO.getIdGrupo();
@@ -50,7 +50,7 @@ public class DisparaEvento implements Job {
                     for (final ItemConfiguracaoDTO itemConfiguracaoDTO : lstItemConfigGrupo) {
                         final EventoItemConfigRelDTO configRelDTO = new EventoItemConfigRelDTO();
                         configRelDTO.setIdItemConfiguracao(itemConfiguracaoDTO.getIdItemConfiguracao());
-                        // Verifica se o Item de Configuração consta na lista
+                        // Verifica se o Item de ConfiguraÃ§Ã£o consta na lista
                         if (!listItemConfiguracao.contains(configRelDTO)) {
                             listItemConfiguracao.add(configRelDTO);
                         }

@@ -65,7 +65,7 @@ public class RestBICitsmartOperationUtil {
 
     public static BICitsmartResp execute(final RestSessionDTO restSession, final RestOperationDTO restOperation, final CtMessage input) throws JAXBException {
         if (!validAttributes(restOperation)) {
-            throw new JAXBException("Classe de execuÁ„o n„o foi parametrizada");
+            throw new JAXBException("Classe de execu√ß√£o n√£o foi parametrizada");
         }
         if (restOperation.getClassType().equalsIgnoreCase(ClassType.Java.name())) {
             return executeJavaClass(restSession, restOperation, input);
@@ -118,18 +118,18 @@ public class RestBICitsmartOperationUtil {
         final RestSessionDTO restSession = RestUtil.getRestSessionService(null).getSession(input.getSessionID());
         if (!RestUtil.isValidSession(restSession)) {
             return Response.status(Status.PRECONDITION_FAILED)
-                    .entity(RestBICitsmartOperationUtil.buildOperationError(RestEnum.SESSION_ERROR, "Sess„o n„o existe ou est· expirada", input)).build();
+                    .entity(RestBICitsmartOperationUtil.buildOperationError(RestEnum.SESSION_ERROR, "Sess√£o n√£o existe ou est√° expirada", input)).build();
         }
 
         final RestOperationDTO restOperation = RestUtil.getRestOperationService(restSession).findByName(input.getMessageID());
         if (restOperation == null) {
-            return Response.status(Status.PRECONDITION_FAILED).entity(RestBICitsmartOperationUtil.buildOperationError(RestEnum.PARAM_ERROR, "OperaÁ„o n„o cadastrada", input))
+            return Response.status(Status.PRECONDITION_FAILED).entity(RestBICitsmartOperationUtil.buildOperationError(RestEnum.PARAM_ERROR, "Opera√ß√£o n√£o cadastrada", input))
                     .build();
         }
 
         if (!RestUtil.getRestPermissionService(restSession).allowedAccess(restSession, restOperation)) {
             return Response.status(Status.PRECONDITION_FAILED)
-                    .entity(RestBICitsmartOperationUtil.buildOperationError(RestEnum.PARAM_ERROR, "Usu·rio n„o tem acesso ‡ operaÁ„o", input)).build();
+                    .entity(RestBICitsmartOperationUtil.buildOperationError(RestEnum.PARAM_ERROR, "Usu√°rio n√£o tem acesso √† opera√ß√£o", input)).build();
         }
 
         RestExecutionDTO restExecution = null;

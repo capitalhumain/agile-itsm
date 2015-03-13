@@ -67,7 +67,7 @@ public class ControleContratoServiceEjb extends CrudServiceImpl implements Contr
             /** VERSAO **/
             if (controleContratoDto.getLstVersao() != null && !controleContratoDto.getLstVersao().isEmpty()) {
                 ControleContratoVersaoDTO item = null;
-                // varre a lista de serviços
+                // varre a lista de serviÃ§os
                 for (int i = 0; i < controleContratoDto.getLstVersao().size(); i++) {
                     item = (ControleContratoVersaoDTO) controleContratoDto.getLstVersao().get(i);
                     item.setIdControleContrato(controleContratoDto.getIdControleContrato());
@@ -77,7 +77,7 @@ public class ControleContratoServiceEjb extends CrudServiceImpl implements Contr
             /** PAGAMENTO **/
             if (controleContratoDto.getLstPagamento() != null && !controleContratoDto.getLstPagamento().isEmpty()) {
                 ControleContratoPagamentoDTO itemPagamento = null;
-                // varre a lista de serviços
+                // varre a lista de serviÃ§os
                 for (int i = 0; i < controleContratoDto.getLstPagamento().size(); i++) {
                     itemPagamento = (ControleContratoPagamentoDTO) controleContratoDto.getLstPagamento().get(i);
                     itemPagamento.setIdControleContrato(controleContratoDto.getIdControleContrato());
@@ -87,7 +87,7 @@ public class ControleContratoServiceEjb extends CrudServiceImpl implements Contr
             /** TREINAMENTO **/
             if (controleContratoDto.getLstTreinamento() != null && !controleContratoDto.getLstTreinamento().isEmpty()) {
                 ControleContratoTreinamentoDTO itemTreinamento = null;
-                // varre a lista de serviços
+                // varre a lista de serviÃ§os
                 for (int i = 0; i < controleContratoDto.getLstTreinamento().size(); i++) {
                     itemTreinamento = (ControleContratoTreinamentoDTO) controleContratoDto.getLstTreinamento().get(i);
                     itemTreinamento.setIdControleContrato(controleContratoDto.getIdControleContrato());
@@ -97,7 +97,7 @@ public class ControleContratoServiceEjb extends CrudServiceImpl implements Contr
             /** OCORRENCIA **/
             if (controleContratoDto.getLstOcorrencia() != null && !controleContratoDto.getLstOcorrencia().isEmpty()) {
                 ControleContratoOcorrenciaDTO itemOcorrencia = null;
-                // varre a lista de serviços
+                // varre a lista de serviÃ§os
                 for (int i = 0; i < controleContratoDto.getLstOcorrencia().size(); i++) {
                     itemOcorrencia = (ControleContratoOcorrenciaDTO) controleContratoDto.getLstOcorrencia().get(i);
                     itemOcorrencia.setIdControleContrato(controleContratoDto.getIdControleContrato());
@@ -108,7 +108,7 @@ public class ControleContratoServiceEjb extends CrudServiceImpl implements Contr
             /** MODULOS ATIVOS **/
             if (controleContratoDto.getLstModulosAtivos() != null && !controleContratoDto.getLstModulosAtivos().isEmpty()) {
                 final ControleContratoModuloSistemaDTO item = new ControleContratoModuloSistemaDTO();
-                // varre a lista de serviços
+                // varre a lista de serviÃ§os
                 for (int i = 0; i < controleContratoDto.getLstModulosAtivos().size(); i++) {
                     item.setIdControleContrato(controleContratoDto.getIdControleContrato());
                     item.setIdModuloSistema(Integer.parseInt((String) controleContratoDto.getLstModulosAtivos().get(i)));
@@ -159,7 +159,7 @@ public class ControleContratoServiceEjb extends CrudServiceImpl implements Contr
             controleContratoVersaoDao.deleteByIdControleContrato(controleContratoDto); // delete
             if (controleContratoDto.getLstVersao() != null && !controleContratoDto.getLstVersao().isEmpty()) {
                 ControleContratoVersaoDTO item = null;
-                // varre a lista de serviços
+                // varre a lista de serviÃ§os
                 for (int i = 0; i < controleContratoDto.getLstVersao().size(); i++) {
                     item = (ControleContratoVersaoDTO) controleContratoDto.getLstVersao().get(i);
                     item.setIdControleContrato(controleContratoDto.getIdControleContrato());
@@ -170,7 +170,7 @@ public class ControleContratoServiceEjb extends CrudServiceImpl implements Contr
             controleContratoPagamentoDao.deleteByIdControleContrato(controleContratoDto); // delete
             if (controleContratoDto.getLstPagamento() != null && !controleContratoDto.getLstPagamento().isEmpty()) {
                 ControleContratoPagamentoDTO itemPagamento = null;
-                // varre a lista de serviços
+                // varre a lista de serviÃ§os
                 for (int i = 0; i < controleContratoDto.getLstPagamento().size(); i++) {
                     itemPagamento = (ControleContratoPagamentoDTO) controleContratoDto.getLstPagamento().get(i);
                     itemPagamento.setIdControleContrato(controleContratoDto.getIdControleContrato());
@@ -181,7 +181,7 @@ public class ControleContratoServiceEjb extends CrudServiceImpl implements Contr
             controleContratoTreinamentoDao.deleteByIdControleContrato(controleContratoDto); // delete
             if (controleContratoDto.getLstTreinamento() != null && !controleContratoDto.getLstTreinamento().isEmpty()) {
                 ControleContratoTreinamentoDTO itemTreinamento = null;
-                // varre a lista de serviços
+                // varre a lista de serviÃ§os
                 for (int i = 0; i < controleContratoDto.getLstTreinamento().size(); i++) {
                     itemTreinamento = (ControleContratoTreinamentoDTO) controleContratoDto.getLstTreinamento().get(i);
                     itemTreinamento.setIdControleContrato(controleContratoDto.getIdControleContrato());
@@ -192,7 +192,7 @@ public class ControleContratoServiceEjb extends CrudServiceImpl implements Contr
             controleContratoOcorrenciaDao.deleteByIdControleContrato(controleContratoDto); // delete
             if (controleContratoDto.getLstOcorrencia() != null && !controleContratoDto.getLstOcorrencia().isEmpty()) {
                 ControleContratoOcorrenciaDTO itemOcorrencia = null;
-                // varre a lista de serviços
+                // varre a lista de serviÃ§os
                 for (int i = 0; i < controleContratoDto.getLstOcorrencia().size(); i++) {
                     itemOcorrencia = (ControleContratoOcorrenciaDTO) controleContratoDto.getLstOcorrencia().get(i);
                     itemOcorrencia.setIdControleContrato(controleContratoDto.getIdControleContrato());
@@ -204,7 +204,7 @@ public class ControleContratoServiceEjb extends CrudServiceImpl implements Contr
             controleContratoModuloSistemaDao.deleteByIdControleContrato(controleContratoDto); // delete
             if (controleContratoDto.getLstModulosAtivos() != null && !controleContratoDto.getLstModulosAtivos().isEmpty()) {
                 final ControleContratoModuloSistemaDTO item = new ControleContratoModuloSistemaDTO();
-                // varre a lista de serviços
+                // varre a lista de serviÃ§os
                 for (int i = 0; i < controleContratoDto.getLstModulosAtivos().size(); i++) {
                     item.setIdControleContrato(controleContratoDto.getIdControleContrato());
                     item.setIdModuloSistema(Integer.parseInt((String) controleContratoDto.getLstModulosAtivos().get(i)));
@@ -222,7 +222,7 @@ public class ControleContratoServiceEjb extends CrudServiceImpl implements Contr
 
     }
 
-    // FIXME - Ajustar forma de obtenção dos DAOs
+    // FIXME - Ajustar forma de obtenÃ§Ã£o dos DAOs
     @Override
     public BaseEntity restore(final BaseEntity model) throws ServiceException, LogicException {
         ControleContratoDTO controleContratoDto = (ControleContratoDTO) model;

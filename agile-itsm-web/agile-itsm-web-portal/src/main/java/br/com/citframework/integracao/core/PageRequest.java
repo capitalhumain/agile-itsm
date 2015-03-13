@@ -5,7 +5,7 @@ import java.io.Serializable;
 import br.com.citframework.util.Assert;
 
 /**
- * ImplementaÁ„o b·sica de {@link Pageable}
+ * Implementa√ß√£o b√°sica de {@link Pageable}
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 01/10/2014
@@ -19,12 +19,12 @@ public class PageRequest implements Pageable, Serializable {
     private final int size;
 
     /**
-     * Cria uma nova {@link PageRequest}. P·ginas s„o iniciadas de zero, ent„o informando {@code 0} for {@code page} ir· retornar a primeira p·gina
+     * Cria uma nova {@link PageRequest}. P√°ginas s√£o iniciadas de zero, ent√£o informando {@code 0} for {@code page} ir√° retornar a primeira p√°gina
      *
      * @param page
-     *            baseado em zero (ou seja, inicia em 0) Ìndice
+     *            baseado em zero (ou seja, inicia em 0) √≠ndice
      * @param size
-     *            tamanho da p·gina a ser retornado
+     *            tamanho da p√°gina a ser retornado
      */
     public PageRequest(final int page, final int size) {
         Assert.isTrue(page >= 0, "Page index must not be less than zero!");

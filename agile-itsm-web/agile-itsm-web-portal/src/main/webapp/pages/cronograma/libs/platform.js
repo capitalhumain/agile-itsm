@@ -213,7 +213,7 @@ function isValidDurationMillis(n) {
 
 
 /*
- supports almost all Java currency format e.g.: ###,##0.00EUR   €#,###.00  #,###.00€  -$#,###.00  $-#,###.00
+ supports almost all Java currency format e.g.: ###,##0.00EUR   â‚¬#,###.00  #,###.00â‚¬  -$#,###.00  $-#,###.00
  */
 function isValidCurrency(numStr){
   //first try to convert format in a regex

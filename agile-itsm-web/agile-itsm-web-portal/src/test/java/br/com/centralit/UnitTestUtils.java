@@ -6,7 +6,7 @@ import static org.junit.Assert.assertFalse;
 import org.junit.Assert;
 
 /**
- * Utilit·rios a serem usados nos testes utilit·rios
+ * Utilit√°rios a serem usados nos testes utilit√°rios
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 01/10/2014

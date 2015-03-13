@@ -134,7 +134,7 @@ public class InformacoesItemConfiguracaoMudanca extends AjaxFormAction {
                     grupoPai = (GrupoItemConfiguracaoDTO) grupoItemConfiguracaoService.restore(grupoPai);
                 }
 
-                /* Cabeçalho */
+                /* CabeÃ§alho */
                 subDiv.append("<div id='cabecalhoInf'>");
                 subDiv.append("<h2>Item de Configura&ccedil;&atilde;o</h2>");
                 subDiv.append("<b>" + UtilI18N.internacionaliza(request, "citcorpore.comum.identificacao") + ": </b>" + itemPai.getIdentificacao() + "");
@@ -175,7 +175,7 @@ public class InformacoesItemConfiguracaoMudanca extends AjaxFormAction {
             final MidiaSoftwareService midiaSoftwareService = (MidiaSoftwareService) ServiceLocator.getInstance().getService(MidiaSoftwareService.class, null);
             final RequisicaoLiberacaoService liberacaoService = (RequisicaoLiberacaoService) ServiceLocator.getInstance().getService(
                     RequisicaoLiberacaoService.class, null);
-            /* Setando o form do item de configuração pai */
+            /* Setando o form do item de configuraÃ§Ã£o pai */
             final HTMLForm form = document.getForm("form");
             form.clear();
 

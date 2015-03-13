@@ -42,12 +42,12 @@ public class MonitoramentoAtivosDAO extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Retorna MonitoramentoAtivo relacionado à Característica do Tipo Item Configuração informado.
+	 * Retorna MonitoramentoAtivo relacionado Ã  CaracterÃ­stica do Tipo Item ConfiguraÃ§Ã£o informado.
 	 * 
 	 * @param idTipoItemConfiguracao
-	 *            - Identificador do Tipo Item Configuração.
+	 *            - Identificador do Tipo Item ConfiguraÃ§Ã£o.
 	 * @param idCaracteristica
-	 *            - Identificador da Característica.
+	 *            - Identificador da CaracterÃ­stica.
 	 * @return MonitoramentoAtivosDTO relacionado.
 	 * @since 16.06.2014
 	 * @author valdoilo.damasceno
@@ -85,10 +85,10 @@ public class MonitoramentoAtivosDAO extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Obtém o MonitoramentoAtivo do TipoItemConfiguração.
+	 * ObtÃ©m o MonitoramentoAtivo do TipoItemConfiguraÃ§Ã£o.
 	 * 
 	 * @param idTipoItemConfiguracao
-	 *            - Identificador do Tipo de Item Configuração.
+	 *            - Identificador do Tipo de Item ConfiguraÃ§Ã£o.
 	 * @return MonitoramentoAtivosDTO
 	 * @since 16.06.2014
 	 * @author valdoilo.damasceno

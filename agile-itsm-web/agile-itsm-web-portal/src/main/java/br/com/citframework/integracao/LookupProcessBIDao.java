@@ -106,7 +106,7 @@ public class LookupProcessBIDao extends LookupProcessDefaultDao {
 								where = where + " = '";
 								obj = (UtilDatas.strToSQLDate(obj)).toString();
 							} catch (LogicException e) {
-								throw new LogicException("Data Inv·lida");
+								throw new LogicException("Data Inv√°lida");
 							}
 						} else {
 							where = where + cp.getNomeFisico();

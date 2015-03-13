@@ -1,12 +1,12 @@
 <br.com.centralit.citquestionario.bean.QuestionarioDTO>
   <idCategoriaQuestionario>1</idCategoriaQuestionario>
-  <nomeQuestionario>Modelo - Informações da build</nomeQuestionario>
+  <nomeQuestionario>Modelo - InformaÃ§Ãµes da build</nomeQuestionario>
   <ativo>S</ativo>
   <idEmpresa>1</idEmpresa>
   <colGrupos class="list">
     <br.com.centralit.citquestionario.bean.GrupoQuestionarioDTO>
       <idGrupoQuestionario>44</idGrupoQuestionario>
-      <nomeGrupoQuestionario>Construção</nomeGrupoQuestionario>
+      <nomeGrupoQuestionario>ConstruÃ§Ã£o</nomeGrupoQuestionario>
       <colQuestoes class="list">
         <br.com.centralit.citquestionario.bean.QuestaoQuestionarioDTO>
           <tituloQuestaoQuestionario>Em qual est&amp;aacute;gio se encontra constru&amp;ccedil;&amp;atilde;o?&lt;br /&gt;</tituloQuestaoQuestionario>

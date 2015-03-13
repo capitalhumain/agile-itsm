@@ -23,7 +23,7 @@ function validar() {
 		mostrar_aguarde();
 		document.form.fireEvent("autenticarCandidato");
 	} else {
-		// Validação login
+		// ValidaÃ§Ã£o login
 		if(!$('#cpf').val()) {
 			alert(i18n_message("informe.cpf"));
 			$('#cpf').focus();

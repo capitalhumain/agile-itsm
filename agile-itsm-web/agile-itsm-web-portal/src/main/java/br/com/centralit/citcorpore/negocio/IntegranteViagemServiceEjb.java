@@ -40,21 +40,21 @@ public class IntegranteViagemServiceEjb extends CrudServiceImpl implements Integ
 	}
 
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	public IntegranteViagemDTO findById(Integer idIntegranteViagem) throws Exception{
 		return this.getDao().findById(idIntegranteViagem);
 	}
 
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	public void atualizarIdItemTrabalho(Integer idTarefa, Integer idSolicitacaoServico){
 		this.getDao().atualizarIdItemTrabalho(idTarefa, idSolicitacaoServico);
 	}
 	
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	public void atualizarRemarcacaoDoIntegrante(Integer idIntegrante){
 		this.getDao().atualizarRemarcacaoDoIntegrante(idIntegrante);
@@ -71,7 +71,7 @@ public class IntegranteViagemServiceEjb extends CrudServiceImpl implements Integ
 	}
 	
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	public IntegranteViagemDTO recuperaIntegranteFuncionario(Integer idsolicitacaoServico,Integer idEmpregado) throws Exception{
 		
@@ -80,7 +80,7 @@ public class IntegranteViagemServiceEjb extends CrudServiceImpl implements Integ
 	}
 	
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	public IntegranteViagemDTO recuperaIntegranteNaoFuncionario(Integer idsolicitacaoServico, String nomeNaoFuncionario) throws Exception{
 		
@@ -99,7 +99,7 @@ public class IntegranteViagemServiceEjb extends CrudServiceImpl implements Integ
 	}
 
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	@Override
 	public Collection<IntegranteViagemDTO> recuperaIntegrantesViagemByCompras(Integer idSolicitacaoServico) throws Exception {

@@ -37,7 +37,7 @@ public interface TipoItemConfiguracaoService extends CrudService {
     public BaseEntity create(final BaseEntity tipo, final HttpServletRequest request) throws LogicException, ServiceException;
 
     /**
-     * Restaura GRID de CaracterÌstica.
+     * Restaura GRID de Caracter√≠stica.
      *
      * @param document
      *            - DocumentHTML
@@ -48,7 +48,7 @@ public interface TipoItemConfiguracaoService extends CrudService {
     public void restaurarGridCaracteristicas(final DocumentHTML document, final Collection<CaracteristicaDTO> caracteristicas);
 
     /**
-     * Restura GRID de caracterÌsticas do Item de ConfiguraÁ„o Filho selecionado na tela de PatrimÙnio.
+     * Restura GRID de caracter√≠sticas do Item de Configura√ß√£o Filho selecionado na tela de Patrim√¥nio.
      *
      * @param document
      *            - DocumentHTML
@@ -59,7 +59,7 @@ public interface TipoItemConfiguracaoService extends CrudService {
     public void restaurarGridCaracteristicasItemConfiguracaoFilho(final DocumentHTML document, final Collection<CaracteristicaDTO> caracteristicas);
 
     /**
-     * Verifica se Tipo Item ConfiguraÁ„o informada existe.
+     * Verifica se Tipo Item Configura√ß√£o informada existe.
      *
      * @param tipoItemConfiguracao
      * @return
@@ -69,7 +69,7 @@ public interface TipoItemConfiguracaoService extends CrudService {
     public boolean verificarSeTipoItemConfiguracaoExiste(final TipoItemConfiguracaoDTO tipoItemConfiguracao) throws PersistenceException;
 
     /**
-     * Verifica se o Tipo Item ConfiguraÁ„o est· associado a algum Item ConfiguraÁ„o
+     * Verifica se o Tipo Item Configura√ß√£o est√° associado a algum Item Configura√ß√£o
      * 
      * @param tipoItemConfiguracao
      * @return

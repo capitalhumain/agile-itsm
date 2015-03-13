@@ -12,7 +12,7 @@ import br.com.citframework.service.CrudService;
 
 public interface PrioridadeServicoUsuarioService extends CrudService {
 	/**
-	 * @see MÈtodo utilizado para restaurar prioridades do usu·rios de acordo com o id do Acordo de NÌvel de serviÁo
+	 * @see M√©todo utilizado para restaurar prioridades do usu√°rios de acordo com o id do Acordo de N√≠vel de servi√ßo
 	 * @param idAcordoNivelServico
 	 * @return Collection
 	 * @throws Exception
@@ -29,7 +29,7 @@ public interface PrioridadeServicoUsuarioService extends CrudService {
     public PrioridadeServicoUsuarioDTO findByIdAcordoNivelServicoAndIdUsuario(Integer idAcordoNivelServico, Integer idUsuario) throws Exception;
     
     /**
-     * @see MÈtodo utilizado para recuperar a Prioridade de um determinado usu·rio.
+     * @see M√©todo utilizado para recuperar a Prioridade de um determinado usu√°rio.
      * @param idUsuario
      * @return
      * @throws Exception

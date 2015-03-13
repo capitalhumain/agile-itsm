@@ -451,13 +451,13 @@ public class SolicitacaoServicoDTO extends ObjetoNegocioFluxoDTO {
     private Integer idRequisicaoProduto;
     private Integer idRequisicaoViagem;
     private Integer idRequisicaoPessoal;
-    // Atributo auxiliar, n„o È salvo em banco
+    // Atributo auxiliar, n√£o √© salvo em banco
     private String possuiAnexo;
     private String vencendo;
     private String criouProblemaAutomatico;
     private Integer idUsuarioResponsavelAtual;
 
-    // Colunas auxiliares da tabela de ocorrÍncia, n„o s„o salvas em banco
+    // Colunas auxiliares da tabela de ocorr√™ncia, n√£o s√£o salvas em banco
     private Date dataRegistroOcorrencia;
     private String dataRegistroOcorrenciaStr;
     private String horaRegistroOcorrencia;
@@ -680,15 +680,15 @@ public class SolicitacaoServicoDTO extends ObjetoNegocioFluxoDTO {
     public String getDadosStr() {
         final StringBuilder str = new StringBuilder();
         if (getIdSolicitacaoServico() != null) {
-            str.append("N˙mero da solicitaÁ„o: " + getIdSolicitacaoServico() + "\n");
+            str.append("N√∫mero da solicita√ß√£o: " + getIdSolicitacaoServico() + "\n");
             if (getDataHoraSolicitacaoStr() != null) {
                 str.append("Criada em: " + getDataHoraSolicitacaoStr() + "\n");
             }
             if (getDescrSituacao() != null) {
-                str.append("SituaÁ„o: " + getDescrSituacao() + "\n");
+                str.append("Situa√ß√£o: " + getDescrSituacao() + "\n");
             }
             if (getSituacaoSLA() != null) {
-                str.append("SituaÁ„o do SLA: " + SituacaoSLA.valueOf(getSituacaoSLA()).getDescricao() + "\n");
+                str.append("Situa√ß√£o do SLA: " + SituacaoSLA.valueOf(getSituacaoSLA()).getDescricao() + "\n");
             }
             if (getSituacaoSLA() == null || !getSituacaoSLA().equalsIgnoreCase("S")) {
                 if (getPrazoHH() != null) {
@@ -709,7 +709,7 @@ public class SolicitacaoServicoDTO extends ObjetoNegocioFluxoDTO {
                     imp = "Baixo";
                 }
                 if (getImpacto().equalsIgnoreCase("M")) {
-                    imp = "MÈdio";
+                    imp = "M√©dio";
                 }
                 if (getImpacto().equalsIgnoreCase("A")) {
                     imp = "Alto";
@@ -722,15 +722,15 @@ public class SolicitacaoServicoDTO extends ObjetoNegocioFluxoDTO {
                     imp = "Baixa";
                 }
                 if (getUrgencia().equalsIgnoreCase("M")) {
-                    imp = "MÈdia";
+                    imp = "M√©dia";
                 }
                 if (getUrgencia().equalsIgnoreCase("A")) {
                     imp = "Alta";
                 }
-                str.append("UrgÍncia: " + imp + "\n");
+                str.append("Urg√™ncia: " + imp + "\n");
             }
             if (getIdPrioridade() != null) {
-                str.append("Prioridade (CÛdigo): " + getIdPrioridade() + "\n");
+                str.append("Prioridade (C√≥digo): " + getIdPrioridade() + "\n");
             }
         }
         return str.toString();
@@ -777,10 +777,10 @@ public class SolicitacaoServicoDTO extends ObjetoNegocioFluxoDTO {
     }
 
     /**
-     * Retorna DataHoraLimite no formato String de acordo com a Linguagem do Usu·rio. (Ex. PT, EN)
+     * Retorna DataHoraLimite no formato String de acordo com a Linguagem do Usu√°rio. (Ex. PT, EN)
      *
      * @param language
-     * @return dataHoraLimiteStr - No formato String de acordo com a Linguagem do Usu·rio.
+     * @return dataHoraLimiteStr - No formato String de acordo com a Linguagem do Usu√°rio.
      * @author valdoilo.damasceno
      * @since 04.02.2014
      */
@@ -937,11 +937,11 @@ public class SolicitacaoServicoDTO extends ObjetoNegocioFluxoDTO {
     }
 
     /**
-     * Retorna DataHoraSolicitacao de acordo com a Linguagem do Usu·rio (Ex: PT, EN).
+     * Retorna DataHoraSolicitacao de acordo com a Linguagem do Usu√°rio (Ex: PT, EN).
      *
      * @param language
-     *            - Linguagem do usu·rio.
-     * @return dataHoraSolicitacao no formato String de acordo com a linguage do usu·rio.
+     *            - Linguagem do usu√°rio.
+     * @return dataHoraSolicitacao no formato String de acordo com a linguage do usu√°rio.
      * @author valdoilo.damasceno
      * @since 04.02.20124
      */
@@ -2656,7 +2656,7 @@ public class SolicitacaoServicoDTO extends ObjetoNegocioFluxoDTO {
     }
 
     /**
-     * 25/09/2013 Trata a internacionalizaÁ„o de acordo com a situaÁ„o Foi verificado que existem todos as situaÁıes internacionalizadas em
+     * 25/09/2013 Trata a internacionaliza√ß√£o de acordo com a situa√ß√£o Foi verificado que existem todos as situa√ß√µes internacionalizadas em
      * citcorpore.comum.{situacao} sendo (situacao} em minusculo
      *
      * @param request

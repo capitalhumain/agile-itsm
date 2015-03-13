@@ -239,7 +239,7 @@ public class ProjetoDTO extends BaseEntity {
 		if (emergencial.equalsIgnoreCase("S")){
 			return "Sim";
 		}else if (emergencial.equalsIgnoreCase("N")){
-			return "Não";
+			return "NÃ£o";
 		}
 		return "";
 	}	
@@ -250,7 +250,7 @@ public class ProjetoDTO extends BaseEntity {
 		if (emergencial.equalsIgnoreCase("S")){
 			return UtilHTML.encodeHTML("Sim");
 		}else if (emergencial.equalsIgnoreCase("N")){
-			return UtilHTML.encodeHTML("Não");
+			return UtilHTML.encodeHTML("NÃ£o");
 		}
 		return "";
 	}	

@@ -119,7 +119,7 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
      * @param user
      * @return
      * @throws Exception
-     * @author murilo.pacheco metodo para gravar o historico de auteraÁıes em liberaÁıes
+     * @author murilo.pacheco metodo para gravar o historico de autera√ß√µes em libera√ß√µes
      */
     public HistoricoLiberacaoDTO createHistoricoLiberacao(final RequisicaoLiberacaoDTO requisicaoLiberacaoDTO) throws Exception {
         final HistoricoLiberacaoDTO historico = new HistoricoLiberacaoDTO();
@@ -133,7 +133,7 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
         Reflexao.copyPropertyValues(requisicaoLiberacaoDTOAux, historico);
         historico.setIdExecutorModificacao(idExecutormodificacao);
 
-        // esse bloco seta as informaÁıes de contato.
+        // esse bloco seta as informa√ß√µes de contato.
         ContatoRequisicaoLiberacaoDTO contatoRequisicaoLiberacaoDTO = new ContatoRequisicaoLiberacaoDTO();
         final ContatoRequisicaoLiberacaoService contatoRequisicaoLiberacaoService = (ContatoRequisicaoLiberacaoService) ServiceLocator.getInstance()
                 .getService(ContatoRequisicaoLiberacaoService.class, null);
@@ -319,7 +319,7 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
             liberacaoDto.setIdContatoRequisicaoLiberacao(contatoRequisicaoLiberacaoDto.getIdContatoRequisicaoLiberacao());
             liberacaoDto = (RequisicaoLiberacaoDTO) liberacaoDao.create(liberacaoDto);
 
-            // Grava LiberaÁ„o DTO
+            // Grava Libera√ß√£o DTO
 
             if (liberacaoDto.getColArquivosUpload() != null) {
                 this.gravaInformacoesGED(liberacaoDto, tc, historicoLiberacaoDTO);
@@ -333,7 +333,7 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
 
             criarOcorrenciaLiberacao(liberacaoDto, tc);
 
-            // esse bloco grava a ocorrencia a partir do bot„o adicionar registro de execuÁ„o
+            // esse bloco grava a ocorrencia a partir do bot√£o adicionar registro de execu√ß√£o
             final Source source = new Source(liberacaoDto.getRegistroexecucao());
             liberacaoDto.setRegistroexecucao(source.getTextExtractor().toString());
 
@@ -348,7 +348,7 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
                 ocorrenciaLiberacaoDTO.setDescricao(br.com.centralit.citcorpore.util.Enumerados.CategoriaOcorrencia.Execucao.getDescricao());
                 ocorrenciaLiberacaoDTO.setDataInicio(UtilDatas.getDataAtual());
                 ocorrenciaLiberacaoDTO.setDataFim(UtilDatas.getDataAtual());
-                ocorrenciaLiberacaoDTO.setInformacoesContato("n„o se aplica");
+                ocorrenciaLiberacaoDTO.setInformacoesContato("n√£o se aplica");
                 ocorrenciaLiberacaoDTO.setRegistradopor(liberacaoDto.getUsuarioDto().getLogin());
                 try {
                     ocorrenciaLiberacaoDTO.setDadosLiberacao(new Gson().toJson(liberacaoDto));
@@ -679,7 +679,7 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
                 }
             }
 
-            // esse bloco grava a ocorrencia a partir do bot„o adicionar registro de execuÁ„o
+            // esse bloco grava a ocorrencia a partir do bot√£o adicionar registro de execu√ß√£o
             if (liberacaoDto.getRegistroexecucao() != null) {
                 final Source source = new Source(liberacaoDto.getRegistroexecucao());
                 liberacaoDto.setRegistroexecucao(source.getTextExtractor().toString());
@@ -695,7 +695,7 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
                     ocorrenciaLiberacaoDTO.setDescricao(br.com.centralit.citcorpore.util.Enumerados.CategoriaOcorrencia.Execucao.getDescricao());
                     ocorrenciaLiberacaoDTO.setDataInicio(UtilDatas.getDataAtual());
                     ocorrenciaLiberacaoDTO.setDataFim(UtilDatas.getDataAtual());
-                    ocorrenciaLiberacaoDTO.setInformacoesContato("n„o se aplica");
+                    ocorrenciaLiberacaoDTO.setInformacoesContato("n√£o se aplica");
                     ocorrenciaLiberacaoDTO.setRegistradopor(liberacaoDto.getUsuarioDto().getLogin());
                     try {
                         ocorrenciaLiberacaoDTO.setDadosLiberacao(new Gson().toJson(liberacaoDto));
@@ -762,7 +762,7 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
                 }
             }
 
-            // esse bloco grava os anexos da liberaÁ„o
+            // esse bloco grava os anexos da libera√ß√£o
             final ControleGEDDao gedDao = new ControleGEDDao();
             gedDao.setTransactionControler(tc);
 
@@ -914,7 +914,7 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
         }
 
         if (liberacaoDto.getListRequisicaoLiberacaoItemConfiguracaoDTO() != null) {
-            // se n„o existir no banco, cria, caso contr·rio, atualiza
+            // se n√£o existir no banco, cria, caso contr√°rio, atualiza
             for (final RequisicaoLiberacaoItemConfiguracaoDTO requisicaoLiberacaoItemConfiguracaoDTO : liberacaoDto
                     .getListRequisicaoLiberacaoItemConfiguracaoDTO()) {
 
@@ -929,7 +929,7 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
                 }
             }
         }
-        // confere se existe algo no banco que n„o est· na lista salva, e deleta
+        // confere se existe algo no banco que n√£o est√° na lista salva, e deleta
         icsBanco = requisicaoLiberacaoItemConfiguracaoDao.listByIdRequisicaoLiberacao(liberacaoDto.getIdRequisicaoLiberacao());
         if (icsBanco != null) {
             for (final RequisicaoLiberacaoItemConfiguracaoDTO i : icsBanco) {
@@ -948,7 +948,7 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
         }
 
         if (historicoLiberacaoDTO.getListRequisicaoLiberacaoItemConfiguracaoDTO() != null) {
-            // se n„o existir no banco, cria, caso contr·rio, atualiza
+            // se n√£o existir no banco, cria, caso contr√°rio, atualiza
             for (final RequisicaoLiberacaoItemConfiguracaoDTO requisicaoLiberacaoItemConfiguracaoDTO : historicoLiberacaoDTO
                     .getListRequisicaoLiberacaoItemConfiguracaoDTO()) {
 
@@ -968,7 +968,7 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
         }
 
         if (historicoLiberacaoDTO.getColMudancas() != null) {
-            // grava no banco os historicos de mudanÁas.
+            // grava no banco os historicos de mudan√ßas.
             for (final LiberacaoMudancaDTO liberacaoMudancaDTO : historicoLiberacaoDTO.getColMudancas()) {
 
                 liberacaoMudancaDTO.setIdHistoricoLiberacao(historicoLiberacaoDTO.getIdHistoricoLiberacao());
@@ -986,7 +986,7 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
         }
 
         if (historicoLiberacaoDTO.getColMudancas() != null) {
-            // se n„o existir no banco, cria, caso contr·rio, atualiza
+            // se n√£o existir no banco, cria, caso contr√°rio, atualiza
             for (final LiberacaoProblemaDTO liberacaoProblemaDTO : historicoLiberacaoDTO.getColProblemas()) {
 
                 liberacaoProblemaDTO.setIdHistoricoLiberacao(historicoLiberacaoDTO.getIdHistoricoLiberacao());
@@ -1944,7 +1944,7 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
 
             requiDao.updateNotNull(liberacaoDto);
 
-            // Criando ocorrecia para liberaÁ„o de uma release
+            // Criando ocorrecia para libera√ß√£o de uma release
             ocorrenciaLiberacaoDTO.setIdRequisicaoLiberacao(liberacaoDto.getIdRequisicaoLiberacao());
             ocorrenciaLiberacaoDTO.setDataregistro(UtilDatas.getDataAtual());
             ocorrenciaLiberacaoDTO.setHoraregistro(UtilDatas.formatHoraFormatadaStr(UtilDatas.getHoraAtual()));
@@ -1952,7 +1952,7 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
             ocorrenciaLiberacaoDTO.setDescricao(br.com.centralit.citcorpore.util.Enumerados.CategoriaOcorrencia.Execucao.getDescricao());
             ocorrenciaLiberacaoDTO.setDataInicio(UtilDatas.getDataAtual());
             ocorrenciaLiberacaoDTO.setDataFim(UtilDatas.getDataAtual());
-            ocorrenciaLiberacaoDTO.setInformacoesContato("n„o se aplica");
+            ocorrenciaLiberacaoDTO.setInformacoesContato("n√£o se aplica");
             ocorrenciaLiberacaoDTO.setRegistradopor(liberacaoDto.getUsuarioDto().getLogin());
             ocorrenciaLiberacaoDTO.setDadosLiberacao(new Gson().toJson(liberacaoDto));
             ocorrenciaLiberacaoDTO.setOrigem(br.com.centralit.citcorpore.util.Enumerados.OrigemOcorrencia.OUTROS.getSigla().toString());
@@ -2177,8 +2177,8 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
             }
         } else {
             if (liberacaoDTO.getColMidia() != null && liberacaoDTO.getColMidia().size() > 0) {
-                // compara o que vem da tela com o que est· no banco se o que estiver na tela for diferente do banco
-                // ent„o ele grava poruqe o item n„o existe no banco.
+                // compara o que vem da tela com o que est√° no banco se o que estiver na tela for diferente do banco
+                // ent√£o ele grava poruqe o item n√£o existe no banco.
                 for (final RequisicaoLiberacaoMidiaDTO requisicaoLiberacaoMidiaDTO : liberacaoDTO.getColMidia()) {
                     for (final RequisicaoLiberacaoMidiaDTO requisicaoLiberacaoMidiaDTO2 : colMidiasBanco) {
                         idMidia1 = requisicaoLiberacaoMidiaDTO.getIdMidiaSoftware();
@@ -2195,9 +2195,9 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
                         midiaDAO.create(requisicaoLiberacaoMidiaDTO);
                     }
                 }
-                // Compara o que vem do banco com o que est· na tela se o que estiver no banco for diferente do que tem
+                // Compara o que vem do banco com o que est√° na tela se o que estiver no banco for diferente do que tem
                 // na tela
-                // ent„o ele seta a data fim para desabilitar no banco.
+                // ent√£o ele seta a data fim para desabilitar no banco.
                 if (colMidiasBanco != null && colMidiasBanco.size() > 0) {
                     for (final RequisicaoLiberacaoMidiaDTO requisicaoLiberacaoMidiaDTO : colMidiasBanco) {
                         for (final RequisicaoLiberacaoMidiaDTO requisicaoLiberacaoMidiaDTO2 : liberacaoDTO.getColMidia()) {
@@ -2237,8 +2237,8 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
             }
         } else {
             if (liberacaoDTO.getColResponsaveis() != null && liberacaoDTO.getColResponsaveis().size() > 0) {
-                // compara o que vem da tela com o que est· no banco se o que estiver na tela for diferente do banco
-                // ent„o ele grava poruqe o item n„o existe no banco.
+                // compara o que vem da tela com o que est√° no banco se o que estiver na tela for diferente do banco
+                // ent√£o ele grava poruqe o item n√£o existe no banco.
                 for (final RequisicaoLiberacaoResponsavelDTO requisicaoLiberacaoRespDTO : liberacaoDTO.getColResponsaveis()) {
                     for (final RequisicaoLiberacaoResponsavelDTO requisicaoLiberacaoRespDTO2 : colResponsavelBanco) {
                         idResp1 = requisicaoLiberacaoRespDTO.getIdResponsavel();
@@ -2255,9 +2255,9 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
                         responsavelDao.create(requisicaoLiberacaoRespDTO);
                     }
                 }
-                // Compara o que vem do banco com o que est· na tela se o que estiver no banco for diferente do que tem
+                // Compara o que vem do banco com o que est√° na tela se o que estiver no banco for diferente do que tem
                 // na tela
-                // ent„o ele seta a data fim para desabilitar no banco.
+                // ent√£o ele seta a data fim para desabilitar no banco.
                 if (colResponsavelBanco != null && colResponsavelBanco.size() > 0) {
                     for (final RequisicaoLiberacaoResponsavelDTO requisicaoLiberacaoRespDTO : colResponsavelBanco) {
                         for (final RequisicaoLiberacaoResponsavelDTO requisicaoLiberacaoMidiaDTO2 : liberacaoDTO.getColResponsaveis()) {
@@ -2297,8 +2297,8 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
             }
         } else {
             if (liberacaoDTO.getColRequisicaoCompras() != null && liberacaoDTO.getColRequisicaoCompras().size() > 0) {
-                // compara o que vem da tela com o que est· no banco se o que estiver na tela for diferente do banco
-                // ent„o ele grava poruqe o item n„o existe no banco.
+                // compara o que vem da tela com o que est√° no banco se o que estiver na tela for diferente do banco
+                // ent√£o ele grava poruqe o item n√£o existe no banco.
                 for (final RequisicaoLiberacaoRequisicaoComprasDTO requisicaoLiberacaoComprasDTO : liberacaoDTO.getColRequisicaoCompras()) {
                     for (final RequisicaoLiberacaoRequisicaoComprasDTO requisicaoLiberacaoComprasDTO2 : colComprasBanco) {
                         idCompras1 = requisicaoLiberacaoComprasDTO.getIdSolicitacaoServico();
@@ -2315,9 +2315,9 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
                         comprasDao.create(requisicaoLiberacaoComprasDTO);
                     }
                 }
-                // Compara o que vem do banco com o que est· na tela se o que estiver no banco for diferente do que tem
+                // Compara o que vem do banco com o que est√° na tela se o que estiver no banco for diferente do que tem
                 // na tela
-                // ent„o ele seta a data fim para desabilitar no banco.
+                // ent√£o ele seta a data fim para desabilitar no banco.
                 if (colComprasBanco != null && colComprasBanco.size() > 0) {
                     for (final RequisicaoLiberacaoRequisicaoComprasDTO requisicaoLiberacaoComprasDTO : colComprasBanco) {
                         for (final RequisicaoLiberacaoRequisicaoComprasDTO requisicaoLiberacaoComprasDTO2 : liberacaoDTO.getColRequisicaoCompras()) {
@@ -2665,7 +2665,7 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
         ocorrenciaLiberacaoDto.setDescricao(br.com.centralit.citcorpore.util.Enumerados.CategoriaOcorrencia.Execucao.getDescricao());
         ocorrenciaLiberacaoDto.setDataInicio(UtilDatas.getDataAtual());
         ocorrenciaLiberacaoDto.setDataFim(UtilDatas.getDataAtual());
-        ocorrenciaLiberacaoDto.setInformacoesContato("n„o se aplica");
+        ocorrenciaLiberacaoDto.setInformacoesContato("n√£o se aplica");
         ocorrenciaLiberacaoDto.setRegistradopor(requisicaoLiberacaoDto.getUsuarioDto().getLogin());
         ocorrenciaLiberacaoDto.setDadosLiberacao(new Gson().toJson(requisicaoLiberacaoDto));
         ocorrenciaLiberacaoDto.setOrigem(br.com.centralit.citcorpore.util.Enumerados.OrigemOcorrencia.OUTROS.getSigla().toString());

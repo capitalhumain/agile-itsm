@@ -64,7 +64,7 @@ public class ImportanciaConhecimentoGrupoDAO extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Deleta ImportanciaConhecimentoUsu·rio da Base de Conhecimento.
+	 * Deleta ImportanciaConhecimentoUsu√°rio da Base de Conhecimento.
 	 * 
 	 * @param idBaseConhecimento
 	 * @throws Exception
@@ -102,7 +102,7 @@ public class ImportanciaConhecimentoGrupoDAO extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Retorna lista de ImportanciaConhecimentoGrupo de acordo com a BaseConhecimento e a Lista de Grupos do Usu·rio.
+	 * Retorna lista de ImportanciaConhecimentoGrupo de acordo com a BaseConhecimento e a Lista de Grupos do Usu√°rio.
 	 * 
 	 * @param baseConhecimentoDto
 	 * @param listGrupoEmpregado

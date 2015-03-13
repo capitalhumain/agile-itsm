@@ -1,5 +1,5 @@
 /**
- * Utilit�rios para uso da API V3 do Google Maps
+ * Utilitários para uso da API V3 do Google Maps
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 12/09/2014
@@ -24,9 +24,9 @@
 	};
 
 	/**
-	 * Cria um objeto de mapa, conforme par�metros informado
+	 * Cria um objeto de mapa, conforme parâmetros informado
 	 *
-	 * @param {Object} par�metros para a cria��o do mapa
+	 * @param {Object} parâmetros para a criação do mapa
 	 * @return {Object} 
 	 */
 	$.fn.createMap = function(params) {
@@ -34,7 +34,7 @@
 	};
 
 	/**
-	 * Cria um �cocne para marcador no maps da cor '#999'
+	 * Cria um ícone para marcador no maps da cor '#999'
 	 * 
 	 * @return {google.maps.MarkerImage}
 	 */
@@ -46,7 +46,7 @@
 	};
 
 	/**
-	 * Cria um �cocne para marcador no maps da cor '#468847'
+	 * Cria um ícone para marcador no maps da cor '#468847'
 	 * 
 	 * @return {google.maps.MarkerImage}
 	 */
@@ -58,7 +58,7 @@
 	};
 
 	/**
-	 * Cria um �cocne para marcador no maps da cor '#3d003d'
+	 * Cria um ícone para marcador no maps da cor '#3d003d'
 	 * 
 	 * @return {google.maps.MarkerImage}
 	 */
@@ -70,7 +70,7 @@
 	};
 
 	/**
-	 * Cria um �cocne para marcador no maps da cor '#b94a48'
+	 * Cria um ícone para marcador no maps da cor '#b94a48'
 	 * 
 	 * @return {google.maps.MarkerImage}
 	 */
@@ -82,7 +82,7 @@
 	};
 
 	/**
-	 * Cria um �cocne para marcador no maps da cor '#f89406'
+	 * Cria um ícone para marcador no maps da cor '#f89406'
 	 * 
 	 * @return {google.maps.MarkerImage}
 	 */
@@ -103,9 +103,9 @@
 	};
 
 	/**
-	 * Cria um marcador pass�vel de ser adicionado em um mapa
+	 * Cria um marcador passível de ser adicionado em um mapa
 	 * 
-	 * @param {Object} par�metros conforme documenta��o para o Marker
+	 * @param {Object} parâmetros conforme documentação para o Marker
 	 * @return {Object} google.maps.Marker
 	 */
 	$.fn.createMarker = function(params) {
@@ -115,7 +115,7 @@
 	/**
 	 * Adiciona um marcador a um mapa
 	 *
-	 * @param {Object} mapa em que o marcador ser� adicionado
+	 * @param {Object} mapa em que o marcador será adicionado
 	 * @param {Object} marcador a ser adicionado
 	 */
 	$.fn.insertMarker = function(map, marker) {
@@ -132,9 +132,9 @@
 	};
 
 	/**
-	 * Constr�i uma InfoWindow do Google Maps
+	 * Constrói uma InfoWindow do Google Maps
 	 *
-	 * @param {Object} par�metos, conform os de uma google.maps.InfoWindow
+	 * @param {Object} parâmetros, conform os de uma google.maps.InfoWindow
 	 * @return {Object} google.maps.InfoWindow
 	 */
 	$.fn.createInfoWindow = function(params) {
@@ -158,9 +158,9 @@
 	/**
 	 * Insere uma InfoWindow para um marker em um mapa do Google Maps
 	 *
-	 * @param {Object} mapa em que est� o marker
-	 * @param {Object} mapa em que est� o marker a ser inclu�da a informa��o
-	 * @param {Object} par�metos, conform os de uma google.maps.InfoWindow
+	 * @param {Object} mapa em que está o marker
+	 * @param {Object} mapa em que está o marker a ser incluída a informação
+	 * @param {Object} parâmetros, conform os de uma google.maps.InfoWindow
 	 */
 	$.fn.insertInfoWindow = function(marker, map, params) {
 		var infowindow = $().createInfoWindow(params);
@@ -171,10 +171,10 @@
 	};
 
 	/**
-	 * Atualiza a posi��o de um marcador e de foco do mapa
+	 * Atualiza a posição de um marcador e de foco do mapa
 	 *
 	 * @param {Object} google.maps.LatLng
-	 * @param {Object} par�metros para configura��o
+	 * @param {Object} parâmetros para configuração
 	 */
 	$.fn.updatePosition = function(position, mapsParams) {
 		mapsParams.marker.setPosition(position);
@@ -182,9 +182,9 @@
 	};
 
 	/**
-	 * Remove todos os marcadores que est�o em um mapa
+	 * Remove todos os marcadores que estão em um mapa
 	 *
-	 * @param {Object} mapa em que est�o os marcadores
+	 * @param {Object} mapa em que estão os marcadores
 	 * @param {Object} marcadores a serem removidos
 	 */
 	$.fn.deleteMarkers = function(markers) {
@@ -195,9 +195,9 @@
 	};
 
 	/**
-	 * Remove todos as linhas (caminhos) que est�o em um mapa
+	 * Remove todos as linhas (caminhos) que estão em um mapa
 	 *
-	 * @param {Object} mapa em que est�o as linhas (caminhos)
+	 * @param {Object} mapa em que estão as linhas (caminhos)
 	 * @param {Object} linhas (caminhos) a serem removidas
 	 */
 	$.fn.deletePolylines = function(polylines) {
@@ -210,7 +210,7 @@
 	/**
 	 * Desenha linhas (caminhos) em um mapa
 	 *
-	 * @param {Object} mapa em ser� adicionada a linha (caminho)
+	 * @param {Object} mapa em será adicionada a linha (caminho)
 	 * @param {Object} caminho da linha (array de coordenadas 'google.maps.LatLng')
 	 */
 	$.fn.drawPolylines = function(map, linePath) {

@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- * Classe de testes para validação do comportamento de {@link PropertyFile}
+ * Classe de testes para validaÃ§Ã£o do comportamento de {@link PropertyFile}
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 03/02/2015

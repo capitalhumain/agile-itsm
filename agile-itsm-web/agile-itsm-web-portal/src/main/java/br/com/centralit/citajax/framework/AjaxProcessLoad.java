@@ -82,7 +82,7 @@ public class AjaxProcessLoad extends AjaxFacade {
         final HttpServletRequest request = this.getRequest();
         final HttpServletResponse response = this.getResponse();
 
-        /** Incluído por valdoilo.damasceno */
+        /** IncluÃ­do por valdoilo.damasceno */
         String language = UtilI18N.PORTUGUESE_SIGLA;
         if (request != null && request.getSession() != null && request.getSession().getAttribute("locale") != null) {
             language = (String) request.getSession().getAttribute("locale");
@@ -93,7 +93,7 @@ public class AjaxProcessLoad extends AjaxFacade {
         document.setBean(objBean);
         document.setValuesForm(hashValores);
 
-        /** Incluído por valdoilo.damasceno */
+        /** IncluÃ­do por valdoilo.damasceno */
         document.setLanguage(language);
 
         document.setIgnoreNextMethod(false);

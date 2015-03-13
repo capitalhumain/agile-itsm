@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.citframework.util.UtilDatas"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
@@ -12,16 +14,15 @@
 		%>
 		<%@include file="/include/header.jsp"%>
 
-		<%@include file="/include/security/security.jsp" %>
-		<title><fmt:message key="citcorpore.comum.title"/></title>
+		<%@include file="/novoLayout/common/include/titulo.jsp" %>
 		
 		<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 
-<script  charset="ISO-8859-1" type="text/javascript" src="${ctx}/js/PopupManager.js"></script>
+<script  charset="UTF-8" type="text/javascript" src="${ctx}/js/PopupManager.js"></script>
 
 		<link rel="stylesheet" type="text/css" href="./css/tipoItemConfiguracao.css" />
 		<%
-			    //se for chamado por iframe deixa apenas a parte de cadastro da página
+			    //se for chamado por iframe deixa apenas a parte de cadastro da pÃ¡gina
 			    if (iframe != null) {
 			%>
 			<link rel="stylesheet" type="text/css" href="./css/tipoItemConfiguracaoIFrame.css">
@@ -178,7 +179,7 @@
 
 		<%@include file="/include/footer.jsp"%>
 	</body>
-	<div id="POPUP_CARACTERISTICA" title="Pesquisa Característica">
+	<div id="POPUP_CARACTERISTICA" title="Pesquisa CaracterÃ­stica">
 		<div class="toggle_container">
 			<div id="tabs-2" class="block">
 				<div class="section" style="padding: 33px;">

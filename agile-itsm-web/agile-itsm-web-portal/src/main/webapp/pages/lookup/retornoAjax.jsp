@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 <%@page import="br.com.centralit.citcorpore.ajaxForms.Internacionalizar" %>
 <%@page import="java.util.Collection" %>
@@ -13,7 +13,7 @@
 <%
 	Collection col = (Collection) request.getAttribute("retorno");
 	String nomeLookup = request.getParameter("nomeLookup");
-	String checkbox = request.getParameter("checkbox");//verificar se a lookup é do tipo radio ou seja retorna um unico valor ou se é checkbox que retorna array com valores
+	String checkbox = request.getParameter("checkbox");//verificar se a lookup Ã© do tipo radio ou seja retorna um unico valor ou se Ã© checkbox que retorna array com valores
 	Integer totalPag = 0;
 	Integer pagAtual = 1;
 	Integer totalItens = 0;

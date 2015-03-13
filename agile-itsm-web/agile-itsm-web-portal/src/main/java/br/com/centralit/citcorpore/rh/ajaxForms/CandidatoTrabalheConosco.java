@@ -146,10 +146,10 @@ public class CandidatoTrabalheConosco extends Candidato {
 			msgEmail.append("									<tr>");
 			msgEmail.append("									<td style='border-top:solid 1px #d9d9d9' colspan='2'>");
 			msgEmail.append("										<div style='padding:15px 0'>");
-			msgEmail.append("											Ol· <b>"+candidatoDTO.getNome());
+			msgEmail.append("											Ol√° <b>"+candidatoDTO.getNome());
 			msgEmail.append("											</b><br>Para Ativar o seu Cadastro, clique no link abaixo.<br><br>");
 			msgEmail.append("											<a href='http://"+ request.getServerName() + ":" + request.getServerPort() + request.getContextPath()+"/pages/trabalheConosco/trabalheConosco.load?id="+hashID+"&autentica=S'>Ativar Cadastro</a><br>");
-			msgEmail.append("											<br>Depois de ativar, vocÍ poder· complementar seu currÌculo.<br><br>");
+			msgEmail.append("											<br>Depois de ativar, voc√™ poder√° complementar seu curr√≠culo.<br><br>");
 			msgEmail.append("										</div>");
 			msgEmail.append("									</td>");
 			msgEmail.append("									</tr>");
@@ -160,7 +160,7 @@ public class CandidatoTrabalheConosco extends Candidato {
 			msgEmail.append("									<tr style='font-size:11px;color:#999999'>");
 			msgEmail.append("									<td style='border-top:solid 1px #d9d9d9' colspan='2'>");
 			msgEmail.append("								<div style='padding-top:15px;padding-bottom:1px'>");
-			msgEmail.append("									<br>Atenciosamente,<br><b>Central IT - GovernanÁa Corporativa</b>");
+			msgEmail.append("									<br>Atenciosamente,<br><b>Central IT - Governan√ßa Corporativa</b>");
 			msgEmail.append("								</div>");
 			msgEmail.append("									</td>");
 			msgEmail.append("									</tr>");
@@ -179,7 +179,7 @@ public class CandidatoTrabalheConosco extends Candidato {
 			msgEmail.append("</table>");
 			
 			System.out.println(msgEmail.toString());
-			sendSimpleMail("ConfirmaÁ„o de conta.",candidatoDTO.getEmail(),usuarioEmail,msgEmail.toString());	
+			sendSimpleMail("Confirma√ß√£o de conta.",candidatoDTO.getEmail(),usuarioEmail,msgEmail.toString());	
 			candidatoDTO.setCpf(candidatoDTO.getCpf().replaceAll("[^0-9]*",""));
 			
 			document.alert(UtilI18N.internacionaliza(request, "candidato.paraValidacaoContaEmail"));
@@ -287,7 +287,7 @@ public class CandidatoTrabalheConosco extends Candidato {
                InternetAddress remetente = new InternetAddress(from);
 //               LOGGER.info(remetente);
 //               LOGGER.info(" -------- INICIO simple mail --------");
-//               LOGGER.info("E-mail do Destinat·rio: " + destinatario);
+//               LOGGER.info("E-mail do Destinat√°rio: " + destinatario);
 //               LOGGER.info("Remetente:    " + remetente);
 //               LOGGER.info(" -------- FIM simple mail --------");
                Message message = new MimeMessage(mailSession);

@@ -6,7 +6,7 @@ import javax.script.ScriptException;
 
 public class UtilCalculo {
 	/**
-	 * Retorna o total da Express„o passada.
+	 * Retorna o total da Express√£o passada.
 	 * Por exemplo: ao passar, (10*10*(5/2)), ele retorna 250.
 	 * 
 	 * @param expressao

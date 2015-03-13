@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.centralit.citcorpore.util.CitCorporeConstantes"%>
 
 <%
-	response.setCharacterEncoding("ISO-8859-1");
+	response.setCharacterEncoding("UTF-8");
 	String idFaturaParm = request.getParameter("idFatura");
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -12,7 +12,7 @@
 
 <head>
 <%@include file="/include/header.jsp"%>
-<%@include file="/include/titleComum/titleComum.jsp"%>
+<%@include file="/novoLayout/common/include/titulo.jsp" %>
 <%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 
 <link rel="stylesheet" type="text/css" href="${ctx}/template_new/js/themeroller/Aristo.css">
@@ -58,7 +58,7 @@
 													key="citcorpore.comum.descricao" />*:</td>
 											<td><input type='text' name='descricaoFatura' size="100"
 												maxlength="150"
-												class="Valid[Required] Description[Descrição da fatura] text" <%=(idFaturaParm != null ? "readonly" : "") %>/>
+												class="Valid[Required] Description[DescriÃ§Ã£o da fatura] text" <%=(idFaturaParm != null ? "readonly" : "") %>/>
 											</td>
 										</tr>
 										<tr>
@@ -66,7 +66,7 @@
 													key="citcorpore.comum.datainicio" />*:</td>
 											<td><input type='text' name='dataInicial' size="10"
 												maxlength="10" style="width: 100px !important;"
-												class="Format[Date] Valid[Required,Date] Description[Data Início] text datepicker" />
+												class="Format[Date] Valid[Required,Date] Description[Data InÃ­cio] text datepicker" />
 											</td>
 										</tr>
 										<tr>
@@ -88,7 +88,7 @@
 											<td class="campoEsquerda"><fmt:message
 													key="citcorpore.comum.situacao" />*:</td>
 											<td><select name='situacaoFatura' id='situacaoFatura'
-												class="Valid[Required] Description[Situação]"></select></td>
+												class="Valid[Required] Description[SituaÃ§Ã£o]"></select></td>
 										</tr>
 										<tr>
 											<td></td>
@@ -237,7 +237,7 @@
 														<td>
 															<div id='divBotaoGravarSituacao'
 																style='display: none; margin-left: 2px'>
-																<!-- <button type='button' name='btnGravarSituacao' onclick='gravarSituacao();'>Atualizar Situação da Fatura</button> -->
+																<!-- <button type='button' name='btnGravarSituacao' onclick='gravarSituacao();'>Atualizar SituaÃ§Ã£o da Fatura</button> -->
 																<button type='button' id="btnGravarSituacao"
 																	name='btnGravarSituacao' style="margin-top: 5px;"
 																	class="light img_icon has_text"
@@ -269,7 +269,7 @@
 		<!-- Modal heading -->
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal"
-				aria-hidden="true">×</button>
+				aria-hidden="true">Ã—</button>
 			<h3><fmt:message key='citcorpore.comum.listagemOSFinalizadasNaoAssociadasFatura'/></h3>
 		</div>
 		<!-- // Modal heading END -->

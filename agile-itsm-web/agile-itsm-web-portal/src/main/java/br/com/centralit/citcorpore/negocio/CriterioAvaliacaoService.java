@@ -14,7 +14,7 @@ public interface CriterioAvaliacaoService extends CrudService {
 	public Collection findByAplicavelAvaliacaoComprador() throws Exception;
 	
 	/**
-	 * Retorna true ou false em relação ao criterio basado
+	 * Retorna true ou false em relaÃ§Ã£o ao criterio basado
 	 * 
 	 * @param criterioAvaliacaoDto
 	 * @return boolean

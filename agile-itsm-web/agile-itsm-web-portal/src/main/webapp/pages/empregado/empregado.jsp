@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.EmpregadoDTO"%>
 
@@ -25,15 +27,14 @@
 %>
 	<%@include file="/include/header.jsp"%>
 
-	<%@include file="/include/security/security.jsp" %>
-	<title><fmt:message key="citcorpore.comum.title"/></title>
+	<%@include file="/novoLayout/common/include/titulo.jsp" %>
 	<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp" %>
-	<script  charset="ISO-8859-1" type="text/javascript" src="${ctx}/js/ValidacaoUtils.js"></script>
-	<script  charset="ISO-8859-1" type="text/javascript" src="${ctx}/js/PopupManager.js"></script>
+	<script  charset="UTF-8" type="text/javascript" src="${ctx}/js/ValidacaoUtils.js"></script>
+	<script  charset="UTF-8" type="text/javascript" src="${ctx}/js/PopupManager.js"></script>
 	<script type="text/javascript">
 		var ctx = "${ctx}";
 	</script>
-	<script  charset="ISO-8859-1" type="text/javascript" src="./js/empregado.js"></script>
+	<script  charset="UTF-8" type="text/javascript" src="./js/empregado.js"></script>
 
 
 <%//se for chamado por iframe deixa apenas a parte de cadastro da pagina
@@ -82,7 +83,7 @@
 									<fieldset>
 										<label class="campoObrigatorio"><fmt:message key="citcorpore.comum.nome"/></label>
 											<div>
-												<!-- Thiago Fernandes - 23/10/2013 14:06 - Sol. 121468 - Criação de função para não digitar numeros, para retirar bug de não poder usar setas do teclado . -->
+												<!-- Thiago Fernandes - 23/10/2013 14:06 - Sol. 121468 - CriaÃ§Ã£o de funÃ§Ã£o para nÃ£o digitar numeros, para retirar bug de nÃ£o poder usar setas do teclado . -->
 												<input type='text' onkeypress="return naoDigitarNumeros(event);" name="nome" maxlength="256" class="Valid[Required] Description[citcorpore.comum.nome]"  />
 
 											</div>

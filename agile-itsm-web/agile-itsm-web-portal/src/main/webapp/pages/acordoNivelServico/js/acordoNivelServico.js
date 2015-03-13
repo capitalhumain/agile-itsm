@@ -353,7 +353,7 @@
 
 		/* @autor edu.braz
 		 *  14/03/2014 */
-		//funÁao para alterar o tipo sla de forma que os campos retornen limpos
+		//fun√ßao para alterar o tipo sla de forma que os campos retornen limpos
 		function alterarTipoSLA(){
 			document.getElementById('divByDisponibilidade').style.display = 'none';
 			document.getElementById('divByTempos').style.display = 'none';
@@ -393,7 +393,7 @@
 		}
 
 
-		// Cristian: a propriedade maxlength n„o existe para o objeto TEXTAREA. Mas com esta funÁ„o, vocÍ pode atribuir esta caracterÌstica a este objeto.
+		// Cristian: a propriedade maxlength n√£o existe para o objeto TEXTAREA. Mas com esta fun√ß√£o, voc√™ pode atribuir esta caracter√≠stica a este objeto.
 		window.onload = function() {
 			  var txts = document.getElementsByTagName('TEXTAREA')
 
@@ -403,7 +403,7 @@
 			        var len = parseInt(this.getAttribute("maxlength"), 10);
 
 			        if(this.value.length > len) {
-			          alert('Tamanho m·ximo excedido: ' + len);
+			          alert('Tamanho m√°ximo excedido: ' + len);
 			          this.value = this.value.substr(0, len);
 			          return false;
 			        }

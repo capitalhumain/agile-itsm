@@ -5,7 +5,7 @@ import java.sql.Date;
 import br.com.agileitsm.model.support.BaseEntity;
 
 /**
- * Item de Execução
+ * Item de ExecuÃ§Ã£o
  * 
  */
 public class ItemConfigEventoDTO extends BaseEntity {

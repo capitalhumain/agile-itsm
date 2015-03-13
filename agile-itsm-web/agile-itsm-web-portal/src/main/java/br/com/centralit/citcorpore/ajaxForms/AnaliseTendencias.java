@@ -160,7 +160,7 @@ public class AnaliseTendencias extends AjaxFormAction {
 	}
 
 	/**
-	 * Carrega Combo Urgência.
+	 * Carrega Combo UrgÃªncia.
 	 *
 	 * @param document
 	 * @param request
@@ -185,7 +185,7 @@ public class AnaliseTendencias extends AjaxFormAction {
 	}
 
 	/**
-	 * Carrega Combo Tipo Demanda Serviço.
+	 * Carrega Combo Tipo Demanda ServiÃ§o.
 	 *
 	 * @param document
 	 * @param request

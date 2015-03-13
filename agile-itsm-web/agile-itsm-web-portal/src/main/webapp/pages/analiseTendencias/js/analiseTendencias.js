@@ -138,7 +138,7 @@ function fecharProblema(){
 	$("#modal_cadastrarProblema").modal("hide");
 }
 
-//Gerar relatório
+//Gerar relatÃ³rio
 function gerarRelatorio (id, tipo) {
 	JANELA_AGUARDE_MENU.show();
 	document.getElementById("idRelatorio").value = id;

@@ -134,7 +134,7 @@ public class InformacoesContrato extends AjaxFormAction {
     public void imprimirConteudoDiv(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
 	UsuarioDTO usuario = (UsuarioDTO) request.getSession().getAttribute(Constantes.getValue("USUARIO_SESSAO"));
 	if (usuario == null) {
-	    document.alert("O usu·rio n„o est· logado! Favor logar no sistema!");
+	    document.alert("O usu√°rio n√£o est√° logado! Favor logar no sistema!");
 	    return;
 	}
 
@@ -177,7 +177,7 @@ public class InformacoesContrato extends AjaxFormAction {
     }
 
     /**
-     * Exclui serviÁos do contrato de acordo com a seleÁ„o efetuada pelo usu·rio em tela.
+     * Exclui servi√ßos do contrato de acordo com a sele√ß√£o efetuada pelo usu√°rio em tela.
      *
      * @param document
      * @param request
@@ -278,7 +278,7 @@ public class InformacoesContrato extends AjaxFormAction {
     public void listarSLAsContrato(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
 	InformacoesContratoDTO informacoesDto = (InformacoesContratoDTO) document.getBean();
 	if (informacoesDto.getIdServicoContrato() == null) {
-	    document.alert("N„o foi identificado o Identificador do ServiÁo Contrato!");
+	    document.alert("N√£o foi identificado o Identificador do Servi√ßo Contrato!");
 	    return;
 	}
 	AcordoNivelServicoService acordoNivelServicoService = (AcordoNivelServicoService) ServiceLocator.getInstance().getService(AcordoNivelServicoService.class, null);
@@ -461,7 +461,7 @@ public class InformacoesContrato extends AjaxFormAction {
 			+ "/imagens/write.png' border='0' style='cursor:pointer' title='" + UtilI18N.internacionaliza(request, "citcorpore.comum.editarAcordo") + "' onclick='editarVincSLA("
 			+ acordoServicoContratoDTO.getIdAcordoServicoContrato() + "," + acordoServicoContratoDTO.getIdServicoContrato() + ")'/>";
 
-		/* Se existir acordo especÌfico n„o mostra a administraÁ„o dos vinculos */
+		/* Se existir acordo espec√≠fico n√£o mostra a administra√ß√£o dos vinculos */
 		if (!flag) {
 		    if ((acordoNivelServicoDTO.getTipo() != null) && acordoNivelServicoDTO.getTipo().equalsIgnoreCase("T") && !((dataFim != null) && dataFim.before(UtilDatas.getDataAtual()))) {
 			if ((acordoServicoContratoDTO.getHabilitado() != null) && acordoServicoContratoDTO.getHabilitado().equalsIgnoreCase("S")) {
@@ -618,7 +618,7 @@ public class InformacoesContrato extends AjaxFormAction {
 		table += "<td>";
 		if (valoresServicoContratoDTO.getDataFim() == null) {
 		    table += "<img src='" + br.com.citframework.util.Constantes.getValue("SERVER_ADDRESS") + br.com.citframework.util.Constantes.getValue("CONTEXTO_APLICACAO")
-			    + "/imagens/write.png' border='0' style='cursor:pointer; height: 15px;' title='Editar valor serviÁo' onclick='editarValorServico("
+			    + "/imagens/write.png' border='0' style='cursor:pointer; height: 15px;' title='Editar valor servi√ßo' onclick='editarValorServico("
 			    + valoresServicoContratoDTO.getIdValorServicoContrato() + "," + valoresServicoContratoDTO.getIdServicoContrato() + ")'/>";
 		}
 		table += "</td>";
@@ -786,7 +786,7 @@ public class InformacoesContrato extends AjaxFormAction {
 
 	String mostraOSDataAnterior = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.LIBERAR_ORDEM_SERVICO_DATA_ANTERIOR, "N");
 
-	// valida se existe registro de execuÁ„o para OS diferentes de Suporte
+	// valida se existe registro de execu√ß√£o para OS diferentes de Suporte
 	if (osDto != null) {
 	    ServicoContratoDTO servicoContratoDTO = new ServicoContratoDTO();
 	    servicoContratoDTO.setIdServicoContrato(osDto.getIdServicoContrato());
@@ -801,7 +801,7 @@ public class InformacoesContrato extends AjaxFormAction {
 	    if ((servicoDto != null) && (servicoContratoDTO != null)) {
 
 		/**
-		 * REQUISI«√O 115719 - Se colocarmos o parametro com data atual, o mesmo deve mostrar as OS¥s com data atual e futuras. Se for escolhido com data retroativa, precisa mostrar alÈm das
+		 * REQUISI√á√ÉO 115719 - Se colocarmos o parametro com data atual, o mesmo deve mostrar as OS¬¥s com data atual e futuras. Se for escolhido com data retroativa, precisa mostrar al√©m das
 		 * atuais e futuras as que possuam as datas antigas.
 		 */
 		if (mostraOSDataAnterior.trim().equalsIgnoreCase("S")) {
@@ -818,8 +818,8 @@ public class InformacoesContrato extends AjaxFormAction {
 	OSService osService = (OSService) ServiceLocator.getInstance().getService(OSService.class, null);
 	String strTable = "";
 
-	// Verifica se OS Aprovada j· existe Registro de ExecuÁ„o ou se OS de
-	// Suporte j· venceu o prazo estipulado
+	// Verifica se OS Aprovada j√° existe Registro de Execu√ß√£o ou se OS de
+	// Suporte j√° venceu o prazo estipulado
 	if (funcaoListarOs == OSDTO.APROVADA) {
 	    boolean flag = this.verificaSituacaoOSValida(osDto);
 	    if (!flag) {
@@ -872,7 +872,7 @@ public class InformacoesContrato extends AjaxFormAction {
 
 	strTable += "</td>";
 	strTable += "<td>";
-	//necessario para quebra de linha quando em resoluÁ„o menores
+	//necessario para quebra de linha quando em resolu√ß√£o menores
 	strTable += Util.converterHtmlText((osDto.getNomeServico()));
 	//strTable += UtilHTML.encodeHTML(osDto.getNomeServico());
 	strTable += "</td>";
@@ -1020,7 +1020,7 @@ public class InformacoesContrato extends AjaxFormAction {
 
 	if ((osDto != null) && (osDto.getIdOSPai() == null)) {
 	    if (!funcaoListarOs.equals(OSDTO.EM_EXECUCAO) && !funcaoListarOs.equals(OSDTO.EXECUTADA)) {
-		if(osDto.getDescricaoSituacaoOS().equalsIgnoreCase("Em CriaÁ„o")){
+		if(osDto.getDescricaoSituacaoOS().equalsIgnoreCase("Em Cria√ß√£o")){
 		    strTable += "<td style='text-align: center;'>";
 		    strTable += UtilI18N.internacionaliza(request, "perfil.criacao");
 		    strTable += "</td>";
@@ -1287,7 +1287,7 @@ public class InformacoesContrato extends AjaxFormAction {
 	}
 	UsuarioDTO user = WebUtil.getUsuario(request);
 	if (user == null) {
-	    document.alert("O usu·rio n„o est· logado! Favor logar no sistema!");
+	    document.alert("O usu√°rio n√£o est√° logado! Favor logar no sistema!");
 	    return;
 	}
 	String usuarioImpressao = user.getNomeUsuario();
@@ -1700,7 +1700,7 @@ public class InformacoesContrato extends AjaxFormAction {
 	this.setContLinha();
 	this.setContLinha();
 	this.setContLinha();
-	strBuffer += "Solicitante dos ServiÁos<br>";
+	strBuffer += "Solicitante dos Servi√ßos<br>";
 	strBuffer += "Carimbo/Data<br>";
 	this.setContLinha();
 	this.setContLinha();
@@ -1747,7 +1747,7 @@ public class InformacoesContrato extends AjaxFormAction {
 	this.setContLinha();
 	strBuffer += "</td>";
 	strBuffer += "<td style='font:12px bold  arial,sans-serif;border:1px solid black;' align='center'>";
-	strBuffer += "Aceite da Contratada: ( ) Total () Parcial - Apresentar· recurso<br>";
+	strBuffer += "Aceite da Contratada: ( ) Total () Parcial - Apresentar√° recurso<br>";
 	strBuffer += "<br>";
 	strBuffer += "<br>";
 	strBuffer += "<br><br>";
@@ -1843,7 +1843,7 @@ public class InformacoesContrato extends AjaxFormAction {
 	UsuarioDTO user = WebUtil.getUsuario(request);
 
 	if (user == null) {
-	    document.alert("O usu·rio n„o est· logado! Favor logar no sistema!");
+	    document.alert("O usu√°rio n√£o est√° logado! Favor logar no sistema!");
 	    return;
 	}
 
@@ -1911,11 +1911,11 @@ public class InformacoesContrato extends AjaxFormAction {
 	StringBuilder tableTotalOs = new StringBuilder();
 
 	if (informacoesDto.getDataInicioAtividade() == null) {
-	    document.alert("Data InÌcio: Campo ObrigatÛrio");
+	    document.alert("Data In√≠cio: Campo Obrigat√≥rio");
 	    return;
 	}
 	if (informacoesDto.getDataFimAtividade() == null) {
-	    document.alert("Data Fim: Campo ObrigatÛrio");
+	    document.alert("Data Fim: Campo Obrigat√≥rio");
 	    return;
 	}
 
@@ -1944,7 +1944,7 @@ public class InformacoesContrato extends AjaxFormAction {
 
 		    tableInterna.append("<tr>");
 		    tableInterna.append("<td  style='font:12px; text-align: left; ' class='linhaSubtituloGrid' colspan='5'>");
-		    tableInterna.append("DescriÁ„o Atividade: <span style='font-weight: normal;'>" + atividadePeriodicaDTO.getTituloAtividade() + "</span>");
+		    tableInterna.append("Descri√ß√£o Atividade: <span style='font-weight: normal;'>" + atividadePeriodicaDTO.getTituloAtividade() + "</span>");
 		    tableInterna.append("</td>");
 		    tableInterna.append("</tr>");
 		    tableInterna.append("<td  style='font:12px; text-align: left;' class='linhaSubtituloGrid' colspan='5'>");
@@ -1954,16 +1954,16 @@ public class InformacoesContrato extends AjaxFormAction {
 
 		    tableInterna.append("<tr>");
 		    tableInterna.append("<td>");
-		    tableInterna.append("DescriÁ„o Atividade");
+		    tableInterna.append("Descri√ß√£o Atividade");
 		    tableInterna.append("</td>");
 		    tableInterna.append("<td>");
-		    tableInterna.append("SituaÁ„o");
+		    tableInterna.append("Situa√ß√£o");
 		    tableInterna.append("</td>");
 		    tableInterna.append("<td>");
 		    tableInterna.append("Data/hora programada");
 		    tableInterna.append("</td>");
 		    tableInterna.append("<td>");
-		    tableInterna.append("Data/hora programada execuÁ„o");
+		    tableInterna.append("Data/hora programada execu√ß√£o");
 		    tableInterna.append("</td>");
 		    tableInterna.append("<td>");
 		    tableInterna.append("Detalhamento");
@@ -2033,7 +2033,7 @@ public class InformacoesContrato extends AjaxFormAction {
 	} else {
 	    table.append("<tr>");
 	    table.append("<td>");
-	    table.append("N„o existe atividade para esta O.S");
+	    table.append("N√£o existe atividade para esta O.S");
 	    table.append("<td>");
 	    table.append("</tr>");
 	}
@@ -2042,7 +2042,7 @@ public class InformacoesContrato extends AjaxFormAction {
 
 	tableTotalOs.append("<tr>");
 	tableTotalOs.append("<td  style='font:12px' class='linhaSubtituloGridOs' colspan='8'>");
-	tableTotalOs.append("N˙mero de Ocorrencia no perÌodo.");
+	tableTotalOs.append("N√∫mero de Ocorrencia no per√≠odo.");
 	tableTotalOs.append("</td>");
 	tableTotalOs.append("</tr>");
 
@@ -2088,7 +2088,7 @@ public class InformacoesContrato extends AjaxFormAction {
     }
 
     /**
-     * Metodo pra fazer a impress„o OS Contratos
+     * Metodo pra fazer a impress√£o OS Contratos
      *
      * @param document
      * @param request
@@ -2103,7 +2103,7 @@ public class InformacoesContrato extends AjaxFormAction {
 	}
 	UsuarioDTO user = WebUtil.getUsuario(request);
 	if (user == null) {
-	    document.alert("O usu·rio n„o est· logado! Favor logar no sistema!");
+	    document.alert("O usu√°rio n√£o est√° logado! Favor logar no sistema!");
 	    return;
 	}
 	String usuarioImpressao = user.getNomeUsuario();
@@ -2177,10 +2177,10 @@ public class InformacoesContrato extends AjaxFormAction {
 	    strBuffer += "<tr>";
 	    this.setContLinha();
 	    strBuffer += "<td style='font:12px arial,sans-serif;border:1px solid black; background-color: #F2F2F2' align='center'>";
-	    strBuffer += "<b>ORDEM DE SERVI«O N<sup>o</sup></b>" + (osDto.getNumero() != null ? osDto.getNumero() : "") + "/" + osDto.getAno() + "<br><br>";
+	    strBuffer += "<b>ORDEM DE SERVI√áO N<sup>o</sup></b>" + (osDto.getNumero() != null ? osDto.getNumero() : "") + "/" + osDto.getAno() + "<br><br>";
 	    this.setContLinha();
 	    this.setContLinha();
-	    strBuffer += "<b>Contrato N˙mero:</b>" + contratoDto.getNumero() + "<br>";
+	    strBuffer += "<b>Contrato N√∫mero:</b>" + contratoDto.getNumero() + "<br>";
 	    this.setContLinha();
 	    strBuffer += "<b>Contratada:</b>" + fornecedorDto.getNomeFantasia() + "<br>";
 	    this.setContLinha();
@@ -2188,9 +2188,9 @@ public class InformacoesContrato extends AjaxFormAction {
 	    strBuffer += "<td style='font:12px arial,sans-serif;border:1px solid black; background-color: #F2F2F2'>";
 	    strBuffer += "TAREFA: " + UtilStrings.nullToVazio(servicoDto.getSiglaAbrev()) + "<br>";
 	    this.setContLinha();
-	    strBuffer += "ExecuÁ„o InÌcio: " + (osDto.getDataInicio() != null ? UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, osDto.getDataInicio(), WebUtil.getLanguage(request)) : "") + "<br>";
+	    strBuffer += "Execu√ß√£o In√≠cio: " + (osDto.getDataInicio() != null ? UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, osDto.getDataInicio(), WebUtil.getLanguage(request)) : "") + "<br>";
 	    this.setContLinha();
-	    strBuffer += "ExecuÁ„o Final: " + (osDto.getDataFim() != null ? UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, osDto.getDataFim(), WebUtil.getLanguage(request)) : "") + "<br>";
+	    strBuffer += "Execu√ß√£o Final: " + (osDto.getDataFim() != null ? UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, osDto.getDataFim(), WebUtil.getLanguage(request)) : "") + "<br>";
 	    this.setContLinha();
 	    strBuffer += "</td>";
 	    strBuffer += "</tr>";
@@ -2203,7 +2203,7 @@ public class InformacoesContrato extends AjaxFormAction {
 	    strBuffer += "<tr>";
 	    this.setContLinha();
 	    strBuffer += "<td style='font:12px arial,sans-serif;border:1px solid black; width:60%' width='60%'>";
-	    strBuffer += "<b>¡rea Requisitante: </b><br>";
+	    strBuffer += "<b>√Årea Requisitante: </b><br>";
 	    this.setContLinha();
 	    strBuffer += "<br>";
 	    this.setContLinha();
@@ -2295,7 +2295,7 @@ public class InformacoesContrato extends AjaxFormAction {
 		    strBuffer += "<tr>";
 		    this.setContLinha();
 		    strBuffer += "<td style='font:12px arial,sans-serif;border:1px solid black;'>";
-		    strBuffer += "<span style='font:12px arial,sans-serif;'><b>ObservaÁıes: </b></span><br>" + atividadesOSDTO.getObsAtividade();
+		    strBuffer += "<span style='font:12px arial,sans-serif;'><b>Observa√ß√µes: </b></span><br>" + atividadesOSDTO.getObsAtividade();
 		    this.setContLinha();
 		    strBuffer += "</td>";
 		    strBuffer += "</tr>";
@@ -2318,7 +2318,7 @@ public class InformacoesContrato extends AjaxFormAction {
 
 	    strBuffer += "</table>";
 
-	    strBuffer += "<span style='font:8px arial,sans-serif;'>(*) Baixa(1); Intermedi·ria (1,5); Mediana (3,5); Alta (6); Especialista (10)</span>";
+	    strBuffer += "<span style='font:8px arial,sans-serif;'>(*) Baixa(1); Intermedi√°ria (1,5); Mediana (3,5); Alta (6); Especialista (10)</span>";
 	    strBuffer += "<br><br>";
 	    this.setContLinha();
 	    this.setContLinha();
@@ -2330,7 +2330,7 @@ public class InformacoesContrato extends AjaxFormAction {
 	    strBuffer += "<tr>";
 	    this.setContLinha();
 	    strBuffer += "<td style='font:12px arial,sans-serif;border:1px solid black;background-color: #F2F2F2;'>";
-	    strBuffer += "<b>RESULTADOS ESPERADOS E NÕVEIS DE QUALIDADE EXIGIDOS</b>";
+	    strBuffer += "<b>RESULTADOS ESPERADOS E N√çVEIS DE QUALIDADE EXIGIDOS</b>";
 	    strBuffer += "</td>";
 	    strBuffer += "<td style='font:12px arial,sans-serif;border:1px solid black;background-color: #F2F2F2;'>";
 	    strBuffer += "<b>LIMITES</b>";
@@ -2389,7 +2389,7 @@ public class InformacoesContrato extends AjaxFormAction {
 	strBuffer += "<tr>";
 	this.setContLinha();
 	strBuffer += "<td style='font:12px arial,sans-serif;border:1px solid black;background-color: #F2F2F2;'>";
-	strBuffer += "PRESSUPOSTOS E RESTRI«’ES";
+	strBuffer += "PRESSUPOSTOS E RESTRI√á√ïES";
 	strBuffer += "</td>";
 	strBuffer += "</tr>";
 	strBuffer += "<tr>";
@@ -2430,7 +2430,7 @@ public class InformacoesContrato extends AjaxFormAction {
 	this.setContLinha();
 	this.setContLinha();
 	this.setContLinha();
-	strBuffer += "Solicitante dos ServiÁos<br>";
+	strBuffer += "Solicitante dos Servi√ßos<br>";
 	strBuffer += "Carimbo/Data<br>";
 	this.setContLinha();
 	this.setContLinha();
@@ -2477,7 +2477,7 @@ public class InformacoesContrato extends AjaxFormAction {
 	this.setContLinha();
 	strBuffer += "</td>";
 	strBuffer += "<td style='font:12px arial,sans-serif;border:1px solid black;' align='center'>";
-	strBuffer += "Aceite da Contratada: ( ) Total () Parcial - Apresentar· recurso<br>";
+	strBuffer += "Aceite da Contratada: ( ) Total () Parcial - Apresentar√° recurso<br>";
 	strBuffer += "<br>";
 	strBuffer += "<br>";
 	strBuffer += "<br><br>";
@@ -2548,7 +2548,7 @@ public class InformacoesContrato extends AjaxFormAction {
     }
 
     /**
-     * Metodo para fazer a impress„o de Fatura Contratos
+     * Metodo para fazer a impress√£o de Fatura Contratos
      *
      * @param document
      * @param request
@@ -2563,7 +2563,7 @@ public class InformacoesContrato extends AjaxFormAction {
 	}
 	UsuarioDTO user = WebUtil.getUsuario(request);
 	if (user == null) {
-	    document.alert("O usu·rio n„o est· logado! Favor logar no sistema!");
+	    document.alert("O usu√°rio n√£o est√° logado! Favor logar no sistema!");
 	    return;
 	}
 	String usuarioImpressao = user.getNomeUsuario();
@@ -2618,17 +2618,17 @@ public class InformacoesContrato extends AjaxFormAction {
 	strBuffer += "<table class='table table-bordered table-striped' width='100%' cellpadding='0' cellspacing='0'>";
 	strBuffer += "<tr>";
 	strBuffer += "<td style='border:1px solid black; background-color: #FFFFE0; font:12px arial,sans-serif;' align='center'>";
-	strBuffer += "RELAT”RIO MENSAL DE SERVI«OS" + "<br>";
+	strBuffer += "RELAT√ìRIO MENSAL DE SERVI√áOS" + "<br>";
 	this.setContLinha();
 	strBuffer += "RESULTADOS GLOBAIS" + "<br><br>";
 	this.setContLinha();
 	this.setContLinha();
-	strBuffer += "Contrato N˙mero " + contratoDto.getNumero() + "<br>";
+	strBuffer += "Contrato N√∫mero " + contratoDto.getNumero() + "<br>";
 	this.setContLinha();
 	strBuffer += fornecedorDto.getNomeFantasia();
 	strBuffer += "</td>";
 	strBuffer += "<td style='border:1px solid black; background-color: #FFFFE0;font:12px arial,sans-serif;' align='center'>";
-	strBuffer += "PerÌodo de ValidaÁ„o:" + "<br><br>";
+	strBuffer += "Per√≠odo de Valida√ß√£o:" + "<br><br>";
 	this.setContLinha();
 	this.setContLinha();
 	strBuffer += faturaDto.getDescricaoFatura() + "<br>";
@@ -2644,7 +2644,7 @@ public class InformacoesContrato extends AjaxFormAction {
 	strBuffer += "<table class='table table-bordered table-striped' width='100%' cellpadding='0' cellspacing='0'>";
 	strBuffer += "<tr>";
 	strBuffer += "<td style='border:1px solid black; text-align=right; width:40%; font:12px arial,sans-serif;' width='40%'>";
-	strBuffer += "<b>HistÛrico</b>";
+	strBuffer += "<b>Hist√≥rico</b>";
 	strBuffer += "</td>";
 	strBuffer += "<td style='border:1px solid black; text-align=right; width:20%; font:12px arial,sans-serif;'' width='20%' ALIGN=RIGHT>";
 	strBuffer += "<b>Quantidade UST</b>";
@@ -2734,7 +2734,7 @@ public class InformacoesContrato extends AjaxFormAction {
 	this.setContLinha();
 
 	strBuffer += "<td style='font:12px arial,sans-serif;'>";
-	strBuffer += "<b>LISTA DE ORDENS DE SERVI«OS ATESTADAS NO PERÕODO</b>";
+	strBuffer += "<b>LISTA DE ORDENS DE SERVI√áOS ATESTADAS NO PER√çODO</b>";
 	strBuffer += "<table class='table table-bordered table-striped' width='100%' cellpadding='0' cellspacing='0'>";
 	strBuffer += "<tr>";
 	strBuffer += "<td valign='top' style='border:1px solid black; font:12px arial,sans-serif;' width='13%'>";
@@ -2875,7 +2875,7 @@ public class InformacoesContrato extends AjaxFormAction {
 	strBuffer += "</tr>";
 	strBuffer += "<tr>";
 	strBuffer += "<td style='border:1px solid black; font:12px arial,sans-serif;' width='30%' ' colspan='4'>";
-	strBuffer += "<b>QUALIDADE (Base de C·lculo)</b>";
+	strBuffer += "<b>QUALIDADE (Base de C√°lculo)</b>";
 	strBuffer += "</td>";
 	strBuffer += "<td style='border:1px solid black; font:12px arial,sans-serif;' width='10%' ALIGN=RIGHT>";
 	strBuffer += "<b>" + UtilFormatacao.formatDouble(totalUstRealizadas, 2) + "</b>";
@@ -2913,7 +2913,7 @@ public class InformacoesContrato extends AjaxFormAction {
 
 	strBuffer += "<table class='table table-bordered table-striped' width='100%' cellpadding='0' cellspacing='0'>";
 	strBuffer += "<td style='font:12px arial,sans-serif;'>";
-	strBuffer += "<b>An·lise de desempenho de qualidade do contrato</b>";
+	strBuffer += "<b>An√°lise de desempenho de qualidade do contrato</b>";
 	strBuffer += "</td>";
 	strBuffer += "</table>";
 	strBuffer += "<table class='table table-bordered table-striped' width='100%' cellpadding='0' cellspacing='0'>";
@@ -2922,7 +2922,7 @@ public class InformacoesContrato extends AjaxFormAction {
 	strBuffer += "<b>GLOSAS DE QUALIDADE APLICADAS</b>";
 	strBuffer += "</td>";
 	strBuffer += "<td style='border:1px solid black; width:20%;font:12px arial,sans-serif;' width='20%' ALIGN=CENTER>";
-	strBuffer += "<b>N∫ DE OCORR NCIAS</b>";
+	strBuffer += "<b>N¬∫ DE OCORR√äNCIAS</b>";
 	strBuffer += "</td>";
 	strBuffer += "<td style='border:1px solid black; width:20%;font:12px arial,sans-serif;' width='20%' ALIGN=CENTER>";
 	strBuffer += "<b>% APLICADO</b>";
@@ -2974,7 +2974,7 @@ public class InformacoesContrato extends AjaxFormAction {
 
 	strBuffer += "<tr>";
 	strBuffer += "<td style='border:1px solid white; width:40%;font:12px arial,sans-serif;' width='40%' colspan='2'>";
-	strBuffer += "TOTAL A SER APLICADO OU M¡XIMO PERMITIDO";
+	strBuffer += "TOTAL A SER APLICADO OU M√ÅXIMO PERMITIDO";
 	strBuffer += "</td>";
 	strBuffer += "<td style='border:1px solid black; width:20%;font:12px arial,sans-serif;' width='20%' ALIGN=RIGHT>";
 	strBuffer += UtilFormatacao.formatDouble(percentualGlosa, 2);
@@ -2989,7 +2989,7 @@ public class InformacoesContrato extends AjaxFormAction {
 	strBuffer += "<table class='table table-bordered table-striped' width='100%' cellpadding='0' cellspacing='0'>";
 	strBuffer += "<tr>";
 	strBuffer += "<td style='border:1px solid black; width:50%;font:12px arial,sans-serif;' width='50%'>";
-	strBuffer += "<b style='font:12px arial,sans-serif;font-weight:bold;'>ObservaÁıes:</b>" + "<br><br>";
+	strBuffer += "<b style='font:12px arial,sans-serif;font-weight:bold;'>Observa√ß√µes:</b>" + "<br><br>";
 	strBuffer += faturaDto.getObservacao() + "<br>";
 	strBuffer += "</td>";
 	strBuffer += "</tr>";
@@ -3006,7 +3006,7 @@ public class InformacoesContrato extends AjaxFormAction {
 	}
 	strBuffer += "<tr>";
 	strBuffer += "<td style='font:12px arial,sans-serif;'>";
-	strBuffer += "<b>APROVA«√O DO FISCAL</b><br>";
+	strBuffer += "<b>APROVA√á√ÉO DO FISCAL</b><br>";
 	this.setContLinha();
 	strBuffer += "</td>";
 	strBuffer += "</tr>";
@@ -3113,7 +3113,7 @@ public class InformacoesContrato extends AjaxFormAction {
 	InformacoesContratoDTO informacoesContratoDTO = (InformacoesContratoDTO) document.getBean();
 	UsuarioDTO usuario = WebUtil.getUsuario(request);
 	if (usuario == null) {
-	    document.alert("Sess„o expirada! Favor efetuar logon novamente!");
+	    document.alert("Sess√£o expirada! Favor efetuar logon novamente!");
 	    return;
 	}
 	ContratoQuestionariosService contratoQuestionariosService = (ContratoQuestionariosService) ServiceLocator.getInstance().getService(ContratoQuestionariosService.class, null);
@@ -3267,7 +3267,7 @@ public class InformacoesContrato extends AjaxFormAction {
 
 	UsuarioDTO user = WebUtil.getUsuario(request);
 	if (user == null) {
-	    document.alert("O usu·rio n„o est· logado! Favor logar no sistema!");
+	    document.alert("O usu√°rio n√£o est√° logado! Favor logar no sistema!");
 	    document.getJanelaPopupById("JANELA_AGUARDE_MENU").hide();
 	    return;
 	}
@@ -3459,7 +3459,7 @@ public class InformacoesContrato extends AjaxFormAction {
 	    }
 	}
 
-	// Configurando dados para geraÁ„o do RelatÛrio
+	// Configurando dados para gera√ß√£o do Relat√≥rio
 	StringBuilder jasperArqRel = new StringBuilder();
 	jasperArqRel.append("RelatorioOrdemServico");
 
@@ -3474,7 +3474,7 @@ public class InformacoesContrato extends AjaxFormAction {
 	parametros = UtilRelatorio.trataInternacionalizacaoLocale(session, parametros);
 	parametros.put("NOME_EMPRESA", nomeEmpresa);
 	parametros.put("NOME_CLIENTE", clienteDTO.getNomeFantasia());
-	parametros.put("CIDADE", "BrasÌlia,");
+	parametros.put("CIDADE", "Bras√≠lia,");
 	parametros.put("APLICACAO", "CITSMart");
 	parametros.put("DATA_HORA", UtilDatas.getDataHoraAtual());
 	parametros.put("NOME_USUARIO", user.getNomeUsuario());
@@ -3538,7 +3538,7 @@ public class InformacoesContrato extends AjaxFormAction {
 
 	JRDataSource dataSource = new JRBeanCollectionDataSource(colAtividades);
 
-	// Chamando o relatÛrio
+	// Chamando o relat√≥rio
 	if (saida.equalsIgnoreCase("PDF")) {
 	    this.abreRelatorioPDF(dataSource, parametros, diretorioTemp, caminhoJasper, jasperArqRel.toString(), diretorioRelativo, arquivoRelatorio, document, request, response);
 	} else {
@@ -3560,7 +3560,7 @@ public class InformacoesContrato extends AjaxFormAction {
 
 	UsuarioDTO user = WebUtil.getUsuario(request);
 	if (user == null) {
-	    document.alert("O usu·rio n„o est· logado! Favor logar no sistema!");
+	    document.alert("O usu√°rio n√£o est√° logado! Favor logar no sistema!");
 	    document.getJanelaPopupById("JANELA_AGUARDE_MENU").hide();
 	    return;
 	}
@@ -3687,7 +3687,7 @@ public class InformacoesContrato extends AjaxFormAction {
 	    }
 	}
 
-	// Configurando dados para geraÁ„o do RelatÛrio
+	// Configurando dados para gera√ß√£o do Relat√≥rio
 	StringBuilder jasperArqRel = new StringBuilder();
 	jasperArqRel.append("RelatorioRAOrdemServico");
 
@@ -3702,7 +3702,7 @@ public class InformacoesContrato extends AjaxFormAction {
 	parametros = UtilRelatorio.trataInternacionalizacaoLocale(session, parametros);
 	parametros.put("NOME_EMPRESA", nomeEmpresa);
 	parametros.put("NOME_CLIENTE", clienteDTO.getNomeFantasia());
-	parametros.put("CIDADE", "BrasÌlia,");
+	parametros.put("CIDADE", "Bras√≠lia,");
 	parametros.put("APLICACAO", "CITSMart");
 	parametros.put("DATA_HORA", UtilDatas.getDataHoraAtual());
 	parametros.put("NOME_USUARIO", user.getNomeUsuario());
@@ -3732,7 +3732,7 @@ public class InformacoesContrato extends AjaxFormAction {
 
 	JRDataSource dataSource = new JRBeanCollectionDataSource(colAtividades);
 
-	// Chamando o relatÛrio
+	// Chamando o relat√≥rio
 	if (saida.equalsIgnoreCase("PDF")) {
 	    this.abreRelatorioPDF(dataSource, parametros, diretorioTemp, caminhoJasper, jasperArqRel.toString(), diretorioRelativo, arquivoRelatorio, document, request, response);
 	} else {
@@ -3750,7 +3750,7 @@ public class InformacoesContrato extends AjaxFormAction {
     }
 
     /**
-     * Metodo para fazer a impress„o de Fatura Contratos
+     * Metodo para fazer a impress√£o de Fatura Contratos
      *
      * @param document
      * @param request
@@ -3767,7 +3767,7 @@ public class InformacoesContrato extends AjaxFormAction {
 	}
 	UsuarioDTO user = WebUtil.getUsuario(request);
 	if (user == null) {
-	    document.alert("O usu·rio n„o est· logado! Favor logar no sistema!");
+	    document.alert("O usu√°rio n√£o est√° logado! Favor logar no sistema!");
 	    return;
 	}
 	double valorApurado = 0;
@@ -3855,7 +3855,7 @@ public class InformacoesContrato extends AjaxFormAction {
 		}
 
 		if (totalUstPrevista != 0) {
-		    // Removido, agora a moeda utiliza um flag de uso de cotaÁ„o
+		    // Removido, agora a moeda utiliza um flag de uso de cota√ß√£o
 		    // if(moedaDto != null && moedaDto.getNomeMoeda().equalsIgnoreCase(Enumerados.Moeda.UST.getDescricao())){
 		    if ((moedaDto != null) && (moedaDto.getUsarCotacao() != null)) {
 			totalUstPrevistoPerido = totalUstPrevista * faturaDto.getValorCotacaoMoeda();
@@ -3884,7 +3884,7 @@ public class InformacoesContrato extends AjaxFormAction {
 
 		    os.setCotacaoMoeda(faturaDto.getValorCotacaoMoeda());
 
-		    // Removido, agora a moeda utiliza um flag de uso de cotaÁ„o
+		    // Removido, agora a moeda utiliza um flag de uso de cota√ß√£o
 		    // if(moedaDto != null && moedaDto.getNomeMoeda().equalsIgnoreCase(Enumerados.Moeda.UST.getDescricao())){
 		    if ((moedaDto != null) && (moedaDto.getUsarCotacao() != null)) {
 			os.setValorAutorizado(os.getUstTotal() * os.getCotacaoMoeda());
@@ -3939,7 +3939,7 @@ public class InformacoesContrato extends AjaxFormAction {
 	parametros.put("NOME_EMPRESA", nomeEmpresa);
 	parametros.put("NOME_CLIENTE", clienteDTO.getNomeFantasia());
 	parametros.put("APLICACAO", "CITSMart");
-	parametros.put("CIDADE", "BrasÌlia,");
+	parametros.put("CIDADE", "Bras√≠lia,");
 	parametros.put("DATA_HORA", UtilDatas.getDataHoraAtual());
 	parametros.put("NOME_USUARIO", user.getNomeUsuario());
 	parametros.put("contratoNumero", contratoDto.getNumero());
@@ -3979,7 +3979,7 @@ public class InformacoesContrato extends AjaxFormAction {
     }
 
     /**
-     * Metodo para fazer a impress„o de Fatura Contratos
+     * Metodo para fazer a impress√£o de Fatura Contratos
      *
      * @param document
      * @param request
@@ -3996,7 +3996,7 @@ public class InformacoesContrato extends AjaxFormAction {
 	}
 	UsuarioDTO user = WebUtil.getUsuario(request);
 	if (user == null) {
-	    document.alert("O usu·rio n„o est· logado! Favor logar no sistema!");
+	    document.alert("O usu√°rio n√£o est√° logado! Favor logar no sistema!");
 	    return;
 	}
 	double valorApurado = 0;
@@ -4088,7 +4088,7 @@ public class InformacoesContrato extends AjaxFormAction {
 		}
 
 		if (totalUstPrevista != 0) {
-		    // Removido, agora a moeda utiliza um flag de uso de cotaÁ„o
+		    // Removido, agora a moeda utiliza um flag de uso de cota√ß√£o
 		    // if(moedaDto != null && moedaDto.getNomeMoeda().equalsIgnoreCase(Enumerados.Moeda.UST.getDescricao())){
 		    if ((moedaDto != null) && (moedaDto.getUsarCotacao() != null)) {
 			totalUstPrevistoPerido = totalUstPrevista * faturaDto.getValorCotacaoMoeda();
@@ -4117,7 +4117,7 @@ public class InformacoesContrato extends AjaxFormAction {
 
 		    os.setCotacaoMoeda(faturaDto.getValorCotacaoMoeda());
 
-		    // Removido, agora a moeda utiliza um flag de uso de cotaÁ„o
+		    // Removido, agora a moeda utiliza um flag de uso de cota√ß√£o
 		    // if(moedaDto != null && moedaDto.getNomeMoeda().equalsIgnoreCase(Enumerados.Moeda.UST.getDescricao())){
 		    if ((moedaDto != null) && (moedaDto.getUsarCotacao() != null)) {
 			os.setValorAutorizado(os.getUstTotal() * os.getCotacaoMoeda());
@@ -4172,7 +4172,7 @@ public class InformacoesContrato extends AjaxFormAction {
 	parametros.put("NOME_EMPRESA", nomeEmpresa);
 	parametros.put("NOME_CLIENTE", clienteDTO.getNomeFantasia());
 	parametros.put("APLICACAO", "CITSMart");
-	parametros.put("CIDADE", "BrasÌlia,");
+	parametros.put("CIDADE", "Bras√≠lia,");
 	parametros.put("DATA_HORA", UtilDatas.getDataHoraAtual());
 	parametros.put("NOME_USUARIO", user.getNomeUsuario());
 	parametros.put("contratoNumero", contratoDto.getNumero());
@@ -4239,7 +4239,7 @@ public class InformacoesContrato extends AjaxFormAction {
     }
 
     /**
-     * MÈtodo para converter de Date para Integer pegando o ano.
+     * M√©todo para converter de Date para Integer pegando o ano.
      *
      * @param data
      * @return cledson.junior
@@ -4251,7 +4251,7 @@ public class InformacoesContrato extends AjaxFormAction {
     }
 
     /**
-     * MÈtodo que desabilita o vinculo ativo do Acordo ServiÁo Contrato
+     * M√©todo que desabilita o vinculo ativo do Acordo Servi√ßo Contrato
      *
      * @param document
      * @param request
@@ -4271,7 +4271,7 @@ public class InformacoesContrato extends AjaxFormAction {
     }
 
     /**
-     * MÈtodo que habilita o vinculo ativo do Acordo ServiÁo Contrato
+     * M√©todo que habilita o vinculo ativo do Acordo Servi√ßo Contrato
      *
      * @param document
      * @param request

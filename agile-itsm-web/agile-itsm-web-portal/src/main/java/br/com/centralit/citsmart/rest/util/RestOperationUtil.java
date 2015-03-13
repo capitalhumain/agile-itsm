@@ -63,7 +63,7 @@ public class RestOperationUtil {
 
     public static CtMessageResp execute(final RestSessionDTO restSession, final RestOperationDTO restOperation, final CtMessage input) throws JAXBException {
         if (!validAttributes(restOperation)) {
-            throw new JAXBException("Classe de execuÁ„o n„o foi parametrizada");
+            throw new JAXBException("Classe de execu√ß√£o n√£o foi parametrizada");
         }
         if (restOperation.getClassType().equalsIgnoreCase(ClassType.Java.name())) {
             return executeJavaClass(restSession, restOperation, input);
@@ -123,17 +123,17 @@ public class RestOperationUtil {
     public static Response execute(final CtMessage input) {
         final RestSessionDTO restSession = RestUtil.getRestSessionService(null).getSession(input.getSessionID());
         if (!RestUtil.isValidSession(restSession)) {
-            return Response.status(Status.PRECONDITION_FAILED).entity(RestOperationUtil.buildOperationError(RestEnum.SESSION_ERROR, "Sess„o n„o existe ou est· expirada", input))
+            return Response.status(Status.PRECONDITION_FAILED).entity(RestOperationUtil.buildOperationError(RestEnum.SESSION_ERROR, "Sess√£o n√£o existe ou est√° expirada", input))
                     .build();
         }
 
         final RestOperationDTO restOperation = RestUtil.getRestOperationService(restSession).findByName(input.getMessageID());
         if (restOperation == null) {
-            return Response.status(Status.PRECONDITION_FAILED).entity(RestOperationUtil.buildOperationError(RestEnum.INTERNAL_ERROR, "OperaÁ„o n„o cadastrada", input)).build();
+            return Response.status(Status.PRECONDITION_FAILED).entity(RestOperationUtil.buildOperationError(RestEnum.INTERNAL_ERROR, "Opera√ß√£o n√£o cadastrada", input)).build();
         }
 
         if (!RestUtil.getRestPermissionService(restSession).allowedAccess(restSession, restOperation)) {
-            return Response.status(Status.PRECONDITION_FAILED).entity(RestOperationUtil.buildOperationError(RestEnum.PERMISSION_ERROR, "Usu·rio n„o tem acesso ‡ operaÁ„o", input))
+            return Response.status(Status.PRECONDITION_FAILED).entity(RestOperationUtil.buildOperationError(RestEnum.PERMISSION_ERROR, "Usu√°rio n√£o tem acesso √† opera√ß√£o", input))
                     .build();
         }
 

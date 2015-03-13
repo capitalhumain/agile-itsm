@@ -15,7 +15,7 @@ public class RegraProgramacaoAtividade_U extends RegraProgramacaoAtividade {
     }    
     
     public String getDetalhamento(ProgramacaoAtividadeDTO programacaoAtividadeDto) throws Exception {
-        String descricao = "Às "+programacaoAtividadeDto.getHoraInicio();
+        String descricao = "Ã€s "+programacaoAtividadeDto.getHoraInicio();
         return descricao;
     }
     

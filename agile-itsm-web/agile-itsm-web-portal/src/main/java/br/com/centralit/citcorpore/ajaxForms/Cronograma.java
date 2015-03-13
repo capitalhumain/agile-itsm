@@ -983,7 +983,7 @@ public class Cronograma extends AjaxFormAction {
         cfg.setDirectoryForTemplateLoading(new File(CITCorporeUtil.CAMINHO_REAL_APP));
         Template template = null;
         if (System.getProperty("os.name").contains("Windows")) {
-            template = cfg.getTemplate(strPathTemplate, "ISO-8859-1");
+            template = cfg.getTemplate(strPathTemplate, "UTF-8");
         } else {
             template = cfg.getTemplate(strPathTemplate, "UTF-8");
         }

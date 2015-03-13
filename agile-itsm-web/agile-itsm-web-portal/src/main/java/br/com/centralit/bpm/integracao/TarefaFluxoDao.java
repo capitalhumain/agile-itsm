@@ -32,16 +32,16 @@ public class TarefaFluxoDao extends ItemTrabalhoFluxoDao {
     }
 
     /**
-     * Retorna as Tarefas do Fluxo disponÌveis para o Usu·rio logado de acordo com o seu ID ou os Grupos em que est· inserido.
+     * Retorna as Tarefas do Fluxo dispon√≠veis para o Usu√°rio logado de acordo com o seu ID ou os Grupos em que est√° inserido.
      *
-     * AlteraÁ„o realizada em 15.01.2015 para as tarefas do tipo DelegaÁ„o fossem retornadas caso n„o haja nenhuma do tipo Autom·tica ou Acompanhamento.
+     * Altera√ß√£o realizada em 15.01.2015 para as tarefas do tipo Delega√ß√£o fossem retornadas caso n√£o haja nenhuma do tipo Autom√°tica ou Acompanhamento.
      *
      * @param idUsuario
-     *            - Identificador ˙nico do Usu·rio.
+     *            - Identificador √∫nico do Usu√°rio.
      * @param listGrupoBpmDTO
-     *            - Lista de Grupos do Usu·rio.
+     *            - Lista de Grupos do Usu√°rio.
      * @param idTarefa
-     *            - Identificador ˙nico da tarefa.
+     *            - Identificador √∫nico da tarefa.
      * @return List<TarefaFluxoDTO>
      * @throws PersistenceException
      * @author valdoilo.damasceno

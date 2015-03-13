@@ -83,7 +83,7 @@ StringUtils.nullToEmpty = function(str){
  * ----------------------------------------------------------------
  	Faz a complementacao de uma string
  
-	Exemplo de Utilização:
+	Exemplo de UtilizaÃ§Ã£o:
 	var mes = "9";
 	alert(mes.pad(2, "0", String.PAD_LEFT)); // exibe "09"
 */

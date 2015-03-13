@@ -108,7 +108,7 @@ public class Login extends AjaxFormAction {
 		boolean isAdmin = false;
 		if (login != null) {
 			/**
-			 * Motivo: Iners„o da validaÁ„o de login Autor: Fl·vio.santana Data/Hora: 05/11/2013 17:30
+			 * Motivo: Iners√£o da valida√ß√£o de login Autor: Fl√°vio.santana Data/Hora: 05/11/2013 17:30
 			 */
 			if (login.getUser() == null || login.getUser().trim().equalsIgnoreCase("")) {
 				document.executeScript("fechar_aguarde();");
@@ -230,7 +230,7 @@ public class Login extends AjaxFormAction {
 
 				}
 
-				// VerificaÁ„o de instalaÁ„o
+				// Verifica√ß√£o de instala√ß√£o
 				String sessao = (String) request.getSession().getAttribute("passoInstalacao");
 
 				if (sessao != null) {
@@ -250,7 +250,7 @@ public class Login extends AjaxFormAction {
 				}
 				
 				/**
-				 * Caso tenha ficado alguma carga de menu no session, remove a referÍncia para peg·-la novamente ao carregar o menu
+				 * Caso tenha ficado alguma carga de menu no session, remove a refer√™ncia para peg√°-la novamente ao carregar o menu
 				 * 
 				 * @author thyen.chang
 				 * @since 12/02/2015
@@ -260,7 +260,7 @@ public class Login extends AjaxFormAction {
 				}
 				
 				/*
-				 * Desenvolvedor: Thiago Matias - Data: 05/11/2013 - Hor·rio: 16:00 - ID Citsmart: 123357 - Motivo/Coment·rio: redirecionando para o portal quando o parametro do mesmo estiver
+				 * Desenvolvedor: Thiago Matias - Data: 05/11/2013 - Hor√°rio: 16:00 - ID Citsmart: 123357 - Motivo/Coment√°rio: redirecionando para o portal quando o parametro do mesmo estiver
 				 * habilitado.
 				 */
 				String abrePortal = (String)request.getSession().getAttribute("abrePortal");
@@ -282,7 +282,7 @@ public class Login extends AjaxFormAction {
 	}
 
 	/**
-	 * Adicionado tratamento para quando usu·rio n„o possui perfil de acesso
+	 * Adicionado tratamento para quando usu√°rio n√£o possui perfil de acesso
 	 * 30/12/2014 - 10:18
 	 * @author thyen.chang
 	 * @param idPerfilAcessoUsuario
@@ -322,12 +322,12 @@ public class Login extends AjaxFormAction {
 
 	public void redefinirSenha(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-		// Obtendo o login ou e-mail informado na popup de recuperaÁ„o de senha.
+		// Obtendo o login ou e-mail informado na popup de recupera√ß√£o de senha.
 		LoginDTO loginDTO = (LoginDTO) document.getBean();
 
 		if (loginDTO != null) {
 
-			// Obtendo serviÁos para consultar informaÁıes de usu·rio e
+			// Obtendo servi√ßos para consultar informa√ß√µes de usu√°rio e
 			// empregado.
 			UsuarioService usuarioService = (UsuarioService) ServiceLocator.getInstance().getService(UsuarioService.class, null);
 
@@ -353,7 +353,7 @@ public class Login extends AjaxFormAction {
 							return;
 						}
 
-						// Verificando se o valor informado È um e-mail.
+						// Verificando se o valor informado √© um e-mail.
 						if (loginDTO.getLogin().matches("\\b[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}\\b")) {
 
 							// Obtendo o empregado a partir o e-mail.
@@ -361,9 +361,9 @@ public class Login extends AjaxFormAction {
 
 							usuarioDTO = usuarioService.restoreByIdEmpregado(empregadoDTO.getIdEmpregado());
 
-						} else { // caso n„o seja, assume que È login.
+						} else { // caso n√£o seja, assume que √© login.
 
-							// Restaurando o usu·rio atravÈs do login.
+							// Restaurando o usu√°rio atrav√©s do login.
 							usuarioDTO = usuarioService.restoreByLogin(loginDTO.getLogin());
 
 							empregadoDTO = empregadoService.restoreByEmail(String.format("%s@%s", loginDTO.getLogin(), "centralit.com.br"));

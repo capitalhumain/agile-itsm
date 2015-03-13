@@ -59,7 +59,7 @@ public class GerenciaConfiguracaoTree extends AjaxFormAction {
 	public void load(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		/**
-		 * Checa qual a preferência de exibição do nome do item de configuração na árvore
+		 * Checa qual a preferÃªncia de exibiÃ§Ã£o do nome do item de configuraÃ§Ã£o na Ã¡rvore
 		 * 
 		 * @author thyen.chang
 		 */
@@ -148,7 +148,7 @@ public class GerenciaConfiguracaoTree extends AjaxFormAction {
 		listaImagens = listDirectorioImagens(new File(CITCorporeUtil.CAMINHO_REAL_APP +"/pages/tipoItemConfiguracao/imagens/16/"));    		
 		session.setAttribute("css",gerarCSS(listaImagens));
 		
-		/*Capturando os itens do inventário (Não possuem grupos)*/
+		/*Capturando os itens do inventÃ¡rio (NÃ£o possuem grupos)*/
 		List<ItemConfiguracaoDTO> listaItemSemGrupo = (List<ItemConfiguracaoDTO>) itemConfiguracaoService.listItensSemGrupo(itemFiltro);
 		
 
@@ -389,7 +389,7 @@ public class GerenciaConfiguracaoTree extends AjaxFormAction {
 		GrupoItemConfiguracaoService grupoICService = (GrupoItemConfiguracaoService) ServiceLocator.getInstance().getService(GrupoItemConfiguracaoService.class, null);
 		
 		/**
-		 * Checa qual a preferência de exibição do nome do item de configuração na árvore
+		 * Checa qual a preferÃªncia de exibiÃ§Ã£o do nome do item de configuraÃ§Ã£o na Ã¡rvore
 		 */
 		boolean exibeNome = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.EXIBIR_NOME_ITEM_CONFIGURACAO_TREE, "S").equals("N")? false : true;
 		
@@ -667,7 +667,7 @@ public class GerenciaConfiguracaoTree extends AjaxFormAction {
 			return;
 		}
 		/**
-		 * Checa qual a preferência de exibição do nome do item de configuração na árvore
+		 * Checa qual a preferÃªncia de exibiÃ§Ã£o do nome do item de configuraÃ§Ã£o na Ã¡rvore
 		 * 
 		 * @author thyen.chang
 		 */
@@ -687,7 +687,7 @@ public class GerenciaConfiguracaoTree extends AjaxFormAction {
 	
 			
 			if (listaItensRelacionados != null && listaItensRelacionados.size() > 0) {
-		             /*rcs (Rafael César Soyer) - o código abaixo foi comentado, porque definiu-se que o mesmo, não deveria ser mostrado
+		             /*rcs (Rafael CÃ©sar Soyer) - o cÃ³digo abaixo foi comentado, porque definiu-se que o mesmo, nÃ£o deveria ser mostrado
 	                     * data: 15/12/2014
 	                        
 	                        String json = "";
@@ -818,8 +818,8 @@ public class GerenciaConfiguracaoTree extends AjaxFormAction {
 			// StringBuilder strAux = dataManager.geraRecursiveExportObjetoNegocio(hashValoresItem, objetoNegocioDTO.getIdObjetoNegocio(), sqlDelete, "ITEMCONFIGURACAO", filterAditional);
 			StringBuilder strAuxGrp = dataManager.geraRecursiveExportObjetoNegocio(hashValoresGrp, objetoNegocioGrpDTO.getIdObjetoNegocio(), sqlDelete, "GRUPOITEMCONFIGURACAO", filterAditional, "");
 
-			// String str = "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n<tables origem='" + ORIGEM_SISTEMA + "'>\n" + strAuxGrp.toString() + "\n" + strAux.toString();
-			String str = "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n<tables origem='" + ORIGEM_SISTEMA + "'>\n" + strAuxGrp.toString();
+			// String str = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<tables origem='" + ORIGEM_SISTEMA + "'>\n" + strAuxGrp.toString() + "\n" + strAux.toString();
+			String str = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<tables origem='" + ORIGEM_SISTEMA + "'>\n" + strAuxGrp.toString();
 			str = "" + str + "\n</tables>";
 
 			String strDateTime = (new java.util.Date()).toString();
@@ -892,15 +892,15 @@ public class GerenciaConfiguracaoTree extends AjaxFormAction {
 				break;
 			case 3:
 				//retorno = StatusIC.EM_MANUTENCAO.getDescricao();
-				retorno =UtilI18N.internacionaliza(request, "baseItemConfiguracao.Em_Manutenção");
+				retorno =UtilI18N.internacionaliza(request, "baseItemConfiguracao.Em_ManutenÃ§Ã£o");
 				break;
 			case 4:
 				//retorno = StatusIC.IMPLANTACAO.getDescricao();
-				retorno =UtilI18N.internacionaliza(request, "baseItemConfiguracao.Implantação");
+				retorno =UtilI18N.internacionaliza(request, "baseItemConfiguracao.ImplantaÃ§Ã£o");
 				break;
 			case 5:
 				//retorno = StatusIC.HOMOLOGACAO.getDescricao();
-				retorno =UtilI18N.internacionaliza(request, "baseItemConfiguracao.Homologação");
+				retorno =UtilI18N.internacionaliza(request, "baseItemConfiguracao.HomologaÃ§Ã£o");
 				break;
 			case 6:
 				//retorno = StatusIC.EM_DESENVOLVIMENTO.getDescricao();

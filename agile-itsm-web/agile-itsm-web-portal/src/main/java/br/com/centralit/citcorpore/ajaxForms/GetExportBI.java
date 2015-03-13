@@ -27,7 +27,7 @@ public class GetExportBI extends AjaxFormAction {
 		
 		BICitsmartResultRotinaDTO result = biCitsmartOperation.exportacaoManualDownloadBICitsmart();
 		if (result.isResultado()) {
-			buffer = result.getMensagem().getBytes("ISO-8859-1");
+			buffer = result.getMensagem().getBytes("UTF-8");
 		} else {
 			buffer = "<xml></xml>".getBytes();
 		}

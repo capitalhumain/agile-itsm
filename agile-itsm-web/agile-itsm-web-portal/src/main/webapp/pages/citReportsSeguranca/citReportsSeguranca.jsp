@@ -1,5 +1,5 @@
 <%@page import="br.com.centralit.citcorpore.bean.GrupoDTO"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="br.com.centralit.citcorpore.util.ParametroUtil"%>
 <%@page import="br.com.citframework.util.Constantes"%>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
@@ -35,8 +35,7 @@
 
 <head>
 <%@include file="/include/header.jsp"%>
-<%@include file="/include/security/security.jsp"%>
-<title><fmt:message key="citcorpore.comum.title" /></title>
+<%@include file="/novoLayout/common/include/titulo.jsp" %>
 		<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 		<link rel="stylesheet" type="text/css" href="${ctx}/pages/dashBoardBuilder/css/byrei-dyndiv_0.5.css">
 		<script type="text/javascript" src="${ctx}/pages/dashBoardBuilder/js/byrei-dyndiv_1.0rc1.js"></script>
@@ -94,7 +93,7 @@
 
 		function gravarPerfsSeg(){
 			if (document.formPainel.idConsulta.value == '' || document.formPainel.idConsulta.value == undefined){
-				alert('Selecione a consulta/relatório que deseja aplicar segurança!');
+				alert('Selecione a consulta/relatÃ³rio que deseja aplicar seguranÃ§a!');
 				return;
 			}
 			document.formPainel.fireEvent('gravarSeguranca');

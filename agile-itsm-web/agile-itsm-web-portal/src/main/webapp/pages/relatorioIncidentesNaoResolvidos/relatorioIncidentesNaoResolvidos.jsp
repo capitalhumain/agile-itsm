@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.CitCorporeConstantes"%>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
@@ -123,7 +125,7 @@
 									</div>
 
 
-									<!--auto complete serviço-->
+									<!--auto complete serviÃ§o-->
 									<div class="row-fluid">
 										<div class="span7">
 											<div class="input-append span2">
@@ -135,7 +137,7 @@
 													<fmt:message key="servico.nome" />
 												</label>
 
-												<input class="span12" type="text" name="servicoBusca" id="servicoBusca" required="required" placeholder="Digite o nome do Serviço" onfocus="verificaContrato();">
+												<input class="span12" type="text" name="servicoBusca" id="servicoBusca" required="required" placeholder="Digite o nome do ServiÃ§o" onfocus="verificaContrato();">
 												<span class="add-on">
 													<i class="icon-search"></i>
 												</span>
@@ -144,7 +146,7 @@
 									</div>
 
 
-									<!--Serviço-->
+									<!--ServiÃ§o-->
 									<div class='row-fluid' style="display: show;" id="servicos">
 										<div class='span10'>
 											<div class='span3'>

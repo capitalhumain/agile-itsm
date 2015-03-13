@@ -32,7 +32,7 @@ public class SolicitacaoServicoMudancaDao extends CrudDaoDefaultImpl {
 		return null;
 	}
 	
-	//corrigir, foi retirado às pressas, precisa de reavaliação "delete from  SOLICITACAOSERVICOMUDANCA where idRequisicaoMudanca = ? and idhistoricomudanca is null";
+	//corrigir, foi retirado Ã s pressas, precisa de reavaliaÃ§Ã£o "delete from  SOLICITACAOSERVICOMUDANCA where idRequisicaoMudanca = ? and idhistoricomudanca is null";
 	private static final String SQL_DELETE_BY_ID_MUDANCA = 
 	          "delete from  SOLICITACAOSERVICOMUDANCA where idRequisicaoMudanca = ? ";
 

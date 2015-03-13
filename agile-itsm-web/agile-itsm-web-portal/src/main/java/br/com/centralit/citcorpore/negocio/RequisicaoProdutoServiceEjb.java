@@ -117,7 +117,7 @@ public class RequisicaoProdutoServiceEjb extends ComplemInfSolicitacaoServicoSer
 
         final String idGrupo = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.ID_GRUPO_PADRAO_REQ_PRODUTOS, null);
         if (idGrupo == null || idGrupo.trim().equals("")) {
-            throw new LogicException("Grupo padr„o de requisiÁ„o de produtos n„o parametrizado");
+            throw new LogicException("Grupo padr√£o de requisi√ß√£o de produtos n√£o parametrizado");
         }
 
         final GrupoEmpregadoDao grupoEmpregadoDao = new GrupoEmpregadoDao();
@@ -130,7 +130,7 @@ public class RequisicaoProdutoServiceEjb extends ComplemInfSolicitacaoServicoSer
             final int id = new Integer(idGrupo).intValue();
             for (final GrupoEmpregadoDTO grupoEmpregadoDto : colGrupos) {
                 if (grupoEmpregadoDto.getIdGrupo().intValue() == id) {
-                    throw new LogicException("n„o È permitido que um empregado do grupo de Compras faÁa uma requisiÁ„o de produtos");
+                    throw new LogicException("n√£o √© permitido que um empregado do grupo de Compras fa√ßa uma requisi√ß√£o de produtos");
                 }
             }
         }
@@ -179,13 +179,13 @@ public class RequisicaoProdutoServiceEjb extends ComplemInfSolicitacaoServicoSer
                 final Collection<CotacaoItemRequisicaoDTO> colItens = requisicaoProdutoDto.getItensCotacao();
                 for (final CotacaoItemRequisicaoDTO itemDto : colItens) {
                     if (itemDto.getAprovado() == null || itemDto.getAprovado().trim().length() == 0) {
-                        throw new LogicException("Parecer n„o informado para o item '" + itemDto.getDescricaoItem() + "'");
+                        throw new LogicException("Parecer n√£o informado para o item '" + itemDto.getDescricaoItem() + "'");
                     }
                     if (itemDto.getAprovado().equalsIgnoreCase("N") && itemDto.getIdJustificativa() == null) {
-                        throw new LogicException("Justificativa n„o informada para o item '" + itemDto.getDescricaoItem() + "'");
+                        throw new LogicException("Justificativa n√£o informada para o item '" + itemDto.getDescricaoItem() + "'");
                     }
                     if (itemDto.getAprovado().equalsIgnoreCase("S") && itemDto.getPercVariacaoPreco() == null) {
-                        throw new LogicException("Percentual variaÁ„o de preÁo a maior n„o informado para o item '" + itemDto.getDescricaoItem() + "'");
+                        throw new LogicException("Percentual varia√ß√£o de pre√ßo a maior n√£o informado para o item '" + itemDto.getDescricaoItem() + "'");
                     }
                 }
             }
@@ -195,17 +195,17 @@ public class RequisicaoProdutoServiceEjb extends ComplemInfSolicitacaoServicoSer
                 final InspecaoEntregaItemDao inspecaoEntregaDao = new InspecaoEntregaItemDao();
                 for (final EntregaItemRequisicaoDTO entregaDto : colEntregas) {
                     if (entregaDto.getAprovado() == null || entregaDto.getAprovado().trim().length() == 0) {
-                        throw new LogicException("Parecer n„o informado para a entrega '" + entregaDto.getDescricaoItem() + "'");
+                        throw new LogicException("Parecer n√£o informado para a entrega '" + entregaDto.getDescricaoItem() + "'");
                     }
                     if (entregaDto.getAprovado().equalsIgnoreCase("N") && entregaDto.getIdJustificativa() == null) {
-                        throw new LogicException("Justificativa n„o informada para a entrega '" + entregaDto.getDescricaoItem() + "'");
+                        throw new LogicException("Justificativa n√£o informada para a entrega '" + entregaDto.getDescricaoItem() + "'");
                     }
                     if (entregaDto.getAprovado().equalsIgnoreCase("N")) {
                         continue;
                     }
                     final Collection<InspecaoEntregaItemDTO> colInspecoes = inspecaoEntregaDao.findByIdEntrega(entregaDto.getIdEntrega());
                     if (colInspecoes == null || colInspecoes.size() == 0) {
-                        throw new LogicException("Existe pelo menos uma entrega n„o avaliada");
+                        throw new LogicException("Existe pelo menos uma entrega n√£o avaliada");
                     }
                 }
             }
@@ -217,7 +217,7 @@ public class RequisicaoProdutoServiceEjb extends ComplemInfSolicitacaoServicoSer
 
             if (UtilStrings.nullToVazio(requisicaoProdutoDto.getAcao()).equalsIgnoreCase(RequisicaoProdutoDTO.ACAO_CRIACAO)) {
                 if (requisicaoProdutoDto.getItensRequisicao() == null) {
-                    throw new LogicException("n„o foi informado nenhum item da requisiÁ„o");
+                    throw new LogicException("n√£o foi informado nenhum item da requisi√ß√£o");
                 }
                 String percVariacaoPrecoStr = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.PERC_MAX_VAR_PRECO_COTACAO, "0,0");
                 if (percVariacaoPrecoStr == null || percVariacaoPrecoStr.equals("")) {
@@ -265,7 +265,7 @@ public class RequisicaoProdutoServiceEjb extends ComplemInfSolicitacaoServicoSer
                     requisicaoProdutoDto.setItensRequisicao(colItens);
                     for (final ItemRequisicaoProdutoDTO itemDto : colItens) {
                         if (itemDto.cotacaoIniciada()) {
-                            throw new LogicException("O item '" + itemDto.getDescricaoItem().trim() + "' est· em processo de cotaÁ„o.\nA requisiÁ„o n„o pode ser rejeitada.");
+                            throw new LogicException("O item '" + itemDto.getDescricaoItem().trim() + "' est√° em processo de cota√ß√£o.\nA requisi√ß√£o n√£o pode ser rejeitada.");
                         }
                     }
                 }
@@ -284,16 +284,16 @@ public class RequisicaoProdutoServiceEjb extends ComplemInfSolicitacaoServicoSer
 
                     if (!itemDto.dadosAlterados() && !itemDto.getSituacao().equals(SituacaoItemRequisicaoProduto.AguardandoAutorizacaoCompra.name())) {
                         if (itemDto.getValidado() == null || itemDto.getValidado().trim().length() == 0) {
-                            throw new LogicException("Parecer n„o informado para o item '" + itemDto.getDescricaoItem() + "'");
+                            throw new LogicException("Parecer n√£o informado para o item '" + itemDto.getDescricaoItem() + "'");
                         }
                         if (itemDto.getValidado().equalsIgnoreCase("S") && itemDto.getIdProduto() == null && itemDto.getIdCategoriaProduto() == null) {
-                            throw new LogicException("Categoria do produto n„o informada para o item '" + itemDto.getDescricaoItem() + "'");
+                            throw new LogicException("Categoria do produto n√£o informada para o item '" + itemDto.getDescricaoItem() + "'");
                         }
                         if (itemDto.getValidado().equalsIgnoreCase("N") && itemDto.getIdJustificativaValidacao() == null) {
-                            throw new LogicException("Justificativa n„o informada para o item '" + itemDto.getDescricaoItem() + "'");
+                            throw new LogicException("Justificativa n√£o informada para o item '" + itemDto.getDescricaoItem() + "'");
                         }
                         if (itemDto.getValidado().equalsIgnoreCase("S") && itemDto.getTipoAtendimento() == null) {
-                            throw new LogicException("Tipo de atendimento n„o informado para o item '" + itemDto.getDescricaoItem() + "'");
+                            throw new LogicException("Tipo de atendimento n√£o informado para o item '" + itemDto.getDescricaoItem() + "'");
                         }
                     }
                     if (itemDto.getIdProduto() != null && itemDto.getIdCategoriaProduto() == null) {
@@ -319,14 +319,14 @@ public class RequisicaoProdutoServiceEjb extends ComplemInfSolicitacaoServicoSer
                         }
 
                         if (itemDto.getAutorizado() == null || itemDto.getAutorizado().trim().length() == 0) {
-                            throw new LogicException("Parecer n„o informado para o item '" + itemDto.getDescricaoItem() + "'");
+                            throw new LogicException("Parecer n√£o informado para o item '" + itemDto.getDescricaoItem() + "'");
                         }
                         if (itemDto.getAutorizado().equalsIgnoreCase("N") && itemDto.getIdJustificativaAutorizacao() == null) {
-                            throw new LogicException("Justificativa n„o informada para o item '" + itemDto.getDescricaoItem() + "'");
+                            throw new LogicException("Justificativa n√£o informada para o item '" + itemDto.getDescricaoItem() + "'");
                         }
                         if (itemDto.getAutorizado().equalsIgnoreCase("S")) {
                             if (itemDto.getQtdeAprovada() == null || itemDto.getQtdeAprovada().intValue() == 0) {
-                                throw new LogicException("Quantidade aprovada n„o informada para o item '" + itemDto.getDescricaoItem() + "'");
+                                throw new LogicException("Quantidade aprovada n√£o informada para o item '" + itemDto.getDescricaoItem() + "'");
                             }
                         }
                     }
@@ -348,10 +348,10 @@ public class RequisicaoProdutoServiceEjb extends ComplemInfSolicitacaoServicoSer
             projetoDto = (ProjetoDTO) projetoDao.restore(projetoDto);
         }
         if (projetoDto == null) {
-            throw new LogicException("Projeto n„o encontrado");
+            throw new LogicException("Projeto n√£o encontrado");
         }
         if (projetoDto.getIdProjetoPai() == null) {
-            throw new LogicException("VocÍ n„o pode escolher um projeto raiz. Selecione um projeto de nÌvel analÌtico.");
+            throw new LogicException("Voc√™ n√£o pode escolher um projeto raiz. Selecione um projeto de n√≠vel anal√≠tico.");
         }
     }
 
@@ -369,11 +369,11 @@ public class RequisicaoProdutoServiceEjb extends ComplemInfSolicitacaoServicoSer
             requisicaoProdutoDto.setCentroCustoDto(centroCustoDto);
         }
         if (centroCustoDto == null) {
-            throw new LogicException("Centro de custo n„o encontrado");
+            throw new LogicException("Centro de custo n√£o encontrado");
         }
         if (centroCustoDto.getIdCentroResultadoPai() == null || centroCustoDto.getPermiteRequisicaoProduto() == null
                 || !centroCustoDto.getPermiteRequisicaoProduto().equalsIgnoreCase("S")) {
-            throw new LogicException("Centro de custo n„o permite requisiÁ„o de produtos e serviÁos");
+            throw new LogicException("Centro de custo n√£o permite requisi√ß√£o de produtos e servi√ßos");
         }
     }
 
@@ -486,9 +486,9 @@ public class RequisicaoProdutoServiceEjb extends ComplemInfSolicitacaoServicoSer
                     cotacaoItemRequisicaoService.atualizaAprovacaoCotacao(itemDto, solicitacaoServicoDto.getUsuarioDto(), tc);
                 }
             } else {
-                new CotacaoItemRequisicaoServiceEjb().cancelaTarefaAprovacaoCotacao(requisicaoProdutoDto.getIdSolicitacaoServico(), "AlteraÁ„o do centro de custo",
+                new CotacaoItemRequisicaoServiceEjb().cancelaTarefaAprovacaoCotacao(requisicaoProdutoDto.getIdSolicitacaoServico(), "Altera√ß√£o do centro de custo",
                         solicitacaoServicoDto.getUsuarioDto(), tc);
-                OcorrenciaSolicitacaoServiceEjb.create(solicitacaoServicoDto, null, "AlteraÁ„o do centro de custo pelo aprovador", OrigemOcorrencia.OUTROS,
+                OcorrenciaSolicitacaoServiceEjb.create(solicitacaoServicoDto, null, "Altera√ß√£o do centro de custo pelo aprovador", OrigemOcorrencia.OUTROS,
                         CategoriaOcorrencia.Atualizacao, null, CategoriaOcorrencia.Atualizacao.getDescricao(), solicitacaoServicoDto.getUsuarioDto(), 0, null, tc);
             }
         } else if (UtilStrings.nullToVazio(requisicaoProdutoDto.getAcao()).equalsIgnoreCase(RequisicaoProdutoDTO.ACAO_INSPECAO)) {
@@ -568,14 +568,14 @@ public class RequisicaoProdutoServiceEjb extends ComplemInfSolicitacaoServicoSer
                     }
                 }
                 if (requisicaoProdutoDto.dadosAlterados()) {
-                    OcorrenciaSolicitacaoServiceEjb.create(solicitacaoServicoDto, null, "AlteraÁ„o dos dados da requisiÁ„o pela ·rea de compras", OrigemOcorrencia.OUTROS,
+                    OcorrenciaSolicitacaoServiceEjb.create(solicitacaoServicoDto, null, "Altera√ß√£o dos dados da requisi√ß√£o pela √°rea de compras", OrigemOcorrencia.OUTROS,
                             CategoriaOcorrencia.Atualizacao, null, CategoriaOcorrencia.Atualizacao.getDescricao(), solicitacaoServicoDto.getUsuarioDto(), 0, null, tc);
                 }
             } else if (UtilStrings.nullToVazio(requisicaoProdutoDto.getAcao()).equalsIgnoreCase(RequisicaoProdutoDTO.ACAO_AUTORIZACAO)) {
                 if (requisicaoProdutoDto.dadosAlterados()) {
-                    String descricao = "AlteraÁ„o dos dados da requisiÁ„o pelo autorizador";
+                    String descricao = "Altera√ß√£o dos dados da requisi√ß√£o pelo autorizador";
                     if (requisicaoProdutoDto.centroCustoAlterado()) {
-                        descricao = "AlteraÁ„o do centro de custo pelo autorizador";
+                        descricao = "Altera√ß√£o do centro de custo pelo autorizador";
                     }
                     OcorrenciaSolicitacaoServiceEjb.create(solicitacaoServicoDto, null, descricao, OrigemOcorrencia.OUTROS, CategoriaOcorrencia.Atualizacao, null,
                             CategoriaOcorrencia.Atualizacao.getDescricao(), solicitacaoServicoDto.getUsuarioDto(), 0, null, tc);
@@ -956,7 +956,7 @@ public class RequisicaoProdutoServiceEjb extends ComplemInfSolicitacaoServicoSer
 
         final String descr = solicitacaoDto.getDescricaoSemFormatacao();
         if (descr != null && !descr.trim().isEmpty()) {
-            descricao += "\n--------------------- DESCRI«√O -------------------\n";
+            descricao += "\n--------------------- DESCRI√á√ÉO -------------------\n";
             descricao += descr + "\n";
         }
 
@@ -973,7 +973,7 @@ public class RequisicaoProdutoServiceEjb extends ComplemInfSolicitacaoServicoSer
                         CotacaoItemRequisicaoService.class, usuario);
                 final Collection<CotacaoItemRequisicaoDTO> itensCotacao = cotacaoItemRequisicaoService.findByIdItemTrabalho(itemTrabalho.getIdItemTrabalho());
                 if (itensCotacao != null) {
-                    descricao += "\n---------------- ITENS DA APROVA«√O --------------\n";
+                    descricao += "\n---------------- ITENS DA APROVA√á√ÉO --------------\n";
                     for (final CotacaoItemRequisicaoDTO cotacaoItemDto : itensCotacao) {
                         if (!cotacaoItemDto.getSituacao().equals(SituacaoCotacaoItemRequisicao.AguardaAprovacao.name())) {
                             continue;
@@ -981,7 +981,7 @@ public class RequisicaoProdutoServiceEjb extends ComplemInfSolicitacaoServicoSer
                         descricao += cotacaoItemDto.getDescricaoItem().toUpperCase() + "\n";
                         descricao += "Fornecedor: " + cotacaoItemDto.getNomeFornecedor() + "\n";
                         descricao += "Qtde: " + UtilFormatacao.formatDouble(cotacaoItemDto.getQuantidade(), 2) + "\n";
-                        descricao += "PreÁo: " + UtilFormatacao.formatDouble(cotacaoItemDto.getPreco(), 2) + "\n\n";
+                        descricao += "Pre√ßo: " + UtilFormatacao.formatDouble(cotacaoItemDto.getPreco(), 2) + "\n\n";
                     }
                 }
             } else if (UtilStrings.nullToVazio(elementoDto.getTemplate()).toUpperCase().indexOf("INSPECAO") >= 0) {
@@ -989,7 +989,7 @@ public class RequisicaoProdutoServiceEjb extends ComplemInfSolicitacaoServicoSer
                         EntregaItemRequisicaoService.class, usuario);
                 final Collection<EntregaItemRequisicaoDTO> itensInspecao = entregaItemRequisicaoService.findByIdItemTrabalho(itemTrabalho.getIdItemTrabalho());
                 if (itensInspecao != null) {
-                    descricao += "\n----------------- ITENS DA INSPE«√O --------------\n";
+                    descricao += "\n----------------- ITENS DA INSPE√á√ÉO --------------\n";
                     for (final EntregaItemRequisicaoDTO entregaItemDto : itensInspecao) {
                         if (!entregaItemDto.getSituacao().equals(SituacaoEntregaItemRequisicao.Aguarda.name())) {
                             continue;
@@ -1003,14 +1003,14 @@ public class RequisicaoProdutoServiceEjb extends ComplemInfSolicitacaoServicoSer
                 final ItemRequisicaoProdutoService itemRequisicaoProdutoService = (ItemRequisicaoProdutoService) ServiceLocator.getInstance().getService(
                         ItemRequisicaoProdutoService.class, usuario);
                 final Collection<ItemRequisicaoProdutoDTO> colItens = itemRequisicaoProdutoService.findByIdSolicitacaoServico(solicitacaoDto.getIdSolicitacaoServico());
-                descricao += "\n---------------- ITENS DA REQUISI«√O -------------\n";
+                descricao += "\n---------------- ITENS DA REQUISI√á√ÉO -------------\n";
                 for (final ItemRequisicaoProdutoDTO itemRequisicaoDto : colItens) {
                     descricao += itemRequisicaoDto.getDescricaoItem().toUpperCase() + "\n";
                     descricao += "Qtde: " + UtilFormatacao.formatDouble(itemRequisicaoDto.getQtdeAprovada(), 2) + "\n";
                     if (itemRequisicaoDto.getPrecoAproximado() != null && itemRequisicaoDto.getPrecoAproximado().doubleValue() > 0) {
                         descricao += "Valor aproximado: " + UtilFormatacao.formatDouble(itemRequisicaoDto.getPrecoAproximado(), 2) + "\n";
                     }
-                    descricao += "SituaÁ„o: " + itemRequisicaoDto.getDescrSituacao() + "\n\n";
+                    descricao += "Situa√ß√£o: " + itemRequisicaoDto.getDescrSituacao() + "\n\n";
                 }
             }
         }

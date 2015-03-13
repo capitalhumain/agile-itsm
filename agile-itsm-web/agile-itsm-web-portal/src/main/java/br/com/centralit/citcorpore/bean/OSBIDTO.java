@@ -175,7 +175,7 @@ public class OSBIDTO extends BaseEntity {
 			return "";
 		}
 		if (this.getSituacaoOS().intValue() == 1) {
-			return "Em criação";
+			return "Em criaÃ§Ã£o";
 		}
 		if (this.getSituacaoOS().intValue() == 2) {
 			return "Solicitada";
@@ -187,7 +187,7 @@ public class OSBIDTO extends BaseEntity {
 			return "Aprovada";
 		}
 		if (this.getSituacaoOS().intValue() == 5) {
-			return "Em execução";
+			return "Em execuÃ§Ã£o";
 		}
 		if (this.getSituacaoOS().intValue() == 6) {
 			return "Executada";

@@ -160,7 +160,7 @@ public class GraficosDao extends CrudDaoDefaultImpl {
 
     /**
      * @author rodrigo.oliveira
-     * @param HashMap de par‚metros
+     * @param HashMap de par√¢metros
      * @return Collection de resultados da busca
      */
 
@@ -169,7 +169,7 @@ public class GraficosDao extends CrudDaoDefaultImpl {
 
 		List parametrosBusca = new ArrayList();
 
-    	//TODO I para indicentes e R para requisiÁoes
+    	//TODO I para indicentes e R para requisi√ßoes
     	parametrosBusca.add(tipo);
 
     	parametrosBusca.add(Integer.parseInt((String) parametros.get("PARAM.idServico")));
@@ -235,10 +235,10 @@ public class GraficosDao extends CrudDaoDefaultImpl {
     }
 
 	/**
-	 * Retorna o N˙mero M·ximo de registros que dever· ser retornado na consulta.
+	 * Retorna o N√∫mero M√°ximo de registros que dever√° ser retornado na consulta.
 	 *
 	 * @param parametros
-	 * @return N˙mero M·ximo de Registros
+	 * @return N√∫mero M√°ximo de Registros
 	 * @author valdoilo.damasceno
 	 */
 	private Integer obterValorParametroNumeroMaximoDeRegistros(HashMap parametros) {
@@ -262,12 +262,12 @@ public class GraficosDao extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Acrescenta no SQL a condiÁ„o para limitar o retorno de registros de acordo com o valor selecionado.
+	 * Acrescenta no SQL a condi√ß√£o para limitar o retorno de registros de acordo com o valor selecionado.
 	 *
 	 * @param sql
 	 *            - String SQL.
 	 * @param maximoRegistros
-	 *            - N˙mero m·ximo de registros.
+	 *            - N√∫mero m√°ximo de registros.
 	 * @author valdoilo.damasceno
 	 */
 	private void acrescentarNaSqlOLimitadorDeRegistros(StringBuilder sql, Integer maximoRegistros) {
@@ -292,14 +292,14 @@ public class GraficosDao extends CrudDaoDefaultImpl {
 
     /**
      * @author rodrigo.oliveira
-     * @param HashMap de par‚metros
+     * @param HashMap de par√¢metros
      * @return Collection de resultados da busca
      */
     public Collection consultaIncidentesPorFase(HashMap parametros, String tipo){
 
     	List parametrosBusca = new ArrayList();
 
-    	//TODO I para indicentes e R para requisiÁoes
+    	//TODO I para indicentes e R para requisi√ßoes
     	parametrosBusca.add(tipo);
 
     	parametrosBusca.add(Integer.parseInt((String) parametros.get("PARAM.idServico")));
@@ -365,7 +365,7 @@ public class GraficosDao extends CrudDaoDefaultImpl {
 
     /**
      * @author rodrigo.oliveira
-     * @param HashMap de par‚metros
+     * @param HashMap de par√¢metros
      * @return Collection de resultados da busca
      */
     public Collection consultaIncidentesPorServico(HashMap parametros, String tipo){
@@ -397,7 +397,7 @@ public class GraficosDao extends CrudDaoDefaultImpl {
 			.append("AND (solicitacaoservico.datahorasolicitacao BETWEEN ? AND ?) ")
 			.append("GROUP BY nomeservico ");
 
-    	//TODO I para indicentes e R para requisiÁoes
+    	//TODO I para indicentes e R para requisi√ßoes
     	parametrosBusca.add(tipo);
     	parametrosBusca.add(Integer.parseInt((String) parametros.get("PARAM.idServico")));
 		parametrosBusca.add(Integer.parseInt((String) parametros.get("PARAM.idServico")));
@@ -435,14 +435,14 @@ public class GraficosDao extends CrudDaoDefaultImpl {
 
     /**
      * @author rodrigo.oliveira
-     * @param HashMap de par‚metros
+     * @param HashMap de par√¢metros
      * @return Collection de resultados da busca
      */
     public Collection consultaIncidentesPorSituacao(HashMap parametros, String tipo){
 
     	List parametrosBusca = new ArrayList();
 
-    	//TODO I para indicentes e R para requisiÁoes
+    	//TODO I para indicentes e R para requisi√ßoes
     	parametrosBusca.add(tipo);
 
     	parametrosBusca.add(Integer.parseInt((String) parametros.get("PARAM.idServico")));
@@ -506,14 +506,14 @@ public class GraficosDao extends CrudDaoDefaultImpl {
 
     /**
      * @author rodrigo.oliveira
-     * @param HashMap de par‚metros
+     * @param HashMap de par√¢metros
      * @return Collection de resultados da busca
      */
     public Collection consultaIncidentesPorUnidade(HashMap parametros, String tipo){
 
     	List parametrosBusca = new ArrayList();
 
-    	//TODO I para indicentes e R para requisiÁoes
+    	//TODO I para indicentes e R para requisi√ßoes
     	parametrosBusca.add(tipo);
 
     	parametrosBusca.add(Integer.parseInt((String) parametros.get("PARAM.idServico")));
@@ -579,14 +579,14 @@ public class GraficosDao extends CrudDaoDefaultImpl {
 
     /**
      * @author rodrigo.oliveira
-     * @param HashMap de par‚metros
+     * @param HashMap de par√¢metros
      * @return Collection de resultados da busca
      */
     public Collection consultaIncidentesPrioridade(HashMap parametros, String tipo){
 
     	List parametrosBusca = new ArrayList();
 
-    	//TODO I para indicentes e R para requisiÁoes
+    	//TODO I para indicentes e R para requisi√ßoes
     	parametrosBusca.add(tipo);
 
     	parametrosBusca.add(Integer.parseInt((String) parametros.get("PARAM.idServico")));
@@ -654,14 +654,14 @@ public class GraficosDao extends CrudDaoDefaultImpl {
 
     /**
      * @author rodrigo.oliveira
-     * @param HashMap de par‚metros
+     * @param HashMap de par√¢metros
      * @return Collection de resultados da busca
      */
     public Collection consultaPesquisaSatisfacao(HashMap parametros, String tipo){
 
     	List parametrosBusca = new ArrayList();
 
-    	// I para indicentes e R para requisiÁoes, * para ambos
+    	// I para indicentes e R para requisi√ßoes, * para ambos
     	parametrosBusca.add(tipo);
     	parametrosBusca.add(tipo);
 
@@ -681,7 +681,7 @@ public class GraficosDao extends CrudDaoDefaultImpl {
 
     	StringBuilder sql = new StringBuilder();
 
-		sql.append("SELECT (CASE nota WHEN 4 THEN '”timo' ")
+		sql.append("SELECT (CASE nota WHEN 4 THEN '√ìtimo' ")
 			.append("WHEN 3 THEN 'Bom' ")
 			.append("WHEN 2 THEN 'Regular' ")
 			.append("WHEN 1 THEN 'Ruim' ")
@@ -729,14 +729,14 @@ public class GraficosDao extends CrudDaoDefaultImpl {
 
     /**
      * @author flavio.junior
-     * @param HashMap de par‚metros
+     * @param HashMap de par√¢metros
      * @return Collection de resultados da busca
      */
     public Collection consultaIncidentesPorContrato(HashMap parametros, String tipo){
 
     	List parametrosBusca = new ArrayList();
 
-    	//TODO I para indicentes e R para requisiÁoes
+    	//TODO I para indicentes e R para requisi√ßoes
     	parametrosBusca.add(tipo);
 
     	parametrosBusca.add(Integer.parseInt((String) parametros.get("PARAM.idServico")));
@@ -803,14 +803,14 @@ public class GraficosDao extends CrudDaoDefaultImpl {
 
     /**
      * @author flavio.junior
-     * @param HashMap de par‚metros
+     * @param HashMap de par√¢metros
      * @return Collection de resultados da busca
      */
     public Collection consultaIncidentesPorTipoServico(HashMap parametros, String tipo){
 
     	List parametrosBusca = new ArrayList();
 
-    	//TODO I para indicentes e R para requisiÁoes
+    	//TODO I para indicentes e R para requisi√ßoes
     	parametrosBusca.add(tipo);
 
     	parametrosBusca.add(Integer.parseInt((String) parametros.get("PARAM.idServico")));
@@ -879,7 +879,7 @@ public class GraficosDao extends CrudDaoDefaultImpl {
 
 	    	List parametrosBusca = new ArrayList();
 
-	    	//TODO I para indicentes e R para requisiÁoes
+	    	//TODO I para indicentes e R para requisi√ßoes
 	    	//parametrosBusca.add(tipo);
 
 	    	parametrosBusca.add(String.valueOf(parametros.get("PARAM.situacaoMudanca")));
@@ -897,7 +897,7 @@ public class GraficosDao extends CrudDaoDefaultImpl {
 	    		sql.append("SELECT 'Baixa' AS impacto, COUNT(*) AS quantidade FROM requisicaomudanca ");
 	    	}
 	    	if (tipo.equals("Media")) {
-	    		sql.append("SELECT 'MÈdia' AS impacto, COUNT(*) AS quantidade FROM requisicaomudanca ");
+	    		sql.append("SELECT 'M√©dia' AS impacto, COUNT(*) AS quantidade FROM requisicaomudanca ");
 	    	}
 	    	if (tipo.equals("Alta")) {
 	    		sql.append("SELECT 'Alta' AS impacto, COUNT(*) AS quantidade FROM requisicaomudanca ");
@@ -937,7 +937,7 @@ public class GraficosDao extends CrudDaoDefaultImpl {
 		List parametrosBusca = new ArrayList();
 		List fields = new ArrayList();
 		List list = new ArrayList();
-		//TODO I para indicentes e R para requisiÁoes
+		//TODO I para indicentes e R para requisi√ßoes
 		//parametrosBusca.add(tipo);
 
 		parametrosBusca.add(Integer.parseInt((String) parametros.get("PARAM.idtipomudanca")));
@@ -983,7 +983,7 @@ public class GraficosDao extends CrudDaoDefaultImpl {
 
 		List parametrosBusca = new ArrayList();
 
-		//TODO I para indicentes e R para requisiÁoes
+		//TODO I para indicentes e R para requisi√ßoes
 		//parametrosBusca.add(tipo);
 
 		parametrosBusca.add(parametros.get("PARAM.dataInicial"));
@@ -1024,7 +1024,7 @@ public class GraficosDao extends CrudDaoDefaultImpl {
 
 		List parametrosBusca = new ArrayList();
 
-		//TODO I para indicentes e R para requisiÁoes
+		//TODO I para indicentes e R para requisi√ßoes
 		//parametrosBusca.add(tipo);
 
 		parametrosBusca.add(Integer.parseInt((String) parametros.get("PARAM.idtipomudanca")));

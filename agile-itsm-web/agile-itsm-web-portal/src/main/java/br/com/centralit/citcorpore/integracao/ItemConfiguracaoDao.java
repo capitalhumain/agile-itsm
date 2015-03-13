@@ -123,11 +123,11 @@ public class ItemConfiguracaoDao extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Restaura o Item de ConfiguraÁ„o filho de acordo com o idItemConfiguracaoPai, identificacao e idTipoItemConfiguracao.
+	 * Restaura o Item de Configura√ß√£o filho de acordo com o idItemConfiguracaoPai, identificacao e idTipoItemConfiguracao.
 	 * 
 	 * @param itemConfiguracaoFilho
-	 *            - Item de ConfiguraÁ„o Filho.
-	 * @return ItemConfiguracaoDTO - Item de ConfiguraÁ„o encontrado.
+	 *            - Item de Configura√ß√£o Filho.
+	 * @return ItemConfiguracaoDTO - Item de Configura√ß√£o encontrado.
 	 * @throws Exception
 	 * @author valdoilo.damasceno
 	 * @since 19.01.2015
@@ -267,7 +267,7 @@ public class ItemConfiguracaoDao extends CrudDaoDefaultImpl {
 			parametro.add(pesquisa.getDesinstalacao());
 		}
 		/*
-		 * alteraÁ„o feita para que os dados com valor igual a null possam vir na pesquisa .
+		 * altera√ß√£o feita para que os dados com valor igual a null possam vir na pesquisa .
 		 * 
 		 * @thays.araujo
 		 */
@@ -355,7 +355,7 @@ public class ItemConfiguracaoDao extends CrudDaoDefaultImpl {
 			parametro.add(pesquisa.getDesinstalacao());
 		}
 		/*
-		 * alteraÁ„o feita para que os dados com valor igual a null possam vir na pesquisa .
+		 * altera√ß√£o feita para que os dados com valor igual a null possam vir na pesquisa .
 		 * 
 		 * @thays.araujo
 		 */
@@ -874,7 +874,7 @@ public class ItemConfiguracaoDao extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * MÈtodo que lista os Itens de configuraÁ„o associado com o evento passado como par‚metro
+	 * M√©todo que lista os Itens de configura√ß√£o associado com o evento passado como par√¢metro
 	 *
 	 * @param idEvento
 	 * @return Collection<ItemConfiguracaoDTO> relacionados ao evento
@@ -976,8 +976,8 @@ public class ItemConfiguracaoDao extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Verifica duplicidade de um item de configuraÁ„o com o mesmo nome e se o item retornado na lista n„o È o prÛprio item que est· sendo consultado para permitir alteraÁ„o. Caso exista retorna TRUE.
-	 * Caso n„o exista retorna FALSE;
+	 * Verifica duplicidade de um item de configura√ß√£o com o mesmo nome e se o item retornado na lista n√£o √© o pr√≥prio item que est√° sendo consultado para permitir altera√ß√£o. Caso exista retorna TRUE.
+	 * Caso n√£o exista retorna FALSE;
 	 * 
 	 * @author cleziomar.egidio 25/11/2014
 	 */
@@ -1137,7 +1137,7 @@ public class ItemConfiguracaoDao extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Retorna Itens de ConfiguraÁ„o associadas a Base de Conhecimento.
+	 * Retorna Itens de Configura√ß√£o associadas a Base de Conhecimento.
 	 *
 	 * @param baseConhecimentoDto
 	 * @return List<ItemConfiguracaoDTO>
@@ -1172,7 +1172,7 @@ public class ItemConfiguracaoDao extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Retorna os itens de configuraÁ„o que possuem o pacote office
+	 * Retorna os itens de configura√ß√£o que possuem o pacote office
 	 * 
 	 * @throws Exception
 	 */
@@ -1223,7 +1223,7 @@ public class ItemConfiguracaoDao extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Retorna os itens de configuraÁ„o que possuem o pacote office
+	 * Retorna os itens de configura√ß√£o que possuem o pacote office
 	 * 
 	 * @throws Exception
 	 */
@@ -1293,7 +1293,7 @@ public class ItemConfiguracaoDao extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Para finalizar O Item ConfiguraÁ„o È necess·rio adicionar Data Fim
+	 * Para finalizar O Item Configura√ß√£o √© necess√°rio adicionar Data Fim
 	 *
 	 * @param itemConfiguracaoDTO
 	 * @author maycon.silva

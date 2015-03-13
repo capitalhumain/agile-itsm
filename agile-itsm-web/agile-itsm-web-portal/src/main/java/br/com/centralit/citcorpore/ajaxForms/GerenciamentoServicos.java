@@ -64,7 +64,7 @@ import br.com.citframework.util.UtilI18N;
 import br.com.citframework.util.UtilStrings;
 
 /**
- * Controller da P·gina GerenciamentoServicos.jsp.
+ * Controller da P√°gina GerenciamentoServicos.jsp.
  */
 @SuppressWarnings({"rawtypes", "deprecation", "unchecked"})
 public class GerenciamentoServicos extends AjaxFormAction {
@@ -94,7 +94,7 @@ public class GerenciamentoServicos extends AjaxFormAction {
     }
 
     /**
-     * Renderiza os Gr·ficos da Guia Gr·ficos da Tela de Gerenciamento de ServiÁos.
+     * Renderiza os Gr√°ficos da Guia Gr√°ficos da Tela de Gerenciamento de Servi√ßos.
      *
      * @param document
      *            - DocumentHTML
@@ -138,24 +138,24 @@ public class GerenciamentoServicos extends AjaxFormAction {
     }
 
     /**
-     * Retorna a lista de tarefas do fluxo juntamente com as solicitaÁıes de serviÁos.
+     * Retorna a lista de tarefas do fluxo juntamente com as solicita√ß√µes de servi√ßos.
      *
      * @param itensPorPagina
-     *            - Quantidade de registros por p·gina.
+     *            - Quantidade de registros por p√°gina.
      * @param paginaSelecionada
-     *            - P·gina selecionada.
+     *            - P√°gina selecionada.
      * @param usuario
-     *            - usu·rio logado.
+     *            - usu√°rio logado.
      * @param request
      *            - HttpServletRequest
      * @param grafico
-     *            - boolean (true - tela de gr·ficos)
+     *            - boolean (true - tela de gr√°ficos)
      * @param gerenciamento
      *            - GerenciamentoServicosDTO
      * @return Collection<TarefaFluxoDTO>
      * @throws Exception
      * @author valdoilo.damasceno
-     * @since 23.10.2013 - ·s 20:30
+     * @since 23.10.2013 - √°s 20:30
      */
     public Collection<TarefaFluxoDTO> listarTarefas(final Integer itensPorPagina, Integer paginaSelecionada, final UsuarioDTO usuario,
             final HttpServletRequest request, final boolean grafico, final GerenciamentoServicosDTO gerenciamento) throws Exception {
@@ -176,7 +176,7 @@ public class GerenciamentoServicos extends AjaxFormAction {
 
             usuarioResponsavelDto = usuarioService.restoreByIdEmpregado(getGerenciamentoServicosDTO().getIdResponsavelAtual());
         } else {
-            /* Criado para permitir filtrar as solicitaÁıes que n„o possuem respons·vel. valdoilo.damasceno */
+            /* Criado para permitir filtrar as solicita√ß√µes que n√£o possuem respons√°vel. valdoilo.damasceno */
             if (getGerenciamentoServicosDTO().getIdResponsavelAtual() != null && getGerenciamentoServicosDTO().getIdResponsavelAtual().intValue() == -1) {
                 usuarioResponsavelDto.setIdUsuario(-1);
             }
@@ -205,7 +205,7 @@ public class GerenciamentoServicos extends AjaxFormAction {
         }
 
         if (!grafico) {
-            /** Chamada do mÈtodo recuperaTarefas otimizado. OperaÁ„o Usain Bolt - 27.01.2015 - carlos.santos */
+            /** Chamada do m√©todo recuperaTarefas otimizado. Opera√ß√£o Usain Bolt - 27.01.2015 - carlos.santos */
             final ParamRecuperacaoTarefasDTO param = new ParamRecuperacaoTarefasDTO(usuario.getLogin(), gerenciamento, listContratoUsuarioLogado);
             final Pageable pageable = new PageRequest(paginaSelecionada - 1, itensPorPagina);
             final Page<TarefaFluxoDTO> resultPage = execucaoSolicitacaoService.recuperaTarefas(param, pageable);
@@ -279,7 +279,7 @@ public class GerenciamentoServicos extends AjaxFormAction {
             }
 
             /**
-             * A Filtragem de Respons·vel e Tarefa Atual s„o realizadas aqui. As demais s„o realizadas no BD.
+             * A Filtragem de Respons√°vel e Tarefa Atual s√£o realizadas aqui. As demais s√£o realizadas no BD.
              */
 
             /** Quando os dois filtros foram selecionados */
@@ -299,7 +299,7 @@ public class GerenciamentoServicos extends AjaxFormAction {
                     colTarefasFiltradasFinal.add(tarefaDto);
 
                 } else {
-                    /* Criado para permitir filtrar as solicitaÁıes que n„o possuem respons·vel. valdoilo.damasceno */
+                    /* Criado para permitir filtrar as solicita√ß√µes que n√£o possuem respons√°vel. valdoilo.damasceno */
                     if ((tarefaDto.getIdResponsavelAtual() == null || StringUtils.isBlank(tarefaDto.getIdResponsavelAtual().toString()))
                             && tarefaDto.getElementoFluxoDto() != null
                             && tarefaDto.getElementoFluxoDto().getDocumentacao() != null
@@ -318,7 +318,7 @@ public class GerenciamentoServicos extends AjaxFormAction {
                 && StringUtils.isNotBlank(usuarioResponsavelDto.getIdUsuario().toString()) || getGerenciamentoServicosDTO().getTarefaAtual() != null
                 && StringUtils.isNotBlank(getGerenciamentoServicosDTO().getTarefaAtual())) {
 
-                /** Quando apenas o respons·vel foi selecionado. */
+                /** Quando apenas o respons√°vel foi selecionado. */
                 if (usuarioResponsavelDto != null && usuarioResponsavelDto.getIdUsuario() != null && tarefaDto.getIdResponsavelAtual() != null
                         && StringUtils.isNotBlank(tarefaDto.getIdResponsavelAtual().toString())
                         && usuarioResponsavelDto.getIdUsuario().toString().equalsIgnoreCase(tarefaDto.getIdResponsavelAtual().toString())) {
@@ -326,7 +326,7 @@ public class GerenciamentoServicos extends AjaxFormAction {
                     colTarefasFiltradasFinal.add(tarefaDto);
 
                 } else {
-                    /* Criado para permitir filtrar as solicitaÁıes que n„o possuem respons·vel. valdoilo.damasceno */
+                    /* Criado para permitir filtrar as solicita√ß√µes que n√£o possuem respons√°vel. valdoilo.damasceno */
                     if (usuarioResponsavelDto != null && usuarioResponsavelDto.getIdUsuario() != null && usuarioResponsavelDto.getIdUsuario().intValue() == -1
                             && (tarefaDto.getIdResponsavelAtual() == null || StringUtils.isBlank(tarefaDto.getIdResponsavelAtual().toString()))) {
 
@@ -353,12 +353,12 @@ public class GerenciamentoServicos extends AjaxFormAction {
             }
         }
         /**
-         * Motivo: Adicionado para corrigir nullPoinerException quando renderizava gr·ficos Autor: flavio.santana Data/Hora: 13/11/2013
+         * Motivo: Adicionado para corrigir nullPoinerException quando renderizava gr√°ficos Autor: flavio.santana Data/Hora: 13/11/2013
          */
         if (!grafico) {
             /**
-             * Utilizado apenas quando foi selecionado o filtro de Respons·vel Atual ou Tarefa atual. ObtÈm o n˙mero total de p·ginas e filtro a lista para
-             * exibir apenas o n˙mero de Ìtens selecionado.
+             * Utilizado apenas quando foi selecionado o filtro de Respons√°vel Atual ou Tarefa atual. Obt√©m o n√∫mero total de p√°ginas e filtro a lista para
+             * exibir apenas o n√∫mero de √≠tens selecionado.
              */
             if (getGerenciamentoServicosDTO() != null && usuarioResponsavelDto != null && usuarioResponsavelDto.getIdUsuario() != null
                     || getGerenciamentoServicosDTO() != null && getGerenciamentoServicosDTO().getTarefaAtual() != null
@@ -381,7 +381,7 @@ public class GerenciamentoServicos extends AjaxFormAction {
     }
 
     /**
-     * Respons·vel por renderizar a listagem de SolicitaÁıes na tela de Gerenciamento de ServiÁos.
+     * Respons√°vel por renderizar a listagem de Solicita√ß√µes na tela de Gerenciamento de Servi√ßos.
      *
      * @param sb
      * @param request
@@ -394,7 +394,7 @@ public class GerenciamentoServicos extends AjaxFormAction {
     public void renderizarLista(final StringBuilder sb, final HttpServletRequest request, final Integer itensPorPagina, final Integer paginaSelecionada,
             final boolean flag, final Integer tipoLista) throws Exception {
         /**
-         * Motivo: Adiocinar mais informaÁıes na listagem das solicitaÁıes S„o elas: Data de CriaÁ„o, Criado por e Contrato
+         * Motivo: Adiocinar mais informa√ß√µes na listagem das solicita√ß√µes S√£o elas: Data de Cria√ß√£o, Criado por e Contrato
          *
          * @author flavio.santana
          * @since 23/10/2013 14:00
@@ -415,7 +415,7 @@ public class GerenciamentoServicos extends AjaxFormAction {
         if (flag) {
             sb.append("<div  id='esquerda' class='innerTB'>");
         }
-        sb.append("<!-- Inicio do loop de solicitaÁıes abertas -->");
+        sb.append("<!-- Inicio do loop de solicita√ß√µes abertas -->");
 
         if (listTarefaSolicitacaoServico != null && !listTarefaSolicitacaoServico.isEmpty()) {
             final ControleGEDService controleGedService = (ControleGEDService) ServiceLocator.getInstance().getService(ControleGEDService.class, null);
@@ -423,7 +423,7 @@ public class GerenciamentoServicos extends AjaxFormAction {
             for (final TarefaFluxoDTO tarefaFluxoDto : listTarefaSolicitacaoServico) {
 
                 final SolicitacaoServicoDTO solicitacaoServicoDto = (SolicitacaoServicoDTO) tarefaFluxoDto.getSolicitacaoDto();
-                // Faz o c·lculo da SLA
+                // Faz o c√°lculo da SLA
                 String hh = "";
                 String mm = "";
                 if (solicitacaoServicoDto.getIdContrato() != null || solicitacaoServicoDto.getIdServico() != null) {
@@ -596,7 +596,7 @@ public class GerenciamentoServicos extends AjaxFormAction {
                 sb.append("		    </label>");
                 sb.append("	    </div>");
 
-                /** OtimizaÁ„o da verificaÁ„o de anexos. OperaÁ„o Usain Bolt - 27.01.2015 - carlos.santos */
+                /** Otimiza√ß√£o da verifica√ß√£o de anexos. Opera√ß√£o Usain Bolt - 27.01.2015 - carlos.santos */
                 if (solicitacaoServicoDto.getQtdeAnexos() == null) {
                     solicitacaoServicoDto.setQtdeAnexos(new Integer(0));
                     final Collection colAnexos = controleGedService.listByIdTabelaAndID(ControleGEDDTO.TABELA_SOLICITACAOSERVICO,
@@ -693,7 +693,7 @@ public class GerenciamentoServicos extends AjaxFormAction {
                             + tarefaFluxoDto.getResponsavelAtual() + "\"," + tarefaFluxoDto.getIdItemTrabalho() + ");'>"
                             + UtilI18N.internacionaliza(locale, "gerenciaservico.capturartarefa") + "</button>");
                 }
-                // Mario J˙nior - 23/10/2013 - 16:00 - Passando Parametro no vizualiza
+                // Mario J√∫nior - 23/10/2013 - 16:00 - Passando Parametro no vizualiza
                 sb.append("				      <button type='button' id='visualizar' onclick='visualizarSolicitacao(" + solicitacaoServicoDto.getIdSolicitacaoServico()
                         + "," + tarefaFluxoDto.getIdItemTrabalho() + ")' class='btn btn-default'>"
                         + UtilI18N.internacionaliza(locale, "gerenciaservico.visualizar") + "</button>");
@@ -729,7 +729,7 @@ public class GerenciamentoServicos extends AjaxFormAction {
                             + UtilI18N.internacionaliza(locale, "gerenciaservico.reativarsolicitacao") + "</a></li>");
                 }
                 /**
-                 * Motivo: Foi visualizado no cÛdigo da p·gina antiga que o mesmo validava a SituaÁ„o de SLA Autor: flavio.santana Data/Hora: 13/11/2013 17:30
+                 * Motivo: Foi visualizado no c√≥digo da p√°gina antiga que o mesmo validava a Situa√ß√£o de SLA Autor: flavio.santana Data/Hora: 13/11/2013 17:30
                  */
                 if (tarefaFluxoDto.getAlterarSLA().equals("S") && !solicitacaoServicoDto.getSituacao().equals(SituacaoSolicitacaoServico.Suspensa.toString())
                         && !solicitacaoServicoDto.getSituacaoSLA().equals(Enumerados.SituacaoSLA.S.toString())
@@ -862,7 +862,7 @@ public class GerenciamentoServicos extends AjaxFormAction {
                             + UtilI18N.internacionaliza(locale, "gerenciaservico.reativarsolicitacao") + "</a></li>");
                 }
                 /**
-                 * Motivo: Foi visualizado no cÛdigo da p·gina antiga que o mesmo validava a SituaÁ„o de SLA Autor: flavio.santana Data/Hora: 13/11/2013 17:30
+                 * Motivo: Foi visualizado no c√≥digo da p√°gina antiga que o mesmo validava a Situa√ß√£o de SLA Autor: flavio.santana Data/Hora: 13/11/2013 17:30
                  */
                 if (tarefaFluxoDto.getAlterarSLA().equals("S") && !solicitacaoServicoDto.getSituacao().equals(SituacaoSolicitacaoServico.Suspensa.toString())
                         && !solicitacaoServicoDto.getSituacaoSLA().equals(Enumerados.SituacaoSLA.S.toString())
@@ -896,7 +896,7 @@ public class GerenciamentoServicos extends AjaxFormAction {
             sb.append("		</div>");
             sb.append("</div>");
         }
-        sb.append("<!-- Fim do loop de solicitaÁıes abertas -->");
+        sb.append("<!-- Fim do loop de solicita√ß√µes abertas -->");
         if (flag) {
             sb.append("</div>");
         }
@@ -904,13 +904,13 @@ public class GerenciamentoServicos extends AjaxFormAction {
     }
 
     /**
-     * Verifica se idContrato est· na ColeÁ„o de Contratos informado.
+     * Verifica se idContrato est√° na Cole√ß√£o de Contratos informado.
      *
      * @param idContrato
      *            - id do Contrato.
      * @param colContratosColab
-     *            - ColeÁ„o de contratos.
-     * @return boolean (true - contrato est· na lista)
+     *            - Cole√ß√£o de contratos.
+     * @return boolean (true - contrato est√° na lista)
      */
     protected boolean isContratoInList(final Integer idContrato, final Collection colContratosColab) {
         if (idContrato == null) {
@@ -931,7 +931,7 @@ public class GerenciamentoServicos extends AjaxFormAction {
     }
 
     /**
-     * Prepada a execuÁ„o da tarefa.
+     * Prepada a execu√ß√£o da tarefa.
      *
      * @param document
      *            - DocumentHTML
@@ -987,7 +987,7 @@ public class GerenciamentoServicos extends AjaxFormAction {
     }
 
     /**
-     * Reativa a solicitaÁ„o suspensa.
+     * Reativa a solicita√ß√£o suspensa.
      *
      * @param document
      *            - DocumentHTML
@@ -1024,7 +1024,7 @@ public class GerenciamentoServicos extends AjaxFormAction {
     }
 
     /**
-     * Realiza a captura da Tarefa para o Usu·rio logado.
+     * Realiza a captura da Tarefa para o Usu√°rio logado.
      *
      * @param document
      *            - DocumentHTML
@@ -1090,8 +1090,8 @@ public class GerenciamentoServicos extends AjaxFormAction {
     }
 
     /*
-     * Desenvolvedor: Pedro Lino - Data: 06/11/2013 - Hor·rio: 09:45 - ID Citsmart: 120948 - Motivo/Coment·rio: Comentado links: ver todos e prioridades, pois
-     * n„o tinham nenhuma funÁ„o
+     * Desenvolvedor: Pedro Lino - Data: 06/11/2013 - Hor√°rio: 09:45 - ID Citsmart: 120948 - Motivo/Coment√°rio: Comentado links: ver todos e prioridades, pois
+     * n√£o tinham nenhuma fun√ß√£o
      */
 
     public void renderizarResumoSolicitacoes(final DocumentHTML document, final HttpServletRequest request, final List<TarefaFluxoDTO> listTarefas)
@@ -1107,7 +1107,7 @@ public class GerenciamentoServicos extends AjaxFormAction {
         final StringBuilder sb = new StringBuilder();
         HashMap HashMapSituacao = new HashMap();
         HashMap hashMapPrazoLimite = new HashMap();
-        // M·rio J˙nior - 29/10/2013 - 17:00 - Inserido para mostrar total dos resumos
+        // M√°rio J√∫nior - 29/10/2013 - 17:00 - Inserido para mostrar total dos resumos
         Integer qtdPrazoLimite = 0;
         Integer qtdTipoSolicitacao = 0;
         Integer qtdSituacao = 0;
@@ -1219,7 +1219,7 @@ public class GerenciamentoServicos extends AjaxFormAction {
             sb.append("									<tr> ");
             if (dto.getNomeTipoDemandaServico().equalsIgnoreCase("Incidente")) {
                 sb.append("										<td class='center'>" + UtilI18N.internacionaliza(request, "grupovisao.incidente") + "</td> ");
-            } else if (dto.getNomeTipoDemandaServico().equalsIgnoreCase("RequisiÁ„o")) {
+            } else if (dto.getNomeTipoDemandaServico().equalsIgnoreCase("Requisi√ß√£o")) {
                 sb.append("										<td class='center'>" + UtilI18N.internacionaliza(request, "requisitosla.requisicao") + "</td> ");
             } else {
                 sb.append("										<td class='center'>" + dto.getNomeTipoDemandaServico() + "</td> ");
@@ -1342,7 +1342,7 @@ public class GerenciamentoServicos extends AjaxFormAction {
     }
 
     /**
-     * Atualiza e recarrega a lista de solicitaÁıes de serviÁos
+     * Atualiza e recarrega a lista de solicita√ß√µes de servi√ßos
      *
      * @param document
      * @param request
@@ -1365,7 +1365,7 @@ public class GerenciamentoServicos extends AjaxFormAction {
         }
         recarregarLista(document, request, response);
         /**
-         * A linha foi adicionada porque estava fechando o modal e o load antes de recarregar a grid de solicitaÁ„o. assim ele so vai fechar o modal depois que
+         * A linha foi adicionada porque estava fechando o modal e o load antes de recarregar a grid de solicita√ß√£o. assim ele so vai fechar o modal depois que
          * carregar a grid.
          *
          * @author maycon.fernandes
@@ -1375,7 +1375,7 @@ public class GerenciamentoServicos extends AjaxFormAction {
     }
 
     /**
-     * FireEvent chamado para recarregar a Lista de SolicitaÁ„o de ServiÁo de acordo com o P·gina Selecionada.
+     * FireEvent chamado para recarregar a Lista de Solicita√ß√£o de Servi√ßo de acordo com o P√°gina Selecionada.
      *
      * @param document
      *            - DocumentHTML
@@ -1385,7 +1385,7 @@ public class GerenciamentoServicos extends AjaxFormAction {
      *            - HttpServletResponse
      * @throws Exception
      * @author valdoilo.damasceno
-     * @since 27.01.2015. Melhoria implementada na OperaÁ„o Usain Bolt
+     * @since 27.01.2015. Melhoria implementada na Opera√ß√£o Usain Bolt
      */
     public void recarregarLista(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         final UsuarioDTO usuarioLogado = WebUtil.getUsuario(request);
@@ -1410,7 +1410,7 @@ public class GerenciamentoServicos extends AjaxFormAction {
         final Integer tipoLista = gerenciamentoServicosDTO.getTipoLista() == null ? 1 : gerenciamentoServicosDTO.getTipoLista();
 
         /**
-         * O mÈtodo atualizarListaTarefasAndReturnTotalPaginas unificou as funcionalidades dos mÈtodos atualizaListaTarefas e totalPaginas. OperaÁ„o Usain Bolt.
+         * O m√©todo atualizarListaTarefasAndReturnTotalPaginas unificou as funcionalidades dos m√©todos atualizaListaTarefas e totalPaginas. Opera√ß√£o Usain Bolt.
          * valdoilo.damasceno
          */
         final Pageable pageable = new PageRequest(paginaSelecionada - 1, itensPorPagina);
@@ -1420,7 +1420,7 @@ public class GerenciamentoServicos extends AjaxFormAction {
         renderizarLista(sb, request, itensPorPagina, paginaSelecionada, false, tipoLista);
 
         /**
-         * Alterado: M·rio Motivo: Invertendo as posiÁıes para quantificar o total de p·ginas e definir no objeto de gerenciamentoDto Autor: flavio.santana
+         * Alterado: M√°rio Motivo: Invertendo as posi√ß√µes para quantificar o total de p√°ginas e definir no objeto de gerenciamentoDto Autor: flavio.santana
          * Data/Hora: 13/11/2013
          */
         paginaSelecionada = totalPaginasFinal == 1 ? 1 : paginaSelecionada;
@@ -1441,7 +1441,7 @@ public class GerenciamentoServicos extends AjaxFormAction {
     }
 
     /**
-     * Preenche os campos (Filtros) da tela de Gerenciamento de ServiÁos.
+     * Preenche os campos (Filtros) da tela de Gerenciamento de Servi√ßos.
      *
      * @param sb
      *            - StringBuilder
@@ -1454,7 +1454,7 @@ public class GerenciamentoServicos extends AjaxFormAction {
      * @throws Exception
      */
 
-    /** AlteraÁ„o da assinatura do mÈtodo e do local onde È chamado. OperaÁ„o Usain Bolt - 27.01.2015 - carlos.santos */
+    /** Altera√ß√£o da assinatura do m√©todo e do local onde √© chamado. Opera√ß√£o Usain Bolt - 27.01.2015 - carlos.santos */
     public void carregarItensFiltro(final HttpServletRequest request) throws Exception {
         final UsuarioDTO usuario = WebUtil.getUsuario(request);
         if (usuario == null) {
@@ -1518,7 +1518,7 @@ public class GerenciamentoServicos extends AjaxFormAction {
     }
 
     /**
-     * Carrega e atualiza os itens da paginaÁ„o numerada e informa a quantidade de resultados Ex.: Primeiro ´ 1 2 3 4 5 ª ⁄ltimo 1 De 7 Resultados
+     * Carrega e atualiza os itens da pagina√ß√£o numerada e informa a quantidade de resultados Ex.: Primeiro ¬´ 1 2 3 4 5 ¬ª √öltimo 1 De 7 Resultados
      *
      * @param document
      * @param request
@@ -1540,19 +1540,19 @@ public class GerenciamentoServicos extends AjaxFormAction {
     }
 
     /**
-     * Realiza a regra de paginaÁ„o das solicitaÁıes ExplicaÁ„o: Se o n˙mero de p·ginas for maior do que cinco, j· È possÌvel criar os intervalos. Se a p·gina
+     * Realiza a regra de pagina√ß√£o das solicita√ß√µes Explica√ß√£o: Se o n√∫mero de p√°ginas for maior do que cinco, j√° √© poss√≠vel criar os intervalos. Se a p√°gina
      * atual for menor do que cinco (o adjacente
-     * esta configurado com 2) È feito um laÁo. No for, enquanto a vari·vel 'i' for menor do que seis os n˙meros s„o mostrados fazendo uma verificaÁ„o para
-     * saber qual È a p·gina atual que exige uma
-     * estilizaÁ„o diferente. Mas se a p·gina atual for maior do que quatro e menor do que a ˙ltima menos trÍs, È uma p·gina intermedi·ria. Primeiro s„o
-     * anexadas a primeira e ˙ltima p·ginas. Depois È
-     * feito um laÁo para definir as adjacentes. A vari·vel 'adjacentes' recebeu neste cÛdigo o valor dois. Para enteder melhor este laÁo vamos supor que
-     * estamos na p·gina seis. A vari·vel 'i' vai
-     * receber quatro (atual - adjacentes), enquanto ela for menor do que oito (atual + adjacentes) os n˙meros links gerados com uma verificaÁ„o para saber qual
-     * È a p·gina atual. Por fim s„o anexadas
-     * a ˙ltima e pen˙ltima p·ginas. O ˙ltimo else È para quando a p·gina atual esta perto do final da numeraÁ„o. S„o anexadas a primeira e ˙ltima p·ginas alÈm
-     * dos trÍs pontos. A vari·vel 'i' recebe o
-     * resultado da ˙ltima p·gina menos oito (4+2*2) enquanto n„o for menor ou igual a este n˙mero, os links s„o gerados.
+     * esta configurado com 2) √© feito um la√ßo. No for, enquanto a vari√°vel 'i' for menor do que seis os n√∫meros s√£o mostrados fazendo uma verifica√ß√£o para
+     * saber qual √© a p√°gina atual que exige uma
+     * estiliza√ß√£o diferente. Mas se a p√°gina atual for maior do que quatro e menor do que a √∫ltima menos tr√™s, √© uma p√°gina intermedi√°ria. Primeiro s√£o
+     * anexadas a primeira e √∫ltima p√°ginas. Depois √©
+     * feito um la√ßo para definir as adjacentes. A vari√°vel 'adjacentes' recebeu neste c√≥digo o valor dois. Para enteder melhor este la√ßo vamos supor que
+     * estamos na p√°gina seis. A vari√°vel 'i' vai
+     * receber quatro (atual - adjacentes), enquanto ela for menor do que oito (atual + adjacentes) os n√∫meros links gerados com uma verifica√ß√£o para saber qual
+     * √© a p√°gina atual. Por fim s√£o anexadas
+     * a √∫ltima e pen√∫ltima p√°ginas. O √∫ltimo else √© para quando a p√°gina atual esta perto do final da numera√ß√£o. S√£o anexadas a primeira e √∫ltima p√°ginas al√©m
+     * dos tr√™s pontos. A vari√°vel 'i' recebe o
+     * resultado da √∫ltima p√°gina menos oito (4+2*2) enquanto n√£o for menor ou igual a este n√∫mero, os links s√£o gerados.
      *
      * @param totalPaginas
      * @param sb
@@ -1628,7 +1628,7 @@ public class GerenciamentoServicos extends AjaxFormAction {
      * @param solicitacaoServicoDTO
      * @param request
      * @throws Exception
-     *             Seta o ribbon (Etiqueta) na lateral do box mostrando se est· norma, suspensa, vencido ou menos de 1 hora p/ vencer
+     *             Seta o ribbon (Etiqueta) na lateral do box mostrando se est√° norma, suspensa, vencido ou menos de 1 hora p/ vencer
      * **/
     private String setarHtmlPrazo(final SolicitacaoServicoDTO solicitacaoServicoDTO, final HttpServletRequest request) throws Exception {
         String htmlPrioridade = "";
@@ -1691,7 +1691,7 @@ public class GerenciamentoServicos extends AjaxFormAction {
     /**
      * @param solicitacaoServicoDTO
      * @throws Exception
-     *             Seta o css (cor) em "prazo limite" do box mostrando se est· norma, suspensa, vencido ou menos de 1 hora p/ vencer
+     *             Seta o css (cor) em "prazo limite" do box mostrando se est√° norma, suspensa, vencido ou menos de 1 hora p/ vencer
      * **/
     private String setarCssPrazo(final SolicitacaoServicoDTO solicitacaoServicoDTO) throws Exception {
         String cssPrioridade = "";
@@ -1720,7 +1720,7 @@ public class GerenciamentoServicos extends AjaxFormAction {
     }
 
     /***
-     * Realiza o filtro de pesquisa da p·gina de gerenciamento - Seta os itens do filtro no GerenciamentoServicosDTO - Recarrega a lista de solicitaÁıes de
+     * Realiza o filtro de pesquisa da p√°gina de gerenciamento - Seta os itens do filtro no GerenciamentoServicosDTO - Recarrega a lista de solicita√ß√µes de
      * acordo com os filtros informados
      *
      * @param document
@@ -1847,7 +1847,7 @@ public class GerenciamentoServicos extends AjaxFormAction {
                     if (solicitacaoServicoRelacionada.getDataHoraLimite() != null) {
                         html.append("<td>" + UtilDatas.formatTimestamp(solicitacaoServicoRelacionada.getDataHoraLimite()) + "</td>");
                     } else {
-                        html.append("<td>¿ combinar</td>");
+                        html.append("<td>√Ä combinar</td>");
                     }
 
                     html.append("</tr>");

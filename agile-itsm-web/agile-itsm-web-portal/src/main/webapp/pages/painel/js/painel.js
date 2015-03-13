@@ -230,7 +230,7 @@
 			tabela += '</table>';
 			document.getElementById('divOpcoesGraficos').innerHTML = tabela;
 
-			$("#POPUP_GRAFICO_OPC").attr('title','Gr·fico: ' + titulo);
+			$("#POPUP_GRAFICO_OPC").attr('title','Gr√°fico: ' + titulo);
 
 			$("#POPUP_GRAFICO_OPC").dialog('open');
 		}

@@ -11,7 +11,7 @@ import br.com.citframework.service.CrudService;
  */
 public interface OrigemOcorrenciaService extends CrudService {
 	/**
-	 * Exclui a origem caso não exista uma ocorrência associada.
+	 * Exclui a origem caso nÃ£o exista uma ocorrÃªncia associada.
 	 * 
 	 * @param model
 	 * @param document
@@ -21,7 +21,7 @@ public interface OrigemOcorrenciaService extends CrudService {
 	public void deletarOrigemOcorrencia(BaseEntity model, DocumentHTML document) throws ServiceException, Exception;	
 	
 	/**
-	 * Consulta por origem da ocorrência que estejam ativas (dataFim não nula).
+	 * Consulta por origem da ocorrÃªncia que estejam ativas (dataFim nÃ£o nula).
 	 * 
 	 * @param model
 	 * @param document
@@ -31,7 +31,7 @@ public interface OrigemOcorrenciaService extends CrudService {
 	public boolean consultarOrigemOcorrenciaAtiva(OrigemOcorrenciaDTO origemOcorrencia) throws Exception;
 
 	/**
-	 * Metodo responsavel por retornar todos os dados da Origem de uma ocorrência
+	 * Metodo responsavel por retornar todos os dados da Origem de uma ocorrÃªncia
 	 * 
 	 * @param idOrigem
 	 * @return

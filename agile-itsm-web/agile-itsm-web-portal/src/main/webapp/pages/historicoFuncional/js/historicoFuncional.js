@@ -11,7 +11,7 @@ function load() {
 	$('#conteudoVisualizarHistorico').html('<iframe id="frameVisualizarHistorico" src="about:blank" width="100%" height="455" style="border: 0px none;"></iframe>');
 }
 
-/** Bot�o Pesquisar**/
+/** Botï¿½o Pesquisar**/
 function pesquisar(){
 	JANELA_AGUARDE_MENU.show();
 	document.form.fireEvent("montarTabelaRetorno");
@@ -25,7 +25,7 @@ function paginarItens(paginaSelecionada) {
 
 function testaCheck(){
 
-	//declara��o de vars. A var checados ir� contar quantos est�o checados.
+	//declaraï¿½ï¿½o de vars. A var checados irï¿½ contar quantos estï¿½o checados.
 	var inputs,i,checados=0;
 
 	//pegando os inputs e jogando num array
@@ -46,7 +46,7 @@ function testaCheck(){
 	}
 
 	if(checados>1){
-	  alert("S� Pode Ter Um Item Selecionado.");
+	  alert("Sï¿½ Pode Ter Um Item Selecionado.");
 	  return false;
 	}
 }
@@ -165,7 +165,7 @@ function mascaraCPF(){
 	}
 }
 
-/** Metodo Valida��o de CPF **/
+/** Metodo Validaï¿½ï¿½o de CPF **/
 function validaCPF(field, label) {
 	var cpf = field.value;
 

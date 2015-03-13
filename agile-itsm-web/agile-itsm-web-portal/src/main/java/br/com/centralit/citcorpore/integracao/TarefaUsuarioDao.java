@@ -323,7 +323,7 @@ public class TarefaUsuarioDao extends CrudDaoDefaultImpl {
         parametros.add(SituacaoInstanciaFluxo.Aberta.name());
         parametros.add(SituacaoInstanciaFluxo.Suspensa.name());
 
-        // Tratamento para eliminação de duplicidades de atribuição quando o usuário pertence a mais de um grupo com o mesmo tipo de permissão
+        // Tratamento para eliminaÃ§Ã£o de duplicidades de atribuiÃ§Ã£o quando o usuÃ¡rio pertence a mais de um grupo com o mesmo tipo de permissÃ£o
         fromWhere.append("       AND atrib.idatribuicao = (SELECT max(a.idatribuicao) FROM bpm_atribuicaofluxo a");
         fromWhere.append("                                   WHERE a.iditemtrabalho = item.iditemtrabalho");
         fromWhere.append("                                    AND a.tipo = atrib.tipo");
@@ -346,14 +346,14 @@ public class TarefaUsuarioDao extends CrudDaoDefaultImpl {
             parametros.add(param.getIdTarefa());
         }
 
-        // ********** Início tratamento dos tipos de atribuição
+        // ********** InÃ­cio tratamento dos tipos de atribuiÃ§Ã£o
         fromWhere.append("       AND (");
 
-        // atribuição automática
+        // atribuiÃ§Ã£o automÃ¡tica
         fromWhere.append("            atrib.tipo = ? ");
         parametros.add(TipoAtribuicao.Automatica.name());
 
-        // ou atribuição por delegação e não exista atribuição automática p/ o item
+        // ou atribuiÃ§Ã£o por delegaÃ§Ã£o e nÃ£o exista atribuiÃ§Ã£o automÃ¡tica p/ o item
         fromWhere.append("            OR (atrib.tipo = ? AND 0 = ");
         parametros.add(TipoAtribuicao.Delegacao.name());
 
@@ -368,7 +368,7 @@ public class TarefaUsuarioDao extends CrudDaoDefaultImpl {
 
         fromWhere.append("                       OR a.idgrupo IN ").append(strGrupos).append(")))");
 
-        // ou atribuição por acompanhamento e não exista atribuição automática ou delegação p/ o item
+        // ou atribuiÃ§Ã£o por acompanhamento e nÃ£o exista atribuiÃ§Ã£o automÃ¡tica ou delegaÃ§Ã£o p/ o item
         fromWhere.append("            OR (atrib.tipo = ? AND 0 = ");
         parametros.add(TipoAtribuicao.Acompanhamento.name());
 
@@ -384,7 +384,7 @@ public class TarefaUsuarioDao extends CrudDaoDefaultImpl {
 
         fromWhere.append("                       OR a.idgrupo IN ").append(strGrupos).append(")))");
 
-        // ********** Fim tratamento dos tipos de atribuição
+        // ********** Fim tratamento dos tipos de atribuiÃ§Ã£o
         fromWhere.append("           )");
 
         if (param.getContratosUsuario() != null && !param.getContratosUsuario().isEmpty()) {
@@ -408,7 +408,7 @@ public class TarefaUsuarioDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Adiciona o filtro de pesquisa de solicitação
+     * Adiciona o filtro de pesquisa de solicitaÃ§Ã£o
      *
      * @param sql
      * @param gerenciamento
@@ -466,7 +466,7 @@ public class TarefaUsuarioDao extends CrudDaoDefaultImpl {
 
         final String tipoVisualizacao = gerenciamento.getTipoVisualizacao() == null ? "" : gerenciamento.getTipoVisualizacao();
 
-        // tipo de visualização
+        // tipo de visualizaÃ§Ã£o
         if (tipoVisualizacao.equalsIgnoreCase("possoExecutar")) {
             sql.append(" AND atrib.tipo IN (?, ?) ");
             parametros.add(TipoAtribuicao.Delegacao.name());

@@ -6,7 +6,7 @@
 
 		/*
 		 Alterado por
-		 Analista Desenvolvedor: rcs (Rafael César Soyer)
+		 Analista Desenvolvedor: rcs (Rafael CÃ©sar Soyer)
 		 data: 19/01/2015
 		*/
 		function imprimirRelatorioQuantitativoBaseConhecimento(){

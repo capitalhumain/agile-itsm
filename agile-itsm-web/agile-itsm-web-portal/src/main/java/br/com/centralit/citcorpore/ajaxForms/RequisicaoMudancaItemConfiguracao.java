@@ -54,7 +54,7 @@ public class RequisicaoMudancaItemConfiguracao extends AjaxFormAction implements
 		RequisicaoMudancaItemConfiguracaoDTO aux = null;
 
 		if(listaDeserializada != null){
-			//se n„o existir no banco, cria, caso contr·rio, atualiza
+			//se n√£o existir no banco, cria, caso contr√°rio, atualiza
 			for(RequisicaoMudancaItemConfiguracaoDTO i : ics){
 
 				i.setIdRequisicaoMudanca(idRequisicaoMudanca);
@@ -68,7 +68,7 @@ public class RequisicaoMudancaItemConfiguracao extends AjaxFormAction implements
 				}
 			}
 		}
-		//confere se existe algo no banco que n„o est· na lista salva, e deleta
+		//confere se existe algo no banco que n√£o est√° na lista salva, e deleta
 		icsBanco = getRequisicaoMudancaItemConfiguracaoService().listByIdRequisicaoMudanca(idRequisicaoMudanca);
 		if (icsBanco != null) {
 			for(RequisicaoMudancaItemConfiguracaoDTO i : icsBanco){
@@ -101,9 +101,9 @@ public class RequisicaoMudancaItemConfiguracao extends AjaxFormAction implements
 	}
 
 	/**
-	 * Lista os ics relacionados a requisiÁ„o de mudanÁa
-	 * e atribui o nome do item de configuraÁ„o para correta
-	 * restauraÁ„o de suas informaÁıes na table
+	 * Lista os ics relacionados a requisi√ß√£o de mudan√ßa
+	 * e atribui o nome do item de configura√ß√£o para correta
+	 * restaura√ß√£o de suas informa√ß√µes na table
 	 *
 	 * @param requisicaoMudancaItemConfiguracaoDTO
 	 * @throws ServiceException

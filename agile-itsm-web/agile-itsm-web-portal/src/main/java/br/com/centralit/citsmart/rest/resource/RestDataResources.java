@@ -42,7 +42,7 @@ public class RestDataResources {
             map.put("exportarVinculos", "N");
             result = new DataManager().geraExportObjetoNegocio(map, objetoNegocioDto.getIdObjetoNegocio(), "", "", cond, order);
         }
-        return "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n<tables origem='0'>\n" + result.toString() + "\n</tables>";
+        return "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<tables origem='0'>\n" + result.toString() + "\n</tables>";
     }
 
     protected static Collection<CamposObjetoNegocioDTO> restoreDataFields(final ObjetoNegocioDTO objetoNegocioDto) throws Exception {
@@ -66,7 +66,7 @@ public class RestDataResources {
         if (format.equalsIgnoreCase(RestEnum.FORMAT_DB)) {
             return this.getDataBaseObjectById(name, id, links, cond, order);
         } else {
-            final CtError error = this.buildError(RestEnum.PARAM_ERROR, "### Erro nos parâmetros da consulta -> Formato '" + format + "' não suportado");
+            final CtError error = this.buildError(RestEnum.PARAM_ERROR, "### Erro nos parÃ¢metros da consulta -> Formato '" + format + "' nÃ£o suportado");
             return Response.status(Status.OK).entity(error).build();
         }
     }
@@ -78,14 +78,14 @@ public class RestDataResources {
             @QueryParam("links") @DefaultValue("N") final String links, @QueryParam("cond") @DefaultValue("") final String cond,
             @QueryParam("order") @DefaultValue("") final String order) {
         if (cond == null || cond.equals("")) {
-            final CtError error = this.buildError(RestEnum.PARAM_ERROR, "### Erro nos parâmetros da consulta -> Condição não informada");
+            final CtError error = this.buildError(RestEnum.PARAM_ERROR, "### Erro nos parÃ¢metros da consulta -> CondiÃ§Ã£o nÃ£o informada");
             return Response.status(Status.OK).entity(error).build();
         }
 
         if (format.equalsIgnoreCase(RestEnum.FORMAT_DB)) {
             return this.getDataBaseObjectByCondition(name, links, cond, order);
         } else {
-            final CtError error = this.buildError(RestEnum.PARAM_ERROR, "### Erro nos parâmetros da consulta -> Formato '" + format + "' não suportado");
+            final CtError error = this.buildError(RestEnum.PARAM_ERROR, "### Erro nos parÃ¢metros da consulta -> Formato '" + format + "' nÃ£o suportado");
             return Response.status(Status.OK).entity(error).build();
         }
     }
@@ -98,13 +98,13 @@ public class RestDataResources {
         try {
             final ObjetoNegocioDTO objetoNegocioDto = RestDataResources.restoreByName(name);
             if (objetoNegocioDto == null) {
-                final CtError error = this.buildError(RestEnum.PARAM_ERROR, "### Erro nos parâmetros da consulta -> Objeto '" + name + "' não existe");
+                final CtError error = this.buildError(RestEnum.PARAM_ERROR, "### Erro nos parÃ¢metros da consulta -> Objeto '" + name + "' nÃ£o existe");
                 return Response.status(Status.OK).entity(error).build();
             }
 
             final Collection<CamposObjetoNegocioDTO> fields = RestDataResources.restoreDataFields(objetoNegocioDto);
             if (fields == null) {
-                final CtError error = this.buildError(RestEnum.PARAM_ERROR, "Erro na recuperação dos atributos do objeto '" + name + "' não existe");
+                final CtError error = this.buildError(RestEnum.PARAM_ERROR, "Erro na recuperaÃ§Ã£o dos atributos do objeto '" + name + "' nÃ£o existe");
                 return Response.status(Status.OK).entity(error).build();
             }
 
@@ -117,7 +117,7 @@ public class RestDataResources {
                 }
             }
             if (map.size() == 0) {
-                final CtError error = this.buildError(RestEnum.PARAM_ERROR, "Erro na recuperação dos atributos do objeto '" + name + "' não existe");
+                final CtError error = this.buildError(RestEnum.PARAM_ERROR, "Erro na recuperaÃ§Ã£o dos atributos do objeto '" + name + "' nÃ£o existe");
                 return Response.status(Status.OK).entity(error).build();
             }
 
@@ -138,7 +138,7 @@ public class RestDataResources {
         try {
             final ObjetoNegocioDTO objetoNegocioDto = RestDataResources.restoreByName(name);
             if (objetoNegocioDto == null) {
-                final CtError error = this.buildError(RestEnum.PARAM_ERROR, "### Erro nos parâmetros da consulta -> Objeto '" + name + "' não existe");
+                final CtError error = this.buildError(RestEnum.PARAM_ERROR, "### Erro nos parÃ¢metros da consulta -> Objeto '" + name + "' nÃ£o existe");
                 return Response.status(Status.OK).entity(error).build();
             }
 

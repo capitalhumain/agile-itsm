@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.citframework.util.Constantes"%>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
@@ -10,7 +12,7 @@
     %>
 	<%@include file="/include/header.jsp"%>
 
-    <title><fmt:message key="citcorpore.comum.title"/></title>
+    <%@include file="/novoLayout/common/include/titulo.jsp" %>
     <%@include file="/include/menu/menuConfig.jsp" %>
     <%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp" %>
     <script type="text/javascript" src="${ctx}/js/ValidacaoUtils.js"></script>
@@ -200,7 +202,7 @@
             row.cells[0].innerHTML = "&nbsp;<input type='checkbox' name='chkSel_"+obj.idItemRequisicaoProduto+"' id='chkSel_"+obj.idItemRequisicaoProduto+"' onclick='marcarDesmarcar(this,"+row.rowIndex+",\"tblItensRequisicao\")' />";
             row.cells[0].align = "center";
             row.cells[1].innerHTML = '<img  src="${ctx}/imagens/edit.png" style="cursor: pointer;" onclick="editarItem('+row.rowIndex+')" title="'+i18n_message("dinamicview.editar")+'" >';
-            row.cells[2].innerHTML = '<img  src="${ctx}/imagens/documents.png" style="cursor: pointer;" onclick="exibirResultados('+row.rowIndex+')" title="Exibir cotaÁıes" >';
+            row.cells[2].innerHTML = '<img  src="${ctx}/imagens/documents.png" style="cursor: pointer;" onclick="exibirResultados('+row.rowIndex+')" title="Exibir cota√ß√µes" >';
             row.cells[3].innerHTML = '<a '+title+'>'+obj.descricaoItem+'</a>';
             row.cells[6].innerHTML = NumberUtil.format(vlrUnitario, 2, ",", ".");
             row.cells[6].align = "right";
@@ -418,7 +420,7 @@
                                     </div>
                                     <div class="col_40">
 										<button type="button" id="btnValidar" class="btn btn-minier" onclick='validarItens();'><b>&nbsp;Aprovar&nbsp;</b></button>
-										<button type="button" id="btnInviabilizar" class="btn btn-minier" onclick='exibirJustificativa();'><b>&nbsp;N„o aprovar&nbsp;</b></button>
+										<button type="button" id="btnInviabilizar" class="btn btn-minier" onclick='exibirJustificativa();'><b>&nbsp;N√£o aprovar&nbsp;</b></button>
                                     </div>
                                 </div>
                                 <div class="col_100" style="overflow:auto; height:180px">
@@ -431,7 +433,7 @@
 	                                            <th ><fmt:message key="itemRequisicaoProduto.descricao" /></th>
 	                                            <th width="7%" style="text-align:rig"><fmt:message key="itemRequisicaoProduto.quantidade" /></th>
 	                                            <th width="10%"><fmt:message key="citcorpore.comum.valor" /></th>
-	                                            <th width="10%">Valor unit·rio</th>
+	                                            <th width="10%">Valor unit√°rio</th>
 	                                            <th width="35%"><fmt:message key="citcorpore.comum.situacao" /></th>
 	                                        </tr>
                                     	</thead>

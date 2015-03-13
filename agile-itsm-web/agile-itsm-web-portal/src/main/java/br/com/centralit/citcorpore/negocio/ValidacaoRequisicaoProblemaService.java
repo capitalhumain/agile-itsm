@@ -13,7 +13,7 @@ public interface ValidacaoRequisicaoProblemaService extends ComplemInfProblemaSe
 	public ValidacaoRequisicaoProblemaDTO recuperaTemplateRequisicaoProblema(ProblemaDTO problemaDto) throws Exception;
 	
 	/**
-	 * retorna as informações de validação requisição problema de acordo com o problema passado.
+	 * retorna as informaÃ§Ãµes de validaÃ§Ã£o requisiÃ§Ã£o problema de acordo com o problema passado.
 	 * @param parm
 	 * @return ValidacaoRequisicaoProblemaDTO
 	 * @throws Exception

@@ -16,40 +16,40 @@ public class UtilHTML {
 		for (int i = 0; i < length; i++) {
 			c = string.charAt(i);
 			switch (c) {
-			case 'π':
+			case '¬π':
 				encoded.append("&sup1;");
 				break;
-			case '≤':
+			case '¬≤':
 				encoded.append("&sup2;");
 				break;	
-			case '≥':
+			case '¬≥':
 				encoded.append("&sup3;");
 				break;	
-			case '∫':
+			case '¬∫':
 				encoded.append("&ordm;");
 				break;
-			case '∞':
+			case '¬∞':
 				encoded.append("&deg;");
 				break;
-			case 'Á':
+			case '√ß':
 				encoded.append("&ccedil;");
 				break;
-			case '«':
+			case '√á':
 				encoded.append("&Ccedil;");
 				break;
-			case '™':
+			case '¬™':
 				encoded.append("<sup>a</sup>");
 				break;
-			case 'Ò':
+			case '√±':
 				encoded.append("&ntilde;");
 				break;
-			case '—':
+			case '√ë':
 				encoded.append("&Ntilde;");
 				break;
-			case '˝':
+			case '√Ω':
 				encoded.append("&yacute;");
 				break;
-			case '›':
+			case '√ù':
 				encoded.append("&Yacute;");
 				break;
 			case '!':
@@ -67,46 +67,46 @@ public class UtilHTML {
 			case '-':
 				encoded.append("&#45;");
 				break;
-			case '·':
-			case '¡':
-			case 'È':
-			case '…':
-			case 'Ì':
-			case 'Õ':
-			case 'Û':
-			case '”':
-			case '˙':
-			case '⁄':
+			case '√°':
+			case '√Å':
+			case '√©':
+			case '√â':
+			case '√≠':
+			case '√ç':
+			case '√≥':
+			case '√ì':
+			case '√∫':
+			case '√ö':
 				encoded.append("&" + getLetraCorrespondente(c) + "acute;");
 				break;
-			case '‚':
-			case '¬':
-			case 'Í':
-			case ' ':
-			case 'Ó':
-			case 'Œ':
-			case 'Ù':
-			case '‘':
-			case '˚':
-			case '€':
+			case '√¢':
+			case '√Ç':
+			case '√™':
+			case '√ä':
+			case '√Æ':
+			case '√é':
+			case '√¥':
+			case '√î':
+			case '√ª':
+			case '√õ':
 				encoded.append("&" + getLetraCorrespondente(c) + "circ;");
 				break;
-			case '„':
-			case '√':
-			case 'ı':
-			case '’':
+			case '√£':
+			case '√É':
+			case '√µ':
+			case '√ï':
 				encoded.append("&" + getLetraCorrespondente(c) + "tilde;");
 				break;
-			case '‡':
-			case '¿':
-			case 'Ë':
-			case '»':
-			case 'Ï':
-			case 'Ã':
-			case 'Ú':
-			case '“':
-			case '˘':
-			case 'Ÿ':
+			case '√†':
+			case '√Ä':
+			case '√®':
+			case '√à':
+			case '√¨':
+			case '√å':
+			case '√≤':
+			case '√í':
+			case '√π':
+			case '√ô':
 				encoded.append("&" + getLetraCorrespondente(c) + "grave;");
 				break;
 			default:
@@ -131,40 +131,40 @@ public class UtilHTML {
 		for (int i = 0; i < length; i++) {
 			c = string.charAt(i);
 			switch (c) {
-			case 'π':
+			case '¬π':
 				encoded.append("&sup1;");
 				break;
-			case '≤':
+			case '¬≤':
 				encoded.append("&sup2;");
 				break;	
-			case '≥':
+			case '¬≥':
 				encoded.append("&sup3;");
 				break;	
-			case '∫':
+			case '¬∫':
 				encoded.append("&ordm;");
 				break;
-			case '∞':
+			case '¬∞':
 				encoded.append("&deg;");
 				break;
-			case 'Á':
+			case '√ß':
 				encoded.append("&ccedil;");
 				break;
-			case '«':
+			case '√á':
 				encoded.append("&Ccedil;");
 				break;
-			case '™':
+			case '¬™':
 				encoded.append("<sup>a</sup>");
 				break;
-			case 'Ò':
+			case '√±':
 				encoded.append("&ntilde;");
 				break;
-			case '—':
+			case '√ë':
 				encoded.append("&Ntilde;");
 				break;
-			case '˝':
+			case '√Ω':
 				encoded.append("&yacute;");
 				break;
-			case '›':
+			case '√ù':
 				encoded.append("&Yacute;");
 				break;
 			case '!':
@@ -182,46 +182,46 @@ public class UtilHTML {
 			case '-':
 				encoded.append("&#45;");
 				break;
-			case '·':
-			case '¡':
-			case 'È':
-			case '…':
-			case 'Ì':
-			case 'Õ':
-			case 'Û':
-			case '”':
-			case '˙':
-			case '⁄':
+			case '√°':
+			case '√Å':
+			case '√©':
+			case '√â':
+			case '√≠':
+			case '√ç':
+			case '√≥':
+			case '√ì':
+			case '√∫':
+			case '√ö':
 				encoded.append("&" + getLetraCorrespondente(c) + "acute;");
 				break;
-			case '‚':
-			case '¬':
-			case 'Í':
-			case ' ':
-			case 'Ó':
-			case 'Œ':
-			case 'Ù':
-			case '‘':
-			case '˚':
-			case '€':
+			case '√¢':
+			case '√Ç':
+			case '√™':
+			case '√ä':
+			case '√Æ':
+			case '√é':
+			case '√¥':
+			case '√î':
+			case '√ª':
+			case '√õ':
 				encoded.append("&" + getLetraCorrespondente(c) + "circ;");
 				break;
-			case '„':
-			case '√':
-			case 'ı':
-			case '’':
+			case '√£':
+			case '√É':
+			case '√µ':
+			case '√ï':
 				encoded.append("&" + getLetraCorrespondente(c) + "tilde;");
 				break;
-			case '‡':
-			case '¿':
-			case 'Ë':
-			case '»':
-			case 'Ï':
-			case 'Ã':
-			case 'Ú':
-			case '“':
-			case '˘':
-			case 'Ÿ':
+			case '√†':
+			case '√Ä':
+			case '√®':
+			case '√à':
+			case '√¨':
+			case '√å':
+			case '√≤':
+			case '√í':
+			case '√π':
+			case '√ô':
 				encoded.append("&" + getLetraCorrespondente(c) + "grave;");
 				break;
 			default:
@@ -244,30 +244,30 @@ public class UtilHTML {
 	 * @return
 	 */
 	public static String getLetraCorrespondente(char c) {
-		if (c == '·' || c == '‚' || c == '„') {
+		if (c == '√°' || c == '√¢' || c == '√£') {
 			return "a";
 		}
-		if (c == '‡') {
+		if (c == '√†') {
 			return "a";
-		} else if (c == '¡' || c == '¬' || c == '√') {
+		} else if (c == '√Å' || c == '√Ç' || c == '√É') {
 			return "A";
-		} else if (c == '¿') {
+		} else if (c == '√Ä') {
 			return "A";
-		} else if (c == 'È' || c == 'Í' || c == 'Ë') {
+		} else if (c == '√©' || c == '√™' || c == '√®') {
 			return "e";
-		} else if (c == '…' || c == ' ' || c == '»') {
+		} else if (c == '√â' || c == '√ä' || c == '√à') {
 			return "E";
-		} else if (c == 'Ì' || c == 'Ó' || c == 'Ï') {
+		} else if (c == '√≠' || c == '√Æ' || c == '√¨') {
 			return "i";
-		} else if (c == 'Õ' || c == 'Œ' || c == 'Ã') {
+		} else if (c == '√ç' || c == '√é' || c == '√å') {
 			return "I";
-		} else if (c == 'Û' || c == 'Ù' || c == 'ı' || c == 'Ú') {
+		} else if (c == '√≥' || c == '√¥' || c == '√µ' || c == '√≤') {
 			return "o";
-		} else if (c == '”' || c == '‘' || c == '’' || c == '“') {
+		} else if (c == '√ì' || c == '√î' || c == '√ï' || c == '√í') {
 			return "O";
-		} else if (c == '˙' || c == '˚' || c == '˘') {
+		} else if (c == '√∫' || c == '√ª' || c == '√π') {
 			return "u";
-		} else if (c == '⁄' || c == '€' || c == 'Ÿ') {
+		} else if (c == '√ö' || c == '√õ' || c == '√ô') {
 			return "U";
 		} else {
 			char auxChar[] = new char[1];
@@ -281,46 +281,46 @@ public class UtilHTML {
 
 		msg = msg.replaceAll("&nbsp;", " ");
 
-		msg = msg.replaceAll("&ccedil;", "Á");
-		msg = msg.replaceAll("&Ccedil;", "«");
+		msg = msg.replaceAll("&ccedil;", "√ß");
+		msg = msg.replaceAll("&Ccedil;", "√á");
 
-		msg = msg.replaceAll("&aacute;", "·");
-		msg = msg.replaceAll("&Aacute;", "¡");
-		msg = msg.replaceAll("&eacute;", "È");
-		msg = msg.replaceAll("&Eacute;", "…");
-		msg = msg.replaceAll("&iacute;", "Ì");
-		msg = msg.replaceAll("&Iacute;", "Õ");
+		msg = msg.replaceAll("&aacute;", "√°");
+		msg = msg.replaceAll("&Aacute;", "√Å");
+		msg = msg.replaceAll("&eacute;", "√©");
+		msg = msg.replaceAll("&Eacute;", "√â");
+		msg = msg.replaceAll("&iacute;", "√≠");
+		msg = msg.replaceAll("&Iacute;", "√ç");
 		msg = msg.replaceAll("&oacute;", "o");
-		msg = msg.replaceAll("&Oacute;", "”");
-		msg = msg.replaceAll("&uacute;", "˙");
-		msg = msg.replaceAll("&Uacute;", "⁄");
+		msg = msg.replaceAll("&Oacute;", "√ì");
+		msg = msg.replaceAll("&uacute;", "√∫");
+		msg = msg.replaceAll("&Uacute;", "√ö");
 
-		msg = msg.replaceAll("&acirc;", "‚");
-		msg = msg.replaceAll("&Acirc;", "¬");
-		msg = msg.replaceAll("&ecirc;", "Í");
-		msg = msg.replaceAll("&Ecirc;", " ");
-		msg = msg.replaceAll("&icirc;", "Ó");
-		msg = msg.replaceAll("&Icirc;", "Œ");
-		msg = msg.replaceAll("&ocirc;", "Ù");
-		msg = msg.replaceAll("&Ocirc;", "‘");
-		msg = msg.replaceAll("&ucirc;", "˚");
-		msg = msg.replaceAll("&Ucirc;", "€");
+		msg = msg.replaceAll("&acirc;", "√¢");
+		msg = msg.replaceAll("&Acirc;", "√Ç");
+		msg = msg.replaceAll("&ecirc;", "√™");
+		msg = msg.replaceAll("&Ecirc;", "√ä");
+		msg = msg.replaceAll("&icirc;", "√Æ");
+		msg = msg.replaceAll("&Icirc;", "√é");
+		msg = msg.replaceAll("&ocirc;", "√¥");
+		msg = msg.replaceAll("&Ocirc;", "√î");
+		msg = msg.replaceAll("&ucirc;", "√ª");
+		msg = msg.replaceAll("&Ucirc;", "√õ");
 
-		msg = msg.replaceAll("&atilde;", "„");
-		msg = msg.replaceAll("&Atilde;", "√");
-		msg = msg.replaceAll("&otilde;", "ı");
-		msg = msg.replaceAll("&Otilde;", "’");
+		msg = msg.replaceAll("&atilde;", "√£");
+		msg = msg.replaceAll("&Atilde;", "√É");
+		msg = msg.replaceAll("&otilde;", "√µ");
+		msg = msg.replaceAll("&Otilde;", "√ï");
 
-		msg = msg.replaceAll("&agrave;", "‡");
-		msg = msg.replaceAll("&Agrave;", "¿");
-		msg = msg.replaceAll("&egrave;", "È");
-		msg = msg.replaceAll("&Egrave;", "…");
-		msg = msg.replaceAll("&igrave;", "Ì");
-		msg = msg.replaceAll("&Igrave;", "Õ");
+		msg = msg.replaceAll("&agrave;", "√†");
+		msg = msg.replaceAll("&Agrave;", "√Ä");
+		msg = msg.replaceAll("&egrave;", "√©");
+		msg = msg.replaceAll("&Egrave;", "√â");
+		msg = msg.replaceAll("&igrave;", "√≠");
+		msg = msg.replaceAll("&Igrave;", "√ç");
 		msg = msg.replaceAll("&ograve;", "o");
-		msg = msg.replaceAll("&Ograve;", "”");
-		msg = msg.replaceAll("&ugrave;", "˙");
-		msg = msg.replaceAll("&Ugrave;", "⁄");
+		msg = msg.replaceAll("&Ograve;", "√ì");
+		msg = msg.replaceAll("&ugrave;", "√∫");
+		msg = msg.replaceAll("&Ugrave;", "√ö");
 
 		return msg;
 

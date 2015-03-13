@@ -70,7 +70,7 @@ public class RelatorioEficaciaTeste extends AjaxFormAction {
 
 		ArrayList<ServicoDTO> listaServicos = new ArrayList<ServicoDTO>();
 		Collection<RelatorioEficaciaTesteDTO> listaParaEnvio = new ArrayList<RelatorioEficaciaTesteDTO>();
-		// Restaura o usu·rio selecionado
+		// Restaura o usu√°rio selecionado
 		if (relatorioEficaciaTesteDTO.getListaServicos() != null) {
 			String[] listaServicosTela;
 			listaServicosTela = relatorioEficaciaTesteDTO.getListaServicos().split(";");

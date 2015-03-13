@@ -136,7 +136,7 @@ public class ControleGenerateSLAPorRequisitoSLAEmAndamento {
 							qtdePrazo++;
 							noPrazoComp = "N";
 						} else {
-							noPrazo = "N√O";
+							noPrazo = "N√ÉO";
 							qtdeForaPrazo++;
 							noPrazoComp = "F";
 						}

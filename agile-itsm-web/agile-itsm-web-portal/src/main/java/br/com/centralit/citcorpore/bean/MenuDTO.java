@@ -30,7 +30,7 @@ public class MenuDTO extends BaseEntity {
 	private String mostrar;
 
 	
-	//vari·veis auxiliares, n„o salvas no banco
+	//vari√°veis auxiliares, n√£o salvas no banco
 	private Integer idPerfilAcesso;
 	private String grava;
 	

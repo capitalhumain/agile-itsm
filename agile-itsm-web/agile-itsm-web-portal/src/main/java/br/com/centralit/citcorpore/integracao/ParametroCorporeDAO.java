@@ -35,7 +35,7 @@ public class ParametroCorporeDAO extends CrudDaoDefaultImpl {
     public Collection<Field> getFields() {
         final Collection<Field> listFields = new ArrayList<>();
         listFields.add(new Field("IDPARAMETROCORPORE", "id", true, false, false, true));
-        listFields.add(new Field("NOMEPARAMETROCORPORE", "nome", false, false, false, true, "Nome Par‚metro!"));
+        listFields.add(new Field("NOMEPARAMETROCORPORE", "nome", false, false, false, true, "Nome Par√¢metro!"));
         listFields.add(new Field("VALOR", "valor", false, false, false, false));
         listFields.add(new Field("IDEMPRESA", "idEmpresa", false, false, false, false));
         listFields.add(new Field("DATAINICIO", "dataInicio", false, false, false, false));

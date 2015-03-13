@@ -30,11 +30,6 @@
         <developerConnection>scm:git:ssh//git@github.com/modoagil/agile-itsm/${project.parent.artifactId}/${project.artifactId}.git</developerConnection>
     </scm>
 
-    <properties>
-        <project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>ISO-8859-1</project.reporting.outputEncoding>
-    </properties>
-
     <profiles>
         <profile>
             <id>dev</id>
@@ -125,7 +120,7 @@
                 <configuration>
                     <arguments>
                         <argument>${project.build.directory}/${project.build.finalName}</argument>
-                        <argument>UTF-8</argument>
+                        <argument>${project.build.sourceEncoding}</argument>
                     </arguments>
                     <mainClass>br.com.citframework.build.GenerateI18NJSFiles</mainClass>
                 </configuration>

@@ -4,7 +4,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.logging.Logger;
 
 /**
- * {@link SequenceBlock} mantém um pedaço de número sequenciais, um bloco únic
+ * {@link SequenceBlock} mantÃ©m um pedaÃ§o de nÃºmero sequenciais, um bloco Ãºnic
  */
 public class SequenceBlock {
 
@@ -20,9 +20,9 @@ public class SequenceBlock {
      * Cria um novo {@link SequenceBlock} informando valores iniciais e finais do bloco
      *
      * @param startOfBlock
-     *            valor, positivo, que é o primeiro valor a ser retornado por {@link #getNextId()}
+     *            valor, positivo, que Ã© o primeiro valor a ser retornado por {@link #getNextId()}
      * @param endOfBlock
-     *            (exclusive) valor, positivo, ( (endOfBlock -1) que é o último valor a ser retornado por {@link #getNextId()}
+     *            (exclusive) valor, positivo, ( (endOfBlock -1) que Ã© o Ãºltimo valor a ser retornado por {@link #getNextId()}
      */
     public SequenceBlock(final long startOfBlock, final long endOfBlock) {
         if (startOfBlock < 0 || endOfBlock <= startOfBlock) {
@@ -36,9 +36,9 @@ public class SequenceBlock {
     }
 
     /**
-     * {@code THREAD-SAFE} - Recupera o próximo valor do bloco<br>
+     * {@code THREAD-SAFE} - Recupera o prÃ³ximo valor do bloco<br>
      *
-     * @return {@link Long} próximo valor do bloco. {@code -1}, caso o bloco esteja esgotado
+     * @return {@link Long} prÃ³ximo valor do bloco. {@code -1}, caso o bloco esteja esgotado
      */
     public long getNextId() {
         LOGGER.fine(this.getClass().getSimpleName() + ".getNextId() called.");
@@ -50,9 +50,9 @@ public class SequenceBlock {
     }
 
     /**
-     * Verifica se o bloco está esgotado
+     * Verifica se o bloco estÃ¡ esgotado
      *
-     * @return {@code true}, se o bloco está esgotado. {@code false}, caso contrário
+     * @return {@code true}, se o bloco estÃ¡ esgotado. {@code false}, caso contrÃ¡rio
      */
     public boolean isExhausted() {
         return lastReturnedValue.get() >= endOfBlock - 1;

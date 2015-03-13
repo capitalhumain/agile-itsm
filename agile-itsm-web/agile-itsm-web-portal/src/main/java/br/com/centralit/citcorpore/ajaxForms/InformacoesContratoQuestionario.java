@@ -31,7 +31,7 @@ public class InformacoesContratoQuestionario extends AjaxFormAction {
 		InformacoesContratoDTO informacoesContratoDTO = (InformacoesContratoDTO) document.getBean();
 		UsuarioDTO usuario = WebUtil.getUsuario(request);
 		if (usuario == null){
-			document.alert("Sess„o expirada! Favor efetuar logon novamente!");
+			document.alert("Sess√£o expirada! Favor efetuar logon novamente!");
 			return;
 		}
 		
@@ -110,7 +110,7 @@ public class InformacoesContratoQuestionario extends AjaxFormAction {
 							if (acessoInclusaoAlteracaoPermitido){ //TEM ACESSO DE ALTERACAO
 								strTable += "<img src=\"" + Constantes.getValue("SERVER_ADDRESS") + Constantes.getValue("CONTEXTO_APLICACAO") + "/produtos/citsaude/imagens/agendado.gif\" border=\"0\" onclick=\"chamaEdicaoQuestionario(" + contratoQuestDTO.getIdContrato() + "," + contratoQuestDTO.getIdQuestionario() + ",0, " + contratoQuestDTO.getIdContratoQuestionario() + ", false, 'S', '" + informacoesContratoDTO.getAba() + "', '" + UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, contratoQuestDTO.getDataQuestionario(), WebUtil.getLanguage(request)) + "')\" style=\"cursor:pointer\" >";
 							}else{//SEM ACESSO DE ALTERACAO
-								strTable += "<img src=\"" + Constantes.getValue("SERVER_ADDRESS") + Constantes.getValue("CONTEXTO_APLICACAO") + "/produtos/citsaude/imagens/exclamacao.gif\" border=\"0\" onclick=\"chamaEdicaoQuestionario(" + contratoQuestDTO.getIdContrato() + "," + contratoQuestDTO.getIdQuestionario() + ",0, " + contratoQuestDTO.getIdContratoQuestionario() + ", true, 'S', '" + informacoesContratoDTO.getAba() + "', '" + UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, contratoQuestDTO.getDataQuestionario(), WebUtil.getLanguage(request)) + "')\" style=\"cursor:pointer\" title=\"Sem permiss„o de alteraÁ„o\">";
+								strTable += "<img src=\"" + Constantes.getValue("SERVER_ADDRESS") + Constantes.getValue("CONTEXTO_APLICACAO") + "/produtos/citsaude/imagens/exclamacao.gif\" border=\"0\" onclick=\"chamaEdicaoQuestionario(" + contratoQuestDTO.getIdContrato() + "," + contratoQuestDTO.getIdQuestionario() + ",0, " + contratoQuestDTO.getIdContratoQuestionario() + ", true, 'S', '" + informacoesContratoDTO.getAba() + "', '" + UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, contratoQuestDTO.getDataQuestionario(), WebUtil.getLanguage(request)) + "')\" style=\"cursor:pointer\" title=\"Sem permiss√£o de altera√ß√£o\">";
 							}
 						}
 					}else{
@@ -123,7 +123,7 @@ public class InformacoesContratoQuestionario extends AjaxFormAction {
 							if (acessoInclusaoAlteracaoPermitido){ //TEM ACESSO DE ALTERACAO
 								strTable += "<img src=\"" + Constantes.getValue("SERVER_ADDRESS") + Constantes.getValue("CONTEXTO_APLICACAO") + "/produtos/citsaude/imagens/agendado.gif\" border=\"0\" onclick=\"chamaEdicaoQuestionario(" + contratoQuestDTO.getIdContrato() + "," + contratoQuestDTO.getIdQuestionario() + ",0, " + contratoQuestDTO.getIdContratoQuestionario() + ", false, 'N', '', '" + UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, contratoQuestDTO.getDataQuestionario(), WebUtil.getLanguage(request)) + "')\" style=\"cursor:pointer\" >";
 							}else{//SEM ACESSO DE ALTERACAO
-								strTable += "<img src=\"" + Constantes.getValue("SERVER_ADDRESS") + Constantes.getValue("CONTEXTO_APLICACAO") + "/produtos/citsaude/imagens/exclamacao.gif\" border=\"0\" onclick=\"chamaEdicaoQuestionario(" + contratoQuestDTO.getIdContrato() + "," + contratoQuestDTO.getIdQuestionario() + ",0, " + contratoQuestDTO.getIdContratoQuestionario() + ", true, 'N', '', '" + UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, contratoQuestDTO.getDataQuestionario(), WebUtil.getLanguage(request)) + "')\" style=\"cursor:pointer\" title=\"Sem permiss„o de alteraÁ„o\">";
+								strTable += "<img src=\"" + Constantes.getValue("SERVER_ADDRESS") + Constantes.getValue("CONTEXTO_APLICACAO") + "/produtos/citsaude/imagens/exclamacao.gif\" border=\"0\" onclick=\"chamaEdicaoQuestionario(" + contratoQuestDTO.getIdContrato() + "," + contratoQuestDTO.getIdQuestionario() + ",0, " + contratoQuestDTO.getIdContratoQuestionario() + ", true, 'N', '', '" + UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, contratoQuestDTO.getDataQuestionario(), WebUtil.getLanguage(request)) + "')\" style=\"cursor:pointer\" title=\"Sem permiss√£o de altera√ß√£o\">";
 							}
 						}						
 					}

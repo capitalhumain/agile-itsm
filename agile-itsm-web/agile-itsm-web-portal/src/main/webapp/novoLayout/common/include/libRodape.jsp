@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@ include file="/WEB-INF/templates/taglibs.jsp"%>
 
 <!-- JQuery -->
@@ -34,7 +36,7 @@
 <!--[if !IE]><!-->
 <script type="text/javascript">
 if (/*@cc_on!@*/false) {
-	document.documentElement.className+=' ie10';
+    document.documentElement.className+=' ie10';
 }
 var basePath = '${ctx}/novoLayout/common/';
 </script>
@@ -85,67 +87,67 @@ var basePath = '${ctx}/novoLayout/common/';
 <script type="text/javascript" src="${ctx}/novoLayout/common/bootstrap/js/bootstrap-modalmanager.js"></script>
 <script type="text/javascript" src="${ctx}/novoLayout/common/bootstrap/js/bootstrap-modal.js"></script>
 
-<!-- Datepicker + Internacionalização + Inicialização -->
+<!-- Datepicker + InternacionalizaÃ§Ã£o + InicializaÃ§Ã£o -->
 <script type="text/javascript" src="${ctx}/js/jquery.ui.datepicker.js"></script>
 <script type="text/javascript" src="${ctx}/js/jquery.ui.datepicker-locale.js"></script>
 <script type="text/javascript" src="${ctx}/js/jquery.ui.datepicker-init.js"></script>
 
 <script type="text/javascript">
-	$(function() {
-		/*
-		Motivo: Funções de atualização do citsmart sobre
-		Autor: flavio.santana
-		31/10/2013 15:16
-		*/
-		$('#divRelease').slimScroll({ scrollTo: '0', height: '150px' });
+    $(function() {
+        /*
+        Motivo: FunÃ§Ãµes de atualizaÃ§Ã£o do citsmart sobre
+        Autor: flavio.santana
+        31/10/2013 15:16
+        */
+        $('#divRelease').slimScroll({ scrollTo: '0', height: '150px' });
 
-		$('#historico').hide();
+        $('#historico').hide();
 
-		$('.openHistorico').click(function(e){
-			$('#produto').css('margin-top','20px');
-			$('#historico').show();
-		});
+        $('.openHistorico').click(function(e){
+            $('#produto').css('margin-top','20px');
+            $('#historico').show();
+        });
 
-		$('.titulo').tooltip({placement: "auto"});
+        $('.titulo').tooltip({placement: "auto"});
 
-		//Faz o focus no primeiro elemento do dropdown que foi clicado.
-		$('[data-toggle="dropdown"]').on('click', function () {
-			var re = $(this).attr('re');
-			if (re != '') {
-				setTimeout(function(){ $('.' + re).find('input[type="text"], select, textarea').first().focus(); },0);
-			}
-		});
+        //Faz o focus no primeiro elemento do dropdown que foi clicado.
+        $('[data-toggle="dropdown"]').on('click', function () {
+            var re = $(this).attr('re');
+            if (re != '') {
+                setTimeout(function(){ $('.' + re).find('input[type="text"], select, textarea').first().focus(); },0);
+            }
+        });
 
-		var primaryColor = '#8ec657',
-		dangerColor = '#b55151',
-		successColor = '#609450',
-		warningColor = '#ab7a4b',
-		inverseColor = '#45484d';
+        var primaryColor = '#8ec657',
+        dangerColor = '#b55151',
+        successColor = '#609450',
+        warningColor = '#ab7a4b',
+        inverseColor = '#45484d';
 
-	});
+    });
 
-	//imprime no console qualquer erro de javascript no sistema
-	onerror=handleErr;
-	function handleErr(msg,url,l)
-	{
-		var txt;
-		txt+=" Erro: " + msg + " - ";
-		txt+="URL: " + url + " - ";
-		txt+="Linha: " + l;
-		console.log(txt);
-		return true;
-	}
+    //imprime no console qualquer erro de javascript no sistema
+    onerror=handleErr;
+    function handleErr(msg,url,l)
+    {
+        var txt;
+        txt+=" Erro: " + msg + " - ";
+        txt+="URL: " + url + " - ";
+        txt+="Linha: " + l;
+        console.log(txt);
+        return true;
+    }
 
-	/*
-	 * Rodrigo Pecci Acorse - 31/03/2014 15h20
-	 * Marca como selected todos os options do select informado.
-	 * Utilizado para select multiplos que precisam de todos os options selecionados ao fazer o post.
-	 * Neste caso, todos os itens serão enviados para o DTO se ele estiver esperando um array.
-	 *
-	 */
-	function markAllOptionsSelectedForSelectMultiple(element) {
-		$("#" + element + " option").prop('selected', true);
-	}
+    /*
+     * Rodrigo Pecci Acorse - 31/03/2014 15h20
+     * Marca como selected todos os options do select informado.
+     * Utilizado para select multiplos que precisam de todos os options selecionados ao fazer o post.
+     * Neste caso, todos os itens serÃƒÂ£o enviados para o DTO se ele estiver esperando um array.
+     *
+     */
+    function markAllOptionsSelectedForSelectMultiple(element) {
+        $("#" + element + " option").prop('selected', true);
+    }
 </script>
 
 <!-- Bootstrap Form Wizard Plugin -->

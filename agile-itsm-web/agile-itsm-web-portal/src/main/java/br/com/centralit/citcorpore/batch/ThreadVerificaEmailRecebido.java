@@ -34,12 +34,12 @@ import br.com.citframework.util.UtilDatas;
  * 
  * @author geber.costa
  * 1 )Essa Thread verifica os emails recebidos, se existir um ou varios emails novos a thread os grava em uma ocorrencia,
- *  e essa ocorrencia È gravada em uma solicitaca.
+ *  e essa ocorrencia √© gravada em uma solicitaca.
  *  
- *  2) A solicitaÁ„o È alterada È a que o n˙mero estiver no titulo do email.
+ *  2) A solicita√ß√£o √© alterada √© a que o n√∫mero estiver no titulo do email.
  *  
- *  3) Para a Thread funcionar, È necess·rio ter no mÌnimo a vers„o 7 do java, e o parametro de HABILITA_ROTINA_DE_LEITURA_EMAIL estar setada como 'S', 
- *  por padr„o o parametro vem setado como 'N'
+ *  3) Para a Thread funcionar, √© necess√°rio ter no m√≠nimo a vers√£o 7 do java, e o parametro de HABILITA_ROTINA_DE_LEITURA_EMAIL estar setada como 'S', 
+ *  por padr√£o o parametro vem setado como 'N'
  *  
  *  4)
  * 
@@ -64,10 +64,10 @@ public class ThreadVerificaEmailRecebido extends Thread{
 				if(versaoJava.charAt(2)>=7 || versaoJava.charAt(0)>1){
 					sleep(1000);
 					System.out.println("###########################################");
-					System.out.println("VERS√O DO JAVA : "+versaoJava);
+					System.out.println("VERS√ÉO DO JAVA : "+versaoJava);
 					System.out.println("###########################################");
 					
-					//0 - Verificar se È pop ou imap
+					//0 - Verificar se √© pop ou imap
 					//1 - Ler emails novos
 					//2 - Verificar o titulo (cada titulo com um numero, corresponde a solicitacao)
 					//3 - Pegar o numero da solicitacao(esta no titulo) , criar uma ocorrencia e gravar ela nessa solicitacao. (Tentar ajax para ficar mais dinamico).
@@ -75,7 +75,7 @@ public class ThreadVerificaEmailRecebido extends Thread{
 					
 				}else{
 					System.out.println("###########################################");
-					System.out.println("… necess·rio possuir pelo menos a vers„o 7 do java para funcionar o recebimento de emails pelo sistema");
+					System.out.println("√â necess√°rio possuir pelo menos a vers√£o 7 do java para funcionar o recebimento de emails pelo sistema");
 					System.out.println("###########################################");
 					this.threadAtiva = false;
 				}
@@ -112,7 +112,7 @@ public class ThreadVerificaEmailRecebido extends Thread{
 
 			System.out.println("LENDO EMAILS POP...");
 		
-			//Verifica qual tipo de provider, se È imap , ou pop/pop3
+			//Verifica qual tipo de provider, se √© imap , ou pop/pop3
 				
 				ClienteEmailCentralServicoDao clienteEmail = new ClienteEmailCentralServicoDao();
 				Message mensagens[] = clienteEmail.getEmail2s();
@@ -127,20 +127,20 @@ public class ThreadVerificaEmailRecebido extends Thread{
 						
 						String solicitacao = message.getSubject();
 						
-						boolean encontrar = solicitacao.matches(".*SolicitaÁ„o.*");	
+						boolean encontrar = solicitacao.matches(".*Solicita√ß√£o.*");	
 						/**
-						 * Verifica se no tÌtulo do email existe a palavra SolicitaÁ„o e o n˙mero, caso exista, ele vai vincular o email a solicitacao do titulo,
+						 * Verifica se no t√≠tulo do email existe a palavra Solicita√ß√£o e o n√∫mero, caso exista, ele vai vincular o email a solicitacao do titulo,
 						 */
 						if(encontrar){
 							
 							encontrar = solicitacao.matches(".*[0-9].*");
 							/**
-							 * Verifica se no tÌtulo do email possui valor numÈrico, se possuir, prossegue, sen„o, encerra
+							 * Verifica se no t√≠tulo do email possui valor num√©rico, se possuir, prossegue, sen√£o, encerra
 							 */
 							if(encontrar){
 								
 								/**
-								 * Retira tudo o que n„o for numÈrico, pega os numeros e usa como id da solicitacao de servico
+								 * Retira tudo o que n√£o for num√©rico, pega os numeros e usa como id da solicitacao de servico
 								 */
 								solicitacao = solicitacao.replaceAll("[^0-9]", "");
 						
@@ -149,7 +149,7 @@ public class ThreadVerificaEmailRecebido extends Thread{
 						mbp2 = (MimeBodyPart) mmp.getBodyPart(1);
 						
 						System.out.println("-----------------------------------------------------------------------");
-						System.out.println("CONTE⁄DO DO EMAIL :"+ mbp1.getContent());
+						System.out.println("CONTE√öDO DO EMAIL :"+ mbp1.getContent());
 						System.out.println("TITULO DO EMAIL : "+message.getSubject());
 						System.out.println("-----------------------------------------------------------------------");
 						System.out.println("Contador : "+contador);
@@ -216,7 +216,7 @@ public class ThreadVerificaEmailRecebido extends Thread{
 						String solicitacao = email.getSubject();
 						String corpoEmail = email.getBody().toString(); //
 						
-						boolean encontrar = solicitacao.matches(".*SolicitaÁ„o.*");	
+						boolean encontrar = solicitacao.matches(".*Solicita√ß√£o.*");	
 						if(encontrar){
 							encontrar = solicitacao.matches(".*[0-9].*");
 							if(encontrar){

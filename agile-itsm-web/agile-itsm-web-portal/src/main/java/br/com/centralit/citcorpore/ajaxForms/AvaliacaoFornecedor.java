@@ -202,7 +202,7 @@ public class AvaliacaoFornecedor extends AjaxFormAction {
 		if (listAvaliacaoReferenciaFornecedor != null) {
 
 			tblAprovacao.addRowsByCollection(listAvaliacaoReferenciaFornecedor, new String[] { "", "", "nome", "telefone", "decisao", "observacoes" }, new String[] { "idempregado" },
-					"Empregado j· cadastrado!!", new String[] { "exibeIconesAprovacao" }, null, null);
+					"Empregado j√° cadastrado!!", new String[] { "exibeIconesAprovacao" }, null, null);
 			document.executeScript("HTMLUtils.applyStyleClassInAllCells('tblAprovacao', 'tblAprovacao');");
 		}
 
@@ -210,7 +210,7 @@ public class AvaliacaoFornecedor extends AjaxFormAction {
 		tblCriterio.deleteAllRows();
 
 		if (listCriterioAvaliacaoFornecedor != null) {
-			tblCriterio.addRowsByCollection(listCriterioAvaliacaoFornecedor, new String[] { "", "", "descricao", "valor", "obs" }, new String[] { "idCriterio" }, "Criterio j· cadastrado!!",
+			tblCriterio.addRowsByCollection(listCriterioAvaliacaoFornecedor, new String[] { "", "", "descricao", "valor", "obs" }, new String[] { "idCriterio" }, "Criterio j√° cadastrado!!",
 					new String[] { "exibeIconesCriterio" }, null, null);
 			document.executeScript("HTMLUtils.applyStyleClassInAllCells('tblCriterio', 'tblCriterio');");
 		}
@@ -277,7 +277,7 @@ public class AvaliacaoFornecedor extends AjaxFormAction {
 	 * @param response
 	 * @throws Exception
 	 * 
-	 *             Metodo colocar status Inativo quando for solicitado a exclus„o do usuario.
+	 *             Metodo colocar status Inativo quando for solicitado a exclus√£o do usuario.
 	 */
 
 	public void delete(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {

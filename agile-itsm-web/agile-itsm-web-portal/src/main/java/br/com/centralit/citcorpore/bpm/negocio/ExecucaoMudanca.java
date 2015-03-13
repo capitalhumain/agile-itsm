@@ -93,7 +93,7 @@ public class ExecucaoMudanca extends ExecucaoFluxo {
 		TipoFluxoDao tipoFluxoDao = new TipoFluxoDao();
 		TipoFluxoDTO tipoFluxoDto = tipoFluxoDao.findByNome(nomeFluxo);
 		if (tipoFluxoDto == null){
-			System.out.println("Fluxo "+nomeFluxo+" n„o existe");
+			System.out.println("Fluxo "+nomeFluxo+" n√£o existe");
 			throw new LogicException(i18n_Message("citcorpore.comum.fluxoNaoEncontrado"));
 		}
 		
@@ -125,7 +125,7 @@ public class ExecucaoMudanca extends ExecucaoFluxo {
 				enviaEmailGrupo(Integer.parseInt(IdModeloEmailGrupoDestinoREquisicaoMudanca.trim()),tipoMudancaDto.getIdGrupoExecutor());
 			}
 		} catch (NumberFormatException e) {
-			System.out.println("N„o h· modelo de e-mail setado nos par‚metros.");
+			System.out.println("N√£o h√° modelo de e-mail setado nos par√¢metros.");
 		}
 		
 		try {
@@ -136,7 +136,7 @@ public class ExecucaoMudanca extends ExecucaoFluxo {
 				enviaEmailProprietario(Integer.parseInt(IdModeloEmailGrupoComiteREquisicaoMudanca.trim()));
 			}
 		} catch (NumberFormatException e) {
-			System.out.println("N„o h· modelo de e-mail setado nos par‚metros.");
+			System.out.println("N√£o h√° modelo de e-mail setado nos par√¢metros.");
 		}
 		
 		return result;
@@ -222,10 +222,10 @@ public class ExecucaoMudanca extends ExecucaoFluxo {
 			ocorrenciaMudancaDto.setDescricao(br.com.centralit.citcorpore.util.Enumerados.CategoriaOcorrencia.Execucao.getDescricao());
 			ocorrenciaMudancaDto.setDataInicio(UtilDatas.getDataAtual());
 			ocorrenciaMudancaDto.setDataFim(UtilDatas.getDataAtual());
-			ocorrenciaMudancaDto.setInformacoesContato("n„o se aplica");
+			ocorrenciaMudancaDto.setInformacoesContato("n√£o se aplica");
 			ocorrenciaMudancaDto.setRegistradopor(loginUsuario);
 			ocorrenciaMudancaDto.setDadosMudanca(new Gson().toJson(getRequisicaoMudancaDto()));
-			ocorrenciaMudancaDto.setOcorrencia("ExecuÁ„o da tarefa \""+tarefaFluxoDto.getElementoFluxoDto().getDocumentacao()+"\"");
+			ocorrenciaMudancaDto.setOcorrencia("Execu√ß√£o da tarefa \""+tarefaFluxoDto.getElementoFluxoDto().getDocumentacao()+"\"");
 			ocorrenciaMudancaDto.setOrigem(br.com.centralit.citcorpore.util.Enumerados.OrigemOcorrencia.OUTROS.getSigla().toString());
 			ocorrenciaMudancaDto.setCategoria(br.com.centralit.citcorpore.util.Enumerados.CategoriaOcorrencia.Execucao.getSigla());
 			ocorrenciaMudancaDto.setIdItemTrabalho(idItemTrabalho);
@@ -273,12 +273,12 @@ public class ExecucaoMudanca extends ExecucaoFluxo {
 		ocorrenciaMudancaDto.setDescricao(br.com.centralit.citcorpore.util.Enumerados.CategoriaOcorrencia.Compartilhamento.getDescricao());
 		ocorrenciaMudancaDto.setDataInicio(UtilDatas.getDataAtual());
 		ocorrenciaMudancaDto.setDataFim(UtilDatas.getDataAtual());
-		ocorrenciaMudancaDto.setInformacoesContato("n„o se aplica");
+		ocorrenciaMudancaDto.setInformacoesContato("n√£o se aplica");
 		ocorrenciaMudancaDto.setRegistradopor(loginUsuario);
 		ocorrenciaMudancaDto.setDadosMudanca(new Gson().toJson(getRequisicaoMudancaDto()));
 		String ocorr = "Compartilhamento da tarefa \""+tarefaFluxoDto.getElementoFluxoDto().getDocumentacao()+"\"";
 		if (usuarioDestino != null)
-			ocorr += " com o usu·rio "+usuarioDestino;
+			ocorr += " com o usu√°rio "+usuarioDestino;
 		if (grupoDestino != null)
 			ocorr += " com o grupo "+grupoDestino;
 		ocorrenciaMudancaDto.setOcorrencia(ocorr);
@@ -342,7 +342,7 @@ public class ExecucaoMudanca extends ExecucaoFluxo {
 					ocorrenciaMudancaDto.setDescricao(br.com.centralit.citcorpore.util.Enumerados.CategoriaOcorrencia.Direcionamento.getDescricao());
 					ocorrenciaMudancaDto.setDataInicio(UtilDatas.getDataAtual());
 					ocorrenciaMudancaDto.setDataFim(UtilDatas.getDataAtual());
-					ocorrenciaMudancaDto.setInformacoesContato("n„o se aplica");
+					ocorrenciaMudancaDto.setInformacoesContato("n√£o se aplica");
 					ocorrenciaMudancaDto.setRegistradopor(loginUsuario);
 					ocorrenciaMudancaDto.setDadosMudanca(new Gson().toJson(getRequisicaoMudancaDto()));
 					String ocorr = "Direcionamento da tarefa \""+tarefaFluxoDto.getElementoFluxoDto().getDocumentacao()+"\"";
@@ -465,7 +465,7 @@ public class ExecucaoMudanca extends ExecucaoFluxo {
 			return;
 		
 		//if (!requisicaoMudancaDto.atendida() && !requisicaoMudancaDto.reclassificada())
-		//    throw new Exception("SolicitaÁ„o de serviÁo n„o permite encerramento");
+		//    throw new Exception("Solicita√ß√£o de servi√ßo n√£o permite encerramento");
 	
 		Collection<ExecucaoMudancaDTO> colExecucao = new ExecucaoMudancaDao().listByIdRequisicaoMudanca(getRequisicaoMudancaDto().getIdRequisicaoMudanca());
 		if (colExecucao != null) {
@@ -495,7 +495,7 @@ public class ExecucaoMudanca extends ExecucaoFluxo {
 		ocorrenciaMudancaDto.setDescricao(br.com.centralit.citcorpore.util.Enumerados.CategoriaOcorrencia.Encerramento.getDescricao());
 		ocorrenciaMudancaDto.setDataInicio(UtilDatas.getDataAtual());
 		ocorrenciaMudancaDto.setDataFim(UtilDatas.getDataAtual());
-		ocorrenciaMudancaDto.setRegistradopor("Autom·tico");
+		ocorrenciaMudancaDto.setRegistradopor("Autom√°tico");
 		ocorrenciaMudancaDto.setDadosMudanca(new Gson().toJson(getRequisicaoMudancaDto()));
 		ocorrenciaMudancaDto.setOrigem(br.com.centralit.citcorpore.util.Enumerados.OrigemOcorrencia.OUTROS.getSigla().toString());
 		ocorrenciaMudancaDto.setCategoria(br.com.centralit.citcorpore.util.Enumerados.CategoriaOcorrencia.Encerramento.getSigla());
@@ -729,7 +729,7 @@ public class ExecucaoMudanca extends ExecucaoFluxo {
         ExecucaoMudancaDao execucaoMudancaDao = new ExecucaoMudancaDao();
         ExecucaoMudancaDTO execucaoMudancaDto = execucaoMudancaDao.findByIdInstanciaFluxo(eventoFluxoDto.getIdInstancia());
         if (execucaoMudancaDto == null){
-        	System.out.println("ExecuÁ„o mudanÁa do evento "+eventoFluxoDto.getIdItemTrabalho()+" n„o encontrada");
+        	System.out.println("Execu√ß√£o mudan√ßa do evento "+eventoFluxoDto.getIdItemTrabalho()+" n√£o encontrada");
             throw new LogicException(i18n_Message("requisicaoMudanca.eventoNaoEncontrado"));
         }       
         RequisicaoMudancaDao requisicaoMudancaDao = new RequisicaoMudancaDao();
@@ -737,7 +737,7 @@ public class ExecucaoMudanca extends ExecucaoFluxo {
         requisicaoMudancaDto.setIdRequisicaoMudanca(execucaoMudancaDto.getIdRequisicaoMudanca());
         requisicaoMudancaDto = (RequisicaoMudancaDTO) requisicaoMudancaDao.restore(requisicaoMudancaDto);
         if (requisicaoMudancaDto == null){
-        	System.out.println("ExecuÁ„o mudanÁa do evento "+eventoFluxoDto.getIdItemTrabalho()+" n„o encontrada");
+        	System.out.println("Execu√ß√£o mudan√ßa do evento "+eventoFluxoDto.getIdItemTrabalho()+" n√£o encontrada");
             throw new LogicException(i18n_Message("requisicaoMudanca.eventoNaoEncontrado"));
         }
         
@@ -823,7 +823,7 @@ public class ExecucaoMudanca extends ExecucaoFluxo {
 	}
 	
 	
-	//envia e-mail para todos do grupo em um agendamento de reuni„o
+	//envia e-mail para todos do grupo em um agendamento de reuni√£o
 	public void enviaEmailReuniaoGrupo(Integer idModeloEmail, Integer idGrupoDestino, Integer idRequisicaoMudanca, Integer idReuniaoRequisicaoMudanca) throws Exception {
 		MensagemEmail mensagem = null;
 
@@ -892,7 +892,7 @@ public class ExecucaoMudanca extends ExecucaoFluxo {
 	}
 	
 	/**
-	 * Notifica proprietario da RequisiÁ„o mudanÁa.
+	 * Notifica proprietario da Requisi√ß√£o mudan√ßa.
 	 * 
 	 * @param idModeloEmail
 	 * @throws Exception

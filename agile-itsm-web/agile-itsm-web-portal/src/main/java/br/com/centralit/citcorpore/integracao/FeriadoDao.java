@@ -14,7 +14,8 @@ import br.com.citframework.util.Constantes;
 import br.com.citframework.util.UtilDatas;
 
 
-public class FeriadoDao extends CrudDaoDefaultImpl {
+public class FeriadoDao extends CrudDaoDefaultImpl {
+
 	
 
 	public FeriadoDao()

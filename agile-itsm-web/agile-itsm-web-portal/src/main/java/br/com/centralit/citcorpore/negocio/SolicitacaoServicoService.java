@@ -48,7 +48,7 @@ public interface SolicitacaoServicoService extends CrudService {
     void encerra(final SolicitacaoServicoDTO solicitacaoServicoDto) throws Exception;
 
     /**
-     * Retorna Solicitações de Serviço associados ao conhecimento informado.
+     * Retorna SolicitaÃ§Ãµes de ServiÃ§o associados ao conhecimento informado.
      *
      * @param baseConhecimentoDto
      * @return Collection
@@ -94,7 +94,7 @@ public interface SolicitacaoServicoService extends CrudService {
     Collection<SolicitacaoServicoDTO> listAllServicosLikeNomeServico(final String nome) throws Exception;
 
     /**
-     * Metodo retornar uma lista com a quantidade de solicitação por fase
+     * Metodo retornar uma lista com a quantidade de solicitaÃ§Ã£o por fase
      *
      * @param solicitacaoDto
      * @return
@@ -103,7 +103,7 @@ public interface SolicitacaoServicoService extends CrudService {
     Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorFase(final SolicitacaoServicoDTO solicitacaoDto) throws Exception;
 
     /**
-     * Metodo retornar uma lista com a quantidade de solicitação por grupoSolucionador.
+     * Metodo retornar uma lista com a quantidade de solicitaÃ§Ã£o por grupoSolucionador.
      *
      * @return
      * @throws Exception
@@ -115,7 +115,7 @@ public interface SolicitacaoServicoService extends CrudService {
     Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorHoraAbertura(final SolicitacaoServicoDTO solicitacaoDto) throws Exception;
 
     /**
-     * Metodo retornar uma lista com a quantidade de solicitação por Item Configuração.
+     * Metodo retornar uma lista com a quantidade de solicitaÃ§Ã£o por Item ConfiguraÃ§Ã£o.
      *
      * @return
      * @throws Exception
@@ -124,7 +124,7 @@ public interface SolicitacaoServicoService extends CrudService {
     Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorItemConfiguracao(final SolicitacaoServicoDTO solicitacaoDto) throws Exception;
 
     /**
-     * Metodo retornar uma lista com a quantidade de solicitação por Origem
+     * Metodo retornar uma lista com a quantidade de solicitaÃ§Ã£o por Origem
      *
      * @param solicitacaoDto
      * @return
@@ -136,7 +136,7 @@ public interface SolicitacaoServicoService extends CrudService {
             throws Exception;
 
     /**
-     * Metodo retornar uma lista com a quantidade de solicitação por prioridade
+     * Metodo retornar uma lista com a quantidade de solicitaÃ§Ã£o por prioridade
      *
      * @param solicitacaoDto
      * @return
@@ -147,7 +147,7 @@ public interface SolicitacaoServicoService extends CrudService {
     Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorResponsavel(final SolicitacaoServicoDTO solicitacaoDto) throws Exception;
 
     /**
-     * Metodo retornar uma lista com a quantidade de solicitação por serviço
+     * Metodo retornar uma lista com a quantidade de solicitaÃ§Ã£o por serviÃ§o
      *
      * @param solicitacaoDto
      * @return
@@ -156,7 +156,7 @@ public interface SolicitacaoServicoService extends CrudService {
     Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorServico(final SolicitacaoServicoDTO solicitacaoServicoDto) throws Exception;
 
     /**
-     * Metodo retornar os serviços aprovados e abertos
+     * Metodo retornar os serviÃ§os aprovados e abertos
      *
      * @param solicitacaoDto
      * @return
@@ -165,7 +165,7 @@ public interface SolicitacaoServicoService extends CrudService {
     Collection<RelatorioQuantitativoSolicitacaoDTO> listaServicosAbertosAprovados(final SolicitacaoServicoDTO solicitacaoServicoDto) throws Exception;
 
     /**
-     * Metodo retornar uma lista com a quantidade de solicitação por situação
+     * Metodo retornar uma lista com a quantidade de solicitaÃ§Ã£o por situaÃ§Ã£o
      *
      * @param solicitacaoDto
      * @return
@@ -177,7 +177,7 @@ public interface SolicitacaoServicoService extends CrudService {
             throws Exception;
 
     /**
-     * Metodo retornar uma lista com a quantidade de solicitação por solicitante.
+     * Metodo retornar uma lista com a quantidade de solicitaÃ§Ã£o por solicitante.
      *
      * @return
      * @throws Exception
@@ -186,7 +186,7 @@ public interface SolicitacaoServicoService extends CrudService {
     Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorSolicitante(final SolicitacaoServicoDTO solicitacaoDto) throws Exception;
 
     /**
-     * Metodo retornar uma lista com a quantidade de solicitação por tipo
+     * Metodo retornar uma lista com a quantidade de solicitaÃ§Ã£o por tipo
      *
      * @param solicitacaoDto
      * @return
@@ -208,7 +208,7 @@ public interface SolicitacaoServicoService extends CrudService {
     Collection<SolicitacaoServicoDTO> listaSolicitacaoPorBaseConhecimento(final SolicitacaoServicoDTO solicitacao) throws Exception;
 
     /**
-     * Retorna Solicitações serviço de acordo com os criterios passados
+     * Retorna SolicitaÃ§Ãµes serviÃ§o de acordo com os criterios passados
      *
      * @param pesquisaSolicitacaoServicoDto
      * @return
@@ -229,7 +229,7 @@ public interface SolicitacaoServicoService extends CrudService {
     SolicitacaoServicoDTO listInformacaoContato(final String nomeContato) throws Exception;;
 
     /**
-     * Retorna Solicitaï¿½ï¿½es de Serviços de acordo com o Tipo de Demanda e Usuï¿½rio.
+     * Retorna SolicitaÃ§Ã¯Â¿Â½es de ServiÃ§os de acordo com o Tipo de Demanda e UsuÃ¡rio.
      *
      * @param tipoDemandaServico
      * @param grupoSeguranca
@@ -277,7 +277,7 @@ public interface SolicitacaoServicoService extends CrudService {
     SolicitacaoServicoDTO restoreAll(final Integer idSolicitacaoServico) throws Exception;
 
     /**
-     * Retorna SolicitacaoServico com Item de Configuraï¿½ï¿½o do Solicitante.
+     * Retorna SolicitacaoServico com Item de ConfiguraÃ¯Â¿Â½Ã¯Â¿Â½o do Solicitante.
      *
      * @param login
      * @return SolicitacaoServicoDTO
@@ -310,10 +310,10 @@ public interface SolicitacaoServicoService extends CrudService {
     boolean verificarExistenciaDeUnidade(final Integer idUnidade) throws Exception;
 
     /**
-     * Verifica se solicitação serviço possui Solicitação Filho.
+     * Verifica se solicitaÃ§Ã£o serviÃ§o possui SolicitaÃ§Ã£o Filho.
      *
      * @param idSolicitacaoServico
-     * @return true = possui; false = não possui.
+     * @return true = possui; false = nÃ£o possui.
      * @throws Exception
      */
     boolean verificarExistenciaSolicitacaoFilho(final Integer idSolicitacaoServico) throws Exception;
@@ -331,7 +331,7 @@ public interface SolicitacaoServicoService extends CrudService {
     SolicitacaoServicoDTO findByIdSolicitacaoServico(final Integer idSolicitacaoServico) throws Exception;
 
     /**
-     * Retorna uma lista de solicitacao serviço de acordo com os parametro passados com o principal objetivo de trazer somente solicitações fechadas ou canceladas.
+     * Retorna uma lista de solicitacao serviÃ§o de acordo com os parametro passados com o principal objetivo de trazer somente solicitaÃ§Ãµes fechadas ou canceladas.
      *
      * @param relatorioSolicitacaoPorSolucionarDto
      * @return Collection
@@ -348,7 +348,7 @@ public interface SolicitacaoServicoService extends CrudService {
     Collection<RelatorioCausaSolucaoDTO> listaCausaSolucaoAnalitico(final RelatorioCausaSolucaoDTO relatorioCausaSolicitacao) throws Exception;
 
     /**
-     * Retorna uma lista de Serviços que estejam associada a uma solicitação serviço.
+     * Retorna uma lista de ServiÃ§os que estejam associada a uma solicitaÃ§Ã£o serviÃ§o.
      *
      * @param relatorioAnaliseServicoDto
      * @return Collection<RelatorioAnaliseServicoDTO>
@@ -467,7 +467,7 @@ public interface SolicitacaoServicoService extends CrudService {
             final Date dataFim, final List<ServicoDTO> listaServicos) throws Exception;
 
     /**
-     * lista com os quantitativos por empregado de solicitações serviços emcaminhadas e foram concluidas com exito.
+     * lista com os quantitativos por empregado de solicitaÃ§Ãµes serviÃ§os emcaminhadas e foram concluidas com exito.
      *
      * @param relatorioKpiProdutividadeDto
      * @return
@@ -488,7 +488,7 @@ public interface SolicitacaoServicoService extends CrudService {
             final Collection<UnidadeDTO> unidadesColaborador) throws Exception;
 
     /**
-     * Método para listar número de solicitações fora do período fornecido pelo usuário
+     * MÃ©todo para listar nÃºmero de solicitaÃ§Ãµes fora do perÃ­odo fornecido pelo usuÃ¡rio
      *
      * @param relatorioIncidentesNaoResolvidosDTO
      * @return

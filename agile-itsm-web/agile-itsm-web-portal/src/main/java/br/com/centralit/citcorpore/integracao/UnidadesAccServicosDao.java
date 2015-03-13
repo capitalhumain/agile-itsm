@@ -84,7 +84,7 @@ public class UnidadesAccServicosDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * Verifica se j· existe uma associaÁ„o feita.
+	 * Verifica se j√° existe uma associa√ß√£o feita.
 	 * 
 	 * @param idServico e idUnidade
 	 * @return boolean
@@ -114,7 +114,7 @@ public class UnidadesAccServicosDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * Retorna os serviÁos para a unidade informada
+	 * Retorna os servi√ßos para a unidade informada
 	 * 
 	 * @param idUnidade
 	 * @return Collection

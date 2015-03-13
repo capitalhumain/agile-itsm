@@ -86,13 +86,13 @@ public class JavNag {
 	}
 
 	/**
-	 * Cria um novo Host ou localiza um j· existente retornando sua inst‚ncia.
+	 * Cria um novo Host ou localiza um j√° existente retornando sua inst√¢ncia.
 	 * 
 	 * @param nagiosSource
 	 *            - Nome do Nagios
 	 * @param hostName
 	 *            - Nome do host
-	 * @return - Host criado ou j· existente.
+	 * @return - Host criado ou j√° existente.
 	 */
 	private Host addAndOrFindHost(String nagiosSource, String hostName) {
 
@@ -109,28 +109,28 @@ public class JavNag {
 	}
 
 	/**
-	 * Adiciona um novo ParameterEntry (Par‚metro/Valor) ao Host.
+	 * Adiciona um novo ParameterEntry (Par√¢metro/Valor) ao Host.
 	 * 
 	 * @param host
-	 *            - Host que ser· adicionado o Par‚metro/Valor.
+	 *            - Host que ser√° adicionado o Par√¢metro/Valor.
 	 * @param serviceParameterName
-	 *            - Nome do Par‚metro.
+	 *            - Nome do Par√¢metro.
 	 * @param serviceParameterValue
-	 *            - Valor do Par‚metro.
+	 *            - Valor do Par√¢metro.
 	 */
 	private void addHostParameterEntry(Host host, String serviceParameterName, String serviceParameterValue) {
 		host.addParameter(serviceParameterName, serviceParameterValue);
 	}
 
 	/**
-	 * Adiciona um novo ParameterEntry (Par‚metro/Valor) ao ServiÁo.
+	 * Adiciona um novo ParameterEntry (Par√¢metro/Valor) ao Servi√ßo.
 	 * 
 	 * @param service
-	 *            - ServiÁo
+	 *            - Servi√ßo
 	 * @param serviceParameterName
-	 *            - Nome do par‚metro.
+	 *            - Nome do par√¢metro.
 	 * @param serviceParameterValue
-	 *            - Valor do par‚metro.
+	 *            - Valor do par√¢metro.
 	 */
 	private void addServiceEntry(Service service, String serviceParameterName, String serviceParameterValue) {
 		service.addParameter(new ParameterEntry(serviceParameterName, serviceParameterValue));
@@ -247,12 +247,12 @@ public class JavNag {
 	}
 
 	/**
-	 * Realiza leitura no List<String> com as informaÁıes obtidas ‡ partir do status.dat.txt e cria ou atualiza os Hosts e suas caracterÌsticas.
+	 * Realiza leitura no List<String> com as informa√ß√µes obtidas √† partir do status.dat.txt e cria ou atualiza os Hosts e suas caracter√≠sticas.
 	 * 
 	 * @param nagiosSource
 	 *            - Nome do Nagios.
 	 * @param fileDump
-	 *            - List<String> com as informaÁıes obtidas ‡ partir do status.dat.txt
+	 *            - List<String> com as informa√ß√µes obtidas √† partir do status.dat.txt
 	 * @throws Exception
 	 */
 	private void addFromNagios2And3(String nagiosSource, List<String> fileDump) throws Exception {
@@ -307,7 +307,7 @@ public class JavNag {
 						service = host.addAndOrFindService(value);
 						this.addServiceEntry(service, "host_name", host_name);
 					} else if (lineType == LineType.host && host != null) {
-						// Aqui ser„o adicionados os par‚metros de host.
+						// Aqui ser√£o adicionados os par√¢metros de host.
 						this.addHostParameterEntry(host, parameter, value);
 					} else if (lineType == LineType.service && host != null && service != null) {
 						this.addServiceEntry(service, parameter, value);
@@ -577,12 +577,12 @@ public class JavNag {
 	}
 
 	/**
-	 * Realiza a leitura e atualizaÁ„o dos Host, ServiÁos e seus respectivos par‚metros e valores ‡ partir do arquivo .dat.txt
+	 * Realiza a leitura e atualiza√ß√£o dos Host, Servi√ßos e seus respectivos par√¢metros e valores √† partir do arquivo .dat.txt
 	 * 
 	 * @param fileName
 	 *            - Caminho absoluto do arquivo.Ex. D:\Ambiente\jboss\server\default\deploy\status.dat.txt
 	 * @param nagiosVersion
-	 *            - Vers„o do Nagios.
+	 *            - Vers√£o do Nagios.
 	 * @param prettyName
 	 *            - Nome do Nagios.
 	 * @throws Exception

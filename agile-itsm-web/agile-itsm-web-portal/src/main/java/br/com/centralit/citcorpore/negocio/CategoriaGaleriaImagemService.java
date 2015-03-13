@@ -9,7 +9,7 @@ import br.com.citframework.service.CrudService;
 public interface CategoriaGaleriaImagemService extends CrudService {
 
 	/**
-	 * Exclui Categoria Imagem caso o mesmo n„o possua empregado associado.
+	 * Exclui Categoria Imagem caso o mesmo n√£o possua empregado associado.
 	 * 
 	 * @param model
 	 * @param document

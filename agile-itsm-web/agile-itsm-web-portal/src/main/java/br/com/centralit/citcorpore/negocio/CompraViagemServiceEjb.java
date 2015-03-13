@@ -77,7 +77,7 @@ public class CompraViagemServiceEjb extends ComplemInfSolicitacaoServicoServiceE
 
             if (solicitacaoServicoDto.getIdSolicitante().intValue() == solicitacaoServicoDto.getUsuarioDto().getIdEmpregado().intValue()
                     && !(despesaViagemDTO != null && despesaViagemDTO.getCancelarRequisicao() != null && despesaViagemDTO.getCancelarRequisicao().equalsIgnoreCase("S"))) {
-                throw new LogicException("Usu·rio sem permiss„o para Executar Compras!");
+                throw new LogicException("Usu√°rio sem permiss√£o para Executar Compras!");
             }
 
             despesaViagemDAO.setTransactionControler(tc);
@@ -99,7 +99,7 @@ public class CompraViagemServiceEjb extends ComplemInfSolicitacaoServicoServiceE
                     && !solicitacaoServicoDto.getSituacao().equalsIgnoreCase(Enumerados.SituacaoSolicitacaoServico.Cancelada.name())) {
                 if (despesaViagemDTO.getConfirma() == null || !despesaViagemDTO.getConfirma().equalsIgnoreCase("S")
                         && !solicitacaoServicoDto.getSituacao().equalsIgnoreCase(Enumerados.SituacaoSolicitacaoServico.Cancelada.name())) {
-                    throw new LogicException("Necess·ria a ConfirmaÁ„o da Compra dos Itens para AvanÁar o fluxo");
+                    throw new LogicException("Necess√°ria a Confirma√ß√£o da Compra dos Itens para Avan√ßar o fluxo");
                 }
             }
 

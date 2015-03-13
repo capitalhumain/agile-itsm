@@ -68,7 +68,7 @@ public class UtilTratamentoArquivos {
     public static String getStringTextFromFileTxt(final String arquivo) {
         final StringBuilder retorno = new StringBuilder();
 
-        try (final FileInputStream arq = new FileInputStream(arquivo); final BufferedReader br = new BufferedReader(new InputStreamReader(arq, "ISO-8859-1"))) {
+        try (final FileInputStream arq = new FileInputStream(arquivo); final BufferedReader br = new BufferedReader(new InputStreamReader(arq, "UTF-8"))) {
             while (br.ready()) {
                 retorno.append(br.readLine()).append("\n");
             }
@@ -85,7 +85,7 @@ public class UtilTratamentoArquivos {
         try (final FileInputStream arq = new FileInputStream(arquivo)) {
             BufferedReader br = null;
             if (System.getProperty("os.name").contains("Windows")) {
-                br = new BufferedReader(new InputStreamReader(arq, "ISO-8859-1"));
+                br = new BufferedReader(new InputStreamReader(arq, "UTF-8"));
             } else {
                 br = new BufferedReader(new InputStreamReader(arq, "UTF-8"));
             }
@@ -363,7 +363,7 @@ public class UtilTratamentoArquivos {
             }
             // Ensure all the bytes have been read in
             if (offset < bytes.length) {
-                throw new Exception("Não foi possível ler o arquivo completamente >>> " + file.getName());
+                throw new Exception("NÃ£o foi possÃ­vel ler o arquivo completamente >>> " + file.getName());
             }
             // Close the input stream and return bytes
             return bytes;
@@ -373,9 +373,10 @@ public class UtilTratamentoArquivos {
     }
 
     /**
+     * Faz a leitura de um arquivo Texto usando o CharSet UTF-8 e gera uma String com o conteudo
+     *
      * @author euler.ramos
      *
-     *         Faz a leitura de um arquivo Texto usando o CharSet SO-8859-1 e gera uma String com o conteudo
      * @param arquivo
      * @return
      * @throws Exception
@@ -397,16 +398,16 @@ public class UtilTratamentoArquivos {
     }
 
     /**
-     * @author euler.ramos
+     * Grava arquivo usando CharSet UTF-8
      *
-     *         Grava arquivo usando CharSet ISO-8859-1
+     * @author euler.ramos
      *
      * @param arquivo
      * @param lista
      * @throws IOException
      */
     public static final void gravaArquivoCharSetISO(final String arquivo, final List lista) throws IOException {
-        try (final PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(new FileOutputStream(arquivo), "ISO8859_1")), true)) {
+        try (final PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(new FileOutputStream(arquivo), "UTF-8")), true)) {
             final Iterator it = lista.iterator();
             while (it.hasNext()) {
                 out.println(it.next().toString());
@@ -418,16 +419,16 @@ public class UtilTratamentoArquivos {
     }
 
     /**
-     * @author euler.ramos
+     * Gera um arquivo CharSet UTF-8 atraves de uma string.
      *
-     *         Gera um arquivo CharSet ISO-8859-1 atraves de uma string.
+     * @author euler.ramos
      *
      * @param arquivo
      * @param texto
      * @throws IOException
      */
     public static final void gravaArquivoCharSetISO(final String arquivo, final String texto) throws IOException {
-        try (final PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(new FileOutputStream(arquivo), "ISO8859_1")), true)) {
+        try (final PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(new FileOutputStream(arquivo), "UTF-8")), true)) {
             out.print(texto);
             out.flush();
         } catch (final Exception e) {

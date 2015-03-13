@@ -26,7 +26,7 @@ import br.com.citframework.service.CrudServiceImpl;
 import br.com.citframework.util.UtilDatas;
 
 /**
- * EJB de Tipo Item Configuração.
+ * EJB de Tipo Item ConfiguraÃ§Ã£o.
  *
  * @author valdoilo.damasceno
  */
@@ -85,7 +85,7 @@ public class TipoItemConfiguracaoServiceEjb extends CrudServiceImpl implements T
     }
 
     /**
-     * Associa Característica ao Tipo Item Configuração.
+     * Associa CaracterÃ­stica ao Tipo Item ConfiguraÃ§Ã£o.
      *
      * @throws Exception
      * @author valdoilo.damasceno
@@ -210,7 +210,7 @@ public class TipoItemConfiguracaoServiceEjb extends CrudServiceImpl implements T
     }
 
     /**
-     * Retorna Tipo Item Configuração.
+     * Retorna Tipo Item ConfiguraÃ§Ã£o.
      *
      * @return TipoItemConfiguracaoDTO
      * @author VMD
@@ -220,7 +220,7 @@ public class TipoItemConfiguracaoServiceEjb extends CrudServiceImpl implements T
     }
 
     /**
-     * Configura Tipo Item Configuração.
+     * Configura Tipo Item ConfiguraÃ§Ã£o.
      *
      * @param tipoItemConfiguracao
      * @author VMD

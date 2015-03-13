@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.citframework.util.UtilStrings"%>
 <%@page import="br.com.citframework.util.Constantes"%>
 <script>    
@@ -232,14 +234,14 @@ trataComplementoOpcao = function(campo, idQuestao, idOpcao){
     	var nomeTabela = 'tblQuestoesTabela_'+idTabela; 
         var tblOrigem = document.getElementById(nomeTabela);
         if (tblOrigem == null) {
-            alert(nomeTabela + " n„o existe.");
+            alert(nomeTabela + " n√£o existe.");
             return false;
         }
         
         var nomeTabela = 'tblRespostasTabela_'+idTabela; 
         var tblDestino = document.getElementById(nomeTabela);
         if (tblDestino == null) {
-            alert(nomeTabela + " n„o existe.");
+            alert(nomeTabela + " n√£o existe.");
             return false;
         }
         
@@ -285,7 +287,7 @@ trataComplementoOpcao = function(campo, idQuestao, idOpcao){
 	function validarDataQuestionario(field){
 		if (field.value != ""){
 			if(DateTimeUtil.isValidDate(field.value) == false){
-				alert("Data de an·lise inv·lida");
+				alert("Data de an√°lise inv√°lida");
 			 	field.value = '';
 				return false;	
 			}
@@ -437,7 +439,7 @@ trataComplementoOpcao = function(campo, idQuestao, idOpcao){
         var nomeTabela = 'tbl_'+nomeFormDinamico; 
         var tblDestino = document.getElementById(nomeTabela);
         if (tblDestino == null) {
-            alert(nomeTabela + " n„o existe.");
+            alert(nomeTabela + " n√£o existe.");
             return false;
         }
 
@@ -462,7 +464,7 @@ trataComplementoOpcao = function(campo, idQuestao, idOpcao){
         var nomeTabela = 'tbl_'+nomeFormDinamico; 
         var tblDestino = document.getElementById(nomeTabela);
         if (tblDestino == null) {
-            alert(nomeTabela + " n„o existe.");
+            alert(nomeTabela + " n√£o existe.");
             return false;
         }  
         var ultSeq = 0;

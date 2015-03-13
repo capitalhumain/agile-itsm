@@ -37,7 +37,7 @@ public class ConexaoBI extends AjaxFormAction {
             return;
         }
 
-        // O Load dessa p·gina È renderizado no mÈtodo iniciar da classe ConexaoBI_Impl.
+        // O Load dessa p√°gina √© renderizado no m√©todo iniciar da classe ConexaoBI_Impl.
     }
 
     public void save(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
@@ -69,7 +69,7 @@ public class ConexaoBI extends AjaxFormAction {
         }
         recarregarLista(document, request, response);
         /**
-         * A linha foi adicionada porque estava fechando o modal e o load antes de recarregar a grid de conexıesbi. assim ele so vai fechar o modal depois que
+         * A linha foi adicionada porque estava fechando o modal e o load antes de recarregar a grid de conex√µesbi. assim ele so vai fechar o modal depois que
          * carregar a grid.
          *
          * @author maycon.fernandes
@@ -117,8 +117,8 @@ public class ConexaoBI extends AjaxFormAction {
         final Integer totalPaginasFinal = totalPaginas(request, itensPorPagina, conexaoBIDTO);
 
         /**
-         * Alterado: M·rio
-         * Motivo: Invertendo as posiÁıes para quantificar o total de p·ginas e definir no objeto de conexaoBI
+         * Alterado: M√°rio
+         * Motivo: Invertendo as posi√ß√µes para quantificar o total de p√°ginas e definir no objeto de conexaoBI
          * Autor: flavio.santana
          * Data/Hora: 13/11/2013
          */
@@ -138,7 +138,7 @@ public class ConexaoBI extends AjaxFormAction {
     }
 
     /**
-     * Carrega e atualiza os itens da paginaÁ„o numerada e informa a quantidade de resultados Ex.: Primeiro ´ 1 2 3 4 5 ª ⁄ltimo 1 De 7 Resultados
+     * Carrega e atualiza os itens da pagina√ß√£o numerada e informa a quantidade de resultados Ex.: Primeiro ¬´ 1 2 3 4 5 ¬ª √öltimo 1 De 7 Resultados
      *
      * @param document
      * @param request
@@ -168,19 +168,19 @@ public class ConexaoBI extends AjaxFormAction {
     }
 
     /**
-     * Realiza a regra de paginaÁ„o das conexoes ExplicaÁ„o: Se o n˙mero de p·ginas for maior do que cinco, j· È possÌvel criar os intervalos. Se a p·gina atual
+     * Realiza a regra de pagina√ß√£o das conexoes Explica√ß√£o: Se o n√∫mero de p√°ginas for maior do que cinco, j√° √© poss√≠vel criar os intervalos. Se a p√°gina atual
      * for menor do que cinco (o adjacente
-     * esta configurado com 2) È feito um laÁo. No for, enquanto a vari·vel 'i' for menor do que seis os n˙meros s„o mostrados fazendo uma verificaÁ„o para
-     * saber qual È a p·gina atual que exige uma
-     * estilizaÁ„o diferente. Mas se a p·gina atual for maior do que quatro e menor do que a ˙ltima menos trÍs, È uma p·gina intermedi·ria. Primeiro s„o
-     * anexadas a primeira e ˙ltima p·ginas. Depois È
-     * feito um laÁo para definir as adjacentes. A vari·vel 'adjacentes' recebeu neste cÛdigo o valor dois. Para entender melhor este laÁo vamos supor que
-     * estamos na p·gina seis. A vari·vel 'i' vai
-     * receber quatro (atual - adjacentes), enquanto ela for menor do que oito (atual + adjacentes) os n˙meros links gerados com uma verificaÁ„o para saber qual
-     * È a p·gina atual. Por fim s„o anexadas
-     * a ˙ltima e pen˙ltima p·ginas. O ˙ltimo else È para quando a p·gina atual esta perto do final da numeraÁ„o. S„o anexadas a primeira e ˙ltima p·ginas alÈm
-     * dos trÍs pontos. A vari·vel 'i' recebe o
-     * resultado da ˙ltima p·gina menos oito (4+2*2) enquanto n„o for menor ou igual a este n˙mero, os links s„o gerados.
+     * esta configurado com 2) √© feito um la√ßo. No for, enquanto a vari√°vel 'i' for menor do que seis os n√∫meros s√£o mostrados fazendo uma verifica√ß√£o para
+     * saber qual √© a p√°gina atual que exige uma
+     * estiliza√ß√£o diferente. Mas se a p√°gina atual for maior do que quatro e menor do que a √∫ltima menos tr√™s, √© uma p√°gina intermedi√°ria. Primeiro s√£o
+     * anexadas a primeira e √∫ltima p√°ginas. Depois √©
+     * feito um la√ßo para definir as adjacentes. A vari√°vel 'adjacentes' recebeu neste c√≥digo o valor dois. Para entender melhor este la√ßo vamos supor que
+     * estamos na p√°gina seis. A vari√°vel 'i' vai
+     * receber quatro (atual - adjacentes), enquanto ela for menor do que oito (atual + adjacentes) os n√∫meros links gerados com uma verifica√ß√£o para saber qual
+     * √© a p√°gina atual. Por fim s√£o anexadas
+     * a √∫ltima e pen√∫ltima p√°ginas. O √∫ltimo else √© para quando a p√°gina atual esta perto do final da numera√ß√£o. S√£o anexadas a primeira e √∫ltima p√°ginas al√©m
+     * dos tr√™s pontos. A vari√°vel 'i' recebe o
+     * resultado da √∫ltima p√°gina menos oito (4+2*2) enquanto n√£o for menor ou igual a este n√∫mero, os links s√£o gerados.
      *
      * @param totalPaginas
      * @param sb
@@ -249,7 +249,7 @@ public class ConexaoBI extends AjaxFormAction {
     }
 
     /**
-     * Retorna o total de p·ginas de acordo com o parametro da quantidade de itens a serem listados
+     * Retorna o total de p√°ginas de acordo com o parametro da quantidade de itens a serem listados
      *
      * @param request
      * @param itensPorPagina
@@ -265,7 +265,7 @@ public class ConexaoBI extends AjaxFormAction {
 
             if (getConexaoBIDTO().getTotalPaginas() != null) {
                 /**
-                 * Motivo: AlteraÁ„o para correÁ„o dos itens da paginaÁ„o com responsavel Autor: flavio.santana Data/Hora: 13/11/2013
+                 * Motivo: Altera√ß√£o para corre√ß√£o dos itens da pagina√ß√£o com responsavel Autor: flavio.santana Data/Hora: 13/11/2013
                  */
                 if (getConexaoBIDTO().getTotalPaginas() > 0 && getConexaoBIDTO().getTotalPaginas() < itensPorPagina) {
                     totalPaginas = 1;
@@ -281,7 +281,7 @@ public class ConexaoBI extends AjaxFormAction {
     }
 
     /**
-     * Respons·vel por renderizar a listagem de Conexıes na tela Painel de Controle.
+     * Respons√°vel por renderizar a listagem de Conex√µes na tela Painel de Controle.
      *
      * @param sb
      * @param request
@@ -294,7 +294,7 @@ public class ConexaoBI extends AjaxFormAction {
     public void renderizarLista(final StringBuilder sb, final HttpServletRequest request, final Integer itensPorPagina, final Integer paginaSelecionada,
             final boolean flag, final Integer tipoLista) throws Exception {
         /**
-         * buscando a collection das conexıes
+         * buscando a collection das conex√µes
          */
         final Collection<ConexaoBIDTO> ColConexao = new HashSet<ConexaoBIDTO>();
 
@@ -304,7 +304,7 @@ public class ConexaoBI extends AjaxFormAction {
             if (flag) {
                 sb.append("<div  id='esquerda' class='innerTB'>");
             }
-            sb.append("<!-- Inicio do loop de conexıes -->");
+            sb.append("<!-- Inicio do loop de conex√µes -->");
 
             for (final ConexaoBIDTO conexaoBI : listConexao) {
                 final String HTMLStatus = setarStatusUltimaIntegracao(conexaoBI, request);
@@ -418,7 +418,7 @@ public class ConexaoBI extends AjaxFormAction {
                 sb.append("	  </div>");
                 sb.append("	</div>");
             }
-            sb.append("<!-- Fim do loop de conexıes abertas -->");
+            sb.append("<!-- Fim do loop de conex√µes abertas -->");
             if (flag) {
                 sb.append("</div>");
             }
@@ -433,7 +433,7 @@ public class ConexaoBI extends AjaxFormAction {
     }
 
     /**
-     * Respons·vel por renderizar a listagem de Conexıes na tela Painel de Controle com Filtro.
+     * Respons√°vel por renderizar a listagem de Conex√µes na tela Painel de Controle com Filtro.
      *
      * @param sb
      * @param request
@@ -447,7 +447,7 @@ public class ConexaoBI extends AjaxFormAction {
             final boolean flag, final Integer tipoLista) throws Exception {
 
         /**
-         * buscando a collection das conexıes
+         * buscando a collection das conex√µes
          */
         final ConexaoBIDTO conexaoBIDTO = getConexaoBIDTO();
         final Collection<ConexaoBIDTO> listConexao = listarConexoesPaginadasFiltradas(conexaoBIDTO, paginaSelecionada, itensPorPagina);
@@ -456,7 +456,7 @@ public class ConexaoBI extends AjaxFormAction {
             if (flag) {
                 sb.append("<div  id='esquerda' class='innerTB'>");
             }
-            sb.append("<!-- Inicio do loop de conexıes -->");
+            sb.append("<!-- Inicio do loop de conex√µes -->");
 
             for (final ConexaoBIDTO conexaoBI : listConexao) {
                 final String HTMLStatus = setarStatusUltimaIntegracao(conexaoBI, request);
@@ -571,7 +571,7 @@ public class ConexaoBI extends AjaxFormAction {
                 sb.append("	</div>");
             }
 
-            sb.append("<!-- Fim do loop de conexıes abertas -->");
+            sb.append("<!-- Fim do loop de conex√µes abertas -->");
             if (flag) {
                 sb.append("</div>");
             }
@@ -586,7 +586,7 @@ public class ConexaoBI extends AjaxFormAction {
     }
 
     /***
-     * Realiza o filtro de pesquisa da p·gina de gerenciamento - Seta os itens do filtro no ConexaoBIDTO - Recarrega a lista de conexıes de acordo com os
+     * Realiza o filtro de pesquisa da p√°gina de gerenciamento - Seta os itens do filtro no ConexaoBIDTO - Recarrega a lista de conex√µes de acordo com os
      * filtros informados
      *
      * @param document
@@ -630,18 +630,18 @@ public class ConexaoBI extends AjaxFormAction {
     }
 
     /**
-     * Retorna a lista de conexıes paginada.
+     * Retorna a lista de conex√µes paginada.
      *
      * @param conexaoBIDTO
-     *            - tipo da coleÁ„o a ser buscado.
+     *            - tipo da cole√ß√£o a ser buscado.
      * @param pgAtual
-     *            - P·gina selecionada.
+     *            - P√°gina selecionada.
      * @param qtdPaginacao
      *            - quantidade de itens a ser exibido na tela.
      * @return Collection<ConexaoBIDTO>
      * @throws Exception
      * @author thiago.barbosa
-     * @since 16.12.2013 - ·s 11:00
+     * @since 16.12.2013 - √°s 11:00
      */
     @SuppressWarnings("unchecked")
     public Collection<ConexaoBIDTO> listarConexoesPaginadas(final Collection<ConexaoBIDTO> conexaoBIDTO, final Integer pgAtual, final Integer qtdPaginacao)
@@ -652,18 +652,18 @@ public class ConexaoBI extends AjaxFormAction {
     }
 
     /**
-     * Retorna a lista de conexıes paginada Filtradas.
+     * Retorna a lista de conex√µes paginada Filtradas.
      *
      * @param conexaoBIDTO
-     *            - tipo da coleÁ„o a ser buscado.
+     *            - tipo da cole√ß√£o a ser buscado.
      * @param pgAtual
-     *            - P·gina selecionada.
+     *            - P√°gina selecionada.
      * @param qtdPaginacao
      *            - quantidade de itens a ser exibido na tela.
      * @return Collection<ConexaoBIDTO>
      * @throws Exception
      * @author thiago.barbosa
-     * @since 16.12.2013 - ·s 11:00
+     * @since 16.12.2013 - √°s 11:00
      */
     @SuppressWarnings("unchecked")
     public Collection<ConexaoBIDTO> listarConexoesPaginadasFiltradas(final ConexaoBIDTO conexaoBIDTO, final Integer pgAtual, final Integer qtdPaginacao)
@@ -702,7 +702,7 @@ public class ConexaoBI extends AjaxFormAction {
     }
 
     /***
-     * Testa a conex„o com o cliente
+     * Testa a conex√£o com o cliente
      *
      * @param document
      * @param request
@@ -731,7 +731,7 @@ public class ConexaoBI extends AjaxFormAction {
     }
 
     /**
-     * Metodo da funcao alterar status, responsavel por setar o status da conex„o como (Ativo) ou (Inativo)
+     * Metodo da funcao alterar status, responsavel por setar o status da conex√£o como (Ativo) ou (Inativo)
      *
      * @param document
      * @param request

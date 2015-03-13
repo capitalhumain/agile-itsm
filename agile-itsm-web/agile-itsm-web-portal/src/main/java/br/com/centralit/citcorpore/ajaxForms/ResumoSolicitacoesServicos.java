@@ -72,7 +72,7 @@ public class ResumoSolicitacoesServicos extends AjaxFormAction {
 		// System.out.println("________" + usuario.getIdUsuario() + "_________");
 		/*
 		 * for(SolicitacaoServicoDTO r : resumo){ System.out.println("Data: " + r.getDataHoraSolicitacao()); System.out.println("id Solicitante: " + r.getIdSolicitante());
-		 * System.out.println("Descrição: " + r.getDescricao()); System.out.println("Resposta: " + r.getResposta()); System.out.println("Situação: " + r.getSituacao()); }
+		 * System.out.println("DescriÃ§Ã£o: " + r.getDescricao()); System.out.println("Resposta: " + r.getResposta()); System.out.println("SituaÃ§Ã£o: " + r.getSituacao()); }
 		 */
 
 		StringBuilder script = new StringBuilder();

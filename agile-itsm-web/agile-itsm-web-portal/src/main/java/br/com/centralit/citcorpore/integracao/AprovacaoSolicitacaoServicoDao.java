@@ -66,7 +66,7 @@ public class AprovacaoSolicitacaoServicoDao extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Retorna AprovacaoSolicitacaoServicoNaoAprovada se existir para a Solicitação de Serviço informada.
+	 * Retorna AprovacaoSolicitacaoServicoNaoAprovada se existir para a SolicitaÃ§Ã£o de ServiÃ§o informada.
 	 * 
 	 * @param solicitacaoServicoDto
 	 * @return AprovacaoSolicitacaoServicoDTO

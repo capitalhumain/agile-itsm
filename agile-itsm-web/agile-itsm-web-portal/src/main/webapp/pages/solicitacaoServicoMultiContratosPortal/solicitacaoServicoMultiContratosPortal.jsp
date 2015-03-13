@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.citframework.util.Constantes"%>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
@@ -23,12 +25,11 @@
 	    if (nomeServico == null)
 	    	nomeServico = "";
 	    else
-	    	nomeServico = " Serviço: " + nomeServico;
+	    	nomeServico = " ServiÃ§o: " + nomeServico;
 	%>
 	<%@include file="/include/header.jsp"%>
 
-	<%@include file="/include/security/security.jsp" %>
-	<title><fmt:message key="citcorpore.comum.title"/></title>
+	<%@include file="/novoLayout/common/include/titulo.jsp" %>
 	<%@include file="/include/menu/menuConfig.jsp" %>
 
 	<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp" %>
@@ -118,7 +119,7 @@
 			$("#POPUP_INFO_INSERCAO").dialog("open");
 		}
 
-		//ações dos botões
+		//aÃ§Ãµes dos botÃµes
 		function abrePopupAnexos(){
 				$('#POPUP_menuAnexos').dialog('open');
 		}
@@ -183,12 +184,12 @@
 				return;
 			}
 			if(document.form.descricao.innerHTML == "<br />" || document.form.descricao.innerHTML == "&lt;br /&gt;"){
-				alert('Informe a descrição!');
+				alert('Informe a descriÃ§Ã£o!');
 				return;
 			}
 			if (document.form.descricao.value == '' || document.form.descricao.value == '&nbsp;'
 				|| document.form.descricao.value == '<p></p>'){
-				alert('Informe a descrição!');
+				alert('Informe a descriÃ§Ã£o!');
 				return;
 			}
 
@@ -294,7 +295,7 @@
 										<label class="campoObrigatorio"><fmt:message
 												key="solicitacaoServico.descricao" /></label>
 										<div>
-											<textarea id="descricao" name="descricao" cols='70' rows='5' class="Valid[Required] Description[Descrição]"></textarea>
+											<textarea id="descricao" name="descricao" cols='70' rows='5' class="Valid[Required] Description[DescriÃ§Ã£o]"></textarea>
 										</div>
 									</fieldset>
 								</div>

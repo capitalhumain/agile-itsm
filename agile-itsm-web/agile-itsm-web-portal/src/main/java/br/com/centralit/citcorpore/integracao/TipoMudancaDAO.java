@@ -101,7 +101,7 @@ public class TipoMudancaDAO extends CrudDaoDefaultImpl{
 	}
 	
 	/**
-	 * Retorna lista de status de tipo mudança.
+	 * Retorna lista de status de tipo mudanÃ§a.
 	 * 
 	 * @param obj
 	 * @return

@@ -66,28 +66,28 @@ public abstract class RegraProgramacaoAtividade implements Serializable {
     
     public static void validaProgramacao(ProgramacaoAtividadeDTO programacaoAtividadeDto) throws Exception {
         if (programacaoAtividadeDto.getTipoAgendamento() == null) 
-            throw new LogicException("Tipo de agendamento n„o foi informado");
+            throw new LogicException("Tipo de agendamento n√£o foi informado");
         if (programacaoAtividadeDto.getDataInicio() == null) 
-            throw new LogicException("Data de inÌcio n„o foi informada");
+            throw new LogicException("Data de in√≠cio n√£o foi informada");
         if (programacaoAtividadeDto.getHoraInicio() == null || programacaoAtividadeDto.getHoraInicio().length() < 4) 
-            throw new LogicException("Hora de inÌcio n„o foi informada");
+            throw new LogicException("Hora de in√≠cio n√£o foi informada");
         if (!Util.isHoraValida(programacaoAtividadeDto.getHoraInicio()))
-            throw new LogicException("Hora de inÌcio inv·lida");
+            throw new LogicException("Hora de in√≠cio inv√°lida");
         if (programacaoAtividadeDto.getDuracaoEstimada() == null) 
-            throw new LogicException("DuraÁ„o estimada n„o foi informada");
+            throw new LogicException("Dura√ß√£o estimada n√£o foi informada");
         if (programacaoAtividadeDto.getDataFim() != null && programacaoAtividadeDto.getDataFim().compareTo(programacaoAtividadeDto.getDataInicio()) < 0)
-            throw new LogicException("A data de tÈrmino È maior que a data de inÌcio");
+            throw new LogicException("A data de t√©rmino √© maior que a data de in√≠cio");
         if (programacaoAtividadeDto.getRepeticao() == null)
             programacaoAtividadeDto.setRepeticao("N");
         if (programacaoAtividadeDto.getRepeticao().equals("S")) {
             if (programacaoAtividadeDto.getRepeticaoIntervalo() == null)
-                throw new LogicException("Intervalo de repetiÁ„o n„o foi informado");
+                throw new LogicException("Intervalo de repeti√ß√£o n√£o foi informado");
             if (programacaoAtividadeDto.getRepeticaoTipoIntervalo() == null)
-                throw new LogicException("Tipo de intervalo da repetiÁ„o n„o foi informado");
+                throw new LogicException("Tipo de intervalo da repeti√ß√£o n√£o foi informado");
             if (programacaoAtividadeDto.getHoraFim() == null || programacaoAtividadeDto.getHoraFim().length() < 4)
-                throw new LogicException("Hora de tÈrmino da repetiÁ„o n„o foi informada");
+                throw new LogicException("Hora de t√©rmino da repeti√ß√£o n√£o foi informada");
             if (!Util.isHoraValida(programacaoAtividadeDto.getHoraFim()))
-                throw new LogicException("Hora de tÈrmino da repetiÁ„o inv·lida");
+                throw new LogicException("Hora de t√©rmino da repeti√ß√£o inv√°lida");
         }
         RegraProgramacaoAtividade regraImpl = getRegraFromDto(programacaoAtividadeDto);
         regraImpl.valida(programacaoAtividadeDto);
@@ -110,7 +110,7 @@ public abstract class RegraProgramacaoAtividade implements Serializable {
                 descricao += " minuto(s)";
             else
                 descricao += " hora(s)";
-            descricao += " atÈ "+programacaoAtividadeDto.getHoraFim();
+            descricao += " at√© "+programacaoAtividadeDto.getHoraFim();
         }
         return descricao;
     }

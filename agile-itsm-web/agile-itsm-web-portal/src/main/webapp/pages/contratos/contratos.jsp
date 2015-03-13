@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.citframework.dto.Usuario"%>
@@ -5,12 +7,12 @@
 <!doctype html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<%@include file="/include/security/security.jsp" %>
-	<title>CIT Corpore</title>
 	<%@include file="/include/header.jsp" %>
-		<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp" %>
+	<%@include file="/novoLayout/common/include/titulo.jsp" %>
+
+	<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp" %>
 <script>
 	var objTab = null;
 
@@ -58,7 +60,7 @@
 				<fieldset>
 					<label>N&uacute;mero</label>
 						<div>
-						 <input type='text' name="numero" maxlength="30" size="30" class="Valid[Required] Description[Número]" />
+						 <input type='text' name="numero" maxlength="30" size="30" class="Valid[Required] Description[NÃºmero]" />
 						</div>
 				</fieldset>
 			</div>
@@ -106,7 +108,7 @@
 				<fieldset>
 					<label>Valor Cota&ccedil;&atilde;o da Moeda</label>
 						<div>
-						 <input type='text' name='cotacaoMoeda' size="15" maxlength="15" class="Valid[Required] Description[Valor cotação moeda]"/>
+						 <input type='text' name='cotacaoMoeda' size="15" maxlength="15" class="Valid[Required] Description[Valor cotaÃ§Ã£o moeda]"/>
 						</div>
 				</fieldset>
 			</div>
@@ -123,7 +125,7 @@
 				<fieldset>
 					<label>Situa&ccedil;&atilde;o</label>
 						<div>
-						 <select name='situacao' class="Valid[Required] Description[Situação]">
+						 <select name='situacao' class="Valid[Required] Description[SituaÃ§Ã£o]">
 											            	</select>
 						</div>
 				</fieldset>

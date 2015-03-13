@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 
@@ -19,8 +21,7 @@
 		<%String locale = UtilStrings.nullToVazio((String)request.getSession().getAttribute("locale")); %>
 		<%@include file="/include/header.jsp"%>
 
-		<%@include file="/include/security/security.jsp" %>
-		<title><fmt:message key="citcorpore.comum.title"/></title>
+		<%@include file="/novoLayout/common/include/titulo.jsp" %>
 
 		<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 
@@ -172,9 +173,9 @@
 				<input type="hidden" name="locale" id="locale"/>
 
 				<ul class="menu">
-		    		<li <% if (locale.equalsIgnoreCase("")) { %> class="active" <% } %> onclick="internacionalizar('pt');return false;"><a href="" title="Portugues" ><img onclick="internacionalizar('pt');return false;" src="../../novoLayout/common/theme/images/lang/br.png" alt="Portugues"> Português BR</a></li>
+		    		<li <% if (locale.equalsIgnoreCase("")) { %> class="active" <% } %> onclick="internacionalizar('pt');return false;"><a href="" title="Portugues" ><img onclick="internacionalizar('pt');return false;" src="../../novoLayout/common/theme/images/lang/br.png" alt="Portugues"> PortuguÃªs BR</a></li>
 		      		<li <% if (locale.equalsIgnoreCase("en")) { %> class="active" <% } %> onclick="internacionalizar('en');return false;"><a href="" title="English"><img onclick="internacionalizar('en');return false;" src="../../novoLayout/common/theme/images/lang/us.png" alt="English"> English</a></li>
-		      		<li <% if (locale.equalsIgnoreCase("es")) { %> class="active" <% } %> onclick="internacionalizar('es');return false;"><a href="" title="Español"><img onclick="internacionalizar('es');return false;" src="../../novoLayout/common/theme/images/lang/es.png" alt="Espanhol"> Español</a></li>
+		      		<li <% if (locale.equalsIgnoreCase("es")) { %> class="active" <% } %> onclick="internacionalizar('es');return false;"><a href="" title="EspaÃ±ol"><img onclick="internacionalizar('es');return false;" src="../../novoLayout/common/theme/images/lang/es.png" alt="Espanhol"> EspaÃ±ol</a></li>
 	      		</ul>
 
 	      		<div class="clear"></div>

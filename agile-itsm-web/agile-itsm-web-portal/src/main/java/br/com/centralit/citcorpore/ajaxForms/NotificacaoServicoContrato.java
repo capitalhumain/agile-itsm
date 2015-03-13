@@ -106,7 +106,7 @@ public class NotificacaoServicoContrato extends AjaxFormAction {
 		if (notificacao.getIdNotificacao() != null) {
 			this.restore(document, request, response);
 		}
-		// recebe o idnotificação para exclusao do item
+		// recebe o idnotificaÃ§Ã£o para exclusao do item
 		if (notificacao.getIdNotificacaoExcluir() != null) {
 			notificacao.setIdNotificacao(notificacao.getIdNotificacaoExcluir());
 			this.delete(document, request, response);

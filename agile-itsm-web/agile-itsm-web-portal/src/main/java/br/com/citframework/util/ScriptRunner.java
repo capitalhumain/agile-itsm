@@ -86,7 +86,7 @@ import br.com.centralit.citcorpore.util.CITCorporeUtil;
 	                      command = new StringBuilder();
 	                  }
     	        	String str = scanner.next();
-    	        	/*Validação para o PostGreSQL - delimiter de função*/
+    	        	/*ValidaÃ§Ã£o para o PostGreSQL - delimiter de funÃ§Ã£o*/
     	        	if(str.startsWith("\nCREATE FUNCTION")) {
     	        		command.append(str);
     	        		scanner.useDelimiter("(')");
@@ -94,11 +94,11 @@ import br.com.centralit.citcorpore.util.CITCorporeUtil;
     	        		if(command.toString().equals("")){   
     	        			
     	        			/*
-    	        			 * Foi adicionando um tratamento especifico para criação de triggers, a trigger é criada apenas no Oracle
-    	        			 * devido a algumas valiações é removido o ultimo caracter ';' da ultima sentença 'END', apos a função de leitura
-    	        			 * de arquivo montar o bloco da trigger de forma correta é adicionado um ';' 
+    	        			 * Foi adicionando um tratamento especifico para criaÃ§Ã£o de triggers, a trigger Ã© criada apenas no Oracle
+    	        			 * devido a algumas valiaÃ§Ãµes Ã© removido o ultimo caracter ';' da ultima sentenÃ§a 'END', apos a funÃ§Ã£o de leitura
+    	        			 * de arquivo montar o bloco da trigger de forma correta Ã© adicionado um ';' 
     	        			 * 
-    	        			 * Foi tratado nesse local, devido ao mecanismo está em funcionando estavel, e uma alteração no mecanismo geral pode
+    	        			 * Foi tratado nesse local, devido ao mecanismo estÃ¡ em funcionando estavel, e uma alteraÃ§Ã£o no mecanismo geral pode
     	        			 * causar impactos.
     	        			 * 
     	        			 *   @author Ezequiel

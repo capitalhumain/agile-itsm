@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@ page import="br.com.centralit.citcorpore.util.Enumerados" %>
 <%@ page import="br.com.centralit.citcorpore.util.ParametroUtil" %>
 <%@ page import="br.com.centralit.citcorpore.bean.UsuarioDTO" %>
@@ -218,7 +220,7 @@
 
 	<div id="modalSolicitacao" class="modal hide fade in" tabindex="-1" data-backdrop="static" data-keyboard="true">
 		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
 			<h3><fmt:message key="citcorpore.comum.solicitacao" /></h3>
 		</div>
 		<div class="modal-body">

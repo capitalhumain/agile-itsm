@@ -1,15 +1,15 @@
 -- SCRIPT SQL COMPLEMENTAR ADICIONADO EM 18:21 04-04-2013
 
 insert into scripts (idscript, nome, descricao, sqlquery, tipo, datainicio) 
-values (1, 'Consulta erros de rotina de scripts', 'Consulta os erros que ocorreram durante a execuÁ„o autom·tica de scripts feita durante a inicializaÁ„o do sistema', 'select scripts.descricao, scripts.sqlquery, versao.nomeversao from scripts inner join versao on scripts.idversao = versao.idversao where scripts.idversao is not null and scripts.descricao like ''ERRO%'';', 'consulta', '2013-04-04');
+values (1, 'Consulta erros de rotina de scripts', 'Consulta os erros que ocorreram durante a execu√ß√£o autom√°tica de scripts feita durante a inicializa√ß√£o do sistema', 'select scripts.descricao, scripts.sqlquery, versao.nomeversao from scripts inner join versao on scripts.idversao = versao.idversao where scripts.idversao is not null and scripts.descricao like ''ERRO%'';', 'consulta', '2013-04-04');
 
 insert into scripts (idscript, nome, descricao, sqlquery, tipo, datainicio) 
-values (3, 'Limpa erros de rotina de scripts', 'Limpa o registro de erros que ocorreram durante a execuÁ„o autom·tica de scripts feita durante a inicializaÁ„o do sistema', 'update scripts set descricao = concat(''CORRIGIDO '', descricao) where idversao is not null and descricao like ''ERRO%'' and idscript > 0;', 'update', '2013-04-04');
+values (3, 'Limpa erros de rotina de scripts', 'Limpa o registro de erros que ocorreram durante a execu√ß√£o autom√°tica de scripts feita durante a inicializa√ß√£o do sistema', 'update scripts set descricao = concat(''CORRIGIDO '', descricao) where idversao is not null and descricao like ''ERRO%'' and idscript > 0;', 'update', '2013-04-04');
 
 alter table scripts alter column tipo type character varying(10);
 
 insert into tipocomplexidade (complexidade, desctipocomplexidade) values ('B', 'Baixa');
-insert into tipocomplexidade (complexidade, desctipocomplexidade) values ('I', 'Intermedi·ria');
+insert into tipocomplexidade (complexidade, desctipocomplexidade) values ('I', 'Intermedi√°ria');
 insert into tipocomplexidade (complexidade, desctipocomplexidade) values ('M', 'Mediana');
 insert into tipocomplexidade (complexidade, desctipocomplexidade) values ('A', 'Alta');
 insert into tipocomplexidade (complexidade, desctipocomplexidade) values ('E', 'Especialista');
@@ -166,13 +166,13 @@ drop trigger add_current_date_to_requisicaomudanca on requisicaomudanca;
 -- bpm_tipofluxo
 
 insert into bpm_tipofluxo (idtipofluxo, nomefluxo, descricao, nomeclassefluxo) 
-values (6, 'RequisicaoMudancaPadrao', 'RequisiÁ„o de MudanÁa Padr„o', 'br.com.centralit.citcorpore.bpm.negocio.ExecucaoMudanca');
+values (6, 'RequisicaoMudancaPadrao', 'Requisi√ß√£o de Mudan√ßa Padr√£o', 'br.com.centralit.citcorpore.bpm.negocio.ExecucaoMudanca');
 
 insert into bpm_tipofluxo (idtipofluxo, nomefluxo, descricao, nomeclassefluxo) 
-values (7, 'RequisicaoMudancaEmergencial', 'RequisiÁ„o MudanÁa Emergencial', 'br.com.centralit.citcorpore.bpm.negocio.ExecucaoMudanca');
+values (7, 'RequisicaoMudancaEmergencial', 'Requisi√ß√£o Mudan√ßa Emergencial', 'br.com.centralit.citcorpore.bpm.negocio.ExecucaoMudanca');
 
 insert into bpm_tipofluxo (idtipofluxo, nomefluxo, descricao, nomeclassefluxo) 
-values (8, 'RequisicaodeMudancaNormal', 'RequisiÁ„o de MudanÁa Normal', 'br.com.centralit.citcorpore.bpm.negocio.ExecucaoMudanca');
+values (8, 'RequisicaodeMudancaNormal', 'Requisi√ß√£o de Mudan√ßa Normal', 'br.com.centralit.citcorpore.bpm.negocio.ExecucaoMudanca');
 
 -- bpm_fluxo
 
@@ -264,28 +264,28 @@ values (419, 420, 44, null, null, '', 2, 0, 123.5, 129.5, 'N', null);
 -- modelosemails
 
 insert into modelosemails ( idmodeloemail , titulo , texto , situacao , identificador ) 
-values (26, 'RequisiÁ„o de MudanÁa em andamento - ${IDREQUISICAOMUDANCA}', 'Senhor(a) ${NOMESOLICITANTE}, <br /><br />Informamos que a requisi&ccedil;&atilde;o de mudan&ccedil;a registrada em ${DATAHORAINICIOSTR} est&aacute; em atendimento, conforme os dados abaixo:<br /><br /><strong>N&uacute;mero:</strong>&nbsp;${IDREQUISICAOMUDANCA}<br /><strong>T&iacute;tulo:</strong>&nbsp;${TITULO}<br /><br /><strong>Descri&ccedil;&atilde;o:</strong>&nbsp;<br />${TITULO}<br /><strong><br /></strong>${DESCRICAO}<br /><br /><strong>Grupo de atendimento:</strong>&nbsp;${NOMEGRUPOATUAL}<br /><br />Atenciosamente, <br /><br />Central IT&nbsp;Tecnologia da Informa&ccedil;&atilde;o Ltda', 'A', 'AndamentoReqMud');
+values (26, 'Requisi√ß√£o de Mudan√ßa em andamento - ${IDREQUISICAOMUDANCA}', 'Senhor(a) ${NOMESOLICITANTE}, <br /><br />Informamos que a requisi&ccedil;&atilde;o de mudan&ccedil;a registrada em ${DATAHORAINICIOSTR} est&aacute; em atendimento, conforme os dados abaixo:<br /><br /><strong>N&uacute;mero:</strong>&nbsp;${IDREQUISICAOMUDANCA}<br /><strong>T&iacute;tulo:</strong>&nbsp;${TITULO}<br /><br /><strong>Descri&ccedil;&atilde;o:</strong>&nbsp;<br />${TITULO}<br /><strong><br /></strong>${DESCRICAO}<br /><br /><strong>Grupo de atendimento:</strong>&nbsp;${NOMEGRUPOATUAL}<br /><br />Atenciosamente, <br /><br />Central IT&nbsp;Tecnologia da Informa&ccedil;&atilde;o Ltda', 'A', 'AndamentoReqMud');
 insert into modelosemails ( idmodeloemail , titulo , texto , situacao , identificador ) 
-values (27, 'RequisiÁ„o de mudanÁa registrada - ${IDREQUISICAOMUDANCA}', 'Senhor(a) ${NOMESOLICITANTE}, <br /><br />Informamos que a sua Requisi&ccedil;&atilde;o de mudan&ccedil;a foi registrada em ${DATAHORAINICIOSTR}, conforme os dados abaixo:<br /><strong><br />N&uacute;mero:</strong> ${IDREQUISICAOMUDANCA}<br /><strong>Tipo:</strong> ${TIPO}<br /><strong>T&iacute;tulo:</strong> ${TITULO}<br /><br /><strong>Descri&ccedil;&atilde;o:</strong> <br />${DESCRICAO}<br /><br />Atenciosamente, <br /><br />Central IT Tecnologia da Informa&ccedil;&atilde;o Ltda.', 'A', 'AberturaReqMud');
+values (27, 'Requisi√ß√£o de mudan√ßa registrada - ${IDREQUISICAOMUDANCA}', 'Senhor(a) ${NOMESOLICITANTE}, <br /><br />Informamos que a sua Requisi&ccedil;&atilde;o de mudan&ccedil;a foi registrada em ${DATAHORAINICIOSTR}, conforme os dados abaixo:<br /><strong><br />N&uacute;mero:</strong> ${IDREQUISICAOMUDANCA}<br /><strong>Tipo:</strong> ${TIPO}<br /><strong>T&iacute;tulo:</strong> ${TITULO}<br /><br /><strong>Descri&ccedil;&atilde;o:</strong> <br />${DESCRICAO}<br /><br />Atenciosamente, <br /><br />Central IT Tecnologia da Informa&ccedil;&atilde;o Ltda.', 'A', 'AberturaReqMud');
 insert into modelosemails ( idmodeloemail , titulo , texto , situacao , identificador ) 
-values (28, 'RequisiÁ„o de mudanÁa finalizada - ${IDREQUISICAOMUDANCA}', 'Senhor(a) ${NOMESOLICITANTE}, <br /><br />Informamos que a sua Requisi&ccedil;&atilde;o de mudan&ccedil;a foi finalizada em ${DATAHORACONCLUSAO}, conforme os dados abaixo:<br /><strong><br />N&uacute;mero:</strong> ${IDREQUISICAOMUDANCA}<br /><strong>Tipo:</strong> ${TIPO}<br /><strong>T&iacute;tulo:</strong> ${TITULO}<br /><br /><strong>Status:</strong>${STATUS}<br /><strong>Descri&ccedil;&atilde;o:</strong> <br />${DESCRICAO}<br /><br /><br />Atenciosamente, <br /><br />Central IT Tecnologia da Informa&ccedil;&atilde;o Ltda.', 'A', 'FinalizadaReqMud');
+values (28, 'Requisi√ß√£o de mudan√ßa finalizada - ${IDREQUISICAOMUDANCA}', 'Senhor(a) ${NOMESOLICITANTE}, <br /><br />Informamos que a sua Requisi&ccedil;&atilde;o de mudan&ccedil;a foi finalizada em ${DATAHORACONCLUSAO}, conforme os dados abaixo:<br /><strong><br />N&uacute;mero:</strong> ${IDREQUISICAOMUDANCA}<br /><strong>Tipo:</strong> ${TIPO}<br /><strong>T&iacute;tulo:</strong> ${TITULO}<br /><br /><strong>Status:</strong>${STATUS}<br /><strong>Descri&ccedil;&atilde;o:</strong> <br />${DESCRICAO}<br /><br /><br />Atenciosamente, <br /><br />Central IT Tecnologia da Informa&ccedil;&atilde;o Ltda.', 'A', 'FinalizadaReqMud');
 insert into modelosemails ( idmodeloemail , titulo , texto , situacao , identificador ) 
-values (29, 'RequisiÁ„o encaminhada para o COMIT  CONSULTIVO DE MUDAN«A ', '&nbsp;A Requisi&ccedil;&atilde;o de Mudan&ccedil;a abaixo foi encaminhada para o Comit&ecirc; Consultivo de Mudan&ccedil;a do qual o Senhor(a) faz parte:<div>&nbsp;</div><div><strong>N&uacute;mero</strong>: ${IDREQUISICAOMUDANCA}</div><div><strong>Tipo</strong>: ${TIPO}</div><div><strong>T&iacute;tulo</strong>: ${TITULO}</div><div>&nbsp;</div><div><strong>Descri&ccedil;&atilde;o</strong>:&nbsp;</div><div>${DESCRICAO}</div><div>&nbsp;</div><div>Central IT Tecnologia da Informa&ccedil;&atilde;o Ltda.</div>', 'A', 'emailCCM');
+values (29, 'Requisi√ß√£o encaminhada para o COMIT√ä CONSULTIVO DE MUDAN√áA ', '&nbsp;A Requisi&ccedil;&atilde;o de Mudan&ccedil;a abaixo foi encaminhada para o Comit&ecirc; Consultivo de Mudan&ccedil;a do qual o Senhor(a) faz parte:<div>&nbsp;</div><div><strong>N&uacute;mero</strong>: ${IDREQUISICAOMUDANCA}</div><div><strong>Tipo</strong>: ${TIPO}</div><div><strong>T&iacute;tulo</strong>: ${TITULO}</div><div>&nbsp;</div><div><strong>Descri&ccedil;&atilde;o</strong>:&nbsp;</div><div>${DESCRICAO}</div><div>&nbsp;</div><div>Central IT Tecnologia da Informa&ccedil;&atilde;o Ltda.</div>', 'A', 'emailCCM');
 insert into modelosemails ( idmodeloemail , titulo , texto , situacao , identificador ) 
-values (30, 'RequisiÁ„o MudanÁa encaminhada para seu GRUPO DE TRABALHO', '<div>&nbsp; A &nbsp;requisi&ccedil;&atilde;o mudan&ccedil;a abaixo foi encaminhada para seu Grupo de Trabalho:</div><div>&nbsp;</div><div>N&uacute;mero: ${IDREQUISICAOMUDANCA}</div><div>Tipo: ${TIPO}</div><div>Titulo: ${TITULO}</div><div>&nbsp;</div><div>Descri&ccedil;&atilde;o:&nbsp;</div><div>${DESCRICAO}</div><div>&nbsp;</div><div>Atenciosamente, <br /><br />Central IT&nbsp;Tecnologia da Informa&ccedil;&atilde;o Ltda.</div>', 'A', 'ReqMudancaGrupo');
+values (30, 'Requisi√ß√£o Mudan√ßa encaminhada para seu GRUPO DE TRABALHO', '<div>&nbsp; A &nbsp;requisi&ccedil;&atilde;o mudan&ccedil;a abaixo foi encaminhada para seu Grupo de Trabalho:</div><div>&nbsp;</div><div>N&uacute;mero: ${IDREQUISICAOMUDANCA}</div><div>Tipo: ${TIPO}</div><div>Titulo: ${TITULO}</div><div>&nbsp;</div><div>Descri&ccedil;&atilde;o:&nbsp;</div><div>${DESCRICAO}</div><div>&nbsp;</div><div>Atenciosamente, <br /><br />Central IT&nbsp;Tecnologia da Informa&ccedil;&atilde;o Ltda.</div>', 'A', 'ReqMudancaGrupo');
 
 -- tipomudanca
 
 insert into tipomudanca ( idtipomudanca , idtipofluxo , idmodeloemailcriacao , idmodeloemailfinalizacao , idmodeloemailacoes , idgrupoexecutor , idcalendario , nometipomudanca , datainicio , datafim ) 
 values (1, 7, 27, 28, 26, 1, 1, 'Emergencial', '2013-03-14', null);
 insert into tipomudanca ( idtipomudanca , idtipofluxo , idmodeloemailcriacao , idmodeloemailfinalizacao , idmodeloemailacoes , idgrupoexecutor , idcalendario , nometipomudanca , datainicio , datafim ) 
-values (2, 6, 27, 28, 26, 1, 1, 'Padr„o', '2013-04-05', null);
+values (2, 6, 27, 28, 26, 1, 1, 'Padr√£o', '2013-04-05', null);
 insert into tipomudanca ( idtipomudanca , idtipofluxo , idmodeloemailcriacao , idmodeloemailfinalizacao , idmodeloemailacoes , idgrupoexecutor , idcalendario , nometipomudanca , datainicio , datafim ) 
 values (3, 8, 27, 28, 26, 1, 1, 'Normal', '2013-03-15', null);
 
 -- FIM - MODULO DE MUDANCA
 
--- InÌcio rodrigo.oliveira
+-- In√≠cio rodrigo.oliveira
 
 alter table atividadesos add column contabilizar char(1);
 alter table atividadesos alter column contabilizar set default null;
@@ -318,7 +318,7 @@ alter table problema alter column datahorasolicitacao set default null;
    
 -- FIM - MODULO DE PROBLEMA
 
--- Postgres - Fl·vio J˙nior - 15/04
+-- Postgres - Fl√°vio J√∫nior - 15/04
 
 DROP TRIGGER add_current_date_to_slarequisitosla ON slarequisitosla;
 DROP FUNCTION update_slarequisitosla();
@@ -340,7 +340,7 @@ FOR EACH ROW EXECUTE PROCEDURE update_slarequisitosla();
 ALTER TABLE slarequisitosla
    ALTER COLUMN dataultmodificacao SET DEFAULT now();
    
--- SCRIPTS GERADOS APARTIR DO DIA 26/04, N√O SER√O USADOS AT… QUE O VALDOÕLO LIBERE.
+-- SCRIPTS GERADOS APARTIR DO DIA 26/04, N√ÉO SER√ÉO USADOS AT√â QUE O VALDO√çLO LIBERE.
 
 alter table categoriagaleriaimagem add column datafim date;
 

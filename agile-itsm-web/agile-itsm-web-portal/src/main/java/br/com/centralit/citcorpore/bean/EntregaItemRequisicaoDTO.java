@@ -181,10 +181,10 @@ public class EntregaItemRequisicaoDTO extends BaseEntity {
         	descricaoFmtHtml += "<br><b>Nome Fornecedor:</b> "+this.nomeFornecedor+"</p>";
     	}
     	if (UtilStrings.isNotVazio(this.numeroPedido)) 
-        	descricaoFmtHtml += "<p><b>Número do pedido:</b> "+this.numeroPedido+"</p>";
+        	descricaoFmtHtml += "<p><b>NÃºmero do pedido:</b> "+this.numeroPedido+"</p>";
     	if (this.dataEntrega != null) 
         	descricaoFmtHtml += "<p><b>Data da entrega:</b> "+UtilDatas.dateToSTR(this.dataEntrega)+"</p>";
-       	//descricaoFmtHtml += "<p><b>Situação:</b> "+this.getDescrSituacao()+"</p>";
+       	//descricaoFmtHtml += "<p><b>SituaÃ§Ã£o:</b> "+this.getDescrSituacao()+"</p>";
     	return descricaoFmtHtml;
 	}
 	public void setDescricaoFmtHtml(String descricaoFmtHtml) {

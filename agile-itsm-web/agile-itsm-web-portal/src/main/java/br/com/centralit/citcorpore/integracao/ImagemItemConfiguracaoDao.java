@@ -74,7 +74,7 @@ public class ImagemItemConfiguracaoDao extends CrudDaoDefaultImpl {
         try {
             retorno = super.create(obj);
         } catch (final Exception e) {
-            System.out.println("Não foi possível cadastrar a imagem." + e.getMessage());
+            System.out.println("NÃ£o foi possÃ­vel cadastrar a imagem." + e.getMessage());
         }
 
         return retorno;
@@ -110,7 +110,7 @@ public class ImagemItemConfiguracaoDao extends CrudDaoDefaultImpl {
         try {
             retorno = super.find(img, null);
         } catch (final Exception e) {
-            System.out.println("Não foi possível buscar imagemItemConfiguracao com id " + id);
+            System.out.println("NÃ£o foi possÃ­vel buscar imagemItemConfiguracao com id " + id);
             e.printStackTrace();
         }
         return retorno;

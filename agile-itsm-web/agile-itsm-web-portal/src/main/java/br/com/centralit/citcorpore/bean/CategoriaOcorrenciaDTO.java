@@ -6,9 +6,9 @@ import br.com.agileitsm.model.support.BaseEntity;
 
 /** 
  * @author thiago.monteiro
- * Classe de objetos de categoria de ocorrência.
- * Um objeto dessa classe é um DTO (Data Transfer Object) e pertence a camada de MODELO (MODEL).
- * Um objeto dessa classe é responsável por armazenar os dados que trafegam entre as camadas de VISÃO (VIEW) e de PERSISTÊNCIA (PERSISTENCE) bidirecionalmente.
+ * Classe de objetos de categoria de ocorrÃªncia.
+ * Um objeto dessa classe Ã© um DTO (Data Transfer Object) e pertence a camada de MODELO (MODEL).
+ * Um objeto dessa classe Ã© responsÃ¡vel por armazenar os dados que trafegam entre as camadas de VISÃƒO (VIEW) e de PERSISTÃŠNCIA (PERSISTENCE) bidirecionalmente.
  */
 public class CategoriaOcorrenciaDTO extends BaseEntity {	
 	private static final long serialVersionUID = -1128815777881092914L;

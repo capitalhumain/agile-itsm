@@ -5,8 +5,8 @@
  * Dependentes: BI Citsmart
  *
  * Obs:
- * Qualquer alteraÁ„o nesta tabela dever· ser informada aos respons·veis pelo desenvolvimento do BI Citsmart.
- * O database do BI Citsmart precisa ter suas tabelas atualizadas de acordo com as mudanÁas nesta tabela.
+ * Qualquer altera√ß√£o nesta tabela dever√° ser informada aos respons√°veis pelo desenvolvimento do BI Citsmart.
+ * O database do BI Citsmart precisa ter suas tabelas atualizadas de acordo com as mudan√ßas nesta tabela.
  *
  * ************************************************************************************************************
  *

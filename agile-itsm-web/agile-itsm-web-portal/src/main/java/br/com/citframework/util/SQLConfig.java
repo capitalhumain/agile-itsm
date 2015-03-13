@@ -29,7 +29,7 @@ public final class SQLConfig {
         String sqlAux = sql;
 
         if (databaseAlias.equalsIgnoreCase("jdbc/bi_citsmart")) {
-            // Se o executor da query for o database do BI Citsmart, realiza somente os tratamentos para SQL Server (BI Corpore é somente utilizado no SQL Server).
+            // Se o executor da query for o database do BI Citsmart, realiza somente os tratamentos para SQL Server (BI Corpore Ã© somente utilizado no SQL Server).
             sqlAux = sqlAux.replaceAll("LENGTH", "LEN");
             sqlAux = sqlAux.replaceAll("UCASE", "UPPER");
         } else {

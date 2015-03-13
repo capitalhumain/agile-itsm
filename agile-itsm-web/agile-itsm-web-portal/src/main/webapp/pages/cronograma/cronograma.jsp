@@ -1,4 +1,4 @@
-<!-- http://gantt.twproject.com/distrib/gantt.html -->
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
@@ -13,7 +13,7 @@
   	<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE"/>
   	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
-	<title><fmt:message key="citcorpore.comum.title" /></title>
+	<%@include file="/novoLayout/common/include/titulo.jsp" %>
 	<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 
 	<link rel="stylesheet" type="text/css" href="${ctx}/template_new/js/themeroller/Aristo.css">
@@ -36,7 +36,7 @@
 	<script src="${ctx}/pages/cronograma/libs/ganttGridEditor.js"></script>
 	<script src="${ctx}/pages/cronograma/libs/ganttMaster.js"></script>
 
-	<!-- Datepicker + InternacionalizaÁ„o + InicializaÁ„o -->
+	<!-- Datepicker + Internacionaliza√ß√£o + Inicializa√ß√£o -->
 	<script type="text/javascript" src="${ctx}/js/jquery.ui.datepicker.js"></script>
 	<script src="${ctx}/js/jquery.ui.datepicker-locale.js"></script>
 
@@ -318,8 +318,8 @@ function loadI18n() {
     "CHANGE_OUT_OF_SCOPE":"NO_RIGHTS_FOR_UPDATE_PARENTS_OUT_OF_EDITOR_SCOPE",
     "START_IS_MILESTONE":"START_IS_MILESTONE",
     "END_IS_MILESTONE":"END_IS_MILESTONE",
-    "TASK_HAS_CONSTRAINTS":"Esta tarefa possui restriÁ„o",
-    "GANTT_ERROR_DEPENDS_ON_OPEN_TASK":"Existe dependÍncia para uma tarefa em aberto",
+    "TASK_HAS_CONSTRAINTS":"Esta tarefa possui restri√ß√£o",
+    "GANTT_ERROR_DEPENDS_ON_OPEN_TASK":"Existe depend√™ncia para uma tarefa em aberto",
     "GANTT_ERROR_DESCENDANT_OF_CLOSED_TASK":"GANTT_ERROR_DESCENDANT_OF_CLOSED_TASK",
     "TASK_HAS_EXTERNAL_DEPS":"TASK_HAS_EXTERNAL_DEPS",
     "GANTT_ERROR_LOADING_DATA_TASK_REMOVED":"GANTT_ERROR_LOADING_DATA_TASK_REMOVED",
@@ -404,7 +404,7 @@ function loadProjectFromTextArea(strPerf, strRec, strProd){
 	var retAux = document.getElementById('ta').value;
 	//tratemento de barra inversa.
 	retAux = retAux.replaceAll("\\","");
-	//tratamento necess·rio graÁas a um problema nos navegadores ao carregar os id's 10 e 13 no setValue do textArea, estavam gerando caracteres aleatÛrios
+	//tratamento necess√°rio gra√ßas a um problema nos navegadores ao carregar os id's 10 e 13 no setValue do textArea, estavam gerando caracteres aleat√≥rios
 	var ret = retAux.replaceAll("#32","");
 	ret = ret.replace("32#","\"10\"");
 	ret = ret.replace("32#","\"13\"");
@@ -530,7 +530,7 @@ function marcosPagProjeto(){
 		$('.date').datepicker();
 
 		/*
-		 * Passar por todos os inputs com as classes .citdatepicker e .datepicker e adicionar as classes de formataÁ„o e validaÁ„o do framework se n„o existirem
+		 * Passar por todos os inputs com as classes .citdatepicker e .datepicker e adicionar as classes de formata√ß√£o e valida√ß√£o do framework se n√£o existirem
 		 */
 		$('.citdatepicker, .datepicker, .dataNascimento, .dtpicker, .date').each(function(e) {
 			if (!$(this).hasClass('Format[Date]')) $(this).addClass('Format[Date]');
@@ -589,7 +589,7 @@ function marcosPagProjeto(){
 	$('.date').datepicker();
 
 	/*
-	 * Passar por todos os inputs com as classes .citdatepicker e .datepicker e adicionar as classes de formataÁ„o e validaÁ„o do framework se n„o existirem
+	 * Passar por todos os inputs com as classes .citdatepicker e .datepicker e adicionar as classes de formata√ß√£o e valida√ß√£o do framework se n√£o existirem
 	 */
 	$('.citdatepicker, .datepicker, .dataNascimento, .dtpicker, .date').each(function(e) {
 		if (!$(this).hasClass('Format[Date]')) $(this).addClass('Format[Date]');
@@ -640,7 +640,7 @@ function voltar(){
 
 </script>
 
-<!-- Desenvolvedor: Bruno Rodrigues  Data: 28/10/2013 Hor·rio: 14h04min  ID Citsmart: 120948  Motivo/Coment·rio: InternacionalizaÁ„o dos title da div  -->
+<!-- Desenvolvedor: Bruno Rodrigues  Data: 28/10/2013 Hor√°rio: 14h04min  ID Citsmart: 120948  Motivo/Coment√°rio: Internacionaliza√ß√£o dos title da div  -->
 <div id="gantEditorTemplates" style="display:none;">
   <div class="__template__" type="GANTBUTTONS"><!--
   <div class="ganttButtonBar">
@@ -825,7 +825,7 @@ function voltar(){
   <div class="__template__" type="MARCOPROJETO"><!--
   <div>
   	<form name="formMarcoFin" action="${ctx}/pages/cronograma/cronograma">
-	   <h2>Cronograma FÌsico/Financeiro</h2>
+	   <h2>Cronograma F√≠sico/Financeiro</h2>
 	  <table  cellspacing="1" cellpadding="0" width="100%" id="pagsTable">
 	    <tr>
 	      <th style="width:100px;"><fmt:message key="cronograma.descricaoReferencia"/></th>
@@ -1024,7 +1024,7 @@ function voltar(){
 	$('.date').datepicker();
 
 	/*
-	 * Passar por todos os inputs com as classes .citdatepicker e .datepicker e adicionar as classes de formataÁ„o e validaÁ„o do framework se n„o existirem
+	 * Passar por todos os inputs com as classes .citdatepicker e .datepicker e adicionar as classes de formata√ß√£o e valida√ß√£o do framework se n√£o existirem
 	 */
 	$('.citdatepicker, .datepicker, .dataNascimento, .dtpicker, .date').each(function(e) {
 		if (!$(this).hasClass('Format[Date]')) $(this).addClass('Format[Date]');

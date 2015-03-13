@@ -1,5 +1,5 @@
 /**
- * Pacote com classes que formam o core do framework relativo a persistênci
+ * Pacote com classes que formam o core do framework relativo a persistÃªnci
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  *

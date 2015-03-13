@@ -262,7 +262,7 @@ public class PlanoMelhoria extends AjaxFormAction {
 		document.getJanelaPopupById("JANELA_AGUARDE_MENU").hide();
 	}
 	/**
-	 * Faz a impress„o do relatÛrio no formato pdf.
+	 * Faz a impress√£o do relat√≥rio no formato pdf.
 	 * 
 	 * @param document
 	 * @param request

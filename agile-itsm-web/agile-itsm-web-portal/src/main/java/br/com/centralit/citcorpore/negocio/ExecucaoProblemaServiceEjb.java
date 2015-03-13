@@ -244,7 +244,7 @@ public class ExecucaoProblemaServiceEjb extends CrudServiceImpl implements Execu
         }
 
         if (tipoFluxoDto == null) {
-            throw new Exception("O fluxo associado ao serviÁo n„o foi parametrizado");
+            throw new Exception("O fluxo associado ao servi√ßo n√£o foi parametrizado");
         }
         return tipoFluxoDto;
     }
@@ -348,11 +348,11 @@ public class ExecucaoProblemaServiceEjb extends CrudServiceImpl implements Execu
         final ProblemaDTO problemaAuxDto = new ProblemaServiceEjb().restoreAll(problemaDto.getIdProblema(), tc);
 
         if (problemaAuxDto == null) {
-            throw new Exception("Problemas na recuperaÁ„o da solicitaÁ„o");
+            throw new Exception("Problemas na recupera√ß√£o da solicita√ß√£o");
         }
 
         if (problemaAuxDto.getNomeGrupoAtual() == null || problemaAuxDto.getNomeGrupoAtual().length() == 0) {
-            throw new Exception("Grupo executor n„o encontrado");
+            throw new Exception("Grupo executor n√£o encontrado");
         }
 
         this.getExecucaoProblema(problemaAuxDto, tc).direcionaAtendimento(problemaDto.getUsuarioDto().getLogin(), problemaAuxDto, problemaAuxDto.getNomeGrupoAtual());
@@ -370,11 +370,11 @@ public class ExecucaoProblemaServiceEjb extends CrudServiceImpl implements Execu
         }
 
         if (problemaAuxDto == null) {
-            throw new Exception("Problemas na recuperaÁ„o da solicitaÁ„o");
+            throw new Exception("Problemas na recupera√ß√£o da solicita√ß√£o");
         }
 
         if (problemaAuxDto.getNomeGrupoAtual() == null || problemaAuxDto.getNomeGrupoAtual().length() == 0) {
-            throw new Exception("Grupo executor n„o encontrado");
+            throw new Exception("Grupo executor n√£o encontrado");
         }
 
         this.getExecucaoProblema(problemaAuxDto, tc).direcionaAtendimento("admin", problemaAuxDto, problemaAuxDto.getNomeGrupoAtual());

@@ -33,7 +33,7 @@ public class BICitsmartEmailNotificacao {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("CITSMART - Problema no envio de notificação de erro da Importação Automática BICitsmart; e-mail geral: " + this.emailGeral);
+			System.out.println("CITSMART - Problema no envio de notificaÃ§Ã£o de erro da ImportaÃ§Ã£o AutomÃ¡tica BICitsmart; e-mail geral: " + this.emailGeral);
 		}
 	}
 	
@@ -45,12 +45,12 @@ public class BICitsmartEmailNotificacao {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("CITSMART - Problema no envio de notificação de erro da Importação Automática BICitsmart; e-mail conexão: " + this.emailConexao);
+			System.out.println("CITSMART - Problema no envio de notificaÃ§Ã£o de erro da ImportaÃ§Ã£o AutomÃ¡tica BICitsmart; e-mail conexÃ£o: " + this.emailConexao);
 		}
 	}
 	
 	public void envia(){
-		//Se o parâmetro permite a notificação
+		//Se o parÃ¢metro permite a notificaÃ§Ã£o
 		if (this.notificar){
 			if ((this.idModeloEmail!=null)&&(this.idModeloEmail>0)){
 				try {
@@ -58,7 +58,7 @@ public class BICitsmartEmailNotificacao {
 					this.enviaEmailConexao();
 				} catch (Exception e) {
 					e.printStackTrace();
-					System.out.println("CITSMART - Problema no envio de notificação de erro da Importação Automática BICitsmart;");
+					System.out.println("CITSMART - Problema no envio de notificaÃ§Ã£o de erro da ImportaÃ§Ã£o AutomÃ¡tica BICitsmart;");
 				}
 			}
 		}
@@ -70,16 +70,16 @@ public class BICitsmartEmailNotificacao {
 
 	public void setModeloEmail(String modelo) {
 		switch (modelo) {
-		case "Exceção":
+		case "ExceÃ§Ã£o":
 			this.idModeloEmail = Integer.parseInt(ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.BICITSMART_ID_MODELO_EMAIL_ERRO_AGEND_EXCECAO, "0").trim());
 			break;
-		case "Específico":
+		case "EspecÃ­fico":
 			this.idModeloEmail = Integer.parseInt(ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.BICITSMART_ID_MODELO_EMAIL_ERRO_AGEND_ESPECIFICO, "0").trim());
 			break;
-		case "Padrão":
+		case "PadrÃ£o":
 			this.idModeloEmail = Integer.parseInt(ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.BICITSMART_ID_MODELO_EMAIL_ERRO_AGEND_PADRAO, "0").trim());
 			break;
-		case "Parâmetro":
+		case "ParÃ¢metro":
 			this.idModeloEmail = Integer.parseInt(ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.BICITSMART_ID_MODELO_EMAIL_ERRO_PARAMETRO, "0").trim());
 			break;
 		case "Problema":

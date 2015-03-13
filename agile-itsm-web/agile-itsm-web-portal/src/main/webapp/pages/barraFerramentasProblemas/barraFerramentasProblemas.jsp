@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@ page import="br.com.centralit.citcorpore.util.WebUtil" %>
 <%@page import="br.com.citframework.util.UtilI18N"%>
 <%@page import="br.com.centralit.citcorpore.util.Enumerados.TipoOrigemLeituraEmail"%>
@@ -38,7 +40,7 @@
 	</ul>
 </div>
 
-<!-- Thiago Fernandes - 03/11/2013 - 18:49 - Sol. 121468 - Criação de Upload para requisição problema para evitar conflitos com outras telas do sistema que usão upload.  -->
+<!-- Thiago Fernandes - 03/11/2013 - 18:49 - Sol. 121468 - CriaÃ§Ã£o de Upload para requisiÃ§Ã£o problema para evitar conflitos com outras telas do sistema que usÃ£o upload.  -->
 <div id="POPUP_menuAnexos" class="POPUP_UPLOADREQUISICAOPROBLEMA" title="<fmt:message key="citcorpore.comum.anexos" />(s)" style="display:none">
 	<form name='formUploadRequisicaoProblema' action='${ctx}/pages/uploadRequisicaoProblema/uploadRequisicaoProblema' enctype="multipart/form-data">
 		<cit:uploadControl id="uploadRequisicaoProblema" title="Anexos" style="height: 300px; width: 100%; border: 1px solid black;" form="formUploadRequisicaoProblema" action="/pages/uploadRequisicaoProblema/uploadRequisicaoProblema.load" disabled="false" />
@@ -69,7 +71,7 @@
 
 <div class="POPUP_barraFerramentasProblemas" id="POPUP_menuOcorrencias" title="<fmt:message key='citcorpore.comum.ocorrencia' />">
 	<!-- Conteudo -->
-	<!-- Não usar este CSS possuido: main_container -->
+	<!-- NÃ£o usar este CSS possuido: main_container -->
 	<div id="main_container" class="container_16 clearfix">
 		<div class="box grid_16 tabs">
 			<ul class="tab_header clearfix">
@@ -152,7 +154,7 @@
 											<fmt:message key="citcorpore.comum.descricao" />
 										</label>
 										<div>
-											<textarea cols="70" rows="5" name="descricao1" class="Valid[Required] Description[Descrição]" maxlength="200"></textarea>
+											<textarea cols="70" rows="5" name="descricao1" class="Valid[Required] Description[DescriÃ§Ã£o]" maxlength="200"></textarea>
 										</div>
 									</fieldset>
 								</div>
@@ -162,7 +164,7 @@
 									<fieldset>
 										<label class="campoObrigatorio"><fmt:message key="citcorpore.comum.ocorrencia" /></label>
 										<div>
-											<textarea cols="70" rows="5" name="ocorrencia" class="Valid[Required] Description[Ocorrência]" maxlength="5000"></textarea>
+											<textarea cols="70" rows="5" name="ocorrencia" class="Valid[Required] Description[OcorrÃªncia]" maxlength="5000"></textarea>
 										</div>
 									</fieldset>
 								</div>
@@ -172,7 +174,7 @@
 									<fieldset>
 										<label class="campoObrigatorio"><fmt:message key="solicitacaoServico.informacaoContato" /></label>
 										<div>
-											<textarea cols="70" rows="2" name="informacoesContato" class="Valid[Required] Description[Informações de Contato]" maxlength="5000"></textarea>
+											<textarea cols="70" rows="2" name="informacoesContato" class="Valid[Required] Description[InformaÃ§Ãµes de Contato]" maxlength="5000"></textarea>
 										</div>
 									</fieldset>
 								</div>

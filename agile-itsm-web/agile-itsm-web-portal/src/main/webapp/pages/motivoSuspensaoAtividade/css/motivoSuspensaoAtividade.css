@@ -34,9 +34,9 @@ background: #FFFFFF !important;
     margin-right:1.5em;
 
 }
-/* Desenvolvedor: Pedro Lino - Data: 31/10/2013 - Hor·rio: 14:17 - ID Citsmart: 120948 - 
-* Motivo/Coment·rio: Retirado texto uppercase / capitalize */
-/* PaginaÁ„o do findfield */
+/* Desenvolvedor: Pedro Lino - Data: 31/10/2013 - Hor√°rio: 14:17 - ID Citsmart: 120948 - 
+* Motivo/Coment√°rio: Retirado texto uppercase / capitalize */
+/* Pagina√ß√£o do findfield */
 #btfirst,#btprevius, #btnext, #btlast{
 	height:25px;
 	font-size: 11px;
@@ -110,7 +110,7 @@ button.text_only{
 }
 
 /*
-* Motivo: Adicionando CÛdigo especÌfico para ie10
+* Motivo: Adicionando C√≥digo espec√≠fico para ie10
 * Autor: flavio.santana
 */
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {

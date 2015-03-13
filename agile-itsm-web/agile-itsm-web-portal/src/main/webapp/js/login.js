@@ -158,7 +158,7 @@
 			    	window.top.location = window.location;
 				}
 				
-				/*Validando vers„o do Browser*/
+				/*Validando vers√£o do Browser*/
 				BrowserDetect.init();
 				versao =  parseInt(BrowserDetect.version, 10);
 				

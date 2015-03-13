@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@ page import="br.com.centralit.citcorpore.util.ParametroUtil" %>
 <%@ page import="br.com.centralit.citcorpore.versao.Versao" %>
 <%@ page import="br.com.centralit.citcorpore.util.WebUtil" %>
@@ -17,7 +19,7 @@
 <%@include file="/novoLayout/common/include/libCabecalho.jsp" %>
 <link type="text/css" rel="stylesheet" href="${ctx}/pages/recuperaSenhaCandidato/css/recuperaSenhaCandidato.css"/>
 
-<title>CITSMart</title>
+<%@include file="/novoLayout/common/include/titulo.jsp" %>
 </head>
 
 <body class="login">

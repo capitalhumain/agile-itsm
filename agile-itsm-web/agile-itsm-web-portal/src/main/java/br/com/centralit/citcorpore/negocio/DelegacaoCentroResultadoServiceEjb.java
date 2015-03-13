@@ -86,7 +86,7 @@ public class DelegacaoCentroResultadoServiceEjb extends CrudServiceImpl implemen
         }
 
         if (delegacaoCentroResultadoDto.getAbrangencia().equals(DelegacaoCentroResultadoDTO.ESPECIFICAS)) {
-            if (delegacaoCentroResultadoDto.getRequisiÁoes() == null) {
+            if (delegacaoCentroResultadoDto.getRequisicoes() == null) {
                 throw new LogicException(this.i18nMessage("delegacaoCentroResultado.requisicoes") + " " + this.i18nMessage("citcorpore.comum.naoInformado"));
             }
 
@@ -95,7 +95,7 @@ public class DelegacaoCentroResultadoServiceEjb extends CrudServiceImpl implemen
             final ExecucaoSolicitacaoDao execucaoSolicitacaoDao = new ExecucaoSolicitacaoDao();
             final SolicitacaoServicoDao solicitacaoServicoDao = new SolicitacaoServicoDao();
             final FluxoDao fluxoDao = new FluxoDao();
-            final String[] requisicoes = delegacaoCentroResultadoDto.getRequisiÁoes().split(",");
+            final String[] requisicoes = delegacaoCentroResultadoDto.getRequisicoes().split(",");
             for (final String requisicoe : requisicoes) {
                 Integer idSolicitacaoServico = null;
                 try {
@@ -112,7 +112,7 @@ public class DelegacaoCentroResultadoServiceEjb extends CrudServiceImpl implemen
                 }
 
                 if (solicitacaoServicoDto.atendida()) {
-                    throw new LogicException("RequisiÁ„o " + idSolicitacaoServico + " j· encerrada");
+                    throw new LogicException("Requisi√ß√£o " + idSolicitacaoServico + " j√° encerrada");
                 }
 
                 final ExecucaoSolicitacaoDTO execucaoDto = execucaoSolicitacaoDao.findBySolicitacaoServico(solicitacaoServicoDto);
@@ -135,7 +135,7 @@ public class DelegacaoCentroResultadoServiceEjb extends CrudServiceImpl implemen
                     }
                 }
                 if (!bFluxoValido) {
-                    throw new LogicException("RequisiÁ„o " + idSolicitacaoServico + " n„o pertence a nenhum processo de negÛcio v·lido para a delegaÁ„o");
+                    throw new LogicException("Requisi√ß√£o " + idSolicitacaoServico + " n√£o pertence a nenhum processo de neg√≥cio v√°lido para a delega√ß√£o");
                 }
 
                 colInstancias.add(execucaoDto);
@@ -268,7 +268,7 @@ public class DelegacaoCentroResultadoServiceEjb extends CrudServiceImpl implemen
             }
 
             if (delegacaoCentroResultadoDto.getIdResponsavelRevogacao() == null) {
-                throw new LogicException("Usu·rio respons·vel pela revogaÁ„o n„o informado");
+                throw new LogicException("Usu√°rio respons√°vel pela revoga√ß√£o n√£o informado");
             }
 
             delegacaoAuxDto.setRevogada("S");

@@ -35,9 +35,9 @@ public class Enumerados implements Serializable {
 
         CONHECIMENTO(1, "Conhecimento"),
         EVENTO(2, "Evento"),
-        MUDANCA(3, "MudanÁa"),
+        MUDANCA(3, "Mudan√ßa"),
         INCIDENTE(4, "Incidente"),
-        SERVICO(5, "ServiÁo"),
+        SERVICO(5, "Servi√ßo"),
         PROBLEMA(6, "Problema");
 
         private final Integer origem;
@@ -117,8 +117,8 @@ public class Enumerados implements Serializable {
          * Recupera uma {@link SituacaoSolicitacaoServico} de acordo com seu id
          *
          * @param id
-         *            id a ser verificado se h· uma {@link SituacaoSolicitacaoServico}
-         * @return {@link SituacaoSolicitacaoServico} caso encontre. {@link IllegalArgumentException}, caso contr·rio
+         *            id a ser verificado se h√° uma {@link SituacaoSolicitacaoServico}
+         * @return {@link SituacaoSolicitacaoServico} caso encontre. {@link IllegalArgumentException}, caso contr√°rio
          * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
          * @since 30/09/2014
          */
@@ -133,7 +133,7 @@ public class Enumerados implements Serializable {
         }
 
         /**
-         * Recupera a lista de {@link SituacaoSolicitacaoServico} que podem ser usadas como situaÁ„o no Mobile
+         * Recupera a lista de {@link SituacaoSolicitacaoServico} que podem ser usadas como situa√ß√£o no Mobile
          *
          * @return {@code List<SituacaoSolicitacaoServico>}
          * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
@@ -153,7 +153,7 @@ public class Enumerados implements Serializable {
     }
 
     /**
-     * Enumerado que representa a situaÁ„o de uma solicitaÁ„o em uma rota de atendimento
+     * Enumerado que representa a situa√ß√£o de uma solicita√ß√£o em uma rota de atendimento
      *
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      * @date 26/11/2014
@@ -186,8 +186,8 @@ public class Enumerados implements Serializable {
          * Recupera uma {@link SituacaoSolicitacaoServicoNaRota} de acordo com seu id
          *
          * @param id
-         *            id a ser verificado se h· uma {@link SituacaoSolicitacaoServicoNaRota}
-         * @return {@link SituacaoSolicitacaoServicoNaRota} caso encontre. {@link IllegalArgumentException}, caso contr·rio
+         *            id a ser verificado se h√° uma {@link SituacaoSolicitacaoServicoNaRota}
+         * @return {@link SituacaoSolicitacaoServicoNaRota} caso encontre. {@link IllegalArgumentException}, caso contr√°rio
          * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
          * @since 26/11/2014
          */
@@ -347,7 +347,7 @@ public class Enumerados implements Serializable {
         NOTIFICAR_RESPONSAVEL_GRUPO_PRAZO_SOLUCAO_CONTORNO_PROBLEMA_EXPIRADO(129, "parametro.129", BOOLEAN),
         LIBERAR_ORDEM_SERVICO_DATA_ANTERIOR(130, "parametro.130", BOOLEAN),
         QUANT_RETORNO_PESQUISA(131, "parametro.131", NUMERO),
-        QUANT_RETORNO_PESQUISA_ORDEM_SERVICO(132, "parametro.132", TEXTO), // N„o esta sendo usado
+        QUANT_RETORNO_PESQUISA_ORDEM_SERVICO(132, "parametro.132", TEXTO), // N√£o esta sendo usado
         ID_MODELO_EMAIL_AVISAR_REUNIAO_MARCADA(133, "parametro.133", NUMERO),
         ID_GRUPO_PADRAO_REQ_RH(134, "parametro.134", NUMERO),
         ID_PERFIL_ACESSO_ADMINISTRADOR(135, "parametro.135", NUMERO),
@@ -366,8 +366,8 @@ public class Enumerados implements Serializable {
         LUCENE_DIR_PALAVRAGEMEA(148, "parametro.148", TEXTO),
         LUCENE_DIR_ANEXOBASECONHECIMENTO(149, "parametro.149", TEXTO),
         LUCENE_REFAZER_INDICES(150, "parametro.150", BOOLEAN),
-        AVALIA«√O_AUTOMATICA(151, "parametro.151", BOOLEAN),
-        NOTA_AVALIA«√O_AUTOMATICA(152, "parametro.152", TEXTO),
+        AVALIA√á√ÉO_AUTOMATICA(151, "parametro.151", BOOLEAN),
+        NOTA_AVALIA√á√ÉO_AUTOMATICA(152, "parametro.152", TEXTO),
         PONTUACAO_PRODUTIVIDADE_BAIXA_DENTRO_DO_PRAZO(153, "parametro.153", NUMERO),
         PONTUACAO_PRODUTIVIDADE_BAIXA_RETRABALHO(154, "parametro.154", NUMERO),
         PONTUACAO_PRODUTIVIDADE_BAIXA_FORA_DO_PRAZO(155, "parametro.155", NUMERO),
@@ -408,7 +408,7 @@ public class Enumerados implements Serializable {
         HABILITA_REGRA_ESCALONAMENTO(190, "parametro.190", BOOLEAN),
         ATIVA_NOVO_LAYOUT(191, "parametro.191", BOOLEAN),
         MOSTRAR_GRAVAR_BASE_CONHECIMENTO(192, "parametro.192", BOOLEAN),
-        HABILITA_ESCALONAMENTO_MUDAN«A(193, "parametro.193", BOOLEAN),
+        HABILITA_ESCALONAMENTO_MUDAN√áA(193, "parametro.193", BOOLEAN),
         HABILITA_ESCALONAMENTO_PROBLEMA(194, "parametro.194", BOOLEAN),
         ID_MODELO_EMAIL_PRAZO_VENCENDO(195, "parametro.195", NUMERO),
         ID_MODELO_EMAIL_PRESTACAO_CONTAS_NAO_APROVADA(196, "parametro.196", NUMERO),
@@ -512,16 +512,16 @@ public class Enumerados implements Serializable {
     }
 
     /**
-     * ENUM Tipo Demanda ServiÁo.
+     * ENUM Tipo Demanda Servi√ßo.
      *
      * @author valdoilo.damasceno
      *
      */
     public enum TipoDemandaServico {
 
-        REQUISICAO("R", "RequisiÁ„o"),
+        REQUISICAO("R", "Requisi√ß√£o"),
         INCIDENTE("I", "Incidente"),
-        OS("O", "Ordem de ServiÁo");
+        OS("O", "Ordem de Servi√ßo");
 
         private final String classificacao;
 
@@ -578,31 +578,31 @@ public class Enumerados implements Serializable {
      */
     public enum CategoriaOcorrencia {
 
-        Criacao("Registro da SolicitaÁ„o"),
+        Criacao("Registro da Solicita√ß√£o"),
         Acompanhamento("Acompanhamento com o Cliente"),
-        Atualizacao("AtualizaÁ„o de Status"),
-        Diagnostico("DiagnÛstico"),
-        Investigacao("InvestigaÁ„o"),
+        Atualizacao("Atualiza√ß√£o de Status"),
+        Diagnostico("Diagn√≥stico"),
+        Investigacao("Investiga√ß√£o"),
         Memorando("Memorando"),
-        Informacao("Pedido de InformaÁ„o"),
+        Informacao("Pedido de Informa√ß√£o"),
         Retorno("Retorno do Cliente"),
         Sintoma("Sintoma do Problema"),
-        Contorno("SoluÁ„o de Contorno"),
-        Execucao("Registro de ExecuÁ„o"),
-        MudancaSLA("MudanÁa de SLA"),
-        Reclassificacao("ReclassificaÁ„o"),
+        Contorno("Solu√ß√£o de Contorno"),
+        Execucao("Registro de Execu√ß√£o"),
+        MudancaSLA("Mudan√ßa de SLA"),
+        Reclassificacao("Reclassifica√ß√£o"),
         Agendamento("Agendamento de Atividade"),
-        Suspensao("Suspens„o da SolicitaÁ„o"),
-        Reativacao("ReativaÁ„o da SolicitaÁ„o"),
-        Encerramento("Encerramento da SolicitaÁ„o"),
-        Reabertura("Reabertura da SolicitaÁ„o"),
-        Direcionamento("Direcionamento da SolicitaÁ„o"),
+        Suspensao("Suspens√£o da Solicita√ß√£o"),
+        Reativacao("Reativa√ß√£o da Solicita√ß√£o"),
+        Encerramento("Encerramento da Solicita√ß√£o"),
+        Reabertura("Reabertura da Solicita√ß√£o"),
+        Direcionamento("Direcionamento da Solicita√ß√£o"),
         Compartilhamento("Compartilhamento de Tarefa"),
         CancelamentoTarefa("Cancelamento de Tarefa"),
         InicioSLA("Inicio do SLA"),
-        SuspensaoSLA("Suspens„o do SLA"),
-        Aprovar("LiberaÁ„o de RequisiÁ„o LiberaÁ„o"),
-        ReativacaoSLA("ReativaÁ„o do SLA");
+        SuspensaoSLA("Suspens√£o do SLA"),
+        Aprovar("Libera√ß√£o de Requisi√ß√£o Libera√ß√£o"),
+        ReativacaoSLA("Reativa√ß√£o do SLA");
 
         private final String descricao;
 
@@ -621,13 +621,13 @@ public class Enumerados implements Serializable {
     }
 
     /**
-     * ENUM para listar as Notas da Pesquisa de SatisfaÁ„o.
+     * ENUM para listar as Notas da Pesquisa de Satisfa√ß√£o.
      *
      * @author valdoilo
      */
     public enum Nota {
 
-        OTIMO(4, "”timo", "citcorpore.comum.otimo"),
+        OTIMO(4, "√ìtimo", "citcorpore.comum.otimo"),
         BOM(3, "Bom", "citcorpore.comum.bom"),
         REGULAR(2, "Regular", "citcorpore.comum.regular"),
         RUIM(1, "Ruim", "citcorpore.comum.ruim");
@@ -662,10 +662,10 @@ public class Enumerados implements Serializable {
 
         Proposta("Proposta", SituacaoRequisicaoMudanca.Proposta),
         Registrada("Registrada", SituacaoRequisicaoMudanca.Registrada),
-        Aprovacao("AprovaÁ„o", SituacaoRequisicaoMudanca.Aprovada),
+        Aprovacao("Aprova√ß√£o", SituacaoRequisicaoMudanca.Aprovada),
         Planejamento("Planejamento", SituacaoRequisicaoMudanca.Planejada),
-        Execucao("ExecuÁ„o", SituacaoRequisicaoMudanca.Executada),
-        Avaliacao("AvaliaÁ„o", SituacaoRequisicaoMudanca.Concluida);
+        Execucao("Execu√ß√£o", SituacaoRequisicaoMudanca.Executada),
+        Avaliacao("Avalia√ß√£o", SituacaoRequisicaoMudanca.Concluida);
 
         private final String descricao;
         private final SituacaoRequisicaoMudanca situacao;
@@ -688,17 +688,17 @@ public class Enumerados implements Serializable {
     public enum SituacaoRequisicaoMudanca {
 
         Registrada("Registrada"),
-        Proposta("Aguardando AprovaÁ„o"),
+        Proposta("Aguardando Aprova√ß√£o"),
         Aprovada("Aprovada"),
         Planejada("Planejada"),
-        EmExecucao("Em execuÁ„o"),
+        EmExecucao("Em execu√ß√£o"),
         Executada("Executada"),
         Suspensa("Suspensa"),
         Cancelada("Cancelada"),
         Rejeitada("Rejeitada"),
         Resolvida("Resolvida"),
         Reaberta("Reaberta"),
-        Concluida("ConcluÌda");
+        Concluida("Conclu√≠da");
 
         private final String descricao;
 
@@ -715,8 +715,8 @@ public class Enumerados implements Serializable {
     public enum FaseRequisicaoLiberacao {
 
         Liberada("Liberada", SituacaoRequisicaoLiberacao.Aprovada),
-        NaoResolvida("N„o Resolvida", SituacaoRequisicaoLiberacao.NaoResolvida),
-        Execucao("ExecuÁ„o", SituacaoRequisicaoLiberacao.Executada),
+        NaoResolvida("N√£o Resolvida", SituacaoRequisicaoLiberacao.NaoResolvida),
+        Execucao("Execu√ß√£o", SituacaoRequisicaoLiberacao.Executada),
         Resolvida("Resolvida", SituacaoRequisicaoLiberacao.Resolvida),
         Finalizada("Fechada", SituacaoRequisicaoLiberacao.Fechada);
 
@@ -741,10 +741,10 @@ public class Enumerados implements Serializable {
     public enum SituacaoRequisicaoLiberacao {
 
         Registrada("Registrada"),
-        NaoResolvida("N„o Resolvida"),
+        NaoResolvida("N√£o Resolvida"),
         Aprovada("Aprovada"),
         Planejada("Planejada"),
-        EmExecucao("ExecuÁ„o"),
+        EmExecucao("Execu√ß√£o"),
         Executada("Executada"),
         Suspensa("Suspensa"),
         Cancelada("Cancelada"),
@@ -752,7 +752,7 @@ public class Enumerados implements Serializable {
         Resolvida("Resolvida"),
         Reaberta("Reaberta"),
         Fechada("Fechada"),
-        Concluida("ConcluÌda");
+        Concluida("Conclu√≠da");
 
         private final String descricao;
 
@@ -769,14 +769,14 @@ public class Enumerados implements Serializable {
     public enum FaseRequisicaoProblema {
 
         Registrada("Registrada", SituacaoRequisicaoProblema.Registrada),
-        Aprovacao("AprovaÁ„o", SituacaoRequisicaoProblema.Aprovada),
+        Aprovacao("Aprova√ß√£o", SituacaoRequisicaoProblema.Aprovada),
         Planejamento("Planejamento", SituacaoRequisicaoProblema.Planejada),
-        Execucao("ExecuÁ„o", SituacaoRequisicaoProblema.Executada),
-        Avaliacao("AvaliaÁ„o", SituacaoRequisicaoProblema.Concluida),
-        EmInvestigacao("Em InvestigaÁ„o", SituacaoRequisicaoProblema.EmInvestigacao),
-        SolucaoContorno("SoluÁ„o de Contorno", SituacaoRequisicaoProblema.SolucaoContorno),
+        Execucao("Execu√ß√£o", SituacaoRequisicaoProblema.Executada),
+        Avaliacao("Avalia√ß√£o", SituacaoRequisicaoProblema.Concluida),
+        EmInvestigacao("Em Investiga√ß√£o", SituacaoRequisicaoProblema.EmInvestigacao),
+        SolucaoContorno("Solu√ß√£o de Contorno", SituacaoRequisicaoProblema.SolucaoContorno),
         Revisado("Revisado", SituacaoRequisicaoProblema.Revisado),
-        Resolucao("ResoluÁ„o", SituacaoRequisicaoProblema.Resolucao),
+        Resolucao("Resolu√ß√£o", SituacaoRequisicaoProblema.Resolucao),
         Encerramento("Encerramento", SituacaoRequisicaoProblema.Encerramento),
         Revisar("Revisar", SituacaoRequisicaoProblema.Revisar),
         RegistroErroConhecido("Registro de Erro Conhecido", SituacaoRequisicaoProblema.RegistroErroConhecido);
@@ -804,18 +804,18 @@ public class Enumerados implements Serializable {
         Registrada("Registrada"),
         Aprovada("Aprovada"),
         Planejada("Planejada"),
-        EmExecucao("Em execuÁ„o"),
+        EmExecucao("Em execu√ß√£o"),
         Executada("Executada"),
         Suspensa("Suspensa"),
         Cancelada("Cancelada"),
         Rejeitada("Rejeitada"),
         Resolvida("Resolvida"),
         Reaberta("Reaberta"),
-        Concluida("ConcluÌda"),
-        EmInvestigacao("Em InvestigaÁ„o"),
-        SolucaoContorno("SoluÁ„o de Contorno"),
+        Concluida("Conclu√≠da"),
+        EmInvestigacao("Em Investiga√ß√£o"),
+        SolucaoContorno("Solu√ß√£o de Contorno"),
         Revisado("Revisado"),
-        Resolucao("ResoluÁ„o"),
+        Resolucao("Resolu√ß√£o"),
         Encerramento("Encerramento"),
         Revisar("Revisar"),
         RegistroErroConhecido("Registro de Erro Conhecido");
@@ -857,7 +857,7 @@ public class Enumerados implements Serializable {
     public enum Complexidade {
 
         BAIXA(1, "Baixa"),
-        INTERMEDIARIA(2, "Intermedi·ria"),
+        INTERMEDIARIA(2, "Intermedi√°ria"),
         MEDIANA(3, "Mediana"),
         ALTA(4, "Alta"),
         ESPECIALISTA(5, "Especialista");
@@ -884,8 +884,8 @@ public class Enumerados implements Serializable {
 
         MENSAL(1, "Mensal"),
         SEMANAL(2, "Semanal"),
-        DIARIO(3, "Di·rio"),
-        DIAS_UTEIS(4, "Dias ˙teis");
+        DIARIO(3, "Di√°rio"),
+        DIAS_UTEIS(4, "Dias √∫teis");
 
         private final int index;
         private final String descricao;
@@ -909,9 +909,9 @@ public class Enumerados implements Serializable {
 
         ATIVADO(1, "Ativado", "baseItemConfiguracao.Ativado"),
         DESATIVADO(2, "Desativado", "baseItemConfiguracao.Desativado"),
-        EM_MANUTENCAO(3, "Em ManutenÁ„o", "baseItemConfiguracao.Em_ManutenÁ„o"),
-        IMPLANTACAO(4, "ImplantaÁ„o", "baseItemConfiguracao.ImplantaÁ„o"),
-        HOMOLOGACAO(5, "HomologaÁ„o", "baseItemConfiguracao.HomologaÁ„o"),
+        EM_MANUTENCAO(3, "Em Manuten√ß√£o", "baseItemConfiguracao.Em_Manuten√ß√£o"),
+        IMPLANTACAO(4, "Implanta√ß√£o", "baseItemConfiguracao.Implanta√ß√£o"),
+        HOMOLOGACAO(5, "Homologa√ß√£o", "baseItemConfiguracao.Homologa√ß√£o"),
         EM_DESENVOLVIMENTO(6, "Em Desenvolvimento", "baseItemConfiguracao.Em_Desenvolvimento"),
         ARQUIVADO(7, "Arquivado", "baseItemConfiguracao.Arquivado"),
         VALIDAR(8, "Validar Item", "baseItemConfiguracao.Validar_Item");
@@ -982,7 +982,7 @@ public class Enumerados implements Serializable {
     }
 
     /**
-     * Enum utilizado para listar as Permissıes de Acesso ·s Pasta de Base de Conhecimento.
+     * Enum utilizado para listar as Permiss√µes de Acesso √°s Pasta de Base de Conhecimento.
      *
      */
     public enum PermissaoAcessoPasta {
@@ -1004,7 +1004,7 @@ public class Enumerados implements Serializable {
     }
 
     /**
-     * Enum utilizado para listar as Permissıes de Acesso ·s Pasta de Base de Conhecimento.
+     * Enum utilizado para listar as Permiss√µes de Acesso √°s Pasta de Base de Conhecimento.
      *
      */
     public enum TipoNotificacao {
@@ -1033,7 +1033,7 @@ public class Enumerados implements Serializable {
     }
 
     /**
-     * Enum com os Graus de Import‚ncia do Conhecimento.
+     * Enum com os Graus de Import√¢ncia do Conhecimento.
      *
      * @author Vadoilo Damasceno
      *
@@ -1041,7 +1041,7 @@ public class Enumerados implements Serializable {
     public enum EnumGrauImportanciaConhecimento {
 
         BAIXO("Baixo"),
-        MEDIO("MÈdio"),
+        MEDIO("M√©dio"),
         ALTO("Alto");
 
         private final String grauImportancia;
@@ -1057,12 +1057,12 @@ public class Enumerados implements Serializable {
     }
 
     /*
-     * Enumerador para situaÁ„o de FAQ - Frequently Asked Questions
+     * Enumerador para situa√ß√£o de FAQ - Frequently Asked Questions
      */
     public enum SituacaoFAQ {
 
         PUBLICADO("Publicado"),
-        NAO_PUBLICADO("N„o Publicado");
+        NAO_PUBLICADO("N√£o Publicado");
 
         private final String descricao;
 
@@ -1077,12 +1077,12 @@ public class Enumerados implements Serializable {
     }
 
     /*
-     * Enumerador para situaÁ„o de SIM e NAO
+     * Enumerador para situa√ß√£o de SIM e NAO
      */
     public enum Situacao {
 
         SIM("Sim"),
-        NAO("N„o");
+        NAO("N√£o");
 
         private final String descricao;
 
@@ -1123,22 +1123,22 @@ public class Enumerados implements Serializable {
 
     public enum SituacaoItemRequisicaoProduto {
 
-        AguardandoValidacao("Aguardando validaÁ„o", AcaoItemRequisicaoProduto.Criacao),
-        RejeitadoCompras("RequisiÁ„o rejeitada", AcaoItemRequisicaoProduto.Validacao),
-        AlteradoCompras("Alterado pela ·rea de compras", AcaoItemRequisicaoProduto.Validacao),
+        AguardandoValidacao("Aguardando valida√ß√£o", AcaoItemRequisicaoProduto.Criacao),
+        RejeitadoCompras("Requisi√ß√£o rejeitada", AcaoItemRequisicaoProduto.Validacao),
+        AlteradoCompras("Alterado pela √°rea de compras", AcaoItemRequisicaoProduto.Validacao),
         Inviabilizado("Inviabilizado", AcaoItemRequisicaoProduto.Validacao),
-        AguardandoAutorizacaoCompra("Aguardando autorizaÁ„o", AcaoItemRequisicaoProduto.Validacao),
+        AguardandoAutorizacaoCompra("Aguardando autoriza√ß√£o", AcaoItemRequisicaoProduto.Validacao),
         AlteradoAutorizador("Alterado pelo autorizador", AcaoItemRequisicaoProduto.Autorizacao),
-        RejeitadoAutorizador("RequisiÁ„o rejeitada", AcaoItemRequisicaoProduto.Autorizacao),
-        CompraNaoAutorizada("Compra n„o autorizada", AcaoItemRequisicaoProduto.Autorizacao),
-        AguardandoCotacao("Aguardando cotaÁ„o", AcaoItemRequisicaoProduto.Autorizacao),
-        AguardandoAprovacaoCotacao("Aguardando aprovaÁ„o da cotaÁ„o", AcaoItemRequisicaoProduto.Publicacao),
-        CotacaoNaoAprovada("CotaÁ„o n„o aprovada", AcaoItemRequisicaoProduto.Aprovacao),
+        RejeitadoAutorizador("Requisi√ß√£o rejeitada", AcaoItemRequisicaoProduto.Autorizacao),
+        CompraNaoAutorizada("Compra n√£o autorizada", AcaoItemRequisicaoProduto.Autorizacao),
+        AguardandoCotacao("Aguardando cota√ß√£o", AcaoItemRequisicaoProduto.Autorizacao),
+        AguardandoAprovacaoCotacao("Aguardando aprova√ß√£o da cota√ß√£o", AcaoItemRequisicaoProduto.Publicacao),
+        CotacaoNaoAprovada("Cota√ß√£o n√£o aprovada", AcaoItemRequisicaoProduto.Aprovacao),
         AguardandoPedido("Aguardando pedido de compra", AcaoItemRequisicaoProduto.Aprovacao),
         AguardandoEntrega("Aguardando entrega", AcaoItemRequisicaoProduto.Pedido),
-        AguardandoInspecao("Aguardando inspeÁ„o", AcaoItemRequisicaoProduto.Entrega),
-        AguardandoInspecaoGarantia("Aguardando inspeÁ„o", AcaoItemRequisicaoProduto.Garantia),
-        InspecaoRejeitada("InspeÁ„o rejeitada", AcaoItemRequisicaoProduto.Inspecao),
+        AguardandoInspecao("Aguardando inspe√ß√£o", AcaoItemRequisicaoProduto.Entrega),
+        AguardandoInspecaoGarantia("Aguardando inspe√ß√£o", AcaoItemRequisicaoProduto.Garantia),
+        InspecaoRejeitada("Inspe√ß√£o rejeitada", AcaoItemRequisicaoProduto.Inspecao),
         Cancelado("Cancelado", AcaoItemRequisicaoProduto.Cancelamento),
         Finalizado("Finalizado", AcaoItemRequisicaoProduto.Inspecao);
 
@@ -1162,21 +1162,21 @@ public class Enumerados implements Serializable {
 
     public enum AcaoItemRequisicaoProduto {
 
-        Criacao("CriaÁ„o da requisiÁ„o"),
-        Alteracao("AlteraÁ„o da requisiÁ„o"),
-        Validacao("ValidaÁ„o pela ·rea de compras"),
-        Autorizacao("AutorizaÁ„o da compra"),
-        Publicacao("PublicaÁ„o dos resultados"),
-        Aprovacao("AprovaÁ„o da cotaÁ„o"),
-        Reabertura("Reabertura das coletas de preÁo"),
-        Pedido("GeraÁ„o do pedido"),
+        Criacao("Cria√ß√£o da requisi√ß√£o"),
+        Alteracao("Altera√ß√£o da requisi√ß√£o"),
+        Validacao("Valida√ß√£o pela √°rea de compras"),
+        Autorizacao("Autoriza√ß√£o da compra"),
+        Publicacao("Publica√ß√£o dos resultados"),
+        Aprovacao("Aprova√ß√£o da cota√ß√£o"),
+        Reabertura("Reabertura das coletas de pre√ßo"),
+        Pedido("Gera√ß√£o do pedido"),
         Entrega("Entrega do pedido"),
         Garantia("Retorno de garantia"),
-        Inspecao("InspeÁ„o do solicitante"),
-        Cancelamento("Exclus„o/Cancelamento do item"),
-        ExclusaoPedido("Exclus„o do pedido"),
-        ExclusaoItemCotacao("Exclus„o do item de cotaÁ„o"),
-        EncerramentoCotacao("Encerramento da cotaÁ„o");
+        Inspecao("Inspe√ß√£o do solicitante"),
+        Cancelamento("Exclus√£o/Cancelamento do item"),
+        ExclusaoPedido("Exclus√£o do pedido"),
+        ExclusaoItemCotacao("Exclus√£o do item de cota√ß√£o"),
+        EncerramentoCotacao("Encerramento da cota√ß√£o");
 
         private final String descricao;
 
@@ -1192,8 +1192,8 @@ public class Enumerados implements Serializable {
 
     public enum TipoAlcada {
 
-        Compras("AutorizaÁ„o de compras"),
-        Pessoal("RequisiÁ„o de pessoal"),
+        Compras("Autoriza√ß√£o de compras"),
+        Pessoal("Requisi√ß√£o de pessoal"),
         Viagem("Requisicao de Viagem");
 
         private final String descricao;
@@ -1232,10 +1232,10 @@ public class Enumerados implements Serializable {
 
     public enum SituacaoCotacaoItemRequisicao {
 
-        AguardaAprovacao("Aguardando aprovaÁ„o"),
-        PreAprovado("PrÈ aprovado"),
+        AguardaAprovacao("Aguardando aprova√ß√£o"),
+        PreAprovado("Pr√© aprovado"),
         Aprovado("Aprovado"),
-        NaoAprovado("N„o aprovado");
+        NaoAprovado("N√£o aprovado");
 
         private final String descricao;
 
@@ -1251,9 +1251,9 @@ public class Enumerados implements Serializable {
 
     public enum OrigemNotificacao {
 
-        B("NotificaÁ„o de base de conhecimento"),
-        P("NotificaÁ„o de Pasta"),
-        S("NotificaÁ„o de serviÁo de contrato");
+        B("Notifica√ß√£o de base de conhecimento"),
+        P("Notifica√ß√£o de Pasta"),
+        S("Notifica√ß√£o de servi√ßo de contrato");
 
         private final String descricao;
 
@@ -1271,7 +1271,7 @@ public class Enumerados implements Serializable {
 
         V("Validado"),
         A("Aviso"),
-        E("Erro n„o impeditivo"),
+        E("Erro n√£o impeditivo"),
         I("Erro impeditivo");
 
         private final String descricao;
@@ -1289,10 +1289,10 @@ public class Enumerados implements Serializable {
     public enum SituacaoPedidoCompra {
 
         Efetivado("Efetivado"),
-        Analise("Aguardando an·lise de crÈdito"),
-        Aprovacao("Aguardando aprovaÁ„o do pagamento"),
+        Analise("Aguardando an√°lise de cr√©dito"),
+        Aprovacao("Aguardando aprova√ß√£o do pagamento"),
         Aprovado("Pagamento aprovado"),
-        Transportadora("Entregue ‡ transportadora"),
+        Transportadora("Entregue √† transportadora"),
         Transporte("Em rota de entrega"),
         Entregue("Entregue");
 
@@ -1310,7 +1310,7 @@ public class Enumerados implements Serializable {
 
     public enum SituacaoEntregaItemRequisicao {
 
-        Aguarda("Aguardando inspeÁ„o"),
+        Aguarda("Aguardando inspe√ß√£o"),
         Aprovada("Entrega aprovada"),
         AprovadaPrazo("Aprovada por decurso de prazo"),
         NaoAprovada("Entrega nao aprovada");
@@ -1329,7 +1329,7 @@ public class Enumerados implements Serializable {
 
     public enum SituacaoSLA {
 
-        N("N„o iniciado"),
+        N("N√£o iniciado"),
         S("Suspenso"),
         M("Multiplo"),
         A("Em andamento");
@@ -1397,9 +1397,9 @@ public class Enumerados implements Serializable {
      */
     public enum TipoRequisicao {
 
-        LIBERCAO(1, "LiberaÁ„o"),
-        MUDANCA(2, "MudanÁa"),
-        SOLICITACAOSERVICO(3, "SolicitaÁ„o ServiÁo"),
+        LIBERCAO(1, "Libera√ß√£o"),
+        MUDANCA(2, "Mudan√ßa"),
+        SOLICITACAOSERVICO(3, "Solicita√ß√£o Servi√ßo"),
         PROBLEMA(4, "Problema");
 
         private final Integer id;
@@ -1421,22 +1421,22 @@ public class Enumerados implements Serializable {
     }
 
     /**
-     * Enumerado para definir qual aba ser· vinculano na requisiÁ„o.<br>
+     * Enumerado para definir qual aba ser√° vinculano na requisi√ß√£o.<br>
      *
-     * Ex: MÛdulo LiberaÁ„o aba TesteLiberaÁ„o. onde o iframe ir· abri.<br>
+     * Ex: M√≥dulo Libera√ß√£o aba TesteLibera√ß√£o. onde o iframe ir√° abri.<br>
      *
-     * N„o criar outro enumerado adicionar novas abas.
+     * N√£o criar outro enumerado adicionar novas abas.
      *
      * @author maycon.fernandes
      *
      */
     public enum Aba {
 
-        LIBERCAOTESTE(1, "Teste LiberaÁ„o"),
-        LIBERACAOETAPAS(2, "LiberaÁ„o Etapas"),
-        LIBERACAOITEMCONFIGUACAO(3, "LiberaÁ„o Item ConfiguraÁ„o"),
-        LIBERACAOSERVICO(4, "LiberaÁ„o ServiÁo"),
-        MUDANCAGENERICO(5, "Question·rio MudanÁa");
+        LIBERCAOTESTE(1, "Teste Libera√ß√£o"),
+        LIBERACAOETAPAS(2, "Libera√ß√£o Etapas"),
+        LIBERACAOITEMCONFIGUACAO(3, "Libera√ß√£o Item Configura√ß√£o"),
+        LIBERACAOSERVICO(4, "Libera√ß√£o Servi√ßo"),
+        MUDANCAGENERICO(5, "Question√°rio Mudan√ßa");
 
         private final Integer id;
         private final String aba;
@@ -1475,10 +1475,10 @@ public class Enumerados implements Serializable {
 
     public enum ResultadoEntrevista {
 
-        N("N„o avaliada"),
+        N("N√£o avaliada"),
         A("Entrevista com RH"),
         R("Reprovado"),
-        S("2™ Oportunidade"),
+        S("2¬™ Oportunidade"),
         D("Descarte");
 
         private final String descricao;
@@ -1494,7 +1494,7 @@ public class Enumerados implements Serializable {
     }
 
     /**
-     * Enumerados do tipo de movimentaÁ„o financeira do mÛdulo de viagens.
+     * Enumerados do tipo de movimenta√ß√£o financeira do m√≥dulo de viagens.
      *
      * @author ronnie.lopes
      */
@@ -1522,7 +1522,7 @@ public class Enumerados implements Serializable {
     }
 
     /**
-     * Enumerados da classificaÁ„o de movimentaÁ„o financeira do mÛdulo de viagens.
+     * Enumerados da classifica√ß√£o de movimenta√ß√£o financeira do m√≥dulo de viagens.
      *
      * @author ronnie.lopes
      */
@@ -1530,8 +1530,8 @@ public class Enumerados implements Serializable {
 
         Passagem("Passagem", 1),
         Hospedagem("Hospedagem", 2),
-        LocacaoVeiculo("LocaÁ„o VeÌculo", 3),
-        Diaria("Di·ria", 4),
+        LocacaoVeiculo("Loca√ß√£o Ve√≠culo", 3),
+        Diaria("Di√°ria", 4),
         DespesaExtra("Despesa Extra", 5);
 
         private final String descricao;
@@ -1556,9 +1556,9 @@ public class Enumerados implements Serializable {
 
         COMPRA(1, "Compra"),
         VIAGEM(2, "Viagem"),
-        RH(3, "RequisiÁ„o de pessoal"),
+        RH(3, "Requisi√ß√£o de pessoal"),
         INCIDENTE(4, "Incidente"),
-        REQUISICAO(5, "RequisiÁ„o");
+        REQUISICAO(5, "Requisi√ß√£o");
 
         private final Integer identifier;
         private final String descricao;
@@ -1580,8 +1580,8 @@ public class Enumerados implements Serializable {
          * Recupera uma {@link TipoSolicitacaoServico} de acordo com seu identificador
          *
          * @param identifier
-         *            id a ser verificado se h· uma {@link TipoSolicitacaoServico}
-         * @return {@link TipoSolicitacaoServico} caso encontre. {@link IllegalArgumentException}, caso contr·rio
+         *            id a ser verificado se h√° uma {@link TipoSolicitacaoServico}
+         * @return {@link TipoSolicitacaoServico} caso encontre. {@link IllegalArgumentException}, caso contr√°rio
          * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
          * @since 08/10/2014
          */
@@ -1597,7 +1597,7 @@ public class Enumerados implements Serializable {
 
     }
 
-    // M·rio J˙nior - 25/10/2013 19:40 Para Ordem em SolicitaÁ„oServiÁo
+    // M√°rio J√∫nior - 25/10/2013 19:40 Para Ordem em Solicita√ß√£oServi√ßo
     public enum OrdemSolicitacaoServico {
 
         PRAZOLIMITE("dataHoraLimite", "solicitacaoServico.prazoLimite"),
@@ -1711,12 +1711,12 @@ public class Enumerados implements Serializable {
 
     public enum MotivoRejeicaoAlcada {
 
-        LimiteValor("Fora dos limites de aprovaÁ„o"),
-        HierarquiaAutoridade("NÌvel de hierarquia abaixo da hierarquia do solicitante"),
-        PermissaoAutoridade("Autoridade n„o tem permiss„o para aprovar as prÛprias solicitaÁıes"),
-        RegrasProcesso("Regras do processo de negÛcio"),
-        UsuarioNaoExiste("N„o existe um usu·rio ativo associado ao empregado autorizador"),
-        PertenceGrupoAdministrador("Solicitante pertence ao grupo administrador do processo de negÛcio");
+        LimiteValor("Fora dos limites de aprova√ß√£o"),
+        HierarquiaAutoridade("N√≠vel de hierarquia abaixo da hierarquia do solicitante"),
+        PermissaoAutoridade("Autoridade n√£o tem permiss√£o para aprovar as pr√≥prias solicita√ß√µes"),
+        RegrasProcesso("Regras do processo de neg√≥cio"),
+        UsuarioNaoExiste("N√£o existe um usu√°rio ativo associado ao empregado autorizador"),
+        PertenceGrupoAdministrador("Solicitante pertence ao grupo administrador do processo de neg√≥cio");
 
         private final String descricao;
 
@@ -1759,7 +1759,7 @@ public class Enumerados implements Serializable {
     }
 
     /**
-     * Enumerados com os Tipos de Item ConfiguraÁ„o Default de um XML de Invent·rio.
+     * Enumerados com os Tipos de Item Configura√ß√£o Default de um XML de Invent√°rio.
      *
      * @author valdoilo.damasceno
      * @since 19.01.2014
@@ -1799,7 +1799,7 @@ public class Enumerados implements Serializable {
     }
 
     /**
-     * Enumerado com os Nomes de CaracterÌsticas de IdentificaÁ„o.
+     * Enumerado com os Nomes de Caracter√≠sticas de Identifica√ß√£o.
      *
      * @author valdoilo.damasceno
      * @since 19.01.2014

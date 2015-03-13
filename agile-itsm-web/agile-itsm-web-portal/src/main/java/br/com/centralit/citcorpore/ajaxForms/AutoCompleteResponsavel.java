@@ -24,8 +24,8 @@ public class AutoCompleteResponsavel extends AbstractAutoComplete {
     @Override
     public void load(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         if (request.getParameter("query") != null) {
-            final String consulta = new String(request.getParameter("query").getBytes("ISO-8859-1"), "UTF-8");
-            // Corrige o enconding do par‚metro desejado.
+            final String consulta = new String(request.getParameter("query").getBytes("UTF-8"), "UTF-8");
+            // Corrige o enconding do par√¢metro desejado.
 
             final String idContratoStr = request.getParameter("contrato");
             Integer idContrato = null;
@@ -41,7 +41,7 @@ public class AutoCompleteResponsavel extends AbstractAutoComplete {
                 idUnidade = Integer.parseInt(idUnidadeStr);
             }
 
-            /* Criado para permitir filtrar as solicitaÁıes que n„o possuem respons·vel. valdoilo.damasceno */
+            /* Criado para permitir filtrar as solicita√ß√µes que n√£o possuem respons√°vel. valdoilo.damasceno */
             final EmpregadoDTO empregadoSemResponsavel = new EmpregadoDTO();
 
             empregadoSemResponsavel.setNome(UtilI18N.internacionaliza(request, "citsmart.comum.semresponsavel"));
@@ -58,7 +58,7 @@ public class AutoCompleteResponsavel extends AbstractAutoComplete {
             final List<String> listNome = new ArrayList<>();
             final List<Integer> listIdEmpregado = new ArrayList<>();
 
-            /* Criado para permitir filtrar as solicitaÁıes que n„o possuem respons·vel. valdoilo.damasceno */
+            /* Criado para permitir filtrar as solicita√ß√µes que n√£o possuem respons√°vel. valdoilo.damasceno */
             listNome.add(UtilI18N.internacionaliza(request, "citsmart.comum.semresponsavel"));
             listIdEmpregado.add(-1);
 

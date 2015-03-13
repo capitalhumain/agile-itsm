@@ -425,7 +425,7 @@ public class ImportarDados extends AjaxFormAction {
 
             if (importarDadosDTO.getImportarPor().equals("S")) {
 
-                // Recuperar campos da conex„o (ExternalConnectionDTO)
+                // Recuperar campos da conex√£o (ExternalConnectionDTO)
                 ExternalConnectionDTO externalConnectionDTO = new ExternalConnectionDTO();
                 externalConnectionDTO.setIdExternalConnection(importarDadosDTO.getIdExternalConnection());
                 externalConnectionDTO = (ExternalConnectionDTO) externalConnectionService.restore(externalConnectionDTO);
@@ -514,7 +514,7 @@ public class ImportarDados extends AjaxFormAction {
     }
 
     /**
-     * Carrega as tabelas disponiveis na conex„o externa e na conex„o local
+     * Carrega as tabelas disponiveis na conex√£o externa e na conex√£o local
      *
      * @param document
      * @param request
@@ -572,8 +572,8 @@ public class ImportarDados extends AjaxFormAction {
     }
 
     /**
-     * Carrega as tabelas disponiveis na conex„o externa e na conex„o local no metodo restore
-     * (sem a linha de comando ImportarDadosDTO importarDadosDTO = (ImportarDadosDTO) document.getBean() porque o objeto ja È passado como parametro no metodo)
+     * Carrega as tabelas disponiveis na conex√£o externa e na conex√£o local no metodo restore
+     * (sem a linha de comando ImportarDadosDTO importarDadosDTO = (ImportarDadosDTO) document.getBean() porque o objeto ja √© passado como parametro no metodo)
      *
      * @param importarDadosDTO
      * @param document
@@ -905,7 +905,7 @@ public class ImportarDados extends AjaxFormAction {
     }
 
     /**
-     * ValidaÁ„o quando a conex„o for alterada e existir campos cadastrados
+     * Valida√ß√£o quando a conex√£o for alterada e existir campos cadastrados
      *
      * @param document
      * @param request

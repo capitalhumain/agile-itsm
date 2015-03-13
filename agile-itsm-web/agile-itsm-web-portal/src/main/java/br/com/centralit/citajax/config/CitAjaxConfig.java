@@ -37,7 +37,7 @@ public class CitAjaxConfig {
             InputStream citAjaxConfigFile = null;
 
             if (citAjaxConfigFile == null) {
-                LOGGER.debug("CITAJAX -> ConfiguraÁ„o de CitAjaxUtil.CAMINHO_REAL_APP: " + CitAjaxUtil.CAMINHO_REAL_APP);
+                LOGGER.debug("CITAJAX -> Configura√ß√£o de CitAjaxUtil.CAMINHO_REAL_APP: " + CitAjaxUtil.CAMINHO_REAL_APP);
                 try {
                     citAjaxConfigFile = new FileInputStream(CitAjaxUtil.CAMINHO_REAL_APP + "/WEB-INF/citAjax.xml");
                 } catch (final Exception e) {

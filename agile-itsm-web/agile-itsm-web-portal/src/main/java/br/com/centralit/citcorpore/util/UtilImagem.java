@@ -31,7 +31,7 @@ public class UtilImagem {
             return true;
             
         } catch (IOException e) {
-            System.out.println("Imagem "+ urlImagem +" Não encontrada");
+            System.out.println("Imagem "+ urlImagem +" NÃ£o encontrada");
             return false;
         }
 	}

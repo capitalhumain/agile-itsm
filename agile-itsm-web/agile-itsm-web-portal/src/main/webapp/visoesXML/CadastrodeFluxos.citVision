@@ -44,7 +44,7 @@
         <br.com.centralit.citcorpore.metainfo.bean.GrupoVisaoCamposNegocioDTO>
           <idGrupoVisao>26</idGrupoVisao>
           <idCamposObjetoNegocio>986</idCamposObjetoNegocio>
-          <descricaoNegocio>DescriÁ„o do fluxo</descricaoNegocio>
+          <descricaoNegocio>Descri√ß√£o do fluxo</descricaoNegocio>
           <tipoNegocio>TEXT</tipoNegocio>
           <ordem>3</ordem>
           <situacao>A</situacao>
@@ -58,7 +58,7 @@
         <br.com.centralit.citcorpore.metainfo.bean.GrupoVisaoCamposNegocioDTO>
           <idGrupoVisao>26</idGrupoVisao>
           <idCamposObjetoNegocio>987</idCamposObjetoNegocio>
-          <descricaoNegocio>Vis„o</descricaoNegocio>
+          <descricaoNegocio>Vis√£o</descricaoNegocio>
           <tipoNegocio>RELATION</tipoNegocio>
           <ordem>4</ordem>
           <situacao>A</situacao>
@@ -73,12 +73,12 @@
           <idCamposObjetoNegocioLigacao>959</idCamposObjetoNegocioLigacao>
           <idCamposObjetoNegocioLigacaoVinc>957</idCamposObjetoNegocioLigacaoVinc>
           <idCamposObjetoNegocioLigacaoOrder>959</idCamposObjetoNegocioLigacaoOrder>
-          <descricaoRelacionamento>Vis„o</descricaoRelacionamento>
+          <descricaoRelacionamento>Vis√£o</descricaoRelacionamento>
         </br.com.centralit.citcorpore.metainfo.bean.GrupoVisaoCamposNegocioDTO>
         <br.com.centralit.citcorpore.metainfo.bean.GrupoVisaoCamposNegocioDTO>
           <idGrupoVisao>26</idGrupoVisao>
           <idCamposObjetoNegocio>988</idCamposObjetoNegocio>
-          <descricaoNegocio>Conte˙do</descricaoNegocio>
+          <descricaoNegocio>Conte√∫do</descricaoNegocio>
           <tipoNegocio>TEXTAREA</tipoNegocio>
           <ordem>5</ordem>
           <situacao>A</situacao>

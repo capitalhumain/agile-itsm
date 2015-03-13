@@ -7,7 +7,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- * Classe de testes para validar comportamento de utilit·rios de
+ * Classe de testes para validar comportamento de utilit√°rios de
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 28/10/2014

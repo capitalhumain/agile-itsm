@@ -48,7 +48,7 @@ public class ImportanciaNegocioServiceEjb extends CrudServiceImpl implements Imp
     }
 
     /**
-     * Metodo reponsavel por verificar se existe um vinculo entre Inmportancia Negocio e Cadastro de Serviço
+     * Metodo reponsavel por verificar se existe um vinculo entre Inmportancia Negocio e Cadastro de ServiÃ§o
      *
      * @param idImportanciaNegocio
      * @author Ezequiel Bispo Nunes

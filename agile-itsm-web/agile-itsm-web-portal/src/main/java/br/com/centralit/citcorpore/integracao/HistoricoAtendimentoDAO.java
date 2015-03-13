@@ -16,7 +16,7 @@ import br.com.citframework.util.Constantes;
 import br.com.citframework.util.UtilDatas;
 
 /**
- * DAO para recuperação de informação de {@link HistoricoAtendimentoDTO}
+ * DAO para recuperaÃ§Ã£o de informaÃ§Ã£o de {@link HistoricoAtendimentoDTO}
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 12/11/2014

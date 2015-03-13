@@ -36,7 +36,7 @@ function Sequencia(_context, origem, destino){
 	// GETTERS & SETTERS
 	/**
 	 * Retorna o caminho da imagem com o nome da pasta
-	 * raiz + o nome do tipo de item configuração.
+	 * raiz + o nome do tipo de item configuraÃ§Ã£o.
 	 */
 	this.getCaminhoImagem = function(){
 		return pastaImagens + this.caminhoImagem;

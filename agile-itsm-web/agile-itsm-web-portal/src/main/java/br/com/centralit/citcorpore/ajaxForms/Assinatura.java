@@ -52,7 +52,7 @@ public class Assinatura extends AjaxFormAction {
 	AssinaturaDTO assinaturaDTO = (AssinaturaDTO) document.getBean();
 	AssinaturaService assinaturaService = (AssinaturaService) ServiceLocator.getInstance().getService(AssinaturaService.class,null);
 
-	// H· possibilidade de o usu·rio desejar uma assinatura sem empregado.
+	// H√° possibilidade de o usu√°rio desejar uma assinatura sem empregado.
 	if ((assinaturaDTO.getIdEmpregado() != null)
 		&& (assinaturaDTO.getIdEmpregado().equals(0))) {
 	    assinaturaDTO.setIdEmpregado(null);

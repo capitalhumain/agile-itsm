@@ -1,5 +1,7 @@
-<!-- Thiago Fernandes - 29/10/2013 - 18:49 - Sol. 121468 - Criação de Upload para requisição mudança para evitar conflitos com outras telas do sistema que usão upload.  -->
-<!-- Esta página realiza apenas a listagens dos uploads -->
+<!-- Thiago Fernandes - 29/10/2013 - 18:49 - Sol. 121468 - CriaÃ§Ã£o de Upload para requisiÃ§Ã£o mudanÃ§a para evitar conflitos com outras telas do sistema que usÃ£o upload.  -->
+<!-- Esta pÃ¡gina realiza apenas a listagens dos uploads -->
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%@page import="br.com.centralit.citged.bean.ControleGEDDTO"%>
 <%@page import="br.com.centralit.citcorpore.bean.UploadDTO"%>

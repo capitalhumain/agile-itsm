@@ -29,7 +29,7 @@ public interface UnidadeService extends CrudService {
     boolean jaExisteUnidadeComMesmoNome(final UnidadeDTO unidade);
 
     /**
-     * Metodo pra fazer a exclus„o lÛgica de Unidade
+     * Metodo pra fazer a exclus√£o l√≥gica de Unidade
      *
      * @param model
      * @param document
@@ -40,7 +40,7 @@ public interface UnidadeService extends CrudService {
     void deletarUnidade(final BaseEntity model, final DocumentHTML document, final HttpServletRequest request) throws ServiceException, Exception;
 
     /**
-     * Restaura GRID de ServiÁos.
+     * Restaura GRID de Servi√ßos.
      *
      * @author rodrigo.oliveira
      */
@@ -54,7 +54,7 @@ public interface UnidadeService extends CrudService {
 
     /**
 	 * @author euler.ramos
-	 * … importante que esta lista se mantenha ordenando os nÛs na hierarquia, seguindo a oirentaÁ„o de nÛs pai para os nÛs filhos
+	 * √â importante que esta lista se mantenha ordenando os n√≥s na hierarquia, seguindo a oirenta√ß√£o de n√≥s pai para os n√≥s filhos
 	 * @param unidadeDTO
 	 * @return
 	 * @throws Exception
@@ -66,14 +66,14 @@ public interface UnidadeService extends CrudService {
     Collection findByIdEcontrato(final Integer idUnidade, final Integer idContrato) throws Exception;
 
     /**
-     * Atualiza as coordenadas geogr·ficas de uma unidade
+     * Atualiza as coordenadas geogr√°ficas de uma unidade
      *
      * @param locale
-     *            locale para recuperaÁ„o de mensagem internacionalizada
+     *            locale para recupera√ß√£o de mensagem internacionalizada
      * @param unidade
      *            unidade contendo os valores das coordenadas para serem atualizadas
      * @throws ServiceException
-     *             caso os atributos estejam nulos ou n„o seja valores v·lidos
+     *             caso os atributos estejam nulos ou n√£o seja valores v√°lidos
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      * @since 22/09/2014
      */
@@ -81,12 +81,12 @@ public interface UnidadeService extends CrudService {
 
     /**
 	 * @author euler.ramos
-	 * @param nome - Nome da Unidade - Se for Null ou Vazio o sistema trar· todas as unidades independentemente do nome 
-	 * @param idContrato - Para filtrar apenas as unidades vinculadas ao contrato - Se for Null ou Vazio o sistema n„o filtrar· por contrato
-	 * @param idUnidadeColaborador - Trazer apenas a ·rvore de unidades referente ao colaborador, conforme a hierarquia
-	 * @param tipoHierarquia - se haver· restriÁ„o dos nÛs da ·rvore ou como ser· a orientaÁ„o dos nÛs retornados 
-	 * @param limite - Limite do n˙mero de registros que podem ser retornados na pesquisa do banco; Para n„o limitar a consulta informe Null ou 0 (Zero);  
-	 * @return ¡rvore das unidades, de acordo com a pesquisa e configuraÁ„o dos par‚metros
+	 * @param nome - Nome da Unidade - Se for Null ou Vazio o sistema trar√° todas as unidades independentemente do nome 
+	 * @param idContrato - Para filtrar apenas as unidades vinculadas ao contrato - Se for Null ou Vazio o sistema n√£o filtrar√° por contrato
+	 * @param idUnidadeColaborador - Trazer apenas a √°rvore de unidades referente ao colaborador, conforme a hierarquia
+	 * @param tipoHierarquia - se haver√° restri√ß√£o dos n√≥s da √°rvore ou como ser√° a orienta√ß√£o dos n√≥s retornados 
+	 * @param limite - Limite do n√∫mero de registros que podem ser retornados na pesquisa do banco; Para n√£o limitar a consulta informe Null ou 0 (Zero);  
+	 * @return √Årvore das unidades, de acordo com a pesquisa e configura√ß√£o dos par√¢metros
 	 * @throws ServiceException
 	 * @throws Exception
 	 */

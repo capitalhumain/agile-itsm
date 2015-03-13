@@ -67,7 +67,7 @@ public class NetDiscover implements Runnable {
 						listaVmapFiles.add(caminhoNetMap + "nmapFile" + i);
 						i++;
 					} catch (final IOException er) {
-						throw new LogicException("Par‚mentro de ConfiguraÁ„o do Caminho nmap inv·lido");
+						throw new LogicException("Par√¢mentro de Configura√ß√£o do Caminho nmap inv√°lido");
 					}
 				}
 				// Pega Arquivo Gerado pelo nmap
@@ -92,7 +92,7 @@ public class NetDiscover implements Runnable {
 								arq = new Scanner(arqv);
 							}
 						}
-						// Chama metodo que ir· fazer leitura de arquivo nmap
+						// Chama metodo que ir√° fazer leitura de arquivo nmap
 						// Pegar lista Preenchida pelo metodo netDiscover
 						listaRetorno.addAll(this.readFile(arqv));
 						arq.close();
@@ -100,7 +100,7 @@ public class NetDiscover implements Runnable {
 				}
 
 			} else {
-				throw new LogicException("Par‚mentro de ConfiguraÁ„o de DiretÛrio Arquivo NetMap n„o Encontrado");
+				throw new LogicException("Par√¢mentro de Configura√ß√£o de Diret√≥rio Arquivo NetMap n√£o Encontrado");
 			}
 
 		} catch (final Exception e) {
@@ -123,9 +123,9 @@ public class NetDiscover implements Runnable {
 			while (arq.hasNext()) {
 				final String linha = arq.nextLine();
 				if (linha.length() > 0) {
-					// Identifica se È o final do arquivo
+					// Identifica se √© o final do arquivo
 					if (!linha.substring(0, 11).equalsIgnoreCase("# Nmap done")) {
-						// Verifica se È ip
+						// Verifica se √© ip
 						if (linha.substring(0, 9).equalsIgnoreCase("Nmap scan")) {
 							this.getNetMapDto();
 
@@ -200,7 +200,7 @@ public class NetDiscover implements Runnable {
 
 				}
 			} else {
-				System.out.println("N„o foi encontrado IP na rede!");
+				System.out.println("N√£o foi encontrado IP na rede!");
 			}
 		} catch (final Exception e) {
 			System.out.println("Problema ao gravar dados NetMap: " + e.getMessage());
@@ -235,11 +235,11 @@ public class NetDiscover implements Runnable {
 			if (faixaIp.trim().indexOf(";") != -1) {
 				arrayIp = faixaIp.split(";");
 			} else {
-				throw new LogicException("Par‚mentro de ConfiguraÁ„o de Faixa de IP inv·lido");
+				throw new LogicException("Par√¢mentro de Configura√ß√£o de Faixa de IP inv√°lido");
 			}
 			return arrayIp;
 		} else {
-			System.out.println("Caminho Nmap n„o definida em Par‚metro de Sistema 'Faixa Ip'!");
+			System.out.println("Caminho Nmap n√£o definida em Par√¢metro de Sistema 'Faixa Ip'!");
 		}
 		return null;
 	}

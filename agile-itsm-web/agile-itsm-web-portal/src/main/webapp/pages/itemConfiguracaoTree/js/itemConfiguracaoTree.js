@@ -121,7 +121,7 @@ $(function() {
 				
 	initPopups();
 
-	//para visualiza��o r�pida do mapaDesenhoServico
+	//para visualizaï¿½ï¿½o rï¿½pida do mapaDesenhoServico
 	popupManager = new PopupManager(0 , 0, URL_INITIAL + "/pages/");
 	//solicitcaoservico
 	popupManagerSolicitacaoServico = new PopupManager(0 , 0, URL_INITIAL + "/pages/");
@@ -498,7 +498,7 @@ function showRelacionamentos(){
 	$("#relacionamentos").show();
 }
 /**
-* Fun��o para fechar modal de nova solicita��o
+* Funï¿½ï¿½o para fechar modal de nova solicitaï¿½ï¿½o
 * @autor flavio.santana
 * 25/10/2013 10:50
 */
@@ -542,7 +542,7 @@ function fecharFrameProblema(){
 	$("#POPUP_EDITARPROBLEMA").dialog("close");
 }
 /**
-* Fun��es essenciais para funcionamento do cadastro de nova solicita��o	
+* Funï¿½ï¿½es essenciais para funcionamento do cadastro de nova solicitaï¿½ï¿½o	
 * @autor flavio.santana
 * 25/10/2013 10:50
 */
@@ -579,7 +579,7 @@ getCaracteristica = function(seq) {
 	var CaracteristicaDTO = new CIT_CaracteristicaDTO();
 	CaracteristicaDTO.sequencia = seq;
 	
-	/*Motido: Retirado por efeitos negativos em rela��o a seu uso
+	/*Motido: Retirado por efeitos negativos em relaï¿½ï¿½o a seu uso
 	* Autor: flavio.santana
 	* Data/Hora: 02/11/2013 13:26
 	*/
@@ -641,7 +641,7 @@ serializaBaseline = function() {
 getbaseline = function(seq) {
 	var HistoricoItemConfiguracaoDTO = new CIT_HistoricoItemConfiguracaoDTO();
 	HistoricoItemConfiguracaoDTO.sequencia = seq;
-	/*Motido: Retirado por efeitos negativos em rela��o a seu uso
+	/*Motido: Retirado por efeitos negativos em relaï¿½ï¿½o a seu uso
 	* Autor: flavio.santana
 	* Data/Hora: 02/11/2013 13:26
 	*/
@@ -676,7 +676,7 @@ function fecharPopupGrupo(){
 /*
  * Autor: Edu Rodrigues Braz	
  * Data:01/04/2014
- * Descri��o: limpar toda a aba de auditoria incluindo a tabela
+ * Descriï¿½ï¿½o: limpar toda a aba de auditoria incluindo a tabela
  */
 function limparDadosAuditoria(){
 	limparTabelas("tblHistoricoAlteracao");
@@ -777,7 +777,7 @@ function restoreRow() {
 var seqSelecionada = '';
 function setRestoreCaracteristica(idCaracteristica, caracteristica, tag, valorString, descricao, idEmpresa, dataInicio, dataFim) {
 	if (seqSelecionada != '') {
-		/*Motido: Retirado por efeitos negativos em rela��o a seu uso
+		/*Motido: Retirado por efeitos negativos em relaï¿½ï¿½o a seu uso
 		* Autor: flavio.santana
 		* Data/Hora: 02/11/2013 13:26
 		*/
@@ -787,7 +787,7 @@ function setRestoreCaracteristica(idCaracteristica, caracteristica, tag, valorSt
 		$('#descricao' + seqSelecionada).text(ObjectUtils.decodificaEnter(descricao));
 		$('#valorString' + seqSelecionada).val(valorString);
 		
-		/*Motido: Retirado por efeitos negativos em rela��o a seu uso
+		/*Motido: Retirado por efeitos negativos em relaï¿½ï¿½o a seu uso
 		* Autor: flavio.santana
 		* Data/Hora: 02/11/2013 13:26
 		*/

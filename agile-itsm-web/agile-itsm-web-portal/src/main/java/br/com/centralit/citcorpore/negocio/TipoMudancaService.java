@@ -12,10 +12,10 @@ public interface TipoMudancaService extends CrudService {
 
     void deleteByIdTipoMudanca(final Integer parm) throws Exception;
 
-    // método baseado em categoriaMudanca
+    // mÃ©todo baseado em categoriaMudanca
     // public Collection findByIdTipoMudancaPai(Integer parm) throws Exception;
 
-    // método baseado em categoriaMudanca
+    // mÃ©todo baseado em categoriaMudanca
     // public void deleteByIdTipoMudancaPai(Integer parm) throws Exception;
 
     Collection findByNomeTipoMudanca(final Integer parm) throws Exception;

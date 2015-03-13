@@ -111,10 +111,10 @@ public class AcordoNivelServicoHistoricoDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * MÈtodo para retornar os serviÁos que possuem o SLA selecionado j· copiado, para ser tratado evitando duplicaÁ„o de SLA.
+	 * M√©todo para retornar os servi√ßos que possuem o SLA selecionado j√° copiado, para ser tratado evitando duplica√ß√£o de SLA.
 	 * 
 	 * @param titulo do SLA selecionado
-	 * @return retorna os serviÁos que possuem o SLA selecionado
+	 * @return retorna os servi√ßos que possuem o SLA selecionado
 	 * @throws Exception
 	 * @author rodrigo.oliveira
 	 */
@@ -138,10 +138,10 @@ public class AcordoNivelServicoHistoricoDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * MÈtodo para verificar se existe cadastrado um cadastro o mesmo nome.
+	 * M√©todo para verificar se existe cadastrado um cadastro o mesmo nome.
 	 * 
 	 * @param String tituloSLA
-	 * @return true se o nome exisite e false se n„o existir
+	 * @return true se o nome exisite e false se n√£o existir
 	 * @throws Exception
 	 * @author rodrigo.oliveira
 	 */

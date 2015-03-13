@@ -75,7 +75,7 @@ function valida(){
 		document.getElementById('idServico').value='0';
 	}
 /*
-   N„o est· validando porque ainda precisamos criar uma estrutura para validar a data na internacionalizaÁ„o
+   N√£o est√° validando porque ainda precisamos criar uma estrutura para validar a data na internacionaliza√ß√£o
   	if (!DateTimeUtil.isValidDate(document.getElementById('dataInicial').value)){
 		alert(i18n_message("citcorpore.comum.datainvalida"));
 		return false;

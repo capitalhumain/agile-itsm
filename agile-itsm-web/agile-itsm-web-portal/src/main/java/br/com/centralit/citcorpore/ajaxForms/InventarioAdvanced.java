@@ -225,7 +225,7 @@ public class InventarioAdvanced extends AjaxFormAction {
 
 		/*	} catch (Exception e) {
 			System.out.println("Problema ao pesquisar lista de IPs: " + e.getMessage());
-			doc.alert("Problema ao pesquisar lista de IPs, confira os par‚mentros do sistema.");
+			doc.alert("Problema ao pesquisar lista de IPs, confira os par√¢mentros do sistema.");
 			e.printStackTrace();
 		}*/
 		return listnetMap;
@@ -304,7 +304,7 @@ public class InventarioAdvanced extends AjaxFormAction {
 							dados.append("<br>Up time:" + netMapDTO.getUptime());
 						}
 						if (!memorias.equalsIgnoreCase("")){
-							dados.append("<br><b>MemÛria: </b><br>" + memorias);
+							dados.append("<br><b>Mem√≥ria: </b><br>" + memorias);
 						}
 						if (!storages.equalsIgnoreCase("")){
 							dados.append("<br><b>Storages: </b><br>" + storages);
@@ -333,7 +333,7 @@ public class InventarioAdvanced extends AjaxFormAction {
 							dados.append("<br>Up time:" + netMapDTO.getUptime());
 						}
 						if (!memorias.equalsIgnoreCase("")){
-							dados.append("<br><b>MemÛria: </b><br>" + memorias);
+							dados.append("<br><b>Mem√≥ria: </b><br>" + memorias);
 						}
 						if (!storages.equalsIgnoreCase("")){
 							dados.append("<br><b>Storages: </b><br>" + storages);
@@ -358,7 +358,7 @@ public class InventarioAdvanced extends AjaxFormAction {
 							dados.append("<br>Up time:" + netMapDTO.getUptime());
 						}
 						if (!memorias.equalsIgnoreCase("")){
-							dados.append("<br><b>MemÛria: </b><br>" + memorias);
+							dados.append("<br><b>Mem√≥ria: </b><br>" + memorias);
 						}
 						if (!storages.equalsIgnoreCase("")){
 							dados.append("<br><b>Storages: </b><br>" + storages);
@@ -420,7 +420,7 @@ public class InventarioAdvanced extends AjaxFormAction {
 			vazio = false;
 		}
 		if (!memorias.equalsIgnoreCase("")){
-			dados.append("<br><b>MemÛria: </b><br>" + memorias);
+			dados.append("<br><b>Mem√≥ria: </b><br>" + memorias);
 			vazio = false;
 		}
 		if (!storages.equalsIgnoreCase("")){
@@ -428,7 +428,7 @@ public class InventarioAdvanced extends AjaxFormAction {
 			vazio = false;
 		}
 		if (vazio){
-			dados.append("<b>N„o h· informaÁıes.</b>");
+			dados.append("<b>N√£o h√° informa√ß√µes.</b>");
 		}
 		dados.append("</div> ");
 		dados.append("</td></tr>");
@@ -614,7 +614,7 @@ public class InventarioAdvanced extends AjaxFormAction {
 	}
 
 	/**
-	 * Verifica quais ips Est„o Ativos e seta CHECKED
+	 * Verifica quais ips Est√£o Ativos e seta CHECKED
 	 *
 	 * @param lstPesquisa
 	 *            NetMapDTO

@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.CitCorporeConstantes"%>
 <%@page import="br.com.centralit.citcorpore.versao.Versao" %>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
@@ -469,9 +471,7 @@
             <!-- Inicio Rodape -->
             <% if(request.getParameter("iframe") == null) { %>
             <div id="footer" class="hidden-print">
-                <!-- Copyright Line -->
-                <div class="copy">© 2014 - <a target="_blank" href="http://www.citsmart.com.br"><fmt:message key="citcorpore.comum.title" /></a> - <fmt:message key="citcorpore.todosDireitosReservados" /> - <fmt:message key="login.versao" /> <b><%=Versao.getDataAndVersao()%> </div>
-                <!-- End Copyright Line -->
+                <div class="copy">Â© 2014 - <a target="_blank" href="http://www.citsmart.com.br"><fmt:message key="citcorpore.comum.title" /></a> - <fmt:message key="citcorpore.todosDireitosReservados" /> - <fmt:message key="login.versao" /> <b><%=Versao.getDataAndVersao()%> </div>
             </div>
             <% } %>
 

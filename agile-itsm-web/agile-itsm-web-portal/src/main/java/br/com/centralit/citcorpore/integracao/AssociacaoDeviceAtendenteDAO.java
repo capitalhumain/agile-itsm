@@ -14,7 +14,7 @@ import br.com.citframework.integracao.Order;
 import br.com.citframework.util.Constantes;
 
 /**
- * DAO para persistÍncia de {@link AssociacaoDeviceAtendenteDTO}
+ * DAO para persist√™ncia de {@link AssociacaoDeviceAtendenteDTO}
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 15/11/2014
@@ -51,11 +51,11 @@ public class AssociacaoDeviceAtendenteDAO extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Lista {@link AssociacaoDeviceAtendenteDTO} ativos de mesmo token, conex„o, device e usu·rio
+     * Lista {@link AssociacaoDeviceAtendenteDTO} ativos de mesmo token, conex√£o, device e usu√°rio
      *
      * @param associacao
      *            {@link AssociacaoDeviceAtendenteDTO} contendo os dados
-     * @return {@link AssociacaoDeviceAtendenteDTO} dever· ser apenas um
+     * @return {@link AssociacaoDeviceAtendenteDTO} dever√° ser apenas um
      * @throws Exception
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      * @date 17/11/2014
@@ -96,13 +96,13 @@ public class AssociacaoDeviceAtendenteDAO extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Lista {@link AssociacaoDeviceAtendenteDTO} ativas de acordo com o usu·rio informado
+     * Lista {@link AssociacaoDeviceAtendenteDTO} ativas de acordo com o usu√°rio informado
      *
      * @param usuario
-     *            usu·rio para o qual ser„o listadas as associaÁıes
+     *            usu√°rio para o qual ser√£o listadas as associa√ß√µes
      * @param connection
-     *            "conex„o" no mobile, que È a URI acessada
-     * @return lista de {@link AssociacaoDeviceAtendenteDTO} ativas do usu·rio
+     *            "conex√£o" no mobile, que √© a URI acessada
+     * @return lista de {@link AssociacaoDeviceAtendenteDTO} ativas do usu√°rio
      * @throws Exception
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      * @date 17/11/2014

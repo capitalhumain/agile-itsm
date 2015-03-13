@@ -39,7 +39,7 @@ public class EventoItemConfigRelDTO extends BaseEntity {
 	}
 
 	/**
-	 * Gerado para comparar se tem Item de configuração repetido na lista de disparo de evento
+	 * Gerado para comparar se tem Item de configuraÃ§Ã£o repetido na lista de disparo de evento
 	 */
 	@Override
 	public boolean equals(Object obj) {

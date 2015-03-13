@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 import org.apache.commons.lang.StringUtils;
 
 /**
- * Classe que encapsula a recuperaÁ„o de valores do {@link Properties} {@code Constantes.properties}
+ * Classe que encapsula a recupera√ß√£o de valores do {@link Properties} {@code Constantes.properties}
  */
 public final class Constantes {
 
@@ -33,11 +33,11 @@ public final class Constantes {
     }
 
     /**
-     * Recupera, diretamente do arquivo de propriedades, valor associado ‡ chave passada como argumento
+     * Recupera, diretamente do arquivo de propriedades, valor associado √† chave passada como argumento
      *
      * @param key
      *            chave a ser pesquisada no arquivo de propriedades
-     * @return valor associado ‡ key, caso encontrado, {@code null}, caso contr·rio
+     * @return valor associado √† key, caso encontrado, {@code null}, caso contr√°rio
      */
     public static String getValue(final String key) {
         String result = null;
@@ -50,13 +50,13 @@ public final class Constantes {
     }
 
     /**
-     * Recupera, diretamente do arquivo de propriedades, valor associado ‡ chave passada como argumento
+     * Recupera, diretamente do arquivo de propriedades, valor associado √† chave passada como argumento
      *
      * @param key
      *            chave a ser pesquisada no arquivo de propriedades
      * @param defaultValue
-     *            valor padr„o de uma chave, caso a chave n„o seja encontrada, seja nula ou vazia
-     * @return valor associado ‡ key, caso encontrado, {@code null}, caso contr·rio
+     *            valor padr√£o de uma chave, caso a chave n√£o seja encontrada, seja nula ou vazia
+     * @return valor associado √† key, caso encontrado, {@code null}, caso contr√°rio
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      */
     public static String getValue(final String key, final String defaultValue) {
@@ -65,11 +65,11 @@ public final class Constantes {
     }
 
     /**
-     * Recupera, diretamente do arquivo de propriedades, valor associado ‡ chave passada como argumento
+     * Recupera, diretamente do arquivo de propriedades, valor associado √† chave passada como argumento
      *
      * @param key
      *            chave a ser pesquisada no arquivo de propriedades
-     * @return valor associado ‡ key, caso encontrado, {@code null}, caso contr·rio
+     * @return valor associado √† key, caso encontrado, {@code null}, caso contr√°rio
      */
     public static String getValueFromProperties(final String key) {
         if (props == null) {
@@ -79,13 +79,13 @@ public final class Constantes {
     }
 
     /**
-     * Recupera, diretamente do arquivo de propriedades, valor associado ‡ chave passada como argumento
+     * Recupera, diretamente do arquivo de propriedades, valor associado √† chave passada como argumento
      *
      * @param key
      *            chave a ser pesquisada no arquivo de propriedades
      * @param defaultValue
-     *            valor padr„o de uma chave, caso a chave n„o seja encontrada, seja nula ou vazia
-     * @return valor associado ‡ key, caso encontrado, {@code null}, caso contr·rio
+     *            valor padr√£o de uma chave, caso a chave n√£o seja encontrada, seja nula ou vazia
+     * @return valor associado √† key, caso encontrado, {@code null}, caso contr√°rio
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      */
     public static String getValueFromProperties(final String key, final String defaultValue) {

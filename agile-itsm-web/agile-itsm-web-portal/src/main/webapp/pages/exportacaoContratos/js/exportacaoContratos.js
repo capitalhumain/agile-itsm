@@ -10,7 +10,7 @@ function submitForm (f) {
 	//document.f.submit();
 }
 
-//Atualiza informações da página de acordo com o contrato selecionado.
+//Atualiza informaÃ§Ãµes da pÃ¡gina de acordo com o contrato selecionado.
 $("#idContrato").on("change", function() {
 	var idContrato = $(this).attr("value");
 	

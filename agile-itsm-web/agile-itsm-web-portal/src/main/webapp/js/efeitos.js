@@ -1,6 +1,6 @@
-/* Este arquivo contÈm funÁıes para efeitos gr·ficos jqueryui */
+/* Este arquivo cont√©m fun√ß√µes para efeitos gr√°ficos jqueryui */
 
-// FunÁ„o respons·vel por dar efeito tab no elemento tab do jqueryui
+// Fun√ß√£o respons√°vel por dar efeito tab no elemento tab do jqueryui
 // Para funcionar as tabs devem estar dentro de um container com
 // id="effect"
 // Exemplo em http://jqueryui.com/demos/tabs/
@@ -10,13 +10,13 @@ $(function() {
 });
 
 
-// FunÁ„o respons·vel por estilizar botıes e links segundo o tema jqueryui
+// Fun√ß√£o respons√°vel por estilizar bot√µes e links segundo o tema jqueryui
 // Para funcionar os elements devem estar dentro de um container com
 // class = "demo"
 // Exemplo em http://jqueryui.com/demos/button/
 $(function() {
 	$( "input:button, input:submit, input:reset, button", ".demo" ).button();
-	// alguns estilos css s„o definidos aqui pois a funÁ„o button
+	// alguns estilos css s√£o definidos aqui pois a fun√ß√£o button
 	// sobrescreve alguns estilos como color, font-size, ...
 	$( "input:button, input:submit, input:reset, button", ".demo" ).css({
 		'padding' : '3px 10px',
@@ -27,7 +27,7 @@ $(function() {
 	});
 });
 
-// FunÁ„o que aumenta o wrap para o tamanho da tela caso ele seja menor que a mesma
+// Fun√ß√£o que aumenta o wrap para o tamanho da tela caso ele seja menor que a mesma
 $(function(){
 	var window_height = $(window).height();
 	var wrap_height = $("#wrap").height();
@@ -38,7 +38,7 @@ $(function(){
 	});
 });
 
-// FunÁ„o que permite o efeito accordion
+// Fun√ß√£o que permite o efeito accordion
 // Exemplo em http://jqueryui.com/demos/accordion/
 
 $(function() {

@@ -23,7 +23,7 @@ import br.com.citframework.util.UtilDatas;
 import br.com.citframework.util.UtilI18N;
 
 /**
- * @author breno.guimaraes Controla as transações para manipulação de Emails.
+ * @author breno.guimaraes Controla as transaÃ§Ãµes para manipulaÃ§Ã£o de Emails.
  *
  */
 @SuppressWarnings({ "rawtypes", "unused" })
@@ -108,7 +108,7 @@ public class ClienteEmailCentralServico extends AjaxFormAction {
 			            document.getElementById("messageId").setValue(clienteEmailCentralServicoDTO.getEmailMessageId());
 			            document.executeScript("setDescricao('" + message.getMessageContent() + "');");
 
-						//Se for empregado irá setar o restante das informações
+						//Se for empregado irÃ¡ setar o restante das informaÃ§Ãµes
 						EmpregadoService empregadoService = (EmpregadoService) ServiceLocator.getInstance().getService(EmpregadoService.class, null);
 						EmpregadoDTO empregadoDTO = new EmpregadoDTO();
 						empregadoDTO = empregadoService.listEmpregadoContrato(clienteEmailCentralServicoDTO.getIdContrato(), message.getMessageEmail());

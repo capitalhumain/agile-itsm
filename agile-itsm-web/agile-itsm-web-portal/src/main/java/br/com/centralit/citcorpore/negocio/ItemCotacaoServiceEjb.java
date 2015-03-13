@@ -54,12 +54,12 @@ public class ItemCotacaoServiceEjb extends CrudServiceImpl implements ItemCotaca
         cotacaoDto.setIdCotacao(itemCotacaoDto.getIdCotacao());
         cotacaoDto = (CotacaoDTO) new CotacaoDao().restore(cotacaoDto);
         if (!cotacaoDto.getSituacao().equals(SituacaoCotacao.EmAndamento.name())) {
-            throw new LogicException("A situaÁ„o da cotaÁ„o n„o permite a exclus„o do item.");
+            throw new LogicException("A situa√ß√£o da cota√ß√£o n√£o permite a exclus√£o do item.");
         }
 
         final Collection colItens = new ColetaPrecoDao().findByIdItemCotacao(itemCotacaoDto.getIdItemCotacao());
         if (colItens != null && !colItens.isEmpty()) {
-            throw new LogicException("Exclus„o n„o permitida. Existe pelo menos uma coleta de preÁos associada ao item de cotaÁ„o.");
+            throw new LogicException("Exclus√£o n√£o permitida. Existe pelo menos uma coleta de pre√ßos associada ao item de cota√ß√£o.");
         }
     }
 
@@ -70,8 +70,8 @@ public class ItemCotacaoServiceEjb extends CrudServiceImpl implements ItemCotaca
             if (itensCotacao != null) {
                 final ItemRequisicaoProdutoDao itemRequisicaoDao = new ItemRequisicaoProdutoDao();
                 for (final ItemCotacaoDTO itemCotacaoDto : itensCotacao) {
-                    itemCotacaoDto.getMensagensFmtHTML(); // SÛ para atualizar o atributo
-                    itemCotacaoDto.getImagem(); // SÛ para atualizar o atributo
+                    itemCotacaoDto.getMensagensFmtHTML(); // S√≥ para atualizar o atributo
+                    itemCotacaoDto.getImagem(); // S√≥ para atualizar o atributo
                     String solicitacoes = "";
                     final Collection<ItemRequisicaoProdutoDTO> itensRequisicao = itemRequisicaoDao.findByIdItemCotacao(itemCotacaoDto.getIdItemCotacao());
                     if (itensRequisicao != null) {
@@ -125,7 +125,7 @@ public class ItemCotacaoServiceEjb extends CrudServiceImpl implements ItemCotaca
     public ItemCotacaoDTO create(final UsuarioDTO usuario, ItemCotacaoDTO itemCotacaoDto, final List<ItemRequisicaoProdutoDTO> itensRequisicao, final TransactionControler tc)
             throws Exception {
         if (itemCotacaoDto.getIdCategoriaProduto() == null) {
-            throw new Exception("Categoria do produto n„o foi informada");
+            throw new Exception("Categoria do produto n√£o foi informada");
         }
 
         String exigeFornecedorQualificado = "N";
@@ -257,7 +257,7 @@ public class ItemCotacaoServiceEjb extends CrudServiceImpl implements ItemCotaca
 
         try {
             if (colColetas == null || colColetas.isEmpty()) {
-                colMensagens.add(new MensagemRegraNegocioDTO(MensagemRegraNegocioDTO.ERRO, "Nenhuma coleta de preÁos cadastrada"));
+                colMensagens.add(new MensagemRegraNegocioDTO(MensagemRegraNegocioDTO.ERRO, "Nenhuma coleta de pre√ßos cadastrada"));
                 resultado = ResultadoValidacao.E;
                 return;
             }
@@ -282,12 +282,12 @@ public class ItemCotacaoServiceEjb extends CrudServiceImpl implements ItemCotaca
             }
 
             if (qtde > itemCotacaoDto.getQuantidade().doubleValue()) {
-                colMensagens.add(new MensagemRegraNegocioDTO(MensagemRegraNegocioDTO.ERRO, "Quantidade para compra È maior que a quantidade solicitada"));
+                colMensagens.add(new MensagemRegraNegocioDTO(MensagemRegraNegocioDTO.ERRO, "Quantidade para compra √© maior que a quantidade solicitada"));
                 resultado = ResultadoValidacao.E;
             }
 
             if (!bEmpate && qtde < itemCotacaoDto.getQuantidade().doubleValue()) {
-                colMensagens.add(new MensagemRegraNegocioDTO(MensagemRegraNegocioDTO.AVISO, "Quantidade para compra È menor que a quantidade solicitada"));
+                colMensagens.add(new MensagemRegraNegocioDTO(MensagemRegraNegocioDTO.AVISO, "Quantidade para compra √© menor que a quantidade solicitada"));
                 if (resultado.equals(ResultadoValidacao.V)) {
                     resultado = ResultadoValidacao.A;
                 }

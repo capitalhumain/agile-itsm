@@ -40,7 +40,7 @@ public class TipoServicoDao extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * ObtÈm o nome da tabela a ser usada no banco de dados.
+	 * Obt√©m o nome da tabela a ser usada no banco de dados.
 	 */
 	public String getTableName() {
 		return "TIPOSERVICO";
@@ -70,10 +70,10 @@ public class TipoServicoDao extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Verifica se tipo serviÁo.
+	 * Verifica se tipo servi√ßo.
 	 *
 	 * @param tipoServicoDTO
-	 * @return true - existe; false - n„o existe;
+	 * @return true - existe; false - n√£o existe;
 	 * @throws PersistenceException
 	 */
 	public boolean verificarSeTipoServicoExiste(TipoServicoDTO tipoServicoDTO) throws PersistenceException {
@@ -100,7 +100,7 @@ public class TipoServicoDao extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Retorna lista de Tipo ServiÁo por nome.
+	 * Retorna lista de Tipo Servi√ßo por nome.
 	 *
 	 * @return Collection
 	 * @throws Exception

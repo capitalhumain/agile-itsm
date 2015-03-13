@@ -68,7 +68,7 @@ public class GenerateServiceRequisicoesProdGeral extends GerencialGenerateServic
 		
         String numero = (String) getNovoParametro().get("PARAM.numero");
         if ((numero == null || numero.trim().length() == 0) && (datainicio == null || datafim == null))
-            throw new LogicException("Período e/ou Número devem ser informados");
+            throw new LogicException("PerÃ­odo e/ou NÃºmero devem ser informados");
         
         String produto = (String) getNovoParametro().get("PARAM.produto");
         String situacaoItem = (String) getNovoParametro().get("PARAM.situacaoItem");
@@ -122,14 +122,14 @@ public class GenerateServiceRequisicoesProdGeral extends GerencialGenerateServic
                     	}
 
                     	strTexto += "  <tr>";
-                        strTexto += "    <th width='5%' style='background:#eee;font-size:11px'><b>Número</b></th>";
+                        strTexto += "    <th width='5%' style='background:#eee;font-size:11px'><b>NÃºmero</b></th>";
                         strTexto += "    <th width='15%' style='background:#eee;font-size:11px'><b>Centro custo</b></th>";
                         strTexto += "    <th width='15%' style='background:#eee;font-size:11px'><b>Projeto</b></th>";
                         strTexto += "    <th width='15%' style='background:#eee;font-size:11px'><b>Solicitante</b></th>";
                         strTexto += "    <th width='10%' style='background:#eee;font-size:11px'><b>Data/Hora</b></th>";
                         strTexto += "    <th style='background:#eee;font-size:11px'><b>Item</b></th>";
                         strTexto += "    <th width='5%' style='background:#eee;font-size:11px'><b>Qtde</b></th>";
-                        strTexto += "    <th width='10%' style='background:#eee;font-size:11px'><b>Situação</b></th>";
+                        strTexto += "    <th width='10%' style='background:#eee;font-size:11px'><b>SituaÃ§Ã£o</b></th>";
                         strTexto += "  </tr>";
                         bCabecalho = false;
                     }
@@ -157,9 +157,9 @@ public class GenerateServiceRequisicoesProdGeral extends GerencialGenerateServic
                     strTexto += "           <tr><td></td></tr>";
                     strTexto += "           <tr>";
                     strTexto += "               <th width='15%' style='background:#eee;font-size:11px'><b>Data/Hora</b></th>";
-                    strTexto += "               <th width='20%' style='background:#eee;font-size:11px'><b>Responsável</b></th>";
-                    strTexto += "               <th width='20%' style='background:#eee;font-size:11px'><b>Ação</b></th>";                    
-                    strTexto += "               <th width='20%' style='background:#eee;font-size:11px'><b>Situação</b></th>";
+                    strTexto += "               <th width='20%' style='background:#eee;font-size:11px'><b>ResponsÃ¡vel</b></th>";
+                    strTexto += "               <th width='20%' style='background:#eee;font-size:11px'><b>AÃ§Ã£o</b></th>";                    
+                    strTexto += "               <th width='20%' style='background:#eee;font-size:11px'><b>SituaÃ§Ã£o</b></th>";
                     strTexto += "               <th style='background:#eee;font-size:11px'><b>Detalhes</b></th>";
                     strTexto += "           </tr>";
                     
@@ -174,8 +174,8 @@ public class GenerateServiceRequisicoesProdGeral extends GerencialGenerateServic
                         strTexto += "<tr>";
                         strTexto += "   <td style='padding:2px 5px;font-size:11px'>"+UtilDatas.convertDateToString(TipoDate.TIMESTAMP_WITH_SECONDS, historicoDto.getDataHora(), null)+"</td>";
                         strTexto += "   <td style='padding:2px 5px;font-size:11px'>"+nome+"</td>";
-                        /* Desenvolvedor: Thiago Matias - Data: 31/10/2013 - Horário: 19:30 - ID Citsmart: 122665 - 
-                		* Motivo/Comentário: Condição para adicionar a ação somente se for diferente de null  */
+                        /* Desenvolvedor: Thiago Matias - Data: 31/10/2013 - HorÃ¡rio: 19:30 - ID Citsmart: 122665 - 
+                		* Motivo/ComentÃ¡rio: CondiÃ§Ã£o para adicionar a aÃ§Ã£o somente se for diferente de null  */
                         if (historicoDto.getAcao() != null){
 	                        strTexto += "   <td style='padding:2px 5px;font-size:11px'>"+AcaoItemRequisicaoProduto.valueOf(historicoDto.getAcao()).getDescricao()+"</td>";
                         } else {

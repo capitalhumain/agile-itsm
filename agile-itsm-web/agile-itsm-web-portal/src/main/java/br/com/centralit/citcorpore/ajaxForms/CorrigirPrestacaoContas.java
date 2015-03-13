@@ -72,7 +72,7 @@ public class CorrigirPrestacaoContas extends PrestacaoContasViagem {
 
 
 	/**
-	 * Restaura todas as informaÁıes de prestaÁ„o de contas
+	 * Restaura todas as informa√ß√µes de presta√ß√£o de contas
 	 *
 	 * @param prestacaoContasViagemDTO
 	 * @return
@@ -92,7 +92,7 @@ public class CorrigirPrestacaoContas extends PrestacaoContasViagem {
 	}
 
 	/**
-	 * Restaura as informeÁıes de nome do integrante e o motivo que a prestaÁ„o foi rejeitada
+	 * Restaura as informe√ß√µes de nome do integrante e o motivo que a presta√ß√£o foi rejeitada
 	 *
 	 * @param document
 	 * @param request
@@ -118,7 +118,7 @@ public class CorrigirPrestacaoContas extends PrestacaoContasViagem {
 	}
 
 	/**
-	 * Restaura a requisiÁ„o de viagem para a qual o prestaÁ„o de contas foi realizada
+	 * Restaura a requisi√ß√£o de viagem para a qual o presta√ß√£o de contas foi realizada
 	 *
 	 * @param idSolicitacao
 	 * @return
@@ -139,7 +139,7 @@ public class CorrigirPrestacaoContas extends PrestacaoContasViagem {
 	}
 
 	/**
-	 * Restaura o integrante ligado a esta prestaÁ„o de contas
+	 * Restaura o integrante ligado a esta presta√ß√£o de contas
 	 *
 	 * @param idsolicitacaoServico
 	 * @param idTarefa
@@ -152,7 +152,7 @@ public class CorrigirPrestacaoContas extends PrestacaoContasViagem {
 	}
 
 	/**
-	 * Restaura o parecer que È informado quando a prestaÁ„o de contas È rejeitada
+	 * Restaura o parecer que √© informado quando a presta√ß√£o de contas √© rejeitada
 	 *
 	 * @param prestacaoContasViagemDTO
 	 * @return
@@ -171,7 +171,7 @@ public class CorrigirPrestacaoContas extends PrestacaoContasViagem {
 	}
 
 	/**
-	 * Adiciona o item a grid de itens de prestaÁ„o de contas e verifica se a nota fiscal foi emitida h· mais de 3 meses.
+	 * Adiciona o item a grid de itens de presta√ß√£o de contas e verifica se a nota fiscal foi emitida h√° mais de 3 meses.
 	 *
 	 * @param document
 	 * @param request
@@ -189,7 +189,7 @@ public class CorrigirPrestacaoContas extends PrestacaoContasViagem {
 			Date dataPrestacao = UtilDatas.convertStringToDate(TipoDate.FORMAT_DATABASE , prestacaoContasViagemDto.getData().toString(), UtilI18N.getLocale());
 
 			if(dataViagem.compareTo(dataPrestacao) > 0){
-				document.alert("Nota fiscal emitida h· mais de 3 meses!");
+				document.alert("Nota fiscal emitida h√° mais de 3 meses!");
 				document.getElementById("data").setValue("");
 				document.getElementById("data").setFocus();
 				return;

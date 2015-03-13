@@ -51,7 +51,7 @@ public class CatalogoServicoServiceEjb extends CrudServiceImpl implements Catalo
 
             if (catalogoServicoDto.getColServicoContrato() != null && !catalogoServicoDto.getColServicoContrato().isEmpty()) {
                 ServContratoCatalogoServDTO item = null;
-                // varre a lista de serviços
+                // varre a lista de serviÃ§os
                 for (int i = 0; i < catalogoServicoDto.getColServicoContrato().size(); i++) {
                     item = catalogoServicoDto.getColServicoContrato().get(i);
                     item.setIdCatalogoServico(catalogoServicoDto.getIdCatalogoServico());
@@ -63,7 +63,7 @@ public class CatalogoServicoServiceEjb extends CrudServiceImpl implements Catalo
 
             if (catalogoServicoDto.getColInfoCatalogoServico() != null && !catalogoServicoDto.getColInfoCatalogoServico().isEmpty()) {
                 InfoCatalogoServicoDTO item = null;
-                // varre a lista de serviços
+                // varre a lista de serviÃ§os
                 for (int i = 0; i < catalogoServicoDto.getColInfoCatalogoServico().size(); i++) {
                     item = catalogoServicoDto.getColInfoCatalogoServico().get(i);
                     if (catalogoServicoDto.getIdCatalogoServico() != null) {
@@ -121,7 +121,7 @@ public class CatalogoServicoServiceEjb extends CrudServiceImpl implements Catalo
             servContratoCatalogoServDao.deleteByIdServContratoCatalogo(catalogoServicoDto);
             if (catalogoServicoDto.getColServicoContrato() != null && !catalogoServicoDto.getColServicoContrato().isEmpty()) {
                 ServContratoCatalogoServDTO item = null;
-                // varre a lista de serviços
+                // varre a lista de serviÃ§os
                 for (int i = 0; i < catalogoServicoDto.getColServicoContrato().size(); i++) {
                     item = catalogoServicoDto.getColServicoContrato().get(i);
                     item.setIdCatalogoServico(catalogoServicoDto.getIdCatalogoServico());
@@ -134,7 +134,7 @@ public class CatalogoServicoServiceEjb extends CrudServiceImpl implements Catalo
             if (catalogoServicoDto.getColInfoCatalogoServico() != null && !catalogoServicoDto.getColInfoCatalogoServico().isEmpty()) {
 
                 InfoCatalogoServicoDTO item = null;
-                // varre a lista de serviços
+                // varre a lista de serviÃ§os
                 for (int i = 0; i < catalogoServicoDto.getColInfoCatalogoServico().size(); i++) {
                     item = catalogoServicoDto.getColInfoCatalogoServico().get(i);
                     item.setIdCatalogoServico(catalogoServicoDto.getIdCatalogoServico());

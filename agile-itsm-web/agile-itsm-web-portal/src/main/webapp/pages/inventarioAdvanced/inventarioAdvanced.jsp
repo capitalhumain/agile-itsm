@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.citframework.util.Constantes"%>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
@@ -6,8 +8,7 @@
 <!doctype html public "">
 <html>
 <head>
-	<%@include file="/include/security/security.jsp"%>
-	<title>CIT Corpore</title>
+	<%@include file="/novoLayout/common/include/titulo.jsp" %>
 	<%@include file="/include/header.jsp"%>
 	<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 
@@ -167,20 +168,20 @@
 							<img src="${ctx}/template_new/images/icons/small/grey/clear.png">
 							<span><fmt:message key="citcorpore.comum.limpar" /> </span>
 						</button>
-						<div id="POPUP_RESULTADO_INVENTARIO" title="Resultado Inventário">
+						<div id="POPUP_RESULTADO_INVENTARIO" title="Resultado InventÃ¡rio">
 							<div id="resultado">
 
 							</div>
 
 						</div>
 
-						<div id='POPUP_ABERTURA_INC' title="Configurações">
+						<div id='POPUP_ABERTURA_INC' title="ConfiguraÃ§Ãµes">
 							<input type='hidden' name='idItemConfiguracao'/>
 							<table>
 									<tr>
 										<td colspan="2">
 											<fieldset>
-												<legend><b>Abertura automática de incidente</b></legend>
+												<legend><b>Abertura automÃ¡tica de incidente</b></legend>
 												<table>
 													<tr>
 														<td colspan="3">
@@ -206,7 +207,7 @@
 														</td>
 													</tr>
 													<tr>
-														<td class="campoEsquerda">Descrição/Texto:</td>
+														<td class="campoEsquerda">DescriÃ§Ã£o/Texto:</td>
 														<td colspan="2">
 															<textarea name='descricaoAbertInc' rows="5" cols="100"></textarea>
 														</td>
@@ -219,7 +220,7 @@
 														</td>
 													</tr>
 													<tr>
-														<td class="campoEsquerda">Urgência:</td>
+														<td class="campoEsquerda">UrgÃªncia:</td>
 														<td colspan="2">
 															<select name='urgencia' id='urgencia'>
 															</select>
@@ -240,7 +241,7 @@
 														</td>
 													</tr>
 													<tr>
-														<td class="campoEsquerda">Serviço:</td>
+														<td class="campoEsquerda">ServiÃ§o:</td>
 														<td colspan="2">
 															<select name='idServico' id='idServico'>
 															</select>
@@ -276,7 +277,7 @@
 														</td>
 													</tr>
 													<tr>
-														<td class="campoEsquerda">Descrição/Texto:</td>
+														<td class="campoEsquerda">DescriÃ§Ã£o/Texto:</td>
 														<td>
 															<textarea name='descricaoAlerta' rows="5" cols="100"></textarea>
 														</td>

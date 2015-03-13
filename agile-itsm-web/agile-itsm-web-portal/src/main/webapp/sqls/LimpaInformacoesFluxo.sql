@@ -1,4 +1,4 @@
---SQLs de exclus„o de dados do fluxo:
+--SQLs de exclus√£o de dados do fluxo:
 delete from bpm_objetoinstanciafluxo;
 delete FROM bpm_atribuicaofluxo;
 delete from bpm_historicoitemtrabalho;

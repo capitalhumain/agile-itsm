@@ -132,11 +132,11 @@ public class TreeMenu extends TagSupport {
                     final Object obj = it.next();
                     final Object id = Reflexao.getPropertyValue(obj, this.getIdAttrib());
                     if (id == null) {
-                        throw new JspException("o valor do atributo " + this.getIdAttrib() + " n„o pode ser nulo ");
+                        throw new JspException("o valor do atributo " + this.getIdAttrib() + " n√£o pode ser nulo ");
                     }
                     final Object desc = Reflexao.getPropertyValue(obj, this.getDescAttrib());
                     if (desc == null) {
-                        throw new JspException("o valor do atributo " + this.getDescAttrib() + " n„o pode ser nulo ");
+                        throw new JspException("o valor do atributo " + this.getDescAttrib() + " n√£o pode ser nulo ");
                     }
 
                     Object idPai = Reflexao.getPropertyValue(obj, this.getIdFatherAttrib());
@@ -197,7 +197,7 @@ public class TreeMenu extends TagSupport {
                 }
             } else {
                 if (makeNull) {
-                    throw new JspException("Objeto " + this.getCollection() + " n„o encontrado em nenhum escopo");
+                    throw new JspException("Objeto " + this.getCollection() + " n√£o encontrado em nenhum escopo");
                 } else {
                     return null;
                 }

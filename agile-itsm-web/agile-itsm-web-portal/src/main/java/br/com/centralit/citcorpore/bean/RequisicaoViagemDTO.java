@@ -9,16 +9,16 @@ public class RequisicaoViagemDTO extends SolicitacaoServicoDTO {
 	 public static final String EM_PLANEJAMENTO = "Em Planejamento";
 	 public static final String REJEITADA_PLANEJAMENTO = "Rejeitada Planejamento";
 	 public static final String AGUARDANDO_APROVACAO = "Aguardando Aprovacao";
-	 public static final String NAO_APROVADA = "Não Aprovada";
+	 public static final String NAO_APROVADA = "NÃ£o Aprovada";
 	 public static final String AGUARDANDO_FINANCEIRO = "Aguardando Financeiro";
 	 public static final String AGUARDANDO_COMPRAS = "Aguardando Compras";
 	 public static final String AGUARDANDO_ADIANTAMENTO = "Aguardando Adiantamento";
-	 public static final String AGUARDANDO_PRESTACAOCONTAS = "Aguardando Prestação de Contas"; 
-	 public static final String EM_PRESTACAOCONTAS = "Em Prestação de Contas"; 
-	 public static final String EM_AUTORIZACAO = "Em Autorização"; 
-	 public static final String EM_CONFERENCIA = "Em Conferência"; 
-	 public static final String AGUARDANDO_CONFERENCIA = "Aguardando Conferência";
-	 public static final String AGUARDANDO_CORRECAO = "Aguardando Correção";
+	 public static final String AGUARDANDO_PRESTACAOCONTAS = "Aguardando PrestaÃ§Ã£o de Contas"; 
+	 public static final String EM_PRESTACAOCONTAS = "Em PrestaÃ§Ã£o de Contas"; 
+	 public static final String EM_AUTORIZACAO = "Em AutorizaÃ§Ã£o"; 
+	 public static final String EM_CONFERENCIA = "Em ConferÃªncia"; 
+	 public static final String AGUARDANDO_CONFERENCIA = "Aguardando ConferÃªncia";
+	 public static final String AGUARDANDO_CORRECAO = "Aguardando CorreÃ§Ã£o";
 	 public static final String REMARCADO = "Viagem Remarcada";
 	 public static final String FINALIZADA = "Finalizada";  
 	
@@ -59,7 +59,7 @@ public class RequisicaoViagemDTO extends SolicitacaoServicoDTO {
 	
 	private String integranteViagemSerialize;
 	
-	//Tarefa Autorização
+	//Tarefa AutorizaÃ§Ã£o
 	private String autorizado;
 	
     private Integer idJustificativaAutorizacao;

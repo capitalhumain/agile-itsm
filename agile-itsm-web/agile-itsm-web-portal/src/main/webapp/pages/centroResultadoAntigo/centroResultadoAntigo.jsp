@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@ page import="br.com.centralit.citcorpore.util.WebUtil" %>
 <%@ page import="br.com.centralit.citcorpore.bean.CentroResultadoDTO" %>
 <%@page import="br.com.centralit.citcorpore.bean.AlcadaDTO"%>
@@ -12,13 +14,9 @@
 
 		    Collection<AlcadaDTO> colAlcadas = (Collection)request.getAttribute("colAlcadas");
 		%>
-
-		<%@ include file="/include/security/security.jsp" %>
 		<%@include file="/include/header.jsp"%>
 
-		<title>
-			<fmt:message key="citcorpore.comum.title" />
-		</title>
+		<%@include file="/novoLayout/common/include/titulo.jsp" %>
 
 		<%@ include file="/include/menu/menuConfig.jsp" %>
 
@@ -259,7 +257,7 @@
 		</script>
 
 	<%
-		// Se for chamado por iframe deixa apenas a parte de cadastro da página
+		// Se for chamado por iframe deixa apenas a parte de cadastro da pÃ¡gina
 		if (iframe != null) {
 	%>
 		<style>

@@ -80,7 +80,7 @@ public class PesquisaSatisfacaoDAO extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Alterado consulta para incluir respons·vel atual
+	 * Alterado consulta para incluir respons√°vel atual
 	 * 22/12/2014 - 10:00
 	 * @author thyen.chang
 	 * @param pesquisaSatisfacaoDTO

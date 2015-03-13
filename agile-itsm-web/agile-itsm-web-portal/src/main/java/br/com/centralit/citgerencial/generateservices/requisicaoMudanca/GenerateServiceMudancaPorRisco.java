@@ -88,7 +88,7 @@ public class GenerateServiceMudancaPorRisco extends GerencialGenerateService {
 			e.printStackTrace();
 		}
 
-		// resetando par‚metro
+		// resetando par√¢metro
 		setNovoParametro(null);
 
 		return listaRetorno;

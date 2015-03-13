@@ -1,4 +1,4 @@
-//Thiago Fernandes - 29/10/2013 - 18:49 - Sol. 121468 - Criação de Upload para requisição mudança para evitar conflitos com outras telas do sistema que usão upload.
+//Thiago Fernandes - 29/10/2013 - 18:49 - Sol. 121468 - CriaÃ§Ã£o de Upload para requisiÃ§Ã£o mudanÃ§a para evitar conflitos com outras telas do sistema que usÃ£o upload.
 package br.com.centralit.citcorpore.ajaxForms;
 
 import java.io.File;

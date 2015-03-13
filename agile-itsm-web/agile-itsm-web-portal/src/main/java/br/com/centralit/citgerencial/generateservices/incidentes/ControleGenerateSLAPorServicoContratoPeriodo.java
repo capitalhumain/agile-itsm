@@ -139,7 +139,7 @@ public class ControleGenerateSLAPorServicoContratoPeriodo {
 							qtdePrazo++;
 							noPrazoComp = "N";
 						} else {
-							noPrazo = "N√O";
+							noPrazo = "N√ÉO";
 							qtdeForaPrazo++;
 							noPrazoComp = "F";
 						}

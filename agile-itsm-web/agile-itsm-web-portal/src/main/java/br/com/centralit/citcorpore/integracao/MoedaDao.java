@@ -62,7 +62,7 @@ public class MoedaDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * Verifica se existe uma moeda com o mesmo nome j· cadastrada
+	 * Verifica se existe uma moeda com o mesmo nome j√° cadastrada
 	 * Se existir retorna 'true', se nao existir retorna 'false';
 	 * 
 	 * @param moedaDTO

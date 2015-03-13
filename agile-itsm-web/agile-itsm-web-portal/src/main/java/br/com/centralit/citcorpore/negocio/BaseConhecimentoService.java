@@ -34,7 +34,7 @@ import br.com.citframework.service.CrudService;
 public interface BaseConhecimentoService extends CrudService {
 
 	/**
-	 * Atributo utilizado em GerÍncia de Problemas.
+	 * Atributo utilizado em Ger√™ncia de Problemas.
 	 * 
 	 * @return Integer
 	 */
@@ -59,7 +59,7 @@ public interface BaseConhecimentoService extends CrudService {
 	public BaseConhecimentoDTO create(BaseConhecimentoDTO baseConhecimentoBean, Collection<UploadDTO> arquivosUpados, Integer idEmpresa, UsuarioDTO usuarioDto) throws Exception;
 
 	/**
-	 * Atualiza Base de Conhecimento de acordo com Status selecionado e o perfil de acesso do usu·rio logado.
+	 * Atualiza Base de Conhecimento de acordo com Status selecionado e o perfil de acesso do usu√°rio logado.
 	 * 
 	 * @param baseConhecimentoBean
 	 * @param arquivosUpados
@@ -94,10 +94,10 @@ public interface BaseConhecimentoService extends CrudService {
 	public Long contarVotos(Integer idBaseConhecimento) throws Exception;
 
 	/**
-	 * Verifica se Tipo Item ConfiguraÁ„o informada existe.
+	 * Verifica se Tipo Item Configura√ß√£o informada existe.
 	 * 
 	 * @param grupo
-	 * @return true - existe; false - n„o existe;
+	 * @return true - existe; false - n√£o existe;
 	 * @throws PersistenceException
 	 */
 	public boolean verificarSeBaseConhecimentoJaPossuiNovaVersao(BaseConhecimentoDTO baseConhecimento) throws Exception;
@@ -115,7 +115,7 @@ public interface BaseConhecimentoService extends CrudService {
 	public List<BaseConhecimentoDTO> validaNota(BaseConhecimentoDTO baseconhecimento) throws Exception;
 
 	/**
-	 * Retorna uma lista com algumas informaÁıes da baseconhecimento
+	 * Retorna uma lista com algumas informa√ß√µes da baseconhecimento
 	 * 
 	 * @param baseConhecimento
 	 * @return
@@ -124,16 +124,16 @@ public interface BaseConhecimentoService extends CrudService {
 	public Collection<BaseConhecimentoDTO> listaBaseConhecimento(BaseConhecimentoDTO baseConhecimento) throws Exception;
 
 	/**
-	 * Verifica se Base de Conhcimento informada possui vers„o anterior;
+	 * Verifica se Base de Conhcimento informada possui vers√£o anterior;
 	 * 
 	 * @param baseConhecimento
-	 * @return true - existe; false - n„o existe;
+	 * @return true - existe; false - n√£o existe;
 	 * @throws Exception
 	 */
 	public boolean verificarSeBaseConhecimentoPossuiVersaoAnterior(BaseConhecimentoDTO baseConhecimento) throws Exception;
 
 	/**
-	 * Retonar lista de ultimas vers„o do sistema
+	 * Retonar lista de ultimas vers√£o do sistema
 	 * 
 	 * @param baseConhecimento
 	 * @return
@@ -142,7 +142,7 @@ public interface BaseConhecimentoService extends CrudService {
 	public Collection<BaseConhecimentoDTO> listaBaseConhecimentoUltimasVersoes(BaseConhecimentoDTO baseConhecimento) throws Exception;
 
 	/**
-	 * Cria Import‚ncia Conhecimento Usu·rio.
+	 * Cria Import√¢ncia Conhecimento Usu√°rio.
 	 * 
 	 * @param baseConhecimentoDto
 	 * @param transactionControler
@@ -152,7 +152,7 @@ public interface BaseConhecimentoService extends CrudService {
 	public void criarImportanciaConhecimentoUsuario(BaseConhecimentoDTO baseConhecimentoDto, TransactionControler transactionControler) throws ServiceException, Exception;
 
 	/**
-	 * Cria Import‚ncia Conhecimento Grupo.
+	 * Cria Import√¢ncia Conhecimento Grupo.
 	 * 
 	 * @param baseConhecimentoDto
 	 * @param transactionControler
@@ -172,7 +172,7 @@ public interface BaseConhecimentoService extends CrudService {
 	public void criarRelacionamentoEntreConhecimentos(BaseConhecimentoDTO baseConhecimentoDto, TransactionControler transactionControler) throws Exception;
 
 	/**
-	 * Cria NotificaÁ„o
+	 * Cria Notifica√ß√£o
 	 * 
 	 * @param baseConhecimentoDto
 	 * @param transactionControler
@@ -214,7 +214,7 @@ public interface BaseConhecimentoService extends CrudService {
 	public Collection<BaseConhecimentoDTO> listPesquisaBaseConhecimento(BaseConhecimentoDTO baseConhecimento) throws Exception;
 
 	/**
-	 * Obtem BaseConhecimento com Grau de Import‚ncia para o Usu·rio.
+	 * Obtem BaseConhecimento com Grau de Import√¢ncia para o Usu√°rio.
 	 * 
 	 * @param baseConhecimentoDto
 	 * @param usuarioDto
@@ -253,7 +253,7 @@ public interface BaseConhecimentoService extends CrudService {
 	public Collection<BaseConhecimentoDTO> listarBaseConhecimentoByPastaRelatorio(PastaDTO pasta) throws Exception;
 	
 	/**
-	 * Retorna Lista de Versıes Anteriores da Base de Conhecimento informada.
+	 * Retorna Lista de Vers√µes Anteriores da Base de Conhecimento informada.
 	 * 
 	 * @param baseConhecimento
 	 * @return Collection<BaseConhecimentoDTO>
@@ -377,9 +377,9 @@ public interface BaseConhecimentoService extends CrudService {
 	 * Retorna a lista de base de conhecimento do portal paginada
 	 * 
 	 * @author thyen.chang
-	 * @since 06/02/2015 - OPERA«√O USAIN BOLT
-	 * @param pageable - Objeto que contÈm qual p·gina e n˙mero de elementos a serem pesquisados
-	 * @param isTotalizacao - Se a busca È para buscar o n˙mero total de elementos da consulta
+	 * @since 06/02/2015 - OPERA√á√ÉO USAIN BOLT
+	 * @param pageable - Objeto que cont√©m qual p√°gina e n√∫mero de elementos a serem pesquisados
+	 * @param isTotalizacao - Se a busca √© para buscar o n√∫mero total de elementos da consulta
 	 * @return
 	 * @throws PersistenceException
 	 */
@@ -389,9 +389,9 @@ public interface BaseConhecimentoService extends CrudService {
 	 * Retorna a lista de FAQ do portal paginada
 	 * 
 	 * @author thyen.chang
-	 * @since 06/02/2015 - OPERA«√O USAIN BOLT
-	 * @param pageable - Objeto que contÈm qual p·gina e n˙mero de elementos a serem pesquisados
-	 * @param isTotalizacao - Se a busca È para buscar o n˙mero total de elementos da consulta
+	 * @since 06/02/2015 - OPERA√á√ÉO USAIN BOLT
+	 * @param pageable - Objeto que cont√©m qual p√°gina e n√∫mero de elementos a serem pesquisados
+	 * @param isTotalizacao - Se a busca √© para buscar o n√∫mero total de elementos da consulta
 	 * @return
 	 * @throws PersistenceException
 	 */
@@ -402,9 +402,9 @@ public interface BaseConhecimentoService extends CrudService {
 	 * 
 	 * @author thyen.chang
 	 * @since 09/02/2015
-	 * @param pageable - Objeto que contÈm qual p·gina e n˙mero de elementos a serem pesquisados
-	 * @param isTotalizacao - Se a busca È para buscar o n˙mero total de elementos da consulta
-	 * @param titulo - TÌtulo da base de conhecimento a ser pesquisada
+	 * @param pageable - Objeto que cont√©m qual p√°gina e n√∫mero de elementos a serem pesquisados
+	 * @param isTotalizacao - Se a busca √© para buscar o n√∫mero total de elementos da consulta
+	 * @param titulo - T√≠tulo da base de conhecimento a ser pesquisada
 	 * @return
 	 * @throws PersistenceException
 	 */
@@ -415,9 +415,9 @@ public interface BaseConhecimentoService extends CrudService {
 	 * 
 	 * @author thyen.chang
 	 * @since 09/02/2015
-	 * @param pageable - Objeto que contÈm qual p·gina e n˙mero de elementos a serem pesquisados
-	 * @param isTotalizacao - Se a busca È para buscar o n˙mero total de elementos da consulta
-	 * @param titulo - TÌtulo da base de conhecimento a ser pesquisada
+	 * @param pageable - Objeto que cont√©m qual p√°gina e n√∫mero de elementos a serem pesquisados
+	 * @param isTotalizacao - Se a busca √© para buscar o n√∫mero total de elementos da consulta
+	 * @param titulo - T√≠tulo da base de conhecimento a ser pesquisada
 	 * @return
 	 * @throws PersistenceException
 	 */

@@ -104,7 +104,7 @@ public class AtividadesServicoContrato extends AjaxFormAction {
 	}
 
 	/**
-	 * recupera os dados ao carregar p·gina
+	 * recupera os dados ao carregar p√°gina
 	 * 
 	 * @param document
 	 * @param request

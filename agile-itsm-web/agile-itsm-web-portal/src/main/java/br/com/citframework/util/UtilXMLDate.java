@@ -11,7 +11,7 @@ import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 /**
- * Utilit·rio para trabalhar com datas gregorianas no padr„o XML, conforme <a href="http://www.w3.org/TR/xmlschema-2/#isoformats">W3C XML Schema 1.0 Part 2, Appendix D,
+ * Utilit√°rio para trabalhar com datas gregorianas no padr√£o XML, conforme <a href="http://www.w3.org/TR/xmlschema-2/#isoformats">W3C XML Schema 1.0 Part 2, Appendix D,
  * <i>ISO 8601 Date and Time Formats</i></a>
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>

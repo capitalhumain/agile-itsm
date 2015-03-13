@@ -43,7 +43,7 @@ public class ParecerDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * Retorna verdadeiro caso exista alguma associaÁ„o com a tabela JustificativaParecer ou falso caso n„o exista associaÁ„o com a tabela JustificativaParecer
+	 * Retorna verdadeiro caso exista alguma associa√ß√£o com a tabela JustificativaParecer ou falso caso n√£o exista associa√ß√£o com a tabela JustificativaParecer
 	 * 
 	 * @param obj
 	 * @return boolean

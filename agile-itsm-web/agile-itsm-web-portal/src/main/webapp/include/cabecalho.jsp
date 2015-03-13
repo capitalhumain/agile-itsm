@@ -1,3 +1,3 @@
 <div id="cabecalho">
-	<img src="../../imagens/cabecalho.jpg"/>
+    <img src="../../imagens/cabecalho.jpg"/>
 </div>

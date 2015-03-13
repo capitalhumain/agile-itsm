@@ -1,4 +1,6 @@
-<!-- Thiago Fernandes - 29/10/2013 - 18:49 - Sol. 121468 - Criação de Upload para requisição mudança para evitar conflitos com outras telas do sistema que usão upload.  -->
+<!-- Thiago Fernandes - 29/10/2013 - 18:49 - Sol. 121468 - CriaÃ§Ã£o de Upload para requisiÃ§Ã£o mudanÃ§a para evitar conflitos com outras telas do sistema que usÃ£o upload.  -->
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.bean.UploadDTO"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.ArrayList"%>

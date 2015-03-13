@@ -1,5 +1,5 @@
-var MONTH_NAMES=new Array('Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro','Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez');
-var DAY_NAMES=new Array('Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sabádo','Dom','Seg','Ter','Qua','Qui','Sex','Sab');
+var MONTH_NAMES=new Array('Janeiro','Fevereiro','MarÃ§o','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro','Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez');
+var DAY_NAMES=new Array('Domingo','Segunda','TerÃ§a','Quarta','Quinta','Sexta','SabÃ¡do','Dom','Seg','Ter','Qua','Qui','Sex','Sab');
 function LZ(x) {return(x<0||x>9?"":"0")+x}
 
 /*******************************************
@@ -257,7 +257,7 @@ DateTimeUtil.isValidTime = function(horaStr){
          return true;
      }
      if(hora.length != 5){
-         alert('Formato de hora inválido (hh:mm)');
+         alert('Formato de hora invÃ¡lido (hh:mm)');
          return false;
      }
      
@@ -265,12 +265,12 @@ DateTimeUtil.isValidTime = function(horaStr){
      var m  = hora.substring(3,5);
      
      if(h > 23 || h < 0){
-         alert('Hora inválida(de 00 a 23)');
+         alert('Hora invÃ¡lida(de 00 a 23)');
          return false;
      }
       
      if(m>59 || m<0){
-         alert('Minuto inválido(de 00 a 59)');
+         alert('Minuto invÃ¡lido(de 00 a 59)');
          return false;
      }
      

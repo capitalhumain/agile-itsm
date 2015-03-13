@@ -21,7 +21,7 @@ import br.com.citframework.service.CrudService;
 public interface PerfilAcessoPastaService extends CrudService {
 
 	/**
-	 * Verifica se Usu·rio Pode Aprovar Base de Conhecimento da pasta Selecionada.
+	 * Verifica se Usu√°rio Pode Aprovar Base de Conhecimento da pasta Selecionada.
 	 * 
 	 * @param usuario
 	 * @param idPasta
@@ -47,11 +47,11 @@ public interface PerfilAcessoPastaService extends CrudService {
 	public Collection<PerfilAcessoPastaDTO> listByIdPasta(Integer idPasta) throws Exception;
 
 	/**
-	 * Verifica Permiss„o de Acesso a Pasta Informada de acordo com a HeranÁa de Permiss„o, caso a Pasta possua..
+	 * Verifica Permiss√£o de Acesso a Pasta Informada de acordo com a Heran√ßa de Permiss√£o, caso a Pasta possua..
 	 * 
 	 * @param usuario
 	 * @param idPasta
-	 * @return SemPermissao = Sem permiss„o de acesso; Leitura = Permiss„o de Leitura; LeituraGravacao = Permiss„o de Leitura/GravaÁ„o.
+	 * @return SemPermissao = Sem permiss√£o de acesso; Leitura = Permiss√£o de Leitura; LeituraGravacao = Permiss√£o de Leitura/Grava√ß√£o.
 	 * @throws Exception
 	 * @author Vadoilo Damasceno
 	 */

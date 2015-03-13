@@ -99,7 +99,7 @@ public class InformacoesContratoConfigServiceEjb extends CrudServiceImpl impleme
                 }
             }
 
-            // Faz commit e fecha a transação.
+            // Faz commit e fecha a transaÃ§Ã£o.
             tc.commit();
             tc.close();
         } catch (final Exception e) {

@@ -24,7 +24,7 @@ public class ComplementoServicoContrato_Insert {
         	    idServicos[0] = (String)obj;
         	}
 	}
-	if (idServicos == null){ //Provavelmente nenhum serviço selecionado.
+	if (idServicos == null){ //Provavelmente nenhum serviÃ§o selecionado.
 	    return "OK";
 	}
 	

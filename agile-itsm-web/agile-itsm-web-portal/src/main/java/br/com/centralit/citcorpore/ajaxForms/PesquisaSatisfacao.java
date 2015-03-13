@@ -65,13 +65,13 @@ public class PesquisaSatisfacao extends AjaxFormAction {
 				pesquisaSatisfacaoDto.getIdSolicitacaoServico());
 
 		if (pesquisaSatisfacaoDto.getHash() == null) {
-			document.alert("AtenÁ„o! N„o foi possÌvel identificar o cÛdigo da validaÁ„o para a pesquisa de satisfaÁ„o!");
+			document.alert("Aten√ß√£o! N√£o foi poss√≠vel identificar o c√≥digo da valida√ß√£o para a pesquisa de satisfa√ß√£o!");
 			document.executeScript("window.location = '" + Constantes.getValue("SERVER_ADDRESS") + request.getContextPath() + "'");
 			return;
 		}
 		String idHashValidacao = CriptoUtils.generateHash("CODED" + pesquisaSatisfacaoDto.getIdSolicitacaoServico(), "MD5");
 		if (!pesquisaSatisfacaoDto.getHash().equalsIgnoreCase(idHashValidacao)) {
-			document.alert("AtenÁ„o! O cÛdigo de validaÁ„o da pesquisa de satisfaÁ„o n„o confere!");
+			document.alert("Aten√ß√£o! O c√≥digo de valida√ß√£o da pesquisa de satisfa√ß√£o n√£o confere!");
 			document.executeScript("window.location = '" + Constantes.getValue("SERVER_ADDRESS") + request.getContextPath() + "'");
 			return;
 		}
@@ -115,7 +115,7 @@ public class PesquisaSatisfacao extends AjaxFormAction {
 	}
 
 	/**
-	 * Grava uma nova pesquisa de satisfaÁ„o.
+	 * Grava uma nova pesquisa de satisfa√ß√£o.
 	 * 
 	 * @param document
 	 * @param request
@@ -128,7 +128,7 @@ public class PesquisaSatisfacao extends AjaxFormAction {
 				|| pesquisaSatisfacaoDto.getNota() == Enumerados.Nota.REGULAR.getNota().intValue();
 
 		if (avaliacaoRuimOuRegular && (pesquisaSatisfacaoDto.getComentario() == null || pesquisaSatisfacaoDto.getComentario().trim().isEmpty())) {
-			document.alert("Comente sua avaliaÁ„o!");
+			document.alert("Comente sua avalia√ß√£o!");
 		} else {
 			if (pesquisaSatisfacaoDto.getIdSolicitacaoServico() != null) {
 				this.getPesquisaSatisfacaoService().create(pesquisaSatisfacaoDto);
@@ -192,7 +192,7 @@ public class PesquisaSatisfacao extends AjaxFormAction {
 				 * **/
 				
 			}
-			document.alert("Obrigado por participar. Sua opini„o È muito importante!");
+			document.alert("Obrigado por participar. Sua opini√£o √© muito importante!");
 			document.executeScript("closeW()");
 		}
 	}
@@ -227,7 +227,7 @@ public class PesquisaSatisfacao extends AjaxFormAction {
 	}
 
 	/**
-	 * Gera Combo de Notas da Pesquisa de satisfaÁ„o.
+	 * Gera Combo de Notas da Pesquisa de satisfa√ß√£o.
 	 * 
 	 * @param document
 	 * @throws Exception
@@ -248,7 +248,7 @@ public class PesquisaSatisfacao extends AjaxFormAction {
 	}
 	
 	/**
-	 * Internacionaliza a p·gina de pesquisa de satisfaÁ„o
+	 * Internacionaliza a p√°gina de pesquisa de satisfa√ß√£o
 	 * 
 	 * @param document
 	 * @param request

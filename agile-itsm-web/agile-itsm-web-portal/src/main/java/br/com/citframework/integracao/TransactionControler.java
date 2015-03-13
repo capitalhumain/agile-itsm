@@ -8,48 +8,48 @@ import br.com.citframework.excecao.PersistenceException;
 public interface TransactionControler extends ConnectionControler {
 
     /**
-     * Verifica se a trasÁ„o est· iniciada
+     * Verifica se a tras√ß√£o est√° iniciada
      *
-     * @return {@code true}, caso trasaÁ„o esteja iniciada. {@code false}, caso contr·rio
+     * @return {@code true}, caso trasa√ß√£o esteja iniciada. {@code false}, caso contr√°rio
      */
     boolean isStarted();
 
     /**
-     * Inicia a transaÁ„o
+     * Inicia a transa√ß√£o
      *
      * @throws PersistenceException
-     *             caso algum problema ao iniciar a transaÁ„o aconteÁa, como {@link Connection} j· fechada
+     *             caso algum problema ao iniciar a transa√ß√£o aconte√ßa, como {@link Connection} j√° fechada
      */
     void start() throws PersistenceException;
 
     /**
-     * Commita as alteraÁıes na transaÁ„o
+     * Commita as altera√ß√µes na transa√ß√£o
      *
      * @throws PersistenceException
-     *             caso algum problema ao iniciar a transaÁ„o aconteÁa, como {@link Connection} j· fechada
+     *             caso algum problema ao iniciar a transa√ß√£o aconte√ßa, como {@link Connection} j√° fechada
      */
     void commit() throws PersistenceException;
 
     /**
-     * RealizaÁ„o rollback de todas as alteraÁıes ainda n„o commitadas na transaÁ„o
+     * Realiza√ß√£o rollback de todas as altera√ß√µes ainda n√£o commitadas na transa√ß√£o
      *
      * @throws PersistenceException
-     *             caso algum problema ao iniciar a transaÁ„o aconteÁa, como {@link Connection} j· fechada
+     *             caso algum problema ao iniciar a transa√ß√£o aconte√ßa, como {@link Connection} j√° fechada
      */
     void rollback() throws PersistenceException;
 
     /**
-     * Realiza rollback na transaÁ„o atÈ um ponto de marcaÁ„o
+     * Realiza rollback na transa√ß√£o at√© um ponto de marca√ß√£o
      *
      * @param savepoint
-     *            ponto atÈ o qual deve ser feito o rollback
+     *            ponto at√© o qual deve ser feito o rollback
      * @throws PersistenceException
-     *             caso algum problema ao dar rollback na transaÁ„o aconteÁa, como {@link Connection} j· fechada
+     *             caso algum problema ao dar rollback na transa√ß√£o aconte√ßa, como {@link Connection} j√° fechada
      */
     void rollback(final Savepoint savepoint) throws PersistenceException;
 
     /**
-     * Cria um {@link Savepoint} na transaÁ„o
+     * Cria um {@link Savepoint} na transa√ß√£o
      *
      * @return {@link Savepoint}
      * @throws PersistenceException
@@ -57,20 +57,20 @@ public interface TransactionControler extends ConnectionControler {
     Savepoint savepoint() throws PersistenceException;
 
     /**
-     * Cria um {@link Savepoint} nomeado na transaÁ„o
+     * Cria um {@link Savepoint} nomeado na transa√ß√£o
      *
      * @param name
-     *            nome para identificaÁ„o do ponto de marcaÁ„o
+     *            nome para identifica√ß√£o do ponto de marca√ß√£o
      * @return {@link Savepoint}
      * @throws PersistenceException
      */
     Savepoint savepoint(final String name) throws PersistenceException;
 
     /**
-     * Libera um {@link Savepoint} previamente marcado na linha de transaÁıes
+     * Libera um {@link Savepoint} previamente marcado na linha de transa√ß√µes
      *
      * @param savepoint
-     *            savepoint a ser liberado na transaÁ„o
+     *            savepoint a ser liberado na transa√ß√£o
      * @throws PersistenceException
      */
     void releaseSavepoint(final Savepoint savepoint) throws PersistenceException;

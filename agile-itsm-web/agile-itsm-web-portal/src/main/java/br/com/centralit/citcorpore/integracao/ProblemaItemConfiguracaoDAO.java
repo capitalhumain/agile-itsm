@@ -69,7 +69,7 @@ public class ProblemaItemConfiguracaoDAO extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * Deleta os que est„o no banco mas n„o est„o na lista passada para update.
+	 * Deleta os que est√£o no banco mas n√£o est√£o na lista passada para update.
 	 * 
 	 * @param idProblema
 	 * @param listaICs

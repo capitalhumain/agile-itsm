@@ -164,7 +164,7 @@ public class OcorrenciaMudancaDao extends CrudDaoDefaultImpl {
 		List parametro = new ArrayList();
 		List listRetorno = new ArrayList();
 		List list = new ArrayList();
-		String strOcorr = "EscalaÁ„o autom·tica";
+		String strOcorr = "Escala√ß√£o autom√°tica";
 		
 		StringBuilder sql = new StringBuilder();
 		sql.append("select o.idocorrencia, o.idjustificativa, o.idrequisicaomudanca, o.iditemtrabalho, o.dataregistro, o.horaregistro, o.registradopor, "

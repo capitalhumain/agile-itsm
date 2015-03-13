@@ -127,57 +127,57 @@ AjaxUtils.converteCaracteresEspeciais = function(str){
 	for (var i = 0; i < str.length; i++){
 		encoded = '';
 		c = str.charAt(i);
-		if (c == 'ç')
+		if (c == 'Ã§')
 			encoded = "[[[cedilhamin]]]";
-		else if (c == 'Ç')
+		else if (c == 'Ã‡')
 			encoded = "[[[cedilhamai]]]";
-		else if (c == 'á')
+		else if (c == 'Ã¡')
 			encoded = "[[[aagudomin]]]";
-		else if (c == 'Á')
+		else if (c == 'Ã')
 			encoded = "[[[aagudomai]]]";
-		else if (c == 'é')
+		else if (c == 'Ã©')
 			encoded = "[[[eagudomin]]]";
-		else if (c == 'É')
+		else if (c == 'Ã‰')
 			encoded = "[[[eagudomai]]]";
-		else if (c == 'í')
+		else if (c == 'Ã­')
 			encoded = "[[[iagudomin]]]";
-		else if (c == 'Í')
+		else if (c == 'Ã')
 			encoded = "[[[iagudomai]]]";
-		else if (c == 'ó')
+		else if (c == 'Ã³')
 			encoded = "[[[oagudomin]]]";
-		else if (c == 'Ó')
+		else if (c == 'Ã“')
 			encoded = "[[[oagudomai]]]";
-		else if (c == 'ú')
+		else if (c == 'Ãº')
 			encoded = "[[[uagudomin]]]";
-		else if (c == 'Ú')
+		else if (c == 'Ãš')
 			encoded = "[[[uagudomai]]]";
-		else if (c == 'â')
+		else if (c == 'Ã¢')
 			encoded = "[[[acircmin]]]";
-		else if (c == 'Â')
+		else if (c == 'Ã‚')
 			encoded = "[[[acircmai]]]";
-		else if (c == 'ê')
+		else if (c == 'Ãª')
 			encoded = "[[[ecircmin]]]";
-		else if (c == 'Ê')
+		else if (c == 'ÃŠ')
 			encoded = "[[[ecircmai]]]";
-		else if (c == 'î')
+		else if (c == 'Ã®')
 			encoded = "[[[icircmin]]]";
-		else if (c == 'Î')
+		else if (c == 'ÃŽ')
 			encoded = "[[[icircmai]]]";
-		else if (c == 'ô')
+		else if (c == 'Ã´')
 			encoded = "[[[ocircmin]]]";
-		else if (c == 'Ô')
+		else if (c == 'Ã”')
 			encoded = "[[[ocircmai]]]";
-		else if (c == 'û')
+		else if (c == 'Ã»')
 			encoded = "[[[ucircmin]]]";
-		else if (c == 'Û')
+		else if (c == 'Ã›')
 			encoded = "[[[ucircmai]]]";
-		else if (c == 'ã')
+		else if (c == 'Ã£')
 			encoded = "[[[atilmin]]]";
-		else if (c == 'Ã')
+		else if (c == 'Ãƒ')
 			encoded = "[[[atilmai]]]";
-		else if (c == 'õ')
+		else if (c == 'Ãµ')
 			encoded = "[[[otilmin]]]";
-		else if (c == 'Õ') 
+		else if (c == 'Ã•') 
 			encoded = "[[[otilmai]]]";
 		else 
 			encoded = c;
@@ -259,8 +259,8 @@ AjaxUtils.generateQueryStringByForm = function(theform) {
      	Acrescente no onkeydown do seu input text
      		onKeydown="AjaxUtils.autoComplete(this, event, 'AUTOCOMPLETE', 'AutoCompleteNomePaciente')"
      			onde:
-     				'AUTOCOMPLETE' é a div que vai apresentar o resultado do autocomplete
-     				'AutoCompleteNomePaciente' é o nome da classe no servidor que executará a acao de pesquisa.
+     				'AUTOCOMPLETE' Ã© a div que vai apresentar o resultado do autocomplete
+     				'AutoCompleteNomePaciente' Ã© o nome da classe no servidor que executarÃ¡ a acao de pesquisa.
      			obs.: Nao esqueca de colocar o 'Id' para o input text
 */
 AjaxUtils.autoComplete = function(obj, evtKeyDown, idDivRetorno, nomeClasseAutoComplete, mensagem, classAutoComplete){

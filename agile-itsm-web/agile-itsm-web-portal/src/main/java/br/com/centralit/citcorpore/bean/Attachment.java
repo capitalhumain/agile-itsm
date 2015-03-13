@@ -2,7 +2,7 @@ package br.com.centralit.citcorpore.bean;
 
 /**
  * @author breno.guimaraes
- * Conteúdo de emails recebidos.
+ * ConteÃºdo de emails recebidos.
  */
 public class Attachment {
 	private String	contenttype;

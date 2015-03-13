@@ -56,7 +56,7 @@ public class Upload {
 	
 	
 	/**
-	 * Modificando a forma de anexar, foi mudado para um mÈtodo n„o depreciado.
+	 * Modificando a forma de anexar, foi mudado para um m√©todo n√£o depreciado.
 	 * @param request
 	 * @return
 	 * @throws Exception
@@ -78,13 +78,13 @@ public class Upload {
 		try {
 			/**
 			 * @author pedro.lino, Danilo.Lisboa
-			 * Necess·rio especificar o encoding, pois quando existe dois ou mais uploads na mesma tela estava vindo com caracteres especiais;
-			 * N√O RETIRAR O TRATAMENTO DE ENCODING.
+			 * Necess√°rio especificar o encoding, pois quando existe dois ou mais uploads na mesma tela estava vindo com caracteres especiais;
+			 * N√ÉO RETIRAR O TRATAMENTO DE ENCODING.
 			 * **/
-			fu.setHeaderEncoding("iso-8859-1");
+			fu.setHeaderEncoding("UTF-8");
 			fu.setSizeMax(-1);
 			
-			hshRetorno[0] = new HashMap();  //Retorna os campos de formul·rio
+			hshRetorno[0] = new HashMap();  //Retorna os campos de formul√°rio
 			hshRetorno[1] = new HashMap();  //Retorna os nomes de arquivos
 			
 			List fileItems = fu.parseRequest(request);
@@ -127,7 +127,7 @@ public class Upload {
 		}
 		//fu.setRepositoryPath(str);
 		
-		hshRetorno[0] = new HashMap();  //Retorna os campos de formul·rio
+		hshRetorno[0] = new HashMap();  //Retorna os campos de formul√°rio
 		hshRetorno[1] = new HashMap();  //Retorna os nomes de arquivos
 		
 		List fileItems = fu.parseRequest(request);

@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.bpm.util.Enumerados"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.ArrayList"%>
@@ -21,8 +23,7 @@
 %>
 <%@include file="/include/header.jsp"%>
 
-<%@include file="/include/security/security.jsp"%>
-<title><fmt:message key="citcorpore.comum.title" /></title>
+<%@include file="/novoLayout/common/include/titulo.jsp" %>
 <%@include file="/include/menu/menuConfig.jsp"%>
 
 <%@include  file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
@@ -215,8 +216,8 @@
 	#divGrupoItemConfiguracao {
 		display: none;
 	}
-	/* Desenvolvedor: Pedro Lino - Data: 25/10/2013 - Hor·rio: 16:58 - ID Citsmart: 120948 -
-	* Motivo/Coment·rio: box(bot„o) base de conhecimento pequeno/ Alterado altura do box */
+	/* Desenvolvedor: Pedro Lino - Data: 25/10/2013 - Hor√°rio: 16:58 - ID Citsmart: 120948 -
+	* Motivo/Coment√°rio: box(bot√£o) base de conhecimento pequeno/ Alterado altura do box */
 	#barraFerramentasLiberacao ul li.li_menu {
 		height: 65px!important;
 	}
@@ -246,7 +247,7 @@ var popup3;
 			$("#POPUP_INFO_BASELINE").dialog("open");
 		}
 
-	//Adiciona os dados vindos da lookup, o ultimo par‚metro ele pega do fluxo , no caso o status de requisicaoliberacao
+	//Adiciona os dados vindos da lookup, o ultimo par√¢metro ele pega do fluxo , no caso o status de requisicaoliberacao
     function LOOKUP_MUDANCA_CONCLUIDA_SITUACAO_select(id, desc){
         var str = desc.split('-');
         addMudanca(id, str[0],str[1], $("#status option:selected").text());
@@ -409,7 +410,7 @@ var popup3;
         document.getElementById('problema#titulo').value = desc;
         document.getElementById('problema#status').value = stat;
         HTMLUtils.addRow('tblProblema', document.form, 'problema', obj,
-                ["","idProblema","titulo","status"], ["idProblema"], "Problema j· adicionado", [gerarImgDelProblema], null, null, false);
+                ["","idProblema","titulo","status"], ["idProblema"], "Problema j√° adicionado", [gerarImgDelProblema], null, null, false);
 		$("#POPUP_PROBLEMA").dialog("close");
 	}
 
@@ -809,7 +810,7 @@ var popup3;
 		tabelaRelacionamentoSolicitacaoServico.setInsereBotaoExcluir(true, "${ctx}/imagens/delete.png");
 
 		//servicos
-		tabelaRelacionamentoServicos = new CITTable("tblServicos",["idServico", "Nome", "Mapa", "DescriÁ„o"],[]);
+		tabelaRelacionamentoServicos = new CITTable("tblServicos",["idServico", "Nome", "Mapa", "Descri√ß√£o"],[]);
 		tabelaProblema = new CITTable("tblProblema",["idProblema", "titulo", "status"],[]);
 		tabelaRelacionamentoServicos.setInsereBotaoExcluir(true, "${ctx}/imagens/delete.png");
 		tabelaProblema.setInsereBotaoExcluir(true, "${ctx}/imagens/delete.png");
@@ -931,7 +932,7 @@ var popup3;
 					for(j = 0; j < fields.length; j++){
 						celula = linha.insertCell(j);
 
-						//tratamento caso seja um componente ao invÈs de texto
+						//tratamento caso seja um componente ao inv√©s de texto
 						try{
 							celula.appendChild(tableObjects[i][j]);
 						}catch(e){
@@ -945,7 +946,7 @@ var popup3;
 
 						btAux.setAttribute("id", i);
 						btAux.addEventListener("click", function(evt){
-							//ao disparar o evento, considerar· o id do bot„o
+							//ao disparar o evento, considerar√° o id do bot√£o
 							self.removeObject(this.id);
 							this.onDeleteRow(this);
 
@@ -1180,7 +1181,7 @@ var popup3;
 		}
 
 		excluiMidia = function(indice) {
-			if (indice > 0 && confirm('Confirma exclus„o')) {
+			if (indice > 0 && confirm('Confirma exclus√£o')) {
 				HTMLUtils.deleteRow('tblMidia', indice);
 			}
 		}
@@ -1220,7 +1221,7 @@ var popup3;
 		}
 
 		excluiResponsavel = function(indice) {
-			if (indice > 0 && confirm('Confirma exclus„o')) {
+			if (indice > 0 && confirm('Confirma exclus√£o')) {
 				HTMLUtils.deleteRow('tblResponsavel', indice);
 			}
 		}
@@ -1291,7 +1292,7 @@ var popup3;
 
 
 	    /**
-	    	INFORMA«’ES COMPLEMENTARES (TEMPLATE/QUESTIONARIO)
+	    	INFORMA√á√ïES COMPLEMENTARES (TEMPLATE/QUESTIONARIO)
 	    **/
 	    function exibirInformacoesComplementares(url) {
             if (url != '') {
@@ -1333,7 +1334,7 @@ var popup3;
 	    }
 
 	     //geber.costa
-	     //adiciona uma linha na tabela de mudanÁas
+	     //adiciona uma linha na tabela de mudan√ßas
 	     function funcaoClickRowMudanca(row, obj){
 		    	if(row == null){
 		            document.getElementById('rowIndex').value = null;
@@ -1358,7 +1359,7 @@ var popup3;
 	              document.getElementById('mudanca#titulo').value = desc;
 	              document.getElementById('mudanca#status').value = stat;
 	              document.getElementById('mudanca#situacaoLiberacao').value = fecha;
-	            HTMLUtils.addRow('tblMudancas', document.form, 'mudanca', obj,["", "idRequisicaoMudanca", "titulo","status","situacaoLiberacao","", ""], ["idRequisicaoMudanca"], "MudanÁa j· adicionada", [gerarImgDel, gerarImgpopup, geraImgPlanoReversao], funcaoClickRowMudanca, null, false);
+	            HTMLUtils.addRow('tblMudancas', document.form, 'mudanca', obj,["", "idRequisicaoMudanca", "titulo","status","situacaoLiberacao","", ""], ["idRequisicaoMudanca"], "Mudan√ßa j√° adicionada", [gerarImgDel, gerarImgpopup, geraImgPlanoReversao], funcaoClickRowMudanca, null, false);
 	            $("#POPUP_MUDANCA").dialog("close");
 	             novoItem();
 	        /* } else {
@@ -1398,7 +1399,7 @@ var popup3;
 	     }
 
 		// Manipulador de evento para o Campo dataLiberacao.
-		// Se A requisiÁ„o for macada como resolvida o campo dataLiberacao passa a ser obrigatorio.
+		// Se A requisi√ß√£o for macada como resolvida o campo dataLiberacao passa a ser obrigatorio.
 	     function verificaDataLiberacao(status){
 	    	 var teste = status.value;
 				if( teste == "Resolvida"){
@@ -1410,8 +1411,8 @@ var popup3;
 
 				}
 	     }
-			/* Desenvolvedor: Thiago Matias - Data: 27/11/2013 - Hor·rio: 16:00 - ID Citsmart: 125329 -
-				* Motivo/Coment·rio: foi alterado o modo de pesquisa dos itens de configuraÁ„o para vinculaÁ„o*/
+			/* Desenvolvedor: Thiago Matias - Data: 27/11/2013 - Hor√°rio: 16:00 - ID Citsmart: 125329 -
+				* Motivo/Coment√°rio: foi alterado o modo de pesquisa dos itens de configura√ß√£o para vincula√ß√£o*/
 	     function abrirModalPesquisaItemConfiguracao(){
 
 				var h;
@@ -1562,7 +1563,7 @@ div#main_container {
                                     <input type='hidden' name='responsavel#nomeCargo' id='responsavel#nomeCargo' />
 									<input type='hidden' name='responsavel#emailResponsavel' id='responsavel#emailResponsavel' />
 									<input type="hidden" name="responsavel_serialize" id="responsavel_serialize" />
-									<!-- FIM RESPONS¡VEL-->
+									<!-- FIM RESPONS√ÅVEL-->
 									<!-- PEDIDO DE COMPRAS -->
 
 									<input type='hidden' name='requisicaoCompras#idSolicitacaoServico' id='requisicaoCompras#idSolicitacaoServico' />
@@ -2154,7 +2155,7 @@ div#main_container {
 	                            				</div>
 											</div>
 										<%}%>
-										<!-- INÕCIO PAP…IS E RESPONSABILIDADES -->
+										<!-- IN√çCIO PAP√âIS E RESPONSABILIDADES -->
 										<div id="responsavel">
 											<div style="width: 20%; float: left;" align="center" >
 												<label  style="cursor: pointer;" onclick='adicionarResponsavel();'>
@@ -2184,7 +2185,7 @@ div#main_container {
                                 				<iframe id='fraInformacoesComplementares' name='fraInformacoesComplementares' src='about:blank' width="100%" height="100%" style='width: 100%; height: 100%; border:none;'></iframe>
                             				</div>
 										</div> -->
-											<!-- INÕCIO PEDIDO DE COMPRAS -->
+											<!-- IN√çCIO PEDIDO DE COMPRAS -->
 										<div id="requisicaoCompras">
 											<div style="width: 8%; float: left;" align="center" >
 												<label  style="cursor: pointer;" onclick='adicionarRequisicaoCompras();'>

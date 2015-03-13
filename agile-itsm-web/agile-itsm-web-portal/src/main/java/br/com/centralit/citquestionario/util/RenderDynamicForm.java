@@ -735,11 +735,11 @@ public class RenderDynamicForm {
 				}
 			} catch (ClassNotFoundException e) {
 				iCodigoTentativa++;
-				//throw new Exception("Form n„o encontrado: " + Util.convertePrimeiraLetra(name, "U"));
+				//throw new Exception("Form n√£o encontrado: " + Util.convertePrimeiraLetra(name, "U"));
 			}
 		}
 		if (classe == null){
-			System.out.println("CITQUESTIONARIO -> DYNAMIC FORM -> Form n„o encontrado: " + CitAjaxUtil.convertePrimeiraLetra(formName, "U"));
+			System.out.println("CITQUESTIONARIO -> DYNAMIC FORM -> Form n√£o encontrado: " + CitAjaxUtil.convertePrimeiraLetra(formName, "U"));
 			return null;
 		}
 		return classe;

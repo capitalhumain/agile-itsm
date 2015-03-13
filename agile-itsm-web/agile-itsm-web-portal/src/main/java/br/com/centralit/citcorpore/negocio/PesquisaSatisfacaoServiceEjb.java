@@ -55,7 +55,7 @@ public class PesquisaSatisfacaoServiceEjb extends CrudServiceImpl implements Pes
                     if (solicitacaoDto != null) {
                         dadosSolicitacao = solicitacaoDto.getDadosStr();
 
-                        if (solicitacaoDto.getSituacao().equals("Resolvido") && !solicitacaoDto.getRegistradoPor().equals("Autom·tico")) {
+                        if (solicitacaoDto.getSituacao().equals("Resolvido") && !solicitacaoDto.getRegistradoPor().equals("Autom√°tico")) {
                             return solicitacaoDto.getRegistradoPor();
                         }
                     }

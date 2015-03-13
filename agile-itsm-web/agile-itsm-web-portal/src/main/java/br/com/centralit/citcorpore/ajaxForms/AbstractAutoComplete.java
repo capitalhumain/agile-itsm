@@ -8,7 +8,7 @@ import com.google.gson.Gson;
 /**
  * Abstract {@link AjaxFormAction} for autocompletes
  *
- * @author Bruno César - <a href="mailto:bruno@brunocesar.com">bruno@brunocesar.com</a>
+ * @author Bruno CÃ©sar - <a href="mailto:bruno@brunocesar.com">bruno@brunocesar.com</a>
  * @since 09/03/2015
  */
 public abstract class AbstractAutoComplete extends AjaxFormAction {

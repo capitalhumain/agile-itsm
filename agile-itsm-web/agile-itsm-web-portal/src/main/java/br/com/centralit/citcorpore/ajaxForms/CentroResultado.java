@@ -43,7 +43,7 @@ public class CentroResultado extends AjaxFormAction {
 			return;
 		}
 
-		// LÛgica de verificaÁ„o dos radiobuttons de acordo com a operaÁ„o: inserÁ„o ou atualizaÁ„o.
+		// L√≥gica de verifica√ß√£o dos radiobuttons de acordo com a opera√ß√£o: inser√ß√£o ou atualiza√ß√£o.
 		document.executeScript("$('#permiteRequisicaoProdutoSim').attr('checked', true)");
 		document.executeScript("$('#situacaoAtivo').attr('checked', true)");
 
@@ -156,11 +156,11 @@ public class CentroResultado extends AjaxFormAction {
 			centroResultadoDTO.setColResponsaveis(colResponsaveis);
 		}
 		
-		// Verificando a existÍncia do centro de resultado
+		// Verificando a exist√™ncia do centro de resultado
 		if (centroResultadoDTO != null && centroResultadoService != null) {
-			// InserÁ„o
+			// Inser√ß√£o
 			if (centroResultadoDTO.getIdCentroResultado() == null) {
-				// Verificar se um DTO com o mesmo nome j· existe
+				// Verificar se um DTO com o mesmo nome j√° existe
 				List lista = (List) centroResultadoService.find(centroResultadoDTO);
 
 				if (lista != null && !lista.isEmpty()) {
@@ -183,7 +183,7 @@ public class CentroResultado extends AjaxFormAction {
 				centroResultadoDTO.setSituacao("A");
 				centroResultadoService.create(centroResultadoDTO);
 				document.alert(UtilI18N.internacionaliza(request, "MSG05"));
-			} else { // AtualizaÁ„o
+			} else { // Atualiza√ß√£o
 				if (centroResultadoDTO.getIdCentroResultadoPai() != null) {
 					Integer idCentroResuladoPai = 0;
 					idCentroResuladoPai = centroResultadoDTO.getIdCentroResultadoPai();
@@ -197,11 +197,11 @@ public class CentroResultado extends AjaxFormAction {
 			}
 
 			HTMLForm form = document.getForm("form");
-			// Limpando o formul·rio
+			// Limpando o formul√°rio
 			form.clear();
-			// Configurando objeto de transferÍncia de dados ao documento de vis„o (p·gina .jsp)
+			// Configurando objeto de transfer√™ncia de dados ao documento de vis√£o (p√°gina .jsp)
 			document.setBean(new CentroResultadoDTO());
-			// Carregando a p·gina
+			// Carregando a p√°gina
 			load(document, request, response);
 		}
 	}
@@ -214,7 +214,7 @@ public class CentroResultado extends AjaxFormAction {
 		if (centroResultadoDTO != null && centroResultadoDTO.getIdCentroResultado() != null && centroResultadoService != null) {
 			Collection<CentroResultadoDTO> centrosResultadoDependentes = centroResultadoService.findByIdPai(centroResultadoDTO.getIdCentroResultado());
 
-			// Excluir apenas centros de resultado que n„o possuem centros de resultado dependentes (filhos).
+			// Excluir apenas centros de resultado que n√£o possuem centros de resultado dependentes (filhos).
 			if (centrosResultadoDependentes != null) {
 
 				if (centrosResultadoDependentes.size() > 0) {
@@ -226,14 +226,14 @@ public class CentroResultado extends AjaxFormAction {
 			// Exclui o centro resultado
 			centroResultadoService.delete(centroResultadoDTO);
 			document.alert(UtilI18N.internacionaliza(request, "MSG07"));
-			// Obtem o formul·rio na p·gina .jsp associado a esta Action.
+			// Obtem o formul√°rio na p√°gina .jsp associado a esta Action.
 
 			HTMLForm form = document.getForm("form");
-			// Limpa o formul·rio
+			// Limpa o formul√°rio
 			form.clear();
-			// Configura o objeto de transferÍncia de dados ao documento de vis„o (p·gina .jsp)
+			// Configura o objeto de transfer√™ncia de dados ao documento de vis√£o (p√°gina .jsp)
 			document.setBean(new CentroResultadoDTO());
-			// Carrega a p·gina
+			// Carrega a p√°gina
 			load(document, request, response);
 		}
 	}
@@ -244,7 +244,7 @@ public class CentroResultado extends AjaxFormAction {
 	}
 
 	/**
-	 * MÈtodo respons·vel por apresentar a hierarquia de centros de resultado para o usu·rio da aplicaÁ„o.
+	 * M√©todo respons√°vel por apresentar a hierarquia de centros de resultado para o usu√°rio da aplica√ß√£o.
 	 * 
 	 * @author thiagomonteiro
 	 * @param document
@@ -253,27 +253,27 @@ public class CentroResultado extends AjaxFormAction {
 	 * @throws Exception
 	 */
 	public void visualizarHierarquiaCentrosResultado(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// Verificar se o elemento div onde a hierarquia ser· construida existe
+		// Verificar se o elemento div onde a hierarquia ser√° construida existe
 		if (document.getElementById("divApresentacaoHierarquiaCentroResultado") != null) {
-			// Definir uma lista para iniciar a representaÁ„o da hierarquia.
+			// Definir uma lista para iniciar a representa√ß√£o da hierarquia.
 			String htmlHierarquia = "<ul id=\"hierarquiaCentroResultado\" class=\"filetree treeview\">";
-			// Obter o objeto da camada de serviÁos para realizar consultas no banco de dados.
+			// Obter o objeto da camada de servi√ßos para realizar consultas no banco de dados.
 			CentroResultadoService centroResultadoService = (CentroResultadoService) ServiceLocator.getInstance().getService(CentroResultadoService.class, null);
-			// Obter a lista de centros de resultado sem pai (raizes ou elementos de nÌvel mais alto na hierarquia - sem ancestrais).
+			// Obter a lista de centros de resultado sem pai (raizes ou elementos de n√≠vel mais alto na hierarquia - sem ancestrais).
 			List centrosResultado = (List) centroResultadoService.findSemPai();
-			// Gerar HTML para o primeiro nÌvel da hierarquia.
+			// Gerar HTML para o primeiro n√≠vel da hierarquia.
 			htmlHierarquia += construirHierarquiaCentrosResultado(centroResultadoService, centrosResultado, 1);
-			// Finalizar a construÁ„o da hierarquia.
+			// Finalizar a constru√ß√£o da hierarquia.
 			htmlHierarquia += "</ul>";
 			// Atribuir o HTML gerado a divApresentacaoHierarquiaCentroResultado.
 			document.getElementById("divApresentacaoHierarquiaCentroResultado").setInnerHTML(htmlHierarquia);
-			// Gerar a apresentaÁ„o na forma de uma ·rvore.
+			// Gerar a apresenta√ß√£o na forma de uma √°rvore.
 			document.executeScript("$(\"#hierarquiaCentroResultado\").treeview();");
 		}
 	}
 
 	/**
-	 * MÈtodo recursivo para construÁ„o da hierarquia de centros de resultado.
+	 * M√©todo recursivo para constru√ß√£o da hierarquia de centros de resultado.
 	 * 
 	 * @author thiago.monteiro
 	 * @param centroResultadoService
@@ -283,17 +283,17 @@ public class CentroResultado extends AjaxFormAction {
 	 * @throws Exception
 	 */
 	public String construirHierarquiaCentrosResultado(CentroResultadoService centroResultadoService, List centrosResultado, int nivel) throws Exception {
-		// Definir objeto que ir· armazenar o HTML a ser gerado
-		// para cada nÌvel da hierarquia de centros de resultado.
+		// Definir objeto que ir√° armazenar o HTML a ser gerado
+		// para cada n√≠vel da hierarquia de centros de resultado.
 		String htmlHierarquia = "";
 
 		// Verificar se o servico e a lista de centros de resultado existe
 		if (centroResultadoService != null && centrosResultado != null) {
-			// Verificar se a lista passada n„o È vazia.
+			// Verificar se a lista passada n√£o √© vazia.
 			if (!centrosResultado.isEmpty() ) {
 				// Iterar sobre a lista de centros de resultado.
 				for (int i = 0; i < centrosResultado.size(); i++) {
-					// Obter o centro de resultado na iteraÁ„o.
+					// Obter o centro de resultado na itera√ß√£o.
 					CentroResultadoDTO centroResultadoDTO = (CentroResultadoDTO) centrosResultado.get(i);
 
 					// Verificar se o centro de resultado possui filhos.
@@ -303,14 +303,14 @@ public class CentroResultado extends AjaxFormAction {
 						htmlHierarquia += String.format("<li><a href=\"#%d\">%s</a><ul></li>", centroResultadoDTO.getIdCentroResultado(), centroResultadoDTO.getNomeCentroResultado() );
 						// Obter todos os centros de resultado dependentes.
 						List centrosResultadoAux = (List) centroResultadoService.findByIdPai(centroResultadoDTO.getIdCentroResultado() );
-						// Construir a hieraquia com base no centro de resultado atual informando seu nÌvel.
+						// Construir a hieraquia com base no centro de resultado atual informando seu n√≠vel.
 						htmlHierarquia += construirHierarquiaCentrosResultado(centroResultadoService, centrosResultadoAux, ++nivel);
-						// Finalizar a definiÁ„o do nÌvel atual.
+						// Finalizar a defini√ß√£o do n√≠vel atual.
 						htmlHierarquia += "</li></ul>";
-						// Voltar para o nÌvel superior.
+						// Voltar para o n√≠vel superior.
 						--nivel;
 					} else {
-						// Sen„o, renderizar o centro de resultado.
+						// Sen√£o, renderizar o centro de resultado.
 						htmlHierarquia += String.format("<li><a href=\"#%d\">%s</a></li>", centroResultadoDTO.getIdCentroResultado(), centroResultadoDTO.getNomeCentroResultado() );
 					}
 				}

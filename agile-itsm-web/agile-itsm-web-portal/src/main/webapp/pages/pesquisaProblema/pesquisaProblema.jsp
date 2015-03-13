@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.centralit.citcorpore.bean.SolicitacaoServicoDTO"%>
@@ -10,7 +12,7 @@
 %>
 <%@include file="/include/header.jsp"%>
 
-<title><fmt:message key="citcorpore.comum.title" /></title>
+<%@include file="/novoLayout/common/include/titulo.jsp" %>
 <%@include file="/include/menu/menuConfig.jsp"%>
 
 <%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
@@ -159,13 +161,13 @@
 											<div>
 												<select name='status'>
 													<option value=''>--<fmt:message key="citcorpore.comum.todos" /> --</option>
-													<OPTION value="Concluída" ><fmt:message key="citcorpore.comum.concluida" /></OPTION>
+													<OPTION value="ConcluÃ­da" ><fmt:message key="citcorpore.comum.concluida" /></OPTION>
 													<OPTION value="Cancelada" ><fmt:message key="citcorpore.comum.cancelada" /></OPTION>
 													<OPTION value='Em andamento'><fmt:message key="citcorpore.comum.emandamento" /></OPTION>
-													<OPTION value='Em Investigação'><fmt:message key="pesquisaProblema.emInvestigacao" /></OPTION>
+													<OPTION value='Em InvestigaÃ§Ã£o'><fmt:message key="pesquisaProblema.emInvestigacao" /></OPTION>
 													<OPTION value='Reclassificada'><fmt:message key="citcorpore.comum.reclassificada" /></OPTION>
 													<OPTION value='Registrada'><fmt:message key="citcorpore.comum.registrada" /></OPTION>
-										           	<OPTION value='Resolução'><fmt:message key="pesquisaProblema.resolucao" /></OPTION>
+										           	<OPTION value='ResoluÃ§Ã£o'><fmt:message key="pesquisaProblema.resolucao" /></OPTION>
 												</select>
 											</div>
 										</fieldset>

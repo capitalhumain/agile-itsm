@@ -199,8 +199,8 @@ public class RelatorioControlePercentualQuantitativoSla extends AjaxFormAction{
 
 		Map<String, Object> parametros = new HashMap<String, Object>();
 		
-		/* Desenvolvedor: Rodrigo Pecci - Data: 02/11/2013 - Hor·rio: 15h02min - ID Citsmart: 120770
-		 * Motivo/Coment·rio: A internacionalizaÁ„o estava sendo feita antes do get das porcentagens, isso fazia perder as traduÁıes.
+		/* Desenvolvedor: Rodrigo Pecci - Data: 02/11/2013 - Hor√°rio: 15h02min - ID Citsmart: 120770
+		 * Motivo/Coment√°rio: A internacionaliza√ß√£o estava sendo feita antes do get das porcentagens, isso fazia perder as tradu√ß√µes.
 		 */
 		parametros = solicitacaoServicoBean.getMapPorcentagemSla();
 		
@@ -354,8 +354,8 @@ public class RelatorioControlePercentualQuantitativoSla extends AjaxFormAction{
 
 		Map<String, Object> parametros = new HashMap<String, Object>();
 		
-		/* Desenvolvedor: Rodrigo Pecci - Data: 13/11/2013 - Hor·rio: 09h59min - ID Citsmart: 124212
-		 * Motivo/Coment·rio: A internacionalizaÁ„o estava sendo feita antes do get das porcentagens, isso fazia perder as traduÁıes.
+		/* Desenvolvedor: Rodrigo Pecci - Data: 13/11/2013 - Hor√°rio: 09h59min - ID Citsmart: 124212
+		 * Motivo/Coment√°rio: A internacionaliza√ß√£o estava sendo feita antes do get das porcentagens, isso fazia perder as tradu√ß√µes.
 		 */
 		parametros = solicitacaoServicoBean.getMapPorcentagemSla();
 		

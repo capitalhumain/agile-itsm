@@ -284,7 +284,7 @@ public class ColetaPrecoDao extends CrudDaoDefaultImpl {
         try {
             this.execUpdate(sql.toString(), params);
         } catch (PersistenceException e) {
-            System.out.println("Problemas com atualização da pontuação da coleta de preços.");
+            System.out.println("Problemas com atualizaÃ§Ã£o da pontuaÃ§Ã£o da coleta de preÃ§os.");
             e.printStackTrace();
         }
     }
@@ -298,7 +298,7 @@ public class ColetaPrecoDao extends CrudDaoDefaultImpl {
         try {
             this.execUpdate(sql.toString(), params);
         } catch (PersistenceException e) {
-            System.out.println("Problemas com atualização da pontuação da coleta de preços.");
+            System.out.println("Problemas com atualizaÃ§Ã£o da pontuaÃ§Ã£o da coleta de preÃ§os.");
             e.printStackTrace();
         }
     }

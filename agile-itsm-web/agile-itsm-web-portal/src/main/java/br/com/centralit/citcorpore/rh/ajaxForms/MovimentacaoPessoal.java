@@ -53,7 +53,7 @@ public class MovimentacaoPessoal extends AjaxFormAction {
             throws Exception {
         final UsuarioDTO usuario = WebUtil.getUsuario(request);
         if (usuario == null) {
-            document.alert("Sess„o expirada! Favor efetuar logon novamente!");
+            document.alert("Sess√£o expirada! Favor efetuar logon novamente!");
             return;
         }
     }
@@ -61,7 +61,7 @@ public class MovimentacaoPessoal extends AjaxFormAction {
     public void save(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
         final UsuarioDTO usuario = WebUtil.getUsuario(request);
         if (usuario == null) {
-            document.alert("Sess„o expirada! Favor efetuar logon novamente!");
+            document.alert("Sess√£o expirada! Favor efetuar logon novamente!");
             return;
         }
     }

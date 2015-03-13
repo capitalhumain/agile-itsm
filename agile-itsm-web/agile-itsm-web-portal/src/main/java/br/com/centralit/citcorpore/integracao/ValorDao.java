@@ -95,7 +95,7 @@ public class ValorDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Retorna Valor da Característica do Item Configuração.
+     * Retorna Valor da CaracterÃ­stica do Item ConfiguraÃ§Ã£o.
      * 
      * @param idBaseItemConfiguracao
      * @param idCaracteristica
@@ -123,7 +123,7 @@ public class ValorDao extends CrudDaoDefaultImpl {
     }
     
     /**
-     * Retorna Valor da Característica do Item Configuração.
+     * Retorna Valor da CaracterÃ­stica do Item ConfiguraÃ§Ã£o.
      * 
      * @param idBaseItemConfiguracao
      * @param idCaracteristica
@@ -163,7 +163,7 @@ public class ValorDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Retorna características e seus respectivos valores.
+     * Retorna caracterÃ­sticas e seus respectivos valores.
      * 
      * @param itemConfiguracao
      *            - ItemConfiguracaoDTO.
@@ -189,7 +189,7 @@ public class ValorDao extends CrudDaoDefaultImpl {
 
     /**
      * 
-     * Gerar SQL para a consulta de características e seus respectivos valores.
+     * Gerar SQL para a consulta de caracterÃ­sticas e seus respectivos valores.
      * 
      * @param itemConfiguracao
      * @param tipoItemConfiguracao
@@ -219,7 +219,7 @@ public class ValorDao extends CrudDaoDefaultImpl {
     
     /**
      * 
-     * Gerar SQL para a consulta de características e seus respectivos valores.
+     * Gerar SQL para a consulta de caracterÃ­sticas e seus respectivos valores.
      * 
      * @param itemConfiguracao
      * @param tipoItemConfiguracao

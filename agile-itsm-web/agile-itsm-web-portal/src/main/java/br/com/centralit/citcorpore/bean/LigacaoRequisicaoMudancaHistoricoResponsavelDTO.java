@@ -4,7 +4,7 @@ import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * @author murilo.pacheco
- * classe criada para fazer a ligação da tabela de responsaveis com os hitoricos.
+ * classe criada para fazer a ligaÃ§Ã£o da tabela de responsaveis com os hitoricos.
  *
  */
 public class LigacaoRequisicaoMudancaHistoricoResponsavelDTO extends BaseEntity {

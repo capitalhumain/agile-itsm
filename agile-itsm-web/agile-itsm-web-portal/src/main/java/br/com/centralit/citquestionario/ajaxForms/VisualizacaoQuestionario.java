@@ -66,7 +66,7 @@ public class VisualizacaoQuestionario extends AjaxFormAction {
         QuestionarioDTO questionario = (QuestionarioDTO) document.getBean();
         final Usuario user = WebUtilQuestionario.getUsuario(request);
         if (user == null) {
-            document.alert("O usu·rio n„o est· logado! Favor logar no sistema!");
+            document.alert("O usu√°rio n√£o est√° logado! Favor logar no sistema!");
             return;
         }
         final Integer idProfissinal = user.getIdProfissional();
@@ -130,7 +130,7 @@ public class VisualizacaoQuestionario extends AjaxFormAction {
         }
 
         if (questionario == null) {
-            document.alert("Formul·rio n„o encontrado!");
+            document.alert("Formul√°rio n√£o encontrado!");
             return;
         }
 
@@ -212,7 +212,7 @@ public class VisualizacaoQuestionario extends AjaxFormAction {
 
                         questaoDto.setIdSolicitacaoServico(idSolicitacaoServico);
                         if (questaoDto.getTipo().equalsIgnoreCase("T") || questaoDto.getTipo().equalsIgnoreCase("Q")
-                                || questaoDto.getTipo().equalsIgnoreCase("C") || questaoDto.getTipo().equalsIgnoreCase("P")) { // Texto Fixo, Quest„o,
+                                || questaoDto.getTipo().equalsIgnoreCase("C") || questaoDto.getTipo().equalsIgnoreCase("P")) { // Texto Fixo, Quest√£o,
                             // Compartilhada ou HTML
                             linhaSpoolQuestionario = new LinhaSpoolQuestionario(montaLinhaQuestao(questaoDto, null, null, request, validaGeral, questionario,
                                     somenteLeitura, subQuestionario));
@@ -233,12 +233,12 @@ public class VisualizacaoQuestionario extends AjaxFormAction {
                                     + "</td><td colspan='4' align='left' style='text-align:left'>";
                             bufferQuestao += "<input type='hidden' name='campoDyn_" + questaoDto.getIdQuestaoQuestionario() + "' value=''/>";
                             bufferQuestao += "<input type='button' style='BACKGROUND-COLOR: yellow' name='btnDyn_" + questaoDto.getIdQuestaoQuestionario()
-                                    + "' onclick='parent.showHistoricoAba(\"" + questaoDto.getAbaResultSubForm() + "\");' value='HistÛrico'/>";
+                                    + "' onclick='parent.showHistoricoAba(\"" + questaoDto.getAbaResultSubForm() + "\");' value='Hist√≥rico'/>";
                             bufferQuestao += "</td></tr>";
                             linhaSpoolQuestionario = new LinhaSpoolQuestionario(bufferQuestao);
                             colLinhas.add(linhaSpoolQuestionario);
                             /*
-                             * }else if (questaoDto.getTipo().equalsIgnoreCase("I")){ // InformaÁıes HistÛricas
+                             * }else if (questaoDto.getTipo().equalsIgnoreCase("I")){ // Informa√ß√µes Hist√≥ricas
                              * ProntuarioEletronicoConfigService peCfgService = (ProntuarioEletronicoConfigService)
                              * ServiceLocator.getInstance().getService(ProntuarioEletronicoConfigService.class, null);
                              * ProntuarioEletronicoConfigDTO peCfgDto = new ProntuarioEletronicoConfigDTO();
@@ -251,7 +251,7 @@ public class VisualizacaoQuestionario extends AjaxFormAction {
                              * bufferQuestao += "<input type='hidden' name='campoDyn_" + questaoDto.getIdQuestaoQuestionario() + "' value=''/>";
                              * bufferQuestao += "<input type='button' name='btnDyn_" + questaoDto.getIdQuestaoQuestionario() +
                              * "' onclick='parent.funcaoChamaInformacoesHistoricas(\""+questaoDto.getAbaResultSubForm()+"\", \"" +
-                             * peCfgDto.getIdProntuarioEletronicoConfig() + "\");' value='InformaÁıes HistÛricas'/>";
+                             * peCfgDto.getIdProntuarioEletronicoConfig() + "\");' value='Informa√ß√µes Hist√≥ricas'/>";
                              * bufferQuestao += "</td></tr>";
                              * linhaSpoolQuestionario = new LinhaSpoolQuestionario(bufferQuestao);
                              * colLinhas.add(linhaSpoolQuestionario);
@@ -280,7 +280,7 @@ public class VisualizacaoQuestionario extends AjaxFormAction {
                                 bufferQuestao += "</td></tr>";
                             } catch (final Exception e) {
                                 e.printStackTrace();
-                                bufferQuestao += "<tr><td colspan='20'><b>OCORREU ERRO AO RECUPERAR DOS DO FORMUL¡RIO ASSOCIADO!</b></td></tr>";
+                                bufferQuestao += "<tr><td colspan='20'><b>OCORREU ERRO AO RECUPERAR DOS DO FORMUL√ÅRIO ASSOCIADO!</b></td></tr>";
                             }
                             linhaSpoolQuestionario = new LinhaSpoolQuestionario(bufferQuestao);
                             colLinhas.add(linhaSpoolQuestionario);
@@ -293,7 +293,7 @@ public class VisualizacaoQuestionario extends AjaxFormAction {
                             if (questaoDto.getIdSolicitacaoServico() != null) {
                                 // strAux = "<a href='#ancoraVisualizaHistoricoCampo'><img src='" + Constantes.getValue("SERVER_ADDRESS") +
                                 // Constantes.getValue("CONTEXTO_APLICACAO") +
-                                // "/imagens/limparPeq.gif' border='0' style='cursor:pointer' title='Clique aqui para obter o histÛrico deste campo' onclick='chamaTelaHistoricoQuestMatTabela(\""
+                                // "/imagens/limparPeq.gif' border='0' style='cursor:pointer' title='Clique aqui para obter o hist√≥rico deste campo' onclick='chamaTelaHistoricoQuestMatTabela(\""
                                 // + questaoDto.getIdQuestaoQuestionario() + "\", \"" + questaoDto.getIdQuestaoOrigem() + "\")'></a> ";
                             }
                             String bufferQuestao = "<tr><td width='" + QUESTIONARIO_WIDTH_COLUNA_AVANCO + "'>" + avanco
@@ -349,7 +349,7 @@ public class VisualizacaoQuestionario extends AjaxFormAction {
                             if (questaoDto.getIdSolicitacaoServico() != null) {
                                 // strAux = "<a href='#ancoraVisualizaHistoricoCampo'><img src='" + Constantes.getValue("SERVER_ADDRESS") +
                                 // Constantes.getValue("CONTEXTO_APLICACAO") +
-                                // "/imagens/limparPeq.gif' border='0' style='cursor:pointer' title='Clique aqui para obter o histÛrico deste campo' onclick='chamaTelaHistoricoQuestMatTabela(\""
+                                // "/imagens/limparPeq.gif' border='0' style='cursor:pointer' title='Clique aqui para obter o hist√≥rico deste campo' onclick='chamaTelaHistoricoQuestMatTabela(\""
                                 // + questaoDto.getIdQuestaoQuestionario() + "\", \"" + questaoDto.getIdQuestaoOrigem() + "\")'></a> ";
                             }
                             String bufferQuestao = "<tr><td width='" + QUESTIONARIO_WIDTH_COLUNA_AVANCO + "'>" + avanco
@@ -505,7 +505,7 @@ public class VisualizacaoQuestionario extends AjaxFormAction {
         boolean montaTitulo = true;
         boolean campoTabela = false;
 
-        if (questaoAgrupadoraDto == null) { // Verifica se È Quest„o de Matriz ou Tabela
+        if (questaoAgrupadoraDto == null) { // Verifica se √© Quest√£o de Matriz ou Tabela
             // avancoTitulo = "<td width='" + QUESTIONARIO_WIDTH_COLUNA_AVANCO + "'>" + avanco + "</td>";
         } else {
             colsTextArea = "40";
@@ -573,7 +573,7 @@ public class VisualizacaoQuestionario extends AjaxFormAction {
                     }
                 }
             }
-        } else if (questaoDto.getTipoQuestao().equalsIgnoreCase("N")) { // N˙mero (sem casas decimais) ou Frequencia Cardiaca
+        } else if (questaoDto.getTipoQuestao().equalsIgnoreCase("N")) { // N√∫mero (sem casas decimais) ou Frequencia Cardiaca
             if (!classOpcoes.equalsIgnoreCase("")) {
                 classOpcoes += "] ";
             }
@@ -630,7 +630,7 @@ public class VisualizacaoQuestionario extends AjaxFormAction {
                 classOpcoes += "] ";
             }
         }
-        if (questaoDto.getTipoQuestao().equalsIgnoreCase("1")) { // Faixa de N˙meros (sem casas decimais)
+        if (questaoDto.getTipoQuestao().equalsIgnoreCase("1")) { // Faixa de N√∫meros (sem casas decimais)
             if (resposta != null) {
                 value = UtilFormatacao.formatDouble(resposta.getRespostaValor(), 0);
                 value2 = UtilFormatacao.formatDouble(resposta.getRespostaValor2(), 0);
@@ -747,7 +747,7 @@ public class VisualizacaoQuestionario extends AjaxFormAction {
                  * if (questaoDto.getIdSolicitacaoServico() != null && questionario.getDetalhaHistorico().equalsIgnoreCase("S")){
                  * bufferQuestao += "<div id='divHist_"+questaoDto.getIdQuestaoQuestionario()+"'><a href='#ancoraVisualizaHistoricoCampo'><img src='" +
                  * Constantes.getValue("SERVER_ADDRESS") + Constantes.getValue("CONTEXTO_APLICACAO") +
-                 * "/imagens/histCampo.gif' border='0' style='cursor:pointer' title='Clique aqui para obter o histÛrico deste campo' onclick='chamaTelaHistoricoQuest(\""
+                 * "/imagens/histCampo.gif' border='0' style='cursor:pointer' title='Clique aqui para obter o hist√≥rico deste campo' onclick='chamaTelaHistoricoQuest(\""
                  * + idCampo + questaoDto.getIdQuestaoQuestionario() + "\", \"" + questaoDto.getIdQuestaoOrigem() + "\")'></a></div>";
                  * if (questaoDto.getTipoQuestao().equalsIgnoreCase("N") ||
                  * questaoDto.getTipoQuestao().equalsIgnoreCase("V") ||
@@ -760,7 +760,7 @@ public class VisualizacaoQuestionario extends AjaxFormAction {
                  * questaoDto.getTipoQuestao().equalsIgnoreCase("2")){
                  * bufferQuestao += "<div id='divHistGraf_"+questaoDto.getIdQuestaoQuestionario()+"'><a href='#ancoraVisualizaHistoricoCampo'><img src='" +
                  * Constantes.getValue("SERVER_ADDRESS") + Constantes.getValue("CONTEXTO_APLICACAO") +
-                 * "/imagens/grafico_peq.gif' border='0' style='cursor:pointer' title='Clique aqui para visualizar o gr·fico do histÛrico deste campo' onclick='chamaTelaHistoricoQuestGrafico(\""
+                 * "/imagens/grafico_peq.gif' border='0' style='cursor:pointer' title='Clique aqui para visualizar o gr√°fico do hist√≥rico deste campo' onclick='chamaTelaHistoricoQuestGrafico(\""
                  * + idCampo + questaoDto.getIdQuestaoQuestionario() + "\", \"" + questaoDto.getIdQuestaoOrigem() + "\")'></a></div>";
                  * }
                  * }
@@ -781,7 +781,7 @@ public class VisualizacaoQuestionario extends AjaxFormAction {
                             + "'><a href='#ancoraVisualizaHistoricoCampo'><img src='"
                             + Constantes.getValue("SERVER_ADDRESS")
                             + Constantes.getValue("CONTEXTO_APLICACAO")
-                            + "/imagens/seta_link.gif' border='0' style='cursor:pointer' title='Clique aqui para obter o histÛrico deste campo' onclick='chamaTelaHistoricoQuest(\""
+                            + "/imagens/seta_link.gif' border='0' style='cursor:pointer' title='Clique aqui para obter o hist√≥rico deste campo' onclick='chamaTelaHistoricoQuest(\""
                             + idCampo + questaoDto.getIdQuestaoQuestionario() + "\", \"" + questaoDto.getIdQuestaoOrigem() + "\")'></a></div>";
                 }
                 if (questaoDto.getTipoQuestao().equalsIgnoreCase("N") || questaoDto.getTipoQuestao().equalsIgnoreCase("V")
@@ -794,7 +794,7 @@ public class VisualizacaoQuestionario extends AjaxFormAction {
                             + "'><a href='#ancoraVisualizaHistoricoCampo'><img src='"
                             + Constantes.getValue("SERVER_ADDRESS")
                             + Constantes.getValue("CONTEXTO_APLICACAO")
-                            + "/imagens/grafico.gif' border='0' style='cursor:pointer' title='Clique aqui para visualizar o gr·fico do histÛrico deste campo' onclick='chamaTelaHistoricoQuestGrafico(\""
+                            + "/imagens/grafico.gif' border='0' style='cursor:pointer' title='Clique aqui para visualizar o gr√°fico do hist√≥rico deste campo' onclick='chamaTelaHistoricoQuestGrafico(\""
                             + idCampo + questaoDto.getIdQuestaoQuestionario() + "\", \"" + questaoDto.getIdQuestaoOrigem() + "\")'></a></div>";
                 }
             }
@@ -812,7 +812,7 @@ public class VisualizacaoQuestionario extends AjaxFormAction {
                     + " size='" + QUESTIONARIO_SIZE_QUESTAO + "' maxlength='" + questaoDto.getTamanho() + "' value='" + value + "' />" + dadosAdicionais
                     + "</td></tr>";
         }
-        if (questaoDto.getTipoQuestao().equalsIgnoreCase("A")) { // Texto Longo (Campo de observaÁıes, etc.)
+        if (questaoDto.getTipoQuestao().equalsIgnoreCase("A")) { // Texto Longo (Campo de observa√ß√µes, etc.)
             if (questaoAgrupadoraDto == null) {
                 if (PRONTUARIO_FORMA_EDICAO.equalsIgnoreCase("P")) {
                     bufferQuestao += montaIconeModeloTextual(idCampo + questaoDto.getIdQuestaoQuestionario(), "A") + "</td><td width='" + dimensionamentoCampo
@@ -1007,7 +1007,7 @@ public class VisualizacaoQuestionario extends AjaxFormAction {
                 bufferQuestao += bufferOut;
             }
         }
-        if (questaoDto.getTipoQuestao().equalsIgnoreCase("X")) { // ComboBox (Caixa de SeleÁ„o)
+        if (questaoDto.getTipoQuestao().equalsIgnoreCase("X")) { // ComboBox (Caixa de Sele√ß√£o)
             if (questaoDto.getColOpcoesResposta() != null) {
                 String aux = "";
                 if ("B".equalsIgnoreCase(questaoDto.getInfoResposta())) { // Em baixo da pergunta
@@ -1059,7 +1059,7 @@ public class VisualizacaoQuestionario extends AjaxFormAction {
                 bufferQuestao += bufferOut;
             }
         }
-        if (questaoDto.getTipoQuestao().equalsIgnoreCase("N")) { // N˙mero (sem casas decimais)
+        if (questaoDto.getTipoQuestao().equalsIgnoreCase("N")) { // N√∫mero (sem casas decimais)
             String strValidaFaixaValores = "";
             if (questaoDto.getValorPermitido1() != null && questaoDto.getValorPermitido2() != null) {
                 if (questaoDto.getValorPermitido1().doubleValue() > 0 || questaoDto.getValorPermitido2().doubleValue() > 0) {
@@ -1116,7 +1116,7 @@ public class VisualizacaoQuestionario extends AjaxFormAction {
                     + " onchange='limpaCamposCalculados(this);'" + " name='" + idCampo + questaoDto.getIdQuestaoQuestionario()
                     + "' size='15' maxlength='15' value='" + value2 + "'/>" + dadosAdicionais + "</td></tr>";
         }
-        if (questaoDto.getTipoQuestao().equalsIgnoreCase("1")) { // Faixa de Valores (N˙meros)
+        if (questaoDto.getTipoQuestao().equalsIgnoreCase("1")) { // Faixa de Valores (N√∫meros)
             bufferQuestao += "</td><td width='" + dimensionamentoCampo + "' align='left' style='text-align:left'  >Valor Inicial: <input type='text' "
                     + classOpcoes + " onchange='limpaCamposCalculados(this);'" + " name='" + idCampo + questaoDto.getIdQuestaoQuestionario()
                     + "' size='6' maxlength='6' value='" + value + "'/>&nbsp;Valor Final: <input type='text' " + classOpcoes
@@ -1135,14 +1135,14 @@ public class VisualizacaoQuestionario extends AjaxFormAction {
                     + "' align='left' style='text-align:left'  ><a href='#'>[Clique aqui para inserir uma imagem]</a><div id='divGalImg"
                     + questaoDto.getIdQuestaoQuestionario() + "'></div></td></tr>";
         }
-        if (questaoDto.getTipoQuestao().equalsIgnoreCase("M")) { // Galeria MultimÌdia (Videos,etc.) }
+        if (questaoDto.getTipoQuestao().equalsIgnoreCase("M")) { // Galeria Multim√≠dia (Videos,etc.) }
             bufferQuestao += "</td><td width='"
                     + dimensionamentoCampo
                     + "' align='left' style='text-align:left'  ><a href='#' onclick=\"chamaTelaUploadArquivoMultimidia('divGalMulti"
                     + questaoDto.getIdQuestaoQuestionario()
                     + "',"
                     + questaoDto.getIdQuestaoQuestionario()
-                    + ")\">[Clique aqui para inserir um arquivo multÌmidia]</a><div id='divGalMulti"
+                    + ")\">[Clique aqui para inserir um arquivo mult√≠midia]</a><div id='divGalMulti"
                     + questaoDto.getIdQuestaoQuestionario()
                     + "' style='border:1px solid black; height: 200px; width: 100%; background-color:white; overflow:auto; margin: 0px 10px 10px 10px;'></div></td></tr>";
             final Collection colAnexos = new ArrayList();
@@ -1191,7 +1191,7 @@ public class VisualizacaoQuestionario extends AjaxFormAction {
         }
         if (questaoDto.getTipoQuestao().equalsIgnoreCase("G")) { // Mes/Ano
             classOpcoes += "Format[Numero]";
-            bufferQuestao += "</td><td width='" + dimensionamentoCampo + "' align='left' style='text-align:left'  >MÍs: <input type='text' " + classOpcoes
+            bufferQuestao += "</td><td width='" + dimensionamentoCampo + "' align='left' style='text-align:left'  >M√™s: <input type='text' " + classOpcoes
                     + " onchange='limpaCamposCalculados(this);'" + " name='" + idCampo + questaoDto.getIdQuestaoQuestionario() + "'" + readonly
                     + "size='2' maxlength='2' value='" + value + "'/>&nbsp;Ano:<input type='text' " + classOpcoes + " onchange='limpaCamposCalculados(this);'"
                     + " name='" + idCampo + questaoDto.getIdQuestaoQuestionario() + "'" + readonly + "size='4' maxlength='4' value='" + value2 + "'/>"

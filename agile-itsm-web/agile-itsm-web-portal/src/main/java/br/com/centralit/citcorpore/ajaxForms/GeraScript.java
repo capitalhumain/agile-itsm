@@ -230,7 +230,7 @@ public class GeraScript extends AjaxFormAction{
 
         PiePlot piePlot = (PiePlot) chart.getPlot();
         piePlot.setNoDataMessage(UtilI18N.internacionaliza(request, "citcorpore.comum.naoHaDadosParaApresentar"));
-        //piePlot.setNoDataMessage("N„o h· dados.");
+        //piePlot.setNoDataMessage("N√£o h√° dados.");
 
         if(percentagem) {
             piePlot.setLabelGenerator(new StandardPieSectionLabelGenerator("({0}) {1} - {2}"));

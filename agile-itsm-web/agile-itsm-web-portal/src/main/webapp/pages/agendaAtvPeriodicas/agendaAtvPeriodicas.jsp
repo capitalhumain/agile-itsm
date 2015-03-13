@@ -1,11 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.citframework.util.UtilStrings"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.centralit.citcorpore.util.CitCorporeConstantes"%>
 
 <%
-	response.setCharacterEncoding("ISO-8859-1");
+	response.setCharacterEncoding("UTF-8");
 
 	String noVoltar = request.getParameter("noVoltar");
 	if (noVoltar == null){
@@ -19,7 +20,7 @@
 
 <head>
 	<%@include file="/include/header.jsp" %>
-	<%@include file="/include/titleComum/titleComum.jsp" %>
+	<%@include file="/novoLayout/common/include/titulo.jsp" %>
 
 	<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp" %>
 
@@ -127,7 +128,7 @@
 				  <div class="col_33" >
 				  	<label  class="" style="cursor: pointer;"><fmt:message key="agenda.dataProgramada" /></label>
 						<div>
-                         <!-- Maycon 30/10/2013 - 09:55 -  retirada o class datepicker para ter somente visualização -->
+                         <!-- Maycon 30/10/2013 - 09:55 -  retirada o class datepicker para ter somente visualizaÃ§Ã£o -->
 							 <input type='text' name='dataProgramada' style="width: 120px !important;"  size="10" maxlength="10" class="Format[Date]" readonly='readonly' />
 						</div>
 				  </div>
@@ -163,8 +164,8 @@
 						</div>
 
 					</div>
-					<!-- Desenvolvedor: Pedro Lino - Data: 23/10/2013 - Horário: 17:38 - ID Citsmart: 120948 -
-						* Motivo/Comentário: Campo motivo com layout antigo, retirado style -->
+					<!-- Desenvolvedor: Pedro Lino - Data: 23/10/2013 - HorÃ¡rio: 17:38 - ID Citsmart: 120948 -
+						* Motivo/ComentÃ¡rio: Campo motivo com layout antigo, retirado style -->
 					 <div id='divMotivoSuspensao' style='display:none'>
                          <div class='col_50'>
                             <label style="cursor: pointer;" onclick="abrirPopupMotivoSuspensaoAtividade();">

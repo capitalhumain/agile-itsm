@@ -24,8 +24,8 @@
 			show: "fade",
 			hide: "fade"
 		});
-/* Desenvolvedor: Pedro Lino - Data: 28/10/2013 - Hor·rio: 10:00 - ID Citsmart: 120948 -
-* Motivo/Coment·rio: Lookup com padr„o de popup antigo/ criando popups modelo jqueryui */
+/* Desenvolvedor: Pedro Lino - Data: 28/10/2013 - Hor√°rio: 10:00 - ID Citsmart: 120948 -
+* Motivo/Coment√°rio: Lookup com padr√£o de popup antigo/ criando popups modelo jqueryui */
 		$("#POPUP_MUDANCA").dialog({
 			autoOpen : false,
 			width : 650,
@@ -203,7 +203,7 @@
 	function salvar(){
 		document.form.colRecursosSerialize.value = '';
 		document.form.colAssinaturasSerialize.value = '';
-		//serializaÁ„o de recursos
+		//serializa√ß√£o de recursos
 		var tbl = document.getElementById('tabelaRecurso');
 		var lastRow = tbl.rows.length;
 		var objs = new Array();
@@ -242,7 +242,7 @@
       	var objsSerializados = ObjectUtils.serializeObjects(objs);
 		document.form.colRecursosSerialize.value = objsSerializados;
 
-		//serializaÁ„o de assinaturas
+		//serializa√ß√£o de assinaturas
 		var tblAssinatura = document.getElementById('tabelaAssinaturasAprovacoes');
 		var lastRowAssinatura = tblAssinatura.rows.length;
 		var objsAssinatura = new Array();

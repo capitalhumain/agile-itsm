@@ -10,7 +10,7 @@ import br.com.citframework.service.CrudService;
 public interface NotificacaoService extends CrudService {
 
 	/**
-	 * Retorna true caso titulo exista false caso titulo n„o exista ou esteje excluido.
+	 * Retorna true caso titulo exista false caso titulo n√£o exista ou esteje excluido.
 	 * 
 	 * @param obj
 	 * @return

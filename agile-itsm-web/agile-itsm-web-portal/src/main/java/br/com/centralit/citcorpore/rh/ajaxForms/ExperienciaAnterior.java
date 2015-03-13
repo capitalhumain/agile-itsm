@@ -34,7 +34,7 @@ public class ExperienciaAnterior extends AjaxFormAction {
       public void save(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
     	  UsuarioDTO usuario = WebUtil.getUsuario(request);
           if (usuario == null){
-                document.alert("Sess„o expirada! Favor efetuar logon novamente!");
+                document.alert("Sess√£o expirada! Favor efetuar logon novamente!");
                 return;
           }
           
@@ -53,7 +53,7 @@ public class ExperienciaAnterior extends AjaxFormAction {
       public void delete(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
           UsuarioDTO usuario = WebUtil.getUsuario(request);
           if (usuario == null){
-                document.alert("Sess„o expirada! Favor efetuar logon novamente!");
+                document.alert("Sess√£o expirada! Favor efetuar logon novamente!");
                 return;
           }
           
@@ -65,13 +65,13 @@ public class ExperienciaAnterior extends AjaxFormAction {
           conhecimentosService.delete(conhecimentosDto);
           document.executeScript("limpar()");
           
-          document.alert("SolicitaÁ„o excluÌda com sucesso!"); 
+          document.alert("Solicita√ß√£o exclu√≠da com sucesso!"); 
     }           
       
       public void restore(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
           UsuarioDTO usuario = WebUtil.getUsuario(request);
           if (usuario == null){
-                document.alert("Sess„o expirada! Favor efetuar logon novamente!");
+                document.alert("Sess√£o expirada! Favor efetuar logon novamente!");
                 return;
           }
           
@@ -95,7 +95,7 @@ public class ExperienciaAnterior extends AjaxFormAction {
 		if(idFuncao != null && !idFuncao.equalsIgnoreCase("")){
 			colConhecimento = conhecimentosService.findByNotIdFuncao(new Integer(idFuncao));
 		}else{
-			document.alert("Selecione uma funÁ„o!");
+			document.alert("Selecione uma fun√ß√£o!");
 		}
         if (colConhecimento != null) {
         	for (ConhecimentoDTO conhecimentosDto : colConhecimento) {

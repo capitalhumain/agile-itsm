@@ -131,7 +131,7 @@ public class RelatorioTop10IncidentesRequisicoes extends AjaxFormAction {
 	public void geraTop10SolicitantesMaisAbriramReqInc(RelatorioTop10IncidentesRequisicoesDTO relatorioTop10IncidentesRequisicoesDTO, UsuarioDTO usuario, DocumentHTML document, HttpServletRequest request, HttpServletResponse response){
 		try {
 			JRDataSource dataSource;
-			//Obtendo informações
+			//Obtendo informaÃ§Ãµes
 			Top10IncidentesRequisicoesService top10IncidentesRequisicoesService = (Top10IncidentesRequisicoesService) ServiceLocator.getInstance().getService(Top10IncidentesRequisicoesService.class, WebUtil.getUsuarioSistema(request));
 			ArrayList<Top10IncidentesRequisicoesDTO> listaSolicitantes = top10IncidentesRequisicoesService.listSolicitantesMaisAbriramIncSol(relatorioTop10IncidentesRequisicoesDTO);
 			if (listaSolicitantes.size() == 0) {
@@ -150,10 +150,10 @@ public class RelatorioTop10IncidentesRequisicoes extends AjaxFormAction {
 
 			dataSource = new JRBeanCollectionDataSource(listaSolicitantes);
 
-			//Alimentando os parâmetros de filtragem para serem mostrados no relatório
+			//Alimentando os parÃ¢metros de filtragem para serem mostrados no relatÃ³rio
 			Map<String, Object> parametros = this.alimentaParametros(relatorioTop10IncidentesRequisicoesDTO, usuario, UtilI18N.internacionaliza(request, "relatorioTop10IncidentesRequisicoes.relSolicitantesMaisAbriramReqInc.titulo"), document, request, response);
 
-			//Configurando dados para geração do Relatório
+			//Configurando dados para geraÃ§Ã£o do RelatÃ³rio
 			StringBuilder jasperArqRel = new StringBuilder();
 			jasperArqRel.append("relTop10SolicitantesMaisAbriramReqInc");
 			if (relatorioTop10IncidentesRequisicoesDTO.getVisualizacao().equalsIgnoreCase("R")){
@@ -168,7 +168,7 @@ public class RelatorioTop10IncidentesRequisicoes extends AjaxFormAction {
 			String diretorioRelativo = Constantes.getValue("SERVER_ADDRESS") + Constantes.getValue("CONTEXTO_APLICACAO") + "/tempFiles";
 			String arquivoRelatorio = "/"+ jasperArqRel + strMiliSegundos + "_" + usuario.getIdUsuario();
 
-			//Chamando o relatório
+			//Chamando o relatÃ³rio
 			if (relatorioTop10IncidentesRequisicoesDTO.getFormato().equalsIgnoreCase("PDF")){
 				abreRelatorioPDF(dataSource, parametros, diretorioTemp, caminhoJasper, jasperArqRel.toString(), diretorioRelativo, arquivoRelatorio, document, request, response);
 			} else {
@@ -182,7 +182,7 @@ public class RelatorioTop10IncidentesRequisicoes extends AjaxFormAction {
 	public void geraTop10GruposMaisResolveramReqInc(RelatorioTop10IncidentesRequisicoesDTO relatorioTop10IncidentesRequisicoesDTO, UsuarioDTO usuario, DocumentHTML document, HttpServletRequest request, HttpServletResponse response){
 		try {
 			JRDataSource dataSource;
-			//Obtendo informações
+			//Obtendo informaÃ§Ãµes
 			Top10IncidentesRequisicoesService top10IncidentesRequisicoesService = (Top10IncidentesRequisicoesService) ServiceLocator.getInstance().getService(Top10IncidentesRequisicoesService.class, WebUtil.getUsuarioSistema(request));
 			ArrayList<Top10IncidentesRequisicoesDTO> listaSolicitantes = top10IncidentesRequisicoesService.listGruposMaisResolveramIncSol(relatorioTop10IncidentesRequisicoesDTO);
 			if (listaSolicitantes.size() == 0) {
@@ -201,10 +201,10 @@ public class RelatorioTop10IncidentesRequisicoes extends AjaxFormAction {
 
 			dataSource = new JRBeanCollectionDataSource(listaSolicitantes);
 
-			//Alimentando os parâmetros de filtragem para serem mostrados no relatório
+			//Alimentando os parÃ¢metros de filtragem para serem mostrados no relatÃ³rio
 			Map<String, Object> parametros = this.alimentaParametros(relatorioTop10IncidentesRequisicoesDTO, usuario, UtilI18N.internacionaliza(request, "relatorioTop10IncidentesRequisicoes.relGruposMaisResolveramReqInc.titulo"), document, request, response);
 
-			//Configurando dados para geração do Relatório
+			//Configurando dados para geraÃ§Ã£o do RelatÃ³rio
 			StringBuilder jasperArqRel = new StringBuilder();
 			jasperArqRel.append("relTop10GruposMaisResolveramReqInc");
 			if (relatorioTop10IncidentesRequisicoesDTO.getVisualizacao().equalsIgnoreCase("R")){
@@ -219,7 +219,7 @@ public class RelatorioTop10IncidentesRequisicoes extends AjaxFormAction {
 			String diretorioRelativo = Constantes.getValue("SERVER_ADDRESS") + Constantes.getValue("CONTEXTO_APLICACAO") + "/tempFiles";
 			String arquivoRelatorio = "/"+ jasperArqRel + strMiliSegundos + "_" + usuario.getIdUsuario();
 
-			//Chamando o relatório
+			//Chamando o relatÃ³rio
 			if (relatorioTop10IncidentesRequisicoesDTO.getFormato().equalsIgnoreCase("PDF")){
 				abreRelatorioPDF(dataSource, parametros, diretorioTemp, caminhoJasper, jasperArqRel.toString(), diretorioRelativo, arquivoRelatorio, document, request, response);
 			} else {
@@ -233,7 +233,7 @@ public class RelatorioTop10IncidentesRequisicoes extends AjaxFormAction {
 	public void geraTop10ReqIncMaisSolicitados(RelatorioTop10IncidentesRequisicoesDTO relatorioTop10IncidentesRequisicoesDTO, UsuarioDTO usuario, DocumentHTML document, HttpServletRequest request, HttpServletResponse response){
 		try {
 			JRDataSource dataSource;
-			//Obtendo informações
+			//Obtendo informaÃ§Ãµes
 			Top10IncidentesRequisicoesService top10IncidentesRequisicoesService = (Top10IncidentesRequisicoesService) ServiceLocator.getInstance().getService(Top10IncidentesRequisicoesService.class, WebUtil.getUsuarioSistema(request));
 			ArrayList<Top10IncidentesRequisicoesDTO> listaSolicitantes = top10IncidentesRequisicoesService.listReqIncMaisSolicitados(relatorioTop10IncidentesRequisicoesDTO);
 			if (listaSolicitantes.size() == 0) {
@@ -252,10 +252,10 @@ public class RelatorioTop10IncidentesRequisicoes extends AjaxFormAction {
 
 			dataSource = new JRBeanCollectionDataSource(listaSolicitantes);
 
-			//Alimentando os parâmetros de filtragem para serem mostrados no relatório
+			//Alimentando os parÃ¢metros de filtragem para serem mostrados no relatÃ³rio
 			Map<String, Object> parametros = this.alimentaParametros(relatorioTop10IncidentesRequisicoesDTO, usuario, UtilI18N.internacionaliza(request, "relatorioTop10IncidentesRequisicoes.relReqIncMaisSolicitados.titulo"), document, request, response);
 
-			//Configurando dados para geração do Relatório
+			//Configurando dados para geraÃ§Ã£o do RelatÃ³rio
 			StringBuilder jasperArqRel = new StringBuilder();
 			jasperArqRel.append("relTop10ReqIncMaisSolicitados");
 			if (relatorioTop10IncidentesRequisicoesDTO.getVisualizacao().equalsIgnoreCase("R")){
@@ -270,7 +270,7 @@ public class RelatorioTop10IncidentesRequisicoes extends AjaxFormAction {
 			String diretorioRelativo = Constantes.getValue("SERVER_ADDRESS") + Constantes.getValue("CONTEXTO_APLICACAO") + "/tempFiles";
 			String arquivoRelatorio = "/"+ jasperArqRel + strMiliSegundos + "_" + usuario.getIdUsuario();
 
-			//Chamando o relatório
+			//Chamando o relatÃ³rio
 			if (relatorioTop10IncidentesRequisicoesDTO.getFormato().equalsIgnoreCase("PDF")){
 				abreRelatorioPDF(dataSource, parametros, diretorioTemp, caminhoJasper, jasperArqRel.toString(), diretorioRelativo, arquivoRelatorio, document, request, response);
 			} else {
@@ -284,7 +284,7 @@ public class RelatorioTop10IncidentesRequisicoes extends AjaxFormAction {
 	public void geraTop10UnidadesMaisAbriramReqInc(RelatorioTop10IncidentesRequisicoesDTO relatorioTop10IncidentesRequisicoesDTO, UsuarioDTO usuario, DocumentHTML document, HttpServletRequest request, HttpServletResponse response){
 		try {
 			JRDataSource dataSource;
-			//Obtendo informações
+			//Obtendo informaÃ§Ãµes
 			Top10IncidentesRequisicoesService top10IncidentesRequisicoesService = (Top10IncidentesRequisicoesService) ServiceLocator.getInstance().getService(Top10IncidentesRequisicoesService.class, WebUtil.getUsuarioSistema(request));
 			ArrayList<Top10IncidentesRequisicoesDTO> listaSolicitantes = top10IncidentesRequisicoesService.listUnidadesMaisAbriramReqInc(relatorioTop10IncidentesRequisicoesDTO);
 			if (listaSolicitantes.size() == 0) {
@@ -303,10 +303,10 @@ public class RelatorioTop10IncidentesRequisicoes extends AjaxFormAction {
 
 			dataSource = new JRBeanCollectionDataSource(listaSolicitantes);
 
-			//Alimentando os parâmetros de filtragem para serem mostrados no relatório
+			//Alimentando os parÃ¢metros de filtragem para serem mostrados no relatÃ³rio
 			Map<String, Object> parametros = this.alimentaParametros(relatorioTop10IncidentesRequisicoesDTO, usuario, UtilI18N.internacionaliza(request, "relatorioTop10IncidentesRequisicoes.relUnidadesMaisAbriramReqInc.titulo"), document, request, response);
 
-			//Configurando dados para geração do Relatório
+			//Configurando dados para geraÃ§Ã£o do RelatÃ³rio
 			StringBuilder jasperArqRel = new StringBuilder();
 			jasperArqRel.append("relTop10UnidadesMaisAbriramReqInc");
 			if (relatorioTop10IncidentesRequisicoesDTO.getVisualizacao().equalsIgnoreCase("R")){
@@ -321,7 +321,7 @@ public class RelatorioTop10IncidentesRequisicoes extends AjaxFormAction {
 			String diretorioRelativo = Constantes.getValue("SERVER_ADDRESS") + Constantes.getValue("CONTEXTO_APLICACAO") + "/tempFiles";
 			String arquivoRelatorio = "/"+ jasperArqRel + strMiliSegundos + "_" + usuario.getIdUsuario();
 
-			//Chamando o relatório
+			//Chamando o relatÃ³rio
 			if (relatorioTop10IncidentesRequisicoesDTO.getFormato().equalsIgnoreCase("PDF")){
 				abreRelatorioPDF(dataSource, parametros, diretorioTemp, caminhoJasper, jasperArqRel.toString(), diretorioRelativo, arquivoRelatorio, document, request, response);
 			} else {
@@ -335,7 +335,7 @@ public class RelatorioTop10IncidentesRequisicoes extends AjaxFormAction {
 	public void geraTop10LocMaisAbriramReqInc(RelatorioTop10IncidentesRequisicoesDTO relatorioTop10IncidentesRequisicoesDTO, UsuarioDTO usuario, DocumentHTML document, HttpServletRequest request, HttpServletResponse response){
 		try {
 			JRDataSource dataSource;
-			//Obtendo informações
+			//Obtendo informaÃ§Ãµes
 			Top10IncidentesRequisicoesService top10IncidentesRequisicoesService = (Top10IncidentesRequisicoesService) ServiceLocator.getInstance().getService(Top10IncidentesRequisicoesService.class, WebUtil.getUsuarioSistema(request));
 			ArrayList<Top10IncidentesRequisicoesDTO> listaSolicitantes = top10IncidentesRequisicoesService.listLocMaisAbriramReqInc(relatorioTop10IncidentesRequisicoesDTO);
 			if (listaSolicitantes.size() == 0) {
@@ -354,10 +354,10 @@ public class RelatorioTop10IncidentesRequisicoes extends AjaxFormAction {
 
 			dataSource = new JRBeanCollectionDataSource(listaSolicitantes);
 
-			//Alimentando os parâmetros de filtragem para serem mostrados no relatório
+			//Alimentando os parÃ¢metros de filtragem para serem mostrados no relatÃ³rio
 			Map<String, Object> parametros = this.alimentaParametros(relatorioTop10IncidentesRequisicoesDTO, usuario, UtilI18N.internacionaliza(request, "relatorioTop10IncidentesRequisicoes.relLocMaisAbriramReqInc.titulo"), document, request, response);
 
-			//Configurando dados para geração do Relatório
+			//Configurando dados para geraÃ§Ã£o do RelatÃ³rio
 			StringBuilder jasperArqRel = new StringBuilder();
 			jasperArqRel.append("relTop10LocMaisAbriramReqInc");
 			if (relatorioTop10IncidentesRequisicoesDTO.getVisualizacao().equalsIgnoreCase("R")){
@@ -372,7 +372,7 @@ public class RelatorioTop10IncidentesRequisicoes extends AjaxFormAction {
 			String diretorioRelativo = Constantes.getValue("SERVER_ADDRESS") + Constantes.getValue("CONTEXTO_APLICACAO") + "/tempFiles";
 			String arquivoRelatorio = "/"+ jasperArqRel + strMiliSegundos + "_" + usuario.getIdUsuario();
 
-			//Chamando o relatório
+			//Chamando o relatÃ³rio
 			if (relatorioTop10IncidentesRequisicoesDTO.getFormato().equalsIgnoreCase("PDF")){
 				abreRelatorioPDF(dataSource, parametros, diretorioTemp, caminhoJasper, jasperArqRel.toString(), diretorioRelativo, arquivoRelatorio, document, request, response);
 			} else {
@@ -429,7 +429,7 @@ public class RelatorioTop10IncidentesRequisicoes extends AjaxFormAction {
 			parametros.put("NOME_USUARIO", "-");
 		}
 
-		//Tratamento para internacionalização do intervalo de datas
+		//Tratamento para internacionalizaÃ§Ã£o do intervalo de datas
 		StringBuilder intervaloDasDatas = new StringBuilder();
 		String pattern;
 		if (usuario != null && StringUtils.isNotBlank(usuario.getLocale()) && usuario.getLocale().toString().equals("en_US")){
@@ -741,7 +741,7 @@ public class RelatorioTop10IncidentesRequisicoes extends AjaxFormAction {
 				selectUnidade.setDisabled(false);
 				break;
 			case 3:
-				//Incidente - Requisição
+				//Incidente - RequisiÃ§Ã£o
 				imputSolicitante.setReadonly(false);
 				imputServico.setReadonly(true);
 				imputServico.setValue("");

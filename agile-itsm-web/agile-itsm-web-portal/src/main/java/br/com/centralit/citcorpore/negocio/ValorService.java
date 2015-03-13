@@ -71,7 +71,7 @@ public interface ValorService extends CrudService {
     public void deleteByIdCaracteristica(Integer idCaracteristica) throws Exception;
 
     /**
-     * Recupera Valor da Característica do Item Configuracao.
+     * Recupera Valor da CaracterÃ­stica do Item Configuracao.
      * 
      * @param idBaseItemConfiguracao
      * @param idCaracteristica

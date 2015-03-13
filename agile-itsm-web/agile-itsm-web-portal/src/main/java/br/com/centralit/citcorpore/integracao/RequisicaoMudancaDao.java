@@ -130,7 +130,7 @@ public class RequisicaoMudancaDao extends CrudDaoDefaultImpl {
 		try {
 			this.execUpdate(sql.toString(), params);
 		} catch (PersistenceException e) {
-			System.out.println("Problemas com atualização da requisição de mudança.");
+			System.out.println("Problemas com atualizaÃ§Ã£o da requisiÃ§Ã£o de mudanÃ§a.");
 			e.printStackTrace();
 		}
 	}
@@ -331,7 +331,7 @@ public class RequisicaoMudancaDao extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Retorna Requisições de Mudança associadas a Base de Conhecimento.
+	 * Retorna RequisiÃ§Ãµes de MudanÃ§a associadas a Base de Conhecimento.
 	 *
 	 * @param baseConhecimentoDto
 	 * @return List<RequisicaoMudancaDTO>
@@ -435,8 +435,8 @@ public class RequisicaoMudancaDao extends CrudDaoDefaultImpl {
 			sql.append("left join requisicaomudancaitemconfigura r on r.idrequisicaomudanca = requisicaomudanca.idrequisicaomudanca ");
 
 			if (pesquisaRequisicaoMudancaDto.getDataInicio() != null) {
-				// Adaptação realizada passando o timestamp concatenado no
-				// próprio sqp para poder colocar aspas simples na pesquisa
+				// AdaptaÃ§Ã£o realizada passando o timestamp concatenado no
+				// prÃ³prio sqp para poder colocar aspas simples na pesquisa
 				sql.append(" where requisicaomudanca.datahorainicio BETWEEN TO_DATE('" + UtilDatas.dateToSTR(pesquisaRequisicaoMudancaDto.getDataInicio()) + "', 'DD/MM/YYYY ')  and TO_DATE('"
 						+ UtilDatas.dateToSTR(pesquisaRequisicaoMudancaDto.getDataFim()) + "', 'DD/MM/YYYY ') ");
 
@@ -505,8 +505,8 @@ public class RequisicaoMudancaDao extends CrudDaoDefaultImpl {
 			sql.append("left join requisicaomudancaitemconfiguracao on requisicaomudancaitemconfiguracao.idrequisicaomudanca = requisicaomudanca.idrequisicaomudanca ");
 
 			if (pesquisaRequisicaoMudancaDto.getDataInicio() != null) {
-				// Adaptação realizada passando o timestamp concatenado no
-				// próprio sqp para poder colocar aspas simples na pesquisa
+				// AdaptaÃ§Ã£o realizada passando o timestamp concatenado no
+				// prÃ³prio sqp para poder colocar aspas simples na pesquisa
 				sql.append(" where requisicaomudanca.datahorainicio BETWEEN  '" + UtilDatas.dateToSTR(pesquisaRequisicaoMudancaDto.getDataInicio()) + " 00:00:00'   and '"
 						+ UtilDatas.dateToSTR(pesquisaRequisicaoMudancaDto.getDataFim()) + " 23:59:59' ");
 				// parametro.add(UtilDatas.formatTimestamp();
@@ -596,7 +596,7 @@ public class RequisicaoMudancaDao extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Retorna uma lista de requisicao mudança associados a um tipo mudança
+	 * Retorna uma lista de requisicao mudanÃ§a associados a um tipo mudanÃ§a
 	 *
 	 * @param idCargo
 	 * @return

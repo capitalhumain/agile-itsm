@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.centralit.citcorpore.util.CitCorporeConstantes"%>
@@ -6,12 +6,12 @@
 <%@ include file="/WEB-INF/templates/taglibs.jsp"%>
 
 <%
-	response.setCharacterEncoding("ISO-8859-1");
+	response.setCharacterEncoding("UTF-8");
 %>
 <html>
 
 <head>
-	<%@include file="/include/titleComum/titleComum.jsp" %>
+	<%@include file="/novoLayout/common/include/titulo.jsp" %>
 
 	<%@include file="/include/menu/menuConfig.jsp" %>
 
@@ -53,7 +53,7 @@
 								qtdeHorasStr:''},
 							["dataStr", "nomeCliente", "nomeProjeto", "detalhamentoDemanda", "qtdeHorasStr"],
 							null,
-							"Já existe registrado esta demanda na tabela",
+							"JÃ¡ existe registrado esta demanda na tabela",
 							null,
 							null,
 							null);
@@ -83,7 +83,7 @@
 													Per&iacute;odo:
 												</td>
 												<td>
-													<input type='text' name='dataInicio' size="10" maxlength="10" class="Valid[Required] Format[Data] Description[Data Início]"/> a <input type='text' name='dataFim' size="10" maxlength="10" class="Valid[Required] Format[Data] Description[Data Fim]"/>
+													<input type='text' name='dataInicio' size="10" maxlength="10" class="Valid[Required] Format[Data] Description[Data InÃ­cio]"/> a <input type='text' name='dataFim' size="10" maxlength="10" class="Valid[Required] Format[Data] Description[Data Fim]"/>
 												</td>
 											</tr>
 											<tr>

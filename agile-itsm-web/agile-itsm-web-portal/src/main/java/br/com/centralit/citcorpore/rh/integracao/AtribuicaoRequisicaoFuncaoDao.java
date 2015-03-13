@@ -57,7 +57,7 @@ public class AtribuicaoRequisicaoFuncaoDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Retorna lista de status de usu·rio.
+     * Retorna lista de status de usu√°rio.
      *
      * @param obj
      * @return

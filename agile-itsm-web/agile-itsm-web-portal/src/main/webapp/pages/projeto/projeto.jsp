@@ -1,18 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.centralit.citcorpore.util.CitCorporeConstantes"%>
 
 <%
-	response.setCharacterEncoding("ISO-8859-1");
+	response.setCharacterEncoding("UTF-8");
 %>
 <html>
 
 <head>
 	<%@include file="/include/header.jsp"%>
 
-    <%@include file="/include/security/security.jsp" %>
-	<title><fmt:message key="citcorpore.comum.title"/></title>
+	<%@include file="/novoLayout/common/include/titulo.jsp" %>
 	<%@include file="/include/menu/menuConfig.jsp" %>
 
 	<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp" %>
@@ -137,8 +136,8 @@
 										            	<textarea name="detalhamento" cols='90' rows='5'></textarea>
 										            </td>
 										         </tr>
-												<!-- 	Desenvolvedor: Pedro Lino - Data: 28/10/2013 - Horário: 10:07 - ID Citsmart: 120948 -
-														* Motivo/Comentário: Icone de adicionar dados na tabela fora do padrão/ inserido botão  -->
+												<!-- 	Desenvolvedor: Pedro Lino - Data: 28/10/2013 - HorÃ¡rio: 10:07 - ID Citsmart: 120948 -
+														* Motivo/ComentÃ¡rio: Icone de adicionar dados na tabela fora do padrÃ£o/ inserido botÃ£o  -->
 										         <tr>
 										         	<td colspan='3'>
 														<div class="col_100">
@@ -159,8 +158,8 @@
 														</div>
 										         	</td>
 										         </tr>
-										         <!-- 	Desenvolvedor: Pedro Lino - Data: 28/10/2013 - Horário: 10:07 - ID Citsmart: 120948 -
-														* Motivo/Comentário: Icone de adicionar dados na tabela fora do padrão/ inserido botão  -->
+										         <!-- 	Desenvolvedor: Pedro Lino - Data: 28/10/2013 - HorÃ¡rio: 10:07 - ID Citsmart: 120948 -
+														* Motivo/ComentÃ¡rio: Icone de adicionar dados na tabela fora do padrÃ£o/ inserido botÃ£o  -->
 										         <tr>
 										         	<td colspan='3'>
 														<div class="col_100">
@@ -337,7 +336,7 @@
 		</div>
 	</div>
 
-	<div id="POPUP_REG_AUT_MUDANCA" title="Registrar Autorização de mudança">
+	<div id="POPUP_REG_AUT_MUDANCA" title="Registrar AutorizaÃ§Ã£o de mudanÃ§a">
 		<form name='formAutorizacao' action='${ctx}/pages/projeto/projeto'>
 			<input type='hidden' name='idProjetoAutorizacao' id='idProjetoAutorizacao'/>
 			<input type='hidden' name='idLinhaBaseProjeto' id='idLinhaBaseProjeto'/>

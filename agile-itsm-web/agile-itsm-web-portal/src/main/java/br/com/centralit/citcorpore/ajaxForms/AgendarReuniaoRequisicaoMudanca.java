@@ -151,11 +151,11 @@ public class AgendarReuniaoRequisicaoMudanca extends AjaxFormAction{
 
 		document.alert(UtilI18N.internacionaliza(request, "MSG05"));
 
-		//enviar e-mail para todos as pessoas do grupo respons·vel.
+		//enviar e-mail para todos as pessoas do grupo respons√°vel.
 		ExecucaoMudanca execucaoMudanca = new ExecucaoMudanca();
 		String ID_MODELO_EMAIL_AVISAR_REUNIAO_MARCADA = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.ID_MODELO_EMAIL_AVISAR_REUNIAO_MARCADA, "39");
 		execucaoMudanca.enviaEmailReuniaoGrupo(Integer.parseInt(ID_MODELO_EMAIL_AVISAR_REUNIAO_MARCADA), requisicaoMudancaDto.getIdGrupoAtual(), reuniaoRequisicaoMudancaDto.getIdRequisicaoMudanca(), reuniaoRequisicaoMudancaDto.getIdReuniaoRequisicaoMudanca());
-		/*Thiago Fernandes - 29/10/2013 - 17:33 - Sol. 121468 - Assim que for adicionado um agendamento a popup n„o deve ser fechada, ela deve ser apenas recarregada.*/
+		/*Thiago Fernandes - 29/10/2013 - 17:33 - Sol. 121468 - Assim que for adicionado um agendamento a popup n√£o deve ser fechada, ela deve ser apenas recarregada.*/
 		load(document, request, response);
 		HTMLForm form = document.getForm("form");
 		document.executeScript("limparCampos();");
@@ -170,14 +170,14 @@ public class AgendarReuniaoRequisicaoMudanca extends AjaxFormAction{
 		ReuniaoRequisicaoMudancaDTO reuniao = (ReuniaoRequisicaoMudancaDTO) document.getBean();
 		ReuniaoRequisicaoMudancaService reuniaoService  = (ReuniaoRequisicaoMudancaService) ServiceLocator.getInstance().getService(ReuniaoRequisicaoMudancaService.class, WebUtil.getUsuarioSistema(request) );
 
-		// Verificando a existÍncia do DTO e do serviÁo.
+		// Verificando a exist√™ncia do DTO e do servi√ßo.
 		if (reuniao != null && reuniaoService != null) {
 
 			//if (reuniao.getIdReuniaoRequisicaoMudanca() != null && reuniao.getIdReuniaoRequisicaoMudanca().intValue() > 0) {
 				reuniao.setStatus("Cancelada");
 				reuniaoService.update(reuniao);
 			//}
-			/*Thiago Fernandes - 28/10/2013 - 11:30 - Sol. 121468 - Assim que for ecluido um agendamento a popup n„o deve ser fechada, ela deve ser apenas recarregada.*/
+			/*Thiago Fernandes - 28/10/2013 - 11:30 - Sol. 121468 - Assim que for ecluido um agendamento a popup n√£o deve ser fechada, ela deve ser apenas recarregada.*/
 			//document.executeScript("fechar();");
 			document.alert(UtilI18N.internacionaliza(request, "MSG07"));
 			load(document, request, response);

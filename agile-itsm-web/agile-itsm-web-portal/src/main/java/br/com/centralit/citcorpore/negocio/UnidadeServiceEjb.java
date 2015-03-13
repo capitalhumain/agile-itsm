@@ -227,15 +227,15 @@ public class UnidadeServiceEjb extends CrudServiceImpl implements UnidadeService
                 }
             }
 
-            // Obtendo o serviÁo.
+            // Obtendo o servi√ßo.
             final LocalidadeUnidadeService localidadeUnidadeService = (LocalidadeUnidadeService) ServiceLocator.getInstance().getService(LocalidadeUnidadeService.class, null);
 
-            // Verificando se o serviÁo existe.
+            // Verificando se o servi√ßo existe.
             if (localidadeUnidadeService != null) {
                 // Excluindo todas as associacoes entre a unidade e localidades.
                 localidadeUnidadeService.deleteByIdUnidade(unidade.getIdUnidade());
 
-                // Recuperando as localidades informadas pelo usu·rio.
+                // Recuperando as localidades informadas pelo usu√°rio.
                 if (unidade.getListaDeLocalidade() != null) {
                     // Percorrendo cada localidade informada.
                     for (final LocalidadeUnidadeDTO localidadeUnidadeDto : unidade.getListaDeLocalidade()) {
@@ -261,7 +261,7 @@ public class UnidadeServiceEjb extends CrudServiceImpl implements UnidadeService
     }
 
     /**
-     * Associa serviÁos a unidade em quest„o.
+     * Associa servi√ßos a unidade em quest√£o.
      *
      * @throws Exception
      * @author rodrigo.oliveira
@@ -491,7 +491,7 @@ public class UnidadeServiceEjb extends CrudServiceImpl implements UnidadeService
         try {
             final Collection<UnidadeDTO> arvore = this.getDao().findByNomeEcontrato(nome, idContrato, limite);
             /**
-             * Seleciona as filhas da existente, montando uma ·rvore
+             * Seleciona as filhas da existente, montando uma √°rvore
              */
             if (idContrato != null && idContrato != 0 && idContrato != -1) {
                 for (int i = 0; i < arvore.size(); i++) {
@@ -604,7 +604,7 @@ public class UnidadeServiceEjb extends CrudServiceImpl implements UnidadeService
 
         final UnidadeService unidadeService = (UnidadeService) ServiceLocator.getInstance().getService(UnidadeService.class, null);
 
-        if (tipoHierarquia.equals("3")) { // Hierarquia que monta apenas a ·rvore da unidade e os nÛs que est„o superiores a ela
+        if (tipoHierarquia.equals("3")) { // Hierarquia que monta apenas a √°rvore da unidade e os n√≥s que est√£o superiores a ela
             // Obter a unidade diretamente, assim, ganhamos em performance
             if (idContrato == null || idContrato == 0 || idContrato == -1) {
                 final UnidadeDTO aux = (UnidadeDTO) this.getDao().findById(idUnidadeColaborador).toArray()[0];
@@ -629,15 +629,15 @@ public class UnidadeServiceEjb extends CrudServiceImpl implements UnidadeService
                 }
             }
         } else {
-            // Implementa a pesquisa autoComplete ou n„o filtra por nome se ele n„o for informado
+            // Implementa a pesquisa autoComplete ou n√£o filtra por nome se ele n√£o for informado
             listaResultado = unidadeService.findByNomeEcontrato(nome, idContrato, limite);
         }
-        // Alimentando a ·rvore apartir da pesquisa
+        // Alimentando a √°rvore apartir da pesquisa
         if (listaResultado != null) {
             for (final UnidadeDTO unidadeDTO : listaResultado) {
                 if (unidadeDTO.getIdUnidade() != null) {
-                    hierarquiaUnidade = unidadeService.recuperaHierarquiaUnidade(unidadeDTO); // … importante que a ordenaÁ„o dos nÛs desta lista seja mantida seguindo a orientaÁ„o
-                                                                                              // de nÛs pai para os nÛs filhos
+                    hierarquiaUnidade = unidadeService.recuperaHierarquiaUnidade(unidadeDTO); // √â importante que a ordena√ß√£o dos n√≥s desta lista seja mantida seguindo a orienta√ß√£o
+                                                                                              // de n√≥s pai para os n√≥s filhos
                     for (final UnidadeDTO unidadeh : hierarquiaUnidade) {
                         arvore.adicionaNo(unidadeh.getIdUnidade(), unidadeh.getNome(), unidadeh.getIdUnidadePai());
                     }
@@ -653,7 +653,7 @@ public class UnidadeServiceEjb extends CrudServiceImpl implements UnidadeService
             arvore.geraListaUnidadeEsuasFilhas(idUnidadeColaborador);
             break;
         case "3":
-            arvore.geraListaSemRestricao(); // N„o usei o mÈtodo geraListaUnidadeEsuperiores porque a SQL j· foi restringida logo acima.
+            arvore.geraListaSemRestricao(); // N√£o usei o m√©todo geraListaUnidadeEsuperiores porque a SQL j√° foi restringida logo acima.
             break;
         default:
             arvore.geraListaSemRestricao();

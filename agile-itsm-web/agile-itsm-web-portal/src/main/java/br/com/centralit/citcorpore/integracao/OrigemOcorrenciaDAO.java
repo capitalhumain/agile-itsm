@@ -116,7 +116,7 @@ public class OrigemOcorrenciaDAO extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Metodo responsavel por retornar todos os dados da Origem de uma ocorrência
+	 * Metodo responsavel por retornar todos os dados da Origem de uma ocorrÃªncia
 	 * 
 	 * @param idOrigem
 	 * @return

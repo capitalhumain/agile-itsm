@@ -70,7 +70,7 @@ public class RelatorioSolicitacaoReabertaDAO extends CrudDaoDefaultImpl {
 			List parametro = new ArrayList();
 			List listRetorno = new ArrayList();
 			/**
-			 * Checa se há limite para listagem
+			 * Checa se hÃ¡ limite para listagem
 			 * 
 			 * @author thyen.chang
 			 */
@@ -187,8 +187,8 @@ public class RelatorioSolicitacaoReabertaDAO extends CrudDaoDefaultImpl {
 			
 			if (relatorioSolicitacaoReabertaDTO.getDataInicialEncerramento() != null && relatorioSolicitacaoReabertaDTO.getDataFinalEncerramento() != null){
 				sql.append(" AND sc.datahorafim >= ? AND sc.datahorafim <= ? ");
-				// para a data final de enconrramento foi necessario fazer este tratamento pois por exemplo, se a pesquisa é até o dia 10/02, buscava <= 10/02/2014 00:00:00
-				//ou seja se tivesse sido encerrada no dia 10/02/2014 as 00:01:00 não traria pois tava superior a 10/02/2014 00:00:00, portanto fora da faixa. - Thiago Matias
+				// para a data final de enconrramento foi necessario fazer este tratamento pois por exemplo, se a pesquisa Ã© atÃ© o dia 10/02, buscava <= 10/02/2014 00:00:00
+				//ou seja se tivesse sido encerrada no dia 10/02/2014 as 00:01:00 nÃ£o traria pois tava superior a 10/02/2014 00:00:00, portanto fora da faixa. - Thiago Matias
 				Date dFinal= relatorioSolicitacaoReabertaDTO.getDataFinalEncerramento(); 
 				long dFinal2; 
 

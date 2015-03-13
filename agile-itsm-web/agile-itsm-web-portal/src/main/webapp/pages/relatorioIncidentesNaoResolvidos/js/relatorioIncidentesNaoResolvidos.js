@@ -125,7 +125,7 @@
 			return false;
 		}
 		if (dataReferencia.value == ""){
-			alert("Data de Referência: Obrigatório");
+			alert("Data de ReferÃªncia: ObrigatÃ³rio");
 			document.getElementById("dataReferencia").value = '';
 			dataReferencia.focus();
 			return false;

@@ -9,7 +9,7 @@ import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.CrudService;
 
 /**
- * Serviços para {@link AtribuicaoSolicitacaoAtendenteDTO}
+ * ServiÃ§os para {@link AtribuicaoSolicitacaoAtendenteDTO}
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 27/10/2014
@@ -18,7 +18,7 @@ import br.com.citframework.service.CrudService;
 public interface AtribuicaoSolicitacaoAtendenteService extends CrudService {
 
     /**
-     * Verifica a existência de uma atribuição para o usuário para um determinando solicitação
+     * Verifica a existÃªncia de uma atribuiÃ§Ã£o para o usuÃ¡rio para um determinando solicitaÃ§Ã£o
      * 
      * @param taskId
      * @param user
@@ -30,11 +30,11 @@ public interface AtribuicaoSolicitacaoAtendenteService extends CrudService {
     boolean existeAtribuicao(final Integer taskId, final UsuarioDTO user) throws Exception;
 
     /**
-     * Consultra {@link AtribuicaoSolicitacaoAtendenteDTO} de acordo a atribuição passada como argumento
+     * Consultra {@link AtribuicaoSolicitacaoAtendenteDTO} de acordo a atribuiÃ§Ã£o passada como argumento
      *
      * @param atribuicao
-     *            atribuição a ser consultada
-     * @return {@link List} lista contendo as solicitações de acordo com a filtrada. Vazia, caso não encontre nenhuma
+     *            atribuiÃ§Ã£o a ser consultada
+     * @return {@link List} lista contendo as solicitaÃ§Ãµes de acordo com a filtrada. Vazia, caso nÃ£o encontre nenhuma
      * @throws ServiceException
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      * @date 20/11/2014
@@ -45,7 +45,7 @@ public interface AtribuicaoSolicitacaoAtendenteService extends CrudService {
      * Cria uma nova {@link AtribuicaoSolicitacaoAtendenteDTO}
      *
      * @param atribuicao
-     *            atribuição a ser criada
+     *            atribuiÃ§Ã£o a ser criada
      * @return {@link AtribuicaoSolicitacaoAtendenteDTO} criada
      * @throws ServiceException
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
@@ -54,15 +54,15 @@ public interface AtribuicaoSolicitacaoAtendenteService extends CrudService {
     AtribuicaoSolicitacaoAtendenteDTO criarAtribuicao(final AtribuicaoSolicitacaoAtendenteDTO atribuicao) throws ServiceException;
 
     /**
-     * Cria uma lista de atribuição de solicitação e envia mensage push para o usuário
+     * Cria uma lista de atribuiÃ§Ã£o de solicitaÃ§Ã£o e envia mensage push para o usuÃ¡rio
      *
      * @param atribuicoes
-     *            atribuição a ser criada
+     *            atribuiÃ§Ã£o a ser criada
      * @param dataExecucao
-     *            data para execução da solicitação
+     *            data para execuÃ§Ã£o da solicitaÃ§Ã£o
      * @param connection
-     *            "conexão" no mobile, que é a URI acessada
-     * @return atribuições criadas
+     *            "conexÃ£o" no mobile, que Ã© a URI acessada
+     * @return atribuiÃ§Ãµes criadas
      * @throws Exception
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      * @since 15/11/2014

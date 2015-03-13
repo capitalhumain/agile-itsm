@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.bean.EmpregadoDTO"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.citframework.util.UtilStrings"%>
@@ -23,7 +25,7 @@
 
 
 		/**
-		* Procedimento para Abreviar o Nome do Usuário
+		* Procedimento para Abreviar o Nome do UsuÃ¡rio
 		* @autor luiz.borges
 		* 26/11/2013 09:47
 		*/
@@ -92,8 +94,8 @@ font-size: 11px!important;
 
 <!-- Wrapper -->
 <div class="wrapper">
-<!-- //Desenvolvedor: Thiago Matias - Data: 06/11/2013 - Horário: 10:50 - ID Citsmart: 123357 -
-	 //*Motivo/Comentário: quando estiver no portal ao clicar na logo redicionará para o portal, quando estiver no sistema ao clicar na logo redicionará para o sistema   -->
+<!-- //Desenvolvedor: Thiago Matias - Data: 06/11/2013 - HorÃ¡rio: 10:50 - ID Citsmart: 123357 -
+	 //*Motivo/ComentÃ¡rio: quando estiver no portal ao clicar na logo redicionarÃ¡ para o portal, quando estiver no sistema ao clicar na logo redicionarÃ¡ para o sistema   -->
 	<% if (urlAtual.equalsIgnoreCase("/pages/portal/portal.jsp")){ %>
 	<div class="g-first" id="header-logo">
 		<a href="${ctx}/pages/portal/portal.load">
@@ -135,9 +137,9 @@ font-size: 11px!important;
 				}
 			} %>
 				<ul class="dropdown-menu pull-left">
-					<li class="active"><a href="javascript:;" title="Portugues" onclick="internacionalizar('pt')" ><img src="${ctx}/novoLayout/common/theme/images/lang/br.png" alt="Portugues"> Português BR</a></li>
+					<li class="active"><a href="javascript:;" title="Portugues" onclick="internacionalizar('pt')" ><img src="${ctx}/novoLayout/common/theme/images/lang/br.png" alt="Portugues"> PortuguÃªs BR</a></li>
 					<li><a href="javascript:;" title="English" onclick="internacionalizar('en')"><img src="${ctx}/novoLayout/common/theme/images/lang/us.png" alt="English"> English</a></li>
-					<li><a href="javascript:;" title="Español" onclick="internacionalizar('es')"><img src="${ctx}/novoLayout/common/theme/images/lang/es.png" alt="Espanhol"> Español</a></li>
+					<li><a href="javascript:;" title="EspaÃ±ol" onclick="internacionalizar('es')"><img src="${ctx}/novoLayout/common/theme/images/lang/es.png" alt="Espanhol"> EspaÃ±ol</a></li>
 				</ul>
 			</li>
 			<!-- Language menu END -->
@@ -182,8 +184,8 @@ font-size: 11px!important;
 	</form>
 	<!-- // Top Menu Right END -->
 	<ul class="topnav pull-right rimless" >
-	<!-- //Desenvolvedor: Thiago Matias - Data: 06/11/2013 - Horário: 10:50 - ID Citsmart: 123357 -
-		 //*Motivo/Comentário: quando estiver no portal será exibidido um botao escrito Acessar o Sistema que redirecionará para o sistema, quando estiver no sistema o botão muda de icone e label  -->
+	<!-- //Desenvolvedor: Thiago Matias - Data: 06/11/2013 - HorÃ¡rio: 10:50 - ID Citsmart: 123357 -
+		 //*Motivo/ComentÃ¡rio: quando estiver no portal serÃ¡ exibidido um botao escrito Acessar o Sistema que redirecionarÃ¡ para o sistema, quando estiver no sistema o botÃ£o muda de icone e label  -->
 		<% if (urlAtual.equalsIgnoreCase("/pages/portal/portal.jsp") && "S".equalsIgnoreCase(acessoCitsmart)){ %>
 		<li class="rimless" >
 			<a href="${ctx}/pages/index/index.load" data-toggle="" class="glyphicons book_open" ><i></i><b><fmt:message key="portal.acessarSistema"/></b><span class=""> </span></a>
@@ -202,16 +204,16 @@ font-size: 11px!important;
 			<a href="${ctx}/pages/index/index.load" data-toggle="" id="btn3-inicio" class="glyphicons home"><i></i><b><fmt:message key="cronograma.inicio"/></b><span class=""> </span></a>
 		</li>
 		<%}%>
-		<!-- verificando se o parâmetro está habilitado ou não, caso esteja exibe botão atendimento -->
+		<!-- verificando se o parÃ¢metro estÃ¡ habilitado ou nÃ£o, caso esteja exibe botÃ£o atendimento -->
 		<% if (asteriskAtivaBotao.equals("S")){%>
-		<!-- botão atendimento -->
+		<!-- botÃ£o atendimento -->
 		<li class="rimless" style="display: block;">
 			<a href="javascript:abreRamalTelefone();" data-toggle="" class="glyphicons headset"><i></i><b><fmt:message key="asterisk.atendimento"/></b><span class=""> </span></a>
 		</li>
 		<% } %>
 
 		<!--
-		* Procedimento para corrigir problema de quebra do cabeçalho
+		* Procedimento para corrigir problema de quebra do cabeÃ§alho
 		* @autor luiz.borges
 		* 26/11/2013 16:54
 		 -->
@@ -256,7 +258,7 @@ font-size: 11px!important;
 <div class="modal hide fade in" id="modal_sobreCitsmart" data-width="800">
 	<!-- Modal heading -->
 	<div class="modal-header">
-		 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
 		<h3><fmt:message key="citcorpore.comum.sobre"/></h3>
 	</div>
 	<!-- // Modal heading END -->

@@ -138,7 +138,7 @@ public class AlcadaProcessoNegocio {
         final LimiteAprovacaoProcessoDao limiteAprovacaoProcessoDao = new LimiteAprovacaoProcessoDao();
         atribuiTransacaoDao(limiteAprovacaoProcessoDao);
         final Collection<LimiteAprovacaoDTO> colLimitesAprovacao = new ArrayList<>();
-        // recupera os limites de aprovaÁ„o associados ao processo
+        // recupera os limites de aprova√ß√£o associados ao processo
         final Collection<LimiteAprovacaoProcessoDTO> colLimiteAprovacaoProcesso = limiteAprovacaoProcessoDao.findByIdProcessoNegocio(processoNegocioDto
                 .getIdProcessoNegocio());
         if (colLimiteAprovacaoProcesso != null) {
@@ -181,7 +181,7 @@ public class AlcadaProcessoNegocio {
             return;
         }
 
-        // recupera os limites de aprovaÁ„o do processo
+        // recupera os limites de aprova√ß√£o do processo
         // para cada limite, recupera os outros processos associados
         recuperaLimitesAprovacao(processoNegocioDto);
         final Collection<LimiteAprovacaoDTO> colLimites = processoNegocioDto.getColLimitesAprovacao();
@@ -198,14 +198,14 @@ public class AlcadaProcessoNegocio {
         final LimiteAprovacaoAutoridadeDao limiteAprovacaoAutoridadeDao = new LimiteAprovacaoAutoridadeDao();
         atribuiTransacaoDao(limiteAprovacaoAutoridadeDao);
         for (final ProcessoNivelAutoridadeDTO processoNivelAutoridadeDto : processoNegocioDto.getColAutoridades()) {
-            // recupera os limites de aprovaÁ„o de cada autoridade do processo de negÛcio
+            // recupera os limites de aprova√ß√£o de cada autoridade do processo de neg√≥cio
             final Collection<LimiteAprovacaoAutoridadeDTO> colLimiteAprovacaoAutoridade = limiteAprovacaoAutoridadeDao
                     .findByIdNivelAutoridade(processoNivelAutoridadeDto.getIdNivelAutoridade());
             if (colLimiteAprovacaoAutoridade != null) {
                 for (final LimiteAprovacaoAutoridadeDTO limiteAprovacaoAutoridadeDto : colLimiteAprovacaoAutoridade) {
                     final LimiteAprovacaoDTO limiteAprovacaoDto = mapLimites.get("" + limiteAprovacaoAutoridadeDto.getIdLimiteAprovacao());
                     if (limiteAprovacaoDto != null) {
-                        // associa o limite de aprovaÁ„o da autoridade, considerando que uma autoridade sÛ pode ter um limite para determinado processo
+                        // associa o limite de aprova√ß√£o da autoridade, considerando que uma autoridade s√≥ pode ter um limite para determinado processo
                         limiteAprovacaoDto.setValido(true);
                         processoNivelAutoridadeDto.setLimiteAprovacaoDto(mapLimites.get("" + limiteAprovacaoAutoridadeDto.getIdLimiteAprovacao()));
                         break;
@@ -232,7 +232,7 @@ public class AlcadaProcessoNegocio {
             processoNivelAutoridadeDto.getNivelAutoridadeDto().setAlcadaRejeitada(false);
             final LimiteAprovacaoDTO limiteAprovacaoDto = processoNivelAutoridadeDto.getLimiteAprovacaoDto();
 
-            // ignora os limites que n„o s„o por faixa de valor
+            // ignora os limites que n√£o s√£o por faixa de valor
             if (limiteAprovacaoDto == null || !limiteAprovacaoDto.getTipoLimitePorValor().equalsIgnoreCase("V") || limiteAprovacaoDto.getColValores() == null) {
                 continue;
             }
@@ -283,7 +283,7 @@ public class AlcadaProcessoNegocio {
         final TipoFluxoDao tipoFluxoDao = new TipoFluxoDao();
         atribuiTransacaoDao(tipoFluxoDao);
         for (final LimiteAprovacaoDTO limiteAprovacaoDto : colLimites) {
-            // ignora os limites n„o associados a alguma autoridade
+            // ignora os limites n√£o associados a alguma autoridade
             if (!limiteAprovacaoDto.isValido()) {
                 continue;
             }
@@ -294,7 +294,7 @@ public class AlcadaProcessoNegocio {
             double valorAnualAtendCliente = 0.0;
             if (limiteAprovacaoDto.getColProcessos() != null) {
                 for (final ProcessoNegocioDTO processoNegocioDto : limiteAprovacaoDto.getColProcessos()) {
-                    // recupera os fluxos de cada processo associado ao limite de aprovaÁ„o
+                    // recupera os fluxos de cada processo associado ao limite de aprova√ß√£o
                     final Collection<TipoFluxoDTO> colFluxos = tipoFluxoDao.findByIdProcessoNegocio(processoNegocioDto.getIdProcessoNegocio());
                     if (colFluxos != null) {
                         for (final TipoFluxoDTO tipoFluxoDto : colFluxos) {
@@ -748,12 +748,12 @@ public class AlcadaProcessoNegocio {
 
         final ProcessoNegocioDTO processoNegocioDto = recuperaProcessoNegocio(fluxoDto);
         if (processoNegocioDto == null) {
-            throw new LogicException("Processo de negÛcio n„o encontrado");
+            throw new LogicException("Processo de neg√≥cio n√£o encontrado");
         }
 
         final ExecucaoSolicitacao execucaoSolicitacao = recuperaExecucaoSolicitacao(fluxoDto, solicitacaoServicoDto);
         if (execucaoSolicitacao == null) {
-            throw new LogicException("Inst‚ncia do fluxo n„o encontrada");
+            throw new LogicException("Inst√¢ncia do fluxo n√£o encontrada");
         }
 
         List<AlcadaProcessoNegocioDTO> colAlcadas = getAlcadasCentroResultado(centroResultadoDto, processoNegocioDto);
@@ -839,7 +839,7 @@ public class AlcadaProcessoNegocio {
 
         final FluxoDTO fluxoDto = recuperaFluxo(solicitacaoServicoDto);
         if (fluxoDto == null) {
-            throw new LogicException("Fluxo n„o encontrado");
+            throw new LogicException("Fluxo n√£o encontrado");
         }
 
         final Collection<AlcadaProcessoNegocioDTO> colAlcadas = getAlcadasResponsaveis(solicitacaoServicoDto, centroResultadoDto, fluxoDto, tc);
@@ -863,7 +863,7 @@ public class AlcadaProcessoNegocio {
 
         final FluxoDTO fluxoDto = recuperaFluxo(solicitacaoServicoDto);
         if (fluxoDto == null) {
-            throw new LogicException("Fluxo n„o encontrado");
+            throw new LogicException("Fluxo n√£o encontrado");
         }
 
         return getAlcadasResponsaveis(solicitacaoServicoDto, centroResultadoDto, fluxoDto, tc);

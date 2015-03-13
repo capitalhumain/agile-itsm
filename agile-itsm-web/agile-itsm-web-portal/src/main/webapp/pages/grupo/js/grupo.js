@@ -102,14 +102,14 @@
 	function gravar(){
 		document.form.nome.value = document.form.nome.value.replace(/'/g,"");
 		/* if (document.getElementById("serviceDesk").value == "-- Selecione --"){
-			alert("Por favor, selecione se o grupo È do Service Desk");
+			alert("Por favor, selecione se o grupo √© do Service Desk");
 		} */
 		if (document.getElementById("serviceDesk").value == i18n_message("citcorpore.comum.selecione") ){
 			alert(i18n_message("grupo.serviceDeskObrigatorio"));
 		}
 		else if (document.getElementById("idPerfilAcessoGrupo").value != ""){
 			JANELA_AGUARDE_MENU.show();
-			//so serealiza a tabela empregado quando o idGrupo n„o existe, por causa da paginaÁ„o
+			//so serealiza a tabela empregado quando o idGrupo n√£o existe, por causa da pagina√ß√£o
 			if(document.getElementById("idGrupo").value ==""){
 			    serializa();
 			}else{
@@ -154,7 +154,7 @@
 	var contColuna = 1;
 
 
-    /*desenvolvedor: Rafael CÈsar Soyer; data: 11/12/2014 */
+    /*desenvolvedor: Rafael C√©sar Soyer; data: 11/12/2014 */
 	function reiniciaVarContColuna (){
 		contColuna = 1;
 	}
@@ -443,7 +443,7 @@
 		}
 	}
 
-	/*desenvolvedor: Rafael CÈsar Soyer; data: 11/12/2014 */
+	/*desenvolvedor: Rafael C√©sar Soyer; data: 11/12/2014 */
 	function uncheckEmailTodos (){
 		$('#emailTodos').attr('checked', false);
 	}
@@ -494,14 +494,14 @@
 		return true;
 	}
 
-	//MudanÁa na paginaÁ„o
+	//Mudan√ßa na pagina√ß√£o
 	function paginarItens(paginaSelecionadaColaborador) {
-		//P·gina selecionada
+		//P√°gina selecionada
 		document.form.paginaSelecionadaColaborador.value = paginaSelecionadaColaborador;
-		//Tratando a p·gina que mudou
+		//Tratando a p√°gina que mudou
 		serializaAux();
 		document.form.fireEvent("gravarEmail");
-		//Preenche a tabela com a prÛxima p·gina
+		//Preenche a tabela com a pr√≥xima p√°gina
 		document.form.fireEvent("preencheTabelaColaborador");
 		contColuna = 1;
 		contEmpregado = 0;
@@ -548,7 +548,7 @@
     		};
     }
 
-  //funÁ„o que concatena e desconcatena os checkbox que marcados ou desmarcados
+  //fun√ß√£o que concatena e desconcatena os checkbox que marcados ou desmarcados
 	var empregadosCheckados = '' ;
 	function concatenarValoresCheckados(elemento) {
 		if (!$(elemento).is(':checked')) {

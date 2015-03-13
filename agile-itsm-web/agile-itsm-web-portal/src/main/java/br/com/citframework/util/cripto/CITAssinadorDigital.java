@@ -277,12 +277,12 @@ public class CITAssinadorDigital {
                 offset += numRead;
             }
             if (offset < bytes.length) {
-                System.out.println("Não foi possível ler o arquivo completamente >>> " + file.getName());
+                System.out.println("NÃ£o foi possÃ­vel ler o arquivo completamente >>> " + file.getName());
             }
             is.close();
             return bytes;
         } catch (final IOException e) {
-            System.out.println("Não foi possível ler o arquivo.");
+            System.out.println("NÃ£o foi possÃ­vel ler o arquivo.");
         }
         return null;
     }

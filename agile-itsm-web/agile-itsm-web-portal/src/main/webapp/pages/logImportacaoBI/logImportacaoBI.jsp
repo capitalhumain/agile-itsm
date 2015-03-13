@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.citframework.dto.Usuario"%>
@@ -16,7 +18,7 @@
     <head>
         <meta name="viewport" content="width=device-width" />
         <%@include file="/novoLayout/common/include/libCabecalho.jsp" %>
-        <title><fmt:message key="citcorpore.comum.title" /></title>
+        <%@include file="/novoLayout/common/include/titulo.jsp" %>
         <link type="text/css" rel="stylesheet" href="../../novoLayout/common/include/css/template.css"/>
 
         <style type="text/css">
@@ -74,23 +76,23 @@
             </div>
         </div>
         <script type="text/javascript">
-            //Mudança na paginação
+            //MudanÃ§a na paginaÃ§Ã£o
             function paginarItens (paginaSelecionada) {
-                //Página selecionada
+                //PÃ¡gina selecionada
                 document.form.paginaSelecionada.value = paginaSelecionada;
 
-                //Preenche a tabela com a próxima página
+                //Preenche a tabela com a prÃ³xima pÃ¡gina
                 document.form.fireEvent("listInfoLogConexaoBI");
             }
 
             function baixarLog (idLogImportacao) {
                 JANELA_AGUARDE_MENU.show();
 
-                //Página selecionada
+                //PÃ¡gina selecionada
                 document.formGetLogImportacaoBI.idLogImportacao.value = idLogImportacao;
                 document.formGetLogImportacaoBI.submit();
 
-                //Preenche a tabela com a próxima página
+                //Preenche a tabela com a prÃ³xima pÃ¡gina
                 //document.form.fireEvent("baixarLog");
                 JANELA_AGUARDE_MENU.hide();
             }

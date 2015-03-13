@@ -36,14 +36,14 @@ public class CategoriaOcorrencia extends AjaxFormAction {
 	 */
 
 	public void save(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// Cria uma inst‚ncia de CategoriaOcorrenciaDTO com os dados
-		// provenientes do formul·rio
-		// na p·gina JSP.
+		// Cria uma inst√¢ncia de CategoriaOcorrenciaDTO com os dados
+		// provenientes do formul√°rio
+		// na p√°gina JSP.
 		CategoriaOcorrenciaDTO categoriaOcorrenciaDTO = (CategoriaOcorrenciaDTO) document.getBean();
 		CategoriaOcorrenciaService categoriaOcorrenciaService = (CategoriaOcorrenciaService) ServiceLocator.getInstance().
 				getService(CategoriaOcorrenciaService.class, null);		
 		
-		// Verifica se o DTO e o serviÁo existem
+		// Verifica se o DTO e o servi√ßo existem
 		if (categoriaOcorrenciaDTO != null && categoriaOcorrenciaService != null) {
 			categoriaOcorrenciaDTO.setDataInicio(UtilDatas.getDataAtual() );			
 			// Inserir		
@@ -88,7 +88,7 @@ public class CategoriaOcorrencia extends AjaxFormAction {
 	 * @throws Exception
 	 */
 	public void restore(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// Recupera o objeto que contÈm os dados preenchidos no formul·rio
+		// Recupera o objeto que cont√©m os dados preenchidos no formul√°rio
 		CategoriaOcorrenciaDTO categoriaOcorrenciaDTO = (CategoriaOcorrenciaDTO) document.getBean();
 		CategoriaOcorrenciaService categoriaOcorrenciaService = (CategoriaOcorrenciaService) ServiceLocator.getInstance().
 				getService(CategoriaOcorrenciaService.class, null);

@@ -112,7 +112,7 @@ public class CidadesDao extends CrudDaoDefaultImpl {
 
         String texto = Normalizer.normalize(nome, Normalizer.Form.NFD);
         texto = texto.replaceAll("[^\\p{ASCII}]", "");
-        texto = texto.replaceAll("·‡„‚ÈÍÌÛÙı˙¸Á¡¿√¬… Õ”‘’⁄‹«¥`^''-+=", "aaaaeeiooouucAAAAEEIOOOUUC ");
+        texto = texto.replaceAll("√°√†√£√¢√©√™√≠√≥√¥√µ√∫√º√ß√Å√Ä√É√Ç√â√ä√ç√ì√î√ï√ö√ú√á¬¥`^''-+=", "aaaaeeiooouucAAAAEEIOOOUUC ");
         texto = "%" + texto.toUpperCase() + "%";
 
         final Object[] objs = new Object[] {texto};
@@ -185,7 +185,7 @@ public class CidadesDao extends CrudDaoDefaultImpl {
     public List<CidadesDTO> findByIdEstadoAndNomeCidade(final Integer IdEstado, final String nomeCidade) throws PersistenceException {
         String texto = Normalizer.normalize(nomeCidade, Normalizer.Form.NFD);
         texto = texto.replaceAll("[^\\p{ASCII}]", "");
-        texto = texto.replaceAll("·‡„‚ÈÍÌÛÙı˙¸Á¡¿√¬… Õ”‘’⁄‹«¥`^''-+=", "aaaaeeiooouucAAAAEEIOOOUUC ");
+        texto = texto.replaceAll("√°√†√£√¢√©√™√≠√≥√¥√µ√∫√º√ß√Å√Ä√É√Ç√â√ä√ç√ì√î√ï√ö√ú√á¬¥`^''-+=", "aaaaeeiooouucAAAAEEIOOOUUC ");
         texto = "%" + texto.toUpperCase() + "%";
 
         final Object[] objs = new Object[] {IdEstado, texto};

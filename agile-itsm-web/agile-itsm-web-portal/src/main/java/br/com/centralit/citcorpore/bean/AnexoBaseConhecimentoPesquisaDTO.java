@@ -1,7 +1,7 @@
 package br.com.centralit.citcorpore.bean;
 
 /**
- * Anexo Base de Conhecimento (Referência da tabela AnexoBaseConhecimento)
+ * Anexo Base de Conhecimento (ReferÃªncia da tabela AnexoBaseConhecimento)
  * 
  * @author VMD
  * 

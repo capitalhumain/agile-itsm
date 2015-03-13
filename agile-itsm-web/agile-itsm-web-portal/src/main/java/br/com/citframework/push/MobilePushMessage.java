@@ -3,7 +3,7 @@ package br.com.citframework.push;
 import java.io.Serializable;
 
 /**
- * Objeto para envio de mensagem push de atribução de solicitação ao mobile
+ * Objeto para envio de mensagem push de atribuÃ§Ã£o de solicitaÃ§Ã£o ao mobile
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 15/11/2014

@@ -9,7 +9,7 @@ import br.com.citframework.service.CrudService;
 public interface JornadaTrabalhoService extends CrudService {
 
 	/**
-	 * Exclui jornada caso a mesma n„o esteja sendo utilizada no calend·rio.
+	 * Exclui jornada caso a mesma n√£o esteja sendo utilizada no calend√°rio.
 	 * 
 	 * @param model
 	 * @param document
@@ -21,7 +21,7 @@ public interface JornadaTrabalhoService extends CrudService {
 	/**
 	 * Consultar jornadas ativas
 	 * 
-	 * @return retorna a lista de jornadas que est„o ativas
+	 * @return retorna a lista de jornadas que est√£o ativas
 	 * @throws Exception
 	 * @author rodrigo.oliveira
 	 */
@@ -32,7 +32,7 @@ public interface JornadaTrabalhoService extends CrudService {
 	 * Verifica jornada existente
 	 * 
 	 * @param JornadaTrabalhoDTO
-	 * @return retorna true se caso exista jornada j· cadastrada
+	 * @return retorna true se caso exista jornada j√° cadastrada
 	 * @throws Exception
 	 * @author rodrigo.oliveira
 	 */

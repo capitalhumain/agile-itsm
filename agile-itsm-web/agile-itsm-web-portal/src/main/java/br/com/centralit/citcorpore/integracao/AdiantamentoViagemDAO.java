@@ -15,7 +15,8 @@ import br.com.citframework.util.Constantes;
 
 @SuppressWarnings({"rawtypes","unchecked"})
 public class AdiantamentoViagemDAO extends CrudDaoDefaultImpl {
-	
+	
+
 
 	public AdiantamentoViagemDAO(){
 		super(Constantes.getValue("DATABASE_ALIAS"), null);
@@ -59,14 +60,14 @@ public class AdiantamentoViagemDAO extends CrudDaoDefaultImpl {
 		listFields.add(new Field("observacoes" ,"observacoes", false, false, false, false));
 		listFields.add(new Field("integrantefuncionario" ,"integranteFuncionario", false, false, false, false));
 		
-		// TODO Este campo esta em desuso, pode ser removido na proxima vers„o
+		// TODO Este campo esta em desuso, pode ser removido na proxima vers√£o
 		listFields.add(new Field("nomenaofuncionario" ,"nomeNaoFuncionario", false, false, false, false));
 		
 		return listFields;
 	}
 	
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	public List<AdiantamentoViagemDTO> findBySolicitacaoAndEmpregado(AdiantamentoViagemDTO adiantamentoViagemDto) throws PersistenceException {
 		List condicao = new ArrayList();
@@ -79,7 +80,7 @@ public class AdiantamentoViagemDAO extends CrudDaoDefaultImpl {
 	/**
 	 * Retorna uma lista de adiantamentos conforme idsolicitacao e idempregado passado
 	 * 
-	 * TODO este metodo È a mesma lÛgica do public List<AdiantamentoViagemDTO> findBySolicitacaoAndEmpregado(AdiantamentoViagemDTO adiantamentoViagemDto) throws Exception, seria legal apagar um dos dois.
+	 * TODO este metodo √© a mesma l√≥gica do public List<AdiantamentoViagemDTO> findBySolicitacaoAndEmpregado(AdiantamentoViagemDTO adiantamentoViagemDto) throws Exception, seria legal apagar um dos dois.
 	 * 
 	 * @param solicitacaoServico
 	 * @param idEmpregado
@@ -97,7 +98,7 @@ public class AdiantamentoViagemDAO extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	public List<AdiantamentoViagemDTO> consultarPorSolicitacao(Integer solicitacaoServico) throws PersistenceException {
 		
@@ -109,7 +110,7 @@ public class AdiantamentoViagemDAO extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	public List<AdiantamentoViagemDTO> consultarPorSolicitacaoENomeNaoFuncionario(Integer solicitacaoServico, String nomeNaoFunc) throws PersistenceException {
 		

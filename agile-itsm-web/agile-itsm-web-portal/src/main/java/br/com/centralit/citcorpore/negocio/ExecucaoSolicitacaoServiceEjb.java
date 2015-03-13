@@ -261,7 +261,7 @@ public class ExecucaoSolicitacaoServiceEjb extends CrudServiceImpl implements Ex
 			}
 		}
 		if (tipoFluxoDto == null) {
-			throw new Exception("O fluxo associado ao serviÁo n„o foi parametrizado");
+			throw new Exception("O fluxo associado ao servi√ßo n√£o foi parametrizado");
 		}
 		return tipoFluxoDto;
 	}
@@ -312,7 +312,7 @@ public class ExecucaoSolicitacaoServiceEjb extends CrudServiceImpl implements Ex
 	public SolicitacaoServicoDTO executar(final UsuarioDTO usuarioDto, final Integer idTarefa, final String acaoFluxo, TransactionControler tc) throws Exception {
 		final TarefaFluxoDTO tarefaDto = this.recuperaTarefa(idTarefa);
 		if (tarefaDto == null) {
-			throw new Exception("Problemas na recuperaÁ„o da Tarefa ");
+			throw new Exception("Problemas na recupera√ß√£o da Tarefa ");
 		}
 
 		if (tc == null) {
@@ -321,7 +321,7 @@ public class ExecucaoSolicitacaoServiceEjb extends CrudServiceImpl implements Ex
 
 		final ExecucaoSolicitacaoDTO execucaoSolicitacaoDto = this.getDao().findByIdInstanciaFluxo(tarefaDto.getIdInstancia());
 		if (execucaoSolicitacaoDto == null) {
-			throw new Exception("Problemas na recuperaÁ„o da SolicitaÁ„o ");
+			throw new Exception("Problemas na recupera√ß√£o da Solicita√ß√£o ");
 		}
 
 		final SolicitacaoServicoDTO solicitacaoServicoDto = new SolicitacaoServicoDTO();
@@ -402,11 +402,11 @@ public class ExecucaoSolicitacaoServiceEjb extends CrudServiceImpl implements Ex
 		final SolicitacaoServicoDTO solicitacaoAuxDto = new SolicitacaoServicoServiceEjb().restoreAll(solicitacaoServicoDto.getIdSolicitacaoServico(), tc);
 
 		if (solicitacaoAuxDto == null) {
-			throw new Exception("Problemas na recuperaÁ„o da solicitaÁ„o");
+			throw new Exception("Problemas na recupera√ß√£o da solicita√ß√£o");
 		}
 
 		if (solicitacaoAuxDto.getGrupoAtual() == null || solicitacaoAuxDto.getGrupoAtual().length() == 0) {
-			throw new Exception("Grupo executor n„o encontrado");
+			throw new Exception("Grupo executor n√£o encontrado");
 		}
 
 		this.getExecucaoSolicitacao(solicitacaoAuxDto, tc).direcionaAtendimento(solicitacaoServicoDto.getUsuarioDto().getLogin(), solicitacaoAuxDto, solicitacaoAuxDto.getGrupoAtual());
@@ -424,11 +424,11 @@ public class ExecucaoSolicitacaoServiceEjb extends CrudServiceImpl implements Ex
 		}
 
 		if (solicitacaoAuxDto == null) {
-			throw new Exception("Problemas na recuperaÁ„o da solicitaÁ„o");
+			throw new Exception("Problemas na recupera√ß√£o da solicita√ß√£o");
 		}
 
 		if (solicitacaoAuxDto.getIdGrupoAtual() == null || solicitacaoAuxDto.getIdGrupoAtual() == 0) {
-			throw new Exception("Grupo executor n„o encontrado");
+			throw new Exception("Grupo executor n√£o encontrado");
 		}
 
 		this.getExecucaoSolicitacao(solicitacaoAuxDto, tc).direcionaAtendimento("admin", solicitacaoAuxDto, solicitacaoAuxDto.getGrupoAtual());
@@ -485,13 +485,13 @@ public class ExecucaoSolicitacaoServiceEjb extends CrudServiceImpl implements Ex
 			final Collection<ContratoDTO> listContratoUsuarioLogado, final boolean isPortal) throws Exception {
 		Integer total = 0;
 
-		// ESSA LISTA DE TAREFAS J¡ EST¡ VINDO COM A SOLICITACAOSERVICODTO E N√O DEVERIA VIR. CRIAR M…TODO PARA TRAZER APENAS AS TAREFAS COM O IDINSTANCIA, QUE … A ⁄NICA INFORMA«√O
+		// ESSA LISTA DE TAREFAS J√Å EST√Å VINDO COM A SOLICITACAOSERVICODTO E N√ÉO DEVERIA VIR. CRIAR M√âTODO PARA TRAZER APENAS AS TAREFAS COM O IDINSTANCIA, QUE √â A √öNICA INFORMA√á√ÉO
 		// UTILIZADA NA
 		// CONSULTA ABAIXO.
 		// List<TarefaFluxoDTO> listTarefasComSolicitacaoServico = recuperaTarefas(loginUsuario);
 		//
 		// listTarefas = listTarefasComSolicitacaoServico;
-		// Comentado para centalizar o mÈtodo abaixo
+		// Comentado para centalizar o m√©todo abaixo
 
 		if (listTarefas != null) {
 			total = this.getSolicitacaoDAO().totalDePaginas(itensPorPagina, this.getListTarefas(), gerenciamentoBean, listContratoUsuarioLogado);
@@ -524,7 +524,7 @@ public class ExecucaoSolicitacaoServiceEjb extends CrudServiceImpl implements Ex
 				listContratoUsuarioLogado = getContratoService().listAtivos();
 			}
 
-			/** Alterado para chamar o novo mÈtodo recuperaTarefas. 29.01.2015. OperaÁ„o Usain Bolt. valdoilo.damasceno */
+			/** Alterado para chamar o novo m√©todo recuperaTarefas. 29.01.2015. Opera√ß√£o Usain Bolt. valdoilo.damasceno */
 			ParamRecuperacaoTarefasDTO paramRecuperacaoTarefasDTO = new ParamRecuperacaoTarefasDTO(usuarioLogado.getLogin(), gerenciamentoServicos, listContratoUsuarioLogado);
 
 			paramRecuperacaoTarefasDTO.setSomenteTotalizacao(true);
@@ -537,14 +537,14 @@ public class ExecucaoSolicitacaoServiceEjb extends CrudServiceImpl implements Ex
 	}
 
 	/**
-	 * Consulta utilizada para a RENDERIZA«√O da LISTAGEM SOLICITACAO SERVI«O. Retorna a Lista de TarefaDTO com SolicitacaoServidoDTO de acordo com po aramRecuperacaoTarefasDto.
+	 * Consulta utilizada para a RENDERIZA√á√ÉO da LISTAGEM SOLICITACAO SERVI√áO. Retorna a Lista de TarefaDTO com SolicitacaoServidoDTO de acordo com po aramRecuperacaoTarefasDto.
 	 *
 	 * @param ParamRecuperacaoTarefasDTO
 	 *            paramRecuperacaoTarefasDto
 	 * @return List<TarefaFluxoDTO - Com SolicitacaoServicoDTO recuperados.
 	 * @throws Exception
 	 * @author carlos.santos
-	 * @since 27.01.2015 - OperaÁ„o Usain Bolt.
+	 * @since 27.01.2015 - Opera√ß√£o Usain Bolt.
 	 */
 	public Page<TarefaFluxoDTO> recuperaTarefas(ParamRecuperacaoTarefasDTO paramRecuperacaoTarefasDto, Pageable pageable) throws Exception {
 		listTarefas = null;
@@ -601,12 +601,12 @@ public class ExecucaoSolicitacaoServiceEjb extends CrudServiceImpl implements Ex
 	}
 
 	/**
-	 * Retorna inst‚ncia do Service de Contrato.
+	 * Retorna inst√¢ncia do Service de Contrato.
 	 *
 	 * @return ContratoService
 	 * @throws Exception
 	 * @author valdoilo.damasceno
-	 * @since 27.01.2015 - OperaÁ„o Usain Bolt
+	 * @since 27.01.2015 - Opera√ß√£o Usain Bolt
 	 */
 	private ContratoService getContratoService() throws Exception {
 		if (contratoService == null) {

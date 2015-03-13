@@ -157,7 +157,7 @@ body > .container-fluid.fixed #content{}
 /**
 Autor: Tiago Cartibani
 Data: 23/10/2013
-Motivo: AlteraÁ„o para consertar quebra do layout do gerenciamento de Incidente
+Motivo: Altera√ß√£o para consertar quebra do layout do gerenciamento de Incidente
 ID:CIT02131023
 **/
 #menu{width:220px;float:left;position:absolute;left:0;top:0;overflow:visible;margin-bottom:-99999px;padding-bottom:99999px;background:#f2f3f4;box-shadow:0px 0px 3px 2px #f0f0f0;-moz-box-shadow:0px 0px 3px 2px #f0f0f0;-webkit-box-shadow:0px 0px 3px 2px #f0f0f0;border-right:1px solid #d8d8d8;}
@@ -299,7 +299,7 @@ Motivo: Criar quantitativos
 .menu-right .navbar.main .topnav.tn1{left:37px;}
 /*
 Rodrigo Pecci Acorse - 08/11/2013 08h30 - #123390
-Comentado pois atualmente n„o utilizamos o menu escondido e estava quebrando a exibiÁ„o na tela de solicitaÁ„o de serviÁo.
+Comentado pois atualmente n√£o utilizamos o menu escondido e estava quebrando a exibi√ß√£o na tela de solicita√ß√£o de servi√ßo.
 */
 /*
 .menu-hidden #menu{display:none;}

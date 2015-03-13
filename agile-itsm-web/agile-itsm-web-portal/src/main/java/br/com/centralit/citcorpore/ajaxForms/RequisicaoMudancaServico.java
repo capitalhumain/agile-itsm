@@ -58,7 +58,7 @@ public class RequisicaoMudancaServico extends AjaxFormAction implements IRequisi
 		RequisicaoMudancaServicoDTO aux = null;
 
 		if(listaDeserializada != null){
-			//se n„o existir no banco, cria, caso contr·rio, atualiza
+			//se n√£o existir no banco, cria, caso contr√°rio, atualiza
 
 			for(RequisicaoMudancaServicoDTO i : reqMudancaServicos){
 				i.setIdRequisicaoMudanca(idRequisicaoMudanca);
@@ -73,7 +73,7 @@ public class RequisicaoMudancaServico extends AjaxFormAction implements IRequisi
 			}
 
 		}
-		//confere se existe algo no banco que n„o est· na lista salva, e deleta
+		//confere se existe algo no banco que n√£o est√° na lista salva, e deleta
 		servicosBanco = getRequisicaoMudancaServicoService().listByIdRequisicaoMudanca(idRequisicaoMudanca);
 		if(servicosBanco != null){
 			for(RequisicaoMudancaServicoDTO i : servicosBanco){
@@ -105,9 +105,9 @@ public class RequisicaoMudancaServico extends AjaxFormAction implements IRequisi
 	}
 
 	/**
-	 * Lista os ics relacionados a requisiÁ„o de mudanÁa
-	 * e atribui o nome do item de configuraÁ„o para correta
-	 * restauraÁ„o de suas informaÁıes na table
+	 * Lista os ics relacionados a requisi√ß√£o de mudan√ßa
+	 * e atribui o nome do item de configura√ß√£o para correta
+	 * restaura√ß√£o de suas informa√ß√µes na table
 	 *
 	 * @param RequisicaoMudancaServicoDTO
 	 * @throws ServiceException
@@ -119,7 +119,7 @@ public class RequisicaoMudancaServico extends AjaxFormAction implements IRequisi
 		ArrayList<RequisicaoMudancaServicoDTO> listaReqMudancaServico = (ArrayList<RequisicaoMudancaServicoDTO>) new RequisicaoMudancaServicoDao().findByIdMudancaEDataFim(requisicaoMudancaDTO.getIdRequisicaoMudanca());
 					//getRequisicaoMudancaServicoService().listByIdRequisicaoMudanca(requisicaoMudancaDTO.getIdRequisicaoMudanca());
 
-		//atribui informaÁıes adicionais para os itens retornados
+		//atribui informa√ß√µes adicionais para os itens retornados
 		if(listaReqMudancaServico != null){
 			for(RequisicaoMudancaServicoDTO r : listaReqMudancaServico){
 				req = (ServicoDTO) getServicoService().restore(r);

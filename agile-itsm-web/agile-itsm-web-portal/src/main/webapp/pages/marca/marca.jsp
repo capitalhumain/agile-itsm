@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.citframework.dto.Usuario"%>
@@ -10,11 +12,10 @@
 			iframe = request.getParameter("iframe");
 %>
 <%@include file="/include/header.jsp"%>
-<%@include file="/include/security/security.jsp"%>
-<title><fmt:message key="citcorpore.comum.title"/></title>
+<%@include file="/novoLayout/common/include/titulo.jsp" %>
 <%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 <script type="text/javascript" src="./js/marca.js"></script>
-<%//se for chamado por iframe deixa apenas a parte de cadastro da página
+<%//se for chamado por iframe deixa apenas a parte de cadastro da pÃ¡gina
 			if (iframe != null) {%>
 <link rel="stylesheet" type="text/css" href="./css/marca.css" />
 <%}%>
@@ -122,8 +123,8 @@
 	</div>
 	<%@include file="/include/footer.jsp"%>
 </body>
-<!-- 	 Desenvolvedor: Pedro Lino - Data: 30/10/2013 - Horário: 11:10 - ID Citsmart: 120948 -
-		* Motivo/Comentário: form pequeno/ Alterado width para 660px  -->
+<!-- 	 Desenvolvedor: Pedro Lino - Data: 30/10/2013 - HorÃ¡rio: 11:10 - ID Citsmart: 120948 -
+		* Motivo/ComentÃ¡rio: form pequeno/ Alterado width para 660px  -->
 <div id="POPUP_FORNECEDOR" title="<fmt:message key="marca.pesquisaFabricante" />">
 		<div class="box grid_16 tabs">
 			<div class="toggle_container">

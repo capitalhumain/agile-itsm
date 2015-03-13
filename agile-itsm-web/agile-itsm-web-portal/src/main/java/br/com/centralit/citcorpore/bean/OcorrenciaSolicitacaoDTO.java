@@ -24,7 +24,7 @@ public class OcorrenciaSolicitacaoDTO extends BaseEntity {
 
 	private String descricao;
 
-	private long totalOcorrenciasAlterarcaoSlaPorSolicitacao;// campo auxiliar, n„o È salvo em banco
+	private long totalOcorrenciasAlterarcaoSlaPorSolicitacao;// campo auxiliar, n√£o √© salvo em banco
 
 	private String ocorrencia;
 
@@ -52,11 +52,11 @@ public class OcorrenciaSolicitacaoDTO extends BaseEntity {
 
 	private String complementoJustificativa;
 	
-	private String notificarSolicitante; //Define se o solicitante ser· ou foi notificado no lanÁamento da ocorrÍncia - [S/N]
+	private String notificarSolicitante; //Define se o solicitante ser√° ou foi notificado no lan√ßamento da ocorr√™ncia - [S/N]
 	
 	private String notificarResponsavel;
 
-	// campo auxiliar, n„o È salvo no banco
+	// campo auxiliar, n√£o √© salvo no banco
 	private Integer idUsuario;
 	private String nome;
 	private Integer idResponsavelAtual;

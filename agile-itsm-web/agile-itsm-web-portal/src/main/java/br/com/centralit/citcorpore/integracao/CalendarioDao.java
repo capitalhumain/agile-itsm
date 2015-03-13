@@ -43,7 +43,7 @@ public class CalendarioDao extends CrudDaoDefaultImpl {
 		return null;
 	}
 	/**
-	 * Verifica se a jornada de trabalho passada est· cadastrada para algum calend·rio.
+	 * Verifica se a jornada de trabalho passada est√° cadastrada para algum calend√°rio.
 	 *
 	 * @param idJornada
 	 * @return boolean
@@ -69,11 +69,11 @@ public class CalendarioDao extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * MÈtodo para verificar se existe calend·rio com a mesma descriÁ„o
+	 * M√©todo para verificar se existe calend√°rio com a mesma descri√ß√£o
 	 *
 	 * @author rodrigo.oliveira
 	 * @param calendarioDTO
-	 * @return Se caso exista calendario com a mesma descriÁ„o retorna true
+	 * @return Se caso exista calendario com a mesma descri√ß√£o retorna true
 	 * @throws Exception
 	 */
 	public boolean verificaSeExisteCalendario(CalendarioDTO calendarioDTO) throws PersistenceException {

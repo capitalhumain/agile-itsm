@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 <%@page import="br.com.centralit.citcorpore.util.CitCorporeConstantes" %>
 <%@page import="br.com.citframework.util.Constantes" %>
@@ -97,7 +97,7 @@
 <script type="text/javascript">
 	var objTab = null;
 	var trObj = null;
-	var NAME_REMOVE = 'Excluído';
+	var NAME_REMOVE = 'ExcluÃ­do';
 	var tabsInf = new Array();
 	var tabsVincLado = new Array();
 	var limpo = true;

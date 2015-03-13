@@ -132,7 +132,7 @@ public class AutorizacaoViagem  extends AjaxFormAction{
 	}
 
 	/**
-	 * Preenche a combo de 'Centro Resultado' do formul·rio HTML
+	 * Preenche a combo de 'Centro Resultado' do formul√°rio HTML
 	 *
 	 * @param document
 	 * @param request
@@ -156,7 +156,7 @@ public class AutorizacaoViagem  extends AjaxFormAction{
 	}
 
 	/**
-	 * Preenche a combo de 'Projeto' do formul·rio HTML
+	 * Preenche a combo de 'Projeto' do formul√°rio HTML
 	 *
 	 * @param document
 	 * @param request
@@ -202,7 +202,7 @@ public class AutorizacaoViagem  extends AjaxFormAction{
 	}
 
 	/**
-	 * Preenche combo de 'justificativa solicitaÁ„o'.
+	 * Preenche combo de 'justificativa solicita√ß√£o'.
 	 *
 	 * @param document
 	 * @param request
@@ -302,7 +302,7 @@ public class AutorizacaoViagem  extends AjaxFormAction{
 
 									despesaViagemHTML.append("				<li class='expandable'>");
 									despesaViagemHTML.append("					<div class='hitarea collapsable-hitarea'></div>");
-									despesaViagemHTML.append("					<span class='folder '><span class='glyphicons " + tipoMovimFinanceiraViagemDTO.getImagem() + "'><i></i>&nbsp;</span>" + tipoMovimFinanceiraViagemDTO.getClassificacao() + " - " + (despesaViagem.getOriginal() != null && despesaViagem.getOriginal().equalsIgnoreCase("N") ? "RemarcaÁ„o" : "Original") + "</span>");
+									despesaViagemHTML.append("					<span class='folder '><span class='glyphicons " + tipoMovimFinanceiraViagemDTO.getImagem() + "'><i></i>&nbsp;</span>" + tipoMovimFinanceiraViagemDTO.getClassificacao() + " - " + (despesaViagem.getOriginal() != null && despesaViagem.getOriginal().equalsIgnoreCase("N") ? "Remarca√ß√£o" : "Original") + "</span>");
 									despesaViagemHTML.append("					<ul style='display: none;'>");
 									despesaViagemHTML.append("						<li class='file'>");
 									despesaViagemHTML.append("							<p>" + quantidade.format(despesaViagem.getQuantidade()) + " <strong>" + tipoMovimFinanceiraViagemDTO.getClassificacao() + "</strong> "+UtilI18N.internacionaliza(request, "autorizacaoViagem.noTotalDe")+" " + despesaViagem.getTotalFormatado() + " - <strong>" + parceiroDTO.getNome() + "</strong></p>");
@@ -335,9 +335,9 @@ public class AutorizacaoViagem  extends AjaxFormAction{
 					if(contador > 0) {
 						despesaViagemHTML.append("				<li >");
 						despesaViagemHTML.append("					<strong>Custo original:</strong> R$ " + decimal.format(custoTotalOriginal)
-																+ " - <strong>Custo remarcaÁ„o:</strong> R$ " + decimal.format(custoTotalRemarcacao)
+																+ " - <strong>Custo remarca√ß√£o:</strong> R$ " + decimal.format(custoTotalRemarcacao)
 																+ " - <strong>Total aprovado: </strong> R$ " + decimal.format(totalAprovado)
-																+ " - <strong>Total ‡ aprovar: </strong> R$ " + decimal.format(totalParaAprovar));
+																+ " - <strong>Total √† aprovar: </strong> R$ " + decimal.format(totalParaAprovar));
 						despesaViagemHTML.append("				</li>");
 					} else {
 						despesaViagemHTML.append("				<li>"+UtilI18N.internacionaliza(request, "autorizacaoViagem.naoItensComprasAdicionadosIntegrante")+"!</li>");
@@ -361,7 +361,7 @@ public class AutorizacaoViagem  extends AjaxFormAction{
 	}
 
 	/**
-	 * Preenche combo de 'justificativa solicitaÁ„o ' para autozizaÁ„o.
+	 * Preenche combo de 'justificativa solicita√ß√£o ' para autoziza√ß√£o.
 	 *
 	 * @param document
 	 * @param request

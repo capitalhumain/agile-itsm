@@ -121,7 +121,7 @@ public class DesenhoFluxo extends AjaxFormAction {
 			}
 
 			FluxoService fluxoService = (FluxoService) ServiceLocator.getInstance().getService(FluxoService.class, null);
-			/** Chamada do mÈtodo especÌfico que recupera o fluxo com os elementos. OperaÁ„o Usain Bolt - 27.01.2015 - carlos.santos */
+			/** Chamada do m√©todo espec√≠fico que recupera o fluxo com os elementos. Opera√ß√£o Usain Bolt - 27.01.2015 - carlos.santos */
 			fluxoDto = (FluxoDTO) fluxoService.restoreComEstrutura(fluxoDto);
 
 			exibeElementos(document, fluxoDto);
@@ -176,7 +176,7 @@ public class DesenhoFluxo extends AjaxFormAction {
 				return;
 
 			FluxoService fluxoService = (FluxoService) ServiceLocator.getInstance().getService(FluxoService.class, null);
-			/** Chamada do mÈtodo especÌfico que recupera o fluxo com os elementos. OperaÁ„o Usain Bolt - 27.01.2015 - carlos.santos */
+			/** Chamada do m√©todo espec√≠fico que recupera o fluxo com os elementos. Opera√ß√£o Usain Bolt - 27.01.2015 - carlos.santos */
 			fluxoDto = (FluxoDTO) fluxoService.restoreComEstrutura(fluxoDto);
 
 			fluxoDto.setColElementos((List) WebUtil.deserializeCollectionFromRequest(ElementoFluxoDTO.class,"elementos_serializados", request));
@@ -265,7 +265,7 @@ public class DesenhoFluxo extends AjaxFormAction {
 				return;
 
 			FluxoService fluxoService = (FluxoService) ServiceLocator.getInstance().getService(FluxoService.class, null);
-			/** Chamada do mÈtodo especÌfico que recupera o fluxo com os elementos. OperaÁ„o Usain Bolt - 27.01.2015 - carlos.santos */
+			/** Chamada do m√©todo espec√≠fico que recupera o fluxo com os elementos. Opera√ß√£o Usain Bolt - 27.01.2015 - carlos.santos */
 			fluxoDto = (FluxoDTO) fluxoService.restoreComEstrutura(fluxoDto);
 			if (fluxoDto == null)
 				return;
@@ -307,15 +307,15 @@ public class DesenhoFluxo extends AjaxFormAction {
 			name = "export_flow_" + name + ".xml";
 			FileOutputStream fOut = new FileOutputStream(diretorioExport + "/" + name);
 
-			XStream x = new XStream(new DomDriver("ISO-8859-1"));
+			XStream x = new XStream(new DomDriver("UTF-8"));
 			x.toXML(fluxoDto, fOut);
 
-			String str = "<?xml version=\"1.0\" encoding=\"ISO-8859-1\" ?>"+UtilTratamentoArquivos.getStringTextFromFileTxt(diretorioExport + "/" + name,"ISO-8859-1");
+			String str = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>"+UtilTratamentoArquivos.getStringTextFromFileTxt(diretorioExport + "/" + name,"UTF-8");
 			fOut = new FileOutputStream(diretorioExport + "/" + name);
-			//codigo abaixo necess·rio para tratar o encode nos servidores linux
+			//codigo abaixo necess√°rio para tratar o encode nos servidores linux
 			BufferedWriter out = null;
 			try {
-				out = new BufferedWriter(new OutputStreamWriter(fOut,"ISO-8859-1"));
+				out = new BufferedWriter(new OutputStreamWriter(fOut,"UTF-8"));
 			} catch (Exception e) {
 				out = new BufferedWriter(new OutputStreamWriter(fOut));
 				e.printStackTrace();
@@ -338,11 +338,11 @@ public class DesenhoFluxo extends AjaxFormAction {
 			while(it.hasNext()){
 				fi = (FileItem)it.next();
 
-				XStream x = new XStream(new DomDriver("ISO-8859-1"));
+				XStream x = new XStream(new DomDriver("UTF-8"));
 
 				//System.out.println("Dados importados: " + fi.get().toString());
 
-				String str = new String(fi.get(), "ISO-8859-1");
+				String str = new String(fi.get(), "UTF-8");
 				if (!str.equals("")){
 					fluxoDto = (FluxoDTO) x.fromXML(str);
 				} else {

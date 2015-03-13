@@ -134,7 +134,7 @@ public class Questionario extends AjaxFormAction {
 		questionario.setColGrupos(colGruposQuestao);
 
 		if (colGruposQuestao == null || colGruposQuestao.size() == 0){
-			document.alert("Informe os Grupos e Questıes!");
+			document.alert("Informe os Grupos e Quest√µes!");
 			return;
 		}
 		QuestionarioService questionarioService = (QuestionarioService) ServiceLocator.getInstance().getService(QuestionarioService.class, null);
@@ -257,7 +257,7 @@ public class Questionario extends AjaxFormAction {
 		name = name + ".citform";
 		FileOutputStream fOut = new FileOutputStream(diretorioExport + "/" + name);
 
-		XStream x = new XStream(new DomDriver("ISO-8859-1"));
+		XStream x = new XStream(new DomDriver("UTF-8"));
 		x.omitField(GrupoQuestionarioDTO.class, "serializeQuestoesGrupo");
 		x.omitField(GrupoQuestionarioDTO.class, "infoGrupo");
 		x.omitField(QuestionarioDTO.class, "acao");
@@ -450,11 +450,11 @@ public class Questionario extends AjaxFormAction {
 			while(it.hasNext()){
 				fi = (FileItem)it.next();
 
-				XStream x = new XStream(new DomDriver("ISO-8859-1"));
+				XStream x = new XStream(new DomDriver("UTF-8"));
 
 				//System.out.println("Dados importados: " + fi.get().toString());
 
-				String str = new String(fi.get(), "ISO-8859-1");
+				String str = new String(fi.get(), "UTF-8");
 				questionario = (QuestionarioDTO) x.fromXML(str);
 			}
 		}

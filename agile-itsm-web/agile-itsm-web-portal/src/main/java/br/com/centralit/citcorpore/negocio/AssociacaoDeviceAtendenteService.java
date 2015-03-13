@@ -8,7 +8,7 @@ import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.CrudService;
 
 /**
- * ServiÁos para {@link AssociacaoDeviceAtendenteDTO}
+ * Servi√ßos para {@link AssociacaoDeviceAtendenteDTO}
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 15/11/2014
@@ -16,36 +16,36 @@ import br.com.citframework.service.CrudService;
 public interface AssociacaoDeviceAtendenteService extends CrudService {
 
     /**
-     * Lista as associaÁıes ativas de um usu·rio, independentemente de conex„o e plataforma
+     * Lista as associa√ß√µes ativas de um usu√°rio, independentemente de conex√£o e plataforma
      *
      * @param usuario
-     *            usu·rio para o qual se deseja listar as associaÁıes ativas
+     *            usu√°rio para o qual se deseja listar as associa√ß√µes ativas
      * @param connection
-     *            "conex„o" no mobile, que È a URI acessada
+     *            "conex√£o" no mobile, que √© a URI acessada
      * @return {@link List} de {@link AssociacaoDeviceAtendenteDTO}
      * @throws ServiceException
      */
     List<AssociacaoDeviceAtendenteDTO> listActiveAssociationsForUserAndConnection(final UsuarioDTO usuario, final String connection) throws ServiceException;
 
     /**
-     * Associa um device a um usu·rio
+     * Associa um device a um usu√°rio
      *
      * @param associacao
-     *            informaÁıes da associaÁ„o a ser efetuada
+     *            informa√ß√µes da associa√ß√£o a ser efetuada
      * @param usuario
-     *            usu·rio para o qual ser· realizada a associaÁ„o
+     *            usu√°rio para o qual ser√° realizada a associa√ß√£o
      * @return {@link AssociacaoDeviceAtendenteDTO} realizada
      * @throws ServiceException
      */
     AssociacaoDeviceAtendenteDTO associateDeviceToAttendant(final AssociacaoDeviceAtendenteDTO associacao, final UsuarioDTO usuario) throws ServiceException;
 
     /**
-     * Desassocia um device de um usu·rio
+     * Desassocia um device de um usu√°rio
      *
      * @param associacao
-     *            informaÁıes da associaÁ„o a ser desfeita
+     *            informa√ß√µes da associa√ß√£o a ser desfeita
      * @param usuario
-     *            usu·rio para o qual ser· realizada a desassociaÁ„o
+     *            usu√°rio para o qual ser√° realizada a desassocia√ß√£o
      * @return {@link AssociacaoDeviceAtendenteDTO} desassociado
      * @throws ServiceException
      */

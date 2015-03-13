@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.centralit.citcorpore.util.CitCorporeConstantes"%>
@@ -6,12 +6,12 @@
 <%@ include file="/WEB-INF/templates/taglibs.jsp"%>
 
 <%
-	response.setCharacterEncoding("ISO-8859-1");
+	response.setCharacterEncoding("UTF-8");
 %>
 
 <html>
 <head>
-	<%@include file="/include/titleComum/titleComum.jsp" %>
+	<%@include file="/novoLayout/common/include/titulo.jsp" %>
 
 	<%@include file="/include/menu/menuConfig.jsp" %>
 

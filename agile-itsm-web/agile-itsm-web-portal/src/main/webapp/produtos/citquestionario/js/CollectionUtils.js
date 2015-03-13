@@ -46,8 +46,8 @@ function HashMap(){
 	 *            Exemplo: 
 	 *                  var hashEpcs = new HashMap();
 	 *                  hashEpcs.setArray('EPC','idepc',objsEpc);
-	 *                             onde objsEpc È um array de objetos recuperado via Ajax.
-	 *                             cada elemento no hash ser· identificado por: 'EPC1'
+	 *                             onde objsEpc √© um array de objetos recuperado via Ajax.
+	 *                             cada elemento no hash ser√° identificado por: 'EPC1'
 	 *                                                                          'EPC2' e assim por diante.
 	 */
 	function _setArray(name,propIdent,arr){

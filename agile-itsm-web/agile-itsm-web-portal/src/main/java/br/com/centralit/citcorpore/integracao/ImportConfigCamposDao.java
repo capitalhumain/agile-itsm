@@ -66,7 +66,7 @@ public class ImportConfigCamposDao extends CrudDaoDefaultImpl {
 	
 	
 	/**
-	 * Deleta o registro de forma logica, seta o campo dataFim igual a data de execução
+	 * Deleta o registro de forma logica, seta o campo dataFim igual a data de execuÃ§Ã£o
 	 * 
 	 * @param parm
 	 * @throws Exception

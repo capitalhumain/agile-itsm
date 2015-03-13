@@ -65,7 +65,7 @@ public class OcorrenciaSolicitacaoServiceEjb extends CrudServiceImpl implements 
         try {
             ocorrenciaSolicitacaoDTO.setDadosSolicitacao(new Gson().toJson(solicitacaoServicoDto));
         } catch (final Exception e) {
-            System.out.println("Problema na gravação dos dados da solicitação de serviço de id " + solicitacaoServicoDto.getIdSolicitacaoServico());
+            System.out.println("Problema na gravaÃ§Ã£o dos dados da solicitaÃ§Ã£o de serviÃ§o de id " + solicitacaoServicoDto.getIdSolicitacaoServico());
             e.printStackTrace();
         }
         ocorrenciaSolicitacaoDTO.setOcorrencia(ocorrencia);

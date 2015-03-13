@@ -5,7 +5,7 @@ import java.util.Collection;
 import br.com.citframework.service.CrudService;
 
 /**
- * @author Fl·vio.santana
+ * @author Fl√°vio.santana
  *
  */
 public interface PostService extends CrudService {

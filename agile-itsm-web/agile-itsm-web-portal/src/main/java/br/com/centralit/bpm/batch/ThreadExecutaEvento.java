@@ -26,13 +26,13 @@ public class ThreadExecutaEvento extends Thread {
                 execucaoFluxo.executaEvento(eventoFluxoDto);
             } else {
                 System.out.println("#############################################################################################");
-                System.out.println("Problemas na execuÁ„o dos eventos bpm");
-                System.out.println("Classe de fluxo do evento " + eventoFluxoDto.getIdItemTrabalho() + " n„o parametrizada");
+                System.out.println("Problemas na execu√ß√£o dos eventos bpm");
+                System.out.println("Classe de fluxo do evento " + eventoFluxoDto.getIdItemTrabalho() + " n√£o parametrizada");
                 System.out.println("#############################################################################################");
             }
         } catch (final Exception e) {
             System.out.println("#########################################");
-            System.out.println("Problemas na execuÁ„o dos eventos bpm");
+            System.out.println("Problemas na execu√ß√£o dos eventos bpm");
             System.out.println("#########################################");
             e.printStackTrace();
         }

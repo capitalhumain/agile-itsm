@@ -13,7 +13,7 @@ public interface PerfilAcessoUsuarioService extends CrudService {
     void reativaPerfisUsuario(Integer idUsuario);
 
     /**
-     * Restaura o Perfil de Acesso especÌfico do Usu·rio.
+     * Restaura o Perfil de Acesso espec√≠fico do Usu√°rio.
      * 
      * @param usuario
      * @return PerfilAcessoUsuarioDTO
@@ -23,7 +23,7 @@ public interface PerfilAcessoUsuarioService extends CrudService {
     PerfilAcessoUsuarioDTO obterPerfilAcessoUsuario(UsuarioDTO usuario) throws Exception;
 
     /**
-     * Retorna a lista de id perfis de acesso do usu·rio informado
+     * Retorna a lista de id perfis de acesso do usu√°rio informado
      * 
      * @param usuario
      * @return Collection

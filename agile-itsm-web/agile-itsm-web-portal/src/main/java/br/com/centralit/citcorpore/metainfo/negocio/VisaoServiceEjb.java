@@ -553,14 +553,14 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
             colCampos = (List<GrupoVisaoCamposNegocioDTO>) grupoVisaoDTO.getColCamposVisao();
             if (colCampos != null) {
                 for (GrupoVisaoCamposNegocioDTO grupoVisaoCamposNegocioDTO : colCampos) {
-                    if (grupoVisaoCamposNegocioDTO.getNomeTabelaDB() != null) {// Restaura id do Grupo Vis„o
+                    if (grupoVisaoCamposNegocioDTO.getNomeTabelaDB() != null) {// Restaura id do Grupo Vis√£o
                         List<GrupoVisaoDTO> listGrupoVisaoTemp = (List<GrupoVisaoDTO>) getGrupoVisaoDao().findByIdVisao(visaoXML.getIdVisao());
                         if (listGrupoVisaoTemp != null) {
                             for (GrupoVisaoDTO grupoVisaoDTO2 : listGrupoVisaoTemp) {
                                 grupoVisaoCamposNegocioDTO.setIdGrupoVisao(grupoVisaoDTO2.getIdGrupoVisao());
                             }
                         }
-                        // Restaura id dos Campos Objeto NegÛcio
+                        // Restaura id dos Campos Objeto Neg√≥cio
                         Integer idObjetoNegocio = null;
                         List<ObjetoNegocioDTO> colObjNegocio = (List<ObjetoNegocioDTO>) getObjetoNegocioDao().findByNomeTabelaDB(grupoVisaoCamposNegocioDTO.getNomeTabelaDB());
                         if (colObjNegocio != null) {
@@ -581,9 +581,9 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
                                 }
                             }
                         }
-                        // Restaura visıes de ligaÁ„o caso exista
+                        // Restaura vis√µes de liga√ß√£o caso exista
                         if (grupoVisaoCamposNegocioDTO.getTipoNegocio().equalsIgnoreCase(MetaUtil.RELATION)) {
-                            // Restaura id do objeto negÛcio ligaÁ„o
+                            // Restaura id do objeto neg√≥cio liga√ß√£o
                             List<ObjetoNegocioDTO> listObjNegTemp = (List<ObjetoNegocioDTO>) getObjetoNegocioDao().findByNomeTabelaDB(
                                     grupoVisaoCamposNegocioDTO.getNomeTabelaDBLigacao());
                             if (listObjNegTemp != null) {
@@ -591,7 +591,7 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
                                     grupoVisaoCamposNegocioDTO.setIdObjetoNegocioLigacao(objetoNegocioDTO.getIdObjetoNegocio());
                                 }
                             }
-                            // Restaura id do campo objeto negÛcio ligaÁ„o
+                            // Restaura id do campo objeto neg√≥cio liga√ß√£o
                             List<CamposObjetoNegocioDTO> listCamposObjNegTemp2 = (List<CamposObjetoNegocioDTO>) getCamposObjetoNegocioDao().findByIdObjetoNegocioAndNomeDB(
                                     grupoVisaoCamposNegocioDTO.getIdObjetoNegocioLigacao(), grupoVisaoCamposNegocioDTO.getNomeDBLigacao());
                             if (listCamposObjNegTemp2 != null) {
@@ -599,7 +599,7 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
                                     grupoVisaoCamposNegocioDTO.setIdCamposObjetoNegocioLigacao(camposObjetoNegocioDTO.getIdCamposObjetoNegocio());
                                 }
                             }
-                            // Restaura id do campo objeto negÛcio ligaÁ„o vinculado
+                            // Restaura id do campo objeto neg√≥cio liga√ß√£o vinculado
                             List<CamposObjetoNegocioDTO> listCamposObjNegTemp3 = (List<CamposObjetoNegocioDTO>) getCamposObjetoNegocioDao().findByIdObjetoNegocioAndNomeDB(
                                     grupoVisaoCamposNegocioDTO.getIdObjetoNegocioLigacao(), grupoVisaoCamposNegocioDTO.getNomeDBLigacaoVinc());
                             if (listCamposObjNegTemp3 != null) {
@@ -607,7 +607,7 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
                                     grupoVisaoCamposNegocioDTO.setIdCamposObjetoNegocioLigacaoVinc(camposObjetoNegocioDTO.getIdCamposObjetoNegocio());
                                 }
                             }
-                            // Restaura id do campo objeto negÛcio ligaÁ„o order
+                            // Restaura id do campo objeto neg√≥cio liga√ß√£o order
                             List<CamposObjetoNegocioDTO> listCamposObjNegTemp4 = (List<CamposObjetoNegocioDTO>) getCamposObjetoNegocioDao().findByIdObjetoNegocioAndNomeDB(
                                     grupoVisaoCamposNegocioDTO.getIdObjetoNegocioLigacao(), grupoVisaoCamposNegocioDTO.getNomeDBLigacaoOrder());
                             if (listCamposObjNegTemp4 != null) {
@@ -667,13 +667,13 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
         if (visaoXML.getColVisoesRelacionadas() != null && visaoXML.getColVisoesRelacionadas().size() > 0) {
             List<VisaoRelacionadaDTO> listVisaoRelacionada = (List<VisaoRelacionadaDTO>) visaoXML.getColVisoesRelacionadas();
             for (VisaoRelacionadaDTO visaoRelacionadaDTO : listVisaoRelacionada) {
-                // Restaura ID da Vis„o Relacionada Filha
+                // Restaura ID da Vis√£o Relacionada Filha
                 VisaoDTO visaoDTOFilha = findByIdentificador(visaoRelacionadaDTO.getIdentificacaoVisaoFilha());
                 if (visaoDTOFilha != null) {
                     visaoRelacionadaDTO.setIdVisaoFilha(visaoDTOFilha.getIdVisao());
                 }
 
-                // Preenche campos do vÌnculo
+                // Preenche campos do v√≠nculo
                 List<VinculoVisaoDTO> listVinculoVisao = (List<VinculoVisaoDTO>) visaoRelacionadaDTO.getColVinculosVisao();
                 if (listVinculoVisao != null) {
                     GrupoVisaoDTO grupoVisaoDTO = (GrupoVisaoDTO) ((List) (visaoXML.getColGrupos())).get(0);
@@ -756,10 +756,10 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
 
     public void atualizarVisao(VisaoDTO visaoAtual, VisaoDTO visaoXML) throws Exception {
 
-        // Primeiro obtem vis„o atual a ser atualizada
+        // Primeiro obtem vis√£o atual a ser atualizada
         if (visaoAtual != null && visaoAtual.getIdVisao() != null) {
             visaoXML.setIdVisao(visaoAtual.getIdVisao());
-            // Segundo obtem vis„o vinda do XML
+            // Segundo obtem vis√£o vinda do XML
             List<GrupoVisaoCamposNegocioDTO> colCamposVisaoXML = new ArrayList<GrupoVisaoCamposNegocioDTO>();
 
             if (visaoXML.getColGrupos() != null && visaoXML.getColGrupos().size() > 0) {
@@ -768,14 +768,14 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
                 if (colCamposVisaoXML != null) {
                     for (GrupoVisaoCamposNegocioDTO grupoVisaoCamposNegocioDTO : colCamposVisaoXML) {
                         if (grupoVisaoCamposNegocioDTO.getNomeTabelaDB() != null) {
-                            // Restaura id do Grupo Vis„o
+                            // Restaura id do Grupo Vis√£o
                             List<GrupoVisaoDTO> listGrupoVisaoTemp = (List<GrupoVisaoDTO>) getGrupoVisaoDao().findByIdVisao(visaoXML.getIdVisao());
                             if (listGrupoVisaoTemp != null) {
                                 for (GrupoVisaoDTO grupoVisaoDTO2 : listGrupoVisaoTemp) {
                                     grupoVisaoCamposNegocioDTO.setIdGrupoVisao(grupoVisaoDTO2.getIdGrupoVisao());
                                 }
                             }
-                            // Restaura id dos Campos Objeto NegÛcio
+                            // Restaura id dos Campos Objeto Neg√≥cio
                             Integer idObjetoNegocio = null;
                             List<ObjetoNegocioDTO> colObjNegocio = (List<ObjetoNegocioDTO>) getObjetoNegocioDao().findByNomeTabelaDB(grupoVisaoCamposNegocioDTO.getNomeTabelaDB());
                             if (colObjNegocio != null) {
@@ -795,9 +795,9 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
                                     }
                                 }
                             }
-                            // Restaura visıes de ligaÁ„o caso exista
+                            // Restaura vis√µes de liga√ß√£o caso exista
                             if (grupoVisaoCamposNegocioDTO.getTipoNegocio().equalsIgnoreCase(MetaUtil.RELATION)) {
-                                // Restaura id do objeto negÛcio ligaÁ„o
+                                // Restaura id do objeto neg√≥cio liga√ß√£o
                                 List<ObjetoNegocioDTO> listObjNegTemp = (List<ObjetoNegocioDTO>) getObjetoNegocioDao().findByNomeTabelaDB(
                                         grupoVisaoCamposNegocioDTO.getNomeTabelaDBLigacao());
                                 if (listObjNegTemp != null) {
@@ -805,7 +805,7 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
                                         grupoVisaoCamposNegocioDTO.setIdObjetoNegocioLigacao(objetoNegocioDTO.getIdObjetoNegocio());
                                     }
                                 }
-                                // Restaura id do campo objeto negÛcio ligaÁ„o
+                                // Restaura id do campo objeto neg√≥cio liga√ß√£o
                                 List<CamposObjetoNegocioDTO> listCamposObjNegTemp2 = (List<CamposObjetoNegocioDTO>) getCamposObjetoNegocioDao().findByIdObjetoNegocioAndNomeDB(
                                         grupoVisaoCamposNegocioDTO.getIdObjetoNegocioLigacao(), grupoVisaoCamposNegocioDTO.getNomeDBLigacao());
                                 if (listCamposObjNegTemp2 != null) {
@@ -813,7 +813,7 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
                                         grupoVisaoCamposNegocioDTO.setIdCamposObjetoNegocioLigacao(camposObjetoNegocioDTO.getIdCamposObjetoNegocio());
                                     }
                                 }
-                                // Restaura id do campo objeto negÛcio ligaÁ„o vinculado
+                                // Restaura id do campo objeto neg√≥cio liga√ß√£o vinculado
                                 List<CamposObjetoNegocioDTO> listCamposObjNegTemp3 = (List<CamposObjetoNegocioDTO>) getCamposObjetoNegocioDao().findByIdObjetoNegocioAndNomeDB(
                                         grupoVisaoCamposNegocioDTO.getIdObjetoNegocioLigacao(), grupoVisaoCamposNegocioDTO.getNomeDBLigacaoVinc());
                                 if (listCamposObjNegTemp3 != null) {
@@ -821,7 +821,7 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
                                         grupoVisaoCamposNegocioDTO.setIdCamposObjetoNegocioLigacaoVinc(camposObjetoNegocioDTO.getIdCamposObjetoNegocio());
                                     }
                                 }
-                                // Restaura id do campo objeto negÛcio ligaÁ„o order
+                                // Restaura id do campo objeto neg√≥cio liga√ß√£o order
                                 List<CamposObjetoNegocioDTO> listCamposObjNegTemp4 = (List<CamposObjetoNegocioDTO>) getCamposObjetoNegocioDao().findByIdObjetoNegocioAndNomeDB(
                                         grupoVisaoCamposNegocioDTO.getIdObjetoNegocioLigacao(), grupoVisaoCamposNegocioDTO.getNomeDBLigacaoOrder());
                                 if (listCamposObjNegTemp4 != null) {
@@ -881,13 +881,13 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
             if (visaoXML.getColVisoesRelacionadas() != null && visaoXML.getColVisoesRelacionadas().size() > 0) {
                 List<VisaoRelacionadaDTO> listVisaoRelacionada = (List<VisaoRelacionadaDTO>) visaoXML.getColVisoesRelacionadas();
                 for (VisaoRelacionadaDTO visaoRelacionadaDTO : listVisaoRelacionada) {
-                    // Restaura ID da Vis„o Relacionada Filha
+                    // Restaura ID da Vis√£o Relacionada Filha
                     VisaoDTO visaoDTOFilha = findByIdentificador(visaoRelacionadaDTO.getIdentificacaoVisaoFilha());
                     if (visaoDTOFilha != null) {
                         visaoRelacionadaDTO.setIdVisaoFilha(visaoDTOFilha.getIdVisao());
                     }
 
-                    // Preenche campos do vÌnculo
+                    // Preenche campos do v√≠nculo
                     List<VinculoVisaoDTO> listVinculoVisao = (List<VinculoVisaoDTO>) visaoRelacionadaDTO.getColVinculosVisao();
                     if (listVinculoVisao != null) {
                         GrupoVisaoDTO grupoVisaoDTO = (GrupoVisaoDTO) ((List) (visaoXML.getColGrupos())).get(0);
@@ -964,7 +964,7 @@ public class VisaoServiceEjb extends CrudServiceImpl implements VisaoService {
 
             }
 
-            // Salva alteraÁıes
+            // Salva altera√ß√µes
             if (visaoXML != null) {
                 update(visaoXML);
             }

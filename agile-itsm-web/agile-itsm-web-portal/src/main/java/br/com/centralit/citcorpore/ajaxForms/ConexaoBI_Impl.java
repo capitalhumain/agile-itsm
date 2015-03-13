@@ -10,7 +10,7 @@ import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.util.UtilI18N;
 
 /**
- * Esta classe È utilizada apenas para a RenderizaÁ„o da PaginaÁ„o.
+ * Esta classe √© utilizada apenas para a Renderiza√ß√£o da Pagina√ß√£o.
  */
 
 public class ConexaoBI_Impl extends ConexaoBI implements GerenciamentoProcessos {
@@ -59,7 +59,7 @@ public class ConexaoBI_Impl extends ConexaoBI implements GerenciamentoProcessos 
 	}
 	
 	/**
-	 * Realiza a paginaÁ„o dos itens e recarrega a lista de conexıes
+	 * Realiza a pagina√ß√£o dos itens e recarrega a lista de conex√µes
 	 * 
 	 * @param document
 	 * @param request

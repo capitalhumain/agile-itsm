@@ -181,7 +181,7 @@ public class ControleRendimentoExecucao extends AjaxFormAction{
 		}
 
 		if((Double.parseDouble(listaTotal.get(0).toString())) < (Double.parseDouble(listaTotal.get(1).toString()))){
-			document.getElementById("divResultadoGrupo").setInnerHTML("<br><span style='font-size: 13pt; color: red'> Resultado: "+ listaTotal.get(0) +"%</span><br><span style='font-size: 13pt; color: red'>GRUPO N√O APROVADO PARA GRATIFICA«√O</span><br>");
+			document.getElementById("divResultadoGrupo").setInnerHTML("<br><span style='font-size: 13pt; color: red'> Resultado: "+ listaTotal.get(0) +"%</span><br><span style='font-size: 13pt; color: red'>GRUPO N√ÉO APROVADO PARA GRATIFICA√á√ÉO</span><br>");
 			document.getElementById("divTotalRendimentoPessoa").setVisible(false);
 			flagCalculaPessoa = false;
 		} else{
@@ -254,7 +254,7 @@ public class ControleRendimentoExecucao extends AjaxFormAction{
 		ArrayList<Object> listaRodape = (ArrayList<Object>) listaComTodosOsPontos.get(4);
 
 		ControleRendimentoExecucaoDTO controleRendimento1 = new ControleRendimentoExecucaoDTO("Baixa (x1)", listaComSolicitacoesBaixas.get(0).toString(), listaComSolicitacoesBaixas.get(1).toString(), listaComSolicitacoesBaixas.get(2).toString(), listaComSolicitacoesBaixas.get(3).toString(), listaComSolicitacoesBaixas.get(4).toString());
-		ControleRendimentoExecucaoDTO controleRendimento2 = new ControleRendimentoExecucaoDTO("MÈdia (x2)", listaComSolicitacoesMedias.get(0).toString(), listaComSolicitacoesMedias.get(1).toString(), listaComSolicitacoesMedias.get(2).toString(), listaComSolicitacoesMedias.get(3).toString(), listaComSolicitacoesMedias.get(4).toString());
+		ControleRendimentoExecucaoDTO controleRendimento2 = new ControleRendimentoExecucaoDTO("M√©dia (x2)", listaComSolicitacoesMedias.get(0).toString(), listaComSolicitacoesMedias.get(1).toString(), listaComSolicitacoesMedias.get(2).toString(), listaComSolicitacoesMedias.get(3).toString(), listaComSolicitacoesMedias.get(4).toString());
 		ControleRendimentoExecucaoDTO controleRendimento3 = new ControleRendimentoExecucaoDTO("Alta   (x3)", listaComSolicitacoesAltas.get(0).toString(), listaComSolicitacoesAltas.get(1).toString(), listaComSolicitacoesAltas.get(2).toString(), listaComSolicitacoesAltas.get(3).toString(), listaComSolicitacoesAltas.get(4).toString());
 		ControleRendimentoExecucaoDTO controleRendimento4 = new ControleRendimentoExecucaoDTO("Total", listaRodape.get(0).toString(), listaRodape.get(1).toString(), listaRodape.get(2).toString(), listaRodape.get(3).toString(), listaRodape.get(4).toString() + "%");
 
@@ -371,7 +371,7 @@ public class ControleRendimentoExecucao extends AjaxFormAction{
 				ControleRendimentoExecucaoDTO controleRendimento1;
 
 				if(pontosTotal < 0){
-					controleRendimento1 = new ControleRendimentoExecucaoDTO(usuarioDto.getNomeUsuario(), pontosTotal.toString(), "N„o", usuarioDto.getIdUsuario());
+					controleRendimento1 = new ControleRendimentoExecucaoDTO(usuarioDto.getNomeUsuario(), pontosTotal.toString(), "N√£o", usuarioDto.getIdUsuario());
 					controleRendimento1.setQtdPontosPositivos(qtdTotalPontosPositivos.toString());
 					controleRendimento1.setQtdPontosNegativos(qtdTotalPontosnegativos.toString());
 					controleRendimento1.setQtdItensRetornados(qtdItensRetornados + "");
@@ -479,7 +479,7 @@ public class ControleRendimentoExecucao extends AjaxFormAction{
 				}
 
 				if(jaCalculou == false){
-					//n„o houve retorno mas est· fora do prazo
+					//n√£o houve retorno mas est√° fora do prazo
 					if(solicitacaoServicoDTO.getDataHoraLimite() != null){
 						if(solicitacaoServicoDTO.getDataHoraFim() == null && solicitacaoServicoDTO.getDataHoraLimite().before(UtilDatas.getDataHoraAtual())){
 							if(solicitacaoServicoDTO.getUrgencia().equalsIgnoreCase("B"))
@@ -633,7 +633,7 @@ public class ControleRendimentoExecucao extends AjaxFormAction{
 					}
 
 					if(jaCalculou == false){
-						//n„o houve retorno mas est· fora do prazo
+						//n√£o houve retorno mas est√° fora do prazo
 						if(solicitacaoServicoDTO.getDataHoraLimite() != null){
 							if(solicitacaoServicoDTO.getDataHoraFim() == null && solicitacaoServicoDTO.getDataHoraLimite().after(UtilDatas.getDataHoraAtual())){
 								if(solicitacaoServicoDTO.getUrgencia().equalsIgnoreCase("B"))
@@ -666,7 +666,7 @@ public class ControleRendimentoExecucao extends AjaxFormAction{
 				ControleRendimentoExecucaoDTO controleRendimento1;
 
 				if(pontosTotal < 0){
-					controleRendimento1 = new ControleRendimentoExecucaoDTO(usuarioDto.getNomeUsuario(), pontosTotal.toString(), "N„o", usuarioDto.getIdUsuario());
+					controleRendimento1 = new ControleRendimentoExecucaoDTO(usuarioDto.getNomeUsuario(), pontosTotal.toString(), "N√£o", usuarioDto.getIdUsuario());
 					controleRendimento1.setQtdPontosPositivos(qtdTotalPontosPositivos.toString());
 					controleRendimento1.setQtdPontosNegativos(qtdTotalPontosnegativos.toString());
 					controleRendimento1.setQtdItensRetornados(qtdItensRetornados.toString());
@@ -700,7 +700,7 @@ public class ControleRendimentoExecucao extends AjaxFormAction{
 		String nivelExcelencia = getNivelExcelenciaExigido();
 
 		if(!validaFormatoNivelExcelencia(nivelExcelencia)){
-			document.alert("Verifique o formato do par‚metro de nÌvel de excelÍncia, deve possuir apenas n˙meros.");
+			document.alert("Verifique o formato do par√¢metro de n√≠vel de excel√™ncia, deve possuir apenas n√∫meros.");
 			return null;
 		}
 
@@ -730,7 +730,7 @@ public class ControleRendimentoExecucao extends AjaxFormAction{
 		Integer qtdTotalPontosMedia = qtdSolicitacoesGrupoMedia * pontosSlaMedioNoPrazo;
 		Integer qtdTotalPontosAlta = qtdSolicitacoesGrupoAlta * pontosSlaAltoNoPrazo;
 
-		//traz todas as solicitaÁıes que foram finalizadas no prazo
+		//traz todas as solicita√ß√µes que foram finalizadas no prazo
 		Collection<SolicitacaoServicoDTO> listaSolicitacoesAtendidasGrupoBaixa = (Collection<SolicitacaoServicoDTO>) solicitacaoServicoService.findByIdGrupoEDataAtendidasBaixa(idGrupo, dataInicio, dataFim);
 		Collection<SolicitacaoServicoDTO> listaSolicitacoesAtendidasGrupoMedia = (Collection<SolicitacaoServicoDTO>) solicitacaoServicoService.findByIdGrupoEDataAtendidasMedia(idGrupo, dataInicio, dataFim);
 		Collection<SolicitacaoServicoDTO> listaSolicitacoesAtendidasGrupoAlta = (Collection<SolicitacaoServicoDTO>) solicitacaoServicoService.findByIdGrupoEDataAtendidasAlta(idGrupo, dataInicio, dataFim);
@@ -759,7 +759,7 @@ public class ControleRendimentoExecucao extends AjaxFormAction{
 		Integer qtdPontosNegativosMedia = new Integer(0);
 		Integer qtdPontosNegativosAlta = new Integer(0);
 
-		//variavel criada para controlar a pontuaÁ„o negativa, n„o deixar calcular duas vezes caso haja retorno
+		//variavel criada para controlar a pontua√ß√£o negativa, n√£o deixar calcular duas vezes caso haja retorno
 		Boolean jaCalculou;
 		if(listaSolicitacoesGrupoTotal != null){
 
@@ -806,7 +806,7 @@ public class ControleRendimentoExecucao extends AjaxFormAction{
 			}
 
 			if(jaCalculou == false){
-				//n„o houve retorno mas est· fora do prazo
+				//n√£o houve retorno mas est√° fora do prazo
 				if(solicitacaoServicoDTO.getDataHoraLimite() != null){
 					if(solicitacaoServicoDTO.getDataHoraFim() == null && solicitacaoServicoDTO.getDataHoraLimite().after(UtilDatas.getDataHoraAtual())){
 						if(solicitacaoServicoDTO.getUrgencia().equalsIgnoreCase("B"))
@@ -837,7 +837,7 @@ public class ControleRendimentoExecucao extends AjaxFormAction{
 		Integer pontosFinaisMedia = qtdPontosPositivosMedia + qtdPontosNegativosMedia;
 		Integer pontosFinaisAlta = qtdPontosPositivosAlta + qtdPontosNegativosAlta;
 
-		//calcula a mÈdia de rendimento parcial
+		//calcula a m√©dia de rendimento parcial
 		Double mediaBaixaDouble = new Double(0);
 		Double mediaMediaDouble = new Double(0);
 		Double mediaAltaDouble = new Double(0);
@@ -853,8 +853,8 @@ public class ControleRendimentoExecucao extends AjaxFormAction{
 		String mediaMedia = Math.round(mediaMediaDouble * 100) + "%";
 		String mediaAlta = Math.round(mediaAltaDouble * 100) + "%";
 
-		//calcula mÈdia geral
-		//verificar se houve solicitaÁ„o daquele tipo
+		//calcula m√©dia geral
+		//verificar se houve solicita√ß√£o daquele tipo
 		int divisor = 0;
 		if (qtdSolicitacoesGrupoBaixa != 0)
 			divisor++;
@@ -984,7 +984,7 @@ public class ControleRendimentoExecucao extends AjaxFormAction{
 					ControleRendimentoExecucaoDTO controleRendimento1;
 
 					if(pontosTotal < 0)
-						controleRendimento1 = new ControleRendimentoExecucaoDTO(usuarioDto.getNomeUsuario(), pontosTotal.toString(), "N„o", usuarioDto.getIdUsuario());
+						controleRendimento1 = new ControleRendimentoExecucaoDTO(usuarioDto.getNomeUsuario(), pontosTotal.toString(), "N√£o", usuarioDto.getIdUsuario());
 					else
 						controleRendimento1 = new ControleRendimentoExecucaoDTO(usuarioDto.getNomeUsuario(), pontosTotal.toString(), "Sim", usuarioDto.getIdUsuario());
 
@@ -1026,7 +1026,7 @@ public class ControleRendimentoExecucao extends AjaxFormAction{
 				ControleRendimentoExecucaoDTO controleRendimento1;
 
 				if(pontosTotal < 0)
-					controleRendimento1 = new ControleRendimentoExecucaoDTO(usuarioDto.getNomeUsuario(), pontosTotal.toString(), "N„o", usuarioDto.getIdUsuario());
+					controleRendimento1 = new ControleRendimentoExecucaoDTO(usuarioDto.getNomeUsuario(), pontosTotal.toString(), "N√£o", usuarioDto.getIdUsuario());
 				else
 					controleRendimento1 = new ControleRendimentoExecucaoDTO(usuarioDto.getNomeUsuario(), pontosTotal.toString(), "Sim", usuarioDto.getIdUsuario());
 
@@ -1046,7 +1046,7 @@ public class ControleRendimentoExecucao extends AjaxFormAction{
 	}
 
 	public void calculaPontuacaoPessoaExecucaoGrupoTeste(Integer idPessoa, Date dataInicio, Date dataFim, DocumentHTML document) throws ServiceException, Exception{
-		//esse mÈtodo serve apenas para calcular a pontuaÁ„o do grupo Teste da f·brica
+		//esse m√©todo serve apenas para calcular a pontua√ß√£o do grupo Teste da f√°brica
 		SolicitacaoServicoService solicitacaoServicoService = (SolicitacaoServicoService) ServiceLocator.getInstance().getService(SolicitacaoServicoService.class, null);
 		OcorrenciaSolicitacaoService ocorrenciaServicoService = (OcorrenciaSolicitacaoService) ServiceLocator.getInstance().getService(OcorrenciaSolicitacaoService.class, null);
 		ControleRendimentoExecucaoDTO controle = (ControleRendimentoExecucaoDTO) document.getBean();
@@ -1138,7 +1138,7 @@ public class ControleRendimentoExecucao extends AjaxFormAction{
 						}
 
 						if(jaCalculou == false){
-							//n„o houve retorno mas est· fora do prazo
+							//n√£o houve retorno mas est√° fora do prazo
 							if(solicitacaoServicoDTO.getDataHoraLimite() != null){
 								if(solicitacaoServicoDTO.getDataHoraFim() == null && solicitacaoServicoDTO.getDataHoraLimite().after(UtilDatas.getDataHoraAtual())){
 									if(solicitacaoServicoDTO.getUrgencia().equalsIgnoreCase("B"))
@@ -1171,7 +1171,7 @@ public class ControleRendimentoExecucao extends AjaxFormAction{
 					ControleRendimentoExecucaoDTO controleRendimento1;
 
 					if(pontosTotal < 0)
-						controleRendimento1 = new ControleRendimentoExecucaoDTO(usuarioTesteDto.getNomeUsuario(), pontosTotal.toString(), "N„o", usuarioTesteDto.getIdUsuario());
+						controleRendimento1 = new ControleRendimentoExecucaoDTO(usuarioTesteDto.getNomeUsuario(), pontosTotal.toString(), "N√£o", usuarioTesteDto.getIdUsuario());
 					else
 						controleRendimento1 = new ControleRendimentoExecucaoDTO(usuarioTesteDto.getNomeUsuario(), pontosTotal.toString(), "Sim", usuarioTesteDto.getIdUsuario());
 
@@ -1269,7 +1269,7 @@ public class ControleRendimentoExecucao extends AjaxFormAction{
 					}
 
 					if(jaCalculou == false){
-						//n„o houve retorno mas est· fora do prazo
+						//n√£o houve retorno mas est√° fora do prazo
 						if(solicitacaoServicoDTO.getDataHoraLimite() != null){
 							if(solicitacaoServicoDTO.getDataHoraFim() == null && solicitacaoServicoDTO.getDataHoraLimite().after(UtilDatas.getDataHoraAtual())){
 								if(solicitacaoServicoDTO.getUrgencia().equalsIgnoreCase("B"))
@@ -1302,7 +1302,7 @@ public class ControleRendimentoExecucao extends AjaxFormAction{
 				ControleRendimentoExecucaoDTO controleRendimento1;
 
 				if(pontosTotal < 0)
-					controleRendimento1 = new ControleRendimentoExecucaoDTO(usuarioDto.getNomeUsuario(), pontosTotal.toString(), "N„o", usuarioDto.getIdUsuario());
+					controleRendimento1 = new ControleRendimentoExecucaoDTO(usuarioDto.getNomeUsuario(), pontosTotal.toString(), "N√£o", usuarioDto.getIdUsuario());
 				else
 					controleRendimento1 = new ControleRendimentoExecucaoDTO(usuarioDto.getNomeUsuario(), pontosTotal.toString(), "Sim", usuarioDto.getIdUsuario());
 
@@ -1418,10 +1418,10 @@ public class ControleRendimentoExecucao extends AjaxFormAction{
 			// Instancia o virtualizador
 			JRAbstractLRUVirtualizer virtualizer = new JRSwapFileVirtualizer(25, arquivoSwap, true);
 
-			// Seta o parametro REPORT_VIRTUALIZER com a inst‚ncia da virtualizaÁ„o
+			// Seta o parametro REPORT_VIRTUALIZER com a inst√¢ncia da virtualiza√ß√£o
 			parametros.put(JRParameter.REPORT_VIRTUALIZER, virtualizer);
 
-			// Preenche o relatÛrio e exibe numa GUI
+			// Preenche o relat√≥rio e exibe numa GUI
 			JasperPrint print = JasperFillManager.fillReport(caminhoJasper, parametros, dataSource);
 			// JasperViewer.viewReport(print,false);
 
@@ -1525,10 +1525,10 @@ public class ControleRendimentoExecucao extends AjaxFormAction{
 			// Instancia o virtualizador
 			JRAbstractLRUVirtualizer virtualizer = new JRSwapFileVirtualizer(25, arquivoSwap, true);
 
-			// Seta o parametro REPORT_VIRTUALIZER com a inst‚ncia da virtualizaÁ„o
+			// Seta o parametro REPORT_VIRTUALIZER com a inst√¢ncia da virtualiza√ß√£o
 			parametros.put(JRParameter.REPORT_VIRTUALIZER, virtualizer);
 
-			// Preenche o relatÛrio e exibe numa GUI
+			// Preenche o relat√≥rio e exibe numa GUI
 			JasperPrint print = JasperFillManager.fillReport(caminhoJasper, parametros, dataSource);
 			// JasperViewer.viewReport(print,false);
 
@@ -1563,7 +1563,7 @@ public class ControleRendimentoExecucao extends AjaxFormAction{
 
 		Calendar dataSeisMesesAtras = calculaPeriodoPesquisa();
 
-		//subtrair 1, pois o mÍs atual n„o foi fechado.
+		//subtrair 1, pois o m√™s atual n√£o foi fechado.
 		String mesAtual = (dataAtual.get(GregorianCalendar.MONTH)) + "";
 		String anoAtual = (dataAtual.get(GregorianCalendar.YEAR)) + "";
 
@@ -1580,7 +1580,7 @@ public class ControleRendimentoExecucao extends AjaxFormAction{
 			//traz os id's dos usuarios do banco.
 			colecaoIdsUsuarios = usuarioService.findIdsControleRendimentoUsuarioPorPeriodo(usuarioDto.getIdGrupo(), mesSeisMesesAtras, mesAtual, anoAtual, anoAtual, true);
 		} else if(Integer.parseInt(mesSeisMesesAtras) > Integer.parseInt(mesAtual)){
-			//significa que È de um ano para o outro
+			//significa que √© de um ano para o outro
 			col = usuarioService.findByIdControleRendimentoMelhoresUsuario(usuarioDto.getIdGrupo(), mesSeisMesesAtras, mesAtual, anoAtual, anoAtual, true);
 			//traz os id's dos usuarios do banco.
 			colecaoIdsUsuarios = usuarioService.findIdsControleRendimentoUsuarioPorPeriodo(usuarioDto.getIdGrupo(), mesSeisMesesAtras, mesAtual, anoAtual, anoAtual, true);
@@ -1633,7 +1633,7 @@ public class ControleRendimentoExecucao extends AjaxFormAction{
 
 		ArrayList melhores10FuncionariosAux = new ArrayList();
 
-		//pega sÛ os 10 primeiros registros, se n„o tiver 10, pega todos
+		//pega s√≥ os 10 primeiros registros, se n√£o tiver 10, pega todos
 		int qtdMinimaFuncionarios = melhores10Funcionarios.size();
 		if(qtdMinimaFuncionarios < 10){
 			for (int i = 0; i < qtdMinimaFuncionarios; i++) {
@@ -1693,10 +1693,10 @@ public class ControleRendimentoExecucao extends AjaxFormAction{
 			// Instancia o virtualizador
 			JRAbstractLRUVirtualizer virtualizer = new JRSwapFileVirtualizer(25, arquivoSwap, true);
 
-			// Seta o parametro REPORT_VIRTUALIZER com a inst‚ncia da virtualizaÁ„o
+			// Seta o parametro REPORT_VIRTUALIZER com a inst√¢ncia da virtualiza√ß√£o
 			parametros.put(JRParameter.REPORT_VIRTUALIZER, virtualizer);
 
-			// Preenche o relatÛrio e exibe numa GUI
+			// Preenche o relat√≥rio e exibe numa GUI
 			JasperPrint print = JasperFillManager.fillReport(caminhoJasper, parametros, dataSource);
 			// JasperViewer.viewReport(print,false);
 
@@ -1792,10 +1792,10 @@ public class ControleRendimentoExecucao extends AjaxFormAction{
 			// Instancia o virtualizador
 			JRAbstractLRUVirtualizer virtualizer = new JRSwapFileVirtualizer(25, arquivoSwap, true);
 
-			// Seta o parametro REPORT_VIRTUALIZER com a inst‚ncia da virtualizaÁ„o
+			// Seta o parametro REPORT_VIRTUALIZER com a inst√¢ncia da virtualiza√ß√£o
 			parametros.put(JRParameter.REPORT_VIRTUALIZER, virtualizer);
 
-			// Preenche o relatÛrio e exibe numa GUI
+			// Preenche o relat√≥rio e exibe numa GUI
 			JasperPrint print = JasperFillManager.fillReport(caminhoJasper, parametros, dataSource);
 			// JasperViewer.viewReport(print,false);
 
@@ -1867,10 +1867,10 @@ public class ControleRendimentoExecucao extends AjaxFormAction{
 			// Instancia o virtualizador
 			JRAbstractLRUVirtualizer virtualizer = new JRSwapFileVirtualizer(25, arquivoSwap, true);
 
-			// Seta o parametro REPORT_VIRTUALIZER com a inst‚ncia da virtualizaÁ„o
+			// Seta o parametro REPORT_VIRTUALIZER com a inst√¢ncia da virtualiza√ß√£o
 			parametros.put(JRParameter.REPORT_VIRTUALIZER, virtualizer);
 
-			// Preenche o relatÛrio e exibe numa GUI
+			// Preenche o relat√≥rio e exibe numa GUI
 			JasperPrint print = JasperFillManager.fillReport(caminhoJasper, parametros, dataSource);
 			// JasperViewer.viewReport(print,false);
 
@@ -2015,10 +2015,10 @@ public class ControleRendimentoExecucao extends AjaxFormAction{
 			// Instancia o virtualizador
 			JRAbstractLRUVirtualizer virtualizer = new JRSwapFileVirtualizer(25, arquivoSwap, true);
 
-			// Seta o parametro REPORT_VIRTUALIZER com a inst‚ncia da virtualizaÁ„o
+			// Seta o parametro REPORT_VIRTUALIZER com a inst√¢ncia da virtualiza√ß√£o
 			parametros.put(JRParameter.REPORT_VIRTUALIZER, virtualizer);
 
-			// Preenche o relatÛrio e exibe numa GUI
+			// Preenche o relat√≥rio e exibe numa GUI
 			JasperPrint print = JasperFillManager.fillReport(caminhoJasper, parametros, dataSource);
 			// JasperViewer.viewReport(print,false);
 

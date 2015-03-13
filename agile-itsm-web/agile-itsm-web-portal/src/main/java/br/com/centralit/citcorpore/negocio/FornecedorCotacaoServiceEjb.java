@@ -34,12 +34,12 @@ public class FornecedorCotacaoServiceEjb extends CrudServiceImpl implements Forn
         cotacaoDto.setIdCotacao(fornecedorCotacaoDto.getIdCotacao());
         cotacaoDto = (CotacaoDTO) new CotacaoDao().restore(cotacaoDto);
         if (!cotacaoDto.getSituacao().equals(SituacaoCotacao.EmAndamento.name())) {
-            throw new LogicException("A situaÁ„o da cotaÁ„o n„o permite a exclus„o do fornecedor.");
+            throw new LogicException("A situa√ß√£o da cota√ß√£o n√£o permite a exclus√£o do fornecedor.");
         }
 
         final Collection colColetas = new ColetaPrecoDao().findByIdCotacaoAndIdFornecedor(fornecedorCotacaoDto.getIdCotacao(), fornecedorCotacaoDto.getIdFornecedor());
         if (colColetas != null && !colColetas.isEmpty()) {
-            throw new LogicException("Exclus„o n„o permitida. Existe pelo menos uma coleta de preÁos associada ao fornecedor.");
+            throw new LogicException("Exclus√£o n√£o permitida. Existe pelo menos uma coleta de pre√ßos associada ao fornecedor.");
         }
     }
 

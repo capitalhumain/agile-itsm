@@ -491,7 +491,7 @@ public class PesquisaProblemaDTO extends ObjetoNegocioFluxoDTO {
 		/**
 		 * 
 		 * @geber.costa
-		 * em PesquisaRequisicaoMudanca a SituacaoMudanca é concluida, no caso do problema é resolvida
+		 * em PesquisaRequisicaoMudanca a SituacaoMudanca Ã© concluida, no caso do problema Ã© resolvida
 		 */
 		
 		public boolean atendida() {

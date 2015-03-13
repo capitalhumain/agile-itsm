@@ -140,7 +140,7 @@ public class CentroResultadoServiceEjb extends CrudServiceImpl implements Centro
     }
 
     /**
-     * Lista centros de custos que possuem vinculo com a alÁada
+     * Lista centros de custos que possuem vinculo com a al√ßada
      *
      * @param acrescentarInativos
      * @param somenteRequisicaoProdutos
@@ -192,7 +192,7 @@ public class CentroResultadoServiceEjb extends CrudServiceImpl implements Centro
     }
 
     /**
-     * Lista centros de custos que possuem vinculo com a alÁada
+     * Lista centros de custos que possuem vinculo com a al√ßada
      *
      * @param idPai
      * @param nivel
@@ -204,7 +204,7 @@ public class CentroResultadoServiceEjb extends CrudServiceImpl implements Centro
     private Collection carregaFilhosComAlcadaVinculado(final Integer idPai, final int nivel, final boolean acrescentarInativos, final boolean somenteRequisicaoProdutos)
             throws Exception {
 
-        // Conforme requisito da iniciativa 078 - Melhorias no mÛdulo de viagem. Somente ser„o exibidos centro de custo com alÁada vinculada
+        // Conforme requisito da iniciativa 078 - Melhorias no m√≥dulo de viagem. Somente ser√£o exibidos centro de custo com al√ßada vinculada
         final Collection<CentroResultadoDTO> colFilhos = this.getDao().consultarCentroDeCustoComVinculoViagemNaAlcada(idPai);
 
         if (colFilhos == null) {
@@ -240,7 +240,7 @@ public class CentroResultadoServiceEjb extends CrudServiceImpl implements Centro
     }
 
     /**
-     * Lista centros de custos que possuem vinculo com a alÁada
+     * Lista centros de custos que possuem vinculo com a al√ßada
      *
      * @param idPai
      * @param nivel
@@ -252,7 +252,7 @@ public class CentroResultadoServiceEjb extends CrudServiceImpl implements Centro
     private Collection carregaFilhosComAlcadaViagemVinculado(final Integer idPai, final int nivel, final boolean acrescentarInativos, final boolean somenteRequisicaoProdutos)
             throws Exception {
 
-        // Conforme requisito da iniciativa 078 - Melhorias no mÛdulo de viagem. Somente ser„o exibidos centro de custo com alÁada vinculada
+        // Conforme requisito da iniciativa 078 - Melhorias no m√≥dulo de viagem. Somente ser√£o exibidos centro de custo com al√ßada vinculada
         final Collection<CentroResultadoDTO> colFilhos = this.getDao().consultarCentroDeCustoComVinculoViagemNaAlcada(idPai);
 
         if (colFilhos == null) {
@@ -405,10 +405,10 @@ public class CentroResultadoServiceEjb extends CrudServiceImpl implements Centro
         if (centroResultadoDto.getColResponsaveis() != null) {
             for (final ResponsavelCentroResultadoDTO responsavelDto : centroResultadoDto.getColResponsaveis()) {
                 if (responsavelDto.getIdProcessoNegocio() == null || responsavelDto.getIdProcessoNegocio().length == 0) {
-                    throw new Exception("Processo de negÛcio n„o informado");
+                    throw new Exception("Processo de neg√≥cio n√£o informado");
                 }
                 if (responsavelDto.getIdResponsavel() == null) {
-                    throw new Exception("Empregado n„o informado");
+                    throw new Exception("Empregado n√£o informado");
                 }
                 responsavelDto.setIdCentroResultado(centroResultadoDto.getIdCentroResultado());
                 responsavelCentroResultadoDao.create(responsavelDto);
@@ -497,16 +497,16 @@ public class CentroResultadoServiceEjb extends CrudServiceImpl implements Centro
         if (centroResultadoDto.getColAlcadas() != null) {
             for (final AlcadaCentroResultadoDTO alcadaDto : centroResultadoDto.getColAlcadas()) {
                 if (alcadaDto.getIdAlcada() == null) {
-                    throw new Exception("AlÁada n„o informada");
+                    throw new Exception("Al√ßada n√£o informada");
                 }
                 if (alcadaDto.getIdEmpregado() == null) {
-                    throw new Exception("Empregado n„o informado");
+                    throw new Exception("Empregado n√£o informado");
                 }
                 if (alcadaDto.getDataInicio() == null) {
-                    throw new Exception("Data de inÌcio informada");
+                    throw new Exception("Data de in√≠cio informada");
                 }
                 if (alcadaDto.getDataFim() != null && alcadaDto.getDataFim().compareTo(alcadaDto.getDataInicio()) < 0) {
-                    throw new Exception("Data de inÌcio n„o pode ser maior que a data fim");
+                    throw new Exception("Data de in√≠cio n√£o pode ser maior que a data fim");
                 }
                 alcadaDto.setIdCentroResultado(centroResultadoDto.getIdCentroResultado());
                 alcadaCentroResultadoDao.create(alcadaDto);

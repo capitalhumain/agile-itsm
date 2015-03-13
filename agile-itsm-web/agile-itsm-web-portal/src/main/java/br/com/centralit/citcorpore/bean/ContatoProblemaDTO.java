@@ -80,7 +80,7 @@ public class ContatoProblemaDTO extends BaseEntity{
 			if (getEmailcontato() != null)
 				str.append("Email: "+getEmailcontato() + "\n");
 			if (getObservacao() != null && getObservacao().length() > 0)
-				str.append("Observação: "+getObservacao());
+				str.append("ObservaÃ§Ã£o: "+getObservacao());
 		}
 		return str.toString();
     }

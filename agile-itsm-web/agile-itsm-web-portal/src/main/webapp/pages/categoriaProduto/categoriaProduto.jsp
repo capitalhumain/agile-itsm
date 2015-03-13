@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.centralit.citcorpore.bean.UploadDTO"%>
@@ -13,9 +15,7 @@
 %>
 <%@include file="/include/header.jsp"%>
 
-<%@include file="/include/security/security.jsp"%>
-<title><fmt:message key="citcorpore.comum.title" />
-</title>
+<%@include file="/novoLayout/common/include/titulo.jsp" %>
 
 <%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 <script type="text/javascript" src="${ctx}/js/UploadUtils.js"></script>
@@ -147,8 +147,8 @@
 					                    <h2 class="section">
 					                         <fmt:message key="categoriaProduto.criteriosVariaveis" />
 					                    </h2>
-					                <!-- Desenvolvedor: Pedro Lino - Data: 28/10/2013 - Horário: 17:00 - ID Citsmart: 120948 -
-									* Motivo/Comentário: Opção de adicionar muito longe da grid, Inserido proximo a citgrid e alterado para button-->
+					                <!-- Desenvolvedor: Pedro Lino - Data: 28/10/2013 - HorÃ¡rio: 17:00 - ID Citsmart: 120948 -
+									* Motivo/ComentÃ¡rio: OpÃ§Ã£o de adicionar muito longe da grid, Inserido proximo a citgrid e alterado para button-->
 					                    <div id='divNovoCriterio' class="col_100">
 					                      <!--   <div class="col_66">
 					                             <label>&nbsp;</label>
@@ -185,8 +185,8 @@
 					                     </div>
 					                </div>
                                  </div>
-									<!-- Desenvolvedor: Pedro Lino - Data: 28/10/2013 - Horário: 17:00 - ID Citsmart: 120948 -
-									* Motivo/Comentário: Layout sem usabilidade, dificultando o entendimento-->
+									<!-- Desenvolvedor: Pedro Lino - Data: 28/10/2013 - HorÃ¡rio: 17:00 - ID Citsmart: 120948 -
+									* Motivo/ComentÃ¡rio: Layout sem usabilidade, dificultando o entendimento-->
 									<div class="col_99">
 										<fieldset>
 											<br /> <a id="btAnexos" onclick="return anexos();" class='' ><fmt:message key="citcorpore.comum.adicionarAlterarImagem" /></a>

@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.citframework.dto.Usuario"%>
@@ -5,13 +7,12 @@
 <!doctype html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<%@include file="/include/security/security.jsp" %>
 <%@include file="/include/header.jsp"%>
 
-<title>CIT Corpore</title>
-<%@include file="/include/titleComum/titleComum.jsp" %>
+<%@include file="/novoLayout/common/include/titulo.jsp" %>
+<%@include file="/novoLayout/common/include/titulo.jsp" %>
 
 <%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp" %>
 
@@ -99,13 +100,13 @@
 			<td>
 				<select name='type' onchange='selecionaItemWorkflow(this)'>
 					<option value='1'>Passo</option>
-					<option value='2'>Decisão</option>
+					<option value='2'>DecisÃ£o</option>
 				</select>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				Descrição:
+				DescriÃ§Ã£o:
 			</td>
 			<td>
 				<input type='text' name='nome'/>

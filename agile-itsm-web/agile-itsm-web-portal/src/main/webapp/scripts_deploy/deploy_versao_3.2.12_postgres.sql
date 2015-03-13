@@ -19,7 +19,7 @@ ALTER TABLE pedidoportal ADD CONSTRAINT rel_pedidosolicitacao_empregado FOREIGN 
 ALTER TABLE dicionario ADD personalizado CHAR(1) DEFAULT 'N';
 
 -- FIM - BRUNO CARVALHO DE AQUINO - 28/03/2014
--- Inicio - M¡RIO HAYASAKI J⁄NIOR - 14/07/2014
+-- Inicio - M√ÅRIO HAYASAKI J√öNIOR - 14/07/2014
 
 alter table empregados alter column telefone type varchar(100);
 

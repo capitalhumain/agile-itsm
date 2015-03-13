@@ -156,7 +156,7 @@ public class JustificacaoFalhasDao extends CrudDaoDefaultImpl {
 	    if (resultados.isEmpty()) {
 	    } else {
 		resultadosAux = new ArrayList<JustificacaoEventoHistoricoDTO>();
-		// remove os j· justificados
+		// remove os j√° justificados
 		for (int i = 0; i < resultados.size(); i++) {
 		    if (!isJustificado(resultados.get(i))) {
 			resultadosAux.add(resultados.get(i));

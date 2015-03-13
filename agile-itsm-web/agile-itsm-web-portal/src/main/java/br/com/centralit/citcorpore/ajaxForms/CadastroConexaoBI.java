@@ -86,7 +86,7 @@ public class CadastroConexaoBI extends AjaxFormAction {
     	
     	conexaoBIDTO = (ConexaoBIDTO) conexaoBIService.restore(conexaoBIDTO);
     	/**
-    	 * condiÁ„o para setar o valor do tipo de importaÁ„o para o padr„o A, isso È para tratar valores j· existentes no banco, inseridos antes do campo tipo importaÁ„o existir. 
+    	 * condi√ß√£o para setar o valor do tipo de importa√ß√£o para o padr√£o A, isso √© para tratar valores j√° existentes no banco, inseridos antes do campo tipo importa√ß√£o existir. 
     	 */
     	if (conexaoBIDTO.getTipoImportacao() == null)
     		conexaoBIDTO.setTipoImportacao("A");
@@ -97,7 +97,7 @@ public class CadastroConexaoBI extends AjaxFormAction {
     }
     
     /**
-     * Metodo para verificar se nome ou link j· existe no banco de dados
+     * Metodo para verificar se nome ou link j√° existe no banco de dados
      * @param document
      * @param request
      * @param response

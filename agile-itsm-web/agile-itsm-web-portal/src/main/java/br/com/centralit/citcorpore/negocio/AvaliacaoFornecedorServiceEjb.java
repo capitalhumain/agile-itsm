@@ -73,7 +73,7 @@ public class AvaliacaoFornecedorServiceEjb extends CrudServiceImpl implements Av
                         if (criterioAvaliacaoFornecedorDto.getValor().equalsIgnoreCase("Sim")) {
                             criterioAvaliacaoFornecedorDto.setValorInteger(1);
                         } else {
-                            if (criterioAvaliacaoFornecedorDto.getValor().equalsIgnoreCase("Não")) {
+                            if (criterioAvaliacaoFornecedorDto.getValor().equalsIgnoreCase("NÃ£o")) {
                                 criterioAvaliacaoFornecedorDto.setValorInteger(0);
                             } else {
                                 criterioAvaliacaoFornecedorDto.setValorInteger(2);
@@ -147,7 +147,7 @@ public class AvaliacaoFornecedorServiceEjb extends CrudServiceImpl implements Av
                         if (criterioAvaliacaoFornecedorDto.getValor().equalsIgnoreCase("Sim")) {
                             criterioAvaliacaoFornecedorDto.setValorInteger(1);
                         } else {
-                            if (criterioAvaliacaoFornecedorDto.getValor().equalsIgnoreCase("Não")) {
+                            if (criterioAvaliacaoFornecedorDto.getValor().equalsIgnoreCase("NÃ£o")) {
                                 criterioAvaliacaoFornecedorDto.setValorInteger(0);
                             } else {
                                 criterioAvaliacaoFornecedorDto.setValorInteger(2);

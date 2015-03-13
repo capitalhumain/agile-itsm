@@ -152,7 +152,7 @@ public class UtilFormatacao {
 	 */
 	public static String formataSimNao(String valor) {
 		boolean campoNaoVazio = ((valor != null) && (valor.trim().length()>0));
-		return ((campoNaoVazio&&(valor.equalsIgnoreCase(CHAR_SIM)))?"Sim":"Não");
+		return ((campoNaoVazio&&(valor.equalsIgnoreCase(CHAR_SIM)))?"Sim":"NÃ£o");
 	}
 	/**
 	 * Formato um inteiro de acordo com o formato passado como parametro.

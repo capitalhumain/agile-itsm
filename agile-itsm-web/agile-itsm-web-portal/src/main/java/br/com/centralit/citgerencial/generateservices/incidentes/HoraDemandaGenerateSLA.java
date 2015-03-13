@@ -30,7 +30,7 @@ public class HoraDemandaGenerateSLA extends GerencialGenerateService {
 		List parametersValuesBusca = new ArrayList();
 		List lstRetorno = new ArrayList();
 		/**
-		 * Checa se h· limite para pesquisa
+		 * Checa se h√° limite para pesquisa
 		 * 
 		 * @author thyen.chang
 		 */
@@ -175,7 +175,7 @@ public class HoraDemandaGenerateSLA extends GerencialGenerateService {
 							noPrazo = "SIM";
 							noPrazoComp = "N";
 						} else {
-							noPrazo = "N√O";
+							noPrazo = "N√ÉO";
 							noPrazoComp = "F";
 						}
 					}

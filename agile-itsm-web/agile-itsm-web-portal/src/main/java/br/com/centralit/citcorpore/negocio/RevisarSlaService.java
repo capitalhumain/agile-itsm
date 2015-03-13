@@ -11,7 +11,7 @@ import br.com.citframework.service.CrudService;
  */
 public interface RevisarSlaService extends CrudService {
 	/**
-	 * MÈtodo para retornar as revisıes por SLA.
+	 * M√©todo para retornar as revis√µes por SLA.
 	 * @param idAcordoNivelServico
 	 * @return Collection
 	 * @throws Exception
@@ -19,7 +19,7 @@ public interface RevisarSlaService extends CrudService {
 	public Collection findByIdAcordoNivelServico(Integer idAcordoNivelServico) throws Exception;
 	
 	/**
-	 * MÈtodo para deletar as revisıes por SLA.
+	 * M√©todo para deletar as revis√µes por SLA.
 	 * @param idAcordoNivelServico
 	 * @throws Exception
 	 */

@@ -7,7 +7,7 @@ if (idDashBoard == null){
 	}
 }
 %>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="br.com.centralit.citcorpore.util.ParametroUtil"%>
 <%@page import="br.com.citframework.util.Constantes"%>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
@@ -404,7 +404,7 @@ if (idDashBoard == null){
 		</tr>
 		<tr>
 			<td>
-				<img border='0' onclick="expandURL()" style='cursor:pointer' src='${ctx}/imagens/expand.png' title='Clique aqui para expandir a visualização (abrir em nova janela)'/>
+				<img border='0' onclick="expandURL()" style='cursor:pointer' src='${ctx}/imagens/expand.png' title='Clique aqui para expandir a visualizaÃ§Ã£o (abrir em nova janela)'/>
 			</td>
 		</tr>
 		<tr>

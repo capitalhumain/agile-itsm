@@ -42,7 +42,7 @@ public class MonitoraImportacaoDeDados implements Runnable {
 
 			try {
 
-				//Consulta todas as rotinas ativas e com execuÁ„o agendada
+				//Consulta todas as rotinas ativas e com execu√ß√£o agendada
 				listaDeImportacoes = importarDadosDao.listAtivosEComRotinaAgendada();
 
 				if(listaDeImportacoes == null || listaDeImportacoes.isEmpty())
@@ -52,10 +52,10 @@ public class MonitoraImportacaoDeDados implements Runnable {
 
 				for (ImportarDadosDTO importarDadosDTO : listaDeImportacoes) {
 
-					//Consulta a ultima execuÁ„o da rotina
+					//Consulta a ultima execu√ß√£o da rotina
 					controle = controleDao.consultarControleImportarDados(importarDadosDTO);
 
-					//Se n„o houve nenhuma execuÁ„o da rotina ela È executada
+					//Se n√£o houve nenhuma execu√ß√£o da rotina ela √© executada
 					if(controle == null){
 						executarScript(importarDadosDTO);
 						continue;
@@ -82,9 +82,9 @@ public class MonitoraImportacaoDeDados implements Runnable {
 						dataAtual = new Date(dataHoraAtual.getTime());
 
 
-						//Validar se j· n„o foi executado antes
+						//Validar se j√° n√£o foi executado antes
 						if(controle.getDataExecucao().compareTo(dataHoraExecutar) < 0)
-							//Validar se a hora marcada para execuÁ„o È maior que a data atual
+							//Validar se a hora marcada para execu√ß√£o √© maior que a data atual
 							if(dataHoraExecutar.compareTo(dataAtual) < 0)
 								executarScript(importarDadosDTO);
 
@@ -119,7 +119,7 @@ public class MonitoraImportacaoDeDados implements Runnable {
 
 			if(importarDadosDTO.getImportarPor().equalsIgnoreCase("S")){
 
-				//Recuperar campos da conex„o (ExternalConnectionDTO)
+				//Recuperar campos da conex√£o (ExternalConnectionDTO)
 				ExternalConnectionService externalConnectionService = (ExternalConnectionService) ServiceLocator.getInstance().getService(ExternalConnectionService.class, null);
 				ExternalConnectionDTO externalConnectionDTO = new ExternalConnectionDTO();
 				externalConnectionDTO.setIdExternalConnection(importarDadosDTO.getIdExternalConnection());
@@ -135,7 +135,7 @@ public class MonitoraImportacaoDeDados implements Runnable {
 				scope.put("jdbcEngine", scope, jdbcEngine);
 
 				if(externalConnectionDTO == null || externalConnectionDTO.getIdExternalConnection() == null)
-					System.out.println("Sem dados da conex„o externa.");
+					System.out.println("Sem dados da conex√£o externa.");
 				else {
 
 					scope.put("url", scope, externalConnectionDTO.getUrlJdbc());
@@ -152,7 +152,7 @@ public class MonitoraImportacaoDeDados implements Runnable {
 
 		        cx.evaluateString(scope, conteudoScript, "JavaScript", 0, null);
 
-		        System.out.println("Script de importaÁ„o executado com sucesso: ID:" + importarDadosDTO.getIdImportarDados() + " as " + UtilDatas.getDataHoraAtual());
+		        System.out.println("Script de importa√ß√£o executado com sucesso: ID:" + importarDadosDTO.getIdImportarDados() + " as " + UtilDatas.getDataHoraAtual());
 
 			} else if(importarDadosDTO.getImportarPor().equalsIgnoreCase("E")){
 
@@ -177,16 +177,16 @@ public class MonitoraImportacaoDeDados implements Runnable {
 			}
 
 		} catch (NullPointerException e) {
-			System.out.println("Script de importaÁ„o executado com erro: Objeto nulo. As " + UtilDatas.getDataHoraAtual());
+			System.out.println("Script de importa√ß√£o executado com erro: Objeto nulo. As " + UtilDatas.getDataHoraAtual());
 		} catch (Exception e) {
-			System.out.println("Script de importaÁ„o executado com erro: ID:" + importarDadosDTO.getIdImportarDados() + " as " + UtilDatas.getDataHoraAtual());
+			System.out.println("Script de importa√ß√£o executado com erro: ID:" + importarDadosDTO.getIdImportarDados() + " as " + UtilDatas.getDataHoraAtual());
 		}
 
 	}
 
 
 	/**
-	 * Salva a execuÁ„o da rotina
+	 * Salva a execu√ß√£o da rotina
 	 *
 	 * @param importar
 	 */

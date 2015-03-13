@@ -66,7 +66,7 @@ public class QuestionarioDTO extends BaseEntity {
         this.idQuestionarioOrigem = idQuestionarioOrigem;
     }
     public String getNomeQuestionarioAndCodigo() {
-        return UtilStrings.nullToVazio(nomeQuestionario) + " (Código: " + this.getIdQuestionario() + ")";
+        return UtilStrings.nullToVazio(nomeQuestionario) + " (CÃ³digo: " + this.getIdQuestionario() + ")";
     }
     public String getNomeQuestionario() {
     	return nomeQuestionario;

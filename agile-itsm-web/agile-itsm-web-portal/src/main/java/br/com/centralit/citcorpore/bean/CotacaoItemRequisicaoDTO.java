@@ -265,7 +265,7 @@ public class CotacaoItemRequisicaoDTO extends BaseEntity {
 	public String getDescricaoFmtHtml() {
 		descricaoFmtHtml = "";
     	if (UtilStrings.isNotVazio(this.especificacoes))
-        	descricaoFmtHtml += "<p><b>Especificações:</b> "+this.especificacoes+"</p>";
+        	descricaoFmtHtml += "<p><b>EspecificaÃ§Ãµes:</b> "+this.especificacoes+"</p>";
     	if (UtilStrings.isNotVazio(this.nomeFornecedor)) {
         	descricaoFmtHtml += "<p><b>CPF/CNPJ Fornecedor:</b> ";
         	if (UtilStrings.nullToVazio(this.tipoFornecedor).equalsIgnoreCase("J"))
@@ -274,7 +274,7 @@ public class CotacaoItemRequisicaoDTO extends BaseEntity {
         		descricaoFmtHtml += UtilFormatacao.formataCpf(cpfCnpjFornecedor);
         	descricaoFmtHtml += "<br><b>Nome Fornecedor:</b> "+this.nomeFornecedor+"</p>";
     	}
-       	//descricaoFmtHtml += "<p><b>Situação:</b> "+this.descrSituacao+"</p>";
+       	//descricaoFmtHtml += "<p><b>SituaÃ§Ã£o:</b> "+this.descrSituacao+"</p>";
     	return descricaoFmtHtml;
 	}
 	

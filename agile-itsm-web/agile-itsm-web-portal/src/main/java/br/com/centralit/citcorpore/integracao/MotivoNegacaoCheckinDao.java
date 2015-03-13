@@ -16,7 +16,7 @@ import br.com.citframework.integracao.core.DataBase;
 import br.com.citframework.util.Constantes;
 
 /**
- * DAO para manipulaÁ„o de {@link MotivoNegacaoCheckinDTO}
+ * DAO para manipula√ß√£o de {@link MotivoNegacaoCheckinDTO}
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 06/10/2014
@@ -58,10 +58,10 @@ public class MotivoNegacaoCheckinDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Verifica se o registro informado j· consta gravado no BD. Considera apenas registros ativos.
+     * Verifica se o registro informado j√° consta gravado no BD. Considera apenas registros ativos.
      *
      * @param descricao
-     *            descriÁ„o do motivo a ser consultado
+     *            descri√ß√£o do motivo a ser consultado
      * @return boolean
      * @throws Exception
      */

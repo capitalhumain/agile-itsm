@@ -22,7 +22,7 @@ public interface UnidadesAccServicosService extends CrudService {
 	public Collection<UnidadesAccServicosDTO> consultarServicosAtivosPorUnidade(Integer idUnidade) throws Exception;
 	
 	/**
-     * Exclui associação de Serviços com Unidade
+     * Exclui associaÃ§Ã£o de ServiÃ§os com Unidade
      * 
      * @throws ServiceException
      * @throws PersistenceException

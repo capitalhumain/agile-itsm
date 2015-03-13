@@ -8,7 +8,7 @@ import br.com.citframework.service.CrudService;
 public interface JustificativaRequisicaoMudancaService extends CrudService {
 	
 	/**
-	 * Retorna uma lista de justificativa requisição mudança ativas.
+	 * Retorna uma lista de justificativa requisiÃ§Ã£o mudanÃ§a ativas.
 	 * @return
 	 * @throws Exception
 	 * @author thays.araujo

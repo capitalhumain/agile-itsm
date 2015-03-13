@@ -85,7 +85,7 @@ public class Servidor implements Runnable, ClientServer {
         final Date dataInventario = UtilDatas.getSqlDate(UtilDatas.incrementaDiasEmData(Util.getDataAtual(),
                 -new Integer(dias)));
         // Pesquisa ips para geracao de iventario, passa data como
-        // parametro, para identificar apartir de que data ser· iventariado.
+        // parametro, para identificar apartir de que data ser√° iventariado.
         listnetMap = netMapService.listIpByDataInventario(dataInventario);
         for (final NetMapDTO netMapDTO : listnetMap) {
             final Thread server = new Thread(new Servidor(netMapDTO));
@@ -119,7 +119,7 @@ public class Servidor implements Runnable, ClientServer {
                 final List<String> parametrosEvento = new ArrayList<String>();
                 parametrosEvento.add("INVENTORY");
 
-                // Imprime uma linha para a stream de saÌda de dados
+                // Imprime uma linha para a stream de sa√≠da de dados
                 SignedInfo signedInfo = CriptoSignedUtil.generateStringToSend(CITCorporeUtil.CAMINHO_REAL_APP
                         + "/keysSec/citsmart.jks", CITCorporeUtil.CAMINHO_REAL_APP + "/keysSec/citsmartcripto.jks",
                         parametrosEvento.toString());
@@ -171,11 +171,11 @@ public class Servidor implements Runnable, ClientServer {
                     } else {
                         running = false;
                         listNetMapErro.add(netMapDTO);
-                        System.out.println("Mensagem n„o pode ser lida..");
+                        System.out.println("Mensagem n√£o pode ser lida..");
                     }
                 }
             } catch (final ConnectException e) {
-                System.out.println("Conex„o recusada..");
+                System.out.println("Conex√£o recusada..");
                 listNetMapErro.add(netMapDTO);
             } finally {
                 try {

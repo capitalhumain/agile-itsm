@@ -12,10 +12,10 @@ public interface TipoLiberacaoService extends CrudService {
 
     void deleteByIdTipoLiberacao(final Integer parm) throws Exception;
 
-    // método baseado em categoriaLiberacao
+    // mÃ©todo baseado em categoriaLiberacao
     // public Collection findByIdTipoLiberacaoPai(Integer parm) throws Exception;
 
-    // método baseado em categoriaLiberacao
+    // mÃ©todo baseado em categoriaLiberacao
     // public void deleteByIdTipoLiberacaoPai(Integer parm) throws Exception;
 
     Collection findByNomeTipoLiberacao(final Integer parm) throws Exception;

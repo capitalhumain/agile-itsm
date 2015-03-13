@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.citframework.dto.Usuario"%>
@@ -69,8 +71,8 @@
 											</div>
 											<!-- Fim tabs -->
 											<div class="tab-content">
-												<div class="tab-pane active" id="tab1-4"> <!-- conteudo da tab Listagem de Serviços -->
-													<!-- Início listagem de itens -->
+												<div class="tab-pane active" id="tab1-4"> <!-- conteudo da tab Listagem de ServiÃ§os -->
+													<!-- InÃ­cio listagem de itens -->
 													<table class="table table-bordered">
 												    	<tr><th class="span5"><fmt:message key="servico.nome" /></th><th class="span3"><fmt:message key="portal.carrinho.descricao" /></th><th class="span4"><fmt:message key="portal.carrinho.adicionar" /></th></tr>
 												    	<tr><td class="span4">BANCO DE DADOS ORACLE</td><td class="span1 center"><a type="button" class="btn btn-small" href="#descricao_modal" data-toggle="modal">Saiba mais</a></td><td class="span1 center"><a type="button" class="btn btn-small btn-primary" href="#addcarrinho_modal" data-toggle="modal">Adicionar ao carrinho</a></td></tr>
@@ -80,11 +82,11 @@
 												    	<tr><td class="span4">SERVIDOR</td><td class="span1 center"><a type="button" class="btn btn-small" href="#descricao_modal" data-toggle="modal">Saiba mais</a></td><td class="span1 center"><a type="button" class="btn btn-small" href="#addcarrinho_modal" data-toggle="modal">Adicionar ao carrinho</a></td></tr>
 												    	<tr><td class="span4">REDES</td><td class="span1 center"><a type="button" class="btn btn-small" href="#descricao_modal" data-toggle="modal">Saiba mais</a></td><td class="span1 center"><a type="button" class="btn btn-small" href="#addcarrinho_modal" data-toggle="modal">Adicionar ao carrinho</a></td></tr>
 												    </table><!-- // Fim listagem de itens -->
-													<!-- Inicio Modal Descrição -->
+													<!-- Inicio Modal DescriÃ§Ã£o -->
 													<div class="modal fade modalDescricao" id="descricao_modal" data-toggle="modal">
 														<div class="modal-header">
 												    		<a class="close" data-dismiss="modal">&times;</a>
-												    		<h3>Descrição dos Serviços</h3>
+												    		<h3>DescriÃ§Ã£o dos ServiÃ§os</h3>
 												  		</div>
 												  		<div class="modal-body">
 													  		<table class="table table-bordered" id="tblDescricao">
@@ -97,16 +99,16 @@
 															<a href="#" class="btn" data-dismiss="modal">Fechar</a>
 														</div>
 													</div>
-													<!-- Fim Modal Descrição -->
+													<!-- Fim Modal DescriÃ§Ã£o -->
 													<!-- Inicio Modal adicionar ao Carrinho -->
 													<div class="modal fade" id="addcarrinho_modal" data-toggle="modal">
 														<div class="modal-header">
 													    	<a class="close" data-dismiss="modal">&times;</a>
-													    	<h3>Adicionar Serviços</h3>
+													    	<h3>Adicionar ServiÃ§os</h3>
 													  	</div>
 													  	<div class="modal-body">
 													    	<table class="table table-bordered" id="tblAddServico">
-														    	<tr><th class="span1">#</th><th class="span2">Nome do Serviço</th><th class="span3">Preço</th></tr>
+														    	<tr><th class="span1">#</th><th class="span2">Nome do ServiÃ§o</th><th class="span3">PreÃ§o</th></tr>
 														    	<tr><td class="celulaGrid span1"><img id="imgDelInfo" style="cursor: pointer;" title="Excluir Dados" src="/citsmart/imagens/delete.png" onclick="deleteLinha('tblAddServico', this.parentNode.parentNode.rowIndex);"></td><td class="span4">HARDWARE.IMPRESSORA.LASER.APAGAR FILA DE IMPRESSAO.</td><td>R$ 20,00</td></tr>
 														    	<tr><td class="celulaGrid span1"><img id="imgDelInfo" style="cursor: pointer;" title="Excluir Dados" src="/citsmart/imagens/delete.png" onclick="deleteLinha('tblAddServico', this.parentNode.parentNode.rowIndex);"></td><td class="span4">HARDWARE.IMPRESSORA.LASER.APAGAR FILA DE IMPRESSAO.</td><td>R$ 15,00</td></tr>
 														  	</table>
@@ -142,7 +144,7 @@
 																	<th></th>
 																	<th style="width: 80px;"><fmt:message key="carrinho.categoria"/></th>
 																	<th style="width: 50px;"><fmt:message key="carrinho.quantidade"/></th>
-																	<th style="width: 80px;"><fmt:message key="carrinho.preço"/></th>
+																	<th style="width: 80px;"><fmt:message key="carrinho.preÃ§o"/></th>
 																	<th style="width: 80px;"><fmt:message key="carrinho.subtotal"/></th>
 																	<th style="width: 80px;"><fmt:message key="carrinho.excluir"/></th>
 																</tr>
@@ -156,7 +158,7 @@
 																		<div class="media">
 																			<!-- <a href="shop_client_product.htmllang=en&amp;layout_type=fluid&amp;menu_position=menu-left&amp;style=style-light" class="media-object pull-left"><img class="thumb" src="theme/images/gallery-2/1.jpg" width="80" alt=""></a> -->
 																			<div id="produto" class="media-body">
-																				<h5 style="color: #333333">Product name goes here</h5><span>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipo.</span>
+																				<h5 style="color: #333333">Product name goes here</h5><span>Lorem Ipsum Ã© simplesmente uma simulaÃ§Ã£o de texto da indÃºstria tipogrÃ¡fica e de impressos, e vem sendo utilizado desde o sÃ©culo XVI, quando um impressor desconhecido pegou uma bandeja de tipo.</span>
 																				<!-- <span class="col">
 																					Size:<br/>
 																					<span class="label">3-4 Years</span>

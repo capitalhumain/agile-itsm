@@ -115,7 +115,7 @@ public class CarteiraTrabalho extends AjaxFormAction {
 				"<table width=\"100%\"><tbody><tr><td align=\"left\">Generated with YaHPConverter.</td><td align=\"right\">"+UtilI18N.internacionaliza(request, "citcorpore.comum.pagina")+" <pagenumber>/<pagecount></td></tr></tbody></table>",
 				IHtmlToPdfTransformer.CHeaderFooter.HEADER));
 		headerFooterList.add(new IHtmlToPdfTransformer.CHeaderFooter(
-				"� 2011 Quentin Anciaux",
+				"© 2011 Quentin Anciaux",
 				IHtmlToPdfTransformer.CHeaderFooter.FOOTER));
 
 		String str = "<HTML><HEAD></HEAD><BODY><H1>Testing</H1><FORM>" +
@@ -235,7 +235,7 @@ public class CarteiraTrabalho extends AjaxFormAction {
 	}
 
 	/**
-	 * Filtra GANTT de acordo com Tipo de Solicitacao e Grupo de Seguran�a
+	 * Filtra GANTT de acordo com Tipo de Solicitacao e Grupo de Seguranï¿½a
 	 * selecionado.
 	 *
 	 * @param document
@@ -265,7 +265,7 @@ public class CarteiraTrabalho extends AjaxFormAction {
 	}
 
 	/**
-	 * Gera GANTT a partir da Lista de Solicita��es de Servi�o.
+	 * Gera GANTT a partir da Lista de Solicitaçï¿½es de Serviço.
 	 *
 	 * @param listaSolicitacaoServico
 	 * @return <code>StringBuilder</code>

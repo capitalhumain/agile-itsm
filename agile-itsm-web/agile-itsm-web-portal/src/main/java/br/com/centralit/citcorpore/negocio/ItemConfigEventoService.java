@@ -9,7 +9,7 @@ import br.com.citframework.service.CrudService;
 public interface ItemConfigEventoService extends CrudService {
 
     /**
-     * Lista os itens de configuração dos eventos cadastrados.
+     * Lista os itens de configuraÃ§Ã£o dos eventos cadastrados.
      * 
      * @param idEvento
      * @return Collection

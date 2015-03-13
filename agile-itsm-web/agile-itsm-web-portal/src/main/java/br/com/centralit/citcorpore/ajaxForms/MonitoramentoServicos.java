@@ -216,7 +216,7 @@ public class MonitoramentoServicos extends AjaxFormAction {
     }
 
     /**
-     * Insere 'get' antes do elemento para se adequar ‡ reflex„o.
+     * Insere 'get' antes do elemento para se adequar √† reflex√£o.
      *
      * @param palavra
      * @return

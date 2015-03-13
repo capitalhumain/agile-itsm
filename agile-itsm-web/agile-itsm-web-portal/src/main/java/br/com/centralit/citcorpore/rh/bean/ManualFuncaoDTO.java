@@ -38,7 +38,7 @@ public class ManualFuncaoDTO extends BaseEntity {
 	private String descricaoPerspectivaComplexidade;
 	private Integer idNivel;
 
-	// aba Competencia Técnica
+	// aba Competencia TÃ©cnica
 	private String competencia;
 	private String idCompetenciaAcesso;
 	private String idCompetenciaFuncao;
@@ -53,7 +53,7 @@ public class ManualFuncaoDTO extends BaseEntity {
 	private String pesoComportamental;
 	private String pesoResultados;
 
-	// Coleções serializadas
+	// ColeÃ§Ãµes serializadas
 	private String colResponsabilidades_Serialize;
 	private String colCertificacoes_Serialize;
 	private String colCursos_Serialize;
@@ -62,7 +62,7 @@ public class ManualFuncaoDTO extends BaseEntity {
 	private String colCompetencias_Serialize;
 	private String colPerspectivaComportamental_Serialize;
 
-	// Coleções DTO
+	// ColeÃ§Ãµes DTO
 	private Collection<AtribuicaoResponsabilidadeDTO> colAtribuicaoResponsabilidadeDTO;
 	private Collection<CertificacaoDTO> colCertificacaoDTORA;
 	private Collection<CursoDTO> colCursoDTORA;

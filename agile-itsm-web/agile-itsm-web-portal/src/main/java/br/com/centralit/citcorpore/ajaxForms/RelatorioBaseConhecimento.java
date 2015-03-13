@@ -348,10 +348,10 @@ public class RelatorioBaseConhecimento extends AjaxFormAction {
 			// Instancia o virtualizador
 			JRAbstractLRUVirtualizer virtualizer = new JRSwapFileVirtualizer(25, arquivoSwap, true);
 			 
-			//Seta o parametro REPORT_VIRTUALIZER com a inst‚ncia da virtualizaÁ„o
+			//Seta o parametro REPORT_VIRTUALIZER com a inst√¢ncia da virtualiza√ß√£o
 			parametros.put(JRParameter.REPORT_VIRTUALIZER, virtualizer);
 			 
-			//Preenche o relatÛrio e exibe numa GUI
+			//Preenche o relat√≥rio e exibe numa GUI
 			JasperPrint print = JasperFillManager.fillReport(caminhoJasper, parametros, dataSource);
 			//JasperViewer.viewReport(print,false);
 			
@@ -483,7 +483,7 @@ public class RelatorioBaseConhecimento extends AjaxFormAction {
 
 		if (baseConhecimentoDto.getTermoPesquisaNota() != null) {
 			if (baseConhecimentoDto.getTermoPesquisaNota().equalsIgnoreCase("S")) {
-				parametros.put("nota", "Sem Coment·rio");
+				parametros.put("nota", "Sem Coment√°rio");
 			} else {
 				if (baseConhecimentoDto.getTermoPesquisaNota().equalsIgnoreCase("")) {
 					parametros.put("nota", "Todos");
@@ -498,13 +498,13 @@ public class RelatorioBaseConhecimento extends AjaxFormAction {
 		if(baseConhecimentoDto.getUltimoAcesso()!=null && baseConhecimentoDto.getUltimoAcesso().equals("S")){
 			parametros.put("ultimoacesso", "Sim");
 		}else{
-			parametros.put("ultimoacesso", "N„o");
+			parametros.put("ultimoacesso", "N√£o");
 		}
 
 		if (baseConhecimentoDto.getUltimoAcesso() != null && baseConhecimentoDto.getUltimoAcesso().equals("S")) {
 			parametros.put("ultimoacesso", "Sim");
 		} else {
-			parametros.put("ultimoacesso", "N„o");
+			parametros.put("ultimoacesso", "N√£o");
 		}
 
 		if (baseConhecimentoDto.getStatus() != null) {

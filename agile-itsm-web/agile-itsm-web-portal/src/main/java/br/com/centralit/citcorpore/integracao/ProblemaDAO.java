@@ -678,7 +678,7 @@ public class ProblemaDAO extends CrudDaoDefaultImpl {
 		try {
 			this.execUpdate(sql.toString(), params);
 		} catch (PersistenceException e) {
-			System.out.println("Problemas com atualizaÁ„o da tabela problema.");
+			System.out.println("Problemas com atualiza√ß√£o da tabela problema.");
 			e.printStackTrace();
 		}
 	}
@@ -806,14 +806,14 @@ public class ProblemaDAO extends CrudDaoDefaultImpl {
 		try {
 			this.execUpdate(sql.toString(), params);
 		} catch (PersistenceException e) {
-			System.out.println("Problemas com atualizaÁ„o da requisiÁ„o de mudanÁa.");
+			System.out.println("Problemas com atualiza√ß√£o da requisi√ß√£o de mudan√ßa.");
 			e.printStackTrace();
 		}
 	}
 
 	/**
-	 * MÈtodo respons·vel por efetuar a contagem de problemas com prazo (data e hora) limite de c,ontorno expirado. A contagem È feita por usu·rio propriet·rio do problema. Caso exist„o um ou mais
-	 * registros de problema com o prazo limite expirado o usu·rio propriet·rio e o grupo de interessados (grupo executor) dever· ser notificado por e-mail.
+	 * M√©todo respons√°vel por efetuar a contagem de problemas com prazo (data e hora) limite de c,ontorno expirado. A contagem √© feita por usu√°rio propriet√°rio do problema. Caso exist√£o um ou mais
+	 * registros de problema com o prazo limite expirado o usu√°rio propriet√°rio e o grupo de interessados (grupo executor) dever√° ser notificado por e-mail.
 	 *
 	 * @author thiago.monteiro (Thiago Alexandre Martins Monteiro)
 	 * @param UsuarioDTO
@@ -856,7 +856,7 @@ public class ProblemaDAO extends CrudDaoDefaultImpl {
 					colunas_retornadas.add("quantidade");
 
 					// Convertendo a lista para o DTO apropriado.
-					// d=p diz: O atributo quantidade e os metodos publicos de acesso j· s„o criados automaticamente pelo framework.
+					// d=p diz: O atributo quantidade e os metodos publicos de acesso j√° s√£o criados automaticamente pelo framework.
 					resultado = this.listConvertion(ProblemaDTO.class, resultado, colunas_retornadas);
 
 					if (resultado != null && !resultado.isEmpty()) {
@@ -963,8 +963,8 @@ public class ProblemaDAO extends CrudDaoDefaultImpl {
 			}
 		}else{
 			if (pesquisaProblemaDto.getDataInicio() != null) {
-				// AdaptaÁ„o realizada passando o timestamp concatenado no
-				// prÛprio sqp para poder colocar aspas simples na pesquisa
+				// Adapta√ß√£o realizada passando o timestamp concatenado no
+				// pr√≥prio sqp para poder colocar aspas simples na pesquisa
 				sql.append(" where problema.datahorainicio BETWEEN TO_DATE('"
 						+ UtilDatas.dateToSTR(pesquisaProblemaDto.getDataInicio())
 						+ "', 'DD/MM/YYYY ')  and TO_DATE('"
@@ -1123,8 +1123,8 @@ public class ProblemaDAO extends CrudDaoDefaultImpl {
 			}
 		}else{
 			if (problemasIncidentes.getDataInicio() != null) {
-				// AdaptaÁ„o realizada passando o timestamp concatenado no
-				// prÛprio sqp para poder colocar aspas simples na pesquisa
+				// Adapta√ß√£o realizada passando o timestamp concatenado no
+				// pr√≥prio sqp para poder colocar aspas simples na pesquisa
 				sql.append(" where pr.datahorainicio BETWEEN TO_DATE('"
 						+ UtilDatas.dateToSTR(problemasIncidentes.getDataInicio())
 						+ "', 'DD/MM/YYYY ')  and TO_DATE('"
@@ -1145,7 +1145,7 @@ public class ProblemaDAO extends CrudDaoDefaultImpl {
 		if(problemasIncidentes.getIdContrato() != null){
 			sql.append(" and pr.idcontrato = ?");
 			parametro.add(problemasIncidentes.getIdContrato());
-		} else { //Se a opÁ„o for "Todos", seleciona somente os contratos que n„o est„o deletados
+		} else { //Se a op√ß√£o for "Todos", seleciona somente os contratos que n√£o est√£o deletados
 			sql.append(" and pr.idcontrato not in (select idcontrato from contratos where deleted = 'Y')");
 		}
 
@@ -1201,7 +1201,7 @@ public class ProblemaDAO extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Retorna uma lista quantitativa de problema por situaÁ„o
+	 * Retorna uma lista quantitativa de problema por situa√ß√£o
 	 * @param relatorioQuantitativoProblemaDto
 	 * @return Collection<RelatorioQuantitativoProblemaDTO>
 	 * @throws Exception

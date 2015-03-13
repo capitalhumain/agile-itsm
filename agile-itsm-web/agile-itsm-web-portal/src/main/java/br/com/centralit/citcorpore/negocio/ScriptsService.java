@@ -25,9 +25,9 @@ public interface ScriptsService extends CrudService {
     boolean haScriptDeVersaoComErro() throws Exception;
 
     /**
-     * Verifica se j· existe algum ScriptDTO com o mesmo NOME
+     * Verifica se j√° existe algum ScriptDTO com o mesmo NOME
      *
-     * @return Retorna se j· existe algum ScriptDTO com o mesmo NOME
+     * @return Retorna se j√° existe algum ScriptDTO com o mesmo NOME
      * @author Murilo Gabriel
      */
     boolean temScriptsAtivos(final ScriptsDTO script) throws Exception;

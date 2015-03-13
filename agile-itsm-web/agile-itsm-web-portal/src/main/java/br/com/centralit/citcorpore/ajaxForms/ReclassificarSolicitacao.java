@@ -108,7 +108,7 @@ public class ReclassificarSolicitacao extends SolicitacaoServicoMultiContratos {
 		String VisualizarPasso = request.getParameter("visualizarPasso");
 		VisualizarPasso = UtilStrings.nullToVazio(VisualizarPasso);
 		if (VisualizarPasso != null && VisualizarPasso.equalsIgnoreCase("C")) {
-			// Reclassificar a solicitaÁ„o
+			// Reclassificar a solicita√ß√£o
 			document.executeScript("visualizaCollapse3()");
 		} else {
 			document.executeScript("preparaCollapse1()");
@@ -304,7 +304,7 @@ public class ReclassificarSolicitacao extends SolicitacaoServicoMultiContratos {
 
 			for (ADUserDTO usuarioADDto : listUsuariosADDto) {
 
-				document.getElementById("POPUP_SINCRONIZACAO_DETALHE").setInnerHTML("SincronizaÁ„o concluÌda com sucesso. Favor fazer a busca na lookup de colaborador.");
+				document.getElementById("POPUP_SINCRONIZACAO_DETALHE").setInnerHTML("Sincroniza√ß√£o conclu√≠da com sucesso. Favor fazer a busca na lookup de colaborador.");
 			}
 
 		} else {
@@ -752,13 +752,13 @@ public class ReclassificarSolicitacao extends SolicitacaoServicoMultiContratos {
 			SolicitacaoServicoDTO solicitacaoServicoDto = (SolicitacaoServicoDTO) document.getBean();
 			document.executeScript("startLoading()");
 			if (solicitacaoServicoDto.getIdContrato() == null || solicitacaoServicoDto.getIdContrato().intValue() == 0)
-				throw new Exception("Contrato n„o encontrado");
+				throw new Exception("Contrato n√£o encontrado");
 			if (solicitacaoServicoDto.getIdServico() == null || solicitacaoServicoDto.getIdServico().intValue() == 0)
-				throw new Exception("ServiÁo n„o encontrado");
+				throw new Exception("Servi√ßo n√£o encontrado");
 			if (solicitacaoServicoDto.getUrgencia() == null || solicitacaoServicoDto.getUrgencia().isEmpty())
-				throw new Exception("UrgÍncia n„o encontrada");
+				throw new Exception("Urg√™ncia n√£o encontrada");
 			if (solicitacaoServicoDto.getImpacto() == null || solicitacaoServicoDto.getImpacto().isEmpty())
-				throw new Exception("Impacto n„o encontrado");
+				throw new Exception("Impacto n√£o encontrado");
 
 			SolicitacaoServicoService solicitacaoServicoService = (SolicitacaoServicoService) ServiceLocator.getInstance().getService(SolicitacaoServicoService.class, null);
 			String sla = solicitacaoServicoService.calculaSLA(solicitacaoServicoDto, request);
@@ -787,11 +787,11 @@ public class ReclassificarSolicitacao extends SolicitacaoServicoMultiContratos {
 		HTMLTable tblProblema = document.getTableById("tblProblema");
 
 		if (problemaDTO.getSequenciaProblema() == null) {
-			tblProblema.addRow(problemaDTO, new String[] { "", "", "numberAndTitulo", "status" }, new String[] { "idProblema" }, "Problema j· cadastrado!!", new String[] { "exibeIconesProblema" },
+			tblProblema.addRow(problemaDTO, new String[] { "", "", "numberAndTitulo", "status" }, new String[] { "idProblema" }, "Problema j√° cadastrado!!", new String[] { "exibeIconesProblema" },
 					"buscaProblema", null);
 
 		} else {
-			tblProblema.updateRow(problemaDTO, new String[] { "", "", "numberAndTitulo", "status" }, new String[] { "idProblema" }, "Problema j· cadastrado!!", new String[] { "exibeIconesProblema" },
+			tblProblema.updateRow(problemaDTO, new String[] { "", "", "numberAndTitulo", "status" }, new String[] { "idProblema" }, "Problema j√° cadastrado!!", new String[] { "exibeIconesProblema" },
 					"buscaProblema", null, problemaDTO.getSequenciaProblema());
 		}
 		document.executeScript("HTMLUtils.applyStyleClassInAllCells('tblProblema', 'tblProblema');");
@@ -813,10 +813,10 @@ public class ReclassificarSolicitacao extends SolicitacaoServicoMultiContratos {
 		HTMLTable tblMudanca = document.getTableById("tblMudanca");
 
 		if (requisicaoMudancaDTO.getSequenciaMudanca() == null) {
-			tblMudanca.addRow(null, new String[] { "", "", "numberAndTitulo", "status" }, new String[] { "idRequisicaoMudanca" }, "MudanÁa j· cadastrado!!", new String[] { "exibeIconesMudanca" },
+			tblMudanca.addRow(null, new String[] { "", "", "numberAndTitulo", "status" }, new String[] { "idRequisicaoMudanca" }, "Mudan√ßa j√° cadastrado!!", new String[] { "exibeIconesMudanca" },
 					"abreMudanca", null);
 		} else {
-			tblMudanca.updateRow(requisicaoMudancaDTO, new String[] { "", "", "numberAndTitulo", "status" }, new String[] { "idRequisicaoMudanca" }, "MudanÁa j· cadastrado!!",
+			tblMudanca.updateRow(requisicaoMudancaDTO, new String[] { "", "", "numberAndTitulo", "status" }, new String[] { "idRequisicaoMudanca" }, "Mudan√ßa j√° cadastrado!!",
 					new String[] { "exibeIconesMudanca" }, "abreMudanca", null, requisicaoMudancaDTO.getSequenciaMudanca());
 		}
 		document.getElementById("teste").setValue(tblMudanca.toString());
@@ -864,7 +864,7 @@ public class ReclassificarSolicitacao extends SolicitacaoServicoMultiContratos {
 			HTMLTable tblBaseConhecimento = document.getTableById("tblIC");
 
 			if (itemConfiguracaoDTO.getSequenciaIC() == null) {
-				tblBaseConhecimento.addRow(itemConfiguracaoDTO, new String[] { "", "", "idItemConfiguracao", "descricao" }, new String[] { "idItemConfiguracao" }, "Item ConfiguraÁ„o j· cadastrado!!",
+				tblBaseConhecimento.addRow(itemConfiguracaoDTO, new String[] { "", "", "idItemConfiguracao", "descricao" }, new String[] { "idItemConfiguracao" }, "Item Configura√ß√£o j√° cadastrado!!",
 						new String[] { "exibeIconesMudanca" }, "abreItemConfiguracao", null);
 
 			} else {

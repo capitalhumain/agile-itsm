@@ -23,7 +23,7 @@ public class ControleRendimentoDTO extends BaseEntity{
 	private Double qtdPontos;
 	private String mediaRelativa;
 	
-	//campos auxiliares para o relatório
+	//campos auxiliares para o relatÃ³rio
 	private String nomeGrupo;
 	private String qtdItensEntreguesNoPrazo;
 	private String qtdItensAtrasados;

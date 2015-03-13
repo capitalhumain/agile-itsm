@@ -46,7 +46,7 @@ public class Opiniao extends AjaxFormAction {
 		opiniao.setData(UtilDatas.getDataAtual());
 		opiniao.setHora(UtilDatas.getDataHoraAtual());
 		opiniaoService.create(opiniao);
-		document.alert("Obrigado por dar sua opini„o!");		
+		document.alert("Obrigado por dar sua opini√£o!");		
 		document.executeScript("fecharPopup()");
 		document.executeScript("parent.fechaModalOpiniaoEPesquisa()");
 	}

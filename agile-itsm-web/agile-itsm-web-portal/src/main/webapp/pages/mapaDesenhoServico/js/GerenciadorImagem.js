@@ -12,7 +12,7 @@ function GerenciadorImagem() {
 	 */
 	this.attachImage = function(myImage) {
 		var imageObj = new Image();
-		// ao carregar, torna visível
+		// ao carregar, torna visÃ­vel
 		imageObj.onload = function() {
 			if (myImage.getHeight() != null && myImage.getWidth() != null) {
 				myImage.getContext().drawImage(imageObj, myImage.getXPos(), myImage.getYPos(), myImage.getWidth(), myImage.getHeight());
@@ -30,7 +30,7 @@ function GerenciadorImagem() {
 	
 	
 	/**
-	 * Método privado apenas para tornar as imagens visíveis após
+	 * MÃ©todo privado apenas para tornar as imagens visÃ­veis apÃ³s
 	 * o carregamento.
 	 * @myImages
 	 * Lista de imagens (MyImages) que foram carregadas

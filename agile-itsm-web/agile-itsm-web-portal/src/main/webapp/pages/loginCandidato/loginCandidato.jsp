@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@ page import="br.com.centralit.citcorpore.util.ParametroUtil" %>
 <%@ page import="br.com.centralit.citcorpore.versao.Versao" %>
 <%@ page import="br.com.centralit.citcorpore.util.WebUtil" %>
@@ -17,7 +19,7 @@
 <%@include file="/novoLayout/common/include/libCabecalho.jsp" %>
 <link type="text/css" rel="stylesheet" href="${ctx}/pages/loginCandidato/css/loginCandidato.css"/>
 
-<title>CITSMart</title>
+<%@include file="/novoLayout/common/include/titulo.jsp" %>
 <% boolean metodoAutenticacaoAtivo = (request.getParameter("metodoAutenticacao") != null && ((request.getParameter("metodoAutenticacao")).trim()).equals("AD")); %>
 <% String locale = UtilStrings.nullToVazio((String)request.getSession().getAttribute("locale")); %>
 <%
@@ -71,9 +73,9 @@ String arrayEmailSuporteTelaLogin[] = emailSuporteTelaLogin.split(";");
     							  }%>
 
 							    	<ul class="dropdown-menu pull-left">
-							    		<li class="active"><a href="javascript:;" onclick="internacionalizar('')" title="Portugues" ><img src="${ctx}/novoLayout/common/theme/images/lang/br.png" alt="Portugues"> Português BR</a></li>
+							    		<li class="active"><a href="javascript:;" onclick="internacionalizar('')" title="Portugues" ><img src="${ctx}/novoLayout/common/theme/images/lang/br.png" alt="Portugues"> PortuguÃªs BR</a></li>
 							      		<li><a href="javascript:;" onclick="internacionalizar('en')" title="English"><img src="${ctx}/novoLayout/common/theme/images/lang/us.png" alt="English"> English</a></li>
-							      		<li><a href="javascript:;" onclick="internacionalizar('es')" title="Español"><img src="${ctx}/novoLayout/common/theme/images/lang/es.png" alt="Espanhol"> Español</a></li>
+							      		<li><a href="javascript:;" onclick="internacionalizar('es')" title="EspaÃ±ol"><img src="${ctx}/novoLayout/common/theme/images/lang/es.png" alt="Espanhol"> EspaÃ±ol</a></li>
 							    	</ul>
 								</li>
 							</ul>
@@ -115,7 +117,7 @@ String arrayEmailSuporteTelaLogin[] = emailSuporteTelaLogin.split(";");
 				<div class="modal hide fade in" id="modal_alteraSenha"  aria-hidden="false">
 					<!-- Modal heading -->
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
 						<h3><fmt:message key="login.esqueceu" /></h3>
 					</div>
 					<!-- // Modal heading END -->
@@ -165,9 +167,9 @@ String arrayEmailSuporteTelaLogin[] = emailSuporteTelaLogin.split(";");
     							  }%>
 
 							    	<ul class="dropdown-menu pull-left">
-							    		<li class="active"><a href="javascript:;" onclick="internacionalizar('')" title="Portugues" ><img src="${ctx}/novoLayout/common/theme/images/lang/br.png" alt="Portugues"> Português BR</a></li>
+							    		<li class="active"><a href="javascript:;" onclick="internacionalizar('')" title="Portugues" ><img src="${ctx}/novoLayout/common/theme/images/lang/br.png" alt="Portugues"> PortuguÃªs BR</a></li>
 							      		<li><a href="javascript:;" onclick="internacionalizar('en')" title="English"><img src="${ctx}/novoLayout/common/theme/images/lang/us.png" alt="English"> English</a></li>
-							      		<li><a href="javascript:;" onclick="internacionalizar('es')" title="Español"><img src="${ctx}/novoLayout/common/theme/images/lang/es.png" alt="Espanhol"> Español</a></li>
+							      		<li><a href="javascript:;" onclick="internacionalizar('es')" title="EspaÃ±ol"><img src="${ctx}/novoLayout/common/theme/images/lang/es.png" alt="Espanhol"> EspaÃ±ol</a></li>
 							    	</ul>
 								</li>
 							</ul>

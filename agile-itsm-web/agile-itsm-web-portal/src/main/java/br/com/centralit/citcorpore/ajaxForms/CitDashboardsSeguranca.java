@@ -65,7 +65,7 @@ public class CitDashboardsSeguranca extends AjaxFormAction{
 			}
 		}
 		document.executeScript("hideAguarde()");
-		document.alert("Perfil de segurança aplicado com sucesso!");    
+		document.alert("Perfil de seguranÃ§a aplicado com sucesso!");    
 	}	
 
 	@Override

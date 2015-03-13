@@ -35,7 +35,7 @@ import br.com.citframework.util.Assert;
 import br.com.citframework.util.WebUtil;
 
 /**
- * ServiÁos para vers„o V2 dos serviÁos
+ * Servi√ßos para vers√£o V2 dos servi√ßos
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 24/09/2014

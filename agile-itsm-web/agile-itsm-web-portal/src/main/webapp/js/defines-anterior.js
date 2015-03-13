@@ -19,7 +19,7 @@ var IS_VERIFICA_BARRA_DIV = true;
 
 // ********* FUNCOES **********
 /*
- * Permite que os substitua document.getElementById('') por $(''). É mais simples e rapido.
+ * Permite que os substitua document.getElementById('') por $(''). Ã‰ mais simples e rapido.
  */
 function $(id){
 	return document.getElementById(id);

@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="java.util.HashMap"%>
 <%@page import="br.com.centralit.citcorpore.util.CitCorporeConstantes"%>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
@@ -198,13 +200,13 @@ var UsuarioConversando = "<%= request.getParameter("usuarioSelecionado") %>";
 
 	   if (res<=0)
 	   {
-	     alert("Usuário não está mais logado");
+	     alert("UsuÃ¡rio nÃ£o estÃ¡ mais logado");
 	   }
 	 }
 	 function enviarMensagem(){
 		 var text = $("#Message").val();
 			if(text!=""){
-				<%--  $("<p align = 'left'><font color='blue'>"+ "Você falou para "+<%= request.getParameter("usuarioSelecionado") %>+": "+texto+ "</font></p>").appendTo("#TextoChat");
+				<%--  $("<p align = 'left'><font color='blue'>"+ "VocÃª falou para "+<%= request.getParameter("usuarioSelecionado") %>+": "+texto+ "</font></p>").appendTo("#TextoChat");
 		      	$("#TextoChat").scrollTop($("#TextoChat")[0].scrollHeight); --%>
 			      sendMessage(MeuNick,text,0);
 			     //sendMessage(MeuNick,text,0);
@@ -287,11 +289,11 @@ var UsuarioConversando = "<%= request.getParameter("usuarioSelecionado") %>";
 					<div class="span9">
 						<input type="text" id = "Message" name="Message"class="input-block-level margin-none" placeholder="Type your message .." />
 
-						<input type="text" id = "solicitacao" name="solicitacao"class="input-block-level margin-none" placeholder="Número da Solicitação" style="display: none;" />
+						<input type="text" id = "solicitacao" name="solicitacao"class="input-block-level margin-none" placeholder="NÃºmero da SolicitaÃ§Ã£o" style="display: none;" />
 					</div>
 					<div class="span3">
 						<button type="Button" class="btn btn-block btn-inverse" onclick="enviarMensagem();">Enviar</button>
-						<button type="Button" class="btn btn-block btn-inverse" style="display: none;">Vincular</button><!--deixar na tela este botao e o input solicitacao como style="display: none;" se nao o submit irá dar erro  -->
+						<button type="Button" class="btn btn-block btn-inverse" style="display: none;">Vincular</button><!--deixar na tela este botao e o input solicitacao como style="display: none;" se nao o submit irÃ¡ dar erro  -->
 					</div>
 				</div>
 			 </form>

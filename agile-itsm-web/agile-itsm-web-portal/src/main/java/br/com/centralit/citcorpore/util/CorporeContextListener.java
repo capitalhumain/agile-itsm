@@ -88,7 +88,7 @@ public class CorporeContextListener implements ServletContextListener {
      */
     @Override
     public void contextInitialized(final ServletContextEvent event) {
-        LOGGER.info("Iniciando CITSMart - InÌcio");
+        LOGGER.info("Iniciando CITSMart - In√≠cio");
 
         String dir = event.getServletContext().getRealPath("/");
         String strFinal = "";
@@ -117,10 +117,10 @@ public class CorporeContextListener implements ServletContextListener {
         LOGGER.info("CITSMart - Caminho da APP: " + dir);
 
         /*
-         * Rodrigo Pecci Acorse JBoss 4: Quando o jboss sobe como uma ˙nica inst‚ncia: \jboss\server\default\conf\ Quando o jboss possui mais de uma inst‚ncia:
+         * Rodrigo Pecci Acorse JBoss 4: Quando o jboss sobe como uma √∫nica inst√¢ncia: \jboss\server\default\conf\ Quando o jboss possui mais de uma inst√¢ncia:
          * \jboss\server\<instancia>\conf\ JBoss 7:
-         * Outra propriedade È utilizada para recuperar o diretÛrio de configuraÁ„o. Quando o jboss sobe como uma ˙nica inst‚ncia:
-         * \jboss\standalone\configuration\ Quando È utilizado cluster, tem
+         * Outra propriedade √© utilizada para recuperar o diret√≥rio de configura√ß√£o. Quando o jboss sobe como uma √∫nica inst√¢ncia:
+         * \jboss\standalone\configuration\ Quando √© utilizado cluster, tem
          * domains e hosts: \jboss\domain\configuration\
          */
         try {
@@ -201,9 +201,9 @@ public class CorporeContextListener implements ServletContextListener {
 
         carregarParametros();
 
-        LOGGER.info("CITSMart - Carregando Dicion·rios - InÌcio");
+        LOGGER.info("CITSMart - Carregando Dicion√°rios - In√≠cio");
         UtilI18N.initialize();
-        LOGGER.info("CITSMart - Carregando Dicion·rios - Fim");
+        LOGGER.info("CITSMart - Carregando Dicion√°rios - Fim");
 
         carregarBibliotecasExternas();
 
@@ -265,7 +265,7 @@ public class CorporeContextListener implements ServletContextListener {
      * Carrega bibliotecas externas.
      */
     private void carregarBibliotecasExternas() {
-        LOGGER.info("CITSMart - Carregando bibliotecas externas - InÌcio");
+        LOGGER.info("CITSMart - Carregando bibliotecas externas - In√≠cio");
 
         try {
             final BibliotecasExternasService bibliotecasExternasService = (BibliotecasExternasService) ServiceLocator.getInstance().getService(
@@ -291,12 +291,12 @@ public class CorporeContextListener implements ServletContextListener {
     }
 
     /**
-     * Realizar carga de menus ‡ partir do XML.
+     * Realizar carga de menus √† partir do XML.
      */
     private void realizarCargaDeMenus() {
 
         if (ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.LER_ARQUIVO_PADRAO_XML_MENUS, "S").trim().equalsIgnoreCase("S")) {
-            LOGGER.info("CITSMart - Carga do menu pelo arquivo xml padr„o - InÌcio");
+            LOGGER.info("CITSMart - Carga do menu pelo arquivo xml padr√£o - In√≠cio");
             try {
                 final MenuService menuService = (MenuService) ServiceLocator.getInstance().getService(MenuService.class, null);
 
@@ -314,14 +314,14 @@ public class CorporeContextListener implements ServletContextListener {
                         PerfilAcessoMenuService.class, null);
                 perfilAcessoMenuService.atualizaPerfis();
             } catch (final Exception e) {
-                LOGGER.warn("CITSMart - Erro ao carregar o arquivo xml padr„o de menu: ", e);
+                LOGGER.warn("CITSMart - Erro ao carregar o arquivo xml padr√£o de menu: ", e);
             }
-            LOGGER.info("CITSMart - Carga do menu pelo arquivo xml padr„o - Fim");
+            LOGGER.info("CITSMart - Carga do menu pelo arquivo xml padr√£o - Fim");
         }
     }
 
     /**
-     * Define parametros do JasperReport Caso n„o haja fonte no servidor para imprimir relatÛrio, n„o vai dar exception
+     * Define parametros do JasperReport Caso n√£o haja fonte no servidor para imprimir relat√≥rio, n√£o vai dar exception
      */
     private void definirParametrosJasperReport() {
         final String fontePadrao = "SansSerif";
@@ -331,7 +331,7 @@ public class CorporeContextListener implements ServletContextListener {
     }
 
     /**
-     * Verifica se ja foi feito a rotina de atualizar as fÛrmulas antigas das Ordem de ServiÁo
+     * Verifica se ja foi feito a rotina de atualizar as f√≥rmulas antigas das Ordem de Servi√ßo
      *
      * @author bruno.aquino
      */
@@ -348,13 +348,13 @@ public class CorporeContextListener implements ServletContextListener {
                 parametro.setValor("N");
                 parametroCorporeService.update(parametro);
             } catch (final Exception e) {
-                LOGGER.warn("Problema na atualizaÁ‚o das formulas da OS: " + e.getMessage(), e);
+                LOGGER.warn("Problema na atualiza√ß√¢o das formulas da OS: " + e.getMessage(), e);
             }
         }
     }
 
     /**
-     * Cria ou refaz todos os Ìndices da pesquisa Lucene; ser· executado apenas uma vez ou quando o usu·rio setar "S" SIM para o par‚metro:
+     * Cria ou refaz todos os √≠ndices da pesquisa Lucene; ser√° executado apenas uma vez ou quando o usu√°rio setar "S" SIM para o par√¢metro:
      * LUCENE_REFAZER_INDICES
      *
      * @author euler.ramos;
@@ -363,14 +363,14 @@ public class CorporeContextListener implements ServletContextListener {
         try {
             final String refazerIndicesLucene = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.LUCENE_REFAZER_INDICES, "S");
             if (refazerIndicesLucene.isEmpty() || refazerIndicesLucene.equals("S")) {
-                LOGGER.info("Realizando reindexaÁ„o do Lucene - InÌcio");
+                LOGGER.info("Realizando reindexa√ß√£o do Lucene - In√≠cio");
                 Lucene lucene = new Lucene();
-                Util.deleteDiretorioAndSubdiretorios(lucene.getDirBaseConhecimento()); // Destruindo Ìndices corrompidos, quando o usu·rio solicita uma
-                // reindexaÁ„o.
+                Util.deleteDiretorioAndSubdiretorios(lucene.getDirBaseConhecimento()); // Destruindo √≠ndices corrompidos, quando o usu√°rio solicita uma
+                // reindexa√ß√£o.
                 Util.deleteDiretorioAndSubdiretorios(lucene.getDirAnexos());
                 Util.createDiretorio(lucene.getDirBaseConhecimento());
                 Util.createDiretorio(lucene.getDirAnexos());
-                LOGGER.info("Realizando reindexaÁ„o do Lucene - Base Conhecimento e Anexos ...");
+                LOGGER.info("Realizando reindexa√ß√£o do Lucene - Base Conhecimento e Anexos ...");
                 final BaseConhecimentoService baseConhecimentoService = (BaseConhecimentoService) ServiceLocator.getInstance().getService(
                         BaseConhecimentoService.class, null);
                 final AnexoBaseConhecimentoService anexoBaseConhecimentoService = (AnexoBaseConhecimentoService) ServiceLocator.getInstance().getService(
@@ -378,9 +378,9 @@ public class CorporeContextListener implements ServletContextListener {
                 final ControleGEDService controleGEDService = (ControleGEDService) ServiceLocator.getInstance().getService(ControleGEDService.class, null);
                 final Collection<BaseConhecimentoDTO> listaBaseConhecimento = baseConhecimentoService.listarBasesConhecimentoPublicadas();
 
-                // Tive que criar este "for" porque o Service n„o traz o DTO alimentado completamente em todos os campos
+                // Tive que criar este "for" porque o Service n√£o traz o DTO alimentado completamente em todos os campos
                 for (final BaseConhecimentoDTO baseConhecimentoDTO : listaBaseConhecimento) {
-                    // AvaliaÁ„o - MÈdia da nota dada pelos usu·rios
+                    // Avalia√ß√£o - M√©dia da nota dada pelos usu√°rios
                     final Double media = baseConhecimentoService.calcularNota(baseConhecimentoDTO.getIdBaseConhecimento());
                     if (media != null) {
                         baseConhecimentoDTO.setMedia(media.toString());
@@ -402,13 +402,13 @@ public class CorporeContextListener implements ServletContextListener {
                             .consultarAnexosDaBaseConhecimento(baseConhecimentoDTO);
 
                     if (listaAnexosBaseConhecimento != null) {
-                        // Obtendo o conte˙do do Anexo diretamente do arquivo
+                        // Obtendo o conte√∫do do Anexo diretamente do arquivo
                         for (final AnexoBaseConhecimentoDTO anexoBaseConhecimento : listaAnexosBaseConhecimento) {
                             final ControleGEDDTO controleGEDDTO = controleGEDService.getControleGED(anexoBaseConhecimento);
                             if (controleGEDDTO != null && controleGEDDTO.getIdControleGED() != null && controleGEDDTO.getIdControleGED() > 0
                                     && controleGEDDTO.getNomeArquivo() != null && controleGEDDTO.getPasta() != null
                                     && controleGEDDTO.getExtensaoArquivo() != null) {
-                                // Obtendo o conte˙do do arquivo armazenado em disco! O Service n„o traz este campo preenchido no list
+                                // Obtendo o conte√∫do do arquivo armazenado em disco! O Service n√£o traz este campo preenchido no list
                                 try {
                                     final Arquivo arquivo = new Arquivo(controleGEDDTO);
                                     anexoBaseConhecimento.setTextoDocumento(arquivo.getConteudo());
@@ -421,11 +421,11 @@ public class CorporeContextListener implements ServletContextListener {
                     lucene.indexarBaseConhecimento(baseConhecimentoDTO, listaAnexosBaseConhecimento);
                 }
 
-                LOGGER.info("Realizando reindexaÁ„o do Lucene - Palavras gemeas...");
+                LOGGER.info("Realizando reindexa√ß√£o do Lucene - Palavras gemeas...");
                 final PalavraGemeaService palavraGemeaService = (PalavraGemeaService) ServiceLocator.getInstance().getService(PalavraGemeaService.class, null);
                 final Collection<PalavraGemeaDTO> listaPalavrasGemeas = palavraGemeaService.list();
                 lucene = new Lucene();
-                Util.deleteDiretorioAndSubdiretorios(lucene.getDirGemeas()); // Destruindo Ìndices corrompidos, quando o usu·rio solicita uma reindexaÁ„o.
+                Util.deleteDiretorioAndSubdiretorios(lucene.getDirGemeas()); // Destruindo √≠ndices corrompidos, quando o usu√°rio solicita uma reindexa√ß√£o.
                 Util.createDiretorio(lucene.getDirGemeas());
                 lucene.indexarListaPalavrasGemeas(listaPalavrasGemeas);
 
@@ -434,7 +434,7 @@ public class CorporeContextListener implements ServletContextListener {
                 final ParametroCorporeDTO parametroCorporeDTO = parametroCorporeService.getParamentroAtivo(ParametroSistema.LUCENE_REFAZER_INDICES.id());
                 parametroCorporeDTO.setValor("N");
                 parametroCorporeService.atualizarParametros(parametroCorporeDTO);
-                LOGGER.info("Realizando reindexaÁ„o do Lucene - Fim");
+                LOGGER.info("Realizando reindexa√ß√£o do Lucene - Fim");
             }
 
             /**
@@ -447,15 +447,15 @@ public class CorporeContextListener implements ServletContextListener {
                 importacaoDeDados.start();
             }
         } catch (final Exception e) {
-            LOGGER.warn("Problema na indexaÁ„o Lucene: " + e.getMessage(), e);
+            LOGGER.warn("Problema na indexa√ß√£o Lucene: " + e.getMessage(), e);
         }
     }
 
     /**
-     * Atualiza, Cria e Carrega Par‚metros do Sistema.
+     * Atualiza, Cria e Carrega Par√¢metros do Sistema.
      */
     private void carregarParametros() {
-        LOGGER.info("CITSMart - Criando parametros novos - InÌcio");
+        LOGGER.info("CITSMart - Criando parametros novos - In√≠cio");
         try {
             final ParametroCorporeService parametroService = (ParametroCorporeService) ServiceLocator.getInstance().getService(ParametroCorporeService.class,
                     null);
@@ -467,10 +467,10 @@ public class CorporeContextListener implements ServletContextListener {
     }
 
     /**
-     * Aplica Scripts Novos de BD em atualizaÁ„o de vers„o.
+     * Aplica Scripts Novos de BD em atualiza√ß√£o de vers√£o.
      */
     private void iniciarRotinaDeScripts() {
-        LOGGER.info("CITSMart - Executando rotina de scripts - InÌcio");
+        LOGGER.info("CITSMart - Executando rotina de scripts - In√≠cio");
         try {
             final ScriptsService scriptsService = (ScriptsService) ServiceLocator.getInstance().getService(ScriptsService.class, null);
             final VersaoService versaoService = (VersaoService) ServiceLocator.getInstance().getService(VersaoService.class, null);
@@ -487,7 +487,7 @@ public class CorporeContextListener implements ServletContextListener {
     }
 
     /**
-     * Tratando a existencia de tabelas Adiciona na sess„o o parametro de instalaÁ„o
+     * Tratando a existencia de tabelas Adiciona na sess√£o o parametro de instala√ß√£o
      *
      * @author flavio.santana
      */
@@ -497,7 +497,7 @@ public class CorporeContextListener implements ServletContextListener {
             ResultSet res = null;
             if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
                 /*
-                 * Rodrigo Pecci Acorse - 06/12/2013 15h30 - #126457 Adiciona o usu·rio utilizado na conex„o para garantir que o oracle n„o ir· olhar para
+                 * Rodrigo Pecci Acorse - 06/12/2013 15h30 - #126457 Adiciona o usu√°rio utilizado na conex√£o para garantir que o oracle n√£o ir√° olhar para
                  * outras tabelas.
                  */
                 String userName = null;
@@ -527,7 +527,7 @@ public class CorporeContextListener implements ServletContextListener {
     }
 
     /**
-     * Cria usu·rio Consultor caso n„o exista.
+     * Cria usu√°rio Consultor caso n√£o exista.
      */
     private void criarUsuarioConsultor() {
         try {
@@ -545,7 +545,7 @@ public class CorporeContextListener implements ServletContextListener {
                 empregadoDTO.setNome("Consultor");
                 empregadoDTO.setDataCadastro(UtilDatas.getDataAtual());
                 empregadoDTO.setNomeProcura("Consultor");
-                empregadoDTO.setTelefone("n„o disponivel");
+                empregadoDTO.setTelefone("n√£o disponivel");
                 empregadoDTO.setIdSituacaoFuncional(1);
                 empregadoDTO.setEmail("consultoria@centralit.com.br");
                 empregadoDTO = empregadoService.create(empregadoDTO);
@@ -618,15 +618,15 @@ public class CorporeContextListener implements ServletContextListener {
                     quantidade = atividadesServicoContratoDTO.getQuantidade();
                 }
 
-                // fÛrmula que ser· visualizada
+                // f√≥rmula que ser√° visualizada
                 if (atividadesServicoContratoDTO.getPeriodo() != null && atividadesServicoContratoDTO.getPeriodo().equalsIgnoreCase("5")) {
                     arrayAux[2] = "Dias Corridos";
                 } else if (atividadesServicoContratoDTO.getPeriodo() != null && atividadesServicoContratoDTO.getPeriodo().equalsIgnoreCase("4")) {
-                    arrayAux[2] = "Dias ⁄teis";
+                    arrayAux[2] = "Dias √öteis";
                 }
                 formula = arrayAux[0] + " * " + arrayAux[1] + " * " + arrayAux[2];
 
-                // Estrutura da fÛrmula
+                // Estrutura da f√≥rmula
                 arrayAux = formulaBruta.split("x");
                 arrayAux[0] = "vValor{horas}";
                 arrayAux[1] = "vComplexidade";
@@ -645,7 +645,7 @@ public class CorporeContextListener implements ServletContextListener {
 
                 estruturaFormula = arrayAux[0] + "*" + arrayAux[1] + "*" + arrayAux[2];
 
-                // FÛrmula para c·lculo
+                // F√≥rmula para c√°lculo
                 arrayAux = formulaBruta.split("x");
                 arrayAux[1] = atividadesServicoContratoDTO.getComplexidade();
                 if (quantidade == 0) {

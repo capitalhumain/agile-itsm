@@ -16,7 +16,7 @@ import br.com.citframework.service.CrudService;
 public interface GrupoService extends CrudService {
 
     /**
-     * Retorna lista de GRUPO que ainda não estï¿½o associados a EMPREGADOS.
+     * Retorna lista de GRUPO que ainda nÃ£o estÃ¯Â¿Â½o associados a EMPREGADOS.
      *
      * @return
      * @throws Exception
@@ -24,7 +24,7 @@ public interface GrupoService extends CrudService {
     Collection listaGrupoEmpregado() throws Exception;
 
     /**
-     * Retorna lista de GRUPO que ainda não estï¿½o associados a USUï¿½RIO.
+     * Retorna lista de GRUPO que ainda nÃ£o estÃ¯Â¿Â½o associados a USUÃ¯Â¿Â½RIO.
      *
      * @return
      * @throws Exception
@@ -48,10 +48,10 @@ public interface GrupoService extends CrudService {
     Collection findGruposAtivos();
 
     /**
-     * Verifica se grupo informado já existe;
+     * Verifica se grupo informado jÃ¡ existe;
      *
      * @param grupo
-     * @return true - existe; false - não existe;
+     * @return true - existe; false - nÃ£o existe;
      * @throws PersistenceException
      */
     boolean verificarSeGrupoExiste(GrupoDTO grupo) throws PersistenceException;
@@ -75,7 +75,7 @@ public interface GrupoService extends CrudService {
     Collection listarGruposAtivos() throws Exception;
 
     /**
-     * Retorna lista de e-mails que estão cadastrados para receber notificação
+     * Retorna lista de e-mails que estÃ£o cadastrados para receber notificaÃ§Ã£o
      *
      * @param idGrupo
      * @return
@@ -86,7 +86,7 @@ public interface GrupoService extends CrudService {
     Collection<String> listarPessoasEmailPorGrupo(Integer idGrupo) throws Exception;
 
     /**
-     * Retorna lista de GRUPO que são do Comite de Controle de Mudança
+     * Retorna lista de GRUPO que sÃ£o do Comite de Controle de MudanÃ§a
      *
      * @author Riubbe Oliveira
      *
@@ -94,7 +94,7 @@ public interface GrupoService extends CrudService {
     Collection<GrupoDTO> listGruposComite() throws Exception;
 
     /**
-     * Retorna lista de GRUPO que não são do Comite de Controle de Mudança
+     * Retorna lista de GRUPO que nÃ£o sÃ£o do Comite de Controle de MudanÃ§a
      *
      * @author Riubbe Oliveira
      *

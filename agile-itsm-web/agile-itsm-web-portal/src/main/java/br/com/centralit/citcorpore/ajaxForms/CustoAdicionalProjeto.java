@@ -29,14 +29,14 @@ public class CustoAdicionalProjeto extends AjaxFormAction {
 	public void load(DocumentHTML document, HttpServletRequest request, HttpServletResponse arg2) throws Exception {
 		UsuarioDTO usuario = WebUtil.getUsuario(request);
 		if (usuario == null){
-			document.alert("Sess„o expirada! Favor efetuar logon novamente!");
+			document.alert("Sess√£o expirada! Favor efetuar logon novamente!");
 			document.executeScript("window.location = '" + Constantes.getValue("SERVER_ADDRESS") + request.getContextPath() + "'");
 			return;
 		}
 		/*
 		if (!WebUtil.isUserInGroup(request, Constantes.getValue("GRUPO_FSW_GPROJ")) &&
 				!WebUtil.isUserInGroup(request, Constantes.getValue("GRUPO_DIRETORIA"))){
-			document.alert("VocÍ n„o tem permiss„o para acessar esta funcionalidade!");
+			document.alert("Voc√™ n√£o tem permiss√£o para acessar esta funcionalidade!");
 			document.executeScript("window.location = '" + Constantes.getValue("SERVER_ADDRESS") + request.getContextPath() + "/pages/index/index.jsp'");
 			return;			
 		}	
@@ -47,13 +47,13 @@ public class CustoAdicionalProjeto extends AjaxFormAction {
 		
 		comboTipoCusto.addOption("", "-- Selecione --");
 		comboTipoCusto.addOption("C", "Despesas de Comerciais com o Projeto"); //Despesas de Comerciais com o Projeto
-		comboTipoCusto.addOption("L", "Despesas de LocomoÁ„o (Taxi, etc.)"); //Despesas de Locomocao (Taxi, ...)
+		comboTipoCusto.addOption("L", "Despesas de Locomo√ß√£o (Taxi, etc.)"); //Despesas de Locomocao (Taxi, ...)
 		comboTipoCusto.addOption("V", "Despesas de Viagem"); //Despesas de Viagem
-		comboTipoCusto.addOption("D", "Di·rias de Hotel"); //Di·rias de Hotel
+		comboTipoCusto.addOption("D", "Di√°rias de Hotel"); //Di√°rias de Hotel
 		comboTipoCusto.addOption("M", "Material"); //Material
 		comboTipoCusto.addOption("O", "Outros"); //Outros
 		comboTipoCusto.addOption("H", "Recursos Humanos"); //Humano
-		comboTipoCusto.addOption("R", "RefeiÁ„o (AlmoÁo, lanches, etc.)"); //Refeicao
+		comboTipoCusto.addOption("R", "Refei√ß√£o (Almo√ßo, lanches, etc.)"); //Refeicao
 		
 		ClienteService clienteService = (ClienteService) ServiceLocator.getInstance().getService(ClienteService.class, null);
 		

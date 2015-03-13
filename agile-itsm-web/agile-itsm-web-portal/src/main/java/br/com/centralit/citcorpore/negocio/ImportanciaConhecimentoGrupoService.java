@@ -48,7 +48,7 @@ public interface ImportanciaConhecimentoGrupoService extends CrudService {
 	public Collection<ImportanciaConhecimentoGrupoDTO> listByIdBaseConhecimento(Integer idBaseConhecimento) throws Exception;
 
 	/**
-	 * Obtem o Grau de Import‚ncia do Conhecimento para o Usu·rio e para os Grupos do Usu·rio.
+	 * Obtem o Grau de Import√¢ncia do Conhecimento para o Usu√°rio e para os Grupos do Usu√°rio.
 	 * 
 	 * @param baseConhecimentoDto
 	 * @param listGrupoEmpregado

@@ -21,7 +21,7 @@ public interface ParametroCorporeService extends CrudService {
     List<ParametroCorporeDTO> pesquisarParamentro(final Integer id, final String nomeParametro) throws ServiceException, LogicException, Exception;
 
     /**
-     * Cria e atualiza o HashMap statico de Par‚metros do CITSMart.
+     * Cria e atualiza o HashMap statico de Par√¢metros do CITSMart.
      *
      * @throws Exception
      * @author valdoilo.damasceno
@@ -31,7 +31,7 @@ public interface ParametroCorporeService extends CrudService {
     ParametroCorporeDTO getParamentroAtivo(final Integer id) throws Exception;
 
     /**
-     * Atualiza Par‚metros utilizando UpdateNotNull. Informar apenas o ID do Par‚metro e o Valor.
+     * Atualiza Par√¢metros utilizando UpdateNotNull. Informar apenas o ID do Par√¢metro e o Valor.
      *
      * @param parametroDto
      * @throws Exception

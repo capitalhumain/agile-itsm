@@ -11,7 +11,7 @@ import org.apache.commons.lang.StringUtils;
 /**
  * Helper que representa um arquivo {@code .properties}
  *
- * @author Bruno CÈsar Ribeiro e Silva - <a href="mailto:bruno@brunocesar.com">bruno@brunocesar.com</a>
+ * @author Bruno C√©sar Ribeiro e Silva - <a href="mailto:bruno@brunocesar.com">bruno@brunocesar.com</a>
  */
 public final class PropertyFile {
 
@@ -24,10 +24,10 @@ public final class PropertyFile {
     private static final ConcurrentMap<String, PropertyFile> PROPERTIES = new ConcurrentHashMap<>();
 
     /**
-     * ConstrÛi um arquivo de propriedades, de acordo com o nome do arquivo
+     * Constr√≥i um arquivo de propriedades, de acordo com o nome do arquivo
      *
      * @param fileName
-     *            nome do arquivo, sem extens„o
+     *            nome do arquivo, sem extens√£o
      * @return {@link PropertyFile}
      */
     public static PropertyFile getPropertyFile(final String fileName) {
@@ -40,10 +40,10 @@ public final class PropertyFile {
     }
 
     /**
-     * ConstrÛi uma configuraÁ„o, de acordo com o nome do arquivo
+     * Constr√≥i uma configura√ß√£o, de acordo com o nome do arquivo
      *
      * @param fileName
-     *            nome do arquivo, sem extens„o
+     *            nome do arquivo, sem extens√£o
      */
     private PropertyFile(final String fileName) {
         this.fileName = fileName;
@@ -51,7 +51,7 @@ public final class PropertyFile {
     }
 
     /**
-     * Recupera o arquivo de propriedades da inst‚ncia de {@link PropertyFile}
+     * Recupera o arquivo de propriedades da inst√¢ncia de {@link PropertyFile}
      * 
      * @return {@link Properties}
      */
@@ -60,24 +60,24 @@ public final class PropertyFile {
     }
 
     /**
-     * Recupera de um {@code .properties} o valor da propriedade correspondente ‡ chave informada
+     * Recupera de um {@code .properties} o valor da propriedade correspondente √† chave informada
      *
      * @param key
      *            a chave do valor recuperado
-     * @return o valor correspondente ‡ chave ou <code>key</code> se a chave n„o for encontrada.
+     * @return o valor correspondente √† chave ou <code>key</code> se a chave n√£o for encontrada.
      */
     public String getProperty(final String key) {
         return this.getProperty(key, null);
     }
 
     /**
-     * Recupera de um {@code .properties} o valor da propriedade correspondente ‡ chave informada
+     * Recupera de um {@code .properties} o valor da propriedade correspondente √† chave informada
      *
      * @param key
      *            a chave do valor recuperado
      * @param defaultValue
-     *            valor padr„o caso n„o exista a chave no arquivo de propriedades
-     * @return o valor correspondente ‡ chave ou <code>defaultValue</code> se a chave n„o for encontrada.
+     *            valor padr√£o caso n√£o exista a chave no arquivo de propriedades
+     * @return o valor correspondente √† chave ou <code>defaultValue</code> se a chave n√£o for encontrada.
      */
     public String getProperty(final String key, final String defaultValue) {
         String property = properties.getProperty(key);
@@ -90,22 +90,22 @@ public final class PropertyFile {
     }
 
     /**
-     * Recupera o nome do arquivo de configuraÁ„o, j· com a extens„o {@code .properties}
+     * Recupera o nome do arquivo de configura√ß√£o, j√° com a extens√£o {@code .properties}
      *
-     * @return {@link String} nome do arquivo de configuraÁ„o
+     * @return {@link String} nome do arquivo de configura√ß√£o
      */
     private String getConfigurationFileName() {
         return "/" + fileName + ".properties";
     }
 
     /**
-     * Carrega do classpath o arquivo de configuraÁ„o
+     * Carrega do classpath o arquivo de configura√ß√£o
      */
     private void loadConfiguration() {
         properties = new Properties();
         try (final InputStream is = PropertyFile.class.getResourceAsStream(this.getConfigurationFileName())) {
             if (is == null) {
-                throw new IOException("Arquivo de configuraÁ„o " + this.getConfigurationFileName() + " n„o pÙde ser encontrado.");
+                throw new IOException("Arquivo de configura√ß√£o " + this.getConfigurationFileName() + " n√£o p√¥de ser encontrado.");
             }
             properties.load(is);
         } catch (final IOException ex) {

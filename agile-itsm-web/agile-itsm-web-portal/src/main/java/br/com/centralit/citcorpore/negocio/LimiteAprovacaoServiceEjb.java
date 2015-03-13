@@ -38,10 +38,10 @@ public class LimiteAprovacaoServiceEjb extends CrudServiceImpl implements Limite
     protected void validaUpdate(final Object arg0) throws Exception {
         final LimiteAprovacaoDTO limiteAprovacaoDto = (LimiteAprovacaoDTO) arg0;
         if (limiteAprovacaoDto.getIdProcessoNegocio() == null || limiteAprovacaoDto.getIdProcessoNegocio().length == 0) {
-            throw new LogicException("Não foi selecionado nenhum processo de negócio");
+            throw new LogicException("NÃ£o foi selecionado nenhum processo de negÃ³cio");
         }
         if (limiteAprovacaoDto.getIdNivelAutoridade() == null || limiteAprovacaoDto.getIdNivelAutoridade().length == 0) {
-            throw new LogicException("Não foi selecionado nenhum nível de autoridade");
+            throw new LogicException("NÃ£o foi selecionado nenhum nÃ­vel de autoridade");
         }
     }
 
@@ -150,7 +150,7 @@ public class LimiteAprovacaoServiceEjb extends CrudServiceImpl implements Limite
             final Collection<LimiteAprovacaoProcessoDTO> colDuplicados = limiteAprovacaoProcessoDao.findDuplicados(limiteAprovacaoDto.getIdLimiteAprovacao(),
                     limiteAprovacaoProcessoDto.getIdProcessoNegocio());
             if (colDuplicados != null && colDuplicados.size() > 0) {
-                throw new LogicException("Existe mais de um limite de aprovação vinculado ao mesmo processo e autoridade");
+                throw new LogicException("Existe mais de um limite de aprovaÃ§Ã£o vinculado ao mesmo processo e autoridade");
             }
         }
     }

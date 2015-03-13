@@ -111,7 +111,7 @@ public class ItemConfiguracaoDTO extends BaseEntity {
     private String impactoUrgencia;
     
     /**
-     * Par‚metros criados para iniciativa 397
+     * Par√¢metros criados para iniciativa 397
      */
     private String nome;
 	private String informacoesAdicionais;
@@ -133,7 +133,7 @@ public class ItemConfiguracaoDTO extends BaseEntity {
 	}
     
     /**
-     * Vari·veis para a iniciativa 396
+     * Vari√°veis para a iniciativa 396
      * 
      * @author thyen.chang
      */

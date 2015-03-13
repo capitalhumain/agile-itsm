@@ -74,7 +74,7 @@ public class MonitoraAtivosDiscovery extends Thread {
 
 		if (!CITCorporeUtil.START_MODE_INVENTORY) {
 
-			System.out.println("CITSMART --> Processo de Invent·rio Desativado.");
+			System.out.println("CITSMART --> Processo de Invent√°rio Desativado.");
 
 			MENSAGEM_PROCESSAMENTO = "mostrarStatusInventario.processoInvetarioDesativadoVerArquivosConfiguracao";
 		}
@@ -165,7 +165,7 @@ public class MonitoraAtivosDiscovery extends Thread {
 			recomeca = false;
 			if (listNetMapDto != null) {
 				String table = "<table width='100%'>";
-				table += "<tr><td colspan='4'><b>IPs descobertos atÈ o momento (clique em Refresh para atualizar a lista): </b></td></tr>";
+				table += "<tr><td colspan='4'><b>IPs descobertos at√© o momento (clique em Refresh para atualizar a lista): </b></td></tr>";
 				for (NetMapDTO netMapDTO : listNetMapDto) {
 					String nameOrIp = "";
 					if (netMapDTO.getNome() != null) {
@@ -225,7 +225,7 @@ public class MonitoraAtivosDiscovery extends Thread {
 								exService.submit(new RunnableThread(t), "done");
 								qtde++;
 							} finally {
-								Thread.sleep(2000); // D· um tempo pra tudo se organizar, Garbage, etc... Da tempo entre uma chamada e outra
+								Thread.sleep(2000); // D√° um tempo pra tudo se organizar, Garbage, etc... Da tempo entre uma chamada e outra
 							}
 						} else {
 							netMapDTO.setStatusPing(NetMapDTO.INATIVO);
@@ -260,7 +260,7 @@ public class MonitoraAtivosDiscovery extends Thread {
 								} catch (Exception e) {
 									e.printStackTrace();
 								} finally {
-									Thread.sleep(2000); // D· um tempo pra tudo se organizar, Garbage, etc... Da tempo entre uma chamada e outra
+									Thread.sleep(2000); // D√° um tempo pra tudo se organizar, Garbage, etc... Da tempo entre uma chamada e outra
 								}
 							} else {
 								netMapDTO.setStatusPing(NetMapDTO.INATIVO);

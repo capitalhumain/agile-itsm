@@ -49,7 +49,7 @@ public class MapaDesenhoServico extends AjaxFormAction {
 	}
 
 	/**
-	 * Verifica se o idServico foi passado como par‚metro de URL e inicializa a p·gina com o serviÁo carregado.
+	 * Verifica se o idServico foi passado como par√¢metro de URL e inicializa a p√°gina com o servi√ßo carregado.
 	 * 
 	 * @param request
 	 * @return
@@ -114,7 +114,7 @@ public class MapaDesenhoServico extends AjaxFormAction {
 					Collection<ImagemItemConfiguracaoRelacaoDTO> imgItemConfiguracaoRel = null;
 					imgItemConfiguracaoRel = imagemItemConfiguracaoRelacaoService.findByIdImagemItemConfiguracao(img.getIdImagemItemConfiguracao());
 					
-					//Trata itens que j· existiam itens pai
+					//Trata itens que j√° existiam itens pai
 					if(img.getIdImagemItemConfiguracaoPai()!= null){
 						ImagemItemConfiguracaoRelacaoDTO imgItemPaiAux = null;
 						imgItemPaiAux = imagemItemConfiguracaoRelacaoService.findByIdImagemItemConfiguracaoAndIdItemPai(img.getIdImagemItemConfiguracao(), img.getIdImagemItemConfiguracaoPai());
@@ -145,7 +145,7 @@ public class MapaDesenhoServico extends AjaxFormAction {
 				// img.getIdImagemItemConfiguracao());
 				// System.out.println("id item: " +
 				// img.getIdItemConfiguracao());
-				// System.out.println("id serviÁo: " + img.getIdServico());
+				// System.out.println("id servi√ßo: " + img.getIdServico());
 				// System.out.println("posx: " + img.getPosx());
 				// System.out.println("posy: " + img.getPosy());
 				// System.out.println("descricao: " + img.getDescricao());
@@ -188,7 +188,7 @@ public class MapaDesenhoServico extends AjaxFormAction {
 				// img.getIdImagemItemConfiguracao());
 				// System.out.println("id item: " +
 				// img.getIdItemConfiguracao());
-				// System.out.println("id serviÁo: " + img.getIdServico());
+				// System.out.println("id servi√ßo: " + img.getIdServico());
 				// System.out.println("posx: " + img.getPosx());
 				// System.out.println("posy: " + img.getPosy());
 				// System.out.println("descricao: " + img.getDescricao());
@@ -199,7 +199,7 @@ public class MapaDesenhoServico extends AjaxFormAction {
 				} else {
 					imagemItemService.update(img);
 				}
-				//Salvar itens na tabela de relaÁ„o
+				//Salvar itens na tabela de rela√ß√£o
 				if(img.getIdImagemItemConfiguracaoPaiColSerializado()!= null && UtilStrings.isNotVazio(img.getIdImagemItemConfiguracaoPaiColSerializado())){
 					Collection<ImagemItemConfiguracaoRelacaoDTO> listaItensItemRel = (ArrayList) WebUtil.deserializeCollectionFromString(ImagemItemConfiguracaoRelacaoDTO.class, img.getIdImagemItemConfiguracaoPaiColSerializado());
 					for(ImagemItemConfiguracaoRelacaoDTO imgRel : listaItensItemRel){

@@ -110,7 +110,7 @@ public class OperacaoRest extends AjaxFormAction {
      * @param request
      * @param response
      * @throws Exception
-     *             Metodo colocar status Inativo quando for solicitado a exclus„o do usuario.
+     *             Metodo colocar status Inativo quando for solicitado a exclus√£o do usuario.
      */
     public void delete(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         final RestOperationDTO restDTO = (RestOperationDTO) document.getBean();

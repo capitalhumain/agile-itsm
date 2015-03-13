@@ -50,7 +50,7 @@ public class TextFormat extends TextTag {
 	public int doStartTag() throws JspException {
 		
 		try {
-			// Edita Máscaras
+			// Edita MÃ¡scaras
 			if (mask != null && mask.length() > 0) {
 				// System.out.println("Possui mascara");
 				if (getOnkeypress() == null || getOnkeypress().length() == 0) {

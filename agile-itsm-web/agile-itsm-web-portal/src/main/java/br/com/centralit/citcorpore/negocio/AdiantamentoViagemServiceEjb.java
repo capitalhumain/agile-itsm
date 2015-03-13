@@ -71,7 +71,7 @@ public class AdiantamentoViagemServiceEjb extends ComplemInfSolicitacaoServicoSe
                 TipoMovimFinanceiraViagemService.class, null);
 
         if (despesaViagemDTO.getConfirma() == null || despesaViagemDTO.getConfirma().equals("N")) {
-            throw new LogicException("… preciso confirmar o adiantamento para os integrantes para avanÁar o fluxo!");
+            throw new LogicException("√â preciso confirmar o adiantamento para os integrantes para avan√ßar o fluxo!");
         }
 
         RequisicaoViagemDTO requisicaoViagemDto = new RequisicaoViagemDTO();
@@ -144,7 +144,7 @@ public class AdiantamentoViagemServiceEjb extends ComplemInfSolicitacaoServicoSe
     }
 
     /**
-     * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+     * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
      */
     @Override
     public Integer recuperaIdAdiantamentoSeExistir(AdiantamentoViagemDTO adiantamentoViagemDto) throws Exception {
@@ -181,7 +181,7 @@ public class AdiantamentoViagemServiceEjb extends ComplemInfSolicitacaoServicoSe
     }
 
     /**
-     * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+     * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
      */
     @Override
     public AdiantamentoViagemDTO consultarAdiantamentoViagemByIdSolicitacao(final Integer IdSolicitacaoServico) throws Exception {
@@ -197,7 +197,7 @@ public class AdiantamentoViagemServiceEjb extends ComplemInfSolicitacaoServicoSe
     }
 
     /**
-     * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+     * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
      */
     @Override
     public AdiantamentoViagemDTO consultarAdiantamentoViagem(final Integer IdSolicitacaoServico, final String nomeFunc) throws Exception {

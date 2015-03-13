@@ -136,7 +136,7 @@ public class DelegacaoLiberacao extends AjaxFormAction {
 				//enviaEmailGrupo(request ,Integer.parseInt(ParametroUtil.getValor(ParametroSistema.ID_MODELO_EMAIL_GRUPO_DESTINO, null)), grupoDestinoDto, requisicaoLiberacao);
 			//}
 		}catch(NumberFormatException e){
-			System.out.println("N„o h· modelo de e-mail setado nos par‚metros.");
+			System.out.println("N√£o h√° modelo de e-mail setado nos par√¢metros.");
 		}
 
 		ExecucaoLiberacaoService execucaoFluxoService = (ExecucaoLiberacaoService) ServiceLocator.getInstance().getService(ExecucaoLiberacaoService.class, null);

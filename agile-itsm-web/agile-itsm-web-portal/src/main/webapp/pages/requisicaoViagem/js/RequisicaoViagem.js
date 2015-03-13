@@ -197,7 +197,7 @@ var completeNaoEmpregado;
 var completeResponsavelEmpregado;
 
 
-/** Inicializa��o da tela * */
+/** Inicializaï¿½ï¿½o da tela * */
 $(document).ready(function() {
 	
 	completeCidadeOrigem = $('#nomeCidadeEUfOrigem').autocomplete({ 
@@ -361,7 +361,7 @@ function adicionarEmpregado() {
 }
 
 /*
- * Oculta a coluna de responsaveis por presta��o de contas na
+ * Oculta a coluna de responsaveis por prestaï¿½ï¿½o de contas na
  * tblIntegrantesViagem
  */
 function ocultaColunaResp(obj){

@@ -62,7 +62,7 @@ public class Os extends AjaxFormAction {
 	public void load(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		UsuarioDTO usuario = WebUtil.getUsuario(request);
 		if (usuario == null) {
-			document.alert("Sess„o expirada! Favor efetuar logon novamente!");
+			document.alert("Sess√£o expirada! Favor efetuar logon novamente!");
 			return;
 		}
 		OSDTO os = (OSDTO) document.getBean();
@@ -120,10 +120,10 @@ public class Os extends AjaxFormAction {
 		Collection<GrupoEmpregadoDTO> colGruposUsuario = null;
 
 		if (usuario != null) {
-			// Retorna as permissıes do usu·rio
+			// Retorna as permiss√µes do usu√°rio
 			colSituacoesPermitidasFinal = perfilAcessoSituacaoOSService.getSituacoesOSPermitidasByUsuario(usuario);
 
-			// Retorna os grupos do usu·rio
+			// Retorna os grupos do usu√°rio
 			colGruposUsuario = grupoEmpregadoService.findByIdEmpregado(usuario.getIdEmpregado());
 			if (colGruposUsuario != null) {
 				Collection<Integer> colSituacoesPermitidasTemp = null;
@@ -132,7 +132,7 @@ public class Os extends AjaxFormAction {
 					perfilAcessoGrupoDTO.setIdGrupo(grupoEmpregadoDTO.getIdGrupo());
 					perfilAcessoGrupoDTO = perfilAcessoGrupoService.listByIdGrupo(perfilAcessoGrupoDTO);
 					colSituacoesPermitidasTemp = perfilAcessoSituacaoOSService.getSituacoesOSPermitidasByGrupo(perfilAcessoGrupoDTO);
-					// Percorre tempor·rio e verifica se j· existe na lista final, se n„o existir adiciona
+					// Percorre tempor√°rio e verifica se j√° existe na lista final, se n√£o existir adiciona
 					if (colSituacoesPermitidasTemp != null) {
 						for (Integer object : colSituacoesPermitidasTemp) {
 							if (colSituacoesPermitidasFinal == null) {
@@ -307,9 +307,9 @@ public class Os extends AjaxFormAction {
 		HTMLTable tblOS = document.getTableById("tblOS");
 
 		if (os.getSequenciaOS() == null) {
-			tblOS.addRow(oSDTO, new String[] { "", "", "numero", "nomeAreaRequisitante", "demanda" }, new String[] { "idOS" }, "O.S j· cadastrada!!", new String[] { "exibeIconesOS" }, null, null);
+			tblOS.addRow(oSDTO, new String[] { "", "", "numero", "nomeAreaRequisitante", "demanda" }, new String[] { "idOS" }, "O.S j√° cadastrada!!", new String[] { "exibeIconesOS" }, null, null);
 		} else {
-			tblOS.updateRow(oSDTO, new String[] { "", "", "numero", "nomeAreaRequisitante", "demanda" }, new String[] { "idOS" }, "O.S j· cadastrada!!", new String[] { "exibeIconesOS" }, null, null,
+			tblOS.updateRow(oSDTO, new String[] { "", "", "numero", "nomeAreaRequisitante", "demanda" }, new String[] { "idOS" }, "O.S j√° cadastrada!!", new String[] { "exibeIconesOS" }, null, null,
 					os.getSequenciaOS());
 		}
 		document.executeScript("HTMLUtils.applyStyleClassInAllCells('tblOS', 'tblOS');");
@@ -338,7 +338,7 @@ public class Os extends AjaxFormAction {
 		} catch (Exception e) {
 		}
 		if (idContrato == -1) {
-			document.alert("N„o foi possÌvel identificar o contrato. Por favor, feche esta tela e faÁa logon novamente!");
+			document.alert("N√£o foi poss√≠vel identificar o contrato. Por favor, feche esta tela e fa√ßa logon novamente!");
 			return;
 		}
 
@@ -347,7 +347,7 @@ public class Os extends AjaxFormAction {
 	if ((os.getIdOS() == null) || (os.getIdOS().intValue() == 0)) {
 			osService.create(os);
 		} else {
-			// Se OS est· sendo cancelada, verifica se existe RAs e os cancela se houver
+			// Se OS est√° sendo cancelada, verifica se existe RAs e os cancela se houver
 			if (os.getSituacaoOS().equals(OSDTO.CANCELADA)) {
 				document.executeScript("confirmaCancelamento();");
 				return;
@@ -375,7 +375,7 @@ public class Os extends AjaxFormAction {
 		osService.cancelaOsFilhas(os);
 		osService.update(os);
 
-		// Desfaz VÌnculo de Incidente
+		// Desfaz V√≠nculo de Incidente
 		Collection<OSDTO> listaOsFilhas = osService.retornaSeExisteOSFilha(os);
 		if (listaOsFilhas != null) {
 			for (OSDTO osdto : listaOsFilhas) {
@@ -498,7 +498,7 @@ public class Os extends AjaxFormAction {
 				}
 			} else {
 				// euler.ramos
-				// Retirar outros itens do Select porque este objeto atualmente n„o aceita readOnly ou disable. vide:http://forum.imasters.com.br/topic/336126-resolvidoreadonly-para-select/
+				// Retirar outros itens do Select porque este objeto atualmente n√£o aceita readOnly ou disable. vide:http://forum.imasters.com.br/topic/336126-resolvidoreadonly-para-select/
 				if ((os != null) && (os.getSituacaoOS() != null) && (os.getSituacaoOS().equals(OSDTO.APROVADA))) {
 		    this.refazerSelectServico(document, request, response, os.getIdServicoContrato());
 				}
@@ -533,7 +533,7 @@ public class Os extends AjaxFormAction {
 
 		if (osDto != null) {
 			if (osDto.getQuantidade().intValue() < 1) {
-				document.alert("Quantidade n„o È um valor v·lido!");
+				document.alert("Quantidade n√£o √© um valor v√°lido!");
 				document.executeScript("fechar_aguarde();");
 				return;
 			}
@@ -636,7 +636,7 @@ public class Os extends AjaxFormAction {
 					if (strObs == null) {
 						strObs = "";
 					}
-					// comeÁa o calculo
+					// come√ßa o calculo
 		    if ((atividadesServicoContratoDTO.getTipoCusto() != null) && atividadesServicoContratoDTO.getTipoCusto().trim().equals("F")
 		    		&& atividadesServicoContratoDTO.getFormulaCalculoFinal() != null) {
 		    			atividadesServicoContratoDTO.getHora();
@@ -644,11 +644,11 @@ public class Os extends AjaxFormAction {
 						String calculoFormula = atividadesServicoContratoDTO.getFormulaCalculoFinal();
 						/* @autor edu.braz
 						 *  06/05/2014
-						/* Verifica na String da formulaOs quando comeÁa a Chaves pega todo o valor dentro das Chaves e passa um replace mudando seu valor*/
+						/* Verifica na String da formulaOs quando come√ßa a Chaves pega todo o valor dentro das Chaves e passa um replace mudando seu valor*/
 						if(calculoFormula.contains("{") || calculoFormula.contains("}")){
 							int um = calculoFormula.indexOf("{");
 						    int dois = calculoFormula.lastIndexOf("}");
-						    // O valor que deve ser passado para substituir os possiveis valores dentro das Chaves e¥ 0(Zero) para evitar um NullPointerException.
+						    // O valor que deve ser passado para substituir os possiveis valores dentro das Chaves e¬¥ 0(Zero) para evitar um NullPointerException.
 						    calculoFormula = calculoFormula.replace(calculoFormula.substring(um + 1,dois), "0");
 						}
 
@@ -695,11 +695,11 @@ public class Os extends AjaxFormAction {
 						strFormula = atividadesServicoContratoDTO.getFormula();
 						/*
 						 * thays.araujo 06/05/2014
-						 * formataÁ„o da formula.
+						 * formata√ß√£o da formula.
 						 */
 						strFormula	= strFormula.replaceAll("Dias Corridos", diasCorridos+" Dias Corridos ");
-						strFormula = strFormula.replaceAll("Dias ⁄teis", qntDiasUteis+" Dias ⁄teis ");
-						strFormula = strFormula.replaceAll("N˙mero Usu·rios", qtdUsuariosAtivos+" N˙mero Usu·rios ");
+						strFormula = strFormula.replaceAll("Dias √öteis", qntDiasUteis+" Dias √öteis ");
+						strFormula = strFormula.replaceAll("N√∫mero Usu√°rios", qtdUsuariosAtivos+" N√∫mero Usu√°rios ");
 						// termina calculo
 					}
 
@@ -792,15 +792,15 @@ public class Os extends AjaxFormAction {
 		int index = 0;
 		Date dtTemp = dataInicio;
 		do {
-			// Verifica se È dia ˙til (segunda a sexta)
+			// Verifica se √© dia √∫til (segunda a sexta)
 			if (UtilDatas.verificaDiaUtil(dtTemp)) {
-				// Se for dia ˙til verifica se o dia È ou n„o feriado
+				// Se for dia √∫til verifica se o dia √© ou n√£o feriado
 
 
 				JornadaTrabalhoDTO jornada = calendarioService.recuperaJornada(calendarioDto, new java.sql.Date(dtTemp.getTime()));
 
 				if (jornada != null) {
-					// Se n„o for feridao, incrementa quantidade de Dias ˙teis
+					// Se n√£o for feridao, incrementa quantidade de Dias √∫teis
 					totalDiasUteis++;
 				}
 			}

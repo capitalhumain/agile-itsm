@@ -299,7 +299,7 @@ public class PesquisaErroConhecido extends BaseConhecimento {
 
 			if (PermissaoAcessoPasta.SEMPERMISSAO.equals(permissao)) {
 
-				document.alert("Usu·rio sem permiss„o de acesso.");
+				document.alert("Usu√°rio sem permiss√£o de acesso.");
 				document.executeScript("$('#conhecimento').hide();");
 				document.executeScript("limpar()");
 				return;
@@ -332,7 +332,7 @@ public class PesquisaErroConhecido extends BaseConhecimento {
 		} else {
 			document.executeScript("limpar()");
 			document.executeScript("$('#conhecimento').hide();");
-			document.alert("Usu·rio sem permiss„o de acesso.");
+			document.alert("Usu√°rio sem permiss√£o de acesso.");
 			return;
 		}
 

@@ -11,7 +11,7 @@ import java.nio.charset.Charset;
 import org.apache.commons.lang.StringUtils;
 
 /**
- * Utilitário para persistência de arquivos no file system
+ * UtilitÃ¡rio para persistÃªncia de arquivos no file system
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 10/02/2015
@@ -29,7 +29,7 @@ public final class FileUtil {
      * Cria, se inexistente, a barra no fim de uma pasta no filesystem
      *
      * @param path
-     *            pasta a ser verificada a existência de barra no fim
+     *            pasta a ser verificada a existÃªncia de barra no fim
      * @return pasta com o nome contendo a barra no fim
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      * @since 10/02/2015
@@ -44,11 +44,11 @@ public final class FileUtil {
     }
 
     /**
-     * Cria, se inexistente, a barra no início de uma pasta no filesystem
+     * Cria, se inexistente, a barra no inÃ­cio de uma pasta no filesystem
      *
      * @param path
-     *            pasta a ser verificada a existência de barra no início
-     * @return pasta com o nome contendo a barra no início
+     *            pasta a ser verificada a existÃªncia de barra no inÃ­cio
+     * @return pasta com o nome contendo a barra no inÃ­cio
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      * @since 10/02/2015
      */
@@ -62,13 +62,13 @@ public final class FileUtil {
     }
 
     /**
-     * Garante a existência de um arquivo/diretório no filesystem
+     * Garante a existÃªncia de um arquivo/diretÃ³rio no filesystem
      *
      * @param path
-     *            pasta a ser garantida a existência
+     *            pasta a ser garantida a existÃªncia
      * @param isToCreate
-     *            se o arquivo/diretóerio deve ou não ser criado
-     * @return {@code true} caso a pasta já exista ou foi criada, {@code false}, caso contrário
+     *            se o arquivo/diretÃ³erio deve ou nÃ£o ser criado
+     * @return {@code true} caso a pasta jÃ¡ exista ou foi criada, {@code false}, caso contrÃ¡rio
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      * @since 10/02/2015
      */
@@ -84,18 +84,18 @@ public final class FileUtil {
     }
 
     /**
-     * Grava um arquivo e seu respectivo conteúdo, com encode padrão, no file system
+     * Grava um arquivo e seu respectivo conteÃºdo, com encode padrÃ£o, no file system
      *
      * @param content
-     *            conteúdo do arquivo a ser salvo
+     *            conteÃºdo do arquivo a ser salvo
      * @param fileName
      *            nome do arquivo a ser criado
      * @param path
-     *            diretório em que o arquivo será criado
+     *            diretÃ³rio em que o arquivo serÃ¡ criado
      * @param appendToEnd
-     *            se o conteúdo deve ser escrito no final do arquivo. Se {@code false}, escreve no início do arquivo
+     *            se o conteÃºdo deve ser escrito no final do arquivo. Se {@code false}, escreve no inÃ­cio do arquivo
      * @throws IOException
-     *             caso algum problema de I/O aconteça
+     *             caso algum problema de I/O aconteÃ§a
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      * @since 10/02/2015
      */
@@ -104,20 +104,20 @@ public final class FileUtil {
     }
 
     /**
-     * Grava um arquivo e seu respectivo conteúdo, com encode especificado, no file system
+     * Grava um arquivo e seu respectivo conteÃºdo, com encode especificado, no file system
      *
      * @param content
-     *            conteúdo do arquivo a ser salvo
+     *            conteÃºdo do arquivo a ser salvo
      * @param fileName
      *            nome do arquivo a ser criado
      * @param path
-     *            diretório em que o arquivo será criado
+     *            diretÃ³rio em que o arquivo serÃ¡ criado
      * @param appendToEnd
-     *            se o conteúdo deve ser escrito no final do arquivo. Se {@code false}, escreve no início do arquivo
+     *            se o conteÃºdo deve ser escrito no final do arquivo. Se {@code false}, escreve no inÃ­cio do arquivo
      * @param encoding
-     *            charset no qual o conteúdo deve ser salvo
+     *            charset no qual o conteÃºdo deve ser salvo
      * @throws IOException
-     *             caso algum problema de I/O aconteça
+     *             caso algum problema de I/O aconteÃ§a
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      * @since 11/02/2015
      * @see Charset
@@ -129,20 +129,20 @@ public final class FileUtil {
     }
 
     /**
-     * Grava um arquivo e seu respectivo conteúdo, com encode especificado, no file system
+     * Grava um arquivo e seu respectivo conteÃºdo, com encode especificado, no file system
      *
      * @param content
-     *            conteúdo do arquivo a ser salvo
+     *            conteÃºdo do arquivo a ser salvo
      * @param fileName
      *            nome do arquivo a ser criado
      * @param path
-     *            diretório em que o arquivo será criado
+     *            diretÃ³rio em que o arquivo serÃ¡ criado
      * @param appendToEnd
-     *            se o conteúdo deve ser escrito no final do arquivo. Se {@code false}, escreve no início do arquivo
+     *            se o conteÃºdo deve ser escrito no final do arquivo. Se {@code false}, escreve no inÃ­cio do arquivo
      * @param encoding
-     *            charset no qual o conteúdo deve ser salvo
+     *            charset no qual o conteÃºdo deve ser salvo
      * @throws IOException
-     *             caso algum problema de I/O aconteça
+     *             caso algum problema de I/O aconteÃ§a
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      * @since 11/02/2015
      * @see Charset

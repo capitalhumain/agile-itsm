@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="br.com.centralit.citcorpore.metainfo.bean.HtmlCodePartDTO" %>
 <%@ page import="br.com.centralit.citcorpore.metainfo.bean.HtmlCodeVisaoDTO" %>
 <%@ page import="br.com.centralit.citcorpore.metainfo.bean.BotaoAcaoVisaoDTO" %>
@@ -53,10 +53,9 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<%@include file="/include/security/security.jsp" %>
 
 	<%@include file="/include/header.jsp" %>
-	<%@include file="/include/titleComum/titleComum.jsp" %>
+	<%@include file="/novoLayout/common/include/titulo.jsp" %>
 	<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp" %>
 
 	<link rel="stylesheet" type="text/css" href="${ctx}/template_new/css/reset.css" />
@@ -106,8 +105,8 @@
 				<div class="toggle_container">
 					<div id="tabs-1" class="block">
 						<form name='form' method="POST" action='${ctx}/pages/visaoAdm/visaoAdm'>
-							<input type='hidden' name='idVisao' class='Description[Identificação da Visão]'/>
-							<input type='hidden' name='idVisaoRel' class='Description[Identificação da Visão]'/>
+							<input type='hidden' name='idVisao' class='Description[IdentificaÃ§Ã£o da VisÃ£o]'/>
+							<input type='hidden' name='idVisaoRel' class='Description[IdentificaÃ§Ã£o da VisÃ£o]'/>
 							<input type='hidden' name='ordemCampos' class='Description[Ordem dos campos]'/>
 							<input type='hidden' name='numTabs' class='Description[Numero de Tabs]'/>
 							<input type='hidden' name='nomeCombo' />
@@ -555,14 +554,14 @@
 
 		<div id="POPUP_OBJ" style='width: 600px; height: 600px' >
 			<form name='formItem' method="POST" action='${ctx}/pages/visaoAdm/visaoAdm'>
-			<input type='hidden' name='numeroEdicao' class='Description[Número]'/>
+			<input type='hidden' name='numeroEdicao' class='Description[NÃºmero]'/>
 			<table>
 				<tr>
 					<td>
 						<fmt:message key='visaoAdm.objetoNegocio'/>:
 					</td>
 					<td>
-						<select name='idObjetoNegocio' onchange='selecionaObjNegocio(this)' class='Valid[Required] Description[Objeto de Negócio]'>
+						<select name='idObjetoNegocio' onchange='selecionaObjNegocio(this)' class='Valid[Required] Description[Objeto de NegÃ³cio]'>
 						</select>
 					</td>
 				</tr>
@@ -617,8 +616,8 @@
 						<fmt:message key='citcorpore.comum.obrigatorio'/>:
 					</td>
 					<td>
-						<input type='radio' name='obrigatorio' value='S' class='Valid[Required] Description[Obrigatório]'/> <fmt:message key='citcorpore.comum.sim'/>
-						<input type='radio' name='obrigatorio' value='N' class='Valid[Required] Description[Obrigatório]'/> <fmt:message key='citcorpore.comum.nao'/>
+						<input type='radio' name='obrigatorio' value='S' class='Valid[Required] Description[ObrigatÃ³rio]'/> <fmt:message key='citcorpore.comum.sim'/>
+						<input type='radio' name='obrigatorio' value='N' class='Valid[Required] Description[ObrigatÃ³rio]'/> <fmt:message key='citcorpore.comum.nao'/>
 					</td>
 				</tr>
 				<tr>
@@ -656,7 +655,7 @@
 										<fmt:message key='visaoAdm.campoObjetoNegocioLigacaoRelacionamento'/>:
 									</td>
 									<td>
-										<select name='idCamposObjetoNegocioLigacaoVinc' class='Description[Campo do Objeto de Negócio de Ligação]'>
+										<select name='idCamposObjetoNegocioLigacaoVinc' class='Description[Campo do Objeto de NegÃ³cio de LigaÃ§Ã£o]'>
 										</select>
 									</td>
 								</tr>
@@ -767,7 +766,7 @@
 						<fmt:message key='requisitosla.formula'/>:
 					</td>
 					<td>
-						<textarea name="formula" rows="5" cols="90" class='Description[Fórmula]' style='border:1px solid black;'></textarea>
+						<textarea name="formula" rows="5" cols="90" class='Description[FÃ³rmula]' style='border:1px solid black;'></textarea>
 					</td>
 				</tr>
 				<tr>
@@ -775,8 +774,8 @@
 						<fmt:message key='projeto.situacao'/>:
 					</td>
 					<td>
-						<input type='radio' name='situacao' value='A' class='Valid[Required] Description[Situação]'/> <fmt:message key='citcorpore.comum.ativo'/>
-						<input type='radio' name='situacao' value='I' class='Valid[Required] Description[Situação]'/> <fmt:message key='citcorpore.comum.inativo'/>
+						<input type='radio' name='situacao' value='A' class='Valid[Required] Description[SituaÃ§Ã£o]'/> <fmt:message key='citcorpore.comum.ativo'/>
+						<input type='radio' name='situacao' value='I' class='Valid[Required] Description[SituaÃ§Ã£o]'/> <fmt:message key='citcorpore.comum.inativo'/>
 					</td>
 				</tr>
 				<tr>
@@ -976,7 +975,7 @@
 							</tr>
 							<tr>
 								<td style='vertical-align: middle;' valign="middle">
-									<fmt:message key='visaoAdm.mensagemMovimentar'/><br><fmt:message key='visaoAdm.mouseSobreBotão'/>:
+									<fmt:message key='visaoAdm.mensagemMovimentar'/><br><fmt:message key='visaoAdm.mouseSobreBotÃ£o'/>:
 								</td>
 								<td>
 									<input type='text' name='hint' size="80" maxlength="100"/>
@@ -1025,7 +1024,7 @@
 			</form>
 		</div>
 
-		<!-- Pop de Exportação -->
+		<!-- Pop de ExportaÃ§Ã£o -->
 		<div id="POPUP_EXPORTARVISOES" style='display:none'>
 			<form name="formExport" method='post' action='${ctx}/pages/visaoAdm/visaoAdm.load'>
 				<button name="btnExportarOK" type='button' onclick='exportarVisoesXML()'><fmt:message key='citcorpore.comum.exportarArquivo'/></button>
@@ -1036,7 +1035,7 @@
 				</div>
 			</form>
 		</div>
-		<!-- Pop de Importação -->
+		<!-- Pop de ImportaÃ§Ã£o -->
 		<div id="POPUP_IMPORTARVISOES" style='display:none'>
 			<form name="formUpload" method="post" enctype="multipart/form-data">
 				<cit:uploadControl style="height:100px;width:100%;border:1px solid black"  title="Anexos" id="uploadAnexos" form="document.formUpload" action="/pages/upload/upload.load" disabled="false"/>
@@ -1045,7 +1044,7 @@
 				<input type='hidden' id='visoesSerializadas' name='visoesSerializadas'/>
 			</form>
 		</div>
-		<!-- Pop de Importação de Todas as Visoes Novas -->
+		<!-- Pop de ImportaÃ§Ã£o de Todas as Visoes Novas -->
 		<div id="POPUP_IMPORTARTODASVISOES" style='display:none'>
 			<fmt:message key='visaoAdm.mensagemPopUp'/><fmt:message key='visaoAdm.mensagemPopUpCont'/>
 			<div class="barra">

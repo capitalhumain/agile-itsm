@@ -22,7 +22,7 @@ import br.com.centralit.citcorpore.util.ParametroUtil;
 import br.com.citframework.excecao.LogicException;
 
 /**
- * Action de Característica.
+ * Action de CaracterÃ­stica.
  * 
  * @author valdoilo.damasceno
  */
@@ -71,7 +71,7 @@ public class ProcessamentoEventual extends AjaxFormAction {
 		}catch (Exception e) {
 			String msg = e.getMessage();
 			if (id != null)
-				msg = "Solicitação " + id + " -> " + msg;
+				msg = "SolicitaÃ§Ã£o " + id + " -> " + msg;
 			throw new Exception(msg);
 		}finally{
 			document.alert("Processamento executado com sucesso");
@@ -87,7 +87,7 @@ public class ProcessamentoEventual extends AjaxFormAction {
         		
         		String remetente = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.RemetenteNotificacoesSolicitacao, null);
         		if (remetente == null)
-        			throw new LogicException("Remetente para notificações de solicitação de serviço não foi parametrizado");
+        			throw new LogicException("Remetente para notificaÃ§Ãµes de solicitaÃ§Ã£o de serviÃ§o nÃ£o foi parametrizado");
         		
         		String urlSistema = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.URL_Sistema, "");
         		
@@ -99,7 +99,7 @@ public class ProcessamentoEventual extends AjaxFormAction {
         		solicitacaoAuxDto.setUrlSistema(urlSistema);
         		solicitacaoAuxDto.setLinkPesquisaSatisfacao("<a href=\"" + urlSistema + 
         			"/pages/pesquisaSatisfacao/pesquisaSatisfacao.load?idSolicitacaoServico=" + solicitacaoAuxDto.getIdSolicitacaoServico() +
-        			"&hash=" + idHashValidacao + "\">Clique aqui para fazer a avaliação do Atendimento</a>");
+        			"&hash=" + idHashValidacao + "\">Clique aqui para fazer a avaliaÃ§Ã£o do Atendimento</a>");
         		
         		MensagemEmail mensagem = new MensagemEmail(2, new BaseEntity[] {solicitacaoAuxDto});
         		try {

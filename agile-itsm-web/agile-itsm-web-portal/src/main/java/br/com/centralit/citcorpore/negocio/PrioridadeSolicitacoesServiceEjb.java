@@ -15,7 +15,7 @@ import br.com.citframework.integracao.CrudDAO;
 import br.com.citframework.service.CrudServiceImpl;
 
 /**
- * Classe que encapsula os serviços referente ao cadastro de Prioridade
+ * Classe que encapsula os serviÃ§os referente ao cadastro de Prioridade
  *
  * @author rodrigo.oliveira
  *

@@ -27,7 +27,7 @@ public class AvaliacaoReferenciaFornecedorServiceEjb extends CrudServiceImpl imp
                 if (avaliacaoReferenciaFornecedor.getDecisao().equalsIgnoreCase("S")) {
                     avaliacaoReferenciaFornecedor.setDecisao("Sim");
                 } else {
-                    avaliacaoReferenciaFornecedor.setDecisao("Não");
+                    avaliacaoReferenciaFornecedor.setDecisao("NÃ£o");
                 }
             }
         }

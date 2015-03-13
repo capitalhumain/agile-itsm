@@ -72,8 +72,8 @@ public class ServicoContratoMulti extends ServicoContrato {
 	}
 
 	/**
-	 * Restaura a lista de todos os serviÁos para a tela de Adicionar V·rios ServiÁos ao Contrato.
-	 * alteraÁ„o: de servicos ativos que ainda n„o foram adicionados a este contrato
+	 * Restaura a lista de todos os servi√ßos para a tela de Adicionar V√°rios Servi√ßos ao Contrato.
+	 * altera√ß√£o: de servicos ativos que ainda n√£o foram adicionados a este contrato
 	 * 
 	 * @param document
 	 * @param request
@@ -148,7 +148,7 @@ public class ServicoContratoMulti extends ServicoContrato {
 		}
 		
 		
-		//Neste trecho do codigo adiciona a uma Collection os valores que NAO est„o se repetindo entre os dois Arrays
+		//Neste trecho do codigo adiciona a uma Collection os valores que NAO est√£o se repetindo entre os dois Arrays
 		Set<String> valoresUnicosGrid = new HashSet<String>();
 		valoresUnicosGrid.addAll(listaValoresGrid);
 		valoresUnicosGrid.addAll(listaValoresCheckados);

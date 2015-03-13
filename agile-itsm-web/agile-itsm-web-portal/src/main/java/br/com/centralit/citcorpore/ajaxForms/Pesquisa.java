@@ -38,7 +38,7 @@ public class Pesquisa extends AjaxFormAction {
 			HttpServletResponse response) throws Exception {
 		usuario = WebUtil.getUsuario(request);
 		if (usuario == null) {
-		    document.alert("O usu·rio n„o est· logado! Favor logar no sistema!");
+		    document.alert("O usu√°rio n√£o est√° logado! Favor logar no sistema!");
 		    return;
 		}
 		
@@ -53,7 +53,7 @@ public class Pesquisa extends AjaxFormAction {
 		}
 		if(html.toString().trim().equals("<ul></ul>"))
 		{
-			html. append("<font color='red'; >Sua busca n„o encontrou nenhum resultado</font>");
+			html. append("<font color='red'; >Sua busca n√£o encontrou nenhum resultado</font>");
 		}
 		HTMLElement divmenu = document.getElementById("result");
 		divmenu.setInnerHTML(header.toString() + html.toString());

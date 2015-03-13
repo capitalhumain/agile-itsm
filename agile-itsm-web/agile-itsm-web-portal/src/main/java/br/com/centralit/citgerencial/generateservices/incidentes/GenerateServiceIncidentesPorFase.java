@@ -79,7 +79,7 @@ public class GenerateServiceIncidentesPorFase extends GerencialGenerateService {
 			listaRetorno = new ArrayList();
 		}
 
-		// resetando par‚metro
+		// resetando par√¢metro
 		setNovoParametro(null);
 
 		return listaRetorno;

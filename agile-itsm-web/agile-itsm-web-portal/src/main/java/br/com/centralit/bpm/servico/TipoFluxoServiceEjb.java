@@ -24,7 +24,7 @@ public class TipoFluxoServiceEjb extends CrudServiceImpl implements TipoFluxoSer
         final TipoFluxoDTO tipoFluxoDto = (TipoFluxoDTO) arg0;
         final TipoFluxoDTO tipoFluxoAuxDto = this.getDao().findByNome(tipoFluxoDto.getNomeFluxo());
         if (tipoFluxoAuxDto != null) {
-            throw new ServiceException("Já existe um tipo de fluxo com esse nome.");
+            throw new ServiceException("JÃ¡ existe um tipo de fluxo com esse nome.");
         }
     }
 
@@ -34,7 +34,7 @@ public class TipoFluxoServiceEjb extends CrudServiceImpl implements TipoFluxoSer
         final TipoFluxoDTO tipoFluxoAuxDto = this.getDao().findByNome(tipoFluxoDto.getNomeFluxo());
 
         if (tipoFluxoAuxDto != null && tipoFluxoAuxDto.getIdTipoFluxo().intValue() != tipoFluxoDto.getIdTipoFluxo().intValue()) {
-            throw new ServiceException("Já existe um tipo de fluxo com esse nome.");
+            throw new ServiceException("JÃ¡ existe um tipo de fluxo com esse nome.");
         }
     }
 

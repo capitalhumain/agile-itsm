@@ -1,5 +1,5 @@
 /**
- * FunÃ§Ãµes para a tela de acompanhamento do posicionamento dos atendentes
+ * Funçõs para a tela de acompanhamento do posicionamento dos atendentes
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 28/10/2014

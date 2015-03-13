@@ -64,7 +64,7 @@ public class ExecucaoAtividadePeriodicaDTO extends BaseEntity {
 		return "";
 	    }
 	    if (this.situacao.equalsIgnoreCase("E")){
-		return "Em Execução";
+		return "Em ExecuÃ§Ã£o";
 	    }
 	    if (this.situacao.equalsIgnoreCase("S")){
 		return "Suspenso";

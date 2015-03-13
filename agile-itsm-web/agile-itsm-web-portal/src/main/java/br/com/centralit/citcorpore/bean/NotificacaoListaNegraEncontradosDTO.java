@@ -4,7 +4,7 @@ import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * @author ronnie.lopes
- * DTO criado apenas para envio do email Softwares Lista Negra, n„o possui tabela no banco de dados
+ * DTO criado apenas para envio do email Softwares Lista Negra, n√£o possui tabela no banco de dados
  */
 @SuppressWarnings("serial")
 public class NotificacaoListaNegraEncontradosDTO extends BaseEntity{

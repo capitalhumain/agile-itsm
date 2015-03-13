@@ -1,6 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <head>
-<title>CITSMART - Consultas/Relatórios</title>
+<title>CITSMART - Consultas/RelatÃ³rios</title>
 <meta name="description" content="Place your description here">
 <meta name="keywords" content="put, your, keyword, here">
 <meta name="author" content="Templates.com - website templates provider">
@@ -66,8 +68,8 @@
 													<div class="inner">
 														<h3>Incidentes</h3>
 														<ul class="info-list">
-															<li><span>Aguard.Aprovação</span>1</li>
-															<li><span>Em Execução</span>197</li>
+															<li><span>Aguard.AprovaÃ§Ã£o</span>1</li>
+															<li><span>Em ExecuÃ§Ã£o</span>197</li>
 															<li><span>Suspensas</span>2</li>
 														</ul>
 														<span class="price">200</span>
@@ -91,7 +93,7 @@
 													<div class="inner">
 														<h3>Problemas</h3>
 														<ul class="info-list">
-															<li><span>Em execução</span>4</li>
+															<li><span>Em execuÃ§Ã£o</span>4</li>
 															<li><span>Suspenso</span>1</li>
 														</ul>
 														<span class="price">5</span>
@@ -113,9 +115,9 @@
 											<div class="right-bot-corner maxheight">
 												<div class="left-bot-corner maxheight">
 													<div class="inner">
-														<h3>Mudanças</h3>
+														<h3>MudanÃ§as</h3>
 														<ul class="info-list">
-															<li><span>Em execução</span>2</li>
+															<li><span>Em execuÃ§Ã£o</span>2</li>
 															<li><span>Suspenso</span>1</li>
 														</ul>
 														<span class="price">3</span>
@@ -137,9 +139,9 @@
 											<div class="right-bot-corner maxheight">
 												<div class="left-bot-corner maxheight">
 													<div class="inner">
-														<h3>Liberação</h3>
+														<h3>LiberaÃ§Ã£o</h3>
 														<ul class="info-list">
-															<li><span>Em execução</span>1</li>
+															<li><span>Em execuÃ§Ã£o</span>1</li>
 															<li><span>Suspenso</span>1</li>
 														</ul>
 														<span class="price">2</span>

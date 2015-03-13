@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.citframework.util.UtilStrings"%>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
@@ -7,7 +9,7 @@
 <html>
 <head>
 <%
-			//identifica se a página foi aberta a partir de um iframe (popup de cadastro rápido)
+			//identifica se a pÃ¡gina foi aberta a partir de um iframe (popup de cadastro rÃ¡pido)
 			String iframe = "";
 			iframe = request.getParameter("iframe");
 
@@ -16,16 +18,15 @@
 %>
 <%@include file="/include/header.jsp"%>
 
-<%@include file="/include/security/security.jsp"%>
 <!--<![endif]-->
-<title><fmt:message key="citcorpore.comum.title" /></title>
+<%@include file="/novoLayout/common/include/titulo.jsp" %>
 
 <%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 <script type="text/javascript">
 	var ctx = "${ctx}";
 </script>
 <script type="text/javascript" src="./js/treeViewItemCfgAval.js"></script>
-<%//se for chamado por iframe deixa apenas a parte de cadastro da página
+<%//se for chamado por iframe deixa apenas a parte de cadastro da pÃ¡gina
 			if (iframe != null) {%>
 <link rel="stylesheet" type="text/css" href="./css/treeViewItemCfgAval.css" />
 <%}%>
@@ -157,7 +158,7 @@
 														<button type='button' class="light" onclick='submeter()'><span><fmt:message key="citcorpore.comum.pesquisar"/></span></button>
 														<!-- /*
 														Rodrigo Pecci Acorse - 03/12/2013 17h30 - #126233
-														Adicionado a função setaProcessar para após o clear não limpar o valor do input hidden processa.
+														Adicionado a funÃ§Ã£o setaProcessar para apÃ³s o clear nÃ£o limpar o valor do input hidden processa.
 														*/ -->
 														<button type="button" class="light" name="btnLimpar" id="btnLimpar" onclick="document.form.clear();setaProcessar('S');"><span><fmt:message key="botaoacaovisao.limpar_dados" /></span></button>
 													</td>

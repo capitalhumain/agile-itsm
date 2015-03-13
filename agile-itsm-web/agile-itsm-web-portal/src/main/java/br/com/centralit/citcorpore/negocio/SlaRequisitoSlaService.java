@@ -11,14 +11,14 @@ import br.com.citframework.service.CrudService;
  */
 public interface SlaRequisitoSlaService extends CrudService {
 	/**
-	 * Método para retornar todos os vínculos de requisito com SLA.
+	 * MÃ©todo para retornar todos os vÃ­nculos de requisito com SLA.
 	 * @param idArcodoNivelServico
 	 * @return Collection
 	 * @throws Exception
 	 */
 	public Collection findByIdAcordoNivelServico(Integer idAcordoNivelServico) throws Exception;
 	/**
-	 * Método para deletar todos os vínculos de requisito com SLA.
+	 * MÃ©todo para deletar todos os vÃ­nculos de requisito com SLA.
 	 * @param idArcodoNivelServico
 	 * @throws Exception
 	 */

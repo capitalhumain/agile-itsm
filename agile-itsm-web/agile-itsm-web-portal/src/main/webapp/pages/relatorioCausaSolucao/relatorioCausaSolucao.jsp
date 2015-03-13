@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.CitCorporeConstantes"%>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
@@ -73,7 +75,7 @@
 										</div>
 									</div>
 
-									<!--Tipo demanda serviço-->
+									<!--Tipo demanda serviÃ§o-->
 									<div class='row-fluid'>
 										<div class='span6'>
 											<label class="strong"><fmt:message key="tipoServico.tipoServico" /></label>
@@ -81,7 +83,7 @@
 										</div>
 									</div>
 
-									<!--Situação-->
+									<!--SituaÃ§Ã£o-->
 									<div class='row-fluid'>
 										<div class='span6'>
 											<label class="strong"><fmt:message key="citcorpore.comum.situacao" /></label>
@@ -89,7 +91,7 @@
 										</div>
 									</div>
 
-									<!--Serviço-->
+									<!--ServiÃ§o-->
 									<div class="row-fluid">
 										<div class="span8">
 											<div class="input-append span8" id='divNomeDoServico'>
@@ -97,7 +99,7 @@
 													<fmt:message key="servico.nome" />&nbsp;&nbsp;<i>* <fmt:message key="relatorioCausaSolucao.servicoEspecifico" />.</i>
 												</label>
 
-												<input class="span12" type="text" name="servicoBusca" id="servicoBusca" required="required" placeholder="Digite o nome do Serviço" onfocus="verificaContratoETipoServico();">
+												<input class="span12" type="text" name="servicoBusca" id="servicoBusca" required="required" placeholder="Digite o nome do ServiÃ§o" onfocus="verificaContratoETipoServico();">
 												<span class="add-on">
 													<i class="icon-search"></i>
 												</span>

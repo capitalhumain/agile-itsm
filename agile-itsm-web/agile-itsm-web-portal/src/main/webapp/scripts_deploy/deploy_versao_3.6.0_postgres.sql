@@ -1,11 +1,11 @@
 -- INICIO - Bruno.Aquino 29/05/2014
 	INSERT INTO modelosemails (idmodeloemail,	titulo,	texto,	situacao,	identificador)
-		VALUES(86,'Alteração da Solicitação de Serviço - ${IDSOLICITACAOSERVICO}',
+		VALUES(86,'AlteraÃ§Ã£o da SolicitaÃ§Ã£o de ServiÃ§o - ${IDSOLICITACAOSERVICO}',
 			'&nbsp;Informamos que a Solicita&ccedil;&atilde;o de Servi&ccedil;o de N&uacute;mero ${IDSOLICITACAOSERVICO} sofreu altera&ccedil;&atilde;o.<div>&nbsp;</div><div>Atenciosamente,</div><div>&nbsp;</div><div>&nbsp;</div><div>Central IT Tecnologia da Informa&ccedil;&atilde;o Ltda.</div><div>&nbsp;</div>',
 			'A','alterSolServico');
 	
 	INSERT INTO modelosemails (	idmodeloemail,	titulo,	texto,	situacao,	identificador)
-		VALUES	(87,'Alteração da Descrição da Solicitação de Serviço - ${IDSOLICITACAOSERVICO}',
+		VALUES	(87,'AlteraÃ§Ã£o da DescriÃ§Ã£o da SolicitaÃ§Ã£o de ServiÃ§o - ${IDSOLICITACAOSERVICO}',
 			'&nbsp;Informamos que a Solicita&ccedil;&atilde;o de Servi&ccedil;o de N&uacute;mero ${IDSOLICITACAOSERVICO} sofreu altera&ccedil;&atilde;o.<div>&nbsp;</div><div><strong>Descri&ccedil;&atilde;o</strong>:&nbsp;</div><div>${DESCRICAO}</div><div>&nbsp;</div><div>&nbsp;</div><div>&nbsp;</div><div>Atenciosamente,</div><div>&nbsp;</div><div>&nbsp;</div><div>Central IT Tecnologia da Informa&ccedil;&atilde;o Ltda.</div><div>&nbsp;</div>',
 			'A','alterSolServDesc');
       

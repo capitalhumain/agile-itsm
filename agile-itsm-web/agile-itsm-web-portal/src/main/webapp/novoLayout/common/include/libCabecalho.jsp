@@ -1,21 +1,23 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@ include file="/WEB-INF/templates/taglibs.jsp"%>
 
 <c:set var="locale" value="${fn.toLowerCase(sessionScope.locale)}" scope="request" />
 
 <c:if test="${empty locale}">
-	<c:set var="locale" value="pt" scope="request" />
+    <c:set var="locale" value="pt" scope="request" />
 </c:if>
 
 <c:set var="waitingWindowMessage">
-	<fmt:message key="citcorpore.comum.aguardeProcessando" />
+    <fmt:message key="citcorpore.comum.aguardeProcessando" />
 </c:set>
 
 <script type="text/javascript">
-	var URL_INITIAL = "${ctx}/";
-	var URL_SISTEMA = "${ctx}/";
-	var LOCALE_SISTEMA = "${locale}";
-	var ctx ="${ctx}";
-	var locale = "${locale}";
+    var URL_INITIAL = "${ctx}/";
+    var URL_SISTEMA = "${ctx}/";
+    var LOCALE_SISTEMA = "${locale}";
+    var ctx ="${ctx}";
+    var locale = "${locale}";
 </script>
 
 <!-- Menu -->
@@ -84,20 +86,20 @@
 <script type="text/javascript" src="${ctx}/js/FormatUtils.js"></script>
 <script type="text/javascript" src="${ctx}/js/Thread.js"></script>
 
-<script type="text/javascript" src="${ctx}/js/i18n/messages_${locale}.js" charset="UTF-8"></script>
+<script type="text/javascript" src="${ctx}/js/i18n/messages_${locale}.js"></script>
 <script type="text/javascript" src="${ctx}/js/funcoesDeUsoComum.js"></script>
 
 <!-- LESS.js Library -->
 <script src="${ctx}/novoLayout/common/theme/scripts/plugins/system/less.min.js"></script>
 <!--
-Motido: Adaptação ao layout antigo
+Motido: AdaptaÃ§Ã£o ao layout antigo
 Autor: flavio.santana
  -->
 <style>
-	#sobre-container { display: -webkit-box;-webkit-box-orient: horizontal;display: -moz-box;-moz-box-orient: horizontal;display: box;box-orient: horizontal;margin-top: 10px;}
-	#sobre-container h2, #versao-container h2 {font-size: 1.3em;margin-bottom: 0.4em;}
-	#versao-container {margin-top: 30px;}
-	#produto-descricao{margin-left: 10px;}
-	#produto-container {line-height: 1.8em;margin-top: 100px;}
-	#historico{display: none;}
+    #sobre-container { display: -webkit-box;-webkit-box-orient: horizontal;display: -moz-box;-moz-box-orient: horizontal;display: box;box-orient: horizontal;margin-top: 10px;}
+    #sobre-container h2, #versao-container h2 {font-size: 1.3em;margin-bottom: 0.4em;}
+    #versao-container {margin-top: 30px;}
+    #produto-descricao{margin-left: 10px;}
+    #produto-container {line-height: 1.8em;margin-top: 100px;}
+    #historico{display: none;}
 </style>

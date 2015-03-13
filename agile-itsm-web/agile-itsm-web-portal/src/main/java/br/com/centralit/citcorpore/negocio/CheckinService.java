@@ -10,22 +10,22 @@ import br.com.citframework.service.CrudService;
 public interface CheckinService extends CrudService {
 
     /**
-     * Realiza o checkin de um usu·rio, relacionando ‡ uma solicitaÁ„o
+     * Realiza o checkin de um usu√°rio, relacionando √† uma solicita√ß√£o
      *
      * @param checkin
-     *            informaÁıes do checkin
+     *            informa√ß√µes do checkin
      * @param usuario
-     *            usu·rio que est· solicitando o checkin
-     * @return numero da solicitaÁ„o para a qual foi realizado o checkin
+     *            usu√°rio que est√° solicitando o checkin
+     * @return numero da solicita√ß√£o para a qual foi realizado o checkin
      * @throws Exception
      */
     Integer realizarCheckin(final CheckinDTO checkin, final UsuarioDTO usuario) throws Exception;
 
     /**
-     * Verifica se existe algum checkin do usu·rio sem respectivo checkout, de forma a n„o permitir dois checkins simult‚neos para o usu·rio
+     * Verifica se existe algum checkin do usu√°rio sem respectivo checkout, de forma a n√£o permitir dois checkins simult√¢neos para o usu√°rio
      *
      * @param usuario
-     *            usu·rio que est· solicitando o checkin
+     *            usu√°rio que est√° solicitando o checkin
      * @return {@code List<CheckinDTO>} dos checkins sem checkout
      * @throws ServiceException
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
@@ -34,11 +34,11 @@ public interface CheckinService extends CrudService {
     List<CheckinDTO> listCheckinsDoUsuarioSemCheckout(final UsuarioDTO usuario) throws ServiceException;
 
     /**
-     * Verifica se existe algum checkin para a solicitaÁ„o, independente de quem fez o checkin, sem respectivo checkout, de forma a n„o permitir dois checkins simult‚neos para a
-     * mesma solicitaÁ„o
+     * Verifica se existe algum checkin para a solicita√ß√£o, independente de quem fez o checkin, sem respectivo checkout, de forma a n√£o permitir dois checkins simult√¢neos para a
+     * mesma solicita√ß√£o
      *
      * @param checkin
-     *            informaÁıes do checkin
+     *            informa√ß√µes do checkin
      * @return
      * @throws ServiceException
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
@@ -47,10 +47,10 @@ public interface CheckinService extends CrudService {
     List<CheckinDTO> listCheckinSolicitacaoSemCheckout(final CheckinDTO checkin) throws ServiceException;
 
     /**
-     * Verifica se existe algum checkin para a solicitaÁ„o, tarefa e usu·rio
+     * Verifica se existe algum checkin para a solicita√ß√£o, tarefa e usu√°rio
      *
      * @param checkin
-     *            informaÁıes do checkin
+     *            informa√ß√µes do checkin
      * @return
      * @throws ServiceException
      * @author maycon.silva

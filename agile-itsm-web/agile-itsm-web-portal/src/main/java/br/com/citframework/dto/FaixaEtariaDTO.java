@@ -26,7 +26,7 @@ public class FaixaEtariaDTO extends BaseEntity {
         String strRet = "";
 
         if (getInicio().intValue() <= 0) {
-            strRet += "Até ";
+            strRet += "AtÃ© ";
         } else {
             strRet += getInicio() + " a ";
         }

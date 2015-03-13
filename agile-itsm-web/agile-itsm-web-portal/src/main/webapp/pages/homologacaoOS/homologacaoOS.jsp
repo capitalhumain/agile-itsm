@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.centralit.citcorpore.util.CitCorporeConstantes"%>
@@ -8,7 +8,7 @@
 <%@ include file="/WEB-INF/templates/taglibs.jsp"%>
 
 <%
-	response.setCharacterEncoding("ISO-8859-1");
+	response.setCharacterEncoding("UTF-8");
 
 	String permiteValorZeroAtv = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.OS_VALOR_ZERO, "N");
 	if (permiteValorZeroAtv == null){
@@ -18,7 +18,7 @@
 <html>
 
 <head>
-	<%@include file="/include/titleComum/titleComum.jsp" %>
+	<%@include file="/novoLayout/common/include/titulo.jsp" %>
 
 	<%@include file="/include/menu/menuConfig.jsp" %>
 
@@ -157,7 +157,7 @@
 					<tr>
 						<td width="100%">
 							<div id='areaUtilAplicacao'>
-								<b>Homologação de OS - Ordem de Serviço</b>
+								<b>HomologaÃ§Ã£o de OS - Ordem de ServiÃ§o</b>
 								<!-- ## AREA DA APLICACAO ## -->
 							  	<div class="tabber" id="tabTela">
 							    	<div class="tabbertab" id="tabCadastro">
@@ -174,16 +174,16 @@
 											            </td>
 											         </tr>
 											         <tr>
-											            <td class="campoEsquerda">Classificação*:</td>
+											            <td class="campoEsquerda">ClassificaÃ§Ã£o*:</td>
 											            <td>
-											            	<select name='idClassificacaoOS' class="Valid[Required] Description[Classificação]">
+											            	<select name='idClassificacaoOS' class="Valid[Required] Description[ClassificaÃ§Ã£o]">
 											            	</select>
 											            </td>
 											         </tr>
 											         <tr>
-											            <td class="campoEsquerda">Número*:</td>
+											            <td class="campoEsquerda">NÃºmero*:</td>
 											            <td>
-											            	<input type='text' name='numero' size="20" maxlength="20" class="Valid[Required] Description[Número]"/>
+											            	<input type='text' name='numero' size="20" maxlength="20" class="Valid[Required] Description[NÃºmero]"/>
 											            </td>
 											         </tr>
 											         <tr>
@@ -193,9 +193,9 @@
 											            </td>
 											         </tr>
 											         <tr>
-											            <td class="campoEsquerda">Data Início*:</td>
+											            <td class="campoEsquerda">Data InÃ­cio*:</td>
 											            <td>
-											            	<input type='text' name='dataInicio' size="10" maxlength="10" class="Format[Date] Valid[Required,Date] Description[Data Início]"/>
+											            	<input type='text' name='dataInicio' size="10" maxlength="10" class="Format[Date] Valid[Required,Date] Description[Data InÃ­cio]"/>
 											            </td>
 											         </tr>
 											         <tr>
@@ -217,9 +217,9 @@
 											            </td>
 											         </tr>
 											         <tr>
-											            <td class="campoEsquerda">Situação:*</td>
+											            <td class="campoEsquerda">SituaÃ§Ã£o:*</td>
 											            <td>
-											            	<select name='situacaoOS' id='situacaoOS' class="Valid[Required] Description[Situação]">
+											            	<select name='situacaoOS' id='situacaoOS' class="Valid[Required] Description[SituaÃ§Ã£o]">
 											            		<option value='5'>Editar</option>
 											            		<option value='6'>Homologar</option>
 											            		<option value='2'>Rejeitar</option>
@@ -233,11 +233,11 @@
 											         </tr>
 											         <tr>
 											         	<td colspan="2">
-												         		<cit:grid id="GRID_ITENS" columnHeaders="Complexidade;Atividade;Observações;Custo Total;Glosa" styleCells="linhaGrid">
+												         		<cit:grid id="GRID_ITENS" columnHeaders="Complexidade;Atividade;ObservaÃ§Ãµes;Custo Total;Glosa" styleCells="linhaGrid">
 												         			<cit:column idGrid="GRID_ITENS" number="001">
 												         				<select name='complexidade#SEQ#' id='complexidade#SEQ#'>
 												         					<option value='B'>Baixa</option>
-												         					<option value='I'>Intermediária</option>
+												         					<option value='I'>IntermediÃ¡ria</option>
 												         					<option value='M'>Mediana</option>
 												         					<option value='A'>Alta</option>
 												         					<option value='E'>Especialista</option>

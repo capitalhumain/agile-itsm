@@ -191,8 +191,8 @@ public class RestMobile implements IRestOperation<CtMessage, CtMessageResp> {
                     this.getTiposArrayFromType(tipo), this.getAprovacao(input.getOnlyApproval()));
             if (tarefas != null) {
                 List<TarefaFluxoDTO> tarefasAux = null;
-                // Alteração feito para limitar a lista enviada para o mobile, estava indo uma lista grande e estava estourando o banco.
-                // Após a criação da paginação do mobile retirar esse tratamento.
+                // AlteraÃ§Ã£o feito para limitar a lista enviada para o mobile, estava indo uma lista grande e estava estourando o banco.
+                // ApÃ³s a criaÃ§Ã£o da paginaÃ§Ã£o do mobile retirar esse tratamento.
                 if (tarefas.size() > 200) {
                     tarefasAux = tarefas.subList(0, 200);
                 } else {
@@ -318,7 +318,7 @@ public class RestMobile implements IRestOperation<CtMessage, CtMessageResp> {
 
         final NotificationDetail detail = new NotificationDetail();
 
-        // específicos da V1
+        // especÃ­ficos da V1
         final Integer id = solicitacao.getIdSolicitacaoServico();
         detail.setNumber(BigInteger.valueOf(id == null ? DEFAULT_VALUE : id));
         if (solicitacao.getDataHoraInicio() != null) {
@@ -332,7 +332,7 @@ public class RestMobile implements IRestOperation<CtMessage, CtMessageResp> {
             detail.setWaiting(1);
         }
 
-        // específicos da V2
+        // especÃ­ficos da V2
         detail.setTimeSLA(this.getTimeSLA(solicitacao));
 
         if (UtilStrings.nullToVazio(solicitacao.getSituacaoSLA()).equalsIgnoreCase("A") && solicitacao.getDataHoraLimite() != null
@@ -789,7 +789,7 @@ public class RestMobile implements IRestOperation<CtMessage, CtMessageResp> {
         private String status;
         private String taskStatus;
 
-        // específicos da V1
+        // especÃ­ficos da V1
         private BigInteger number;
         private String date;
         private BigInteger taskId;
@@ -797,7 +797,7 @@ public class RestMobile implements IRestOperation<CtMessage, CtMessageResp> {
         private Integer timeFlag;
         private int waiting;
 
-        // específicos da V2
+        // especÃ­ficos da V2
         private Integer timeSLA;
 
         public String getEndSLA() {
@@ -848,7 +848,7 @@ public class RestMobile implements IRestOperation<CtMessage, CtMessageResp> {
             this.taskStatus = taskStatus;
         }
 
-        // específicos da V1
+        // especÃ­ficos da V1
         public BigInteger getNumber() {
             return number;
         }
@@ -897,7 +897,7 @@ public class RestMobile implements IRestOperation<CtMessage, CtMessageResp> {
             this.waiting = waiting;
         }
 
-        // específicos da V2
+        // especÃ­ficos da V2
         public Integer getTimeSLA() {
             return timeSLA;
         }

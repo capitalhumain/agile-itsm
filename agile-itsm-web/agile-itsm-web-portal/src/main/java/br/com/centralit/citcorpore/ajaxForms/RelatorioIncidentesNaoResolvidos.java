@@ -93,7 +93,7 @@ public class RelatorioIncidentesNaoResolvidos extends AjaxFormAction {
 		
 		int QuantidadeDeSolicitacoesComMaisXDias = listaSolicitacoesNaoResolvidas == null ? 0 : listaSolicitacoesNaoResolvidas.size();
 		/**
-		 * Otimizar depois usando um count para o quantitativo de solicitações dentro do período informado de dias
+		 * Otimizar depois usando um count para o quantitativo de solicitaÃ§Ãµes dentro do perÃ­odo informado de dias
 		 */
 		Collection<SolicitacaoServicoDTO> col = solicitacaoService.findSolicitacoesNaoResolvidasEntrePrazoKPI(relatorioIncidentesNaoResolvidosDto);
 		int QuantidadeDeSolicitacoesDentroDoPeriodo = (col == null ? 0 : col.size()) ;

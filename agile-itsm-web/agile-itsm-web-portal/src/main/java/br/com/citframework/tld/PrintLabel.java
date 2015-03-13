@@ -35,7 +35,7 @@ public class PrintLabel extends TagSupport{
 			valor =  Label.getValue(key);
 			
 			if(valor==null || valor.trim().length()==0){
-				throw new JspException("Não foi encontrada a chave "+key+" no arquivo Label.properties" );
+				throw new JspException("NÃ£o foi encontrada a chave "+key+" no arquivo Label.properties" );
 			}
 		}
 		

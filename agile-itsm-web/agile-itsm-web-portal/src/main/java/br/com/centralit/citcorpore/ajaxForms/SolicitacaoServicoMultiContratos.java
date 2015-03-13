@@ -232,10 +232,10 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
     }
 
     /**
-     * Alterado mÈtodo para carragar somente o essencial para o primeiro passo
+     * Alterado m√©todo para carragar somente o essencial para o primeiro passo
      *
      * @author thyen.chang
-     * @since 09/02/2015 - OPERA«√O USAIN BOLT
+     * @since 09/02/2015 - OPERA√á√ÉO USAIN BOLT
      */
     @Override
     public void load(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
@@ -257,7 +257,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
                 br.com.centralit.citcorpore.util.Enumerados.ParametroSistema.UNIDADE_AUTOCOMPLETE, "N");
 
         /**
-         * Adicionado para fazer limpeza do upload que est· na sess„o .
+         * Adicionado para fazer limpeza do upload que est√° na sess√£o .
          *
          * @author maycon.fernandes
          * @since 28/10/2013 08:21
@@ -293,8 +293,8 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
             document.executeScript("$('#liNovasolicitacao').addClass('inativo')");
         }
         /*
-         * Desenvolvedor: Thiago Matias - Data: 08/11/2013 - Hor·rio: 09:30 - ID Citsmart: 123357 - Motivo/Coment·rio: Verificando a
-         * variavel editar da URL est· setada com N, pois se estiver È para
+         * Desenvolvedor: Thiago Matias - Data: 08/11/2013 - Hor√°rio: 09:30 - ID Citsmart: 123357 - Motivo/Coment√°rio: Verificando a
+         * variavel editar da URL est√° setada com N, pois se estiver √© para
          * setar no objeto e sdesabilitar os campos abaixo
          */
         if (solicitacaoServicoDto != null && request.getParameter("editar") != null && request.getParameter("editar").equalsIgnoreCase("N")) {
@@ -350,8 +350,8 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         }
 
         /**
-         * RECLASSIFICAR SOLICITACAO Visualiza o 3 passo do cadastro de solicitaÁ„o de serviÁo, mostrando apenas campos especificos para a
-         * reclassificaÁ„o da solicitaÁ„o
+         * RECLASSIFICAR SOLICITACAO Visualiza o 3 passo do cadastro de solicita√ß√£o de servi√ßo, mostrando apenas campos especificos para a
+         * reclassifica√ß√£o da solicita√ß√£o
          **/
         String visualizarPasso = request.getParameter("visualizarPasso");
         visualizarPasso = UtilStrings.nullToVazio(visualizarPasso);
@@ -403,8 +403,8 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         String sla = "";
 
         /*
-         * M·rio J˙nior - 04/12/2013 #SolicitaÁ„o-125972 Alterado pois na vizualizaÁ„o e na execuÁ„o o SLA n„o È mostrado no 3 passo da
-         * solicitaÁ„o.
+         * M√°rio J√∫nior - 04/12/2013 #Solicita√ß√£o-125972 Alterado pois na vizualiza√ß√£o e na execu√ß√£o o SLA n√£o √© mostrado no 3 passo da
+         * solicita√ß√£o.
          */
         if (solicitacaoServicoDto != null && solicitacaoServicoDto.getIdContrato() != null && solicitacaoServicoDto.getIdServico() != null) {
             if (solicitacaoServicoDto.getPrazoHH() != null && solicitacaoServicoDto.getPrazoMM() != null) {
@@ -443,10 +443,10 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
     }
 
     /**
-     * Carrega segunndo passo da solicitaÁ„o
+     * Carrega segunndo passo da solicita√ß√£o
      *
      * @author thyen.chang
-     * @since 09/02/2015 - OPERA«√O USAIN BOLT
+     * @since 09/02/2015 - OPERA√á√ÉO USAIN BOLT
      * @param document
      * @param request
      * @param response
@@ -566,10 +566,10 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
     }
 
     /**
-     * Carrega segunndo passo da solicitaÁ„o
+     * Carrega segunndo passo da solicita√ß√£o
      *
      * @author thyen.chang
-     * @since 09/02/2015 - OPERA«√O USAIN BOLT
+     * @since 09/02/2015 - OPERA√á√ÉO USAIN BOLT
      * @param document
      * @param request
      * @param response
@@ -623,10 +623,10 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
     }
 
     /**
-     * Carrega segunndo passo da solicitaÁ„o
+     * Carrega segunndo passo da solicita√ß√£o
      *
      * @author thyen.chang
-     * @since 09/02/2015 - OPERA«√O USAIN BOLT
+     * @since 09/02/2015 - OPERA√á√ÉO USAIN BOLT
      * @param document
      * @param request
      * @param response
@@ -658,7 +658,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
 
             ContratoDTO contratoSelecionado = null;
 
-            // Encontra o primeiro contrato do colaborador que est· presente na lista de contratos do usu·rio
+            // Encontra o primeiro contrato do colaborador que est√° presente na lista de contratos do usu√°rio
             if (listContratosEmpregado != null && listContratosEmpregado.size() > 0) {
                 for (final ContratoDTO contratoEmpregado : listContratosEmpregado) {
                     if (listContratosUsuario.contains(contratoEmpregado)) {
@@ -668,7 +668,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
                 }
             }
 
-            // SÛ alimenta o solicitante se ele estiver lotado no contrato ao qual o usu·rio est· vinculado
+            // S√≥ alimenta o solicitante se ele estiver lotado no contrato ao qual o usu√°rio est√° vinculado
             if (contratoSelecionado == null) {
                 document.alert(UtilI18N.internacionaliza(request, "asterisk.alertaSolicitanteNaoPertenceContrato"));
             } else {
@@ -712,7 +712,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
     }
 
     /**
-     * Carrega Combo de Contratos de acordo com PAR¬METRO de Vinculo de Colaboradores.
+     * Carrega Combo de Contratos de acordo com PAR√ÇMETRO de Vinculo de Colaboradores.
      *
      * @param document
      * @param usuario
@@ -739,7 +739,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         // COMBO CONTRATO
         document.getSelectById("idContrato").removeAllOptions();
 
-        // N√O H¡ NECESSIDADE DE CARREGAR TODOS OS CONTRATOS
+        // N√ÉO H√Å NECESSIDADE DE CARREGAR TODOS OS CONTRATOS
         if (solicitacaoServicoDto != null && solicitacaoServicoDto.getIdSolicitacaoServico() != null) {
 
             ContratoDTO contratoDto = new ContratoDTO();
@@ -754,15 +754,15 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
 
         } else {
 
-            // H¡ NECESSIDADE DE CARREGAR TODOS OS CONTRATOS (de acordo com o Usu·rio Logado)
+            // H√Å NECESSIDADE DE CARREGAR TODOS OS CONTRATOS (de acordo com o Usu√°rio Logado)
             if (COLABORADORES_VINC_CONTRATOS != null && COLABORADORES_VINC_CONTRATOS.equalsIgnoreCase("S")) {
 
-                // PAR¬METRO DE VINCULO ATIVO
+                // PAR√ÇMETRO DE VINCULO ATIVO
                 listContratoAtivo = getContratoService().findAtivosByIdEmpregado(usuario.getIdEmpregado());
 
             } else {
 
-                // PAR¬METRO DE VINCULO INATIVO
+                // PAR√ÇMETRO DE VINCULO INATIVO
                 listContratoAtivo = getContratoService().listAtivos();
 
             }
@@ -787,18 +787,18 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
 
                     acao = true;
 
-                    // … utilizado para carregar as Unidades.
+                    // √â utilizado para carregar as Unidades.
                     contratoDtoAux.setIdContrato(contratoDto.getIdContrato());
                 }
             }
 
         }
-        // Lista utilizada para verificar se o empregado da chamada Asterisk est· inserido no contrato que o usu·rio est· vinculado
+        // Lista utilizada para verificar se o empregado da chamada Asterisk est√° inserido no contrato que o usu√°rio est√° vinculado
         listContratosUsuario = listContratoAtivo;
     }
 
     /**
-     * Carrega Combo Categoria SoluÁ„o.
+     * Carrega Combo Categoria Solu√ß√£o.
      *
      * @param document
      * @param request
@@ -873,7 +873,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
     }
 
     /**
-     * Carrega Combo de Tipo Demanda ServiÁo.
+     * Carrega Combo de Tipo Demanda Servi√ßo.
      *
      * @param document
      * @param request
@@ -898,7 +898,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
     }
 
     /**
-     * Carrega Combos Impact e UrgÍncia.
+     * Carrega Combos Impact e Urg√™ncia.
      *
      * @param document
      * @param request
@@ -948,7 +948,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
     }
 
     /**
-     * Concatena ao Nome do Contrato o N˙mero do Contrato + Data do Contrato + Nome do Cliente + Nome do Fornecedor.
+     * Concatena ao Nome do Contrato o N√∫mero do Contrato + Data do Contrato + Nome do Cliente + Nome do Fornecedor.
      *
      * @param contratoDto
      * @return String - Nome do Contrato tratado.
@@ -1040,10 +1040,10 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
 
             if (solicitacaoServicoDto != null) {
                 baseConhecimento.setTitulo(solicitacaoServicoDto.getTituloBaseConhecimento());
-                baseConhecimento.setConteudo("DescriÁ„o: " + solicitacaoServicoDto.getDescricaoSemFormatacao() + "<br><br>" + "SoluÁ„o/Resposta: "
+                baseConhecimento.setConteudo("Descri√ß√£o: " + solicitacaoServicoDto.getDescricaoSemFormatacao() + "<br><br>" + "Solu√ß√£o/Resposta: "
                         + solicitacaoServicoDto.getResposta());
             }
-            baseConhecimento.setOrigem("5");// ServiÁo
+            baseConhecimento.setOrigem("5");// Servi√ßo
             baseConhecimento.setDataExpiracao(UtilDatas.getSqlDate(UtilDatas.geraUmAnoSeguinte(UtilDatas.getDataAtual())));
             baseConhecimento.setStatus("N");
             baseConhecimento.setErroConhecido("S");
@@ -1366,7 +1366,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
             for (final ADUserDTO usuarioADDto : listUsuariosADDto) {
 
                 document.getElementById("POPUP_SINCRONIZACAO_DETALHE").setInnerHTML(
-                        "SincronizaÁ„o concluÌda com sucesso. Favor fazer a busca na lookup de colaborador.");
+                        "Sincroniza√ß√£o conclu√≠da com sucesso. Favor fazer a busca na lookup de colaborador.");
             }
 
         } else {
@@ -1382,7 +1382,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
     }
 
     /**
-     * Preenche a Combo de Unidades de acordo com o Par‚metro UNIDADE_VINC_CONTRATOS.
+     * Preenche a Combo de Unidades de acordo com o Par√¢metro UNIDADE_VINC_CONTRATOS.
      *
      * @param document
      * @param request
@@ -1394,7 +1394,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         final String UNIDADE_AUTOCOMPLETE = ParametroUtil.getValorParametroCitSmartHashMap(
                 br.com.centralit.citcorpore.util.Enumerados.ParametroSistema.UNIDADE_AUTOCOMPLETE, "N");
 
-        // Se o par‚metro de ativaÁ„o do campo autocomplete unidade for diferente de 'N' carrego a combo de unidade
+        // Se o par√¢metro de ativa√ß√£o do campo autocomplete unidade for diferente de 'N' carrego a combo de unidade
         if (UNIDADE_AUTOCOMPLETE != null && !UNIDADE_AUTOCOMPLETE.equalsIgnoreCase("S")) {
 
             final String parametroUnidadeVinculadoAContratos = ParametroUtil.getValorParametroCitSmartHashMap(
@@ -1743,7 +1743,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
             problemadto.setIdSolicitacaoServico(solicitacaoServicoDto.getIdSolicitacaoServico());
             final Collection col = getProblemaService().findByIdSolictacaoServico(problemadto.getIdSolicitacaoServico());
             if (col != null) {
-                tblProblema.addRowsByCollection(col, new String[] {"numberAndTitulo", "status", ""}, new String[] {"idProblema"}, "Problema j· cadastrado!!",
+                tblProblema.addRowsByCollection(col, new String[] {"numberAndTitulo", "status", ""}, new String[] {"idProblema"}, "Problema j√° cadastrado!!",
                         new String[] {"exibeIconesProblema"}, null, null);
                 document.executeScript("HTMLUtils.applyStyleClassInAllCells('tblProblema', 'tblProblema');");
                 /**
@@ -1768,7 +1768,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
             final Collection col = getRequisicaoMudancaService().findBySolictacaoServico(requisicaoMudancaDTO);
             if (col != null) {
                 tblMudanca.addRowsByCollection(col, new String[] {"numberAndTitulo", "status", ""}, new String[] {"idRequisicaoMudanca"},
-                        "MudanÁa j· cadastrado!!", new String[] {"exibeIconesMudanca"}, null, null);
+                        "Mudan√ßa j√° cadastrado!!", new String[] {"exibeIconesMudanca"}, null, null);
                 document.executeScript("HTMLUtils.applyStyleClassInAllCells('tblMudanca', 'tblMudanca');");
 
                 /**
@@ -1830,12 +1830,12 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
 
             if (col != null) {
                 tblIC.addRowsByCollection(col, new String[] {"idItemConfiguracao", "identificacao", "", ""}, new String[] {"idItemConfiguracao"},
-                        "Item ConfiguraÁ„o j· cadastrado!!", new String[] {"exibeIconesIC"}, null, null);
+                        "Item Configura√ß√£o j√° cadastrado!!", new String[] {"exibeIconesIC"}, null, null);
 
                 document.executeScript("HTMLUtils.applyStyleClassInAllCells('tblIC', 'tblIC');");
 
                 /**
-                 * Quantitativo de Item ConfiguraÁ„o
+                 * Quantitativo de Item Configura√ß√£o
                  *
                  * @author thays.araujo
                  */
@@ -1927,8 +1927,8 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         }
 
         /*
-         * Desenvolvedor: M·rio J˙nior - Data: 23/10/2013 - Hor·rio: 16h00min - ID Citsmart: 122010 - Motivo/Coment·rio: InserÁ„o do tÌtulo
-         * da solicitaÁ„o, informaÁ„o do frame de solicitaÁ„o
+         * Desenvolvedor: M√°rio J√∫nior - Data: 23/10/2013 - Hor√°rio: 16h00min - ID Citsmart: 122010 - Motivo/Coment√°rio: Inser√ß√£o do t√≠tulo
+         * da solicita√ß√£o, informa√ß√£o do frame de solicita√ß√£o
          */
         final String tarefa = request.getParameter("idTarefa");
         String responsavelAtual = "";
@@ -2112,7 +2112,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
 
         preencherComboLocalidade(document, request, response);
         /*
-         * Rodrigo Pecci Acorse - 03/12/2013 14h40 - #126139 Ao setar o DTO da solicitaÁ„o de serviÁos, a situaÁ„o e grupo executor do
+         * Rodrigo Pecci Acorse - 03/12/2013 14h40 - #126139 Ao setar o DTO da solicita√ß√£o de servi√ßos, a situa√ß√£o e grupo executor do
          * filtro estava sendo preenchida indevidamente. As linhas abaixo
          * preenchem os selects com os valores corretos.
          */
@@ -2337,10 +2337,10 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         try {
             final SolicitacaoServicoDTO solicitacaoServicoDto = (SolicitacaoServicoDTO) document.getBean();
             if (solicitacaoServicoDto.getIdContrato() == null || solicitacaoServicoDto.getIdContrato().intValue() == 0) {
-                throw new LogicException("Contrato n„o encontrado");
+                throw new LogicException("Contrato n√£o encontrado");
             }
             if (solicitacaoServicoDto.getIdServico() == null || solicitacaoServicoDto.getIdServico().intValue() == 0) {
-                throw new LogicException("ServiÁo n„o encontrado");
+                throw new LogicException("Servi√ßo n√£o encontrado");
             }
 
             sla = getSolicitacaoServicoService().calculaSLA(solicitacaoServicoDto, request);
@@ -2376,10 +2376,10 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         final HTMLTable tblProblema = document.getTableById("tblProblema");
 
         if (problemaDTO.getSequenciaProblema() == null) {
-            tblProblema.addRow(problemaDTO, new String[] {"numberAndTitulo", "status", ""}, new String[] {"idProblema"}, "Problema j· cadastrado!!",
+            tblProblema.addRow(problemaDTO, new String[] {"numberAndTitulo", "status", ""}, new String[] {"idProblema"}, "Problema j√° cadastrado!!",
                     new String[] {"exibeIconesProblema"}, null, null);
         } else {
-            tblProblema.updateRow(problemaDTO, new String[] {"numberAndTitulo", "status", ""}, new String[] {"idProblema"}, "Problema j· cadastrado!!",
+            tblProblema.updateRow(problemaDTO, new String[] {"numberAndTitulo", "status", ""}, new String[] {"idProblema"}, "Problema j√° cadastrado!!",
                     new String[] {"exibeIconesProblema"}, "buscaProblema", null, problemaDTO.getSequenciaProblema());
         }
         document.executeScript("HTMLUtils.applyStyleClassInAllCells('tblProblema', 'tblProblema');");
@@ -2401,10 +2401,10 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
 
         if (requisicaoMudancaDTO.getSequenciaMudanca() == null) {
             tblMudanca.addRow(requisicaoMudancaDTO, new String[] {"numberAndTitulo", "status", ""}, new String[] {"idRequisicaoMudanca"},
-                    "MudanÁa j· cadastrado!!", new String[] {"exibeIconesMudanca"}, null, null);
+                    "Mudan√ßa j√° cadastrado!!", new String[] {"exibeIconesMudanca"}, null, null);
         } else {
             tblMudanca.updateRow(requisicaoMudancaDTO, new String[] {"numberAndTitulo", "status", ""}, new String[] {"idRequisicaoMudanca"},
-                    "MudanÁa j· cadastrado!!", new String[] {"exibeIconesMudanca"}, "buscaMudanca", null, requisicaoMudancaDTO.getSequenciaMudanca());
+                    "Mudan√ßa j√° cadastrado!!", new String[] {"exibeIconesMudanca"}, "buscaMudanca", null, requisicaoMudancaDTO.getSequenciaMudanca());
         }
         document.executeScript("HTMLUtils.applyStyleClassInAllCells('tblMudanca', 'tblMudanca');");
         document.executeScript("fecharModalMudanca();");
@@ -2453,7 +2453,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
 
             if (itemConfiguracaoDTO.getSequenciaIC() == null) {
                 tblBaseConhecimento.addRow(itemConfiguracaoDTO, new String[] {"idItemConfiguracao", "descricao", "", ""}, new String[] {"idItemConfiguracao"},
-                        "Item ConfiguraÁ„o j· cadastrado!!", new String[] {"exibeIconesMudanca"}, "abreItemConfiguracao", null);
+                        "Item Configura√ß√£o j√° cadastrado!!", new String[] {"exibeIconesMudanca"}, "abreItemConfiguracao", null);
 
             } else {
                 tblBaseConhecimento.updateRow(itemConfiguracaoDTO, new String[] {"idItemConfiguracao", "descricao", "", ""},
@@ -2515,7 +2515,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
             request.getSession().setAttribute("idSolicitante", solicitacaoServicoDto.getIdSolicitante());
             document.executeScript("exibirInformacoesComplementares(\"" + solicitacaoServicoService.getUrlInformacoesComplementares(solicitacaoServicoDto)
                     + "\");");
-            // IncluÌdo, quando question·rio for recarregado.
+            // Inclu√≠do, quando question√°rio for recarregado.
             document.executeScript("incluiInfoComplSeQuestionario(\"" + solicitacaoServicoService.getUrlInformacoesComplementares(solicitacaoServicoDto)
                     + "\");");
             final TemplateSolicitacaoServicoDTO templateDto = templateService.recuperaTemplateServico(solicitacaoServicoDto);
@@ -2526,10 +2526,10 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
 
             final String exandiTelaPadrao = (String) request.getSession().getAttribute("expandiuTela");
             /**
-             * @author david.silva - data 25/06/2014 ajustarTelaPadraoTemplate() - responsavel por expandir a tela de SolicitaÁ„o de
-             *         ServiÁo.
+             * @author david.silva - data 25/06/2014 ajustarTelaPadraoTemplate() - responsavel por expandir a tela de Solicita√ß√£o de
+             *         Servi√ßo.
              *
-             *         AlteraÁ„o mario.haysaki inserÁ„o de flag para tela de expandir tela.
+             *         Altera√ß√£o mario.haysaki inser√ß√£o de flag para tela de expandir tela.
              */
             if (solicitacaoServicoDto.getIdContrato() != null && solicitacaoServicoDto.getIdServico() != null) {
                 servicoContrato = getServicoContratoService().findByIdContratoAndIdServico(solicitacaoServicoDto.getIdContrato(),
@@ -2548,7 +2548,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
     /**
      * @author david.silva
      *
-     *         SeparaÁ„o do codigo que cuida da geraÁ„o do template, para um metodo expecifico.
+     *         Separa√ß√£o do codigo que cuida da gera√ß√£o do template, para um metodo expecifico.
      */
     private void carregaInformacoesComplementaresTemplate(final DocumentHTML document, final HttpServletRequest request,
             final TemplateSolicitacaoServicoDTO templateDto, final SolicitacaoServicoDTO solicitacaoServicoDto) {
@@ -2598,10 +2598,10 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         }
 
         /*
-         * Desenvolvedor: Riubbe Oliveira - Data: 08/11/2013 - Hor·rio: 17:39 - ID Citsmart: 123538 Motivo/Coment·rio: Esta parte do codigo
-         * estava sendo comentada, isso nao deve ser feito. … nesse
-         * momento que È carregado a informaÁ„o da altura do template, se estiver tendo problema com a altura da sua template entre no
-         * sistema e altera o tamanho por l·.
+         * Desenvolvedor: Riubbe Oliveira - Data: 08/11/2013 - Hor√°rio: 17:39 - ID Citsmart: 123538 Motivo/Coment√°rio: Esta parte do codigo
+         * estava sendo comentada, isso nao deve ser feito. √â nesse
+         * momento que √© carregado a informa√ß√£o da altura do template, se estiver tendo problema com a altura da sua template entre no
+         * sistema e altera o tamanho por l√°.
          */
         if (templateDto.getAlturaDiv() != null) {
             document.executeScript("document.getElementById('divInformacoesComplementares').style.height = '" + templateDto.getAlturaDiv().intValue() + "px';");
@@ -2622,8 +2622,8 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
                         || templateDto.getIdentificacao().equalsIgnoreCase("AlteracaoRequisicaoViagem")
                         || templateDto.getIdentificacao().equalsIgnoreCase("ExecComprasViagem") || templateDto.getIdentificacao().equalsIgnoreCase(
                         "AutorizacaoViagem"))) {
-            // regra: permite que o usu·rio solicitante cancele a solicitaÁ„o durante essas fases do fluxo
-            // mas o usu·rio n„o pode marcar a solicitaÁ„o como resolvida
+            // regra: permite que o usu√°rio solicitante cancele a solicita√ß√£o durante essas fases do fluxo
+            // mas o usu√°rio n√£o pode marcar a solicita√ß√£o como resolvida
             document.executeScript("document.getElementById('col4').style.display = 'block';");
             document.executeScript("document.getElementById('divSituacao').style.display = 'block';");
             document.executeScript("document.getElementById('radioResolvida').disabled=true;");
@@ -2731,7 +2731,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
             if (getContadorAcessoService().verificarDataHoraDoContadorDeAcesso(contadorAcessoDto)) {
                 getContadorAcessoService().create(contadorAcessoDto);
 
-                // AvaliaÁ„o - MÈdia da nota dada pelos usu·rios
+                // Avalia√ß√£o - M√©dia da nota dada pelos usu√°rios
                 final Double media = getBaseConhecimentoService().calcularNota(baseConhecimentoDto.getIdBaseConhecimento());
                 if (media != null) {
                     baseConhecimentoDto.setMedia(media.toString());
@@ -2754,7 +2754,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
     }
 
     /**
-     * Alterado por desenvolvedor: rcs (Rafael CÈsar Soyer) data: 09/01/2015
+     * Alterado por desenvolvedor: rcs (Rafael C√©sar Soyer) data: 09/01/2015
      *
      * @param document
      * @param request
@@ -3066,7 +3066,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
                 String strRegPor = UtilStrings.nullToVazio(ocorrenciaSolicitacaoAux.getRegistradopor());
                 try {
                     if (ocorrenciaSolicitacaoAux.getRegistradopor() != null
-                            && !ocorrenciaSolicitacaoAux.getRegistradopor().trim().equalsIgnoreCase("Autom·tico")) {
+                            && !ocorrenciaSolicitacaoAux.getRegistradopor().trim().equalsIgnoreCase("Autom√°tico")) {
                         final UsuarioDTO usuarioDto = getUsuarioService().restoreByLogin(ocorrenciaSolicitacaoAux.getRegistradopor());
                         if (usuarioDto != null) {
                             final EmpregadoDTO empregadoDto = empregadoService.restoreByIdEmpregado(usuarioDto.getIdEmpregado());
@@ -3140,7 +3140,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
             final StringBuilder script = new StringBuilder();
 
             /**
-             * Quantitativo de subsolicitaÁıes
+             * Quantitativo de subsolicita√ß√µes
              *
              * @author thays.araujo
              */
@@ -3161,7 +3161,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
     }
 
     /**
-     * Retorna Grau de Import‚ncia.
+     * Retorna Grau de Import√¢ncia.
      *
      * @param request
      * @param importancia
@@ -3233,7 +3233,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
                             + UtilDatas.convertDateToString(TipoDate.TIMESTAMP_WITH_SECONDS, solicitacaoServicoRelacionada.getDataHoraLimite(),
                                     WebUtil.getLanguage(request)) + "</td>");
                 } else {
-                    html.append("<td>¿ combinar</td>");
+                    html.append("<td>√Ä combinar</td>");
                 }
 
                 html.append("</tr>");
@@ -3244,7 +3244,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
     }
 
     /**
-     * Retorna lista de caracterÌsticas.
+     * Retorna lista de caracter√≠sticas.
      *
      * @param idItemConfiguracao
      * @param tagTipoItemConfiguracao
@@ -3300,7 +3300,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
     }
 
     /**
-     * Cria Combo de Categoria ServiÁo Ativas.
+     * Cria Combo de Categoria Servi√ßo Ativas.
      *
      * @param document
      * @throws ServiceException
@@ -3322,8 +3322,8 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
     }
 
     /**
-     * Restaura Colaborador selecionado como Solicitante, obtendo e atribuindo informaÔøΩÔøΩes de Contato, Item de ConfiguraÔøΩÔøΩo e
-     * HistÔøΩrico de SolicitaÔøΩÔøΩes.
+     * Restaura Colaborador selecionado como Solicitante, obtendo e atribuindo informa√Ø¬ø¬Ω√Ø¬ø¬Ωes de Contato, Item de Configura√Ø¬ø¬Ω√Ø¬ø¬Ωo e
+     * Hist√Ø¬ø¬Ωrico de Solicita√ß√Ø¬ø¬Ωes.
      *
      * @param document
      * @param request
@@ -3434,10 +3434,10 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
 
         if (itemConfiguracaoDTO.getSequenciaIC() == null) {
             tblIC.addRow(itemConfiguracaoDTO, new String[] {"idItemConfiguracao", "identificacao", "", ""}, new String[] {"idItemConfiguracao"},
-                    "Item ConfiguraÁ„o j· cadastrado!!", new String[] {"exibeIconesIC"}, null, null);
+                    "Item Configura√ß√£o j√° cadastrado!!", new String[] {"exibeIconesIC"}, null, null);
         } else {
             tblIC.updateRow(itemConfiguracaoDTO, new String[] {"idItemConfiguracao", "identificacaoStatus", "", ""}, new String[] {"idItemConfiguracao"},
-                    "Item ConfiguraÁ„o j· cadastrado!!", new String[] {"exibeIconesIC"}, null, null, itemConfiguracaoDTO.getSequenciaIC());
+                    "Item Configura√ß√£o j√° cadastrado!!", new String[] {"exibeIconesIC"}, null, null, itemConfiguracaoDTO.getSequenciaIC());
         }
         document.executeScript("setquantitativoItemConfiguracao()");
 
@@ -3445,7 +3445,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
 
         document.executeScript("$('#modal_pesquisaItemConfiguracao').modal('hide');");
 
-        // metodo para setar urgencia e impacto de acordo com o item de configuraÁ„o
+        // metodo para setar urgencia e impacto de acordo com o item de configura√ß√£o
         int prioridade = 0;
         int prioridadeObj = 0;
         List<ItemConfiguracaoDTO> colItensIC = (List<ItemConfiguracaoDTO>) br.com.citframework.util.WebUtil.deserializeCollectionFromRequest(
@@ -3860,7 +3860,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
     }
 
     /**
-     * Adicionado para fazer limpeza da seÁ„o quando for gerenciamento de ServiÁo
+     * Adicionado para fazer limpeza da se√ß√£o quando for gerenciamento de Servi√ßo
      *
      * @author mario.junior
      * @since 31/10/2013 09:36
@@ -3874,7 +3874,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
     }
 
     /**
-     * Metodo para gerar o quantitativo de Incidentes Relacionados com a solicitaÁ„o Pai.
+     * Metodo para gerar o quantitativo de Incidentes Relacionados com a solicita√ß√£o Pai.
      *
      * @param document
      * @param request
@@ -3902,7 +3902,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
     }
 
     /**
-     * Adicionado para colocar a descriÁ„o da solicitaÁ„o de serviÁo na sess„o e enviar para a requisiÁ„o de problema
+     * Adicionado para colocar a descri√ß√£o da solicita√ß√£o de servi√ßo na sess√£o e enviar para a requisi√ß√£o de problema
      *
      * @author bruno.aquino
      * @since 02/06/2014 16:00
@@ -3915,7 +3915,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
     }
 
     /**
-     * Adicionado para colocar a descriÁ„o da solicitaÁ„o de serviÁo na sess„o e enviar para a requisiÁ„o de mudanÁa
+     * Adicionado para colocar a descri√ß√£o da solicita√ß√£o de servi√ßo na sess√£o e enviar para a requisi√ß√£o de mudan√ßa
      *
      * @author bruno.aquino
      * @since 02/06/2014 16:00

@@ -24,13 +24,13 @@ function MenuServicos(elementoMenu){
 			// novo item da lista.
 			var li = document.createElement('li');
 
-			// nova imagem que ser· anexada ao item da lista.
+			// nova imagem que ser√° anexada ao item da lista.
 			imagem = new Image();
 			imagem.src = listaItens[i];
 			imagem.setAttribute('id', i);
-			// torna arrast·vel
+			// torna arrast√°vel
 			imagem.setAttribute('draggable', 'true');
-			// classe necess·ria para ser identificada ao dropar no mapa.
+			// classe necess√°ria para ser identificada ao dropar no mapa.
 			imagem.setAttribute('class', 'itemInMenu');
 			
 			imagem.setAttribute("width", "30");
@@ -39,7 +39,7 @@ function MenuServicos(elementoMenu){
 			// evento de drag.
 			imagem.addEventListener("dragstart", dragstart, true);
 			
-			// anexa a imagem ao item e o item ‡ lista de itens.
+			// anexa a imagem ao item e o item √† lista de itens.
 			li.appendChild(imagem);
 			ul.appendChild(li);
 
@@ -57,8 +57,8 @@ function MenuServicos(elementoMenu){
 	};
 	
 	/**
-	 * Quando o item comeÁar a ser arrastado algumas informaÁıes
-	 * ser„o salvas para serem recuperadas pelo MapaItemConfiguracao.
+	 * Quando o item come√ßar a ser arrastado algumas informa√ß√µes
+	 * ser√£o salvas para serem recuperadas pelo MapaItemConfiguracao.
 	 * @param e
 	 * Evento dragstart.
 	 */

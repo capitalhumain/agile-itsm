@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.CitCorporeConstantes"%>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
@@ -267,7 +269,7 @@
 			
 		</div>
 
-		<script  charset="ISO-8859-1" type="text/javascript" src="${ctx}/js/PopupManager.js"></script>
+		<script  charset="UTF-8" type="text/javascript" src="${ctx}/js/PopupManager.js"></script>
 		<script type="text/javascript" src="js/monitoramentoAtivos.js"></script>
 	</body>
 	

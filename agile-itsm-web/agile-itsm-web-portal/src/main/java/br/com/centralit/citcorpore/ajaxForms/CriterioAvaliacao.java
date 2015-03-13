@@ -81,7 +81,7 @@ public class CriterioAvaliacao extends AjaxFormAction {
 
 		if (criterioAvaliacaoDto.getSequencia() == null) {
 			if (criterioAvaliacaoDto.getValor().equalsIgnoreCase("0")) {
-				criterioAvaliacaoDto.setValor("N„o");
+				criterioAvaliacaoDto.setValor("N√£o");
 			} else {
 				if (criterioAvaliacaoDto.getValor().equalsIgnoreCase("1")) {
 					criterioAvaliacaoDto.setValor("Sim");
@@ -90,11 +90,11 @@ public class CriterioAvaliacao extends AjaxFormAction {
 				}
 			}
 
-			tblCriterio.addRow(criterioAvaliacaoDto, new String[] { "", "", "descricao", "obs" }, new String[] { "idCriterio" }, "Criterio j· cadastrado!!",
+			tblCriterio.addRow(criterioAvaliacaoDto, new String[] { "", "", "descricao", "obs" }, new String[] { "idCriterio" }, "Criterio j√° cadastrado!!",
 					new String[] { "exibeIconesCriterio" }, null, null);
 		} else {
 			if (criterioAvaliacaoDto.getValor().equalsIgnoreCase("0")) {
-				criterioAvaliacaoDto.setValor("N„o");
+				criterioAvaliacaoDto.setValor("N√£o");
 			} else {
 				if (criterioAvaliacaoDto.getValor().equalsIgnoreCase("1")) {
 					criterioAvaliacaoDto.setValor("Sim");

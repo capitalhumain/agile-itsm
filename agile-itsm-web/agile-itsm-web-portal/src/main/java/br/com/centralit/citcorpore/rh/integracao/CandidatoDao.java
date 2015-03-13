@@ -135,7 +135,7 @@ public class CandidatoDao extends CrudDaoDefaultImpl {
     /**
      * @param id
      *            - idCurriculo
-     * @return - CandidatoDTO - coleção de candidatos na primeira posição
+     * @return - CandidatoDTO - coleÃ§Ã£o de candidatos na primeira posiÃ§Ã£o
      *
      * @author david.silva
      */

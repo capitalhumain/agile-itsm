@@ -84,7 +84,7 @@ public class RelatorioQuantitativo extends AjaxFormAction {
 	}
 
 	/**
-	 * Faz a impress„o do relatÛrio no formato pdf.
+	 * Faz a impress√£o do relat√≥rio no formato pdf.
 	 * 
 	 * @param document
 	 * @param request
@@ -328,7 +328,7 @@ public class RelatorioQuantitativo extends AjaxFormAction {
 	}
 
 	/**
-	 * Faz a impress„o do relatÛrio no formato xls.
+	 * Faz a impress√£o do relat√≥rio no formato xls.
 	 * 
 	 * @param document
 	 * @param request

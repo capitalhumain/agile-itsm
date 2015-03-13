@@ -67,7 +67,7 @@ import br.com.citframework.util.UtilStrings;
 import br.com.citframework.util.UtilXMLDate;
 
 /**
- * ImplementaÁ„o das operaÁ„os que respondem em {@code /mobile} da vers„o V2 de apis consumidas pelo mobile
+ * Implementa√ß√£o das opera√ß√£os que respondem em {@code /mobile} da vers√£o V2 de apis consumidas pelo mobile
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 22/09/2014
@@ -417,7 +417,7 @@ public class RESTMobile extends RestMobile {
     private boolean validaPermissaoFluxo(final UsuarioDTO usuario, final String situacaoSolicitacao, final Integer idTarefa) {
         final PermissoesFluxoDTO permissoesFluxo = this.getPermissoesFluxoService().findByIdFluxoAndIdUsuario(usuario.getIdUsuario(), idTarefa);
 
-        // Valida Permiss„o de reativaÁ„o
+        // Valida Permiss√£o de reativa√ß√£o
         if (situacaoSolicitacao.trim().equalsIgnoreCase(SituacaoSolicitacaoServico.Suspensa.name()) && permissoesFluxo != null
                 && permissoesFluxo.getReativar().trim().equalsIgnoreCase("S")) {
             return true;

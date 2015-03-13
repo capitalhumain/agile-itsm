@@ -246,11 +246,11 @@ public class ExecucaoLiberacaoServiceEjb extends CrudServiceImpl implements Exec
         final RequisicaoLiberacaoDTO liberacaoAuxDto = new RequisicaoLiberacaoServiceEjb().restoreAll(requisicaoLiberacaoDto.getIdRequisicaoLiberacao(), tc);
 
         if (liberacaoAuxDto == null) {
-            throw new Exception("Problemas na recuperaÁ„o da solicitaÁ„o");
+            throw new Exception("Problemas na recupera√ß√£o da solicita√ß√£o");
         }
 
         if (liberacaoAuxDto.getNomeGrupoAtual() == null || liberacaoAuxDto.getNomeGrupoAtual().length() == 0) {
-            throw new Exception("Grupo executor n„o encontrado");
+            throw new Exception("Grupo executor n√£o encontrado");
         }
 
         new ExecucaoLiberacao(liberacaoAuxDto, tc).direcionaAtendimento(requisicaoLiberacaoDto.getUsuarioDto().getLogin(), liberacaoAuxDto, liberacaoAuxDto.getNomeGrupoAtual());
@@ -268,11 +268,11 @@ public class ExecucaoLiberacaoServiceEjb extends CrudServiceImpl implements Exec
         final RequisicaoLiberacaoDTO liberacaoAuxDto = new RequisicaoLiberacaoServiceEjb().restoreAll(requisicaoLiberacaoDto.getIdRequisicaoLiberacao(), tc);
 
         if (liberacaoAuxDto == null) {
-            throw new Exception("Problemas na recuperaÁ„o da solicitaÁ„o");
+            throw new Exception("Problemas na recupera√ß√£o da solicita√ß√£o");
         }
 
         if (liberacaoAuxDto.getNomeGrupoAprovador() == null || liberacaoAuxDto.getNomeGrupoAprovador().length() == 0) {
-            throw new Exception("Grupo Aprovador n„o encontrado");
+            throw new Exception("Grupo Aprovador n√£o encontrado");
         }
 
         new ExecucaoLiberacao(liberacaoAuxDto, tc)

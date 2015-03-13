@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.citframework.util.Constantes"%>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
@@ -14,7 +16,7 @@
     %>
 	<%@include file="/include/header.jsp"%>
 
-    <title><fmt:message key="citcorpore.comum.title"/></title>
+    <%@include file="/novoLayout/common/include/titulo.jsp" %>
     <%@include file="/include/menu/menuConfig.jsp" %>
 
     <%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp" %>
@@ -423,15 +425,15 @@ padding-bottom: 0 !important;
 		descricaoFmtHtml = function(obj) {
 			var descricaoFmtHtml = "";
 	    	if (!StringUtils.isBlank(obj.especificacoes))
-	        	descricaoFmtHtml += "<p><b>Especificações:</b> "+obj.especificacoes+"</p>";
+	        	descricaoFmtHtml += "<p><b>EspecificaÃ§Ãµes:</b> "+obj.especificacoes+"</p>";
 	    	descricaoFmtHtml += "<p><b>Unidade de medida:</b> "+obj.siglaUnidadeMedida+"</p>";
 	    	if (!StringUtils.isBlank(obj.marcaPreferencial))
 	        	descricaoFmtHtml += "<p><b>Marca preferencial:</b> "+obj.marcaPreferencial+"</p>";
 	    	if (!StringUtils.isBlank(obj.precoAproximado))
-	        	descricaoFmtHtml += "<p><b>Preço aproximado:</b> "+obj.precoAproximado+"</p>";
+	        	descricaoFmtHtml += "<p><b>PreÃ§o aproximado:</b> "+obj.precoAproximado+"</p>";
 	    	if (!StringUtils.isBlank(obj.idProduto))
 	        	descricaoFmtHtml += "<p><b>Produto:</b> "+obj.codigoProduto+" - "+obj.nomeProduto+"</p>";
-	       	descricaoFmtHtml += "<p><b>Situação:</b> "+obj.descrSituacao+"</p>";
+	       	descricaoFmtHtml += "<p><b>SituaÃ§Ã£o:</b> "+obj.descrSituacao+"</p>";
 
 	       	if (!StringUtils.isBlank(obj.idJustificativaValidacao)) {
 	       		if (!StringUtils.isBlank(obj.descrJustificativaValidacao)) {

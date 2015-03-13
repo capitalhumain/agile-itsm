@@ -120,7 +120,7 @@ public class ThreadIniciaGaleriaImagens extends Thread {
 											CITCorporeUtil.CAMINHO_REAL_APP + "/galeriaImagens/" + idEmpresa + "/" + galeriaImagensAux.getIdCategoriaGaleriaImagem() + "/" + controleGEDDTO.getIdControleGED() + "." + galeriaImagensAux.getExtensao(), 
 					                        System.getProperties().get("user.dir") + Constantes.getValue("CAMINHO_CHAVE_PRIVADA"));
 							    } else {
-							    	System.out.println("Arquivo : "+DIRETORIO_GED + "/" + idEmpresa + "/" + controleGEDDTO.getPasta() + "/" + controleGEDDTO.getIdControleGED() + ".ged"+" Não Encontrado!");
+							    	System.out.println("Arquivo : "+DIRETORIO_GED + "/" + idEmpresa + "/" + controleGEDDTO.getPasta() + "/" + controleGEDDTO.getIdControleGED() + ".ged"+" NÃ£o Encontrado!");
 							    }
 								
 							}catch (Exception e) {

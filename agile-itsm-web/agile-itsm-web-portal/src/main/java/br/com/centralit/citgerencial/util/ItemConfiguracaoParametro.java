@@ -117,7 +117,7 @@ public class ItemConfiguracaoParametro implements Serializable {
                 strCheckedNao = " checked ";
             }
             return "<input type='radio' name='parametro#" + this.getModulo() + "#" + this.getName() + "' value='S' " + strCheckedSim + "/>Sim "
-                    + "<input type='radio' name='parametro#" + this.getModulo() + "#" + this.getName() + "' value='N' " + strCheckedNao + "/>Não ";
+                    + "<input type='radio' name='parametro#" + this.getModulo() + "#" + this.getName() + "' value='N' " + strCheckedNao + "/>NÃ£o ";
         }
         if (this.getType().equalsIgnoreCase(COMBO)) {
             String str = "<select name='parametro#" + this.getModulo() + "#" + this.getName() + "'>";

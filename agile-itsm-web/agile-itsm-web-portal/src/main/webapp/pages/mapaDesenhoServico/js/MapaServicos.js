@@ -3,21 +3,21 @@ var TipoLinha = {"RETA" : 0, "DOIS_PONTOS" : 1, "TRES_PONTOS" : 2};
 
 /**
  *  @author breno.guimaraes
- *  Controla todos os eventos, desenhos, drops, etc, do mapa de serviÁo.
+ *  Controla todos os eventos, desenhos, drops, etc, do mapa de servi√ßo.
  *  [INUTILIZADO]
  */
 function MapaServicos(_canvas){
 
 	var tipoLinha = TipoLinha.TRES_PONTOS;
 	
-	//Variavel para resolver problemas de referÍncia e escopo.
+	//Variavel para resolver problemas de refer√™ncia e escopo.
 	var self = this;
 	
 	//Recebe o componente de desenho ao construir.
 	var canvas = _canvas;
 	var context = _canvas.getContext("2d");
 	
-	//Dimensıes padr„o do canvas
+	//Dimens√µes padr√£o do canvas
 	var w = 1000;
 	var h = 400;
 	
@@ -28,7 +28,7 @@ function MapaServicos(_canvas){
 	/* 
 	 * Lista de objetos ItemConfiguracao com suas 
 	 * configuracoes de posicionamento que 
-	 * ser„o inclusos no mapa.
+	 * ser√£o inclusos no mapa.
 	 */
 	var listaItensMapa = new Array();
 	
@@ -39,7 +39,7 @@ function MapaServicos(_canvas){
 	
 	/* --------------------------- Eventos Movimento --------------------------- */
 	/*
-	 * Aqui ser„o configurados os eventos de mouse para movimentaÁ„o
+	 * Aqui ser√£o configurados os eventos de mouse para movimenta√ß√£o
 	 * dos itens no mapa.
 	 */
 	
@@ -56,13 +56,13 @@ function MapaServicos(_canvas){
 
 		canvas.addEventListener("mousedown", mouseDown, true);
 		canvas.addEventListener("mouseup", mouseUp, true);
-		//se o mouse sair do canvas executo a aÁ„o de mouse up e a aÁ„o de arrastar termina
+		//se o mouse sair do canvas executo a a√ß√£o de mouse up e a a√ß√£o de arrastar termina
 		canvas.addEventListener("mouseout", mouseUp, true);
 
 	};
 	
 	/**
-	 * Evento de click que ser· tratado posteriormente para ediÁ„o.
+	 * Evento de click que ser√° tratado posteriormente para edi√ß√£o.
 	 * @param e
 	 * Evento de click.
 	 * @returns
@@ -121,7 +121,7 @@ function MapaServicos(_canvas){
 	};
 
 	/**
-	 * Executador em eventos especÌficos para evitar bugs.
+	 * Executador em eventos espec√≠ficos para evitar bugs.
 	 * @param e
 	 * Evento.
 	 */
@@ -143,20 +143,20 @@ function MapaServicos(_canvas){
 	 * Quando o mouse for pressionado, ele adiciona o
 	 * gatilho para o evento de movimento do mouse e
 	 * executa o metodo findItemByPosition(posicao) para
-	 * encontrar um possÌvel item selecionado. 
+	 * encontrar um poss√≠vel item selecionado. 
 	 * @param e
 	 * Evento.
 	 */
 	var mouseDown = function(e) {
-		//A funcionalidade sÛ funcionar· se esse evento for criado aqui.
+		//A funcionalidade s√≥ funcionar√° se esse evento for criado aqui.
 		canvas.addEventListener("mousemove", mouseClickedMove, false);
 
 		itemSelecionado = findItemByPosition(getRelativeCursorPoint(e));
 					
 		if(interval == null){
 			/*
-			 * Quanto menor for o segundo par‚metro, mais r·pido a tela ser· atualizada,
-			 * porÈm pode deixar tudo mais lento dependendo do volume de itens no mapa. 
+			 * Quanto menor for o segundo par√¢metro, mais r√°pido a tela ser√° atualizada,
+			 * por√©m pode deixar tudo mais lento dependendo do volume de itens no mapa. 
 			 */
 			interval = setInterval(atualizarTela, 10);
 		}
@@ -169,8 +169,8 @@ function MapaServicos(_canvas){
 	
 	var posicaoMouse;
 	/**
-	 * Quando o mouse se mover (cada milÌmetro), se houver
-	 * um item selecionado executa aÁıes de movimento.
+	 * Quando o mouse se mover (cada mil√≠metro), se houver
+	 * um item selecionado executa a√ß√µes de movimento.
 	 * @param e
 	 * Evento.
 	 */
@@ -181,13 +181,13 @@ function MapaServicos(_canvas){
 		
 		/*
 		 * Se o mouse tiver sido pressionado em cima de um item, a variavel
-		 * itemSelecionado ser· diferente de null, ent„o esse objeto deve
+		 * itemSelecionado ser√° diferente de null, ent√£o esse objeto deve
 		 * ser movimentado.
 		 */
 		if(itemSelecionado != null){
 			/*
-			 * Se o usu·rio tiver clicado na ·rea de configuracao da figura, uma
-			 * linha ser· traÁada do ponto da imagem atÈ o ponto
+			 * Se o usu√°rio tiver clicado na √°rea de configuracao da figura, uma
+			 * linha ser√° tra√ßada do ponto da imagem at√© o ponto
 			 * do mouse para que ele possa ligar dois pontos.
 			 */
 			if(itemSelecionado.centro){		
@@ -211,8 +211,8 @@ function MapaServicos(_canvas){
 	}
 
 	/**
-	 * Quando o mouse n„o estiver mais sendo pressionado, armazena
-	 * algumas configuraÁıes e finaliza a aÁ„o de arrastar.
+	 * Quando o mouse n√£o estiver mais sendo pressionado, armazena
+	 * algumas configura√ß√µes e finaliza a a√ß√£o de arrastar.
 	 * @param e
 	 * Evento.
 	 */
@@ -227,10 +227,10 @@ function MapaServicos(_canvas){
 			//Verifica se a linha foi solta em cima de um outro item.
 			var filho = findItemByPosition(getRelativeCursorPoint(e));
 			
-			//Se tiver sido solto em cima de um item filho, faz a ligaÁ„o.
+			//Se tiver sido solto em cima de um item filho, faz a liga√ß√£o.
 			if(filho != null && filho.objeto.getIdItemConfiguracao() != itemSelecionado.objeto.getIdItemConfiguracao()){
 				if(itemSelecionado.objeto.getImagem().idImagemItemConfiguracao == 0){
-					alert("Este item ainda n„o foi salvo, por isso n„o pode ser setado como pai.");
+					alert("Este item ainda n√£o foi salvo, por isso n√£o pode ser setado como pai.");
 				} else {					
 					filho.objeto.getImagem().idImagemItemConfiguracaoPai =  itemSelecionado.objeto.getImagem().idImagemItemConfiguracao;
 				}				
@@ -277,12 +277,12 @@ function MapaServicos(_canvas){
 	
 	/* --------------------------- Eventos Mapa --------------------------- */
 	/*
-	 * Aqui ser„o configurados os eventos para quando o usu·rio
+	 * Aqui ser√£o configurados os eventos para quando o usu√°rio
 	 * soltar um item do menu para o canvas.
 	 */
 
 	/**
-	 * ConfiguraÁıes iniciais dos eventos de drop.
+	 * Configura√ß√µes iniciais dos eventos de drop.
 	 */
 	var configuraEventosDrop = function() {
 		//eventos para prevenir bugs
@@ -317,28 +317,28 @@ function MapaServicos(_canvas){
 	
 	
 	/**
-	 * Quando um item do menu È solto dentro do canvas
-	 * anexa este novo item com configuraÁıes default.
+	 * Quando um item do menu √© solto dentro do canvas
+	 * anexa este novo item com configura√ß√µes default.
 	 * @param e
 	 * Evento.
 	 */
 	var droped = function(e) {
 		if(trim(document.getElementById("idServico").value) == ""){
-			alert("Selecione um serviÁo primeiro.");
+			alert("Selecione um servi√ßo primeiro.");
 			return;
 		}
 		
 		prevent(e);
 		/*
 		 * Pega o id passado no dataTransfer do objeto MenuItemConfiguracao
-		 * e busca o elemento da p·gina que tenha esse id para copi·-lo para o canvas.
+		 * e busca o elemento da p√°gina que tenha esse id para copi√°-lo para o canvas.
 		 */
 		var imagemObj = document.getElementById(e.dataTransfer.getData('text'));
 		
 		var classValue = imagemObj.getAttribute('class');
 		
 		/*
-		 * Mapa sÛ aceita objetos da classe itemInMenu.
+		 * Mapa s√≥ aceita objetos da classe itemInMenu.
 		 */		
 		if (classValue.indexOf("itemInMenu") >= 0) {
 		
@@ -346,12 +346,12 @@ function MapaServicos(_canvas){
 			editarItemConfiguracao.hidden = false;
 			editarItemConfiguracao.style.display = "block";
 		
-			//efeito de dropagem (nunca vi a real diferenÁa).
+			//efeito de dropagem (nunca vi a real diferen√ßa).
 			e.dropEffect = 'copy';
 
 			var imagemItemConfiguracao = new ImagemItemConfiguracao(context, imagemObj.getAttribute('src'));
 			/*
-			 * recupera a posiÁ„o do mouse no momento em que o item foi solto
+			 * recupera a posi√ß√£o do mouse no momento em que o item foi solto
 			 * para posicionar a imagem neste mesmo local.
 			 */
 			var posicaoMouse = getRelativeCursorPoint(e);
@@ -368,7 +368,7 @@ function MapaServicos(_canvas){
 			var btSalvar = document.getElementById("btSalvar");
 
 			/*
-			 * SÛ ser· efetivado o anexo do item quando usu·rio clicar em SALVAR. 
+			 * S√≥ ser√° efetivado o anexo do item quando usu√°rio clicar em SALVAR. 
 			 */
 			btSalvar.onclick = function(){				
 				if(trim(idItem.value) != "" && idItem.value != null){ 
@@ -393,16 +393,16 @@ function MapaServicos(_canvas){
 			};
 		
 		}
-	//bind para alinhar o escopo da classe com o do mÈtodo.
+	//bind para alinhar o escopo da classe com o do m√©todo.
 	}.bind(this);
 
 	/* --------------------------- FIM --------------------------- */
 	
 	
-	/* --------------------------- FunÁıes de controle --------------------------- */
+	/* --------------------------- Fun√ß√µes de controle --------------------------- */
 	
 	/**
-	 * ConfiguraÁıes iniciais do mapa.
+	 * Configura√ß√µes iniciais do mapa.
 	 */
 	this.configuraMapa = function() {
 		configuraEventosMouse();
@@ -431,11 +431,11 @@ function MapaServicos(_canvas){
 	 * O objeto tipo ItemConfiguracao que deve ser
 	 * aneaxo ao canvas.
 	 * @param posicaoLista
-	 * Caso necess·rio, passa a posiÁ„o na lista em que deseja
-	 * adicionar o item, caso contr·rio passe 'null'.
+	 * Caso necess√°rio, passa a posi√ß√£o na lista em que deseja
+	 * adicionar o item, caso contr√°rio passe 'null'.
 	 */
 	this.addItemToMapa = function(itemConfiguracao) {
-		//seta o NOVO contexto ‡ imagem do itemConfiguracao
+		//seta o NOVO contexto √† imagem do itemConfiguracao
 		itemConfiguracao.getImagem().setContext(context);
 
 		itemConfiguracao.getImagem().setXPos(itemConfiguracao.getImagem().getXPos() == null ? 0
@@ -443,14 +443,14 @@ function MapaServicos(_canvas){
 		itemConfiguracao.getImagem().setYPos(itemConfiguracao.getImagem().getYPos() == null ? 0
 																		: itemConfiguracao.getImagem().getYPos());
 		
-		//utilizado apenas atÈ que seja feita a busca no banco
+		//utilizado apenas at√© que seja feita a busca no banco
 		//itemConfiguracao.setIdentificacao(itemConfiguracao.getIdentificacao() == null ? 'Nome - ' + parseInt(Math.random() * 100) : itemConfiguracao.getIdentificacao()); 
 		
 		var imgAux = imgManager.attachImage(itemConfiguracao.getImagem());
 		/*
-		 * ApÛs carregar a imagem com o imgManager recebemos como retorno
+		 * Ap√≥s carregar a imagem com o imgManager recebemos como retorno
 		 * o objeto Image() criado. Nesse momento temos os atributos
-		 * da dimens„o da imagem. Ent„o atribuimos estes ao objeto ImagemItemConfiguracao,
+		 * da dimens√£o da imagem. Ent√£o atribuimos estes ao objeto ImagemItemConfiguracao,
 		 * dentro do itemConfiguracao.
 		 */
 		itemConfiguracao.getImagem().setWidth(imgAux.width*zoom);
@@ -466,14 +466,14 @@ function MapaServicos(_canvas){
 	
 	
 	/**
-	 * Apaga todo que est· no canvas e desenha novamente.
-	 * … assim que s„o feitas as animaÁıes de arrastar os itens.
+	 * Apaga todo que est√° no canvas e desenha novamente.
+	 * √â assim que s√£o feitas as anima√ß√µes de arrastar os itens.
 	 */
 	var atualizarTela = function() {		
 		//limpa toda a tela.
 		context.clearRect(0, 0, canvas.width, canvas.height);
 		/*
-		 * Como a imagem j· foi carregada posteriormente, aqui
+		 * Como a imagem j√° foi carregada posteriormente, aqui
 		 * apenas percorre a lista redesenhando estes itens.
 		 * Assim ganha-se muito em desempenho.
 		 */
@@ -508,7 +508,7 @@ function MapaServicos(_canvas){
 	 * Identifica um elemento no mapa de acordo
 	 * com as coordenadas passadas.
 	 * @param posicao
-	 * Um objeto anÙnimo com caracterÌsticas x e y.
+	 * Um objeto an√¥nimo com caracter√≠sticas x e y.
 	 * Exemplo: posicao = {x:50, y:100}
 	 */
 	var findItemByPosition = function(posicao){		
@@ -522,7 +522,7 @@ function MapaServicos(_canvas){
 					
 					
 					
-					//o retorno È um objeto anÙnimo com a posiÁ„o do objeto na lista e o objeto em sÌ.
+					//o retorno √© um objeto an√¥nimo com a posi√ß√£o do objeto na lista e o objeto em s√≠.
 					return {
 						objeto : listaItensMapa[i],
 						index : i,
@@ -557,7 +557,7 @@ function MapaServicos(_canvas){
 			if(listaItensMapa[i] != null){
 				//se o posicionamento passado como argumento estiver dentro do posicionamento do item, retorna-o
 				if(listaItensMapa[i].getImagem().idImagemItemConfiguracao == id){					
-						//o retorno È um objeto anÙnimo com a posiÁ„o do objeto na lista e o objeto em sÌ.
+						//o retorno √© um objeto an√¥nimo com a posi√ß√£o do objeto na lista e o objeto em s√≠.
 						return {
 							objeto : listaItensMapa[i].getImagem(),
 							index : i
@@ -580,7 +580,7 @@ function MapaServicos(_canvas){
 			if(listaItensMapa[i] != null){
 				//se o posicionamento passado como argumento estiver dentro do posicionamento do item, retorna-o
 				if(listaItensMapa[i].idItemConfiguracao == id){					
-						//o retorno È um objeto anÙnimo com a posiÁ„o do objeto na lista e o objeto em sÌ.
+						//o retorno √© um objeto an√¥nimo com a posi√ß√£o do objeto na lista e o objeto em s√≠.
 						return {
 							objeto : listaItensMapa[i],
 							index : i
@@ -622,7 +622,7 @@ function MapaServicos(_canvas){
 	
 	var connectPoints = function(pai, filho){
 		
-		//desenha a linha com base nas configuraÁıes do enum TipoLinha.
+		//desenha a linha com base nas configura√ß√µes do enum TipoLinha.
 		context.beginPath();
 		
 		context.moveTo(pai.getXCentral(), pai.getYCentral());
@@ -651,10 +651,10 @@ function MapaServicos(_canvas){
 	}
 	
 	
-	/* --------------------------- FunÁıes ⁄teis --------------------------- */
+	/* --------------------------- Fun√ß√µes √öteis --------------------------- */
 
 	/**
-	 * Retorna a posiÁ„o do cursor relativa ao canvas.
+	 * Retorna a posi√ß√£o do cursor relativa ao canvas.
 	 * @param evt
 	 * Evento de mouse.
 	 */
@@ -679,7 +679,7 @@ function MapaServicos(_canvas){
 	}
 	
 	/**
-	 * Elimina espaÁos em branco em qualquer lugar da string
+	 * Elimina espa√ßos em branco em qualquer lugar da string
 	 * @param str
 	 * String a ser modificada.
 	 */
@@ -694,11 +694,11 @@ function MapaServicos(_canvas){
 	/**
 	 * Mostra uma mensagem definida em um componente definido por um tempo definido.
 	 * @param componenteId
-	 * Id do componente onde a mensagem ser· colocada.
+	 * Id do componente onde a mensagem ser√° colocada.
 	 * @param segundos
-	 * Tempo em segundos que a mensagem ficar· na tela.
+	 * Tempo em segundos que a mensagem ficar√° na tela.
 	 * @param texto
-	 * Texto que dever· aparecer no componente pelo tempo determinado.
+	 * Texto que dever√° aparecer no componente pelo tempo determinado.
 	 */
 	var mostrarMsgTemporaria = function(componenteId, segundos, texto){
 		var t;
@@ -712,18 +712,18 @@ function MapaServicos(_canvas){
 	}
 
 	/**
-	 * Elimita os espaÁos null no array e os
-	 * registros de pais que n„o existem mais.
+	 * Elimita os espa√ßos null no array e os
+	 * registros de pais que n√£o existem mais.
 	 */
 	var organizarArray = function(){
 		var listaAux = new Array();
 		var j = 0;
 		for(var i = 0; i < listaItensMapa.length; i++){
-			//se o item for null n„o È adicionado ‡ nova lista limpa
+			//se o item for null n√£o √© adicionado √† nova lista limpa
 			if(listaItensMapa[i] != null){
 				/*
-				 * se ele referenciar um pai, verifica se este pai ainda existe, caso contr·rio
-				 * seta null para esta referÍncia.
+				 * se ele referenciar um pai, verifica se este pai ainda existe, caso contr√°rio
+				 * seta null para esta refer√™ncia.
 				 */
 				if(listaItensMapa[i].itemPai != null){
 					var aux = findImagemById(listaItensMapa[i].getItemPai().getId());

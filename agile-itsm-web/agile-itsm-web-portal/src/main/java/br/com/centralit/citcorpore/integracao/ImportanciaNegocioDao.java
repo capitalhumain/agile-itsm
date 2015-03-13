@@ -52,7 +52,7 @@ public class ImportanciaNegocioDao extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Metodo reponsavel por verificar se existe um vinculo entre Inmportancia Negocio e Cadastro de Serviço
+	 * Metodo reponsavel por verificar se existe um vinculo entre Inmportancia Negocio e Cadastro de ServiÃ§o
 	 * 
 	 * 
 	 * @param idImportanciaNegocio

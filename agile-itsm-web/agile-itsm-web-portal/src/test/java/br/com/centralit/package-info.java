@@ -1,5 +1,5 @@
 /**
- * Utilit·rios e genÈricos usados nos testes
+ * Utilit√°rios e gen√©ricos usados nos testes
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  *

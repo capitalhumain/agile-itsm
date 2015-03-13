@@ -52,10 +52,10 @@ public class GridControl extends BodyTagSupport{
 			widths = this.getColumnWidths().split(";");
 			types = this.getColumnTypes().split(";");
 			if (titulos.length != widths.length){
-				throw new JspException("Numero de Parametros em [columnTitles] é diferente de [columnWidths]");
+				throw new JspException("Numero de Parametros em [columnTitles] Ã© diferente de [columnWidths]");
 			}
 			if (titulos.length != types.length){
-				throw new JspException("Numero de Parametros em [columnTitles] é diferente de [columnTypes]");
+				throw new JspException("Numero de Parametros em [columnTitles] Ã© diferente de [columnTypes]");
 			}
 		}else{
 			titulos = new String[1];

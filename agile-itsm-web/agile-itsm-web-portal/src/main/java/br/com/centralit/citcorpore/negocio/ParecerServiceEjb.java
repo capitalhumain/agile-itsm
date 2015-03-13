@@ -26,7 +26,7 @@ public class ParecerServiceEjb extends CrudServiceImpl implements ParecerService
             aprovado = "N";
         }
         if (aprovado.equalsIgnoreCase("N") && idJustificativa == null) {
-            throw new LogicException("Justificativa n„o informada");
+            throw new LogicException("Justificativa n√£o informada");
         }
 
         final ParecerDao parecerDao = new ParecerDao();
@@ -56,7 +56,7 @@ public class ParecerServiceEjb extends CrudServiceImpl implements ParecerService
             aprovado = "N";
         }
         if (aprovado.equalsIgnoreCase("N") && idJustificativa == null) {
-            throw new LogicException("Justificativa n„o informada");
+            throw new LogicException("Justificativa n√£o informada");
         }
 
         parecerDto.setIdResponsavel(usuario.getIdEmpregado());

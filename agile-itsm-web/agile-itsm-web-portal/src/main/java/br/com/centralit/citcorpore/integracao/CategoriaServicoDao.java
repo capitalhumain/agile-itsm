@@ -104,7 +104,7 @@ public class CategoriaServicoDao extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Retorna lista de Categoria ServiÁo ativas.
+	 * Retorna lista de Categoria Servi√ßo ativas.
 	 * 
 	 * @return Collection
 	 * @throws Exception
@@ -120,7 +120,7 @@ public class CategoriaServicoDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * Retorna lista de Categoria ServiÁo setado idPai e idFilho.
+	 * Retorna lista de Categoria Servi√ßo setado idPai e idFilho.
 	 * 
 	 * @return Collection
 	 * @throws Exception
@@ -135,7 +135,7 @@ public class CategoriaServicoDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * Retorna lista de Categoria ServiÁo setado idCategoria e pai isnull.
+	 * Retorna lista de Categoria Servi√ßo setado idCategoria e pai isnull.
 	 * 
 	 * @return Collection
 	 * @throws Exception
@@ -152,7 +152,7 @@ public class CategoriaServicoDao extends CrudDaoDefaultImpl {
 	
 	
 	/**
-	 * Retorna lista de Categoria ServiÁo ativas.
+	 * Retorna lista de Categoria Servi√ßo ativas.
 	 * 
 	 * @return Collection
 	 * @throws Exception
@@ -171,7 +171,7 @@ public class CategoriaServicoDao extends CrudDaoDefaultImpl {
 	 * Verifica se Categoria possui filho.
 	 * 
 	 * @param categoriaServico
-	 * @return - <b>True:</b> Possui filho. - <b>False: </b>N„o possui.
+	 * @return - <b>True:</b> Possui filho. - <b>False: </b>N√£o possui.
 	 * @throws PersistenceException
 	 */
 	public boolean verificarSeCategoriaPossuiFilho(CategoriaServicoDTO categoriaServico) throws PersistenceException {
@@ -193,10 +193,10 @@ public class CategoriaServicoDao extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Verifica se Categoria possui ServiÁo associado
+	 * Verifica se Categoria possui Servi√ßo associado
 	 * 
 	 * @param categoriaServico
-	 * @return - <b>True:</b> Possui filho. - <b>False: </b>N„o possui.
+	 * @return - <b>True:</b> Possui filho. - <b>False: </b>N√£o possui.
 	 * @throws PersistenceException
 	 */
 	public boolean verificarSeCategoriaPossuiServico(CategoriaServicoDTO categoriaServico) throws PersistenceException {
@@ -218,10 +218,10 @@ public class CategoriaServicoDao extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Verifica se categoria informada j· existe.
+	 * Verifica se categoria informada j√° existe.
 	 * 
 	 * @param categoriaServicoDTO
-	 * @return true - existe; false - n„o existe;
+	 * @return true - existe; false - n√£o existe;
 	 * @throws PersistenceException
 	 */
 	public boolean verificarSeCategoriaExiste(CategoriaServicoDTO categoriaServicoDTO) throws PersistenceException {
@@ -243,7 +243,7 @@ public class CategoriaServicoDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * Retorna lista de Categoria ServiÁo por nome.
+	 * Retorna lista de Categoria Servi√ßo por nome.
 	 * 
 	 * @return Collection
 	 * @throws Exception
@@ -260,7 +260,7 @@ public class CategoriaServicoDao extends CrudDaoDefaultImpl {
 	
 
 	/**
-	 * Encontra a categoria de serviÁo pelo ID
+	 * Encontra a categoria de servi√ßo pelo ID
 	 * @author euler.ramos
 	 */
 	public List<CategoriaServicoDTO> findByIdCategoriaServico(Integer id) throws PersistenceException {
@@ -288,7 +288,7 @@ public class CategoriaServicoDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * Encontra a categoria de serviÁo pelo nome
+	 * Encontra a categoria de servi√ßo pelo nome
 	 * @author euler.ramos
 	 */
 	public List<CategoriaServicoDTO> findByNomeCategoria(String titulo) throws PersistenceException {

@@ -203,7 +203,7 @@ public class ServicoContratoDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Localiza os serviÁos contrato utilizando o id do serviÁo
+     * Localiza os servi√ßos contrato utilizando o id do servi√ßo
      *
      * @param idServico
      * @return
@@ -236,7 +236,7 @@ public class ServicoContratoDao extends CrudDaoDefaultImpl {
      * @param idContrato
      *            - Identificador do Contrato.
      * @param idServico
-     *            - Identificador do ServiÁo.
+     *            - Identificador do Servi√ßo.
      * @return ServicoContratoDTO
      * @throws Exception
      * @author valdoilo.damasceno
@@ -413,7 +413,7 @@ public class ServicoContratoDao extends CrudDaoDefaultImpl {
      * @throws Exception
      * @author cledson.junioro
      *
-     *         PaginaÁ„o da tela AdministraÁ„o de Contratos
+     *         Pagina√ß√£o da tela Administra√ß√£o de Contratos
      */
     public Collection findByIdContratoPaginada(final ServicoContratoDTO servicoContratoDTO, final String paginacao,
             Integer pagAtual, final Integer pagAtualAux, Integer totalPag, final Integer quantidadePaginator,
@@ -528,8 +528,8 @@ public class ServicoContratoDao extends CrudDaoDefaultImpl {
     /**
      *
      * @param idServicoContrato
-     *            metodo para buscar por inner join informaÁıes sobre o servico pelo idServicoContrato para exibir no
-     *            carrinho de serviÁos(Portal)
+     *            metodo para buscar por inner join informa√ß√µes sobre o servico pelo idServicoContrato para exibir no
+     *            carrinho de servi√ßos(Portal)
      * @return ServicoDTO
      * @throws Exception
      */
@@ -600,7 +600,7 @@ public class ServicoContratoDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Verifica se existe SolicitaÁ„o aberta vinculado com serviÁo que est· sendo excluÌdo.
+     * Verifica se existe Solicita√ß√£o aberta vinculado com servi√ßo que est√° sendo exclu√≠do.
      *
      * @param idServico
      * @return
@@ -650,7 +650,7 @@ public class ServicoContratoDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Verifica se o serviÁo est· vinculado com o Contrato
+     * Verifica se o servi√ßo est√° vinculado com o Contrato
      *
      * @param idSolicitacaoServico
      * @return

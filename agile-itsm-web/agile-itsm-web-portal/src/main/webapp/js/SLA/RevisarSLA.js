@@ -1,4 +1,4 @@
-/* Início do código de Revisar SLA */
+/* InÃ­cio do cÃ³digo de Revisar SLA */
 		
 	var count3 = 0;
 		

@@ -267,7 +267,7 @@ public class ControleGEDDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Pesquisa GEDs da Requisicao de Liberação.
+     * Pesquisa GEDs da Requisicao de LiberaÃ§Ã£o.
      *
      * @param idTabela
      * @param idRequisicaoLiberacao

@@ -224,10 +224,10 @@ public class CitAjaxWebUtil {
     }
 
     /**
-     * Serializa uma coleção de objetos tratando os campos de Data de acordo coma linguagem do usuário passado por parâmetro.
+     * Serializa uma coleÃ§Ã£o de objetos tratando os campos de Data de acordo coma linguagem do usuÃ¡rio passado por parÃ¢metro.
      *
      * @param language
-     *            - String com a linguagem do usuário.
+     *            - String com a linguagem do usuÃ¡rio.
      * @throws Exception
      * @author valdoilo.damasceno
      * @since 11.02.2014
@@ -248,13 +248,13 @@ public class CitAjaxWebUtil {
     }
 
     /**
-     * Serializa um objeto em String. Os campos do tipo data são tratados de acordo com a linguagem passada por parâmetro.
+     * Serializa um objeto em String. Os campos do tipo data sÃ£o tratados de acordo com a linguagem passada por parÃ¢metro.
      *
      * @param objeto
      *            - Objeto a ser serializado.
      * @param naoCodificaApostrofeAspas
      * @param language
-     *            - String coma linguagem do usuário.
+     *            - String coma linguagem do usuÃ¡rio.
      * @return String do objeto serializado.
      * @throws Exception
      * @author valdoilo.damasceno
@@ -301,7 +301,8 @@ public class CitAjaxWebUtil {
                     if (naoCodificaApostrofeAspas) {
                         strResult = strResult + CitAjaxUtil.convertePrimeiraLetra(propriedade, "L") + "\4\2" + codificaEnter(valueStr) + "\5";
                     } else {
-                        strResult = strResult + CitAjaxUtil.convertePrimeiraLetra(propriedade, "L") + "\4\2" + JavaScriptUtil.escapeJavaScript(codificaEnter(valueStr)) + "\5";
+                        strResult = strResult + CitAjaxUtil.convertePrimeiraLetra(propriedade, "L") + "\4\2"
+                                + JavaScriptUtil.escapeJavaScript(codificaEnter(valueStr)) + "\5";
                     }
                     strResult = strResult + "\5";
                 } else {

@@ -101,7 +101,7 @@ public class BaseConhecimentoDAO extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Buscar lista de Bases de Conhecimento por ServiÁo
+	 * Buscar lista de Bases de Conhecimento por Servi√ßo
 	 * 
 	 * @param baseConhecimentoDto
 	 * @return
@@ -251,7 +251,7 @@ public class BaseConhecimentoDAO extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Lista Base de Conhecimento por Pasta para relatÛrio.
+	 * Lista Base de Conhecimento por Pasta para relat√≥rio.
 	 * 
 	 * @param pasta
 	 * @return Collection<BaseConhecimentoDTO>
@@ -285,7 +285,7 @@ public class BaseConhecimentoDAO extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Verifica se base conhecimento informada possui nova vers„o.
+	 * Verifica se base conhecimento informada possui nova vers√£o.
 	 * 
 	 * @param baseConhecimento
 	 * @return
@@ -323,7 +323,7 @@ public class BaseConhecimentoDAO extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * MÈtodo para verificar se j· existe uma base de conhecimento com o mesmo nome
+	 * M√©todo para verificar se j√° existe uma base de conhecimento com o mesmo nome
 	 * 
 	 * @author rodrigo.oliveira
 	 * @param BaseConhecimentoDTO
@@ -478,7 +478,7 @@ public class BaseConhecimentoDAO extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Verifica se base conhecimento informada possui nova vers„o.
+	 * Verifica se base conhecimento informada possui nova vers√£o.
 	 * 
 	 * @param baseConhecimento
 	 * @return
@@ -491,7 +491,7 @@ public class BaseConhecimentoDAO extends CrudDaoDefaultImpl {
 		List list = new ArrayList();
 
 		sql.append("select  baseconhecimento.conteudosemformatacao,baseconhecimento.idbaseconhecimento,baseconhecimento.titulo,baseconhecimento.versao,baseconhecimento.datainicio,baseconhecimento.conteudo,");
-		sql.append("pasta.nome,baseconhecimento.dataexpiracao,CASE WHEN baseconhecimento.status ='S' THEN 'Publicado' WHEN baseconhecimento.status ='N' THEN 'N„o Publicado' ELSE baseconhecimento.status END as status, baseconhecimento.idusuarioautor, baseconhecimento.idusuarioaprovador,baseconhecimento.datapublicacao ");
+		sql.append("pasta.nome,baseconhecimento.dataexpiracao,CASE WHEN baseconhecimento.status ='S' THEN 'Publicado' WHEN baseconhecimento.status ='N' THEN 'N√£o Publicado' ELSE baseconhecimento.status END as status, baseconhecimento.idusuarioautor, baseconhecimento.idusuarioaprovador,baseconhecimento.datapublicacao ");
 		if (baseConhecimento.getUltimoAcesso() != null && baseConhecimento.getUltimoAcesso().equals("S")) {
 			sql.append(",contadoracesso.datahoraacesso ");
 		}
@@ -822,7 +822,7 @@ public class BaseConhecimentoDAO extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Retorna lista de versıes anteriores da Base de Conhecimento informada.
+	 * Retorna lista de vers√µes anteriores da Base de Conhecimento informada.
 	 * 
 	 * @param baseConhecimento
 	 * @return Collection<BaseConhecimentoDTO>
@@ -841,7 +841,7 @@ public class BaseConhecimentoDAO extends CrudDaoDefaultImpl {
 			sql.append(" (select case when versao = '1.0' then titulo else substr(titulo,1, length(titulo) - 7) end from baseconhecimento where datafim is null and status = ? ");
 
 			// geber.costa
-			// verifica se a base do banco È sqlserver, pois no caso dele ao inves de usar o length usa-se len
+			// verifica se a base do banco √© sqlserver, pois no caso dele ao inves de usar o length usa-se len
 		} else if (CITCorporeUtil.SGBD_PRINCIPAL.trim().equalsIgnoreCase("SQLSERVER")) {
 			{
 				sql.append(" where status = 'S' and (case when versao = '1.0' then titulo else substring(titulo,1, len(titulo) - 7) end ) ");
@@ -1186,7 +1186,7 @@ public class BaseConhecimentoDAO extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Retorna lista todas as bases de conhecimento n„o excluÌdas, publicadas e n„o arquivadas!
+	 * Retorna lista todas as bases de conhecimento n√£o exclu√≠das, publicadas e n√£o arquivadas!
 	 * 
 	 * @author euler.ramos
 	 * @return Collection<BaseConhecimentoDTO>
@@ -1296,12 +1296,12 @@ public class BaseConhecimentoDAO extends CrudDaoDefaultImpl {
 	 * Retorna a lista de base de conhecimento do portal paginada
 	 * 
 	 * @author thyen.chang
-	 * @since 06/02/2015 - OPERA«√O USAIN BOLT
+	 * @since 06/02/2015 - OPERA√á√ÉO USAIN BOLT
 	 * @param pageable
-	 *            - Objeto que contÈm qual p·gina e n˙mero de elementos a serem pesquisados
+	 *            - Objeto que cont√©m qual p√°gina e n√∫mero de elementos a serem pesquisados
 	 * @param isTotalizacao
-	 *            - Se a busca È para buscar o n˙mero total de elementos da consulta
-	 * @param titulo - TÌtulo da base de conhecimento a ser pesquisado
+	 *            - Se a busca √© para buscar o n√∫mero total de elementos da consulta
+	 * @param titulo - T√≠tulo da base de conhecimento a ser pesquisado
 	 * @return
 	 * @throws PersistenceException
 	 */
@@ -1382,12 +1382,12 @@ public class BaseConhecimentoDAO extends CrudDaoDefaultImpl {
 	 * Retorna a lista de FAQ do portal paginada
 	 * 
 	 * @author thyen.chang
-	 * @since 06/02/2015 - OPERA«√O USAIN BOLT
+	 * @since 06/02/2015 - OPERA√á√ÉO USAIN BOLT
 	 * @param pageable
-	 *            - Objeto que contÈm qual p·gina e n˙mero de elementos a serem pesquisados
+	 *            - Objeto que cont√©m qual p√°gina e n√∫mero de elementos a serem pesquisados
 	 * @param isTotalizacao
-	 *            - Se a busca È para buscar o n˙mero total de elementos da consulta
-	 * @param titulo - TÌtulo da base de conhecimento a ser pesquisado
+	 *            - Se a busca √© para buscar o n√∫mero total de elementos da consulta
+	 * @param titulo - T√≠tulo da base de conhecimento a ser pesquisado
 	 * @return
 	 * @throws PersistenceException
 	 */

@@ -110,11 +110,11 @@ public class PortalServiceEjb extends CrudServiceImpl implements PortalService {
                     solicitacaoServicoDto.setDescricao(UtilStrings.getParameter(servicoContratoDTO.getDescricao() + "<br>"
                             + (!servicoContratoDTO.getObservacaoPortal().equalsIgnoreCase("undefined") ? servicoContratoDTO.getObservacaoPortal() : "")));
 
-                    /* Solicitação */
+                    /* SolicitaÃ§Ã£o */
                     solicitacaoServicoDto.setIdContrato(servicoContratoDTOAux.getIdContrato());
                     solicitacaoServicoDto.setIdServico(servicoContratoDTOAux.getIdServico());
                     solicitacaoServicoDto.setEnviaEmailCriacao("S");
-                    /* Restaurando o tipo demanda serviço */
+                    /* Restaurando o tipo demanda serviÃ§o */
                     ServicoDTO servicoDto = new ServicoDTO();
                     servicoDto.setIdServico(servicoContratoDTOAux.getIdServico());
                     servicoDto = (ServicoDTO) servicoDao.restore(servicoDto);
@@ -138,8 +138,8 @@ public class PortalServiceEjb extends CrudServiceImpl implements PortalService {
                     }
 
                     /*
-                     * Para tratar a iniciativa 483, foi adicionado o vinculo de questionario com a solicitação de servico dentro do portal
-                     * "colecaoRespQuestionario" parametro recuperado da sessão.
+                     * Para tratar a iniciativa 483, foi adicionado o vinculo de questionario com a solicitaÃ§Ã£o de servico dentro do portal
+                     * "colecaoRespQuestionario" parametro recuperado da sessÃ£o.
                      */
                     if (colecaoRespQuestionario != null && colecaoRespQuestionario.size() > 0) {
 
@@ -192,21 +192,21 @@ public class PortalServiceEjb extends CrudServiceImpl implements PortalService {
         final EmpregadoService empregadoService = (EmpregadoService) ServiceLocator.getInstance().getService(EmpregadoService.class, null);
         final String ORIGEM = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.ORIGEM_PADRAO_SOLICITACAO, "");
         final Integer idOrigem = ORIGEM.trim().equalsIgnoreCase("") ? 0 : Integer.valueOf(ORIGEM.trim());
-        /* Inicializações obrigatórias */
+        /* InicializaÃ§Ãµes obrigatÃ³rias */
         solicitacaoServicoDto.setIdOrigem(idOrigem);
         solicitacaoServicoDto.setSituacao("EmAndamento");
         solicitacaoServicoDto.setRegistroexecucao("");
         solicitacaoServicoDto.setIdSolicitante(usuario.getIdEmpregado());
 
-        /* Setando as informações do usuário */
+        /* Setando as informaÃ§Ãµes do usuÃ¡rio */
         solicitacaoServicoDto.setUsuarioDto(usuario);
         solicitacaoServicoDto.setRegistradoPor(usuario.getNomeUsuario());
 
-        /* Restaurando as informações do empregado */
+        /* Restaurando as informaÃ§Ãµes do empregado */
         final EmpregadoDTO empregadoDto = empregadoService.restoreByIdEmpregado(usuario.getIdEmpregado());
         solicitacaoServicoDto.setIdUnidade(empregadoDto.getIdUnidade());
 
-        /* Setando as informações de contato */
+        /* Setando as informaÃ§Ãµes de contato */
         solicitacaoServicoDto.setNomecontato(empregadoDto.getNome());
         solicitacaoServicoDto.setEmailcontato(empregadoDto.getEmail());
         solicitacaoServicoDto.setTelefonecontato(empregadoDto.getTelefone());

@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.citframework.util.Constantes"%>
 <%@page import="br.com.centralit.citcorpore.util.CitCorporeConstantes"%>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
@@ -128,12 +130,12 @@
                                    </div><!-- .span4 -->
 
                                    <div class="span4">
-                                         <label class="strong">Total dos lançamento</label>
+                                         <label class="strong">Total dos lanÃ§amento</label>
                                          <input type="text" name="totalLancamentos" id="totalLancamentos" readonly="true" class="Format[Moeda] span12" />
                                    </div><!-- .span4 -->
 
                                    <div class="span4">
-                                         <label class="strong">Diferença</label>
+                                         <label class="strong">DiferenÃ§a</label>
                                          <input type="text" name="valorDiferenca" id="valorDiferenca" readonly="true" class="Format[Moeda] span12" />
                                    </div><!-- .span4 -->
                             </div><!-- .row-fluid -->

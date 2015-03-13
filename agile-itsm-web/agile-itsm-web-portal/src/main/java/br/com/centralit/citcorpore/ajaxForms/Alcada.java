@@ -119,20 +119,20 @@ public class Alcada extends AjaxFormAction {
 		AlcadaDTO alcadaDTO = (AlcadaDTO) document.getBean();
 		LimiteAlcadaService limiteService  = (LimiteAlcadaService) ServiceLocator.getInstance().getService(LimiteAlcadaService.class, WebUtil.getUsuarioSistema(request) );
 		
-		// Verificando a existÍncia do DTO e do serviÁo de limite.
+		// Verificando a exist√™ncia do DTO e do servi√ßo de limite.
 		if (alcadaDTO != null && limiteService != null) {
 			
 			if (alcadaDTO.getIdAlcada() != null && alcadaDTO.getIdAlcada().intValue() > 0) {
 				CentroResultadoService centroResultadoService = (CentroResultadoService) ServiceLocator.getInstance().getService(CentroResultadoService.class, WebUtil.getUsuarioSistema(request) );
 				
-				// Verificando se a alÁada a ser excluÌda est· associada a alguma alÁada de centro de resultado.
+				// Verificando se a al√ßada a ser exclu√≠da est√° associada a alguma al√ßada de centro de resultado.
 				Collection centrosResultadoDTO = centroResultadoService.findByIdAlcada(alcadaDTO.getIdAlcada() );
 				
 				if (centrosResultadoDTO != null && !centrosResultadoDTO.isEmpty() ) {
-					// Se existe a associaÁ„o, notifica o usu·rio que a exclus„o foi cancelada.
+					// Se existe a associa√ß√£o, notifica o usu√°rio que a exclus√£o foi cancelada.
 					document.alert(UtilI18N.internacionaliza(request, "MSG08") );
 				} else {
-					// Sen„o efetua a exclus„o.
+					// Sen√£o efetua a exclus√£o.
 					limiteService.removerPorIdAlcada(alcadaDTO.getIdAlcada() );
 					getAlcadaService(request).delete(alcadaDTO);
 				}

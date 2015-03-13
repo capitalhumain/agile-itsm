@@ -9,7 +9,7 @@ public class UtilTest {
 		if (obj != null) {
 			return "Passou";
 		} else{
-			return "N„o Passou";
+			return "N√£o Passou";
 		}
 	}
 
@@ -17,7 +17,7 @@ public class UtilTest {
 		if (obj == obj2) {
 			return "Passou";
 		} else	{
-			return "N„o Passou";
+			return "N√£o Passou";
 		}
 	}
 
@@ -26,7 +26,7 @@ public class UtilTest {
 		if (obj != null && obj2 != null){
 			return "passou";
 		}else{
-			return "n„o passou";
+			return "n√£o passou";
 		}
 	}
 
@@ -43,7 +43,7 @@ public class UtilTest {
 		if (stg != null && stg2 != null){
 			return "Passou";
 		}else{
-			return "N„o Passou";
+			return "N√£o Passou";
 		}
 	}
 	
@@ -51,7 +51,7 @@ public class UtilTest {
 		if (col != null){
 			return "Passou";
 		}else{
-			return "N„o passou";
+			return "N√£o passou";
 		}
 	}
 

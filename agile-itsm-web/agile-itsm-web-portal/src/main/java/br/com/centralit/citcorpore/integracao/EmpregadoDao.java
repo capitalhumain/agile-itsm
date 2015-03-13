@@ -436,7 +436,7 @@ public class EmpregadoDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * MÈtodo para consultar Unidade do Empregado
+     * M√©todo para consultar Unidade do Empregado
      *
      * @author rodrigo.oliveira
      * @param idEmpregado
@@ -623,7 +623,7 @@ public class EmpregadoDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Retorna EmpregadoDTO (idEmpregado e Nome). Esta consulta È a mesma da LOOKUP_SOLICITANTE_CONTRATO.
+     * Retorna EmpregadoDTO (idEmpregado e Nome). Esta consulta √© a mesma da LOOKUP_SOLICITANTE_CONTRATO.
      *
      * @param nome
      *            - Nome do Empregado (Campo Nome da tabela Empregados)
@@ -641,7 +641,7 @@ public class EmpregadoDao extends CrudDaoDefaultImpl {
         String text = nome;
         text = Normalizer.normalize(text, Normalizer.Form.NFD);
         text = text.replaceAll("[^\\p{ASCII}]", "");
-        text = text.replaceAll("·‡„‚ÈÍÌÛÙı˙¸Á¡¿√¬… Õ”‘’⁄‹«¥`^''-+=", "aaaaeeiooouucAAAAEEIOOOUUC");
+        text = text.replaceAll("√°√†√£√¢√©√™√≠√≥√¥√µ√∫√º√ß√Å√Ä√É√Ç√â√ä√ç√ì√î√ï√ö√ú√á¬¥`^''-+=", "aaaaeeiooouucAAAAEEIOOOUUC");
         nome = text;
         nome = "%" + nome.toUpperCase() + "%";
 
@@ -690,9 +690,9 @@ public class EmpregadoDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Pesquisa Empregado por Telefone ou Ramal. Retorna o primeiro Empregado encontrado para o Ramal ou Telefone informado. <<< ATEN«√O >> o par‚metro Telefone antes de ser
-     * enviado para o mÈtodo,
-     * deve ser tratado com o MÈtodo mascaraProcuraSql() da Classe Utilit·ria br.com.centralit.citcorpore.util.Telefone.java;
+     * Pesquisa Empregado por Telefone ou Ramal. Retorna o primeiro Empregado encontrado para o Ramal ou Telefone informado. <<< ATEN√á√ÉO >> o par√¢metro Telefone antes de ser
+     * enviado para o m√©todo,
+     * deve ser tratado com o M√©todo mascaraProcuraSql() da Classe Utilit√°ria br.com.centralit.citcorpore.util.Telefone.java;
      *
      * @param telefone
      * @return EmpregadoDTO
@@ -722,7 +722,7 @@ public class EmpregadoDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Restaura o EmpregadoDTO com o ID do Contrato Padr„o (Primeiro contrato encontrado para o Empregado) a partir do ID Empregado informado.
+     * Restaura o EmpregadoDTO com o ID do Contrato Padr√£o (Primeiro contrato encontrado para o Empregado) a partir do ID Empregado informado.
      *
      * @param idEmpregado
      * @return EmpregadoDTO com IDContrato
@@ -833,7 +833,7 @@ public class EmpregadoDao extends CrudDaoDefaultImpl {
 
         String texto = Normalizer.normalize(nomeEmpregado, Normalizer.Form.NFD);
         texto = texto.replaceAll("[^\\p{ASCII}]", "");
-        texto = texto.replaceAll("·‡„‚ÈÍÌÛÙı˙¸Á¡¿√¬… Õ”‘’⁄‹«¥`^''-+=", "aaaaeeiooouucAAAAEEIOOOUUC ");
+        texto = texto.replaceAll("√°√†√£√¢√©√™√≠√≥√¥√µ√∫√º√ß√Å√Ä√É√Ç√â√ä√ç√ì√î√ï√ö√ú√á¬¥`^''-+=", "aaaaeeiooouucAAAAEEIOOOUUC ");
         texto = "%" + texto.toUpperCase() + "%";
 
         final Object[] objs = new Object[] {texto};
@@ -878,7 +878,7 @@ public class EmpregadoDao extends CrudDaoDefaultImpl {
 
         String texto = Normalizer.normalize(nomeEmpregado, Normalizer.Form.NFD);
         texto = texto.replaceAll("[^\\p{ASCII}]", "");
-        texto = texto.replaceAll("·‡„‚ÈÍÌÛÙı˙¸Á¡¿√¬… Õ”‘’⁄‹«¥`^''-+=", "aaaaeeiooouucAAAAEEIOOOUUC ");
+        texto = texto.replaceAll("√°√†√£√¢√©√™√≠√≥√¥√µ√∫√º√ß√Å√Ä√É√Ç√â√ä√ç√ì√î√ï√ö√ú√á¬¥`^''-+=", "aaaaeeiooouucAAAAEEIOOOUUC ");
         texto = "%" + texto.toUpperCase() + "%";
 
         final Object[] objs = new Object[] {texto};
@@ -922,11 +922,11 @@ public class EmpregadoDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Restaura Empregado pelo ID do Usu·rio.
+     * Restaura Empregado pelo ID do Usu√°rio.
      *
      * @param idUsuario
-     *            - Identificador do Usu·rio.
-     * @return EmpregadoDTO - Empregado do Usu·rio.
+     *            - Identificador do Usu√°rio.
+     * @return EmpregadoDTO - Empregado do Usu√°rio.
      * @author valdoilo.damasceno
      * @since 16.06.2014
      */
@@ -965,7 +965,7 @@ public class EmpregadoDao extends CrudDaoDefaultImpl {
      *
      * @param idGrupo
      *            - Identificador do Grupo.
-     * @return Collection<EmpregadoDTO> - Lista de usu·rios do Grupo informado.
+     * @return Collection<EmpregadoDTO> - Lista de usu√°rios do Grupo informado.
      * @author valdoilo.damasceno
      * @since 16.06.2014
      */

@@ -30,7 +30,7 @@ public class ExecucaoDemanda extends AjaxFormAction {
 		
 		UsuarioDTO usuario = WebUtil.getUsuario(request);
 		if (usuario == null){
-			document.alert("Sess„o expirada! Favor efetuar logon novamente!");
+			document.alert("Sess√£o expirada! Favor efetuar logon novamente!");
 			document.executeScript("window.location = '" + Constantes.getValue("SERVER_ADDRESS") + request.getContextPath() + "'");
 			return;
 		}
@@ -52,7 +52,7 @@ public class ExecucaoDemanda extends AjaxFormAction {
 		tblMinhasTarefas.addRowsByCollection(col, 
 				new String[] {"imagem", "nomeFluxo", "nomeEtapaHTML", "nomeAtividadeHTML", "expectativaFimStr", "prioridadeDescHTML", "nomeProjeto", "situacaoDescHTML", "nome", "qtdeHorasStr"}, 
 				null, 
-				"J· existe registrado esta demanda na tabela", 
+				"J√° existe registrado esta demanda na tabela", 
 				null, 
 				"CHAMA_Opcoes", 
 				null);
@@ -66,7 +66,7 @@ public class ExecucaoDemanda extends AjaxFormAction {
 		
 		UsuarioDTO usuario = WebUtil.getUsuario(request);
 		if (usuario == null){
-			document.alert("Sess„o expirada! Favor efetuar logon novamente!");
+			document.alert("Sess√£o expirada! Favor efetuar logon novamente!");
 			document.executeScript("window.location = '" + Constantes.getValue("SERVER_ADDRESS") + request.getContextPath() + "'");
 			return;
 		}		
@@ -86,7 +86,7 @@ public class ExecucaoDemanda extends AjaxFormAction {
 		
 		boolean b = execucaoDemandaService.temAtividadeNaSequencia(execucaoDemandaBean);
 		if (!b){
-			document.alert("N„o existe Atividade na Sequencia para este Fluxo! N„o È possÌvel efetuar atribuiÁ„o!");
+			document.alert("N√£o existe Atividade na Sequencia para este Fluxo! N√£o √© poss√≠vel efetuar atribui√ß√£o!");
 			return;			
 		}
 		execucaoDemandaService.updateAtribuir(execucaoDemandaBean);
@@ -99,7 +99,7 @@ public class ExecucaoDemanda extends AjaxFormAction {
 		tblMinhasTarefas.addRowsByCollection(col, 
 				new String[] {"imagem", "nomeFluxo", "nomeEtapaHTML", "nomeAtividadeHTML", "expectativaFimStr", "prioridadeDescHTML", "nomeProjeto", "situacaoDescHTML", "nome", "qtdeHorasStr"}, 
 				null, 
-				"J· existe registrado esta demanda na tabela", 
+				"J√° existe registrado esta demanda na tabela", 
 				null, 
 				"CHAMA_Opcoes", 
 				null);		
@@ -107,7 +107,7 @@ public class ExecucaoDemanda extends AjaxFormAction {
 		tblMinhasTarefas.applyStyleClassInAllCells("tamanho10");
 		document.getComandsExecute().add("POPUP_ATRIBUIR.hide()");
 		*/
-		document.alert("AtribuiÁ„o efetuada com sucesso!");
+		document.alert("Atribui√ß√£o efetuada com sucesso!");
 		document.executeScript("atualizarLista()");
 	}
 	
@@ -128,14 +128,14 @@ public class ExecucaoDemanda extends AjaxFormAction {
 		tblMinhasTarefas.addRowsByCollection(col, 
 				new String[] {"imagem", "nomeFluxo", "nomeEtapaHTML", "nomeAtividadeHTML", "expectativaFimStr", "prioridadeDescHTML", "nomeProjeto", "situacaoDescHTML", "nome", "qtdeHorasStr"}, 
 				null, 
-				"J· existe registrado esta demanda na tabela", 
+				"J√° existe registrado esta demanda na tabela", 
 				null, 
 				"CHAMA_Opcoes", 
 				null);		
 		
 		tblMinhasTarefas.applyStyleClassInAllCells("tamanho10");
 		*/
-		document.alert("SituaÁ„o Atualizada com sucesso!");
+		document.alert("Situa√ß√£o Atualizada com sucesso!");
 		document.executeScript("atualizarLista()");
 	}
 	
@@ -156,14 +156,14 @@ public class ExecucaoDemanda extends AjaxFormAction {
 		tblMinhasTarefas.addRowsByCollection(col, 
 				new String[] {"imagem", "nomeFluxo", "nomeEtapaHTML", "nomeAtividadeHTML", "expectativaFimStr", "prioridadeDescHTML", "nomeProjeto", "situacaoDescHTML", "nome", "qtdeHorasStr"}, 
 				null, 
-				"J· existe registrado esta demanda na tabela", 
+				"J√° existe registrado esta demanda na tabela", 
 				null, 
 				"CHAMA_Opcoes", 
 				null);		
 		
 		tblMinhasTarefas.applyStyleClassInAllCells("tamanho10");
 		*/
-		document.alert("SituaÁ„o Atualizada com sucesso!");
+		document.alert("Situa√ß√£o Atualizada com sucesso!");
 		document.executeScript("atualizarLista()");
 	}
 	
@@ -184,7 +184,7 @@ public class ExecucaoDemanda extends AjaxFormAction {
 		tblMinhasTarefas.addRowsByCollection(col, 
 				new String[] {"imagem", "nomeFluxo", "nomeEtapaHTML", "nomeAtividadeHTML", "expectativaFimStr", "prioridadeDescHTML", "nomeProjeto", "situacaoDescHTML", "nome", "qtdeHorasStr"}, 
 				null, 
-				"J· existe registrado esta demanda na tabela", 
+				"J√° existe registrado esta demanda na tabela", 
 				null, 
 				"CHAMA_Opcoes", 
 				null);		
@@ -192,7 +192,7 @@ public class ExecucaoDemanda extends AjaxFormAction {
 		tblMinhasTarefas.applyStyleClassInAllCells("tamanho10");
 		document.getComandsExecute().add("POPUP_OPCOES.hide()");
 		*/
-		document.alert("SituaÁ„o Atualizada com sucesso!");
+		document.alert("Situa√ß√£o Atualizada com sucesso!");
 		document.executeScript("atualizarLista()");
 	}
 
@@ -215,7 +215,7 @@ public class ExecucaoDemanda extends AjaxFormAction {
 		tblMinhasTarefas.addRowsByCollection(col, 
 				new String[] {"imagem", "nomeFluxo", "nomeEtapaHTML", "nomeAtividadeHTML", "expectativaFimStr", "prioridadeDescHTML", "nomeProjeto", "situacaoDescHTML", "nome", "qtdeHorasStr"}, 
 				null, 
-				"J· existe registrado esta demanda na tabela", 
+				"J√° existe registrado esta demanda na tabela", 
 				null, 
 				"CHAMA_Opcoes", 
 				null);		
@@ -223,7 +223,7 @@ public class ExecucaoDemanda extends AjaxFormAction {
 		tblMinhasTarefas.applyStyleClassInAllCells("tamanho10");
 		document.getComandsExecute().add("POPUP_OPCOES.hide()");
 		*/
-		document.alert("FinalizaÁ„o efetuada com sucesso!");
+		document.alert("Finaliza√ß√£o efetuada com sucesso!");
 		document.executeScript("atualizarLista()");
 	}
 }

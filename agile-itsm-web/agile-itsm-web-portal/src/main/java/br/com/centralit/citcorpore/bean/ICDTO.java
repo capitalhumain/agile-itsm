@@ -9,7 +9,7 @@ import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * @author flavio.santana
- * DTO de referencia de item de configuração para os parametros do sistema
+ * DTO de referencia de item de configuraÃ§Ã£o para os parametros do sistema
  */
 public class ICDTO extends BaseEntity {
 

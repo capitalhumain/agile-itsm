@@ -35,41 +35,41 @@ public class RestAddServiceRequest implements IRestOperation<CtAddServiceRequest
 
         final CtServiceRequest serviceRequestSource = message.getServiceRequestSource();
         if (serviceRequestSource == null) {
-            resp.setError(RestOperationUtil.buildError(RestEnum.INPUT_ERROR, "Dados da solicitaÁ„o de serviÁo n„o informados"));
+            resp.setError(RestOperationUtil.buildError(RestEnum.INPUT_ERROR, "Dados da solicita√ß√£o de servi√ßo n√£o informados"));
             return resp;
         }
         if (serviceRequestSource.getDescription() == null || serviceRequestSource.getDescription().trim().equals("")) {
-            resp.setError(RestOperationUtil.buildError(RestEnum.INPUT_ERROR, "DescriÁ„o da solicitaÁ„o de serviÁo n„o informada"));
+            resp.setError(RestOperationUtil.buildError(RestEnum.INPUT_ERROR, "Descri√ß√£o da solicita√ß√£o de servi√ßo n√£o informada"));
             return resp;
         }
         if (serviceRequestSource.getNumber() == null || serviceRequestSource.getNumber().trim().equals("")) {
-            resp.setError(RestOperationUtil.buildError(RestEnum.INPUT_ERROR, "N˙mero da solicitaÁ„o de serviÁo n„o informado"));
+            resp.setError(RestOperationUtil.buildError(RestEnum.INPUT_ERROR, "N√∫mero da solicita√ß√£o de servi√ßo n√£o informado"));
             return resp;
         }
         if (serviceRequestSource.getImpact() == null) {
-            resp.setError(RestOperationUtil.buildError(RestEnum.INPUT_ERROR, "Impacto da solicitaÁ„o de serviÁo n„o informado"));
+            resp.setError(RestOperationUtil.buildError(RestEnum.INPUT_ERROR, "Impacto da solicita√ß√£o de servi√ßo n√£o informado"));
             return resp;
         }
         if (serviceRequestSource.getUrgency() == null) {
-            resp.setError(RestOperationUtil.buildError(RestEnum.INPUT_ERROR, "UrgÍncia da solicitaÁ„o de serviÁo n„o informada"));
+            resp.setError(RestOperationUtil.buildError(RestEnum.INPUT_ERROR, "Urg√™ncia da solicita√ß√£o de servi√ßo n√£o informada"));
             return resp;
         }
         if (serviceRequestSource.getStartDateTime() == null) {
-            resp.setError(RestOperationUtil.buildError(RestEnum.INPUT_ERROR, "Data/Hora inÌcio da solicitaÁ„o de serviÁo n„o informada"));
+            resp.setError(RestOperationUtil.buildError(RestEnum.INPUT_ERROR, "Data/Hora in√≠cio da solicita√ß√£o de servi√ßo n√£o informada"));
             return resp;
         }
         if (serviceRequestSource.getType() == null) {
-            resp.setError(RestOperationUtil.buildError(RestEnum.INPUT_ERROR, "Tipo da solicitaÁ„o de serviÁo n„o informada"));
+            resp.setError(RestOperationUtil.buildError(RestEnum.INPUT_ERROR, "Tipo da solicita√ß√£o de servi√ßo n√£o informada"));
             return resp;
         }
         if (serviceRequestSource.getUserID() == null) {
-            resp.setError(RestOperationUtil.buildError(RestEnum.INPUT_ERROR, "Solicitante da solicitaÁ„o de serviÁo n„o informado"));
+            resp.setError(RestOperationUtil.buildError(RestEnum.INPUT_ERROR, "Solicitante da solicita√ß√£o de servi√ßo n√£o informado"));
             return resp;
         }
 
         final CtService service = serviceRequestSource.getService();
         if (service == null || service.getCode() == null || service.getCode().trim().equals("")) {
-            resp.setError(RestOperationUtil.buildError(RestEnum.INPUT_ERROR, "ServiÁo n„o informado"));
+            resp.setError(RestOperationUtil.buildError(RestEnum.INPUT_ERROR, "Servi√ßo n√£o informado"));
             return resp;
         }
 
@@ -79,7 +79,7 @@ public class RestAddServiceRequest implements IRestOperation<CtAddServiceRequest
                     RestUtil.getUsuarioSistema(restSessionDto));
             final Collection<SolicitacaoServicoDTO> col = solicitacaoServicoService.findByCodigoExterno(serviceRequestSource.getNumber());
             if (col != null && !col.isEmpty()) {
-                resp.setError(RestOperationUtil.buildError(RestEnum.INPUT_ERROR, "SolicitaÁ„o de serviÁo j· cadastrada no CITSmart"));
+                resp.setError(RestOperationUtil.buildError(RestEnum.INPUT_ERROR, "Solicita√ß√£o de servi√ßo j√° cadastrada no CITSmart"));
                 return resp;
             }
         } catch (final Exception e) {
@@ -90,30 +90,30 @@ public class RestAddServiceRequest implements IRestOperation<CtAddServiceRequest
 
         final EmpregadoDTO empregadoDto = RestUtil.getEmpregadoByLogin(serviceRequestSource.getUserID());
         if (empregadoDto == null) {
-            resp.setError(RestOperationUtil.buildError(RestEnum.PARAM_ERROR, "Dados do usu·rio n„o cadastrados"));
+            resp.setError(RestOperationUtil.buildError(RestEnum.PARAM_ERROR, "Dados do usu√°rio n√£o cadastrados"));
             return resp;
         }
 
         if (!RestUtil.getRestPermissionService(restSessionDto).allowedAccess(restSessionDto, restOperationDto)) {
-            resp.setError(RestOperationUtil.buildError(RestEnum.PERMISSION_ERROR, "ExecuÁ„o da operaÁ„o n„o È permitida para o usu·rio"));
+            resp.setError(RestOperationUtil.buildError(RestEnum.PERMISSION_ERROR, "Execu√ß√£o da opera√ß√£o n√£o √© permitida para o usu√°rio"));
             return resp;
         }
 
         final Map<String, RestDomainDTO> mapParam = RestUtil.getRestParameterService(restSessionDto).findParameters(restSessionDto, restOperationDto);
         if (mapParam == null || mapParam.isEmpty()) {
-            resp.setError(RestOperationUtil.buildError(RestEnum.PARAM_ERROR, "Par‚metros da operaÁ„o n„o cadastrados"));
+            resp.setError(RestOperationUtil.buildError(RestEnum.PARAM_ERROR, "Par√¢metros da opera√ß√£o n√£o cadastrados"));
             return resp;
         }
 
         final String idContratoStr = RestUtil.getRestParameterService(restSessionDto).getParamValue(mapParam, RestEnum.PARAM_CONTRACT_ID);
         if (idContratoStr == null) {
-            resp.setError(RestOperationUtil.buildError(RestEnum.PARAM_ERROR, "ID do contrato n„o definido"));
+            resp.setError(RestOperationUtil.buildError(RestEnum.PARAM_ERROR, "ID do contrato n√£o definido"));
             return resp;
         }
 
         final String idOrigemStr = RestUtil.getRestParameterService(restSessionDto).getParamValue(mapParam, RestEnum.PARAM_ORIGIN_ID);
         if (idOrigemStr == null) {
-            resp.setError(RestOperationUtil.buildError(RestEnum.PARAM_ERROR, "ID da origem de atendimento n„o definido"));
+            resp.setError(RestOperationUtil.buildError(RestEnum.PARAM_ERROR, "ID da origem de atendimento n√£o definido"));
             return resp;
         }
 
@@ -121,12 +121,12 @@ public class RestAddServiceRequest implements IRestOperation<CtAddServiceRequest
         String idTipoDemandaStr = null;
         if (serviceRequestSource.getType().equals(StServiceRequestType.R)) {
             idTipoDemandaStr = RestUtil.getRestParameterService(restSessionDto).getParamValue(mapParam, RestEnum.PARAM_REQUEST_ID);
-            obs = "RequisiÁ„o criada ";
+            obs = "Requisi√ß√£o criada ";
         } else {
             idTipoDemandaStr = RestUtil.getRestParameterService(restSessionDto).getParamValue(mapParam, RestEnum.PARAM_INCIDENT_ID);
         }
         if (idTipoDemandaStr == null) {
-            resp.setError(RestOperationUtil.buildError(RestEnum.PARAM_ERROR, "ID do tipo de demanda n„o definido"));
+            resp.setError(RestOperationUtil.buildError(RestEnum.PARAM_ERROR, "ID do tipo de demanda n√£o definido"));
             return resp;
         }
 
@@ -134,7 +134,7 @@ public class RestAddServiceRequest implements IRestOperation<CtAddServiceRequest
         if (idUnidade == null) {
             final String idUnidadeStr = RestUtil.getRestParameterService(restSessionDto).getParamValue(mapParam, RestEnum.PARAM_DEFAULT_DEPTO_ID);
             if (idUnidadeStr == null) {
-                resp.setError(RestOperationUtil.buildError(RestEnum.PARAM_ERROR, "ID da unidade n„o definido"));
+                resp.setError(RestOperationUtil.buildError(RestEnum.PARAM_ERROR, "ID da unidade n√£o definido"));
             }
             idUnidade = new Integer(idUnidadeStr);
         }
@@ -148,11 +148,11 @@ public class RestAddServiceRequest implements IRestOperation<CtAddServiceRequest
             e1.printStackTrace();
         }
         if (servicoContratoDto == null) {
-            resp.setError(RestOperationUtil.buildError(RestEnum.PARAM_ERROR, "ServiÁo n„o associado ao contrato"));
+            resp.setError(RestOperationUtil.buildError(RestEnum.PARAM_ERROR, "Servi√ßo n√£o associado ao contrato"));
             return resp;
         }
         if (servicoContratoDto.getIdGrupoExecutor() == null) {
-            resp.setError(RestOperationUtil.buildError(RestEnum.PARAM_ERROR, "Grupo executor n„o parametrizado para o serviÁo"));
+            resp.setError(RestOperationUtil.buildError(RestEnum.PARAM_ERROR, "Grupo executor n√£o parametrizado para o servi√ßo"));
             return resp;
         }
 
@@ -195,7 +195,7 @@ public class RestAddServiceRequest implements IRestOperation<CtAddServiceRequest
         solicitacaoDto.setDescricao(serviceRequestSource.getDescription());
         solicitacaoDto.setRegistroexecucao("");
         solicitacaoDto.setCodigoExterno(serviceRequestSource.getNumber());
-        solicitacaoDto.setObservacao(obs + "pelo CA-SDM.\nN˙mero de origem: " + serviceRequestSource.getNumber() + "\nData/hora de origem: "
+        solicitacaoDto.setObservacao(obs + "pelo CA-SDM.\nN√∫mero de origem: " + serviceRequestSource.getNumber() + "\nData/hora de origem: "
                 + serviceRequestSource.getStartDateTime());
 
         try {

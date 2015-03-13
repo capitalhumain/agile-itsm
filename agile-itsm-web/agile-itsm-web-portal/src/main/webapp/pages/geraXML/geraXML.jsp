@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="br.com.citframework.util.Constantes"%>
 <%@page import="br.com.centralit.citgerencial.bean.GerencialPainelDTO"%>
 <%
@@ -18,9 +18,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-		<title>CITSMart</title>
 	 <%@include file="/include/header.jsp"%>
-		<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
+	 <%@include file="/novoLayout/common/include/titulo.jsp" %>
+	<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 
 
 	<style>
@@ -158,8 +158,8 @@
 		.ug {
 		    padding: 10px 0 10px 0;
 		}
-/* Desenvolvedor: Pedro Lino - Data: 31/10/2013 - Hor·rio: 10:00 - ID Citsmart: 120948 -
-* Motivo/Coment·rio: Alterado css para esconder a td do meio */
+/* Desenvolvedor: Pedro Lino - Data: 31/10/2013 - Hor√°rio: 10:00 - ID Citsmart: 120948 -
+* Motivo/Coment√°rio: Alterado css para esconder a td do meio */
 		.aq {
 		    /* background: none repeat scroll 0 0 #F5F5F5;
 		    border-left: 1px solid #C8C8C8;
@@ -537,7 +537,7 @@
 			tabela += '</table>';
 			document.getElementById('divOpcoesGraficos').innerHTML = tabela;
 
-			$("#POPUP_GRAFICO_OPC").attr('title','Gr·fico: ' + titulo);
+			$("#POPUP_GRAFICO_OPC").attr('title','Gr√°fico: ' + titulo);
 
 			$("#POPUP_GRAFICO_OPC").dialog('open');
 		}
@@ -690,7 +690,7 @@
 	</form>
 </div>
 
-<div style="background:white" title="OpÁıes de Gr·ficos" id="POPUP_GRAFICO_OPC">
+<div style="background:white" title="Op√ß√µes de Gr√°ficos" id="POPUP_GRAFICO_OPC">
 	<table>
 		<tr>
 			<td>

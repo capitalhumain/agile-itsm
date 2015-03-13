@@ -70,7 +70,7 @@ public class ExecucaoRequisicaoProduto extends ExecucaoSolicitacao {
     public void validaEncerramento() throws Exception { 
 		SolicitacaoServicoDTO solicitacaoServicoDto = getSolicitacaoServicoDto();
 		if (solicitacaoServicoDto == null)
-			throw new Exception("SolicitaÁ„o de serviÁo n„o encontrada");
+			throw new Exception("Solicita√ß√£o de servi√ßo n√£o encontrada");
 
     	ItemRequisicaoProdutoDao itemRequisicaoProdutoDao = new ItemRequisicaoProdutoDao();
         setTransacaoDao(itemRequisicaoProdutoDao);
@@ -128,7 +128,7 @@ public class ExecucaoRequisicaoProduto extends ExecucaoSolicitacao {
 			bEncerramentoPermitido = false;
 		
         if (!bEncerramentoPermitido)
-            throw new LogicException("Encerramento da requisiÁ„o "+getSolicitacaoServicoDto().getIdSolicitacaoServico()+" n„o permitido. Existe pelo menos um item em processo de cotaÁ„o.");
+            throw new LogicException("Encerramento da requisi√ß√£o "+getSolicitacaoServicoDto().getIdSolicitacaoServico()+" n√£o permitido. Existe pelo menos um item em processo de cota√ß√£o.");
        
         ItemRequisicaoProdutoServiceEjb itemRequisicaoService = new ItemRequisicaoProdutoServiceEjb();
         for (ItemRequisicaoProdutoDTO itemDto : colItens) {
@@ -333,13 +333,13 @@ public class ExecucaoRequisicaoProduto extends ExecucaoSolicitacao {
 		                for (ItemRequisicaoProdutoDTO itemRequisicaoDto : colItens) {
 		                    itemRequisicaoDto.setSituacao(SituacaoItemRequisicaoProduto.Cancelado.name());
 		                    itemRequisicaoProdutoDao.update(itemRequisicaoDto);
-		                    itemRequisicaoService.geraHistorico(getTransacao(), null, itemRequisicaoDto, AcaoItemRequisicaoProduto.Alteracao, "Cancelamento autom·tico por decurso de prazo", SituacaoItemRequisicaoProduto.valueOf(itemRequisicaoDto.getSituacao()));
+		                    itemRequisicaoService.geraHistorico(getTransacao(), null, itemRequisicaoDto, AcaoItemRequisicaoProduto.Alteracao, "Cancelamento autom√°tico por decurso de prazo", SituacaoItemRequisicaoProduto.valueOf(itemRequisicaoDto.getSituacao()));
 		                }
 	                }
                 }
                 if (bCancelaTrabalho) {
                 	TarefaFluxoDTO tarefaDto = recuperaTarefa(itemTrabalho.getIdItemTrabalho()); 
-	        		this.cancelaTarefa(null, getSolicitacaoServicoDto(), tarefaDto, "Cancelamento autom·tico por decurso de prazo");
+	        		this.cancelaTarefa(null, getSolicitacaoServicoDto(), tarefaDto, "Cancelamento autom√°tico por decurso de prazo");
 	        		this.getSolicitacaoServicoDto().setNomeTarefa(tarefaDto.getElementoFluxoDto().getNome());
 	        		String destinatarios[] = new String[]{this.getSolicitacaoServicoDto().getEmailcontato()};
 	        		this.enviaEmail("ReqProdTarefaCanc", destinatarios);
@@ -378,7 +378,7 @@ public class ExecucaoRequisicaoProduto extends ExecucaoSolicitacao {
 	        	if (expirados == 0)
 	        		return;
 	        	for (TarefaFluxoDTO tarefaDto: mapItensTrabaho.values()) {
-	        		this.cancelaTarefa(null, getSolicitacaoServicoDto(), tarefaDto, "Cancelamento autom·tico por decurso de prazo");
+	        		this.cancelaTarefa(null, getSolicitacaoServicoDto(), tarefaDto, "Cancelamento autom√°tico por decurso de prazo");
 	        		this.getSolicitacaoServicoDto().setNomeTarefa(tarefaDto.getElementoFluxoDto().getNome());
 	        		String destinatarios[] = new String[]{this.getSolicitacaoServicoDto().getEmailcontato()};
 	        		this.enviaEmail("ReqProdTarefaCanc", destinatarios);
@@ -449,7 +449,7 @@ public class ExecucaoRequisicaoProduto extends ExecucaoSolicitacao {
             }
         }   
         if (result.length() == 0)
-        	throw new LogicException("N„o foi encontrado nenhum autorizador da requisiÁ„o");
+        	throw new LogicException("N√£o foi encontrado nenhum autorizador da requisi√ß√£o");
         return result;
     }
     
@@ -485,7 +485,7 @@ public class ExecucaoRequisicaoProduto extends ExecucaoSolicitacao {
     public InstanciaFluxo inicia(FluxoDTO fluxoDto, Integer idFase) throws Exception {
         String idGrupo = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.ID_GRUPO_PADRAO_REQ_PRODUTOS, null);
         if (idGrupo == null || idGrupo.trim().equals(""))
-            throw new Exception("Grupo padr„o de requisiÁ„o de produtos n„o parametrizado");
+            throw new Exception("Grupo padr√£o de requisi√ß√£o de produtos n√£o parametrizado");
         getSolicitacaoServicoDto().setIdGrupoAtual(new Integer(idGrupo.trim()));
         return super.inicia(fluxoDto,idFase);
     }
@@ -524,10 +524,10 @@ public class ExecucaoRequisicaoProduto extends ExecucaoSolicitacao {
             strItens.append("</table>");
             strItens.append("<table width='100%' border='1' style='padding: 5px 5px 5px 5px'>");
             strItens.append("   <tr>");
-            strItens.append("       <th width='30%'><b>DescriÁ„o</b></th>");
-            strItens.append("       <th><b>EspecificaÁıes</b></th>");
+            strItens.append("       <th width='30%'><b>Descri√ß√£o</b></th>");
+            strItens.append("       <th><b>Especifica√ß√µes</b></th>");
             strItens.append("       <th><b>Qtde</b></th>");
-            strItens.append("       <th width='15%'><b>SituaÁ„o atual</b></th>");
+            strItens.append("       <th width='15%'><b>Situa√ß√£o atual</b></th>");
             strItens.append("   </tr>");
             for (ItemRequisicaoProdutoDTO itemDto : colItens) {
                 strItens.append("   <tr>");
@@ -545,16 +545,16 @@ public class ExecucaoRequisicaoProduto extends ExecucaoSolicitacao {
     @Override
     public boolean permiteAprovacaoAlcada(AlcadaProcessoNegocioDTO alcadaProcessoNegocioDto, SolicitacaoServicoDTO solicitacaoServicoDto) throws Exception {
         if (alcadaProcessoNegocioDto.getEmpregadoDto().getIdEmpregado().intValue() == solicitacaoServicoDto.getIdSolicitante().intValue()) {
-        	alcadaProcessoNegocioDto.setComplementoRejeicao("Aprovador n„o pode ser o solicitante");
+        	alcadaProcessoNegocioDto.setComplementoRejeicao("Aprovador n√£o pode ser o solicitante");
             return false;
     	}
         
         String idGrupoCompras = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.ID_GRUPO_PADRAO_REQ_PRODUTOS, null);
         if (idGrupoCompras == null || idGrupoCompras.trim().equals(""))
-            throw new Exception("Grupo padr„o de requisiÁ„o de produtos n„o parametrizado");
+            throw new Exception("Grupo padr√£o de requisi√ß√£o de produtos n√£o parametrizado");
 
         if (alcadaProcessoNegocioDto.getMapGruposEmpregado().get(idGrupoCompras.trim()) != null) {
-        	alcadaProcessoNegocioDto.setComplementoRejeicao("Aprovador n„o pode pertencer ao grupo respons·vel por compras");
+        	alcadaProcessoNegocioDto.setComplementoRejeicao("Aprovador n√£o pode pertencer ao grupo respons√°vel por compras");
         	return false;
         }
         

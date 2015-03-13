@@ -11,7 +11,7 @@
 		
 		/*
 		  Alterado por
-		  desenvolvedor: rcs (Rafael C�sar Soyer)
+		  desenvolvedor: rcs (Rafael Cï¿½sar Soyer)
 		  data: 07/01/2015
 		*/
 		function imprimirRelatorioQuantitativo() {
@@ -21,7 +21,7 @@
 
 	    /*
           Alterado por
-          desenvolvedor: rcs (Rafael C�sar Soyer)
+          desenvolvedor: rcs (Rafael Cï¿½sar Soyer)
           data: 07/01/2015
         */
 		function imprimirRelatorioQuantitativoXls() {

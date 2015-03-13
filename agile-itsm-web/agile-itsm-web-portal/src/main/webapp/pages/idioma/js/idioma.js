@@ -12,8 +12,8 @@
 
 		/*
 		* Tratamento para escutar o evento submit
-		* que È disparado quando o usu·rio d· enter no campo
-		* e ent„o salvar
+		* que √© disparado quando o usu√°rio d√° enter no campo
+		* e ent√£o salvar
 		*/
 		$('#form').submit(function (e) {
 

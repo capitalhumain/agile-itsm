@@ -14,7 +14,7 @@ import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.CrudService;
 
 /**
- * Service de CaracterÌstica.
+ * Service de Caracter√≠stica.
  * 
  * @author valdoilo.damasceno
  * 
@@ -22,7 +22,7 @@ import br.com.citframework.service.CrudService;
 public interface CaracteristicaService extends CrudService {
 
 	/**
-	 * Cria Nova CaracterÌstica.
+	 * Cria Nova Caracter√≠stica.
 	 * 
 	 * @param caracteristica
 	 * @param request
@@ -33,20 +33,20 @@ public interface CaracteristicaService extends CrudService {
 	public void create(CaracteristicaDTO caracteristica, HttpServletRequest request) throws ServiceException, LogicException;
 
 	/**
-	 * Consulta CaracterÌsticas Ativas.
+	 * Consulta Caracter√≠sticas Ativas.
 	 * 
 	 * @param id
-	 * @return Collection - ColeÁ„o de CaracterÌsticas.
+	 * @return Collection - Cole√ß√£o de Caracter√≠sticas.
 	 * @throws ServiceException
 	 * @author valdoilo.damasceno
 	 */
 	public Collection<CaracteristicaDTO> consultarCaracteristicasAtivas(Integer idTipoItemConfiguracao) throws ServiceException;
 	
 	/**
-	 * Exclui caracterÌstica.
+	 * Exclui caracter√≠stica.
 	 * 
 	 * @param caracteristica
-	 *            - Bean de CaracterÌstica.
+	 *            - Bean de Caracter√≠stica.
 	 * @throws ServiceException
 	 * @throws LogicException
 	 * @throws Exception
@@ -55,11 +55,11 @@ public interface CaracteristicaService extends CrudService {
 	public void excluirCaracteristica(CaracteristicaDTO caracteristica) throws ServiceException, LogicException, Exception;
 
 	/**
-	 * Consulta CaracterÌsticas com seus respectivos valores.
+	 * Consulta Caracter√≠sticas com seus respectivos valores.
 	 * 
 	 * @param idTipoItemConfiguracao
 	 * @param idBaseItemConfiguracao
-	 * @return Collection - ColeÁ„o de CaracterÌsticas.
+	 * @return Collection - Cole√ß√£o de Caracter√≠sticas.
 	 * @throws LogicException
 	 * @throws ServiceException
 	 * @throws Exception
@@ -69,11 +69,11 @@ public interface CaracteristicaService extends CrudService {
 			ServiceException, Exception;
 
 	/**
-	 * Consulta CaracterÌsticas com seus respectivos valores.
+	 * Consulta Caracter√≠sticas com seus respectivos valores.
 	 * 
 	 * @param idTipoItemConfiguracao
 	 * @param idBaseItemConfiguracao
-	 * @return Collection - ColeÁ„o de CaracterÌsticas.
+	 * @return Collection - Cole√ß√£o de Caracter√≠sticas.
 	 * @throws LogicException
 	 * @throws ServiceException
 	 * @throws Exception
@@ -83,12 +83,12 @@ public interface CaracteristicaService extends CrudService {
 			ServiceException, Exception;
 	
 	/**
-	 * Consulta CaracterÌsticas com seus respectivos valores.
+	 * Consulta Caracter√≠sticas com seus respectivos valores.
 	 * 
 	 * @param idTipoItemConfiguracao
 	 * @param idBaseItemConfiguracao
 	 * @param arrCaracteristicas
-	 * @return Collection - ColeÁ„o de CaracterÌsticas.
+	 * @return Collection - Cole√ß√£o de Caracter√≠sticas.
 	 * @throws LogicException
 	 * @throws ServiceException
 	 * @throws Exception
@@ -101,7 +101,7 @@ public interface CaracteristicaService extends CrudService {
 	 * Verifica se Caracteristica informada existe.
 	 * 
 	 * @param grupo
-	 * @return true - existe; false - n„o existe;
+	 * @return true - existe; false - n√£o existe;
 	 * @throws PersistenceException
 	 * @author Thays.araujo
 	 */
@@ -109,10 +109,10 @@ public interface CaracteristicaService extends CrudService {
 
 	
 	/**
-	 * Consulta CaracterÌsticas Ativas com array.
+	 * Consulta Caracter√≠sticas Ativas com array.
 	 * 
 	 * @param id
-	 * @return Collection - ColeÁ„o de CaracterÌsticas.
+	 * @return Collection - Cole√ß√£o de Caracter√≠sticas.
 	 * @throws ServiceException
 	 * @author flavio.santana
 	 */

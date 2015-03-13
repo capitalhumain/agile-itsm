@@ -48,7 +48,7 @@ public class PerfilAcessoUsuarioDAO extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Verifica se Usu·rio possui Perfi de Acesso especÌfico.
+	 * Verifica se Usu√°rio possui Perfi de Acesso espec√≠fico.
 	 * 
 	 * @param usuario
 	 * @return boolean
@@ -160,7 +160,7 @@ public class PerfilAcessoUsuarioDAO extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Atualiza o Perfil de Acesso do usu·rio.
+	 * Atualiza o Perfil de Acesso do usu√°rio.
 	 * 
 	 * @param perfilAcessoUsuario
 	 * @throws Exception

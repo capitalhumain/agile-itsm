@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.citframework.dto.Usuario"%>
@@ -32,15 +34,15 @@
     <head>
         <meta name="viewport" content="width=device-width" />
         <%@include file="/novoLayout/common/include/libCabecalho.jsp" %>
-        <title><fmt:message key="citcorpore.comum.title" /></title>
+        <%@include file="/novoLayout/common/include/titulo.jsp" %>
         <link type="text/css" rel="stylesheet" href="css/conexaoBI.css"/>
         <link type="text/css" rel="stylesheet" href="../../novoLayout/common/include/css/jqueryautocomplete.css"/>
     </head>
     <cit:janelaAguarde id="JANELA_AGUARDE_MENU"  title="" style="display:none;top:325px;width:300px;left:500px;height:50px;position:absolute;">	</cit:janelaAguarde>
     <body >
         <div class="container-fluid fixed ">
-            <!--  Desenvolvedor: Pedro Lino - Data: 28/10/2013 - Horário: 15:54 - ID Citsmart: 120948 -
-            * Motivo/Comentário: Verificação para abrir com iframe -->
+            <!--  Desenvolvedor: Pedro Lino - Data: 28/10/2013 - HorÃ¡rio: 15:54 - ID Citsmart: 120948 -
+            * Motivo/ComentÃ¡rio: VerificaÃ§Ã£o para abrir com iframe -->
             <!-- Top navbar (note: add class "navbar-hidden" to close the navbar by default) -->
             <% if(iframe == null) { %>
             <div class="navbar main hidden-print">
@@ -77,11 +79,11 @@
                    <script type="text/javascript" src="js/conexaoBI.js" ></script>
                 <script src="${ctx}/template_new/js/jquery/jquery.maskedinput.js" type="text/javascript"></script>
             </div>
-            <!-- MODAL NOVA CONEXÃO -->
+            <!-- MODAL NOVA CONEXÃƒO -->
             <div class="modal hide fade" id="modal_novaConexaoBI" tabindex="-1" data-backdrop="static" data-keyboard="false">
                 <!-- Modal heading -->
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">×</button>
+                    <button type="button" class="close" data-dismiss="modal">Ã—</button>
                     <h3><fmt:message key="bi.painelControle.conexao.novoClienteBI"/></h3>
                 </div>
                 <!-- // Modal heading END -->
@@ -100,7 +102,7 @@
             <div class="modal hide fade" id="modal_editarConexaoBI" tabindex="-1" data-backdrop="static" data-keyboard="false">
                 <!-- Modal heading -->
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">×</button>
+                    <button type="button" class="close" data-dismiss="modal">Ã—</button>
                     <h3><fmt:message key="bi.painelControle.conexao.editarClienteBI"/></h3>
                 </div>
                 <!-- // Modal heading END -->
@@ -116,11 +118,11 @@
                 <!-- Modal footer -->
             </div>
             <!-- Modal footer -->
-            <!-- MODAL AGENDAMENTO EXECUCAO ESPECÍFICA-->
+            <!-- MODAL AGENDAMENTO EXECUCAO ESPECÃFICA-->
             <div class="modal hide fade" id="modal_AgendamentoExecucaoEspecificaBI" tabindex="-1" data-backdrop="static" data-keyboard="false">
                 <!-- Modal heading -->
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">×</button>
+                    <button type="button" class="close" data-dismiss="modal">Ã—</button>
                     <h3></h3>
                 </div>
                 <!-- // Modal heading END -->
@@ -140,7 +142,7 @@
             <div class="modal hide fade" id="modal_AgendamentoExecucaoExcecaoBI" tabindex="-1" data-backdrop="static" data-keyboard="false">
                 <!-- Modal heading -->
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">×</button>
+                    <button type="button" class="close" data-dismiss="modal">Ã—</button>
                     <h3></h3>
                 </div>
                 <!-- // Modal heading END -->
@@ -160,7 +162,7 @@
             <div class="modal hide fade" id="modal_ImportacaoManualBI" tabindex="-1" data-backdrop="static" data-keyboard="false">
                 <!-- Modal heading -->
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">×</button>
+                    <button type="button" class="close" data-dismiss="modal">Ã—</button>
                     <h3><fmt:message key="importManualBI.titulo"/></h3>
                 </div>
                 <!-- // Modal heading END -->
@@ -176,7 +178,7 @@
             <div class="modal hide fade" id="modal_LogImportacaoBI" tabindex="-1" data-backdrop="static" data-keyboard="false">
                 <!-- Modal heading -->
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">×</button>
+                    <button type="button" class="close" data-dismiss="modal">Ã—</button>
                     <h3><fmt:message key="bi.painelControle.conexao.logExecucao" /></h3>
                 </div>
                 <!-- // Modal heading END -->

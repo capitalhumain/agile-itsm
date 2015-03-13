@@ -68,7 +68,7 @@ Calendar.setup = function (params) {
 		}
 	}
 	if (!(params.flat || params.inputField || params.displayArea || params.button)) {
-		alert("Calendar.setup:\n  Nada a configurar (nenhum campo encontrado).  Por favor, verifique o seu cÛdigo.");
+		alert("Calendar.setup:\n  Nada a configurar (nenhum campo encontrado).  Por favor, verifique o seu c√≥digo.");
 		return false;
 	}
 
@@ -95,7 +95,7 @@ Calendar.setup = function (params) {
 	if (params.flat != null) {
 		params.flat = document.getElementById(params.flat);
 		if (!params.flat) {
-			alert("Calendar.setup:\n  Flat especificado mas o parent n„o encontrado.");
+			alert("Calendar.setup:\n  Flat especificado mas o parent n√£o encontrado.");
 			return false;
 		}
 		var cal = new Calendar(params.mondayFirst, null, onSelect);

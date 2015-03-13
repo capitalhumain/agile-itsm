@@ -16,7 +16,7 @@ import br.com.citframework.util.Constantes;
 /**
  * @author thiago.monteiro
  *
- * Classe de objetos responsáveis pelo acesso aos dados (DAO - Data Access Object) na tabela
+ * Classe de objetos responsÃ¡veis pelo acesso aos dados (DAO - Data Access Object) na tabela
  * categoriaocorrencia no banco de dados.
  */
 
@@ -56,7 +56,7 @@ public class CategoriaOcorrenciaDAO extends CrudDaoDefaultImpl {
 
 	@Override
 	/**
-	 * Método que retorna uma referência 
+	 * MÃ©todo que retorna uma referÃªncia 
 	 */
 	public Class getBean() {		
 		return CategoriaOcorrenciaDTO.class;

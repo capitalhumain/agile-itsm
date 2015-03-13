@@ -1,13 +1,13 @@
 $(function() {
 	var users = [
 		"Andressa",
-		"AndrÈia",
+		"Andr√©ia",
 		"Ademar",
 		"Anderson",
 		"Bourne",
 		"Carlos",
 		"Douglas",
-		"Jo„o Paulo",
+		"Jo√£o Paulo",
 		"Luciana"
 	];
 	$( "#tags" ).autocomplete({
@@ -19,25 +19,25 @@ function carregarAtividade(){
 	
 }
 
-/* A partir de uma linha <tr> e um formul·rio <form>,
- * itera pelas cÈlulas da linha <tr> atribuindo aos campos de entrada
- * do formul·rio <input> de mesmo nome que as cÈlulas, os valores das cÈlulas.	
+/* A partir de uma linha <tr> e um formul√°rio <form>,
+ * itera pelas c√©lulas da linha <tr> atribuindo aos campos de entrada
+ * do formul√°rio <input> de mesmo nome que as c√©lulas, os valores das c√©lulas.	
  */
 function add(tr_id, form_id){
 	
-	var cells = document.getElementById(tr_id).cells; // recupera as cÈlulas
+	var cells = document.getElementById(tr_id).cells; // recupera as c√©lulas
 	var inputs = document.getElementById(form_id).getElementsByTagName("INPUT"); // recupera os inputs
 	
 	alert(inputs.length);
 	
-	for(var i = 0; i < cells.length; i++) // itera pelas cÈlulas da linha <tr>
+	for(var i = 0; i < cells.length; i++) // itera pelas c√©lulas da linha <tr>
 	{
-		for(var j = 0; j < inputs.length; j++) // itera pelos campos do formul·rio <input>
+		for(var j = 0; j < inputs.length; j++) // itera pelos campos do formul√°rio <input>
 		{ 
 			if(cells[i].name == inputs[j].name) // se tiverem o mesmo nome
 			{ 
-				inputs[j].value = cells[i].innerHTML; // atribui ao input o valor da cÈlula
-				break; // passa para a prÛxima cÈlula
+				inputs[j].value = cells[i].innerHTML; // atribui ao input o valor da c√©lula
+				break; // passa para a pr√≥xima c√©lula
 			}
 		}
 	}
@@ -85,12 +85,12 @@ function carregar(source){
 	// janela interativa
 	//showInterativeWindow();
 	
-	// recupera a linha que contÈm o registro a ser carregado
+	// recupera a linha que cont√©m o registro a ser carregado
 	var row = source.parentNode.parentNode;
 	
 	document.getElementById("descricao").value = row.cells[0].innerHTML;
 	
-	// fecha a tab atual e abre a tab realizaÁ„o atividade
+	// fecha a tab atual e abre a tab realiza√ß√£o atividade
 	document.getElementById("container_realizacao_atividade").click();
 	
 	document.getElementById("tags").focus();

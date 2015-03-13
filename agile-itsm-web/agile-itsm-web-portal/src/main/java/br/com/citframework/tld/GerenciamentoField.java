@@ -29,7 +29,7 @@ public class GerenciamentoField extends BodyTagSupport {
 			pageContext.getOut().println(strBuff.toString());
 
 		} catch (ClassNotFoundException ex) {
-			throw new RuntimeException("Classe executora n„o encontrada");
+			throw new RuntimeException("Classe executora n√£o encontrada");
 		} catch (InstantiationException e) {
 			e.printStackTrace();
 		} catch (IllegalAccessException e) {

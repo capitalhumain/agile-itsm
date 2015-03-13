@@ -122,7 +122,7 @@ public class UnidadeDao extends CrudDaoDefaultImpl {
     /**
      * @return
      * @throws Exception
-     *             Lista idunidade e nome de unidade que n„o estejam cadastrado na tabela USUARIO
+     *             Lista idunidade e nome de unidade que n√£o estejam cadastrado na tabela USUARIO
      */
     public Collection findByIdUnidade() throws Exception {
         final String sql = SQL_NOMEUNIDADE;
@@ -136,7 +136,7 @@ public class UnidadeDao extends CrudDaoDefaultImpl {
     /**
      * @return
      * @throws Exception
-     *             Lista idunidade e nome de unidade que n„o estejam cadastrado na tabela EMPREGADOS
+     *             Lista idunidade e nome de unidade que n√£o estejam cadastrado na tabela EMPREGADOS
      */
     public Collection findByIdEmpregado() throws Exception {
         final String sql = SQL_NOMEEMPREGADO;
@@ -151,7 +151,7 @@ public class UnidadeDao extends CrudDaoDefaultImpl {
      * Verifica se idUnidade informado possui filho.
      *
      * @param idUnidade
-     * @return true - possui; false - n„o possui
+     * @return true - possui; false - n√£o possui
      * @throws PersistenceException
      */
     public boolean verificarSeUnidadePossuiFilho(final Integer idUnidade) throws PersistenceException {
@@ -170,7 +170,7 @@ public class UnidadeDao extends CrudDaoDefaultImpl {
      * Verifica se Unidade informada existe.
      *
      * @param unidadeDTO
-     * @return true - existe; false - n„o existe;
+     * @return true - existe; false - n√£o existe;
      * @throws PersistenceException
      */
     public boolean verificarSeUnidadeExiste(final UnidadeDTO unidadeDTO) throws PersistenceException {
@@ -219,7 +219,7 @@ public class UnidadeDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Lista as unidades ativas do contrato se o id passado for maior que zero do contr·rio traz todas as unidades ativas.
+     * Lista as unidades ativas do contrato se o id passado for maior que zero do contr√°rio traz todas as unidades ativas.
      *
      * @author euler.ramos
      * @param idContrato
@@ -273,7 +273,7 @@ public class UnidadeDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Procura pelas unidades ativas do contrato se o id passado for maior que zero do contr·rio traz todas as unidades ativas que possuem no nome o texto passado como par‚metro.
+     * Procura pelas unidades ativas do contrato se o id passado for maior que zero do contr√°rio traz todas as unidades ativas que possuem no nome o texto passado como par√¢metro.
      *
      * @author euler.ramos
      * @param nome
@@ -294,7 +294,7 @@ public class UnidadeDao extends CrudDaoDefaultImpl {
             final StringBuilder sql = new StringBuilder();
             sql.append("select ");
 
-            //Limitando registros para n„o pesar a construÁ„o da lista hier·rquica no autocomplete
+            //Limitando registros para n√£o pesar a constru√ß√£o da lista hier√°rquica no autocomplete
 			if (CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.SQLSERVER) && limite != null && limite.intValue() > 0 ){
 				if ((limite != null)&&(limite.intValue()>0)){
 					sql.append("TOP "+limite.toString()+" ");
@@ -348,7 +348,7 @@ public class UnidadeDao extends CrudDaoDefaultImpl {
 	 * @author euler.ramos
 	 * @param idUnidade
 	 * @param idContrato
-	 * @return Retorna a unidade pesquisada pelo seu id, se o idContrato est· vinculado a ela
+	 * @return Retorna a unidade pesquisada pelo seu id, se o idContrato est√° vinculado a ela
 	 */
 	public Collection<UnidadeDTO> findByIdEcontrato(Integer idUnidade, Integer idContrato) {
 		List result;
@@ -394,7 +394,7 @@ public class UnidadeDao extends CrudDaoDefaultImpl {
 	}
 
     /**
-     * Recupera a lista hier·rquica da unidade passada como par‚metro
+     * Recupera a lista hier√°rquica da unidade passada como par√¢metro
      *
      * @author euler.ramos
      * @param unidadeDTO
@@ -406,9 +406,9 @@ public class UnidadeDao extends CrudDaoDefaultImpl {
         if (unidadeDTO != null) {
             UnidadeDTO unAux = unidadeDTO;
             do {
-                hierarquiaUnidade.add(0, unAux); // Desta forma ficar· na ordem de hierarquia
+                hierarquiaUnidade.add(0, unAux); // Desta forma ficar√° na ordem de hierarquia
                 unAux = this.retornaUnidadePai(unAux);
-            } while (unAux != null && this.naoFoiAdicionado(unAux, hierarquiaUnidade)); // Pensar como evitar looping, por causa de elementos j· presentes na hierarquia (Erro
+            } while (unAux != null && this.naoFoiAdicionado(unAux, hierarquiaUnidade)); // Pensar como evitar looping, por causa de elementos j√° presentes na hierarquia (Erro
                                                                                         // de dados no banco)!!!!
         }
         return hierarquiaUnidade;
@@ -426,7 +426,7 @@ public class UnidadeDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Retorna o pai da unidade passada como par‚metro
+     * Retorna o pai da unidade passada como par√¢metro
      *
      * @author euler.ramos
      * @param unidadeDTO
@@ -434,7 +434,7 @@ public class UnidadeDao extends CrudDaoDefaultImpl {
      * @throws Exception
      */
     public UnidadeDTO retornaUnidadePai(final UnidadeDTO unidadeDTO) throws Exception {
-        // Se for o prÛprio retorna o mesmo objeto
+        // Se for o pr√≥prio retorna o mesmo objeto
         if (unidadeDTO.getIdUnidade().equals(unidadeDTO.getIdUnidadePai())) {
             return unidadeDTO;
         } else {

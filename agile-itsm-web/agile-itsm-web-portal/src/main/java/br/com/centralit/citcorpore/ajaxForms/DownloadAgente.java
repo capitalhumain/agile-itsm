@@ -283,7 +283,7 @@ public class DownloadAgente extends AjaxFormAction {
 //
 //			XMLOutputter xout = new XMLOutputter();
 //
-//			xout.setFormat(Format.getCompactFormat().setEncoding("ISO-8859-1"));
+//			xout.setFormat(Format.getCompactFormat().setEncoding("UTF-8"));
 //
 //			xout.output(doc, out);
 //

@@ -1,4 +1,4 @@
-<%@page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@page import="br.com.centralit.citajax.html.DocumentHTML" %>
 <%@page import="br.com.centralit.citcorpore.bean.RequisicaoMudancaDTO" %>
 <%@page import="br.com.centralit.bpm.util.Enumerados" %>
@@ -13,7 +13,7 @@
 <%@page import="br.com.centralit.citcorpore.bean.HistoricoMudancaDTO" %>
 <%@page import="br.com.centralit.citcorpore.util.CitCorporeConstantes" %>
 
-<!-- Thiago Fernandes - 23/10/2013 14:06 - Sol. 121468 - Mudar a maneira de chamar a poupup de cadastro para novo colaborador e poder fechala pelo o seu id. Da linha 2047 á 2065 ,2969, e da linha 3118 á 3122. -->
+<!-- Thiago Fernandes - 23/10/2013 14:06 - Sol. 121468 - Mudar a maneira de chamar a poupup de cadastro para novo colaborador e poder fechala pelo o seu id. Da linha 2047 Ã¡ 2065 ,2969, e da linha 3118 Ã¡ 3122. -->
 <!-- Thiago Fernandes - 23/10/2013 14:06 - Sol. 121468 - Setar mascar no campo telefoneContato, linha 424. -->
 <%
 	String id = request.getParameter("idBaseConhecimento");
@@ -26,7 +26,7 @@
 	if (strRegistrosExecucao == null) {
 		strRegistrosExecucao = "";
 	}
-	/*Só vai aparecer se for feito a pesquisa, se já esta aprovado ou não, caso contrario não aparecera nenhum dos dois.*/
+	/*SÃ³ vai aparecer se for feito a pesquisa, se jÃ¡ esta aprovado ou nÃ£o, caso contrario nÃ£o aparecera nenhum dos dois.*/
 
 	String faseMudancaRequisicao = "";
 	if (request.getAttribute("faseMudancaRequisicao") != null) {
@@ -39,7 +39,7 @@
 	pageContext.setAttribute("acaoExecutar", acaoExecutar);
 
 	/**
-	* Motivo: Verifica se a tela é de visualização
+	* Motivo: Verifica se a tela Ã© de visualizaÃ§Ã£o
 	* Autor: luiz.borges
 	* Data/Hora: 10/12/2013 15:41
 	*/
@@ -75,7 +75,7 @@
 
 	<link type="text/css" rel="stylesheet" href="${ctx}/pages/requisicaoMudanca/requisicaoMudanca.css"/>
 
-	<title><fmt:message key="citcorpore.comum.title"/></title>
+	<%@include file="/novoLayout/common/include/titulo.jsp" %>
 
 	<!-- SlickGrid and its dependancies (not sure what they're for) --->
 	<script type="text/javascript" src="${ctx}/js/jquery.rule-1.0.1.1-min.js"></script>
@@ -375,7 +375,7 @@
 										<div class="col_50">
 											<fieldset>
 												<label class='campoObrigatorio'> <fmt:message key="grupo.execucaoRequisicaoMudanca" />
-													<!-- Thiago Fernandes - 29/10/2013 09:06 - Sol. 121468 - Adicionar novas opções ao comboboxes tipo requisição mudança, unidade, localidade fisica, grupo executor e grupo comitê consutivo de mudança . -->
+													<!-- Thiago Fernandes - 29/10/2013 09:06 - Sol. 121468 - Adicionar novas opÃ§Ãµes ao comboboxes tipo requisiÃ§Ã£o mudanÃ§a, unidade, localidade fisica, grupo executor e grupo comitÃª consutivo de mudanÃ§a . -->
 													<img src="${ctx}/imagens/add.png" onclick="abrirPopupNovoGrupoExecutor()">
 												</label>
 												<div>
@@ -387,7 +387,7 @@
 										<div class="col_50">
 											<fieldset>
 												<label><fmt:message key="grupo.comiteConsultivoMudanca" />
-													<!-- Thiago Fernandes - 29/10/2013 09:06 - Sol. 121468 - Adicionar novas opções ao comboboxes tipo requisição mudança, unidade, localidade fisica, grupo executor e grupo comitê consutivo de mudança . -->
+													<!-- Thiago Fernandes - 29/10/2013 09:06 - Sol. 121468 - Adicionar novas opÃ§Ãµes ao comboboxes tipo requisiÃ§Ã£o mudanÃ§a, unidade, localidade fisica, grupo executor e grupo comitÃª consutivo de mudanÃ§a . -->
 													<img src="${ctx}/imagens/add.png" onclick="abrirPopupNovoGrupoExecutor()">
 												</label>
 												<div>
@@ -872,7 +872,7 @@
 		</div><!-- FIM_classForm -->
 	</div>
 
-	<!-- MAPA DESENHO SERVIÇO -->
+	<!-- MAPA DESENHO SERVIÃ‡O -->
 	<div id="popupCadastroRapido">
 		<iframe id="frameCadastroRapido" name="frameCadastroRapido" width="100%" height="100%"></iframe>
 	</div>
@@ -1071,12 +1071,12 @@
 		<iframe id='iframeNovoColaborador' src='about:blank' width="100%" height="100%" style='width: 100%; height: 100%; border:none;' onload="resize_iframe()"></iframe>
 	</div>
 
-	<!-- Thiago Fernandes - 23/10/2013 14:06 - Sol. 121468 - Div popup cadastro nova solicitação serviço. -->
+	<!-- Thiago Fernandes - 23/10/2013 14:06 - Sol. 121468 - Div popup cadastro nova solicitaÃ§Ã£o serviÃ§o. -->
 	<div id="POPUP_NOVASOLICITACAOSERVICO" style="overflow: hidden;" title="<fmt:message key="solicitacaoServico.solicitacao"/>">
 		<iframe id='iframeNovaSolicitacao' src='about:blank' width="100%" height="100%" onload="resize_iframe()"></iframe>
 	</div>
 
-	<!-- Thiago Fernandes - 29/10/2013 09:06 - Sol. 121468 - Adicionar novas opções ao comboboxes tipo requisição mudança, unidade, localidade fisica, grupo executor e grupo comitê consutivo de mudança . -->
+	<!-- Thiago Fernandes - 29/10/2013 09:06 - Sol. 121468 - Adicionar novas opÃ§Ãµes ao comboboxes tipo requisiÃ§Ã£o mudanÃ§a, unidade, localidade fisica, grupo executor e grupo comitÃª consutivo de mudanÃ§a . -->
 	<div id="POPUP_NOVOTIPOREQUISICAOMUDANCA" style="overflow: hidden;" title="<fmt:message key="tipoMudanca.tipoDeMudanca"/>">
 		<iframe id='iframeNovoTipoRequisicaoMudanca' src='about:blank' width="100%" height="100%" onload="resize_iframe()"></iframe>
 	</div>

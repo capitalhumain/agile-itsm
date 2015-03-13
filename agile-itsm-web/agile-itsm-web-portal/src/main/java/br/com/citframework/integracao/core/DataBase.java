@@ -3,7 +3,7 @@ package br.com.citframework.integracao.core;
 import org.apache.commons.lang.StringUtils;
 
 /**
- * Enumerado de SBGDs que s„o suportados
+ * Enumerado de SBGDs que s√£o suportados
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 02/10/2014
@@ -42,8 +42,8 @@ public enum DataBase {
      * Recupera um {@link DataBase} de acordo com o id
      *
      * @param id
-     *            identificador numÈrico/sequencial do SGBD
-     * @return {@link DataBase} de acordo com o id. {@link IllegalArgumentException}, caso contr·rio
+     *            identificador num√©rico/sequencial do SGBD
+     * @return {@link DataBase} de acordo com o id. {@link IllegalArgumentException}, caso contr√°rio
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      * @since 02/10/2014
      */
@@ -62,7 +62,7 @@ public enum DataBase {
      *
      * @param stringId
      *            nome identificador do SGBD
-     * @return {@link DataBase} de acordo com o stringId. {@link IllegalArgumentException}, caso contr·rio
+     * @return {@link DataBase} de acordo com o stringId. {@link IllegalArgumentException}, caso contr√°rio
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      * @since 02/10/2014
      */

@@ -10,7 +10,7 @@ import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.util.Constantes;
 
 /**
- * ImplementaÁ„o b·sica de {@link ConnectionControler}
+ * Implementa√ß√£o b√°sica de {@link ConnectionControler}
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 25/08/2014
@@ -107,10 +107,10 @@ public class ConnectionControlerImpl implements ConnectionControler {
     }
 
     /**
-     * Realiza validaÁıes para a {@link Connection} de acordo com o necess·rio
+     * Realiza valida√ß√µes para a {@link Connection} de acordo com o necess√°rio
      *
      * @param operation
-     *            nome da operaÁ„o, apenas para log
+     *            nome da opera√ß√£o, apenas para log
      * @throws PersistenceException
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      * @since 25/08/2014
@@ -121,7 +121,7 @@ public class ConnectionControlerImpl implements ConnectionControler {
                 throw new IllegalStateException(String.format("'%s' operation failed: connection is null or closed,", operation));
             }
         } catch (final SQLException e) {
-            final String message = "Problema ao realizar validaÁ„o de conex„o: " + e.getMessage();
+            final String message = "Problema ao realizar valida√ß√£o de conex√£o: " + e.getMessage();
             LOGGER.log(Level.WARNING, message, e);
             throw new PersistenceException(message);
         }

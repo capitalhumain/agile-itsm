@@ -18,10 +18,10 @@ public interface GrupoEmpregadoService extends CrudService {
 	public void gerarGridEmpregados(DocumentHTML document, Collection<GrupoEmpregadoDTO> grupoEmpregados) throws Exception;
 
 	/**
-	 * Fazer uma coleção de empregado se idEmpregado;
+	 * Fazer uma coleÃ§Ã£o de empregado se idEmpregado;
 	 * 
 	 * @param grupo
-	 * @return true - existe; false - não existe;
+	 * @return true - existe; false - nÃ£o existe;
 	 * @throws PersistenceException
 	 */
 	public Collection findByIdEmpregado(Integer idEmpregado) throws Exception;
@@ -54,11 +54,11 @@ public interface GrupoEmpregadoService extends CrudService {
 	public Collection<GrupoEmpregadoDTO> findGrupoEmpregadoHelpDeskByIdContrato(Integer idContrato);
 
 	/**
-	 * Retorna Lista de GrupoEmpregadoDTO com informações do Grupo e Empregados.
+	 * Retorna Lista de GrupoEmpregadoDTO com informaÃ§Ãµes do Grupo e Empregados.
 	 * 
 	 * @param idGrupo
-	 *            - Identificador único do Grupo.
-	 * @return listGrupoEmpregadoDTO - Lista de GrupoEmpregadoDTO com informações do empregado.
+	 *            - Identificador Ãºnico do Grupo.
+	 * @return listGrupoEmpregadoDTO - Lista de GrupoEmpregadoDTO com informaÃ§Ãµes do empregado.
 	 * @throws Exception
 	 * @author valdoilo.damasceno
 	 */
@@ -76,7 +76,7 @@ public interface GrupoEmpregadoService extends CrudService {
 	 * @param idEmpregado
 	 * @param idGrupo
 	 * 
-	 * @return TRUE: Existe registro com os parametros informados || FALSE: Não existe registro com os parametros informados
+	 * @return TRUE: Existe registro com os parametros informados || FALSE: NÃ£o existe registro com os parametros informados
 	 * 
 	 * @throws Exception
 	 */

@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.CitCorporeConstantes"%>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
@@ -104,7 +106,7 @@
 										<div class="controls">
 											<label  class="strong campoObrigatorio"><fmt:message key="citcorpore.comum.ocorrencia" /></label>
 												<div class="controls">
-													<textarea  class="span10 Valid[Required] Description[Ocorrência]" rows="4" id="ocorrencia" name="ocorrencia"></textarea>
+													<textarea  class="span10 Valid[Required] Description[OcorrÃªncia]" rows="4" id="ocorrencia" name="ocorrencia"></textarea>
 										</div>
 													</div>
 										<div class="controls">
@@ -146,7 +148,7 @@
 			<div class="modal hide fade in" id="modal_cadastroCategoriaOcorrencia" aria-hidden="false">
 				<!-- Modal heading -->
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
 						<h3><fmt:message key="solicitacaoServico.cadastroCategoriaOcorrencia" /></h3>
 					</div>
 					<!-- // Modal heading END -->
@@ -168,7 +170,7 @@
 			<div class="modal hide fade in" id="modal_cadastroOrigemOcorrencia" aria-hidden="false">
 				<!-- Modal heading -->
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
 						<h3><fmt:message key="solicitacaoServico.cadastroOrigemOcorrencia" /></h3>
 					</div>
 					<!-- // Modal heading END -->
@@ -189,7 +191,7 @@
 			<div class="modal hide fade in" id="modal_lookupCategoriaOcorrencia" aria-hidden="false">
 				<!-- Modal heading -->
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
 						<h3></h3>
 					</div>
 					<!-- // Modal heading END -->
@@ -213,7 +215,7 @@
 			<div class="modal hide fade in" id="modal_lookupOrigemOcorrencia" aria-hidden="false">
 				<!-- Modal heading -->
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
 						<h3></h3>
 					</div>
 					<!-- // Modal heading END -->

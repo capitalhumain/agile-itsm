@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%@ include file="/WEB-INF/templates/taglibs.jsp"%>
 
@@ -24,7 +24,7 @@
     <table width="100%" height="100%">
         <tr>
             <td width="100%">
-                <input type='button' style="background-color: #ffff00" name='btnRecarregar' value='Caso não seja apresentado o documento, clique aqui para recarregar o documento'
+                <input type='button' style="background-color: #ffff00" name='btnRecarregar' value='Caso nÃ£o seja apresentado o documento, clique aqui para recarregar o documento'
                         onclick='recarrega();'/>
                 <input type='button' style='color: #444; font-weight: bold; background: url("${ctx}/imagens/fecharLookup.gif") no-repeat scroll top left' name='btnFechar' value='&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fechar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
                         onclick='fechar();'/>

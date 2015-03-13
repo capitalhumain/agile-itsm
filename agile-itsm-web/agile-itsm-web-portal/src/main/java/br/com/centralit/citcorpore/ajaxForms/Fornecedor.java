@@ -80,7 +80,7 @@ public class Fornecedor extends AjaxFormAction {
 				fornecedorDTO.setBairro(enderecoDTO.getBairro());
 				fornecedorDTO.setCep(enderecoDTO.getCep());
 
-				// PaÌs
+				// Pa√≠s
 				if (enderecoDTO.getIdPais() != null) {
 					fornecedorDTO.setIdPais(enderecoDTO.getIdPais());
 					HTMLElement idPais = document.getElementById("idPais");
@@ -111,7 +111,7 @@ public class Fornecedor extends AjaxFormAction {
 
 			String mascara = "";
 
-			// Retirando a m·scara antiga.
+			// Retirando a m√°scara antiga.
 			document.executeScript("$('#cnpj').unmask()");
 
 			if (fornecedorDTO.getTipoPessoa() != null && !fornecedorDTO.getTipoPessoa().equals("")) {
@@ -123,19 +123,19 @@ public class Fornecedor extends AjaxFormAction {
 					mascara = "99.999.999/9999-99";
 				}
 
-				// Aplicando a nova m·scara ao campo.
+				// Aplicando a nova m√°scara ao campo.
 				document.executeScript("$('#cnpj').mask(\"" + mascara + "\")");
 			}
 		}
 	}
 
 	public void save(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// Obtendo os dados provenientes do formul·rio (encapsulados em um DTO - Data Transfer Object).
+		// Obtendo os dados provenientes do formul√°rio (encapsulados em um DTO - Data Transfer Object).
 		FornecedorDTO fornecedorDTO = (FornecedorDTO) document.getBean();
-		// Obtendo um serviÁo para persistir os dados recebidos.
+		// Obtendo um servi√ßo para persistir os dados recebidos.
 		FornecedorService fornecedorService = (FornecedorService) ServiceLocator.getInstance().getService(FornecedorService.class, null);
 
-		// Verificando a existÍncia dos dados e do serviÁo.
+		// Verificando a exist√™ncia dos dados e do servi√ßo.
 		if (fornecedorDTO != null && fornecedorService != null) {
 			// 1 - Desformatando os valores de alguns atributos.
 			// 1.1 - Cnpj
@@ -218,14 +218,14 @@ public class Fornecedor extends AjaxFormAction {
 					}
 				}
 
-				// Inserindo o endereÁo.
+				// Inserindo o endere√ßo.
 				if (fornecedorDTO.getIdEndereco() == null) {
 					enderecoService.create(enderecoDTO);
-				} else { // Atualizando o endereÁo.
+				} else { // Atualizando o endere√ßo.
 					enderecoService.update(enderecoDTO);
 				}
 
-				// Definindo o endereÁo do fornecedor.
+				// Definindo o endere√ßo do fornecedor.
 				fornecedorDTO.setIdEndereco(enderecoDTO.getIdEndereco());
 			}
 
@@ -233,7 +233,7 @@ public class Fornecedor extends AjaxFormAction {
 				/*
 				 * List<FornecedorDTO> fornecedores = (List) fornecedorService.list();
 				 * 
-				 * // Verificando se existe algum fornecedor com CPF/CNPJ, Raz„o social ou Nome fantasia j· cadastrado. if (fornecedorDTO.getCnpj() != null) { for (FornecedorDTO fornecedor :
+				 * // Verificando se existe algum fornecedor com CPF/CNPJ, Raz√£o social ou Nome fantasia j√° cadastrado. if (fornecedorDTO.getCnpj() != null) { for (FornecedorDTO fornecedor :
 				 * fornecedores) { if (fornecedorDTO.getCnpj().equals(fornecedor.getCnpj() ) || fornecedorDTO.getRazaoSocial().equals(fornecedor.getRazaoSocial() ) ||
 				 * fornecedorDTO.getNomeFantasia().equals(fornecedor.getNomeFantasia() ) ) { document.alert(UtilI18N.internacionaliza(request, "fornecedor.jaCadastrado") ); return; } } }
 				 */
@@ -273,7 +273,7 @@ public class Fornecedor extends AjaxFormAction {
 		boolean retornoExclusao;
 		if (fornecedorDTO != null && fornecedorDTO.getIdFornecedor() != null && fornecedorService != null) {
 			
-			//Verifica se existe algum contrato associado ao fornecedor, se existir, n„o deixa excluir.
+			//Verifica se existe algum contrato associado ao fornecedor, se existir, n√£o deixa excluir.
 			boolean fornecedorAssociadoContrato = fornecedorService.existeFornecedorAssociadoContrato(fornecedorDTO.getIdFornecedor());
 			
 			if(fornecedorAssociadoContrato){
@@ -297,7 +297,7 @@ public class Fornecedor extends AjaxFormAction {
 
 				EnderecoService enderecoService = (EnderecoService) ServiceLocator.getInstance().getService(EnderecoService.class, null);
 
-				// Excluindo o endereÁo associado.
+				// Excluindo o endere√ßo associado.
 				enderecoService.delete(enderecoDTO);
 			}
 
@@ -438,7 +438,7 @@ public class Fornecedor extends AjaxFormAction {
 				obj.setIdUf(ufId);
 
 				if (cidadesService != null && comboCidades != null) {
-					// O nome do mÈtodo deveria ser listByIdUf e n„o listByIdCidades.
+					// O nome do m√©todo deveria ser listByIdUf e n√£o listByIdCidades.
 					List<CidadesDTO> cidades = (List) cidadesService.listByIdCidades(obj);
 
 					if (cidades != null) {

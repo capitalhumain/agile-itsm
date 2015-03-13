@@ -3,8 +3,8 @@
 
 	addEvent(window, "load", load, false);
 	function load() {
-		/* Desenvolvedor: Pedro Lino - Data: 30/10/2013 - Hor·rio: 11:00 - ID Citsmart: 120948 -
-		* Motivo/Coment·rio: Lookup pequena/ Alterado width e height */
+		/* Desenvolvedor: Pedro Lino - Data: 30/10/2013 - Hor√°rio: 11:00 - ID Citsmart: 120948 -
+		* Motivo/Coment√°rio: Lookup pequena/ Alterado width e height */
 		$("#POPUP_FORNECEDOR").dialog({
 			autoOpen : false,
 			width : 720,

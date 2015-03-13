@@ -70,7 +70,7 @@ public class GerenciamentoLiberacao extends AjaxFormAction {
 		}
 		List colTarefasFiltradasFinal = new ArrayList();
 		HashMap mapAtr = new HashMap();
-		mapAtr.put("-- Sem AtribuiÁ„o --", "-- Sem AtribuiÁ„o --");
+		mapAtr.put("-- Sem Atribui√ß√£o --", "-- Sem Atribui√ß√£o --");
 		for (TarefaFluxoDTO tarefaDto : colTarefasFiltradas) {
 			RequisicaoLiberacaoDTO requisicaoLiberacaoDto = (RequisicaoLiberacaoDTO) tarefaDto.getRequisicaoLiberacaoDto();
 			requisicaoLiberacaoDto.setDataHoraLimiteToString(""); // Apenas forca atualizacao
@@ -97,7 +97,7 @@ public class GerenciamentoLiberacao extends AjaxFormAction {
 			requisicaoLiberacaoDto.setDataInicioStr(UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, requisicaoLiberacaoDto.getDataHoraInicioAgendada(), WebUtil.getLanguage(request)));
 			requisicaoLiberacaoDto.setDataTerminoStr(UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, requisicaoLiberacaoDto.getDataHoraTerminoAgendada(), WebUtil.getLanguage(request)));
 			requisicaoLiberacaoDto.setDatahoraAprovacaoStr(UtilDatas.convertDateToString(TipoDate.TIMESTAMP_DEFAULT, requisicaoLiberacaoDto.getDatahoraAprovacao(), WebUtil.getLanguage(request)));
-			//Verifica se usuario È o responsavel pela liberaÁ„o da requisiÁ„o
+			//Verifica se usuario √© o responsavel pela libera√ß√£o da requisi√ß√£o
 			//(usuario.getIdEmpregado() == dtoSol.getIdSolicitante() ){
 			//	dtoSol.setAutorizadoLiberar("S");
 			//}
@@ -140,7 +140,7 @@ public class GerenciamentoLiberacao extends AjaxFormAction {
 	public void preparaExecucaoTarefa(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		UsuarioDTO usuario = WebUtil.getUsuario(request);
 		if (usuario == null) {
-			document.alert("Sess„o expirada! Favor efetuar logon novamente!");
+			document.alert("Sess√£o expirada! Favor efetuar logon novamente!");
 			document.executeScript("window.location = '" + Constantes.getValue("SERVER_ADDRESS") + request.getContextPath() + "'");
 			return;
 		}
@@ -159,7 +159,7 @@ public class GerenciamentoLiberacao extends AjaxFormAction {
 				document.executeScript("exibirVisao('Executar tarefa " + tarefaDto.getElementoFluxoDto().getDocumentacao() + "','" + tarefaDto.getIdVisao() + "','"
 						+ tarefaDto.getElementoFluxoDto().getIdFluxo() + "','" + tarefaDto.getIdItemTrabalho() + "','" + gerenciamentoBean.getAcaoFluxo() + "');");
 			} else {
-				document.alert("Vis„o para tarefa \"" + tarefaDto.getElementoFluxoDto().getDocumentacao() + "\" n„o encontrada");
+				document.alert("Vis√£o para tarefa \"" + tarefaDto.getElementoFluxoDto().getDocumentacao() + "\" n√£o encontrada");
 			}
 		} else {
 			String caracterParmURL = "?";
@@ -175,7 +175,7 @@ public class GerenciamentoLiberacao extends AjaxFormAction {
 	public void reativaRequisicao(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		UsuarioDTO usuario = WebUtil.getUsuario(request);
 		if (usuario == null) {
-			document.alert("Sess„o expirada! Favor efetuar logon novamente!");
+			document.alert("Sess√£o expirada! Favor efetuar logon novamente!");
 			document.executeScript("window.location = '" + Constantes.getValue("SERVER_ADDRESS") + request.getContextPath() + "'");
 			return;
 		}
@@ -193,7 +193,7 @@ public class GerenciamentoLiberacao extends AjaxFormAction {
 	public void aprovarLiberacao(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		UsuarioDTO usuario = WebUtil.getUsuario(request);
 		if (usuario == null) {
-			document.alert("Sess„o expirada! Favor efetuar logon novamente!");
+			document.alert("Sess√£o expirada! Favor efetuar logon novamente!");
 			document.executeScript("window.location = '" + Constantes.getValue("SERVER_ADDRESS") + request.getContextPath() + "'");
 			return;
 		}

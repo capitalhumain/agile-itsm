@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.citframework.util.UtilDatas"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
@@ -8,12 +10,11 @@
 	<head>
 		<%@include file="/include/header.jsp"%>
 
-		<title><fmt:message key="citcorpore.comum.title"/></title>
-		<%@include file="/include/security/security.jsp" %>
+		<%@include file="/novoLayout/common/include/titulo.jsp" %>
 		<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 
 		<script type="text/javascript" src="../../js/parametroCorpore.js"></script>
-		<script charset="ISO-8859-1" type="text/javascript" src="${ctx}/js/PopupManager.js"></script>
+		<script charset="UTF-8" type="text/javascript" src="${ctx}/js/PopupManager.js"></script>
 
 		<script type="text/javascript" src="./js/parametroCorpore.js"></script>
 
@@ -81,8 +82,8 @@
 									     <iframe id="frameCadastroRapido" name="frameCadastroRapido" width="100%" height="98%"></iframe>
 								    </div>
 									<br><br>
-					<!-- 	Desenvolvedor: Pedro Lino - Data: 29/10/2013 - Horário: 15:00 - ID Citsmart: 120948 -
-					* Motivo/Comentário: Removido icone do botao exportar csv  -->
+					<!-- 	Desenvolvedor: Pedro Lino - Data: 29/10/2013 - HorÃ¡rio: 15:00 - ID Citsmart: 120948 -
+					* Motivo/ComentÃ¡rio: Removido icone do botao exportar csv  -->
 									<button type='button' name='btnGravar' class="light text_only has_text"  onclick='salvar();'>
 										<img src="${ctx}/template_new/images/icons/small/grey/pencil.png">
 										<span><fmt:message key="citcorpore.comum.gravar"/></span>

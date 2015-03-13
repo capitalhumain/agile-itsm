@@ -15,7 +15,7 @@ public class ItemGrupoAssinaturaDTO extends BaseEntity{
     private Date dataInicio;
     private Date dataFim;
 
-    //Campos auxiliares para apresentação na tela
+    //Campos auxiliares para apresentaÃ§Ã£o na tela
     private String nomeResponsavel;
     private String papel;
     private String fase;

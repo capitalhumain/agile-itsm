@@ -74,13 +74,13 @@ public class ServicoDao extends CrudDaoDefaultImpl {
 		List listaQuantidadeServicoAnalitico = new ArrayList<ServicoDTO>();
 
 		/**
-		 * Checa se È necess·rio aplicar limite
+		 * Checa se √© necess√°rio aplicar limite
 		 * @author thyen.chang
 		 */
 		boolean seLimita = servicoDTO.getTopList() != 0;
 		
-		/* Desenvolvedor: Rodrigo Pecci - Data: 31/10/2013 - Hor·rio: 15h35min - ID Citsmart: 120770
-		 * Motivo/Coment·rio: Novas cl·usulas foram adicionadas no where para garantir a consistÍncia do relatÛrio. 
+		/* Desenvolvedor: Rodrigo Pecci - Data: 31/10/2013 - Hor√°rio: 15h35min - ID Citsmart: 120770
+		 * Motivo/Coment√°rio: Novas cl√°usulas foram adicionadas no where para garantir a consist√™ncia do relat√≥rio. 
 		 */
 		
 		StringBuilder sql = new StringBuilder();
@@ -362,8 +362,8 @@ public class ServicoDao extends CrudDaoDefaultImpl {
 		String text = nome;
 		//text = Normalizer.normalize(text, Normalizer.Form.NFD);
 		//text = text.replaceAll("[^\\p{ASCII}]", "");
-		//text = text.replaceAll("·‡„‚ÈÍÌÛÙı˙¸Á¡¿√¬… Õ”‘’⁄‹«Á¥`^''-+=", "aaaaeeiooouucAAAAEEIOOOUUCc ");
-		text = text.replaceAll("¥`^''-+=", "");
+		//text = text.replaceAll("√°√†√£√¢√©√™√≠√≥√¥√µ√∫√º√ß√Å√Ä√É√Ç√â√ä√ç√ì√î√ï√ö√ú√á√ß¬¥`^''-+=", "aaaaeeiooouucAAAAEEIOOOUUCc ");
+		text = text.replaceAll("¬¥`^''-+=", "");
 		nome = text;		
 		nome = "%" + nome + "%";
 		//Object[] objs = new Object[] {dataAtual,nome};
@@ -461,7 +461,7 @@ public class ServicoDao extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Retorna lista ServiÁo por nome.
+	 * Retorna lista Servi√ßo por nome.
 	 * 
 	 * @return Collection
 	 * @throws Exception
@@ -476,7 +476,7 @@ public class ServicoDao extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * MÈtodo para retornar apenas os serviÁos referente a unidade do solicitante
+	 * M√©todo para retornar apenas os servi√ßos referente a unidade do solicitante
 	 * 
 	 * @author rodrigo.oliveira
 	 * @param idServico
@@ -588,7 +588,7 @@ public class ServicoDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * Retorna uma lista de servicos ativos que ainda n„o foram adicionados a este contrato
+	 * Retorna uma lista de servicos ativos que ainda n√£o foram adicionados a este contrato
 	 * @param servicoDto
 	 * @return
 	 * @throws Exception

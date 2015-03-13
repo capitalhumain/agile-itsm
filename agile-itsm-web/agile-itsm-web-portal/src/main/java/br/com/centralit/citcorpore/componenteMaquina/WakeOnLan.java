@@ -14,7 +14,7 @@ import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.ServiceLocator;
 
 /**
- * Implementa a verificaÁ„o de Status e Liga Computador.
+ * Implementa a verifica√ß√£o de Status e Liga Computador.
  * 
  * @author valdoilo.damasceno
  * 
@@ -102,7 +102,7 @@ public class WakeOnLan extends Thread {
     	InetAddress inetAddress = InetAddress.getByName(this.getIp() );
     	try {
     		System.out.println("######TESTA SE O COMPUTADOR LIGOU######");
-    		// Testa se o outro computador na rede È alcanÁ·vel
+    		// Testa se o outro computador na rede √© alcan√ß√°vel
     		// Timeout (tempo de espera por resposta) definido em 3 segundos
     		return inetAddress.isReachable(3000);
     	} catch (Exception e) {
@@ -144,7 +144,7 @@ public class WakeOnLan extends Thread {
     }
 
     /**
-     * Retorna EndereÁo IP Broadcast.
+     * Retorna Endere√ßo IP Broadcast.
      * 
      * @param enderecoIp
      * @param mascara
@@ -185,7 +185,7 @@ public class WakeOnLan extends Thread {
     }
 
     /**
-     * Retorna m·scara de sub-rede.
+     * Retorna m√°scara de sub-rede.
      * 
      * @param anIp
      * @param aMask
@@ -213,19 +213,19 @@ public class WakeOnLan extends Thread {
     }
 
     /**
-     * Converte IP em formato texto (String) para o fomato bin·rio.
+     * Converte IP em formato texto (String) para o fomato bin√°rio.
      * 
      * @param anIp
      * @return String[]
      * @author valdoilo.damasceno
      */
     private String[] ipToBinary(String anIp) {
-    	// Recebe o endereÁo IP em formato textual e cria um array com as partes entes os pontos (.)
+    	// Recebe o endere√ßo IP em formato textual e cria um array com as partes entes os pontos (.)
     	String[] ipArray = anIp.split("\\.");
     	String[] ipBin = new String[ipArray.length];
     	for (int lcJ = 0; lcJ < ipBin.length; lcJ++) {
     		// Converte um texto para inteiro e logo em seguida converte o
-    		// n˙mero para um n˙mero bin·rio em formato texto
+    		// n√∫mero para um n√∫mero bin√°rio em formato texto
     		ipBin[lcJ] = Integer.toBinaryString(Integer.parseInt(ipArray[lcJ]) );
     		if (ipBin[lcJ].length() < 8) {
     			int nb0 = 8 - ipBin[lcJ].length();
@@ -241,7 +241,7 @@ public class WakeOnLan extends Thread {
     }
 
     /**
-     * Retorna o endereÁo Ethernet.
+     * Retorna o endere√ßo Ethernet.
      * 
      * @param enderecoMAC
      * @return enderecoEthernet
@@ -251,7 +251,7 @@ public class WakeOnLan extends Thread {
     private byte[] getEnderecoEthernet(String enderecoMAC) throws IllegalArgumentException {
     	String[] hex = enderecoMAC.split("(\\:|\\-)");
     	if (hex.length != 6) {
-    		throw new IllegalArgumentException("EndereÁo MAC inv·lido.");
+    		throw new IllegalArgumentException("Endere√ßo MAC inv√°lido.");
     	}
     	byte[] enderecoEthernet = new byte[6];
     	try {
@@ -259,13 +259,13 @@ public class WakeOnLan extends Thread {
     			enderecoEthernet[i] = (byte) Integer.parseInt(hex[i], 16);
     		}
     	} catch (NumberFormatException e) {
-    		throw new IllegalArgumentException("EndereÁo MAC inv·lido.");
+    		throw new IllegalArgumentException("Endere√ßo MAC inv√°lido.");
     	}
     	return enderecoEthernet;
     }
 
     /**
-     * Converte IP de bin·rio para Integer.
+     * Converte IP de bin√°rio para Integer.
      * 
      * @param aBinaryIp
      * @return String
@@ -289,7 +289,7 @@ public class WakeOnLan extends Thread {
      * @author valdoilo.damasceno
      */
     public UsuarioService getUsuarioService() throws ServiceException, Exception {
-    	// ObtÈm um serviÁo de usu·rio atravÈs do localizador de serviÁo
+    	// Obt√©m um servi√ßo de usu√°rio atrav√©s do localizador de servi√ßo
     	return (UsuarioService) ServiceLocator.getInstance().getService(UsuarioService.class, null);
     }
 

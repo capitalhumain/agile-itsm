@@ -8,13 +8,13 @@ public class TipoMudancaDTO extends BaseEntity{
 	
 	/**
 	 * @author geber.costa
-	 * Baseado em Categoria MudanÁa, porÈm sem 2 atributos : 
+	 * Baseado em Categoria Mudan√ßa, por√©m sem 2 atributos : 
 	 * idCategoriaMudancaPai
 	 * idGrupoNivel1
 	 */
 	private static final long serialVersionUID = 4864126394598758208L;
 	private Integer idTipoMudanca;
-	//Foi verificado n„o utilizar os atributos comentados, porÈm por precauÁ„o n„o foram excluidos
+	//Foi verificado n√£o utilizar os atributos comentados, por√©m por precau√ß√£o n√£o foram excluidos
 	//private Integer idCategoriaMudancaPai;
 	private String nomeTipoMudanca;
 	private Date dataInicio;

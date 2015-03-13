@@ -18,7 +18,7 @@ public class CategoriaProblemaDTO extends BaseEntity {
 	
 	/**
 	 * @author geber.costa
-	 * criação de atributos idTipoFluxo, idGrupoExecutor, dataInicio e dataFim
+	 * criaÃ§Ã£o de atributos idTipoFluxo, idGrupoExecutor, dataInicio e dataFim
 	 */
 	
 	private Integer idTipoFluxo;

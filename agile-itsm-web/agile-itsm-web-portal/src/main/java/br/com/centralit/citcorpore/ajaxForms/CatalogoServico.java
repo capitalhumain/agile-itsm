@@ -73,12 +73,12 @@ public class CatalogoServico extends AjaxFormAction {
 
 		} else {
 			document.alert(String.format("%s: %s", UtilI18N.internacionaliza(request, "servico.servico"), UtilI18N.internacionaliza(request, "citcorpore.comum.campo_obrigatorio") ) );
-			// document.alert("Selecione pelo menos 1 serviÁo!");
+			// document.alert("Selecione pelo menos 1 servi√ßo!");
 			return;
 		}*/
 		Collection<InfoCatalogoServicoDTO> colinfoCatServico = br.com.citframework.util.WebUtil.deserializeCollectionFromRequest(InfoCatalogoServicoDTO.class, "infoCatalogoServicoSerialize", request);
-		//aspas simples e "\n" da erro nos serializes, este laÁo resolve o problema substituindo aspas simples e "\n"por
-		//aspas duplas e espaÁo em branco, acontecia este problema na p·gina: pages/portal2/portal2.load.
+		//aspas simples e "\n" da erro nos serializes, este la√ßo resolve o problema substituindo aspas simples e "\n"por
+		//aspas duplas e espa√ßo em branco, acontecia este problema na p√°gina: pages/portal2/portal2.load.
 		if(colinfoCatServico != null){
 			for (InfoCatalogoServicoDTO infoCatServ : colinfoCatServico ) {
 				infoCatServ.setDescInfoCatalogoServico(infoCatServ.getDescInfoCatalogoServico().replaceAll("[\']","\""));
@@ -265,13 +265,13 @@ public class CatalogoServico extends AjaxFormAction {
 
 		//HTMLTable tblServico = document.getTableById("tblServicoContrato");
 
-		//tblServico.addRow(servContratoCatalogoServDTO, new String[] { "", "idServicoContrato", "nomeServico" }, new String[] { "idServicoContrato" }, "ServiÁo j· selecionado!",
+		//tblServico.addRow(servContratoCatalogoServDTO, new String[] { "", "idServicoContrato", "nomeServico" }, new String[] { "idServicoContrato" }, "Servi√ßo j√° selecionado!",
 		//		new String[] { "gerarButtonDelete" }, null, null);
 		//document.executeScript("HTMLUtils.applyStyleClassInAllCells('tblServicoContrato', 'tblServicoContrato');");
 	}
 
 	/**
-	 * Retorna o Conteudo de cat·logo de serviÁo
+	 * Retorna o Conteudo de cat√°logo de servi√ßo
 	 * 
 	 * @author pedro
 	 * @param document

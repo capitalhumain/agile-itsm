@@ -158,7 +158,7 @@ public class RequisicaoLiberacao extends AjaxFormAction {
         }
 
         /**
-         * Adicionado para fazer limpeza do upload que est· na sess„o .
+         * Adicionado para fazer limpeza do upload que est√° na sess√£o .
          *
          * @author maycon.fernandes
          * @since 28/10/2013 08:21
@@ -298,7 +298,7 @@ public class RequisicaoLiberacao extends AjaxFormAction {
             RequisicaoLiberacaoService liberacaoService = (RequisicaoLiberacaoService) ServiceLocator.getInstance().getService(RequisicaoLiberacaoService.class, null);
             requisicaoLiberacaoDTO = (RequisicaoLiberacaoDTO) liberacaoService.restore(requisicaoLiberacaoDTO);
         }
-        //carregar o grupo de atividade periÛdica para agendamento
+        //carregar o grupo de atividade peri√≥dica para agendamento
         HTMLForm form = document.getForm("form");
         //form.clear();
         if(requisicaoLiberacaoDTO.getIdGrupoAtvPeriodica() != null){
@@ -433,7 +433,7 @@ public class RequisicaoLiberacao extends AjaxFormAction {
             tblProblema.addRowsByCollection(problemas, new String[] { "", "idProblema", "titulo","status" }, null, "", new String[] { "gerarImgDelProblema" }, null, null);
 
         }
-        //Respons·vel
+        //Respons√°vel
         HTMLTable tblResponsavel = document.getTableById("tblResponsavel");
         tblResponsavel.deleteAllRows();
 
@@ -454,7 +454,7 @@ public class RequisicaoLiberacao extends AjaxFormAction {
 
             if (listRequisicaoLiberacaoMidiaDTO != null) {
 
-                tblMidia.addRowsByCollection(listRequisicaoLiberacaoMidiaDTO, new String[] { "", "idMidiaSoftware", "nomeMidia" }, new String[] { "idMidiaSoftware" }, "LiberaÁ„o j· cadastrado!",new String[] { "exibeIconesMidia" }, null, null);
+                tblMidia.addRowsByCollection(listRequisicaoLiberacaoMidiaDTO, new String[] { "", "idMidiaSoftware", "nomeMidia" }, new String[] { "idMidiaSoftware" }, "Libera√ß√£o j√° cadastrado!",new String[] { "exibeIconesMidia" }, null, null);
                 document.executeScript("HTMLUtils.applyStyleClassInAllCells('tblMidia', 'tblMidia');");
             }
         }
@@ -557,7 +557,7 @@ public class RequisicaoLiberacao extends AjaxFormAction {
     }
 
     /*	private void atualizaInformacoesRelacionamentos(RequisicaoLiberacaoDTO requisicaoLiberacaoDTO) throws ServiceException, Exception {
-		// informaÁıes dos ics relacionados
+		// informa√ß√µes dos ics relacionados
 		RequisicaoLiberacaoService requisicaoLiberacaoService = (RequisicaoLiberacaoService) ServiceLocator.getInstance().getService(RequisicaoLiberacaoService.class,null);
 		ArrayList<RequisicaoLiberacaoItemConfiguracaoDTO> listaICsRelacionados = requisicaoLiberacaoService.listItensRelacionadosRequisicaoLiberacao(requisicaoLiberacaoDTO);
 		if(listaICsRelacionados!=null && listaICsRelacionados.size()>0){
@@ -654,7 +654,7 @@ public class RequisicaoLiberacao extends AjaxFormAction {
         requisicaoLiberacaoDTO.setEnviaEmailAcoes("S");
         requisicaoLiberacaoDTO.setEnviaEmailFinalizacao("S");
 
-        // essa linha grava os anexos das requisiÁıes no objeto para ser
+        // essa linha grava os anexos das requisi√ß√µes no objeto para ser
         // gravado.
         gravarAnexoLiberacao(document, request, response,requisicaoLiberacaoDTO);
 
@@ -1025,7 +1025,7 @@ public class RequisicaoLiberacao extends AjaxFormAction {
     }
 
     /**
-     * Retorna uma lista de informaÁıes da entidade ocorrencia
+     * Retorna uma lista de informa√ß√µes da entidade ocorrencia
      *
      * @param requisicaoMudancaDto
      * @param request
@@ -1039,7 +1039,7 @@ public class RequisicaoLiberacao extends AjaxFormAction {
 
         OcorrenciaLiberacaoService ocorrenciaLiberacaoService = (OcorrenciaLiberacaoService) ServiceLocator.getInstance().getService(OcorrenciaLiberacaoService.class, null);
         Collection<OcorrenciaLiberacaoDTO> col  = null;
-        //para teste deixei o valor da requisiÁ„o fixo 7
+        //para teste deixei o valor da requisi√ß√£o fixo 7
         //Collection<OcorrenciaMudancaDTO> col = ocorrenciaMudancaService.findByIdRequisicaoMudanca(requisicaoLiberacaoDTO.getIdRequisicaoLiberacao());
         //Collection<OcorrenciaLiberacaoDTO> col = ocorrenciaLiberacaoService.findByIdRequisicaoLiberacao(7);
         if(requisicaoLiberacaoDTO != null){
@@ -1551,16 +1551,16 @@ public class RequisicaoLiberacao extends AjaxFormAction {
 		historicoLiberacaoDTO = (HistoricoLiberacaoDTO) historicoLiberacaoService.restore(historicoLiberacaoDTO);
 
 
-		//Realizando a Reflex„o de Item de ConfiguraÁ„o
+		//Realizando a Reflex√£o de Item de Configura√ß√£o
 		Reflexao.copyPropertyValues(historicoLiberacaoDTO, requisicaoLiberacaoDTOAux);
 
-		//popula as collections de problema, mudanÁa e ICs
-		//collection mudanÁas
+		//popula as collections de problema, mudan√ßa e ICs
+		//collection mudan√ßas
 		Collection<LiberacaoMudancaDTO> colMudancas = new ArrayList<LiberacaoMudancaDTO>();
 		LiberacaoMudancaDao liberacaoMudancaDao = new LiberacaoMudancaDao();
 		colMudancas = liberacaoMudancaDao.listByIdHistoricoLiberacao(historicoLiberacaoDTO.getIdHistoricoLiberacao());
 		requisicaoLiberacaoDTOAux.setColMudancas(colMudancas);
-		//fim mudanÁas
+		//fim mudan√ßas
 
 		//collection problemas
 		Collection<LiberacaoProblemaDTO> colProblemas = new ArrayList<LiberacaoProblemaDTO>();
@@ -1574,7 +1574,7 @@ public class RequisicaoLiberacao extends AjaxFormAction {
 		RequisicaoLiberacaoItemConfiguracaoDao requisicaoLiberacaoItemConfiguracaoDao = new RequisicaoLiberacaoItemConfiguracaoDao();
 		listRequisicaoLiberacaoItemConfiguracaoDTO = requisicaoLiberacaoItemConfiguracaoDao.findByIdHistoricoLiberacao(historicoLiberacaoDTO.getIdHistoricoLiberacao());
 		requisicaoLiberacaoDTOAux.setListRequisicaoLiberacaoItemConfiguracaoDTO(listRequisicaoLiberacaoItemConfiguracaoDTO);
-		//fim do bloco de populaÁ„o de collections.
+		//fim do bloco de popula√ß√£o de collections.
 
 		// esse bloco preenche os anexos do historico
 		Collection<UploadDTO> listuploadDTO = new ArrayList<UploadDTO>();
@@ -1630,7 +1630,7 @@ public class RequisicaoLiberacao extends AjaxFormAction {
 
 		String comando = "mostraMensagemRestaurarBaseline('" + UtilI18N.internacionaliza(request, "MSG15") + ".<br>" + UtilI18N.internacionaliza(request, "requisicaoLiberacao.requisicaoLiberacao") + " <b><u>"
 				+ requisicaoLiberacaoDTO.getIdRequisicaoLiberacao() + "</u></b> " + UtilI18N.internacionaliza(request, "citcorpore.comum.restaurada") + ".<br><br>"
-				+ "Vers„o: " + UtilStrings.nullToVazio(requisicaoLiberacaoDTOAux.getVersao().toString()) + "<br>";
+				+ "Vers√£o: " + UtilStrings.nullToVazio(requisicaoLiberacaoDTOAux.getVersao().toString()) + "<br>";
 		comando = comando + "')";
 
 		document.executeScript(comando);
@@ -1654,7 +1654,7 @@ public class RequisicaoLiberacao extends AjaxFormAction {
         historicoMudancaDTO = (HistoricoMudancaDTO) historicoMudancaDao.restore(historicoMudancaDTO);
 
 
-        //Realizando a Reflex„o de Item de ConfiguraÁ„o
+        //Realizando a Reflex√£o de Item de Configura√ß√£o
         Reflexao.copyPropertyValues(historicoMudancaDTO, requisicaoMudancaDTOAux);
 
 
@@ -1731,7 +1731,7 @@ public class RequisicaoLiberacao extends AjaxFormAction {
 
         String comando = "mostraMensagemRestaurarBaseline('" + UtilI18N.internacionaliza(request, "MSG15") + ".<br>" + UtilI18N.internacionaliza(request, "requisicaoLiberacao.requisicaoLiberacao") + " <b><u>"
                 + requisicaoMudancaDTO.getIdRequisicaoMudanca() + "</u></b> " + UtilI18N.internacionaliza(request, "citcorpore.comum.restaurada") + ".<br><br>"
-                + "Vers„o: " + UtilStrings.nullToVazio(requisicaoMudancaDTOAux.getIdRequisicaoMudanca().toString()) + "<br>";
+                + "Vers√£o: " + UtilStrings.nullToVazio(requisicaoMudancaDTOAux.getIdRequisicaoMudanca().toString()) + "<br>";
         comando = comando + "')";
 
         document.executeScript(comando);
@@ -1762,9 +1762,9 @@ public class RequisicaoLiberacao extends AjaxFormAction {
             MidiaSoftwareService midiaService = (MidiaSoftwareService) ServiceLocator.getInstance().getService(MidiaSoftwareService.class, WebUtil.getUsuarioSistema(request));
             midiaSoftwareDTO = (MidiaSoftwareDTO) midiaService.restore(midiaSoftwareDTO);
             if (midiaSoftwareDTO.getSequenciaLiberacao() == null) {
-                tblMidia.addRow(midiaSoftwareDTO, new String[] { "", "idMidiaSoftware", "nome", "" }, new String[] { "idMidiaSoftware" }, "LiberaÁ„o j· cadastrado!", new String[] { "exibeIconesMidia" }, null, null);
+                tblMidia.addRow(midiaSoftwareDTO, new String[] { "", "idMidiaSoftware", "nome", "" }, new String[] { "idMidiaSoftware" }, "Libera√ß√£o j√° cadastrado!", new String[] { "exibeIconesMidia" }, null, null);
             } else {
-                tblMidia.updateRow(midiaSoftwareDTO, new String[] { "", "idMidiaSoftware", "nome", "" }, new String[] { "idMidiaSoftware" }, "LiberaÁ„o j· cadastrado!", new String[] { "exibeIconesMidia" }, null, null, midiaSoftwareDTO.getSequenciaLiberacao());
+                tblMidia.updateRow(midiaSoftwareDTO, new String[] { "", "idMidiaSoftware", "nome", "" }, new String[] { "idMidiaSoftware" }, "Libera√ß√£o j√° cadastrado!", new String[] { "exibeIconesMidia" }, null, null, midiaSoftwareDTO.getSequenciaLiberacao());
             }
             document.executeScript("HTMLUtils.applyStyleClassInAllCells('tblMidia', 'tblMidia');");
             document.executeScript("fecharMidia();");
@@ -1777,7 +1777,7 @@ public class RequisicaoLiberacao extends AjaxFormAction {
      * Restaura o EmpregadoDTO com o Nome cargo a partir do ID Empregado informado.
      *
      * @param idEmpregado
-     * @return Adiciona Respons·vel a tabela de tblResponsavel
+     * @return Adiciona Respons√°vel a tabela de tblResponsavel
      * @author maycon.fernandes
      * 31/10/2013 18:47
      */
@@ -1812,16 +1812,16 @@ public class RequisicaoLiberacao extends AjaxFormAction {
                 requisicaoLiberacaoResponsavelDTO.setNomeCargo(empregadoDTO.getNomeCargo());
 
                 if (requisicaoLiberacaoResponsavelDTO.getSequenciaEmpregado() == null) {
-                    tblResponsavel.addRow(requisicaoLiberacaoResponsavelDTO, new String[] { "","idResponsavel","nomeResponsavel", "nomeCargo", "telResponsavel", "emailResponsavel" , "papelResponsavel"  }, new String[] { "idResponsavel" }, "Responsavel j· cadastrado!", new String[] { "exibeIconesResponsavel" }, null, null);
+                    tblResponsavel.addRow(requisicaoLiberacaoResponsavelDTO, new String[] { "","idResponsavel","nomeResponsavel", "nomeCargo", "telResponsavel", "emailResponsavel" , "papelResponsavel"  }, new String[] { "idResponsavel" }, "Responsavel j√° cadastrado!", new String[] { "exibeIconesResponsavel" }, null, null);
                 } else {
-                    tblResponsavel.updateRow(requisicaoLiberacaoResponsavelDTO, new String[] { "","idResponsavel","nomeResponsavel", "nomeCargo", "telResponsavel", "emailResponsavel" , "papelResponsavel"  }, new String[] { "idResponsavel" }, "Responsavel j· cadastrado!", new String[] { "exibeIconesResponsavel" }, null, null, requisicaoLiberacaoResponsavelDTO.getSequenciaEmpregado());
+                    tblResponsavel.updateRow(requisicaoLiberacaoResponsavelDTO, new String[] { "","idResponsavel","nomeResponsavel", "nomeCargo", "telResponsavel", "emailResponsavel" , "papelResponsavel"  }, new String[] { "idResponsavel" }, "Responsavel j√° cadastrado!", new String[] { "exibeIconesResponsavel" }, null, null, requisicaoLiberacaoResponsavelDTO.getSequenciaEmpregado());
                 }
                 document.executeScript("HTMLUtils.applyStyleClassInAllCells('tblResponsavel', 'tblResponsavel');");
                 document.executeScript("fecharResponsavel();");
             }catch(IndexOutOfBoundsException e){
                 /* @autor edu.braz
                  *  07/04/2014
-                 *  tratamento relacionado a colaboradores importados pelo ldap que n„o possui cargo e deve ser atribuido um cargo a eles
+                 *  tratamento relacionado a colaboradores importados pelo ldap que n√£o possui cargo e deve ser atribuido um cargo a eles
                  */
                 document.executeScript("alert(i18n_message('requisicaoLiberacao.cargo'));");
             }
@@ -1925,7 +1925,7 @@ public class RequisicaoLiberacao extends AjaxFormAction {
 
 
     /**
-     * Adiciona automaticamente o(s) Item(s) de configuraÁ„o relacionados h· uma mudanÁa que esta sendo relacionado a esta liberaÁ„o
+     * Adiciona automaticamente o(s) Item(s) de configura√ß√£o relacionados h√° uma mudan√ßa que esta sendo relacionado a esta libera√ß√£o
      *
      * @param document
      * @param request
@@ -1965,7 +1965,7 @@ public class RequisicaoLiberacao extends AjaxFormAction {
     }
 
     /**
-     * Verifica se um requisiÁ„o de compra foi adicionado na tabela. se sim, nao deixa avanÁar o fluxo apenas gravar a tarefa atual.
+     * Verifica se um requisi√ß√£o de compra foi adicionado na tabela. se sim, nao deixa avan√ßar o fluxo apenas gravar a tarefa atual.
      *
      * @param colRequisicaoCompras
      * @param idRequisicao
@@ -2217,7 +2217,7 @@ public class RequisicaoLiberacao extends AjaxFormAction {
         AtividadePeriodicaService atividadePeriodicaService = (AtividadePeriodicaService) ServiceLocator.getInstance().getService(AtividadePeriodicaService.class, null);
         atividadePeriodicaDTO.setColItens(colItens);
 
-        //verifica se j· n„o houve agendamento para essa requisiÁ„o
+        //verifica se j√° n√£o houve agendamento para essa requisi√ß√£o
         Collection<AtividadePeriodicaDTO> listAtividade = atividadePeriodicaService.findByIdRequisicaoLiberacao(requisicaoLiberacaoDto.getIdRequisicaoLiberacao());
         if(listAtividade != null){
             atividadePeriodicaDTO.setIdAtividadePeriodica(listAtividade.iterator().next().getIdAtividadePeriodica());

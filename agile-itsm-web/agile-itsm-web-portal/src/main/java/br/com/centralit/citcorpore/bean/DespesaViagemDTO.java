@@ -38,7 +38,7 @@ public class DespesaViagemDTO extends BaseEntity {
 	private String colIntegrantesViagem_SerializeAux;
 	private String observacoes;
 	
-	//atributos para controle de requisição em compras
+	//atributos para controle de requisiÃ§Ã£o em compras
 	private String cancelarRequisicao;
 	private String confirma;
 	private Integer idResponsavelCompra;

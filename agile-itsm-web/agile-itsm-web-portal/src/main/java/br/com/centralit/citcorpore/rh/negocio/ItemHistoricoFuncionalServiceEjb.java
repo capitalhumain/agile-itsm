@@ -67,7 +67,7 @@ public class ItemHistoricoFuncionalServiceEjb extends CrudServiceImpl implements
         candidatoDto = candidatoDao.restoreByID(idCurriculo);
 
         if (candidatoDto != null && historicoFuncionalDto != null && usuarioDto != null) {
-            final String titulo = "Classificação - Currículo em Processo de Seleção";
+            final String titulo = "ClassificaÃ§Ã£o - CurrÃ­culo em Processo de SeleÃ§Ã£o";
             final StringBuilder descricao = new StringBuilder();
 
             descricao.append("Candidato ");
@@ -83,10 +83,10 @@ public class ItemHistoricoFuncionalServiceEjb extends CrudServiceImpl implements
                 descricao.append(" Desistiu ");
             }
 
-            descricao.append("no Processo de Seleção ");
+            descricao.append("no Processo de SeleÃ§Ã£o ");
 
             if (idSolicitacao != null && idSolicitacao > 0) {
-                descricao.append("referente a Requisição Pessoal Nº " + idSolicitacao);
+                descricao.append("referente a RequisiÃ§Ã£o Pessoal NÂº " + idSolicitacao);
             }
 
             this.getDao().inserirRegistroHistoricoAutomatico(historicoFuncionalDto.getIdCandidato(), usuarioDto.getIdUsuario(), titulo, descricao.toString(), null);

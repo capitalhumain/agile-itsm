@@ -83,7 +83,7 @@ public class LiveStatusBase {
 	}
 
 	/**
-	 * Realiza a conex„o e executa a query.
+	 * Realiza a conex√£o e executa a query.
 	 *
 	 * @param request
 	 * @param query

@@ -120,7 +120,7 @@ public class ExecucaoProblema extends ExecucaoFluxo {
         final TipoFluxoDao tipoFluxoDao = new TipoFluxoDao();
         final TipoFluxoDTO tipoFluxoDto = tipoFluxoDao.findByNome(nomeFluxo);
         if (tipoFluxoDto == null) {
-            System.out.println("Fluxo " + nomeFluxo + " n„o existe");
+            System.out.println("Fluxo " + nomeFluxo + " n√£o existe");
             throw new Exception(i18n_Message("citcorpore.comum.fluxoNaoEncontrado"));
         }
         return inicia(new FluxoDao().findByTipoFluxo(tipoFluxoDto.getIdTipoFluxo()), idFase);
@@ -158,7 +158,7 @@ public class ExecucaoProblema extends ExecucaoFluxo {
                         .getIdGrupoAtual());
             }
         } catch (final NumberFormatException e) {
-            System.out.println("N„o h· modelo de e-mail setado nos par‚metros.");
+            System.out.println("N√£o h√° modelo de e-mail setado nos par√¢metros.");
         }
         return result;
     }
@@ -250,14 +250,14 @@ public class ExecucaoProblema extends ExecucaoFluxo {
                     .getDescricao());
             ocorrenciaProblemaDto.setDataInicio(UtilDatas.getDataAtual());
             ocorrenciaProblemaDto.setDataFim(UtilDatas.getDataAtual());
-            ocorrenciaProblemaDto.setInformacoesContato("n„o se aplica");
+            ocorrenciaProblemaDto.setInformacoesContato("n√£o se aplica");
             ocorrenciaProblemaDto.setRegistradopor(loginUsuario);
             try {
                 ocorrenciaProblemaDto.setDadosProblema(new Gson().toJson(getProblemaDto()));
             } catch (final Exception e) {
                 e.printStackTrace();
             }
-            ocorrenciaProblemaDto.setOcorrencia("ExecuÁ„o da tarefa \""
+            ocorrenciaProblemaDto.setOcorrencia("Execu√ß√£o da tarefa \""
                     + tarefaFluxoDto.getElementoFluxoDto().getDocumentacao() + "\"");
             ocorrenciaProblemaDto.setOrigem(br.com.centralit.citcorpore.util.Enumerados.OrigemOcorrencia.OUTROS
                     .getSigla().toString());
@@ -324,7 +324,7 @@ public class ExecucaoProblema extends ExecucaoFluxo {
                         .getDescricao());
         ocorrenciaProblemaDto.setDataInicio(UtilDatas.getDataAtual());
         ocorrenciaProblemaDto.setDataFim(UtilDatas.getDataAtual());
-        ocorrenciaProblemaDto.setInformacoesContato("n„o se aplica");
+        ocorrenciaProblemaDto.setInformacoesContato("n√£o se aplica");
         ocorrenciaProblemaDto.setRegistradopor(loginUsuario);
         try {
             ocorrenciaProblemaDto.setDadosProblema(new Gson().toJson(getProblemaDto()));
@@ -333,7 +333,7 @@ public class ExecucaoProblema extends ExecucaoFluxo {
         }
         String ocorr = "Compartilhamento da tarefa \"" + tarefaFluxoDto.getElementoFluxoDto().getDocumentacao() + "\"";
         if (usuarioDestino != null) {
-            ocorr += " com o usu·rio " + usuarioDestino;
+            ocorr += " com o usu√°rio " + usuarioDestino;
         }
         if (grupoDestino != null) {
             ocorr += " com o grupo " + grupoDestino;
@@ -394,7 +394,7 @@ public class ExecucaoProblema extends ExecucaoFluxo {
                         ocorr += " para o grupo " + grupoAtendimento;
 
                         OcorrenciaProblemaServiceEjb.create(getProblemaDto(), itemTrabalhoFluxoDto, ocorr,
-                                OrigemOcorrencia.OUTROS, CategoriaOcorrencia.Direcionamento, "n„o se aplica",
+                                OrigemOcorrencia.OUTROS, CategoriaOcorrencia.Direcionamento, "n√£o se aplica",
                                 CategoriaOcorrencia.Direcionamento.getDescricao(), loginUsuario, 0, null,
                                 getTransacao());
                     }
@@ -410,7 +410,7 @@ public class ExecucaoProblema extends ExecucaoFluxo {
                         getTransacao(), null)), grupoAtendimentoDto.getIdGrupo());
             }
         } catch (final NumberFormatException e) {
-            System.out.println("N„o h· modelo de e-mail setado nos par‚metros.");
+            System.out.println("N√£o h√° modelo de e-mail setado nos par√¢metros.");
         }
     }
 
@@ -544,7 +544,7 @@ public class ExecucaoProblema extends ExecucaoFluxo {
         final String idHashValidacao = CriptoUtils.generateHash("CODED" + problemaDto.getIdProblema(), "MD5");
         problemaDto.setLinkPesquisaSatisfacao("<a href=\"" + urlSistema
                 + "/pages/pesquisaSatisfacao/pesquisaSatisfacao.load?idProblema=" + problemaDto.getIdProblema()
-                + "&hash=" + idHashValidacao + "\">Clique aqui para fazer a avaliaÁ„o do Atendimento</a>");
+                + "&hash=" + idHashValidacao + "\">Clique aqui para fazer a avalia√ß√£o do Atendimento</a>");
     }
 
     @Override
@@ -734,7 +734,7 @@ public class ExecucaoProblema extends ExecucaoFluxo {
         }
         servicoContratoDto = (ServicoContratoDTO) servicoContratoDao.restore(servicoContratoDto);
         if (servicoContratoDto == null) {
-            System.out.print("ServiÁo contrato n„o localizado");
+            System.out.print("Servi√ßo contrato n√£o localizado");
             throw new LogicException(i18n_Message("problema.servicoContratoNaoLocalizado"));
         }
 
@@ -777,7 +777,7 @@ public class ExecucaoProblema extends ExecucaoFluxo {
         problemaDao.updateNotNull(problemaDto);
 
         OcorrenciaProblemaServiceEjb.create(getProblemaDto(), null, null, OrigemOcorrencia.OUTROS,
-                CategoriaOcorrencia.Encerramento, null, CategoriaOcorrencia.Encerramento.getDescricao(), "Autom·tico",
+                CategoriaOcorrencia.Encerramento, null, CategoriaOcorrencia.Encerramento.getDescricao(), "Autom√°tico",
                 0, null, getTransacao());
 
         if (getProblemaDto().getEnviaEmailFinalizacao() != null
@@ -786,24 +786,24 @@ public class ExecucaoProblema extends ExecucaoFluxo {
                     ParametroSistema.ID_MODELO_EMAIL_FINALIZADO_PROBLEMA, "36");
             enviaEmail(Integer.parseInt(IdModeloEmailProblemaFinalizado.trim()), problemaDto);
             // O metodo encerra esta sendo rodado duas vezes, para evitar que o email seja enviado duas vezes tambem,
-            // modifiquei o valor do atributo para que nao seja enviado na segunda vez, È apenas uma soluÁao de contorno
+            // modifiquei o valor do atributo para que nao seja enviado na segunda vez, √© apenas uma solu√ßao de contorno
             // sendo necessario descobrir
-            // porque o fluxo chama essa metodo duas vezes e se o mesmo È necessario, no momento isso n„o esta causando
+            // porque o fluxo chama essa metodo duas vezes e se o mesmo √© necessario, no momento isso n√£o esta causando
             // nenhum outro erro aparente.
             getProblemaDto().setEnviaEmailFinalizacao("N");
         }
 
     }
 
-    // VOLTAR PARA ARRUMAR ESSE METODO POSTERIORMENTE, SE NECESS¡RIO -> DAVID
+    // VOLTAR PARA ARRUMAR ESSE METODO POSTERIORMENTE, SE NECESS√ÅRIO -> DAVID
 
     // @Override
     @Override
     public void reabre(final String loginUsuario) throws Exception {
         /*
          * ProblemaDTO problemaDto = getProblemaDto(); if (problemaDto == null) throw new
-         * Exception("Problema n„o encontrado"); if (!problemaDto.encerrada()) throw new
-         * Exception("Problema n„o permite reabertura"); usuarioDto = new UsuarioDao().restoreByLogin(loginUsuario); int
+         * Exception("Problema n√£o encontrado"); if (!problemaDto.encerrada()) throw new
+         * Exception("Problema n√£o permite reabertura"); usuarioDto = new UsuarioDao().restoreByLogin(loginUsuario); int
          * seqReabertura = 1; ReaberturaSolicitacaoDao reaberturaSolicitacaoDao = new ReaberturaSolicitacaoDao();
          * setTransacaoDao(reaberturaSolicitacaoDao); Collection colReabertura =
          * reaberturaSolicitacaoDao.findByIdSolicitacaoServico(solicitacaoServicoDto.getIdSolicitacaoServico()); if
@@ -832,7 +832,7 @@ public class ExecucaoProblema extends ExecucaoFluxo {
         }
 
         // if (!problemaDto.emAtendimento())
-        // throw new Exception("Problema n„o permite suspens„o");
+        // throw new Exception("Problema n√£o permite suspens√£o");
 
         final Timestamp tsAtual = UtilDatas.getDataHoraAtual();
 
@@ -887,7 +887,7 @@ public class ExecucaoProblema extends ExecucaoFluxo {
             final ServicoContratoDTO servicoContratoDto = new ServicoContratoDao().findByIdContratoAndIdServico(
                     problemaDto.getIdContrato(), problemaDto.getIdServico());
             if (servicoContratoDto == null) {
-                System.out.print("ServiÁo contrato n„o localizado");
+                System.out.print("Servi√ßo contrato n√£o localizado");
                 throw new LogicException(i18n_Message("problema.servicoContratoNaoLocalizado"));
             }
             idCalendario = servicoContratoDto.getIdCalendario();
@@ -1005,8 +1005,8 @@ public class ExecucaoProblema extends ExecucaoFluxo {
         final ProblemaDAO problemaDao = new ProblemaDAO();
         final ProblemaDTO problemaDto = problemaDao.restoreByIdInstanciaFluxo(eventoFluxoDto.getIdInstancia());
         if (problemaDto == null) {
-            System.out.println("ExecuÁ„o problemas do evento " + eventoFluxoDto.getIdItemTrabalho()
-                    + " n„o encontrados");
+            System.out.println("Execu√ß√£o problemas do evento " + eventoFluxoDto.getIdItemTrabalho()
+                    + " n√£o encontrados");
             throw new LogicException(i18n_Message("problema.eventoNaoEncontrado"));
 
         }
@@ -1056,7 +1056,7 @@ public class ExecucaoProblema extends ExecucaoFluxo {
         }
 
         OcorrenciaProblemaServiceEjb.create(getProblemaDto(), tarefaFluxoDto, ocorrencia, OrigemOcorrencia.OUTROS,
-                CategoriaOcorrencia.CancelamentoTarefa, "n„o se aplica",
+                CategoriaOcorrencia.CancelamentoTarefa, "n√£o se aplica",
                 CategoriaOcorrencia.CancelamentoTarefa.getDescricao(), "Sistema", tempo.intValue(), null,
                 getTransacao());
     }
@@ -1092,7 +1092,7 @@ public class ExecucaoProblema extends ExecucaoFluxo {
     public void verificaSLA(final ItemTrabalho itemTrabalho) throws Exception {
         /*
          * ProblemaDTO problemaDto = getProblemaDto(); if (problemaDto == null) throw new
-         * Exception("Problema n„o encontrado"); boolean bContabilizaSLA = true; if (itemTrabalho.getContabilizaSLA() !=
+         * Exception("Problema n√£o encontrado"); boolean bContabilizaSLA = true; if (itemTrabalho.getContabilizaSLA() !=
          * null) bContabilizaSLA = itemTrabalho.getContabilizaSLA().equalsIgnoreCase("S"); boolean bGravar = false; if
          * (bContabilizaSLA) { if (problemaDto.getSituacaoSLA().equalsIgnoreCase(SituacaoSLA.N.name())) {
          * iniciaSLA(problemaDto); bGravar = true; }if
@@ -1142,7 +1142,7 @@ public class ExecucaoProblema extends ExecucaoFluxo {
         determinaPrazoLimite(problemaDto, null);
 
         OcorrenciaProblemaServiceEjb.create(getProblemaDto(), null, null, OrigemOcorrencia.OUTROS,
-                CategoriaOcorrencia.InicioSLA, null, CategoriaOcorrencia.InicioSLA.getDescricao(), "Autom·tico", 0,
+                CategoriaOcorrencia.InicioSLA, null, CategoriaOcorrencia.InicioSLA.getDescricao(), "Autom√°tico", 0,
                 null, getTransacao());
     }
 
@@ -1175,7 +1175,7 @@ public class ExecucaoProblema extends ExecucaoFluxo {
         problemaDto.setDataHoraReativacaoSLA(null);
 
         OcorrenciaProblemaServiceEjb.create(getProblemaDto(), null, null, OrigemOcorrencia.OUTROS,
-                CategoriaOcorrencia.SuspensaoSLA, null, CategoriaOcorrencia.SuspensaoSLA.getDescricao(), "Autom·tico",
+                CategoriaOcorrencia.SuspensaoSLA, null, CategoriaOcorrencia.SuspensaoSLA.getDescricao(), "Autom√°tico",
                 0, null, getTransacao());
     }
 
@@ -1203,11 +1203,11 @@ public class ExecucaoProblema extends ExecucaoFluxo {
 
         OcorrenciaProblemaServiceEjb.create(getProblemaDto(), null, null, OrigemOcorrencia.OUTROS,
                 CategoriaOcorrencia.ReativacaoSLA, null, CategoriaOcorrencia.ReativacaoSLA.getDescricao(),
-                "Autom·tico", 0, null, getTransacao());
+                "Autom√°tico", 0, null, getTransacao());
     }
 
     /**
-     * MÈtodo que consulta se um problema precisa ou n„o de soluÁ„o de contorno.
+     * M√©todo que consulta se um problema precisa ou n√£o de solu√ß√£o de contorno.
      * 
      * @author thiagomonteiro
      * @return true ou false
@@ -1245,7 +1245,7 @@ public class ExecucaoProblema extends ExecucaoFluxo {
     }
 
     /**
-     * MÈtodo que consulta se um problema precisa ou n„o de uma mudanÁa para ser solucionado.
+     * M√©todo que consulta se um problema precisa ou n√£o de uma mudan√ßa para ser solucionado.
      * 
      * @author thiagomonteiro
      * @return true ou false
@@ -1259,7 +1259,7 @@ public class ExecucaoProblema extends ExecucaoFluxo {
     }
 
     /**
-     * MÈtodo que consulta se um problema foi resolvido ou n„o.
+     * M√©todo que consulta se um problema foi resolvido ou n√£o.
      * 
      * @author thiagomonteiro
      * @return true ou false
@@ -1299,7 +1299,7 @@ public class ExecucaoProblema extends ExecucaoFluxo {
     }
 
     /**
-     * MÈtodo que consulta se um problema È grave ou n„o.
+     * M√©todo que consulta se um problema √© grave ou n√£o.
      * 
      * @author thiagomonteiro
      * @return true ou false

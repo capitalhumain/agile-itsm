@@ -34,14 +34,14 @@ public class ModeloEmail extends AjaxFormAction {
 		ModeloEmailDTO modeloEmailDTO = (ModeloEmailDTO) document.getBean();
 		ModeloEmailService modeloEmailService = (ModeloEmailService) ServiceLocator.getInstance().getService(ModeloEmailService.class, WebUtil.getUsuarioSistema(request) );
 		
-		// Verificvando a existÍncia do DTO e do ServiÁo.
+		// Verificvando a exist√™ncia do DTO e do Servi√ßo.
 		if (modeloEmailDTO != null & modeloEmailService != null) {
 			// Atualizando o modelo de e-mail.
 			if (modeloEmailDTO.getIdModeloEmail() != null && modeloEmailDTO.getIdModeloEmail().intValue() > 0) {
 				modeloEmailService.update(modeloEmailDTO);
 				document.alert(UtilI18N.internacionaliza(request, "MSG06") );
-			} else { // InserÁ„o
-				// Verificando se o modelo j· existe.
+			} else { // Inser√ß√£o
+				// Verificando se o modelo j√° existe.
 				if (modeloEmailService.findByIdentificador(modeloEmailDTO.getIdentificador() ) != null) { 
 					document.alert(UtilI18N.internacionaliza(request, "MSE01") );
 				} else {

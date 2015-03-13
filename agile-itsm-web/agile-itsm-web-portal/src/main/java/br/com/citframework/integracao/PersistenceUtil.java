@@ -485,7 +485,7 @@ public class PersistenceUtil {
                 return cmp.getFieldDB();
             }
         }
-        throw new Exception("Field " + campoClasse + " n„o configurado!");
+        throw new Exception("Field " + campoClasse + " n√£o configurado!");
     }
 
     private void configuraCampos() {

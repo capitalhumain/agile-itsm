@@ -433,15 +433,15 @@ public class ItemRequisicaoProdutoDTO extends BaseEntity {
 	public String getDescricaoFmtHtml() {
 		descricaoFmtHtml = "";
     	if (UtilStrings.isNotVazio(this.especificacoes))
-        	descricaoFmtHtml += "<p><b>Especificações:</b> "+this.especificacoes+"</p>";
+        	descricaoFmtHtml += "<p><b>EspecificaÃ§Ãµes:</b> "+this.especificacoes+"</p>";
     	descricaoFmtHtml += "<p><b>Unidade de medida:</b> "+this.siglaUnidadeMedida+"</p>";
     	if (UtilStrings.isNotVazio(this.marcaPreferencial))
         	descricaoFmtHtml += "<p><b>Marca preferencial:</b> "+this.marcaPreferencial+"</p>";
     	if (this.precoAproximado != null)
-        	descricaoFmtHtml += "<p><b>Preço aproximado:</b> "+this.precoAproximado+"</p>";
+        	descricaoFmtHtml += "<p><b>PreÃ§o aproximado:</b> "+this.precoAproximado+"</p>";
     	if (this.idProduto != null)
         	descricaoFmtHtml += "<p><b>Produto:</b> "+this.codigoProduto+" - "+this.nomeProduto+"</p>";
-       	// descricaoFmtHtml += "<p><b>Situação:</b> "+this.descrSituacao+"</p>";
+       	// descricaoFmtHtml += "<p><b>SituaÃ§Ã£o:</b> "+this.descrSituacao+"</p>";
        	
        	if (this.idJustificativaValidacao != null) {
        		if (this.descrJustificativaValidacao != null) {

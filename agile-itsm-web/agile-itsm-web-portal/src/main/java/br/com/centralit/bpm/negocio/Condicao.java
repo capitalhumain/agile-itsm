@@ -17,7 +17,7 @@ public class Condicao extends NegocioBpm{
 		if (script == null || script.trim().length() == 0)
 			return true;
 
-        return (Boolean) UtilScript.executaScript("condição", script, this.getInstanciaFluxo().getObjetos());
+        return (Boolean) UtilScript.executaScript("condiÃ§Ã£o", script, this.getInstanciaFluxo().getObjetos());
 	}
 
 	public InstanciaFluxo getInstanciaFluxo() {

@@ -48,7 +48,7 @@ public class GaleriaImagens extends AjaxFormAction {
 		UsuarioDTO user = WebUtil.getUsuario(request);
 		String url = "";
 		if (user == null) {
-			document.alert("O usu·rio n„o est· logado! Favor logar no sistema!");
+			document.alert("O usu√°rio n√£o est√° logado! Favor logar no sistema!");
 			return;
 		}
 		String DISKFILEUPLOAD_REPOSITORYPATH = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.DISKFILEUPLOAD_REPOSITORYPATH, "");
@@ -135,7 +135,7 @@ public class GaleriaImagens extends AjaxFormAction {
 						borda = " border=\"1\" ";
 					}
 
-					String strObs = "N„o h·";
+					String strObs = "N√£o h√°";
 					if (galeriaImagensAux.getDetalhamento() != null) {
 						strObs = galeriaImagensAux.getDetalhamento();
 					}
@@ -143,8 +143,8 @@ public class GaleriaImagens extends AjaxFormAction {
 						strObs = UtilStrings.decodeCaracteresEspeciais(strObs);
 					}
 
-					/* Desenvolvedor: Euler.Ramos Data: 29/10/2013 Hor·rio: 17h08min ID Citsmart: 120393 Motivo/Coment·rio: N„o aparecer a imagem nesta tela ou nos relatÛrios era um problema
-					 * recorrente da forma que estava, a imagem n„o era listada pela url do sistema dependendo da rede.*/
+					/* Desenvolvedor: Euler.Ramos Data: 29/10/2013 Hor√°rio: 17h08min ID Citsmart: 120393 Motivo/Coment√°rio: N√£o aparecer a imagem nesta tela ou nos relat√≥rios era um problema
+					 * recorrente da forma que estava, a imagem n√£o era listada pela url do sistema dependendo da rede.*/
 					//url = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.URL_Sistema, "");
 					url = br.com.citframework.util.Constantes.getValue("CONTEXTO_APLICACAO");
 
@@ -192,7 +192,7 @@ public class GaleriaImagens extends AjaxFormAction {
 	public void load(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		UsuarioDTO user = WebUtil.getUsuario(request);
 		if (user == null) {
-			document.alert("O usu·rio n„o est· logado! Favor logar no sistema!");
+			document.alert("O usu√°rio n√£o est√° logado! Favor logar no sistema!");
 			return;
 		}
 		GaleriaImagensDTO galeriaImagensDTO = new GaleriaImagensDTO();

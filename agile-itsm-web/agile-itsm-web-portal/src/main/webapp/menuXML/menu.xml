@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <menus>
     <menuSuperior>
         <menu>
-            <nome>Relatório</nome>
-            <descricao>Relatórios do CITSmart</descricao>
+            <nome>RelatÃ³rio</nome>
+            <descricao>RelatÃ³rios do CITSmart</descricao>
             <ordem>51</ordem>
             <menuRapido>null</menuRapido>
             <link />
@@ -11,8 +11,8 @@
             <horizontal>N</horizontal>
             <subMenu0>
                 <menu>
-                    <nome>Usuário</nome>
-                    <descricao>Cadastro de Usuário</descricao>
+                    <nome>UsuÃ¡rio</nome>
+                    <descricao>Cadastro de UsuÃ¡rio</descricao>
                     <ordem>30</ordem>
                     <menuRapido>null</menuRapido>
                     <link>/usuario/usuario.load</link>
@@ -22,7 +22,7 @@
                 </menu>
                 <menu>
                     <nome>Gantt</nome>
-                    <descricao>Gantt de Solicitações</descricao>
+                    <descricao>Gantt de SolicitaÃ§Ãµes</descricao>
                     <ordem>52</ordem>
                     <menuRapido>null</menuRapido>
                     <link>/ganttSolicitacaoServico/ganttSolicitacaoServico.load</link>
@@ -31,8 +31,8 @@
                     <subMenu1 />
                 </menu>
                 <menu>
-                    <nome>Gráficos e Relatórios (Painel)</nome>
-                    <descricao>Gráficos e Relatórios (Painel)</descricao>
+                    <nome>GrÃ¡ficos e RelatÃ³rios (Painel)</nome>
+                    <descricao>GrÃ¡ficos e RelatÃ³rios (Painel)</descricao>
                     <ordem>53</ordem>
                     <menuRapido>null</menuRapido>
                     <link>/painel/painel.load</link>
@@ -41,8 +41,8 @@
                     <subMenu1 />
                 </menu>
                 <menu>
-                    <nome>Gráfico Tempo Real</nome>
-                    <descricao>Gráfico em Tempo Real</descricao>
+                    <nome>GrÃ¡fico Tempo Real</nome>
+                    <descricao>GrÃ¡fico em Tempo Real</descricao>
                     <ordem>54</ordem>
                     <menuRapido>null</menuRapido>
                     <link>/monitoramentoServicos/monitoramentoServicos.load</link>
@@ -61,8 +61,8 @@
                     <subMenu1 />
                 </menu>
                 <menu>
-                    <nome>Quantitativo por Serviço</nome>
-                    <descricao>Relatório Quantitativo de Serviço</descricao>
+                    <nome>Quantitativo por ServiÃ§o</nome>
+                    <descricao>RelatÃ³rio Quantitativo de ServiÃ§o</descricao>
                     <ordem>0</ordem>
                     <menuRapido>null</menuRapido>
                     <link>/relatorioQuantitativoPorServico/relatorioQuantitativoPorServico.load
@@ -73,7 +73,7 @@
                 </menu>
                 <menu>
                     <nome>Base Conhecimento</nome>
-                    <descricao>Relatório de Base de Conhecimento</descricao>
+                    <descricao>RelatÃ³rio de Base de Conhecimento</descricao>
                     <ordem>0</ordem>
                     <menuRapido>null</menuRapido>
                     <link>/relatorioBaseConhecimento/relatorioBaseConhecimento.load
@@ -83,8 +83,8 @@
                     <subMenu1 />
                 </menu>
                 <menu>
-                    <nome>Utilização de USTs</nome>
-                    <descricao>Relatório de Utilização de UTSs</descricao>
+                    <nome>UtilizaÃ§Ã£o de USTs</nome>
+                    <descricao>RelatÃ³rio de UtilizaÃ§Ã£o de UTSs</descricao>
                     <ordem>0</ordem>
                     <menuRapido>null</menuRapido>
                     <link>/relatorioOrdemServicoUst/relatorioOrdemServicoUst.load
@@ -95,7 +95,7 @@
                 </menu>
                 <menu>
                     <nome>Acompanhamento USTs</nome>
-                    <descricao>Relatório de Acompanhamento USTs</descricao>
+                    <descricao>RelatÃ³rio de Acompanhamento USTs</descricao>
                     <ordem>0</ordem>
                     <menuRapido>null</menuRapido>
                     <link>/relatorioAcompanhamento/relatorioAcompanhamento.load</link>
@@ -106,8 +106,8 @@
             </subMenu0>
         </menu>
         <menu>
-            <nome>Gestão de Contratos</nome>
-            <descricao>Gestão de Contratos</descricao>
+            <nome>GestÃ£o de Contratos</nome>
+            <descricao>GestÃ£o de Contratos</descricao>
             <ordem>18</ordem>
             <menuRapido>null</menuRapido>
             <link />
@@ -115,8 +115,8 @@
             <horizontal>N</horizontal>
             <subMenu0>
                 <menu>
-                    <nome>Administração de Contratos</nome>
-                    <descricao>Administração de Contratos</descricao>
+                    <nome>AdministraÃ§Ã£o de Contratos</nome>
+                    <descricao>AdministraÃ§Ã£o de Contratos</descricao>
                     <ordem>20</ordem>
                     <menuRapido>null</menuRapido>
                     <link>/informacoesContrato/informacoesContrato.load</link>
@@ -127,7 +127,7 @@
             </subMenu0>
         </menu>
         <menu>
-            <nome>Gestão de Processos</nome>
+            <nome>GestÃ£o de Processos</nome>
             <descricao>Gerenciamento de Processos da ITIL</descricao>
             <ordem>0</ordem>
             <menuRapido>null</menuRapido>
@@ -136,8 +136,8 @@
             <horizontal>N</horizontal>
             <subMenu0>
                 <menu>
-                    <nome>Gerência de Configuração</nome>
-                    <descricao>Gestão da Configuração</descricao>
+                    <nome>GerÃªncia de ConfiguraÃ§Ã£o</nome>
+                    <descricao>GestÃ£o da ConfiguraÃ§Ã£o</descricao>
                     <ordem>44</ordem>
                     <menuRapido>null</menuRapido>
                     <link />
@@ -145,8 +145,8 @@
                     <horizontal>N</horizontal>
                     <subMenu1>
                         <menu>
-                            <nome>Criar Item de Configuração</nome>
-                            <descricao>Cadastro de Item Configuração</descricao>
+                            <nome>Criar Item de ConfiguraÃ§Ã£o</nome>
+                            <descricao>Cadastro de Item ConfiguraÃ§Ã£o</descricao>
                             <ordem>47</ordem>
                             <menuRapido>null</menuRapido>
                             <link>/itemConfiguracao/itemConfiguracao.load</link>
@@ -156,7 +156,7 @@
                         </menu>
                         <menu>
                             <nome>Cadastrar Softwares Inst / Des</nome>
-                            <descricao>Cadastro de Softwares Instalação/Desinstalação
+                            <descricao>Cadastro de Softwares InstalaÃ§Ã£o/DesinstalaÃ§Ã£o
                             </descricao>
                             <ordem>49</ordem>
                             <menuRapido>null</menuRapido>
@@ -166,8 +166,8 @@
                             <subMenu2 />
                         </menu>
                         <menu>
-                            <nome>Característica Item Configuração</nome>
-                            <descricao>Cadastro de Característica</descricao>
+                            <nome>CaracterÃ­stica Item ConfiguraÃ§Ã£o</nome>
+                            <descricao>Cadastro de CaracterÃ­stica</descricao>
                             <ordem>50</ordem>
                             <menuRapido>null</menuRapido>
                             <link>/caracteristica/caracteristica.load</link>
@@ -176,8 +176,8 @@
                             <subMenu2 />
                         </menu>
                         <menu>
-                            <nome>Criar Tipo Item Configuração</nome>
-                            <descricao>Cadastro de Tipo de Item Configuração</descricao>
+                            <nome>Criar Tipo Item ConfiguraÃ§Ã£o</nome>
+                            <descricao>Cadastro de Tipo de Item ConfiguraÃ§Ã£o</descricao>
                             <ordem>48</ordem>
                             <menuRapido>null</menuRapido>
                             <link>/tipoItemConfiguracao/tipoItemConfiguracao.load</link>
@@ -186,8 +186,8 @@
                             <subMenu2 />
                         </menu>
                         <menu>
-                            <nome>Realizar Inventário</nome>
-                            <descricao>Inventários dos Itens de Configuração</descricao>
+                            <nome>Realizar InventÃ¡rio</nome>
+                            <descricao>InventÃ¡rios dos Itens de ConfiguraÃ§Ã£o</descricao>
                             <ordem>46</ordem>
                             <menuRapido>null</menuRapido>
                             <link>/inventario/inventario.load</link>
@@ -196,8 +196,8 @@
                             <subMenu2 />
                         </menu>
                         <menu>
-                            <nome>Pesquisar Item Configuração</nome>
-                            <descricao>Relatório de Item de Configuração</descricao>
+                            <nome>Pesquisar Item ConfiguraÃ§Ã£o</nome>
+                            <descricao>RelatÃ³rio de Item de ConfiguraÃ§Ã£o</descricao>
                             <ordem>45</ordem>
                             <menuRapido>null</menuRapido>
                             <link>/pesquisaItemConfiguracao/pesquisaItemConfiguracao.load
@@ -207,8 +207,8 @@
                             <subMenu2 />
                         </menu>
                         <menu>
-                            <nome>Mapa Desenho Serviço</nome>
-                            <descricao>Mapa Desenho Serviço</descricao>
+                            <nome>Mapa Desenho ServiÃ§o</nome>
+                            <descricao>Mapa Desenho ServiÃ§o</descricao>
                             <ordem>9</ordem>
                             <menuRapido>null</menuRapido>
                             <link>/mapaDesenhoServico/mapaDesenhoServico.load</link>
@@ -219,8 +219,8 @@
                     </subMenu1>
                 </menu>
                 <menu>
-                    <nome>Gerência Base Conhecimento</nome>
-                    <descricao>Gestão da Base do Conhecimento</descricao>
+                    <nome>GerÃªncia Base Conhecimento</nome>
+                    <descricao>GestÃ£o da Base do Conhecimento</descricao>
                     <ordem>56</ordem>
                     <menuRapido>null</menuRapido>
                     <link />
@@ -248,7 +248,7 @@
                             <subMenu2 />
                         </menu>
                         <menu>
-                            <nome>Cadastrar Palavras Gêmeas</nome>
+                            <nome>Cadastrar Palavras GÃªmeas</nome>
                             <descricao>Cadastro de Palavras Correspondentes</descricao>
                             <ordem>58</ordem>
                             <menuRapido>null</menuRapido>
@@ -270,8 +270,8 @@
                     </subMenu1>
                 </menu>
                 <menu>
-                    <nome>Gerência de Mudanças</nome>
-                    <descricao>Gestão de Mudanças</descricao>
+                    <nome>GerÃªncia de MudanÃ§as</nome>
+                    <descricao>GestÃ£o de MudanÃ§as</descricao>
                     <ordem>0</ordem>
                     <menuRapido>null</menuRapido>
                     <link />
@@ -280,8 +280,8 @@
                     <subMenu1 />
                 </menu>
                 <menu>
-                    <nome>Gerência de Problemas</nome>
-                    <descricao>Gestão de Problema</descricao>
+                    <nome>GerÃªncia de Problemas</nome>
+                    <descricao>GestÃ£o de Problema</descricao>
                     <ordem>0</ordem>
                     <menuRapido>null</menuRapido>
                     <link />
@@ -290,8 +290,8 @@
                     <subMenu1 />
                 </menu>
                 <menu>
-                    <nome>Gerência de Catálogo de Serviços</nome>
-                    <descricao>Gerência de Catálogo de Serviços</descricao>
+                    <nome>GerÃªncia de CatÃ¡logo de ServiÃ§os</nome>
+                    <descricao>GerÃªncia de CatÃ¡logo de ServiÃ§os</descricao>
                     <ordem>0</ordem>
                     <menuRapido>null</menuRapido>
                     <link>/dinamicViews/dinamicViews.load?identificacao=CadastroServico
@@ -301,8 +301,8 @@
                     <subMenu1 />
                 </menu>
                 <menu>
-                    <nome>Gerência de Nível de Serviço</nome>
-                    <descricao>Gerência de Nível de Serviço</descricao>
+                    <nome>GerÃªncia de NÃ­vel de ServiÃ§o</nome>
+                    <descricao>GerÃªncia de NÃ­vel de ServiÃ§o</descricao>
                     <ordem>0</ordem>
                     <menuRapido>null</menuRapido>
                     <link />
@@ -313,8 +313,8 @@
             </subMenu0>
         </menu>
         <menu>
-            <nome>Gerência Incidentes/Requisições</nome>
-            <descricao>Gestão de Incidentes/Requisições</descricao>
+            <nome>GerÃªncia Incidentes/RequisiÃ§Ãµes</nome>
+            <descricao>GestÃ£o de Incidentes/RequisiÃ§Ãµes</descricao>
             <ordem>0</ordem>
             <menuRapido>null</menuRapido>
             <link />
@@ -322,8 +322,8 @@
             <horizontal>N</horizontal>
             <subMenu0>
                 <menu>
-                    <nome>Atividade Periódica</nome>
-                    <descricao>Cadastro de Atividades Periódicas</descricao>
+                    <nome>Atividade PeriÃ³dica</nome>
+                    <descricao>Cadastro de Atividades PeriÃ³dicas</descricao>
                     <ordem>21</ordem>
                     <menuRapido>null</menuRapido>
                     <link>/atividadePeriodica/atividadePeriodica.load</link>
@@ -332,8 +332,8 @@
                     <subMenu1 />
                 </menu>
                 <menu>
-                    <nome>Agenda Ativ. Periódicas</nome>
-                    <descricao>Atividades Periódicas</descricao>
+                    <nome>Agenda Ativ. PeriÃ³dicas</nome>
+                    <descricao>Atividades PeriÃ³dicas</descricao>
                     <ordem>34</ordem>
                     <menuRapido>null</menuRapido>
                     <link>/agendaAtvPeriodicas/agendaAtvPeriodicas.load</link>
@@ -342,8 +342,8 @@
                     <subMenu1 />
                 </menu>
                 <menu>
-                    <nome>Registro Incidentes/Req. de Serviços</nome>
-                    <descricao>Registro de Incidentes e Requisições de Serviço
+                    <nome>Registro Incidentes/Req. de ServiÃ§os</nome>
+                    <descricao>Registro de Incidentes e RequisiÃ§Ãµes de ServiÃ§o
                     </descricao>
                     <ordem>0</ordem>
                     <menuRapido>null</menuRapido>
@@ -353,8 +353,8 @@
                     <subMenu1 />
                 </menu>
                 <menu>
-                    <nome>Minhas Requisições</nome>
-                    <descricao>Acompanhamento de Suas Requisições</descricao>
+                    <nome>Minhas RequisiÃ§Ãµes</nome>
+                    <descricao>Acompanhamento de Suas RequisiÃ§Ãµes</descricao>
                     <ordem>7</ordem>
                     <menuRapido>null</menuRapido>
                     <link>/resumoSolicitacoesServicos/resumoSolicitacoesServicos.load
@@ -364,8 +364,8 @@
                     <subMenu1 />
                 </menu>
                 <menu>
-                    <nome>Grupo Ativ. Periódica</nome>
-                    <descricao>Grupo Atividade Periódica</descricao>
+                    <nome>Grupo Ativ. PeriÃ³dica</nome>
+                    <descricao>Grupo Atividade PeriÃ³dica</descricao>
                     <ordem>15</ordem>
                     <menuRapido>null</menuRapido>
                     <link>/dinamicViews.load?identificacao=grupoAtividadePeriodica
@@ -375,8 +375,8 @@
                     <subMenu1 />
                 </menu>
                 <menu>
-                    <nome>Pesquisa Sol. Serviços</nome>
-                    <descricao>Pesquisa Solicitações de Serviço</descricao>
+                    <nome>Pesquisa Sol. ServiÃ§os</nome>
+                    <descricao>Pesquisa SolicitaÃ§Ãµes de ServiÃ§o</descricao>
                     <ordem>6</ordem>
                     <menuRapido>null</menuRapido>
                     <link>/pages/pesquisaSolicitacoesServicos/pesquisaSolicitacoesServicos.load
@@ -388,8 +388,8 @@
             </subMenu0>
         </menu>
         <menu>
-            <nome>Configurações e Parametrizações</nome>
-            <descricao>Configurações e Parametrizações</descricao>
+            <nome>ConfiguraÃ§Ãµes e ParametrizaÃ§Ãµes</nome>
+            <descricao>ConfiguraÃ§Ãµes e ParametrizaÃ§Ãµes</descricao>
             <ordem>0</ordem>
             <menuRapido>null</menuRapido>
             <link />
@@ -418,8 +418,8 @@
                     <subMenu1 />
                 </menu>
                 <menu>
-                    <nome>Parâmetros CITSmart</nome>
-                    <descricao>Cadastro de Parâmetros do CITSmart</descricao>
+                    <nome>ParÃ¢metros CITSmart</nome>
+                    <descricao>Cadastro de ParÃ¢metros do CITSmart</descricao>
                     <ordem>63</ordem>
                     <menuRapido>null</menuRapido>
                     <link>/parametroCorpore/parametroCorpore.load</link>
@@ -428,8 +428,8 @@
                     <subMenu1 />
                 </menu>
                 <menu>
-                    <nome>Visões e Meta dados</nome>
-                    <descricao>Visões e Meta dados</descricao>
+                    <nome>VisÃµes e Meta dados</nome>
+                    <descricao>VisÃµes e Meta dados</descricao>
                     <ordem>40</ordem>
                     <menuRapido>null</menuRapido>
                     <link />
@@ -437,8 +437,8 @@
                     <horizontal>N</horizontal>
                     <subMenu1>
                         <menu>
-                            <nome>Manutenção de Visões</nome>
-                            <descricao>Manutenção de Visões</descricao>
+                            <nome>ManutenÃ§Ã£o de VisÃµes</nome>
+                            <descricao>ManutenÃ§Ã£o de VisÃµes</descricao>
                             <ordem>41</ordem>
                             <menuRapido>null</menuRapido>
                             <link>/visaoAdm/visaoAdm.load</link>
@@ -457,8 +457,8 @@
                             <subMenu2 />
                         </menu>
                         <menu>
-                            <nome>Criar Questionário</nome>
-                            <descricao>Cria Questionário</descricao>
+                            <nome>Criar QuestionÃ¡rio</nome>
+                            <descricao>Cria QuestionÃ¡rio</descricao>
                             <ordem>43</ordem>
                             <menuRapido>null</menuRapido>
                             <link>/questionario/questionario.load</link>
@@ -642,8 +642,8 @@
                     <subMenu1 />
                 </menu>
                 <menu>
-                    <nome>Categoria Solução</nome>
-                    <descricao>Categoria Solução</descricao>
+                    <nome>Categoria SoluÃ§Ã£o</nome>
+                    <descricao>Categoria SoluÃ§Ã£o</descricao>
                     <ordem>17</ordem>
                     <menuRapido>null</menuRapido>
                     <link>/dinamicViews/dinamicViews.load?identificacao=categoriaSolucao
@@ -653,8 +653,8 @@
                     <subMenu1 />
                 </menu>
                 <menu>
-                    <nome>Serviços</nome>
-                    <descricao>Cadastros gerais de serviços</descricao>
+                    <nome>ServiÃ§os</nome>
+                    <descricao>Cadastros gerais de serviÃ§os</descricao>
                     <ordem>0</ordem>
                     <menuRapido>null</menuRapido>
                     <link />
@@ -662,8 +662,8 @@
                     <horizontal>N</horizontal>
                     <subMenu1>
                         <menu>
-                            <nome>Justificação de Falhas</nome>
-                            <descricao>Justificativa das Falhas dos Itens de Configuração
+                            <nome>JustificaÃ§Ã£o de Falhas</nome>
+                            <descricao>Justificativa das Falhas dos Itens de ConfiguraÃ§Ã£o
                             </descricao>
                             <ordem>3</ordem>
                             <menuRapido>null</menuRapido>
@@ -683,8 +683,8 @@
                             <subMenu2 />
                         </menu>
                         <menu>
-                            <nome>Calendário</nome>
-                            <descricao>Calendário</descricao>
+                            <nome>CalendÃ¡rio</nome>
+                            <descricao>CalendÃ¡rio</descricao>
                             <ordem>25</ordem>
                             <menuRapido>null</menuRapido>
                             <link>/calendario/calendario.load</link>
@@ -693,8 +693,8 @@
                             <subMenu2 />
                         </menu>
                         <menu>
-                            <nome>Tipo Serviço</nome>
-                            <descricao>Cadastro de tipo de serviço</descricao>
+                            <nome>Tipo ServiÃ§o</nome>
+                            <descricao>Cadastro de tipo de serviÃ§o</descricao>
                             <ordem>5</ordem>
                             <menuRapido>null</menuRapido>
                             <link>/tipoServico/tipoServico.load</link>
@@ -703,8 +703,8 @@
                             <subMenu2 />
                         </menu>
                         <menu>
-                            <nome>Local Exec. Serviço</nome>
-                            <descricao>Local de Execução do Serviço</descricao>
+                            <nome>Local Exec. ServiÃ§o</nome>
+                            <descricao>Local de ExecuÃ§Ã£o do ServiÃ§o</descricao>
                             <ordem>4</ordem>
                             <menuRapido>null</menuRapido>
                             <link>/dinamicViews/dinamicViews.load?identificacao=LocalExecucaoServicos
@@ -714,8 +714,8 @@
                             <subMenu2 />
                         </menu>
                         <menu>
-                            <nome>Tipo Evento Serviço</nome>
-                            <descricao>Tipo de Eventos do Serviço</descricao>
+                            <nome>Tipo Evento ServiÃ§o</nome>
+                            <descricao>Tipo de Eventos do ServiÃ§o</descricao>
                             <ordem>1</ordem>
                             <menuRapido>null</menuRapido>
                             <link>/dinamicViews/dinamicViews.load?identificacao=CadastroTipoEventoServico
@@ -725,8 +725,8 @@
                             <subMenu2 />
                         </menu>
                         <menu>
-                            <nome>Tipo Solicitação Serviço</nome>
-                            <descricao>Tipo de Solicitação de Serviço</descricao>
+                            <nome>Tipo SolicitaÃ§Ã£o ServiÃ§o</nome>
+                            <descricao>Tipo de SolicitaÃ§Ã£o de ServiÃ§o</descricao>
                             <ordem>6</ordem>
                             <menuRapido>null</menuRapido>
                             <link>/dinamicViews/dinamicViews.load?identificacao=TipoSolicitacaoServico
@@ -736,8 +736,8 @@
                             <subMenu2 />
                         </menu>
                         <menu>
-                            <nome>Justificativa Solicitação</nome>
-                            <descricao>Justificativa Solicitação</descricao>
+                            <nome>Justificativa SolicitaÃ§Ã£o</nome>
+                            <descricao>Justificativa SolicitaÃ§Ã£o</descricao>
                             <ordem>13</ordem>
                             <menuRapido>null</menuRapido>
                             <link>/dinamicViews.load?identificacao=justificativaSolicitacao
@@ -747,8 +747,8 @@
                             <subMenu2 />
                         </menu>
                         <menu>
-                            <nome>Categoria Serviço</nome>
-                            <descricao>Cadastro de Categoria Serviço</descricao>
+                            <nome>Categoria ServiÃ§o</nome>
+                            <descricao>Cadastro de Categoria ServiÃ§o</descricao>
                             <ordem>8</ordem>
                             <menuRapido>null</menuRapido>
                             <link>/categoriaServico/categoriaServico.load</link>
@@ -757,8 +757,8 @@
                             <subMenu2 />
                         </menu>
                         <menu>
-                            <nome>Condição de Operação</nome>
-                            <descricao>Cadastro da Condição Operação</descricao>
+                            <nome>CondiÃ§Ã£o de OperaÃ§Ã£o</nome>
+                            <descricao>Cadastro da CondiÃ§Ã£o OperaÃ§Ã£o</descricao>
                             <ordem>10</ordem>
                             <menuRapido>null</menuRapido>
                             <link>/condicaoOperacao/condicaoOperacao.load</link>
@@ -767,8 +767,8 @@
                             <subMenu2 />
                         </menu>
                         <menu>
-                            <nome>Importância Negócio</nome>
-                            <descricao>Cadastro de Importância Negócio</descricao>
+                            <nome>ImportÃ¢ncia NegÃ³cio</nome>
+                            <descricao>Cadastro de ImportÃ¢ncia NegÃ³cio</descricao>
                             <ordem>11</ordem>
                             <menuRapido>null</menuRapido>
                             <link>/importanciaNegocio/importanciaNegocio.load</link>

@@ -193,7 +193,7 @@ public class HistoricoServicoDao extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Retorna lista Serviço por nome.
+	 * Retorna lista ServiÃ§o por nome.
 	 * 
 	 * @return Collection
 	 * @throws Exception
@@ -208,7 +208,7 @@ public class HistoricoServicoDao extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Método para retornar apenas os serviços referente a unidade do solicitante
+	 * MÃ©todo para retornar apenas os serviÃ§os referente a unidade do solicitante
 	 * 
 	 * @author rodrigo.oliveira
 	 * @param idServico

@@ -116,7 +116,7 @@ public class Unidade extends AjaxFormAction {
                         bufferContratos += "<tr>";
                         bufferContratos += "<td>";
                         bufferContratos += "<input type='checkbox' name='idContrato' id='idContrato_" + contratoDto.getIdContrato() + "' value='0" + contratoDto.getIdContrato()
-                                + "' /> N˙mero: " + contratoDto.getNumero() + " de "
+                                + "' /> N√∫mero: " + contratoDto.getNumero() + " de "
                                 + UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, contratoDto.getDataContrato(), WebUtil.getLanguage(request)) + " (" + nomeCliente + " - "
                                 + nomeForn + ") - " + situacao;
                         bufferContratos += "</td>";
@@ -135,9 +135,9 @@ public class Unidade extends AjaxFormAction {
     }
 
     /**
-     * Preenche a combo de 'TipoUnidade' do formul·rio HTML com base na lista recuperada do banco. Obs.: Este preenchimento disconsidera itens com data final, ou seja, inativos.
+     * Preenche a combo de 'TipoUnidade' do formul√°rio HTML com base na lista recuperada do banco. Obs.: Este preenchimento disconsidera itens com data final, ou seja, inativos.
      * DEVE haver uma combo
-     * com id='idTipoUnidade' no documento HTML. Esse elemento ser· recuperado pelo framework e o tratamento comeÁa a partir dai.
+     * com id='idTipoUnidade' no documento HTML. Esse elemento ser√° recuperado pelo framework e o tratamento come√ßa a partir dai.
      */
     public void preencherComboTipoUnidade(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         final TipoUnidadeService tipoUnidadeService = (TipoUnidadeService) ServiceLocator.getInstance().getService(TipoUnidadeService.class, null);
@@ -153,13 +153,13 @@ public class Unidade extends AjaxFormAction {
     }
 
     /**
-     * Preenche a combo de 'UnidadePai' do formul·rio HTML com base na lista recuperada do banco. Obs.: Este preenchimento disconsidera itens com data final, ou seja, inativos.
+     * Preenche a combo de 'UnidadePai' do formul√°rio HTML com base na lista recuperada do banco. Obs.: Este preenchimento disconsidera itens com data final, ou seja, inativos.
      * Obs2.: Ele recupera o
-     * getBean() para verificar se h· um item ativo, se houver significa que houve restore, nesse caso, ao preencher a lista, ele disconsidera o item trazido do banco que for igual
+     * getBean() para verificar se h√° um item ativo, se houver significa que houve restore, nesse caso, ao preencher a lista, ele disconsidera o item trazido do banco que for igual
      * ao item ativo para
-     * evitar que o usu·rio possa cadastrar uma unidade sendo unidadePai dela mesma. DEVE haver uma combo com id='idTipoUnidade' no documento HTML. Esse elemento ser· recuperado
+     * evitar que o usu√°rio possa cadastrar uma unidade sendo unidadePai dela mesma. DEVE haver uma combo com id='idTipoUnidade' no documento HTML. Esse elemento ser√° recuperado
      * pelo framework e o
-     * tratamento comeÁa a partir dai.
+     * tratamento come√ßa a partir dai.
      */
     public void preencherComboUnidadePai(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         final HTMLSelect comboUnidadePai = document.getSelectById("idUnidadePai");
@@ -167,15 +167,15 @@ public class Unidade extends AjaxFormAction {
 
         this.inicializaCombo(comboUnidadePai, request);
 
-        // getBean para saber se j· existe um bean carregado (em caso de restore)
+        // getBean para saber se j√° existe um bean carregado (em caso de restore)
         final UnidadeDTO unidadeRestore = (UnidadeDTO) document.getBean();
 
         for (final UnidadeDTO unidade : unidades) {
-            // se existir dataFim, est· inativo, ent„o n„o entra na combo.
+            // se existir dataFim, est√° inativo, ent√£o n√£o entra na combo.
             if (unidade.getDataFim() == null) {
                 /*
-                 * se houver um bean carregado(restore), comparo se o item da lista do banco √© igual a esse bean, se for ele n„o pode ser adicionado √† lista, se n„o o usu·rio
-                 * poder· colocar a
+                 * se houver um bean carregado(restore), comparo se o item da lista do banco √© igual a esse bean, se for ele n√£o pode ser adicionado √É¬† lista, se n√£o o usu√°rio
+                 * poder√° colocar a
                  * unidade como pai dela mesma.
                  */
                 if (unidadeRestore.getIdUnidade() == null || unidadeRestore.getIdUnidade().compareTo(unidade.getIdUnidade()) != 0) {
@@ -186,10 +186,10 @@ public class Unidade extends AjaxFormAction {
     }
 
     /**
-     * Executa uma inicializaÁ„o padr„o para as combos. Basicamente deleta todas as opÁ√µes, caso haja, e insere aprimeira linha com o valor "-- Selecione --".
+     * Executa uma inicializa√ß√£o padr√£o para as combos. Basicamente deleta todas as op√ß√µes, caso haja, e insere aprimeira linha com o valor "-- Selecione --".
      *
      * @param componenteCombo
-     *            Componente o qual deseja inicializar com as configuraÁ√µes citadas acima.
+     *            Componente o qual deseja inicializar com as configura√ß√µes citadas acima.
      */
     private void inicializaCombo(final HTMLSelect componenteCombo, final HttpServletRequest request) {
         componenteCombo.removeAllOptions();
@@ -197,19 +197,19 @@ public class Unidade extends AjaxFormAction {
     }
 
     public void save(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
-        // Obtendo o objeto contendo os dados informados no formul·rios.
+        // Obtendo o objeto contendo os dados informados no formul√°rios.
         final UnidadeDTO unidadeDTO = (UnidadeDTO) document.getBean();
 
-        // Verificando se o DTO e o serviÁo existem.
+        // Verificando se o DTO e o servi√ßo existem.
         if (unidadeDTO != null) {
             unidadeDTO.setServicos(this.getUnidadesAccServicosService().deserealizaObjetosDoRequest(request));
 
             unidadeDTO.setListaDeLocalidade((List<LocalidadeUnidadeDTO>) br.com.citframework.util.WebUtil.deserializeCollectionFromRequest(LocalidadeUnidadeDTO.class,
                     "localidadesSerializadas", request));
 
-            // Verificando se a unidade j· existe.
+            // Verificando se a unidade j√° existe.
             if (this.getUnidadeService().jaExisteUnidadeComMesmoNome(unidadeDTO)) {
-                // Notificando o usu·rio que a unidade j· existe.
+                // Notificando o usu√°rio que a unidade j√° existe.
                 document.alert(UtilI18N.internacionaliza(request, "citcorpore.comum.registroJaCadastrado"));
                 return;
             }
@@ -342,7 +342,7 @@ public class Unidade extends AjaxFormAction {
     }
 
     /**
-     * Metodo para exclus„o lÛgica de Unidade
+     * Metodo para exclus√£o l√≥gica de Unidade
      *
      * @param document
      * @param request
@@ -370,7 +370,7 @@ public class Unidade extends AjaxFormAction {
     }
 
     /**
-     * MÈtodo para excluir uma associaÁ„o de unidade com serviÁos
+     * M√©todo para excluir uma associa√ß√£o de unidade com servi√ßos
      *
      * @author rodrigo.oliveira
      *

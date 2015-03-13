@@ -39,7 +39,7 @@ public class AvaliacaoReferenciaFornecedor extends AjaxFormAction {
 			if (avaliacaoReferenciaFornecedorDTO.getDecisao().equalsIgnoreCase("S")) {
 				avaliacaoReferenciaFornecedorDTO.setDecisao("Sim");
 			} else {
-				avaliacaoReferenciaFornecedorDTO.setDecisao("N„o");
+				avaliacaoReferenciaFornecedorDTO.setDecisao("N√£o");
 			}
 	        
 	        if (avaliacaoReferenciaFornecedorDTO.getSequencia() == null){
@@ -47,7 +47,7 @@ public class AvaliacaoReferenciaFornecedor extends AjaxFormAction {
 	        	tblAvaliacao.addRow(avaliacaoReferenciaFornecedorDTO, 
 	                                    new String[] {"", "", "nome" ,"telefone", "observacoes"}, 
 	                                    new String[] { "idEmpregado"}, 
-	                                    "Empregado j· cadastrado!!", 
+	                                    "Empregado j√° cadastrado!!", 
 	                                    new String[] {"exibeIconesAprovacao"}, 
 	                                    null, 
 	                                    null);  

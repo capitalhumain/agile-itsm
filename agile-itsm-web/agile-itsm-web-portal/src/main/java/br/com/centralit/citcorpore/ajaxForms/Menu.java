@@ -124,7 +124,7 @@ public class Menu extends AjaxFormAction {
             dicionarioDTO.setNome(StringUtils.remove(this.getMenuBean().getNome(), DOLAR));
         }
 
-        /* Setando o menu Vertical como padr„o do sistema */
+        /* Setando o menu Vertical como padr√£o do sistema */
         if (this.getMenuBean().getMenuRapido() == null) {
             this.getMenuBean().setHorizontal("N");
         } else {
@@ -153,7 +153,7 @@ public class Menu extends AjaxFormAction {
             perfilAcessoMenuService.create(perfilAcessoMenuDTO);
             document.alert(UtilI18N.internacionaliza(request, "MSG05"));
         } else {
-            // Verifica se o menu alterado È o mesmo que o Menu Pai
+            // Verifica se o menu alterado √© o mesmo que o Menu Pai
             if (this.getMenuBean().getIdMenu().equals(this.getMenuBean().getIdMenuPai())) {
                 document.alert(UtilI18N.internacionaliza(request, "menu.validacao.menuPaiMenu"));
                 return;
@@ -212,7 +212,7 @@ public class Menu extends AjaxFormAction {
     }
 
     /**
-     * Exclui Tipo Item ConfiguraÁ„o e suas caracterÌsticas.
+     * Exclui Tipo Item Configura√ß√£o e suas caracter√≠sticas.
      *
      * @param document
      * @param request
@@ -236,7 +236,7 @@ public class Menu extends AjaxFormAction {
     private MenuService menuService;
 
     /**
-     * Retorna inst‚ncia de MenuPerfisService.
+     * Retorna inst√¢ncia de MenuPerfisService.
      *
      * @return EmpregadoService
      * @throws ServiceException
@@ -343,7 +343,7 @@ public class Menu extends AjaxFormAction {
 
             final XMLOutputter xout = new XMLOutputter();
 
-            xout.setFormat(Format.getCompactFormat().setEncoding("ISO-8859-1"));
+            xout.setFormat(Format.getCompactFormat().setEncoding("UTF-8"));
 
             xout.output(doc, out);
 

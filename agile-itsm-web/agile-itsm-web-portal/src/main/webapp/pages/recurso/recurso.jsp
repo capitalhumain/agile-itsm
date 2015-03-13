@@ -1,18 +1,16 @@
 <%@page import="br.com.centralit.citcorpore.bean.RecursoDTO"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="br.com.citframework.util.Constantes"%>
 
 <%
-    response.setCharacterEncoding("ISO-8859-1");
+    response.setCharacterEncoding("UTF-8");
 %>
 <html>
 
 <head>
 <%@include file="/include/header.jsp"%>
 
-<%@include file="/include/security/security.jsp"%>
-
-<title>CITSmart</title>
+<%@include file="/novoLayout/common/include/titulo.jsp" %>
 
 <%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 
@@ -354,7 +352,7 @@
 				<tr>
 					<td class='campoObrigatorio'><fmt:message key='criterioAvaliacao.criterio_descricao'/>:</td>
 					<td colspan="2"><input type='text' name='descricao' size="20"
-						maxlength="50" class='Valid[Required] Description[Descrição]' />
+						maxlength="50" class='Valid[Required] Description[DescriÃ§Ã£o]' />
 					</td>
 				</tr>
 				<tr>

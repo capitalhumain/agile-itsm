@@ -9,7 +9,7 @@ import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.CrudServiceImpl;
 
 /**
- * @author Fl·vio.santana
+ * @author Fl√°vio.santana
  *
  */
 public class PostServiceEjb extends CrudServiceImpl implements PostService {

@@ -92,7 +92,7 @@ public class ExecucaoDemandaServiceEjb extends CrudServiceImpl implements Execuc
          * throw new ServiceException(e1);
          * }
          * if (fluxo == null){
-         * throw new LogicException("Não existe Atividade na Sequencia para este Fluxo! Não é possível efetuar atribuição!");
+         * throw new LogicException("NÃ£o existe Atividade na Sequencia para este Fluxo! NÃ£o Ã© possÃ­vel efetuar atribuiÃ§Ã£o!");
          * }
          * try{
          * //Seta o TransactionController para os DAOs
@@ -108,7 +108,7 @@ public class ExecucaoDemandaServiceEjb extends CrudServiceImpl implements Execuc
          * historicoExecucaoBean.setIdExecucao(execDemandaBean.getIdExecucaoAtribuir());
          * historicoExecucaoBean.setSituacao("N");
          * historicoExecucaoBean.setIdEmpregadoExecutor(execDemandaBean.getIdEmpregadoLogado());
-         * historicoExecucaoBean.setDetalhamento("Atribuição da demanda");
+         * historicoExecucaoBean.setDetalhamento("AtribuiÃ§Ã£o da demanda");
          * historicoExecucaoDao.create(historicoExecucaoBean);
          * ExecucaoDemandaDTO execucaoDemanda = new ExecucaoDemandaDTO();
          * execucaoDemanda.setIdAtividade(fluxo.getIdAtividade());
@@ -171,7 +171,7 @@ public class ExecucaoDemandaServiceEjb extends CrudServiceImpl implements Execuc
             historicoExecucaoBean.setIdExecucao(execDemandaBean.getIdExecucao());
             historicoExecucaoBean.setSituacao(execDemandaBean.getSituacao());
             historicoExecucaoBean.setIdEmpregadoExecutor(execDemandaBean.getIdEmpregadoLogado());
-            historicoExecucaoBean.setDetalhamento("Alteração de Situação");
+            historicoExecucaoBean.setDetalhamento("AlteraÃ§Ã£o de SituaÃ§Ã£o");
 
             historicoExecucaoDao.create(historicoExecucaoBean);
 
@@ -212,7 +212,7 @@ public class ExecucaoDemandaServiceEjb extends CrudServiceImpl implements Execuc
          * historicoExecucaoBean.setIdExecucao(execDemandaBean.getIdExecucao());
          * historicoExecucaoBean.setSituacao(execDemandaBean.getSituacao());
          * historicoExecucaoBean.setIdEmpregadoExecutor(execDemandaBean.getIdEmpregadoLogado());
-         * historicoExecucaoBean.setDetalhamento("Alteração de Situação");
+         * historicoExecucaoBean.setDetalhamento("AlteraÃ§Ã£o de SituaÃ§Ã£o");
          * historicoExecucaoDao.create(historicoExecucaoBean);
          * FluxoDTO fluxo = fluxoDao.getNextAtividadeByFluxo(execDemandaBean.getIdFluxo(), execDemandaBean.getIdAtividade());
          * if (fluxo == null){ //Nao ha mais atividades no fluxo, entao finaliza.

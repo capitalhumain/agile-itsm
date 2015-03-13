@@ -16,7 +16,7 @@ import br.com.citframework.service.CrudService;
 public interface CaracteristicaTipoItemConfiguracaoService extends CrudService {
 
     /**
-     * Exclui associação da Característica com o Tipo de Item Configuração.
+     * Exclui associaÃ§Ã£o da CaracterÃ­stica com o Tipo de Item ConfiguraÃ§Ã£o.
      * 
      * @throws ServiceException
      * @throws PersistenceException

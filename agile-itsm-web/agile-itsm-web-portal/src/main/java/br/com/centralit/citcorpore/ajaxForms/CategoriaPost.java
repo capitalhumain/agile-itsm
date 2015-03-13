@@ -131,7 +131,7 @@ public class CategoriaPost extends AjaxFormAction {
 	}
 
 	/**
-	 * Gera Combo de Categoria de Serviço Superior.
+	 * Gera Combo de Categoria de ServiÃ§o Superior.
 	 * 
 	 * @param document
 	 * @throws ServiceException

@@ -68,7 +68,7 @@ public class CaracteristicaTipoItemConfiguracaoDAO extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Verifica se CaracterÌstica est· associada a algum Tipo Item ConfiguraÁ„o.
+     * Verifica se Caracter√≠stica est√° associada a algum Tipo Item Configura√ß√£o.
      * 
      * @param idCaracteristica
      * @return boolean
@@ -98,7 +98,7 @@ public class CaracteristicaTipoItemConfiguracaoDAO extends CrudDaoDefaultImpl {
  
 
     /**
-     * Exclui associaÁ„o de CaracterÌstica com Tipo Item ConfiguraÁ„o.
+     * Exclui associa√ß√£o de Caracter√≠stica com Tipo Item Configura√ß√£o.
      * 
      * @param idTipoItemConfiguracao
      * @param idCaracteristica

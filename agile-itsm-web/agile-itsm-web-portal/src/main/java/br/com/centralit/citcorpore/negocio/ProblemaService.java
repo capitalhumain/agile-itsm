@@ -202,7 +202,7 @@ public interface ProblemaService extends CrudService {
 	public ProblemaDTO restauraTodos(ProblemaDTO param) throws Exception;
 
 	/**
-	 * Retorna uma lista quantitativa de problema por situaÁ„o
+	 * Retorna uma lista quantitativa de problema por situa√ß√£o
 	 * 
 	 * @param relatorioQuantitativoProblemaDto
 	 * @return Collection<RelatorioQuantitativoProblemaDTO>
@@ -296,7 +296,7 @@ public interface ProblemaService extends CrudService {
 	public Collection findByProblemaRelacionado(ProblemaRelacionadoDTO bean) throws Exception;
 
 	/**
-	 * MÈtodo criado para que o create de Problema compartilhe da mesma transaÁ„o que est· sendo utilizada em outra rotina ou entidade.
+	 * M√©todo criado para que o create de Problema compartilhe da mesma transa√ß√£o que est√° sendo utilizada em outra rotina ou entidade.
 	 * 
 	 * @param problemaDto
 	 *            - ProblemaDTO

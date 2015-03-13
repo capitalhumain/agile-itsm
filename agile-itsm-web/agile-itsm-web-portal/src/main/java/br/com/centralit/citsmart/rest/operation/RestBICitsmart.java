@@ -11,7 +11,7 @@ import br.com.centralit.citsmart.rest.util.RestBICitsmartOperationUtil;
 import br.com.centralit.citsmart.rest.util.RestEnum;
 
 /**
- * Responsável por Executar as Operações da Classe RestBICitsmartResource.
+ * ResponsÃ¡vel por Executar as OperaÃ§Ãµes da Classe RestBICitsmartResource.
  *
  * @author valdoilo.damasceno
  * @since 06.12.2013
@@ -32,7 +32,7 @@ public class RestBICitsmart implements IRestOperation<BICitsmart, BICitsmartResp
         final BICitsmartResp resp = new BICitsmartResp();
 
         if (session.getUser() == null || session.getUser().getLogin() == null || session.getUser().getLogin().trim().equals("")) {
-            resp.setError(RestBICitsmartOperationUtil.buildError(RestEnum.INPUT_ERROR, "Login do usuário não identificado"));
+            resp.setError(RestBICitsmartOperationUtil.buildError(RestEnum.INPUT_ERROR, "Login do usuÃ¡rio nÃ£o identificado"));
             return resp;
         }
 

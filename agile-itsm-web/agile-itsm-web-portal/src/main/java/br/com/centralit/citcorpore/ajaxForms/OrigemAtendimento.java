@@ -68,7 +68,7 @@ public class OrigemAtendimento extends AjaxFormAction {
 	}
 
 	/**
-	 * Metodo colocar status Inativo quando for solicitado a exclus„o do usuario.
+	 * Metodo colocar status Inativo quando for solicitado a exclus√£o do usuario.
 	 * 
 	 * @param document
 	 * @param request

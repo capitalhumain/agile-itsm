@@ -96,7 +96,7 @@ public class ConhecimentoProblemaDao extends CrudDaoDefaultImpl {
 		
 		List listRetorno = new ArrayList();
 		
-		sql.append("select conhecimentoproblema.idbaseconhecimento,conhecimentoproblema.idproblema,baseconhecimento.titulo,CASE WHEN baseconhecimento.status ='S' THEN 'Publicado' WHEN baseconhecimento.status ='N' THEN 'Não Publicado' ELSE baseconhecimento.status END as status ");
+		sql.append("select conhecimentoproblema.idbaseconhecimento,conhecimentoproblema.idproblema,baseconhecimento.titulo,CASE WHEN baseconhecimento.status ='S' THEN 'Publicado' WHEN baseconhecimento.status ='N' THEN 'NÃ£o Publicado' ELSE baseconhecimento.status END as status ");
 		sql.append("from conhecimentoproblema ");
 		sql.append("inner join baseconhecimento on baseconhecimento.idbaseconhecimento = conhecimentoproblema.idbaseconhecimento ");
 		sql.append("where  baseconhecimento.dataFim is null and baseconhecimento.erroconhecido = ? and baseconhecimento.arquivado = ?");

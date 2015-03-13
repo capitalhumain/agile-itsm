@@ -130,7 +130,7 @@ public class AtividadePeriodica extends AjaxFormAction {
 	             document.executeScript("HTMLUtils.applyStyleClassInAllCells('tblAgendamentos', 'tdPontilhada');");
 			}
 			if (atividadePeriodicaDTO.getIdSolicitacaoServico() != null){
-			    document.alert("Atenção: esta atividade foi gerada pelo módulo de solicitações/incidentes. Não é permitido alteração no agendamento!");
+			    document.alert("AtenÃ§Ã£o: esta atividade foi gerada pelo mÃ³dulo de solicitaÃ§Ãµes/incidentes. NÃ£o Ã© permitido alteraÃ§Ã£o no agendamento!");
 			    document.getElementById("tdBotaoGravar").setVisible(false);
 			    document.getElementById("tdBotaoNovoAgendamento").setVisible(false);
 			}
@@ -145,7 +145,7 @@ public class AtividadePeriodica extends AjaxFormAction {
 					tblOS.addRowsByCollection(col, 
 				    		 new String[] {"","", "numero","nomeAreaRequisitante","demanda"}, 
                              new String[] {"idOS"}, 
-                             "O.S já cadastrada!", 
+                             "O.S jÃ¡ cadastrada!", 
                              new String[] {"exibeIconesOS"}, 
                              null, 
                              null);  

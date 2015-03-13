@@ -116,7 +116,7 @@ public class EntregaItemRequisicaoServiceEjb extends CrudServiceImpl implements 
             if (entregaItemRequisicaoDto.getColInspecao() != null) {
                 for (final InspecaoEntregaItemDTO inspecaoDto : entregaItemRequisicaoDto.getColInspecao()) {
                     if (inspecaoDto.getAvaliacao() == null || inspecaoDto.getAvaliacao().trim().length() == 0) {
-                        throw new Exception("AvaliaÁ„o n„o informada");
+                        throw new Exception("Avalia√ß√£o n√£o informada");
                     }
                     inspecaoDto.setIdResponsavel(entregaItemRequisicaoDto.getUsuarioDto().getIdEmpregado());
                     inspecaoDto.setDataHoraInspecao(UtilDatas.getDataHoraAtual());
@@ -191,7 +191,7 @@ public class EntregaItemRequisicaoServiceEjb extends CrudServiceImpl implements 
         if (itemRequisicaoDto.getQtdeAprovada().doubleValue() == qtde) {
             itemRequisicaoDto.setSituacao(SituacaoItemRequisicaoProduto.Finalizado.name());
             itemRequisicaoDao.update(itemRequisicaoDto);
-            itemRequisicaoService.geraHistorico(tc, null, itemRequisicaoDto, AcaoItemRequisicaoProduto.Inspecao, "FinalizaÁ„o autom·tica por decurso de prazo",
+            itemRequisicaoService.geraHistorico(tc, null, itemRequisicaoDto, AcaoItemRequisicaoProduto.Inspecao, "Finaliza√ß√£o autom√°tica por decurso de prazo",
                     SituacaoItemRequisicaoProduto.valueOf(itemRequisicaoDto.getSituacao()));
         }
     }

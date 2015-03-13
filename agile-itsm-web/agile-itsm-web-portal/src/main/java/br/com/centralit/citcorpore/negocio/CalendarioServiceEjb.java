@@ -74,23 +74,23 @@ public class CalendarioServiceEjb extends CrudServiceImpl implements CalendarioS
      */
     public CalculoJornadaDTO calculaDataHoraFinal(final CalculoJornadaDTO calculoDto, final boolean bCalculaHoraInicio, final TransactionControler tc) throws Exception {
         if (calculoDto.getIdCalendario() == null) {
-            throw new Exception("ID do calend·rio n„o informado para c·lculo da data e hora");
+            throw new Exception("ID do calend√°rio n√£o informado para c√°lculo da data e hora");
         }
         if (calculoDto.getDataHoraInicial() == null) {
-            throw new Exception("Data e hora inicial n„o informadas para c·lculo da data e hora");
+            throw new Exception("Data e hora inicial n√£o informadas para c√°lculo da data e hora");
         }
         if (calculoDto.getPrazoHH() == null) {
-            throw new Exception("Prazo em horas n„o informado para c·lculo da data e hora");
+            throw new Exception("Prazo em horas n√£o informado para c√°lculo da data e hora");
         }
         if (calculoDto.getPrazoMM() == null) {
-            throw new Exception("Prazo em minutos n„o informado para c·lculo da data e hora");
+            throw new Exception("Prazo em minutos n√£o informado para c√°lculo da data e hora");
         }
 
         this.setTransacao(tc);
         final CalendarioDTO calendarioDto = this.recuperaCalendario(calculoDto.getIdCalendario());
 
         if (calendarioDto == null) {
-            throw new Exception("ServiÁo Contrato sem calend·rio. Por favor selecione Calend·rio em ServiÁo Contrato!");
+            throw new Exception("Servi√ßo Contrato sem calend√°rio. Por favor selecione Calend√°rio em Servi√ßo Contrato!");
         }
 
         final double slaDefinido = calculoDto.getPrazoHH() + new Double(calculoDto.getPrazoMM()).doubleValue() / 60;
@@ -170,10 +170,10 @@ public class CalendarioServiceEjb extends CrudServiceImpl implements CalendarioS
     }
 
     /**
-     * Realiza o c·lculo de Tempo Decorrido de acordo com a data hora atual informada e o calend·rio.
+     * Realiza o c√°lculo de Tempo Decorrido de acordo com a data hora atual informada e o calend√°rio.
      *
      * @param calculoDto
-     *            - Instancia de CalculoJornadaDTO que dever· ser instanciada utilizando o construtor sobrecarregado que recebe o ID do Calend·rio e a Data Hora inicial.
+     *            - Instancia de CalculoJornadaDTO que dever√° ser instanciada utilizando o construtor sobrecarregado que recebe o ID do Calend√°rio e a Data Hora inicial.
      * @param dataHoraAtual
      *            - Timestamp da data hora atual.
      * @return CalculoJornadaDTO - DTO de CalculoJornada com os atributos TempoDecorridoHH e TempoDecorridoMM
@@ -183,10 +183,10 @@ public class CalendarioServiceEjb extends CrudServiceImpl implements CalendarioS
      */
     public CalculoJornadaDTO calculaPrazoDecorrido(final CalculoJornadaDTO calculoDto, final Timestamp dataHoraAtual, final TransactionControler tc) throws Exception {
         if (calculoDto.getIdCalendario() == null) {
-            throw new Exception("ID do calend·rio n„o informado para c·lculo da data e hora");
+            throw new Exception("ID do calend√°rio n√£o informado para c√°lculo da data e hora");
         }
         if (calculoDto.getDataHoraInicial() == null) {
-            throw new Exception("Data e hora inicial n„o informadas para c·lculo da data e hora");
+            throw new Exception("Data e hora inicial n√£o informadas para c√°lculo da data e hora");
         }
 
         this.setTransacao(tc);
@@ -229,7 +229,7 @@ public class CalendarioServiceEjb extends CrudServiceImpl implements CalendarioS
 
                         if (bMaisDeUmDia) {
                             while (p > 1) {
-                                prazoDecorrido += termino[p] - inicio[p]; // Acumula turnos da jornada - OBS VALDOILO - ISSO S” FUNCIONA QUANDO O N⁄MERO DE DIAS … MAIOR QUE 1
+                                prazoDecorrido += termino[p] - inicio[p]; // Acumula turnos da jornada - OBS VALDOILO - ISSO S√ì FUNCIONA QUANDO O N√öMERO DE DIAS √â MAIOR QUE 1
                                 p = p - 1;
                             }
                         }
@@ -238,7 +238,7 @@ public class CalendarioServiceEjb extends CrudServiceImpl implements CalendarioS
                             double hrInicio = inicio[i];
 
                             if (bMaisDeUmDia) {
-                                prazoDecorrido += horaAtual - hrInicio; // Acumula o tempo decorrido dentro do turno - OBS. VALDOÕLO - ISSO S” FUNCIONA QUANDO O N⁄MERO DE DIAS …
+                                prazoDecorrido += horaAtual - hrInicio; // Acumula o tempo decorrido dentro do turno - OBS. VALDO√çLO - ISSO S√ì FUNCIONA QUANDO O N√öMERO DE DIAS √â
                                                                         // MAIOR QUE 1
                             } else {
                                 hrInicio = Util.getHoraDbl(UtilDatas.getHoraHHMM(dataHoraInicial));
@@ -265,13 +265,13 @@ public class CalendarioServiceEjb extends CrudServiceImpl implements CalendarioS
                         bCalculou = true;
                     }
                 }
-                if (!bCalculou) { // Ocorre quando a hora do tsRef est· acima do hor·rio de tÈrmino da jornada
+                if (!bCalculou) { // Ocorre quando a hora do tsRef est√° acima do hor√°rio de t√©rmino da jornada
                     final double ch = this.calculaCargaHorariaTotal(calendarioDto, dataHoraInicial);
-                    if (bMaisDeUmDia) { // Quando È mais de um dia, acumula a jornada total
+                    if (bMaisDeUmDia) { // Quando √© mais de um dia, acumula a jornada total
                         prazoDecorrido += this.calculaCargaHorariaTotal(calendarioDto, dataHoraInicial);
                     } else {
                         final double horaInicioSlaDbl = Util.getHoraDbl(UtilDatas.getHoraHHMM(dataHoraInicial));
-                        if (this.verificarSeHoraEstaForaDaJornadaDeTrabalho(jornadaDto, horaAtual)) { // Verifica se a hora do tsRef est· num intervalo da jornada
+                        if (this.verificarSeHoraEstaForaDaJornadaDeTrabalho(jornadaDto, horaAtual)) { // Verifica se a hora do tsRef est√° num intervalo da jornada
                             prazoDecorrido = this.retornaProximaHoraTerminoJornada(jornadaDto, horaInicioSlaDbl) - horaInicioSlaDbl;
                         } else {
                             dataHoraInicial = Timestamp.valueOf(UtilDatas.dateToSTRWithFormat(new Date(dataHoraInicial.getTime()), "yyyy-MM-dd") + " "
@@ -290,10 +290,10 @@ public class CalendarioServiceEjb extends CrudServiceImpl implements CalendarioS
 
     public CalculoJornadaDTO calculaPrazoDecorridoNovo(final CalculoJornadaDTO calculoDto, final Timestamp dataHoraAtual, final TransactionControler tc) throws Exception {
         if (calculoDto.getIdCalendario() == null) {
-            throw new Exception("ID do calend·rio n„o informado para c·lculo da data e hora");
+            throw new Exception("ID do calend√°rio n√£o informado para c√°lculo da data e hora");
         }
         if (calculoDto.getDataHoraInicial() == null) {
-            throw new Exception("Data e hora inicial n„o informadas para c·lculo da data e hora");
+            throw new Exception("Data e hora inicial n√£o informadas para c√°lculo da data e hora");
         }
 
         this.setTransacao(tc);
@@ -344,7 +344,7 @@ public class CalendarioServiceEjb extends CrudServiceImpl implements CalendarioS
 
                         if (bMaisDeUmDia) {
                             while (p > 1) {
-                                prazoDecorrido += termino[p] - inicio[p]; // Acumula turnos da jornada - OBS VALDOILO - ISSO S” FUNCIONA QUANDO O N⁄MERO DE DIAS … MAIOR QUE 1
+                                prazoDecorrido += termino[p] - inicio[p]; // Acumula turnos da jornada - OBS VALDOILO - ISSO S√ì FUNCIONA QUANDO O N√öMERO DE DIAS √â MAIOR QUE 1
                                 p = p - 1;
                             }
                         }
@@ -353,7 +353,7 @@ public class CalendarioServiceEjb extends CrudServiceImpl implements CalendarioS
                             double hrInicio = inicio[i];
 
                             if (bMaisDeUmDia) {
-                                prazoDecorrido += horaAtual - hrInicio; // Acumula o tempo decorrido dentro do turno - OBS. VALDOÕLO - ISSO S” FUNCIONA QUANDO O N⁄MERO DE DIAS …
+                                prazoDecorrido += horaAtual - hrInicio; // Acumula o tempo decorrido dentro do turno - OBS. VALDO√çLO - ISSO S√ì FUNCIONA QUANDO O N√öMERO DE DIAS √â
                                                                         // MAIOR QUE 1
                             } else {
                                 hrInicio = Util.getHoraDbl(UtilDatas.getHoraHHMM(dataHoraInicial));
@@ -380,13 +380,13 @@ public class CalendarioServiceEjb extends CrudServiceImpl implements CalendarioS
                         bCalculou = true;
                     }
                 }
-                if (!bCalculou) { // Ocorre quando a hora do tsRef est· acima do hor·rio de tÈrmino da jornada
+                if (!bCalculou) { // Ocorre quando a hora do tsRef est√° acima do hor√°rio de t√©rmino da jornada
                     final double ch = this.calculaCargaHorariaTotal(calendarioDto, dataHoraInicial);
-                    if (bMaisDeUmDia) { // Quando È mais de um dia, acumula a jornada total
+                    if (bMaisDeUmDia) { // Quando √© mais de um dia, acumula a jornada total
                         prazoDecorrido += this.calculaCargaHorariaTotal(calendarioDto, dataHoraInicial);
                     } else {
                         final double horaInicioSlaDbl = Util.getHoraDbl(UtilDatas.getHoraHHMM(dataHoraInicial));
-                        if (this.verificarSeHoraEstaForaDaJornadaDeTrabalho(jornadaDto, horaAtual)) { // Verifica se a hora do tsRef est· num intervalo da jornada
+                        if (this.verificarSeHoraEstaForaDaJornadaDeTrabalho(jornadaDto, horaAtual)) { // Verifica se a hora do tsRef est√° num intervalo da jornada
                             prazoDecorrido = this.retornaProximaHoraTerminoJornada(jornadaDto, horaInicioSlaDbl) - horaInicioSlaDbl;
                         } else {
                             dataHoraInicial = Timestamp.valueOf(UtilDatas.dateToSTRWithFormat(new Date(dataHoraInicial.getTime()), "yyyy-MM-dd") + " "
@@ -431,7 +431,7 @@ public class CalendarioServiceEjb extends CrudServiceImpl implements CalendarioS
             throws Exception {
         final JornadaTrabalhoDTO jornadaDto = this.verificaDiaUtil(calendarioDto, dataHoraRef, bUtilizaHorarioTimestamp);
         if (jornadaDto == null) {
-            throw new Exception("N„o existem jornadas configuradas para este calend·rio nos prÛximos 30 dias");
+            throw new Exception("N√£o existem jornadas configuradas para este calend√°rio nos pr√≥ximos 30 dias");
         }
 
         final double hora = Util.getHoraDbl(UtilDatas.getHoraHHMM(jornadaDto.getDataHoraInicial()));
@@ -454,7 +454,7 @@ public class CalendarioServiceEjb extends CrudServiceImpl implements CalendarioS
             final boolean bUtilizaHorarioTimestamp) throws Exception {
         final JornadaTrabalhoDTO jornadaDto = this.verificaDiaUtilNovo(calendarioDto, dataHoraRef, bUtilizaHorarioTimestamp);
         if (jornadaDto == null) {
-            throw new Exception("N„o existem jornadas configuradas para este calend·rio nos prÛximos 30 dias");
+            throw new Exception("N√£o existem jornadas configuradas para este calend√°rio nos pr√≥ximos 30 dias");
         }
 
         final Calendar calendarDataHoraInicial = Calendar.getInstance();
@@ -717,11 +717,11 @@ public class CalendarioServiceEjb extends CrudServiceImpl implements CalendarioS
     }
 
     /**
-     * Verifica se a hora informada est· fora da Jornada de trabalho. Ou seja, fora de um intervalo v·lido na Jornada.
+     * Verifica se a hora informada est√° fora da Jornada de trabalho. Ou seja, fora de um intervalo v√°lido na Jornada.
      *
      * @param jornadaDto
      * @param hora
-     * @return true - Est· fora da Jornada de Trabalho.
+     * @return true - Est√° fora da Jornada de Trabalho.
      * @throws Exception
      * @author valdoilo.damasceno
      */

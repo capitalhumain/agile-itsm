@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.CitCorporeConstantes"%>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
@@ -112,7 +114,7 @@
 									<input class="span12" type="text" onfocus='abrePopupSolicitante();' id="nomeSolicitante" name="nomeSolicitante" placeholder="<fmt:message key="solicitacaoServico.digiteNomeSolicitante"/>"/>
 								</div>
 
-								<!--Urgência-->
+								<!--UrgÃªncia-->
 								<div class='span2'>
 									<label class="strong "><fmt:message key="solicitacaoServico.urgencia"/></label>
 									<select id="urgencia" name="urgencia" class="span12 Description[citcorpore.comum.nome]">
@@ -126,7 +128,7 @@
 									</select>
 								</div>
 
-								<!--Item de Configuração-->
+								<!--Item de ConfiguraÃ§Ã£o-->
 								<div class="span2">
 									<div class="span12" id='divNomeDoGrupoExecutor'>
 										<label class="strong">
@@ -156,7 +158,7 @@
 							<div class='row-fluid'>
 								<div class='span12'>
 									<div class="separator top"></div>
-									<!--Botão-->
+									<!--BotÃ£o-->
 									<div class="span2">
 										<button class="btn btn-default btn-primary" type="button" onclick="pesquisarTendencia();" id="btnSelecionar" name='"btnSelecionar"'>
 												<span>
@@ -306,7 +308,7 @@
 	<div class="modal hide fade in" id="modal_cadastrarProblema" tabindex="-1"  data-backdrop="static" data-keyboard="false">
 			<!-- Modal heading -->
 			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
 				<h3><fmt:message key="problema.problema" /></h3>
 			</div>
 			<!-- // Modal heading END -->
@@ -322,7 +324,7 @@
 
 	<!--  Fim conteudo-->
 	<%@include file="/novoLayout/common/include/rodape.jsp"%>
-	<script  charset="ISO-8859-1" type="text/javascript" src="${ctx}/js/PopupManager.js"></script>
+	<script  charset="UTF-8" type="text/javascript" src="${ctx}/js/PopupManager.js"></script>
 	<script src="${ctx}/novoLayout/common/theme/scripts/plugins/tables/DataTables/media/js/jquery.dataTables.min.js"></script>
 	<script src="${ctx}/novoLayout/common/theme/scripts/plugins/tables/DataTables/media/js/DT_bootstrap.js"></script>
 	<script type="text/javascript" src="js/analiseTendencias.js"></script>

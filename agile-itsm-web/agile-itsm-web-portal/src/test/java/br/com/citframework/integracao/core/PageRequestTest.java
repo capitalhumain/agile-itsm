@@ -8,7 +8,7 @@ import static org.junit.Assert.assertThat;
 import org.junit.Test;
 
 /**
- * Classe de testes para validação do comportamento {@link PageRequest}
+ * Classe de testes para validaÃ§Ã£o do comportamento {@link PageRequest}
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 01/10/2014

@@ -28,7 +28,7 @@ NumberUtil.isInteger = function(val) {
  * Retorna apenas numeros de uma string passada como parametro:
  *		exemplo: 
  *				StringUtils.apenasNumeros('500px');
- *					retornará: 500
+ *					retornarÃ¡: 500
  * ----------------------------------------------------------------
  */
 NumberUtil.apenasNumeros = function(str){
@@ -47,7 +47,7 @@ NumberUtil.apenasNumeros = function(str){
  * Retorna apenas a representacao de decimal de uma string passada como parametro:
  *		exemplo: 
  *				StringUtils.apenasCurrency('1.500,78px');
- *					retornará: 1500,78
+ *					retornarÃ¡: 1500,78
  * ----------------------------------------------------------------
  */
 NumberUtil.apenasCurrency = function(str){
@@ -172,7 +172,7 @@ NumberUtil.format = function(valor, d_len, d_pt, t_pt) {
 };
 
 /**
- * Ordena ascendentemente um array numérico
+ * Ordena ascendentemente um array numÃ©rico
  */
 NumberUtil.sortArrayAscending = function(array) {
 	return array.sort(function(a, b) {
@@ -181,7 +181,7 @@ NumberUtil.sortArrayAscending = function(array) {
 };
 
 /**
- * * Recupera o menor valor de um array numérico
+ * * Recupera o menor valor de um array numÃ©rico
  */
 NumberUtil.smallerFromArray = function(array) {
 	var newArray = NumberUtil.sortArrayAscending(array);
@@ -189,7 +189,7 @@ NumberUtil.smallerFromArray = function(array) {
 };
 
 /**
- * Recupera o maior valor de um array numérico
+ * Recupera o maior valor de um array numÃ©rico
  */
 NumberUtil.largerFromArray = function(array) {
 	var newArray = NumberUtil.sortArrayAscending(array);
@@ -197,7 +197,7 @@ NumberUtil.largerFromArray = function(array) {
 };
 
 /**
- * Calcula a média entre o maior número e o menor número em um array
+ * Calcula a mÃ©dia entre o maior nÃºmero e o menor nÃºmero em um array
  */
 NumberUtil.avgBetweenSmallerAndLargerFromArray = function(array) {
 	var smaller = NumberUtil.smallerFromArray(array);

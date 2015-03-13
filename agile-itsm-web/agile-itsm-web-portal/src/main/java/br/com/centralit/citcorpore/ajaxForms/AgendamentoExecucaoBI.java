@@ -43,8 +43,8 @@ public class AgendamentoExecucaoBI extends AjaxFormAction {
 	public void load(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ProcessamentoBatchDTO agendamentoProcessBatchDto = (ProcessamentoBatchDTO) document.getBean();
 		/**
-		 * setando atributos de agendamentoExecucaoBI.jsp, por que no load é enxergado o idConexaoBI e abriuAgendamentoExcecao do formGerenciamento, mas quando entrar no save o getBean enxerga o
-		 * agendamentoExecucaoBI.jsp e com isso é necessario setar conforme esta abaixo para que os valores que estavam no formGerenciamento sejam setados no agendamentoExecucaoBI.
+		 * setando atributos de agendamentoExecucaoBI.jsp, por que no load Ã© enxergado o idConexaoBI e abriuAgendamentoExcecao do formGerenciamento, mas quando entrar no save o getBean enxerga o
+		 * agendamentoExecucaoBI.jsp e com isso Ã© necessario setar conforme esta abaixo para que os valores que estavam no formGerenciamento sejam setados no agendamentoExecucaoBI.
 		 */
 		document.getElementById("idConexaoBI").setValue(agendamentoProcessBatchDto.getIdConexaoBI().toString());
 		document.getElementById("abriuAgendamentoExcecao").setValue(agendamentoProcessBatchDto.getAbriuAgendamentoExcecao().toString());
@@ -57,7 +57,7 @@ public class AgendamentoExecucaoBI extends AjaxFormAction {
 		conexaoBIDTO.setIdConexaoBI(agendamentoProcessBatchDto.getIdConexaoBI());
 		conexaoBIDTO = (ConexaoBIDTO) conexaoBIService.restore(conexaoBIDTO);
 		/**
-		 * condição para verificar se o agendamento chamado é Padrão ou de Exceção
+		 * condiÃ§Ã£o para verificar se o agendamento chamado Ã© PadrÃ£o ou de ExceÃ§Ã£o
 		 */
 		if (agendamentoProcessBatchDto.getAbriuAgendamentoExcecao().equals("false")){
 			if (conexaoBIDTO.getIdProcessamentoBatchEspecifico() != null){
@@ -110,22 +110,22 @@ public class AgendamentoExecucaoBI extends AjaxFormAction {
 		processamentoBatchDTO.setTipo("C");
 		processamentoBatchDTO.setConteudo("br.com.centralit.citcorpore.quartz.job.ImportacaoAutoBiCitsmart");
 		if (!processamentoBatchDTO.getAbriuAgendamentoExcecao().equalsIgnoreCase("") && processamentoBatchDTO.getAbriuAgendamentoExcecao().equalsIgnoreCase("false")){
-			processamentoBatchDTO.setDescricao("Importação automática BI Citsmart - Conexão: "+conexaoBIDTO.getNome()+ " - Específico");
+			processamentoBatchDTO.setDescricao("ImportaÃ§Ã£o automÃ¡tica BI Citsmart - ConexÃ£o: "+conexaoBIDTO.getNome()+ " - EspecÃ­fico");
 		} else if (!processamentoBatchDTO.getAbriuAgendamentoExcecao().equalsIgnoreCase("") && processamentoBatchDTO.getAbriuAgendamentoExcecao().equalsIgnoreCase("true")){
-			processamentoBatchDTO.setDescricao("Importação automática BI Citsmart - Conexão: "+conexaoBIDTO.getNome()+ " - Exceção");
+			processamentoBatchDTO.setDescricao("ImportaÃ§Ã£o automÃ¡tica BI Citsmart - ConexÃ£o: "+conexaoBIDTO.getNome()+ " - ExceÃ§Ã£o");
 		}
 
 		processamentoBatchService.montaExpressaoCron(processamentoBatchDTO);
 		if (processamentoBatchService.validaExpressaoCron(document,request,processamentoBatchDTO)){
 			/**
-			 * condição para verificar se está sendo tratado o agendamentoEspecifico ou o agendamentoPadrao
+			 * condiÃ§Ã£o para verificar se estÃ¡ sendo tratado o agendamentoEspecifico ou o agendamentoPadrao
 			 */
 			if (processamentoBatchDTO.getAbriuAgendamentoExcecao() != null && processamentoBatchDTO.getAbriuAgendamentoExcecao().equals("false")){
-					//setando o IdProcessamentoBatch caso já exista para a conexão tratada
+					//setando o IdProcessamentoBatch caso jÃ¡ exista para a conexÃ£o tratada
 					if (conexaoBIDTO.getIdProcessamentoBatchEspecifico() != null){
 						processamentoBatchDTO.setIdProcessamentoBatch(conexaoBIDTO.getIdProcessamentoBatchEspecifico());
 					}
-					// se o idProcessamento existir apenas atualiza as informações caso contrario entra no else e chama o create
+					// se o idProcessamento existir apenas atualiza as informaÃ§Ãµes caso contrario entra no else e chama o create
 					if (processamentoBatchDTO.getIdProcessamentoBatch() != null && processamentoBatchDTO.getIdProcessamentoBatch().intValue() > 0) {
 						processamentoBatchService.update(processamentoBatchDTO);
 						if ((processamentoBatchDTO.getSituacao()!=null)&&(processamentoBatchDTO.getSituacao().equalsIgnoreCase("A"))){
@@ -144,7 +144,7 @@ public class AgendamentoExecucaoBI extends AjaxFormAction {
 							document.executeScript("parent.fecharModalAgendamento();");
 					}
 			} else {
-					//Validação se o agendamento de excecao a ser gravado é superior a data/hora atual e se é uma hora inferior a data/hora da proxima execucao Padrao/especifica
+					//ValidaÃ§Ã£o se o agendamento de excecao a ser gravado Ã© superior a data/hora atual e se Ã© uma hora inferior a data/hora da proxima execucao Padrao/especifica
 						BICitsmartResultRotinaDTO responseValidacaoAgendExcecao = conexaoBIService.validaAgendamentoExcecao(conexaoBIDTO, processamentoBatchDTO);
 						if (responseValidacaoAgendExcecao.isResultado()){
 							if (conexaoBIDTO.getIdProcessamentoBatchExcecao() != null){

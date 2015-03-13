@@ -146,7 +146,7 @@ public class ImportConfigServiceEjb extends CrudServiceImpl implements ImportCon
 
     /**
      *
-     * Exclui o registro logicamente setando o campo dataFim com a data de execução
+     * Exclui o registro logicamente setando o campo dataFim com a data de execuÃ§Ã£o
      *
      * @param importConfigDTO
      * @throws ServiceException

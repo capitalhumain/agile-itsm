@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="br.com.citframework.util.Constantes"%>
 <%@page import="br.com.centralit.citgerencial.bean.GerencialPainelDTO"%>
 
@@ -20,7 +20,7 @@
 
 <head>
 	<%@include file="/include/header.jsp"%>
-	<title>CITSMart</title>
+	<%@include file="/novoLayout/common/include/titulo.jsp" %>
 	<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 
 
@@ -178,7 +178,7 @@
 	</form>
 </div>
 
-<div style="background:white" title="Opções de Gráficos" id="POPUP_GRAFICO_OPC">
+<div style="background:white" title="OpÃ§Ãµes de GrÃ¡ficos" id="POPUP_GRAFICO_OPC">
 	<table>
 		<tr>
 			<td>

@@ -141,7 +141,7 @@ public class OcorrenciaProblemaDAO extends CrudDaoDefaultImpl{
     		
     		List<OcorrenciaProblemaDTO> listaOcorrenciasProblemaDTO = null;
     		
-//    		Montando a instruÁ„o SQL.
+//    		Montando a instru√ß√£o SQL.
     		sql.append("SELECT dataregistro, MAX(horaregistro) FROM OCORRENCIAPROBLEMA WHERE dataregistro IN (");
     		
     		sql.append("SELECT MAX(dataregistro) FROM OCORRENCIAPROBLEMA WHERE idproblema = ?");
@@ -151,7 +151,7 @@ public class OcorrenciaProblemaDAO extends CrudDaoDefaultImpl{
 //    		Adicionando o parametro.
     		parametro.add(idProblema);
     		
-//    		Especificando as colunas cujo os valores ser„o retornados.
+//    		Especificando as colunas cujo os valores ser√£o retornados.
     		listRetorno.add("dataregistro");
     		
     		listRetorno.add("horaregistro");
@@ -236,7 +236,7 @@ public class OcorrenciaProblemaDAO extends CrudDaoDefaultImpl{
 		List parametro = new ArrayList();
 		List listRetorno = new ArrayList();
 		List list = new ArrayList();
-		String strOcorr = "EscalaÁ„o autom·tica";
+		String strOcorr = "Escala√ß√£o autom√°tica";
 		
 		StringBuilder sql = new StringBuilder();
 		sql.append("select o.idocorrencia, o.idjustificativa, o.idproblema, o.iditemtrabalho, o.dataregistro, o.horaregistro, o.registradopor, "

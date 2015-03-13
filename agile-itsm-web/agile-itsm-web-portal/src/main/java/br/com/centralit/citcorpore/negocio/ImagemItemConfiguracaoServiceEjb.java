@@ -37,7 +37,7 @@ public class ImagemItemConfiguracaoServiceEjb extends CrudServiceImpl implements
     @Override
     public BaseEntity create(final BaseEntity model) throws LogicException, ServiceException {
         final ImagemItemConfiguracaoDTO imgDto = (ImagemItemConfiguracaoDTO) model;
-        System.out.println("Item n„o existe. Create.");
+        System.out.println("Item n√£o existe. Create.");
         return super.create(imgDto);
     }
 
@@ -49,7 +49,7 @@ public class ImagemItemConfiguracaoServiceEjb extends CrudServiceImpl implements
     @Override
     public void update(final BaseEntity model) throws LogicException, ServiceException {
         final ImagemItemConfiguracaoDTO imgDto = (ImagemItemConfiguracaoDTO) model;
-        System.out.println("Item j· existe. Update.");
+        System.out.println("Item j√° existe. Update.");
         super.update(imgDto);
     }
 

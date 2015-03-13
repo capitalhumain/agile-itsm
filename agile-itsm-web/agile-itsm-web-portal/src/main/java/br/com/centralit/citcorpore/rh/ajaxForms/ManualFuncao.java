@@ -48,10 +48,10 @@ public class ManualFuncao extends AjaxFormAction {
         // Carregamaneto combobox Perspectiva Tecnica - Requisitos de Acesso
         preencherComboIdiomaRA(document, request, response);
 
-        // Carregamaneto combobox Perspectiva Tecnica - Requisitos da Função
+        // Carregamaneto combobox Perspectiva Tecnica - Requisitos da FunÃ§Ã£o
         preencherComboIdiomaRF(document, request, response);
 
-        // Carregamaneto combobox Competência Tecnica
+        // Carregamaneto combobox CompetÃªncia Tecnica
         preencherComboCompetenciasAcesso(document, request, response);
         preencherComboCompetenciasFuncao(document, request, response);
     }
@@ -236,7 +236,7 @@ public class ManualFuncao extends AjaxFormAction {
 
         final Collection colecaoDescricaoAux = descricaoService.findByNome(descricaoAtribuicao.getDescricao());
         if (colecaoDescricaoAux != null && !colecaoDescricaoAux.isEmpty()) {
-            document.alert("Registro já existe!");
+            document.alert("Registro jÃ¡ existe!");
         } else {
             descricaoService.create(descricaoAtribuicao);
             document.alert(UtilI18N.internacionaliza(request, "MSG05"));
@@ -261,7 +261,7 @@ public class ManualFuncao extends AjaxFormAction {
 
         final Collection colecaoDescricaoAux = atitudeIndividualService.findByNome(atitudeIndividual.getDescricao());
         if (colecaoDescricaoAux != null && !colecaoDescricaoAux.isEmpty()) {
-            document.alert("Registro já existe!");
+            document.alert("Registro jÃ¡ existe!");
         } else {
             atitudeIndividualService.create(atitudeIndividual);
             document.alert(UtilI18N.internacionaliza(request, "MSG05"));
@@ -290,7 +290,7 @@ public class ManualFuncao extends AjaxFormAction {
                 && !manualFuncaoDto.getColAtribuicaoResponsabilidadeDTO().isEmpty()) {
             tblResponsabilidades.addRowsByCollection(manualFuncaoDto.getColAtribuicaoResponsabilidadeDTO(),
                     new String[] {"descricaoPerspectivaComplexidade", "idNivel", ""}, null,
-                    "Já existe registrado esta demanda na tabela", new String[] {"gerarButtonDeleteResponsabilidade"},
+                    "JÃ¡ existe registrado esta demanda na tabela", new String[] {"gerarButtonDeleteResponsabilidade"},
                     null, null);
         }
 
@@ -300,7 +300,7 @@ public class ManualFuncao extends AjaxFormAction {
 
         if (manualFuncaoDto.getColCertificacaoDTORA() != null && !manualFuncaoDto.getColCertificacaoDTORA().isEmpty()) {
             tblCertificacaoRA.addRowsByCollection(manualFuncaoDto.getColCertificacaoDTORA(), new String[] {"descricao",
-                    ""}, null, "Já existe registrado esta demanda na tabela",
+                    ""}, null, "JÃ¡ existe registrado esta demanda na tabela",
                     new String[] {"gerarButtonDeleteCertificacao"}, null, null);
         }
         final HTMLTable tblCertificacaoRF = document.getTableById("tblCertificacoesRF");
@@ -308,7 +308,7 @@ public class ManualFuncao extends AjaxFormAction {
 
         if (manualFuncaoDto.getColCertificacaoDTORF() != null && !manualFuncaoDto.getColCertificacaoDTORF().isEmpty()) {
             tblCertificacaoRF.addRowsByCollection(manualFuncaoDto.getColCertificacaoDTORF(), new String[] {"descricao",
-                    ""}, null, "Já existe registrado esta demanda na tabela",
+                    ""}, null, "JÃ¡ existe registrado esta demanda na tabela",
                     new String[] {"gerarButtonDeleteCertificacaoRF"}, null, null);
         }
 
@@ -318,14 +318,14 @@ public class ManualFuncao extends AjaxFormAction {
 
         if (manualFuncaoDto.getColCursoDTORA() != null && !manualFuncaoDto.getColCursoDTORA().isEmpty()) {
             tblCursoRA.addRowsByCollection(manualFuncaoDto.getColCursoDTORA(), new String[] {"descricao", ""}, null,
-                    "Já existe registrado esta demanda na tabela", new String[] {"gerarButtonDeleteCurso"}, null, null);
+                    "JÃ¡ existe registrado esta demanda na tabela", new String[] {"gerarButtonDeleteCurso"}, null, null);
         }
         final HTMLTable tblCursoRF = document.getTableById("tblCursoRF");
         tblCursoRF.deleteAllRows();
 
         if (manualFuncaoDto.getColCursoDTORF() != null && !manualFuncaoDto.getColCursoDTORF().isEmpty()) {
             tblCursoRF.addRowsByCollection(manualFuncaoDto.getColCursoDTORF(), new String[] {"descricao", ""}, null,
-                    "Já existe registrado esta demanda na tabela", new String[] {"gerarButtonDeleteCursoRF"}, null,
+                    "JÃ¡ existe registrado esta demanda na tabela", new String[] {"gerarButtonDeleteCursoRF"}, null,
                     null);
         }
         // tratamento para competencias
@@ -346,7 +346,7 @@ public class ManualFuncao extends AjaxFormAction {
         if (manualFuncaoDto.getColCompetenciaTecnicaDTO() != null) {
             tblPerspComp.addRowsByCollection(manualFuncaoDto.getColPerspectivaComportamentalDTO(), new String[] {
                     "descricaoCmbCompetenciaComportamental", "comportamento", ""}, null,
-                    "Já existe registrado esta demanda na tabela",
+                    "JÃ¡ existe registrado esta demanda na tabela",
                     new String[] {"gerarButtonDeletePerspectivaComportamental"}, null, null);
         }
 
@@ -356,7 +356,7 @@ public class ManualFuncao extends AjaxFormAction {
                 .findByIdManualFuncao(manualFuncaoDto.getIdManualFuncao());
         if (colHistoricoVersoes != null) {
             tblHistorivoVersao.addRowsByCollection(colHistoricoVersoes, new String[] {"tituloCargo", "tituloFuncao",
-                    "codCBO", "codigo", "versao", ""}, null, "Já existe registrado esta demanda na tabela",
+                    "codCBO", "codigo", "versao", ""}, null, "JÃ¡ existe registrado esta demanda na tabela",
                     new String[] {"gerarButtonVisualizaHistorico"}, null, null);
         }
     }

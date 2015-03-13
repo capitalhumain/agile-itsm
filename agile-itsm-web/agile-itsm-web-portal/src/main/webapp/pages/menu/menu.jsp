@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.CitCorporeConstantes"%>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
@@ -85,7 +87,7 @@
 													<div class='span12'>
 														<div class="uniformjs">
 															<label class="checkbox">
-																<input value="S" type="checkbox" id="menuRapido" name="menuRapido" class="send_left Description[Menu Rápido]" />&nbsp;
+																<input value="S" type="checkbox" id="menuRapido" name="menuRapido" class="send_left Description[Menu RÃ¡pido]" />&nbsp;
 																<fmt:message key="menu.menuRapido"/>
 															</label>
 														</div>

@@ -151,7 +151,7 @@ public class PersistenceEngine extends JdbcEngine {
         } catch (final PersistenceException e) {
             LOGGER.error(e.getMessage(), e);
             if (e.getMessage().indexOf(".FK") > -1) {
-                throw new FKReferenceException("Operação cancelada: Registro com referência em outra(s) tabela(s)");
+                throw new FKReferenceException("OperaÃ§Ã£o cancelada: Registro com referÃªncia em outra(s) tabela(s)");
             }
             throw e;
         } catch (final Exception e) {
@@ -370,7 +370,7 @@ public class PersistenceEngine extends JdbcEngine {
         } catch (final PersistenceException e) {
             LOGGER.error(e.getMessage(), e);
             if (e.getMessage().indexOf(".FK") > -1) {
-                throw new FKReferenceException("Operação cancelada: Registro com referência em outra(s) tabela(s)");
+                throw new FKReferenceException("OperaÃ§Ã£o cancelada: Registro com referÃªncia em outra(s) tabela(s)");
             }
 
             throw e;

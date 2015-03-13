@@ -41,7 +41,7 @@ public class SolicitacaoServicoMultiContratosPortal extends SolicitacaoServicoMu
 			document.executeScript("window.location = '" + Constantes.getValue("SERVER_ADDRESS") + request.getContextPath() + "'");
 			return;
 		}
-		//Limpa sess„o dos anexos
+		//Limpa sess√£o dos anexos
 		request.getSession(true).setAttribute("colUploadsGED", null);
 		
 		//Imprime os dados do solicitante
@@ -73,7 +73,7 @@ public class SolicitacaoServicoMultiContratosPortal extends SolicitacaoServicoMu
 	}
 
     /**
-	 * informaDadosSolicitaÁ„o - Informa dados iniciais da solicitaÁ„o no momento da abertura
+	 * informaDadosSolicita√ß√£o - Informa dados iniciais da solicita√ß√£o no momento da abertura
 	 * 
 	 * @author Flavio.Junior
 	 */
@@ -87,7 +87,7 @@ public class SolicitacaoServicoMultiContratosPortal extends SolicitacaoServicoMu
 			return;
 		}
 		
-		/*Setando o id do Solicitante diretamente d sess„o*/
+		/*Setando o id do Solicitante diretamente d sess√£o*/
     	document.getElementById("idSolicitante").setValue(usuario.getIdEmpregado().toString());
 		
 		EmpregadoDTO eb = this.getEmpregadoService().restoreByIdEmpregado(usuario.getIdEmpregado());
@@ -135,7 +135,7 @@ public class SolicitacaoServicoMultiContratosPortal extends SolicitacaoServicoMu
 				try {
 					if (solicitacaoServicoDto.getIdSolicitacaoServico() == null || solicitacaoServicoDto.getIdSolicitacaoServico().intValue() == 0) {
 						solicitacaoServicoDto = (SolicitacaoServicoDTO) solicitacaoServicoService.create(solicitacaoServicoDto);
-						// document.alert("Registro efetuado com sucesso. SolicitaÁ„o N.o: " + solicitacaoServicoDto.getIdSolicitacaoServico() + " criada.");
+						// document.alert("Registro efetuado com sucesso. Solicita√ß√£o N.o: " + solicitacaoServicoDto.getIdSolicitacaoServico() + " criada.");
 						String comando = "mostraMensagemInsercao('" + UtilI18N.internacionaliza(request, "MSG05") + ".<br>"
 								+ UtilI18N.internacionaliza(request, "gerenciaservico.numerosolicitacao") + " <b><u>" + solicitacaoServicoDto.getIdSolicitacaoServico() + "</u></b> "
 								+ UtilI18N.internacionaliza(request, "citcorpore.comum.crida") + ".<br><br>" + UtilI18N.internacionaliza(request, "prioridade.prioridade") + ": "
@@ -202,7 +202,7 @@ public class SolicitacaoServicoMultiContratosPortal extends SolicitacaoServicoMu
 		ServicoDTO servicoDto = new ServicoDTO();
 		servicoDto.setIdServico(idServico);
 		servicoDto = (ServicoDTO) servicoService.restore(servicoDto);
-		/*Setando o tipo de demanda de serviÁo*/
+		/*Setando o tipo de demanda de servi√ßo*/
 		
 		if(servicoDto!=null) {
 			document.getElementById("idTipoDemandaServico").setValue(servicoDto.getIdTipoDemandaServico().toString());
@@ -243,7 +243,7 @@ public class SolicitacaoServicoMultiContratosPortal extends SolicitacaoServicoMu
 		ServicoDTO servicoDto = new ServicoDTO();
 		servicoDto.setIdServico(idServico);
 		servicoDto = (ServicoDTO) servicoService.restore(servicoDto);
-		/*Setando o tipo de demanda de serviÁo*/
+		/*Setando o tipo de demanda de servi√ßo*/
 		if(servicoDto!=null) {
 			document.getElementById("idTipoDemandaServico").setValue(servicoDto.getIdTipoDemandaServico().toString());
 			if(validaServico(idContrato, servicoDto.getIdServico())) {

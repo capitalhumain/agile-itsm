@@ -1,11 +1,11 @@
--- InÌcio ValdoÌlo Santos 21/08/2013
+-- In√≠cio Valdo√≠lo Santos 21/08/2013
 
-CREATE OR REPLACE FUNCTION remove_acento(text) 	RETURNS text AS $BODY$  SELECT TRANSLATE($1,'·‡„‚‰¡¿√¬ƒÈËÍÎ…» ÀÌÏÓÔÕÃŒœÛÚıÙˆ”“’‘÷˙˘˚¸⁄Ÿ€‹Ò—Á«ˇ˝›','aaaaaAAAAAeeeeEEEEiiiiIIIIoooooOOOOOuuuuUUUUnNcCyyY') $BODY$ LANGUAGE sql IMMUTABLE STRICT COST 100;
+CREATE OR REPLACE FUNCTION remove_acento(text) 	RETURNS text AS $BODY$  SELECT TRANSLATE($1,'√°√†√£√¢√§√Å√Ä√É√Ç√Ñ√©√®√™√´√â√à√ä√ã√≠√¨√Æ√Ø√ç√å√é√è√≥√≤√µ√¥√∂√ì√í√ï√î√ñ√∫√π√ª√º√ö√ô√õ√ú√±√ë√ß√á√ø√Ω√ù','aaaaaAAAAAeeeeEEEEiiiiIIIIoooooOOOOOuuuuUUUUnNcCyyY') $BODY$ LANGUAGE sql IMMUTABLE STRICT COST 100;
 ALTER FUNCTION remove_acento(text) OWNER TO postgres;
 
--- Fim ValdoÌlo
+-- Fim Valdo√≠lo
 
--- InÌcio Bruno 23/08/2013
+-- In√≠cio Bruno 23/08/2013
 
 alter table recursotarefalinbaseproj add column  esforcoporos varchar(50);
 
@@ -13,13 +13,13 @@ alter table tarefalinhabaseprojeto add column  esforcoporos varchar(50);
 
 -- Fim Bruno
 
--- InÌcio Carlos 27/08/2013
+-- In√≠cio Carlos 27/08/2013
 
 alter table templatesolicitacaoservico add column aprovacao char(1);
 
 -- Fim Carlos
 
--- InÌcio Carlos 28/08/2013
+-- In√≠cio Carlos 28/08/2013
 
 create table rest_domain (
    idrestparameter      int4                 not null,
@@ -39,7 +39,7 @@ create table rest_execution (
    constraint pk_rest_execution primary key (idrestexecution)
 );
 
-comment on column rest_execution.status is 'N - N„o processado P - Processado E - Erro  X - Cancelado';
+comment on column rest_execution.status is 'N - N√£o processado P - Processado E - Erro  X - Cancelado';
 
 create table rest_log (
    idrestlog            int4                 not null,
@@ -66,7 +66,7 @@ create table rest_operation (
    constraint pk_rest_operation primary key (idrestoperation)
 );
 
-comment on column rest_operation.operationtype is 'Sync - SÌncrona com log Async - AssÌncrona com log';
+comment on column rest_operation.operationtype is 'Sync - S√≠ncrona com log Async - Ass√≠ncrona com log';
 
 comment on column rest_operation.classtype is 'S = JavaScript J = Java';
 
@@ -121,17 +121,17 @@ alter table rest_translation add constraint fk_ref_businessobj foreign key (idbu
 
 INSERT INTO rest_parameter (idrestparameter,identifier,description) VALUES (1,'CONTRACT_ID','ID do contrato');
 INSERT INTO rest_parameter (idrestparameter,identifier,description) VALUES (2,'ORIGIN_ID','ID da origem');
-INSERT INTO rest_parameter (idrestparameter,identifier,description) VALUES (3,'REQUEST_ID','ID do tipo de demanda para requisiÁıes');
+INSERT INTO rest_parameter (idrestparameter,identifier,description) VALUES (3,'REQUEST_ID','ID do tipo de demanda para requisi√ß√µes');
 INSERT INTO rest_parameter (idrestparameter,identifier,description) VALUES (4,'INCIDENT_ID','ID do tipo de demanda para incidentes');
-INSERT INTO rest_parameter (idrestparameter,identifier,description) VALUES (5,'DEFAULT_DEPTO_ID','ID padr„o da unidade');
+INSERT INTO rest_parameter (idrestparameter,identifier,description) VALUES (5,'DEFAULT_DEPTO_ID','ID padr√£o da unidade');
 
-INSERT INTO rest_operation (idrestoperation,idbatchprocessing,name,description,operationtype,classtype,javaclass,javascript,status) VALUES (1,NULL,'addServiceRequest','CriaÁ„o de solicitaÁ„o de serviÁo','Sync','Java','br.com.centralit.citsmart.rest.operation.RestAddServiceRequest',NULL,'A');
+INSERT INTO rest_operation (idrestoperation,idbatchprocessing,name,description,operationtype,classtype,javaclass,javascript,status) VALUES (1,NULL,'addServiceRequest','Cria√ß√£o de solicita√ß√£o de servi√ßo','Sync','Java','br.com.centralit.citsmart.rest.operation.RestAddServiceRequest',NULL,'A');
 INSERT INTO rest_operation (idrestoperation,idbatchprocessing,name,description,operationtype,classtype,javaclass,javascript,status) VALUES (2,NULL,'listTasks','Listagem de tarefas','Sync','Java','br.com.centralit.citsmart.rest.operation.RestListTasks',NULL,'A');
-INSERT INTO rest_operation (idrestoperation,idbatchprocessing,name,description,operationtype,classtype,javaclass,javascript,status) VALUES (3,NULL,'notification_getByUser','Retorna lista de notificaÁıes para Mobile','Sync','Java','br.com.centralit.citsmart.rest.operation.RestMobile',NULL,'A');
-INSERT INTO rest_operation (idrestoperation,idbatchprocessing,name,description,operationtype,classtype,javaclass,javascript,status) VALUES (4,NULL,'notification_getById','Retorna detalhes de uma notificaÁ„o para Mobile','Sync','Java','br.com.centralit.citsmart.rest.operation.RestMobile',NULL,'A');
-INSERT INTO rest_operation (idrestoperation,idbatchprocessing,name,description,operationtype,classtype,javaclass,javascript,status) VALUES (5,NULL,'notification_feedback','Processa feedback de uma notificaÁ„o para Mobile','Sync','Java','br.com.centralit.citsmart.rest.operation.RestMobile',NULL,'A');
-INSERT INTO rest_operation (idrestoperation,idbatchprocessing,name,description,operationtype,classtype,javaclass,javascript,status) VALUES (6,NULL,'notification_new','Cria uma notificaÁ„o para Mobile','Sync','Java','br.com.centralit.citsmart.rest.operation.RestMobile',NULL,'A');
-INSERT INTO rest_operation (idrestoperation,idbatchprocessing,name,description,operationtype,classtype,javaclass,javascript,status) VALUES (7,NULL,'notification_getReasons','Retorna justificativas possÌveis para uma notificaÁ„o','Sync','Java','br.com.centralit.citsmart.rest.operation.RestMobile',NULL,'A');
+INSERT INTO rest_operation (idrestoperation,idbatchprocessing,name,description,operationtype,classtype,javaclass,javascript,status) VALUES (3,NULL,'notification_getByUser','Retorna lista de notifica√ß√µes para Mobile','Sync','Java','br.com.centralit.citsmart.rest.operation.RestMobile',NULL,'A');
+INSERT INTO rest_operation (idrestoperation,idbatchprocessing,name,description,operationtype,classtype,javaclass,javascript,status) VALUES (4,NULL,'notification_getById','Retorna detalhes de uma notifica√ß√£o para Mobile','Sync','Java','br.com.centralit.citsmart.rest.operation.RestMobile',NULL,'A');
+INSERT INTO rest_operation (idrestoperation,idbatchprocessing,name,description,operationtype,classtype,javaclass,javascript,status) VALUES (5,NULL,'notification_feedback','Processa feedback de uma notifica√ß√£o para Mobile','Sync','Java','br.com.centralit.citsmart.rest.operation.RestMobile',NULL,'A');
+INSERT INTO rest_operation (idrestoperation,idbatchprocessing,name,description,operationtype,classtype,javaclass,javascript,status) VALUES (6,NULL,'notification_new','Cria uma notifica√ß√£o para Mobile','Sync','Java','br.com.centralit.citsmart.rest.operation.RestMobile',NULL,'A');
+INSERT INTO rest_operation (idrestoperation,idbatchprocessing,name,description,operationtype,classtype,javaclass,javascript,status) VALUES (7,NULL,'notification_getReasons','Retorna justificativas poss√≠veis para uma notifica√ß√£o','Sync','Java','br.com.centralit.citsmart.rest.operation.RestMobile',NULL,'A');
 
 INSERT INTO rest_domain (idrestparameter,idrestoperation,value) VALUES (1,1,'1');
 INSERT INTO rest_domain (idrestparameter,idrestoperation,value) VALUES (1,6,'1');
@@ -146,14 +146,14 @@ INSERT INTO rest_domain (idrestparameter,idrestoperation,value) VALUES (5,6,'3')
 
 -- Fim Carlos
 
--- InÌcio Carlos 02/09/2013
+-- In√≠cio Carlos 02/09/2013
 
 update templatesolicitacaoservico set aprovacao = 'N' where identificacao not in ('AprovacaoSolicitacaoServico','AutorizacaoCotacao','AprovacaoCotacao');
 update templatesolicitacaoservico set aprovacao = 'S' where identificacao in ('AprovacaoSolicitacaoServico','AutorizacaoCotacao','AprovacaoCotacao');
 
 -- Fim Carlos
 
--- InÌcio Bruno Franco 02/09/2013
+-- In√≠cio Bruno Franco 02/09/2013
 
 CREATE TABLE assinaturaaprovacaoprojeto (
   idassinaturaaprovacaoprojeto integer NOT NULL,
@@ -166,14 +166,14 @@ constraint pk_assinaturaaprovacaoprojeto primary key (idassinaturaaprovacaoproje
 
 -- Fim Bruno Franco
 
--- InÌcio Maycon 04/09/2013
+-- In√≠cio Maycon 04/09/2013
 
 alter table problema add column fecharItensRelacionados VARCHAR(4);
 alter table requisicaomudanca add column  fecharItensRelacionados varchar(4);
 
 -- Fim Maycon
 
--- InÌcio Gebber 04/09/2013
+-- In√≠cio Gebber 04/09/2013
 
 alter table acordonivelservico add column  idemail integer;
 

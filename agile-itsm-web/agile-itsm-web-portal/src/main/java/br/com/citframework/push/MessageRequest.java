@@ -3,7 +3,7 @@ package br.com.citframework.push;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
 /**
- * Entidade que representa o conteúdo de uma messagem a ser enviada na request
+ * Entidade que representa o conteÃºdo de uma messagem a ser enviada na request
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 15/11/2010

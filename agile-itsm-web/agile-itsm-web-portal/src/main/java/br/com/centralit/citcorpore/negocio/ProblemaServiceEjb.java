@@ -198,8 +198,8 @@ public class ProblemaServiceEjb extends CrudServiceImpl implements ProblemaServi
 				problema.setIdContatoProblema(contatoProblemaDto.getIdContatoProblema());
 			}
 
-			// Bruno.Aquino: comentado o setIdProprietario pois ao criar a solicitaÁ„o o usu·rio logado estava ficando como respons·vel do problema criado, fugindo da regra de
-			// negÛcio.
+			// Bruno.Aquino: comentado o setIdProprietario pois ao criar a solicita√ß√£o o usu√°rio logado estava ficando como respons√°vel do problema criado, fugindo da regra de
+			// neg√≥cio.
 
 			problema.setDataHoraCaptura(UtilDatas.getDataHoraAtual());
 			problema.setDataHoraSolicitacao(UtilDatas.getDataHoraAtual());
@@ -223,7 +223,7 @@ public class ProblemaServiceEjb extends CrudServiceImpl implements ProblemaServi
 			if (problema.getIdGrupo() == null) {
 				if (categoriaProblemaDto != null) {
 					if (categoriaProblemaDto.getIdGrupoExecutor() != null) {
-						// problema.setIdGrupoNivel1(categoriaProblemaDto.getIdGrupoExecutor()); N„o existe GrupoNivel1 e GrupoAtual na entidade Problema. Verificar DAO da entidade. valdoilo.damasceno
+						// problema.setIdGrupoNivel1(categoriaProblemaDto.getIdGrupoExecutor()); N√£o existe GrupoNivel1 e GrupoAtual na entidade Problema. Verificar DAO da entidade. valdoilo.damasceno
 						problema.setIdGrupo(categoriaProblemaDto.getIdGrupoExecutor());
 					} else {
 						if (problema.getIdGrupoNivel1() == null || problema.getIdGrupoNivel1().intValue() <= 0) {
@@ -246,20 +246,20 @@ public class ProblemaServiceEjb extends CrudServiceImpl implements ProblemaServi
 				}
 			}
 
-			// N„o existe GrupoNivel1 e GrupoAtual na entidade Problema. Verificar DAO da entidade. valdoilo.damasceno
+			// N√£o existe GrupoNivel1 e GrupoAtual na entidade Problema. Verificar DAO da entidade. valdoilo.damasceno
 			// else {
 			// problema.setIdGrupoNivel1(problema.getIdGrupo());
 			// problema.setIdGrupo(problema.getIdGrupo());
 			// problema.setIdGrupoAtual(problema.getIdGrupo());
 			// }
 
-			if (!problema.getTitulo().equalsIgnoreCase("Problema Criado por Rotina autom·tica")) {
+			if (!problema.getTitulo().equalsIgnoreCase("Problema Criado por Rotina autom√°tica")) {
 				boolean resultado = validacaoGrupoExecutor(problema);
 				if (resultado == false) {
 					throw new LogicException(i18nMessage("Problema.grupoSemPermissao"));
 				}
 			} else {
-				problema.setRegistroexecucao("Problema Criado por Rotina autom·tica");
+				problema.setRegistroexecucao("Problema Criado por Rotina autom√°tica");
 			}
 
 			problemaRelacionadoDao.deleteByIdProblema(problema.getIdProblema());
@@ -302,7 +302,7 @@ public class ProblemaServiceEjb extends CrudServiceImpl implements ProblemaServi
 				ocorrenciaProblemaDto.setDescricao(br.com.centralit.citcorpore.util.Enumerados.CategoriaOcorrencia.Execucao.getDescricao());
 				ocorrenciaProblemaDto.setDataInicio(UtilDatas.getDataAtual());
 				ocorrenciaProblemaDto.setDataFim(UtilDatas.getDataAtual());
-				ocorrenciaProblemaDto.setInformacoesContato("n„o se aplica");
+				ocorrenciaProblemaDto.setInformacoesContato("n√£o se aplica");
 				ocorrenciaProblemaDto.setRegistradopor(problema.getUsuarioDto().getLogin());
 				try {
 					ocorrenciaProblemaDto.setDadosProblema(new Gson().toJson(problema));
@@ -377,7 +377,7 @@ public class ProblemaServiceEjb extends CrudServiceImpl implements ProblemaServi
 		ocorrenciaProblemaDto.setDescricao(br.com.centralit.citcorpore.util.Enumerados.CategoriaOcorrencia.Execucao.getDescricao());
 		ocorrenciaProblemaDto.setDataInicio(UtilDatas.getDataAtual());
 		ocorrenciaProblemaDto.setDataFim(UtilDatas.getDataAtual());
-		ocorrenciaProblemaDto.setInformacoesContato("n„o se aplica");
+		ocorrenciaProblemaDto.setInformacoesContato("n√£o se aplica");
 		ocorrenciaProblemaDto.setRegistradopor(problema.getUsuarioDto().getLogin());
 		try {
 			ocorrenciaProblemaDto.setDadosProblema(new Gson().toJson(problema));
@@ -587,7 +587,7 @@ public class ProblemaServiceEjb extends CrudServiceImpl implements ProblemaServi
 				ocorrenciaProblemaDto.setDescricao(br.com.centralit.citcorpore.util.Enumerados.CategoriaOcorrencia.Execucao.getDescricao());
 				ocorrenciaProblemaDto.setDataInicio(UtilDatas.getDataAtual());
 				ocorrenciaProblemaDto.setDataFim(UtilDatas.getDataAtual());
-				ocorrenciaProblemaDto.setInformacoesContato("n„o se aplica");
+				ocorrenciaProblemaDto.setInformacoesContato("n√£o se aplica");
 				ocorrenciaProblemaDto.setRegistradopor(problema.getUsuarioDto().getLogin());
 				try {
 					ocorrenciaProblemaDto.setDadosProblema(new Gson().toJson(problema));
@@ -717,7 +717,7 @@ public class ProblemaServiceEjb extends CrudServiceImpl implements ProblemaServi
 				}
 			}
 
-			// ///////////////// ID EMPRESA SETADO MANUALMENTE POR N√O HAVER AINDA TRATAMENTO DE MULTIPLAS EMPRESAS /////////////////////////////////
+			// ///////////////// ID EMPRESA SETADO MANUALMENTE POR N√ÉO HAVER AINDA TRATAMENTO DE MULTIPLAS EMPRESAS /////////////////////////////////
 			// //////////////// APROVA BASE SETADO TRUE MANUALMENTE POIS QUEM REGISTRA PROBLEMA DEVE TE-LA INDUBITAVELMENTE /////////////////////
 			if (problema.getAdicionarBDCE() != null && problema.getAdicionarBDCE().trim().equalsIgnoreCase("S")) {
 				baseAux = getBaseConhecimentoService().create(getBeanErroConhecidoBaseConhecimento(problema), null, 1, usuarioDto);
@@ -969,22 +969,22 @@ public class ProblemaServiceEjb extends CrudServiceImpl implements ProblemaServi
 
 					baseAux.setIdBaseConhecimento(problema.getIdBaseConhecimento());
 
-					// ///////////////// ID EMPRESA SETADO MANUALMENTE POR N√O HAVER AINDA TRATAMENTO DE MULTIPLAS EMPRESAS /////////////////////////////////
+					// ///////////////// ID EMPRESA SETADO MANUALMENTE POR N√ÉO HAVER AINDA TRATAMENTO DE MULTIPLAS EMPRESAS /////////////////////////////////
 					// //////////////// APROVA BASE SETADO TRUE MANUALMENTE POIS QUEM REGISTRA PROBLEMA DEVE TE-LA INDUBITAVELMENTE //////////////////////
 					getBaseConhecimentoService().update(baseAux, null, 1, usuarioDto);
 
-					// faz o update e gera uma nova vers„o. Pega o id da nova vers„o e salva
+					// faz o update e gera uma nova vers√£o. Pega o id da nova vers√£o e salva
 					if (getBaseConhecimentoService().getIdBaseConhecimento() != null) {
 						problema.setIdBaseConhecimento(getBaseConhecimentoService().getIdBaseConhecimento());
 					}
 					getDao().updateNotNull(problema);
 				} else {
 
-					// ///////////////// ID EMPRESA SETADO MANUALMENTE POR N√O HAVER AINDA TRATAMENTO DE MULTIPLAS EMPRESAS /////////////////////////////////
+					// ///////////////// ID EMPRESA SETADO MANUALMENTE POR N√ÉO HAVER AINDA TRATAMENTO DE MULTIPLAS EMPRESAS /////////////////////////////////
 					// //////////////// APROVA BASE SETADO TRUE MANUALMENTE POIS QUEM REGISTRA PROBLEMA DEVE TE-LA INDUBITAVELMENTE //////////////////////
 					baseAux = getBaseConhecimentoService().create(getBeanErroConhecidoBaseConhecimento(problema), null, 1, usuarioDto);
 
-					// faz o update e gera uma nova vers„o. Pega o id da nova vers„o e salva
+					// faz o update e gera uma nova vers√£o. Pega o id da nova vers√£o e salva
 					if (baseAux.getIdBaseConhecimento() != null) {
 						problema.setIdBaseConhecimento(baseAux.getIdBaseConhecimento());
 					}
@@ -1043,7 +1043,7 @@ public class ProblemaServiceEjb extends CrudServiceImpl implements ProblemaServi
 			baseDtoAux.setIdPasta(problema.getIdPastaBaseConhecimento());
 			baseDtoAux.setStatus(problema.getStatusBaseConhecimento());
 			baseDtoAux.setOrigem(problema.getOrigem());
-			baseDtoAux.setConteudo("Causa Raiz: <br />" + problema.getCausaRaiz() + " <br /><br /> SoluÁ„o de Contorno:<br />" + problema.getSolucaoContorno());
+			baseDtoAux.setConteudo("Causa Raiz: <br />" + problema.getCausaRaiz() + " <br /><br /> Solu√ß√£o de Contorno:<br />" + problema.getSolucaoContorno());
 
 			baseDtoAux.setDataInicio(UtilDatas.getDataAtual());
 
@@ -1366,7 +1366,7 @@ public class ProblemaServiceEjb extends CrudServiceImpl implements ProblemaServi
 				problemaDTO.setDescricao(source.getTextExtractor().toString());
 
 				if (StringUtils.contains(StringUtils.upperCase(problemaDTO.getStatus()), StringUtils.upperCase("SolucaoContornoDefinida"))) {
-					problemaDTO.setStatus("SoluÁ„o Contorno Definida");
+					problemaDTO.setStatus("Solu√ß√£o Contorno Definida");
 				}
 			}
 		} catch (Exception e) {
@@ -1418,7 +1418,7 @@ public class ProblemaServiceEjb extends CrudServiceImpl implements ProblemaServi
 			problemaDTO = (ProblemaDTO) getDao().restoreByIdInstanciaFluxo(idInstanciaFluxo);
 		} catch (Exception e) {
 
-			System.out.println("CITSMART - Erro na recuperaÁ„o dos dados da solicitaÁ„o da inst‚ncia fluxo" + " " + idInstanciaFluxo);
+			System.out.println("CITSMART - Erro na recupera√ß√£o dos dados da solicita√ß√£o da inst√¢ncia fluxo" + " " + idInstanciaFluxo);
 		}
 
 		if (problemaDTO != null) {
@@ -1519,8 +1519,8 @@ public class ProblemaServiceEjb extends CrudServiceImpl implements ProblemaServi
 	}
 
 	/**
-	 * MÈtodo respons·vel por validar a din‚mica do fluxo com relaÁ„o ao registro de erros conhecidos. Esse mÈtodo deve garantir que o usu·rio sÛ avance a partir da fase de avaliaÁ„o e diagnÛstico
-	 * para a fase de resoluÁ„o apÛs ter registrado pelo menos um erro (fase de registro de erros conhecidos).
+	 * M√©todo respons√°vel por validar a din√¢mica do fluxo com rela√ß√£o ao registro de erros conhecidos. Esse m√©todo deve garantir que o usu√°rio s√≥ avance a partir da fase de avalia√ß√£o e diagn√≥stico
+	 * para a fase de resolu√ß√£o ap√≥s ter registrado pelo menos um erro (fase de registro de erros conhecidos).
 	 *
 	 * @autor thiago.monteiro
 	 * @param ProblemaDTO
@@ -1561,7 +1561,7 @@ public class ProblemaServiceEjb extends CrudServiceImpl implements ProblemaServi
 
 					for (ConhecimentoProblemaDTO conhecimentoProblemaDTOAux : (Collection<ConhecimentoProblemaDTO>) listaConhecimentoProblemaDTO) {
 
-						// Alterando o valor da condiÁ„o para o id da base conhecimento.
+						// Alterando o valor da condi√ß√£o para o id da base conhecimento.
 						((Condition) condicao.get(0)).setValue(conhecimentoProblemaDTOAux.getIdBaseConhecimento());
 
 						listaBaseConhecimentoDTO = baseConhecimentoDAO.findByCondition(condicao, null);
@@ -1581,8 +1581,8 @@ public class ProblemaServiceEjb extends CrudServiceImpl implements ProblemaServi
 	}
 
 	/**
-	 * MÈtodo respons·vel por notificar que o prazo de contorno/soluÁ„o de um problema expirou. O prazo de contorno/soluÁ„o ir· expirar quando a data hora atual for posterior a data hora limite do
-	 * problema. A notificaÁ„o deve ser feita para o propriet·rio (quem capturou o problema) e o grupo de interessados (grupo executor).
+	 * M√©todo respons√°vel por notificar que o prazo de contorno/solu√ß√£o de um problema expirou. O prazo de contorno/solu√ß√£o ir√° expirar quando a data hora atual for posterior a data hora limite do
+	 * problema. A notifica√ß√£o deve ser feita para o propriet√°rio (quem capturou o problema) e o grupo de interessados (grupo executor).
 	 *
 	 * @autor thiago.monteiro
 	 * @param ProblemaDTO
@@ -1604,7 +1604,7 @@ public class ProblemaServiceEjb extends CrudServiceImpl implements ProblemaServi
 	}
 
 	/**
-	 * MÈtodo respons·vel de fazer alteraÁ„o no campo conteudo do erro conhecido do problema passado dentro da entidade base de conhecimento.
+	 * M√©todo respons√°vel de fazer altera√ß√£o no campo conteudo do erro conhecido do problema passado dentro da entidade base de conhecimento.
 	 *
 	 * @param ProblemaDTO
 	 *            problemaDTO
@@ -1740,7 +1740,7 @@ public class ProblemaServiceEjb extends CrudServiceImpl implements ProblemaServi
 		SolicitacaoServicoProblemaDao solicitacaoDao = new SolicitacaoServicoProblemaDao();
 		if (listAux != null) {
 			for (RelatorioProblemaIncidentesDTO obj : listAux) {
-				// retorna coleÁ„o de incidentes relacionaodo ao problema
+				// retorna cole√ß√£o de incidentes relacionaodo ao problema
 				listSolicitacaoServicoByProblema = solicitacaoDao.listSolicitacaoServicoByProblema(obj.getIdProblema());
 				if (listSolicitacaoServicoByProblema != null) {
 					obj.setColSolicitacaoServico(listSolicitacaoServicoByProblema);
@@ -1903,7 +1903,7 @@ public class ProblemaServiceEjb extends CrudServiceImpl implements ProblemaServi
 		CategoriaProblemaDTO categoriaProblemaDTO = new CategoriaProblemaDTO();
 		PermissoesFluxoDao permissoesDao = new PermissoesFluxoDao();
 
-		/* Desenvolvedor: euler.ramos Data: 25/10/2013 Hor·rio: 10h20min ID Citsmart: 120393 Motivo/Coment·rio: idTipoProblema era null e causava problema na hora do restore */
+		/* Desenvolvedor: euler.ramos Data: 25/10/2013 Hor√°rio: 10h20min ID Citsmart: 120393 Motivo/Coment√°rio: idTipoProblema era null e causava problema na hora do restore */
 		if ((idTipoProblema != null) && (idTipoProblema.intValue() > 0)) {
 			categoriaProblemaDTO.setIdCategoriaProblema(idTipoProblema);
 			categoriaProblemaDTO = (CategoriaProblemaDTO) categoriaProblemaService.restore(categoriaProblemaDTO);
@@ -2037,14 +2037,14 @@ public class ProblemaServiceEjb extends CrudServiceImpl implements ProblemaServi
 			problemaDao.updateNotNull(problemaDto);
 			execucaoProblemaService.direcionaAtendimentoAutomatico(problemaDto, tc);
 
-			String strOcorr = "\nEscalaÁ„o autom·tica.";
+			String strOcorr = "\nEscala√ß√£o autom√°tica.";
 
 			JustificativaProblemaDTO justificativaDto = new JustificativaProblemaDTO();
 			justificativaDto.setIdJustificativaProblema(problemaDto.getIdJustificativaProblema());
 			justificativaDto.setDescricaoProblema(problemaDto.getComplementoJustificativa());
 
 			UsuarioDTO usuarioDTO = new UsuarioDTO();
-			usuarioDTO.setLogin("Autom·tico");
+			usuarioDTO.setLogin("Autom√°tico");
 
 			OcorrenciaProblemaServiceEjb.create(problemaDto, null, strOcorr, OrigemOcorrencia.OUTROS, CategoriaOcorrencia.Atualizacao, null, CategoriaOcorrencia.Atualizacao.getDescricao(),
 					usuarioDTO.getLogin(), 0, justificativaDto, tc);

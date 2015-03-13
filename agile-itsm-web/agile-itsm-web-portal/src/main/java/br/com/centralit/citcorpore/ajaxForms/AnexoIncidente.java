@@ -38,7 +38,7 @@ public class AnexoIncidente extends AjaxFormAction {
     public void save(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
 	Collection<UploadDTO> arquivosUpados = (Collection<UploadDTO>) request.getSession(true).getAttribute("colUploadsGED");
 
-	//Não está criando os anexos aqui (no BD). Esta sendo feito no save da solicitacao de servico. Emauri - 01/07/2012.
+	//NÃ£o estÃ¡ criando os anexos aqui (no BD). Esta sendo feito no save da solicitacao de servico. Emauri - 01/07/2012.
 	//getBarraFerramentasService().create(arquivosUpados, 1);
 
 	document.executeScript("uploadAnexos.clear()");
@@ -69,7 +69,7 @@ public class AnexoIncidente extends AjaxFormAction {
 		UploadDTO uploadDTO = new UploadDTO();
 
 		uploadDTO.setDescricao(anexo.getDescricao());
-		//nem todos os arquivos têm extensão
+		//nem todos os arquivos tÃªm extensÃ£o
 		if(anexo.getExtensao() == null || anexo.getExtensao().equals("")){
 		    nomeDoArquivo = anexo.getNomeAnexo();
 		} else {

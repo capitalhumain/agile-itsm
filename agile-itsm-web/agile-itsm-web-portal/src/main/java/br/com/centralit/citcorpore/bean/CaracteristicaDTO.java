@@ -15,7 +15,7 @@ import br.com.agileitsm.model.support.BaseEntity;
 import br.com.citframework.util.DateAdapter;
 
 /**
- * Representa tabela caracterÌstica.
+ * Representa tabela caracter√≠stica.
  * 
  * @author VMD
  * 
@@ -236,7 +236,7 @@ public class CaracteristicaDTO extends BaseEntity {
     }
 
 	/**
-	 * Necess·rio sobrescrever para gerar o equals
+	 * Necess√°rio sobrescrever para gerar o equals
 	 */
 	@Override
 	public int hashCode() {
@@ -247,8 +247,8 @@ public class CaracteristicaDTO extends BaseEntity {
 	}
 
 	/**
-	 * Sobrescrito o equals de Object para comparar uma Caracteristica com a outra atravÈs da tag,
-	 * se tiverem a mesma tag ele retornar· que o objeto È igual, sem comparar instancia do objeto;
+	 * Sobrescrito o equals de Object para comparar uma Caracteristica com a outra atrav√©s da tag,
+	 * se tiverem a mesma tag ele retornar√° que o objeto √© igual, sem comparar instancia do objeto;
 	 * 
 	 * @param Object outro {@link CaracteristicaDTO}
 	 * @return boolean se objeto tem mesma tag

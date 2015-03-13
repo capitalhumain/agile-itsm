@@ -138,7 +138,7 @@ public class PerfilAcessoPastaDAO extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Exclui Perfis de Acesso ‡ Pasta.
+	 * Exclui Perfis de Acesso √† Pasta.
 	 *
 	 * @param pastaBean
 	 * @throws Exception
@@ -180,7 +180,7 @@ public class PerfilAcessoPastaDAO extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Verifica se Usu·rio Pode Aprovar Base de Conhecimento da pasta Selecionada.
+	 * Verifica se Usu√°rio Pode Aprovar Base de Conhecimento da pasta Selecionada.
 	 *
 	 * @param usuario
 	 * @param idPasta
@@ -281,7 +281,7 @@ public class PerfilAcessoPastaDAO extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Verifica se Retorno aprovaBaseConhecimento È igual a "S".
+	 * Verifica se Retorno aprovaBaseConhecimento √© igual a "S".
 	 *
 	 * @param retorno
 	 * @param list
@@ -302,7 +302,7 @@ public class PerfilAcessoPastaDAO extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * ObtÈm Permiss„o de Acesso.
+	 * Obt√©m Permiss√£o de Acesso.
 	 *
 	 * @param retorno
 	 * @param listPerfilAcessoPastaAux
@@ -325,11 +325,11 @@ public class PerfilAcessoPastaDAO extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Verifica as Permissıes de Acesso do Usu·rio a Pasta informada.
+	 * Verifica as Permiss√µes de Acesso do Usu√°rio a Pasta informada.
 	 *
 	 * @param usuario
 	 * @param idPasta
-	 * @return true - Possui permiss„o de Leitura/GravaÁ„o; false - Possui permissıa de Leitura;
+	 * @return true - Possui permiss√£o de Leitura/Grava√ß√£o; false - Possui permiss√µa de Leitura;
 	 * @throws PersistenceException
 	 * @throws Exception
 	 */
@@ -367,12 +367,12 @@ public class PerfilAcessoPastaDAO extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Verifica se Grupo informado possui Permiss„o Leitura/GravaÁ„o.
+	 * Verifica se Grupo informado possui Permiss√£o Leitura/Grava√ß√£o.
 	 *
 	 * @param usuario
 	 * @param idPasta
 	 * @param retorno
-	 * @return true - Grupo possui permiss„o Leitura/GravaÁ„o; false - Grupo possui permiss„o Leitura;
+	 * @return true - Grupo possui permiss√£o Leitura/Grava√ß√£o; false - Grupo possui permiss√£o Leitura;
 	 * @throws PersistenceException
 	 * @throws Exception
 	 */
@@ -454,7 +454,7 @@ public class PerfilAcessoPastaDAO extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Verifica se Pasta filho herda permissıes da pasta pai.
+	 * Verifica se Pasta filho herda permiss√µes da pasta pai.
 	 *
 	 * @param usuario
 	 * @param idPasta

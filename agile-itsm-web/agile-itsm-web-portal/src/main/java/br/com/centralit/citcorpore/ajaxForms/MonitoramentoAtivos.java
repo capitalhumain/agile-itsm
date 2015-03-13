@@ -50,7 +50,7 @@ public class MonitoramentoAtivos extends AjaxFormAction {
 	}
 
 	/**
-	 * Método que preenche a grid de características do tipo de item de configuração selecionado.
+	 * MÃ©todo que preenche a grid de caracterÃ­sticas do tipo de item de configuraÃ§Ã£o selecionado.
 	 *
 	 * @param document
 	 * @param request
@@ -77,7 +77,7 @@ public class MonitoramentoAtivos extends AjaxFormAction {
 	}
 
 	/**
-	 * Método que realiza a recuperação do item selecionado na pesquisa de monitoramento de ativos.
+	 * MÃ©todo que realiza a recuperaÃ§Ã£o do item selecionado na pesquisa de monitoramento de ativos.
 	 *
 	 * @param document
 	 * @param request
@@ -148,7 +148,7 @@ public class MonitoramentoAtivos extends AjaxFormAction {
 					document.executeScript("$('.divEnviarEmail').show();");
 				}
 
-				// Preenche usuários de notificação se existir...
+				// Preenche usuÃ¡rios de notificaÃ§Ã£o se existir...
 				HTMLTable tblNotificacaoUsuarios = document.getTableById("tblNotificacaoUsuarios");
 				tblNotificacaoUsuarios.deleteAllRows();
 
@@ -165,7 +165,7 @@ public class MonitoramentoAtivos extends AjaxFormAction {
 					}
 				}
 
-				// Preenche grupos de notificação se existir...
+				// Preenche grupos de notificaÃ§Ã£o se existir...
 				HTMLTable tblNotificacaoGrupos = document.getTableById("tblNotificacaoGrupos");
 				tblNotificacaoGrupos.deleteAllRows();
 
@@ -189,7 +189,7 @@ public class MonitoramentoAtivos extends AjaxFormAction {
 	}
 
 	/**
-	 * Método que realiza a gravação do monitoramento.
+	 * MÃ©todo que realiza a gravaÃ§Ã£o do monitoramento.
 	 *
 	 * @param document
 	 * @param request
@@ -225,7 +225,7 @@ public class MonitoramentoAtivos extends AjaxFormAction {
 	}
 
 	/**
-	 * Método que realiza a exclusão do monitoramento selecionado.
+	 * MÃ©todo que realiza a exclusÃ£o do monitoramento selecionado.
 	 *
 	 * @param document
 	 * @param request
@@ -253,7 +253,7 @@ public class MonitoramentoAtivos extends AjaxFormAction {
 	}
 
 	/**
-	 * Realiza a validação da existência de um monitoramento com uma característica específica.
+	 * Realiza a validaÃ§Ã£o da existÃªncia de um monitoramento com uma caracterÃ­stica especÃ­fica.
 	 *
 	 * @param document
 	 * @param request
@@ -280,7 +280,7 @@ public class MonitoramentoAtivos extends AjaxFormAction {
 	}
 
 	/**
-	 * Realiza a validação da existência de um monitoramento com script.
+	 * Realiza a validaÃ§Ã£o da existÃªncia de um monitoramento com script.
 	 *
 	 * @param document
 	 * @param request
@@ -326,15 +326,15 @@ public class MonitoramentoAtivos extends AjaxFormAction {
 		//Esconde as divs
 		document.executeScript("$('.divCaracteristicas, .divScriptRhino, .divEnviarEmail').hide();");
 
-		//Limpa a tabela de características
+		//Limpa a tabela de caracterÃ­sticas
 		HTMLTable tblCaracteristicas = document.getTableById("tblCaracteristicas");
 		tblCaracteristicas.deleteAllRows();
 
-		//Limpa a tabela de notificação de usuários
+		//Limpa a tabela de notificaÃ§Ã£o de usuÃ¡rios
 		HTMLTable tblNotificacaoUsuarios = document.getTableById("tblNotificacaoUsuarios");
 		tblNotificacaoUsuarios.deleteAllRows();
 
-		//Limpa a tabela de notificação de grupos
+		//Limpa a tabela de notificaÃ§Ã£o de grupos
 		HTMLTable tblNotificacaoGrupos = document.getTableById("tblNotificacaoGrupos");
 		tblNotificacaoGrupos.deleteAllRows();
 	}

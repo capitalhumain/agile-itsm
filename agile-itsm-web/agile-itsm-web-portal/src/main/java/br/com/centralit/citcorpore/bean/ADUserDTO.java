@@ -347,7 +347,7 @@ public class ADUserDTO {
 
 	public String getTelephoneNumber() {
 		if (telephoneNumber == null) {
-			telephoneNumber = "Não disponível";
+			telephoneNumber = "NÃ£o disponÃ­vel";
 		}
 		return telephoneNumber;
 	}

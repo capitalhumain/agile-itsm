@@ -1,39 +1,39 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <listagens>
-    <listagem tipo='SQL' nome='AREA_CORPO' descricao='Áreas do corpo'>
+    <listagem tipo="SQL" nome="AREA_CORPO" descricao="Ãreas do corpo">
         <SQL>
             SELECT idAreaCorpo, descricao
             FROM AREACORPO
             ORDER BY 2
         </SQL>
         <campos>
-            <campo nome='idAreaCorpo'/>
-            <campo nome='descricao' descricao='Área do corpo'/>
+            <campo nome="idAreaCorpo"/>
+            <campo nome="descricao" descricao="Ãrea do corpo"/>
         </campos>
     </listagem>
-    <listagem tipo='SQL' nome='ALIMENTO' descricao='Alimentos'>
+    <listagem tipo="SQL" nome="ALIMENTO" descricao="Alimentos">
         <SQL>
             SELECT idAlimento, nome
             FROM ALIMENTO
             ORDER BY 2
         </SQL>
         <campos>
-            <campo nome='idAlimento'/>
-            <campo nome='nome' descricao='Alimento'/>
+            <campo nome="idAlimento"/>
+            <campo nome="nome" descricao="Alimento"/>
         </campos>
     </listagem>
-    <listagem tipo='SQL' nome='Sintomas' descricao='Sintomas'>
+    <listagem tipo="SQL" nome="Sintomas" descricao="Sintomas">
         <SQL>
             SELECT idSintoma, nomeSintoma
             FROM Sintoma
             ORDER BY 2
         </SQL>
         <campos>
-            <campo nome='idSintoma'/>
-            <campo nome='nomeSintoma' descricao='Sintoma'/>
+            <campo nome="idSintoma"/>
+            <campo nome="nomeSintoma" descricao="Sintoma"/>
         </campos>
     </listagem>
-    <listagem tipo='SQL' nome='UNIDADE' descricao='Unidades'>
+    <listagem tipo="SQL" nome="UNIDADE" descricao="Unidades">
         <SQL>
             SELECT idUnidade, descricao
             FROM UNIDADE
@@ -41,125 +41,125 @@
             ORDER BY 2
         </SQL>
         <campos>
-            <campo nome='idUnidade'/>
-            <campo nome='nomeUnidade' descricao='Unidade'/>
+            <campo nome="idUnidade"/>
+            <campo nome="nomeUnidade" descricao="Unidade"/>
         </campos>
     </listagem>
-    <listagem tipo='SQL' nome='Profissoes' descricao='Profissoes'>
+    <listagem tipo="SQL" nome="Profissoes" descricao="Profissoes">
         <SQL>
             SELECT idProfissao, Nome
             FROM Profissoes
             ORDER BY 2
         </SQL>
         <campos>
-            <campo nome='idProfissao'/>
-            <campo nome='Nome' descricao='Profissão'/>
+            <campo nome="idProfissao"/>
+            <campo nome="Nome" descricao="ProfissÃ£o"/>
         </campos>
     </listagem>
-    <listagem tipo='SQL' nome='Especialidades' descricao='Especialidades'>
+    <listagem tipo="SQL" nome="Especialidades" descricao="Especialidades">
         <SQL>
             SELECT idEspecialidade, Nome
             FROM Especialidades
             ORDER BY 2
         </SQL>
         <campos>
-            <campo nome='idEspecialidade'/>
-            <campo nome='Nome' descricao='Especialidade'/>
+            <campo nome="idEspecialidade"/>
+            <campo nome="Nome" descricao="Especialidade"/>
         </campos>
     </listagem>
-    <listagem tipo='SQL' nome='Doencas' descricao='Doenças'>
+    <listagem tipo="SQL" nome="Doencas" descricao="DoenÃ§as">
         <SQL>
             SELECT idItemLista, descricao FROM ITENSLISTAS WHERE IDTIPOLISTA = 1 AND ATIVO = 'A'
         </SQL>
         <campos>
-            <campo nome='idItemLista'/>
-            <campo nome='descricao' descricao='Descrição'/>
+            <campo nome="idItemLista"/>
+            <campo nome="descricao" descricao="DescriÃ§Ã£o"/>
         </campos>
     </listagem>
-    <listagem tipo='SQL' nome='ProcedimentosPsico' descricao='Procedimentos da Psicologia'>
+    <listagem tipo="SQL" nome="ProcedimentosPsico" descricao="Procedimentos da Psicologia">
         <SQL>
             SELECT idItemLista, descricao FROM ITENSLISTAS WHERE IDTIPOLISTA = 2 AND ATIVO = 'A'
         </SQL>
         <campos>
-            <campo nome='idItemLista'/>
-            <campo nome='descricao' descricao='Descrição'/>
+            <campo nome="idItemLista"/>
+            <campo nome="descricao" descricao="DescriÃ§Ã£o"/>
         </campos>
     </listagem>
-    <listagem tipo='SQL' nome='HistMorbPregressa' descricao='História Mórbida Pregressa'>
+    <listagem tipo="SQL" nome="HistMorbPregressa" descricao="HistÃ³ria MÃ³rbida Pregressa">
         <SQL>
             SELECT idItemLista, descricao FROM ITENSLISTAS WHERE IDTIPOLISTA = 3 AND ATIVO = 'A'
         </SQL>
         <campos>
-            <campo nome='idItemLista'/>
-            <campo nome='descricao' descricao='Descrição'/>
+            <campo nome="idItemLista"/>
+            <campo nome="descricao" descricao="DescriÃ§Ã£o"/>
         </campos>
     </listagem>
-    <listagem tipo='SQL' nome='HistMorbFamiliar' descricao='História Mórbida Familiar'>
+    <listagem tipo="SQL" nome="HistMorbFamiliar" descricao="HistÃ³ria MÃ³rbida Familiar">
         <SQL>
             SELECT idItemLista, descricao FROM ITENSLISTAS WHERE IDTIPOLISTA = 4 AND ATIVO = 'A'
         </SQL>
         <campos>
-            <campo nome='idItemLista'/>
-            <campo nome='descricao' descricao='Descrição'/>
+            <campo nome="idItemLista"/>
+            <campo nome="descricao" descricao="DescriÃ§Ã£o"/>
         </campos>
     </listagem>
-    <listagem tipo='SQL' nome='Contracepcao' descricao='Contracepção'>
+    <listagem tipo="SQL" nome="Contracepcao" descricao="ContracepÃ§Ã£o">
         <SQL>
             SELECT idItemLista, descricao FROM ITENSLISTAS WHERE IDTIPOLISTA = 5 AND ATIVO = 'A'
         </SQL>
         <campos>
-            <campo nome='idItemLista'/>
-            <campo nome='descricao' descricao='Descrição'/>
+            <campo nome="idItemLista"/>
+            <campo nome="descricao" descricao="DescriÃ§Ã£o"/>
         </campos>
     </listagem>
-    <listagem tipo='SQL' nome='TipoAvaliacao' descricao='Tipo de Avaliação'>
+    <listagem tipo="SQL" nome="TipoAvaliacao" descricao="Tipo de AvaliaÃ§Ã£o">
         <SQL>
             SELECT idItemLista, descricao FROM ITENSLISTAS WHERE IDTIPOLISTA = 6 AND ATIVO = 'A'
         </SQL>
         <campos>
-            <campo nome='idItemLista'/>
-            <campo nome='descricao' descricao='Descrição'/>
+            <campo nome="idItemLista"/>
+            <campo nome="descricao" descricao="DescriÃ§Ã£o"/>
         </campos>
     </listagem>
-    <listagem tipo='SQL' nome='GrupoDiagnostico' descricao='Grupo de diagnósticos'>
+    <listagem tipo="SQL" nome="GrupoDiagnostico" descricao="Grupo de diagnÃ³sticos">
         <SQL>
             SELECT idItemLista, descricao FROM ITENSLISTAS WHERE IDTIPOLISTA = 7 AND ATIVO = 'A'
         </SQL>
         <campos>
-            <campo nome='idItemLista'/>
-            <campo nome='descricao' descricao='Descrição'/>
+            <campo nome="idItemLista"/>
+            <campo nome="descricao" descricao="DescriÃ§Ã£o"/>
         </campos>
     </listagem>
-    <listagem tipo='SQL' nome='Conduta' descricao='Conduta'>
+    <listagem tipo="SQL" nome="Conduta" descricao="Conduta">
         <SQL>
             SELECT idItemLista, descricao FROM ITENSLISTAS WHERE IDTIPOLISTA = 8 AND ATIVO = 'A'
         </SQL>
         <campos>
-            <campo nome='idItemLista'/>
-            <campo nome='descricao' descricao='Descrição'/>
+            <campo nome="idItemLista"/>
+            <campo nome="descricao" descricao="DescriÃ§Ã£o"/>
         </campos>
     </listagem>
-    <listagem tipo='SQL' nome='AtividadeFisica' descricao='Atividade Física'>
+    <listagem tipo="SQL" nome="AtividadeFisica" descricao="Atividade FÃ­sica">
         <SQL>
             SELECT idItemLista, descricao FROM ITENSLISTAS WHERE IDTIPOLISTA = 9 AND ATIVO = 'A'
         </SQL>
         <campos>
-            <campo nome='idItemLista'/>
-            <campo nome='descricao' descricao='Descrição'/>
+            <campo nome="idItemLista"/>
+            <campo nome="descricao" descricao="DescriÃ§Ã£o"/>
         </campos>
     </listagem>
-    <listagem tipo='SQL' nome='Problemas' descricao='Lista Geral de Problemas'>
+    <listagem tipo="SQL" nome="Problemas" descricao="Lista Geral de Problemas">
         <SQL>
             SELECT idProblema, nomeProblema
             FROM Problema
             ORDER BY 2
         </SQL>
         <campos>
-            <campo nome='idProblema'/>
-            <campo nome='nomeProblema' descricao='Problema'/>
+            <campo nome="idProblema"/>
+            <campo nome="nomeProblema" descricao="Problema"/>
         </campos>
     </listagem>
-    <listagem tipo='SQL' nome='Prob_EstadoGeral' descricao='Problemas - Estado Geral'>
+    <listagem tipo="SQL" nome="Prob_EstadoGeral" descricao="Problemas - Estado Geral">
         <SQL>
             SELECT idProblema, nomeProblema
             FROM Problema
@@ -167,11 +167,11 @@
             ORDER BY 2
         </SQL>
         <campos>
-            <campo nome='idProblema'/>
-            <campo nome='nomeProblema' descricao='Problema'/>
+            <campo nome="idProblema"/>
+            <campo nome="nomeProblema" descricao="Problema"/>
         </campos>
     </listagem>
-    <listagem tipo='SQL' nome='Prob_Cabeca' descricao='Problemas - Cabeça'>
+    <listagem tipo="SQL" nome="Prob_Cabeca" descricao="Problemas - CabeÃ§a">
         <SQL>
             SELECT idProblema, nomeProblema
             FROM Problema
@@ -179,11 +179,11 @@
             ORDER BY 2
         </SQL>
         <campos>
-            <campo nome='idProblema'/>
-            <campo nome='nomeProblema' descricao='Problema'/>
+            <campo nome="idProblema"/>
+            <campo nome="nomeProblema" descricao="Problema"/>
         </campos>
     </listagem>
-    <listagem tipo='SQL' nome='Prob_Olhos' descricao='Problemas - Olhos'>
+    <listagem tipo="SQL" nome="Prob_Olhos" descricao="Problemas - Olhos">
         <SQL>
             SELECT idProblema, nomeProblema
             FROM Problema
@@ -191,11 +191,11 @@
             ORDER BY 2
         </SQL>
         <campos>
-            <campo nome='idProblema'/>
-            <campo nome='nomeProblema' descricao='Problema'/>
+            <campo nome="idProblema"/>
+            <campo nome="nomeProblema" descricao="Problema"/>
         </campos>
     </listagem>
-    <listagem tipo='SQL' nome='Prob_Ouvido' descricao='Problemas - Ouvido'>
+    <listagem tipo="SQL" nome="Prob_Ouvido" descricao="Problemas - Ouvido">
         <SQL>
             SELECT idProblema, nomeProblema
             FROM Problema
@@ -203,11 +203,11 @@
             ORDER BY 2
         </SQL>
         <campos>
-            <campo nome='idProblema'/>
-            <campo nome='nomeProblema' descricao='Problema'/>
+            <campo nome="idProblema"/>
+            <campo nome="nomeProblema" descricao="Problema"/>
         </campos>
     </listagem>
-    <listagem tipo='SQL' nome='Prob_Nariz' descricao='Problemas - Nariz e seios da face'>
+    <listagem tipo="SQL" nome="Prob_Nariz" descricao="Problemas - Nariz e seios da face">
         <SQL>
             SELECT idProblema, nomeProblema
             FROM Problema
@@ -215,11 +215,11 @@
             ORDER BY 2
         </SQL>
         <campos>
-            <campo nome='idProblema'/>
-            <campo nome='nomeProblema' descricao='Problema'/>
+            <campo nome="idProblema"/>
+            <campo nome="nomeProblema" descricao="Problema"/>
         </campos>
     </listagem>
-    <listagem tipo='SQL' nome='Prob_Pescoco' descricao='Problemas - Pescoço'>
+    <listagem tipo="SQL" nome="Prob_Pescoco" descricao="Problemas - PescoÃ§o">
         <SQL>
             SELECT idProblema, nomeProblema
             FROM Problema
@@ -227,11 +227,11 @@
             ORDER BY 2
         </SQL>
         <campos>
-            <campo nome='idProblema'/>
-            <campo nome='nomeProblema' descricao='Problema'/>
+            <campo nome="idProblema"/>
+            <campo nome="nomeProblema" descricao="Problema"/>
         </campos>
     </listagem>
-    <listagem tipo='SQL' nome='Prob_Mamas' descricao='Problemas - Mamas'>
+    <listagem tipo="SQL" nome="Prob_Mamas" descricao="Problemas - Mamas">
         <SQL>
             SELECT idProblema, nomeProblema
             FROM Problema
@@ -239,11 +239,11 @@
             ORDER BY 2
         </SQL>
         <campos>
-            <campo nome='idProblema'/>
-            <campo nome='nomeProblema' descricao='Problema'/>
+            <campo nome="idProblema"/>
+            <campo nome="nomeProblema" descricao="Problema"/>
         </campos>
     </listagem>
-    <listagem tipo='SQL' nome='Prob_Ap_Resp' descricao='Problemas - Aparelho respiratório'>
+    <listagem tipo="SQL" nome="Prob_Ap_Resp" descricao="Problemas - Aparelho respiratÃ³rio">
         <SQL>
             SELECT idProblema, nomeProblema
             FROM Problema
@@ -251,11 +251,11 @@
             ORDER BY 2
         </SQL>
         <campos>
-            <campo nome='idProblema'/>
-            <campo nome='nomeProblema' descricao='Problema'/>
+            <campo nome="idProblema"/>
+            <campo nome="nomeProblema" descricao="Problema"/>
         </campos>
     </listagem>
-    <listagem tipo='SQL' nome='Prob_Ap_Cardio' descricao='Problemas - Aparelho cardiovascular'>
+    <listagem tipo="SQL" nome="Prob_Ap_Cardio" descricao="Problemas - Aparelho cardiovascular">
         <SQL>
             SELECT idProblema, nomeProblema
             FROM Problema
@@ -263,11 +263,11 @@
             ORDER BY 2
         </SQL>
         <campos>
-            <campo nome='idProblema'/>
-            <campo nome='nomeProblema' descricao='Problema'/>
+            <campo nome="idProblema"/>
+            <campo nome="nomeProblema" descricao="Problema"/>
         </campos>
     </listagem>
-    <listagem tipo='SQL' nome='Prob_Ap_Digest' descricao='Problemas - Aparelho digestivo'>
+    <listagem tipo="SQL" nome="Prob_Ap_Digest" descricao="Problemas - Aparelho digestivo">
         <SQL>
             SELECT idProblema, nomeProblema
             FROM Problema
@@ -275,11 +275,11 @@
             ORDER BY 2
         </SQL>
         <campos>
-            <campo nome='idProblema'/>
-            <campo nome='nomeProblema' descricao='Problema'/>
+            <campo nome="idProblema"/>
+            <campo nome="nomeProblema" descricao="Problema"/>
         </campos>
     </listagem>
-    <listagem tipo='SQL' nome='Prob_Ap_Urina' descricao='Problemas - Aparelho urinário'>
+    <listagem tipo="SQL" nome="Prob_Ap_Urina" descricao="Problemas - Aparelho urinÃ¡rio">
         <SQL>
             SELECT idProblema, nomeProblema
             FROM Problema
@@ -287,11 +287,11 @@
             ORDER BY 2
         </SQL>
         <campos>
-            <campo nome='idProblema'/>
-            <campo nome='nomeProblema' descricao='Problema'/>
+            <campo nome="idProblema"/>
+            <campo nome="nomeProblema" descricao="Problema"/>
         </campos>
     </listagem>
-    <listagem tipo='SQL' nome='Prob_Ap_Genital' descricao='Problemas - Aparelho genital'>
+    <listagem tipo="SQL" nome="Prob_Ap_Genital" descricao="Problemas - Aparelho genital">
         <SQL>
             SELECT idProblema, nomeProblema
             FROM Problema
@@ -299,11 +299,11 @@
             ORDER BY 2
         </SQL>
         <campos>
-            <campo nome='idProblema'/>
-            <campo nome='nomeProblema' descricao='Problema'/>
+            <campo nome="idProblema"/>
+            <campo nome="nomeProblema" descricao="Problema"/>
         </campos>
     </listagem>
-    <listagem tipo='SQL' nome='Prob_Ap_Endoc' descricao='Problemas - Aparelho endócrino'>
+    <listagem tipo="SQL" nome="Prob_Ap_Endoc" descricao="Problemas - Aparelho endÃ³crino">
         <SQL>
             SELECT idProblema, nomeProblema
             FROM Problema
@@ -311,11 +311,11 @@
             ORDER BY 2
         </SQL>
         <campos>
-            <campo nome='idProblema'/>
-            <campo nome='nomeProblema' descricao='Problema'/>
+            <campo nome="idProblema"/>
+            <campo nome="nomeProblema" descricao="Problema"/>
         </campos>
     </listagem>
-    <listagem tipo='SQL' nome='Prob_Ap_Hemato' descricao='Problemas - Aparelho hematopoiético'>
+    <listagem tipo="SQL" nome="Prob_Ap_Hemato" descricao="Problemas - Aparelho hematopoiÃ©tico">
         <SQL>
             SELECT idProblema, nomeProblema
             FROM Problema
@@ -323,11 +323,11 @@
             ORDER BY 2
         </SQL>
         <campos>
-            <campo nome='idProblema'/>
-            <campo nome='nomeProblema' descricao='Problema'/>
+            <campo nome="idProblema"/>
+            <campo nome="nomeProblema" descricao="Problema"/>
         </campos>
     </listagem>
-    <listagem tipo='SQL' nome='Prob_Ap_Nervoso' descricao='Problemas - Aparelho nervoso'>
+    <listagem tipo="SQL" nome="Prob_Ap_Nervoso" descricao="Problemas - Aparelho nervoso">
         <SQL>
             SELECT idProblema, nomeProblema
             FROM Problema
@@ -335,11 +335,11 @@
             ORDER BY 2
         </SQL>
         <campos>
-            <campo nome='idProblema'/>
-            <campo nome='nomeProblema' descricao='Problema'/>
+            <campo nome="idProblema"/>
+            <campo nome="nomeProblema" descricao="Problema"/>
         </campos>
     </listagem>
-    <listagem tipo='SQL' nome='Prob_Ap_FuncPsiq' descricao='Problemas - Funções psíquicas'>
+    <listagem tipo="SQL" nome="Prob_Ap_FuncPsiq" descricao="Problemas - FunÃ§Ãµes psÃ­quicas">
         <SQL>
             SELECT idProblema, nomeProblema
             FROM Problema
@@ -347,11 +347,11 @@
             ORDER BY 2
         </SQL>
         <campos>
-            <campo nome='idProblema'/>
-            <campo nome='nomeProblema' descricao='Problema'/>
+            <campo nome="idProblema"/>
+            <campo nome="nomeProblema" descricao="Problema"/>
         </campos>
     </listagem>
-    <listagem tipo='SQL' nome='Prob_Ap_Sono' descricao='Problemas - Sono'>
+    <listagem tipo="SQL" nome="Prob_Ap_Sono" descricao="Problemas - Sono">
         <SQL>
             SELECT idProblema, nomeProblema
             FROM Problema
@@ -359,11 +359,11 @@
             ORDER BY 2
         </SQL>
         <campos>
-            <campo nome='idProblema'/>
-            <campo nome='nomeProblema' descricao='Problema'/>
+            <campo nome="idProblema"/>
+            <campo nome="nomeProblema" descricao="Problema"/>
         </campos>
     </listagem>
-    <listagem tipo='SQL' nome='Prob_Ginecologia' descricao='Problemas - Ginecologia'>
+    <listagem tipo="SQL" nome="Prob_Ginecologia" descricao="Problemas - Ginecologia">
         <SQL>
             SELECT idProblema, nomeProblema
             FROM Problema
@@ -371,125 +371,125 @@
             ORDER BY 2
         </SQL>
         <campos>
-            <campo nome='idProblema'/>
-            <campo nome='nomeProblema' descricao='Problema'/>
+            <campo nome="idProblema"/>
+            <campo nome="nomeProblema" descricao="Problema"/>
         </campos>
     </listagem>
-    <listagem tipo='SQL' nome='Cargos' descricao='Cargos'>
+    <listagem tipo="SQL" nome="Cargos" descricao="Cargos">
         <SQL>
             SELECT idCargo, nomeCargo FROM CARGOS
             WHERE DATAFIM IS NULL
             ORDER BY 2
         </SQL>
         <campos>
-            <campo nome='idCargo'/>
-            <campo nome='nomeCargo' descricao='Cargo'/>
+            <campo nome="idCargo"/>
+            <campo nome="nomeCargo" descricao="Cargo"/>
         </campos>
     </listagem>
-    <listagem tipo='SQL' nome='Estabelecimentos' descricao='Estabelecimentos'>
+    <listagem tipo="SQL" nome="Estabelecimentos" descricao="Estabelecimentos">
         <SQL>
             SELECT IDESTABELECIMENTO, NOMEESTABELECIMENTO FROM ESTABELECIMENTO
             WHERE DATAFIM IS NULL
             ORDER BY 2
         </SQL>
         <campos>
-            <campo nome='IDESTABELECIMENTO'/>
-            <campo nome='NOMEESTABELECIMENTO' descricao='Estabelecimento'/>
+            <campo nome="IDESTABELECIMENTO"/>
+            <campo nome="NOMEESTABELECIMENTO" descricao="Estabelecimento"/>
         </campos>
     </listagem>
-    <listagem tipo='SQL' nome='Departamentos' descricao='Departamentos'>
+    <listagem tipo="SQL" nome="Departamentos" descricao="Departamentos">
         <SQL>
             SELECT IDDEPARTAMENTO, NOMEDEPARTAMENTO FROM DEPARTAMENTO
             WHERE DATAFIM IS NULL
             ORDER BY 2
         </SQL>
         <campos>
-            <campo nome='IDDEPARTAMENTO'/>
-            <campo nome='NOMEDEPARTAMENTO' descricao='Departamento'/>
+            <campo nome="IDDEPARTAMENTO"/>
+            <campo nome="NOMEDEPARTAMENTO" descricao="Departamento"/>
         </campos>
     </listagem>
-    <listagem tipo='SQL' nome='Procedimentos' descricao='Procedimentos'>
+    <listagem tipo="SQL" nome="Procedimentos" descricao="Procedimentos">
         <SQL>
             SELECT IDPROCEDIMENTO, NOMEPROCEDIMENTO FROM PROCEDIMENTOS
             where tipo = 'P'
             ORDER BY 2
         </SQL>
         <campos>
-            <campo nome='IDPROCEDIMENTO'/>
-            <campo nome='NOMEPROCEDIMENTO' descricao='Procedimento'/>
+            <campo nome="IDPROCEDIMENTO"/>
+            <campo nome="NOMEPROCEDIMENTO" descricao="Procedimento"/>
         </campos>
     </listagem>
-    <listagem tipo='SQL' nome='Vacinas' descricao='Vacinas'>
+    <listagem tipo="SQL" nome="Vacinas" descricao="Vacinas">
         <SQL>
             SELECT IDPROCEDIMENTO, NOMEPROCEDIMENTO FROM PROCEDIMENTOS
             where tipo = 'V'
             ORDER BY 2
         </SQL>
         <campos>
-            <campo nome='IDPROCEDIMENTO'/>
-            <campo nome='NOMEPROCEDIMENTO' descricao='Vacina'/>
+            <campo nome="IDPROCEDIMENTO"/>
+            <campo nome="NOMEPROCEDIMENTO" descricao="Vacina"/>
         </campos>
     </listagem>
-    <listagem tipo='SQL' nome='UF' descricao='UF'>
+    <listagem tipo="SQL" nome="UF" descricao="UF">
         <SQL>
             SELECT idUF, siglaUF FROM UFs
             ORDER BY 2
         </SQL>
         <campos>
-            <campo nome='idUF'/>
-            <campo nome='siglaUF' descricao='UF'/>
+            <campo nome="idUF"/>
+            <campo nome="siglaUF" descricao="UF"/>
         </campos>
     </listagem>
-    <listagem tipo='SQL' nome='Convenios' descricao='Convênios'>
+    <listagem tipo="SQL" nome="Convenios" descricao="ConvÃªnios">
         <SQL>
             SELECT idConvenio, nome FROM CONVENIOS
             ORDER BY 2
         </SQL>
         <campos>
-            <campo nome='IdConvenio'/>
-            <campo nome='Nome' descricao='Nome'/>
+            <campo nome="IdConvenio"/>
+            <campo nome="Nome" descricao="Nome"/>
         </campos>
     </listagem>
-    <listagem tipo='SQL' nome='Medicamentos' descricao='Medicamentos'>
+    <listagem tipo="SQL" nome="Medicamentos" descricao="Medicamentos">
         <SQL>
             SELECT idMedicamento, nomeMedicamento FROM MEDICAMENTOS
             ORDER BY 2
         </SQL>
         <campos>
-            <campo nome='idMedicamento'/>
-            <campo nome='nomeMedicamento' descricao='Nome'/>
+            <campo nome="idMedicamento"/>
+            <campo nome="nomeMedicamento" descricao="Nome"/>
         </campos>
     </listagem>
-    <listagem tipo='SQL' nome='PROC_GINEC' descricao='Procedimentos ginecológicos'>
+    <listagem tipo="SQL" nome="PROC_GINEC" descricao="Procedimentos ginecolÃ³gicos">
         <SQL>
                 SELECT DISTINCT p.idprocedimento AS idprocedimento, nomeprocedimento
                 FROM procedimentos p, procedimentoespecialidade pe, especialidades e
                 WHERE pe.idprocedimento = p.idprocedimento
-                AND upper (e.nome) = 'GINECOLOGIA'
+                AND upper (e.nome) = "GINECOLOGIA"
                 AND e.idespecialidade = pe.idespecialidade
                 AND INSTR ((SELECT ',' || TO_CHAR (valor) FROM parametros
-                WHERE modulo = 'EXAMES' AND nomeparametro = 'EXAMES_CODIGOS_ULTRASONOGRAFIA' AND idempresa = 1),',' || TO_CHAR (p.idprocedimento) || ',',1) = 0
+                WHERE modulo = "EXAMES" AND nomeparametro = "EXAMES_CODIGOS_ULTRASONOGRAFIA" AND idempresa = 1),',' || TO_CHAR (p.idprocedimento) || ',',1) = 0
                 ORDER BY 2 ASC
         </SQL>
         <campos>
-            <campo nome='idProcedimento'/>
-            <campo nome='nomeProcedimento' descricao='Procedimento'/>
+            <campo nome="idProcedimento"/>
+            <campo nome="nomeProcedimento" descricao="Procedimento"/>
         </campos>
     </listagem>
-    <listagem tipo='SQL' nome='PROC_GINEC_IMAGEM' descricao='Procedimentos ginecológicos - Imagens'>
+    <listagem tipo="SQL" nome="PROC_GINEC_IMAGEM" descricao="Procedimentos ginecolÃ³gicos - Imagens">
         <SQL>
                 SELECT DISTINCT p.idprocedimento AS idprocedimento, nomeprocedimento
                 FROM procedimentos p, procedimentoespecialidade pe, especialidades e
                 WHERE pe.idprocedimento = p.idprocedimento
-                AND upper (e.nome) = 'GINECOLOGIA'
+                AND upper (e.nome) = "GINECOLOGIA"
                 AND e.idespecialidade = pe.idespecialidade
                 AND INSTR ((SELECT ',' || TO_CHAR (valor) FROM parametros
-                WHERE modulo = 'EXAMES' AND nomeparametro = 'EXAMES_CODIGOS_ULTRASONOGRAFIA' AND idempresa = 1),',' || TO_CHAR (p.idprocedimento) || ',',1) != 0
+                WHERE modulo = "EXAMES" AND nomeparametro = "EXAMES_CODIGOS_ULTRASONOGRAFIA" AND idempresa = 1),',' || TO_CHAR (p.idprocedimento) || ',',1) != 0
                 ORDER BY 2 ASC
         </SQL>
         <campos>
-            <campo nome='idProcedimento'/>
-            <campo nome='nomeProcedimento' descricao='Procedimento'/>
+            <campo nome="idProcedimento"/>
+            <campo nome="nomeProcedimento" descricao="Procedimento"/>
         </campos>
     </listagem>
 </listagens>

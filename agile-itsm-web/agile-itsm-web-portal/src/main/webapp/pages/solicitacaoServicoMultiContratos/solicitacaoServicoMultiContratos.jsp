@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.citframework.util.UtilStrings"%>
 <%@ page import="br.com.centralit.citcorpore.util.ParametroUtil" %>
 <%@ page import="br.com.centralit.citcorpore.util.WebUtil" %>
@@ -62,7 +64,7 @@
 
 <link type="text/css" rel="stylesheet" href="css/solicitacaoServicoMultiContratos.min.css"/>
 <link type="text/css" rel="stylesheet" href="../../novoLayout/common/include/css/jqueryautocomplete.css"/>
-<title>CITSMart</title>
+<%@include file="/novoLayout/common/include/titulo.jsp" %>
 
 </head>
 <cit:janelaAguarde id="JANELA_AGUARDE_MENU"  title="" style="display:none;top:325px;width:300px;left:500px;height:50px;position:absolute;">
@@ -103,7 +105,7 @@
             <input type='hidden' name='sequenciaBaseConhecimento' id='sequenciaBaseConhecimento' />
             <input type="hidden" name="idItemBaseConhecimento" id="idItemBaseConhecimento">
             <input type="hidden" name="idBaseConhecimento" id="idBaseConhecimento"/>
-            <!-- Parâmetro para checar se a tela é editável
+            <!-- ParÃ¢metro para checar se a tela Ã© editÃ¡vel
                 @author thyen.chang
                 23/12/14 -->
             <input type="hidden" name="parametroEditar" id="parametroEditar" value=<%=editar %> />
@@ -352,7 +354,7 @@
                                                     <div class="span9">
                                                         <div class="input-append" id='divNomeDoServico'>
                                                             <label class="strong campoObrigatorio"><fmt:message key="servico.nome" /></label>
-                                                              <input class="span6" type="text" name="servicoBusca" id="servicoBusca" required="required" onkeyup="eventoStartLoading(event);" placeholder="Digite o nome do Serviço" >
+                                                              <input class="span6" type="text" name="servicoBusca" id="servicoBusca" required="required" onkeyup="eventoStartLoading(event);" placeholder="Digite o nome do ServiÃ§o" >
                                                               <span class="add-on"><i class="icon-search"></i></span>
                                                               <button type="button" class="btn btn-small btn-primary" onclick='limparServico()' id='btnLimparServico'><fmt:message key="citcorpore.ui.botao.rotulo.Limpar" /></button>&nbsp;
                                                             <button type="button" class="btn btn-small btn-primary" onclick="mostrarComboServico()" data-toggle="modal" id='modals-bootbox-confirm'><fmt:message key="portal.carrinho.listagem" /></button>
@@ -371,7 +373,7 @@
                                                     <div id='fieldDescricao'>
                                                         <div class="controls">
                                                             <label  class="strong campoObrigatorio"><fmt:message key="solicitacaoServico.descricao" /></label>
-                                                            <div class="controls"><!-- Torna a area de descrição do passo 3 capaz de receber um texto pre-formatado pelo Ctrl+V em todos os tipos de navegadores -->
+                                                            <div class="controls"><!-- Torna a area de descriÃ§Ã£o do passo 3 capaz de receber um texto pre-formatado pelo Ctrl+V em todos os tipos de navegadores -->
                                                                 <%=(editar == null || editar.equalsIgnoreCase("S") ? "<textarea class=\"wysihtml5 span12 Valid[Required] Description[solicitacaoServico.descricao]\" rows=\"5\" cols=\"100\" id=\"descricao\" name=\"descricao\" maxlength=\"65000\"></textarea>" : "<div class=\"span12 faketextarea\" id=\"descricao\" name=\"descricao\"></div>" )%>
                                                             </div>
                                                         </div>
@@ -462,7 +464,7 @@
                                                 </div>
                                                 <div class="controls" >
                                                 <button type='button'class="btn btn-mini  btn-icon glyphicons circle_plus" id='btnAdicionarRegistroExecucao' onclick="adicionarRegistroExecucao()"><i></i> <fmt:message key="solicitacaoServico.addregistroexecucao_mais" /></button>
-                                            <!-- Foi necessário deixar o style na div, pois colocando no css nao renderizou corretamente -->
+                                            <!-- Foi necessÃ¡rio deixar o style na div, pois colocando no css nao renderizou corretamente -->
                                                 <div id='controleRegistroExecucao' style="display: none" >
                                                     <label  class="strong"><fmt:message key="solicitacaoServico.registroExecucao" /></label>
                                                     <div class="controls">
@@ -564,7 +566,7 @@
             <div class="modal hide fade in" id="modal_agenda" aria-hidden="false">
                     <!-- Modal heading -->
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
                         <h3><fmt:message key="citcorpore.comum.agenta" /></h3>
                     </div>
                     <!-- // Modal heading END -->
@@ -585,7 +587,7 @@
             <div class="modal hide fade in" id="modal_novoColaborador" aria-hidden="false">
                     <!-- Modal heading -->
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
                         <h3><fmt:message key="menu.nome.colaborador" /></h3>
                     </div>
                     <!-- // Modal heading END -->
@@ -607,7 +609,7 @@
             <div class="modal hide fade in" id="modal_anexo" aria-hidden="false">
                 <!-- Modal heading -->
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="fechaModalAnexo();">×</button>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="fechaModalAnexo();">Ã—</button>
                         <h3><fmt:message key="citcorpore.comum.anexos" /></h3>
                     </div>
                     <!-- // Modal heading END -->
@@ -631,7 +633,7 @@
             <div class="modal hide fade in" id="modal_script" aria-hidden="false">
                 <!-- Modal heading -->
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
                         <h3><fmt:message key="solicitacaoServico.script" /></h3>
                     </div>
                     <!-- // Modal heading END -->
@@ -659,7 +661,7 @@
             <div class="modal hide fade in" id="modal_problema" aria-hidden="false">
                 <!-- Modal heading -->
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
                         <h3><fmt:message key="problema.problema" /></h3>
                     </div>
                     <!-- // Modal heading END -->
@@ -705,11 +707,11 @@
                     <!-- // Modal footer END -->
             </div>
 
-                <!-- MODAL MUDANÇA ... -->
+                <!-- MODAL MUDANÃ‡A ... -->
             <div class="modal hide fade in" id="modal_mudanca" aria-hidden="false">
                 <!-- Modal heading -->
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
                         <h3><fmt:message key="requisicaMudanca.mudanca" /></h3>
                     </div>
                     <!-- // Modal heading END -->
@@ -752,7 +754,7 @@
             <div class="modal hide fade in" id="modal_solicitacaofilha" aria-hidden="false">
                 <!-- Modal heading -->
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
                         <h3><fmt:message key="solicitacaoservico.solicitacaofilha" /></h3>
                     </div>
                     <!-- // Modal heading END -->
@@ -787,7 +789,7 @@
             <div class="modal hide fade in" id="modal_leituraEmails" aria-hidden="false">
                 <!-- Modal heading -->
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
                     <h3><fmt:message key="clienteEmailCentralServico.tituloLeituraEmails" /></h3>
                 </div>
                 <!-- // Modal heading END -->
@@ -820,11 +822,11 @@
                 <!-- // Modal footer END -->
             </div>
 
-            <!-- MODAL ITENS DE CONFIGURAÇÃO ... -->
+            <!-- MODAL ITENS DE CONFIGURAÃ‡ÃƒO ... -->
             <div class="modal hide fade in" id="modal_itemConfiguracao" aria-hidden="false">
                 <!-- Modal heading -->
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
                     <h3><fmt:message key="solicitacaoServico.itemConfiguracao" /></h3>
                 </div>
                 <!-- // Modal heading END -->
@@ -865,7 +867,7 @@
             <div class="modal hide fade in" id="modal_baseConhecimento" aria-hidden="false">
                 <!-- Modal heading -->
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
                         <h3><fmt:message key="baseConhecimento.baseConhecimento" /></h3>
                     </div>
                     <!-- // Modal heading END -->
@@ -926,7 +928,7 @@
                 <div class="modal hide fade in" id="modal_ocorrencia" data-backdrop="static" aria-hidden="false">
                 <!-- Modal heading -->
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
                         <h3><fmt:message key="citcorpore.comum.ocorrencia" /></h3>
                     </div>
                     <!-- // Modal heading END -->
@@ -946,7 +948,7 @@
             <div class="modal hide fade in" id="modal_incidentesRelacionados" aria-hidden="false">
                 <!-- Modal heading -->
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
                         <h3><fmt:message key="gerenciaservico.incidentesrelacionados" /></h3>
                     </div>
                     <!-- // Modal heading END -->
@@ -982,7 +984,7 @@
             <div class="modal hide fade in" id="modal_listaRelacionarIncidentes" aria-hidden="false">
                 <!-- Modal heading -->
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
                         <h3><fmt:message key="requisicaoMudanca.relacionarIncidentes" /></h3>
                     </div>
                     <!-- // Modal heading END -->
@@ -1014,11 +1016,11 @@
                     <!-- // Modal footer END -->
             </div>
 
-                <!-- MODAL SOLICITAÇÕES PARA O SOLICITANTE SELECIONADO ... -->
+                <!-- MODAL SOLICITAÃ‡Ã•ES PARA O SOLICITANTE SELECIONADO ... -->
             <div class="modal hide fade in" id="modal_listaSolicitacoesMesmoSolicitante" aria-hidden="false">
                 <!-- Modal heading -->
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
                         <h3><fmt:message key="solicitacaoServico.solicitacaoPorUsuario" /></h3>
                     </div>
                     <!-- // Modal heading END -->
@@ -1054,7 +1056,7 @@
             <div class="modal hide fade in" id="modal_detalheSolicitacaoServico" aria-hidden="false">
                 <!-- Modal heading -->
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
                         <h3><fmt:message key="solicitacaoServico.detalhamento" /></h3>
                     </div>
                     <!-- // Modal heading END -->
@@ -1073,8 +1075,8 @@
             <div class="modal hide fade in" id="modal_pesquisaSolucaoBaseConhecimento" aria-hidden="false">
                 <!-- Modal heading -->
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <!-- <h3>Detalhamento da Solicitação</h3> -->
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
+                        <!-- <h3>Detalhamento da SolicitaÃ§Ã£o</h3> -->
                     </div>
                     <!-- // Modal heading END -->
                     <div class="modal-body">
@@ -1092,7 +1094,7 @@
 <%-- 			<div class="modal hide fade in" id="modal_novaSolicitacaoFilho" aria-hidden="false">
                 <!-- Modal heading -->
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
                         <h3><fmt:message key="gerenciaservico.novasolicitacao" /></h3>
                     </div>
                     <!-- // Modal heading END -->
@@ -1115,7 +1117,7 @@
             <div class="modal hide fade in" id="modal_pesquisaItemConfiguracao" aria-hidden="false">
                 <!-- Modal heading -->
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
                         <h3><fmt:message key="solicitacaoServico.pesquisarItemConfiguracao" /></h3>
                     </div>
                     <!-- // Modal heading END -->
@@ -1136,7 +1138,7 @@
             <div class="modal hide fade in" id="modal_informacaoItemConfiguracao" aria-hidden="false">
                 <!-- Modal heading -->
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
                         <h3><fmt:message key="solicitacaoServico.itemConfiguracao" /></h3>
                     </div>
                     <!-- // Modal heading END -->
@@ -1157,7 +1159,7 @@
             <div class="modal hide fade in" id="modal_editarCadastrarProblema" aria-hidden="false">
                 <!-- Modal heading -->
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
                         <h3><fmt:message key="problema.problema" /></h3>
                     </div>
                     <!-- // Modal heading END -->
@@ -1178,7 +1180,7 @@
             <div class="modal hide fade in" id="modal_editarCadastrarMudanca" aria-hidden="false">
                 <!-- Modal heading -->
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
                         <h3><fmt:message key="itemConfiguracaoTree.mudanca" /></h3>
                     </div>
                     <!-- // Modal heading END -->
@@ -1200,7 +1202,7 @@
             <div class="modal hide fade in" id="modal_editarCadastrarSolicitacaoFilha" aria-hidden="false">
                 <!-- Modal heading -->
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
                         <h3><fmt:message key="solicitacaoServico.solicitacao" /></h3>
                     </div>
                     <!-- // Modal heading END -->
@@ -1222,7 +1224,7 @@
             <div class="modal hide fade in" id="modal_lookupSolicitante" aria-hidden="false">
                 <!-- Modal heading -->
                 <div class="modal-header">
-                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
                 </div>
                 <!-- // Modal heading END -->
                 <!-- Modal body -->
@@ -1255,7 +1257,7 @@
             <div class="modal hide fade in" id="modal_lookupProblema" aria-hidden="false">
                 <!-- Modal heading -->
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
                         <h3></h3>
                     </div>
                     <!-- // Modal heading END -->
@@ -1279,7 +1281,7 @@
             <div class="modal hide fade in" id="modal_lookupMudanca" aria-hidden="false">
                 <!-- Modal heading -->
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
                         <h3></h3>
                     </div>
                     <!-- // Modal heading END -->
@@ -1303,7 +1305,7 @@
             <div class="modal hide fade in" id="modal_lookupBaseConhecimento" aria-hidden="false">
                 <!-- Modal heading -->
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
                         <h3></h3>
                     </div>
                     <!-- // Modal heading END -->
@@ -1333,7 +1335,7 @@
             <div class="modal hide fade in" id="mensagem_insercao" aria-hidden="false" data-backdrop="static" data-keyboard="false">
                     <!-- Modal heading -->
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
                     </div>
                     <!-- // Modal heading END -->
                     <!-- Modal body -->
@@ -1353,7 +1355,7 @@
             <div class="modal hide fade in" id="modal_origem" aria-hidden="false">
                     <!-- Modal heading -->
                     <div class="modal-header">
-                        <!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button> -->
+                        <!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button> -->
                         <h3></h3>
                     </div>
                     <!-- // Modal heading END -->
@@ -1380,7 +1382,7 @@
             <div class="modal hide fade in" id="modal_visualizaProblemaBaseConhecimento" aria-hidden="false">
                     <!-- Modal heading -->
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
                         <h3></h3>
                     </div>
                     <!-- // Modal heading END -->
@@ -1407,7 +1409,7 @@
                 <div class="modal hide fade in" id="modal_infoServicos" aria-hidden="false">
                     <!-- Modal heading -->
                     <div class="modal-header">
-                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
                         <h3><fmt:message key="portal.carrinho.listagem" /></h3>
                     </div>
                     <!-- // Modal heading END -->

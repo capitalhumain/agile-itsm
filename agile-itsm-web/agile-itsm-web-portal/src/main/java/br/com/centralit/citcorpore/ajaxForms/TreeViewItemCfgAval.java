@@ -98,7 +98,7 @@ public class TreeViewItemCfgAval extends AjaxFormAction {
 		ciclos.add(c3);
 		ciclos.add(c2);
 		//
-		/*Capturando os itens do invent·rio (N„o possuem grupos)*/
+		/*Capturando os itens do invent√°rio (N√£o possuem grupos)*/
 		List<ItemConfiguracaoDTO> listaItemSemGrupo = (List<ItemConfiguracaoDTO>) itemConfiguracaoService.listItensSemGrupo(itemFiltro);
 		
 		String nivel = "...";

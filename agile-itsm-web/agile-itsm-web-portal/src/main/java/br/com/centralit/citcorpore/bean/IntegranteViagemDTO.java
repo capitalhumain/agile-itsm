@@ -28,9 +28,9 @@ public class IntegranteViagemDTO  extends BaseEntity {
 	private String emPrestacaoContas;
 	private String infoNaoFuncionario;
 	private String estado;
-	//Define se o Integrante da Viagem È um funcionario(S) ou n„o(N)
+	//Define se o Integrante da Viagem √© um funcionario(S) ou n√£o(N)
 	
-	//atributos abaixo usados apenas para auxiliar tela de remarcaÁ„o
+	//atributos abaixo usados apenas para auxiliar tela de remarca√ß√£o
 	private Integer idSolicitacao;
 	private String eOu;
 	private Date dataInicio;

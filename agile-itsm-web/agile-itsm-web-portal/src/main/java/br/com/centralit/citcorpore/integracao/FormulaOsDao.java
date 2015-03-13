@@ -13,7 +13,8 @@ import br.com.citframework.util.Constantes;
 
 @SuppressWarnings({ "unchecked", "rawtypes" })
 public class FormulaOsDao extends CrudDaoDefaultImpl {
-
+
+
 
 	public FormulaOsDao() {
 		super(Constantes.getValue("DATABASE_ALIAS"), null);

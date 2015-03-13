@@ -86,6 +86,6 @@ create index fk_scriptmonit_monit_idx on scriptmonit using btree (idmonitorament
     
 -- INICIO - rodrigo.acorse - 16.06.2014
 
-insert into modelosemails (idmodeloemail, titulo, texto, situacao, identificador) values ($id_modelo_email_monitoramento, 'Monitoramento Tipo Item de Configuração - ${IDENTIFICACAO}', 'Informamos que o item de configura&ccedil;&atilde;o identificado como <strong>${IDENTIFICACAO}</strong> sofreu altera&ccedil;&atilde;o.<br /><br /><strong>Descri&ccedil;&atilde;o:</strong>&nbsp;${DESCRICAO}<br /><strong>Novo valor:</strong>&nbsp;${VALORSTR}<br /><br />Atenciosamente,<br /><br />Central IT Tecnologia da Informa&ccedil;&atilde;o Ltda.', 'A', 'monitAtivosNotif');
+insert into modelosemails (idmodeloemail, titulo, texto, situacao, identificador) values ($id_modelo_email_monitoramento, 'Monitoramento Tipo Item de ConfiguraÃ§Ã£o - ${IDENTIFICACAO}', 'Informamos que o item de configura&ccedil;&atilde;o identificado como <strong>${IDENTIFICACAO}</strong> sofreu altera&ccedil;&atilde;o.<br /><br /><strong>Descri&ccedil;&atilde;o:</strong>&nbsp;${DESCRICAO}<br /><strong>Novo valor:</strong>&nbsp;${VALORSTR}<br /><br />Atenciosamente,<br /><br />Central IT Tecnologia da Informa&ccedil;&atilde;o Ltda.', 'A', 'monitAtivosNotif');
     
 -- FIM - rodrigo.acorse - 16.06.2014

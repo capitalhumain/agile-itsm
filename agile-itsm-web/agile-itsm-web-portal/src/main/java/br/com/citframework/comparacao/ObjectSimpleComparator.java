@@ -16,8 +16,8 @@ import br.com.citframework.util.Reflexao;
  * 		Collections.sort(lst, new ObjectSimpleComparator("getDataInicio", ObjectSimpleComparator.ASC));    //ou
  *      Collections.sort(lst, new ObjectSimpleComparator("getDataInicio", ObjectSimpleComparator.DESC));
  *  </code> <br>
- * 			onde lst È uma collection de beans: PPPBeanRegistroAmbiental, e
- * 			     getDataInicio pertence ao bean PPPBeanRegistroAmbiental, e este ser· utilizado para fazer
+ * 			onde lst √© uma collection de beans: PPPBeanRegistroAmbiental, e
+ * 			     getDataInicio pertence ao bean PPPBeanRegistroAmbiental, e este ser√° utilizado para fazer
  *               comparacao no momento da ordenacao.
  */
 public class ObjectSimpleComparator implements Comparator, Serializable {

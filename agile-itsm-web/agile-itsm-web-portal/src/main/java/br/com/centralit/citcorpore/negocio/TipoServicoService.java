@@ -11,16 +11,16 @@ import br.com.citframework.service.CrudService;
 public interface TipoServicoService extends CrudService {
 
 	/**
-	 * Verifica se tipo serviÁo.
+	 * Verifica se tipo servi√ßo.
 	 * 
 	 * @param tipoServicoDTO
-	 * @return true - existe; false - n„o existe;
+	 * @return true - existe; false - n√£o existe;
 	 * @throws PersistenceException
 	 */
 	public boolean verificarSeTipoServicoExiste(TipoServicoDTO tipoServicoDto) throws PersistenceException, br.com.citframework.excecao.ServiceException;
 
 	/**
-	 * Metodo responsavel por verificar se existe vinculo entre o tipo de serviÁo e cadastro de serviÁo
+	 * Metodo responsavel por verificar se existe vinculo entre o tipo de servi√ßo e cadastro de servi√ßo
 	 * 
 	 * @param idTipoServico
 	 * @author Ezequiel

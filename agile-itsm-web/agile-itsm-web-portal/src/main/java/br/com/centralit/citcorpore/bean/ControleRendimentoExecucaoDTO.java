@@ -20,7 +20,7 @@ public class ControleRendimentoExecucaoDTO extends BaseEntity {
     private Date dataInicio;
     private Date dataFim;
 
-    // atributos auxiliares para setar as informações na tabela de informações do grupo
+    // atributos auxiliares para setar as informaÃ§Ãµes na tabela de informaÃ§Ãµes do grupo
     private String tipoSla;
     private String qtdSolicitacoes;
     private String qtdTotalPontos;
@@ -28,7 +28,7 @@ public class ControleRendimentoExecucaoDTO extends BaseEntity {
     private String qtdPontosNegativos;
     private String mediaRelativa;
 
-    // atributos auxiliares para setar as informações na tabela de informações da pessoa
+    // atributos auxiliares para setar as informaÃ§Ãµes na tabela de informaÃ§Ãµes da pessoa
     private String nomePessoa;
     private String aprovacao;
 

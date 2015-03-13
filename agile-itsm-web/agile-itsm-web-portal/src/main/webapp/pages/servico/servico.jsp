@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.citframework.dto.Usuario"%>
@@ -5,17 +7,10 @@
 <!doctype html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<%@include file="/include/header.jsp"%>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<%@include file="/include/header.jsp"%>
 
-<%@include file="/include/security/security.jsp" %>
-<!--[if lt IE 7]> <html lang="en-us" class="no-js ie6"> <![endif]-->
-<!--[if IE 7]>    <html lang="en-us" class="no-js ie7"> <![endif]-->
-<!--[if IE 8]>    <html lang="en-us" class="no-js ie8"> <![endif]-->
-<!--[if IE 9]>    <html lang="en-us" class="no-js ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="pt-br" class="no-js"> <!--<![endif]-->
-
-	<title>CIT Corpore</title>
+	<%@include file="/novoLayout/common/include/titulo.jsp" %>
 	<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp" %>
 <script>
 	var objTab = null;
@@ -44,16 +39,16 @@
 	<%@include file="/include/menu_horizontal.jsp"%>
 
 		<div class="flat_area grid_16">
-				<h2>Serviço</h2>
+				<h2>ServiÃ§o</h2>
 		</div>
 
 		<div class="box grid_16 tabs">
 			<ul class="tab_header clearfix">
 				<li>
-					<a href="#tabs-1">Cadastro de Serviço</a>
+					<a href="#tabs-1">Cadastro de ServiÃ§o</a>
 				</li>
 				<li>
-					<a href="#tabs-2" class="round_top">Pesquisa Serviço</a>
+					<a href="#tabs-2" class="round_top">Pesquisa ServiÃ§o</a>
 				</li>
 			</ul>
 	<a href="#" class="toggle">&nbsp;</a>
@@ -74,9 +69,9 @@
 			</div>
 			<div class="col_33">
 				<fieldset>
-					<label>Data de Início</label>
+					<label>Data de InÃ­cio</label>
 						<div>
-						  <input type='text' name="dataInicio" maxlength="10" size="10" class="Valid[Required,Date] Format[Data] datepicker Description[Data de Início]" />
+						  <input type='text' name="dataInicio" maxlength="10" size="10" class="Valid[Required,Date] Format[Data] datepicker Description[Data de InÃ­cio]" />
 						</div>
 				</fieldset>
 			</div>
@@ -85,7 +80,7 @@
 
 			<div class="col_100">
 				<fieldset>
-					<label>Detalhamento do Serviço</label>
+					<label>Detalhamento do ServiÃ§o</label>
 						<div>
 						  <textarea name="objeto" cols='70' rows='5' class="Valid[Required] Description[Objeto]"></textarea>
 						</div>
@@ -96,7 +91,7 @@
 		<div class="columns clearfix">
 		  <div class="col_50">
 				<fieldset>
-					<label>Tipo de Serviço</label>
+					<label>Tipo de ServiÃ§o</label>
 						<div>
 						  <select name='idMoeda' class="Valid[Required] Description[Moeda]">
 											            	</select>
@@ -105,7 +100,7 @@
 			</div>
 			<div class="col_50">
 				<fieldset>
-					<label>Importância ao Negócio</label>
+					<label>ImportÃ¢ncia ao NegÃ³cio</label>
 						<div>
 						  <select name='idFluxo' class="Valid[Required] Description[Cliente]">
 											            	</select>

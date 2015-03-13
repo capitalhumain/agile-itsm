@@ -20,50 +20,50 @@ public class UtilStrings {
 	 * @return
 	 */
 	public static String removeCaracteresEspeciais(String string) {
-		string = string.replaceAll("·", "a");
-		string = string.replaceAll("È", "e");
-		string = string.replaceAll("Ì", "i");
-		string = string.replaceAll("Û", "o");
-		string = string.replaceAll("˙", "u");
+		string = string.replaceAll("√°", "a");
+		string = string.replaceAll("√©", "e");
+		string = string.replaceAll("√≠", "i");
+		string = string.replaceAll("√≥", "o");
+		string = string.replaceAll("√∫", "u");
 
-		string = string.replaceAll("¡", "A");
-		string = string.replaceAll("…", "E");
-		string = string.replaceAll("Õ", "I");
-		string = string.replaceAll("”", "O");
-		string = string.replaceAll("⁄", "U");
+		string = string.replaceAll("√Å", "A");
+		string = string.replaceAll("√â", "E");
+		string = string.replaceAll("√ç", "I");
+		string = string.replaceAll("√ì", "O");
+		string = string.replaceAll("√ö", "U");
 
-		string = string.replaceAll("‡", "a");
-		string = string.replaceAll("Ë", "e");
-		string = string.replaceAll("Ï", "i");
-		string = string.replaceAll("Ú", "o");
-		string = string.replaceAll("˘", "u");
+		string = string.replaceAll("√†", "a");
+		string = string.replaceAll("√®", "e");
+		string = string.replaceAll("√¨", "i");
+		string = string.replaceAll("√≤", "o");
+		string = string.replaceAll("√π", "u");
 
-		string = string.replaceAll("¿", "A");
-		string = string.replaceAll("»", "E");
-		string = string.replaceAll("Ã", "I");
-		string = string.replaceAll("“", "O");
-		string = string.replaceAll("Ÿ", "U");
+		string = string.replaceAll("√Ä", "A");
+		string = string.replaceAll("√à", "E");
+		string = string.replaceAll("√å", "I");
+		string = string.replaceAll("√í", "O");
+		string = string.replaceAll("√ô", "U");
 
-		string = string.replaceAll("‚", "a");
-		string = string.replaceAll("Í", "e");
-		string = string.replaceAll("Ó", "i");
-		string = string.replaceAll("Ù", "o");
-		string = string.replaceAll("˚", "u");
+		string = string.replaceAll("√¢", "a");
+		string = string.replaceAll("√™", "e");
+		string = string.replaceAll("√Æ", "i");
+		string = string.replaceAll("√¥", "o");
+		string = string.replaceAll("√ª", "u");
 
-		string = string.replaceAll("¬", "A");
-		string = string.replaceAll(" ", "E");
-		string = string.replaceAll("Œ", "I");
-		string = string.replaceAll("‘", "O");
-		string = string.replaceAll("€", "U");
+		string = string.replaceAll("√Ç", "A");
+		string = string.replaceAll("√ä", "E");
+		string = string.replaceAll("√é", "I");
+		string = string.replaceAll("√î", "O");
+		string = string.replaceAll("√õ", "U");
 
-		string = string.replaceAll("„", "a");
-		string = string.replaceAll("ı", "o");
+		string = string.replaceAll("√£", "a");
+		string = string.replaceAll("√µ", "o");
 
-		string = string.replaceAll("√", "A");
-		string = string.replaceAll("’", "O");
+		string = string.replaceAll("√É", "A");
+		string = string.replaceAll("√ï", "O");
 
-		string = string.replaceAll("Á", "c");
-		string = string.replaceAll("«", "C");
+		string = string.replaceAll("√ß", "c");
+		string = string.replaceAll("√á", "C");
   
 		return string;
 	}
@@ -159,7 +159,7 @@ public class UtilStrings {
 	public static void verificaBranco(String valor, String label) throws LogicException {
 
 		if (valor == null || valor.trim().length() == 0) {
-			throw new LogicException(label + " : Campo ObrigatÛrio");
+			throw new LogicException(label + " : Campo Obrigat√≥rio");
 		}
 
 	}
@@ -203,7 +203,7 @@ public class UtilStrings {
 	}
 	/**
 	 * Gera um noma de busca
-	 * 	Exemplo: JO√O TÕBURS⁄LO  --> JOAOTIBURSULO
+	 * 	Exemplo: JO√ÉO T√çBURS√öLO  --> JOAOTIBURSULO
 	 * @param nomePar
 	 * @return
 	 */
@@ -221,8 +221,8 @@ public class UtilStrings {
 	    return strSaida;
 	}
 	/**
-	 * Gera um noma de busca, mas n„o exclui o caracter coringa.
-	 * 	Exemplo: %JO√O TÕBURS⁄LO  --> %JOAOTIBURSULO
+	 * Gera um noma de busca, mas n√£o exclui o caracter coringa.
+	 * 	Exemplo: %JO√ÉO T√çBURS√öLO  --> %JOAOTIBURSULO
 	 * @param nomePar
 	 * @return
 	 */	
@@ -307,40 +307,40 @@ public class UtilStrings {
 	 * Substitui um caracter especial por um caracter valido.
 	 */
 	public static String changeCharInvalid(char c){
-		if (c == '·' || c == '‚' || c == '„'){
+		if (c == '√°' || c == '√¢' || c == '√£'){
 			return "a";
 		}
-		else if (c == '¡' || c == '¬' || c == '√'){ 
+		else if (c == '√Å' || c == '√Ç' || c == '√É'){ 
 			return "A";
 		}
-		else if (c == 'È' || c == 'Í'){
+		else if (c == '√©' || c == '√™'){
 			return "e";
 		}
-		else if (c == '…' || c == ' '){
+		else if (c == '√â' || c == '√ä'){
 			return "E";
 		}
-		else if (c == 'Ì' || c == 'Ó'){
+		else if (c == '√≠' || c == '√Æ'){
 			return "i";
 		}
-		else if (c == 'Õ' || c == 'Œ'){
+		else if (c == '√ç' || c == '√é'){
 			return "I";
 		}
-		else if (c == 'Û' || c == 'Ù' || c == 'ı'){
+		else if (c == '√≥' || c == '√¥' || c == '√µ'){
 			return "o";
 		}
-		else if (c == '”' || c == '‘' || c == '’'){
+		else if (c == '√ì' || c == '√î' || c == '√ï'){
 			return "O";
 		}
-		else if (c == '˙' || c == '˚'){
+		else if (c == '√∫' || c == '√ª'){
 			return "u";
 		}
-		else if (c == '⁄' || c == '€'){
+		else if (c == '√ö' || c == '√õ'){
 			return "U";
 		}
-		else if (c == '«'){
+		else if (c == '√á'){
 			return "C";
 		}
-		else if (c == 'Á'){
+		else if (c == '√ß'){
 			return "c";
 		}
 		else {
@@ -401,34 +401,34 @@ public class UtilStrings {
 	public static String decodeCaracteresEspeciais(String strParm){
 		if (strParm == null) return null;
 		String str = new String(strParm);
-		str = str.replaceAll("\\[\\[\\[cedilhamin\\]\\]\\]", "Á");
-		str = str.replaceAll("\\[\\[\\[cedilhamai\\]\\]\\]", "«");
-		str = str.replaceAll("\\[\\[\\[aagudomin\\]\\]\\]", "·");
-		str = str.replaceAll("\\[\\[\\[aagudomai\\]\\]\\]", "¡");
-		str = str.replaceAll("\\[\\[\\[acrasemin\\]\\]\\]", "‡");
-		str = str.replaceAll("\\[\\[\\[acrasemai\\]\\]\\]", "¿");
-		str = str.replaceAll("\\[\\[\\[eagudomin\\]\\]\\]", "È");
-		str = str.replaceAll("\\[\\[\\[eagudomai\\]\\]\\]", "…");
-		str = str.replaceAll("\\[\\[\\[iagudomin\\]\\]\\]", "Ì");
-		str = str.replaceAll("\\[\\[\\[iagudomai\\]\\]\\]","Õ");
-		str = str.replaceAll("\\[\\[\\[oagudomin\\]\\]\\]","Û");
-		str = str.replaceAll("\\[\\[\\[oagudomai\\]\\]\\]","”");
-		str = str.replaceAll("\\[\\[\\[uagudomin\\]\\]\\]","˙");
-		str = str.replaceAll("\\[\\[\\[uagudomai\\]\\]\\]","⁄");
-		str = str.replaceAll("\\[\\[\\[acircmin\\]\\]\\]","‚");
-		str = str.replaceAll("\\[\\[\\[acircmai\\]\\]\\]","¬");
-		str = str.replaceAll("\\[\\[\\[ecircmin\\]\\]\\]","Í");
-		str = str.replaceAll("\\[\\[\\[ecircmai\\]\\]\\]"," ");
-		str = str.replaceAll("\\[\\[\\[icircmin\\]\\]\\]","Ó");
-		str = str.replaceAll("\\[\\[\\[icircmai\\]\\]\\]","Œ");
-		str = str.replaceAll("\\[\\[\\[ocircmin\\]\\]\\]","Ù");
-		str = str.replaceAll("\\[\\[\\[ocircmai\\]\\]\\]","‘");
-		str = str.replaceAll("\\[\\[\\[ucircmin\\]\\]\\]","˚");
-		str = str.replaceAll("\\[\\[\\[ucircmai\\]\\]\\]","€");
-		str = str.replaceAll("\\[\\[\\[atilmin\\]\\]\\]","„");
-		str = str.replaceAll("\\[\\[\\[atilmai\\]\\]\\]","√");
-		str = str.replaceAll("\\[\\[\\[otilmin\\]\\]\\]","ı");
-		str = str.replaceAll("\\[\\[\\[otilmai\\]\\]\\]","’");
+		str = str.replaceAll("\\[\\[\\[cedilhamin\\]\\]\\]", "√ß");
+		str = str.replaceAll("\\[\\[\\[cedilhamai\\]\\]\\]", "√á");
+		str = str.replaceAll("\\[\\[\\[aagudomin\\]\\]\\]", "√°");
+		str = str.replaceAll("\\[\\[\\[aagudomai\\]\\]\\]", "√Å");
+		str = str.replaceAll("\\[\\[\\[acrasemin\\]\\]\\]", "√†");
+		str = str.replaceAll("\\[\\[\\[acrasemai\\]\\]\\]", "√Ä");
+		str = str.replaceAll("\\[\\[\\[eagudomin\\]\\]\\]", "√©");
+		str = str.replaceAll("\\[\\[\\[eagudomai\\]\\]\\]", "√â");
+		str = str.replaceAll("\\[\\[\\[iagudomin\\]\\]\\]", "√≠");
+		str = str.replaceAll("\\[\\[\\[iagudomai\\]\\]\\]","√ç");
+		str = str.replaceAll("\\[\\[\\[oagudomin\\]\\]\\]","√≥");
+		str = str.replaceAll("\\[\\[\\[oagudomai\\]\\]\\]","√ì");
+		str = str.replaceAll("\\[\\[\\[uagudomin\\]\\]\\]","√∫");
+		str = str.replaceAll("\\[\\[\\[uagudomai\\]\\]\\]","√ö");
+		str = str.replaceAll("\\[\\[\\[acircmin\\]\\]\\]","√¢");
+		str = str.replaceAll("\\[\\[\\[acircmai\\]\\]\\]","√Ç");
+		str = str.replaceAll("\\[\\[\\[ecircmin\\]\\]\\]","√™");
+		str = str.replaceAll("\\[\\[\\[ecircmai\\]\\]\\]","√ä");
+		str = str.replaceAll("\\[\\[\\[icircmin\\]\\]\\]","√Æ");
+		str = str.replaceAll("\\[\\[\\[icircmai\\]\\]\\]","√é");
+		str = str.replaceAll("\\[\\[\\[ocircmin\\]\\]\\]","√¥");
+		str = str.replaceAll("\\[\\[\\[ocircmai\\]\\]\\]","√î");
+		str = str.replaceAll("\\[\\[\\[ucircmin\\]\\]\\]","√ª");
+		str = str.replaceAll("\\[\\[\\[ucircmai\\]\\]\\]","√õ");
+		str = str.replaceAll("\\[\\[\\[atilmin\\]\\]\\]","√£");
+		str = str.replaceAll("\\[\\[\\[atilmai\\]\\]\\]","√É");
+		str = str.replaceAll("\\[\\[\\[otilmin\\]\\]\\]","√µ");
+		str = str.replaceAll("\\[\\[\\[otilmai\\]\\]\\]","√ï");
 		str = str.replaceAll("\\[\\[\\[ehcomercial\\]\\]\\]","&");		
 		str = str.replaceAll("[\\u2018]","'");	
 		str = str.replaceAll("[\\u2019]","'");	
@@ -463,10 +463,10 @@ public class UtilStrings {
 	}
 	
 	/**
-     * Substitui o par‚metro '{0}' que est· na String pelo par‚metro informado.
+     * Substitui o par√¢metro '{0}' que est√° na String pelo par√¢metro informado.
      * @param str - String a ser ajustada.
-     * @param param - par‚metro a ser aplicado.
-     * @return String ajustada com o par‚metro informado.
+     * @param param - par√¢metro a ser aplicado.
+     * @return String ajustada com o par√¢metro informado.
      */
     public static String setParametro(final String str, final String param)
     {
@@ -476,12 +476,12 @@ public class UtilStrings {
     }
     
     /**
-     * Substitui os par‚metros '{0}' e '{1}' que est„o na String pelos 
-     * par‚metros informados.
+     * Substitui os par√¢metros '{0}' e '{1}' que est√£o na String pelos 
+     * par√¢metros informados.
      * @param str - String a ser ajustada.
-     * @param param0 - par‚metro a ser aplicado.
-     * @param param1 - par‚metro a ser aplicado.
-     * @return String ajustada com os par‚metros informados.
+     * @param param0 - par√¢metro a ser aplicado.
+     * @param param1 - par√¢metro a ser aplicado.
+     * @return String ajustada com os par√¢metros informados.
      */
     public static String setParametros(final String str, final String param0, 
             final String param1)
@@ -492,13 +492,13 @@ public class UtilStrings {
     }
     
     /**
-     * Substitui os par‚metros '{0}', '{1}' e '{2}' que est„o na String pelos 
-     * par‚metros informados.
+     * Substitui os par√¢metros '{0}', '{1}' e '{2}' que est√£o na String pelos 
+     * par√¢metros informados.
      * @param str - String a ser ajustada.
-     * @param param0 - par‚metro a ser aplicado.
-     * @param param1 - par‚metro a ser aplicado.
-     * @param param2 - par‚metro a ser aplicado.
-     * @return String ajustada com os par‚metros informados.
+     * @param param0 - par√¢metro a ser aplicado.
+     * @param param1 - par√¢metro a ser aplicado.
+     * @param param2 - par√¢metro a ser aplicado.
+     * @return String ajustada com os par√¢metros informados.
      */
     public static String setParametros(final String str, final String param0, 
             final String param1, final String param2)
@@ -510,7 +510,7 @@ public class UtilStrings {
     }
     
     /**
-     * Ajusta o index informado para a express„o regular no padr„o 
+     * Ajusta o index informado para a express√£o regular no padr√£o 
      * 1 = [1]; 123 = [1][2][3]
      * @param index
      * @return
@@ -526,11 +526,11 @@ public class UtilStrings {
     }
     
     /**
-     * Substitui os par‚metros '{0}', '{1}' ... '{n}' que est„o na String pelos 
-     * par‚metros informados.
+     * Substitui os par√¢metros '{0}', '{1}' ... '{n}' que est√£o na String pelos 
+     * par√¢metros informados.
      * @param str - String a ser ajustada.
-     * @param params - array de par‚metros a serem aplicados.
-     * @return String ajustada com os par‚metros informados.
+     * @param params - array de par√¢metros a serem aplicados.
+     * @return String ajustada com os par√¢metros informados.
      */
     public static String setParametros(final String str, final String[] params)
     {
@@ -546,11 +546,11 @@ public class UtilStrings {
     }
     
     /**
-     * Substitui os par‚metros '{0}', '{1}' ... '{n}' que est„o na String pelos 
-     * par‚metros informados.
+     * Substitui os par√¢metros '{0}', '{1}' ... '{n}' que est√£o na String pelos 
+     * par√¢metros informados.
      * @param str - String a ser ajustada.
-     * @param params - lista de par‚metros a serem aplicados.
-     * @return String ajustada com os par‚metros informados.
+     * @param params - lista de par√¢metros a serem aplicados.
+     * @return String ajustada com os par√¢metros informados.
      */
     public static String setParametros(final String str, final List params)
     {
@@ -671,11 +671,11 @@ public class UtilStrings {
      * @return
      */
     public static String getParameter(String parameter) { 
-    	return parameter.replaceAll("([^¿-˙A-Za-z0-9!\\s/@$%&*()#\\-_+∫|<,.>;:?=]+)",""); 
+    	return parameter.replaceAll("([^√Ä-√∫A-Za-z0-9!\\s/@$%&*()#\\-_+¬∫|<,.>;:?=]+)",""); 
 	}
     
     public static String retiraCaracteresEspeciais(String parameter) { 
-    	return parameter.replaceAll("([^¿-˙A-Za-z0-9!\\s/@$%&*()#-_+∫|<,.>;:?=]+)",""); 
+    	return parameter.replaceAll("([^√Ä-√∫A-Za-z0-9!\\s/@$%&*()#-_+¬∫|<,.>;:?=]+)",""); 
 	}
     
     public static String retiraEspacoPorUnderline(String str){
@@ -686,9 +686,9 @@ public class UtilStrings {
     }
     
     /**
-     * Retirado de uma implementaÁ„o do github
-     * O mÈtodo unescapeJavaScript da classe StringEscapeUtils se faz necesss·rio para os dados antigos.
-     * A nova implementaÁ„o n„o usa o escapeJavascript para inserÁ„o no banco ent„o apenas retorna os dados
+     * Retirado de uma implementa√ß√£o do github
+     * O m√©todo unescapeJavaScript da classe StringEscapeUtils se faz necesss√°rio para os dados antigos.
+     * A nova implementa√ß√£o n√£o usa o escapeJavascript para inser√ß√£o no banco ent√£o apenas retorna os dados
      * Unescapes a string that contains standard Java escape sequences.
      */
     public static String unescapeJavaString(String st) {
@@ -714,7 +714,7 @@ public class UtilStrings {
     
     /**
      * @author cristian.guedes
-     * Embora o nome desta classe seja auto-explicativo, esta funÁ„o converte uma array de String para uma String com os valores delimitados com vÌrgula
+     * Embora o nome desta classe seja auto-explicativo, esta fun√ß√£o converte uma array de String para uma String com os valores delimitados com v√≠rgula
      * e cada um entre aspas simples.
      */
     public static String StringArrayParaStringDelimitadaComVirgula(String[] qualArray) {

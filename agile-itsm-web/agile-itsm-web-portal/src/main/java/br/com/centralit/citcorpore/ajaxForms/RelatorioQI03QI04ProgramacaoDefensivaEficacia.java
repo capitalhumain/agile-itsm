@@ -251,7 +251,7 @@ public class RelatorioQI03QI04ProgramacaoDefensivaEficacia extends AjaxFormActio
 	}
 	
 	/**
-	 * Preencher Combo de Tipo Demanda ServiÁo.
+	 * Preencher Combo de Tipo Demanda Servi√ßo.
 	 * 
 	 * @param document
 	 * @param request
@@ -279,7 +279,7 @@ public class RelatorioQI03QI04ProgramacaoDefensivaEficacia extends AjaxFormActio
 	
 	
 	/**
-	 * Metodo para iniciar a impress„o do relatorio
+	 * Metodo para iniciar a impress√£o do relatorio
 	 * @param document
 	 * @param request
 	 * @param response

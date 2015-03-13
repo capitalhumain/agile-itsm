@@ -86,7 +86,7 @@ public final class ConverterUtils {
         return map;
     }
 
-    // aplica a mascara com # em String com valores numÈricos
+    // aplica a mascara com # em String com valores num√©ricos
     public static String aplicaMascara(String numero, final String mascara) {
         if (possuiMascara(numero)) {
             return numero;
@@ -113,7 +113,7 @@ public final class ConverterUtils {
         return result;
     }
 
-    // Retira mascara de String com valores numÈricos
+    // Retira mascara de String com valores num√©ricos
     public static String retiraMascara(final String valor) {
         if (valor == null || valor.length() == 0) {
             return valor;
@@ -163,7 +163,7 @@ public final class ConverterUtils {
             return result;
 
         }
-        System.out.println("-----------N„o possui mascara");
+        System.out.println("-----------N√£o possui mascara");
 
         if (value.toString().indexOf(",") > -1) {
             StringBuilder str = new StringBuilder(value.toString());
@@ -180,7 +180,7 @@ public final class ConverterUtils {
             try {
                 result = new Double(tmp);
             } catch (final NumberFormatException e) {
-                throw new ConversionException("Formato numÈrico inv·lido. " + value);
+                throw new ConversionException("Formato num√©rico inv√°lido. " + value);
             }
 
             return result;
@@ -208,7 +208,7 @@ public final class ConverterUtils {
             return result;
 
         }
-        System.out.println("-----------N„o possui mascara");
+        System.out.println("-----------N√£o possui mascara");
 
         if (value.toString().indexOf(",") > -1) {
             StringBuilder str = new StringBuilder(value.toString());
@@ -225,7 +225,7 @@ public final class ConverterUtils {
             try {
                 result = new Long(tmp);
             } catch (final NumberFormatException e) {
-                throw new ConversionException("Formato numÈrico inv·lido. " + value);
+                throw new ConversionException("Formato num√©rico inv√°lido. " + value);
             }
 
             return result;
@@ -253,7 +253,7 @@ public final class ConverterUtils {
             return result;
 
         }
-        System.out.println("-----------N„o possui mascara");
+        System.out.println("-----------N√£o possui mascara");
 
         if (value.toString().indexOf(",") > -1) {
             StringBuilder str = new StringBuilder(value.toString());
@@ -270,7 +270,7 @@ public final class ConverterUtils {
             try {
                 result = new BigDecimal(tmp);
             } catch (final NumberFormatException e) {
-                throw new ConversionException("Formato numÈrico inv·lido. " + value);
+                throw new ConversionException("Formato num√©rico inv√°lido. " + value);
             }
 
             return result;

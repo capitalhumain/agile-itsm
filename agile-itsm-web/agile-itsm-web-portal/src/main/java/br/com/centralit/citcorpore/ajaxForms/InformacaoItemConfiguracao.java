@@ -78,11 +78,11 @@ public class InformacaoItemConfiguracao extends AjaxFormAction {
 			this.getInformacaoItemConfiguracao().setNomeGrupoItemConfiguracao(ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.NOME_GRUPO_ITEM_CONFIG_NOVOS, " "));
 	}
 	
-	/* Desenvolvedor: Pedro Lino - Data: 23/10/2013 - Hor·rio: 10:54 - ID Citsmart: 120948 - 
-	 * Motivo/Coment·rio: Grupo estavaparecendo NULL/ Utilizado nullToVazio para aparesentar vazio na tela
-	 * Obs.: Tratado tbm para identificaÁ„o - Linha(s): 90 e 93 */
+	/* Desenvolvedor: Pedro Lino - Data: 23/10/2013 - Hor√°rio: 10:54 - ID Citsmart: 120948 - 
+	 * Motivo/Coment√°rio: Grupo estavaparecendo NULL/ Utilizado nullToVazio para aparesentar vazio na tela
+	 * Obs.: Tratado tbm para identifica√ß√£o - Linha(s): 90 e 93 */
 	StringBuilder subDiv = new StringBuilder();
-	/* CabeÁalho */
+	/* Cabe√ßalho */
 	subDiv.append("<div id='cabecalhoInf'>");
 	subDiv.append("<h2>"+UtilI18N.internacionaliza(request, "pesquisaItemConfiguracao.descricaoAtivosMaquina")+"</h2><hr />");
 	subDiv.append("<label>");
@@ -405,7 +405,7 @@ public class InformacaoItemConfiguracao extends AjaxFormAction {
     
 
     /**
-     * Retorna lista de caracterÌsticas.
+     * Retorna lista de caracter√≠sticas.
      * 
      * @param idItemConfiguracao
      * @param tagTipoItemConfiguracao
@@ -422,7 +422,7 @@ public class InformacaoItemConfiguracao extends AjaxFormAction {
     }
     
     /**
-     * Retorna lista de caracterÌsticas.
+     * Retorna lista de caracter√≠sticas.
      * 
      * @param idItemConfiguracao
      * @param tagTipoItemConfiguracao

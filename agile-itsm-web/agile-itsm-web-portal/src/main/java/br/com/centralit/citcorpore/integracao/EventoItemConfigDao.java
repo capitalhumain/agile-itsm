@@ -140,7 +140,7 @@ public class EventoItemConfigDao extends CrudDaoDefaultImpl {
     }
     
     /**
-     * Método que retorna o nome do Sistema operacional instalado no item de configuração
+     * MÃ©todo que retorna o nome do Sistema operacional instalado no item de configuraÃ§Ã£o
      * 
      * @param idItemConfiguracao
      * @return String nome do SO

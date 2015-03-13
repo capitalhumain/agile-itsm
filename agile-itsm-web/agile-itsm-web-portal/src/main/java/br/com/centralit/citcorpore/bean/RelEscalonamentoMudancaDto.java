@@ -5,7 +5,7 @@ import br.com.agileitsm.model.support.BaseEntity;
 public class RelEscalonamentoMudancaDto extends BaseEntity{
 
 	/**
-	 * Relaciona as solicitações de serviço ao escalonamento
+	 * Relaciona as solicitaÃ§Ãµes de serviÃ§o ao escalonamento
 	 */
 	private static final long serialVersionUID = 1L;
 	

@@ -145,7 +145,7 @@ public class Usuario extends AjaxFormAction {
      * @param request
      * @param response
      * @throws Exception
-     *             Metodo colocar status Inativo quando for solicitado a exclus„o do usuario.
+     *             Metodo colocar status Inativo quando for solicitado a exclus√£o do usuario.
      */
     public void delete(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
         UsuarioDTO usuarioDto = (UsuarioDTO) document.getBean();
@@ -285,7 +285,7 @@ public class Usuario extends AjaxFormAction {
     }
 
     /**
-     * Usuario logado vai ter a possibilidade de fazer alteraÁ„o de sua senha
+     * Usuario logado vai ter a possibilidade de fazer altera√ß√£o de sua senha
      *
      * @param document
      * @param request

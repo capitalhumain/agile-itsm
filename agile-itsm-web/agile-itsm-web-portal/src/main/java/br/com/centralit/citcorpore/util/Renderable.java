@@ -4,7 +4,7 @@ import br.com.centralit.citcorpore.bean.Attachment;
 /**
  * @author breno.guimaraes
  * @author Dj
- * Interface para tratamento de conteúdo de email com JavaMail API.
+ * Interface para tratamento de conteÃºdo de email com JavaMail API.
  */
 public interface Renderable {
     Attachment getAttachment(int i);

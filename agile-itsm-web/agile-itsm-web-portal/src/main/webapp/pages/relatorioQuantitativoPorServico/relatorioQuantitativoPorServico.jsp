@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.centralit.citcorpore.bean.SolicitacaoServicoDTO"%>
@@ -6,8 +8,7 @@
 <head>
 <%@include file="/include/header.jsp"%>
 
-<%@include file="/include/security/security.jsp"%>
-<title><fmt:message key="citcorpore.comum.title" /></title>
+<%@include file="/novoLayout/common/include/titulo.jsp" %>
 <%@include file="/include/menu/menuConfig.jsp"%>
 
 <%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
@@ -28,8 +29,8 @@
 		<div id="main_container" class="main_container container_16 clearfix">
 			<%@include file="/include/menu_horizontal.jsp"%>
 			<div class="box grid_16 tabs">
-			<!--  Desenvolvedor: Thiago Matias - Data: 29/10/2013 - Horário: 09:53 - ID Citsmart: 122025 -
-		          Motivo/Comentário: foi alterado o titulo do relatorio  -->
+			<!--  Desenvolvedor: Thiago Matias - Data: 29/10/2013 - HorÃ¡rio: 09:53 - ID Citsmart: 122025 -
+		          Motivo/ComentÃ¡rio: foi alterado o titulo do relatorio  -->
 				<ul class="tab_header clearfix">
 					<li><a href="#tabs-1"><fmt:message key="relatorioQuantitativoPorServico.relatorioQuantitativoDeServicosConcluidosSintetico" /></a></li>
 				</ul>

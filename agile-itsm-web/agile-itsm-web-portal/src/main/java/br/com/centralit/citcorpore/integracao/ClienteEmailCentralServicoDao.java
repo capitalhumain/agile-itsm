@@ -56,7 +56,7 @@ public class ClienteEmailCentralServicoDao {
 			// Set Exchange WebSevice URL
 			service.setUrl(new URI("https://"+SMTP_LEITURA_Servidor +"/ews/exchange.asmx"));
 			
-			//Seta a quantidade padr„o de emails listados
+			//Seta a quantidade padr√£o de emails listados
 			String LIMITE =ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.SMTP_LEITURA_LIMITE_,"");
 			Integer limiteEmails = (LIMITE.trim().equalsIgnoreCase("") ? 30 : Integer.valueOf(LIMITE.trim()));
 			

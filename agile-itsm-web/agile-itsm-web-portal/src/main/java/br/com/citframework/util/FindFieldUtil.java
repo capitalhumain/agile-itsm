@@ -37,7 +37,7 @@ public class FindFieldUtil {
 		Collection colCamposTextGenerateLimpar = new ArrayList();
 		Collection colCamposComboGenerateLimpar = new ArrayList();
 		String nomeLookupExec = nameLookup;
-		if (id != null) { // Caso venha com ID, o nome fisico È do ID, caso contrario fica com o do LookupName.
+		if (id != null) { // Caso venha com ID, o nome fisico √© do ID, caso contrario fica com o do LookupName.
 			nameLookup = id;
 		}
 		HttpSession session = ((HttpServletRequest) request).getSession();
@@ -136,12 +136,12 @@ public class FindFieldUtil {
 		
 		int i = 1;
 		String nomeFisicoAux = "";
-		/* Desenvolvedor: Pedro Lino - Data: 30/10/2013 - Hor·rio: 15:30 - ID Citsmart: 120948 - 
-		* Motivo/Coment·rio: Alinhamento dos campos de pesquisa, alterado para div no novo padr„o */	
-		/* Desenvolvedor: Pedro Lino - Data: 30/10/2013 - Hor·rio: 16:57 - ID Citsmart: 120948 - 
-		* Motivo/Coment·rio: Removido alinhamento */
-		/* Desenvolvedor: Pedro Lino - Data: 31/10/2013 - Hor·rio: 18:43 - ID Citsmart: 120948 - 
-		* Motivo/Coment·rio: Alterado width da table para 50%  */
+		/* Desenvolvedor: Pedro Lino - Data: 30/10/2013 - Hor√°rio: 15:30 - ID Citsmart: 120948 - 
+		* Motivo/Coment√°rio: Alinhamento dos campos de pesquisa, alterado para div no novo padr√£o */	
+		/* Desenvolvedor: Pedro Lino - Data: 30/10/2013 - Hor√°rio: 16:57 - ID Citsmart: 120948 - 
+		* Motivo/Coment√°rio: Removido alinhamento */
+		/* Desenvolvedor: Pedro Lino - Data: 31/10/2013 - Hor√°rio: 18:43 - ID Citsmart: 120948 - 
+		* Motivo/Coment√°rio: Alterado width da table para 50%  */
 		if (html.equalsIgnoreCase("true")) {
 			strBuffer.append("<div class='lockupEstrutura' id='divInt" + nameLookup + "'>");
 			strBuffer.append("<table width=\"50%\">");
@@ -202,7 +202,7 @@ public class FindFieldUtil {
 			strBuffer.append("<input title='" + UtilI18N.internacionaliza((HttpServletRequest) request, "citcorpore.ui.botao.rotulo.Limpar") + "' type='button' name='btnLimpar" + nameLookup
 					+ "'  id='btnLimpar' class='ui-button ui-widget ui-corner-all ui-button-text-only btn btn-primary' value='"
 					+ UtilI18N.internacionaliza((HttpServletRequest) request, "citcorpore.ui.botao.rotulo.Limpar") + "' onclick='limpar_" + nameLookup + "()' />");
-			// caso seja checkbox aparece o bot„o de enviar checkados
+			// caso seja checkbox aparece o bot√£o de enviar checkados
 			if (checkbox != null && checkbox.equals("true")){
 			strBuffer.append("<input type='button' name='btnEnviar' id='btnEnviar' class='ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btn-primary' value='" + getInternacionalizado("citSmart.comum.enviar") + "' title='"+getInternacionalizado("citSmart.comum.enviar")+"' onclick='addAllTabela"+ nameLookup +"();' /></div>");
 			}
@@ -211,8 +211,8 @@ public class FindFieldUtil {
 			strBuffer.append("</div>");
 			strBuffer.append("</div>");
 		}
-		/* Desenvolvedor: Riubbe Oliveira - Data: 30/10/2013 - Hor·rio: 16:25 - ID Citsmart: 120407 - 
-		* Motivo/Coment·rio: Feito ajuste para dar focus no primeiro input ao clicar em limpar */	
+		/* Desenvolvedor: Riubbe Oliveira - Data: 30/10/2013 - Hor√°rio: 16:25 - ID Citsmart: 120407 - 
+		* Motivo/Coment√°rio: Feito ajuste para dar focus no primeiro input ao clicar em limpar */	
 		if (javascript.equalsIgnoreCase("true")) {
 			strBuffer.append("<script>\n");
 			strBuffer.append("function limpar_" + nameLookup + "(){\n");
@@ -276,7 +276,7 @@ public class FindFieldUtil {
 			strBuffer.append("	if (req" + nameLookup + ".readyState == 4){\n");
 			strBuffer.append("		if (req" + nameLookup + ".status == 200){\n");
 			strBuffer.append("			document.getElementById('retPesq" + nameLookup + "').innerHTML = req" + nameLookup + ".responseText;\n");
-			//chamar a funÁ„o de verificaÁ„o de checkados apÛs a consulta do paginaÁ„o chegar ao estado 4(completa)
+			//chamar a fun√ß√£o de verifica√ß√£o de checkados ap√≥s a consulta do pagina√ß√£o chegar ao estado 4(completa)
 			strBuffer.append("			memorizarCheckados"+ nameLookup +"();\n" );
 			strBuffer.append("		}\n");
 			strBuffer.append("	}\n");
@@ -319,7 +319,7 @@ public class FindFieldUtil {
 			strBuffer.append("  req" + nameLookup + ".send(''); ");
 			strBuffer.append("}\n");
 			strBuffer.append("</script>\n");
-			//montando a funÁ„o que marca todos os checkbox da poppup que tem class=check
+			//montando a fun√ß√£o que marca todos os checkbox da poppup que tem class=check
 			strBuffer.append("<script type=\"text/javascript\">");
 	        strBuffer.append("function " + nameLookup + "_marcarTodosCheckbox(selecionado) {");
 	        strBuffer.append("	var classe = 'check';");
@@ -338,7 +338,7 @@ public class FindFieldUtil {
 	        strBuffer.append("</script>");
 			strBuffer.append("<script>\n");
 			String retParms = "";
-			//funÁ„o que concatena e desconcatena os checkbox que marcados ou desmarcados
+			//fun√ß√£o que concatena e desconcatena os checkbox que marcados ou desmarcados
 			strBuffer.append("var checkados_" + nameLookup + " = '' ;\n");
 			strBuffer.append("function concatenarValoresCheckados_"+  nameLookup  +"(elemento) {\n");
 			strBuffer.append("	if (!$(elemento).is(':checked')) {\n");
@@ -358,7 +358,7 @@ public class FindFieldUtil {
 			strBuffer.append("		checkados_"+ nameLookup +" += elemento.value+';';\n");
 			strBuffer.append("		}\n");
 			strBuffer.append("}\n");
-			//FunÁ„o que enviar todos os checkbox checkados e chama um mÈtodo requisicaoMudanca.java
+			//Fun√ß√£o que enviar todos os checkbox checkados e chama um m√©todo requisicaoMudanca.java
 			String[] nomePopup = nameLookup.split("LOOKUP");
 		    strBuffer.append("addAllTabela"+ nameLookup +" = function(){\n");
 			strBuffer.append("	document.form.colAll"+ nameLookup +".value = checkados_" + nameLookup+";\n");
@@ -369,7 +369,7 @@ public class FindFieldUtil {
 			strBuffer.append(" 	$('#POPUP"+ nomePopup[1]+"').dialog('close');");
 			strBuffer.append("checkados_" + nameLookup + "=''");
 			strBuffer.append("}");
-			//FunÁ„o necess·ria para quando o usuario mudar de p·gina o checkbox continue marcado.
+			//Fun√ß√£o necess√°ria para quando o usuario mudar de p√°gina o checkbox continue marcado.
 			strBuffer.append("function memorizarCheckados"+ nameLookup +"(){");
 			strBuffer.append("	table = document.getElementById('topoRetorno');");
 			strBuffer.append("	itens = document.getElementsByName('sel');");
@@ -412,7 +412,7 @@ public class FindFieldUtil {
 			strBuffer.append("} ");
 			strBuffer.append("</script>\n");
 			/**
-			 * FunÁ„o para processar caracteres na string
+			 * Fun√ß√£o para processar caracteres na string
 			 * 22/12/2014
 			 * @author thyen.chang
 			 */
@@ -439,8 +439,8 @@ public class FindFieldUtil {
 		}
 		return lookupInfo.getColCamposPesquisa();
 		/*
-		 * Collection col = new ArrayList(); col.add(new Campo("idImposto","IdentificaÁ„o",false,Constantes.FIELDTYPE_TEXT,10)); col.add(new
-		 * Campo("Descricao","DescriÁ„o",true,Constantes.FIELDTYPE_TEXT,50)); return col;
+		 * Collection col = new ArrayList(); col.add(new Campo("idImposto","Identifica√ß√£o",false,Constantes.FIELDTYPE_TEXT,10)); col.add(new
+		 * Campo("Descricao","Descri√ß√£o",true,Constantes.FIELDTYPE_TEXT,50)); return col;
 		 */
 	}
 
@@ -450,8 +450,8 @@ public class FindFieldUtil {
 		}
 		return lookupInfo.getColCamposRetorno();
 		/*
-		 * Collection col = new ArrayList(); col.add(new Campo("idImposto","IdentificaÁ„o",false,Constantes.FIELDTYPE_TEXT,10)); col.add(new
-		 * Campo("Descricao","DescriÁ„o",true,Constantes.FIELDTYPE_TEXT,50)); return col;
+		 * Collection col = new ArrayList(); col.add(new Campo("idImposto","Identifica√ß√£o",false,Constantes.FIELDTYPE_TEXT,10)); col.add(new
+		 * Campo("Descricao","Descri√ß√£o",true,Constantes.FIELDTYPE_TEXT,50)); return col;
 		 */
 	}
 
@@ -461,7 +461,7 @@ public class FindFieldUtil {
 		}
 		return lookupInfo.getColCamposOrdenacao();
 		/*
-		 * Collection col = new ArrayList(); col.add(new Campo("Descricao","DescriÁ„o",true,Constantes.FIELDTYPE_TEXT,50)); return col;
+		 * Collection col = new ArrayList(); col.add(new Campo("Descricao","Descri√ß√£o",true,Constantes.FIELDTYPE_TEXT,50)); return col;
 		 */
 	}
 
@@ -471,7 +471,7 @@ public class FindFieldUtil {
 		}
 		return lookupInfo.getColCamposChave();
 		/*
-		 * Collection col = new ArrayList(); col.add(new Campo("idImposto","IdentificaÁ„o",false,Constantes.FIELDTYPE_TEXT,10)); return col;
+		 * Collection col = new ArrayList(); col.add(new Campo("idImposto","Identifica√ß√£o",false,Constantes.FIELDTYPE_TEXT,10)); return col;
 		 */
 	}
 

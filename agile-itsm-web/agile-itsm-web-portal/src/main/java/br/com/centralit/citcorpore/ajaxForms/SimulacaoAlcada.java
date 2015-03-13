@@ -68,9 +68,9 @@ public class SimulacaoAlcada extends AjaxFormAction {
          str += "    <tr>";
          str += "        <th >"+UtilI18N.internacionaliza(request, "delegacaoCentroResultado.empregado") + "</th>";
          str += "        <th width=\"10%\">"+UtilI18N.internacionaliza(request, "delegacaoCentroResultado.autoridade") + "</th>";
-         str += "        <th width=\"5%\">Delegação</th>";
+         str += "        <th width=\"5%\">DelegaÃ§Ã£o</th>";
          str += "        <th width=\"5%\">Rejeitado</th>";
-         str += "        <th width=\"40%\">Motivo da rejeição</th>";
+         str += "        <th width=\"40%\">Motivo da rejeiÃ§Ã£o</th>";
          str += "    </tr>";
 
         try{
@@ -113,14 +113,14 @@ public class SimulacaoAlcada extends AjaxFormAction {
 					str += "	</td>";
 					str += "	<td>";
 					if (!alcadaProcessoNegocioDto.isDelegacao()) {
-						str += "Não";
+						str += "NÃ£o";
 					}else{
 						str += "<font color='red'>Sim</font>";
 					}
 					str += "	</td>";
 					str += "	<td>";
 					if (!alcadaProcessoNegocioDto.isAlcadaRejeitada()) {
-						str += "Não";
+						str += "NÃ£o";
 					}else{
 						str += "<font color='red'>Sim</font>";
 					}

@@ -48,7 +48,7 @@ public class OrigemAtendimentoDao extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Retorna lista de status de usu·rio.
+	 * Retorna lista de status de usu√°rio.
 	 * 
 	 * @param obj
 	 * @return
@@ -82,7 +82,7 @@ public class OrigemAtendimentoDao extends CrudDaoDefaultImpl {
 
 	/**
 	 * @author euler.ramos
-	 * Busca a Origem de Atendimento filtrando pela descriÁ„o passada como par‚metro
+	 * Busca a Origem de Atendimento filtrando pela descri√ß√£o passada como par√¢metro
 	 * @param descricao
 	 * @return
 	 */

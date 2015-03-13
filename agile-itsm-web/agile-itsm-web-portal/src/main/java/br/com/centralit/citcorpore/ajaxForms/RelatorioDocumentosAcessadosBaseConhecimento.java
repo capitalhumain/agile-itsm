@@ -108,7 +108,7 @@ public class RelatorioDocumentosAcessadosBaseConhecimento extends AjaxFormAction
 			UsuarioService usuarioService = (UsuarioService) ServiceLocator.getInstance().getService(UsuarioService.class, WebUtil.getUsuarioSistema(request));
 			UsuarioDTO usuario = (UsuarioDTO) usuarioService.restoreByID(idUsuario);
 			
-			//Obtendo informações
+			//Obtendo informaÃ§Ãµes
 			RelatorioDocumentosAcessadosBaseConhecimentoService relatorioDocumentosAcessadosBaseConhecimentoService = (RelatorioDocumentosAcessadosBaseConhecimentoService) ServiceLocator.getInstance().getService(RelatorioDocumentosAcessadosBaseConhecimentoService.class, WebUtil.getUsuarioSistema(request));
 			ArrayList<RelatorioDocumentosAcessadosBaseConhecimentoDTO> listaDocumentos = relatorioDocumentosAcessadosBaseConhecimentoService.listarDocumentosAcessadosBaseConhecimentoResumido(relatorioDocumentosAcessadosBaseConhecimentoDTO);
 			if (listaDocumentos.size() == 0) {
@@ -137,10 +137,10 @@ public class RelatorioDocumentosAcessadosBaseConhecimento extends AjaxFormAction
 			
 			dataSource = new JRBeanCollectionDataSource(listaDocumentos);
 			
-			//Alimentando os parâmetros de filtragem para serem mostrados no relatório
+			//Alimentando os parÃ¢metros de filtragem para serem mostrados no relatÃ³rio
 			Map<String, Object> parametros = this.alimentaParametros(relatorioDocumentosAcessadosBaseConhecimentoDTO, usuario, UtilI18N.internacionaliza(request, "relatorioDocumentosAcessadosBaseConhecimento.titulo"), document, request, response);
 			
-			//Configurando dados para geração do Relatório
+			//Configurando dados para geraÃ§Ã£o do RelatÃ³rio
 			StringBuilder jasperArqRel = new StringBuilder();
 			jasperArqRel.append("RelatorioDocumentosAcessadosBaseConhecimento");
 			if (relatorioDocumentosAcessadosBaseConhecimentoDTO.getVisualizacao().equalsIgnoreCase("R")){
@@ -155,7 +155,7 @@ public class RelatorioDocumentosAcessadosBaseConhecimento extends AjaxFormAction
 			String diretorioRelativo = Constantes.getValue("SERVER_ADDRESS") + Constantes.getValue("CONTEXTO_APLICACAO") + "/tempFiles";
 			String arquivoRelatorio = "/"+ jasperArqRel + strMiliSegundos;
 			
-			//Chamando o relatório
+			//Chamando o relatÃ³rio
 			if (relatorioDocumentosAcessadosBaseConhecimentoDTO.getFormato().equalsIgnoreCase("PDF")){
 				abreRelatorioPDF(dataSource, parametros, diretorioTemp, caminhoJasper, jasperArqRel.toString(), diretorioRelativo, arquivoRelatorio, document, request, response);
 			} else {
@@ -181,7 +181,7 @@ public class RelatorioDocumentosAcessadosBaseConhecimento extends AjaxFormAction
 			parametros.put("nomeUsuario", UtilI18N.internacionaliza(request, "citcorpore.comum.todos"));
 		}
 		
-		//Tratamento para internacionalização do intervalo de datas
+		//Tratamento para internacionalizaÃ§Ã£o do intervalo de datas
 		StringBuilder intervaloDasDatas = new StringBuilder();
 		String pattern;
 		String locale = UtilI18N.getLocale();

@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.citframework.util.Constantes"%>
@@ -10,13 +12,12 @@
 %>
 <%@include file="/include/header.jsp"%>
 
-<%@include file="/include/security/security.jsp"%>
-<title><fmt:message key="citcorpore.comum.title" /></title>
+<%@include file="/novoLayout/common/include/titulo.jsp" %>
 <%@include file="/include/menu/menuConfig.jsp"%>
 
 <%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 <%
-	//se for chamado por iframe deixa apenas a parte de cadastro da página
+	//se for chamado por iframe deixa apenas a parte de cadastro da pÃ¡gina
 	if (iframe != null) {
 %>
 <link rel="stylesheet" type="text/css" href="./css/cargaCatalagoServico.css" />

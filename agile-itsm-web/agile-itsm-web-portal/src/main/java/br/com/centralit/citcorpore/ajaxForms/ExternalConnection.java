@@ -112,7 +112,7 @@ public class ExternalConnection extends AjaxFormAction {
 	}
 
 	/**
-	 * Metodo colocar status Inativo quando for solicitado a exclus„o do usuario.
+	 * Metodo colocar status Inativo quando for solicitado a exclus√£o do usuario.
 	 *
 	 * @param document
 	 * @param request
@@ -147,7 +147,7 @@ public class ExternalConnection extends AjaxFormAction {
 
 
 	/**
-	 * Metodo para testar se a conex„o È valida
+	 * Metodo para testar se a conex√£o √© valida
 	 * @param document
 	 * @param request
 	 * @param response
@@ -192,7 +192,7 @@ public class ExternalConnection extends AjaxFormAction {
 
 
 	/**
-	 * metodo para fazer teste de conex„o
+	 * metodo para fazer teste de conex√£o
 	 * @param document
 	 * @param request
 	 * @param response

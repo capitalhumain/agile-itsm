@@ -39,7 +39,7 @@ public class SqlDateConverter implements Converter {
         try {
             return new Date(sdf.parse(valor).getTime());
         } catch (final ParseException e) {
-            throw new ConversionException("Formato de data inv·lida. " + valor);
+            throw new ConversionException("Formato de data inv√°lida. " + valor);
         }
     }
 

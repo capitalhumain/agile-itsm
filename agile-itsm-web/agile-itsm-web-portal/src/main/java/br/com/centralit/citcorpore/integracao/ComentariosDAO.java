@@ -29,7 +29,7 @@ import br.com.citframework.util.UtilDatas;
 public class ComentariosDAO extends CrudDaoDefaultImpl {
     
     /**
-     * Consulta Coment·rios da Base de Conhecimento informada.
+     * Consulta Coment√°rios da Base de Conhecimento informada.
      * 
      * @param baseConhecimentoBean
      * @return comentarios

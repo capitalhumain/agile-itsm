@@ -171,7 +171,7 @@ public class PerfilAcessoDao extends CrudDaoDefaultImpl {
 	 * Verifica se PerfilAcessoInformado informada existe.
 	 *
 	 * @param perfilAcesso
-	 * @return true - existe; false - n„o existe;
+	 * @return true - existe; false - n√£o existe;
 	 * @throws PersistenceException
 	 */
 	public boolean verificarSePerfilAcessoExiste(PerfilAcessoDTO perfilAcesso) throws PersistenceException {

@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="br.com.centralit.citcorpore.util.CitCorporeConstantes"%>
@@ -144,7 +146,7 @@
 	function callbackLimparTextoSala(o){
 		//alert("Limpar mensagens sala Status = "+o.code);
 	}
-	//abre tela de Conversa entre os usuários
+	//abre tela de Conversa entre os usuÃ¡rios
 	function abrirTelaConversa(id){
 		//window.location.reload();
 		var existe = 0;
@@ -210,7 +212,7 @@
 </head>
 <body onmouseup="window.location.reload()">
 	<!-- <div class="barra-ferramentas">
-		<span>Flávio Júnior</span>
+		<span>FlÃ¡vio JÃºnior</span>
 	</div> -->
 	<div class="row-fluid">
 		<div class="span12">

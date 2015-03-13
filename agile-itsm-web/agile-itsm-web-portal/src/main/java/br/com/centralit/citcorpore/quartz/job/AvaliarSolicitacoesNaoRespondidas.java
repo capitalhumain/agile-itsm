@@ -19,17 +19,17 @@ public class AvaliarSolicitacoesNaoRespondidas implements Job  {
 
 	@Override
 	public void execute(JobExecutionContext arg0) throws JobExecutionException {
-		String avaliacaoAutomatica = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.AVALIA«√O_AUTOMATICA, "");
+		String avaliacaoAutomatica = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.AVALIA√á√ÉO_AUTOMATICA, "");
 		if(avaliacaoAutomatica.equals("S")){
 		try {
-			System.out.println("DISPARADO AVALIA«√O AUTOM¡TICA");
+			System.out.println("DISPARADO AVALIA√á√ÉO AUTOM√ÅTICA");
 			PesquisaSatisfacaoDTO pesquisaSatisfacaoDTO;
 			PesquisaSatisfacaoDAO pesquisaSatisfacaoDAO = new PesquisaSatisfacaoDAO();
 			SolicitacaoServicoDao solicitacaoServicoDao = new SolicitacaoServicoDao();
 
-			// Nota padr„o para avaliaÁ„o autom·tica do atendimento de solicitaÁıes
+			// Nota padr√£o para avalia√ß√£o autom√°tica do atendimento de solicita√ß√µes
 			Enumerados.Nota nota = null;
-			String notaAvaliacaoAutomatica = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.NOTA_AVALIA«√O_AUTOMATICA, "");
+			String notaAvaliacaoAutomatica = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.NOTA_AVALIA√á√ÉO_AUTOMATICA, "");
 			if(notaAvaliacaoAutomatica.equals("BOM")){
 				nota = Enumerados.Nota.BOM;
 			}else if(notaAvaliacaoAutomatica.equals("OTIMO")){
@@ -39,7 +39,7 @@ public class AvaliarSolicitacoesNaoRespondidas implements Job  {
 			}else if(notaAvaliacaoAutomatica.equals("RUIM")){
 				nota = Enumerados.Nota.RUIM;
 			}
-			// Calculando a data limite para resposta do usu·rio
+			// Calculando a data limite para resposta do usu√°rio
 			Integer pQtdeDias = Integer.parseInt(ParametroUtil.getValorParametroCitSmartHashMap(br.com.centralit.citcorpore.util.Enumerados.ParametroSistema.QTDE_DIAS_RESP_PESQ_SASTISFACAO, "7"));
 
 			java.sql.Date dataLimite = UtilDatas.getSqlDate(UtilDatas.incrementaDiasEmData(Util.getDataAtual(), -(new Integer(pQtdeDias))));
@@ -48,11 +48,11 @@ public class AvaliarSolicitacoesNaoRespondidas implements Job  {
 
 			String comentario = "Pesquisa respondida automaticamente pelo sistema citsmart.";
 
-			// As SolicitaÁıes n„o respondidas e que foram concluÌdas atÈ a data limite ser„o respondidas automaticamente pelo sistema
-			// Trazer as SolicitaÁıes n„o respondidas
+			// As Solicita√ß√µes n√£o respondidas e que foram conclu√≠das at√© a data limite ser√£o respondidas automaticamente pelo sistema
+			// Trazer as Solicita√ß√µes n√£o respondidas
 			Collection<SolicitacaoServicoDTO> listaIdSolicitacoesNResp = solicitacaoServicoDao.listaIDSolicitacaoNaoRespondida(dataLimite);
 			for (SolicitacaoServicoDTO solicitacaoServicoDTO : listaIdSolicitacoesNResp) {
-				// Gravar pesquisa para Cada SolicitaÁ„o de ServiÁos n„o avaliada
+				// Gravar pesquisa para Cada Solicita√ß√£o de Servi√ßos n√£o avaliada
 				pesquisaSatisfacaoDTO = new PesquisaSatisfacaoDTO();
 				pesquisaSatisfacaoDTO.setIdSolicitacaoServico(solicitacaoServicoDTO.getIdSolicitacaoServico());
 				pesquisaSatisfacaoDTO.setNota(nota.getNota());

@@ -32,17 +32,17 @@ public class CategoriaOcorrenciaServiceEjb extends CrudServiceImpl implements Ca
 
         try {
             this.validaUpdate(model);
-            // Configura transações para cada entidade a ser registrada no banco de dados
+            // Configura transaÃ§Ãµes para cada entidade a ser registrada no banco de dados
             this.getDao().setTransactionControler(tc);
-            // inicia transação
+            // inicia transaÃ§Ã£o
             tc.start();
             categoriaOcorrenciaDTO = (CategoriaOcorrenciaDTO) this.getDao().restore(categoriaOcorrenciaDTO);
             categoriaOcorrenciaDTO.setDataFim(UtilDatas.getDataAtual());
             this.getDao().update(categoriaOcorrenciaDTO);
             document.alert(this.i18nMessage("MSG07"));
-            // confirma transação
+            // confirma transaÃ§Ã£o
             tc.commit();
-            // encerra transação
+            // encerra transaÃ§Ã£o
             tc.close();
         } catch (final Exception e) {
             this.rollbackTransaction(tc, e);

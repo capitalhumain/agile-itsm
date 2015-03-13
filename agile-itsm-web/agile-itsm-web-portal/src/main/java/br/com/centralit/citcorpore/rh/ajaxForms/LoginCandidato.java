@@ -42,9 +42,9 @@ public class LoginCandidato extends AjaxFormAction {
 	
 	/**
 	 * A demanda original era para atender candidatos internos e externos, sendo que <code>autenticarCandidato()</code> 
-	 * tinha o propÛsito original de autenticar o candidato externo atravÈs de um mÈtodo especÌfico e o colaborador, 
-	 * que È considerado uma candidato interno, pelo mÈtodo padr„o de autencicaÁ„o que estiver definido no Citsmart, 
-	 * que pode ou n„o utilizar o Active Directory (AD).
+	 * tinha o prop√≥sito original de autenticar o candidato externo atrav√©s de um m√©todo espec√≠fico e o colaborador, 
+	 * que √© considerado uma candidato interno, pelo m√©todo padr√£o de autencica√ß√£o que estiver definido no Citsmart, 
+	 * que pode ou n√£o utilizar o Active Directory (AD).
 	 * 
 	 * @param document 
 	 * @param request
@@ -108,13 +108,13 @@ public class LoginCandidato extends AjaxFormAction {
 					PersistenceEngine.setUsuarioSessao(usuarioDTO);
 					
 					if(candidatoDTO != null) {
-						// Se existe o Candidato, Configura a sess„o
+						// Se existe o Candidato, Configura a sess√£o
 						candidatoDTO.setMetodoAutenticacao("AD");
 						
 						request.getSession(true).setAttribute("CANDIDATO",candidatoDTO);
 						document.executeScript("window.location = '" +CitCorporeConstantes.CAMINHO_SERVIDOR + request.getContextPath()+"/pages/templateCurriculoTrabalheConosco/templateCurriculoTrabalheConosco.load';");
 					} else {
-						// Se n„o existe, cria um novo candidato a partir dos dados do Empregado
+						// Se n√£o existe, cria um novo candidato a partir dos dados do Empregado
 						CandidatoDTO candidatoDTONovo = new CandidatoDTO();
 						
 						candidatoDTONovo.setNome(empregadoDTO.getNome());
@@ -154,7 +154,7 @@ public class LoginCandidato extends AjaxFormAction {
 			Collection<CandidatoDTO>candidatosCadastrados = candidatoService.findByCpf(candidatoDTO.getCpf());
 			if(candidatosCadastrados!= null){
 				for(CandidatoDTO  candidatoaux : candidatosCadastrados){
-					// Verifica se È um empregado tentando acessar com o CPF
+					// Verifica se √© um empregado tentando acessar com o CPF
 					if(candidatoaux.getIdEmpregado() != null) {
 						candidatoEmpregado = true;
 					}

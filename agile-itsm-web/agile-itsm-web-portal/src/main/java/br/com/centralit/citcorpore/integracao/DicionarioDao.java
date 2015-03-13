@@ -62,7 +62,7 @@ public class DicionarioDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Consulta Dicion·rio de acordo com a Key (nome) e Id da Lingua informada.
+     * Consulta Dicion√°rio de acordo com a Key (nome) e Id da Lingua informada.
      *
      * @param dicionarioDto
      * @return DicionarioDTO

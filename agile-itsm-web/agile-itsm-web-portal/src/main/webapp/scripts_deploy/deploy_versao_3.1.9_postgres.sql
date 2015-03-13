@@ -1,4 +1,4 @@
--- INÕCIO - BRUNO CARVALHO DE AQUINO 26/12/2013
+-- IN√çCIO - BRUNO CARVALHO DE AQUINO 26/12/2013
 
 ALTER TABLE grupo ADD permitesuspensaoreativacao char(1);
 

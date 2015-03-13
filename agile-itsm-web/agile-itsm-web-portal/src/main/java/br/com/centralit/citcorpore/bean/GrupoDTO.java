@@ -72,7 +72,7 @@ public class GrupoDTO extends BaseEntity {
 	
 	private String comiteConsultivoMudanca;
 	
-	/*Notificações de e-mail*/
+	/*NotificaÃ§Ãµes de e-mail*/
 	private String abertura;
 	private String andamento;
 	private String encerramento;

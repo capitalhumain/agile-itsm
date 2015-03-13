@@ -164,7 +164,7 @@ public class LookupProcessServicosAtivos extends LookupProcessDefaultDao {
             }
         }
 
-        // ordernação
+        // ordernaÃ§Ã£o
         final Collection colCamposOrd = lookUpField.getCamposOrdenacao(lookupObject.getNomeLookup());
         final Iterator itOrd = colCamposOrd.iterator();
         String ordem = "";
@@ -180,7 +180,7 @@ public class LookupProcessServicosAtivos extends LookupProcessDefaultDao {
             sql.append(" ORDER BY " + ordem + " ");
         }
 
-        // Paginação
+        // PaginaÃ§Ã£o
 
         Integer totalPag = 1;
         Integer pagAtual = 0;

@@ -19,7 +19,7 @@ public class TransactionControlerImpl extends ConnectionControlerImpl implements
 
     @Override
     public void setReadOnly(final boolean readOnly) throws PersistenceException {
-        throw new IllegalStateException("N„o È possÌvel uma conex„o com transaÁ„o ser READONLY. Considere usar ConnectionControler.");
+        throw new IllegalStateException("N√£o √© poss√≠vel uma conex√£o com transa√ß√£o ser READONLY. Considere usar ConnectionControler.");
     }
 
     @Override
@@ -47,8 +47,8 @@ public class TransactionControlerImpl extends ConnectionControlerImpl implements
             /**
              * Alterado em 10.01.2014 por valdoilo.damasceno
              *
-             * Essa validaÁ„o n„o representava a situaÁ„o real da conex„o. O Citsmart pode utilizar v·rios BD portanto a obtenÁ„o de qual est· sendo utilizado dever· ser feita
-             * atravÈs da conex„o ativa
+             * Essa valida√ß√£o n√£o representava a situa√ß√£o real da conex√£o. O Citsmart pode utilizar v√°rios BD portanto a obten√ß√£o de qual est√° sendo utilizado dever√° ser feita
+             * atrav√©s da conex√£o ativa
              * no start da transaction.
              */
             if ("MYSQL".equalsIgnoreCase(connection.getMetaData().getDatabaseProductName())) {
@@ -165,7 +165,7 @@ public class TransactionControlerImpl extends ConnectionControlerImpl implements
     protected void doConnectionValidation(final String operation) throws PersistenceException {
         if (!this.isStarted()) {
             // throw new IllegalStateException(String.format("'%s' operation failed: transaction is not started.", operation));
-            // this.start(); // TODO retirar e lanÁar exceÁ„o assim que, tanto framework quanto CITSMart, estejam trabalhando corretamente com transaÁıes e connections e usar
+            // this.start(); // TODO retirar e lan√ßar exce√ß√£o assim que, tanto framework quanto CITSMart, estejam trabalhando corretamente com transa√ß√µes e connections e usar
         }
     }
 

@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.centralit.citcorpore.util.CitCorporeConstantes"%>
@@ -11,12 +11,12 @@
 <head>
 
 	<%@include file="/include/header.jsp" %>
-	<%@include file="/include/titleComum/titleComum.jsp" %>
+	<%@include file="/novoLayout/common/include/titulo.jsp" %>
 	<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp" %>
 	<%@include file="/include/cssComuns/cssComuns.jsp" %>
 
 	<%
-		response.setCharacterEncoding("ISO-8859-1");
+		response.setCharacterEncoding("UTF-8");
 
 		String permiteValorZeroAtv = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.OS_VALOR_ZERO, "N");
 		if (permiteValorZeroAtv == null){
@@ -71,7 +71,7 @@
 									 		<input type='hidden' name='idServicoContratoContabil'/>
 										  	<table id="tabFormulario" cellpadding="0" cellspacing="0">
 										         <tr>
-										           <!--  <td class="campoEsquerda">ServiÁo*:</td> -->
+										           <!--  <td class="campoEsquerda">Servi√ßo*:</td> -->
 										            <td>
 										            <div style="display: none" >
 										            	<select name='idServicoContrato'  onchange="selecionaServicoContrato()">
@@ -80,7 +80,7 @@
 										            </td>
 										         </tr>
 										         <tr>
-										           <!--  <td class="campoEsquerda">N˙mero*:</td> -->
+										           <!--  <td class="campoEsquerda">N√∫mero*:</td> -->
 										            <td>
 										            <div style="display: none" >
 										            	<input type='text' name='numero' size="20" maxlength="20" />
@@ -88,7 +88,7 @@
 										            </td>
 										         </tr>
 										         <tr>
-										            <!-- <td class="campoEsquerda">¡rea requisitante*:</td> -->
+										            <!-- <td class="campoEsquerda">√Årea requisitante*:</td> -->
 										            <td>
 										            <div style="display: none" >
 										            	<input type='text' name='nomeAreaRequisitante' size="80" maxlength="150" style="width: 500px !important;"/>
@@ -104,9 +104,9 @@
 										            </td>
 										         </tr>
 										         <tr>
-										            <td class="campoEsquerda">Data InÌcio*:</td>
+										            <td class="campoEsquerda">Data In√≠cio*:</td>
 										            <td>
-										            	<input type='text' name='dataInicio' id='dataInicio' size="10" maxlength="10" style="width: 100px !important;" class="Format[Date] Valid[Required,Date] Description[Data InÌcio] text datepicker"/>
+										            	<input type='text' name='dataInicio' id='dataInicio' size="10" maxlength="10" style="width: 100px !important;" class="Format[Date] Valid[Required,Date] Description[Data In√≠cio] text datepicker"/>
 										            </td>
 										         </tr>
 										         <tr>
@@ -134,9 +134,9 @@
 										            </td>
 										         </tr>
 										         <tr>
-										            <td class="campoEsquerda">SituaÁ„o:*</td>
+										            <td class="campoEsquerda">Situa√ß√£o:*</td>
 										            <td>
-										            	<select name='situacaoOS' id='situacaoOS' class="Valid[Required] Description[SituaÁ„o]" ></select>
+										            	<select name='situacaoOS' id='situacaoOS' class="Valid[Required] Description[Situa√ß√£o]" ></select>
 										            </td>
 										         </tr>
 										         <%
@@ -170,7 +170,7 @@
 										         				<input type='hidden' name='idAtividadesOS#SEQ#' id='idAtividadesOS#SEQ#' size='12' maxlength='14' />
 										         				<select name='complexidade#SEQ#' id='complexidade#SEQ#'>
 										         					<option value='B'>Baixa</option>
-										         					<option value='I'>Intermedi·ria</option>
+										         					<option value='I'>Intermedi√°ria</option>
 										         					<option value='M'>Mediana</option>
 										         					<option value='A'>Alta</option>
 										         					<option value='E'>Especialista</option>
@@ -188,7 +188,7 @@
 											         				<div id="divAssociacaoInc#SEQ#" style="border-bottom:1px solid black; display: none;"></div>
 										         					<div style="overflow: auto;">
 											         					<div style="width: 10px; border: 5px; padding: 5px; font-weight: bold;">
-											         						 ObservaÁıes:
+											         						 Observa√ß√µes:
 											         					</div>
 											         						<textarea style="width: 600px; height:auto;border: none;" name="obs#SEQ#" cols='45' rows='5'></textarea>
 											         					</div>
@@ -238,7 +238,7 @@
 										         <tr>
 										         	<td colspan="2">
 										         		<div id='divGlosas' style='display:none'>
-											         		<cit:grid id="GRID_GLOSAS" columnHeaders="DescriÁ„o da Glosa aplicada na O.S.;N˙mero de OcorrÍncias;Detalhamento da OcorrÍncia;% aplicado;Custo da Glosa" styleCells="linhaGrid">
+											         		<cit:grid id="GRID_GLOSAS" columnHeaders="Descri√ß√£o da Glosa aplicada na O.S.;N√∫mero de Ocorr√™ncias;Detalhamento da Ocorr√™ncia;% aplicado;Custo da Glosa" styleCells="linhaGrid">
 											         			<cit:column idGrid="GRID_GLOSAS" number="001">
 											         				<input type='hidden' name='idGlosaOS#SEQ#' id='idGlosaOS#SEQ#'/><textarea name="descricaoGlosa#SEQ#" id="descricaoGlosa#SEQ#" cols='45' rows='5' maxlength='500'></textarea>
 											         			</cit:column>
@@ -255,7 +255,7 @@
 											         				<input type='text' name='custoGlosa#SEQ#' id='custoGlosa#SEQ#' size='12' maxlength='8' class='Format[Moeda]' value="0,00" />
 											         			</cit:column>
 											         		</cit:grid>
-											         		<span style='color: red'>&nbsp;AtenÁ„o: Os valores relativos ao custo da Glosa ser„o atualizados somente apÛs a gravaÁ„o da OS.</span>
+											         		<span style='color: red'>&nbsp;Aten√ß√£o: Os valores relativos ao custo da Glosa ser√£o atualizados somente ap√≥s a grava√ß√£o da OS.</span>
 										         		</div>
 										         	</td>
 										         </tr>
@@ -274,7 +274,7 @@
 											     	</td>
 											     </tr>
 										         <tr>
-										            <th style='vertical-align: middle;'>ObservaÁıes finais (ser· apresentada no RA):</th>
+										            <th style='vertical-align: middle;'>Observa√ß√µes finais (ser√° apresentada no RA):</th>
 										            <td>
 										            	<textarea name="obsFinalizacao" id="obsFinalizacao" cols='120' rows='5'style="border: 1px solid black; margin-top: 10px;" maxlength="1500"></textarea>
 										            </td>

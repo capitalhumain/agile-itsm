@@ -92,7 +92,7 @@ public class ExecucaoLiberacao extends ExecucaoFluxo {
 		TipoFluxoDao tipoFluxoDao = new TipoFluxoDao();
 		TipoFluxoDTO tipoFluxoDto = tipoFluxoDao.findByNome(nomeFluxo);
 		if (tipoFluxoDto == null){
-			System.out.println("Fluxo "+nomeFluxo+" n„o existe");
+			System.out.println("Fluxo "+nomeFluxo+" n√£o existe");
 			throw new LogicException(i18n_Message("citcorpore.comum.fluxoNaoEncontrado"));
 		}
 		return inicia(new FluxoDao().findByTipoFluxo(tipoFluxoDto.getIdTipoFluxo()), idFase);
@@ -202,10 +202,10 @@ public class ExecucaoLiberacao extends ExecucaoFluxo {
 			ocorrenciaLiberacaoDto.setDescricao(br.com.centralit.citcorpore.util.Enumerados.CategoriaOcorrencia.Execucao.getDescricao());
 			ocorrenciaLiberacaoDto.setDataInicio(UtilDatas.getDataAtual());
 			ocorrenciaLiberacaoDto.setDataFim(UtilDatas.getDataAtual());
-			ocorrenciaLiberacaoDto.setInformacoesContato("n„o se aplica");
+			ocorrenciaLiberacaoDto.setInformacoesContato("n√£o se aplica");
 			ocorrenciaLiberacaoDto.setRegistradopor(loginUsuario);
 			ocorrenciaLiberacaoDto.setDadosLiberacao(new Gson().toJson(getRequisicaoLiberacaoDto()));
-			ocorrenciaLiberacaoDto.setOcorrencia("ExecuÁ„o da tarefa \""+tarefaFluxoDto.getElementoFluxoDto().getDocumentacao()+"\"");
+			ocorrenciaLiberacaoDto.setOcorrencia("Execu√ß√£o da tarefa \""+tarefaFluxoDto.getElementoFluxoDto().getDocumentacao()+"\"");
 			ocorrenciaLiberacaoDto.setOrigem(br.com.centralit.citcorpore.util.Enumerados.OrigemOcorrencia.OUTROS.getSigla().toString());
 			ocorrenciaLiberacaoDto.setCategoria(br.com.centralit.citcorpore.util.Enumerados.CategoriaOcorrencia.Execucao.getSigla());
 			ocorrenciaLiberacaoDto.setIdItemTrabalho(idItemTrabalho);
@@ -271,12 +271,12 @@ public class ExecucaoLiberacao extends ExecucaoFluxo {
 		ocorrenciaLiberacaoDto.setDescricao(br.com.centralit.citcorpore.util.Enumerados.CategoriaOcorrencia.Compartilhamento.getDescricao());
 		ocorrenciaLiberacaoDto.setDataInicio(UtilDatas.getDataAtual());
 		ocorrenciaLiberacaoDto.setDataFim(UtilDatas.getDataAtual());
-		ocorrenciaLiberacaoDto.setInformacoesContato("n„o se aplica");
+		ocorrenciaLiberacaoDto.setInformacoesContato("n√£o se aplica");
 		ocorrenciaLiberacaoDto.setRegistradopor(loginUsuario);
 		ocorrenciaLiberacaoDto.setDadosLiberacao(new Gson().toJson(getRequisicaoLiberacaoDto()));
 		String ocorr = "Compartilhamento da tarefa \""+tarefaFluxoDto.getElementoFluxoDto().getDocumentacao()+"\"";
 		if (usuarioDestino != null)
-			ocorr += " com o usu·rio "+usuarioDestino;
+			ocorr += " com o usu√°rio "+usuarioDestino;
 		if (grupoDestino != null)
 			ocorr += " com o grupo "+grupoDestino;
 		ocorrenciaLiberacaoDto.setOcorrencia(ocorr);
@@ -336,7 +336,7 @@ public class ExecucaoLiberacao extends ExecucaoFluxo {
 						ocorrenciaLiberacaoDto.setDescricao(br.com.centralit.citcorpore.util.Enumerados.CategoriaOcorrencia.Direcionamento.getDescricao());
 						ocorrenciaLiberacaoDto.setDataInicio(UtilDatas.getDataAtual());
 						ocorrenciaLiberacaoDto.setDataFim(UtilDatas.getDataAtual());
-						ocorrenciaLiberacaoDto.setInformacoesContato("n„o se aplica");
+						ocorrenciaLiberacaoDto.setInformacoesContato("n√£o se aplica");
 						ocorrenciaLiberacaoDto.setRegistradopor(loginUsuario);
 						ocorrenciaLiberacaoDto.setDadosLiberacao(new Gson().toJson(getRequisicaoLiberacaoDto()));
 						  String ocorr = "Direcionamento da tarefa \"" + itemTrabalho.getElementoFluxoDto().getDocumentacao() + "\"";
@@ -503,7 +503,7 @@ public class ExecucaoLiberacao extends ExecucaoFluxo {
 			return;
 		
 		//if (!requisicaoLiberacaoDto.atendida() && !requisicaoLiberacaoDto.reclassificada())
-		//    throw new LogicException("SolicitaÁ„o de serviÁo n„o permite encerramento");
+		//    throw new LogicException("Solicita√ß√£o de servi√ßo n√£o permite encerramento");
 	
 		Collection<ExecucaoLiberacaoDTO> colExecucao = new ExecucaoLiberacaoDao().listByIdRequisicaoLiberacao(getRequisicaoLiberacaoDto().getIdRequisicaoLiberacao());
 		if (colExecucao != null) {
@@ -533,7 +533,7 @@ public class ExecucaoLiberacao extends ExecucaoFluxo {
 		ocorrenciaLiberacaoDto.setDescricao(br.com.centralit.citcorpore.util.Enumerados.CategoriaOcorrencia.Encerramento.getDescricao());
 		ocorrenciaLiberacaoDto.setDataInicio(UtilDatas.getDataAtual());
 		ocorrenciaLiberacaoDto.setDataFim(UtilDatas.getDataAtual());
-		ocorrenciaLiberacaoDto.setRegistradopor("Autom·tico");
+		ocorrenciaLiberacaoDto.setRegistradopor("Autom√°tico");
 		ocorrenciaLiberacaoDto.setDadosLiberacao(new Gson().toJson(getRequisicaoLiberacaoDto()));
 		ocorrenciaLiberacaoDto.setOrigem(br.com.centralit.citcorpore.util.Enumerados.OrigemOcorrencia.OUTROS.getSigla().toString());
 		ocorrenciaLiberacaoDto.setCategoria(br.com.centralit.citcorpore.util.Enumerados.CategoriaOcorrencia.Encerramento.getSigla());
@@ -787,7 +787,7 @@ public class ExecucaoLiberacao extends ExecucaoFluxo {
         ExecucaoLiberacaoDao execucaoLiberacaoDao = new ExecucaoLiberacaoDao();
         ExecucaoLiberacaoDTO execucaoLiberacaoDto = execucaoLiberacaoDao.findByIdInstanciaFluxo(eventoFluxoDto.getIdInstancia());
         if (execucaoLiberacaoDto == null){
-        	System.out.println("ExecuÁ„o liberaÁ„o do evento "+eventoFluxoDto.getIdItemTrabalho()+" n„o encontrada");
+        	System.out.println("Execu√ß√£o libera√ß√£o do evento "+eventoFluxoDto.getIdItemTrabalho()+" n√£o encontrada");
             throw new LogicException(i18n_Message("requisicaoLiberacao.evento"));
         }
         RequisicaoLiberacaoDao requisicaoLiberacaoDao = new RequisicaoLiberacaoDao();
@@ -795,7 +795,7 @@ public class ExecucaoLiberacao extends ExecucaoFluxo {
         requisicaoLiberacaoDto.setIdRequisicaoLiberacao(execucaoLiberacaoDto.getIdRequisicaoLiberacao());
         requisicaoLiberacaoDto = (RequisicaoLiberacaoDTO) requisicaoLiberacaoDao.restore(requisicaoLiberacaoDto);
         if (requisicaoLiberacaoDto == null){
-        	System.out.println("ExecuÁ„o liberaÁ„o do evento "+eventoFluxoDto.getIdItemTrabalho()+" n„o encontrada");
+        	System.out.println("Execu√ß√£o libera√ß√£o do evento "+eventoFluxoDto.getIdItemTrabalho()+" n√£o encontrada");
         	throw new LogicException(i18n_Message("requisicaoLiberacao.evento"));
         }
         TransactionControler tc = new TransactionControlerImpl(execucaoLiberacaoDao.getAliasDB());
@@ -884,7 +884,7 @@ public class ExecucaoLiberacao extends ExecucaoFluxo {
 	}
 	
 	/**
-	 * Notifica proprietario da RequisiÁ„o mudanÁa.
+	 * Notifica proprietario da Requisi√ß√£o mudan√ßa.
 	 * 
 	 * @param idModeloEmail
 	 * @throws Exception

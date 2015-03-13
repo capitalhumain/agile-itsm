@@ -179,7 +179,7 @@ public class EventMonitor extends AjaxFormAction {
 						strTable += "</tr>";
 						strTable += "</table>";
 					}
-					strTable += "Último down: <br><b>" + UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, ultimoDownGrp, WebUtil.getLanguage(request)) + "</b></div>";
+					strTable += "Ãšltimo down: <br><b>" + UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, ultimoDownGrp, WebUtil.getLanguage(request)) + "</b></div>";
 					strTable += "</div>";
 					strTable += "</td>";
 				}

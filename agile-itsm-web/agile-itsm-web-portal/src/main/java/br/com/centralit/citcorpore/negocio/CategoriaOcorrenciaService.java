@@ -7,16 +7,16 @@ import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.CrudService;
 
 /**
- * Classe da camada de negócio da aplicação para provimento de serviços.
- * Por meio de sua herança de CrudService operações CRUD são providas.
- * Nessa classe podem ser definidos serviços complementares.
+ * Classe da camada de negÃ³cio da aplicaÃ§Ã£o para provimento de serviÃ§os.
+ * Por meio de sua heranÃ§a de CrudService operaÃ§Ãµes CRUD sÃ£o providas.
+ * Nessa classe podem ser definidos serviÃ§os complementares.
  * 
  * @author thiago.monteiro
  *
  */
 public interface CategoriaOcorrenciaService extends CrudService {
 	/**
-	 * Exclui a categoria caso não exista uma ocorrência associada.
+	 * Exclui a categoria caso nÃ£o exista uma ocorrÃªncia associada.
 	 * 
 	 * @param model
 	 * @param document
@@ -26,7 +26,7 @@ public interface CategoriaOcorrenciaService extends CrudService {
 	public void deletarCategoriaOcorrencia(BaseEntity model, DocumentHTML document) throws ServiceException, Exception;	
 	
 	/**
-	 * Consulta por categorias de ocorrência que estejam ativas (dataFim não nula).
+	 * Consulta por categorias de ocorrÃªncia que estejam ativas (dataFim nÃ£o nula).
 	 * 
 	 * @param model
 	 * @param document

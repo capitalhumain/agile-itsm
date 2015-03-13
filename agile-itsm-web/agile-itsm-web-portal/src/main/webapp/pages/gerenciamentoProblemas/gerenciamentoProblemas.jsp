@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%@page import="br.com.centralit.citcorpore.util.WebUtil" %>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO" %>
@@ -8,7 +8,7 @@
 <%@page import="br.com.centralit.citcorpore.util.CitCorporeConstantes" %>
 
 <%
-	response.setCharacterEncoding("ISO-8859-1");
+	response.setCharacterEncoding("UTF-8");
 
 	String login = "";
 	UsuarioDTO usuario = WebUtil.getUsuario(request);
@@ -25,7 +25,7 @@
 	<%@include file="/novoLayout/common/include/libCabecalho.jsp" %>
 	<link href="${ctx}/novoLayout/common/theme/css/atualiza-antigo.css" rel="stylesheet" />
 
-	<title>CITSMart</title>
+	<%@include file="/novoLayout/common/include/titulo.jsp" %>
 
 	<link type="text/css" rel="stylesheet" href="${ctx}/css/layout-default-latest.css"/>
 	<link type="text/css" rel="stylesheet" href="${ctx}/css/jquery.ui.all.css"/>
@@ -141,7 +141,7 @@
 											<table cellpadding="0" cellspacing="0">
 												<tr>
 													<td style='vertical-align: middle;'>
-														N° <fmt:message key='itemConfiguracaoTree.problema'/>:
+														NÂ° <fmt:message key='itemConfiguracaoTree.problema'/>:
 													</td>
 													<td style='vertical-align: top;'>
 														<input onkeydown="if ( event.keyCode == 13 || event.which == 13 ) atualizarListaTarefas();" type='text' name="idProblemaSel" id="idProblemaSel" class="Format[Numero]" size="10" style="border:1px solid #B3B3B3;height:24px; width: 77px !important" maxlength="10"/>

@@ -317,7 +317,7 @@ public class MostraStatusInventario extends AjaxFormAction {
 						IPAddress ip2 = null;
 						try{
 							if (ips[1] == null || ips[1].trim().equalsIgnoreCase("")){
-								//O formato CIDR é 10.0.0.1/15 ou 192.168.1.255/24
+								//O formato CIDR Ã© 10.0.0.1/15 ou 192.168.1.255/24
 								Subnet subNet = new Subnet(ips[0].trim());
 								String address1 = subNet.getInfo().getLowAddress();
 								String address2 = subNet.getInfo().getHighAddress();

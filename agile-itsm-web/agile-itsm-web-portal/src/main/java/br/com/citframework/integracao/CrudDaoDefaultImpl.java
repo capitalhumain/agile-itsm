@@ -164,14 +164,14 @@ public abstract class CrudDaoDefaultImpl extends DaoTransactDefaultImpl implemen
     }
 
     /**
-     * ConstrÛi uma p·gina de resultado
+     * Constr√≥i uma p√°gina de resultado
      *
      * @param result
-     *            lista de resultado da p·gina
+     *            lista de resultado da p√°gina
      * @param pageable
-     *            informaÁ„o da paginaÁ„o
+     *            informa√ß√£o da pagina√ß√£o
      * @param totalElements
-     *            total de elementos que atendem ao critÈrio de filtragem
+     *            total de elementos que atendem ao crit√©rio de filtragem
      * @return
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      */

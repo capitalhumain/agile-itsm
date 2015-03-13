@@ -15,7 +15,7 @@ import br.com.citframework.service.CrudService;
 public interface UsuarioService extends CrudService {
 
 	/**
-	 * Restaura Usu·rio por Login.
+	 * Restaura Usu√°rio por Login.
 	 * 
 	 * @param login
 	 * @return
@@ -46,7 +46,7 @@ public interface UsuarioService extends CrudService {
 	void updateNotNull(BaseEntity dto);
 
 	/**
-	 * Sincroniza Usu·rio que logou no sistema.
+	 * Sincroniza Usu√°rio que logou no sistema.
 	 * 
 	 * @param usuarioAd
 	 * @param login
@@ -56,7 +56,7 @@ public interface UsuarioService extends CrudService {
 	public void sincronizaUsuarioAD(ADUserDTO usuarioAd, LoginDTO login, Boolean isImport) throws ServiceException, Exception;
 
 	/**
-	 * Sincroniza Usu·rio pela rotina de Schedule.
+	 * Sincroniza Usu√°rio pela rotina de Schedule.
 	 * 
 	 * @param usuarioAd
 	 * @throws ServiceException
@@ -67,16 +67,16 @@ public interface UsuarioService extends CrudService {
 	public UsuarioDTO restoreByIdEmpregadosDeUsuarios(Integer idEmpregado) throws Exception;
 
 	/**
-	 * Verifica se usu·rio informado È um usu·rio do AD.
+	 * Verifica se usu√°rio informado √© um usu√°rio do AD.
 	 * 
 	 * @param usuarioDto
-	 * @return true - Usu·rio do AD; false - Usu·rio cadastrado pelo sistema.
+	 * @return true - Usu√°rio do AD; false - Usu√°rio cadastrado pelo sistema.
 	 * @throws Exception
 	 */
 	public boolean usuarioIsAD(UsuarioDTO usuarioDto) throws Exception;
 
 	/**
-	 * Gera carga de Usu·rios do AD atravÈs de Arquivo .csv
+	 * Gera carga de Usu√°rios do AD atrav√©s de Arquivo .csv
 	 * 
 	 * @param arquivo
 	 * @throws IOException
@@ -89,7 +89,7 @@ public interface UsuarioService extends CrudService {
 	public Collection<UsuarioDTO> consultarUsuarioPorNomeAutoComplete(String nome) throws Exception;
 	
 	/**
-	 * Retorna a quantidade de usu·rios ativos no sistema
+	 * Retorna a quantidade de usu√°rios ativos no sistema
 	 * 
 	 * @return Long
 	 * @throws Exception

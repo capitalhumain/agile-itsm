@@ -197,7 +197,7 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
 
             this.enviarEmailNotificacaoConhecimento(baseConhecimentoDto, transactionControler, "C");
 
-            // TODO ENVIAR NOTIFICA«√O PARA O RESPONS¡VEL PELO GERENCIAMENTO DE CONHECIMENTO.
+            // TODO ENVIAR NOTIFICA√á√ÉO PARA O RESPONS√ÅVEL PELO GERENCIAMENTO DE CONHECIMENTO.
 
             this.criarImportanciaConhecimentoUsuario(baseConhecimentoDto, transactionControler);
             this.criarImportanciaConhecimentoGrupo(baseConhecimentoDto, transactionControler);
@@ -276,7 +276,7 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
                     }
                     anexoBaseConhecimento.setIdBaseConhecimento(baseConhecimentoDto.getIdBaseConhecimento());
                     anexoBaseConhecimento.setDescricao(uploadDto.getDescricao());
-                    // Obtendo o conte˙do do arquivo armazenado em disco! O Service n„o traz este campo preenchido no list
+                    // Obtendo o conte√∫do do arquivo armazenado em disco! O Service n√£o traz este campo preenchido no list
                     try {
                         final Arquivo arquivo = new Arquivo(controleGEDDTO);
                         anexoBaseConhecimento.setTextoDocumento(arquivo.getConteudo());
@@ -293,11 +293,11 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
             }
 
             // @Author euler.ramos
-            // Poderia tratar a exclus„o quando a base se tona arquivada ou n„o publicada, mas por enquanto prefiro deix·-la indexada!
-            // INDEXA«√O LUCENE
+            // Poderia tratar a exclus√£o quando a base se tona arquivada ou n√£o publicada, mas por enquanto prefiro deix√°-la indexada!
+            // INDEXA√á√ÉO LUCENE
             // Indexando Base de Conhecimento
             final Lucene lucene = new Lucene();
-            // Publicada, N„o arquivada e N„o excluÌda!
+            // Publicada, N√£o arquivada e N√£o exclu√≠da!
             lucene.indexarBaseConhecimento(baseConhecimentoDto, listaAnexoBaseConhecimento);
 
             transactionControler.commit();
@@ -386,7 +386,7 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
 
             final boolean isAprovaBaseConhecimento = this.usuarioAprovaBaseConhecimento(usuarioDto, baseConhecimentoDto.getIdPasta());
 
-            // A BASE IR¡ SER APROVADA
+            // A BASE IR√Å SER APROVADA
             if (novaBaseConhecimento.getStatus() != null && isAprovaBaseConhecimento && novaBaseConhecimento.getStatus().equalsIgnoreCase("S")) {
                 if (novaBaseConhecimento.getVersao() != null && !novaBaseConhecimento.getVersao().equals("")) {
                     final Double novaVersao = Double.parseDouble(novaBaseConhecimento.getVersao()) + 0.1;
@@ -397,7 +397,7 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
                     novaBaseConhecimento.setVersao("1.0");
                 }
 
-                // BASE N√O APROVADA - VAI SER APROVADA
+                // BASE N√ÉO APROVADA - VAI SER APROVADA
                 if (baseConhecimentoDto.getIdBaseConhecimentoPai() != null || status.equalsIgnoreCase("N")) {
                     try {
                         novaBaseConhecimento.setStatus("S");
@@ -448,7 +448,7 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
                             this.getDao().updateNotNull(novaBaseConhecimento);
                         }
 
-                        // TODO ENVIAR NOTIFICA«√O PARA O RESPONS¡VEL PELO GERENCIAMENTO DE CONHECIMENTO.
+                        // TODO ENVIAR NOTIFICA√á√ÉO PARA O RESPONS√ÅVEL PELO GERENCIAMENTO DE CONHECIMENTO.
                         this.enviarEmailNotificacaoConhecimento(baseConhecimentoDto, transactionControler, "U");
 
                         idBaseConhecimento = novaBaseConhecimento.getIdBaseConhecimento();
@@ -518,7 +518,7 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
                                     }
                                     anexoBaseConhecimento.setIdBaseConhecimento(novaBaseConhecimento.getIdBaseConhecimento());
                                     anexoBaseConhecimento.setDescricao(uploadDto.getDescricao());
-                                    // Obtendo o conte˙do do arquivo armazenado em disco! O Service n„o traz este campo preenchido no list
+                                    // Obtendo o conte√∫do do arquivo armazenado em disco! O Service n√£o traz este campo preenchido no list
                                     try {
                                         final Arquivo arquivo = new Arquivo(controleGEDDTO);
                                         anexoBaseConhecimento.setTextoDocumento(arquivo.getConteudo());
@@ -556,7 +556,7 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
                                     anexoBaseConhecimento.setIdBaseConhecimento(novaBaseConhecimento.getIdBaseConhecimento());
                                     anexoBaseConhecimento.setDescricao(uploadDto.getDescricao());
 
-                                    // Obtendo o conte˙do do arquivo armazenado em disco! O Service n„o traz este campo preenchido no list
+                                    // Obtendo o conte√∫do do arquivo armazenado em disco! O Service n√£o traz este campo preenchido no list
                                     try {
                                         final Arquivo arquivo = new Arquivo(controleGEDDTO);
                                         anexoBaseConhecimento.setTextoDocumento(arquivo.getConteudo());
@@ -600,16 +600,16 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
 
                         this.getDao().delete(baseConhecimentoDto);
 
-                        // Excluir Base de Conhecimento Antiga do Ìndice, atendendo solicitaÁ„o: 111236 nessa exclus„o os anexos s„o excluidos juntamente.
+                        // Excluir Base de Conhecimento Antiga do √≠ndice, atendendo solicita√ß√£o: 111236 nessa exclus√£o os anexos s√£o excluidos juntamente.
                         lucene.excluirBaseConhecimento(baseConhecimentoDto, true);
 
-                        // TODO EXCLUIR COMENT¡RIOS
+                        // TODO EXCLUIR COMENT√ÅRIOS
 
-                        // TODO EXCLUIR NOTIFICA«’ES
+                        // TODO EXCLUIR NOTIFICA√á√ïES
 
-                        // TODO EXCLUIR IMPORT¬NCIA CONHECIMENTO
+                        // TODO EXCLUIR IMPORT√ÇNCIA CONHECIMENTO
 
-                        // TODO EXCLUIR COMENT¡RIOS
+                        // TODO EXCLUIR COMENT√ÅRIOS
 
                         // TODO EXCLUIR CONHECIMENTOPROBLEMA
 
@@ -640,7 +640,7 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
                     }
 
                 } else {
-                    // BASE PUBLICADA, ALTERADA VAI SER PUBLICADA NOVAMENTE COM OUTRA VERS√O
+                    // BASE PUBLICADA, ALTERADA VAI SER PUBLICADA NOVAMENTE COM OUTRA VERS√ÉO
                     try {
                         novaBaseConhecimento.setIdUsuarioAprovador(usuarioDto.getIdUsuario());
                         novaBaseConhecimento.setDataPublicacao(UtilDatas.getDataAtual());
@@ -681,7 +681,7 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
 
                         lucene.excluirBaseConhecimento(baseConhecimentoDto, true);
 
-                        // TODO ENVIAR NOTIFICA«√O PARA O RESPONS¡VEL PELO GERENCIAMENTO DE CONHECIMENTO.
+                        // TODO ENVIAR NOTIFICA√á√ÉO PARA O RESPONS√ÅVEL PELO GERENCIAMENTO DE CONHECIMENTO.
                         this.enviarEmailNotificacaoConhecimento(baseConhecimentoDto, transactionControler, "U");
 
                         idBaseConhecimento = novaBaseConhecimento.getIdBaseConhecimento();
@@ -745,8 +745,8 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
                                     }
                                     anexoBaseConhecimento.setIdBaseConhecimento(novaBaseConhecimento.getIdBaseConhecimento());
                                     anexoBaseConhecimento.setDescricao(uploadDto.getDescricao());
-                                    // Obtendo o conte˙do do arquivo armazenado em disco! O Service n„o traz este campo preenchido no list
-                                    // Obtendo o conte˙do do arquivo armazenado em disco! O Service n„o traz este campo preenchido no list
+                                    // Obtendo o conte√∫do do arquivo armazenado em disco! O Service n√£o traz este campo preenchido no list
+                                    // Obtendo o conte√∫do do arquivo armazenado em disco! O Service n√£o traz este campo preenchido no list
                                     try {
                                         final Arquivo arquivo = new Arquivo(controleGEDDTO);
                                         anexoBaseConhecimento.setTextoDocumento(arquivo.getConteudo());
@@ -781,7 +781,7 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
                                     anexoBaseConhecimento.setExtensao(controleGEDDTO.getExtensaoArquivo());
                                     anexoBaseConhecimento.setIdBaseConhecimento(novaBaseConhecimento.getIdBaseConhecimento());
                                     anexoBaseConhecimento.setDescricao(uploadDto.getDescricao());
-                                    // Obtendo o conte˙do do arquivo armazenado em disco! O Service n„o traz este campo preenchido no list
+                                    // Obtendo o conte√∫do do arquivo armazenado em disco! O Service n√£o traz este campo preenchido no list
                                     try {
                                         final Arquivo arquivo = new Arquivo(controleGEDDTO);
                                         anexoBaseConhecimento.setTextoDocumento(arquivo.getConteudo());
@@ -796,7 +796,7 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
                             }
                         }
 
-                        // Publicada, N„o arquivada e N„o excluÌda!
+                        // Publicada, N√£o arquivada e N√£o exclu√≠da!
                         lucene.indexarBaseConhecimento(novaBaseConhecimento, listaAnexoBaseConhecimento);
 
                         transactionControler.commit();
@@ -806,9 +806,9 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
                     }
                 }
 
-                // A BASE N√O SER¡ PUBLICADA
+                // A BASE N√ÉO SER√Å PUBLICADA
             } else {
-                // BASE N√O APROVADA E QUE CONTINUAR¡ N√O APROVADA
+                // BASE N√ÉO APROVADA E QUE CONTINUAR√Å N√ÉO APROVADA
                 if (status.equalsIgnoreCase("N")) {
                     try {
                         notificacaoDto = this.criarNotificacao(novaBaseConhecimento, transactionControler);
@@ -837,7 +837,7 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
                             this.getDao().updateNotNull(novaBaseConhecimento);
                         }
 
-                        // TODO ENVIAR NOTIFICA«√O PARA O RESPONS¡VEL PELO GERENCIAMENTO DE CONHECIMENTO.
+                        // TODO ENVIAR NOTIFICA√á√ÉO PARA O RESPONS√ÅVEL PELO GERENCIAMENTO DE CONHECIMENTO.
                         this.enviarEmailNotificacaoConhecimento(baseConhecimentoDto, transactionControler, "U");
 
                         // TODO CRIAR RELACIONAMENTO ENTRE UMA BASE DE CONHECIMENTO COM UM PROBLEMA.
@@ -893,7 +893,7 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
                                     }
                                     anexoBaseConhecimento.setIdBaseConhecimento(novaBaseConhecimento.getIdBaseConhecimento());
                                     anexoBaseConhecimento.setDescricao(uploadDto.getDescricao());
-                                    // Obtendo o conte˙do do arquivo armazenado em disco! O Service n„o traz este campo preenchido no list
+                                    // Obtendo o conte√∫do do arquivo armazenado em disco! O Service n√£o traz este campo preenchido no list
                                     try {
                                         final Arquivo arquivo = new Arquivo(controleGEDDTO);
                                         anexoBaseConhecimento.setTextoDocumento(arquivo.getConteudo());
@@ -926,7 +926,7 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
                                     anexoBaseConhecimento.setExtensao(controleGEDDTO.getExtensaoArquivo());
                                     anexoBaseConhecimento.setIdBaseConhecimento(novaBaseConhecimento.getIdBaseConhecimento());
                                     anexoBaseConhecimento.setDescricao(uploadDto.getDescricao());
-                                    // Obtendo o conte˙do do arquivo armazenado em disco! O Service n„o traz este campo preenchido no list
+                                    // Obtendo o conte√∫do do arquivo armazenado em disco! O Service n√£o traz este campo preenchido no list
                                     try {
                                         final Arquivo arquivo = new Arquivo(controleGEDDTO);
                                         anexoBaseConhecimento.setTextoDocumento(arquivo.getConteudo());
@@ -999,7 +999,7 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
                         throw e;
                     }
                 } else {
-                    // BASE APROVADA, ALTERADA N√O SER¡ PUBLICADA
+                    // BASE APROVADA, ALTERADA N√ÉO SER√Å PUBLICADA
                     novaBaseConhecimento.setStatus("N");
 
                     novaBaseConhecimento.setIdBaseConhecimento(null);
@@ -1228,7 +1228,7 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
     }
 
     /**
-     * Exclui diretÛrio e arquivos.
+     * Exclui diret√≥rio e arquivos.
      *
      * @param dir
      * @author valdoilo.damasceno
@@ -1277,7 +1277,7 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
     }
 
     /**
-     * Seta dataFim ‡ Base de Conhecimento.
+     * Seta dataFim √† Base de Conhecimento.
      *
      * @param base
      * @throws Exception
@@ -1291,7 +1291,7 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
     }
 
     /**
-     * Seta dataFim ‡ Comentarios.
+     * Seta dataFim √† Comentarios.
      *
      * @param base
      * @throws Exception
@@ -1397,11 +1397,11 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
     }
 
     /**
-     * Verifica se usu·rio aprova Base Conhecimento na pasta selecionada.
+     * Verifica se usu√°rio aprova Base Conhecimento na pasta selecionada.
      *
      * @param usuarioDto
      * @param idPasta
-     * @return true = aprova; false = n„o aprova.
+     * @return true = aprova; false = n√£o aprova.
      * @throws ServiceException
      * @throws Exception
      */
@@ -1416,7 +1416,7 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
     }
 
     /**
-     * Cria coment·rios da Base de Conhecimento.
+     * Cria coment√°rios da Base de Conhecimento.
      *
      * @param baseConhecimentoDto
      * @param transactionControler
@@ -1884,7 +1884,7 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
             listaBaseConhecimento = this.getDao().listaBaseConhecimentoTotal(baseConhecimentoDTO);
             if (listaBaseConhecimento != null) {
                 for (final BaseConhecimentoDTO baseConhecimentoDTO2 : listaBaseConhecimento) {
-                    // Conta publicados e criados (n„o publicados) no perÌodo
+                    // Conta publicados e criados (n√£o publicados) no per√≠odo
                     if (baseConhecimentoDTO2.getStatus().trim().equalsIgnoreCase("S")) {
                         final boolean resp = UtilDatas.dataEntreIntervalo(baseConhecimentoDTO2.getDataPublicacao(), baseConhecimentoDTO.getDataInicio(),
                                 baseConhecimentoDTO.getDataFim());
@@ -1899,7 +1899,7 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
                         }
                     }
 
-                    // Conta excluÌdos
+                    // Conta exclu√≠dos
                     if (baseConhecimentoDTO2.getDataFim() != null) {
                         final boolean resp = UtilDatas.dataEntreIntervalo(baseConhecimentoDTO2.getDataFim(), baseConhecimentoDTO.getDataInicio(), baseConhecimentoDTO.getDataFim());
                         if (resp) {
@@ -1934,7 +1934,7 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
                         }
                     }
 
-                    // Conta Bases de Conhecimento que s„o qualificadas como Documento
+                    // Conta Bases de Conhecimento que s√£o qualificadas como Documento
                     if ((baseConhecimentoDTO2.getFaq() == null || !baseConhecimentoDTO2.getFaq().trim().equalsIgnoreCase("S"))
                             && (baseConhecimentoDTO2.getErroConhecido() == null || !baseConhecimentoDTO2.getErroConhecido().trim().equalsIgnoreCase("S"))) {
                         final boolean resp = UtilDatas.dataEntreIntervalo(baseConhecimentoDTO2.getDataInicio(), baseConhecimentoDTO.getDataInicio(),
@@ -1947,21 +1947,21 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
                 }
             }
 
-            // Conta acessados no perÌodo
+            // Conta acessados no per√≠odo
             final ContadorAcessoService contadorAcessoService = (ContadorAcessoService) ServiceLocator.getInstance().getService(ContadorAcessoService.class, null);
             final Integer contadorAcesso = contadorAcessoService.quantidadesDeAcessoPorPeriodo(baseConhecimentoDTO);
             if (contadorAcesso != null) {
                 qtdAcessados = contadorAcesso;
             }
 
-            // Conta avaliados no perÌodo
+            // Conta avaliados no per√≠odo
             final ComentariosService comentariosService = (ComentariosService) ServiceLocator.getInstance().getService(ComentariosService.class, null);
             final Integer contadorComentarios = comentariosService.consultarComentariosPorPeriodo(baseConhecimentoDTO);
             if (contadorComentarios != null) {
                 qtdAvaliados++;
             }
 
-            // Conta atualizados no perÌodo
+            // Conta atualizados no per√≠odo
             final HistoricoBaseConhecimentoService historicoBaseConhecimentoService = (HistoricoBaseConhecimentoService) ServiceLocator.getInstance().getService(
                     HistoricoBaseConhecimentoService.class, null);
             final Collection<HistoricoBaseConhecimentoDTO> listHistoricoAlteracao = historicoBaseConhecimentoService.list();
@@ -2124,7 +2124,7 @@ public class BaseConhecimentoServiceEjb extends CrudServiceImpl implements BaseC
         List<BaseConhecimentoDTO> listaBaseConhecimento = null;
         String id = mapFields.get("IDBASECONHECIMENTO").toString().trim();
         if (id == null || id.equals("")) {
-            // Campo SCRIPT de OrientaÁ„o (Base de Conhecimento) n„o È obrigatorio, por isso passei um valor qualquer para n„o validar mais.
+            // Campo SCRIPT de Orienta√ß√£o (Base de Conhecimento) n√£o √© obrigatorio, por isso passei um valor qualquer para n√£o validar mais.
             id = "campoVazio";
             return id;
         }

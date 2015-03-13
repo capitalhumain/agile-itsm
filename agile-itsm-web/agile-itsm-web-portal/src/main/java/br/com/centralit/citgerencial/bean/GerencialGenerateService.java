@@ -16,7 +16,7 @@ import br.com.citframework.util.UtilI18N;
 public abstract class GerencialGenerateService {
 
     /**
-     * O retorno deste metodo deve ser uma Lista onde cada linha da lista È uma array de Objetos. Exemplo: Object[] row
+     * O retorno deste metodo deve ser uma Lista onde cada linha da lista √© uma array de Objetos. Exemplo: Object[] row
      *
      * @param parametersValues
      * @param paramtersDefinition
@@ -26,7 +26,7 @@ public abstract class GerencialGenerateService {
     public abstract List execute(final HashMap parametersValues, final Collection paramtersDefinition) throws ParseException;
 
     /**
-     * Retorna a linguagem que foi passada no request que est· em paramtersDefinition;
+     * Retorna a linguagem que foi passada no request que est√° em paramtersDefinition;
      *
      * @param paramtersDefinition
      * @return String - Language

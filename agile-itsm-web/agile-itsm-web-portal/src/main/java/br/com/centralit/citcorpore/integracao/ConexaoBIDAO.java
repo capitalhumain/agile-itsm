@@ -59,7 +59,7 @@ public class ConexaoBIDAO extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Respons·vel por listar todas as conexıes existentes ativas e inativas na tela Painel de Controle.
+     * Respons√°vel por listar todas as conex√µes existentes ativas e inativas na tela Painel de Controle.
      *
      * @author thiago.barbosa
      */
@@ -76,12 +76,12 @@ public class ConexaoBIDAO extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Retorna o Total de P·ginas (Quantidade Total de Conexıes dividido pela QTDE de Itens por P·gina).
+     * Retorna o Total de P√°ginas (Quantidade Total de Conex√µes dividido pela QTDE de Itens por P√°gina).
      *
      * @param itensPorPagina
      * @param listConexao
      * @param gerenciamentoServicosDTO
-     * @return Integer - N˙mero Total de P·ginas
+     * @return Integer - N√∫mero Total de P√°ginas
      * @throws Exception
      * @author valdoilo.damasceno
      * @since 05.11.2013
@@ -91,7 +91,7 @@ public class ConexaoBIDAO extends CrudDaoDefaultImpl {
         StringBuilder sql = new StringBuilder();
         List parametros = new ArrayList();
         /**
-         * condiÁ„o para verificar o total real de paginas quando for por meio do filtro, sem esta condiÁ„o sempre estava trazendo o total geral de dados da tabela
+         * condi√ß√£o para verificar o total real de paginas quando for por meio do filtro, sem esta condi√ß√£o sempre estava trazendo o total geral de dados da tabela
          */
         if (conexaoBIDTO != null && conexaoBIDTO.getStatusFiltro() != null && !conexaoBIDTO.getStatusFiltro().equalsIgnoreCase("T")) {
             sql.append(" SELECT COUNT(*) ");
@@ -132,7 +132,7 @@ public class ConexaoBIDAO extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Encontra a Conex„oBI relacionada ao Processamento Batch executado
+     * Encontra a Conex√£oBI relacionada ao Processamento Batch executado
      * @param idProcessamentoEspecifico
      * @return
      * @throws Exception
@@ -153,7 +153,7 @@ public class ConexaoBIDAO extends CrudDaoDefaultImpl {
             campos = campos + field.getFieldDB();
             listRetorno.add(field.getFieldClass());
         }
-        //and status <> 'I' : … necess·rio saber se h· conex„o vinculada a este processamento, mesmo estando inativa!
+        //and status <> 'I' : √â necess√°rio saber se h√° conex√£o vinculada a este processamento, mesmo estando inativa!
         String sql = "SELECT " + campos + " FROM " + getTableName() + " WHERE ((idprocessamentobatchespecifico = ?) or (idprocessamentobatchexcecao = ?))";
         parametro.add(idProcessamentoBatch);
         parametro.add(idProcessamentoBatch);
@@ -164,7 +164,7 @@ public class ConexaoBIDAO extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Verifica se o registro informado j· consta gravado no BD.
+     * Verifica se o registro informado j√° consta gravado no BD.
      *
      * @param conexaoBIDTO
      * @return boolean
@@ -187,7 +187,7 @@ public class ConexaoBIDAO extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Verifica se o registro informado j· consta gravado no BD.
+     * Verifica se o registro informado j√° consta gravado no BD.
      *
      * @param conexaoBIDTO
      * @return boolean
@@ -215,7 +215,7 @@ public class ConexaoBIDAO extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Metodo para tratar paginaÁ„o
+     * Metodo para tratar pagina√ß√£o
      * @author thiago.barbosa
      * @param conexaoBI
      * @param pgAtual
@@ -266,7 +266,7 @@ public class ConexaoBIDAO extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Metodo para tratar paginaÁ„o
+     * Metodo para tratar pagina√ß√£o
      * @author thiago.barbosa
      * @param conexaoBI
      * @param pgAtual
@@ -384,13 +384,13 @@ public class ConexaoBIDAO extends CrudDaoDefaultImpl {
      * @throws ServiceException
      * @throws Exception
      * @author euler.ramos
-     * Retorna as Conexıes Ativas, Autom·ticas e que n„o possuem agendamento ativo nem especÌfico e nem de exceÁ„o
+     * Retorna as Conex√µes Ativas, Autom√°ticas e que n√£o possuem agendamento ativo nem espec√≠fico e nem de exce√ß√£o
      */
     public ArrayList<ConexaoBIDTO> listarConexoesAutomaticasSemAgendEspOuExcecao() throws ServiceException {
         ArrayList<ConexaoBIDTO> result = new ArrayList<ConexaoBIDTO>();
         ArrayList<ConexaoBIDTO> todasConexoes = (ArrayList<ConexaoBIDTO>) this.listarConexoesAtivas();
         for (ConexaoBIDTO conexaoBIDTO : todasConexoes) {
-            //Filtrando somente as Autom·ticas
+            //Filtrando somente as Autom√°ticas
             if ((conexaoBIDTO.getTipoImportacao()!=null)&&(conexaoBIDTO.getTipoImportacao().equalsIgnoreCase("A"))){
                 if (!this.temAgendamentoAtivo(conexaoBIDTO)) {
                     result.add(conexaoBIDTO);

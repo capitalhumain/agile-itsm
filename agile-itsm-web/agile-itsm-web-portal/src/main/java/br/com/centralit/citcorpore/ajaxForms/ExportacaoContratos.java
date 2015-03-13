@@ -83,7 +83,7 @@ public class ExportacaoContratos extends AjaxFormAction {
                 exportacaoContratosDto.getExportarCatalogoServico()));
 
         if (!xmlString.equals("")) {
-            buffer = xmlString.getBytes("ISO-8859-1");
+            buffer = xmlString.getBytes("UTF-8");
         } else {
             buffer = "<xml></xml>".getBytes();
         }

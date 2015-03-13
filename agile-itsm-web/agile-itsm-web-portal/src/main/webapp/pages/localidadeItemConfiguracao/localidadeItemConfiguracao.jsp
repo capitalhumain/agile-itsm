@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.GrupoDTO"%>
 <!doctype html public "">
@@ -8,8 +10,7 @@
 	iframe = request.getParameter("iframe");
 %>
 <%@include file="/include/header.jsp"%>
-<%@include file="/include/security/security.jsp"%>
-<title><fmt:message key="citcorpore.comum.title" /></title>
+<%@include file="/novoLayout/common/include/titulo.jsp" %>
 <%@include file="/include/menu/menuConfig.jsp"%>
 <%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 <script type="text/javascript" src="${ctx}/js/PopupManager.js"></script>
@@ -78,7 +79,7 @@
 
 </script>
 
-<%//se for chamado por iframe deixa apenas a parte de cadastro da página
+<%//se for chamado por iframe deixa apenas a parte de cadastro da pÃ¡gina
 			if (iframe != null) {%>
 <style>
 div#main_container {
@@ -181,7 +182,7 @@ div#main_container {
 											<label><fmt:message key="localidade.endereco" />
 											</label>
 											<div>
-												<input type='text' name="endereco" maxlength="80" class="Valid[Required] Description[Endereço]" />
+												<input type='text' name="endereco" maxlength="80" class="Valid[Required] Description[EndereÃ§o]" />
 											</div>
 										</fieldset>
 									</div>
@@ -240,7 +241,7 @@ div#main_container {
 										<label> <fmt:message key="localidade.organizacao.divisao" />
 										</label>
 										<div>
-											<input type='text' name="divisao" maxlength="80" class="Valid[Required] Description[Divisão]" />
+											<input type='text' name="divisao" maxlength="80" class="Valid[Required] Description[DivisÃ£o]" />
 										</div>
 									</fieldset>
 								</div>
@@ -249,7 +250,7 @@ div#main_container {
 										<label><fmt:message key="localidade.organizacao.subDivisao" />
 										</label>
 										<div>
-											<input type='text' name="subdivisao" maxlength="80" class="Valid[Required] Description[Subdivisão]" />
+											<input type='text' name="subdivisao" maxlength="80" class="Valid[Required] Description[SubdivisÃ£o]" />
 										</div>
 									</fieldset>
 								</div>
@@ -258,7 +259,7 @@ div#main_container {
 											<label><fmt:message key="localidade.organizacao.secao" />
 											</label>
 											<div>
-												<input type='text' name="secao" maxlength="80" class="Valid[Required] Description[Secão]" />
+												<input type='text' name="secao" maxlength="80" class="Valid[Required] Description[SecÃ£o]" />
 											</div>
 										</fieldset>
 								</div>

@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.citframework.dto.Usuario"%>
@@ -10,12 +12,11 @@
 	String idServicoContrato = request.getParameter("idServicoContrato").toString();
 	
 %>
-<%@include file="/include/security/security.jsp"%>
 <%@include file="/include/header.jsp"%>
-<title><fmt:message key="citcorpore.comum.title"/></title>
+<%@include file="/novoLayout/common/include/titulo.jsp" %>
 <%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 
-<%//se for chamado por iframe deixa apenas a parte de cadastro da página
+<%//se for chamado por iframe deixa apenas a parte de cadastro da pÃ¡gina
 	if (iframe != null) {%>
 	<link type="text/css" rel="stylesheet" href="css/valorServicoContrato.css"/>
 <%}%>
@@ -52,7 +53,7 @@
 										<fieldset>
 											<label class="campoObrigatorio"><fmt:message key="contrato.valorServico" /></label>
 											<div>
-												<input type="text" class="Valid[Required] Format[Money] Description[Valor do Serviço]" size="9" maxlength="9" id="valorServico" name="valorServico">
+												<input type="text" class="Valid[Required] Format[Money] Description[Valor do ServiÃ§o]" size="9" maxlength="9" id="valorServico" name="valorServico">
 											</div>
 										</fieldset>
 									</div>
@@ -60,7 +61,7 @@
 										<fieldset>
 											<label class="campoObrigatorio"><fmt:message key="contrato.dataInicioServicoContrato" /></label>
 											<div>
-												<input type="text" class="Valid[Date,Required] Description[Data Início] Format[Date] datepicker" size="10"
+												<input type="text" class="Valid[Date,Required] Description[Data InÃ­cio] Format[Date] datepicker" size="10"
 												maxlength="10" id="dataInicio" name="dataInicio">
 											</div>
 										</fieldset>

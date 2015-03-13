@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.citframework.dto.Usuario"%>
@@ -13,7 +15,7 @@
 	<script type="text/javascript" src="../../cit/objects/InfoCatalogoServicoDTO.js"></script>
 
 
-	<title><fmt:message key="citcorpore.comum.title" /></title>
+	<%@include file="/novoLayout/common/include/titulo.jsp" %>
 
 	<link rel="stylesheet" type="text/css" href="./css/catalogoServico.css" />
 
@@ -83,7 +85,7 @@
 											</label>
 											<div>
 												<input type='text' id="nomeCatalogoServico" name="nomeCatalogoServico" maxlength="100" />
-												<button id="buttonAddLimpar" type="button" title="Limpa os dados de informações de serviço" class="light" onclick="limpaDadosTableInfo()" style="float: right !important;">
+												<button id="buttonAddLimpar" type="button" title="Limpa os dados de informaÃ§Ãµes de serviÃ§o" class="light" onclick="limpaDadosTableInfo()" style="float: right !important;">
 													<img src="${ctx}/template_new/images/icons/small/grey/clear.png">
 													<span>
 														<fmt:message key="citcorpore.comum.limpar" />

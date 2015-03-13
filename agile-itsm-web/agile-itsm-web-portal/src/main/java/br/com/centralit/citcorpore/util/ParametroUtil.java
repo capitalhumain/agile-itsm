@@ -17,12 +17,12 @@ public class ParametroUtil {
     private static final Map<Integer, String> parametroCitSmart = new HashMap<>();
 
     /**
-     * Atualiza HashMap st·tico que armazena os par‚metros do CITSMart.
+     * Atualiza HashMap st√°tico que armazena os par√¢metros do CITSMart.
      *
      * @param parametroSistema
-     *            - Par‚metro do sistema.
+     *            - Par√¢metro do sistema.
      * @param valor
-     *            - Valor do par‚metro.
+     *            - Valor do par√¢metro.
      * @author valdoilo.damasceno
      */
     public static void atualizarHashMapParametroCitSmart(final Integer id, final String valor) {
@@ -32,7 +32,7 @@ public class ParametroUtil {
     }
 
     /**
-     * Realiza consulta do valor do Par‚metro no BD.
+     * Realiza consulta do valor do Par√¢metro no BD.
      *
      * @param parametro
      * @param valorDefault
@@ -54,12 +54,12 @@ public class ParametroUtil {
     }
 
     /**
-     * Retorna valor do Par‚metro que est· armazenado no HashMap st·tico. Caso n„o haja valor armazenado retorna valor default informado.
+     * Retorna valor do Par√¢metro que est√° armazenado no HashMap st√°tico. Caso n√£o haja valor armazenado retorna valor default informado.
      *
      * @param parametro
      *            - ParametroSistema informado.
      * @param valorDefault
-     *            - Valor padr„o que dever· ser assumido caso n„o haja nenhuma armazenado.
+     *            - Valor padr√£o que dever√° ser assumido caso n√£o haja nenhuma armazenado.
      * @return ValorParametroCitSmart
      * @author valdoilo.damasceno
      */
@@ -73,12 +73,12 @@ public class ParametroUtil {
     }
 
     /**
-     * Retorna valor numÈrico do par‚metro que est· armazenado no Map de cache. Caso n„o haja valor armazenado retorna valor default informado.
+     * Retorna valor num√©rico do par√¢metro que est√° armazenado no Map de cache. Caso n√£o haja valor armazenado retorna valor default informado.
      *
      * @param param
-     *            par‚metro a ser recuperado
+     *            par√¢metro a ser recuperado
      * @param defaultValue
-     *            valor padr„o, caso n„o exista valor para o par‚metro
+     *            valor padr√£o, caso n√£o exista valor para o par√¢metro
      * @return
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      * @since 28/10/2014

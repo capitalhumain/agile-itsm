@@ -123,7 +123,7 @@ public class Certificacao extends AjaxFormAction {
 	  		if(idFuncao != null && !idFuncao.equalsIgnoreCase("")){
 	  			colCertificacao = certificacoesService.findByNotIdFuncao(new Integer(idFuncao));
 	  		}else{
-	  			document.alert("Selecione uma função!");
+	  			document.alert("Selecione uma funÃ§Ã£o!");
 	  		}
     	  
           if (colCertificacao != null) {

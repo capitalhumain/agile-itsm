@@ -98,7 +98,7 @@ public class MonitoraDiscoveryIP extends Thread {
 	public void run() {
 
 		if (!CITCorporeUtil.START_MODE_DISCOVERY) {
-			System.out.println("CITSMART --> Processo de Discovery Desativado... Ver arquivo de ConfiguraÁ„o...");
+			System.out.println("CITSMART --> Processo de Discovery Desativado... Ver arquivo de Configura√ß√£o...");
 			return;
 		}
 		String faixas = "";
@@ -140,7 +140,7 @@ public class MonitoraDiscoveryIP extends Thread {
 						IPAddress ip2 = null;
 						try {
 							if (ips[1] == null || ips[1].trim().equalsIgnoreCase("")) {
-								// O formato CIDR È 10.0.0.1/15 ou 192.168.1.255/24
+								// O formato CIDR √© 10.0.0.1/15 ou 192.168.1.255/24
 								Subnet subNet = new Subnet(ips[0].trim());
 								String address1 = subNet.getInfo().getLowAddress();
 								String address2 = subNet.getInfo().getHighAddress();

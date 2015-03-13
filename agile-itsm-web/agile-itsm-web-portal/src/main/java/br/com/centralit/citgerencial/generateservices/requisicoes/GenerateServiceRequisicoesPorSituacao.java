@@ -79,7 +79,7 @@ public class GenerateServiceRequisicoesPorSituacao extends GerencialGenerateServ
 			listaRetorno = new ArrayList();
 		}
 
-		// resetando par‚metro
+		// resetando par√¢metro
 		setNovoParametro(null);
 
 		return listaRetorno;

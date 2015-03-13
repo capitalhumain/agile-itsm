@@ -96,7 +96,7 @@ public class ItemConfiguracaoTree extends ItemConfiguracao {
 		}
 		
 		/**
-		 * Combo de tipo respons·vel
+		 * Combo de tipo respons√°vel
 		 * 
 		 * @author thyen.chang
 		 */
@@ -188,7 +188,7 @@ public class ItemConfiguracaoTree extends ItemConfiguracao {
 					grupoPai = (GrupoItemConfiguracaoDTO) grupoItemConfiguracaoService.restore(grupoPai);
 				}
 				
-				/* CabeÁalho */
+				/* Cabe√ßalho */
 				subDiv.append("<div id='cabecalhoInf'>");
 				subDiv.append("<h2>"+UtilI18N.internacionaliza(request, "solicitacaoServico.itemConfiguracao")+"</h2>");			
 				subDiv.append("<b>"+UtilI18N.internacionaliza(request, "citcorpore.comum.identificacao")+": </b>" + itemPai.getIdentificacao() + "");			
@@ -224,7 +224,7 @@ public class ItemConfiguracaoTree extends ItemConfiguracao {
 			MidiaSoftwareService midiaSoftwareService = (MidiaSoftwareService) ServiceLocator.getInstance().getService(MidiaSoftwareService.class, null);
 			RequisicaoLiberacaoService liberacaoService = (RequisicaoLiberacaoService) ServiceLocator.getInstance().getService(RequisicaoLiberacaoService.class, null);
 			Collection<ValorDTO> valores;
-			/*Setando o form do item de configuraÁ„o pai*/		
+			/*Setando o form do item de configura√ß√£o pai*/		
 			HTMLForm form = document.getForm("form");
 			form.clear();
 			
@@ -630,17 +630,17 @@ public class ItemConfiguracaoTree extends ItemConfiguracao {
 				"		<td>" + (problemaDTO.getImpacto() == null ? "" : 
 						((problemaDTO.getImpacto().equalsIgnoreCase("B")||problemaDTO.getImpacto().equalsIgnoreCase("Baixa"))?UtilI18N.internacionaliza(request, "citcorpore.comum.baixa"):
 						((problemaDTO.getImpacto().equalsIgnoreCase("A")||problemaDTO.getImpacto().equalsIgnoreCase("Alta"))?UtilI18N.internacionaliza(request, "citcorpore.comum.alta"):
-						((problemaDTO.getImpacto().equalsIgnoreCase("M")||problemaDTO.getImpacto().equalsIgnoreCase("MÈdia"))?UtilI18N.internacionaliza(request, "citcorpore.comum.baixa"):
+						((problemaDTO.getImpacto().equalsIgnoreCase("M")||problemaDTO.getImpacto().equalsIgnoreCase("M√©dia"))?UtilI18N.internacionaliza(request, "citcorpore.comum.baixa"):
 						problemaDTO.getImpacto())))) + "</td>" +
 				"		<td>" + (problemaDTO.getUrgencia() == null ? "" : 
 						((problemaDTO.getUrgencia().equalsIgnoreCase("B")||problemaDTO.getUrgencia().equalsIgnoreCase("Baixa"))?UtilI18N.internacionaliza(request, "citcorpore.comum.baixa"):
 						((problemaDTO.getUrgencia().equalsIgnoreCase("A")||problemaDTO.getUrgencia().equalsIgnoreCase("Alta"))?UtilI18N.internacionaliza(request, "citcorpore.comum.alta"):
-						((problemaDTO.getUrgencia().equalsIgnoreCase("M")||problemaDTO.getUrgencia().equalsIgnoreCase("MÈdia"))?UtilI18N.internacionaliza(request, "citcorpore.comum.baixa"):
+						((problemaDTO.getUrgencia().equalsIgnoreCase("M")||problemaDTO.getUrgencia().equalsIgnoreCase("M√©dia"))?UtilI18N.internacionaliza(request, "citcorpore.comum.baixa"):
 						problemaDTO.getUrgencia())))) + "</td>" +
 				"		<td>" + (problemaDTO.getSeveridade() == null ? "" : 
 						((problemaDTO.getSeveridade().equalsIgnoreCase("B")||problemaDTO.getSeveridade().equalsIgnoreCase("Baixa"))?UtilI18N.internacionaliza(request, "citcorpore.comum.baixa"):
 						((problemaDTO.getSeveridade().equalsIgnoreCase("A")||problemaDTO.getSeveridade().equalsIgnoreCase("Alta"))?UtilI18N.internacionaliza(request, "citcorpore.comum.alta"):
-						((problemaDTO.getSeveridade().equalsIgnoreCase("M")||problemaDTO.getSeveridade().equalsIgnoreCase("MÈdia"))?UtilI18N.internacionaliza(request, "citcorpore.comum.baixa"):
+						((problemaDTO.getSeveridade().equalsIgnoreCase("M")||problemaDTO.getSeveridade().equalsIgnoreCase("M√©dia"))?UtilI18N.internacionaliza(request, "citcorpore.comum.baixa"):
 						problemaDTO.getSeveridade())))) + "</td>" +
 				"		<td>" + (problemaDTO.getDescricao() == null ? "" : problemaDTO.getDescricao()) + "</td>" +
 				"		<td> <img src='../../imagens/viewCadastro.png' border='0' onclick='CarregarProblema(" + problemaDTO.getIdProblema() + ")' style='cursor:pointer'/></td>" +
@@ -745,7 +745,7 @@ public class ItemConfiguracaoTree extends ItemConfiguracao {
 				"		<td>" + (requisicaoMudancaDTO.getNivelImpacto() == null ? "" : 
 						((requisicaoMudancaDTO.getNivelImpacto().equalsIgnoreCase("B")||requisicaoMudancaDTO.getNivelImpacto().equalsIgnoreCase("Baixa"))?UtilI18N.internacionaliza(request, "citcorpore.comum.baixa"):
 						((requisicaoMudancaDTO.getNivelImpacto().equalsIgnoreCase("A")||requisicaoMudancaDTO.getNivelImpacto().equalsIgnoreCase("Alta"))?UtilI18N.internacionaliza(request, "citcorpore.comum.alta"):
-						((requisicaoMudancaDTO.getNivelImpacto().equalsIgnoreCase("M")||requisicaoMudancaDTO.getNivelImpacto().equalsIgnoreCase("MÈdia"))?UtilI18N.internacionaliza(request, "citcorpore.comum.baixa"):
+						((requisicaoMudancaDTO.getNivelImpacto().equalsIgnoreCase("M")||requisicaoMudancaDTO.getNivelImpacto().equalsIgnoreCase("M√©dia"))?UtilI18N.internacionaliza(request, "citcorpore.comum.baixa"):
 						requisicaoMudancaDTO.getNivelImpacto())))) + "</td>" +
 				"		<td>" + (requisicaoMudancaDTO.getNivelImportanciaNegocio() == null ? "" : requisicaoMudancaDTO.getNivelImportanciaNegocio()) + "</td>" +
 				"		<td>" + (requisicaoMudancaDTO.getStatus().equalsIgnoreCase("Registrada") ? UtilI18N.internacionaliza(request,"citcorpore.comum.registrada") : 
@@ -818,12 +818,12 @@ public class ItemConfiguracaoTree extends ItemConfiguracao {
 								"		<td>" + (req.getNivelImpacto() == null ? "" : 
 										((req.getNivelImpacto().equalsIgnoreCase("B")||req.getNivelImpacto().equalsIgnoreCase("Baixa"))?UtilI18N.internacionaliza(request, "citcorpore.comum.baixa"):
 										((req.getNivelImpacto().equalsIgnoreCase("A")||req.getNivelImpacto().equalsIgnoreCase("Alta"))?UtilI18N.internacionaliza(request, "citcorpore.comum.alta"):
-										((req.getNivelImpacto().equalsIgnoreCase("M")||req.getNivelImpacto().equalsIgnoreCase("MÈdia"))?UtilI18N.internacionaliza(request, "citcorpore.comum.baixa"):
+										((req.getNivelImpacto().equalsIgnoreCase("M")||req.getNivelImpacto().equalsIgnoreCase("M√©dia"))?UtilI18N.internacionaliza(request, "citcorpore.comum.baixa"):
 										req.getNivelImpacto())))) + "</td>" +
 								"		<td>" + (req.getNivelUrgencia() == null ? "" : 
 										((req.getNivelUrgencia().equalsIgnoreCase("B")||req.getNivelUrgencia().equalsIgnoreCase("Baixa"))?UtilI18N.internacionaliza(request, "citcorpore.comum.baixa"):
 										((req.getNivelUrgencia().equalsIgnoreCase("A")||req.getNivelUrgencia().equalsIgnoreCase("Alta"))?UtilI18N.internacionaliza(request, "citcorpore.comum.alta"):
-										((req.getNivelUrgencia().equalsIgnoreCase("M")||req.getNivelUrgencia().equalsIgnoreCase("MÈdia"))?UtilI18N.internacionaliza(request, "citcorpore.comum.baixa"):
+										((req.getNivelUrgencia().equalsIgnoreCase("M")||req.getNivelUrgencia().equalsIgnoreCase("M√©dia"))?UtilI18N.internacionaliza(request, "citcorpore.comum.baixa"):
 										req.getNivelUrgencia())))) + "</td>" +
 								"		<td>" + (req.getDescricao() == null ? "" : req.getDescricao()) + "</td>" +
 								"		<td>			<a href='javascript:;' class='even' id='evenM-" + req.getIdRequisicaoLiberacao() + "'>" +
@@ -858,19 +858,19 @@ public class ItemConfiguracaoTree extends ItemConfiguracao {
     		return;
     	}
 		this.setItemConfiguracaoBean((BaseEntity) document.getBean());
-		/*Verifica de verificaÁ„o de mudanca item configuracao Ativo*/
+		/*Verifica de verifica√ß√£o de mudanca item configuracao Ativo*/
 		String valida = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.ITEM_CONFIGURACAO_MUDANCA, "S");
 		if(valida.trim().equals("S"))
 		{
 			/**
-			 * Checa se j· existe algum item de configuracao com esse nome
+			 * Checa se j√° existe algum item de configuracao com esse nome
 			 * @author thyen.chang
 			 * @created 09/12/14
 			 */
 			ItemConfiguracaoTreeDTO icDto = (ItemConfiguracaoTreeDTO) document.getBean();
 			ItemConfiguracaoService itemConfiguracaoService = (ItemConfiguracaoService) ServiceLocator.getInstance().getService(ItemConfiguracaoService.class, null);
 			if(!itemConfiguracaoService.VerificaSeCadastrado(icDto)){
-				/*Faz a validaÁ„o para alteracao de um item de confiiguraÁ„o*/
+				/*Faz a valida√ß√£o para alteracao de um item de confiigura√ß√£o*/
 				if(this.getItemConfiguracaoBean().getIdGrupoItemConfiguracao() == null || this.getItemConfiguracaoBean().getIdMudanca() != null){				
 					if(super.salvar(document, request, response))			
 					
@@ -882,7 +882,7 @@ public class ItemConfiguracaoTree extends ItemConfiguracao {
 				}
 			} else {
 				document.alert(UtilI18N.internacionaliza(request, "baseConhecimento.itemExiste"));
-				//Replicado conforme alteraÁ„o acima.
+				//Replicado conforme altera√ß√£o acima.
 				load(document, request, response);
 				
 			}
@@ -904,7 +904,7 @@ public class ItemConfiguracaoTree extends ItemConfiguracao {
 				}
 				else {
 					document.alert(UtilI18N.internacionaliza(request, "baseConhecimento.itemExiste"));
-					//Replicado conforme alteraÁ„o acima.
+					//Replicado conforme altera√ß√£o acima.
 					load(document, request, response);
 					
 				}
@@ -1069,7 +1069,7 @@ public class ItemConfiguracaoTree extends ItemConfiguracao {
 	}
 	
 	/**
-	 * Carrega Combo de Contratos de acordo com PAR¬METRO de Vinculo de Colaboradores.
+	 * Carrega Combo de Contratos de acordo com PAR√ÇMETRO de Vinculo de Colaboradores.
 	 * 
 	 * @param document
 	 * @param usuario
@@ -1092,17 +1092,17 @@ public class ItemConfiguracaoTree extends ItemConfiguracao {
 		}
 
 		((HTMLSelect) document.getSelectById("idContrato")).removeAllOptions();
-		// H¡ NECESSIDADE DE CARREGAR TODOS OS CONTRATOS (de acordo com o Usu·rio Logado)
+		// H√Å NECESSIDADE DE CARREGAR TODOS OS CONTRATOS (de acordo com o Usu√°rio Logado)
 		Collection<ContratoDTO> listContratoAtivo = null;
 
 		if (COLABORADORES_VINC_CONTRATOS != null && COLABORADORES_VINC_CONTRATOS.equalsIgnoreCase("S")) {
 
-			// PAR¬METRO DE VINCULO ATIVO
+			// PAR√ÇMETRO DE VINCULO ATIVO
 			listContratoAtivo = contratoService.findAtivosByIdEmpregado(usuario.getIdEmpregado());
 
 		} else {
 
-			// PAR¬METRO DE VINCULO INATIVO
+			// PAR√ÇMETRO DE VINCULO INATIVO
 			listContratoAtivo = contratoService.listAtivos();
 
 		}
@@ -1125,7 +1125,7 @@ public class ItemConfiguracaoTree extends ItemConfiguracao {
 	}
 	
 	/**
-	 * Concatena ao Nome do Contrato o N˙mero do Contrato + Data do Contrato + Nome do Cliente + Nome do Fornecedor.
+	 * Concatena ao Nome do Contrato o N√∫mero do Contrato + Data do Contrato + Nome do Cliente + Nome do Fornecedor.
 	 * 
 	 * @param contratoDto
 	 * @return String - Nome do Contrato tratado.

@@ -77,7 +77,7 @@ public class RelatorioEficaciaNasEstimativasDasRequisicaoDeServico extends AjaxF
 		UsuarioService usuarioService = (UsuarioService) ServiceLocator.getInstance().getService(UsuarioService.class, null);
 		ArrayList<UsuarioDTO> listaUsuarios = new ArrayList<UsuarioDTO>();
 		Collection<RelatorioEficaciaNasEstimativasDasRequisicaoDeServicoDTO> listaParaEnvio = new ArrayList<RelatorioEficaciaNasEstimativasDasRequisicaoDeServicoDTO>();
-		// Restaura o usuário selecionado
+		// Restaura o usuÃ¡rio selecionado
 		if (relatorioEficaciaNasEstimativasDasRequisicaoDeServicoDTO.getListaUsuarios() != null) {
 			String[] listaUsuariosTela;
 			listaUsuariosTela = relatorioEficaciaNasEstimativasDasRequisicaoDeServicoDTO.getListaUsuarios().split(";");
@@ -101,7 +101,7 @@ public class RelatorioEficaciaNasEstimativasDasRequisicaoDeServico extends AjaxF
 		double countResestimadasTotalGrupo = 0;
 		double countExecutadasTotalGrupo = 0;
 		if (listaUsuarios != null) {
-			// Busca todas as solicitações feitas pelo usuário
+			// Busca todas as solicitaÃ§Ãµes feitas pelo usuÃ¡rio
 			for (UsuarioDTO usuarios : listaUsuarios) {
 				RelatorioEficaciaNasEstimativasDasRequisicaoDeServicoDTO novoFuncionario = new RelatorioEficaciaNasEstimativasDasRequisicaoDeServicoDTO();
 				novoFuncionario.setFuncionario(Integer.toString(usuarios.getIdUsuario()));
@@ -132,7 +132,7 @@ public class RelatorioEficaciaNasEstimativasDasRequisicaoDeServico extends AjaxF
 						double countExecutadasPorSolicitacao = 0;
 						double countReestimadaPorSolicitacao = 0;
 						double quantidadeReestimada = 0;
-						// verifica a quantidade de solicitações
+						// verifica a quantidade de solicitaÃ§Ãµes
 						for (SolicitacaoServicoDTO solicitacaoServicoDTOAux : novoFuncionario.getListaSolicitacoesUsuario()) {
 							countExecutadasPorSolicitacao++;
 							quantidadeReestimada = (double) ocorrencias.quantidadeDeOcorrenciasDeAlteracaoSlaPorNumeroDaSolicitacao(solicitacaoServicoDTOAux.getIdSolicitacaoServico());

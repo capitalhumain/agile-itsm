@@ -253,11 +253,11 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 
 			int idTipoFluxoSolicitacaoServico = 0;
 
-			// Verifica se h· fluxo associado ao serviÁo contrato
+			// Verifica se h√° fluxo associado ao servi√ßo contrato
 			if (fluxoServicoDto != null && fluxoServicoDto.getIdTipoFluxo() != null) {
 				idTipoFluxoSolicitacaoServico = fluxoServicoDto.getIdTipoFluxo();
 			} else {
-				// Verifica o fluxo padr„o para SolicitaÁ„o ServiÁo definido em Par‚metro
+				// Verifica o fluxo padr√£o para Solicita√ß√£o Servi√ßo definido em Par√¢metro
 				String nomeFluxoPadraoSolicitacaoServico = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.NomeFluxoPadraoServicos, "SolicitacaoServico");
 
 				if (nomeFluxoPadraoSolicitacaoServico != null) {
@@ -272,7 +272,7 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 			int idGrupo = 0;
 			if (solicitacaoServicoDto != null && solicitacaoServicoDto.getIdGrupoAtual() != null) {
 				idGrupo = solicitacaoServicoDto.getIdGrupoAtual();
-		/* Inserido por Carlos Santos em 05/11/2013 -> Antes de testar o nÌvel 1, deve ser testado o grupo executor do contrato */
+		/* Inserido por Carlos Santos em 05/11/2013 -> Antes de testar o n√≠vel 1, deve ser testado o grupo executor do contrato */
 			} else if (servicoContratoDto != null && servicoContratoDto.getIdGrupoExecutor() != null){
 				idGrupo = servicoContratoDto.getIdGrupoExecutor();
 			}else if (solicitacaoServicoDto != null && solicitacaoServicoDto.getIdGrupoNivel1() != null) {
@@ -416,7 +416,7 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 	}
 
 	// Criado por Bruno.Aquino
-	// Se a SituaÁ„o estiver como "Resolvida" Capturo: a descricao do problema e a SoluÁ„o/Resposta
+	// Se a Situa√ß√£o estiver como "Resolvida" Capturo: a descricao do problema e a Solu√ß√£o/Resposta
 	public void InserirNaBaseConhecimento(SolicitacaoServicoDTO solicitacaoServicoDTO, TransactionControler tc) throws ServiceException, Exception {
 
 		BaseConhecimentoDTO beanBaseConhecimento = solicitacaoServicoDTO.getBeanBaseConhecimento();
@@ -430,7 +430,7 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 
 		BaseConhecimentoDTO baseAux = baseConhecimentoDAO.findByIdSolicitacaoServico(solicitacaoServicoDTO);
 
-		// verifica se j· n„o existe uma registro na base de conhecimento referente a essa solicitaÁ„o, sÛ pode armazenar um.
+		// verifica se j√° n√£o existe uma registro na base de conhecimento referente a essa solicita√ß√£o, s√≥ pode armazenar um.
 		if (baseAux == null) {
 
 			PastaServiceEjb pastaEjb = new PastaServiceEjb();
@@ -443,17 +443,17 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 				if (p.getNome() != null) {
 					if (p.getNome().equals(
 							ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.PASTA_SALVA_DESCRICAO_RESPOSTA_DE_SOLICITACAOSERVICO_EM_BASECONHECIMENTO,
-									"DescriÁ„o_Resposta_Para_BaseConhecimento"))) {
+									"Descri√ß√£o_Resposta_Para_BaseConhecimento"))) {
 						pastaBean.setId(p.getId());
 						cont++;
 					}
 				}
 			}
 
-			// se a pasta n„o existir, pasta vai ser criada pelo parametro ou com o nome do padr„o
+			// se a pasta n√£o existir, pasta vai ser criada pelo parametro ou com o nome do padr√£o
 			if (cont == 0) {
 				pastaBean.setNome(ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.PASTA_SALVA_DESCRICAO_RESPOSTA_DE_SOLICITACAOSERVICO_EM_BASECONHECIMENTO,
-						"DescriÁ„o_Resposta_Para_BaseConhecimento"));
+						"Descri√ß√£o_Resposta_Para_BaseConhecimento"));
 				pastaDao.create(pastaBean);
 
 				Collection<PastaDTO> lista2 = pastaEjb.consultarPastasAtivas();
@@ -461,7 +461,7 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 					if (p2.getNome() != null) {
 						if (p2.getNome().equals(
 								ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.PASTA_SALVA_DESCRICAO_RESPOSTA_DE_SOLICITACAOSERVICO_EM_BASECONHECIMENTO,
-										"DescriÁ„o_Resposta_Para_BaseConhecimento"))) {
+										"Descri√ß√£o_Resposta_Para_BaseConhecimento"))) {
 							pastaBean.setId(p2.getId());
 						}
 					}
@@ -477,7 +477,7 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 		List<ConhecimentoSolicitacaoDTO> listaTelaConhecimentoDTO = solicitacaoServicoDto.getColConhecimentoSolicitacaoSerialize();
 		if (listaTelaConhecimentoDTO != null) {
 			ConhecimentoSolicitacaoDTO dto;
-			// Inserindo no Banco de Dados os Itens da lista ainda n„o cadastrados
+			// Inserindo no Banco de Dados os Itens da lista ainda n√£o cadastrados
 			for (ConhecimentoSolicitacaoDTO bean : listaTelaConhecimentoDTO) {
 				dto = new ConhecimentoSolicitacaoDTO();
 				dto.setIdBaseConhecimento(bean.getIdBaseConhecimento());
@@ -486,7 +486,7 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 					conhecimentoSolicitacaoDao.create(dto);
 				}
 			}
-			// Apagando Itens no banco que n„o est„o na lista informada
+			// Apagando Itens no banco que n√£o est√£o na lista informada
 			Collection<ConhecimentoSolicitacaoDTO> listaDBConhecimentoSolicitacaoDTO = conhecimentoSolicitacaoDao.findByidSolicitacaoServico(solicitacaoServicoDto.getIdSolicitacaoServico());
 			Boolean encontrou;
 			for (ConhecimentoSolicitacaoDTO elemento : listaDBConhecimentoSolicitacaoDTO) {
@@ -501,7 +501,7 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 					conhecimentoSolicitacaoDao.delete(elemento);
 				}
 			}
-			// Para o Garbage Collection agir mais r·pido
+			// Para o Garbage Collection agir mais r√°pido
 			listaTelaConhecimentoDTO = null;
 			dto = null;
 			listaDBConhecimentoSolicitacaoDTO = null;
@@ -581,7 +581,7 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 			}
 			solicitacaoServicoDto.setIdAcordoNivelServico(acordoServicoContratoDTO.getIdAcordoNivelServico());
 
-			// Consulta prioridade do usu·rio de acordo com sla global
+			// Consulta prioridade do usu√°rio de acordo com sla global
 			PrioridadeServicoUsuarioDao prioridadeServicoUsuarioDao = new PrioridadeServicoUsuarioDao();
 			if (tc != null)
 				prioridadeServicoUsuarioDao.setTransactionControler(tc);
@@ -590,7 +590,7 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 			if (prioridadeServicoUsuarioDTO != null)
 				solicitacaoServicoDto.setIdPrioridade(prioridadeServicoUsuarioDTO.getIdPrioridade());
 
-			// Consulta prioridade da unidade do usu·rio de acordo com sla global
+			// Consulta prioridade da unidade do usu√°rio de acordo com sla global
 			PrioridadeAcordoNivelServicoDao prioridadeAcordoNivelServicoDao = new PrioridadeAcordoNivelServicoDao();
 			if (tc != null)
 				prioridadeAcordoNivelServicoDao.setTransactionControler(tc);
@@ -753,7 +753,7 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 		solicitacaoServicoDto.setPrazoHH(prazoHH);
 		solicitacaoServicoDto.setPrazoMM(prazoMM);
 
-		//tratamento especial para solicitaÁıes a combinar reclassificadas
+		//tratamento especial para solicita√ß√µes a combinar reclassificadas
 		SolicitacaoServicoDTO solAux = null;
 		if(solicitacaoServicoDto != null && solicitacaoServicoDto.getIdSolicitacaoServico() != null){
 			solAux = (SolicitacaoServicoDTO) this.getDao().restore(solicitacaoServicoDto);
@@ -845,7 +845,7 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 
 	/**
 	 * @author breno.guimaraes
-	 * @return Resumo das solicitaÔøΩÔøΩes relacionadas ao clinte passado como argumento.
+	 * @return Resumo das solicita√Ø¬ø¬Ω√Ø¬ø¬Ωes relacionadas ao clinte passado como argumento.
 	 */
 	public ArrayList<SolicitacaoServicoDTO> findSolicitacoesServicosUsuario(Integer idUsuario, Integer idItemConfiguracao) {
 		Collection<SolicitacaoServicoDTO> solicitacoesSimplificada = null;
@@ -1365,7 +1365,7 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 			 *
 			 * if (StringUtils.contains(StringUtils.upperCase(solicitacaoServicoDto.getSituacao()), StringUtils.upperCase("EmAndamento"))) { solicitacaoServicoDto.setSituacao("Em Andamento"); }
 			 *
-			 * } Timestamp y = UtilDatas.getDataHoraAtual(); System.out.println("Tempo ExecuÁ„o For: " + UtilDatas.calculaDiferencaTempoEmMilisegundos(y, t) );
+			 * } Timestamp y = UtilDatas.getDataHoraAtual(); System.out.println("Tempo Execu√ß√£o For: " + UtilDatas.calculaDiferencaTempoEmMilisegundos(y, t) );
 			 */
 			// Retirando devido ao stress que o mesmo gerava
 			// for (SolicitacaoServicoDTO solicitacaoServicoDto : listaSolicitacaoServicoPorCriterios) {
@@ -1491,7 +1491,7 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 	}
 
 	/**
-	 * Retorna SolicitaÔøΩÔøΩes de ServiÁos de acordo com o Tipo de Demanda e UsuÔøΩrio.
+	 * Retorna Solicita√ß√Ø¬ø¬Ωes de Servi√ßos de acordo com o Tipo de Demanda e Usu√°rio.
 	 *
 	 * @param tipoDemandaServico
 	 * @param grupoSeguranca
@@ -1710,7 +1710,7 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 
 	/**
 	 * @param solicitacaoServicoDTO
-	 * @return ColeÁ„o de SolicitaÁ„o de serviÁo com datas horas de sla da solicitacao serviÁo.
+	 * @return Cole√ß√£o de Solicita√ß√£o de servi√ßo com datas horas de sla da solicitacao servi√ßo.
 	 * @throws Exception
 	 */
 	public SolicitacaoServicoDTO relatorioControlePercentualQuantitativoSla(SolicitacaoServicoDTO solicitacaoServicoDTO) throws Exception {
@@ -1905,7 +1905,7 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 		try {
 			solicitacaoDto = (SolicitacaoServicoDTO) this.getDao().restoreByIdInstanciaFluxo(idInstanciaFluxo);
 		} catch (Exception e) {
-			System.out.println("CITSMART - Erro na recuperaÁ„o dos dados da solicitaÁ„o da inst‚ncia fluxo" + " " + idInstanciaFluxo);
+			System.out.println("CITSMART - Erro na recupera√ß√£o dos dados da solicita√ß√£o da inst√¢ncia fluxo" + " " + idInstanciaFluxo);
 
 			e.printStackTrace();
 		}
@@ -2221,7 +2221,7 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 						}
 					}
 					if (idGrupoNivel1 == null || idGrupoNivel1.intValue() <= 0)
-						throw new LogicException("Grupo de atendimento nivel 1 n„o parametrizado");
+						throw new LogicException("Grupo de atendimento nivel 1 n√£o parametrizado");
 					solicitacaoServicoDto.setIdGrupoNivel1(idGrupoNivel1);
 				}
 
@@ -2396,8 +2396,8 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 			/*
 			 * Bruno.aquino 29/05/2014
 			 *
-			 * Se ocorrerem alguma alteraÁao na solicitaÁ„o, È enviado um email ao solicitante informando que ocorreu alguma alteraÁ„o. Se a alteraÁ„o foi feita na DescriÁ„o da solicitaÁ„o, ser· enviado
-			 * por email a descriÁ„o tambÈm.
+			 * Se ocorrerem alguma altera√ßao na solicita√ß√£o, √© enviado um email ao solicitante informando que ocorreu alguma altera√ß√£o. Se a altera√ß√£o foi feita na Descri√ß√£o da solicita√ß√£o, ser√° enviado
+			 * por email a descri√ß√£o tamb√©m.
 			 */
 			EmpregadoDao empregadoDao = new EmpregadoDao();
 			if (dtoAux != null && dtoAux.getIdTipoDemandaServico().intValue() == 3
@@ -2438,7 +2438,7 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 	}
 
 	/**
-	 * Faz a atualizacao dos anexos da solicitacao, mas nao altera as informacoes da soliciaÁ„o.
+	 * Faz a atualizacao dos anexos da solicitacao, mas nao altera as informacoes da solicia√ß√£o.
 	 *
 	 * @param model
 	 * @return
@@ -2594,7 +2594,7 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 
 			this.getDao().updateNotNull(solicitacaoServicoDto);
 			execucaoSolicitacaoService.direcionaAtendimentoAutomatico(solicitacaoServicoDto, tc);
-			String strOcorr = "\nEscalaÁ„o autom·tica.";
+			String strOcorr = "\nEscala√ß√£o autom√°tica.";
 
 			// SolicitacaoServicoDTO solicitacaoAuxDto =
 			// restoreAll(solicitacaoServicoDto.getIdSolicitacaoServico());
@@ -2604,7 +2604,7 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 			justificativaDto.setComplementoJustificativa(solicitacaoServicoDto.getComplementoJustificativa());
 
 			UsuarioDTO usuarioDTO = new UsuarioDTO();
-			usuarioDTO.setLogin("Autom·tico");
+			usuarioDTO.setLogin("Autom√°tico");
 
 			OcorrenciaSolicitacaoServiceEjb.create(solicitacaoServicoDto, null, strOcorr, OrigemOcorrencia.OUTROS, CategoriaOcorrencia.Atualizacao, null,
 					CategoriaOcorrencia.Atualizacao.getDescricao(), usuarioDTO, 0, justificativaDto, tc);
@@ -2669,7 +2669,7 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 		if (solicitacaoDto == null)
 			return null;
 		/**
-		 * N„o calcula o atraso dos SLAs a combinar
+		 * N√£o calcula o atraso dos SLAs a combinar
 		 */
 		boolean slaACombinar = (solicitacaoDto.getPrazoHH() == null || solicitacaoDto.getPrazoHH() == 0) && (solicitacaoDto.getPrazoMM() == null || solicitacaoDto.getPrazoMM() == 0);
 
@@ -2703,7 +2703,7 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 	}
 
 	/**
-	 * MÈtodo que calcula o atraso das SLAs que n„o est„o a combinar e com situaÁ„o diferentes de suspensa e cancelada
+	 * M√©todo que calcula o atraso das SLAs que n√£o est√£o a combinar e com situa√ß√£o diferentes de suspensa e cancelada
 	 *
 	 * @param solicitacaoDto
 	 * @param tc
@@ -2897,13 +2897,13 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 				if (acordoServicoContratoDTO != null) {
 					acordoNivelServicoDto.setIdAcordoNivelServico(acordoServicoContratoDTO.getIdAcordoNivelServico());
 				}
-				// Consulta prioridade do usu·rio de acordo com sla global
+				// Consulta prioridade do usu√°rio de acordo com sla global
 				PrioridadeServicoUsuarioDTO prioridadeServicoUsuarioDTO = prioridadeServicoUsuarioDao.findByIdAcordoNivelServicoAndIdUsuario(acordoNivelServicoDto.getIdAcordoNivelServico(),
 						solicitacaoServicoDto.getIdSolicitante());
 				if (prioridadeServicoUsuarioDTO != null && prioridadeServicoUsuarioDTO.getIdPrioridade() != null) {
 					idPrioridade = prioridadeServicoUsuarioDTO.getIdPrioridade();
 				}
-				// Consulta prioridade da unidade do usu·rio de acordo com sla global
+				// Consulta prioridade da unidade do usu√°rio de acordo com sla global
 				PrioridadeAcordoNivelServicoDTO prioridadeAcordoNivelServicoDTO = prioridadeAcordoNivelServicoDao.findByIdAcordoNivelServicoAndIdUnidade(acordoNivelServicoDto.getIdAcordoNivelServico(),
 						solicitacaoServicoDto.getIdUnidade());
 				if (prioridadeAcordoNivelServicoDTO != null && prioridadeAcordoNivelServicoDTO.getIdPrioridade() != null) {
@@ -3199,7 +3199,7 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 	}
 
 	/*
-	 * M·rio J˙nior - 29/10/2013 - 17:00 Modificado para atender o resumo de solicitaÁıes
+	 * M√°rio J√∫nior - 29/10/2013 - 17:00 Modificado para atender o resumo de solicita√ß√µes
 	 */
 	public Collection<TipoDemandaServicoDTO> resumoTipoDemandaServico(List<TarefaFluxoDTO> listTarefas) throws Exception {
 		Collection<TipoDemandaServicoDTO> resumoTipoDemandaServico = new ArrayList<TipoDemandaServicoDTO>();
@@ -3230,7 +3230,7 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 	}
 
 	/*
-	 * M·rio J˙nior - 29/10/2013 - 17:00 Modificado para atender o resumo de solicitaÁıes
+	 * M√°rio J√∫nior - 29/10/2013 - 17:00 Modificado para atender o resumo de solicita√ß√µes
 	 */
 	public Collection<PrioridadeDTO> resumoPrioridade(List<TarefaFluxoDTO> listTarefas) throws Exception {
 		Collection<PrioridadeDTO> colPrioridade = new ArrayList<PrioridadeDTO>();
@@ -3394,7 +3394,7 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 	}
 
 	/**
-	 * Retorna a Lista de TarefaDTO com SolicitacaoServidoDTO de acordo com o Login, Lista de Contratos do Usu·rio Logado e os Filtros Selecionados na Tela de Gerenciamento de ServiÁos.
+	 * Retorna a Lista de TarefaDTO com SolicitacaoServidoDTO de acordo com o Login, Lista de Contratos do Usu√°rio Logado e os Filtros Selecionados na Tela de Gerenciamento de Servi√ßos.
 	 *
 	 * @param pgAtual
 	 * @param qtdAPaginacao
@@ -3438,8 +3438,8 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 	}
 
 	/**
-	 * Utilizado para a RENDERIZA«√O do GR¡FICO, pois no Gr·fico n„o È necess·rio a utilizaÁ„o de PaginaÁ„o. Esta consulta considera o Login do Usu·rio Logado, os Contratos em que est· inserido e os
-	 * Filtros Selecionados na tela de Gerenciamento de ServiÁos.
+	 * Utilizado para a RENDERIZA√á√ÉO do GR√ÅFICO, pois no Gr√°fico n√£o √© necess√°rio a utiliza√ß√£o de Pagina√ß√£o. Esta consulta considera o Login do Usu√°rio Logado, os Contratos em que est√° inserido e os
+	 * Filtros Selecionados na tela de Gerenciamento de Servi√ßos.
 	 *
 	 * @param listTarefas
 	 * @param gerenciamentoBean
@@ -3691,7 +3691,7 @@ public class SolicitacaoServicoServiceEjb extends CrudServiceImpl implements Sol
 	}
 
 	/**
-	 * Novos mÈtodos para paginaÁ„o
+	 * Novos m√©todos para pagina√ß√£o
 	 * @author thyen.chang
 	 *
 	 * @param pesquisaSolicitacaoServicoDto

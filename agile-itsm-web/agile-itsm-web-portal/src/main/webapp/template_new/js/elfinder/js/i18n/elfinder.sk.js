@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Slovak translation
  * @author Jakub Olexa <olexa@xland.cz>
  * @version 2011-03-11

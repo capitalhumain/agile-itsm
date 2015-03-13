@@ -535,8 +535,8 @@ public class CitAjaxUtil {
                 }
             }
         } catch (final IllegalArgumentException iaex) {
-            throw new Exception("O tipo de dado do atributo " + elemento + " da classe " + obj.getClass().getName() + " √© diferente do tipo usado no banco de dados "
-                    + valor.getClass().getName());
+            throw new Exception("O tipo de dado do atributo " + elemento + " da classe " + obj.getClass().getName()
+                    + " È diferente do tipo usado no banco de dados " + valor.getClass().getName());
         }
 
     }
@@ -1056,7 +1056,7 @@ public class CitAjaxUtil {
         } else {
             strAno = " ano";
             strAnos = " anos";
-            strMes = " m√™s";
+            strMes = " mÍs";
             strMeses = " meses";
             strDia = " dia";
             strDias = " dias";
@@ -1135,7 +1135,7 @@ public class CitAjaxUtil {
         } else {
             strAno = " ano";
             strAnos = " anos";
-            strMes = " m√™s";
+            strMes = " mÍs";
             strMeses = " meses";
         }
 
@@ -1292,15 +1292,16 @@ public class CitAjaxUtil {
      * public static void verificaTamanho(String valor, String label, int
      * tamanho) throws LogicException{ if(valor!=null &&
      * valor.length()>tamanho){ throw new LogicException("Tamanho do campo
-     * "+label+"("+valor.length()+") √© maior do que o
+     * "+label+"("+valor.length()+") È maior do que o
      * permitido("+tamanho+")."); } }
      */
 
-    public static void verificaTamanho(final String valor, final String label, final int tamanho, final HttpServletRequest req, final String foco) throws LogicException {
+    public static void verificaTamanho(final String valor, final String label, final int tamanho, final HttpServletRequest req, final String foco)
+            throws LogicException {
 
         if (valor != null && valor.length() > tamanho) {
             req.setAttribute("FOCO_TEXTO", foco);
-            throw new LogicException("Tamanho do campo " + label + "(" + valor.length() + ") √© maior do que o permitido(" + tamanho + ").");
+            throw new LogicException("Tamanho do campo " + label + "(" + valor.length() + ") È maior do que o permitido(" + tamanho + ").");
         }
 
     }
@@ -1314,7 +1315,8 @@ public class CitAjaxUtil {
 
     }
 
-    public static void comparaDatas(final Date datInicio, final Date datFim, final String descDatas, final HttpServletRequest req, final String foco) throws LogicException {
+    public static void comparaDatas(final Date datInicio, final Date datFim, final String descDatas, final HttpServletRequest req, final String foco)
+            throws LogicException {
         if (datFim != null && datInicio != null) {
             if (datInicio.compareTo(datFim) > 0) {
                 req.setAttribute("FOCO_DATA", foco);
@@ -1324,7 +1326,8 @@ public class CitAjaxUtil {
 
     }
 
-    public static void validateDataMenorIgualAtual(final Date datInicio, final String nomeCampo, final HttpServletRequest req, final String foco) throws LogicException {
+    public static void validateDataMenorIgualAtual(final Date datInicio, final String nomeCampo, final HttpServletRequest req, final String foco)
+            throws LogicException {
         if (datInicio != null) {
             if (datInicio.compareTo(getDataAtual()) > 0) {
                 req.setAttribute("FOCO_DATA", foco);
@@ -1333,11 +1336,12 @@ public class CitAjaxUtil {
         }
     }
 
-    public static void comparaInteiros(final Integer inic, final Integer fim, final String descValores, final HttpServletRequest req, final String foco) throws LogicException {
+    public static void comparaInteiros(final Integer inic, final Integer fim, final String descValores, final HttpServletRequest req, final String foco)
+            throws LogicException {
         if (inic != null && fim != null) {
             if (inic.intValue() > fim.intValue()) {
                 req.setAttribute("FOCO_TEXTO", foco);
-                throw new LogicException(descValores + " inicial n√£o pode ser maior que " + descValores + " final");
+                throw new LogicException(descValores + " inicial n„o pode ser maior que " + descValores + " final");
             }
         }
 
@@ -1982,7 +1986,8 @@ public class CitAjaxUtil {
      * @param language
      *            - Linguagem do usu·rio (EN, PT)
      * @param tipoDate
-     *            - TipoData (DATE_DEFAULT: dd/MM/yyyy ou MM/dd/yyyy), (TIMESTAMP_DEFAULT: dd/MM/yyyy HH:mm ou MM/dd/yyyy HH:mm), (TIMESTAMP_WITH_SECONDS: dd/MM/yyyy HH:mm:ss ou
+     *            - TipoData (DATE_DEFAULT: dd/MM/yyyy ou MM/dd/yyyy), (TIMESTAMP_DEFAULT: dd/MM/yyyy HH:mm ou MM/dd/yyyy HH:mm), (TIMESTAMP_WITH_SECONDS:
+     *            dd/MM/yyyy HH:mm:ss ou
      *            MM/dd/yyyy HH:mm:ss),
      *            (FORMAT_DATABASE: yyyy-MM-dd)
      * @return SimpleDateFormat

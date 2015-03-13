@@ -37,7 +37,7 @@
 			/**
 			* @author Bruno.Aquino
 			* Editado 16/12/2014
-			* Adicionado tratamento de data inv·lida e vazia
+			* Adicionado tratamento de data inv√°lida e vazia
 			* @author thyen.chang
 			*/
 			function validaData(dataInicio, dataFim) {

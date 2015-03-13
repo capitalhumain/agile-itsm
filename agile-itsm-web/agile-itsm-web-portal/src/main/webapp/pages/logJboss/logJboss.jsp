@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.citframework.dto.Usuario"%>
@@ -6,14 +8,13 @@
 <html>
 <head>
 <%
-	//identifica se a página foi aberta a partir de um iframe (popup de cadastro rápido)
+	//identifica se a pÃ¡gina foi aberta a partir de um iframe (popup de cadastro rÃ¡pido)
 	String iframe = "";
 	iframe = request.getParameter("iframe");
 %>
 <%@include file="/include/header.jsp"%>
-<%@include file="/include/security/security.jsp"%>
 
-<title><fmt:message key="citcorpore.comum.title" /></title>
+<%@include file="/novoLayout/common/include/titulo.jsp" %>
 
 <%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 <script>
@@ -27,7 +28,7 @@
 	}
 </script>
 
-<%//se for chamado por iframe deixa apenas a parte de cadastro da página
+<%//se for chamado por iframe deixa apenas a parte de cadastro da pÃ¡gina
 if (iframe != null) {%>
 <style>
 	div#main_container {

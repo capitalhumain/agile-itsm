@@ -6,7 +6,7 @@ import org.apache.commons.lang3.StringUtils;
 import br.com.citframework.util.Assert;
 
 /**
- * Utilit·rio para criaÁ„o de queries que incluam par‚metros para paginaÁ„o
+ * Utilit√°rio para cria√ß√£o de queries que incluam par√¢metros para pagina√ß√£o
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 02/10/2014
@@ -20,14 +20,14 @@ public final class PagingQueryUtil {
     private static final String PAGINATION_POSTGRES_PATTERN = "LIMIT %s OFFSET %s";
 
     /**
-     * Concatena em uma query o trecho para paginaÁ„o, de acordo com o SGBD
+     * Concatena em uma query o trecho para pagina√ß√£o, de acordo com o SGBD
      *
      * @param pageable
-     *            informaÁ„o da paginaÁ„o
+     *            informa√ß√£o da pagina√ß√£o
      * @param query
-     *            query a ser concatenada a parte para paginaÁ„o
+     *            query a ser concatenada a parte para pagina√ß√£o
      * @param dataBase
-     *            informaÁ„o da base de dados para geraÁ„o do trecho de paginaÁ„o
+     *            informa√ß√£o da base de dados para gera√ß√£o do trecho de pagina√ß√£o
      * @return
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      * @since 02/10/2014
@@ -53,13 +53,13 @@ public final class PagingQueryUtil {
     }
 
     /**
-     * Gera o trecho de query para paginaÁ„o para {@code Oracle}
+     * Gera o trecho de query para pagina√ß√£o para {@code Oracle}
      *
      * @param pageable
-     *            informaÁ„o da paginaÁ„o
+     *            informa√ß√£o da pagina√ß√£o
      * @param query
-     *            query a ser concatenada a parte para paginaÁ„o
-     * @return query para ser executado, j· com o padr„o de paginaÁ„o para o banco
+     *            query a ser concatenada a parte para pagina√ß√£o
+     * @return query para ser executado, j√° com o padr√£o de pagina√ß√£o para o banco
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      * @date 02/10/2014
      */
@@ -94,15 +94,15 @@ public final class PagingQueryUtil {
     }
 
     /**
-     * Gera o trecho de query para paginaÁ„o para {@code PotgreSQL} e {@code MySQL}
+     * Gera o trecho de query para pagina√ß√£o para {@code PotgreSQL} e {@code MySQL}
      *
      * @param pageable
-     *            informaÁ„o da paginaÁ„o
+     *            informa√ß√£o da pagina√ß√£o
      * @param query
-     *            query a ser concatenada a parte para paginaÁ„o
+     *            query a ser concatenada a parte para pagina√ß√£o
      * @param dataBase
-     *            informaÁ„o da base de dados para geraÁ„o do trecho de paginaÁ„o
-     * @return query para ser executado, j· com o padr„o de paginaÁ„o para o banco
+     *            informa√ß√£o da base de dados para gera√ß√£o do trecho de pagina√ß√£o
+     * @return query para ser executado, j√° com o padr√£o de pagina√ß√£o para o banco
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      * @since 02/10/2014
      */
@@ -132,13 +132,13 @@ public final class PagingQueryUtil {
     }
 
     /**
-     * Gera o trecho de query para paginaÁ„o para {@code Microsoft SQL Server}
+     * Gera o trecho de query para pagina√ß√£o para {@code Microsoft SQL Server}
      *
      * @param pageable
-     *            informaÁ„o da paginaÁ„o
+     *            informa√ß√£o da pagina√ß√£o
      * @param query
-     *            query a ser concatenada a parte para paginaÁ„o
-     * @return query para ser executado, j· com o padr„o de paginaÁ„o para o banco
+     *            query a ser concatenada a parte para pagina√ß√£o
+     * @return query para ser executado, j√° com o padr√£o de pagina√ß√£o para o banco
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      * @date 02/10/2014
      */
@@ -153,19 +153,19 @@ public final class PagingQueryUtil {
     }
 
     /**
-     * TODO FIXME este mÈtodo foi criado por que anteriormente n„o estava previsto formaÁıes mais elaboradas de queries.<br>
+     * TODO FIXME este m√©todo foi criado por que anteriormente n√£o estava previsto forma√ß√µes mais elaboradas de queries.<br>
      *
-     * Gera o trecho de query para paginaÁ„o para {@code Microsoft SQL Server}
+     * Gera o trecho de query para pagina√ß√£o para {@code Microsoft SQL Server}
      *
      * @param pageable
-     *            informaÁ„o da paginaÁ„o
+     *            informa√ß√£o da pagina√ß√£o
      * @param selectPortion
      *            trecho da query contendo apenas os campos a serem filtrados {@code SELECT}
      * @param orderPortion
-     *            trecho da query contendo apenas a cl·usula {@code ORDER BY} e os campos para filtro
+     *            trecho da query contendo apenas a cl√°usula {@code ORDER BY} e os campos para filtro
      * @param fromPortion
-     *            trecho da query contendo apenas as cl·sulas {@code FROM} e {@code WHERE}
-     * @return query para ser executado, j· com o padr„o de paginaÁ„o para o banco
+     *            trecho da query contendo apenas as cl√°sulas {@code FROM} e {@code WHERE}
+     * @return query para ser executado, j√° com o padr√£o de pagina√ß√£o para o banco
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      * @since 29/01/2015
      */

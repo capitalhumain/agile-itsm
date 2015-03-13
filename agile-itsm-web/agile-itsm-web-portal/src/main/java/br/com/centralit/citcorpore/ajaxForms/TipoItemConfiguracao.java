@@ -59,7 +59,7 @@ public class TipoItemConfiguracao extends AjaxFormAction {
     }
 
     /**
-     * Inclui Novo Item de ConfiguraÁ„o.
+     * Inclui Novo Item de Configura√ß√£o.
      *
      * @param document
      * @param request
@@ -97,7 +97,7 @@ public class TipoItemConfiguracao extends AjaxFormAction {
     }
 
     /**
-     * Restaura Tela de Tipo Item ConfiguraÁ„o.
+     * Restaura Tela de Tipo Item Configura√ß√£o.
      *
      * @param document
      * @param request
@@ -136,7 +136,7 @@ public class TipoItemConfiguracao extends AjaxFormAction {
     }
 
     /**
-     * Exclui Tipo Item ConfiguraÁ„o e suas caracterÌsticas.
+     * Exclui Tipo Item Configura√ß√£o e suas caracter√≠sticas.
      *
      * @param document
      * @param request
@@ -164,7 +164,7 @@ public class TipoItemConfiguracao extends AjaxFormAction {
     }
 
     /**
-     * Exclui caracterÌstica do Tipo Item ConfiguraÁ„o.
+     * Exclui caracter√≠stica do Tipo Item Configura√ß√£o.
      *
      * @param document
      * @param request
@@ -183,7 +183,7 @@ public class TipoItemConfiguracao extends AjaxFormAction {
             caracteristica = (CaracteristicaDTO) getCaracteristicaService().restore(caracteristica);
 
             /*
-             * Retirado da rotina para validaÁ„o da pink elephant
+             * Retirado da rotina para valida√ß√£o da pink elephant
              * && caracteristica.getSistema() == "N";
              */
             if (caracteristica != null) {
@@ -209,7 +209,7 @@ public class TipoItemConfiguracao extends AjaxFormAction {
     }
 
     /**
-     * Retorna Service de CaracterÌstica.
+     * Retorna Service de Caracter√≠stica.
      *
      * @return CaracteristicaService
      * @throws ServiceException
@@ -233,7 +233,7 @@ public class TipoItemConfiguracao extends AjaxFormAction {
     }
 
     /**
-     * Retorna Tipo Item ConfiguraÁ„o.
+     * Retorna Tipo Item Configura√ß√£o.
      *
      * @return TipoItemConfiguracaoDTO
      * @author valdoilo.damasceno
@@ -243,7 +243,7 @@ public class TipoItemConfiguracao extends AjaxFormAction {
     }
 
     /**
-     * Configura Tipo Item ConfiguraÁ„o.
+     * Configura Tipo Item Configura√ß√£o.
      *
      * @param tipoItemConfiguracao
      * @author valdoilo.damasceno
@@ -274,7 +274,7 @@ public class TipoItemConfiguracao extends AjaxFormAction {
     }
 
     /**
-     * Verifica se o Tipo Item ConfiguraÁ„o est· associado a algum Item ConfiguraÁ„o
+     * Verifica se o Tipo Item Configura√ß√£o est√° associado a algum Item Configura√ß√£o
      *
      * @return
      * @throws Exception

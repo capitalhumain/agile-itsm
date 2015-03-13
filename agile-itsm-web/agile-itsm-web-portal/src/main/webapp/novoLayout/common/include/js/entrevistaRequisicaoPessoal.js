@@ -67,7 +67,7 @@ function fechaPopupEntrevista() {
 
 
 /**
- *Recebe a coleção enviada de triagemRequisicaoPessoal e adiciona na tblCurriculos
+ *Recebe a coleÃ§Ã£o enviada de triagemRequisicaoPessoal e adiciona na tblCurriculos
  **/
 	function incluirCurriculo(curriculoStr) {
 		var curriculo = new CIT_CurriculoDTO();

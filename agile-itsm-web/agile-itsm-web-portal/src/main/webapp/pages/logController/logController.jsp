@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.ParametroUtil"%>
 <%@page import="br.com.citframework.util.Constantes"%>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
@@ -7,9 +9,8 @@
 <html>
 	<head>
 		<%@include file="/include/header.jsp"%>
-		<%@include file="/include/security/security.jsp"%>
 		<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
-		<title><fmt:message key="citcorpore.comum.title" /></title>
+		<%@include file="/novoLayout/common/include/titulo.jsp" %>
 		<link rel="stylesheet" type="text/css" href="./css/logController.css" />
 		<script type="text/javascript" src="./js/logController.js"></script>
 	</head>

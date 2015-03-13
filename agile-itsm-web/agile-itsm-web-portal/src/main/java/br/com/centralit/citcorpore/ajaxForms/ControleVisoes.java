@@ -31,10 +31,10 @@ public class ControleVisoes extends AjaxFormAction {
 	String strBuffer = "<table>";
 	strBuffer += "<tr>";
 	strBuffer += "<td>";
-		strBuffer += "<b>Vis„o</b>";
+		strBuffer += "<b>Vis√£o</b>";
 	strBuffer += "</td>";
 	strBuffer += "<td>";
-		strBuffer += "<b>Personalizada nesta instalaÁ„o?</b>&nbsp;&nbsp;";
+		strBuffer += "<b>Personalizada nesta instala√ß√£o?</b>&nbsp;&nbsp;";
 	strBuffer += "</td>"; 
 	strBuffer += "<td>";
 		strBuffer += "<b>Carregar agora ?</b>";
@@ -45,9 +45,9 @@ public class ControleVisoes extends AjaxFormAction {
 	    if (files != null){
         	    for(int i = 0; i < files.length; i++){
         		byte[] bytes = UtilTratamentoArquivos.getBytesFromFile(files[i]);
-			XStream x = new XStream(new DomDriver("ISO-8859-1"));
+			XStream x = new XStream(new DomDriver("UTF-8"));
 			
-			String str = new String(bytes, "ISO-8859-1");
+			String str = new String(bytes, "UTF-8");
 			VisaoDTO visaoAux = (VisaoDTO) x.fromXML(str);
 			
         		VisaoDTO visaoDto = visaoService.findByIdentificador(visaoAux.getIdentificador());
@@ -112,9 +112,9 @@ public class ControleVisoes extends AjaxFormAction {
 	    for (int i = 0; i < visaoPersonalizadaDTO.getIdentifPersonalizado().length; i++){
 		File file = new File(CITCorporeUtil.CAMINHO_REAL_APP + "/visoesXML/" + visaoPersonalizadaDTO.getIdentifPersonalizado()[i]);
 		byte[] bytes = UtilTratamentoArquivos.getBytesFromFile(file);
-		XStream x = new XStream(new DomDriver("ISO-8859-1"));
+		XStream x = new XStream(new DomDriver("UTF-8"));
 		
-		String str = new String(bytes, "ISO-8859-1");
+		String str = new String(bytes, "UTF-8");
 		VisaoDTO visaoAux = (VisaoDTO) x.fromXML(str);		
 		
 		VisaoDTO visaoDto = visaoService.findByIdentificador(visaoAux.getIdentificador());
@@ -134,12 +134,12 @@ public class ControleVisoes extends AjaxFormAction {
         			visaoPersonalizadaAux.setDataModif(UtilDatas.getDataAtual());
         			visaoPersonalizadaService.update(visaoPersonalizadaAux);
         		    }
-        		    document.getElementById(visaoPersonalizadaDTO.getIdentifPersonalizado()[i]).setInnerHTML("Vis„o atualizada com sucesso!");
+        		    document.getElementById(visaoPersonalizadaDTO.getIdentifPersonalizado()[i]).setInnerHTML("Vis√£o atualizada com sucesso!");
 		    }catch (Exception e) {
 			document.getElementById(visaoPersonalizadaDTO.getIdentifPersonalizado()[i]).setInnerHTML("Ocorreu um erro ao atualizar!");
 		    }
 		}else{
-		    document.getElementById(visaoPersonalizadaDTO.getIdentifPersonalizado()[i]).setInnerHTML("Vis„o n„o encontrada. FaÁa a importaÁ„o.");
+		    document.getElementById(visaoPersonalizadaDTO.getIdentifPersonalizado()[i]).setInnerHTML("Vis√£o n√£o encontrada. Fa√ßa a importa√ß√£o.");
 		}
 	    }
 	}

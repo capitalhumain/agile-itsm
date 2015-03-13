@@ -13,7 +13,7 @@ import org.apache.log4j.Logger;
 import br.com.citframework.integracao.ConnectionProvider;
 
 /**
- * {@code THREAD-SAFE} - {@link SequenceBlockCache} gerencia um número arbitrário de sequeências utilizadas em relações em DBs, utilizando o padrão SEQUENCE BLOCK.
+ * {@code THREAD-SAFE} - {@link SequenceBlockCache} gerencia um nÃºmero arbitrÃ¡rio de sequeÃªncias utilizadas em relaÃ§Ãµes em DBs, utilizando o padrÃ£o SEQUENCE BLOCK.
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @date 18/08/2014
@@ -45,18 +45,18 @@ public final class SequenceBlockCache {
     SequenceBlockCache() {}
 
     /**
-     * Constrói um {@link SequenceBlockCache} inicializando {@link SequenceBlockCache#connection}
+     * ConstrÃ³i um {@link SequenceBlockCache} inicializando {@link SequenceBlockCache#connection}
      */
     public SequenceBlockCache(final String alias) {
         this.alias = alias;
     }
 
     /**
-     * Recupera objeto para sincronizar apenas a {@link SequenceBlock} que está sendo executada pela thread, para não bloquear todo o cache<br>
+     * Recupera objeto para sincronizar apenas a {@link SequenceBlock} que estÃ¡ sendo executada pela thread, para nÃ£o bloquear todo o cache<br>
      *
      * @param sequenceName
      *            nome que reprensenta o {@link SequenceBlock}
-     * @return objeto para sincronização
+     * @return objeto para sincronizaÃ§Ã£o
      */
     private Object getSequenceLockObject(final String sequenceName) {
         Object lockObject = sequenceLockMap.get(sequenceName);
@@ -73,9 +73,9 @@ public final class SequenceBlockCache {
     /**
      *
      * @param tableName
-     *            nome da tabela a ser recuperado o próximo id
+     *            nome da tabela a ser recuperado o prÃ³ximo id
      * @param fieldName
-     *            nome do campo na tabela a ser recuperado o próximo id
+     *            nome do campo na tabela a ser recuperado o prÃ³ximo id
      * @return Long
      */
     private Long getCurrentSequenceNumberFromDb(final String tableName, final String fieldName, final Connection conn) {
@@ -101,14 +101,14 @@ public final class SequenceBlockCache {
     }
 
     /**
-     * Constrói um novo {@link SequenceBlock} para {@code tableName} e {@code fieldName}
+     * ConstrÃ³i um novo {@link SequenceBlock} para {@code tableName} e {@code fieldName}
      *
      * @param tableName
-     *            nome da tabela a ser recuperado o próximo id
+     *            nome da tabela a ser recuperado o prÃ³ximo id
      * @param fieldName
-     *            nome do campo na tabela a ser recuperado o próximo id
+     *            nome do campo na tabela a ser recuperado o prÃ³ximo id
      * @param lastUsedValue
-     *            último valor usado do {@link SequenceBlock}
+     *            Ãºltimo valor usado do {@link SequenceBlock}
      * @param blockIncrement
      *            incremente a ser considerado no bloco
      * @return SequenceBlock
@@ -145,12 +145,12 @@ public final class SequenceBlockCache {
     }
 
     /**
-     * Retorna o {@link SequenceBlock} correspondente a tabela {@code tableName} e {@code fieldName}. Se necessário, recupera no DB
+     * Retorna o {@link SequenceBlock} correspondente a tabela {@code tableName} e {@code fieldName}. Se necessÃ¡rio, recupera no DB
      *
      * @param tableName
-     *            nome da tabela a ser recuperado o próximo id
+     *            nome da tabela a ser recuperado o prÃ³ximo id
      * @param fieldName
-     *            nome do campo na tabela a ser recuperado o próximo id
+     *            nome do campo na tabela a ser recuperado o prÃ³ximo id
      * @param blockIncrement
      *            incremente a ser considerado no bloco
      * @return SequenceBlock
@@ -193,9 +193,9 @@ public final class SequenceBlockCache {
      * Creates the new sequence and returns the current value of the sequence afterwards.
      *
      * @param tableName
-     *            nome da tabela a ser recuperado o próximo id
+     *            nome da tabela a ser recuperado o prÃ³ximo id
      * @param fieldName
-     *            nome do campo na tabela a ser recuperado o próximo id
+     *            nome do campo na tabela a ser recuperado o prÃ³ximo id
      * @return
      */
     private Long createAndGetCurrentSequenceValue(final String tableName, final String fieldName, final Connection conn) {
@@ -232,9 +232,9 @@ public final class SequenceBlockCache {
      * {@code THREAD-SAFE} - Retorna o {@link SequenceBlock} correspondente a tabela {@code tableName} e {@code fieldName}
      *
      * @param tableName
-     *            nome da tabela a ser recuperado o próximo id
+     *            nome da tabela a ser recuperado o prÃ³ximo id
      * @param fieldName
-     *            nome do campo na tabela a ser recuperado o próximo id
+     *            nome do campo na tabela a ser recuperado o prÃ³ximo id
      * @param blockIncrement
      *            incremente a ser considerado no bloco
      * @return SequenceBlock
@@ -247,7 +247,7 @@ public final class SequenceBlockCache {
 
         SequenceBlock sequenceBlock = cachedSequenceBlocksMap.get(sequenceName);
         if (sequenceBlock == null || sequenceBlock.isExhausted()) {
-            // não sincroniza globalmente, mas por sequence block!
+            // nÃ£o sincroniza globalmente, mas por sequence block!
             synchronized (this.getSequenceLockObject(sequenceName)) {
                 LOGGER.debug(LOGGER_THREAD_CONST + Integer.toHexString(Thread.currentThread().hashCode()) + ": Performing lookup in sequence block cache");
                 sequenceBlock = cachedSequenceBlocksMap.get(sequenceName);
@@ -264,15 +264,15 @@ public final class SequenceBlockCache {
     }
 
     /**
-     * Retorna o próximo id para o {@code fieldName} na {@code tableName}
+     * Retorna o prÃ³ximo id para o {@code fieldName} na {@code tableName}
      *
      * @param tableName
-     *            nome da tabela a ser recuperado o próximo id
+     *            nome da tabela a ser recuperado o prÃ³ximo id
      * @param fieldName
-     *            nome do campo na tabela a ser recuperado o próximo id
+     *            nome do campo na tabela a ser recuperado o prÃ³ximo id
      * @param blockIncrement
      *            incremente a ser considerado no bloco
-     * @return long próximo id
+     * @return long prÃ³ximo id
      */
     public long getNextId(final String tableName, final String fieldName, int blockIncrement) {
         LOGGER.debug(LOGGER_THREAD_CONST + Integer.toHexString(Thread.currentThread().hashCode()) + ": " + this.getClass().getSimpleName() + LOGGER_GET_NEXTID_CONST + tableName
@@ -293,13 +293,13 @@ public final class SequenceBlockCache {
     }
 
     /**
-     * Retorna o próximo id para o {@code fieldName} na {@code tableName}
+     * Retorna o prÃ³ximo id para o {@code fieldName} na {@code tableName}
      *
      * @param tableName
-     *            nome da tabela a ser recuperado o próximo id
+     *            nome da tabela a ser recuperado o prÃ³ximo id
      * @param fieldName
-     *            nome do campo na tabela a ser recuperado o próximo id
-     * @return long próximo id
+     *            nome do campo na tabela a ser recuperado o prÃ³ximo id
+     * @return long prÃ³ximo id
      */
     public long getNextId(final String tableName, final String fieldName) {
         LOGGER.debug(LOGGER_THREAD_CONST + Integer.toHexString(Thread.currentThread().hashCode()) + ": " + this.getClass().getSimpleName() + LOGGER_GET_NEXTID_CONST + tableName
@@ -308,7 +308,7 @@ public final class SequenceBlockCache {
     }
 
     /**
-     * Recupera a {@link Connection} usada para recuperar o maior id nas relações
+     * Recupera a {@link Connection} usada para recuperar o maior id nas relaÃ§Ãµes
      *
      * @return {@link Connection}
      * @throws SQLException

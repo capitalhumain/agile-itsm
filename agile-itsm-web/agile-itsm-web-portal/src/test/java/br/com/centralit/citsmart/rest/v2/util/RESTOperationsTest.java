@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- * Classe de para confirmar comportamento de métodos de {@link RESTOperations}
+ * Classe de para confirmar comportamento de mÃ©todos de {@link RESTOperations}
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 25/09/2014

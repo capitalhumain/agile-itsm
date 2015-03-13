@@ -375,8 +375,8 @@ function exibirBotoes(){
 function desabilitaCamposFrame(){
 
 	$(".col_20").children().attr("disabled","disabled");//desabilitando o campo tipo de documento(faq, erro conhecido, base conhecimento)
-	$(".col_10").children().attr("disabled","disabled");//desabilitando Identificador, Notifica��es, Import�ncia, Documento Relacionado, Req Servi�o, Mudan�a, Evento Monitoramento
-	$("#titulo").attr("disabled","disabled");//desabilitando t�tulo
+	$(".col_10").children().attr("disabled","disabled");//desabilitando Identificador, Notificaï¿½ï¿½es, Importï¿½ncia, Documento Relacionado, Req Serviï¿½o, Mudanï¿½a, Evento Monitoramento
+	$("#titulo").attr("disabled","disabled");//desabilitando tï¿½tulo
 	$("#fonteReferencia").attr("disabled","disabled");
 	$("#comboPasta").attr("disabled","disabled");
 	$("#comboOrigem").attr("disabled","disabled");

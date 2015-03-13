@@ -18,7 +18,7 @@ import com.thoughtworks.xstream.io.xml.DomDriver;
  */
 public class HistoricoAtualizacoesCitsmart {
 
-	private static final String DEFAULT_CHARSET = "ISO-8859-1";
+	private static final String DEFAULT_CHARSET = "UTF-8";
 	private String charset  = DEFAULT_CHARSET;
 	 
 	public HistoricoAtualizacoesCitsmart() {

@@ -106,7 +106,7 @@ public class RegraEscalonamento extends AjaxFormAction {
 		
 		HTMLSelect intervaloNotificacao = (HTMLSelect) document.getSelectById("intervaloNotificacao");
 		intervaloNotificacao.removeAllOptions();
-		//intervaloNotificacao.addOption("", UtilI18N.internacionaliza(request, "citcorpore.comum.selecione")); Retirado o critério de obrigatório da tela, mas o banco necessita de informação
+		//intervaloNotificacao.addOption("", UtilI18N.internacionaliza(request, "citcorpore.comum.selecione")); Retirado o critÃ©rio de obrigatÃ³rio da tela, mas o banco necessita de informaÃ§Ã£o
 		intervaloNotificacao.addOption("15", "15");
 		intervaloNotificacao.addOption("30", "30");
 		intervaloNotificacao.addOption("45", "45");

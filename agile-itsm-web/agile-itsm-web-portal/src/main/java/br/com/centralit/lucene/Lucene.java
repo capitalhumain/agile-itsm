@@ -44,12 +44,13 @@ import br.com.centralit.citcorpore.util.ParametroUtil;
 import br.com.citframework.excecao.LogicException;
 
 /**
- * Trata todas as pesquisas por similaridade usando o Apache LUCENE como mecanismo de busca. NÛs precisamos do Lucene porque ele ao contr·rio do banco de dados È capaz de retornar um resultado aproximado da pesquisa, mesmo quando o que foi pesquisado n„o existe no cadastro e ainda os classifica por similaridade e por outros campos que quisermos ordenar o resultado; existem outros fatores, mas dentre eles o mais importante, tambÈm, È ele possuir uma maior velocidade no retorno das pesquisas.
- * vers„o da classe 1.0
+ * Trata todas as pesquisas por similaridade usando o Apache LUCENE como mecanismo de busca. N√≥s precisamos do Lucene porque ele ao contr√°rio do banco de dados √© capaz de retornar um resultado aproximado da pesquisa, mesmo quando o que foi pesquisado n√£o existe no cadastro e ainda os classifica por similaridade e por outros campos que quisermos ordenar o resultado; existem outros fatores, mas dentre eles o mais importante, tamb√©m, √© ele possuir uma maior velocidade no retorno das pesquisas.
+ * vers√£o da classe 1.0
  *
  * @author euler.ramos
  */
 public class Lucene {
+
     private String dirAnexos;
     private String dirBaseConhecimento;
     private String dirGemeas;
@@ -322,7 +323,7 @@ public class Lucene {
     public boolean indexarBaseConhecimento(BaseConhecimentoDTO baseConhecimentoDTO,List<AnexoBaseConhecimentoDTO> listaAnexoBaseConhecimento) {
         try {
             if (baseConhecimentoDTO != null && baseConhecimentoDTO.getIdBaseConhecimento() != null) {
-                indexarDocumentoBaseConhecimento(baseConhecimentoDTO,true); //J· exclui a Base e seus anexos se ela n„o estiver ativa!
+                indexarDocumentoBaseConhecimento(baseConhecimentoDTO,true); //J√° exclui a Base e seus anexos se ela n√£o estiver ativa!
                 if (baseConhecimentoDTO.ativa()){
                     indexarAnexoBaseConhecimento(listaAnexoBaseConhecimento);
                 }
@@ -337,7 +338,7 @@ public class Lucene {
     }
 
     /**
-     * Exclui documento da indexaÁ„o
+     * Exclui documento da indexa√ß√£o
      *
      * @param diretorio
      * @param indice
@@ -439,22 +440,22 @@ public class Lucene {
             ArrayList<BaseConhecimentoDTO> resultado = new ArrayList<BaseConhecimentoDTO>();
             Analyzer analyzer = new StandardAnalyzer(Version.LUCENE_35);
             Directory indexDir = FSDirectory.open(new File(dirBaseConhecimento));
-            // Tratando para ver se existe arquivo de Ìndice no diretÛrio
-            // if (indexDir.listAll().length > 0) { N„o vou utilizar por quest„o
+            // Tratando para ver se existe arquivo de √≠ndice no diret√≥rio
+            // if (indexDir.listAll().length > 0) { N√£o vou utilizar por quest√£o
             // de performance, trazer uma lista com todos os arquivos do
-            // diretÛrio pode demorar!
+            // diret√≥rio pode demorar!
             IndexSearcher isearcher = new IndexSearcher(indexDir);
             QueryParser parser;
             Query query;
             BooleanQuery booleanQuery = new BooleanQuery();
 
             if (indice != null && !indice.isEmpty() && indice.length() > 2) {
-                // Pesquisa principal informada pelo usu·rio no campo titulo
+                // Pesquisa principal informada pelo usu√°rio no campo titulo
                 parser = new QueryParser(Version.LUCENE_35, "titulo", analyzer);
                 query = parser.parse(indice);
                 booleanQuery.add(query, BooleanClause.Occur.SHOULD);
 
-                // Busca por referÍncias ‡s palavras gÍmeas envolvidas no campo titulo
+                // Busca por refer√™ncias √†s palavras g√™meas envolvidas no campo titulo
                 if (gemeas != null && gemeas.size() > 0) {
                     for (String palavra : gemeas) {
                         parser = new QueryParser(Version.LUCENE_35, "titulo", analyzer);
@@ -463,12 +464,12 @@ public class Lucene {
                     }
                 }
 
-                // Pesquisa principal informada pelo usu·rio no campo conteudo
+                // Pesquisa principal informada pelo usu√°rio no campo conteudo
                 parser = new QueryParser(Version.LUCENE_35, "conteudo", analyzer);
                 query = parser.parse(indice);
                 booleanQuery.add(query, BooleanClause.Occur.SHOULD);
 
-                // Busca por referÍncias ‡s palavras gÍmeas envolvidas no campo conteudo
+                // Busca por refer√™ncias √†s palavras g√™meas envolvidas no campo conteudo
                 if (gemeas != null && gemeas.size() > 0) {
                     for (String palavra : gemeas) {
                         parser = new QueryParser(Version.LUCENE_35, "conteudo", analyzer);
@@ -478,7 +479,7 @@ public class Lucene {
                 }
             }
 
-            // Busca Base de conhecimento que tem ANEXO se referindo ao conte˙do da pesquisa
+            // Busca Base de conhecimento que tem ANEXO se referindo ao conte√∫do da pesquisa
             if (anexos != null && anexos.size() > 0) {
                 for (long idBcAnx : anexos) {
                     query = new TermQuery(new Term("id", NumericUtils.longToPrefixCoded(idBcAnx)));
@@ -486,7 +487,7 @@ public class Lucene {
                 }
             }
 
-            // Busca por avaliaÁao
+            // Busca por avalia√ßao
             if (avaliacao != null && !avaliacao.isEmpty() && avaliacao.length() > 0) {
                 query = new TermQuery(new Term("avaliacao", avaliacao));
                 booleanQuery.add(query, BooleanClause.Occur.MUST);
@@ -498,31 +499,31 @@ public class Lucene {
                 booleanQuery.add(query, BooleanClause.Occur.MUST);
             }
 
-            // Busca por ID do Usu·rio Autor
+            // Busca por ID do Usu√°rio Autor
             if (idAutor > 0) {
                 query = new TermQuery(new Term("idusuarioautor", NumericUtils.longToPrefixCoded(idAutor)));
                 booleanQuery.add(query, BooleanClause.Occur.MUST);
             }
 
-            // Busca por ID do Usu·rio Aprovador
+            // Busca por ID do Usu√°rio Aprovador
             if (idAprovador > 0) {
                 query = new TermQuery(new Term("idusuarioaprovador", NumericUtils.longToPrefixCoded(idAprovador)));
                 booleanQuery.add(query, BooleanClause.Occur.MUST);
             }
 
-            // Busca por perÌodo de data de inÌcio
+            // Busca por per√≠odo de data de in√≠cio
             if (dtInicioi > 0) {
                 query = NumericRangeQuery.newLongRange("datainicio", dtInicioi, dtIniciof, true, true);
                 booleanQuery.add(query, BooleanClause.Occur.MUST);
             }
 
-            // Busca por perÌodo de data de publicaÁ„o
+            // Busca por per√≠odo de data de publica√ß√£o
             if (dtPublicacaoi > 0) {
                 query = NumericRangeQuery.newLongRange("datapublicacao", dtPublicacaoi, dtPublicacaof, true, true);
                 booleanQuery.add(query, BooleanClause.Occur.MUST);
             }
 
-            // Busca por perÌodo de data de expiraÁ„o
+            // Busca por per√≠odo de data de expira√ß√£o
             if (dtExpiracaoi > 0) {
                 query = NumericRangeQuery.newLongRange("dataexpiracao", dtExpiracaoi, dtExpiracaof, true, true);
                 booleanQuery.add(query, BooleanClause.Occur.MUST);
@@ -534,7 +535,7 @@ public class Lucene {
                 booleanQuery.add(query, BooleanClause.Occur.MUST);
             }
 
-            // Ordenando por grau de similaridade e depois por n˙mero de cliques decrescente
+            // Ordenando por grau de similaridade e depois por n√∫mero de cliques decrescente
             Sort sort = new Sort(new SortField[] { SortField.FIELD_SCORE,
                     new SortField("cliques", SortField.LONG, true) });
             TopFieldCollector topField = TopFieldCollector.create(sort, 100,
@@ -594,12 +595,12 @@ public class Lucene {
             Query query;
             BooleanQuery booleanQuery = new BooleanQuery();
 
-            // Pesquisa principal informada pelo usu·rio no campo nome
+            // Pesquisa principal informada pelo usu√°rio no campo nome
             parser = new QueryParser(Version.LUCENE_35, "nome", analyzer);
             query = parser.parse(indice);
             booleanQuery.add(query, BooleanClause.Occur.SHOULD);
 
-            // Busca por referÍncias ‡s palavras gÍmeas envolvidas no campo nome
+            // Busca por refer√™ncias √†s palavras g√™meas envolvidas no campo nome
             if (gemeas != null && gemeas.size() > 0) {
                 for (String palavra : gemeas) {
                     parser = new QueryParser(Version.LUCENE_35, "nome", analyzer);
@@ -608,12 +609,12 @@ public class Lucene {
                 }
             }
 
-            // Pesquisa principal informada pelo usu·rio no campo descricao
+            // Pesquisa principal informada pelo usu√°rio no campo descricao
             parser = new QueryParser(Version.LUCENE_35, "descricao", analyzer);
             query = parser.parse(indice);
             booleanQuery.add(query, BooleanClause.Occur.SHOULD);
 
-            // Busca por referÍncias ‡s palavras gÍmeas envolvidas no campo descricao
+            // Busca por refer√™ncias √†s palavras g√™meas envolvidas no campo descricao
             if (gemeas != null && gemeas.size() > 0) {
                 for (String palavra : gemeas) {
                     parser = new QueryParser(Version.LUCENE_35, "descricao", analyzer);
@@ -622,12 +623,12 @@ public class Lucene {
                 }
             }
 
-            // Pesquisa principal informada pelo usu·rio no campo texto
+            // Pesquisa principal informada pelo usu√°rio no campo texto
             parser = new QueryParser(Version.LUCENE_35, "texto", analyzer);
             query = parser.parse(indice);
             booleanQuery.add(query, BooleanClause.Occur.SHOULD);
 
-            // Busca por referÍncias ‡s palavras gÍmeas envolvidas no campo texto
+            // Busca por refer√™ncias √†s palavras g√™meas envolvidas no campo texto
             if (gemeas != null && gemeas.size() > 0) {
                 for (String palavra : gemeas) {
                     parser = new QueryParser(Version.LUCENE_35, "texto", analyzer);
@@ -636,7 +637,7 @@ public class Lucene {
                 }
             }
 
-            // Ordenando por grau de similaridade e depois por n˙mero de
+            // Ordenando por grau de similaridade e depois por n√∫mero de
             // cliques
             // decrescente
             Sort sort = new Sort(new SortField[] { SortField.FIELD_SCORE,
@@ -673,8 +674,8 @@ public class Lucene {
             Query query;
             BooleanQuery booleanQuery = new BooleanQuery();
 
-            // Localizando as palavras gÍmeas envolvidas a partir do que o
-            // usu·rio digitou
+            // Localizando as palavras g√™meas envolvidas a partir do que o
+            // usu√°rio digitou
             // pesquisamos palavra por palavra nos dois campos da tabela
             // palavragemea
 

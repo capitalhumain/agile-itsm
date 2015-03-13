@@ -33,7 +33,7 @@ public class HistManualFuncaoDTO extends MovimentacaoPessoalDTO {
 	private Timestamp horaAlteracao;
 	private Integer idUsuarioAlteracao;
 	private Double versao;
-	//Coleções DTO
+	//ColeÃ§Ãµes DTO
 	private Collection<HistAtribuicaoResponsabilidadeDTO> colAtribuicaoResponsabilidadeDTO;
 	private Collection<CertificacaoDTO> colCertificacaoDTORA;
 	private Collection<CursoDTO> colCursoDTORA;

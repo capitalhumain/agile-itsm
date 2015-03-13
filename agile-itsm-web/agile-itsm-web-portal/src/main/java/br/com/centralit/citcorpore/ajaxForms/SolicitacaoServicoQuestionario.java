@@ -297,13 +297,13 @@ public class SolicitacaoServicoQuestionario extends QuestionarioResponser {
     }
 
     /**
-     * Metodo criado para atender a validaÁ„o de amarzenar na sess„o todos os questionarios respondidos para os serviÁos adicionados ao
+     * Metodo criado para atender a valida√ß√£o de amarzenar na sess√£o todos os questionarios respondidos para os servi√ßos adicionados ao
      * carrinho.
      *
-     * Verifica se a lista "colecao_dados_solicit_quest" j· existe na sess„o, se n„o o objeto pe inicializado, apÛs os dados s„o adicionados
+     * Verifica se a lista "colecao_dados_solicit_quest" j√° existe na sess√£o, se n√£o o objeto pe inicializado, ap√≥s os dados s√£o adicionados
      * a
      *
-     * coleÁ„o e a coleÁ„o È armazenada novamente na sess„o.
+     * cole√ß√£o e a cole√ß√£o √© armazenada novamente na sess√£o.
      *
      * @param request
      * @param dto
@@ -403,7 +403,7 @@ public class SolicitacaoServicoQuestionario extends QuestionarioResponser {
             throws Exception {
         final UsuarioDTO usuario = WebUtil.getUsuario(request);
         if (usuario == null) {
-            document.alert("Sess„o expirada! Favor efetuar logon novamente!");
+            document.alert("Sess√£o expirada! Favor efetuar logon novamente!");
             return;
         }
         final SolicitacaoServicoQuestionarioDTO pesQuestBean = (SolicitacaoServicoQuestionarioDTO) document.getBean();
@@ -434,7 +434,7 @@ public class SolicitacaoServicoQuestionario extends QuestionarioResponser {
                 strTable += "</tr>";
             } else {
                 String strUso = "";
-                String strAdequado = "N„o";
+                String strAdequado = "N√£o";
                 String strAtencao = "";
                 if (vCertDigDto.getInfoCertificadoDigital().isKeyUsageDigitalSignature()) {
                     strUso += "Assinatura digital";
@@ -496,7 +496,7 @@ public class SolicitacaoServicoQuestionario extends QuestionarioResponser {
                                 vCertDigDto.getInfoCertificadoDigital().getDataInicioValidade()) >= 0) {
                             strAdequado = "Sim";
                         } else {
-                            strAtencao = "<font color='red'><b>Certificado ainda n„o entrou em validade!</font></b>";
+                            strAtencao = "<font color='red'><b>Certificado ainda n√£o entrou em validade!</font></b>";
                         }
                     } else {
                         strAtencao = "<font color='red'><b>Certificado vencido!</font></b>";
@@ -540,8 +540,8 @@ public class SolicitacaoServicoQuestionario extends QuestionarioResponser {
                         + " a "
                         + UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, vCertDigDto.getInfoCertificadoDigital()
                                 .getDataFimValidade(), WebUtil.getLanguage(request)) + "</b><br>";
-                strTable += "UtilizaÁıes permitidas: <b>" + strUso + "</b><br>";
-                strTable += "Adequado para informaÁıes mÈdicas: <b>" + strAdequado + "</b><br>";
+                strTable += "Utiliza√ß√µes permitidas: <b>" + strUso + "</b><br>";
+                strTable += "Adequado para informa√ß√µes m√©dicas: <b>" + strAdequado + "</b><br>";
                 strTable += strAtencao;
                 strTable += "</td>";
                 strTable += "</tr>";
@@ -662,7 +662,7 @@ public class SolicitacaoServicoQuestionario extends QuestionarioResponser {
             HttpServletResponse response) throws Exception {
         final UsuarioDTO usuario = WebUtil.getUsuario(request);
         if (usuario == null) {
-            document.alert("Sess„o expirada! Favor efetuar logon novamente!");
+            document.alert("Sess√£o expirada! Favor efetuar logon novamente!");
             return "";
         }
 
@@ -718,7 +718,7 @@ public class SolicitacaoServicoQuestionario extends QuestionarioResponser {
                     final Collection colPerfisAssociados = prontuarioEletronicoPerfSegService
                             .findByIdProntuarioEletronicoConfig(prontuarioEletronicoConfigDTO
                                     .getIdInformacoesContratoConfig());
-                    if (isPerfilUsuarioLogadoInCollection(colPerfisAssociados, usuario)) { // Se tiver acesso a aquela ABA, ent„o gera
+                    if (isPerfilUsuarioLogadoInCollection(colPerfisAssociados, usuario)) { // Se tiver acesso a aquela ABA, ent√£o gera
                                                                                            // historico.
                         String str = "";
                         if (bPrimeiroItem) {
@@ -740,7 +740,7 @@ public class SolicitacaoServicoQuestionario extends QuestionarioResponser {
                             final String conteudoImp = geraDadosFormularioSemAssinatura(idEmpresa,
                                     contratoQuestionariosAux, true, false, false);
 
-                            // -- Se chegar È que nao havia sido gravado, entao grava.
+                            // -- Se chegar √© que nao havia sido gravado, entao grava.
                             try {
                                 pesQuestBean.setConteudoImpresso(conteudoImp);
                                 contratoQuestionariosService.updateConteudoImpresso(
@@ -766,7 +766,7 @@ public class SolicitacaoServicoQuestionario extends QuestionarioResponser {
             HttpServletResponse response) throws Exception {
         final UsuarioDTO usuario = WebUtil.getUsuario(request);
         if (usuario == null) {
-            document.alert("Sess„o expirada! Favor efetuar logon novamente!");
+            document.alert("Sess√£o expirada! Favor efetuar logon novamente!");
             return;
         }
         final String usuarioImpressao = usuario.getNomeUsuario();
@@ -814,7 +814,7 @@ public class SolicitacaoServicoQuestionario extends QuestionarioResponser {
                     + i
                     + " de "
                     + (total - 1)
-                    + "     prontu·rio impresso em: "
+                    + "     prontu√°rio impresso em: "
                     + UtilDatas.convertDateToString(TipoDate.TIMESTAMP_WITH_SECONDS, UtilDatas.getDataHoraAtual(),
                             WebUtil.getLanguage(request)) + " por: " + usuarioImpressao);
             over.endText();
@@ -867,7 +867,7 @@ public class SolicitacaoServicoQuestionario extends QuestionarioResponser {
 
         final UsuarioDTO usuario = WebUtil.getUsuario(request);
         if (usuario == null) {
-            document.alert("Sess„o expirada! Favor efetuar logon novamente!");
+            document.alert("Sess√£o expirada! Favor efetuar logon novamente!");
             return;
         }
 
@@ -965,7 +965,7 @@ public class SolicitacaoServicoQuestionario extends QuestionarioResponser {
             outputStream.close();
         } catch (final Exception e) {
             e.printStackTrace();
-            document.alert("Ocorreu um erro ao realizar a impress„o! " + e.getMessage());
+            document.alert("Ocorreu um erro ao realizar a impress√£o! " + e.getMessage());
         }
     }
 
@@ -973,7 +973,7 @@ public class SolicitacaoServicoQuestionario extends QuestionarioResponser {
             HttpServletResponse response) throws Exception {
         final UsuarioDTO usuario = WebUtil.getUsuario(request);
         if (usuario == null) {
-            document.alert("Sess„o expirada! Favor efetuar logon novamente!");
+            document.alert("Sess√£o expirada! Favor efetuar logon novamente!");
             return;
         }
 
@@ -1005,14 +1005,14 @@ public class SolicitacaoServicoQuestionario extends QuestionarioResponser {
             throws Exception {
         final UsuarioDTO usuario = WebUtil.getUsuario(request);
         if (usuario == null) {
-            document.alert("Sess„o expirada! Favor efetuar logon novamente!");
+            document.alert("Sess√£o expirada! Favor efetuar logon novamente!");
             return;
         }
         final SolicitacaoServicoQuestionarioDTO contrQuestBean = (SolicitacaoServicoQuestionarioDTO) document.getBean();
 
         String strTable = "<table width='100%' border='1'>";
 
-        strTable += "<tr><td><b>Data do Atendimento</b></td><td><b>Conte˙do</b></td></tr>";
+        strTable += "<tr><td><b>Data do Atendimento</b></td><td><b>Conte√∫do</b></td></tr>";
 
         String strItem = "";
 
@@ -1247,11 +1247,11 @@ public class SolicitacaoServicoQuestionario extends QuestionarioResponser {
                                                                      // do grafico)
         chart.setBorderVisible(false); // Visibilidade da borda do grafico
 
-        // Marcador de MÌdia de Resolubilidade
+        // Marcador de M√≠dia de Resolubilidade
         // IntervalMarker target = new IntervalMarker(y - 0.3, y + 0.3);// A
-        // principio, a mÌdia ser· o TOTAL-MF
+        // principio, a m√≠dia ser√° o TOTAL-MF
         /*
-         * target.setLabel(" Resolubilidade MÌdia"); target.setLabelFont(new
+         * target.setLabel(" Resolubilidade M√≠dia"); target.setLabelFont(new
          * Font("arial", Font.BOLD, 12)); target.setLabelPaint(Color.RED);
          * target.setLabelAnchor(RectangleAnchor.CENTER);
          * target.setLabelTextAnchor(TextAnchor.BOTTOM_CENTER);

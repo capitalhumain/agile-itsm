@@ -62,7 +62,7 @@ public abstract class ExecucaoFluxo extends NegocioBpm implements IExecucaoFluxo
 	protected void recuperaFluxo(String nomeFluxo) throws Exception {
 		this.fluxoDto = new FluxoDao().findByNome(nomeFluxo);
 		if (fluxoDto == null)
-			throw new Exception("Fluxo " + nomeFluxo + " n„o existe");
+			throw new Exception("Fluxo " + nomeFluxo + " n√£o existe");
 	}
 
 	protected void recuperaFluxo(Integer idFluxo) throws Exception {
@@ -70,7 +70,7 @@ public abstract class ExecucaoFluxo extends NegocioBpm implements IExecucaoFluxo
 		fluxoDto.setIdFluxo(idFluxo);
 		fluxoDto = (FluxoDTO) new FluxoDao().restore(fluxoDto);
 		if (fluxoDto == null)
-			throw new Exception("Fluxo " + idFluxo + " n„o existe");
+			throw new Exception("Fluxo " + idFluxo + " n√£o existe");
 	}
 
 	public static ExecucaoFluxo getInstancia(ExecucaoFluxo execucaoFluxo) throws Exception {
@@ -165,7 +165,7 @@ public abstract class ExecucaoFluxo extends NegocioBpm implements IExecucaoFluxo
 			return null;
 	}
 	/**
-	 * Recupera a Lista de Tarefas de acordo com o Login do Usu·rio.
+	 * Recupera a Lista de Tarefas de acordo com o Login do Usu√°rio.
 	 *
 	 * @param loginUsuario
 	 * @return
@@ -176,7 +176,7 @@ public abstract class ExecucaoFluxo extends NegocioBpm implements IExecucaoFluxo
 	}
 
 	/**
-	 * Recupera a Lista de Tarefas de acordo com o Login do Usu·rio e/ou idTarefa.
+	 * Recupera a Lista de Tarefas de acordo com o Login do Usu√°rio e/ou idTarefa.
 	 *
 	 * @param loginUsuario
 	 * @param idTarefa
@@ -227,17 +227,17 @@ public abstract class ExecucaoFluxo extends NegocioBpm implements IExecucaoFluxo
 
 				if (listGrupoBpmDTO != null && !tarefaFluxoDto.isSomenteAcompanhamento()) {
 					if (tarefaFluxoDto.getIdFluxo() == null)
-						throw new LogicException("Erro na recuperaÁ„o do fluxo");
+						throw new LogicException("Erro na recupera√ß√£o do fluxo");
 
 					FluxoDTO fluxoBean = mapFluxos.get("" + tarefaFluxoDto.getIdFluxo());
 					if (fluxoBean == null) {
 						fluxoBean = new FluxoDTO();
 						fluxoBean.setIdFluxo(tarefaFluxoDto.getIdFluxo());
 
-						// Aqui est· um exemplo de uma restriÁ„o que temos no nosso framework quanto ao retorno de itens relacionados ao Objeto.
+						// Aqui est√° um exemplo de uma restri√ß√£o que temos no nosso framework quanto ao retorno de itens relacionados ao Objeto.
 						fluxoBean = (FluxoDTO) fluxoDao.restore(fluxoBean);
 						if (fluxoBean == null)
-							throw new LogicException("Erro na recuperaÁ„o do fluxo");
+							throw new LogicException("Erro na recupera√ß√£o do fluxo");
 						mapFluxos.put("" + tarefaFluxoDto.getIdFluxo(), fluxoBean);
 					}
 
@@ -276,13 +276,13 @@ public abstract class ExecucaoFluxo extends NegocioBpm implements IExecucaoFluxo
 						e.printStackTrace();
 					}
 					if (elementoFluxoDto == null)
-						throw new LogicException("Erro na recuperaÁ„o do elemento de fluxo com ID " + tarefaFluxoDto.getIdElemento() + " na inst‚ncia " + tarefaFluxoDto.getIdInstancia());
+						throw new LogicException("Erro na recupera√ß√£o do elemento de fluxo com ID " + tarefaFluxoDto.getIdElemento() + " na inst√¢ncia " + tarefaFluxoDto.getIdInstancia());
 					mapElementos.put("" + tarefaFluxoDto.getIdElemento(), elementoFluxoDto);
 				}
 
 				tarefaFluxoDto.setElementoFluxoDto(elementoFluxoDto);
 
-				// Antes n„o havia validaÁ„o para espaÁos em branco, por isso a consulta era realizada mesmo quando getVisao estava em branco. A validaÁ„o n„o È a ideal, no entanto n„o podemos
+				// Antes n√£o havia valida√ß√£o para espa√ßos em branco, por isso a consulta era realizada mesmo quando getVisao estava em branco. A valida√ß√£o n√£o √© a ideal, no entanto n√£o podemos
 				// utilizar outras classes do projeto para tal.
 				if (StringUtils.isNotBlank(elementoFluxoDto.getVisao())) {
 					FormDinamicoDTO visaoDto = formDinamicoDao.findByIdentificador(elementoFluxoDto.getVisao().trim());

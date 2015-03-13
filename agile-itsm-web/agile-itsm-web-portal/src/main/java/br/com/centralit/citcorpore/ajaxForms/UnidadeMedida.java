@@ -63,7 +63,7 @@ public class UnidadeMedida extends AjaxFormAction {
 	 * @param response
 	 * @throws Exception
 	 * 
-	 *             Metodo colocar status Inativo quando for solicitado a exclus„o do usuario.
+	 *             Metodo colocar status Inativo quando for solicitado a exclus√£o do usuario.
 	 */
 
 	public void delete(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {

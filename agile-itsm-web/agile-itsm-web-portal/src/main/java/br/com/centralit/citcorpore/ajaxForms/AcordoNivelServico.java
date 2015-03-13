@@ -62,7 +62,7 @@ import br.com.citframework.util.UtilHashMaps;
 import br.com.citframework.util.UtilI18N;
 
 /**
- * Classe que representa o form do Cadastro de Acordos de Nível de Serviço Geral
+ * Classe que representa o form do Cadastro de Acordos de NÃ­vel de ServiÃ§o Geral
  *
  * @author rodrigo.oliveira
  *
@@ -100,7 +100,7 @@ public class AcordoNivelServico extends AjaxFormAction {
                     + UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, new Date(), WebUtil.getLanguage(request)) + "');");
         }
 
-        // Método para montar as grids da parte inferior
+        // MÃ©todo para montar as grids da parte inferior
         mostraContratoClienteSLA(document, request, response);
         mostraContratoAnoSLA(document, request, response);
         mostraContratoTerceiroSLA(document, request, response);
@@ -152,7 +152,7 @@ public class AcordoNivelServico extends AjaxFormAction {
     }
 
     /**
-     * Limpa formulário.
+     * Limpa formulÃ¡rio.
      *
      * @param document
      * @param request
@@ -197,7 +197,7 @@ public class AcordoNivelServico extends AjaxFormAction {
             } catch (final Exception e) {}
         }
 
-        // Preenche dados do histórico
+        // Preenche dados do histÃ³rico
         final AcordoNivelServicoHistoricoDTO acordoNivelServicoHistoricoDTO = new AcordoNivelServicoHistoricoDTO();
 
         final UsuarioDTO usuarioDto = WebUtil.getUsuario(request);
@@ -240,7 +240,7 @@ public class AcordoNivelServico extends AjaxFormAction {
 
         if (acordoNivelServicoDTO.getIdAcordoNivelServico() != null) {
             try {
-                // Preenche informações
+                // Preenche informaÃ§Ãµes
                 acordoNivelServicoDTO.setModificadoEm(UtilDatas.getDataHoraAtual());
                 acordoNivelServicoDTO.setModificadoPor(usuarioDto.getNomeUsuario());
 
@@ -262,7 +262,7 @@ public class AcordoNivelServico extends AjaxFormAction {
 
         } else {
             try {
-                // Preenche informações
+                // Preenche informaÃ§Ãµes
                 acordoNivelServicoDTO.setCriadoEm(UtilDatas.getDataHoraAtual());
                 acordoNivelServicoDTO.setModificadoEm(UtilDatas.getDataHoraAtual());
                 acordoNivelServicoDTO.setCriadoPor(usuarioDto.getNomeUsuario());
@@ -409,7 +409,7 @@ public class AcordoNivelServico extends AjaxFormAction {
 
         }
 
-        // Método para montar as grids da parte inferior
+        // MÃ©todo para montar as grids da parte inferior
         mostraContratoClienteSLA(document, request, response);
         mostraContratoAnoSLA(document, request, response);
         mostraContratoTerceiroSLA(document, request, response);
@@ -428,7 +428,7 @@ public class AcordoNivelServico extends AjaxFormAction {
         final UsuarioDTO usuarioDto = WebUtil.getUsuario(request);
 
         try {
-            // Preenche informações
+            // Preenche informaÃ§Ãµes
             acordoNivelServicoDTO.setModificadoEm(UtilDatas.getDataHoraAtual());
             acordoNivelServicoDTO.setModificadoPor(usuarioDto.getNomeUsuario());
 
@@ -494,7 +494,7 @@ public class AcordoNivelServico extends AjaxFormAction {
     }
 
     /**
-     * Método para exibir o histório de contrato SLA
+     * MÃ©todo para exibir o histÃ³rio de contrato SLA
      *
      * @throws Exception
      */
@@ -506,7 +506,7 @@ public class AcordoNivelServico extends AjaxFormAction {
     }
 
     /**
-     * Método para exibir o histório de Ano SLA
+     * MÃ©todo para exibir o histÃ³rio de Ano SLA
      *
      * @throws Exception
      */
@@ -518,7 +518,7 @@ public class AcordoNivelServico extends AjaxFormAction {
     }
 
     /**
-     * Método para exibir o histório de Terceiros SLA
+     * MÃ©todo para exibir o histÃ³rio de Terceiros SLA
      *
      * @throws Exception
      */
@@ -530,7 +530,7 @@ public class AcordoNivelServico extends AjaxFormAction {
     }
 
     /**
-     * Método para exibir o histório de Auditoria SLA
+     * MÃ©todo para exibir o histÃ³rio de Auditoria SLA
      *
      * @throws Exception
      */

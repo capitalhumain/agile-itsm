@@ -1,4 +1,4 @@
-@CHARSET "ISO-8859-1";
+@CHARSET "UTF-8";
             .emExecucao{
                 background-color: blue;
                 color: white;
@@ -52,7 +52,7 @@
 /*
 Pedro Lino
 23/10/2013 - Sol. 120948
-*Para sobrepor o padding do atualiza-antigo.css que est· 0%
+*Para sobrepor o padding do atualiza-antigo.css que est√° 0%
 *Estava sem margem
 */
 .ui-dialog .ui-dialog-content {

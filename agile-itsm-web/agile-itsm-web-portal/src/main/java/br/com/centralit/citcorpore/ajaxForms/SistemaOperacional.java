@@ -29,15 +29,15 @@ public class SistemaOperacional extends AjaxFormAction {
 		SistemaOperacionalDTO soDTO = (SistemaOperacionalDTO) document.getBean();
 		SistemaOperacionalService soService = (SistemaOperacionalService) ServiceLocator.getInstance().getService(SistemaOperacionalService.class, null);
 		
-		// Verificando a existÍncia do objeto de serviÁo.
+		// Verificando a exist√™ncia do objeto de servi√ßo.
 		if (soService != null) {
 			// Inserindo o SO.
 			if (soDTO.getId() == null || soDTO.getId().intValue() == 0) {
 				Collection soJaCadastrado = soService.find(soDTO);
 				
-				// Verificando se o SO j· foi cadastrado.
+				// Verificando se o SO j√° foi cadastrado.
 				if (soJaCadastrado != null && !soJaCadastrado.isEmpty() ) {
-					// Se verdadeiro, ent„o alerta o usu·rio e pede para tentar outro SO.
+					// Se verdadeiro, ent√£o alerta o usu√°rio e pede para tentar outro SO.
 					document.alert(UtilI18N.internacionaliza(request, "MSE01") );
 				} else { // Inserindo o SO.
 					soService.create(soDTO);
@@ -69,7 +69,7 @@ public class SistemaOperacional extends AjaxFormAction {
 
     
     /**
-     * DeleÁ„o lÛgica.
+     * Dele√ß√£o l√≥gica.
      * @param document
      * @param request
      * @param response

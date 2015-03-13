@@ -967,7 +967,7 @@
 			this.oLanguage = {
 				"sProcessing": "Processando...",
 				"sLengthMenu": "Mostrando _MENU_ registros",
-				"sZeroRecords": "Não foi encontrado.",
+				"sZeroRecords": "NÃ£o foi encontrado.",
 				"sEmptyTable": "Nao ha dados",
 				"sLoadingRecords": "Loading...",
 				"sInfo": "Mostrando _START_ de _END_ de _TOTAL_ registros",
@@ -979,8 +979,8 @@
 				"oPaginate": {
 					"sFirst":    "Primeiro",
 					"sPrevious": "Anterior",
-					"sNext":     "Próximo",
-					"sLast":     "Último"
+					"sNext":     "PrÃ³ximo",
+					"sLast":     "Ãšltimo"
 				},
 				"fnInfoCallback": null
 			};

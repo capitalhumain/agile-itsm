@@ -269,9 +269,9 @@ public class BaseConhecimentoView extends BaseConhecimento {
                             problema.setStatus(UtilI18N.internacionaliza(request, "problema.resolvido"));
                         } else if (problema.getStatus().equalsIgnoreCase("Registro de Erro Conhecido")) {
                             problema.setStatus(UtilI18N.internacionaliza(request, "problema.registroErroConhecido"));
-                        } else if (problema.getStatus().equalsIgnoreCase("Em InvestigaÁ„o")) {
+                        } else if (problema.getStatus().equalsIgnoreCase("Em Investiga√ß√£o")) {
                             problema.setStatus(UtilI18N.internacionaliza(request, "pesquisaProblema.emInvestigacao"));
-                        } else if (problema.getStatus().equalsIgnoreCase("ResoluÁ„o")) {
+                        } else if (problema.getStatus().equalsIgnoreCase("Resolu√ß√£o")) {
                             problema.setStatus(UtilI18N.internacionaliza(request, "pesquisaProblema.resolucao"));
                         }
                     }
@@ -502,7 +502,7 @@ public class BaseConhecimentoView extends BaseConhecimento {
 
             if (PermissaoAcessoPasta.SEMPERMISSAO.equals(permissao)) {
 
-                document.alert("Usu·rio sem permiss„o de acesso.");
+                document.alert("Usu√°rio sem permiss√£o de acesso.");
                 document.executeScript("$('#conhecimento').hide();");
                 return;
 
@@ -650,7 +650,7 @@ public class BaseConhecimentoView extends BaseConhecimento {
             if (contadorAcessoService.verificarDataHoraDoContadorDeAcesso(contadorAcessoDto)) {
                 contadorAcessoService.create(contadorAcessoDto);
 
-                // AvaliaÁ„o - MÈdia da nota dada pelos usu·rios
+                // Avalia√ß√£o - M√©dia da nota dada pelos usu√°rios
                 final BaseConhecimentoService baseConhecimentoService = (BaseConhecimentoService) ServiceLocator.getInstance().getService(BaseConhecimentoService.class, null);
                 baseConhecimentoDto = (BaseConhecimentoDTO) baseConhecimentoService.restore(baseConhecimentoDto);
 
@@ -1356,7 +1356,7 @@ public class BaseConhecimentoView extends BaseConhecimento {
     }
 
     /**
-     * FireEvent para Exibir histÛrico de Versıes Anteriores da Base de Conhecimento Selecionada.
+     * FireEvent para Exibir hist√≥rico de Vers√µes Anteriores da Base de Conhecimento Selecionada.
      *
      * @param document
      * @param request
@@ -1387,7 +1387,7 @@ public class BaseConhecimentoView extends BaseConhecimento {
     }
 
     /**
-     * FireEvent para Exibir histÛrico de AlteraÁıes da Base de Conhecimento Selecionada.
+     * FireEvent para Exibir hist√≥rico de Altera√ß√µes da Base de Conhecimento Selecionada.
      *
      * @param document
      * @param request

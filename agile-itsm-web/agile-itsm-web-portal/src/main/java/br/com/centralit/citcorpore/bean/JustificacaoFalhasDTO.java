@@ -10,7 +10,7 @@ public class JustificacaoFalhasDTO extends BaseEntity {
      * 
      */
     private static final long serialVersionUID = 1L;
-    // Vari·veis do banco
+    // Vari√°veis do banco
     private Integer idHistoricoTentativa;
     private Integer idJustificacaoFalha;
     private Integer idItemConfiguracao;
@@ -21,7 +21,7 @@ public class JustificacaoFalhasDTO extends BaseEntity {
     private Date data;
     private String hora;
 
-    // Vari·veis de controle especÌfico da aplicaÁ„o
+    // Vari√°veis de controle espec√≠fico da aplica√ß√£o
     private String listaItensSerializado;
     private Integer idGrupo;
     private Integer idUnidade;

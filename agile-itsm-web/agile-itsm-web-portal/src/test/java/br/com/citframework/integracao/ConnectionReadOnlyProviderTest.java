@@ -11,7 +11,7 @@ import org.junit.Test;
 import br.com.citframework.util.ReflectionUtils;
 
 /**
- * Classe de testes para validação do comportamento de {@link ConnectionReadOnlyProvider}
+ * Classe de testes para validaÃ§Ã£o do comportamento de {@link ConnectionReadOnlyProvider}
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 20/08/2014

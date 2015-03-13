@@ -24,7 +24,7 @@ import br.com.citframework.service.CrudService;
 public interface RequisicaoMudancaService extends CrudService {
 
     /**
-     * Retorna Requisições de Mudança associados ao conhecimento informado.
+     * Retorna RequisiÃ§Ãµes de MudanÃ§a associados ao conhecimento informado.
      *
      * @param baseConhecimentoDto
      * @return Collection
@@ -65,7 +65,7 @@ public interface RequisicaoMudancaService extends CrudService {
     String getUrlInformacoesComplementares(final RequisicaoMudancaDTO requisicaoMudancaDTO) throws Exception;
 
     /**
-     * Retorna uma lista de solicitacao servico associada a requisição mudanca
+     * Retorna uma lista de solicitacao servico associada a requisiÃ§Ã£o mudanca
      *
      * @param bean
      * @return
@@ -87,7 +87,7 @@ public interface RequisicaoMudancaService extends CrudService {
     Collection<RequisicaoMudancaDTO> quantidadeMudancaPorBaseConhecimento(final RequisicaoMudancaDTO mudanca) throws Exception;
 
     /**
-     * reativa requisição servico
+     * reativa requisiÃ§Ã£o servico
      *
      * @param usuarioDto
      * @param solicitacaoServicoDto
@@ -99,7 +99,7 @@ public interface RequisicaoMudancaService extends CrudService {
     RequisicaoMudancaDTO restoreAll(final Integer idRequisicaoMudanca) throws Exception;
 
     /**
-     * suspende a requisição mudança
+     * suspende a requisiÃ§Ã£o mudanÃ§a
      *
      * @param usuarioDto
      * @param solicitacaoServicoDto
@@ -109,7 +109,7 @@ public interface RequisicaoMudancaService extends CrudService {
     void suspende(final UsuarioDTO usuarioDto, final RequisicaoMudancaDTO requisicaoMudancaDTO) throws Exception;
 
     /**
-     * Retorna verdadeiro ou falso caso a requisição esteja aprovada
+     * Retorna verdadeiro ou falso caso a requisiÃ§Ã£o esteja aprovada
      *
      * @param requisicaoMudancaDto
      * @param tc
@@ -120,7 +120,7 @@ public interface RequisicaoMudancaService extends CrudService {
     boolean validacaoAvancaFluxo(final RequisicaoMudancaDTO requisicaoMudancaDto, final TransactionControler tc) throws Exception;
 
     /**
-     * Retorna se a requisição mudança esta aprovada, reprovada ou aguardando votação
+     * Retorna se a requisiÃ§Ã£o mudanÃ§a esta aprovada, reprovada ou aguardando votaÃ§Ã£o
      *
      * @param requisicaoMudancaDto
      * @param tc
@@ -133,7 +133,7 @@ public interface RequisicaoMudancaService extends CrudService {
     String verificaAprovacaoMudanca(final RequisicaoMudancaDTO requisicaoMudancaDto, final TransactionControler tc) throws Exception;
 
     /**
-     * Retorna verdadeiro ou falso caso tipo mudanca esteja associado a requisição mudança
+     * Retorna verdadeiro ou falso caso tipo mudanca esteja associado a requisiÃ§Ã£o mudanÃ§a
      *
      * @param idTipoMudanca
      * @return
@@ -148,7 +148,7 @@ public interface RequisicaoMudancaService extends CrudService {
 
     void update(final BaseEntity requisicaoMudancaDto, final HttpServletRequest request) throws ServiceException, LogicException;
 
-    boolean verificaPermissaoGrupoCancelar(final Integer idTipoMudança, final Integer idGrupo) throws ServiceException, Exception;
+    boolean verificaPermissaoGrupoCancelar(final Integer idTipoMudanÃ§a, final Integer idGrupo) throws ServiceException, Exception;
 
     boolean verificarItensRelacionados(final RequisicaoMudancaDTO requisicaoMudancaDto) throws ServiceException, Exception;
 

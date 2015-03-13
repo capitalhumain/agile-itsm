@@ -33,7 +33,7 @@ import br.com.citframework.excecao.LogicException;
 public class Util {
 
     /**
-     * Retorna uma lista de programções semanais
+     * Retorna uma lista de programÃ§Ãµes semanais
      *
      * @param hrIncial
      *            String

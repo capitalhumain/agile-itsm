@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<%@ taglib uri="/tags/cit" prefix="cit"%>
+<%@ include file="/WEB-INF/templates/taglibs.jsp"%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<%@include file="/include/titleComum/titleComum.jsp"%>
+<%@include file="/novoLayout/common/include/titulo.jsp" %>
 <%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 <%@include file="/include/cssComuns/cssComuns.jsp"%>
 
@@ -39,7 +39,7 @@
                 <br />
                 <br />
                 <div id="migalha">
-                    <label>Você está aqui: &nbsp; Cadastro - Atividades</label>
+                    <label>VocÃª estÃ¡ aqui: &nbsp; Cadastro - Atividades</label>
                 </div>
             </div>
             <div id="content">
@@ -51,11 +51,11 @@
                     <div id="tab_cadastro">
                         <table>
                             <tr>
-                                <td><label class="formLabel">Descrição:*</label></td>
+                                <td><label class="formLabel">DescriÃ§Ã£o:*</label></td>
                                 <td>
                                     <input type="text" name="descricao" maxlength="70"
-                                    class="Valid[Required] Description[Descrição]" style="width: 300px;"
-                                    title="Informe a descrição da Atividade." />
+                                    class="Valid[Required] Description[DescriÃ§Ã£o]" style="width: 300px;"
+                                    title="Informe a descriÃ§Ã£o da Atividade." />
                                 </td>
                             </tr>
                             <tr>
@@ -63,12 +63,12 @@
                                 <td>
                                     <select name="grupo"
                                     class="Valid[Required] Description[Grupo]" style="min-width: 200px;"
-                                    title="Informe o Grupo responsável por essa Atividade.">
+                                    title="Informe o Grupo responsÃ¡vel por essa Atividade.">
                                     </select>
                                 </td>
                             </tr>
                             <tr>
-                                <td><label class="formLabel">Data de Início:*</label></td>
+                                <td><label class="formLabel">Data de InÃ­cio:*</label></td>
                                 <td>
                                     <input type="text" name="dataInicio" class="Valid[Required,Data] Format[Data] datepicker" />
                                 </td>
@@ -82,27 +82,27 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td><label class="formLabel">Duração:*</label></td>
+                                <td><label class="formLabel">DuraÃ§Ã£o:*</label></td>
                                 <td>
                                     <input type='text' name="duracao" maxlength="70"
-                                    class="Valid[Required] Description[Duração]" style="width: 50px;"
-                                    title="Informe a duração da Atividade." />
+                                    class="Valid[Required] Description[DuraÃ§Ã£o]" style="width: 50px;"
+                                    title="Informe a duraÃ§Ã£o da Atividade." />
                                 </td>
                             </tr>
                             <tr>
-                                <td><label class="formLabel">Dia Útil:*</label></td>
+                                <td><label class="formLabel">Dia Ãštil:*</label></td>
                                 <td>
                                     <input type="checkbox" name="duracao"
-                                    class="Valid[Required] Description[Duração]"
-                                    title="Informe o indicador de dia útil." />
+                                    class="Valid[Required] Description[DuraÃ§Ã£o]"
+                                    title="Informe o indicador de dia Ãºtil." />
                                 </td>
                             </tr>
                             <tr>
-                                <td><label class="formLabel">Observação</label></td>
+                                <td><label class="formLabel">ObservaÃ§Ã£o</label></td>
                                 <td>
                                     <textarea name="observacao" style="width:350px;"
-                                        class="Valid[Required] Description[Observação]"
-                                        title="Informe uma observação a ser lembrada na execução da Atividade.">
+                                        class="Valid[Required] Description[ObservaÃ§Ã£o]"
+                                        title="Informe uma observaÃ§Ã£o a ser lembrada na execuÃ§Ã£o da Atividade.">
                                     </textarea>
                                 </td>
                             </tr>

@@ -21,7 +21,7 @@ public interface ServicoService extends CrudService {
 	public Collection findByIdServicoAndIdTipoDemandaAndIdCategoria(Integer idServico, Integer idTipoDemanda, Integer idCategoria) throws Exception;
 
 	/**
-	 * Retorna Sigla do ServiÁo por idOs.
+	 * Retorna Sigla do Servi√ßo por idOs.
 	 * 
 	 * @param idOs
 	 * @return
@@ -49,7 +49,7 @@ public interface ServicoService extends CrudService {
 
 	String verificaIdCategoriaServico(HashMap mapFields) throws Exception;
 	/**
-	 * Retorna uma lista de servicos ativos que ainda n„o foram adicionados a este contrato
+	 * Retorna uma lista de servicos ativos que ainda n√£o foram adicionados a este contrato
 	 * @param servicoDto
 	 * @return
 	 * @throws Exception

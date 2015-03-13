@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.citframework.dto.Usuario"%>
@@ -6,8 +8,7 @@
 <html>
 <head>
 <%@include file="/include/header.jsp"%>
-<%@include file="/include/security/security.jsp"%>
-<title><fmt:message key="citcorpore.comum.title" /></title>
+<%@include file="/novoLayout/common/include/titulo.jsp" %>
 <%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 <script>
 	var objTab = null;
@@ -34,7 +35,7 @@
 
 			<div class="flat_area grid_16">
 				<h2>
-					Controle de Visıes
+					Controle de Vis√µes
 				</h2>
 			</div>
 			<div class="box grid_16 tabs">

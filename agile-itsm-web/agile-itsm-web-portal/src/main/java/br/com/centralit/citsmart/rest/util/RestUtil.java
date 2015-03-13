@@ -147,7 +147,7 @@ public class RestUtil {
     }
 
     /**
-     * Imprime em log mensagem de erro e lanÁa {@link RuntimeException}
+     * Imprime em log mensagem de erro e lan√ßa {@link RuntimeException}
      *
      * @param logger
      *            {@link Logger} da classe
@@ -163,15 +163,15 @@ public class RestUtil {
     }
 
     /**
-     * Executa um mÈtodo de acordo com os par‚metros configurados em {@link RESTOperations} para a {@code messageID}
+     * Executa um m√©todo de acordo com os par√¢metros configurados em {@link RESTOperations} para a {@code messageID}
      *
      * @param instance
-     *            inst‚ncia do objeto que implementa a aÁ„o
+     *            inst√¢ncia do objeto que implementa a a√ß√£o
      * @param session
-     *            sess„o do usu·rio
+     *            sess√£o do usu√°rio
      * @param restOperation
      * @param message
-     *            objeto que contÈm a {@code messageID} para encontrar classe e mÈtodo de execuÁ„o
+     *            objeto que cont√©m a {@code messageID} para encontrar classe e m√©todo de execu√ß√£o
      * @return
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      * @since 29/09/2014

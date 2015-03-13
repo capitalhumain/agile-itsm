@@ -411,7 +411,7 @@ public class GrupoServiceEjb extends CrudServiceImpl implements GrupoService {
     protected void validaCreate(final Object arg0) throws Exception {
         final GrupoDTO grupoDto = (GrupoDTO) arg0;
         if (this.getDao().restoreBySigla(grupoDto.getSigla()) != null) {
-            throw new LogicException("AtenÁ„o, J· existe um grupo com esta sigla digite uma diferente.");
+            throw new LogicException("Aten√ß√£o, J√° existe um grupo com esta sigla digite uma diferente.");
         }
     }
 
@@ -419,7 +419,7 @@ public class GrupoServiceEjb extends CrudServiceImpl implements GrupoService {
     protected void validaUpdate(final Object arg0) throws Exception {
         final GrupoDTO grupoDto = (GrupoDTO) arg0;
         if (this.getDao().restoreBySigla(grupoDto) != null) {
-            throw new LogicException("AtenÁ„o, J· existe um grupo com esta sigla digite uma diferente.");
+            throw new LogicException("Aten√ß√£o, J√° existe um grupo com esta sigla digite uma diferente.");
         }
     }
 
@@ -564,7 +564,7 @@ public class GrupoServiceEjb extends CrudServiceImpl implements GrupoService {
                     }
 
                 } catch (final Exception e) {
-                    System.out.println("Parametro do sistema de ID " + element.id() + " null ou fora do padr„o numÈrico");
+                    System.out.println("Parametro do sistema de ID " + element.id() + " null ou fora do padr√£o num√©rico");
                 }
             } else if (nomeParametro.contains("NOME_GRUPO_PADRAO")) {
                 try {

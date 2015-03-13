@@ -27,7 +27,7 @@ public class JornadaEmpregado extends AjaxFormAction {
       public void restore(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
           UsuarioDTO usuario = WebUtil.getUsuario(request);
           if (usuario == null){
-                document.alert("Sess„o expirada! Favor efetuar logon novamente!");
+                document.alert("Sess√£o expirada! Favor efetuar logon novamente!");
                 return;
           }
           
@@ -43,7 +43,7 @@ public class JornadaEmpregado extends AjaxFormAction {
       public void delete(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
     	  UsuarioDTO usuario = WebUtil.getUsuario(request);
     	  if (usuario == null){
-    		  document.alert("Sess„o expirada! Favor efetuar logon novamente!");
+    		  document.alert("Sess√£o expirada! Favor efetuar logon novamente!");
     		  return;
     	  }
     	  
@@ -64,7 +64,7 @@ public class JornadaEmpregado extends AjaxFormAction {
       public void save(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
           UsuarioDTO usuario = WebUtil.getUsuario(request);
           if (usuario == null){
-                document.alert("Sess„o expirada! Favor efetuar logon novamente!");
+                document.alert("Sess√£o expirada! Favor efetuar logon novamente!");
                 return;
           }
           

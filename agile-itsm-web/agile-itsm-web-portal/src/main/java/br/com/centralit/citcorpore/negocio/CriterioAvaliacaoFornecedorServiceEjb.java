@@ -48,7 +48,7 @@ public class CriterioAvaliacaoFornecedorServiceEjb extends CrudServiceImpl imple
                         criterioAvaliacaoFornecedor.setValor("Sim");
                     } else {
                         if (criterioAvaliacaoFornecedor.getValorInteger() == 0) {
-                            criterioAvaliacaoFornecedor.setValor("Não");
+                            criterioAvaliacaoFornecedor.setValor("NÃ£o");
                         } else {
                             criterioAvaliacaoFornecedor.setValor("N/A");
                         }

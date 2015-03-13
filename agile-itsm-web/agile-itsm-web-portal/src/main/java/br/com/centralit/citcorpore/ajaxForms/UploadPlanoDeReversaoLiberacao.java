@@ -112,7 +112,7 @@ public class UploadPlanoDeReversaoLiberacao extends AjaxFormAction {
 						UploadDTO uploadDTO = new UploadDTO();
 						uploadDTO.setDescricao(descUploadFile);
 						uploadDTO.setNameFile(nameUploadFile);
-						uploadDTO.setSituacao("Tempor·rio");
+						uploadDTO.setSituacao("Tempor√°rio");
 						uploadDTO.setTemporario("S");
 						uploadDTO.setVersao(versao);
 						uploadDTO.setIdMudanca(idMudanca);

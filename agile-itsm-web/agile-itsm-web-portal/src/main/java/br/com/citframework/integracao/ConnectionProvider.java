@@ -30,7 +30,7 @@ public final class ConnectionProvider {
     private ConnectionProvider() {}
 
     /**
-     * Recupera uma conex„o publicada como recurso na JNDI ou recuperando configuraÁıes de usu·rio, url, etc. do arquivo {@code Constantes.properties}
+     * Recupera uma conex√£o publicada como recurso na JNDI ou recuperando configura√ß√µes de usu√°rio, url, etc. do arquivo {@code Constantes.properties}
      *
      * @param jndiName
      *            nome do recurso JNDI a ser recuperado, caso seja JNDI
@@ -39,11 +39,11 @@ public final class ConnectionProvider {
      * @throws Exception
      * @see ConnectionProvider#getConnection(String, Boolean)
      */
-    // TODO refatorar para usar os mÈtodos corretamente, isso aqui n„o faz sentido quando n„o È JNDI
+    // TODO refatorar para usar os m√©todos corretamente, isso aqui n√£o faz sentido quando n√£o √© JNDI
     public static Connection getConnection(final String jndiName) throws Exception {
         Connection con = null;
         try {
-            // Verifica de que maneira a Conex„o ser· recuperada
+            // Verifica de que maneira a Conex√£o ser√° recuperada
             final String recuperacao = Constantes.getValue("OBTECAO_CONEXAO", "JNDI").trim();
 
             if (recuperacao.equalsIgnoreCase("JDBC")) {
@@ -54,14 +54,14 @@ public final class ConnectionProvider {
                 con = getConnection(classe, url, usuario, senha);
             } else {
                 if (StringUtils.isBlank(jndiName)) {
-                    throw new IllegalArgumentException("Resource JNDI n„o deve ser vazio ou nulo");
+                    throw new IllegalArgumentException("Resource JNDI n√£o deve ser vazio ou nulo");
                 }
                 con = getConnectionFromJNDI(jndiName);
             }
 
             setTransactionIsolation(con);
         } catch (final Exception e) {
-            final String mensagem = String.format("Problema ao recuperar conex„o tipo=%s: ", jndiName) + e.getMessage();
+            final String mensagem = String.format("Problema ao recuperar conex√£o tipo=%s: ", jndiName) + e.getMessage();
             LOGGER.log(Level.WARNING, mensagem, e);
             throw new Exception(mensagem, e);
         }
@@ -69,26 +69,26 @@ public final class ConnectionProvider {
     }
 
     /**
-     * Recupera uma conex„o publicada como recurso na JNDI ou recuperando configuraÁıes de usu·rio, url, etc. do arquivo {@code Constantes.properties}, setando explicitamente se a
-     * conex„o È ou n„o apenas leitura
+     * Recupera uma conex√£o publicada como recurso na JNDI ou recuperando configura√ß√µes de usu√°rio, url, etc. do arquivo {@code Constantes.properties}, setando explicitamente se a
+     * conex√£o √© ou n√£o apenas leitura
      *
      * @param jndiName
      *            nome do recurso JNDI a ser recuperado, caso seja JNDI
      * @param readOnly
-     *            se a conex„o deve ser ou n„o apenas leitura
+     *            se a conex√£o deve ser ou n√£o apenas leitura
      * @return {@link Connection}
      * @throws Exception
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      * @since 19/08/2014
      * @see ConnectionProvider#getConnection(String)
      */
-    // TODO refatorar para usar os mÈtodos corretamente, isso aqui n„o faz sentido quando n„o È JNDI
+    // TODO refatorar para usar os m√©todos corretamente, isso aqui n√£o faz sentido quando n√£o √© JNDI
     public static Connection getConnection(final String jndiName, final Boolean readOnly) throws Exception {
         final Connection connection = getConnection(jndiName);
         try {
             connection.setReadOnly(readOnly);
         } catch (final SQLException e) {
-            final String mensagem = "Problema ao setar conex„o como read only: " + e.getMessage();
+            final String mensagem = "Problema ao setar conex√£o como read only: " + e.getMessage();
             LOGGER.log(Level.WARNING, mensagem, e);
             throw new Exception(mensagem, e);
         }
@@ -96,16 +96,16 @@ public final class ConnectionProvider {
     }
 
     /**
-     * Recupera uma conex„o de acordo com oas par‚metros informados
+     * Recupera uma conex√£o de acordo com oas par√¢metros informados
      *
      * @param clazz
-     *            classe do driver para conex„o
+     *            classe do driver para conex√£o
      * @param url
-     *            url de conex„o
+     *            url de conex√£o
      * @param user
-     *            uus·ri para conex„o
+     *            uus√°ri para conex√£o
      * @param password
-     *            senha do usu·rio para conex„o
+     *            senha do usu√°rio para conex√£o
      * @return {@link Connection}
      * @throws Exception
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
@@ -130,18 +130,18 @@ public final class ConnectionProvider {
     }
 
     /**
-     * Recupera uma conex„o de acordo com oas par‚metros informados
+     * Recupera uma conex√£o de acordo com oas par√¢metros informados
      *
      * @param clazz
-     *            classe do driver para conex„o
+     *            classe do driver para conex√£o
      * @param url
-     *            url de conex„o
+     *            url de conex√£o
      * @param user
-     *            usu·rio para conex„o
+     *            usu√°rio para conex√£o
      * @param password
-     *            senha do usu·rio para conex„o
+     *            senha do usu√°rio para conex√£o
      * @param readOnly
-     *            se a conex„o deve ser ou n„o apenas leitura
+     *            se a conex√£o deve ser ou n√£o apenas leitura
      * @return {@link Connection}
      * @throws Exception
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
@@ -153,7 +153,7 @@ public final class ConnectionProvider {
         try {
             connection.setReadOnly(readOnly);
         } catch (final SQLException e) {
-            final String mensagem = "Problema ao setar conex„o como read only: " + e.getMessage();
+            final String mensagem = "Problema ao setar conex√£o como read only: " + e.getMessage();
             LOGGER.log(Level.WARNING, mensagem, e);
             throw new Exception(mensagem, e);
         }
@@ -163,7 +163,7 @@ public final class ConnectionProvider {
     private static final JNDIFactory jndiContext = new JNDIFactory();
 
     /**
-     * Recupera inst‚ncia de {@link Connection} de um recurso JNDI
+     * Recupera inst√¢ncia de {@link Connection} de um recurso JNDI
      *
      * @param jndiName
      *            nome do recurso publicado na JNDI
@@ -178,7 +178,7 @@ public final class ConnectionProvider {
         try {
             connection = ((DataSource) jndiContext.getResource(jndiName)).getConnection();
         } catch (final ResourceException e) {
-            final String mensagem = "Problema ao recuperar conex„o da JNDI: " + e.getMessage();
+            final String mensagem = "Problema ao recuperar conex√£o da JNDI: " + e.getMessage();
             LOGGER.log(Level.SEVERE, mensagem, e);
             throw new Exception(mensagem, e);
         }
@@ -186,12 +186,12 @@ public final class ConnectionProvider {
     }
 
     /**
-     * Recupera inst‚ncia de {@link Connection} de um recurso JNDI
+     * Recupera inst√¢ncia de {@link Connection} de um recurso JNDI
      *
      * @param jndiName
      *            nome do recurso publicado na JNDI
      * @param se
-     *            a conex„o deve ser ou n„o apenas leitura
+     *            a conex√£o deve ser ou n√£o apenas leitura
      * @return {@link Connection}
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      * @throws Exception
@@ -204,7 +204,7 @@ public final class ConnectionProvider {
         try {
             connection.setReadOnly(readOnly);
         } catch (final SQLException e) {
-            final String mensagem = "Problema ao setar conex„o como read only: " + e.getMessage();
+            final String mensagem = "Problema ao setar conex√£o como read only: " + e.getMessage();
             LOGGER.log(Level.WARNING, mensagem, e);
             throw new Exception(mensagem, e);
         }

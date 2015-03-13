@@ -63,7 +63,7 @@ public class ProblemaDTO extends ObjetoNegocioFluxoDTO {
 	private String solucaoContorno;
 	private String adicionarBDCE;
 
-	// propriedades que não estão no banco
+	// propriedades que nÃ£o estÃ£o no banco
 	private String nomeCriador;
 	private String nomeProprietario;
 	private String itensConfiguracaoRelacionadosSerializado;
@@ -154,7 +154,7 @@ public class ProblemaDTO extends ObjetoNegocioFluxoDTO {
 	private Integer idLocalidade;
 
 	// Adicionado por geber.costa
-	// Atributos para Revisão de Problemas graves
+	// Atributos para RevisÃ£o de Problemas graves
 
 	private String acoesCorretas;
 	private String acoesIncorretas;
@@ -190,7 +190,7 @@ public class ProblemaDTO extends ObjetoNegocioFluxoDTO {
 
 	// Flag (S/N) que indica se deve ser enviado um e-mail
 	// quando o prazo para solucionar um problema expirou.
-	// por padrão é S no banco de dados.
+	// por padrÃ£o Ã© S no banco de dados.
 	private String enviaEmailPrazoSolucionarExpirou;
 
 	private Integer idCausa;
@@ -218,13 +218,13 @@ public class ProblemaDTO extends ObjetoNegocioFluxoDTO {
 
 	private String chamarTelaProblema;
 
-	// Serialização das informações complementares
+	// SerializaÃ§Ã£o das informaÃ§Ãµes complementares
 	private String informacoesComplementares_serialize;
 	private BaseEntity informacoesComplementares;
 
 	private Integer hiddenIdItemConfiguracao;
 
-	// Mário Júnior - Anexo
+	// MÃ¡rio JÃºnior - Anexo
 	private Collection colArquivosUpload;
 
 	public Integer getIdProblema() {
@@ -1148,12 +1148,12 @@ public class ProblemaDTO extends ObjetoNegocioFluxoDTO {
 	public String getDadosStr() {
 		StringBuilder str = new StringBuilder();
 		if (getIdProblema() != null) {
-			str.append("Número do problema: " + getIdProblema() + "\n");
+			str.append("NÃºmero do problema: " + getIdProblema() + "\n");
 			if (getDataHoraInicio() != null) {
 				str.append("Criada em: " + getDataHoraInicio() + "\n");
 			}
 			if (getDescricao() != null) {
-				str.append("Situação: " + getDescricao() + "\n");
+				str.append("SituaÃ§Ã£o: " + getDescricao() + "\n");
 			}
 			// if (!suspensa()) {
 			if (getPrazoHH() != null) {
@@ -1173,7 +1173,7 @@ public class ProblemaDTO extends ObjetoNegocioFluxoDTO {
 					imp = "Baixo";
 				}
 				if (getImpacto().equalsIgnoreCase("M")) {
-					imp = "Médio";
+					imp = "MÃ©dio";
 				}
 				if (getImpacto().equalsIgnoreCase("A")) {
 					imp = "Alto";
@@ -1186,15 +1186,15 @@ public class ProblemaDTO extends ObjetoNegocioFluxoDTO {
 					imp = "Baixa";
 				}
 				if (getUrgencia().equalsIgnoreCase("M")) {
-					imp = "Média";
+					imp = "MÃ©dia";
 				}
 				if (getUrgencia().equalsIgnoreCase("A")) {
 					imp = "Alta";
 				}
-				str.append("Urgência: " + imp + "\n");
+				str.append("UrgÃªncia: " + imp + "\n");
 			}
 			if (getPrioridade() != null) {
-				str.append("Prioridade (Código): " + getPrioridade() + "\n");
+				str.append("Prioridade (CÃ³digo): " + getPrioridade() + "\n");
 			}
 		}
 		return str.toString();

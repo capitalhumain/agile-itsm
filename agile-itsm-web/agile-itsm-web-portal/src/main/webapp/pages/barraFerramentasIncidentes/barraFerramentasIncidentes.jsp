@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@ page import="br.com.centralit.citcorpore.util.WebUtil" %>
 <%@ page import="br.com.centralit.citcorpore.bean.BarraFerramentasIncidentesDTO" %>
 <%@page import="br.com.citframework.util.UtilI18N"%>
@@ -9,7 +11,7 @@
 <html>
 <head>
 	<%@include file="/include/header.jsp"%>
-	<title><fmt:message key="citcorpore.comum.title" /></title>
+	<%@include file="/novoLayout/common/include/titulo.jsp" %>
 
 	<%@ include file="/include/javaScriptsComuns/javaScriptsComuns.jsp" %>
 
@@ -54,7 +56,7 @@
 	</div>
 	<div class="POPUP_barraFerramentasIncidentes" id="POPUP_menuOcorrencias">
 		<!-- Conteudo -->
-		<!-- Não usar este CSS possuido: main_container -->
+		<!-- NÃ£o usar este CSS possuido: main_container -->
 		<div id="main_container" class="container_16 clearfix">
 			<div class="flat_area grid_16">
 				<h2><fmt:message key="citcorpore.comum.ocorrencia" /></h2>
@@ -138,7 +140,7 @@
 												<fmt:message key="citcorpore.comum.descricao" />
 											</label>
 											<div>
-												<textarea cols="70" rows="5" name="descricao1" class="Valid[Required] Description[Descrição]" maxlength="200"></textarea>
+												<textarea cols="70" rows="5" name="descricao1" class="Valid[Required] Description[DescriÃ§Ã£o]" maxlength="200"></textarea>
 											</div>
 										</fieldset>
 									</div>
@@ -148,7 +150,7 @@
 										<fieldset>
 											<label class="campoObrigatorio"><fmt:message key="citcorpore.comum.ocorrencia" /></label>
 											<div>
-												<textarea cols="70" rows="5" name="ocorrencia" class="Valid[Required] Description[Ocorrência]" maxlength="5000"></textarea>
+												<textarea cols="70" rows="5" name="ocorrencia" class="Valid[Required] Description[OcorrÃªncia]" maxlength="5000"></textarea>
 											</div>
 										</fieldset>
 									</div>
@@ -158,7 +160,7 @@
 										<fieldset>
 											<label class="campoObrigatorio"><fmt:message key="solicitacaoServico.informacaoContato" /></label>
 											<div>
-												<textarea cols="70" rows="2" name="informacoesContato" class="Valid[Required] Description[Informações de Contato]" maxlength="5000"></textarea>
+												<textarea cols="70" rows="2" name="informacoesContato" class="Valid[Required] Description[InformaÃ§Ãµes de Contato]" maxlength="5000"></textarea>
 											</div>
 										</fieldset>
 									</div>

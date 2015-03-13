@@ -50,9 +50,9 @@ public final class LDAPUtils {
 
     public static String SUB_DOMINIO = ""; //"ou =*, dc=*";
 
-    public static String MSG_ERROR_LDAP_CONNECTION = "N„o foi possÌvel obter um contexto LDAP";
+    public static String MSG_ERROR_LDAP_CONNECTION = "N√£o foi poss√≠vel obter um contexto LDAP";
 
-    public static String MSG_ERROR_LDAP_VALIDATION_USER = "Username ou Password Inv·lida";
+    public static String MSG_ERROR_LDAP_VALIDATION_USER = "Username ou Password Inv√°lida";
 
     public static String FILTRO = "";
 
@@ -165,9 +165,9 @@ public final class LDAPUtils {
 
                 String[] atributosParaRetornar = new String[1];
                 /**
-                 * Realiza a ValidaÁ„o Caso o parametro openLDAP esteja ativo
+                 * Realiza a Valida√ß√£o Caso o parametro openLDAP esteja ativo
                  * sambaNTPassword - Atributo de Senha configurada para o openLDAP
-                 * distinguishedName - (Default) Atributo de senha padr„o
+                 * distinguishedName - (Default) Atributo de senha padr√£o
                  */
                 String parametroOpenLdap = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.LDAP_OPEN_LDAP, "N");
                 if (parametroOpenLdap.equals("S")) {
@@ -202,7 +202,7 @@ public final class LDAPUtils {
                         Attributes att = result.getAttributes();
                         String dn = "";
                         /**
-                         * sambaNTPassword - Atributo de Senha configurada para o openLDAP distinguishedName - (Default) Atributo de senha padr„o
+                         * sambaNTPassword - Atributo de Senha configurada para o openLDAP distinguishedName - (Default) Atributo de senha padr√£o
                          */
                         if (parametroOpenLdap.equals("S")) {
                             dn = (String) att.get("uid").get();
@@ -237,7 +237,7 @@ public final class LDAPUtils {
 
                                 adUserAux = new ADUserDTO();
 
-                                System.out.println("------------- INÕCIO --------------");
+                                System.out.println("------------- IN√çCIO --------------");
                                 String retorno = null;
 
                                 SearchResult searchResult = (SearchResult) results.next();
@@ -272,7 +272,7 @@ public final class LDAPUtils {
     }
 
     /**
-     * Sincroniza todos os usu·rios do AD com o CITSMart
+     * Sincroniza todos os usu√°rios do AD com o CITSMart
      *
      * @return <code>ArrayList<ADUserDTO></code>
      * @author Vadoilo Damasceno
@@ -303,7 +303,7 @@ public final class LDAPUtils {
                 searchControls.setSearchScope(SearchControls.SUBTREE_SCOPE);
 
                 try {
-                    System.out.println("  \n \n LDAP - ROTINA DE SINCRONIZA«√O COM AD INICIADA  \n \n");
+                    System.out.println("  \n \n LDAP - ROTINA DE SINCRONIZA√á√ÉO COM AD INICIADA  \n \n");
                     String numColaboradoresPorPag;
                     Integer pageSize = new Integer(4000);
 
@@ -327,7 +327,7 @@ public final class LDAPUtils {
                     String[] atributosRetorno = getADFieldList();
                     searchControls.setReturningAttributes(atributosRetorno);
 
-                    //filtro caso venha pelo context ele pega esse valor, sen„o pega o valor padr„o do parametro;
+                    //filtro caso venha pelo context ele pega esse valor, sen√£o pega o valor padr√£o do parametro;
                     if (context.getLdpaFiltro() != null && context.getLdpaFiltro().equals("")) {
                         filtro = context.getLdpaFiltro();
                     }else{
@@ -352,7 +352,7 @@ public final class LDAPUtils {
 
                         results = ldapContexto.search(context.getBaseDominio(), filtro, searchControls);
 
-                        System.out.println(" \n \n LDAP - P¡GINA " + numPagina + " - INICIADA \n \n");
+                        System.out.println(" \n \n LDAP - P√ÅGINA " + numPagina + " - INICIADA \n \n");
 
                         while (results != null && results.hasMoreElements()) {
                             contador++;
@@ -406,7 +406,7 @@ public final class LDAPUtils {
 
                     } while (cookie != null);
 
-                    System.out.println("LDAP - ROTINA DE SINCRONIZA«√O COM AD FINALIZADA.");
+                    System.out.println("LDAP - ROTINA DE SINCRONIZA√á√ÉO COM AD FINALIZADA.");
                     System.out.println("LDAP - TOTAL DE REGISTROS RECUPERADOS = " + contador);
 
                 } catch (AuthenticationException ex) {
@@ -439,7 +439,7 @@ public final class LDAPUtils {
                         ldapContexto.close();
                         ldapContexto = null;
                     } catch (NamingException e) {
-                        System.out.println("LDAP - NamingException - n„o foi possÌvel fechar ldapContexto.");
+                        System.out.println("LDAP - NamingException - n√£o foi poss√≠vel fechar ldapContexto.");
                         e.printStackTrace();
                     }
                 }
@@ -449,7 +449,7 @@ public final class LDAPUtils {
     }
 
     /**
-     * Consulta empregado a partir da Tela de SolicitaÁ„o ServiÁo. Pesquisa È realizada pelo Login do Usu·rio.
+     * Consulta empregado a partir da Tela de Solicita√ß√£o Servi√ßo. Pesquisa √© realizada pelo Login do Usu√°rio.
      *
      * @param login
      * @param idGrupoSolicitante
@@ -521,7 +521,7 @@ public final class LDAPUtils {
 
                             adUserAux = new ADUserDTO();
 
-                            System.out.println("------------- INÕCIO --------------");
+                            System.out.println("------------- IN√çCIO --------------");
                             String retorno = null;
 
                             SearchResult searchResult = (SearchResult) results.next();
@@ -729,7 +729,7 @@ public final class LDAPUtils {
     }
 
     public static String nullToNaoDisponivel(String value) {
-        return value == null ? "N„o disponÌvel" : value;
+        return value == null ? "N√£o dispon√≠vel" : value;
     }
 
     private static Collection<ServidorContextoDTO> createLdapConnection() {
@@ -784,11 +784,11 @@ public final class LDAPUtils {
 
             // Especifica o IP/Nome e a porta do servidor LDAP
             env.put(Context.PROVIDER_URL, servidor[i]);
-            // Usu·rio ADMIN0
+            // Usu√°rio ADMIN0
             env.put(Context.SECURITY_PRINCIPAL, admin_dn[i]);
             // Senha ADMIN
             env.put(Context.SECURITY_CREDENTIALS, admin_pw[i]);
-            // Tipo de Conex„o
+            // Tipo de Conex√£o
             env.put(Context.SECURITY_AUTHENTICATION, CONNECTION_TYPE);
             // Cria um Initial Context
 
@@ -853,9 +853,9 @@ public final class LDAPUtils {
             env.put(Context.PROVIDER_URL, servidor[i]);
             // Ldap Distingued Name
             env.put(Context.SECURITY_PRINCIPAL, dn);
-            // Senha Usu·rio
+            // Senha Usu√°rio
             env.put(Context.SECURITY_CREDENTIALS, senha);
-            // Tipo de Conex„o
+            // Tipo de Conex√£o
             env.put(Context.SECURITY_AUTHENTICATION, CONNECTION_TYPE);
 
             try {
@@ -863,8 +863,8 @@ public final class LDAPUtils {
                 ldapCtx = new InitialDirContext(env);
             } catch (AuthenticationException auEx) {
             	/**
-				 * A forma como esta rotina est· implementada faz com que o sistema tente autenticar o usu·rio para cada subdomÌnio, atÈ o final da lista. Para cada subdomÌnio, portanto, È exibida
-				 * essa mensagem, caso o usu·rio n„o consiga autenticaÁ„o. Para evitar a poluiÁ„o do LOG esta mensagem foi comentada. valdoilo.damasceno
+				 * A forma como esta rotina est√° implementada faz com que o sistema tente autenticar o usu√°rio para cada subdom√≠nio, at√© o final da lista. Para cada subdom√≠nio, portanto, √© exibida
+				 * essa mensagem, caso o usu√°rio n√£o consiga autentica√ß√£o. Para evitar a polui√ß√£o do LOG esta mensagem foi comentada. valdoilo.damasceno
 				 */
                 //System.out.println(MSG_ERROR_LDAP_VALIDATION_USER + "[LDAP: error code 49 - Invalid Credentials]");
                 //auEx.printStackTrace();
@@ -887,7 +887,7 @@ public final class LDAPUtils {
     }
 
     /**
-     * Testa conex„o com LDAP.
+     * Testa conex√£o com LDAP.
      *
      * @return boolean
      * @author valdoilo.damasceno
@@ -930,7 +930,7 @@ public final class LDAPUtils {
                     String[] atributosRetorno = getADFieldList();
                     searchControls.setReturningAttributes(atributosRetorno);
 
-                    //filtro caso venha pelo context ele pega esse valor, sen„o pega o valor padr„o do parametro;
+                    //filtro caso venha pelo context ele pega esse valor, sen√£o pega o valor padr√£o do parametro;
                     if (context.getLdpaFiltro() != null && !context.getLdpaFiltro().equalsIgnoreCase("")) {
                         filtro = context.getLdpaFiltro();
                     }else{
@@ -990,7 +990,7 @@ public final class LDAPUtils {
                         adUserAux.setServer(context.getServidor());
                         listAdUserAux.add(adUserAux);
                     } catch (NamingException e) {
-                        System.out.println("LDAP - NamingException - n„o foi possÌvel fechar ldapContexto.");
+                        System.out.println("LDAP - NamingException - n√£o foi poss√≠vel fechar ldapContexto.");
                         e.printStackTrace();
                     }
                 }

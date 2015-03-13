@@ -3,7 +3,7 @@
 <%@page import="br.com.citframework.util.UtilStrings"%>
 <%@page import="br.com.centralit.citcorpore.util.CITCorporeUtil"%>
 <%@page import="br.com.citframework.service.ServiceLocator"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.citframework.util.Constantes"%>
 <%@page import="java.util.Collection"%>
@@ -41,10 +41,8 @@
 
 	%>
 
-	<%@include file="/include/security/security.jsp"%>
-	<title>CITSmart</title>
 	<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
-	<%@include file="/include/titleComum/titleComum.jsp" %>
+	<%@include file="/novoLayout/common/include/titulo.jsp" %>
 	<%@include file="/include/menu/menuConfig.jsp" %>
 
 	<link rel="stylesheet" type="text/css" href="./css/informacoesContrato.css" />
@@ -69,7 +67,7 @@
 				<h2><fmt:message key="contrato.administracao_contrato"/></h2>
 
 	<!-- ## AREA DA APLICACAO ## -->
-	<form name='formProntuario' id='formProntuario' action='${ctx}/pages/informacoesContrato/informacoesContrato' accept-charset="ISO-8859-1" onsubmit="document.charset = 'ISO-8859-1'">
+	<form name='formProntuario' id='formProntuario' action='${ctx}/pages/informacoesContrato/informacoesContrato' accept-charset="UTF-8" onsubmit="document.charset = 'UTF-8'">
 		<div id="estruturaContrato" >
 			<div id="topo" style="width: 100% !important;">
 				<!-- 	<input type='hidden' name='nomeContrato'/> -->
@@ -138,7 +136,7 @@
 
 				</div>
 				<!-- <div>
-					<input type='button' id='buttonAbrirPopupNotificacoesServicos' value='Criar notificações' title='Criar notificações de serviços de contrato' onclick='abrirPopupNotificacoesServicos();'>
+					<input type='button' id='buttonAbrirPopupNotificacoesServicos' value='Criar notificaÃ§Ãµes' title='Criar notificaÃ§Ãµes de serviÃ§os de contrato' onclick='abrirPopupNotificacoesServicos();'>
 				</div> -->
 				<div id="corpo">
 				<div id="direita" class="divProntuario ui-widget ui-state-default ui-corner-all" style="width:100% !important; display:none; overflow: auto;"></div>
@@ -192,7 +190,7 @@
 		<input type='hidden' name='nomeArquivo'/>
 	</form>
 
-	<cit:janelaPopup style="display:none;top:1350px;width:935px;left:0px;height:575px;position:absolute;" modal="true" title="Estatística" id="POPUP_ESTATISTICA_IMPRIMIR_QUEST">
+	<cit:janelaPopup style="display:none;top:1350px;width:935px;left:0px;height:575px;position:absolute;" modal="true" title="EstatÃ­stica" id="POPUP_ESTATISTICA_IMPRIMIR_QUEST">
 		<form name='formImprimirFormulario' method="POST" action="${ctx}/pages/contratoQuestionarios/contratoQuestionarios">
 			<input type='hidden' name='idContratoQuestionario'/>
 			<input type='hidden' name='idQuestionario' />
@@ -209,7 +207,7 @@
 		};
 	</script>
 
-	<cit:janelaPopup maximize="true" style="display:none;top:1350px;width:805px;left:0px;height:455px;position:absolute;" modal="true" title="Formulário" id="POPUP_QUESTIONARIO3">
+	<cit:janelaPopup maximize="true" style="display:none;top:1350px;width:805px;left:0px;height:455px;position:absolute;" modal="true" title="FormulÃ¡rio" id="POPUP_QUESTIONARIO3">
 		<form name='formPessoaQuestionario3' method="post" action='${ctx}/pages/contratoQuestionarios/contratoQuestionarios'>
 			<input type='hidden' name='idContrato' id='idContrato3'/>
 			<input type='hidden' name='idQuestionario' id='idQuestionario3'/>
@@ -225,7 +223,7 @@
 								<tr>
 									<td>
 										<div id='divOpcoesSituacaoQuest3'>
-											Situação: <select name='situacao' id='situacao3'><option value='E'>Em Edição</option><option value='F'>Finalizado</option></select>
+											SituaÃ§Ã£o: <select name='situacao' id='situacao3'><option value='E'>Em EdiÃ§Ã£o</option><option value='F'>Finalizado</option></select>
 										</div>
 									</td>
 									<td>
@@ -238,7 +236,7 @@
 										&nbsp;
 									</td>
 									<td>
-										<input type='button' value='Visualizar Histórico desta Seção' onclick='showHistoricoAba(document.formPessoaQuestionario3.aba.value)'/>
+										<input type='button' value='Visualizar HistÃ³rico desta SeÃ§Ã£o' onclick='showHistoricoAba(document.formPessoaQuestionario3.aba.value)'/>
 									</td>
 									<td>
 										&nbsp;
@@ -262,10 +260,10 @@
 			</div>
 		</form>
 	</cit:janelaPopup>
-	<cit:janelaPopup style="display:none;top:1350px;width:805px;left:0px;height:500px;position:absolute;" modal="true" title="Gravação de Registro Eletrônico de Saúde" id="POPUP_FINALIZACAO_ITEM">
+	<cit:janelaPopup style="display:none;top:1350px;width:805px;left:0px;height:500px;position:absolute;" modal="true" title="GravaÃ§Ã£o de Registro EletrÃ´nico de SaÃºde" id="POPUP_FINALIZACAO_ITEM">
 		<iframe name='frameUploadCertificado' id='frameUploadCertificado' src='about:blank' height="0" width="0" style='display:none'/></iframe>
 			<div style='border:1px solid black; background-color: white; width:805px; height:40px; overflow: auto; text-align: center'>
-				<font color='red' size="12"><b>Confirma a gravação do formulário  <br>Após gravação não serão permitidas alterações!</b></font>
+				<font color='red' size="12"><b>Confirma a gravaÃ§Ã£o do formulÃ¡rio  <br>ApÃ³s gravaÃ§Ã£o nÃ£o serÃ£o permitidas alteraÃ§Ãµes!</b></font>
 			</div>
 		<div id='divCertificados' style='border:1px solid black; background-color: white; width:805px; height:100px; overflow: auto; display:none'></div>
 		<form name='formSelecaoProdutos' method="POST" action='${ctx}/pessoasQuestionarios/pessoasQuestionarios'>
@@ -293,7 +291,7 @@
 	<cit:janelaPopup style="display:none;top:1350px;width:805px;left:50px;height:350px;position:absolute;" modal="true" title="Upload Anexo" id="POPUP_ANEXO">
 		<iframe name='frameUploadCertificadoAnexos' id='frameUploadCertificado' src='about:blank' height="0" width="0" style='display:none'/></iframe>
 			<div id='divMsgCertDigApplet' style='border:1px solid black; background-color: white; width:805px; height:40px; overflow: auto; text-align: center'>
-				<font color='red' size="12"><b>Atenção ! <br>Para que o anexo tenha validade legal é importante utilizar seu certificado digital (ver Resolução CFM 1821/2007).</b></font>
+				<font color='red' size="12"><b>AtenÃ§Ã£o ! <br>Para que o anexo tenha validade legal Ã© importante utilizar seu certificado digital (ver ResoluÃ§Ã£o CFM 1821/2007).</b></font>
 			</div>
 		<iframe name='frameUploadCertificadoAnexosApplet' id='frameUploadCertificadoApplet' style='display:none' src='about:blank' height="250" width="800"/>
 		</iframe>
@@ -316,7 +314,7 @@
 				</tr>
 				<tr>
 					<td class="campoEsquerda">
-						Observações:
+						ObservaÃ§Ãµes:
 					</td>
 					<td>
 						<textarea rows="8" cols="60" name="observacao" style="border: 1px solid black;"></textarea>
@@ -359,7 +357,7 @@
 
 	<%@include file="/include/footer.jsp"%>
 
-	<cit:janelaPopup maximize="true" style="display:none;top:1350px;width:915px;left:0px;height:635px;position:absolute;" modal="true" title="Formulário" id="POPUP_QUESTIONARIO">
+	<cit:janelaPopup maximize="true" style="display:none;top:1350px;width:915px;left:0px;height:635px;position:absolute;" modal="true" title="FormulÃ¡rio" id="POPUP_QUESTIONARIO">
 		<form name='formPessoaQuestionario' method="post" action='${ctx}/pages/contratoQuestionarios/contratoQuestionarios'>
 			<input type='hidden' name='idContrato'/>
 			<input type='hidden' name='idQuestionario'/>
@@ -390,10 +388,10 @@
 														<table cellpadding="0" cellspacing="0">
 															<tr>
 																<td class="campoEsquerdaSemTamanho">
-																	Situação:
+																	SituaÃ§Ã£o:
 																</td>
 																<td>
-																	 <select name='situacao'><option value='E'>Em Edição</option><option value='F'>Finalizado</option></select>
+																	 <select name='situacao'><option value='E'>Em EdiÃ§Ã£o</option><option value='F'>Finalizado</option></select>
 																</td>
 																<td>
 																	&nbsp;
@@ -472,7 +470,7 @@
 	<div class="modal hide fade in" id="POPUP_CADASTRO_ALTERACAO" aria-hidden="false" data-width='1098px'>
 					<!-- Modal heading -->
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
 						<h3></h3>
 					</div>
 					<!-- // Modal heading END -->
@@ -535,7 +533,7 @@
 		            		<label><fmt:message key="citcorpore.comum.datainicio" /><span class="campoObrigatorio"></span> </label>
 		            	</td>
 		            <td>
-		           		<div><input  id="dataInicioExecucao" type='text' name="dataInicioExecucao" maxlength="10"  class="Format[Date] Valid[Required,Date] Description[Data Início] datepicker"/></div>
+		           		<div><input  id="dataInicioExecucao" type='text' name="dataInicioExecucao" maxlength="10"  class="Format[Date] Valid[Required,Date] Description[Data InÃ­cio] datepicker"/></div>
 		            </td>
 		         </tr>
 		         <tr>
@@ -574,7 +572,7 @@
 	<div class="modal hide fade in" id="modal_lookupContrato" aria-hidden="false">
 				<!-- Modal heading -->
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
 						<h3><fmt:message key="contrato.contrato" /></h3>
 					</div>
 					<!-- // Modal heading END -->

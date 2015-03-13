@@ -8,7 +8,7 @@ import br.com.citframework.service.CrudService;
 public interface AprovacaoMudancaService extends CrudService{
 	
 	/**
-	 * Retorna uma lista de Aprovacao Mudança de acordo com a requisição passada
+	 * Retorna uma lista de Aprovacao MudanÃ§a de acordo com a requisiÃ§Ã£o passada
 	 * @param idRequisicaoMudanca
 	 * @return
 	 * @throws Exception
@@ -43,7 +43,7 @@ public interface AprovacaoMudancaService extends CrudService{
 	public Boolean validacaoAprovacaoMudanca(Integer idRequisicaoMudanca) throws Exception;
 	
 	/**
-	 * Retorna a quantidade de votacao de uma requisição mudança
+	 * Retorna a quantidade de votacao de uma requisiÃ§Ã£o mudanÃ§a
 	 * @param aprovacao
 	 * @param idGrupo
 	 * @return

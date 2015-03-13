@@ -1,7 +1,7 @@
 /*
- * @Autor: ValdoÌlo M. Damasceno
+ * @Autor: Valdo√≠lo M. Damasceno
  * 
- * JavaScript da p·gina tipoItemConfiguracao.jsp
+ * JavaScript da p√°gina tipoItemConfiguracao.jsp
  */
 
 var objTab = null;
@@ -31,14 +31,14 @@ function LOOKUP_CARACTERISTICA_select(id, desc) {
 		var arrayIdCaracteristica = document.form.idCaracteristica;
 		for ( var i = 0; i < arrayIdCaracteristica.length; i++) {
 			if (arrayIdCaracteristica[i].value == id) {
-				alert('CaracterÌstica j· adicionada!');
+				alert('Caracter√≠stica j√° adicionada!');
 				return;
 			}
 		}
 	} else if (lastRow == 2) {
 		var idCaracteristica = document.form.idCaracteristica;
 		if (idCaracteristica.value == id) {
-			alert('Caracteristica j· adicionado!');
+			alert('Caracteristica j√° adicionado!');
 			return;
 		}
 	}
@@ -62,7 +62,7 @@ function insereRow(id, desc) {
 	var coluna = row.insertCell(0);
 	coluna.innerHTML = '<img id="imgExcluiCaracteristica'
 			+ countCaracteristica
-			+ '" style="cursor: pointer;" title="Excluir CaracterÌstica!" src="'+URL_SISTEMA+'"/imagens/delete.png" onclick="removeLinhaTabela(\'tabelaCaracteristica\', this.parentNode.parentNode.rowIndex);">';
+			+ '" style="cursor: pointer;" title="Excluir Caracter√≠stica!" src="'+URL_SISTEMA+'"/imagens/delete.png" onclick="removeLinhaTabela(\'tabelaCaracteristica\', this.parentNode.parentNode.rowIndex);">';
 
 	coluna = row.insertCell(1);
 	coluna.innerHTML = valor[0] + '<input type="hidden" id="idCaracteristica'
@@ -86,7 +86,7 @@ function restoreRow() {
 	var coluna = row.insertCell(0);
 	coluna.innerHTML = '<img id="imgExcluiCaracteristica'
 			+ countCaracteristica
-			+ '" style="cursor: pointer;" title="Excluir CaracterÌstica!" src="'+URL_SISTEMA+'"/imagens/delete.png" onclick="removeLinhaTabela(\'tabelaCaracteristica\', this.parentNode.parentNode.rowIndex);">';
+			+ '" style="cursor: pointer;" title="Excluir Caracter√≠stica!" src="'+URL_SISTEMA+'"/imagens/delete.png" onclick="removeLinhaTabela(\'tabelaCaracteristica\', this.parentNode.parentNode.rowIndex);">';
 
 	coluna = row.insertCell(1);
 	coluna.innerHTML = '<input type="hidden" id="idCaracteristica'
@@ -121,7 +121,7 @@ function setRestoreCaracteristica(idCaracteristica, caracteristica, tag,
 }
 
 function removeLinhaTabela(idTabela, rowIndex) {
-	if (confirm('Deseja realmente excluir caracterÌstica?')) {
+	if (confirm('Deseja realmente excluir caracter√≠stica?')) {
 		HTMLUtils.deleteRow(idTabela, rowIndex);
 
 		document.form.caracteristicaSerializada.value = eval('document.form.idCaracteristica'

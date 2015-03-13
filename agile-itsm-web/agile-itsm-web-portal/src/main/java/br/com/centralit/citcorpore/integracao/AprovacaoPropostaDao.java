@@ -103,7 +103,7 @@ public class AprovacaoPropostaDao extends CrudDaoDefaultImpl{
 	public void deleteLinha(Integer idRequisicaoMudanca, Integer idEmpregado) throws PersistenceException {
 //		List parametro = new ArrayList();
 //		parametro.add(idRequisicaoMudanca);
-//		String sql = "DELETE FROM aprovacaoproposta where (datahoravotacao = 'Ainda n„o votou.' and idrequisicaomudanca = ?)";
+//		String sql = "DELETE FROM aprovacaoproposta where (datahoravotacao = 'Ainda n√£o votou.' and idrequisicaomudanca = ?)";
 //		this.execSQL(sql.toString(), parametro.toArray());
 		List lstCondicao = new ArrayList();
 		lstCondicao.add(new Condition("idRequisicaoMudanca", "=", idRequisicaoMudanca));

@@ -62,9 +62,9 @@ public class ImportanciaNegocio extends AjaxFormAction {
 	/**
 	 * Metodo responsavel por remover uma importancia de negocio.
 	 * 
-	 * <p> foi realizada uma alteraÁ„o no dia 25 de novembro de 2014 para adequar um tratamento de exclus„o de importancia de negocio vinculada a um cadastro de serviÁo, de acordo com a solicitaÁ„o 159456</p>
+	 * <p> foi realizada uma altera√ß√£o no dia 25 de novembro de 2014 para adequar um tratamento de exclus√£o de importancia de negocio vinculada a um cadastro de servi√ßo, de acordo com a solicita√ß√£o 159456</p>
 	 * 
-	 * <p> Altor da alteraÁ„o Ezequiel</p>
+	 * <p> Altor da altera√ß√£o Ezequiel</p>
 	 * 
 	 * @param document
 	 * @param request

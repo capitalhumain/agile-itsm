@@ -61,7 +61,7 @@ public class HistoricoItemConfiguracao extends ItemConfiguracaoTree {
 
 	/**
 	 * Alterado por
-	 * desenvolvedor: rcs (Rafael CÈsar Soyer)
+	 * desenvolvedor: rcs (Rafael C√©sar Soyer)
 	 * data: 12/01/2015
 	 * 
 	 * @param document
@@ -84,7 +84,7 @@ public class HistoricoItemConfiguracao extends ItemConfiguracaoTree {
 			
 		List<HistoricoValorDTO> listValoresDtos = serviceHistValor.listHistoricoValorByIdHistoricoIc(histItem.getIdHistoricoIC());
 
-		/*Realizando a Reflex„o de Item de ConfiguraÁ„o*/
+		/*Realizando a Reflex√£o de Item de Configura√ß√£o*/
 		ItemConfiguracaoDTO item = new ItemConfiguracaoDTO();
 		Reflexao.copyPropertyValues(histItem, item);
 		

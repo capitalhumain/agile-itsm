@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.TreeSet;
 
 /**
- * @author euler.ramos Objetiva controlar a criaÁ„o de uma ·rvore a partir de itens recuperados do banco de dados; serve para qualquer objeto que use o IDpai para implementar a hierarquia e atender· a criaÁ„o da lista de resultados de um AutoComplete com hierarquia.
+ * @author euler.ramos Objetiva controlar a cria√ß√£o de uma √°rvore a partir de itens recuperados do banco de dados; serve para qualquer objeto que use o IDpai para implementar a hierarquia e atender√° a cria√ß√£o da lista de resultados de um AutoComplete com hierarquia.
  */
 
 public class Arvore {
@@ -92,14 +92,14 @@ public class Arvore {
 
 	/**
 	 * @param idUnidadeColaborador
-	 *        MÈtodo implementado, porÈm n„o foi necess·rio utiliz·-lo, por questıes de performance, foi melhor filtrar a unidade na consulta ao banco de dados e utilizar a lista sem restriÁ„o;
+	 *        M√©todo implementado, por√©m n√£o foi necess√°rio utiliz√°-lo, por quest√µes de performance, foi melhor filtrar a unidade na consulta ao banco de dados e utilizar a lista sem restri√ß√£o;
 	 */
 	public void geraListaUnidadeEsuperiores(Integer idUnidadeColaborador) {
 		if ((idUnidadeColaborador != null) && (idUnidadeColaborador.intValue() > 0)) {
 			this.getListaTexto().clear();
 			this.getListaID().clear();
 
-			//Adicionando os nÛs de tr·s para frente
+			//Adicionando os n√≥s de tr√°s para frente
 			NoArvore noUnidade = this.localizaNaArvore(idUnidadeColaborador, this.getArvore());
 			this.getListaTexto().add(0,this.retornaIdentacao(noUnidade.getNivel()) + noUnidade.getTexto());
 			this.getListaID().add(0,noUnidade.getId());

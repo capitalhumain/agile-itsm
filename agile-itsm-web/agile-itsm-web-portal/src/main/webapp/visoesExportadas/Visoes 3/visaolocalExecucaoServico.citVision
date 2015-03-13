@@ -78,7 +78,7 @@ var localExecuxaoServicoServiceEjb = new importCategoriaSolucao.LocalExecuxaoSer
 var descricaoValida = localExecuxaoServicoServiceEjb .verificaDescricaoDuplicadaAoAlterar(mapFields);
  if(descricaoValida==&quot;0&quot;){
    dinamicViewDto.abortFuncaoPrincipal = true;
-   dinamicViewDto.msgRetorno = &quot;Esta descriÁ„o j· existe. Por favor, tente novamente.&quot;;
+   dinamicViewDto.msgRetorno = &quot;Esta descri√ß√£o j√° existe. Por favor, tente novamente.&quot;;
  }</script>
       <scriptLanguage>JAVASCRIPT</scriptLanguage>
     </br.com.centralit.citcorpore.metainfo.bean.ScriptsVisaoDTO>
@@ -94,7 +94,7 @@ var localExecuxaoServicoServiceEjb = new importCategoriaSolucao.LocalExecuxaoSer
 var descricaoValida = localExecuxaoServicoServiceEjb.verificaDescricaoDuplicadaAoCriar(mapFields);
  if(descricaoValida==&quot;0&quot;){
    dinamicViewDto.abortFuncaoPrincipal = true;
-   dinamicViewDto.msgRetorno = &quot;Esta descriÁ„o j· existe. Por favor, tente novamente.&quot;;
+   dinamicViewDto.msgRetorno = &quot;Esta descri√ß√£o j√° existe. Por favor, tente novamente.&quot;;
  }</script>
       <scriptLanguage>JAVASCRIPT</scriptLanguage>
     </br.com.centralit.citcorpore.metainfo.bean.ScriptsVisaoDTO>

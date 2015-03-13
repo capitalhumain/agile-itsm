@@ -35,8 +35,8 @@ public enum DevicePlatformType {
      * Recupera uma {@link DevicePlatformType} de acordo com seu identificador
      *
      * @param id
-     *            identificador a ser verificada se h· uma {@link DevicePlatformType}
-     * @return {@link DevicePlatformType} caso encontre. {@link IllegalArgumentException}, caso contr·rio
+     *            identificador a ser verificada se h√° uma {@link DevicePlatformType}
+     * @return {@link DevicePlatformType} caso encontre. {@link IllegalArgumentException}, caso contr√°rio
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      * @since 15/11/2014
      */
@@ -52,11 +52,11 @@ public enum DevicePlatformType {
     }
 
     /**
-     * Recupera uma {@link DevicePlatformType} de acordo com sua descriÁ„o
+     * Recupera uma {@link DevicePlatformType} de acordo com sua descri√ß√£o
      *
      * @param description
-     *            descric„o a ser verificada se h· uma {@link DevicePlatformType}
-     * @return {@link DevicePlatformType} caso encontre. {@link IllegalArgumentException}, caso contr·rio
+     *            descric√£o a ser verificada se h√° uma {@link DevicePlatformType}
+     * @return {@link DevicePlatformType} caso encontre. {@link IllegalArgumentException}, caso contr√°rio
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      * @since 15/11/2014
      */

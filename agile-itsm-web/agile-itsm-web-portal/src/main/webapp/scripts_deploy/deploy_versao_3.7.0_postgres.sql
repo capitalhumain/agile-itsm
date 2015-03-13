@@ -37,7 +37,7 @@ ALTER TABLE tipomovimfinanceiraviagem ALTER COLUMN exigejustificativa SET DEFAUL
 
 -- FIM - david.silva 15/07/2014
 
--- INICIO - Mário Hayasaki Júnior - 22/07/2014
+-- INICIO - MÃ¡rio Hayasaki JÃºnior - 22/07/2014
 alter table servicocontrato add expandir char(1);
 --Fim
 -- FIM - david.silva 15/07/2014

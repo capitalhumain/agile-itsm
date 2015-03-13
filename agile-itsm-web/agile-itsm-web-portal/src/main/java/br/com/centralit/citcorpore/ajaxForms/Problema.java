@@ -185,7 +185,7 @@ public class Problema extends AjaxFormAction {
         }
 
         /**
-         * Adicionado para fazer limpeza da seÁ„o quando for gerenciamento de ServiÁo
+         * Adicionado para fazer limpeza da se√ß√£o quando for gerenciamento de Servi√ßo
          *
          * @author mario.junior
          * @since 28/10/2013 08:21
@@ -199,7 +199,7 @@ public class Problema extends AjaxFormAction {
         document.executeScript("$('#divBotaoFecharFrame').hide()");
         document.executeScript("$('#statusCancelada').hide()");
 
-        // InÌcio do load.
+        // In√≠cio do load.
         if (problemaDto == null || problemaDto.getIdProblema() == null) {
             document.getElementById("btOcorrencias").setVisible(false);
         }
@@ -396,7 +396,7 @@ public class Problema extends AjaxFormAction {
      * @throws Exception
      * @author maycon.silva
      *
-     *         O mÈtodo carrega as informaÁıes de um problema caso haja tendencia identifcada no relatorio de Analise de TendÍncia
+     *         O m√©todo carrega as informa√ß√µes de um problema caso haja tendencia identifcada no relatorio de Analise de Tend√™ncia
      *
      */
     private void carregarInformacaoProblemaAnaliseTendencia(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response)
@@ -435,7 +435,7 @@ public class Problema extends AjaxFormAction {
     }
 
     /**
-     * Preenche o serviÁo caso seja uma tendencio do tipo serviÁo, e seta o serviÁo na descriÁ„o do problema
+     * Preenche o servi√ßo caso seja uma tendencio do tipo servi√ßo, e seta o servi√ßo na descri√ß√£o do problema
      *
      * @param document
      * @param request
@@ -454,12 +454,12 @@ public class Problema extends AjaxFormAction {
             ServicoContratoDTO servicoContratoDTO = new ServicoContratoDTO();
             servicoContratoDTO.setIdServicoContrato(new Integer(request.getParameter("id")));
             servicoContratoDTO = servicoContratoService.findByIdServicoContrato(servicoContratoDTO.getIdServicoContrato(), getProblemaDto().getIdContrato());
-            getProblemaDto().setDescricao("ServiÁo do Contrato: " + servicoContratoDTO.getNomeServico());
+            getProblemaDto().setDescricao("Servi√ßo do Contrato: " + servicoContratoDTO.getNomeServico());
         }
     }
 
     /**
-     * Preenche a Causa caso seja uma tendencio do tipo Causa, e seta o Causa na descriÁ„o do problema
+     * Preenche a Causa caso seja uma tendencio do tipo Causa, e seta o Causa na descri√ß√£o do problema
      *
      * @param document
      * @param request
@@ -484,7 +484,7 @@ public class Problema extends AjaxFormAction {
     }
 
     /**
-     * Preenche o Item configuraÁ„o caso seja uma tendencio do tipo Item configuraÁ„o, e seta o Item configuraÁ„o na descriÁ„o do problema
+     * Preenche o Item configura√ß√£o caso seja uma tendencio do tipo Item configura√ß√£o, e seta o Item configura√ß√£o na descri√ß√£o do problema
      *
      * @param document
      * @param request
@@ -502,7 +502,7 @@ public class Problema extends AjaxFormAction {
                     ItemConfiguracaoService.class, null);
             ItemConfiguracaoDTO itemConfiguracaoDto = new ItemConfiguracaoDTO();
             itemConfiguracaoDto = itemConfiguracaoService.restoreByIdItemConfiguracao(new Integer(request.getParameter("id")));
-            getProblemaDto().setDescricao("Item ConfiguraÁ„o: " + itemConfiguracaoDto.getIdentificacao());
+            getProblemaDto().setDescricao("Item Configura√ß√£o: " + itemConfiguracaoDto.getIdentificacao());
         }
     }
 
@@ -561,7 +561,7 @@ public class Problema extends AjaxFormAction {
     public void restore(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
 
         /**
-         * Adicionado para fazer limpeza da seÁ„o quando for gerenciamento de ServiÁo
+         * Adicionado para fazer limpeza da se√ß√£o quando for gerenciamento de Servi√ßo
          *
          * @author mario.junior
          * @since 28/10/2013 08:21
@@ -697,7 +697,7 @@ public class Problema extends AjaxFormAction {
         carregaProblemaRelacionado(request, document, problemaAuxDto);
 
         /**
-         * @author geber.costa verifica se no banco o acompanhamento est· setado como 'N' ou 'S'
+         * @author geber.costa verifica se no banco o acompanhamento est√° setado como 'N' ou 'S'
          * */
 
         if (problemaDto.getAcompanhamento() == null || problemaDto.getAcompanhamento().equalsIgnoreCase("N")
@@ -778,7 +778,7 @@ public class Problema extends AjaxFormAction {
         } else if (problemaDto.getStatus().equalsIgnoreCase("Suspensa")) {
             statusSetado = "<input type='radio' id='status' name='status' value='" + problemaDto.getStatus() + "' checked='checked' />"
                     + UtilI18N.internacionaliza(request, "solicitacaoServico.situacao.Suspensa") + "";
-        } else if (problemaDto.getStatus().equalsIgnoreCase("ConcluÌda")) {
+        } else if (problemaDto.getStatus().equalsIgnoreCase("Conclu√≠da")) {
             statusSetado = "<input type='radio' id='status' name='status' value='" + problemaDto.getStatus() + "' checked='checked' />"
                     + UtilI18N.internacionaliza(request, "citcorpore.comum.concluida") + "";
         } else if (problemaDto.getStatus().equalsIgnoreCase("Cancelada")) {
@@ -803,7 +803,7 @@ public class Problema extends AjaxFormAction {
             document.getForm("form").lockForm();
         }
         /*
-         * geber.costa MÈtodo listInfoRegExecucaoProblema verifica se o id do problema È v·lido , caso sim ele traz a lista de ocorrencias de problemas
+         * geber.costa M√©todo listInfoRegExecucaoProblema verifica se o id do problema √© v√°lido , caso sim ele traz a lista de ocorrencias de problemas
          */
 
         if (listInfoRegExecucaoProblema(getProblemaDto(), request) != null) {
@@ -850,7 +850,7 @@ public class Problema extends AjaxFormAction {
             final Collection col = problemaservice.findByProblemaRelacionado(problemaRelacionadoDTO);
             if (col != null) {
                 tblProblmea.addRowsByCollection(col, new String[] {"idProblema", "titulo", "status", " "}, new String[] {"idProblema"},
-                        "Problema j· cadastrado!!", new String[] {"exibeIconesProblema"}, null, null);
+                        "Problema j√° cadastrado!!", new String[] {"exibeIconesProblema"}, null, null);
                 document.executeScript("HTMLUtils.applyStyleClassInAllCells('tblProblema', 'tblProblema');");
             }
         }
@@ -887,13 +887,13 @@ public class Problema extends AjaxFormAction {
     }
 
     /**
-     * Centraliza atualizaÁ„o de informaÁıes dos objetos que se relacionam com a mudanÁa.
+     * Centraliza atualiza√ß√£o de informa√ß√µes dos objetos que se relacionam com a mudan√ßa.
      *
      * @throws ServiceException
      * @throws Exception
      */
     private void atualizaInformacoesRelacionamentos(final DocumentHTML document) throws ServiceException, Exception {
-        // informaÁıes dos ics relacionados
+        // informa√ß√µes dos ics relacionados
 
         final SolicitacaoServicoService solicitacaoServicoService = (SolicitacaoServicoService) ServiceLocator.getInstance().getService(
                 SolicitacaoServicoService.class, null);
@@ -1120,7 +1120,7 @@ public class Problema extends AjaxFormAction {
     }
 
     /**
-     * Atualiza as informaÁıes de nome de proprietario e nome de solicitante em uma requisicaoMudancaDto, caso haja.
+     * Atualiza as informa√ß√µes de nome de proprietario e nome de solicitante em uma requisicaoMudancaDto, caso haja.
      *
      * @param requisicaoMudancaDto
      * @throws ServiceException
@@ -1215,7 +1215,7 @@ public class Problema extends AjaxFormAction {
     }
 
     /**
-     * form.clear n„o funciona para os FCKEditores. Esta funÁ„o garante que todo o formul·rio ser· limpado.
+     * form.clear n√£o funciona para os FCKEditores. Esta fun√ß√£o garante que todo o formul√°rio ser√° limpado.
      *
      * @param document
      * @param nomeFormulario
@@ -1494,7 +1494,7 @@ public class Problema extends AjaxFormAction {
      * @return
      * @throws ServiceException
      * @throws Exception
-     * @author geber.costa retorna uma lista com os registros de execuÁ„o de um problema
+     * @author geber.costa retorna uma lista com os registros de execu√ß√£o de um problema
      */
     public String listInfoRegExecucaoProblema(final ProblemaDTO problemaDto, final HttpServletRequest request) throws ServiceException, Exception {
 
@@ -1779,10 +1779,10 @@ public class Problema extends AjaxFormAction {
         final HTMLTable tblProblema = document.getTableById("tblProblema");
 
         if (problemaDTO.getSequenciaProblema() == null) {
-            tblProblema.addRow(problemaDTO, new String[] {"idProblema", "titulo", "status", " "}, new String[] {"idProblema"}, "Problema j· cadastrado!!",
+            tblProblema.addRow(problemaDTO, new String[] {"idProblema", "titulo", "status", " "}, new String[] {"idProblema"}, "Problema j√° cadastrado!!",
                     new String[] {"exibeIconesProblema"}, null, null);
         } else {
-            tblProblema.updateRow(problemaDTO, new String[] {"idProblema", "titulo", "status", " "}, new String[] {"idProblema"}, "Problema j· cadastrado!!",
+            tblProblema.updateRow(problemaDTO, new String[] {"idProblema", "titulo", "status", " "}, new String[] {"idProblema"}, "Problema j√° cadastrado!!",
                     new String[] {"exibeIconesProblema"}, "", null, problemaDTO.getSequenciaProblema());
         }
         document.executeScript("HTMLUtils.applyStyleClassInAllCells('tblProblema', 'tblProblema');");
@@ -1826,7 +1826,7 @@ public class Problema extends AjaxFormAction {
     }
 
     /**
-     * MÈtodo respons·vel pela validaÁ„o do avanÁo do fluxo. O fluxo sÛ ser· v·lido e portanto sÛ poder· avanÁar caso o problema em quest„o esteja associado a
+     * M√©todo respons√°vel pela valida√ß√£o do avan√ßo do fluxo. O fluxo s√≥ ser√° v√°lido e portanto s√≥ poder√° avan√ßar caso o problema em quest√£o esteja associado a
      * uma base de conhecimento.
      *
      * @autor thiago.monterio
@@ -1862,8 +1862,8 @@ public class Problema extends AjaxFormAction {
     }
 
     /**
-     * MÈtodo respons·vel por enviar mensagens de notificaÁ„o no e-mail do respons·vel (propriet·rio) e de cada um dos usu·rios que fazem parte do grupo
-     * executor na resoluÁ„o de um problema.
+     * M√©todo respons√°vel por enviar mensagens de notifica√ß√£o no e-mail do respons√°vel (propriet√°rio) e de cada um dos usu√°rios que fazem parte do grupo
+     * executor na resolu√ß√£o de um problema.
      *
      * @param document
      * @param request
@@ -2116,7 +2116,7 @@ public class Problema extends AjaxFormAction {
      * @param document
      * @param idProblema
      * @throws Exception
-     *             Traz uma lista para verificaÁ„o de ultima data e hora da ocorrÍncia, esses dados ser„o retornados na p·gina do cliente.
+     *             Traz uma lista para verifica√ß√£o de ultima data e hora da ocorr√™ncia, esses dados ser√£o retornados na p√°gina do cliente.
      */
     public void verificaUltimaAtualizacao(final DocumentHTML document, final HttpServletRequest request, final int idProblema) throws Exception {
 
@@ -2133,14 +2133,14 @@ public class Problema extends AjaxFormAction {
 
                 /**
                  *
-                 * valida para pegar a ultima data de registro e a ultima hora, porÈm ele ir· pegar a partiro do momento que a ocorrencia n„o for nula e vazia
-                 * ou se ela tiver alguma das descriÁıes
+                 * valida para pegar a ultima data de registro e a ultima hora, por√©m ele ir√° pegar a partiro do momento que a ocorrencia n√£o for nula e vazia
+                 * ou se ela tiver alguma das descri√ß√µes
                  * setadas
                  */
 
-                if (l.getOcorrencia() != null && !l.getOcorrencia().equalsIgnoreCase("") || l.getDescricao().equalsIgnoreCase("Encerramento da SolicitaÁ„o")
-                        || l.getDescricao().equalsIgnoreCase("Suspens„o da SolicitaÁ„o") || l.getDescricao().equalsIgnoreCase("ReativaÁ„o da SolicitaÁ„o")
-                        || l.getDescricao().equalsIgnoreCase("Agendamento da Atividade") || l.getDescricao().equalsIgnoreCase("Registro de ExecuÁ„o")) {
+                if (l.getOcorrencia() != null && !l.getOcorrencia().equalsIgnoreCase("") || l.getDescricao().equalsIgnoreCase("Encerramento da Solicita√ß√£o")
+                        || l.getDescricao().equalsIgnoreCase("Suspens√£o da Solicita√ß√£o") || l.getDescricao().equalsIgnoreCase("Reativa√ß√£o da Solicita√ß√£o")
+                        || l.getDescricao().equalsIgnoreCase("Agendamento da Atividade") || l.getDescricao().equalsIgnoreCase("Registro de Execu√ß√£o")) {
 
                     if (l.getDataregistro() != null) {
                         data = l.getDataregistro();
@@ -2292,8 +2292,8 @@ public class Problema extends AjaxFormAction {
     }
 
     /**
-     * MÈtodo necess·rio para os casos de PoppupManager, pois h· uma funÁ„o que quando a popup È fechada, È chamado um fireevent para carregar a combo, porÈm
-     * n„o tinha como acessar o metodo
+     * M√©todo necess√°rio para os casos de PoppupManager, pois h√° uma fun√ß√£o que quando a popup √© fechada, √© chamado um fireevent para carregar a combo, por√©m
+     * n√£o tinha como acessar o metodo
      * alimentaComboCategoriaProblema por ser private e era necessario ter um metodo que recebia os parametro (DocumentHTML, HttpServletRequest,
      * HttpServletResponse)
      *

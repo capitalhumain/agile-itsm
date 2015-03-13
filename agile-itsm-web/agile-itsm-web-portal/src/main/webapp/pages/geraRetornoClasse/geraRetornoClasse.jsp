@@ -8,7 +8,7 @@ if (idConsulta == null){
 	idConsulta = "";
 }
 %>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="/tags/cit" prefix="cit" %>
 <%@ taglib uri="/tags/i18n" prefix="i18n"%>
 <%@page import="br.com.centralit.citcorpore.util.ParametroUtil"%>

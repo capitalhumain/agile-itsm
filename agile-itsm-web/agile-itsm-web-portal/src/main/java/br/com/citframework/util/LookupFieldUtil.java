@@ -60,7 +60,7 @@ public class LookupFieldUtil {
         Collection colCamposComboGenerateLimpar = new ArrayList();
         
         String nomeLookupExec = nameLookup;
-        if (id != null) { // Caso venha com ID, o nome fisico È do ID, caso
+        if (id != null) { // Caso venha com ID, o nome fisico √© do ID, caso
                             // contrario fica com o do LookupName.
             nameLookup = id;
         }
@@ -336,7 +336,7 @@ public class LookupFieldUtil {
             strBuffer.append("<img src='" + br.com.citframework.util.Constantes.getValue("CONTEXTO_APLICACAO")+ "/template_new/images/icons/small/grey/clear.png' />");
             strBuffer.append("<span>"+getInternacionalizado("citcorpore.ui.botao.rotulo.Limpar")+"</span></button></td>");
             
-         // caso seja checkbox aparece o bot„o de enviar checkados
+         // caso seja checkbox aparece o bot√£o de enviar checkados
          	if (checkbox != null && checkbox.equals("true")){
          		strBuffer.append("<input type='button' name='btnEnviar' id='btnEnviar' class='ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only' value='" + getInternacionalizado("citSmart.comum.enviar") + "' title='"+getInternacionalizado("citSmart.comum.enviar")+"' onclick='addAllTabela"+ nameLookup +"();' /></div>");
          	}
@@ -449,7 +449,7 @@ public class LookupFieldUtil {
             strBuffer.append("	if (req" + nameLookup + ".readyState == 4){\n");
             strBuffer.append("  	if (req" + nameLookup + ".status == 200){\n");
             strBuffer.append("			document.getElementById('retPesq" + nameLookup + "').innerHTML = req" + nameLookup + ".responseText;\n");
-            //chamar a funÁ„o de verificaÁ„o de checkados apÛs a consulta do paginaÁ„o chegar ao estado 4(completa)
+            //chamar a fun√ß√£o de verifica√ß√£o de checkados ap√≥s a consulta do pagina√ß√£o chegar ao estado 4(completa)
 			strBuffer.append("			memorizarCheckados"+ nameLookup +"();\n" );
             strBuffer.append("			var campo = document.getElementById('" + nameLookup + "_sel00001');\n");
             strBuffer.append("			if (campo) campo.focus()");
@@ -586,7 +586,7 @@ public class LookupFieldUtil {
 			strBuffer.append("  req" + nameLookup + ".send(''); ");			
 			strBuffer.append("}\n");
 			strBuffer.append("</script>\n");
-			//montando a funÁ„o que marca todos os checkbox da poppup que tem class=check
+			//montando a fun√ß√£o que marca todos os checkbox da poppup que tem class=check
 			strBuffer.append("<script type=\"text/javascript\">");
 	        strBuffer.append("function " + nameLookup + "_marcarTodosCheckbox(selecionado) {");
 	        strBuffer.append("	var classe = 'check';");
@@ -604,7 +604,7 @@ public class LookupFieldUtil {
 	        strBuffer.append("};\n");
 	        strBuffer.append("</script>");
             strBuffer.append("<script>\n\n");
-          //funÁ„o que concatena e desconcatena os checkbox marcados ou desmarcados
+          //fun√ß√£o que concatena e desconcatena os checkbox marcados ou desmarcados
             strBuffer.append("var checkados_" + nameLookup + " = '' ;\n");
 			strBuffer.append("function concatenarValoresCheckados_"+  nameLookup  +"(elemento) {\n");
 			strBuffer.append("	if (!$(elemento).is(':checked')) {\n");
@@ -624,7 +624,7 @@ public class LookupFieldUtil {
 			strBuffer.append("		checkados_"+ nameLookup +" += elemento.value+';';\n");
 			strBuffer.append("		}\n");
 			strBuffer.append("}\n");
-			//FunÁ„o que enviar todos os checkbox checkados e chama um mÈtodo requisicaoMudanca.java
+			//Fun√ß√£o que enviar todos os checkbox checkados e chama um m√©todo requisicaoMudanca.java
 			String[] nomePopup = nameLookup.split("LOOKUP");
 		    strBuffer.append("addAllTabela"+ nameLookup +" = function(){\n");
 			strBuffer.append("	document.form.colAll"+ nameLookup +".value = checkados_" + nameLookup+";\n");
@@ -635,7 +635,7 @@ public class LookupFieldUtil {
 			strBuffer.append(" 	$('#POPUP"+ nomePopup[1]+"').dialog('close');");
 			strBuffer.append("checkados_" + nameLookup + "=''");
 			strBuffer.append("}");
-			//FunÁ„o necess·ria para quando o usuario mudar de p·gina o checkbox continue marcado.
+			//Fun√ß√£o necess√°ria para quando o usuario mudar de p√°gina o checkbox continue marcado.
 			strBuffer.append("function memorizarCheckados"+ nameLookup +"(){");
 			strBuffer.append("	table = document.getElementById('topoRetorno');");
 			strBuffer.append("	itens = document.getElementsByName('sel');");
@@ -705,61 +705,61 @@ public class LookupFieldUtil {
             trata_carac_esp += "    for (var i = 0; i < str.length; i++){     ";
             trata_carac_esp += "        encoded = '';                           ";
             trata_carac_esp += "        c = str.charAt(i);                      ";
-            trata_carac_esp += "        if (c == 'Á')                           ";
+            trata_carac_esp += "        if (c == '√ß')                           ";
             trata_carac_esp += "            encoded = \"[[[cedilhamin]]]\";       ";
-            trata_carac_esp += "        else if (c == '«')                      ";
+            trata_carac_esp += "        else if (c == '√á')                      ";
             trata_carac_esp += "            encoded = \"[[[cedilhamai]]]\";       ";
-            trata_carac_esp += "        else if (c == '·')                      ";
+            trata_carac_esp += "        else if (c == '√°')                      ";
             trata_carac_esp += "            encoded = \"[[[aagudomin]]]\";        ";
-            trata_carac_esp += "        else if (c == '¡')                      ";
+            trata_carac_esp += "        else if (c == '√Å')                      ";
             trata_carac_esp += "            encoded = \"[[[aagudomai]]]\";        ";
-            trata_carac_esp += "        else if (c == '‡')                      ";
+            trata_carac_esp += "        else if (c == '√†')                      ";
             trata_carac_esp += "            encoded = \"[[[acrasemin]]]\";        ";
-            trata_carac_esp += "        else if (c == '¿')                      ";
+            trata_carac_esp += "        else if (c == '√Ä')                      ";
             trata_carac_esp += "            encoded = \"[[[acrasemai]]]\";        ";
-            trata_carac_esp += "        else if (c == 'È')                      ";
+            trata_carac_esp += "        else if (c == '√©')                      ";
             trata_carac_esp += "            encoded = \"[[[eagudomin]]]\";        ";
-            trata_carac_esp += "        else if (c == '…')                      ";
+            trata_carac_esp += "        else if (c == '√â')                      ";
             trata_carac_esp += "            encoded = \"[[[eagudomai]]]\";        ";
-            trata_carac_esp += "        else if (c == 'Ì')                      ";
+            trata_carac_esp += "        else if (c == '√≠')                      ";
             trata_carac_esp += "            encoded = \"[[[iagudomin]]]\";        ";
-            trata_carac_esp += "        else if (c == 'Õ')                      ";
+            trata_carac_esp += "        else if (c == '√ç')                      ";
             trata_carac_esp += "            encoded = \"[[[iagudomai]]]\";        ";
-            trata_carac_esp += "        else if (c == 'Û')                      ";
+            trata_carac_esp += "        else if (c == '√≥')                      ";
             trata_carac_esp += "            encoded = \"[[[oagudomin]]]\";        ";
-            trata_carac_esp += "        else if (c == '”')                      ";
+            trata_carac_esp += "        else if (c == '√ì')                      ";
             trata_carac_esp += "            encoded = \"[[[oagudomai]]]\";        ";
-            trata_carac_esp += "        else if (c == '˙')                      ";
+            trata_carac_esp += "        else if (c == '√∫')                      ";
             trata_carac_esp += "            encoded = \"[[[uagudomin]]]\";        ";
-            trata_carac_esp += "        else if (c == '⁄')                      ";
+            trata_carac_esp += "        else if (c == '√ö')                      ";
             trata_carac_esp += "            encoded = \"[[[uagudomai]]]\";        ";
-            trata_carac_esp += "        else if (c == '‚')                      ";
+            trata_carac_esp += "        else if (c == '√¢')                      ";
             trata_carac_esp += "            encoded = \"[[[acircmin]]]\";         ";
-            trata_carac_esp += "        else if (c == '¬')                      ";
+            trata_carac_esp += "        else if (c == '√Ç')                      ";
             trata_carac_esp += "            encoded = \"[[[acircmai]]]\";         ";
-            trata_carac_esp += "        else if (c == 'Í')                      ";
+            trata_carac_esp += "        else if (c == '√™')                      ";
             trata_carac_esp += "            encoded = \"[[[ecircmin]]]\";         ";
-            trata_carac_esp += "        else if (c == ' ')                      ";
+            trata_carac_esp += "        else if (c == '√ä')                      ";
             trata_carac_esp += "            encoded = \"[[[ecircmai]]]\";         ";
-            trata_carac_esp += "        else if (c == 'Ó')                      ";
+            trata_carac_esp += "        else if (c == '√Æ')                      ";
             trata_carac_esp += "            encoded = \"[[[icircmin]]]\";         ";
-            trata_carac_esp += "        else if (c == 'Œ')                      ";
+            trata_carac_esp += "        else if (c == '√é')                      ";
             trata_carac_esp += "            encoded = \"[[[icircmai]]]\";         ";
-            trata_carac_esp += "        else if (c == 'Ù')                      ";
+            trata_carac_esp += "        else if (c == '√¥')                      ";
             trata_carac_esp += "            encoded = \"[[[ocircmin]]]\";         ";
-            trata_carac_esp += "        else if (c == '‘')                      ";
+            trata_carac_esp += "        else if (c == '√î')                      ";
             trata_carac_esp += "            encoded = \"[[[ocircmai]]]\";         ";
-            trata_carac_esp += "        else if (c == '˚')                      ";
+            trata_carac_esp += "        else if (c == '√ª')                      ";
             trata_carac_esp += "            encoded = \"[[[ucircmin]]]\";         ";
-            trata_carac_esp += "        else if (c == '€')                      ";
+            trata_carac_esp += "        else if (c == '√õ')                      ";
             trata_carac_esp += "            encoded = \"[[[ucircmai]]]\";         ";
-            trata_carac_esp += "        else if (c == '„')                      ";
+            trata_carac_esp += "        else if (c == '√£')                      ";
             trata_carac_esp += "            encoded = \"[[[atilmin]]]\";          ";
-            trata_carac_esp += "        else if (c == '√')                      ";
+            trata_carac_esp += "        else if (c == '√É')                      ";
             trata_carac_esp += "            encoded = \"[[[atilmai]]]\";          ";
-            trata_carac_esp += "        else if (c == 'ı')                      ";
+            trata_carac_esp += "        else if (c == '√µ')                      ";
             trata_carac_esp += "            encoded = \"[[[otilmin]]]\";          ";
-            trata_carac_esp += "        else if (c == '’')                      ";
+            trata_carac_esp += "        else if (c == '√ï')                      ";
             trata_carac_esp += "            encoded = \"[[[otilmai]]]\";          ";
             trata_carac_esp += "        else if (c == '&')                      ";
             trata_carac_esp += "            encoded = \"[[[ehcomercial]]]\";     ";
@@ -786,9 +786,9 @@ public class LookupFieldUtil {
         return lookupInfo.getColCamposPesquisa();
         /*
          * Collection col = new ArrayList(); col.add(new
-         * Campo("idImposto","IdentificaÁ„o",false,Constantes.FIELDTYPE_TEXT,10));
+         * Campo("idImposto","Identifica√ß√£o",false,Constantes.FIELDTYPE_TEXT,10));
          * col.add(new
-         * Campo("Descricao","DescriÁ„o",true,Constantes.FIELDTYPE_TEXT,50));
+         * Campo("Descricao","Descri√ß√£o",true,Constantes.FIELDTYPE_TEXT,50));
          * return col;
          */
     }
@@ -800,9 +800,9 @@ public class LookupFieldUtil {
         return lookupInfo.getColCamposRetorno();
         /*
          * Collection col = new ArrayList(); col.add(new
-         * Campo("idImposto","IdentificaÁ„o",false,Constantes.FIELDTYPE_TEXT,10));
+         * Campo("idImposto","Identifica√ß√£o",false,Constantes.FIELDTYPE_TEXT,10));
          * col.add(new
-         * Campo("Descricao","DescriÁ„o",true,Constantes.FIELDTYPE_TEXT,50));
+         * Campo("Descricao","Descri√ß√£o",true,Constantes.FIELDTYPE_TEXT,50));
          * return col;
          */
     }
@@ -814,7 +814,7 @@ public class LookupFieldUtil {
         return lookupInfo.getColCamposOrdenacao();
         /*
          * Collection col = new ArrayList(); col.add(new
-         * Campo("Descricao","DescriÁ„o",true,Constantes.FIELDTYPE_TEXT,50));
+         * Campo("Descricao","Descri√ß√£o",true,Constantes.FIELDTYPE_TEXT,50));
          * return col;
          */
     }
@@ -826,7 +826,7 @@ public class LookupFieldUtil {
         return lookupInfo.getColCamposChave();
         /*
          * Collection col = new ArrayList(); col.add(new
-         * Campo("idImposto","IdentificaÁ„o",false,Constantes.FIELDTYPE_TEXT,10));
+         * Campo("idImposto","Identifica√ß√£o",false,Constantes.FIELDTYPE_TEXT,10));
          * return col;
          */
     }

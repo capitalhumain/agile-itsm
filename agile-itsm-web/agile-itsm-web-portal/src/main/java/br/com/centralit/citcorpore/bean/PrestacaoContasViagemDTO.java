@@ -8,11 +8,11 @@ import br.com.agileitsm.model.support.BaseEntity;
 
 public class PrestacaoContasViagemDTO extends BaseEntity {
 	public static final String APROVADA = "Aprovada";
-	public static final String NAO_APROVADA = "Não Aprovada";
-	public static final String AGUARDANDO_CONFERENCIA = "Aguardando Conferência";
-	public static final String EM_CONFERENCIA = "Em Conferência";
-	public static final String EM_CORRECAO = "Em Correção";
-	public static final String AGUARDANDO_CORRECAO = "Aguardando Correção";
+	public static final String NAO_APROVADA = "NÃ£o Aprovada";
+	public static final String AGUARDANDO_CONFERENCIA = "Aguardando ConferÃªncia";
+	public static final String EM_CONFERENCIA = "Em ConferÃªncia";
+	public static final String EM_CORRECAO = "Em CorreÃ§Ã£o";
+	public static final String AGUARDANDO_CORRECAO = "Aguardando CorreÃ§Ã£o";
 	
 	
 	private Integer idPrestacaoContasViagem;
@@ -43,7 +43,7 @@ public class PrestacaoContasViagemDTO extends BaseEntity {
 	
 	private IntegranteViagemDTO integranteViagemDto;
 	
-	//Define se o Integrante da Viagem é um funcionario(S) ou não(N)
+	//Define se o Integrante da Viagem Ã© um funcionario(S) ou nÃ£o(N)
 	private String integranteFuncionario;
 	
 	private Integer idIntegrante;

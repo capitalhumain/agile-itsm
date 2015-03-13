@@ -11,8 +11,8 @@ import br.com.citframework.util.Assert;
 
 public class AssociacaoDeviceAtendenteServiceEjb extends CrudServiceImpl implements AssociacaoDeviceAtendenteService {
 
-    private static final String ASSOCIACAO_MUST_NOT_BE_NULL = "'AssociaÁ„o' must not be null.";
-    private static final String USUARIO_MUST_NOT_BE_NULL = "'Usu·rio' must not be null.";
+    private static final String ASSOCIACAO_MUST_NOT_BE_NULL = "'Associa√ß√£o' must not be null.";
+    private static final String USUARIO_MUST_NOT_BE_NULL = "'Usu√°rio' must not be null.";
 
     private AssociacaoDeviceAtendenteDAO dao;
 

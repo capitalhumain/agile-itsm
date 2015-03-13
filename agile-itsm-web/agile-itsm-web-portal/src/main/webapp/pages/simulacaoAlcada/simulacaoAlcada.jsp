@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@ page import="br.com.centralit.citcorpore.util.WebUtil" %>
 <%@page import="java.util.Collection"%>
 
@@ -10,11 +12,7 @@
 		%>
 		<%@include file="/include/header.jsp"%>
 
-		<%@ include file="/include/security/security.jsp" %>
-
-		<title>
-			<fmt:message key="citcorpore.comum.title" />
-		</title>
+		<%@include file="/novoLayout/common/include/titulo.jsp" %>
 
 		<%@ include file="/include/menu/menuConfig.jsp" %>
 		<%@ include file="/include/javaScriptsComuns/javaScriptsComuns.jsp" %>
@@ -24,7 +22,7 @@
 		<script type="text/javascript" src="./js/simulacaoAlcada.js"></script>
 
 	<%
-		// Se for chamado por iframe deixa apenas a parte de cadastro da página
+		// Se for chamado por iframe deixa apenas a parte de cadastro da pÃ¡gina
 		if (iframe != null) {
 	%>
 				<link rel="stylesheet" type="text/css" href="./css/simulacaoAlcadaIFrame.css" />
@@ -54,14 +52,14 @@
 			%>
 				<div class="flat_area grid_16">
 					<h2>
-						Simulação de Alçada
+						SimulaÃ§Ã£o de AlÃ§ada
 					</h2>
 				</div>
 				<div class="box grid_16 tabs">
 					<ul class="tab_header clearfix">
 						<li>
 							<a href="#tabs-1">
-								Simulação
+								SimulaÃ§Ã£o
 							</a>
 						</li>
 					</ul>
@@ -76,7 +74,7 @@
 		                                <div class="col_100">
 									        <div class="col_20">
 												<fieldset>
-													<label>Número da solicitação</label>
+													<label>NÃºmero da solicitaÃ§Ã£o</label>
 													<div class="inline">
 														<input id="idSolicitacaoServico" type="text" maxlength="15" name='idSolicitacaoServico' class="Format[Numero]"/>
 													</div>
@@ -94,7 +92,7 @@
 												<fieldset>
 													<label class="campoObrigatorio">Solicitante</label>
 													<div class="inline">
-														<input onclick="adicionarEmpregado();" type="text" name="nomeEmpregado" id="nomeEmpregado" readonly='readonly' class="Valid[Required] Description[Responsável]" />
+														<input onclick="adicionarEmpregado();" type="text" name="nomeEmpregado" id="nomeEmpregado" readonly='readonly' class="Valid[Required] Description[ResponsÃ¡vel]" />
 													</div>
 												</fieldset>
 								            </div>
@@ -119,7 +117,7 @@
 		                                    </div>
 						                    <div class="col_15">
 						                         <fieldset>
-						                             <label class="campoObrigatorio">Data da solicitação</label>
+						                             <label class="campoObrigatorio">Data da solicitaÃ§Ã£o</label>
 						                             <div>
 						                                <input type='text' name="dataHoraSolicitacao" id="dataHoraSolicitacao" maxlength="10" size="10"
 						                                       class="Valid[Required] Description[delegacaoCentroResultado.termino] Format[Data] datepicker" />
@@ -142,7 +140,7 @@
 								            </div>
 									        <div class="col_15">
 												<fieldset>
-													<label>Valor outras alçadas</label>
+													<label>Valor outras alÃ§adas</label>
 													<div class="inline">
 														<input id="valorOutrasAlcadas" type="text" maxlength="15" name='valorOutrasAlcadas' class="Format[Moeda]"/>													</div>
 												</fieldset>

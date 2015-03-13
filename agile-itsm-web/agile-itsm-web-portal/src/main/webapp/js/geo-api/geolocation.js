@@ -16,7 +16,7 @@
 	/**
 	 * Caso o browser dê suporte à geolocalização, recupera a localização e seta como centro do mapa
 	 *
-	 * @param {params} objeto de parâmetros a serem usados. Deve possuir ao menos os atributos 'map' e  'latLng'
+	 * @param {params} objeto de parâmetros a serem usados. Deve possuir ao menos os atributos 'map' e 'latLng'
 	 */
 	$.fn.navigatorGeolocation = function(params) {
 		if (navigator.geolocation) {
@@ -28,7 +28,7 @@
 			}, function() {
 				$().handleNoGeolocation(browserSupportGeolocation, params);
 			});
-		} else { // browser não dá suporte a geolocalização
+		} else { // browser não dê suporte a geolocalização
 			browserSupportGeolocation = false;
 			handleNoGeolocation(browserSupportGeolocation);
 		}

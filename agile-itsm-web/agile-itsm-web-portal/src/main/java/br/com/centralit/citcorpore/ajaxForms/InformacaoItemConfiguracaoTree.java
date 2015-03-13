@@ -68,11 +68,11 @@ public class InformacaoItemConfiguracaoTree extends AjaxFormAction {
 	}
 
 	StringBuilder subDiv = new StringBuilder();
-	/* Cabeçalho */
+	/* CabeÃ§alho */
 	subDiv.append("<div id='cabecalhoInf'>");
 	subDiv.append("<h2>Descri&ccedil;&atilde;o dos Ativos da M&aacute;quina</h2><hr />");
 	subDiv.append("<label>");
-	subDiv.append("Identificação: <input id='input' readonly='readonly' value='" + this.getItemConfiguracao().getIdentificacao() + "' type='text' maxlength='80' name='unidade'/>");
+	subDiv.append("IdentificaÃ§Ã£o: <input id='input' readonly='readonly' value='" + this.getItemConfiguracao().getIdentificacao() + "' type='text' maxlength='80' name='unidade'/>");
 	subDiv.append("</label>");
 	subDiv.append("<label>");
 	if(this.getItemConfiguracao().getIdGrupoItemConfiguracao() != null && this.getItemConfiguracao().getIdGrupoItemConfiguracao() > 0){
@@ -296,7 +296,7 @@ public class InformacaoItemConfiguracaoTree extends AjaxFormAction {
     }
 
     /**
-     * Retorna lista de características.
+     * Retorna lista de caracterÃ­sticas.
      * 
      * @param idItemConfiguracao
      * @param tagTipoItemConfiguracao

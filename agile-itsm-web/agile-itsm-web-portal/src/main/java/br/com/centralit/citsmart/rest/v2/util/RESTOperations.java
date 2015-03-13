@@ -25,7 +25,7 @@ import br.com.centralit.citsmart.rest.v2.schema.CTServiceDeviceDissassociate;
 import br.com.centralit.citsmart.rest.v2.schema.CTServiceListUnits;
 
 /**
- * Enumerado contendo as operações realizadas pelos serviços REST do Mobile
+ * Enumerado contendo as operaÃ§Ãµes realizadas pelos serviÃ§os REST do Mobile
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 23/09/2014
@@ -83,7 +83,7 @@ public enum RESTOperations {
      *
      * @param messageId
      *            identificador da mensagem
-     * @return {@link RESTOperations} de acordo com o identificador da mensagem. {@link IllegalArgumentException}, caso contrário
+     * @return {@link RESTOperations} de acordo com o identificador da mensagem. {@link IllegalArgumentException}, caso contrÃ¡rio
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      * @since 23/09/2014
      */

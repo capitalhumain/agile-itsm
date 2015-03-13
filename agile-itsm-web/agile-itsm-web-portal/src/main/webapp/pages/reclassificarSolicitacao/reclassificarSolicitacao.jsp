@@ -1,5 +1,5 @@
-<html>
-<head>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.citframework.util.UtilStrings"%>
 <%@ page import="br.com.centralit.citcorpore.util.ParametroUtil" %>
 <%@ page import="br.com.centralit.citcorpore.util.WebUtil" %>
@@ -11,24 +11,23 @@
 
 <%
     String id = request.getParameter("id");
-    String strRegistrosExecucao = (String) request
-            .getAttribute("strRegistrosExecucao");
+    String strRegistrosExecucao = (String) request.getAttribute("strRegistrosExecucao");
     if (strRegistrosExecucao == null) {
         strRegistrosExecucao = "";
     }
 
-    String PAGE_CADADTRO_SOLICITACAOSERVICO = ParametroUtil
-            .getValorParametroCitSmartHashMap(br.com.centralit.citcorpore.util.Enumerados.ParametroSistema.PAGE_CADADTRO_SOLICITACAOSERVICO,"");
+    String PAGE_CADADTRO_SOLICITACAOSERVICO = ParametroUtil.getValorParametroCitSmartHashMap(br.com.centralit.citcorpore.util.Enumerados.ParametroSistema.PAGE_CADADTRO_SOLICITACAOSERVICO,"");
 
     String tarefaAssociada = (String) request
             .getAttribute("tarefaAssociada");
     if (tarefaAssociada == null) {
         tarefaAssociada = "N";
     }
-    String iframe = "";
-    iframe = request.getParameter("iframe");
+    String iframe = request.getParameter("iframe");
 %>
 
+<html>
+<head>
 <%@include file="/novoLayout/common/include/libCabecalho.jsp" %>
 
 
@@ -43,7 +42,7 @@
 
 </script>
 
-<title>CITSMart</title>
+<%@include file="/novoLayout/common/include/titulo.jsp" %>
 
 
 </head>
@@ -56,13 +55,13 @@
         <form name='form' id='form' action='${ctx}/pages/reclassificarServico/reclassificarServico'>
             <div class="row-fluid">
                 <div class="span7">
-                <!-- <label  class="strong">Nome do Serviço</label> -->
+                <!-- <label  class="strong">Nome do ServiÃ§o</label> -->
                     <!-- <div class="input-append" >
                           <input class="span6" id='servicoBusca'  name='servicoBusca' type="text" onblur="camposObrigatoriosSolicitacao();"  placeholder="Digite o nome do Solicitante">
                           <button class="btn btn-default" type="button"><i class="icon-search"></i></button>
                     </div> -->
                     <div class="input-prepend input-append" id='divNomeDoServico'>
-                          <label  class="strong">Nome do Serviço</label>
+                          <label  class="strong">Nome do ServiÃ§o</label>
                           <input class="span12"  type="text" name="servicoBusca" id="servicoBusca" onblur="document.form.fireEvent('verificaImpactoUrgencia');carregaScript(this);document.form.fireEvent('verificaGrupoExecutor');carregarInformacoesComplementares();calcularSLA();"
                             class=" Valid[Required] Description[<fmt:message key='servico.servico' />]" placeholder="Digite o nome do Solicitante" >
                           <span class="add-on"><i class="icon-search"></i></span>

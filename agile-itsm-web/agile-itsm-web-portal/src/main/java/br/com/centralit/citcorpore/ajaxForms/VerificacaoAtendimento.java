@@ -28,7 +28,7 @@ public class VerificacaoAtendimento extends AjaxFormAction {
 	public void load(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		UsuarioDTO usuario = WebUtil.getUsuario(request);
 		if (usuario == null){
-			document.alert("Sess�o expirada! Favor efetuar logon novamente!");
+			document.alert("Sessão expirada! Favor efetuar logon novamente!");
 			document.executeScript("window.location = '" + Constantes.getValue("SERVER_ADDRESS") + request.getContextPath() + "'");
 			return;
 		}	
@@ -57,7 +57,7 @@ public class VerificacaoAtendimento extends AjaxFormAction {
 	public void save(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		UsuarioDTO usuario = WebUtil.getUsuario(request);
 		if (usuario == null){
-			document.alert("Sess�o expirada! Favor efetuar logon novamente!");
+			document.alert("Sessï¿½o expirada! Favor efetuar logon novamente!");
 			document.executeScript("window.location = '" + Constantes.getValue("SERVER_ADDRESS") + request.getContextPath() + "'");
 			return;
 		}	

@@ -45,8 +45,8 @@ public class AnexoMudancaServiceEjb extends CrudServiceImpl implements AnexoMuda
     }
 
     /**
-     * Copia da pasta tempor·ria para a pasta definitiva definida nas constantes e persiste no banco
-     * os relacionamentos entre anexos e serviÁos.
+     * Copia da pasta tempor√°ria para a pasta definitiva definida nas constantes e persiste no banco
+     * os relacionamentos entre anexos e servi√ßos.
      *
      * @author breno.guimaraes
      * @param arquivosUpados
@@ -107,7 +107,7 @@ public class AnexoMudancaServiceEjb extends CrudServiceImpl implements AnexoMuda
             }
 
         } catch (final FileNotFoundException e) {
-            System.out.println("Arquivo n„o encontrado");
+            System.out.println("Arquivo n√£o encontrado");
             e.printStackTrace();
         } finally {
             if (in != null) {

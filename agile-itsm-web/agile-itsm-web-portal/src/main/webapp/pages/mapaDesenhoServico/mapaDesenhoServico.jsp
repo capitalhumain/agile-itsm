@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil" %>
 <%@page import="br.com.centralit.citcorpore.bean.GrupoDTO" %>
 <%@page import="br.com.centralit.citcorpore.bean.ImagemItemConfiguracaoRelacaoDTO" %>
@@ -5,13 +7,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <%@include file="/include/header.jsp"%>
-<%@include file="/include/security/security.jsp"%>
 <%@include file="/include/menu/menuConfig.jsp"%>
 <%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 
-<title><fmt:message key="citcorpore.comum.title" /></title>
+<%@include file="/novoLayout/common/include/titulo.jsp" %>
 
 <link rel="stylesheet" type="text/css" href="css/estiloMapeamentoServico.css">
 

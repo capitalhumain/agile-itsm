@@ -93,8 +93,8 @@ img {
 	-ms-interpolation-mode: bicubic
 }
 
-/* Desenvolvedor: Pedro Lino - Data: 25/10/2013 - Horário: 10:35 - ID Citsmart: 120948 
-- Motivo/Comentário: Imagens de ação das table pequenas no chrome/retirado max-width das imagens apenas das tables */
+/* Desenvolvedor: Pedro Lino - Data: 25/10/2013 - HorÃ¡rio: 10:35 - ID Citsmart: 120948 
+- Motivo/ComentÃ¡rio: Imagens de aÃ§Ã£o das table pequenas no chrome/retirado max-width das imagens apenas das tables */
 
 table > img {
 	max-width: none!important;

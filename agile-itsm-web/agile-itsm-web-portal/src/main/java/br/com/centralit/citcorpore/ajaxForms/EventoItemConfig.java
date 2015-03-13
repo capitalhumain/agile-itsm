@@ -44,7 +44,7 @@ public class EventoItemConfig extends AjaxFormAction {
 	public void save(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		Usuario usuario = (Usuario) request.getSession().getAttribute(Constantes.getValue("USUARIO_SESSAO"));
 		if (usuario == null) {
-			document.alert("O usu·rio n„o est· logado! Favor logar no sistema!");
+			document.alert("O usu√°rio n√£o est√° logado! Favor logar no sistema!");
 			return;
 		}
 
@@ -75,7 +75,7 @@ public class EventoItemConfig extends AjaxFormAction {
 			}
 		}
 
-		// Adiciona na lista ids dos itens de configuraÁ„o
+		// Adiciona na lista ids dos itens de configura√ß√£o
 		List<EventoItemConfigRelDTO> lstItensConfiguracao = new ArrayList<EventoItemConfigRelDTO>();
 		EventoItemConfigRelDTO eventoItemConfigRelDTO;
 		Object mapIdItemConfiguracao = map.get("IDITEMCONFIGURACAO");
@@ -97,7 +97,7 @@ public class EventoItemConfig extends AjaxFormAction {
 			}
 		}
 
-		// Adiciona na lista de itens de configuraÁ„o
+		// Adiciona na lista de itens de configura√ß√£o
 		Object mapIdItemConfig = map.get("IDITEMCONFIG");
 		Object mapTipoExec = map.get("TIPOEXECUCAO");
 		Object mapGerarQuando = map.get("DISPARAEVENTO");
@@ -265,7 +265,7 @@ public class EventoItemConfig extends AjaxFormAction {
 	public void delete(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		Usuario usuario = (Usuario) request.getSession().getAttribute(Constantes.getValue("USUARIO_SESSAO"));
 		if (usuario == null) {
-			document.alert("O usu·rio n„o est· logado! Favor logar no sistema!");
+			document.alert("O usu√°rio n√£o est√° logado! Favor logar no sistema!");
 			return;
 		}
 

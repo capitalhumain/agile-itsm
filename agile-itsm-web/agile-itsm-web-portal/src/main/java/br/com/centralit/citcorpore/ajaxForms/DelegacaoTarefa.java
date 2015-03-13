@@ -155,7 +155,7 @@ public class DelegacaoTarefa extends AjaxFormAction {
 				enviaEmailGrupo(request, Integer.parseInt(ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.ID_MODELO_EMAIL_GRUPO_DESTINO, null)), grupoDestinoDto, solicitacaoServicoDto);
 			}
 			
-			//Caso n„o tenha um grupo e tenha apenas o usu·rio de destino
+			//Caso n√£o tenha um grupo e tenha apenas o usu√°rio de destino
 			else if(solicitacaoServicoDto.getIdUsuarioDestino() != null)
 			{
 				
@@ -184,14 +184,14 @@ public class DelegacaoTarefa extends AjaxFormAction {
 					
 					}
 				} catch (Exception e) {
-					System.out.println("N„o foi possÌvel enviar o e-mail. \n" + e.getMessage());
+					System.out.println("N√£o foi poss√≠vel enviar o e-mail. \n" + e.getMessage());
 				}
 			}
 			
 			
 			
 		} catch (NumberFormatException e) {
-			System.out.println("N„o h· modelo de e-mail setado nos par‚metros.");
+			System.out.println("N√£o h√° modelo de e-mail setado nos par√¢metros.");
 		}
 
 		ExecucaoSolicitacaoService execucaoFluxoService = (ExecucaoSolicitacaoService) ServiceLocator.getInstance().getService(ExecucaoSolicitacaoService.class, null);

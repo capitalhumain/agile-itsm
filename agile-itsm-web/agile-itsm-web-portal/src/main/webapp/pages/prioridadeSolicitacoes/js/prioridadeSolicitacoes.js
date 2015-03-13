@@ -84,7 +84,7 @@
 		var seqSelecionada = '';
 		var aux = '';
 
-		/* In�cio do c�digo de N�veis de Impacto e Urg�ncia */
+		/* Inï¿½cio do cï¿½digo de Nï¿½veis de Impacto e Urgï¿½ncia */
 
 		var cont = 0;
 
@@ -112,7 +112,7 @@
 			coluna.innerHTML = '<img title="Remover Impacto" src="/citsmart/imagens/delete.png" onclick="removeNivel(\'tabelaImpacto\', this.parentNode.parentNode.rowIndex);" border="0" style="cursor:pointer">';
 
 			coluna = row.insertCell(5);
-			coluna.innerHTML = '<img title="Adicionar n�vel do Impacto" src="/citsmart/imagens/add.png" onclick="addImpacto();" border="0" style="cursor:pointer">';
+			coluna.innerHTML = '<img title="Adicionar nï¿½vel do Impacto" src="/citsmart/imagens/add.png" onclick="addImpacto();" border="0" style="cursor:pointer">';
 
 		}
 
@@ -139,10 +139,10 @@
 			coluna.innerHTML = '<input type="TEXT" class="text" name="SIGLAURGENCIA" size="2" maxlength="2"/>';
 
 			coluna = row.insertCell(4);
-			coluna.innerHTML = '<img title="Remover Urg�ncia" src="/citsmart/imagens/delete.png" onclick="removeNivel(\'tabelaUrgencia\', this.parentNode.parentNode.rowIndex);" border="0" style="cursor:pointer">';
+			coluna.innerHTML = '<img title="Remover Urgï¿½ncia" src="/citsmart/imagens/delete.png" onclick="removeNivel(\'tabelaUrgencia\', this.parentNode.parentNode.rowIndex);" border="0" style="cursor:pointer">';
 
 			coluna = row.insertCell(5);
-			coluna.innerHTML = '<img title="Adicionar n�vel da Urg�ncia" src="/citsmart/imagens/add.png" onclick="addUrgencia();" border="0" style="cursor:pointer">';
+			coluna.innerHTML = '<img title="Adicionar nï¿½vel da Urgï¿½ncia" src="/citsmart/imagens/add.png" onclick="addUrgencia();" border="0" style="cursor:pointer">';
 
 		}
 
@@ -204,7 +204,7 @@
 			return true;
 		}
 
-		/* C�digo da Matriz de Prioridade */
+		/* Cï¿½digo da Matriz de Prioridade */
 
 		function addLinhaMatriz(){
 			var idImpacto = document.getElementById('IDIMPACTOSELECT').value;
@@ -221,7 +221,7 @@
 			}
 
 			//geber.costa
-			//valida��o para ser inserido na matriz apenas as prioridades com impacto, urgencia e valor
+			//validaï¿½ï¿½o para ser inserido na matriz apenas as prioridades com impacto, urgencia e valor
 			if(idImpacto <=0 || idUrgencia <= 0 || valor <=0){
 				window.alert(i18n_message("prioridade.matrizprioridade.info"));
 				return;
@@ -265,7 +265,7 @@
 			return true;
 		}
 
-		// M�todo que verifica se ja existe um registro com os mesmos valores
+		// Mï¿½todo que verifica se ja existe um registro com os mesmos valores
 
 		function verificaRegistrosMatriz(imp, urg , prio) {
 			var tabela = document.getElementById('tabelaMatrizPrioridade');
@@ -307,9 +307,9 @@
 		}
 
 
-		/* Fim do c�digo da Matriz de Prioridade */
+		/* Fim do cï¿½digo da Matriz de Prioridade */
 
-		/* Carrega Valores de Impacto e Urg�ncia */
+		/* Carrega Valores de Impacto e Urgï¿½ncia */
 
 		var flag = false;
 
@@ -368,7 +368,7 @@
 		}
 
 		/**
-		 * Gravando informa��es sobre de N�veis de Impacto e Urg�ncia
+		 * Gravando informaï¿½ï¿½es sobre de Nï¿½veis de Impacto e Urgï¿½ncia
 		 */
 
 		 /* Impacto */
@@ -411,7 +411,7 @@
 			return ImpactoDTO;
 		}
 
-		/* Urg�ncia */
+		/* Urgï¿½ncia */
 
 		function gravarUrgencia() {
 			serializaUrgencia();
@@ -451,6 +451,6 @@
 			return UrgenciaDTO;
 		}
 
-		/* Fim do c�digo de N�veis de Impacto e Urg�ncia */
+		/* Fim do cï¿½digo de Nï¿½veis de Impacto e Urgï¿½ncia */
 
 	

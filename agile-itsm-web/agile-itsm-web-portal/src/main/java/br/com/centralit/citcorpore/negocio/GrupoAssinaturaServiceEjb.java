@@ -87,14 +87,14 @@ public class GrupoAssinaturaServiceEjb extends CrudServiceImpl implements GrupoA
     @SuppressWarnings("unchecked")
     private void mantemAssinaturasGrupo(final GrupoAssinaturaDTO grupoAssinaturaDTO, final ArrayList<ItemGrupoAssinaturaDTO> listaAssinaturas,
             final ItemGrupoAssinaturaDAO itemGrupoAssinaturaDAO) throws Exception {
-        // Cadastrar as assinaturas lanÁadas pelo usu·rio e apagar as
-        // assinaturas que n„o mais est„o presentes no lanÁamento.
+        // Cadastrar as assinaturas lan√ßadas pelo usu√°rio e apagar as
+        // assinaturas que n√£o mais est√£o presentes no lan√ßamento.
         final ArrayList<ItemGrupoAssinaturaDTO> listaBanco = (ArrayList<ItemGrupoAssinaturaDTO>) itemGrupoAssinaturaDAO.findByIdGrupoAssinatura(grupoAssinaturaDTO
                 .getIdGrupoAssinatura());
         ItemGrupoAssinaturaDTO itemGrupoAssinaturaDTO;
         ItemGrupoAssinaturaDTO itemGrupoAssinaturaBanco;
         boolean encontrou;
-        // Cadastrando as assinaturas lanÁadas pelo usu·rio
+        // Cadastrando as assinaturas lan√ßadas pelo usu√°rio
         if (listaAssinaturas != null && listaAssinaturas.size() > 0) {
             for (int i = 0; i < listaAssinaturas.size(); i++) {
                 itemGrupoAssinaturaDTO = listaAssinaturas.get(i);
@@ -104,11 +104,11 @@ public class GrupoAssinaturaServiceEjb extends CrudServiceImpl implements GrupoA
                     int j = 0;
                     do {
                         itemGrupoAssinaturaBanco = listaBanco.get(j);
-                        // Verificando se j· foi lanÁada esta assinatura
+                        // Verificando se j√° foi lan√ßada esta assinatura
                         if (itemGrupoAssinaturaDTO.getIdAssinatura().equals(itemGrupoAssinaturaBanco.getIdAssinatura())
                                 && itemGrupoAssinaturaDTO.getOrdem().equals(itemGrupoAssinaturaBanco.getOrdem())) {
                             encontrou = true;
-                            // Removendo para n„o ser setado datafim, que ser·
+                            // Removendo para n√£o ser setado datafim, que ser√°
                             // aplicada nos que restarem
                             listaBanco.remove(itemGrupoAssinaturaBanco);
                         } else {
@@ -124,8 +124,8 @@ public class GrupoAssinaturaServiceEjb extends CrudServiceImpl implements GrupoA
                 }
             }
         }
-        // Apagando as Assinaturas que n„o mais est„o presentes no lanÁamento,
-        // setando data fim para os registros que foram excluÌdos pelo usu·rio
+        // Apagando as Assinaturas que n√£o mais est√£o presentes no lan√ßamento,
+        // setando data fim para os registros que foram exclu√≠dos pelo usu√°rio
         if (listaBanco != null && listaBanco.size() > 0) {
             for (final ItemGrupoAssinaturaDTO itemGADTO : listaBanco) {
                 itemGADTO.setDataFim(UtilDatas.getDataAtual());

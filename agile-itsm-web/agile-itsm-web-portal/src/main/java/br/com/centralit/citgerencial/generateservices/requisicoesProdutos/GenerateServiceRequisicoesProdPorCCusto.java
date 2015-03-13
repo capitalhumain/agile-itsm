@@ -98,7 +98,7 @@ public class GenerateServiceRequisicoesProdPorCCusto extends GerencialGenerateSe
 			listaRetorno = new ArrayList();
 		}
 
-		// resetando par‚metro
+		// resetando par√¢metro
 		setNovoParametro(null);
 
 		return listaRetorno;

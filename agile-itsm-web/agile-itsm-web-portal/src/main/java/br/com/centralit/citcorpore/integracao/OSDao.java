@@ -495,7 +495,7 @@ public class OSDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * MÈtodo que atualiza observacao das OS's n„o homologadas
+     * M√©todo que atualiza observacao das OS's n√£o homologadas
      *
      * @param observacao
      * @throws throws Exception
@@ -505,7 +505,7 @@ public class OSDao extends CrudDaoDefaultImpl {
 	List parametros = new ArrayList();
 	parametros.add(OSDTO.EM_CRIACAO.intValue());
 
-	// Selecionar o id das OS que est„o criaÁ„o
+	// Selecionar o id das OS que est√£o cria√ß√£o
 	String sql = "SELECT idos FROM " + this.getTableName() + " WHERE situacaoos = ? ";
 
 	List respOs = super.execSQL(sql, parametros.toArray());

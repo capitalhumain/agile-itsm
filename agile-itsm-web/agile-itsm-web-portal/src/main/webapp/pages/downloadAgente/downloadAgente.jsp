@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.citframework.dto.Usuario"%>
@@ -10,8 +12,7 @@
 			iframe = request.getParameter("iframe");
 		%>
 		<%@include file="/include/header.jsp"%>
-		<%@include file="/include/security/security.jsp"%>
-		<title><fmt:message key="citcorpore.comum.title"/></title>
+		<%@include file="/novoLayout/common/include/titulo.jsp" %>
 		<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 		<style type="text/css">
 			.table {
@@ -32,7 +33,7 @@
 				border-left:none !important;
 			}
 		</style>
-		<script  charset="ISO-8859-1" type="text/javascript" src="${ctx}/js/PopupManager.js"></script>
+		<script  charset="UTF-8" type="text/javascript" src="${ctx}/js/PopupManager.js"></script>
 		<script>
 			var objTab = null;
 			var popup;
@@ -62,7 +63,7 @@
 			}
 
 		</script>
-		<%//se for chamado por iframe deixa apenas a parte de cadastro da página
+		<%//se for chamado por iframe deixa apenas a parte de cadastro da pÃ¡gina
 			if (iframe != null) {%>
 				<style>
 					div#main_container {

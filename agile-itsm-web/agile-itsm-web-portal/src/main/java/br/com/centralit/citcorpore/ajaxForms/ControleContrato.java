@@ -353,12 +353,12 @@ public class ControleContrato extends AjaxFormAction {
 
 		HTMLTable tblServico = document.getTableById("tblServicoContrato");
 
-		tblServico.addRow(servContratoCatalogoServDTO, new String[] {"", "idServicoContrato", "nomeServico" }, new String[] {"idServicoContrato"}, "ServiÁo j· selecionado!", new String[] {"gerarButtonDelete"}, null, null);
+		tblServico.addRow(servContratoCatalogoServDTO, new String[] {"", "idServicoContrato", "nomeServico" }, new String[] {"idServicoContrato"}, "Servi√ßo j√° selecionado!", new String[] {"gerarButtonDelete"}, null, null);
 		document.executeScript("HTMLUtils.applyStyleClassInAllCells('tblServicoContrato', 'tblServicoContrato');");
 	}*/
 	
 	/**
-	 * Retorna o Conteudo de cat·logo de serviÁo
+	 * Retorna o Conteudo de cat√°logo de servi√ßo
 	 * @author pedro
 	 * @param document
 	 * @param request

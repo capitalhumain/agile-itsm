@@ -37,7 +37,7 @@ public class AnexoMudanca extends AjaxFormAction {
     public void save(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         request.getSession(true).getAttribute("colUploadsGED");
 
-        // Não está criando os anexos aqui (no BD). Esta sendo feito no save da solicitacao de servico. Emauri - 01/07/2012.
+        // NÃ£o estÃ¡ criando os anexos aqui (no BD). Esta sendo feito no save da solicitacao de servico. Emauri - 01/07/2012.
         // getBarraFerramentasService().create(arquivosUpados, 1);
 
         document.executeScript("uploadAnexos.clear()");
@@ -67,7 +67,7 @@ public class AnexoMudanca extends AjaxFormAction {
                 final UploadDTO uploadDTO = new UploadDTO();
 
                 uploadDTO.setDescricao(anexo.getDescricao());
-                // nem todos os arquivos têm extensão
+                // nem todos os arquivos tÃªm extensÃ£o
                 if (anexo.getExtensao() == null || anexo.getExtensao().equals("")) {
                     nomeDoArquivo = anexo.getNomeAnexo();
                 } else {

@@ -70,10 +70,10 @@ public class PerfilAcessoMenuServiceEjb extends CrudServiceImpl implements Perfi
     }
 
     /**
-     * ObtÈm um Mapa<idMenu, List<PerfilAcessoMenu> > de todos os menus deste usu·rio
+     * Obt√©m um Mapa<idMenu, List<PerfilAcessoMenu> > de todos os menus deste usu√°rio
      * 
      * @author thyen.chang
-     * @since 28/01/2015 - OPERA«√O USAIN BOLT
+     * @since 28/01/2015 - OPERA√á√ÉO USAIN BOLT
      */
 	@Override
 	public Map<Integer, List<PerfilAcessoMenuDTO> > getPerfilAcessoBotoesMenu(UsuarioDTO usuario) throws Exception {

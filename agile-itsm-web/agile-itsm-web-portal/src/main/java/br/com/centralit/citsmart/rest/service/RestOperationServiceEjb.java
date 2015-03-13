@@ -28,7 +28,7 @@ public class RestOperationServiceEjb extends CrudServiceImpl implements RestOper
     }
 
     /**
-     * Cria usu·rio e perfil acesso.
+     * Cria usu√°rio e perfil acesso.
      *
      * @see br.com.citframework.service.CrudServiceImpl#create(br.com.agileitsm.model.support.BaseEntity)
      */

@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.citframework.util.Constantes"%>
@@ -11,8 +13,7 @@
 %>
 <%@include file="/include/header.jsp"%>
 
-<%@include file="/include/security/security.jsp"%>
-<title><fmt:message key="citcorpore.comum.title" /></title>
+<%@include file="/novoLayout/common/include/titulo.jsp" %>
 <%@include file="/include/menu/menuConfig.jsp"%>
 <%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 
@@ -62,8 +63,8 @@
 	}
 
 	/**
-	 * @param dataInicial Componente que est· armazenando a data inicial.
-	 * @param dataFinal Componente que est· armazenando a data final.
+	 * @param dataInicial Componente que est√° armazenando a data inicial.
+	 * @param dataFinal Componente que est√° armazenando a data final.
 	 */
 	function validaData(dataInicial, dataFinal){
 		if(dataInicial.value == ""){
@@ -125,7 +126,7 @@
 									</div>
 									<div class="col_25">
 										<fieldset>
-											<label>Vers„o</label>
+											<label>Vers√£o</label>
 											<div>
 												<input type='text' readonly="readonly" name="versao" class="" />
 											</div>
@@ -133,10 +134,10 @@
 									</div>
 									<div class="col_25">
 										<fieldset>
-											<label class="campoObrigatorio">Data inÌcio</label>
+											<label class="campoObrigatorio">Data in√≠cio</label>
 											<div>
 												<input type='text' name="dataInicio" id="dataInicio" maxlength="10" size="10"
-													   class="Valid[Required,Data] Description[Data inÌcio] Format[Data] datepicker" />
+													   class="Valid[Required,Data] Description[Data in√≠cio] Format[Data] datepicker" />
 											</div>
 										</fieldset>
 									</div>

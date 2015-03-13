@@ -392,7 +392,7 @@ public class MetaUtil {
 
             final char[] buffer = new char[1024];
             try {
-                final Reader reader = new BufferedReader(new InputStreamReader(is, "ISO-8859-1"));
+                final Reader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
                 int n;
                 while ((n = reader.read(buffer)) != -1) {
                     writer.write(buffer, 0, n);
@@ -645,7 +645,7 @@ public class MetaUtil {
         out.println("        'bDestroy': true,");
         out.println("        'bDeferRender': true,");
         out.println("        'sSearch': 'Busca:',");
-        out.println("        'sEmptyTable': 'N„o h· dados para apresentar',");
+        out.println("        'sEmptyTable': 'N√£o h√° dados para apresentar',");
         out.println("        'sLoadingRecords': 'Carregando...',");
         out.println("        'sServerMethod': 'POST', ");
         out.println("        'aoColumns': [" + tams + "], ");
@@ -859,7 +859,7 @@ public class MetaUtil {
 
             ret += "<select name='" + grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getNomeDB() + "' " + " id='"
                     + grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getNomeDB() + "' " + " class='" + valid + " Description[" + descricao + "]' " + compl + ">";
-            // Thiago Fernandes - 03/11/2013 - 14:10 - Sol. 121468 - InternacionalizaÁ„o.
+            // Thiago Fernandes - 03/11/2013 - 14:10 - Sol. 121468 - Internacionaliza√ß√£o.
             ret += "<option value=''>" + UtilI18N.internacionaliza(request, "citcorpore.comum.selecione") + "</option>";
 
             String formula = grupoVisaoCamposNegocioDTO.getFormula();
@@ -956,7 +956,7 @@ public class MetaUtil {
                 lookupDto.setIdCamposObjetoNegocio(grupoVisaoCamposNegocioDTO.getIdCamposObjetoNegocio());
 
                 ret += "<select name='" + grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getNomeDB() + "'" + " class='" + valid + " Description[" + descricao + "]' >";
-                // Thiago Fernandes - 03/11/2013 - 14:10 - Sol. 121468 - InternacionalizaÁ„o.
+                // Thiago Fernandes - 03/11/2013 - 14:10 - Sol. 121468 - Internacionaliza√ß√£o.
                 ret += "<option value=''>" + UtilI18N.internacionaliza(request, "citcorpore.comum.selecione") + "</option>";
                 final Collection col = lookupService.findSimple(lookupDto);
                 if (col != null) {
@@ -1004,8 +1004,8 @@ public class MetaUtil {
 
         /*
          * Rodrigo Pecci Acorse - 03/02/2013 10h15 - #132885
-         * AlteraÁ„o realizada para os campos do tipo TEXT e TEXTAREA.
-         * O plugin n„o validava se o campo era obrigatÛrio, agora quando o campo for setado como obrigatÛrio ir· receber o tipo validatebox para que seja validado corretamente.
+         * Altera√ß√£o realizada para os campos do tipo TEXT e TEXTAREA.
+         * O plugin n√£o validava se o campo era obrigat√≥rio, agora quando o campo for setado como obrigat√≥rio ir√° receber o tipo validatebox para que seja validado corretamente.
          */
         String options = "";
         if (grupoVisaoCamposNegocioDTO.getTipoNegocio().equalsIgnoreCase(TEXT)) {
@@ -1087,7 +1087,7 @@ public class MetaUtil {
 
             ret += "<select name='" + grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getNomeDB() + "' " + " id='"
                     + grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getNomeDB() + "' " + " class='" + valid + " Description[" + descricao + "]' " + compl + ">";
-            // Thiago Fernandes - 03/11/2013 - 14:10 - Sol. 121468 - InternacionalizaÁ„o.
+            // Thiago Fernandes - 03/11/2013 - 14:10 - Sol. 121468 - Internacionaliza√ß√£o.
             ret += "<option value=''>" + UtilI18N.internacionaliza(request, "citcorpore.comum.selecione") + "</option>";
 
             String formula = grupoVisaoCamposNegocioDTO.getFormula();
@@ -1308,7 +1308,7 @@ public class MetaUtil {
     }
 
     /**
-     * Realiza as conversıes necess·rias dos tipos de dados.
+     * Realiza as convers√µes necess√°rias dos tipos de dados.
      *
      * @param typeDBParm
      * @param value
@@ -1372,12 +1372,12 @@ public class MetaUtil {
                 final SimpleDateFormat sdf = UtilDatas.getSimpleDateFormatByTipoDataAndLanguage(UtilDatas.getTipoDate(value, WebUtil.getLanguage(request)),
                         WebUtil.getLanguage(request));
 
-                // Valida se a data È v·lida
+                // Valida se a data √© v√°lida
                 if (UtilDatas.isThisDateValid(value, sdf)) {
-                    // Se a data for v·lida, faz a convers„o utilizando o TipoDate correto
+                    // Se a data for v√°lida, faz a convers√£o utilizando o TipoDate correto
                     val = UtilDatas.convertStringToTimestamp(UtilDatas.getTipoDate(value, WebUtil.getLanguage(request)), value, WebUtil.getLanguage(request));
                 } else {
-                    // Se a data n„o for v·lida, faz o casting para Timestamp
+                    // Se a data n√£o for v√°lida, faz o casting para Timestamp
                     val = Timestamp.valueOf(value);
                 }
             } catch (final Exception e) {
@@ -1395,9 +1395,9 @@ public class MetaUtil {
                 final SimpleDateFormat sdf = UtilDatas.getSimpleDateFormatByTipoDataAndLanguage(UtilDatas.getTipoDate(value, WebUtil.getLanguage(request)),
                         WebUtil.getLanguage(request));
 
-                // Valida se a data È v·lida
+                // Valida se a data √© v√°lida
                 if (UtilDatas.isThisDateValid(value, sdf)) {
-                    // Se a data for v·lida, faz a convers„o utilizando o TipoDate correto
+                    // Se a data for v√°lida, faz a convers√£o utilizando o TipoDate correto
                     data = UtilDatas.convertStringToSQLDate(UtilDatas.getTipoDate(value, WebUtil.getLanguage(request)), value, WebUtil.getLanguage(request));
                 }
             } catch (final Exception e) {

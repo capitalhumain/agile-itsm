@@ -1,16 +1,16 @@
 /*
- * FunÁ„o respons·vel por selecionar todos checkbox ou desmarcar todos
+ * Fun√ß√£o respons√°vel por selecionar todos checkbox ou desmarcar todos
  * @author: Marco Nascimento
  * @date: 23/05/2008
  * marcotulio.nascimento@gmail.com / knox872003@yahoo.com.br
  */
 
 /*
- * Para utilizar esta funÁ„o;
+ * Para utilizar esta fun√ß√£o;
  * Utilize o modelo:
  * CheckBox de checkAll
  * <input type="checkbox" id="chAll" name="chAll" onclick="checkAll('formControleLotes');" >
- * O Atributo name deve ser identico ao deste modelo e o formul·rio deve ser relativo  
+ * O Atributo name deve ser identico ao deste modelo e o formul√°rio deve ser relativo  
  */
  
 /* Check ALL true/false */

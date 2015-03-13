@@ -1,6 +1,6 @@
 <br.com.centralit.citcorpore.metainfo.bean.VisaoDTO>
   <idVisao>0</idVisao>
-  <descricao>Atividades do Serviço (conforme o contrato)</descricao>
+  <descricao>Atividades do ServiÃ§o (conforme o contrato)</descricao>
   <tipoVisao>ED</tipoVisao>
   <situacao>A</situacao>
   <classeName></classeName>
@@ -8,7 +8,7 @@
   <filha>false</filha>
   <colGrupos class="list">
     <br.com.centralit.citcorpore.metainfo.bean.GrupoVisaoDTO>
-      <descricaoGrupoVisao>Atividades do Serviço (conforme o contrato)</descricaoGrupoVisao>
+      <descricaoGrupoVisao>Atividades do ServiÃ§o (conforme o contrato)</descricaoGrupoVisao>
       <forma>1</forma>
       <ordem>0</ordem>
       <situacao>A</situacao>
@@ -16,7 +16,7 @@
         <br.com.centralit.citcorpore.metainfo.bean.GrupoVisaoCamposNegocioDTO>
           <idGrupoVisao>70</idGrupoVisao>
           <idCamposObjetoNegocio>1294</idCamposObjetoNegocio>
-          <descricaoNegocio>Código Atividade Serviço Contrato</descricaoNegocio>
+          <descricaoNegocio>CÃ³digo Atividade ServiÃ§o Contrato</descricaoNegocio>
           <tipoNegocio>HIDDEN</tipoNegocio>
           <ordem>1</ordem>
           <situacao>A</situacao>
@@ -31,7 +31,7 @@
         <br.com.centralit.citcorpore.metainfo.bean.GrupoVisaoCamposNegocioDTO>
           <idGrupoVisao>70</idGrupoVisao>
           <idCamposObjetoNegocio>1295</idCamposObjetoNegocio>
-          <descricaoNegocio>Código Serviço Contrato</descricaoNegocio>
+          <descricaoNegocio>CÃ³digo ServiÃ§o Contrato</descricaoNegocio>
           <tipoNegocio>HIDDEN</tipoNegocio>
           <ordem>2</ordem>
           <situacao>A</situacao>
@@ -46,7 +46,7 @@
         <br.com.centralit.citcorpore.metainfo.bean.GrupoVisaoCamposNegocioDTO>
           <idGrupoVisao>70</idGrupoVisao>
           <idCamposObjetoNegocio>1296</idCamposObjetoNegocio>
-          <descricaoNegocio>Descrição da Atividade</descricaoNegocio>
+          <descricaoNegocio>DescriÃ§Ã£o da Atividade</descricaoNegocio>
           <tipoNegocio>TEXTAREA</tipoNegocio>
           <ordem>3</ordem>
           <situacao>A</situacao>
@@ -61,7 +61,7 @@
         <br.com.centralit.citcorpore.metainfo.bean.GrupoVisaoCamposNegocioDTO>
           <idGrupoVisao>70</idGrupoVisao>
           <idCamposObjetoNegocio>1297</idCamposObjetoNegocio>
-          <descricaoNegocio>Observações</descricaoNegocio>
+          <descricaoNegocio>ObservaÃ§Ãµes</descricaoNegocio>
           <tipoNegocio>TEXTAREA</tipoNegocio>
           <ordem>4</ordem>
           <situacao>A</situacao>
@@ -104,7 +104,7 @@
           <htmlCode></htmlCode>
           <valoresOpcoes>
             <string>1#Baixa</string>
-            <string>2#Intermediária</string>
+            <string>2#IntermediÃ¡ria</string>
             <string>3#Mediana</string>
             <string>4#Alta</string>
             <string>5#Especialista</string>
@@ -122,9 +122,9 @@
               <idValorVisaoCamposNegocio>64</idValorVisaoCamposNegocio>
               <idGrupoVisao>43</idGrupoVisao>
               <idCamposObjetoNegocio>1753</idCamposObjetoNegocio>
-              <valor>2#Intermediária</valor>
+              <valor>2#IntermediÃ¡ria</valor>
               <situacao>A</situacao>
-              <descricao>Intermediária</descricao>
+              <descricao>IntermediÃ¡ria</descricao>
             </br.com.centralit.citcorpore.metainfo.bean.ValorVisaoCamposNegocioDTO>
             <br.com.centralit.citcorpore.metainfo.bean.ValorVisaoCamposNegocioDTO>
               <idValorVisaoCamposNegocio>65</idValorVisaoCamposNegocio>

@@ -20,7 +20,8 @@ public class SolucaoDefinitivaDAO extends CrudDaoDefaultImpl {
 	public SolucaoDefinitivaDAO() {
 		super(Constantes.getValue("DATABASE_ALIAS"), null);
 	}
-
+
+
 
 	@Override
 	public Collection find(BaseEntity obj) throws PersistenceException {

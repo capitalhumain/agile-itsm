@@ -34,7 +34,7 @@ public abstract class GeneralException extends Exception implements Serializable
     /**
      *
      * @param code
-     *            ( String ) :: CÛdigo da exceÁ„o. Deve estar definido no arquivo resources.properties
+     *            ( String ) :: C√≥digo da exce√ß√£o. Deve estar definido no arquivo resources.properties
      */
     public GeneralException(final String code) {
         super(code);
@@ -173,7 +173,7 @@ public abstract class GeneralException extends Exception implements Serializable
             tradutor = TradutorExcecao.getInstance();
             final String resource = tradutor.getMensagem(code);
             if (resource == null) {
-                message = "Recurso n„o encontrado: " + code;
+                message = "Recurso n√£o encontrado: " + code;
             }
             final StringTokenizer st = new StringTokenizer(resource, "|");
             if (!st.hasMoreElements()) {

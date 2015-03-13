@@ -374,7 +374,7 @@ public class RequisicaoQuestionario extends SolicitacaoServicoQuestionario {
             throws Exception {
         final UsuarioDTO usuario = WebUtil.getUsuario(request);
         if (usuario == null) {
-            document.alert("Sess„o expirada! Favor efetuar logon novamente!");
+            document.alert("Sess√£o expirada! Favor efetuar logon novamente!");
             return;
         }
         final RequisicaoQuestionarioDTO pesQuestBean = (RequisicaoQuestionarioDTO) document.getBean();
@@ -405,7 +405,7 @@ public class RequisicaoQuestionario extends SolicitacaoServicoQuestionario {
                 strTable += "</tr>";
             } else {
                 String strUso = "";
-                String strAdequado = "N„o";
+                String strAdequado = "N√£o";
                 String strAtencao = "";
                 if (vCertDigDto.getInfoCertificadoDigital().isKeyUsageDigitalSignature()) {
                     strUso += "Assinatura digital";
@@ -467,7 +467,7 @@ public class RequisicaoQuestionario extends SolicitacaoServicoQuestionario {
                                 vCertDigDto.getInfoCertificadoDigital().getDataInicioValidade()) >= 0) {
                             strAdequado = "Sim";
                         } else {
-                            strAtencao = "<font color='red'><b>Certificado ainda n„o entrou em validade!</font></b>";
+                            strAtencao = "<font color='red'><b>Certificado ainda n√£o entrou em validade!</font></b>";
                         }
                     } else {
                         strAtencao = "<font color='red'><b>Certificado vencido!</font></b>";
@@ -511,8 +511,8 @@ public class RequisicaoQuestionario extends SolicitacaoServicoQuestionario {
                         + " a "
                         + UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, vCertDigDto.getInfoCertificadoDigital()
                                 .getDataFimValidade(), WebUtil.getLanguage(request)) + "</b><br>";
-                strTable += "UtilizaÁıes permitidas: <b>" + strUso + "</b><br>";
-                strTable += "Adequado para informaÁıes mÈdicas: <b>" + strAdequado + "</b><br>";
+                strTable += "Utiliza√ß√µes permitidas: <b>" + strUso + "</b><br>";
+                strTable += "Adequado para informa√ß√µes m√©dicas: <b>" + strAdequado + "</b><br>";
                 strTable += strAtencao;
                 strTable += "</td>";
                 strTable += "</tr>";
@@ -634,7 +634,7 @@ public class RequisicaoQuestionario extends SolicitacaoServicoQuestionario {
             HttpServletResponse response) throws Exception {
         final UsuarioDTO usuario = WebUtil.getUsuario(request);
         if (usuario == null) {
-            document.alert("Sess„o expirada! Favor efetuar logon novamente!");
+            document.alert("Sess√£o expirada! Favor efetuar logon novamente!");
             return "";
         }
 
@@ -688,7 +688,7 @@ public class RequisicaoQuestionario extends SolicitacaoServicoQuestionario {
                     final Collection colPerfisAssociados = prontuarioEletronicoPerfSegService
                             .findByIdProntuarioEletronicoConfig(prontuarioEletronicoConfigDTO
                                     .getIdInformacoesContratoConfig());
-                    if (isPerfilUsuarioLogadoInCollection(colPerfisAssociados, usuario)) { // Se tiver acesso a aquela ABA, ent„o gera
+                    if (isPerfilUsuarioLogadoInCollection(colPerfisAssociados, usuario)) { // Se tiver acesso a aquela ABA, ent√£o gera
                                                                                            // historico.
                         String str = "";
                         if (bPrimeiroItem) {
@@ -710,7 +710,7 @@ public class RequisicaoQuestionario extends SolicitacaoServicoQuestionario {
                             final String conteudoImp = geraDadosFormularioSemAssinatura(idEmpresa,
                                     contratoQuestionariosAux, true, false, false);
 
-                            // -- Se chegar È que nao havia sido gravado, entao grava.
+                            // -- Se chegar √© que nao havia sido gravado, entao grava.
                             try {
                                 pesQuestBean.setConteudoImpresso(conteudoImp);
                                 contratoQuestionariosService.updateConteudoImpresso(
@@ -737,7 +737,7 @@ public class RequisicaoQuestionario extends SolicitacaoServicoQuestionario {
             HttpServletResponse response) throws Exception {
         final UsuarioDTO usuario = WebUtil.getUsuario(request);
         if (usuario == null) {
-            document.alert("Sess„o expirada! Favor efetuar logon novamente!");
+            document.alert("Sess√£o expirada! Favor efetuar logon novamente!");
             return;
         }
         final String usuarioImpressao = usuario.getNomeUsuario();
@@ -785,7 +785,7 @@ public class RequisicaoQuestionario extends SolicitacaoServicoQuestionario {
                     + i
                     + " de "
                     + (total - 1)
-                    + "     prontu·rio impresso em: "
+                    + "     prontu√°rio impresso em: "
                     + UtilDatas.convertDateToString(TipoDate.TIMESTAMP_WITH_SECONDS, UtilDatas.getDataHoraAtual(),
                             WebUtil.getLanguage(request)) + " por: " + usuarioImpressao);
             over.endText();
@@ -839,7 +839,7 @@ public class RequisicaoQuestionario extends SolicitacaoServicoQuestionario {
 
         final UsuarioDTO usuario = WebUtil.getUsuario(request);
         if (usuario == null) {
-            document.alert("Sess„o expirada! Favor efetuar logon novamente!");
+            document.alert("Sess√£o expirada! Favor efetuar logon novamente!");
             return;
         }
 
@@ -937,7 +937,7 @@ public class RequisicaoQuestionario extends SolicitacaoServicoQuestionario {
             outputStream.close();
         } catch (final Exception e) {
             e.printStackTrace();
-            document.alert("Ocorreu um erro ao realizar a impress„o! " + e.getMessage());
+            document.alert("Ocorreu um erro ao realizar a impress√£o! " + e.getMessage());
         }
     }
 
@@ -946,7 +946,7 @@ public class RequisicaoQuestionario extends SolicitacaoServicoQuestionario {
             HttpServletResponse response) throws Exception {
         final UsuarioDTO usuario = WebUtil.getUsuario(request);
         if (usuario == null) {
-            document.alert("Sess„o expirada! Favor efetuar logon novamente!");
+            document.alert("Sess√£o expirada! Favor efetuar logon novamente!");
             return;
         }
 
@@ -979,14 +979,14 @@ public class RequisicaoQuestionario extends SolicitacaoServicoQuestionario {
             throws Exception {
         final UsuarioDTO usuario = WebUtil.getUsuario(request);
         if (usuario == null) {
-            document.alert("Sess„o expirada! Favor efetuar logon novamente!");
+            document.alert("Sess√£o expirada! Favor efetuar logon novamente!");
             return;
         }
         final RequisicaoQuestionarioDTO contrQuestBean = (RequisicaoQuestionarioDTO) document.getBean();
 
         String strTable = "<table width='100%' border='1'>";
 
-        strTable += "<tr><td><b>Data do Atendimento</b></td><td><b>Conte˙do</b></td></tr>";
+        strTable += "<tr><td><b>Data do Atendimento</b></td><td><b>Conte√∫do</b></td></tr>";
 
         String strItem = "";
 
@@ -1222,11 +1222,11 @@ public class RequisicaoQuestionario extends SolicitacaoServicoQuestionario {
                                                                      // do grafico)
         chart.setBorderVisible(false); // Visibilidade da borda do grafico
 
-        // Marcador de MÌdia de Resolubilidade
+        // Marcador de M√≠dia de Resolubilidade
         // IntervalMarker target = new IntervalMarker(y - 0.3, y + 0.3);// A
-        // principio, a mÌdia ser· o TOTAL-MF
+        // principio, a m√≠dia ser√° o TOTAL-MF
         /*
-         * target.setLabel(" Resolubilidade MÌdia"); target.setLabelFont(new
+         * target.setLabel(" Resolubilidade M√≠dia"); target.setLabelFont(new
          * Font("arial", Font.BOLD, 12)); target.setLabelPaint(Color.RED);
          * target.setLabelAnchor(RectangleAnchor.CENTER);
          * target.setLabelTextAnchor(TextAnchor.BOTTOM_CENTER);

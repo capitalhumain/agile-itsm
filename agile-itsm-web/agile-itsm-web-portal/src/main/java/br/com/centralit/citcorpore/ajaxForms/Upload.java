@@ -46,7 +46,7 @@ public class Upload extends AjaxFormAction {
 			String nameUploadFile = (String) formItems.get("NAMEFILE_UPLOADANEXOS");
 			
 			/**
-			 * VerificaÁ„o no caso de dois ou mais uploads na mesma requisiÁ„o.
+			 * Verifica√ß√£o no caso de dois ou mais uploads na mesma requisi√ß√£o.
 			 * 
 			 * **/
 			if (nameUploadFile == null) {
@@ -75,8 +75,8 @@ public class Upload extends AjaxFormAction {
 		}
 		
 		
-		//Flag inserido para verificar se est· no gerenciamento de serviÁo, pois ele È inserido no GED2
-		//GED2 Na vers„o do novo layout foi criado um ged2 para tratar os anexos do gerenciamento
+		//Flag inserido para verificar se est√° no gerenciamento de servi√ßo, pois ele √© inserido no GED2
+		//GED2 Na vers√£o do novo layout foi criado um ged2 para tratar os anexos do gerenciamento
 		//
 		String flagGerenciamento = (String) request.getSession(true).getAttribute("flagGerenciamento");
 			if (flagGerenciamento != null && flagGerenciamento.equalsIgnoreCase("S")) {
@@ -115,7 +115,7 @@ public class Upload extends AjaxFormAction {
 					uploadDTO.setPath(CITCorporeUtil.CAMINHO_REAL_APP + "tempUpload/" + uploadDTO.getNameFile());			
 					
 					/*
-					 * Ajuste para atender a iniciativa 483: Anexo de arquivos ao serviÁo.
+					 * Ajuste para atender a iniciativa 483: Anexo de arquivos ao servi√ßo.
 					 * Foi criada um campo idLinhaPai na classe UploadDTO para vincular o anexo a um determinado servico. 
 					 * Ezequiel
 					 */
@@ -127,8 +127,8 @@ public class Upload extends AjaxFormAction {
 					
 					/*FIM*/
 					
-					/* Alterado por: luiz.borges em 16/12/2013 ‡s 10:35 hrs
-					 * VerificaÁ„o se arquivo j· existe na lista.
+					/* Alterado por: luiz.borges em 16/12/2013 √†s 10:35 hrs
+					 * Verifica√ß√£o se arquivo j√° existe na lista.
 					 */					
 					for (Iterator i = colUploadsGED.iterator(); i.hasNext();) {
 						UploadDTO uploadAux = (UploadDTO) i.next();
@@ -142,13 +142,13 @@ public class Upload extends AjaxFormAction {
 						fi.write(arquivo);
 						colUploadsGED.add(uploadDTO);
 					}
-					//fim alteraÁ„o - luiz.borges
+					//fim altera√ß√£o - luiz.borges
 				}
 				
 			}
 		}
 		}		
-		//M·rio J˙nior - 28/10/2013 - Adicionado para quando for gerenciamento de serviÁo.
+		//M√°rio J√∫nior - 28/10/2013 - Adicionado para quando for gerenciamento de servi√ßo.
 		String flagGerenciamento = (String) request.getSession(true).getAttribute("flagGerenciamento");
 		if (flagGerenciamento != null && flagGerenciamento.equalsIgnoreCase("S")) {
 		request.getSession(true).setAttribute("colUploadsGED2", colUploadsGED);

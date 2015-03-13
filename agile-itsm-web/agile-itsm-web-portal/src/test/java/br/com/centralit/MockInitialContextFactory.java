@@ -7,7 +7,7 @@ import javax.naming.NamingException;
 import javax.naming.spi.InitialContextFactory;
 
 /**
- * Fábrica de {@link Context} para ser usada como mocks nos tests
+ * FÃ¡brica de {@link Context} para ser usada como mocks nos tests
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 20/08/2014

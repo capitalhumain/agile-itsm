@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.citframework.util.UtilDatas"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
@@ -7,8 +9,7 @@
 <html>
 <head>
 <%@include file="/include/header.jsp"%>
-<%@include file="/include/security/security.jsp"%>
-<title><fmt:message key="citcorpore.comum.title" /></title>
+<%@include file="/novoLayout/common/include/titulo.jsp" %>
 
 <%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 
@@ -20,7 +21,7 @@
 	String iframe = "";
 	iframe = request.getParameter("iframe"); %> <link rel="stylesheet" type="text/css" href="${ctx}/css/IC.css">
 
-<script  charset="ISO-8859-1" type="text/javascript" src="${ctx}/js/PopupManager.js"></script>
+<script  charset="UTF-8" type="text/javascript" src="${ctx}/js/PopupManager.js"></script>
 <script type="text/javascript" src="../../cit/objects/CaracteristicaDTO.js"></script>
 <script type="text/javascript" src="../../cit/objects/HistoricoItemConfiguracaoDTO.js"></script>
 
@@ -305,7 +306,7 @@
 
 			function reload(idItem) {
 				<%
-			    //se for chamado por iframe deixa apenas a parte de cadastro da p·gina
+			    //se for chamado por iframe deixa apenas a parte de cadastro da p√°gina
 			    if (iframe == null) {
 				%>
 					parent.reloadItem(idItem);
@@ -421,7 +422,7 @@
 
 			function ocultaGrid() {
 				<%
-			    //se for chamado por iframe deixa apenas a parte de cadastro da p·gina
+			    //se for chamado por iframe deixa apenas a parte de cadastro da p√°gina
 			    if (iframe == null) {
 				%>
 					document.getElementById('gridCaracteristica').style.display = 'none';
@@ -537,7 +538,7 @@
 
 				initPopups();
 
-	    		//para visualizaÁ„o r·pida do mapaDesenhoServico
+	    		//para visualiza√ß√£o r√°pida do mapaDesenhoServico
 	    		popupManager = new PopupManager(window.screen.width - 100 , window.screen.height - 100, "${ctx}/pages/");
 	    		//solicitcaoservico
 	    		popupManagerSolicitacaoServico = new PopupManager(window.screen.width - 100 , window.screen.height - 100, "${ctx}/pages/");

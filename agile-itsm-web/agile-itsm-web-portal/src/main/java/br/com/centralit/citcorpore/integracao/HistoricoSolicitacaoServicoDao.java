@@ -282,7 +282,7 @@ return null;
 		List list = new ArrayList();
 		
 		/**
-		 * Verifica se há limite para listagem
+		 * Verifica se hÃ¡ limite para listagem
 		 * 
 		 * @author thyen.chang
 		 */

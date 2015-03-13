@@ -175,7 +175,7 @@ public class FiltroSegurancaCITSmart implements Filter {
             }
             Collection col = (Collection) request.getSession(true).getAttribute("acessosUsuario");
 
-            // Caso ainda nao tenha carregado a colecao com as autorizações, entao carrega.
+            // Caso ainda nao tenha carregado a colecao com as autorizaÃ§Ãµes, entao carrega.
             if (col == null) {
                 final Collection colPathsAutorizadosUsuario = new ArrayList();
                 final MenuService menuService = (MenuService) ServiceLocator.getInstance().getService(

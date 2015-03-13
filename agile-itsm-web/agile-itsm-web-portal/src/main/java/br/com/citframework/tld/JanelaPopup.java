@@ -329,7 +329,7 @@ public class JanelaPopup extends BodyTagSupport {
             pageContext.getOut().println("		if (divs[i].style.display != 'none'){");
             pageContext.getOut().println("			if (divs[i].style.zIndex != null && divs[i].style.zIndex != undefined){");
             pageContext.getOut().println("				if (maiorZIndex < divs[i].style.zIndex){");
-            pageContext.getOut().println("					if (divs[i].style.zIndex < 11000){"); // Este item eh para evitar sobrepor o FCKEditor (Janelas de serviços).
+            pageContext.getOut().println("					if (divs[i].style.zIndex < 11000){"); // Este item eh para evitar sobrepor o FCKEditor (Janelas de serviÃ§os).
             pageContext.getOut().println("						maiorZIndex = parseInt(divs[i].style.zIndex);");
             pageContext.getOut().println("					}else{");
             pageContext.getOut().println("						maiorZIndex = 11000;");

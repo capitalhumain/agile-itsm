@@ -39,7 +39,7 @@ import com.google.gson.JsonSyntaxException;
 public class BICitsmartUtils {
 
     /**
-     * Autentica o usu·rio utilizando JSON
+     * Autentica o usu√°rio utilizando JSON
      *
      * @param url
      * @param usuario
@@ -67,24 +67,24 @@ public class BICitsmartUtils {
                 if (response != null && response.getStatus() != 200) {
                     if (resp != null && resp.getError().getDescription() != null
                             && !resp.getError().getDescription().equals("")) {
-                        resultRotina.concatMensagem("- Estabelecimento da conex„o: " + response.getStatus() + " - "
+                        resultRotina.concatMensagem("- Estabelecimento da conex√£o: " + response.getStatus() + " - "
                                 + resp.getError().getDescription() + " (Falha) ");
                     } else {
-                        resultRotina.concatMensagem("- Estabelecimento da conex„o HTTP (Falha): Erro "
+                        resultRotina.concatMensagem("- Estabelecimento da conex√£o HTTP (Falha): Erro "
                                 + response.getStatus());
                     }
                 } else {
-                    resultRotina.concatMensagem("- AutenticaÁ„o do usu·rio (OK)");
+                    resultRotina.concatMensagem("- Autentica√ß√£o do usu√°rio (OK)");
                     resultRotina.setResultado(true);
                     resultRotina.setSessionID(resp.getSessionID());
                 }
             } catch (JsonSyntaxException e) {
-                resultRotina.concatMensagem("- Estabelecimento da conex„o HTTP (Falha)");
+                resultRotina.concatMensagem("- Estabelecimento da conex√£o HTTP (Falha)");
             }
 
             return resultRotina;
         } catch (ConnectException e) {
-            System.out.println("- Estabelecimento da conex„o (Falha).");
+            System.out.println("- Estabelecimento da conex√£o (Falha).");
             return resultRotina;
         }
     }
@@ -140,7 +140,7 @@ public class BICitsmartUtils {
         String glue = "";
         String generatedIn = "";
         Integer count = 0;
-        xml = "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n<tables origem='0'>\n" + xml + "\n</tables>";
+        xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<tables origem='0'>\n" + xml + "\n</tables>";
 
         Collection colRecords = UtilImportData.readXMLSource(xml);
         if (colRecords != null) {
@@ -154,20 +154,20 @@ public class BICitsmartUtils {
                     ImportInfoField importInfoField = (ImportInfoField) it.next();
                     if (importInfoField.getNameField().equalsIgnoreCase(id)) {
                         if (count == 0 && generatedIn.equals("")) {
-                            generatedIn += id + " IN ( "; // Se È o primeiro item e a v·riavel generatedIn for vazia,
+                            generatedIn += id + " IN ( "; // Se √© o primeiro item e a v√°riavel generatedIn for vazia,
                             // simplesmente abre o IN.
                         } else if (count == 0 && !generatedIn.equals("")) {
-                            generatedIn += " OR " + id + " IN ( "; // Se È o primeiro item mas a v·riavel generatedIn
-                            // n„o for vazia, abre o IN adicionando OR no inÌcio.
+                            generatedIn += " OR " + id + " IN ( "; // Se √© o primeiro item mas a v√°riavel generatedIn
+                            // n√£o for vazia, abre o IN adicionando OR no in√≠cio.
                         }
 
                         generatedIn += glue + importInfoField.getValueField(); // Adiciona o item ao IN
-                        glue = ", "; // Marca a vÌrgula para o prÛximo item
-                        count++; // Soma +1 para o n˙mero de itens
+                        glue = ", "; // Marca a v√≠rgula para o pr√≥ximo item
+                        count++; // Soma +1 para o n√∫mero de itens
 
                         if (count == 900) { // Se a soma for igual a 900
                             generatedIn += " ) "; // Fecha o IN
-                            glue = ""; // Esvazia a vÌrgula
+                            glue = ""; // Esvazia a v√≠rgula
                             count = 0; // Zera a contagem
                         }
                     }
@@ -198,7 +198,7 @@ public class BICitsmartUtils {
             HashMap<String, String> xmlTabelas = new HashMap<String, String>();
             String db;
 
-            // Inicia a string que receber· o xml final
+            // Inicia a string que receber√° o xml final
             StringBuilder contentXml = new StringBuilder();
 
             // Tabela de Moedas
@@ -255,7 +255,7 @@ public class BICitsmartUtils {
                 }
             }
 
-            // Tabela de Fatura ApuraÁ„o Ans
+            // Tabela de Fatura Apura√ß√£o Ans
             xmlTabelas.put("faturaapuracaoans",
                     BICitsmartUtils.exportDB("faturaapuracaoans", chavesTabelas.get("idfatura"), xmlComIdConexao)
                     + "\n");
@@ -264,7 +264,7 @@ public class BICitsmartUtils {
             xmlTabelas.put("atividadesos",
                     BICitsmartUtils.exportDB("atividadesos", chavesTabelas.get("idos"), xmlComIdConexao) + "\n");
 
-            // Tabela de ServiÁo Contrato
+            // Tabela de Servi√ßo Contrato
             if (chavesTabelas.get("idcontrato") != null) {
                 db = BICitsmartUtils.exportDB("servicocontrato", " IDSERVICO IN (SELECT IDSERVICO FROM SERVICO) AND "
                         + chavesTabelas.get("idcontrato"), xmlComIdConexao);
@@ -279,18 +279,18 @@ public class BICitsmartUtils {
                 chavesTabelas.put("idservico", generateSQLIn(db, "IDSERVICO"));
             }
 
-            // Tabela de Atividades ServiÁo Contrato
+            // Tabela de Atividades Servi√ßo Contrato
             xmlTabelas.put(
                     "atividadesservicocontrato",
                     BICitsmartUtils.exportDB("atividadesservicocontrato", chavesTabelas.get("idservicocontrato"),
                             xmlComIdConexao) + "\n");
 
-            // Tabela de ServiÁo
+            // Tabela de Servi√ßo
             xmlTabelas.put("servico",
                     BICitsmartUtils.exportDB("servico", chavesTabelas.get("idservico"), xmlComIdConexao) + "\n");
 
             // Monta XML final
-            contentXml.append("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n<tables origem='0'>\n");
+            contentXml.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<tables origem='0'>\n");
             contentXml.append(xmlTabelas.get("moedas"));
             contentXml.append(xmlTabelas.get("clientes"));
             contentXml.append(xmlTabelas.get("contratos"));

@@ -223,7 +223,7 @@ public class UtilDatas {
     }
 
     /**
-     * Retorna a 1.a data do mes/ano Exemplo: se passar a data 23/01/2007, retornar· 01/01/2007.
+     * Retorna a 1.a data do mes/ano Exemplo: se passar a data 23/01/2007, retornar√° 01/01/2007.
      *
      * @param data
      * @return
@@ -239,7 +239,7 @@ public class UtilDatas {
     }
 
     /**
-     * Retorna a Ultima data do mes/ano - de acordo com o mes (Considerando ano bisexto) Exemplo: se passar a data 23/01/2007, retornar· 31/01/2007.
+     * Retorna a Ultima data do mes/ano - de acordo com o mes (Considerando ano bisexto) Exemplo: se passar a data 23/01/2007, retornar√° 31/01/2007.
      *
      * @param data
      * @return
@@ -518,7 +518,7 @@ public class UtilDatas {
             diaf = "Segunda";
             break;
         case 3:
-            diaf = "TerÁa";
+            diaf = "Ter√ßa";
             break;
         case 4:
             diaf = "Quarta";
@@ -530,10 +530,10 @@ public class UtilDatas {
             diaf = "Sexta";
             break;
         case 7:
-            diaf = "S·bado";
+            diaf = "S√°bado";
             break;
         }
-        // mÍs
+        // m√™s
         switch (mes) {
         case 0:
             mesf = "Janeiro";
@@ -542,7 +542,7 @@ public class UtilDatas {
             mesf = "Fevereiro";
             break;
         case 2:
-            mesf = "MarÁo";
+            mesf = "Mar√ßo";
             break;
         case 3:
             mesf = "Abril";
@@ -1110,7 +1110,7 @@ public class UtilDatas {
             return ZERO_HORAS_E_MINUTOS_4DGT;
         }
         if (hora4digitos.length() > 4) {
-            throw new IllegalArgumentException("A String de hora n„o pode ser 'null' nem conter mais que 4 caracteres.");
+            throw new IllegalArgumentException("A String de hora n√£o pode ser 'null' nem conter mais que 4 caracteres.");
         }
         while (hora4digitos.length() < 4) {
             hora4digitos = '0' + hora4digitos;
@@ -1129,7 +1129,7 @@ public class UtilDatas {
      */
     public static String acrecentaAnoEmData(String data, final int qtdAnos) {
         // Retorna uma data com o ano alterado, dependendo do parametro passado, por exemplo, se os parametros passados forem (15/06/2006, 2) , o
-        // retorno ser·: 15/06/2008 note que dois anos foram adicionado a data
+        // retorno ser√°: 15/06/2008 note que dois anos foram adicionado a data
         try {
             final String anoAntes = data.substring(6, 10);
             int ano = new Integer(anoAntes).shortValue();
@@ -1193,7 +1193,7 @@ public class UtilDatas {
     }
 
     /**
-     * MÈtodo para comparar as das e retornar o numero de dias de diferenÁa entre elas
+     * M√©todo para comparar as das e retornar o numero de dias de diferen√ßa entre elas
      *
      * Compare two date and return the difference between them in days.
      *
@@ -1238,7 +1238,7 @@ public class UtilDatas {
             curTime.add(Calendar.MONTH, 1);
         }
 
-        // Marca que È um saldo negativo ou positivo
+        // Marca que √© um saldo negativo ou positivo
         result_months = result_months * dif_multiplier;
 
         // Retirna a diferenca de dias do total dos meses
@@ -1355,7 +1355,7 @@ public class UtilDatas {
      * Adiciona dias em uma data
      *
      * @param date
-     *            data na qual ser„o adicionados os dias
+     *            data na qual ser√£o adicionados os dias
      * @param days
      *            dias a serem adicionados
      * @return {@link java.sql.Date} com os dias adicionados
@@ -1371,10 +1371,10 @@ public class UtilDatas {
      * Subtrai dias de uma data
      *
      * @param date
-     *            data da qual ser„o subtraÌdos os dias
+     *            data da qual ser√£o subtra√≠dos os dias
      * @param days
-     *            dias a serem subtraÌdos
-     * @return {@link java.sql.Date} com os dias subtraÌdos
+     *            dias a serem subtra√≠dos
+     * @return {@link java.sql.Date} com os dias subtra√≠dos
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      * @since 28/10/2014
      */
@@ -1387,10 +1387,10 @@ public class UtilDatas {
      * Subtrai ou adiciona dias de/em uma data
      *
      * @param date
-     *            data da qual ser„o subtraÌdos os dias
+     *            data da qual ser√£o subtra√≠dos os dias
      * @param days
-     *            dias a serem subtraÌdos
-     * @return {@link java.sql.Date} com os dias subtraÌdos
+     *            dias a serem subtra√≠dos
+     * @return {@link java.sql.Date} com os dias subtra√≠dos
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      * @since 28/10/2014
      */
@@ -1538,11 +1538,11 @@ public class UtilDatas {
     }
 
     /**
-     * Valida o formato de uma determinada Data retornando true se a data informada È do formato informado.
+     * Valida o formato de uma determinada Data retornando true se a data informada √© do formato informado.
      *
      * @param dateToValidate
      * @param dateFromat
-     * @return true - Data v·lida para o formato informado; false - Data inv·lida para o formato informado.
+     * @return true - Data v√°lida para o formato informado; false - Data inv√°lida para o formato informado.
      * @author flavio.santana
      * @author valdoilo.damasceno
      * @since 06.03.2014
@@ -1576,12 +1576,12 @@ public class UtilDatas {
     }
 
     /**
-     * Retorna o enumerado TipoDate da Data String informada por par‚metro.
+     * Retorna o enumerado TipoDate da Data String informada por par√¢metro.
      *
      * @param data
      *            - Data no formato String.
      * @param language
-     *            - Linguagem do usu·rio.
+     *            - Linguagem do usu√°rio.
      * @return TipoDate - Enum TipoDate.
      * @throws LogicException
      * @author rodrigo.acorse
@@ -1611,13 +1611,13 @@ public class UtilDatas {
     }
 
     /**
-     * Valida se a data String informada È uma data v·lida para o Formato.
+     * Valida se a data String informada √© uma data v√°lida para o Formato.
      *
      * @param dateToValidate
      *            - Data String a ser validada.
      * @param sdf
      *            - Formato da Data.
-     * @return true - Data v·lida; false - Data inv·lida.
+     * @return true - Data v√°lida; false - Data inv√°lida.
      * @author rodrigo.acorse
      * @since 27.02.2014
      * @since 06.03.2014
@@ -1639,7 +1639,7 @@ public class UtilDatas {
      * Converte Data do tipo Date para String de acordo com o {@link TipoDate}.
      *
      * @param tipoDate
-     *            tipo de formataÁ„o a ser aplicada
+     *            tipo de formata√ß√£o a ser aplicada
      * @param date
      *            data a ser formatada
      * @return data em {@link String}
@@ -1661,7 +1661,7 @@ public class UtilDatas {
      * @param date
      *            - Data do tipo Date.
      * @param language
-     *            - Linguagem do Usu·rio
+     *            - Linguagem do Usu√°rio
      * @return Data no formato String
      * @author valdoilo.damasceno
      * @since 06.02.2014
@@ -1685,7 +1685,7 @@ public class UtilDatas {
      * @param data
      *            - Date em String.
      * @param language
-     *            - Linguagem do Usu·rio.
+     *            - Linguagem do Usu√°rio.
      * @return Date
      * @throws ParseException
      * @author valdoilo.damasceno
@@ -1707,7 +1707,7 @@ public class UtilDatas {
      * @param data
      *            - Data no formato String.
      * @param language
-     *            - Locale do usu·rio (PT, EN)
+     *            - Locale do usu√°rio (PT, EN)
      * @return java.sql.Date
      * @throws ParseException
      * @author valdoilo.damasceno
@@ -1739,11 +1739,11 @@ public class UtilDatas {
     }
 
     /**
-     * Retorna a Data informada, no formato Timestamp, com a ˙ltima hora do dia, portanto 23:59:59. MÈtodo utilizado para as consultas em que È informado a DataFim.
+     * Retorna a Data informada, no formato Timestamp, com a √∫ltima hora do dia, portanto 23:59:59. M√©todo utilizado para as consultas em que √© informado a DataFim.
      *
      * @param data
      *            - Data do tipo Date.
-     * @return Timestamp - Data com a ˙ltima hora do dia 23:59:59.
+     * @return Timestamp - Data com a √∫ltima hora do dia 23:59:59.
      * @throws LogicException
      * @throws ParseException
      * @author valdoilo.damasceno
@@ -1757,7 +1757,7 @@ public class UtilDatas {
      * Retorna SimpleDateFormat de acordo com a Linguagem e o TipoData informados.
      *
      * @param language
-     *            - Linguagem do usu·rio (EN, PT)
+     *            - Linguagem do usu√°rio (EN, PT)
      * @param tipoDate
      *            (DATE_DEFAULT: dd/MM/yyyy ou MM/dd/yyyy),
      *            (TIMESTAMP_DEFAULT: dd/MM/yyyy HH:mm ou MM/dd/yyyy HH:mm),

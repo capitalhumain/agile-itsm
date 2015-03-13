@@ -1,7 +1,7 @@
 package br.com.citframework.integracao.core;
 
 /**
- * Interface para informação de paginação
+ * Interface para informaÃ§Ã£o de paginaÃ§Ã£o
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 01/10/2014
@@ -10,16 +10,16 @@ package br.com.citframework.integracao.core;
 public interface Pageable {
 
     /**
-     * Retorna a página a ser retornada
+     * Retorna a pÃ¡gina a ser retornada
      *
      * @return {@code int}
      */
     int getPageNumber();
 
     /**
-     * Retorna a número de itens da página
+     * Retorna a nÃºmero de itens da pÃ¡gina
      *
-     * @return {@code int} número de itens da página
+     * @return {@code int} nÃºmero de itens da pÃ¡gina
      */
     int getPageSize();
 
@@ -31,7 +31,7 @@ public interface Pageable {
     int getOffset();
 
     /**
-     * Retorna a {@link Pageable} pedindo a próxima {@link Page}
+     * Retorna a {@link Pageable} pedindo a prÃ³xima {@link Page}
      *
      * @return {@link Pageable}
      */
@@ -40,7 +40,7 @@ public interface Pageable {
     Pageable previous();
 
     /**
-     * Retorna a {@link Pageable} anterior ou a primeira {@link Pageable} se a atual é a primeira
+     * Retorna a {@link Pageable} anterior ou a primeira {@link Pageable} se a atual Ã© a primeira
      *
      * @return {@link Pageable}
      */

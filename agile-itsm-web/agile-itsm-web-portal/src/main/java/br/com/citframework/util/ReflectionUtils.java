@@ -8,7 +8,7 @@ import java.lang.reflect.UndeclaredThrowableException;
 import java.util.Arrays;
 
 /**
- * Utilit·rios para reflection utilizados
+ * Utilit√°rios para reflection utilizados
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 18/08/2014
@@ -84,14 +84,14 @@ public final class ReflectionUtils {
     }
 
     /**
-     * Seta em um atributo de uma classe o atributo com nome '{@code name}' o valor '{@code value}' no objeto desta inst‚ncia
+     * Seta em um atributo de uma classe o atributo com nome '{@code name}' o valor '{@code value}' no objeto desta inst√¢ncia
      *
      * @param target
      *            objeto a ter o campo e valores setados
      * @param name
-     *            nome do atributo a ser setado o conte˙do
+     *            nome do atributo a ser setado o conte√∫do
      * @param value
-     *            conte˙do a ser setado
+     *            conte√∫do a ser setado
      * @see ReflectionUtils#findField(Class, String)
      * @see ReflectionUtils#makeAccessible(Field)
      * @see ReflectionUtils#setField(Field, Object, Object)
@@ -103,7 +103,7 @@ public final class ReflectionUtils {
     }
 
     /**
-     * Seta um atributo em um mÈtodo est·tico com um novo valor
+     * Seta um atributo em um m√©todo est√°tico com um novo valor
      *
      * @param field
      *            atributo a ter o valor alterado
@@ -128,12 +128,12 @@ public final class ReflectionUtils {
     }
 
     /**
-     * Seta um atributo em um mÈtodo est·tico com um novo valor
+     * Seta um atributo em um m√©todo est√°tico com um novo valor
      *
      * @param clazz
      *            classe a ser refletida
      * @param name
-     *            nome do atributo a ser setado o conte˙do
+     *            nome do atributo a ser setado o conte√∫do
      * @param newValue
      *            novo valor a ser setado
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
@@ -198,18 +198,18 @@ public final class ReflectionUtils {
     }
 
     /**
-     * Invoca o mÈtodo especificado {@link Method} no objeto com os argumentos informados
-     * O objeto alvo pode ser nulo quando invocando um mÈtodo est·tico.
+     * Invoca o m√©todo especificado {@link Method} no objeto com os argumentos informados
+     * O objeto alvo pode ser nulo quando invocando um m√©todo est√°tico.
      * <p>
-     * ExceÁıes lanÁadas s„o tratadas por {@link #handleReflectionException}.
+     * Exce√ß√µes lan√ßadas s√£o tratadas por {@link #handleReflectionException}.
      *
      * @param method
-     *            o mÈtodo a ser executado
+     *            o m√©todo a ser executado
      * @param target
-     *            objeto alvo para ser executado o mÈtodo
+     *            objeto alvo para ser executado o m√©todo
      * @param args
-     *            par‚metros do mÈtodo a ser executado (pode ser <code>null</code>)
-     * @return resultado da execuÁ„o, se existir
+     *            par√¢metros do m√©todo a ser executado (pode ser <code>null</code>)
+     * @return resultado da execu√ß√£o, se existir
      */
     public static Object invokeMethod(final Method method, final Object target, final Object... args) {
         try {
@@ -221,10 +221,10 @@ public final class ReflectionUtils {
     }
 
     /**
-     * Trata a exceÁ„o lanÁada na operaÁ„o de reflex„o. Deve ser chamada apenas se se nenhuma exceÁ„o "checked" seja lanÁada no mÈtodo alvo.
+     * Trata a exce√ß√£o lan√ßada na opera√ß√£o de reflex√£o. Deve ser chamada apenas se se nenhuma exce√ß√£o "checked" seja lan√ßada no m√©todo alvo.
      *
      * @param ex
-     *            exceÁ„o de reflex„o a ser tratada
+     *            exce√ß√£o de reflex√£o a ser tratada
      */
     public static void handleReflectionException(final Exception ex) {
         if (ex instanceof NoSuchMethodException) {
@@ -243,7 +243,7 @@ public final class ReflectionUtils {
     }
 
     /**
-     * Trata execeÁ„o {@link InvocationTargetException}. Deve ser chamada apenas se se nenhuma exceÁ„o "checked" seja lanÁada no mÈtodo alvo.
+     * Trata exece√ß√£o {@link InvocationTargetException}. Deve ser chamada apenas se se nenhuma exce√ß√£o "checked" seja lan√ßada no m√©todo alvo.
      *
      * @param ex
      *            a {@link InvocationTargetException} a ser tratada
@@ -253,8 +253,8 @@ public final class ReflectionUtils {
     }
 
     /**
-     * RelanÁa {@link Throwable}, que È presumivelmente a <em>exception alvo</em> de uma {@link InvocationTargetException}. Deve ser chamada apenas se se nenhuma exceÁ„o "checked"
-     * seja lanÁada no mÈtodo alvo.
+     * Relan√ßa {@link Throwable}, que √© presumivelmente a <em>exception alvo</em> de uma {@link InvocationTargetException}. Deve ser chamada apenas se se nenhuma exce√ß√£o "checked"
+     * seja lan√ßada no m√©todo alvo.
      * <p>
      * Rethrows the underlying exception cast to an {@link RuntimeException} or {@link Error} if appropriate; otherwise, throws an {@link IllegalStateException}.
      *
@@ -274,11 +274,11 @@ public final class ReflectionUtils {
     }
 
     /**
-     * Torna o campo explicitamente acessÌvel, caso necess·rio. {@code setAccessible(true)} È chamado apenas quando necess·rio, evitando conflitos com a JVM {@link SecurityManager}
+     * Torna o campo explicitamente acess√≠vel, caso necess√°rio. {@code setAccessible(true)} √© chamado apenas quando necess√°rio, evitando conflitos com a JVM {@link SecurityManager}
      * (se ativo)
      *
      * @param field
-     *            campo a ser tornado acessÌvel
+     *            campo a ser tornado acess√≠vel
      * @see java.lang.reflect.Field#setAccessible
      */
     public static void makeAccessible(final Field field) {
@@ -289,11 +289,11 @@ public final class ReflectionUtils {
     }
 
     /**
-     * Torna o mÈtodo explicitamente acessÌvel, caso necess·rio. {@code setAccessible(true)} È chamado apenas quando necess·rio, evitando conflitos com a JVM
+     * Torna o m√©todo explicitamente acess√≠vel, caso necess√°rio. {@code setAccessible(true)} √© chamado apenas quando necess√°rio, evitando conflitos com a JVM
      * {@link SecurityManager} (se ativo)
      *
      * @param method
-     *            mÈtodo a ser tornado acessÌvel
+     *            m√©todo a ser tornado acess√≠vel
      * @see java.lang.reflect.Method#setAccessible
      */
     public static void makeAccessible(final Method method) {
@@ -303,13 +303,13 @@ public final class ReflectionUtils {
     }
 
     /**
-     * Recupera um array de par‚metros, de acordo com os '{@code types}' informados. '{@code types}' sempre deve ser menor ou igual a '{@code values}'
+     * Recupera um array de par√¢metros, de acordo com os '{@code types}' informados. '{@code types}' sempre deve ser menor ou igual a '{@code values}'
      *
      * @param types
      *            tipos a serem procurandos em '{@code values}'
      * @param values
      *            '{@code }' para filtro
-     * @return array de par‚metros
+     * @return array de par√¢metros
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      * @since 23/09/2014
      */

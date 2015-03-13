@@ -14,7 +14,7 @@ import br.com.citframework.integracao.Order;
 import br.com.citframework.util.Constantes;
 
 /**
- * DAO para persistência de {@link AtribuicaoSolicitacaoAtendenteDTO}
+ * DAO para persistÃªncia de {@link AtribuicaoSolicitacaoAtendenteDTO}
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 06/10/2014

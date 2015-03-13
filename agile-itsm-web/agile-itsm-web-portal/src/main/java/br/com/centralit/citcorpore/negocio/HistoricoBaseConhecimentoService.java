@@ -15,7 +15,7 @@ import br.com.citframework.service.CrudService;
 public interface HistoricoBaseConhecimentoService extends CrudService {
 
 	/**
-	 * Retorna uma lista de historico de alteração de uma base de conhecimento informada
+	 * Retorna uma lista de historico de alteraÃ§Ã£o de uma base de conhecimento informada
 	 * 
 	 * @param historicoBaseConhecimentoDto
 	 * @return

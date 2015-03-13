@@ -210,7 +210,7 @@ public class IncidentesRelacionados extends AjaxFormAction {
 		html.append("</th>");
 		html.append("</tr>");
 		/*
-		 * Quando o idServico j· estiver sendo alimentado no restore de solicitacoes, incluir validaÁ„o para que o serviÁo carregado n„o seja mostrado na lista de incidentes orf„os.
+		 * Quando o idServico j√° estiver sendo alimentado no restore de solicitacoes, incluir valida√ß√£o para que o servi√ßo carregado n√£o seja mostrado na lista de incidentes orf√£os.
 		 */
 		if (resumo != null) {
 			for (SolicitacaoServicoDTO r : resumo) {

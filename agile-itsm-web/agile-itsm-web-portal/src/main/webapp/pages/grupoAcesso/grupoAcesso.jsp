@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%@ include file="/WEB-INF/templates/taglibs.jsp"%>
 
@@ -46,7 +46,7 @@ function editar(link){
 				<br />
 				<br />
 				<div id="migalha">
-					<label>Você está aqui: &nbsp; Cadastro - Grupo de Acesso</label>
+					<label>VocÃª estÃ¡ aqui: &nbsp; Cadastro - Grupo de Acesso</label>
 				</div>
 			</div>
 			<div id="content">
@@ -144,7 +144,7 @@ function editar(link){
 										</tr>
 									</table>
 								</td>
-								<td>Acesso à todas as páginas</td>
+								<td>Acesso Ã  todas as pÃ¡ginas</td>
 								<td><a href="#" onclick="editar(this);"><img src="../../imagens/edit.png"></a></td>
 								<td><img src="../../imagens/delete.png"></td>
 							</tr>
@@ -161,7 +161,7 @@ function editar(link){
 										</tr>
 									</table>
 								</td>
-								<td>Páginas do financeiro</td>
+								<td>PÃ¡ginas do financeiro</td>
 								<td><a href="#" onclick="editar(this);"><img src="../../imagens/edit.png"></a></td>
 								<td><img src="../../imagens/delete.png"></td>
 							</tr>

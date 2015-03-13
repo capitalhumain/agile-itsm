@@ -115,7 +115,7 @@ public class CausaIncidenteDao extends CrudDaoDefaultImpl {
 			descricaoCausa = "";
 		
 		String text = descricaoCausa;
-		text = text.replaceAll("´`^''-+=", "");
+		text = text.replaceAll("Â´`^''-+=", "");
 		descricaoCausa = text;		
 		descricaoCausa = "%" + descricaoCausa + "%";
 		List parametros = new ArrayList();

@@ -3,13 +3,13 @@ $(function() {
 });
 
 /*
- * 	Esta funÁ„o recebe 4 parametros.
- * 	O primeiro È o nome da linha onde a tabela ser· preenchida, a 
- * 	linha originalmente estar· invisÌvel para n„o ficar espaÁo 
- * 	vazio enquanto o usu·rio n„o preencher a tabela.
- *  O segundo È o nome a tabela que ser· preenchida
- *  O terceiro È a primeira cÈlula que ser· preenchida 
- *  O quarto È a segunda cÈlula que ser· preenchida formando 
+ * 	Esta fun√ß√£o recebe 4 parametros.
+ * 	O primeiro √© o nome da linha onde a tabela ser√° preenchida, a 
+ * 	linha originalmente estar√° invis√≠vel para n√£o ficar espa√ßo 
+ * 	vazio enquanto o usu√°rio n√£o preencher a tabela.
+ *  O segundo √© o nome a tabela que ser√° preenchida
+ *  O terceiro √© a primeira c√©lula que ser√° preenchida 
+ *  O quarto √© a segunda c√©lula que ser√° preenchida formando 
  *  duas colunas.
  * */
 var contador = 0;
@@ -28,7 +28,7 @@ function adicionar_item(linha, table_id, cell1, cell2) {
 		document.getElementById(cell1).value = "";
 	}
 	else{
-		alert("o campo est· vazio");
+		alert("o campo est√° vazio");
 	}
 
 	if (document.getElementById(cell2)){
@@ -54,13 +54,13 @@ function adicionar_item(linha, table_id, cell1, cell2) {
 }
 
 /*
- * A funÁ„o remover_item È chamada para se remover um item adicionado numa tabela 
- * atravÈs do mÈtodo "adicionar_item". Ele recebe o id_linha_fora que È o id da linha
- * onde toda tabela est· inserida. E tambÈm recebe o id_linha_dentro que È o
+ * A fun√ß√£o remover_item √© chamada para se remover um item adicionado numa tabela 
+ * atrav√©s do m√©todo "adicionar_item". Ele recebe o id_linha_fora que √© o id da linha
+ * onde toda tabela est√° inserida. E tamb√©m recebe o id_linha_dentro que √© o
  * id da linha que deve ser removida da tabela. O id da linha onde toda a tabela
- * est· inserida serve para que quando houver uma exclusao seja verificado se
- * ainda existe alguma linha nesta tabela, caso n„o exista È necess·rio que toda a linha
- * desapareÁa para que n„o fique ocupando espaÁo e destruindo o layout.
+ * est√° inserida serve para que quando houver uma exclusao seja verificado se
+ * ainda existe alguma linha nesta tabela, caso n√£o exista √© necess√°rio que toda a linha
+ * desapare√ßa para que n√£o fique ocupando espa√ßo e destruindo o layout.
  * */
 function remover_item(id_linha_fora, id_linha_dentro) {
 	var row = document.getElementById(id_linha_dentro);
@@ -77,9 +77,9 @@ function remover_item(id_linha_fora, id_linha_dentro) {
 }
 
 /*
- * A funÁ„o abaixo gera um autocomplete em todos os componentes da p·gina que 
- * pertencerem ‡ classe autocomplete_usuario. O automplete È preenchido pela 
- * vari·vel "availableTags" declarada na funÁ„o. No futuro essa vari·vel precisa
+ * A fun√ß√£o abaixo gera um autocomplete em todos os componentes da p√°gina que 
+ * pertencerem √† classe autocomplete_usuario. O automplete √© preenchido pela 
+ * vari√°vel "availableTags" declarada na fun√ß√£o. No futuro essa vari√°vel precisa
  * ser alimentada com um retorno de consulta do banco.  
  * */
 $(function() {

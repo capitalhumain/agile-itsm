@@ -512,7 +512,7 @@ public class PesquisaSolicitacaoServicoDTO {
 
 	/**
 	 * @author euler.ramos
-	 * Criado para passar o usu·rio logado diretamente para o DAO que precisa, em alguns momentos das unidades que o usu·rio pode acessar.
+	 * Criado para passar o usu√°rio logado diretamente para o DAO que precisa, em alguns momentos das unidades que o usu√°rio pode acessar.
 	 * @return
 	 */
 	public UsuarioDTO getUsuarioLogado() {
@@ -549,8 +549,8 @@ public class PesquisaSolicitacaoServicoDTO {
 	
 	/**
 	 * 25/09/2013
-	 * Trata a internacionalizaÁ„o de acordo com a situaÁ„o
-	 * Foi verificado que existem todos as situaÁıes internacionalizadas em citcorpore.comum.{situacao}
+	 * Trata a internacionaliza√ß√£o de acordo com a situa√ß√£o
+	 * Foi verificado que existem todos as situa√ß√µes internacionalizadas em citcorpore.comum.{situacao}
 	 * sendo (situacao} em minusculo
 	 * @param request
 	 * @return String

@@ -103,10 +103,10 @@ public class Fatura extends AjaxFormAction {
 		Collection<GrupoEmpregadoDTO> colGruposUsuario = null;
 
 		if (usuario != null) {
-			// Retorna as permissıes do usu·rio
+			// Retorna as permiss√µes do usu√°rio
 			colSituacoesPermitidasFinal = perfilAcessoSituacaoFaturaService.getSituacoesFaturaPermitidasByUsuario(usuario);
 
-			// Retorna os grupos do usu·rio
+			// Retorna os grupos do usu√°rio
 			colGruposUsuario = grupoEmpregadoService.findByIdEmpregado(usuario.getIdEmpregado());
 			if (colGruposUsuario != null) {
 				Collection<Integer> colSituacoesPermitidasTemp = null;
@@ -115,7 +115,7 @@ public class Fatura extends AjaxFormAction {
 					perfilAcessoGrupoDTO.setIdGrupo(grupoEmpregadoDTO.getIdGrupo());
 					perfilAcessoGrupoDTO = perfilAcessoGrupoService.listByIdGrupo(perfilAcessoGrupoDTO);
 					colSituacoesPermitidasTemp = perfilAcessoSituacaoFaturaService.getSituacoesFaturaPermitidasByGrupo(perfilAcessoGrupoDTO);
-					// Percorre tempor·rio e verifica se j· existe na lista final, se n„o existir adiciona
+					// Percorre tempor√°rio e verifica se j√° existe na lista final, se n√£o existir adiciona
 					if (colSituacoesPermitidasTemp != null) {
 						for (Integer object : colSituacoesPermitidasTemp) {
 							if (colSituacoesPermitidasFinal == null) {
@@ -278,7 +278,7 @@ public class Fatura extends AjaxFormAction {
 
 		if (faturaDTO != null) {
 			if (faturaDTO.getSituacaoFatura() != null && !faturaDTO.getSituacaoFatura().equalsIgnoreCase(FaturaDTO.EM_CRIACAO)) {
-				// Se n„o estiver em CRIA«√O, a tela fica bloqueada!
+				// Se n√£o estiver em CRIA√á√ÉO, a tela fica bloqueada!
 				form.lockForm();
 				document.getElementById("btnAddListaOSFaturamento").setVisible(false);
 				document.getElementById("pareceres").setVisible(true);
@@ -479,7 +479,7 @@ public class Fatura extends AjaxFormAction {
 		strTable += "<tr>";
 		strTable += "<td class='linhaSubtituloGrid'>";
 		if (permiteExclusaoOS) {
-			strTable += "AÁ„o";
+			strTable += "A√ß√£o";
 		} else {
 			strTable += "&nbsp;";
 		}

@@ -17,7 +17,7 @@ import br.com.citframework.service.CrudService;
 public interface BaseItemConfiguracaoService extends CrudService {
 
     /**
-     * Verifica se existe cadastro pra BaseItemConfigurac„o.
+     * Verifica se existe cadastro pra BaseItemConfigurac√£o.
      *
      * @param obj
      * @param nomePai
@@ -27,7 +27,7 @@ public interface BaseItemConfiguracaoService extends CrudService {
     boolean existBaseItemConfiguracao(final BaseItemConfiguracaoDTO dto) throws Exception;
 
     /**
-     * MÈtodo que persiste nova BaseItemConfiguraÁ„o
+     * M√©todo que persiste nova BaseItemConfigura√ß√£o
      *
      * @param baseItemConfiguracao
      * @return

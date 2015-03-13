@@ -12,7 +12,7 @@ public class ProblemaItemConfiguracaoDTO extends BaseEntity {
 	private Integer idItemConfiguracao;
 	private String descricaoProblema;
 
-	// campos que n„o est„o no banco
+	// campos que n√£o est√£o no banco
 	private String nomeItemConfiguracao;
 
 	public Integer getIdProblemaItemConfiguracao() {

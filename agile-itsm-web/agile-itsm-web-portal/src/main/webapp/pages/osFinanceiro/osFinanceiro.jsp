@@ -3,7 +3,7 @@
 <%@page import="br.com.centralit.citcorpore.bean.OSDTO"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.Collection"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.centralit.citcorpore.util.CitCorporeConstantes"%>
@@ -11,12 +11,12 @@
 <%@ include file="/WEB-INF/templates/taglibs.jsp"%>
 
 <%
-	response.setCharacterEncoding("ISO-8859-1");
+	response.setCharacterEncoding("UTF-8");
 %>
 <html>
 
 <head>
-	<%@include file="/include/titleComum/titleComum.jsp" %>
+	<%@include file="/novoLayout/common/include/titulo.jsp" %>
 
 	<%@include file="/include/menu/menuConfig.jsp" %>
 
@@ -79,7 +79,7 @@
 												Per&iacute;odo:
 											</td>
 											<td>
-												<input type='text' name='dataInicio' size="10" maxlength="10" class="Valid[Required] Format[Data] Description[Data Início]"/> a <input type='text' name='dataFim' size="10" maxlength="10" class="Valid[Required] Format[Data] Description[Data Fim]"/>
+												<input type='text' name='dataInicio' size="10" maxlength="10" class="Valid[Required] Format[Data] Description[Data InÃ­cio]"/> a <input type='text' name='dataFim' size="10" maxlength="10" class="Valid[Required] Format[Data] Description[Data Fim]"/>
 											</td>
 										</tr>
 										<tr>
@@ -105,7 +105,7 @@
 								    		%>
 								    		<tr>
 								    			<td colspan="2">
-								    				OS Número: <b><font color="blue"><%=osDto.getNumero()%>/<%=osDto.getAno()%></font></b> &nbsp;&nbsp;-&nbsp;&nbsp; Execução Início: <b><%=UtilDatas.dateToSTR(osDto.getDataInicio())%></b> - Execução Final: <b><%=UtilDatas.dateToSTR(osDto.getDataFim())%></b>
+								    				OS NÃºmero: <b><font color="blue"><%=osDto.getNumero()%>/<%=osDto.getAno()%></font></b> &nbsp;&nbsp;-&nbsp;&nbsp; ExecuÃ§Ã£o InÃ­cio: <b><%=UtilDatas.dateToSTR(osDto.getDataInicio())%></b> - ExecuÃ§Ã£o Final: <b><%=UtilDatas.dateToSTR(osDto.getDataFim())%></b>
 								    			</td>
 								    		</tr>
 								    		<tr>
@@ -165,7 +165,7 @@
 								    							</tr>
 								    							<tr>
 								    								<td colspan="3" style='border:1px solid black'>
-								    									Observações:
+								    									ObservaÃ§Ãµes:
 								    									<b><%=demandaDto.getObservacao()%></b>
 								    								</td>
 								    							</tr>
@@ -198,7 +198,7 @@
 								    									<b>Custo aprovado</b>
 								    								</td>
 								    								<td style='border:1px solid black;'>
-								    									<b>Valor de conversão</b>
+								    									<b>Valor de conversÃ£o</b>
 								    								</td>
 								    								<td style='border:1px solid black;'>
 								    									<b>Valor em R$</b>

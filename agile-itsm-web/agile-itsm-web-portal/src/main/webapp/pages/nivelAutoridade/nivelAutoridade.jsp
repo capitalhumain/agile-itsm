@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@ page import="br.com.centralit.citcorpore.util.WebUtil" %>
 <%@page import="br.com.centralit.citcorpore.bean.GrupoDTO"%>
 <%@page import="java.util.Collection"%>
@@ -14,11 +16,7 @@
 
 		<%@include file="/include/header.jsp"%>
 
-		<%@ include file="/include/security/security.jsp" %>
-
-		<title>
-			<fmt:message key="citcorpore.comum.title" />
-		</title>
+		<%@include file="/novoLayout/common/include/titulo.jsp" %>
 
 		<%@ include file="/include/menu/menuConfig.jsp" %>
 		<%@ include file="/include/javaScriptsComuns/javaScriptsComuns.jsp" %>
@@ -29,7 +27,7 @@
 		<script type="text/javascript" src="js/nivelAutoridade.js"></script>
 
 	<%
-		// Se for chamado por iframe deixa apenas a parte de cadastro da página
+		// Se for chamado por iframe deixa apenas a parte de cadastro da pÃ¡gina
 		if (iframe != null) {
 	%>
 

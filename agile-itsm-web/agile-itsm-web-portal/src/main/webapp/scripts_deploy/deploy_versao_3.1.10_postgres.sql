@@ -1,4 +1,4 @@
--- INÕCIO - MARIO HAYASAKI JUNIOR 30/12/2013
+-- IN√çCIO - MARIO HAYASAKI JUNIOR 30/12/2013
 
 ALTER TABLE planomelhoria ALTER column criadopor type character varying(255);
 

@@ -129,11 +129,11 @@ public class GrupoEmpregadoDao extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Retorna Lista de GrupoEmpregadoDTO com informações do Grupo e Empregados.
+	 * Retorna Lista de GrupoEmpregadoDTO com informaÃ§Ãµes do Grupo e Empregados.
 	 *
 	 * @param idGrupo
-	 *            - Identificador único do Grupo.
-	 * @return listGrupoEmpregadoDTO - Lista de GrupoEmpregadoDTO com informações do empregado.
+	 *            - Identificador Ãºnico do Grupo.
+	 * @return listGrupoEmpregadoDTO - Lista de GrupoEmpregadoDTO com informaÃ§Ãµes do empregado.
 	 * @throws PersistenceException
 	 * @author valdoilo.damasceno
 	 */
@@ -290,7 +290,7 @@ public class GrupoEmpregadoDao extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Método responsável por verificar se há alguma solicitação de serviço em andamento neste grupo que esteja vinculada ao empregado a ser excluido do grupo
+	 * MÃ©todo responsÃ¡vel por verificar se hÃ¡ alguma solicitaÃ§Ã£o de serviÃ§o em andamento neste grupo que esteja vinculada ao empregado a ser excluido do grupo
 	 *
 	 * @param idGrupo
 	 * @param idEmpregado
@@ -436,7 +436,7 @@ public class GrupoEmpregadoDao extends CrudDaoDefaultImpl {
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)){
         	lista = this.execSQL(sqlOracle, parametro.toArray());
     	}else{
-    		/* Desenvolvedor: Euler Data: 28/10/2013 Horário: 10h57min ID Citsmart: 120393 Motivo/Comentário: Loop infinito ao selecionar um grupo sem empregados */
+    		/* Desenvolvedor: Euler Data: 28/10/2013 HorÃ¡rio: 10h57min ID Citsmart: 120393 Motivo/ComentÃ¡rio: Loop infinito ao selecionar um grupo sem empregados */
     		lista = this.execSQL(sql.toString(), parametro.toArray());
     	}
 
@@ -464,7 +464,7 @@ public class GrupoEmpregadoDao extends CrudDaoDefaultImpl {
 	 * @param idEmpregado
 	 * @param idGrupo
 	 *
-	 * @return TRUE: Existe registro com os parametros informados || FALSE: Não existe registro com os parametros informados
+	 * @return TRUE: Existe registro com os parametros informados || FALSE: NÃ£o existe registro com os parametros informados
 	 *
 	 * @throws PersistenceException
 	 */

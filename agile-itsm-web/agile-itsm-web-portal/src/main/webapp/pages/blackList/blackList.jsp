@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.CitCorporeConstantes"%>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
@@ -49,12 +51,12 @@
 											</div>
 											<div class="innerTB">
 												<div id='divInserirListaNegra'>
-												<!-- S = Está na lista negra  -->
+												<!-- S = EstÃ¡ na lista negra  -->
 													<button type="button" id='btnInserirListaNegra' class='btn btn-warning' data-loading-text='Inserido.' onclick="gravar('S')"><fmt:message key="rh.inserirListaNegra" /></button>
 													<button class="btn" type="button" onclick="parent.fecharModalAddBlackList();"><fmt:message key="citcorpore.comum.cancelar"/></button>
 												</div>
 												<div id='divRetirarListaNegra' >
-												<!-- N = Não está na lista negra  -->
+												<!-- N = NÃ£o estÃ¡ na lista negra  -->
 													<button type="button" id='btnRetirarListaNegra' class='btn btn-primary' data-loading-text='Retirado.' onclick="gravar('N')"><fmt:message key="rh.removerListaNegra" /></button>
 													<button class="btn" type="button" onclick="parent.fecharModalAddBlackList();"><fmt:message key="citcorpore.comum.cancelar"/></button>
 												</div>

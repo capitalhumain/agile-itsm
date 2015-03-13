@@ -168,10 +168,10 @@ public class DinamicViews extends AjaxFormAction {
         }
 
         /**
-         * Recuperação de permissão de menus feita através do mapa estático da sessão
+         * RecuperaÃ§Ã£o de permissÃ£o de menus feita atravÃ©s do mapa estÃ¡tico da sessÃ£o
          *
          * @author thyen.chang
-         * @since 28/01/2015 - OPERAÇÃO USAIN BOLT
+         * @since 28/01/2015 - OPERAÃ‡ÃƒO USAIN BOLT
          */
         final MenuService menuService = (MenuService) ServiceLocator.getInstance().getService(MenuService.class, null);
         final String pathInfo = getRequestedPath(request);
@@ -218,11 +218,11 @@ public class DinamicViews extends AjaxFormAction {
     /**
      * Metodo responsavel por limpar os campos da dinamic view contrato.
      *
-     * A criação dessa função diretamente na tela, estava gerando um alert de erro.
+     * A criaÃ§Ã£o dessa funÃ§Ã£o diretamente na tela, estava gerando um alert de erro.
      *
-     * a solução encontrada para não gerar alerta de erro ao usuário, foi criar a função direto na classe e
+     * a soluÃ§Ã£o encontrada para nÃ£o gerar alerta de erro ao usuÃ¡rio, foi criar a funÃ§Ã£o direto na classe e
      *
-     * será executada apenas se a identificação da dinamicView for igual a 'Contratos'
+     * serÃ¡ executada apenas se a identificaÃ§Ã£o da dinamicView for igual a 'Contratos'
      *
      * @param document
      *
@@ -446,7 +446,7 @@ public class DinamicViews extends AjaxFormAction {
 
     private Map getFormFields(final HttpServletRequest req) {
         try {
-            req.setCharacterEncoding("ISO-8859-1");
+            req.setCharacterEncoding("UTF-8");
         } catch (final UnsupportedEncodingException e) {
             LOGGER.warn("PROBLEMA COM CODIFICACAO DE CARACTERES!!! [AjaxProcessEvent.getFormFields()]: " + e.getMessage(), e);
         }
@@ -494,7 +494,7 @@ public class DinamicViews extends AjaxFormAction {
             hashValores.putAll(map);
         }
 
-        // tratamento de deleção para a visão de contratos
+        // tratamento de deleÃ§Ã£o para a visÃ£o de contratos
 
         if (hashValores.containsKey("IDCONTRATO") && hashValores.containsKey("DATAFIMCONTRATO") && hashValores.containsKey("COTACAOMOEDA")) {
             final boolean defineExclusao = new ServicoContratoServiceEjb().pesquisaServicosVinculados(document, hashValores, request);
@@ -505,7 +505,7 @@ public class DinamicViews extends AjaxFormAction {
         }
 
         /**
-         * Tratativa para exclusão de Requisitos de SLA
+         * Tratativa para exclusÃ£o de Requisitos de SLA
          *
          * @author thyen.chang
          */
@@ -548,10 +548,10 @@ public class DinamicViews extends AjaxFormAction {
         hashValores.put("REMOVED", "true");
 
         /*
-         * Thiago Fernandes Oliveira - 28/10/2013 - Sol. 121468 - Só sera excluido algum registro caso ele tenha sido restaurado, evitando o cadastro de algum
+         * Thiago Fernandes Oliveira - 28/10/2013 - Sol. 121468 - SÃ³ sera excluido algum registro caso ele tenha sido restaurado, evitando o cadastro de algum
          * registro ao clicar em
          * excluir.
-         * Modulos, Liberação, Mudança e Problema.
+         * Modulos, LiberaÃ§Ã£o, MudanÃ§a e Problema.
          */
         if (hashValores.containsKey("IDJUSTIFICATIVAMUDANCA") || hashValores.containsKey("IDJUSTIFICATIVALIBERACAO")
                 || hashValores.containsKey("IDJUSTIFICATIVAPROBLEMA")) {
@@ -559,7 +559,7 @@ public class DinamicViews extends AjaxFormAction {
                     || hashValores.get("IDJUSTIFICATIVALIBERACAO") != null && !hashValores.get("IDJUSTIFICATIVALIBERACAO").equals("")
                     || hashValores.get("IDJUSTIFICATIVAPROBLEMA") != null && !hashValores.get("IDJUSTIFICATIVAPROBLEMA").equals("")) {
 
-                dinamicViewsService.save(usuarioDto, dinamicViewsDto, hashValores, request); // A exclusão é sempre lógica.
+                dinamicViewsService.save(usuarioDto, dinamicViewsDto, hashValores, request); // A exclusÃ£o Ã© sempre lÃ³gica.
                 document.alert(UtilI18N.internacionaliza(request, "MSG07") + "!");
                 if (dinamicViewsDto.getIdFluxo() == null) {
                     document.executeScript("limpar()");
@@ -577,8 +577,8 @@ public class DinamicViews extends AjaxFormAction {
         }
 
         /*
-         * Inserido para tratar quando não existe nenhum elemento a ser excluído.
-         * Mário Júnior - 14/02/2014
+         * Inserido para tratar quando nÃ£o existe nenhum elemento a ser excluÃ­do.
+         * MÃ¡rio JÃºnior - 14/02/2014
          */
         final Collection colCamposPKPrincipal = new ArrayList();
         final Collection colCamposTodosPrincipal = new ArrayList();
@@ -592,11 +592,11 @@ public class DinamicViews extends AjaxFormAction {
             return;
         }
 
-        dinamicViewsService.save(usuarioDto, dinamicViewsDto, hashValores, request); // A exclusão é sempre lógica.
+        dinamicViewsService.save(usuarioDto, dinamicViewsDto, hashValores, request); // A exclusÃ£o Ã© sempre lÃ³gica.
 
         /*
          * Rodrigo Pecci Acorse - 21/01/2014 15h30 - #131113
-         * Utiliza os scripts da dinamic view e valida se a exclusão foi feita ou não.
+         * Utiliza os scripts da dinamic view e valida se a exclusÃ£o foi feita ou nÃ£o.
          */
         if (dinamicViewsDto.getMsgRetorno() == null || dinamicViewsDto.getMsgRetorno().trim().equalsIgnoreCase("")) {
             document.alert(UtilI18N.internacionaliza(request, "MSG07") + "!");
@@ -747,7 +747,7 @@ public class DinamicViews extends AjaxFormAction {
             }
 
             if (valorTransf != null) {
-                // #139700 - Correção da solicitação hack para tratamento do combogrid
+                // #139700 - CorreÃ§Ã£o da solicitaÃ§Ã£o hack para tratamento do combogrid
                 if (property.contains("label")) {
                     property = property.replace("_label", "");
                     document.executeScript("try{$('#" + property
@@ -808,7 +808,7 @@ public class DinamicViews extends AjaxFormAction {
 
         final Collection colFilter = new ArrayList();
         final Collection colGrupos = visaoPesquisaDto.getColGrupos();
-        int i = 1; // A primeira coluna (indice 0) é de controle do sistema.
+        int i = 1; // A primeira coluna (indice 0) Ã© de controle do sistema.
         for (final Iterator it = colGrupos.iterator(); it.hasNext();) {
             final GrupoVisaoDTO grupoVisaoDTO = (GrupoVisaoDTO) it.next();
             if (grupoVisaoDTO.getColCamposVisao() != null) {
@@ -818,7 +818,7 @@ public class DinamicViews extends AjaxFormAction {
                     if (columnsDTO.getColuna() != null && columnsDTO.getColuna().length > i) {
                         if (grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().getPk().equalsIgnoreCase("S")) {
                             if (columnsDTO.getColuna()[i].equalsIgnoreCase("")) {
-                                document.alert("Por favor, salve o serviço antes de restaurar o fluxo.");
+                                document.alert("Por favor, salve o serviÃ§o antes de restaurar o fluxo.");
                                 return;
                             }
                             grupoVisaoCamposNegocioDTO.getCamposObjetoNegocioDto().setValue(columnsDTO.getColuna()[i]);

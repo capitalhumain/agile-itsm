@@ -22,7 +22,7 @@ import br.com.citframework.util.UtilStrings;
 
 /**
  * @author euler.ramos
- * Job que ir· executar a importaÁ„o autom·tica do banco de dados dos clientes Citsmart
+ * Job que ir√° executar a importa√ß√£o autom√°tica do banco de dados dos clientes Citsmart
  */
 public class ImportacaoAutoBiCitsmart implements Job {
 
@@ -40,23 +40,23 @@ public class ImportacaoAutoBiCitsmart implements Job {
 			if ((processamentoBatchDTO!=null)&&(processamentoBatchDTO.getSituacao()!=null)&&(processamentoBatchDTO.getSituacao().equalsIgnoreCase("A"))){
 				if (ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.BICITSMART_EXECUTAR_ROTINA_AUTOMATICA, "N").equalsIgnoreCase("S")) {
 					ConexaoBIDTO conexaoBIDTO = conexaoBIService.findByIdProcessBatch(processamentoBatchDTO.getIdProcessamentoBatch());
-					//Agendamento EspecÌfico ou de ExceÁ„o
+					//Agendamento Espec√≠fico ou de Exce√ß√£o
 					if((conexaoBIDTO!=null)&&(conexaoBIDTO.getIdConexaoBI()!=null)&&(conexaoBIDTO.getIdConexaoBI()>0)){
-						//Verificando se a conex„o est· ativa: status=Null significa conex„o ativa, "S" significa sucesso, "F" significa falha, "I" significa Inativa!
+						//Verificando se a conex√£o est√° ativa: status=Null significa conex√£o ativa, "S" significa sucesso, "F" significa falha, "I" significa Inativa!
 						if ((conexaoBIDTO.getStatus()==null)||((conexaoBIDTO.getStatus()!=null)&&(!conexaoBIDTO.getStatus().equalsIgnoreCase("I")))){
-							//Filtrando somente as Conexıes Autom·ticas!
+							//Filtrando somente as Conex√µes Autom√°ticas!
 							if ((conexaoBIDTO.getTipoImportacao()!=null)&&(conexaoBIDTO.getTipoImportacao().equalsIgnoreCase("A"))){
 								BICitsmartOperation biCitsmartOperation = new BICitsmartOperation();
 								bICitsmartResultRotinaDTO = biCitsmartOperation.execucaoRotinaAutomatica(conexaoBIDTO, processamentoBatchDTO.getIdProcessamentoBatch());
-								//Se for agendamento de exceÁ„o deve-se Inativ·-lo! (Executa-se apenas uma vez!)
+								//Se for agendamento de exce√ß√£o deve-se Inativ√°-lo! (Executa-se apenas uma vez!)
 								if((conexaoBIDTO.getIdProcessamentoBatchExcecao()!=null)&&(conexaoBIDTO.getIdProcessamentoBatchExcecao().equals(processamentoBatchDTO.getIdProcessamentoBatch()))){
 									processamentoBatchDTO.setSituacao("I");
 									processamentoBatchService.update(processamentoBatchDTO);
-									//Se a rotina de importaÁ„o retornou erro!
+									//Se a rotina de importa√ß√£o retornou erro!
 									if (!bICitsmartResultRotinaDTO.isResultado()){
-										//NotificaÁ„o erro rotina de ExceÁ„o
+										//Notifica√ß√£o erro rotina de Exce√ß√£o
 										bICitsmartEmailNotificacao.setEmailConexao(conexaoBIDTO.getEmailNotificacao());
-										bICitsmartEmailNotificacao.setModeloEmail("ExceÁ„o");
+										bICitsmartEmailNotificacao.setModeloEmail("Exce√ß√£o");
 										map = new HashMap<String, String>();
 										map.put("idConexao", conexaoBIDTO.getIdConexaoBI().toString());
 										map.put("nomeConexao", conexaoBIDTO.getNome());
@@ -67,11 +67,11 @@ public class ImportacaoAutoBiCitsmart implements Job {
 										bICitsmartEmailNotificacao.envia();
 									}
 								} else {
-									//Se a rotina de importaÁ„o retornou erro!
+									//Se a rotina de importa√ß√£o retornou erro!
 									if (!bICitsmartResultRotinaDTO.isResultado()){
-										//NotificaÁ„o erro rotina agendamento especÌfico
+										//Notifica√ß√£o erro rotina agendamento espec√≠fico
 										bICitsmartEmailNotificacao.setEmailConexao(conexaoBIDTO.getEmailNotificacao());
-										bICitsmartEmailNotificacao.setModeloEmail("EspecÌfico");
+										bICitsmartEmailNotificacao.setModeloEmail("Espec√≠fico");
 										map = new HashMap<String, String>();
 										map.put("idConexao", conexaoBIDTO.getIdConexaoBI().toString());
 										map.put("nomeConexao", conexaoBIDTO.getNome());
@@ -85,17 +85,17 @@ public class ImportacaoAutoBiCitsmart implements Job {
 							}
 						}
 					} else {
-						//Se n„o encontrou agendamento correspondente a conex„o, ent„o, este È um Agendamento Padr„o! O sistema deve executar a atualizaÁ„o de todas as conexıes:
-						//Autom·ticas, Ativas e Sem Agendamento EspecÌfico ou de ExceÁ„o!
+						//Se n√£o encontrou agendamento correspondente a conex√£o, ent√£o, este √© um Agendamento Padr√£o! O sistema deve executar a atualiza√ß√£o de todas as conex√µes:
+						//Autom√°ticas, Ativas e Sem Agendamento Espec√≠fico ou de Exce√ß√£o!
 						BICitsmartOperation biCitsmartOperation = new BICitsmartOperation();
 						ArrayList<ConexaoBIDTO> listaCnxsAgPadrao = (ArrayList<ConexaoBIDTO>) conexaoBIService.listarConexoesAutomaticasSemAgendEspOuExcecao();
 						for (ConexaoBIDTO conexaoBI : listaCnxsAgPadrao) {
 							bICitsmartResultRotinaDTO = biCitsmartOperation.execucaoRotinaAutomatica(conexaoBI, processamentoBatchDTO.getIdProcessamentoBatch());
-							//Se a rotina de importaÁ„o retornou erro!
+							//Se a rotina de importa√ß√£o retornou erro!
 							if (!bICitsmartResultRotinaDTO.isResultado()){
-								//NotificaÁ„o erro rotina agendamento padr„o
+								//Notifica√ß√£o erro rotina agendamento padr√£o
 								bICitsmartEmailNotificacao.setEmailConexao(conexaoBI.getEmailNotificacao());
-								bICitsmartEmailNotificacao.setModeloEmail("Padr„o");
+								bICitsmartEmailNotificacao.setModeloEmail("Padr√£o");
 								map = new HashMap<String, String>();
 								map.put("idConexao", conexaoBI.getIdConexaoBI().toString());
 								map.put("nomeConexao", conexaoBI.getNome());
@@ -109,10 +109,10 @@ public class ImportacaoAutoBiCitsmart implements Job {
 						}
 					}
 				} else {
-					System.out.println("ImportaÁ„o autom·tica n„o executada. Par‚metro BICITSMART_EXECUTAR_ROTINA_AUTOMATICA inativado!");
-					//NotificaÁ„o erro par‚metro n„o ativado
+					System.out.println("Importa√ß√£o autom√°tica n√£o executada. Par√¢metro BICITSMART_EXECUTAR_ROTINA_AUTOMATICA inativado!");
+					//Notifica√ß√£o erro par√¢metro n√£o ativado
 					bICitsmartEmailNotificacao.setEmailConexao(null);
-					bICitsmartEmailNotificacao.setModeloEmail("Par‚metro");
+					bICitsmartEmailNotificacao.setModeloEmail("Par√¢metro");
 					map = new HashMap<String, String>();
 					map.put("parametro", Enumerados.ParametroSistema.BICITSMART_EXECUTAR_ROTINA_AUTOMATICA.toString());
 					bICitsmartEmailNotificacao.setMap(map);
@@ -121,8 +121,8 @@ public class ImportacaoAutoBiCitsmart implements Job {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("Problema na importaÁ„o autom·tica BICitsmart!");
-			//NotificaÁ„o erro rotina
+			System.out.println("Problema na importa√ß√£o autom√°tica BICitsmart!");
+			//Notifica√ß√£o erro rotina
 			bICitsmartEmailNotificacao.setEmailConexao(null);
 			bICitsmartEmailNotificacao.setModeloEmail("Problema");
 			map = new HashMap<String, String>();

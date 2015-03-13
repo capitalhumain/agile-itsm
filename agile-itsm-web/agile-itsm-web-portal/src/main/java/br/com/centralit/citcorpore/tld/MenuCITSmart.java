@@ -77,7 +77,7 @@ public class MenuCITSmart extends BodyTagSupport {
 
         if (usuario != null && usuario.getStatus().equals("I")) {
             try {
-                pageContext.getOut().println("<p style='color:#990000'>Usu·rio n„o cadastrado. Contate o administrador.</p>");
+                pageContext.getOut().println("<p style='color:#990000'>Usu√°rio n√£o cadastrado. Contate o administrador.</p>");
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -144,14 +144,14 @@ public class MenuCITSmart extends BodyTagSupport {
     }
 
     /**
-     * Incrementa a String do HTML para menu VERTICAL atravÈs da referÍncia.
+     * Incrementa a String do HTML para menu VERTICAL atrav√©s da refer√™ncia.
      *
      * @param sb
      *            String com o HTML que esta sendo montado.
      * @param listaDeMenus
      *            Lista de Menus que deve ser convertida em HTML.
      * @param usuario
-     *            Usu·rio com as permissıes de acesso aos menus.
+     *            Usu√°rio com as permiss√µes de acesso aos menus.
      */
     private void gerarMenus(StringBuilder sb, Collection<MenuDTO> listaDeMenus, UsuarioDTO usuario, int indice) {
         String link;

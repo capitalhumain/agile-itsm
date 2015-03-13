@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 
 <%@ include file="/WEB-INF/templates/taglibs.jsp"%>
@@ -7,7 +9,7 @@
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title><fmt:message key="citcorpore.comum.acessoNegado"/></title>
 
 <style type="text/css">
@@ -51,7 +53,7 @@
 <script type="text/javascript">
 
 /**
- * Motivo: Pequena customização para adaptar o fechamento da popup quando for 'modal' ou 'dialog' dentro de um iframe
+ * Motivo: Pequena customizaÃ§Ã£o para adaptar o fechamento da popup quando for 'modal' ou 'dialog' dentro de um iframe
  * Autor: flavio.santana
  * Data/hora: 19/11/2013
  */
@@ -88,9 +90,9 @@ function internacionalizar(parametro){
 			<div id="lang" class="menulinguas hide">
 		  	 <form name='formInternacionaliza' id='formInternacionaliza' action='${ctx}/pages/internacionalizar/internacionalizar'>
   				<input type="hidden" name="locale" id="locale"/>
-		  		<img title="Português" onclick="internacionalizar('pt')" class="tooltip_top" src="${ctx}/template_new/images/brazil_flag.png">
+		  		<img title="PortuguÃªs" onclick="internacionalizar('pt')" class="tooltip_top" src="${ctx}/template_new/images/brazil_flag.png">
 		  		<img title="English" onclick="internacionalizar('en')" class="tooltip_top" src="${ctx}/template_new/images/united_states_flag.png">
-		  		<img title="Español" onclick="internacionalizar('es')" class="tooltip_top" src="${ctx}/template_new/images/spain_flag.png">
+		  		<img title="EspaÃ±ol" onclick="internacionalizar('es')" class="tooltip_top" src="${ctx}/template_new/images/spain_flag.png">
 		  	 </form>
 
 		  	</div>

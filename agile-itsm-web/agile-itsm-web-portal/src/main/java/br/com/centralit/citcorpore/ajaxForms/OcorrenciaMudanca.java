@@ -98,7 +98,7 @@ public class OcorrenciaMudanca extends AjaxFormAction  {
     
     
     /**
-	 * Retorna uma lista de informações da entidade ocorrencia
+	 * Retorna uma lista de informaÃ§Ãµes da entidade ocorrencia
 	 * @param requisicaoMudancaDto
 	 * @param request
 	 * @return
@@ -209,7 +209,7 @@ public class OcorrenciaMudanca extends AjaxFormAction  {
 	        	strBuffer += " - </b>" + UtilI18N.internacionaliza(request, "ocorrenciaMudanca.registradopor") + ": <b>" + ocorrenciaMudancaDto.getRegistradopor() + "</b>";
 	        	strBuffer += "</td>";
 	        	
-	        	// Categoria Ocorrência
+	        	// Categoria OcorrÃªncia
 	        	strBuffer += "<td>";
 	        	if (ocorrenciaMudancaDto.getIdCategoriaOcorrencia() != null && ocorrenciaMudancaDto.getIdCategoriaOcorrencia() != 0) {
 	        		categoriaOcorrenciaDTO.setIdCategoriaOcorrencia(ocorrenciaMudancaDto.getIdCategoriaOcorrencia() );
@@ -220,7 +220,7 @@ public class OcorrenciaMudanca extends AjaxFormAction  {
 	        	}				
 	        	strBuffer += "</td>";
 				
-	        	// Origem Ocorrência
+	        	// Origem OcorrÃªncia
 				strBuffer += "<td>";
 				if (ocorrenciaMudancaDto.getIdOrigemOcorrencia() != null && ocorrenciaMudancaDto.getIdOrigemOcorrencia() != 0) {
 					origemOcorrenciaDTO.setIdOrigemOcorrencia(ocorrenciaMudancaDto.getIdOrigemOcorrencia() );

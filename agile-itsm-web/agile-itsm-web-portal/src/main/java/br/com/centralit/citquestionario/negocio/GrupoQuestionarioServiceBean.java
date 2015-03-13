@@ -25,17 +25,37 @@ import br.com.citframework.util.UtilHTML;
 
 public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements GrupoQuestionarioService {
 
-    String HTML_TABLE_START = "<table width=\"100%\" style='border:1px solid black'>" + "    <tr>" + "        <td>" + "            <b>Data de Início</b>"
-            + "        </td>" + "        <td>" + "            <b>Data Fim</b>" + "        </td>" + "        <td>" + "            <b>Qtde Dias</b>"
-            + "        </td>" + "    </tr>";
-    String HTML_TABLE_LINE = "    <tr>" + "        <td style='text-align:center'>{0}</td>" + "        <td style='text-align:center'>{1}</td>"
-            + "        <td style='text-align:center'>{2}</td>" + "    </tr>";
-    String HTML_TABLE_END = "</table>";
+    String HTML_TABLE_START =
+        "<table width=\"100%\" style='border:1px solid black'>" +
+        "    <tr>" +
+        "        <td>" +
+        "            <b>Data de Inï¿½cio</b>" +
+        "        </td>" +
+        "        <td>" +
+        "            <b>Data Fim</b>" +
+        "        </td>" +
+        "        <td>" +
+        "            <b>Qtde Dias</b>" +
+        "        </td>" +
+        "    </tr>";
+    String HTML_TABLE_LINE =
+        "    <tr>" +
+        "        <td style='text-align:center'>{0}</td>" +
+        "        <td style='text-align:center'>{1}</td>" +
+        "        <td style='text-align:center'>{2}</td>" +
+        "    </tr>";
+    String HTML_TABLE_END =
+        "</table>";
 
-    String HTML_TABLE_START_ENCAMINHAMENTO = "<table width=\"100%\" style='border:1px solid black'>";
+    String HTML_TABLE_START_ENCAMINHAMENTO =
+        "<table width=\"100%\" style='border:1px solid black'>";
 
-    String HTML_TABLE_LINE_ENCAMINHAMENTO = "    <tr>" + "        <td>{0}</td>" + "    </tr>";
-    String HTML_TABLE_END_ENCAMINHAMENTO = "</table>";
+    String HTML_TABLE_LINE_ENCAMINHAMENTO =
+        "    <tr>" +
+        "        <td>{0}</td>" +
+        "    </tr>";
+    String HTML_TABLE_END_ENCAMINHAMENTO =
+        "</table>";
 
     private GrupoQuestionarioDao dao;
 
@@ -94,7 +114,7 @@ public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements Gru
                             value = UtilDatas.formatHoraStr(questaoDto.getRespostaItemDto().getRespostaHora());
                         }
                     }
-                } else if (questaoDto.getTipoQuestao().equalsIgnoreCase("N")) { // Número (sem casas decimais)
+                } else if (questaoDto.getTipoQuestao().equalsIgnoreCase("N")) { // NÃºmero (sem casas decimais)
                     if (questaoDto.getRespostaItemDto() != null) {
                         if (questaoDto.getRespostaItemDto().getRespostaNumero() != null) {
                             value = UtilFormatacao.formatDouble(questaoDto.getRespostaItemDto().getRespostaNumero(), 0);
@@ -112,7 +132,7 @@ public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements Gru
                     }
                 }
 
-                if (questaoDto.getTipoQuestao().equalsIgnoreCase("1")) { // Faixa de Números (sem casas decimais)
+                if (questaoDto.getTipoQuestao().equalsIgnoreCase("1")) { // Faixa de NÃºmeros (sem casas decimais)
                     if (questaoDto.getRespostaItemDto() != null) {
                         value = UtilFormatacao.formatDouble(questaoDto.getRespostaItemDto().getRespostaValor(), 0);
                         value2 = UtilFormatacao.formatDouble(questaoDto.getRespostaItemDto().getRespostaValor2(), 0);
@@ -197,7 +217,7 @@ public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements Gru
                 if (questaoDto.getTipoQuestao().equalsIgnoreCase("T")) { // Texto Curto (Tamanho delimitado)
                     bufferQuestao += value + dadosAdicionais;
                 }
-                if (questaoDto.getTipoQuestao().equalsIgnoreCase("A")) { // Texto Longo (Campo de observações, etc.)
+                if (questaoDto.getTipoQuestao().equalsIgnoreCase("A")) { // Texto Longo (Campo de observaÃ§Ãµes, etc.)
                     bufferQuestao += value + dadosAdicionais;
                 }
                 if (questaoDto.getTipoQuestao().equalsIgnoreCase("L")) { // Texto Longo com Editor (Campo de Laudos, etc.)
@@ -233,7 +253,7 @@ public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements Gru
                         bufferQuestao += bufferOut;
                     }
                 }
-                if (questaoDto.getTipoQuestao().equalsIgnoreCase("N")) { // Número (sem casas decimais)
+                if (questaoDto.getTipoQuestao().equalsIgnoreCase("N")) { // NÃºmero (sem casas decimais)
                     bufferQuestao += value + dadosAdicionais;
                 }
                 if (questaoDto.getTipoQuestao().equalsIgnoreCase("V")) { // Valor Decimal
@@ -245,7 +265,7 @@ public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements Gru
                 if (questaoDto.getTipoQuestao().equalsIgnoreCase("*")) { // % (Percentual) + Valor Absoluto
                     bufferQuestao += value + " " + value2 + dadosAdicionais;
                 }
-                if (questaoDto.getTipoQuestao().equalsIgnoreCase("1")) { // Faixa de Valores (Números)
+                if (questaoDto.getTipoQuestao().equalsIgnoreCase("1")) { // Faixa de Valores (NÃºmeros)
                     bufferQuestao += value + " " + value2 + dadosAdicionais;
                 }
                 if (questaoDto.getTipoQuestao().equalsIgnoreCase("2")) { // Faixa de Valores (Valores decimais)
@@ -254,7 +274,7 @@ public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements Gru
                 if (questaoDto.getTipoQuestao().equalsIgnoreCase("I")) { // Galeria de Imagens
 
                 }
-                if (questaoDto.getTipoQuestao().equalsIgnoreCase("M")) { // Galeria Multimídia (Videos,etc.) }
+                if (questaoDto.getTipoQuestao().equalsIgnoreCase("M")) { // Galeria MultimÃ­dia (Videos,etc.) }
 
                 }
                 if (questaoDto.getTipoQuestao().equalsIgnoreCase("D")) { // Data
@@ -479,7 +499,7 @@ public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements Gru
                             }
                         }
                     }
-                } else if (questaoDto.getTipoQuestao().equalsIgnoreCase("N")) { // Número (sem casas decimais)
+                } else if (questaoDto.getTipoQuestao().equalsIgnoreCase("N")) { // NÃºmero (sem casas decimais)
                     if (resposta != null) {
                         if (resposta.getRespostaNumero() != null) {
                             value = UtilFormatacao.formatDouble(resposta.getRespostaNumero(), 0);
@@ -496,7 +516,7 @@ public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements Gru
                         }
                     }
                 }
-                if (questaoDto.getTipoQuestao().equalsIgnoreCase("1")) { // Faixa de Números (sem casas decimais)
+                if (questaoDto.getTipoQuestao().equalsIgnoreCase("1")) { // Faixa de NÃºmeros (sem casas decimais)
                     if (resposta != null) {
                         value = UtilFormatacao.formatDouble(resposta.getRespostaValor(), 0);
                         value2 = UtilFormatacao.formatDouble(resposta.getRespostaValor2(), 0);
@@ -576,7 +596,7 @@ public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements Gru
                         }
                     }
                 }
-                if (questaoDto.getTipoQuestao().equalsIgnoreCase("M")) { // Galeria Multimídia (Videos,etc.)
+                if (questaoDto.getTipoQuestao().equalsIgnoreCase("M")) { // Galeria MultimÃ­dia (Videos,etc.)
                     if (resposta != null) {
                         final Collection colAnexos = resposta.getColRelacaoAnexos();
                         if (colAnexos != null) {
@@ -683,7 +703,7 @@ public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements Gru
                         bufferQuestao += value + dadosAdicionais;
                     }
                 }
-                if (questaoDto.getTipoQuestao().equalsIgnoreCase("A")) { // Texto Longo (Campo de observações, etc.)
+                if (questaoDto.getTipoQuestao().equalsIgnoreCase("A")) { // Texto Longo (Campo de observaÃ§Ãµes, etc.)
                     if (!value.equalsIgnoreCase("") || !value2.equalsIgnoreCase("") || !value3.equalsIgnoreCase("")) {
                         String valueAux = value;
                         if (valueAux == null) {
@@ -710,7 +730,7 @@ public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements Gru
                         bufferQuestao += bufferOut;
                     }
                 }
-                if (questaoDto.getTipoQuestao().equalsIgnoreCase("N")) { // Número (sem casas decimais)
+                if (questaoDto.getTipoQuestao().equalsIgnoreCase("N")) { // NÃºmero (sem casas decimais)
                     bufferQuestao += value + dadosAdicionais;
                 }
                 if (questaoDto.getTipoQuestao().equalsIgnoreCase("V")) { // Valor Decimal
@@ -722,7 +742,7 @@ public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements Gru
                 if (questaoDto.getTipoQuestao().equalsIgnoreCase("*")) { // % (Percentual) + Valor Absoluto
                     bufferQuestao += value + "% - " + value2 + dadosAdicionais;
                 }
-                if (questaoDto.getTipoQuestao().equalsIgnoreCase("1")) { // Faixa de Valores (Números)
+                if (questaoDto.getTipoQuestao().equalsIgnoreCase("1")) { // Faixa de Valores (NÃºmeros)
                     bufferQuestao += value + " " + value2 + dadosAdicionais;
                 }
                 if (questaoDto.getTipoQuestao().equalsIgnoreCase("2")) { // Faixa de Valores (Valores decimais)
@@ -731,7 +751,7 @@ public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements Gru
                 if (questaoDto.getTipoQuestao().equalsIgnoreCase("I")) { // Galeria de Imagens
 
                 }
-                if (questaoDto.getTipoQuestao().equalsIgnoreCase("M")) { // Galeria Multimídia (Videos,etc.) }
+                if (questaoDto.getTipoQuestao().equalsIgnoreCase("M")) { // Galeria MultimÃ­dia (Videos,etc.) }
                     bufferQuestao += value + dadosAdicionais;
                 }
                 if (questaoDto.getTipoQuestao().equalsIgnoreCase("D")) { // Data
@@ -898,7 +918,7 @@ public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements Gru
                     value = UtilDatas.formatHoraStr(resposta.getRespostaHora());
                 }
             }
-        } else if (questaoDto.getTipoQuestao().equalsIgnoreCase("N")) { // Número (sem casas decimais)
+        } else if (questaoDto.getTipoQuestao().equalsIgnoreCase("N")) { // NÃºmero (sem casas decimais)
             if (resposta != null) {
                 if (resposta.getRespostaNumero() != null) {
                     value = UtilFormatacao.formatDouble(resposta.getRespostaNumero(), 0);
@@ -916,7 +936,7 @@ public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements Gru
             }
         }
 
-        if (questaoDto.getTipoQuestao().equalsIgnoreCase("1")) { // Faixa de Números (sem casas decimais)
+        if (questaoDto.getTipoQuestao().equalsIgnoreCase("1")) { // Faixa de NÃºmeros (sem casas decimais)
             if (resposta != null) {
                 value = UtilFormatacao.formatDouble(resposta.getRespostaValor(), 0);
                 value2 = UtilFormatacao.formatDouble(resposta.getRespostaValor2(), 0);
@@ -988,7 +1008,7 @@ public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements Gru
                 }
             }
         }
-        if (questaoDto.getTipoQuestao().equalsIgnoreCase("M")) { // Galeria Multimídia (Videos,etc.)
+        if (questaoDto.getTipoQuestao().equalsIgnoreCase("M")) { // Galeria MultimÃ­dia (Videos,etc.)
             if (resposta != null) {
                 final Collection colAnexos = resposta.getColRelacaoAnexos();
                 if (colAnexos != null) {
@@ -1094,7 +1114,7 @@ public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements Gru
                 bufferQuestao += value + dadosAdicionais;
             }
         }
-        if (questaoDto.getTipoQuestao().equalsIgnoreCase("A")) { // Texto Longo (Campo de observações, etc.)
+        if (questaoDto.getTipoQuestao().equalsIgnoreCase("A")) { // Texto Longo (Campo de observaÃ§Ãµes, etc.)
             if (!value.equalsIgnoreCase("") || !value2.equalsIgnoreCase("") || !value3.equalsIgnoreCase("")) {
                 bufferQuestao += value + dadosAdicionais;
             }
@@ -1114,7 +1134,7 @@ public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements Gru
                 bufferQuestao += bufferOut;
             }
         }
-        if (questaoDto.getTipoQuestao().equalsIgnoreCase("N")) { // Número (sem casas decimais)
+        if (questaoDto.getTipoQuestao().equalsIgnoreCase("N")) { // NÃºmero (sem casas decimais)
             bufferQuestao += value + dadosAdicionais;
         }
         if (questaoDto.getTipoQuestao().equalsIgnoreCase("V")) { // Valor Decimal
@@ -1126,7 +1146,7 @@ public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements Gru
         if (questaoDto.getTipoQuestao().equalsIgnoreCase("*")) { // % (Percentual) + Valor Absoluto
             bufferQuestao += value + " " + value2 + dadosAdicionais;
         }
-        if (questaoDto.getTipoQuestao().equalsIgnoreCase("1")) { // Faixa de Valores (Números)
+        if (questaoDto.getTipoQuestao().equalsIgnoreCase("1")) { // Faixa de Valores (NÃºmeros)
             bufferQuestao += value + " " + value2 + dadosAdicionais;
         }
         if (questaoDto.getTipoQuestao().equalsIgnoreCase("2")) { // Faixa de Valores (Valores decimais)
@@ -1135,7 +1155,7 @@ public class GrupoQuestionarioServiceBean extends CrudServiceImpl implements Gru
         if (questaoDto.getTipoQuestao().equalsIgnoreCase("I")) { // Galeria de Imagens
 
         }
-        if (questaoDto.getTipoQuestao().equalsIgnoreCase("M")) { // Galeria Multimídia (Videos,etc.) }
+        if (questaoDto.getTipoQuestao().equalsIgnoreCase("M")) { // Galeria MultimÃ­dia (Videos,etc.) }
             bufferQuestao += value + dadosAdicionais;
         }
         if (questaoDto.getTipoQuestao().equalsIgnoreCase("D")) { // Data

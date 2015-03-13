@@ -5,10 +5,10 @@ import java.util.Collection;
 import br.com.agileitsm.model.support.BaseEntity;
 
 /**
- * Classe que encapsula os par‚metros para recuperaÁ„o de tarefas do fluxo
+ * Classe que encapsula os par√¢metros para recupera√ß√£o de tarefas do fluxo
  *
  * @author carlos.santos
- * @since 27.01.2015 - OperaÁ„o Usain Bolt.
+ * @since 27.01.2015 - Opera√ß√£o Usain Bolt.
  */
 public class ParamRecuperacaoTarefasDTO extends BaseEntity {
 

@@ -157,12 +157,12 @@ public class XmlReadDtdAgente {
 		
 		atributos = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.Atributo, null);
 
-	// Euler.Ramos - CorreÁ„o do incidente 163237 - os itens de configuraÁ„o
-	// estavam duplicando numa rede com ip din‚mico.
-	// O cÛdigo antigo seria apenas uma validaÁ„o e n„o deveria acontecer na
-	// hora de utilizar o par‚metro e sim na hora de grav·-lo;
+	// Euler.Ramos - Corre√ß√£o do incidente 163237 - os itens de configura√ß√£o
+	// estavam duplicando numa rede com ip din√¢mico.
+	// O c√≥digo antigo seria apenas uma valida√ß√£o e n√£o deveria acontecer na
+	// hora de utilizar o par√¢metro e sim na hora de grav√°-lo;
 	// o valor estava sendo alterado para "IPADDR,NAME,USERID" contra a
-	// vontade do usu·rio, ele devia ficar sabendo da incompatibilidade
+	// vontade do usu√°rio, ele devia ficar sabendo da incompatibilidade
 	// de valores antes de gravar.
 	if (atributos == null || atributos.trim().equalsIgnoreCase("")) {
 	    atributos = "NAME";
@@ -198,7 +198,7 @@ public class XmlReadDtdAgente {
 
 	    beanItem.setIdentificacao(atributoAux.trim());
 			/**
-			 * Setando a identificaÁ„o padr„o pelo ip
+			 * Setando a identifica√ß√£o padr√£o pelo ip
 			 */
 			if (atributos.startsWith("NAME")){
 				beanItem.setIdentificacaoPadrao(doc.getElementsByTagName("NAME").item(0).getTextContent());	
@@ -241,12 +241,12 @@ public class XmlReadDtdAgente {
 			return beanItem;
 		} catch (Exception e) {
 			System.out.println("Erro ao fazer a leitura do XML: " + e.getMessage());
-			throw new LogicException("Par‚mentros de ConfiguraÁ„o Atributo Pesquisa/No Pesquisa inv·lidos");
+			throw new LogicException("Par√¢mentros de Configura√ß√£o Atributo Pesquisa/No Pesquisa inv√°lidos");
 		}
 	}
 
 	/**
-	 * Procura prÛximo Node.
+	 * Procura pr√≥ximo Node.
 	 * 
 	 * @param noAgente
 	 *            Node
@@ -254,7 +254,7 @@ public class XmlReadDtdAgente {
 	 *            Boolean
 	 * @param lstTipoItem
 	 *            TipoItemConfiguracaoDTO
-	 * @return boolean true se existir prÛximo node.
+	 * @return boolean true se existir pr√≥ximo node.
 	 */
 
 	private Boolean procurarProximoNode(Node noAgente, Boolean existNoFilho, List<TipoItemConfiguracaoDTO> lstTipoItem) {

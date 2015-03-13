@@ -138,7 +138,7 @@ public class ControleGenerateSLAPorFornecedor {
 							qtdePrazo++;
 							noPrazoComp = "N";
 						} else {
-							noPrazo = "N√O";
+							noPrazo = "N√ÉO";
 							qtdeForaPrazo++;
 							noPrazoComp = "F";
 						}

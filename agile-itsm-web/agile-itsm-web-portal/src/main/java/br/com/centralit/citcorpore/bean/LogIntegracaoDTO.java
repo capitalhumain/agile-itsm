@@ -9,7 +9,7 @@ import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * @author Carlos Santos
- * DTO para log da integração de sistemas externos
+ * DTO para log da integraÃ§Ã£o de sistemas externos
  */
 public class LogIntegracaoDTO extends BaseEntity {
 

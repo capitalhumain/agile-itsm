@@ -2,20 +2,20 @@
 <%@page import="br.com.centralit.citcorpore.bean.ExecucaoDemandaDTO"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.Collection"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.centralit.citcorpore.util.CitCorporeConstantes"%>
 <%
-	response.setCharacterEncoding("ISO-8859-1");
+	response.setCharacterEncoding("UTF-8");
 %>
 <html>
 
 <%@ include file="/WEB-INF/templates/taglibs.jsp"%>
 
 <head>
-	<%@include file="/include/titleComum/titleComum.jsp" %>
+	<%@include file="/novoLayout/common/include/titulo.jsp" %>
 
 	<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp" %>
 	<%@include file="/include/cssComuns/cssComuns.jsp" %>
@@ -76,17 +76,17 @@
 		}
 	}
 	function emExecucao(){
-		if (confirm('Deseja realmente alterar a situação para "Em Execução" ')){
+		if (confirm('Deseja realmente alterar a situaÃ§Ã£o para "Em ExecuÃ§Ã£o" ')){
 			document.formDiversos.fireEvent('alterarSituacaoEmExecucao');
 		}
 	}
 	function finalizar(){
-		if (confirm('Deseja realmente Finalizar \n\nQuando você finalizar, será enviado para a próxima atividade do fluxo de trabalho!')){
+		if (confirm('Deseja realmente Finalizar \n\nQuando vocÃª finalizar, serÃ¡ enviado para a prÃ³xima atividade do fluxo de trabalho!')){
 			document.formDiversos.fireEvent('finalizar');
 		}
 	}
 	function atribuirAtividade(){
-		if (confirm('Confirma atribuição de Atividade ')){
+		if (confirm('Confirma atribuiÃ§Ã£o de Atividade ')){
 			document.formAtribuir.fireEvent('atribuir');
 		}
 	}
@@ -98,7 +98,7 @@
 			}
 		}
 		if (!ok){
-			alert('Você não preencheu o Checklist de finalização, por favor, leia e preencha o checklist!');
+			alert('VocÃª nÃ£o preencheu o Checklist de finalizaÃ§Ã£o, por favor, leia e preencha o checklist!');
 			return;
 		}
 		finalizar();
@@ -111,7 +111,7 @@
 		}
 	}
 	function registrarOcorrencia(){
-		if (confirm('Tem certeza que deseja registrar a ocorrência ')){
+		if (confirm('Tem certeza que deseja registrar a ocorrÃªncia ')){
 			document.formRegistrarOcorrencia.fireEvent('registrarOcorrencia');
 		}
 	}
@@ -135,16 +135,16 @@
 			document.getElementById('respostaOcorrenciaResposta').value = '';
 			document.getElementById('respostaOcorrenciaResposta').focus();
 		}else{
-			alert('Esta ocorrência já está respondida! Não pode haver alteração na resposta!');
+			alert('Esta ocorrÃªncia jÃ¡ estÃ¡ respondida! NÃ£o pode haver alteraÃ§Ã£o na resposta!');
 		}
 	}
 	function atualizaRespostaOcorrencia(){
 		if (StringUtils.isBlank(document.getElementById('respostaOcorrenciaResposta').value)){
-			alert('Preencha a reposta da ocorrência!');
+			alert('Preencha a reposta da ocorrÃªncia!');
 			document.getElementById('respostaOcorrenciaResposta').focus();
 			return;
 		}
-		if (confirm('Deseja realmente registrar a resposta \n\nApós registro da resposta não poderá haver alteração na ocorrência!')){
+		if (confirm('Deseja realmente registrar a resposta \n\nApÃ³s registro da resposta nÃ£o poderÃ¡ haver alteraÃ§Ã£o na ocorrÃªncia!')){
 			document.formAtualizaOcorr.fireEvent('registrarRespostaOcorrencia');
 		}
 	}
@@ -306,7 +306,7 @@ col = (Collection)request.getAttribute("colecao");
 </div>
 
 	<!-- DETALHAMENTO DOS SETORES -->
-	<cit:janelaPopup id="POPUP_OPCOES" title="Op&ccedil;ões" style="display:none;top:200px;width:650px;left:200px;height:530px;position:absolute;">
+	<cit:janelaPopup id="POPUP_OPCOES" title="Op&ccedil;Ãµes" style="display:none;top:200px;width:650px;left:200px;height:530px;position:absolute;">
 		<form name='formDiversos' action='${ctx}/pages/execucaodemanda/execucaoDemanda'>
 			<input type='hidden' name='idExecucao'/>
 			<input type='hidden' name='idFluxoSelecionado'/>
@@ -364,7 +364,7 @@ col = (Collection)request.getAttribute("colecao");
 				</tr>
 				<tr>
 					<td colspan="2" style='text-align: center;' class="linhaSubtituloGrid">
-						<b>Ações</b>
+						<b>AÃ§Ãµes</b>
 					</td>
 				</tr>
 				<tr>
@@ -389,7 +389,7 @@ col = (Collection)request.getAttribute("colecao");
 				<!-- Sera implementada no futuro
 				<tr>
 					<td colspan='2'>
-						<input type='button' name='btnTransferirExecucao' value='Transferir Execução' onclick="POPUP_TRANFERIR.showInYPosition({top:100});"/>
+						<input type='button' name='btnTransferirExecucao' value='Transferir ExecuÃ§Ã£o' onclick="POPUP_TRANFERIR.showInYPosition({top:100});"/>
 					</td>
 				</tr>
 				 -->
@@ -484,7 +484,7 @@ col = (Collection)request.getAttribute("colecao");
 		</form>
 	</cit:janelaPopup>
 
-	<cit:janelaPopup id="POPUP_TRANFERIR" modal="true" title="Op&ccedil;ões" style="display:none;top:200px;width:600px;left:200px;height:400px;position:absolute;">
+	<cit:janelaPopup id="POPUP_TRANFERIR" modal="true" title="Op&ccedil;Ãµes" style="display:none;top:200px;width:600px;left:200px;height:400px;position:absolute;">
 		<form name='formTransferir' action='${ctx}/pages/execucaodemanda/execucaoDemanda'>
 			<table>
 				<tr>
@@ -622,7 +622,7 @@ col = (Collection)request.getAttribute("colecao");
 					<td>
 						<select name="tipoOcorrencia">
 							<option value="O">Ocorr&ecirc;ncia Diversa</option>
-							<option value="D">Dúvida</option>
+							<option value="D">DÃºvida</option>
 						</select>
 					</td>
 				</tr>
@@ -736,7 +736,7 @@ col = (Collection)request.getAttribute("colecao");
 		</form>
 	</cit:janelaPopup>
 
-	<cit:janelaPopup id="POPUP_CONSULTAR_HISTORICO" modal="true" title="Consultar Histórico da demanda" style="display:none;top:200px;width:600px;left:200px;height:400px;position:absolute;">
+	<cit:janelaPopup id="POPUP_CONSULTAR_HISTORICO" modal="true" title="Consultar HistÃ³rico da demanda" style="display:none;top:200px;width:600px;left:200px;height:400px;position:absolute;">
 		<form name='formConsultarHistorico' action='${ctx}/pages/historicoExecucao/historicoExecucao'>
 			<input type='hidden' name='idDemanda' id='idDemandaConsultaHistorico'/>
 			<div id='divScrollConsultaHist' style='overflow:auto;height:380px;width:580px;'>

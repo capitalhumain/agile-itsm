@@ -3,7 +3,7 @@ package br.com.citframework.push.google;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
 /**
- * Padr„o do objeto "result" na response que o <a href="http://developer.android.com/google/gcm/gs.html">Google Cloud Message</a> retorna
+ * Padr√£o do objeto "result" na response que o <a href="http://developer.android.com/google/gcm/gs.html">Google Cloud Message</a> retorna
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @date 21/11/2014

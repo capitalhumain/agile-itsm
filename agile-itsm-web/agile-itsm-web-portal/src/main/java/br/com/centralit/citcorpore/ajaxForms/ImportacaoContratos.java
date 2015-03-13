@@ -73,7 +73,7 @@ public class ImportacaoContratos extends AjaxFormAction {
 			}
 			
 			try {
-				String xmlSource = FileUtils.readFileToString(new File(uploadDTO.getPath()), "ISO-8859-1");
+				String xmlSource = FileUtils.readFileToString(new File(uploadDTO.getPath()), "UTF-8");
 				
 				if (!xmlSource.equals("")) {
 					importacaoContratosResultadoDto = importacaoContratosService.persisteDados(request, importacaoContratosDTO.getIdContrato(), xmlSource);

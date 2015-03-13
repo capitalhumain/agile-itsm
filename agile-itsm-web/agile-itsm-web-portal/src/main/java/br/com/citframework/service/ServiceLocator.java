@@ -42,7 +42,7 @@ public class ServiceLocator {
                 ((IService) obj).setUsuario(usr);
                 return obj;
             } catch (final Exception e2) {
-                final String message = String.format("Classe %s%s n„o existe", nome, SUFIXO_SERVICE);
+                final String message = String.format("Classe %s%s n√£o existe", nome, SUFIXO_SERVICE);
                 LOGGER.log(Level.SEVERE, message + e.getMessage(), e);
                 throw new ServiceNotFoundException(message);
             }

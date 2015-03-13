@@ -13,7 +13,7 @@ import br.com.citframework.integracao.Field;
 import br.com.citframework.util.Constantes;
 
 /**
- * DAO da tabela de relacionamento entre item de configuração e evento
+ * DAO da tabela de relacionamento entre item de configuraÃ§Ã£o e evento
  * 
  * @author diego.rezende
  *

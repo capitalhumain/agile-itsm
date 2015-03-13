@@ -14,27 +14,27 @@ public class Field implements Serializable {
 
     private String fieldDB;
     private String fieldClass;
-    private boolean pk = false;// caso seja chave prim·ria
+    private boolean pk = false;// caso seja chave prim√°ria
     private boolean sequence = false;// preenchido com sequence
     private boolean auto = false;// valor default ou auto incremento
-    private boolean unique = false;// se pode ou n„o possuir valor duplicado
-    private String msgReturn = ""; // mensagem de retorno para campo ˙nico
+    private boolean unique = false;// se pode ou n√£o possuir valor duplicado
+    private String msgReturn = ""; // mensagem de retorno para campo √∫nico
 
     /**
-     * Construtor Field sem o campo de descriÁ„o para unique
+     * Construtor Field sem o campo de descri√ß√£o para unique
      *
      * @param fieldDB
      *            Nome do campo no banco de dados.
      * @param fieldClass
      *            Nome do atributo do DTO
      * @param pk
-     *            Ccso seja chave prim·ria
+     *            Ccso seja chave prim√°ria
      * @param sequence
      *            Preenchido com sequence
      * @param auto
      *            Valor default ou auto incremento
      * @param unique
-     *            Se pode ou n„o possuir valor duplicado
+     *            Se pode ou n√£o possuir valor duplicado
      */
     public Field(final String fieldDB, final String fieldClass, final boolean pk, final boolean sequence, final boolean auto, final boolean unique) {
         this.fieldDB = fieldDB;
@@ -46,23 +46,23 @@ public class Field implements Serializable {
     }
 
     /**
-     * Construtor Field com o campo de descriÁ„o para unique
+     * Construtor Field com o campo de descri√ß√£o para unique
      *
      * @param fieldDB
      *            Nome do campo no banco de dados.
      * @param fieldClass
      *            Nome do atributo do DTO
      * @param pk
-     *            Ccso seja chave prim·ria
+     *            Ccso seja chave prim√°ria
      * @param sequence
      *            Preenchido com sequence
      * @param auto
      *            Valor default ou auto incremento
      * @param unique
-     *            Se pode ou n„o possuir valor duplicado
+     *            Se pode ou n√£o possuir valor duplicado
      * @param msgReturn
-     *            de retorno caso aconteÁa duplicaÁ„o de campos acionado pelo
-     *            par‚metro 'unique'
+     *            de retorno caso aconte√ßa duplica√ß√£o de campos acionado pelo
+     *            par√¢metro 'unique'
      */
     public Field(final String fieldDB, final String fieldClass, final boolean pk, final boolean sequence, final boolean auto, final boolean unique, final String msgReturn) {
         this.fieldDB = fieldDB;

@@ -107,7 +107,7 @@ public class OcorrenciaLiberacao extends AjaxFormAction  {
     
     
     /**
-	 * Retorna uma lista de informações da entidade ocorrencia
+	 * Retorna uma lista de informaÃ§Ãµes da entidade ocorrencia
 	 * @param requisicaoMudancaDto
 	 * @param request
 	 * @return
@@ -219,7 +219,7 @@ public class OcorrenciaLiberacao extends AjaxFormAction  {
 	        	strBuffer += " - </b>" + UtilI18N.internacionaliza(request, "ocorrenciaMudanca.registradopor") + ": <b>" + ocorrenciaLiberacaoDto.getRegistradopor() + "</b>";
 	        	strBuffer += "</td>";
 	        	
-	        	// Categoria Ocorrência
+	        	// Categoria OcorrÃªncia
 	        	strBuffer += "<td>";
 	        	if (ocorrenciaLiberacaoDto.getIdCategoriaOcorrencia() != null && ocorrenciaLiberacaoDto.getIdCategoriaOcorrencia() != 0) {
 	        		categoriaOcorrenciaDTO.setIdCategoriaOcorrencia(ocorrenciaLiberacaoDto.getIdCategoriaOcorrencia() );
@@ -230,7 +230,7 @@ public class OcorrenciaLiberacao extends AjaxFormAction  {
 	        	}				
 	        	strBuffer += "</td>";
 				
-	        	// Origem Ocorrência
+	        	// Origem OcorrÃªncia
 				strBuffer += "<td>";
 				if (ocorrenciaLiberacaoDto.getIdOrigemOcorrencia() != null && ocorrenciaLiberacaoDto.getIdOrigemOcorrencia() != 0) {
 					origemOcorrenciaDTO.setIdOrigemOcorrencia(ocorrenciaLiberacaoDto.getIdOrigemOcorrencia() );
@@ -471,7 +471,7 @@ public class OcorrenciaLiberacao extends AjaxFormAction  {
 					        if (aprovacaoDto.getAprovacao().equalsIgnoreCase("A"))
 					            aprovacao += "Sim";
 					        else
-					            aprovacao += "Não";
+					            aprovacao += "NÃ£o";
 					        if (aprovacaoDto.getIdJustificativa() != null) {
 			                    JustificativaSolicitacaoDTO justificativaDto = new JustificativaSolicitacaoDTO();
 			                    justificativaDto.setIdJustificativa(aprovacaoDto.getIdJustificativa() );
@@ -511,7 +511,7 @@ public class OcorrenciaLiberacao extends AjaxFormAction  {
 		        	    strBuffer += " - </b>" + UtilI18N.internacionaliza(request, "ocorrenciaSolicitacao.registradopor") + ": <b>" + ocorrenciaLiberacaoAux.getRegistradopor() + "</b>";
 		        	strBuffer += "</td>";
 		        	
-		        	// Categoria Ocorrência
+		        	// Categoria OcorrÃªncia
 		        	strBuffer += "<td style='border:1px solid black'>";
 		        	if (ocorrenciaLiberacaoAux.getIdCategoriaOcorrencia() != null && ocorrenciaLiberacaoAux.getIdCategoriaOcorrencia() != 0) {
 		        		categoriaOcorrenciaDTO.setIdCategoriaOcorrencia(ocorrenciaLiberacaoAux.getIdCategoriaOcorrencia() );
@@ -522,7 +522,7 @@ public class OcorrenciaLiberacao extends AjaxFormAction  {
 		        	}				
 		        	strBuffer += "</td>";
 					
-		        	// Origem Ocorrência
+		        	// Origem OcorrÃªncia
 					strBuffer += "<td style='border:1px solid black'>";
 					if (ocorrenciaLiberacaoAux.getIdOrigemOcorrencia() != null && ocorrenciaLiberacaoAux.getIdOrigemOcorrencia() != 0) {
 						origemOcorrenciaDTO.setIdOrigemOcorrencia(ocorrenciaLiberacaoAux.getIdOrigemOcorrencia() );

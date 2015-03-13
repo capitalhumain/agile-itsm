@@ -165,7 +165,7 @@ public class DataBaseMetaDadosServiceEjb extends CrudServiceImpl implements Data
             DB_SCHEMA = "citsmart";
         }
 
-        // Desabilitando as tabelas para garantir que as que n„o existam mais n„o fiquem ativas
+        // Desabilitando as tabelas para garantir que as que n√£o existam mais n√£o fiquem ativas
         this.desabilitaTabelas();
 
         final Collection colObsNegocio = dataBaseMetaDadosUtil.readTables(con, DB_SCHEMA, DB_SCHEMA, null, true);
@@ -197,7 +197,7 @@ public class DataBaseMetaDadosServiceEjb extends CrudServiceImpl implements Data
 
             carregados = "<b>Finalizado!</b> <br><b>Tabelas carregadas:</b> <br>" + carregados;
         } else {
-            carregados += "N„o foi possÌvel carregar metadados para o Schema:" + DB_SCHEMA;
+            carregados += "N√£o foi poss√≠vel carregar metadados para o Schema:" + DB_SCHEMA;
         }
 
         return carregados;
@@ -207,7 +207,7 @@ public class DataBaseMetaDadosServiceEjb extends CrudServiceImpl implements Data
     @SuppressWarnings("rawtypes")
     public String carregaTodosMetaDados(final Collection colecao) throws Exception {
 
-        // Desabilitando as tabelas para garantir que as que n„o existam mais n„o fiquem ativas
+        // Desabilitando as tabelas para garantir que as que n√£o existam mais n√£o fiquem ativas
         this.desabilitaTabelas();
 
         final Collection colObsNegocio = colecao;

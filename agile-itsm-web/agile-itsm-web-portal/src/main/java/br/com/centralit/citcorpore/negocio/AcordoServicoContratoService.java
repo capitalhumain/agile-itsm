@@ -20,10 +20,10 @@ public interface AcordoServicoContratoService extends CrudService {
     AcordoServicoContratoDTO findAtivoByIdServicoContrato(Integer idServicoContrato, String tipo) throws Exception;
 
     /**
-     * Método para verificar a existência de vínculo
+     * MÃ©todo para verificar a existÃªncia de vÃ­nculo
      *
      * @param idAcordoNivelServico
-     * @return Se for true existe vínculo
+     * @return Se for true existe vÃ­nculo
      * @throws Exception
      * @author rodrigo.oliveira
      */
@@ -33,7 +33,7 @@ public interface AcordoServicoContratoService extends CrudService {
      *
      * @param idAcordoNivelServico
      * @param idServicoContrato
-     * @return Coleção de serviços vinculados
+     * @return ColeÃ§Ã£o de serviÃ§os vinculados
      * @throws Exception
      */
     Collection<AcordoServicoContratoDTO> findByIdAcordoNivelServicoIdServicoContrato(Integer idAcordoNivelServico,

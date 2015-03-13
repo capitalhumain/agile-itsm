@@ -65,7 +65,7 @@ public class ProcessoNegocioServiceEjb extends CrudServiceImpl implements Proces
         if (processoNegocioDto.getColAutoridades() != null) {
             for (final ProcessoNivelAutoridadeDTO autoridadeDto : processoNegocioDto.getColAutoridades()) {
                 if (autoridadeDto.getIdNivelAutoridade() == null) {
-                    throw new Exception("NÌvel de autoridade n„o informada");
+                    throw new Exception("N√≠vel de autoridade n√£o informada");
                 }
                 if (autoridadeDto.getAntecedenciaMinimaAprovacao() == null) {
                     autoridadeDto.setAntecedenciaMinimaAprovacao(new Integer(0));

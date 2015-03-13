@@ -25,13 +25,13 @@ public class CtrlAsterisk extends AjaxFormAction {
 
 	public void abrePopUpAsterisk(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		CtrlAsteriskDTO ctrlAsteriskDTO = (CtrlAsteriskDTO) document.getBean();
-		//Este n˙mero vem da sess„o:
+		//Este n√∫mero vem da sess√£o:
 		if (request.getSession().getAttribute("ramalTelefone")!=null){
 			ctrlAsteriskDTO.setRamalTelefone(request.getSession().getAttribute("ramalTelefone").toString());
 		}
 		if ((ctrlAsteriskDTO.getListaChamadas()!=null)&&(ctrlAsteriskDTO.getListaChamadas().length()>0)){
 			if ((ctrlAsteriskDTO.getRamalTelefone()!=null)&&(ctrlAsteriskDTO.getRamalTelefone().length()>0)){
-				//Quebrando por LigaÁıes
+				//Quebrando por Liga√ß√µes
 				String[] arrayListaTelefones = ctrlAsteriskDTO.getListaChamadas().split("#");
 				StringBuilder html = new StringBuilder();
 				StringBuilder campoNome = new StringBuilder();
@@ -81,7 +81,7 @@ public class CtrlAsterisk extends AjaxFormAction {
 						html.append("</style>");
 						document.getElementById("conteudoframeTelefonia").setInnerHTML(html.toString());
 						document.executeScript("$('#modal_Telefonia').modal('show');");
-						break; //N„o haver· mais do que uma chamada ativa para este ramal, outras tentativas receber„o sinal de ocupado.
+						break; //N√£o haver√° mais do que uma chamada ativa para este ramal, outras tentativas receber√£o sinal de ocupado.
 					}
 				}
 			}
@@ -110,7 +110,7 @@ public class CtrlAsterisk extends AjaxFormAction {
 				document.executeScript("$('#modal_ramalTelefone').modal('hide');");
 			}
 		} else {
-			// Quando o usu·rio esvaziou o campo o sistema retira este cliente da Thread MonitoraAsterisk, para n„o sobrecarreg·-la!
+			// Quando o usu√°rio esvaziou o campo o sistema retira este cliente da Thread MonitoraAsterisk, para n√£o sobrecarreg√°-la!
 			request.getSession().setAttribute("ramalTelefone", null);
 		}
 	}

@@ -162,7 +162,7 @@ public class QuestionarioDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Metodo responsavel por identificar o question·rio que s„o de resposta obrigatÛria.
+     * Metodo responsavel por identificar o question√°rio que s√£o de resposta obrigat√≥ria.
      *
      * @param idQuestionario
      * @return

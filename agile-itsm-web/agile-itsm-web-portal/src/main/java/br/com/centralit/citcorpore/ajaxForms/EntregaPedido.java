@@ -264,18 +264,18 @@ public class EntregaPedido extends AjaxFormAction {
 					+"        }"
 					+"</style>";
             		
-	    	String str = "<div style='text-align:center;font-size:18px'><b>ESPELHO DA AUTORIZAÇÃO DE COMPRA</b></div><br>";
+	    	String str = "<div style='text-align:center;font-size:18px'><b>ESPELHO DA AUTORIZAÃ‡ÃƒO DE COMPRA</b></div><br>";
 	    	str += "<table class='table' width='100%'>";
 			str += "<tr>";
-			str += "<th class='table th' width='15%'>Número pedido:</th>";
+			str += "<th class='table th' width='15%'>NÃºmero pedido:</th>";
 			str += "<td class='table th' width='20%'>"+pedidoCompraDto.getNumeroPedido()+"</td>";
-			str += "<th class='table th' width='15%'>Número cotação:</th>";
+			str += "<th class='table th' width='15%'>NÃºmero cotaÃ§Ã£o:</th>";
 			str += "<td class='table th' width='10%'>"+pedidoCompraDto.getIdCotacao()+"</td>";
 			str += "<th class='table th' width='15%'>Data entrega:</th>";
 			str += "<td class='table th' width='25%'>"+UtilDatas.dateToSTR(pedidoCompraDto.getDataEntrega())+"</td>";
 			str += "</tr>";
 			str += "<tr>";
-			str += "<th class='table th'>Número nota fiscal:</th>";
+			str += "<th class='table th'>NÃºmero nota fiscal:</th>";
 			str += "<td>"+UtilStrings.nullToVazio(pedidoCompraDto.getNumeroNF())+"</td>";
 			str += "<th class='table th'>Valor frete:</th>";
 			if (pedidoCompraDto.getValorFrete() != null)
@@ -292,7 +292,7 @@ public class EntregaPedido extends AjaxFormAction {
 			str += " - "+fornecedorDto.getNomeFantasia()+"</td>";
 			str += "</tr>";
 			str += "<tr>";
-			str += "<th class='table th'>Endereço entrega:</th><td colspan='5'>";
+			str += "<th class='table th'>EndereÃ§o entrega:</th><td colspan='5'>";
 			str += enderecoDto.getEnderecoStr()+"</td>";
 			str += "</tr>";
 			str += "</table>";
@@ -308,7 +308,7 @@ public class EntregaPedido extends AjaxFormAction {
 	    			requisicaoProdutoDto = (RequisicaoProdutoDTO) requisicaoProdutoService.restore(requisicaoProdutoDto);
 	    	    	str += "<br><table class='table' width='100%'>";
 					str += "<tr>";
-					str += "<th class='table th'>Requisição</th>";
+					str += "<th class='table th'>RequisiÃ§Ã£o</th>";
 					str += "<th class='table th'>Solicitante</th>";
 					str += "<th class='table th'>Centro de Resultado</th>";
 					str += "<th class='table th'>Projeto</th>";
@@ -322,7 +322,7 @@ public class EntregaPedido extends AjaxFormAction {
 					str += "</table>";
 	    	    	str += "<table class='table' width='100%'>";
 					str += "<tr>";
-					str += "<th class='table th'>Descrição do item</th>";
+					str += "<th class='table th'>DescriÃ§Ã£o do item</th>";
 					str += "<th class='table th' width='20%'>Comprador</th>";
 					str += "<th class='table th' width='20%'>Autorizador</th>";
 					str += "<th class='table th' width='20%'>Aprovador</th>";

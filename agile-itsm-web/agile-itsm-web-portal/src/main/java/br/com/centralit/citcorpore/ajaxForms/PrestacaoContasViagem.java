@@ -220,7 +220,7 @@ public class PrestacaoContasViagem extends AjaxFormAction {
 	}
 	
 	/**
-	 * Calcula e atualiza os valores dos campos "Total PrestaÁ„o de Contas", "Total LanÁamentos" e "Valor DiferenÁa"
+	 * Calcula e atualiza os valores dos campos "Total Presta√ß√£o de Contas", "Total Lan√ßamentos" e "Valor Diferen√ßa"
 	 * 
 	 * @param document
 	 * @param request
@@ -236,7 +236,7 @@ public class PrestacaoContasViagem extends AjaxFormAction {
 		DecimalFormat decimal = (DecimalFormat) NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
 		decimal.applyPattern("#,##0.00");
 		
-		// Verifica se È para retirar ou acrescentar
+		// Verifica se √© para retirar ou acrescentar
 		if(request.getParameter("retirarValor").equals("S")) {
 			valor = -prestacaoContasViagemDto.getValor();
 			
@@ -261,7 +261,7 @@ public class PrestacaoContasViagem extends AjaxFormAction {
 	}
 	
 	/**
-	 * Adiciona o item a grid de itens de prestaÁ„o de contas e verifica se a nota fiscal foi emitida h· mais de 3 meses.
+	 * Adiciona o item a grid de itens de presta√ß√£o de contas e verifica se a nota fiscal foi emitida h√° mais de 3 meses.
 	 * 
 	 * @param document
 	 * @param request
@@ -279,7 +279,7 @@ public class PrestacaoContasViagem extends AjaxFormAction {
 			Date dataPrestacao = UtilDatas.convertStringToDate(TipoDate.FORMAT_DATABASE , prestacaoContasViagemDto.getData().toString(), UtilI18N.getLocale());
 			
 			if(dataViagem.compareTo(dataPrestacao) > 0){
-				document.alert("Nota fiscal emitida h· mais de 3 meses!");
+				document.alert("Nota fiscal emitida h√° mais de 3 meses!");
 				document.getElementById("data").setValue("");
 				document.getElementById("data").setFocus();
 				return;

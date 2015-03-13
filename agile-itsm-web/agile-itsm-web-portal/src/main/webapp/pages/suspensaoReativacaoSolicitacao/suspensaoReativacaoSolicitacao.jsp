@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.citframework.dto.Usuario"%>
@@ -121,7 +123,7 @@
             <div class="modal hide fade in" id="modal_lookupSolicitante" aria-hidden="false">
                             <!-- Modal heading -->
                                 <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
                                     <h3><fmt:message key="colaborador.pesquisacolaborador" /></h3>
                                 </div>
                                 <!-- // Modal heading END -->

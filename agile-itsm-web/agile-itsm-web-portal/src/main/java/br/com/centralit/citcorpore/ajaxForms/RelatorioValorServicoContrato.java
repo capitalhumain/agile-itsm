@@ -77,8 +77,8 @@ public class RelatorioValorServicoContrato extends AjaxFormAction {
 		document.getSelectById("idContrato").addOptions(colContrato, "idContrato", "numero", null);
 		
 		/*
-		 * A partir desse ponto, a rotina vai pegar o primeiro contrato (que ser· o primeiro do combox, j· selecionado)
-		 * e ir· carregar os seus serviÁos.
+		 * A partir desse ponto, a rotina vai pegar o primeiro contrato (que ser√° o primeiro do combox, j√° selecionado)
+		 * e ir√° carregar os seus servi√ßos.
 		 */
 		Integer primeiroIdContrato = null;
 		
@@ -96,7 +96,7 @@ public class RelatorioValorServicoContrato extends AjaxFormAction {
 	}
 	
 	/**
-	 * Utilizado para retornar um ArrayList dos serviÁos de um contrato
+	 * Utilizado para retornar um ArrayList dos servi√ßos de um contrato
 	 * @param idContrato
 	 * @return ArrayList
 	 * @throws ServiceException
@@ -144,7 +144,7 @@ public class RelatorioValorServicoContrato extends AjaxFormAction {
 			servicos = this.carregaServicosDoContrato(valoresServicoContratoDTO.getIdContrato());
 		}
 
-		// Preenchendo a combobox de serviÁos.
+		// Preenchendo a combobox de servi√ßos.
 		
 		document.getSelectById("idServico").removeAllOptions();		
 		ServicoService servicoService = (ServicoService) ServiceLocator.getInstance().getService(ServicoService.class, null);		
@@ -159,7 +159,7 @@ public class RelatorioValorServicoContrato extends AjaxFormAction {
 	}
 
 	/**
-	 * Faz a impress„o do relatÛrio no formato pdf.
+	 * Faz a impress√£o do relat√≥rio no formato pdf.
 	 * 
 	 * @param document
 	 * @param request
@@ -290,7 +290,7 @@ public class RelatorioValorServicoContrato extends AjaxFormAction {
 	}
 
 	/**
-	 * Faz a impress„o do relatÛrio no formato xls.
+	 * Faz a impress√£o do relat√≥rio no formato xls.
 	 * 
 	 * @param document
 	 * @param request

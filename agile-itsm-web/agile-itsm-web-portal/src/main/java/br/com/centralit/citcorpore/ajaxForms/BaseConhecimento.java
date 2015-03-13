@@ -617,7 +617,7 @@ public class BaseConhecimento extends AjaxFormAction {
 	}
 
 	/**
-	 * Exclui Base conhecimento e todos os seus conte˙dos.
+	 * Exclui Base conhecimento e todos os seus conte√∫dos.
 	 * 
 	 * @param document
 	 * @param request
@@ -658,7 +658,7 @@ public class BaseConhecimento extends AjaxFormAction {
 	}
 
 	/**
-	 * Grava Import‚ncia Conhecimento.
+	 * Grava Import√¢ncia Conhecimento.
 	 * 
 	 * @param document
 	 * @param request
@@ -800,7 +800,7 @@ public class BaseConhecimento extends AjaxFormAction {
 	}
 
 	/**
-	 * Limpa Fomul·rio e arquivos anexos.
+	 * Limpa Fomul√°rio e arquivos anexos.
 	 * 
 	 * @param document
 	 * @param request
@@ -816,7 +816,7 @@ public class BaseConhecimento extends AjaxFormAction {
 	}
 
 	/**
-	 * Verifica se Usu·rio Pode Aprovar Base de Conhecimento da pasta Selecionada.
+	 * Verifica se Usu√°rio Pode Aprovar Base de Conhecimento da pasta Selecionada.
 	 * 
 	 * @param document
 	 * @param request
@@ -848,7 +848,7 @@ public class BaseConhecimento extends AjaxFormAction {
 	}
 
 	/**
-	 * Verifica se Usu·rio Pode Aprovar Base de Conhecimento da pasta Selecionada.
+	 * Verifica se Usu√°rio Pode Aprovar Base de Conhecimento da pasta Selecionada.
 	 * 
 	 * @param document
 	 * @param request
@@ -889,7 +889,7 @@ public class BaseConhecimento extends AjaxFormAction {
 	}
 
 	/**
-	 * Oculta ou Exibe Botıes Gravar, Limpar ou Excluir de Acordo com a permiss„o de Acesso do Usu·rio Logado.
+	 * Oculta ou Exibe Bot√µes Gravar, Limpar ou Excluir de Acordo com a permiss√£o de Acesso do Usu√°rio Logado.
 	 * 
 	 * @param document
 	 * @param baseConhecimentoDto
@@ -963,7 +963,7 @@ public class BaseConhecimento extends AjaxFormAction {
 	}
 
 	/**
-	 * Retorna PermissaoAcessoPasta do Usu·rio ‡ Pasta que est· o conhecimento informado.
+	 * Retorna PermissaoAcessoPasta do Usu√°rio √† Pasta que est√° o conhecimento informado.
 	 * 
 	 * @param baseConhecimentoDto
 	 * @param usuarioDto
@@ -1115,7 +1115,7 @@ public class BaseConhecimento extends AjaxFormAction {
 	}
 
 	/**
-	 * Carrega combo de Pastas de Acordo com Perfil de Acesso do Usu·rio Logado.
+	 * Carrega combo de Pastas de Acordo com Perfil de Acesso do Usu√°rio Logado.
 	 * 
 	 * @param document
 	 * @param request
@@ -1180,7 +1180,7 @@ public class BaseConhecimento extends AjaxFormAction {
 	}
 
 	/**
-	 * Preenche combo situaÁ„o.
+	 * Preenche combo situa√ß√£o.
 	 * 
 	 * @param document
 	 * @param request
@@ -1201,11 +1201,11 @@ public class BaseConhecimento extends AjaxFormAction {
 	}
 
 	/**
-	 * Verifica se usu·rio aprova Base Conhecimento na pasta selecionada.
+	 * Verifica se usu√°rio aprova Base Conhecimento na pasta selecionada.
 	 * 
 	 * @param usuarioDto
 	 * @param idPasta
-	 * @return true = aprova; false = n„o aprova.
+	 * @return true = aprova; false = n√£o aprova.
 	 * @throws ServiceException
 	 * @throws Exception
 	 * @author Vadoilo Damasceno
@@ -1250,7 +1250,7 @@ public class BaseConhecimento extends AjaxFormAction {
 	}
 
 	/**
-	 * Verifica se usu·rio possui acesso ao Conhecimento que est· tentanto relacionar.
+	 * Verifica se usu√°rio possui acesso ao Conhecimento que est√° tentanto relacionar.
 	 * 
 	 * @param document
 	 * @param request
@@ -1304,7 +1304,7 @@ public class BaseConhecimento extends AjaxFormAction {
 	}
 
 	/**
-	 * Preenche combo de NotificaÁıes.
+	 * Preenche combo de Notifica√ß√µes.
 	 * 
 	 * @param document
 	 * @param request
@@ -1321,8 +1321,8 @@ public class BaseConhecimento extends AjaxFormAction {
 		}
 
 		/*
-		 * comboTipoNotificacao.addOption("T", "Tudo for alterado"); comboTipoNotificacao.addOption("C", "Novas nofiticaÁıes for adicionadas"); comboTipoNotificacao.addOption("A",
-		 * "NotificaÁıes forem alteradas"); comboTipoNotificacao.addOption("E", "NotificaÁıes forem excluidas");
+		 * comboTipoNotificacao.addOption("T", "Tudo for alterado"); comboTipoNotificacao.addOption("C", "Novas nofitica√ß√µes for adicionadas"); comboTipoNotificacao.addOption("A",
+		 * "Notifica√ß√µes forem alteradas"); comboTipoNotificacao.addOption("E", "Notifica√ß√µes forem excluidas");
 		 */
 
 	}
@@ -1340,7 +1340,7 @@ public class BaseConhecimento extends AjaxFormAction {
 	}
 
 	/**
-	 * Restorna String com a Label Confidencial caso o usu·rio n„o possua Permiss„o de Acesso a Pasta ou a Base de Conhecimento.
+	 * Restorna String com a Label Confidencial caso o usu√°rio n√£o possua Permiss√£o de Acesso a Pasta ou a Base de Conhecimento.
 	 * 
 	 * @param idPasta
 	 * @param pastaBaseConhecimento
@@ -1370,7 +1370,7 @@ public class BaseConhecimento extends AjaxFormAction {
 	}
 
 	/**
-	 * Cria NotificaÁ„o.
+	 * Cria Notifica√ß√£o.
 	 * 
 	 * @param document
 	 * @param request
@@ -1514,7 +1514,7 @@ public class BaseConhecimento extends AjaxFormAction {
 	}
 
 	/**
-	 * Retorna privacidade de Acordo com a sua abreviaÁ„o.
+	 * Retorna privacidade de Acordo com a sua abrevia√ß√£o.
 	 * 
 	 * @param abreviacaoPrivacidade
 	 * @return Privacidade
@@ -1539,7 +1539,7 @@ public class BaseConhecimento extends AjaxFormAction {
 	}
 
 	/**
-	 * Retorna Grau de Import‚ncia.
+	 * Retorna Grau de Import√¢ncia.
 	 * 
 	 * @param request
 	 * @param importancia
@@ -1565,7 +1565,7 @@ public class BaseConhecimento extends AjaxFormAction {
 	}
 
 	/**
-	 * Restaura item configuraÁ„o na Grid.
+	 * Restaura item configura√ß√£o na Grid.
 	 * 
 	 * @param document
 	 * @param request
@@ -1600,7 +1600,7 @@ public class BaseConhecimento extends AjaxFormAction {
 	}
 
 	/**
-	 * Restura solicitaÁ„o serviÁo na Grid.
+	 * Restura solicita√ß√£o servi√ßo na Grid.
 	 * 
 	 * @param document
 	 * @param request
@@ -1680,7 +1680,7 @@ public class BaseConhecimento extends AjaxFormAction {
 	}
 
 	/**
-	 * Restaura MudanÁas na Grid.
+	 * Restaura Mudan√ßas na Grid.
 	 * 
 	 * @param document
 	 * @param request
@@ -1711,7 +1711,7 @@ public class BaseConhecimento extends AjaxFormAction {
 		document.executeScript("fecharMudancaAtualizaGrid();");
 	}
 	/**
-	 * Restaura LiberaÁıes na Grid.
+	 * Restaura Libera√ß√µes na Grid.
 	 * 
 	 * @param document
 	 * @param request
@@ -1744,7 +1744,7 @@ public class BaseConhecimento extends AjaxFormAction {
 	}
 
 	/**
-	 * Associa solicitaÁıes ao documento.
+	 * Associa solicita√ß√µes ao documento.
 	 * 
 	 * @param document
 	 * @param request
@@ -1783,7 +1783,7 @@ public class BaseConhecimento extends AjaxFormAction {
 	}
 
 	/**
-	 * Associa mudanÁas ao documento.
+	 * Associa mudan√ßas ao documento.
 	 * 
 	 * @param document
 	 * @param request
@@ -1803,7 +1803,7 @@ public class BaseConhecimento extends AjaxFormAction {
 	}
 	
 	/**
-	 * Associa LiberaÁoes ao documento.
+	 * Associa Libera√ßoes ao documento.
 	 * 
 	 * @param document
 	 * @param request
@@ -1823,7 +1823,7 @@ public class BaseConhecimento extends AjaxFormAction {
 	}
 
 	/**
-	 * Associa itens configuraÁ„o ao documento.
+	 * Associa itens configura√ß√£o ao documento.
 	 * 
 	 * @param document
 	 * @param request

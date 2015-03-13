@@ -103,7 +103,7 @@ function MapaDesenhoServico(_canvas){
 		this.canvas.addEventListener("dblclick", dblclick, true);
 		this.canvas.addEventListener("mousedown", mouseDown, true);
 		this.canvas.addEventListener("mouseup", mouseUp, true);
-		//se o mouse sair do canvas executo a a��o de mouse up e a a��o de arrastar termina
+		//se o mouse sair do canvas executo a ação de mouse up e a ação de arrastar termina
 		this.canvas.addEventListener("mouseout", mouseUp, true);
 	}
 	
@@ -115,7 +115,7 @@ function MapaDesenhoServico(_canvas){
     }
 
 	/**
-	 * Evento de click que ser� tratado posteriormente para edi��o.
+	 * Evento de click que será tratado posteriormente para edição.
 	 * @param e
 	 * Evento de click.
 	 * @returns
@@ -170,21 +170,21 @@ function MapaDesenhoServico(_canvas){
 	 * @returns
 	 */
 	var mouseDown = function(e) {
-		//A funcionalidade s� funcionar� se esse evento for criado aqui.
+		//A funcionalidade sï¿½ funcionarï¿½ se esse evento for criado aqui.
 		self.canvas.addEventListener("mousemove", mouseClickedMove, false);
 		itemSelecionado = findItemByPosition(getRelativeCursorPoint(e));					
 		if(interval == null){
 			/*
-			 * Quanto menor for o segundo par�metro, mais r�pido a tela ser� atualizada,
-			 * por�m pode deixar tudo mais lento dependendo do volume de itens no mapa. 
+			 * Quanto menor for o segundo parï¿½metro, mais rï¿½pido a tela serï¿½ atualizada,
+			 * porï¿½m pode deixar tudo mais lento dependendo do volume de itens no mapa. 
 			 */
 			//interval = setInterval(atualizarCanvas, 10);
 		}
 	};
 	
 	/**
-	 * Quando o mouse se mover (cada mil�metro), se houver
-	 * um item selecionado executa a��es de movimento.
+	 * Quando o mouse se mover (cada milï¿½metro), se houver
+	 * um item selecionado executa aï¿½ï¿½es de movimento.
 	 * @param e
 	 * Evento.
 	 */
@@ -195,8 +195,8 @@ function MapaDesenhoServico(_canvas){
 		posicaoMouse = getRelativeCursorPoint(e);
 		if(itemSelecionado != null){
 			/*
-			 * Se o usu�rio tiver clicado na �rea de opces da figura, uma
-			 * linha ser� tra�ada do ponto da imagem at� o ponto do mouse.
+			 * Se o usuï¿½rio tiver clicado na ï¿½rea de opces da figura, uma
+			 * linha serï¿½ traï¿½ada do ponto da imagem atï¿½ o ponto do mouse.
 			 */
 			atualizarCanvas();
 			if(itemSelecionado.opcoes){	
@@ -221,14 +221,14 @@ function MapaDesenhoServico(_canvas){
 	};
 	
 	/**
-	 * Quando o mouse n�o estiver mais sendo pressionado, armazena
-	 * algumas configura��es e finaliza a a��o de arrastar.
+	 * Quando o mouse nï¿½o estiver mais sendo pressionado, armazena
+	 * algumas configuraï¿½ï¿½es e finaliza a aï¿½ï¿½o de arrastar.
 	 * @param e
 	 * Evento.
 	 */
 	var mouseUp = function(e) {
 		self.canvas.removeEventListener("mousemove", mouseClickedMove, false);		
-		//Verifica se a linha foi solta em cima de um outro item para torn�-lo filho.
+		//Verifica se a linha foi solta em cima de um outro item para tornï¿½-lo filho.
 		if(itemSelecionado != null && itemSelecionado.opcoes){
 			//Conclui o desenho da linha, caso haja.
 //			self.context.closePath();	
@@ -256,7 +256,7 @@ function MapaDesenhoServico(_canvas){
 	};
 	
 	/**
-	 * Executador em eventos espec�ficos para evitar bugs.
+	 * Executador em eventos especï¿½ficos para evitar bugs.
 	 * @param e
 	 * Evento.
 	 */
@@ -273,8 +273,8 @@ function MapaDesenhoServico(_canvas){
 	};
 
 	/**
-	 * Quando um item do menu � solto dentro do canvas
-	 * anexa este novo item com configura��es default.
+	 * Quando um item do menu ï¿½ solto dentro do canvas
+	 * anexa este novo item com configuraï¿½ï¿½es default.
 	 * @param e
 	 * Evento.
 	 */
@@ -288,7 +288,7 @@ function MapaDesenhoServico(_canvas){
 		}		
 		/*
 		 * Pega o id passado no dataTransfer do objeto MenuItemConfiguracao
-		 * e busca o elemento da p�gina que tenha esse id para copi�-lo para o canvas.
+		 * e busca o elemento da pï¿½gina que tenha esse id para copiï¿½-lo para o canvas.
 		 */
 		var imagemObj = document.getElementById(e.dataTransfer.getData("text"));	
 		if(imagemObj == null){
@@ -297,13 +297,13 @@ function MapaDesenhoServico(_canvas){
 			return;
 		}
 		var classValue = imagemObj.getAttribute('class');		
-		//Mapa s� aceita objetos da classe itemInMenu.	
+		//Mapa sï¿½ aceita objetos da classe itemInMenu.	
 		if (classValue.indexOf("itemInMenu") >= 0) {
 			var editarItemConfiguracao = document.getElementById("editarItemConfiguracao");
 			$("#editarItemConfiguracao").dialog("open");
 			var btSalvar = document.getElementById("btSalvar");
 			/*
-			 * S� ser� efetivado o anexo do item quando usu�rio clicar em SALVAR. 
+			 * Sï¿½ serï¿½ efetivado o anexo do item quando usuï¿½rio clicar em SALVAR. 
 			 */
 			btSalvar.onclick = function(){	
 				if(document.getElementById("identificacao").value == ""){
@@ -354,7 +354,7 @@ function MapaDesenhoServico(_canvas){
 	
 	/**
 	 * Apaga todo que est no canvas e desenha novamente.
-	 * � assim que s�o feitas as anima��es de arrastar os itens.
+	 * ï¿½ assim que sï¿½o feitas as animaï¿½ï¿½es de arrastar os itens.
 	 */
 	var atualizarCanvas = function() {	
 		//limpa toda a tela.
@@ -362,7 +362,7 @@ function MapaDesenhoServico(_canvas){
 		self.context.clearRect(0, 0, self.canvas.width, self.canvas.height);
 		self.context.restore();
 		/*
-		 * Como a imagem j� foi carregada posteriormente, aqui
+		 * Como a imagem jï¿½ foi carregada posteriormente, aqui
 		 * apenas percorre a lista redesenhando estes itens.
 		 * Assim ganha-se muito em desempenho.
 		 */
@@ -409,7 +409,7 @@ function MapaDesenhoServico(_canvas){
 	 * Identifica um elemento no mapa de acordo
 	 * com as coordenadas passadas.
 	 * @param posicao
-	 * Um objeto an�nimo com caracter�sticas x e y.
+	 * Um objeto anï¿½nimo com caracterï¿½sticas x e y.
 	 * Exemplo: posicao = {x:50, y:100}
 	 */
 	var findItemByPosition = function(posicao){		
@@ -420,7 +420,7 @@ function MapaDesenhoServico(_canvas){
 			if(self.listaItens[i] != null){
 				if(posicao.x >= self.listaItens[i].posx && posicao.x <= self.listaItens[i].getPosX2() && 
 				   posicao.y >= self.listaItens[i].posy && posicao.y <= self.listaItens[i].getPosY2()){					
-					//o retorno � um objeto an�nimo com a posi��o do objeto na lista e o objeto em si.
+					//o retorno ï¿½ um objeto anï¿½nimo com a posiï¿½ï¿½o do objeto na lista e o objeto em si.
 					itemRetorno = self.listaItens[i];
 					break;
 				}			
@@ -443,7 +443,7 @@ function MapaDesenhoServico(_canvas){
 	};
 
 	/**
-	 * Desenha a linha com base nas configura��es do enum TipoLinha.
+	 * Desenha a linha com base nas configuraï¿½ï¿½es do enum TipoLinha.
 	 * @param pai
 	 * @param filho
 	 * @returns
@@ -577,7 +577,7 @@ function MapaDesenhoServico(_canvas){
 	}
 	
 	/**
-	 * Retorna a posi��o do cursor relativa ao canvas.
+	 * Retorna a posiï¿½ï¿½o do cursor relativa ao canvas.
 	 * @param evt
 	 * Evento de mouse.
 	 */
@@ -678,7 +678,7 @@ function ImagemItemConfiguracao(_context, _caminho){
 	 */
 	this.carregaDesenhaImagem = function() {
 		this.imageObj = new Image();
-		//ao carregar, torna vis�vel
+		//ao carregar, torna visï¿½vel
 		this.imageObj.onload = function() {
 			self.desenhaImagemJaCarregada();
 			self.width = self.imageObj.width;
@@ -689,7 +689,7 @@ function ImagemItemConfiguracao(_context, _caminho){
 	};
 	
 	/**
-	 * Apenas para tornar a imagem vis�veis ap�s o carregamento. 
+	 * Apenas para tornar a imagem visï¿½veis apï¿½s o carregamento. 
 	 */
 	this.desenhaImagemJaCarregada = function() {
 		if (this.height != null && this.width != null) {
@@ -701,7 +701,7 @@ function ImagemItemConfiguracao(_context, _caminho){
 };
 var UtilMapa = {		
 		/**
-		 * Elimina espa�os em branco em qualquer lugar da string
+		 * Elimina espaï¿½os em branco em qualquer lugar da string
 		 * @param str
 		 * String a ser modificada.
 		 */
@@ -716,11 +716,11 @@ var UtilMapa = {
 		 * Mostra uma mensagem definida em um componente definido por um tempo
 		 * definido.
 		 * @param componenteId
-		 * Id do componente onde a mensagem ser� colocada.
+		 * Id do componente onde a mensagem serï¿½ colocada.
 		 * @param segundos
-		 * Tempo em segundos que a mensagem ficar� na tela.
+		 * Tempo em segundos que a mensagem ficarï¿½ na tela.
 		 * @param texto
-		 * Texto que dever� aparecer no componente pelo tempo determinado.
+		 * Texto que deverï¿½ aparecer no componente pelo tempo determinado.
 		 */
 		mostrarMsgTemporaria : function(componenteId, segundos, texto){
 			var t;

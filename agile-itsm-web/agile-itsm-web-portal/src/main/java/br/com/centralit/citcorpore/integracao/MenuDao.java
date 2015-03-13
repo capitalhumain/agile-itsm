@@ -105,10 +105,10 @@ public class MenuDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Lista os menus por perfil de acesso Metodo reutiliz·vel
+     * Lista os menus por perfil de acesso Metodo reutiliz√°vel
      * Otimizado para utilizar comparador de igualdade.
      * @author thyen.chang
-     * @since 23/01/2015 OperaÁ„o Usain Bolt
+     * @since 23/01/2015 Opera√ß√£o Usain Bolt
      */
     public Collection<MenuDTO> listaMenus(UsuarioDTO usuario, Integer idMenuPai, boolean menuRapido) throws PersistenceException {
         if (usuario == null) {
@@ -462,7 +462,7 @@ public class MenuDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * MÈtodo para verificar se caso exista um menu com o mesmo nome
+     * M√©todo para verificar se caso exista um menu com o mesmo nome
      *
      * @author rodrigo.oliveira
      * @param menuDTO
@@ -559,10 +559,10 @@ public class MenuDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * MÈtodo para retornar um mapa com todos os menus que o usu·rio pode acessar
+     * M√©todo para retornar um mapa com todos os menus que o usu√°rio pode acessar
      * Mapa<idMenuPai, List<MenusFilhos>
      * @author thyen.chang
-     * @since 26/01/2015 - OPERA«√O USAIN BOLT
+     * @since 26/01/2015 - OPERA√á√ÉO USAIN BOLT
      * @param usuario
      * @return
      * @throws PersistenceException
@@ -657,9 +657,9 @@ public class MenuDao extends CrudDaoDefaultImpl {
     }
     
     /**
-     * MÈtodo para converter uma lista com menus para um Mapa<idMenuPai, List<MenusFilhos> >
+     * M√©todo para converter uma lista com menus para um Mapa<idMenuPai, List<MenusFilhos> >
      * @author thyen.chang
-     * @since 26/01/2015 - OPERA«√O USAIN BOLT
+     * @since 26/01/2015 - OPERA√á√ÉO USAIN BOLT
      * @param listaMenus
      * @return
      */

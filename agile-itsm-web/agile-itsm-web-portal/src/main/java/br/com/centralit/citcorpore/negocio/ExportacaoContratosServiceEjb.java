@@ -95,7 +95,7 @@ public class ExportacaoContratosServiceEjb extends CrudServiceImpl implements Ex
         boolean exists;
 
         if (xml != null && !xml.equals("")) {
-            xml = "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n<tables origem='0'>\n" + xml + "\n</tables>";
+            xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<tables origem='0'>\n" + xml + "\n</tables>";
 
             final Collection colRecords = UtilImportData.readXMLSource(xml);
             if (colRecords != null) {
@@ -148,7 +148,7 @@ public class ExportacaoContratosServiceEjb extends CrudServiceImpl implements Ex
             final HashMap<String, String> mapSql = new HashMap<String, String>();
             mapSql.put("idempresa", " IDEMPRESA = 1 ");
 
-            // Inicia a string que receber· o xml final.
+            // Inicia a string que receber√° o xml final.
             final StringBuilder contentXml = new StringBuilder();
 
             if (idGrupos != null) {
@@ -438,7 +438,7 @@ public class ExportacaoContratosServiceEjb extends CrudServiceImpl implements Ex
             }
 
             // Adiciona o topo do xml final.
-            contentXml.append("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n");
+            contentXml.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
             if (idContrato != null) {
                 contentXml.append("<tables origem='0' filter='" + idContrato + "'>\n");
             } else {
@@ -528,7 +528,7 @@ public class ExportacaoContratosServiceEjb extends CrudServiceImpl implements Ex
                 contentXml.append(xmlTabelas.get("slarequisitosla"));
             }
 
-            // Adiciona o rodapÈ do xml final.
+            // Adiciona o rodap√© do xml final.
             contentXml.append("\n</tables>");
 
             return StringEscapeUtils.escapeHtml(contentXml.toString());

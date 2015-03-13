@@ -47,8 +47,8 @@ public class Comentarios extends AjaxFormAction {
 			comentariosDto.setIdBaseConhecimento(idBaseConhecimento);
 			comentariosService.create(comentariosDto);
 			
-			//Atualizando Ìndice Lucene
-			// AvaliaÁ„o - MÈdia da nota dada pelos usu·rios
+			//Atualizando √≠ndice Lucene
+			// Avalia√ß√£o - M√©dia da nota dada pelos usu√°rios
 			BaseConhecimentoService baseConhecimentoService = (BaseConhecimentoService) ServiceLocator.getInstance().getService(BaseConhecimentoService.class, null);
 			BaseConhecimentoDTO baseConhecimentoDto = new BaseConhecimentoDTO();
 			baseConhecimentoDto.setIdBaseConhecimento(idBaseConhecimento);
@@ -91,6 +91,6 @@ public class Comentarios extends AjaxFormAction {
 			 *  05/03/2014 */	
 			/* atualiza a quantidade de comentarios.*/
 		 Integer idBaseConhecimento = (Integer)request.getSession().getAttribute("idBaseConhecimento");	 
-		 document.executeScript("comentariosAbertosPorBaseConhecimnto(" + idBaseConhecimento + ");");//Chamada da funÁ„o que esta dentro de baseConhecimentoView.jsp 		 
+		 document.executeScript("comentariosAbertosPorBaseConhecimnto(" + idBaseConhecimento + ");");//Chamada da fun√ß√£o que esta dentro de baseConhecimentoView.jsp 		 
     }
 }

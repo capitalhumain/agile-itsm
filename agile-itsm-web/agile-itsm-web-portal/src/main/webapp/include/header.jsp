@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.citframework.util.UtilStrings"%>
 <%@page import="br.com.centralit.citcorpore.util.Enumerados.ParametroSistema"%>
 <%@page import="br.com.centralit.citcorpore.util.ParametroUtil"%>
@@ -7,19 +9,19 @@
 <c:set var="locale" value="${fn.toLowerCase(sessionScope.locale)}" scope="request" />
 
 <c:if test="${empty locale}">
-	<c:set var="locale" value="pt" scope="request" />
+    <c:set var="locale" value="pt" scope="request" />
 </c:if>
 
 <c:set var="waitingWindowMessage">
-	<fmt:message key="citcorpore.comum.aguardeProcessando" />
+    <fmt:message key="citcorpore.comum.aguardeProcessando" />
 </c:set>
 
 <script type="text/javascript">
-	var URL_INITIAL = "${ctx}/";
-	var URL_SISTEMA = "${ctx}/";
-	var LOCALE_SISTEMA = "${locale}";
-	var ctx ="${ctx}";
-	var locale = "${locale}";
+    var URL_INITIAL = "${ctx}/";
+    var URL_SISTEMA = "${ctx}/";
+    var LOCALE_SISTEMA = "${locale}";
+    var ctx ="${ctx}";
+    var locale = "${locale}";
 </script>
 
 
@@ -77,39 +79,39 @@
 <script type="text/javascript" src="${ctx}/template_new/js/jQueryGantt/js/jquery.fn.gantt.js"></script>
 <script type="text/javascript" src="${ctx}/template_new/js/jquery/jquery.maskedinput.js"></script>
 
-<script type="text/javascript" src="${ctx}/js/i18n/messages_${locale}.js" charset="UTF-8"></script>
+<script type="text/javascript" src="${ctx}/js/i18n/messages_${locale}.js"></script>
 <script type="text/javascript" src="${ctx}/js/funcoesDeUsoComum.js"></script>
 
-<!-- Datepicker + InternacionalizaÁ„o + InicializaÁ„o -->
+<!-- Datepicker + Internacionaliza√ß√£o + Inicializa√ß√£o -->
 <script type="text/javascript" src="${ctx}/js/jquery.ui.datepicker.js"></script>
 <script type="text/javascript" src="${ctx}/js/jquery.ui.datepicker-locale.js"></script>
 <script type="text/javascript" src="${ctx}/js/jquery.ui.datepicker-init.js"></script>
 
 <script type="text/javascript">
 $('.openHistorico').click(function(e){
-	$('#produto').css('margin-top','20px');
-	$('#historico').show();
+    $('#produto').css('margin-top','20px');
+    $('#historico').show();
 });
 
 function buscaHistoricoPorVersao() {
-	document.formSobre.fireEvent("buscaHistoricoPorVersao");
+    document.formSobre.fireEvent("buscaHistoricoPorVersao");
 }
 
 (function(){
-	/*
-	 * Rodrigo Pecci Acorse - 02/12/2013 09h00 - #125898
-	 * Adiciona uma mensagem informando que o editor de texto n„o pode ser renderizado se o usu·rio estiver utilizando Internet Explorer.
-	 */
-	if ( typeof oFCKeditor !== 'undefined' && !oFCKeditor._IsCompatibleBrowser() ) {
-		var instance = oFCKeditor.InstanceName;
-		$('#' + instance).after('<div style="padding:5px;background-color:#EEDD82;">' + i18n_message("citcorpore.comum.editorNaoRenderizado") + '</div>');
-	}
+    /*
+     * Rodrigo Pecci Acorse - 02/12/2013 09h00 - #125898
+     * Adiciona uma mensagem informando que o editor de texto n√£o pode ser renderizado se o usu√°rio estiver utilizando Internet Explorer.
+     */
+    if ( typeof oFCKeditor !== 'undefined' && !oFCKeditor._IsCompatibleBrowser() ) {
+        var instance = oFCKeditor.InstanceName;
+        $('#' + instance).after('<div style="padding:5px;background-color:#EEDD82;">' + i18n_message("citcorpore.comum.editorNaoRenderizado") + '</div>');
+    }
 })();
 </script>
 
 <%
 if(request.getSession(true).getAttribute("permissaoBotao") != null) {
-	out.print(request.getSession(true).getAttribute("permissaoBotao").toString());
+    out.print(request.getSession(true).getAttribute("permissaoBotao").toString());
 }
 %>
 

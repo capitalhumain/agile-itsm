@@ -1,7 +1,7 @@
 <table width='100%' cellspacing="0" cellpadding="0">
 	<tr>
 		<td style='text-align:center; font-family: arial; font-size: 11px;'>
-<b>MINISTÉRIO DA INTEGRAÇÃO NACIONAL</b>
+<b>MINISTÃ‰RIO DA INTEGRAÃ‡ÃƒO NACIONAL</b>
 		</td>
 	</tr>		
 	<tr>	
@@ -11,25 +11,25 @@ Secretaria-Executiva
 	</tr>		
 	<tr>	
 		<td style='text-align:center; font-family: arial; font-size: 11px;'>		
-Coordenação-Geral de Tecnologia da Informação
+CoordenaÃ§Ã£o-Geral de Tecnologia da InformaÃ§Ã£o
 		</td>
 	</tr>		
 	<tr>	
 		<td style='text-align:center; font-family: arial; font-size: 11px;'>		
-<b>ORDEM DE SERVIÇO</b>
+<b>ORDEM DE SERVIÃ‡O</b>
 		</td>
 	</tr>
 </table>
 <table width='100%' cellspacing="0" cellpadding="0">
 	<tr>
-		<td colspan='8' style='border:1px solid black; background-color:#F0F0F0; font-family: arial; font-size: 11px;'>IDENTIFICAÇÃO</td>
+		<td colspan='8' style='border:1px solid black; background-color:#F0F0F0; font-family: arial; font-size: 11px;'>IDENTIFICAÃ‡ÃƒO</td>
 	</tr>
 	<tr>
-		<td style='border:1px solid black; background-color:#CCFFFF; font-family: arial; font-size: 11px;'>OS nº:</td>
+		<td style='border:1px solid black; background-color:#CCFFFF; font-family: arial; font-size: 11px;'>OS nÂº:</td>
 		<td style='border:1px solid black; font-family: arial; font-size: 11px;'>${projectDTO.numeroStr}</td>
 		<td style='border:1px solid black; background-color:#CCFFFF; font-family: arial; font-size: 11px;'>Requisitante:</td>
 		<td colspan='2' style='border:1px solid black; font-family: arial; font-size: 11px;'>${projectDTO.nomeAreaRequisitante}</td>
-		<td style='border:1px solid black; background-color:#CCFFFF; font-family: arial; font-size: 11px;'>Data de Emissão:</td>
+		<td style='border:1px solid black; background-color:#CCFFFF; font-family: arial; font-size: 11px;'>Data de EmissÃ£o:</td>
 		<td style='border:1px solid black; font-family: arial; font-size: 11px;'>${projectDTO.dataEmissaoStr}</td>
 	</tr>	
 	<tr>

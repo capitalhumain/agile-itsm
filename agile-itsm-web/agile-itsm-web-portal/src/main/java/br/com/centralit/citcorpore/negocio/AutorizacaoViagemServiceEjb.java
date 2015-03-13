@@ -118,7 +118,7 @@ public class AutorizacaoViagemServiceEjb extends ComplemInfSolicitacaoServicoSer
                 }
 
                 if (result) {
-                    throw new LogicException("Usu·rio sem permiss„o para AutorizaÁ„o!");
+                    throw new LogicException("Usu√°rio sem permiss√£o para Autoriza√ß√£o!");
                 }
             }
 
@@ -175,7 +175,7 @@ public class AutorizacaoViagemServiceEjb extends ComplemInfSolicitacaoServicoSer
     }
 
     /**
-     * Verifica se o autorizador realmente autorizou a solicitaÁ„o de viagem clicando no checkbox de autorizaÁ„o
+     * Verifica se o autorizador realmente autorizou a solicita√ß√£o de viagem clicando no checkbox de autoriza√ß√£o
      *
      * @param solicitacaoServicoDto
      * @param model
@@ -235,7 +235,7 @@ public class AutorizacaoViagemServiceEjb extends ComplemInfSolicitacaoServicoSer
             result = "Solicitante: " + solicitacaoDto.getSolicitante() + "\n";
         }
 
-        result += "\n" + "DescriÁ„o: " + solicitacaoDto.getDescricaoSemFormatacao() + "\n";
+        result += "\n" + "Descri√ß√£o: " + solicitacaoDto.getDescricaoSemFormatacao() + "\n";
 
         result += "\n" + "Motivo: " + requisicaoViagemDto.getDescricaoMotivo() + "\n";
 
@@ -262,7 +262,7 @@ public class AutorizacaoViagemServiceEjb extends ComplemInfSolicitacaoServicoSer
         }
 
         result += "\n" + "Valor total a aprovar: R$ " + decimal.format(despesaViagemService.buscaValorTotalViagemAtivo(solicitacaoDto.getIdSolicitacaoServico()));
-        result += "\n" + "Valor total j· aprovado: R$ " + decimal.format(despesaViagemService.buscaValorTotalViagemInativo(solicitacaoDto.getIdSolicitacaoServico()));
+        result += "\n" + "Valor total j√° aprovado: R$ " + decimal.format(despesaViagemService.buscaValorTotalViagemInativo(solicitacaoDto.getIdSolicitacaoServico()));
         result += "\n" + this.i18nMessage("requisicaoViagem.custoTotalViagem") + ": R$ "
                 + decimal.format(despesaViagemService.buscarDespesaTotalViagem(solicitacaoDto.getIdSolicitacaoServico()));
 
@@ -304,7 +304,7 @@ public class AutorizacaoViagemServiceEjb extends ComplemInfSolicitacaoServicoSer
     }
 
     /**
-     * Verifica se os itens est„o com a cotaÁ„o vencida
+     * Verifica se os itens est√£o com a cota√ß√£o vencida
      *
      * @param solicitacaoDto
      * @param model

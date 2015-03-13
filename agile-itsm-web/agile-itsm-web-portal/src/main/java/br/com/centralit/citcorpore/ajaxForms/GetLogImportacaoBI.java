@@ -34,18 +34,18 @@ public class GetLogImportacaoBI extends AjaxFormAction {
 			byte[] buffer;
 			String log = "";
 			
-			log += "CONEX√O : \n";
+			log += "CONEX√ÉO : \n";
 			log += "ID : " + logImportacaoDto.getIdConexaoBI() + "\n";
 			log += "NOME : " + conexaoBIDTO.getNome() + "\n";
 			log += "LINK : " + conexaoBIDTO.getLink() + "\n";
-			log += "USU¡RIO : " + conexaoBIDTO.getLogin() + "\n";
+			log += "USU√ÅRIO : " + conexaoBIDTO.getLogin() + "\n";
 			
 			log += "\nLOG : \n";
 			log += "ID : " + logImportacaoDto.getIdLogImportacao() + "\n";
 			log += "DATA DE INICIO : " + UtilDatas.dateToSTRWithFormat(logImportacaoDto.getDataHoraInicio(), "dd/MM/yyyy HH:mm:ss.SSS") + "\n";
-			log += "DATA DE T…RMINO : " + UtilDatas.dateToSTRWithFormat(logImportacaoDto.getDataHoraFim(), "dd/MM/yyyy HH:mm:ss.SSS") + "\n";
+			log += "DATA DE T√âRMINO : " + UtilDatas.dateToSTRWithFormat(logImportacaoDto.getDataHoraFim(), "dd/MM/yyyy HH:mm:ss.SSS") + "\n";
 			log += "STATUS : " + (logImportacaoDto.getStatus().equalsIgnoreCase("F") ? "Falha" : "Sucesso") + "\n";
-			log += "TIPO : " + (logImportacaoDto.getTipo().equalsIgnoreCase("A") ? "Autom·tico" : "Manual") + "\n";
+			log += "TIPO : " + (logImportacaoDto.getTipo().equalsIgnoreCase("A") ? "Autom√°tico" : "Manual") + "\n";
 			log += "DETALHAMENTO : \n" + logImportacaoDto.getDetalhamento() + "\n";
 			
 			buffer = log.getBytes();

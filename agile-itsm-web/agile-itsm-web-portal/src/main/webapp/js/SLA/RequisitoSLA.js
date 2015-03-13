@@ -1,4 +1,4 @@
-/* Início do código de Requisito SLA */
+/* InÃ­cio do cÃ³digo de Requisito SLA */
 		
 	var count4 = 0;
 		

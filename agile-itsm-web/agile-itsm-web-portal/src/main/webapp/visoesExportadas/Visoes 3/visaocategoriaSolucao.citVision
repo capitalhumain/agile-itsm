@@ -125,12 +125,12 @@ var categoriaSolucaoServiceEjb = new importCategoriaSolucao.CategoriaSolucaoServ
 var descricaoValida = categoriaSolucaoServiceEjb.verificaDescricaoDuplicadaCategoriaAoAtualizar(mapFields);
  if(descricaoValida==&quot;0&quot;){
    dinamicViewDto.abortFuncaoPrincipal = true;
-   dinamicViewDto.msgRetorno = &quot;DescriÁ„o j· existe&quot;;
+   dinamicViewDto.msgRetorno = &quot;Descri√ß√£o j√° existe&quot;;
  }
 
 if(idPai != &quot;&quot;){
   if(id == idPai){
-      dinamicViewDto.setMsgRetorno(&quot;Categoria SoluÁ„o Pai È o mesmo que o atual. Favor, selecionar outra para prosseguir.&quot;);
+      dinamicViewDto.setMsgRetorno(&quot;Categoria Solu√ß√£o Pai √© o mesmo que o atual. Favor, selecionar outra para prosseguir.&quot;);
       dinamicViewDto.abortFuncaoPrincipal = true;
    }
 }</script>
@@ -151,12 +151,12 @@ var categoriaSolucaoServiceEjb = new importCategoriaSolucao.CategoriaSolucaoServ
 var descricaoValida = categoriaSolucaoServiceEjb.verificaDescricaoDuplicadaCategoriaAoCriar(mapFields);
  if(descricaoValida==&quot;0&quot;){
    dinamicViewDto.abortFuncaoPrincipal = true;
-   dinamicViewDto.msgRetorno = &quot;DescriÁ„o j· existe&quot;;
+   dinamicViewDto.msgRetorno = &quot;Descri√ß√£o j√° existe&quot;;
  }
 
 if(idPai != &quot;&quot;){
   if(id == idPai){
-      dinamicViewDto.setMsgRetorno(&quot;Categoria SoluÁ„o Pai È o mesmo que o atual. Favor, selecionar outra para prosseguir.&quot;);
+      dinamicViewDto.setMsgRetorno(&quot;Categoria Solu√ß√£o Pai √© o mesmo que o atual. Favor, selecionar outra para prosseguir.&quot;);
       dinamicViewDto.abortFuncaoPrincipal = true;
    }
 }</script>

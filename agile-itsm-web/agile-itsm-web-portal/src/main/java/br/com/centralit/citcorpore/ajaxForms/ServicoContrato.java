@@ -104,7 +104,7 @@ public class ServicoContrato extends AjaxFormAction {
 					tipoFluxoDTO.setIdTipoFluxo(fluxoServicoDTO.getIdTipoFluxo());
 					tipoFluxoDTO = (TipoFluxoDTO) tipoFluxoService.restore(tipoFluxoDTO);
 					
-					/* Desenvolvedor: Euler.Ramos Data: 11/11/2013 Hor·rio: 10h18min ID Citsmart: 123627 Motivo/Coment·rio: Evitar null pointer!*/
+					/* Desenvolvedor: Euler.Ramos Data: 11/11/2013 Hor√°rio: 10h18min ID Citsmart: 123627 Motivo/Coment√°rio: Evitar null pointer!*/
 					String nomeFase;
 					if ((faseServicoDTO!=null)&&(faseServicoDTO.getNomeFase()!=null)) {
 						nomeFase = faseServicoDTO.getNomeFase();

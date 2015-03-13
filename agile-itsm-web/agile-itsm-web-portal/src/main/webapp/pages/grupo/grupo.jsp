@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.bpm.dto.TipoFluxoDTO"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.ArrayList"%>
@@ -19,11 +21,10 @@
 %>
 <%@include file="/include/header.jsp"%>
 
-<%@include file="/include/security/security.jsp"%>
-<title><fmt:message key="citcorpore.comum.title" /></title>
+<%@include file="/novoLayout/common/include/titulo.jsp" %>
 
 <%@include  file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
-<script charset="ISO-8859-1"  type="text/javascript" src="${ctx}/js/PopupManager.js"></script>
+<script charset="UTF-8"  type="text/javascript" src="${ctx}/js/PopupManager.js"></script>
 
 <script type="text/javascript" src="../../cit/objects/GrupoEmpregadoDTO.js"></script>
 
@@ -229,8 +230,8 @@
                                         </div>
 
                                 </div>
-                                <!-- 	Desenvolvedor: Pedro Lino - Data: 28/10/2013 - Horário: 19:45 - ID Citsmart: 120948 -
-                                * Motivo/Comentário: Alterado largura das colunas das tables e inserido class no padrao novo  -->
+                                <!-- 	Desenvolvedor: Pedro Lino - Data: 28/10/2013 - HorÃ¡rio: 19:45 - ID Citsmart: 120948 -
+                                * Motivo/ComentÃ¡rio: Alterado largura das colunas das tables e inserido class no padrao novo  -->
                                 <div  class="columns clearfix">
                                     <div class="col_100">
                                         <div id="">

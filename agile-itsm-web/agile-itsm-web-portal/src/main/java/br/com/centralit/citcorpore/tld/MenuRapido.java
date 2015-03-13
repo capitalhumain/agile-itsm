@@ -16,7 +16,7 @@ import br.com.citframework.service.ServiceLocator;
 import br.com.citframework.util.Constantes;
 import br.com.citframework.util.UtilI18N;
 /**
- * Layout do menu de acesso r·pido
+ * Layout do menu de acesso r√°pido
  * @author flavio.santana
  *@since 28/10/2013
  */

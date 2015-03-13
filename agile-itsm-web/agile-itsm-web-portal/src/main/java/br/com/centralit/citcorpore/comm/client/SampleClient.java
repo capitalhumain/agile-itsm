@@ -38,7 +38,7 @@ public class SampleClient {
             	String dadoRecebido = "";
             	for (Iterator<String> it = col.iterator(); it.hasNext();){
             		String msg = (String)it.next();
-            		//Imprime uma linha para a stream de saída de dados  
+            		//Imprime uma linha para a stream de saÃ­da de dados  
             		ps.println(msg);
             		
     				// Declaro o leitor para a entrada de dados
@@ -50,7 +50,7 @@ public class SampleClient {
     					entrada = new BufferedReader(new InputStreamReader(s.getInputStream()));
     				} catch (IOException e) {
     					System.out.println("Algum problema ocorreu para receber dados do socket.");
-    					System.out.println("Comunicação encerrada!");
+    					System.out.println("ComunicaÃ§Ã£o encerrada!");
     					e.printStackTrace();
     					break;
     				}  
@@ -72,11 +72,11 @@ public class SampleClient {
             	}
             }
             
-        //Trata possíveis exceções  
+        //Trata possÃ­veis exceÃ§Ãµes  
         }catch(IOException e){  
               
             System.out.println("Algum problema ocorreu ao criar ou enviar dados pelo socket.");  
-            System.out.println("Comunicação encerrada!");
+            System.out.println("ComunicaÃ§Ã£o encerrada!");
           
         }finally{  
               

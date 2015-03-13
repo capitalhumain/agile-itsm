@@ -41,22 +41,22 @@ public class TipoLiberacao extends AjaxFormAction {
 		document.focusInFirstActivateField(null);
 
 
-		// OpÁıes de Fluxo
+		// Op√ß√µes de Fluxo
 		this.preencherComboTipoFluxo(document, request, response);
 
-		// Email de CriaÁ„o
+		// Email de Cria√ß√£o
 		this.preencherComboEmailCriacao(document, request, response);
 
-		// Email de FinalizaÁ„o
+		// Email de Finaliza√ß√£o
 		this.preencherComboEmailFinalizacao(document, request, response);
 
-		// Email de AÁıes
+		// Email de A√ß√µes
 		this.preencherComboEmailAcoes(document, request, response);
 
 		// Grupo Executor
 		this.preencherComboGrupoExecutor(document, request, response);
 
-		// Grupo Calend·rio
+		// Grupo Calend√°rio
 		this.preencherComboCalendario(document, request, response);
 
 	}
@@ -72,16 +72,16 @@ public class TipoLiberacao extends AjaxFormAction {
 		TipoLiberacaoService tipoLiberacaoService = (TipoLiberacaoService) ServiceLocator.getInstance().getService(TipoLiberacaoService.class, WebUtil.getUsuarioSistema(request));
 
 		/*
-		 * if(tipoLiberacaoDTO.getNomeTipoLiberacao()==null || tipoLiberacaoDTO.getNomeTipoLiberacao().equals("")){ document.alert("Selecione uma opÁ„o de nome"); return; }
+		 * if(tipoLiberacaoDTO.getNomeTipoLiberacao()==null || tipoLiberacaoDTO.getNomeTipoLiberacao().equals("")){ document.alert("Selecione uma op√ß√£o de nome"); return; }
 		 */
-		// Se j· existir gravado no sistema o tipo selecionado mostrar· a mensagem de tipo j· cadastrado
+		// Se j√° existir gravado no sistema o tipo selecionado mostrar√° a mensagem de tipo j√° cadastrado
 		if (tipoLiberacaoService.verificarTipoLiberacaoAtivos(tipoLiberacaoDTO)) {
 			document.alert(UtilI18N.internacionaliza(request, "MSE01"));
 			return;
 		}
 
 		if (tipoLiberacaoDTO.getIdTipoLiberacao() == null || tipoLiberacaoDTO.getIdTipoLiberacao() == 0) {
-			// Insere a data atual no campo dataFim, ent„o o dado n„o È apagado, ele apenas È setado um fim,
+			// Insere a data atual no campo dataFim, ent√£o o dado n√£o √© apagado, ele apenas √© setado um fim,
 			// e os dados carregados devem ter datafim = null
 
 			tipoLiberacaoDTO.setDataInicio(UtilDatas.getDataAtual());
@@ -142,7 +142,7 @@ public class TipoLiberacao extends AjaxFormAction {
 	 * @author geber.costa
 	 */
 	public void preencherComboTipoFluxo(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// OpÁıes do Fluxo
+		// Op√ß√µes do Fluxo
 		TipoFluxoService tipoFluxoService = (TipoFluxoService) ServiceLocator.getInstance().getService(TipoFluxoService.class, null);
 		HTMLSelect comboFluxo = (HTMLSelect) document.getSelectById("idTipoFluxo");
 		ArrayList<TipoFluxoDTO> fluxo = (ArrayList) tipoFluxoService.list();
@@ -160,7 +160,7 @@ public class TipoLiberacao extends AjaxFormAction {
 	}
 
 	/**
-	 * preencher comobo email de criaÁ„o
+	 * preencher comobo email de cria√ß√£o
 	 *
 	 * @param document
 	 * @param request
@@ -185,7 +185,7 @@ public class TipoLiberacao extends AjaxFormAction {
 	}
 
 	/**
-	 * preencher comobo email de finalizaÁ„o
+	 * preencher comobo email de finaliza√ß√£o
 	 *
 	 * @param document
 	 * @param request

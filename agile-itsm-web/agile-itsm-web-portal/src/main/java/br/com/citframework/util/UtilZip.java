@@ -151,7 +151,7 @@ public class UtilZip {
 		         }
 		        
 	        }else{
-				throw new Exception(fileNameIn+" Não é um diretório");
+				throw new Exception(fileNameIn+" NÃ£o Ã© um diretÃ³rio");
 	        }     
 		} catch(Exception e) {
 		    throw new Exception(e.getMessage());

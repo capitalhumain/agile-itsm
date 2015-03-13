@@ -32,13 +32,13 @@ public class ThreadTrataComunicacao extends Thread {
     }
     
     public void run() {
-    	// Verifica a existÍncia do socket cliente
+    	// Verifica a exist√™ncia do socket cliente
     	if (getSocketClient() != null) {
     		// Repete indefinidamente
     		while (true) {
     			// a tentativa de
     			try {
-    				// verificar se o socket cliente n„o est· fechado e est· conectado
+    				// verificar se o socket cliente n√£o est√° fechado e est√° conectado
     				if ( !this.getSocketClient().isClosed() && this.getSocketClient().isConnected() ) {
     					BufferedReader entrada = null;
     					// Tenta
@@ -55,24 +55,24 @@ public class ThreadTrataComunicacao extends Thread {
     			} catch (IOException e) {
     				break;
     			}
-    			// verifica se È UMA REALIZA«√O DE INVENT¡RIO
+    			// verifica se √© UMA REALIZA√á√ÉO DE INVENT√ÅRIO
     			if (this.isInventory() ) {
     				// tenta
     				try {
-    					// criar um fluxo de dados (com os dados do fluxo de saÌda do socket cliente) direcionado para a saÌda padr„o
+    					// criar um fluxo de dados (com os dados do fluxo de sa√≠da do socket cliente) direcionado para a sa√≠da padr√£o
     					PrintStream ps = new PrintStream(getSocketClient().getOutputStream() );
-    					// cria uma referÍncia para o diretÛrio do usu·rio no sistema
+    					// cria uma refer√™ncia para o diret√≥rio do usu√°rio no sistema
     					File diretorio = new File(System.getProperty("user.dir") );
-    					// itera atravÈs da coleÁ„o de arquivos
+    					// itera atrav√©s da cole√ß√£o de arquivos
     					for (int i = 0; i < diretorio.listFiles().length; i++) {
-    						// e verifica se o arquivo atual n„o possui a extens„o .xml, .XML ou .ocs
+    						// e verifica se o arquivo atual n√£o possui a extens√£o .xml, .XML ou .ocs
     						if ( (!diretorio.listFiles()[i].getName().endsWith(".xml") ) && (!diretorio.listFiles()[i].getName().endsWith(".XML") )
     								&& (!diretorio.listFiles()[i].getName().endsWith(".ocs")))
-        						// se verdade vai para a prÛxima iteraÁ„o
+        						// se verdade vai para a pr√≥xima itera√ß√£o
     							continue;
-    						// sen„o obtÈm o caminho completo atÈ o arquivo no sistema de arquivos
+    						// sen√£o obt√©m o caminho completo at√© o arquivo no sistema de arquivos
     						File f = new File(diretorio.listFiles()[i].getAbsolutePath());
-    						// remove o arquivo (arquivo associado a um invent·rio anterior)
+    						// remove o arquivo (arquivo associado a um invent√°rio anterior)
     						f.delete();
     					}
     					// tenta
@@ -113,13 +113,13 @@ public class ThreadTrataComunicacao extends Thread {
     				}
     				break;
     			}
-    			// verifica se … UM EVENTO DE INSTALA«√O OU DESINSTALA«√O
+    			// verifica se √â UM EVENTO DE INSTALA√á√ÉO OU DESINSTALA√á√ÉO
     			if (this.isEvento() ) {
 				// tenta
     				try {
     					// executar o comando associado ao evento
     					Runtime.getRuntime().exec(this.getComandoEvento() );
-    					// Cria um fluxo de impress„o com o fluxo de saÌda do socket cliente
+    					// Cria um fluxo de impress√£o com o fluxo de sa√≠da do socket cliente
     					PrintStream ps = new PrintStream(getSocketClient().getOutputStream());
     					ps.println(true);
     				} catch (IOException e) {
@@ -172,8 +172,8 @@ public class ThreadTrataComunicacao extends Thread {
     				}
     				break;
     			}
-    			// LISTAR PROCESSOS DA M¡QUINA EM ATIVIDADE
-    			// LISTAR SERVI«OS DA M¡QUINA EM ATIVIDADE
+    			// LISTAR PROCESSOS DA M√ÅQUINA EM ATIVIDADE
+    			// LISTAR SERVI√áOS DA M√ÅQUINA EM ATIVIDADE
     		}
     	} else {
     		return;
@@ -181,7 +181,7 @@ public class ThreadTrataComunicacao extends Thread {
     }
 
     /**
-     * Analisa o Par‚metro recebido: INVENTORY, INSTALAR/DESINSTALAR, DESLIGAR, REINICIAR, HIBERNAR, COMANDO
+     * Analisa o Par√¢metro recebido: INVENTORY, INSTALAR/DESINSTALAR, DESLIGAR, REINICIAR, HIBERNAR, COMANDO
      * 
      * @param entrada
      * @throws IOException
@@ -230,7 +230,7 @@ public class ThreadTrataComunicacao extends Thread {
     	String retorno = "";
     	try {
     		FileInputStream arq = new FileInputStream(arquivo);
-    		BufferedReader br = new BufferedReader(new InputStreamReader(arq, "ISO-8859-1") );
+    		BufferedReader br = new BufferedReader(new InputStreamReader(arq, "UTF-8") );
     		while (br.ready() ) {
     			retorno = retorno + br.readLine() + "\n";
     		}

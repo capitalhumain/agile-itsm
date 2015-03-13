@@ -1,5 +1,5 @@
 /**
- * Utilit·rios para consumo da API de Geocoding do Google
+ * Utilit√°rios para consumo da API de Geocoding do Google
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 12/09/2014
@@ -23,10 +23,10 @@
 	}
 	
 	/**
-	 * Realiza a busca por coordenadas de acordo com um endereÁo informado
+	 * Realiza a busca por coordenadas de acordo com um endere√ßo informado
 	 * 
-	 * @param {address} endereÁo a ser consultado
-	 * @param {function} callback chamado ao tÈrmico da chamada e que recebe um objeto google.maps.LatLng
+	 * @param {address} endere√ßo a ser consultado
+	 * @param {function} callback chamado ao t√©rmico da chamada e que recebe um objeto google.maps.LatLng
 	 */
 	$.fn.performSearch = function(address, callback) {
 		$().populateProperties();
@@ -43,10 +43,10 @@
 	};
 
 	/**
-	 * Geocoding reverso: recupera o endereÁo a partir de uma posiÁ„o
+	 * Geocoding reverso: recupera o endere√ßo a partir de uma posi√ß√£o
 	 *
 	 * @param {Object} google.maps.LatLng
-	 * @param {function} callback chamado ao tÈrmico da chamada e que recebe uma string
+	 * @param {function} callback chamado ao t√©rmico da chamada e que recebe uma string
 	 */
 	$.fn.locationName = function(position, callback) {
 		var latlng = new google.maps.LatLng(position.lat(), position.lng());

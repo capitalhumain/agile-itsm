@@ -134,11 +134,11 @@ public class CargaSmartServiceEjb extends CrudServiceImpl implements CargaSmartS
                                             empregadoDTO.setTipo("C");
                                         } else if (coluna.equalsIgnoreCase("Empregado CLT")) {
                                             empregadoDTO.setTipo("E");
-                                        } else if (coluna.equalsIgnoreCase("Est·gio")) {
+                                        } else if (coluna.equalsIgnoreCase("Est√°gio")) {
                                             empregadoDTO.setTipo("T");
                                         } else if (coluna.equalsIgnoreCase("FreeLancer")) {
                                             empregadoDTO.setTipo("F");
-                                        } else if (coluna.equalsIgnoreCase("SÛcio")) {
+                                        } else if (coluna.equalsIgnoreCase("S√≥cio")) {
                                             empregadoDTO.setTipo("X");
                                         } else if (coluna.equalsIgnoreCase("Solicitante")) {
                                             empregadoDTO.setTipo("S");

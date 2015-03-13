@@ -60,10 +60,10 @@ public class Upload {
 		try {
 			/**
 			 * @author pedro.lino, Danilo.Lisboa
-			 * Necess·rio especificar o encoding, pois quando existe dois ou mais uploads na mesma tela estava vindo com caracteres especiais;
-			 * N√O RETIRAR O TRATAMENTO DE ENCODING.
+			 * Necess√°rio especificar o encoding, pois quando existe dois ou mais uploads na mesma tela estava vindo com caracteres especiais;
+			 * N√ÉO RETIRAR O TRATAMENTO DE ENCODING.
 			 * **/
-			fu.setHeaderEncoding("iso-8859-1");
+			fu.setHeaderEncoding("UTF-8");
 			fu.setSizeMax(-1);
 			
 			String DIRETORIO_TEMP_UPLOAD_ARQUIVOS = "";
@@ -80,7 +80,7 @@ public class Upload {
 			if (str == null || str.equalsIgnoreCase("")){
 				str = DIRETORIO_TEMP_UPLOAD_ARQUIVOS;
 			}
-			hshRetorno[0] = new HashMap();  //Retorna os campos de formul·rio
+			hshRetorno[0] = new HashMap();  //Retorna os campos de formul√°rio
 			hshRetorno[1] = new HashMap();  //Retorna os nomes de arquivos
 			
 			List fileItems = fu.parseRequest(request);

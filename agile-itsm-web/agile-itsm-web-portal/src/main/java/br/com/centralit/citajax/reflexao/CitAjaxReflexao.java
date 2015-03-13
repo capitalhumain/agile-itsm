@@ -202,7 +202,7 @@ public class CitAjaxReflexao {
     public static Object getPropertyValue(final Object obj, final String propName) throws Exception {
         final Method met = findMethod("get" + propName, obj);
         if (met == null) {
-            throw new Exception("Propriedade " + propName + " n„o encontrada na classe " + obj.getClass().getName());
+            throw new Exception("Propriedade " + propName + " n√£o encontrada na classe " + obj.getClass().getName());
         }
         return met.invoke(obj);
     }
@@ -261,7 +261,7 @@ public class CitAjaxReflexao {
                 if (valueOfCurrent == null) {
                     final Method setter = getSetter(bean, currentAttributeName);
                     if (setter == null) {
-                        throw new RuntimeException("N„o foi encontrado setter para o atributo '" + currentAttributeName + "' em '" + bean.getClass() + "'.");
+                        throw new RuntimeException("N√£o foi encontrado setter para o atributo '" + currentAttributeName + "' em '" + bean.getClass() + "'.");
                     }
                     final Class<?>[] params = setter.getParameterTypes();
                     if (params.length != 1) {

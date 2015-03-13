@@ -18,7 +18,8 @@ import br.com.citframework.util.Constantes;
  */
 @SuppressWarnings({"rawtypes","unchecked"})
 public class ParceiroDAO extends CrudDaoDefaultImpl{
-
+
+
 	
 	private static final String TABLE_NAME = "rh_parceiro";
 
@@ -65,7 +66,7 @@ public class ParceiroDAO extends CrudDaoDefaultImpl{
 		
 		String texto = Normalizer.normalize(razaoSocial, Normalizer.Form.NFD);
 		texto = texto.replaceAll("[^\\p{ASCII}]", "");
-		texto = texto.replaceAll("·‡„‚ÈÍÌÛÙı˙¸Á¡¿√¬… Õ”‘’⁄‹«¥`^''-+=", "aaaaeeiooouucAAAAEEIOOOUUC ");
+		texto = texto.replaceAll("√°√†√£√¢√©√™√≠√≥√¥√µ√∫√º√ß√Å√Ä√É√Ç√â√ä√ç√ì√î√ï√ö√ú√á¬¥`^''-+=", "aaaaeeiooouucAAAAEEIOOOUUC ");
 		texto = "%"+texto.toUpperCase()+"%";
 		
 		Object[] objs = new Object[] {texto};

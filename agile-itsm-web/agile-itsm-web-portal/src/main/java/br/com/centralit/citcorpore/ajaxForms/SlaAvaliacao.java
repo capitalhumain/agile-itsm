@@ -491,7 +491,7 @@ public class SlaAvaliacao extends AjaxFormAction {
 		ControleGenerateSLAPorAcordoNivelServicoByMesAno controleGenerateSLAPorAcordoNivelServicoByMesAno = new ControleGenerateSLAPorAcordoNivelServicoByMesAno();
 		int m = UtilDatas.getMonth(UtilDatas.getDataAtual());
 		int y = UtilDatas.getYear(UtilDatas.getDataAtual());
-		int mPesq = (m + 1); //Faz este incremento de 1, pois logo que entrar no laço, faz um -1
+		int mPesq = (m + 1); //Faz este incremento de 1, pois logo que entrar no laÃ§o, faz um -1
 		String strTable = "<table width='100%' border='1'>";
 		String strHeader = "";
 		String strDados = "";

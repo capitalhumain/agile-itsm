@@ -8,7 +8,7 @@ var cursoRF;
 var competenciaTecnica;
 var comportamento;
 
-/** InicializaÁ„o da tela **/
+/** Inicializa√ß√£o da tela **/
 $(document).ready(function() {
 	
 	completeDescricao = $('#descricaoPerspectivaComplexidade').autocomplete({ 
@@ -200,22 +200,22 @@ function adicionaCompetencia() {
 	switch(idAcesso)
 	{
 	case 1:
-		obj.nomeCompetenciaAcesso = "N„o tem conhecimento"
+		obj.nomeCompetenciaAcesso = "N√£o tem conhecimento"
 		break;
 	case 2:
 		obj.nomeCompetenciaAcesso = "Tem Conhecimento"
 		break;
 	case 3:
-		obj.nomeCompetenciaAcesso = "Tem Conhecimento e Pr·tica em Nivel B·sico"
+		obj.nomeCompetenciaAcesso = "Tem Conhecimento e Pr√°tica em Nivel B√°sico"
 		break;
 	case 4:
-		obj.nomeCompetenciaAcesso = "Tem Conhecimento e Pr·tica em Nivel Intermedi·rio"
+		obj.nomeCompetenciaAcesso = "Tem Conhecimento e Pr√°tica em Nivel Intermedi√°rio"
 		break;
 	case 5:
-		obj.nomeCompetenciaAcesso = "Tem Conhecimento e Pr·tica em Nivel AvanÁado"
+		obj.nomeCompetenciaAcesso = "Tem Conhecimento e Pr√°tica em Nivel Avan√ßado"
 		break;
 	case 6:
-		obj.nomeCompetenciaAcesso = "… multiplicador"
+		obj.nomeCompetenciaAcesso = "√â multiplicador"
 		break;
 	default:
 	}
@@ -224,22 +224,22 @@ function adicionaCompetencia() {
 	switch(idFuncao)
 	{
 	case 1:
-		obj.nomeCompetenciaFuncao = "N„o tem conhecimento"
+		obj.nomeCompetenciaFuncao = "N√£o tem conhecimento"
 		break;
 	case 2:
 		obj.nomeCompetenciaFuncao = "Tem Conhecimento"
 		break;
 	case 3:
-		obj.nomeCompetenciaFuncao = "Tem Conhecimento e Pr·tica em Nivel B·sico"
+		obj.nomeCompetenciaFuncao = "Tem Conhecimento e Pr√°tica em Nivel B√°sico"
 		break;
 	case 4:
-		obj.nomeCompetenciaFuncao = "Tem Conhecimento e Pr·tica em Nivel Intermedi·rio"
+		obj.nomeCompetenciaFuncao = "Tem Conhecimento e Pr√°tica em Nivel Intermedi√°rio"
 		break;
 	case 5:
-		obj.nomeCompetenciaFuncao = "Tem Conhecimento e Pr·tica em Nivel AvanÁado"
+		obj.nomeCompetenciaFuncao = "Tem Conhecimento e Pr√°tica em Nivel Avan√ßado"
 		break;
 	case 6:
-		obj.nomeCompetenciaFuncao = "… multiplicador"
+		obj.nomeCompetenciaFuncao = "√â multiplicador"
 		break;
 	default:
 	}

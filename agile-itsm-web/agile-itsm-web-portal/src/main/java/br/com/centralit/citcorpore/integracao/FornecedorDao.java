@@ -176,7 +176,7 @@ public class FornecedorDao extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Encontra o Fornecedor pela Raz„o Social
+	 * Encontra o Fornecedor pela Raz√£o Social
 	 * @author euler.ramos
 	 * @throws Exception 
 	 */
@@ -219,7 +219,7 @@ public class FornecedorDao extends CrudDaoDefaultImpl {
 		
 		String texto = Normalizer.normalize(razaoSocial, Normalizer.Form.NFD);
 		texto = texto.replaceAll("[^\\p{ASCII}]", "");
-		texto = texto.replaceAll("·‡„‚ÈÍÌÛÙı˙¸Á¡¿√¬… Õ”‘’⁄‹«¥`^''-+=", "aaaaeeiooouucAAAAEEIOOOUUC ");
+		texto = texto.replaceAll("√°√†√£√¢√©√™√≠√≥√¥√µ√∫√º√ß√Å√Ä√É√Ç√â√ä√ç√ì√î√ï√ö√ú√á¬¥`^''-+=", "aaaaeeiooouucAAAAEEIOOOUUC ");
 		texto = "%"+texto.toUpperCase()+"%";
 		
 		Object[] objs = new Object[] {texto};

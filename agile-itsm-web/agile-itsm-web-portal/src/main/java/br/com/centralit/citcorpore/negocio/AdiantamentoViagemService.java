@@ -5,7 +5,7 @@ import br.com.centralit.citcorpore.bean.AdiantamentoViagemDTO;
 public interface AdiantamentoViagemService extends ComplemInfSolicitacaoServicoService{
 	
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	public Integer recuperaIdAdiantamentoSeExistir(AdiantamentoViagemDTO adiantamentoViagemDto)throws Exception;
 	
@@ -21,12 +21,12 @@ public interface AdiantamentoViagemService extends ComplemInfSolicitacaoServicoS
 	public AdiantamentoViagemDTO consultarAdiantamentoViagem(Integer IdSolicitacaoServico, Integer idEmpregado) throws Exception;
 	
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	public AdiantamentoViagemDTO consultarAdiantamentoViagem(Integer IdSolicitacaoServico, String nomeNaoFunc) throws Exception;
 	
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	public AdiantamentoViagemDTO consultarAdiantamentoViagemByIdSolicitacao(Integer IdSolicitacaoServico) throws Exception;
 }

@@ -47,7 +47,7 @@ public class WebUtil {
                 usuario.setLocale((String) request.getSession().getAttribute("locale"));
             } else {
             	/**
-            	 * Se n„o tive uma lÌngua definida, seta como portuguÍs
+            	 * Se n√£o tive uma l√≠ngua definida, seta como portugu√™s
             	 * 
             	 * @author thyen.chang
             	 * @since 04/02/2015
@@ -177,7 +177,7 @@ public class WebUtil {
      * Valida se usuario esta ativo na sessao
      *
      * @param request
-     * @return true:usuario esta na sess„o || false:usuario n„o esta na sess„o
+     * @return true:usuario esta na sess√£o || false:usuario n√£o esta na sess√£o
      */
     public static Boolean usuarioEstaNaSessao(final HttpServletRequest request) {
         if (WebUtil.getUsuario(request) == null) {
@@ -187,12 +187,12 @@ public class WebUtil {
     }
 
     /**
-     * Valida se o usuario esta na sess„o, podendo direcionar o formulario para tela de login
+     * Valida se o usuario esta na sess√£o, podendo direcionar o formulario para tela de login
      *
      * @param request
      * @param document
-     * @return true: usuario est· na sessao ||
-     *         false: usuario n„o esta na sessao e a tela È redirecionada para a tela de login
+     * @return true: usuario est√° na sessao ||
+     *         false: usuario n√£o esta na sessao e a tela √© redirecionada para a tela de login
      */
     public static Boolean validarSeUsuarioEstaNaSessao(final HttpServletRequest request, final DocumentHTML document) {
         if (!usuarioEstaNaSessao(request)) {
@@ -221,9 +221,9 @@ public class WebUtil {
     }
 
     /**
-     * Retorna um n˙mero inteiro aleatÛrio. MÈtodo pode ser utilizado para a geraÁ„o do nome de relatÛrio.
+     * Retorna um n√∫mero inteiro aleat√≥rio. M√©todo pode ser utilizado para a gera√ß√£o do nome de relat√≥rio.
      *
-     * @return int - N˙mero aleatÛrio.
+     * @return int - N√∫mero aleat√≥rio.
      * @author valdoilo.damasceno
      */
     public static int getRandomNumber() {
@@ -232,10 +232,10 @@ public class WebUtil {
     }
 
     /**
-     * ObtÈm lista de PerfilAcessoMenu do menu que o usu·rio est· tentando acessar
+     * Obt√©m lista de PerfilAcessoMenu do menu que o usu√°rio est√° tentando acessar
      *
      * @author thyen.chang
-     * @since 28/01/2015 - OPERA«√O USAIN BOLT
+     * @since 28/01/2015 - OPERA√á√ÉO USAIN BOLT
      * @param request
      * @param usuario
      * @param idMenu

@@ -113,7 +113,7 @@ public class ServicoBIDao extends CrudDaoDefaultImpl {
 			String text = nome;
 			text = Normalizer.normalize(text, Normalizer.Form.NFD);
 			text = text.replaceAll("[^\\p{ASCII}]", "");
-			text = text.replaceAll("áàãâéêíóôõúüçÁÀÃÂÉÊÍÓÔÕÚÜÇ´`^''-+=", "aaaaeeiooouucAAAAEEIOOOUUC");
+			text = text.replaceAll("Ã¡Ã Ã£Ã¢Ã©ÃªÃ­Ã³Ã´ÃµÃºÃ¼Ã§ÃÃ€ÃƒÃ‚Ã‰ÃŠÃÃ“Ã”Ã•ÃšÃœÃ‡Â´`^''-+=", "aaaaeeiooouucAAAAEEIOOOUUC");
 			nome = text;
 			nome = "%" + nome.toUpperCase() + "%";
 			List resp = new ArrayList();

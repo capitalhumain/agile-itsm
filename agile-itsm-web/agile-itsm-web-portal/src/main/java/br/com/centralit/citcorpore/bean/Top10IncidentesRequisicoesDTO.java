@@ -4,7 +4,7 @@ import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * @author euler.ramos
- * Utilizado no relatório Top10 Incidentes Requisições, trará todas as informações requisitadas por este relatório e já totalizadas.
+ * Utilizado no relatÃ³rio Top10 Incidentes RequisiÃ§Ãµes, trarÃ¡ todas as informaÃ§Ãµes requisitadas por este relatÃ³rio e jÃ¡ totalizadas.
  */
 public class Top10IncidentesRequisicoesDTO extends BaseEntity {
 	

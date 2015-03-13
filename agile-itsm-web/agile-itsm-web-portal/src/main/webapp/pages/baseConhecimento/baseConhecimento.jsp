@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.citframework.util.UtilDatas"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
@@ -27,7 +29,7 @@
     <script type="text/javascript" src="${ctx}/js/UploadUtils.js"></script>
     <script type="text/javascript" src="${ctx}/fckeditor/fckeditor.js"></script>
 
-    <title><fmt:message key="citcorpore.comum.title"/></title>
+    <%@include file="/novoLayout/common/include/titulo.jsp" %>
     <%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 
     <link href='${ctx}/template_new/js/star-rating/jquery.rating.css' type="text/css" rel="stylesheet"/>
@@ -99,7 +101,7 @@
                                     <input type='hidden' id='ocultaJanelaAguarde' name='ocultaJanelaAguarde'/>
 
                                     <span id="idArquivado"><label style="font-weight: bold; color: red; padding-left: 20px; padding-right: 20px; border: 1px solid red;"><fmt:message key="baseconhecimento.arquivado"/></label></span>
-                                    <!-- Começo da div -->
+                                    <!-- ComeÃ§o da div -->
                                     <div class="columns clearfix">
                                         <div class="col_20">
                                             <fieldset id="idFaq">
@@ -353,7 +355,7 @@
                                         <fieldset>
                                             <h2><fmt:message key="citcorpore.comum.usuario" /></h2>
                                             <label id="addUsuario" style="cursor: pointer;">
-                                                <img title="Adicionar Usuário" src="${ctx}/imagens/adicionarUsuario.png" onclick="adicionarUsuario(false)">
+                                                <img title="Adicionar UsuÃ¡rio" src="${ctx}/imagens/adicionarUsuario.png" onclick="adicionarUsuario(false)">
                                             </label>
                                             <div id="gridUsuario">
                                                 <table class="table" id="tabelaUsuario"

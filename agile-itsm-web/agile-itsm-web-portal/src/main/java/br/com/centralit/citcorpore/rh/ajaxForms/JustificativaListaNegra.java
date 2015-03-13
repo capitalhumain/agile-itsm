@@ -28,7 +28,7 @@ public class JustificativaListaNegra extends AjaxFormAction {
 		WebUtil.validarSeUsuarioEstaNaSessao(request, document);
 		
 		if(!(isUserInGroup(request, "RH"))){
-			document.executeScript("alert('Voce n„o tem permiÁ„o para usar essa Funcionalidade. Apenas Participantes do Grupo RH');");
+			document.executeScript("alert('Voce n√£o tem permi√ß√£o para usar essa Funcionalidade. Apenas Participantes do Grupo RH');");
 			document.executeScript("window.location = '" + Constantes.getValue("SERVER_ADDRESS") + request.getContextPath() + "/pages/index/index.jsp'"); 
 			return; 
 		}

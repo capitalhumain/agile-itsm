@@ -89,7 +89,7 @@ public class RequisicaoViagem extends AjaxFormAction {
 	}
 
 	/**
-	 * Preenche a combo de 'Centro Resultado' do formul·rio HTML
+	 * Preenche a combo de 'Centro Resultado' do formul√°rio HTML
 	 * 
 	 * @param document
 	 * @param request
@@ -120,7 +120,7 @@ public class RequisicaoViagem extends AjaxFormAction {
 	}
 
 	/**
-	 * Preenche a combo de 'Projeto' do formul·rio HTML
+	 * Preenche a combo de 'Projeto' do formul√°rio HTML
 	 * 
 	 * @param document
 	 * @param request
@@ -173,7 +173,7 @@ public class RequisicaoViagem extends AjaxFormAction {
 	}
 
 	/**
-	 * Preenche combo de 'justificativa solicitaÁ„o'.
+	 * Preenche combo de 'justificativa solicita√ß√£o'.
 	 * 
 	 * @param document
 	 * @param request
@@ -196,7 +196,7 @@ public class RequisicaoViagem extends AjaxFormAction {
 	}
 
 	/**
-	 * Executa uma inicializaÁ„o padr„o para as combos. Basicamente deleta todas as opÁıes, caso haja, e insere aprimeira linha com o valor "-- Selecione --".
+	 * Executa uma inicializa√ß√£o padr√£o para as combos. Basicamente deleta todas as op√ß√µes, caso haja, e insere aprimeira linha com o valor "-- Selecione --".
 	 * 
 	 * @param componenteCombo
 	 * @param request
@@ -224,7 +224,7 @@ public class RequisicaoViagem extends AjaxFormAction {
 	}
 
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	public void informacoesItemControleFinanceiroPorIntegrateViagem(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws ServiceException, Exception {
 
@@ -245,7 +245,7 @@ public class RequisicaoViagem extends AjaxFormAction {
 	}
 
 	/**
-	 * Preenche combo de 'justificativa solicitaÁ„o ' para autozizaÁ„o.
+	 * Preenche combo de 'justificativa solicita√ß√£o ' para autoziza√ß√£o.
 	 * 
 	 * @param document
 	 * @param request
@@ -296,7 +296,7 @@ public class RequisicaoViagem extends AjaxFormAction {
 	}
 
 	/**
-	 * Verifica se o empregado esta no grupo que permite a atribuiÁ„o de contas a outro empregado, se sim, habilita a div com os campos para atribuiÁ„o, caso contrario esconde a div
+	 * Verifica se o empregado esta no grupo que permite a atribui√ß√£o de contas a outro empregado, se sim, habilita a div com os campos para atribui√ß√£o, caso contrario esconde a div
 	 * 
 	 * @param document
 	 * @param request
@@ -335,7 +335,7 @@ public class RequisicaoViagem extends AjaxFormAction {
 	}
 	
 	/**
-	 * Metodo cria noa funcionario na tabela de empregados caso n„o encontre uma referencia no autocomplete
+	 * Metodo cria noa funcionario na tabela de empregados caso n√£o encontre uma referencia no autocomplete
 	 * 
 	 * @param document
 	 * @param request
@@ -372,7 +372,7 @@ public class RequisicaoViagem extends AjaxFormAction {
 	}
 	
 	/**
-	 * Restaura as informaÁıes do n„o funcionario caso tenha informaÁıes
+	 * Restaura as informa√ß√µes do n√£o funcionario caso tenha informa√ß√µes
 	 * 
 	 * @param document
 	 * @param request

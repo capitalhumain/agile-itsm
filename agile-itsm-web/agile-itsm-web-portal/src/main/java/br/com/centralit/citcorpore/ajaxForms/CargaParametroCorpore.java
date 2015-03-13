@@ -27,7 +27,7 @@ public class CargaParametroCorpore extends AjaxFormAction {
     public void load(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
         UsuarioDTO usuario = WebUtil.getUsuario(request);
         if (usuario == null) {
-            document.alert("Sess„o expirada! Favor efetuar logon novamente!");
+            document.alert("Sess√£o expirada! Favor efetuar logon novamente!");
             document.executeScript("window.location = '" + Constantes.getValue("SERVER_ADDRESS")
                     + request.getContextPath() + "'");
             return;
@@ -59,7 +59,7 @@ public class CargaParametroCorpore extends AjaxFormAction {
 
                     String extensao = br.com.centralit.citcorpore.util.Util.getFileExtension(fi.getName());
                     if (!extensao.equalsIgnoreCase("csv")) {
-                        document.alert("Favor selecionar uma extens„o de aquivo v·lido: Exemplo: arquivo.csv!");
+                        document.alert("Favor selecionar uma extens√£o de aquivo v√°lido: Exemplo: arquivo.csv!");
                         document.executeScript("JANELA_AGUARDE_MENU.hide();");
                         return;
                     }
@@ -72,7 +72,7 @@ public class CargaParametroCorpore extends AjaxFormAction {
                         .getInstance().getService(CargaParametroCorporeService.class, null);
 
                 Thread.sleep(5000);
-                System.out.println("Vai carregar o arquivo de Par‚metros..." + CITCorporeUtil.CAMINHO_REAL_APP
+                System.out.println("Vai carregar o arquivo de Par√¢metros..." + CITCorporeUtil.CAMINHO_REAL_APP
                         + "tempFiles/" + fileName);
                 arquivo = new File(CITCorporeUtil.CAMINHO_REAL_APP + "tempFiles/" + fileName);
                 cargaParametroCorporeService.gerarCarga(arquivo, WebUtil.getIdEmpresa(request));

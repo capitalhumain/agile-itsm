@@ -24,7 +24,7 @@ import br.com.citframework.util.Constantes;
 import br.com.citframework.util.UtilStrings;
 
 /**
- * Precisei criar esta classe, para utilizar este código tanto na indexação Lucene como na tela Base de Conhecimento...
+ * Precisei criar esta classe, para utilizar este cÃ³digo tanto na indexaÃ§Ã£o Lucene como na tela Base de Conhecimento...
  * @author euler.ramos
  *
  */
@@ -436,7 +436,7 @@ public class Arquivo {
 				CriptoUtils.decryptFile(PRONTUARIO_GED_DIRETORIO + "/" + idEmpresa + "/" + pasta + "/" + controleGEDDTO.getIdControleGED() + ".ged", fileRec,
 										System.getProperties().get("user.dir") + Constantes.getValue("CAMINHO_CHAVE_PRIVADA"));
 			} else {
-		    	System.out.println("Arquivo : "+arquivo.getPath()+" Não Encontrado!");
+		    	System.out.println("Arquivo : "+arquivo.getPath()+" NÃ£o Encontrado!");
 		    }
 
 			return fileRec;

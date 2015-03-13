@@ -41,7 +41,7 @@ public class ClienteServiceEjb extends CrudServiceImpl implements ClienteService
     }
 
     /**
-     * Verifica se existe cliente vinculado à algum contrato.
+     * Verifica se existe cliente vinculado Ã  algum contrato.
      *
      * @param mapFields
      * @return

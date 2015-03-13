@@ -56,7 +56,7 @@ public final class CriptoUtils {
     }
 
     /**
-     * Realiza um digest em um array de bytes atravÈs do algoritmo especificado
+     * Realiza um digest em um array de bytes atrav√©s do algoritmo especificado
      * 
      * @param input
      *            - O array de bytes a ser criptografado
@@ -64,8 +64,8 @@ public final class CriptoUtils {
      *            - O algoritmo a ser utilizado
      * @return byte[] - O resultado da criptografia
      * @throws NoSuchAlgorithmException
-     *             - Caso o algoritmo fornecido n„o seja
-     *             v·lido
+     *             - Caso o algoritmo fornecido n√£o seja
+     *             v√°lido
      */
     public static byte[] digest(final byte[] input, final String algoritmo) throws NoSuchAlgorithmException {
         final MessageDigest md = MessageDigest.getInstance(algoritmo);
@@ -74,11 +74,11 @@ public final class CriptoUtils {
     }
 
     /**
-     * Converte o array de bytes em uma representaÁ„o hexadecimal.
+     * Converte o array de bytes em uma representa√ß√£o hexadecimal.
      * 
      * @param input
      *            - O array de bytes a ser convertido.
-     * @return Uma String com a representaÁ„o hexa do array
+     * @return Uma String com a representa√ß√£o hexa do array
      */
     public static String byteArrayToHexString(final byte[] b) {
         final StringBuilder buf = new StringBuilder();
@@ -99,14 +99,14 @@ public final class CriptoUtils {
      *            - A String hexa
      * @return O vetor de bytes
      * @throws IllegalArgumentException
-     *             - Caso a String n„o sej auma
-     *             representaÁ„o haxadecimal v·lida
+     *             - Caso a String n√£o sej auma
+     *             representa√ß√£o haxadecimal v√°lida
      */
     public static byte[] hexStringToByteArray(final String hexa) throws IllegalArgumentException {
 
         // verifica se a String possui uma quantidade par de elementos
         if (hexa.length() % 2 != 0) {
-            throw new IllegalArgumentException("String hexa inv·lida");
+            throw new IllegalArgumentException("String hexa inv√°lida");
         }
 
         final byte[] b = new byte[hexa.length() / 2];

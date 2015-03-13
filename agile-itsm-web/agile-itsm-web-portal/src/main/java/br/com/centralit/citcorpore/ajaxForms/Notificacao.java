@@ -174,9 +174,9 @@ public class Notificacao extends AjaxFormAction {
 		HTMLSelect comboTipoNotificacao = (HTMLSelect) document.getSelectById("tipoNotificacao");
 		inicializaCombo(comboTipoNotificacao, request);
 		comboTipoNotificacao.addOption("T", "Tudo for alterado");
-		comboTipoNotificacao.addOption("C", "Novas nofiticações for adicionadas");
-		comboTipoNotificacao.addOption("A", "Notificações forem alteradas");
-		comboTipoNotificacao.addOption("E", "Notificações forem excluidas");
+		comboTipoNotificacao.addOption("C", "Novas nofiticaÃ§Ãµes for adicionadas");
+		comboTipoNotificacao.addOption("A", "NotificaÃ§Ãµes forem alteradas");
+		comboTipoNotificacao.addOption("E", "NotificaÃ§Ãµes forem excluidas");
 
 	}
 

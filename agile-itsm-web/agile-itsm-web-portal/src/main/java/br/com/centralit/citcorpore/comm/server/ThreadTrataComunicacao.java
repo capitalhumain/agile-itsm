@@ -19,8 +19,8 @@ public class ThreadTrataComunicacao extends Thread {
 	@Override
 	public void run() {
 		if (sockClient == null){
-			System.out.println("N„o h· nada pra fazer! ComunicaÁ„o fechada!");
-			System.out.println("ComunicaÁ„o encerrada!");
+			System.out.println("N√£o h√° nada pra fazer! Comunica√ß√£o fechada!");
+			System.out.println("Comunica√ß√£o encerrada!");
 			return;
 		}
 		
@@ -29,7 +29,7 @@ public class ThreadTrataComunicacao extends Thread {
 			// Aguarda por algum dado e imprime a linha recebida quando recebe
 			try {
 				if (sockClient == null || sockClient.isClosed() || !sockClient.isConnected()){
-					System.out.println("ComunicaÁ„o encerrada!");
+					System.out.println("Comunica√ß√£o encerrada!");
 					return;
 				}
 				
@@ -42,7 +42,7 @@ public class ThreadTrataComunicacao extends Thread {
 					entrada = new BufferedReader(new InputStreamReader(sockClient.getInputStream()));
 				} catch (IOException e) {
 					System.out.println("Algum problema ocorreu para receber dados do socket.");
-					System.out.println("ComunicaÁ„o encerrada!");
+					System.out.println("Comunica√ß√£o encerrada!");
 					e.printStackTrace();
 					break;
 				}
@@ -61,13 +61,13 @@ public class ThreadTrataComunicacao extends Thread {
 				}				
 			} catch (IOException e) {
 				System.out.println("Algum problema ocorreu na hora de imprimir os dados do socket.");
-				System.out.println("ComunicaÁ„o encerrada!");
+				System.out.println("Comunica√ß√£o encerrada!");
 				e.printStackTrace();
 				break;
 			}	
 			
 			if (dadoRecebido != null && dadoRecebido.equalsIgnoreCase("GET-INVENTORY")){
-				System.out.println("SolicitaÁ„o de inventario!");
+				System.out.println("Solicita√ß√£o de inventario!");
 				
 				try{
 					PrintStream ps = null;

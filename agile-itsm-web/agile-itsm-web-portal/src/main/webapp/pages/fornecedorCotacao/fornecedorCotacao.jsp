@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.citframework.dto.Usuario"%>
@@ -7,7 +9,7 @@
 <html>
 <head>
 <%
-			//identifica se a p·gina foi aberta a partir de um iframe (popup de cadastro r·pido)
+			//identifica se a p√°gina foi aberta a partir de um iframe (popup de cadastro r√°pido)
 			String iframe = "";
 			iframe = request.getParameter("iframe");
 
@@ -16,9 +18,8 @@
 %>
 <%@include file="/include/header.jsp"%>
 
-<%@include file="/include/security/security.jsp"%>
 
-<title><fmt:message key="citcorpore.comum.title" /></title>
+<%@include file="/novoLayout/common/include/titulo.jsp" %>
 
 <%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 <script type="text/javascript" src="../../cit/objects/FornecedorDTO.js"></script>
@@ -78,7 +79,7 @@
     }
 
     function excluirFornecedor(indice) {
-        if (indice > 0 && confirm('Confirma a exclus„o')) {
+        if (indice > 0 && confirm('Confirma a exclus√£o')) {
             var obj = HTMLUtils.getObjectByTableIndex('tblFornecedoresCotacao', indice);
             document.form.idFornecedor.value = obj.idFornecedor;
             document.form.fireEvent('delete');

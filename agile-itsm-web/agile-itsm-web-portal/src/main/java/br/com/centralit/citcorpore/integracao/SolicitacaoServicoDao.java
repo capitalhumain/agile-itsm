@@ -70,7 +70,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Adicona o filtro de pesquisa de solicitaÁ„o a paginaÁ„o dos itens Precisa ser adicionado na lista de tarefas e na paginaÁ„o dos itens
+     * Adicona o filtro de pesquisa de solicita√ß√£o a pagina√ß√£o dos itens Precisa ser adicionado na lista de tarefas e na pagina√ß√£o dos itens
      *
      * @param sql
      * @param gerenciamentoBean
@@ -95,7 +95,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                 parametros.add(gerenciamentoBean.getIdContrato());
             }
             if (gerenciamentoBean.getIdGrupoAtual() != null && !gerenciamentoBean.getIdGrupoAtual().equals(new Integer(-1))) {
-                // Hack para itens sem atribuiÁ„o)
+                // Hack para itens sem atribui√ß√£o)
                 if (gerenciamentoBean.getIdGrupoAtual().equals(new Integer(0))) {
                     sql.append(" AND sol.idGrupoAtual is null ");
                 } else {
@@ -133,7 +133,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         try {
             this.execUpdate(sql.toString(), params);
         } catch (PersistenceException e) {
-            System.out.println("Problemas com atualizaÁ„o da solicitacaoServico.");
+            System.out.println("Problemas com atualiza√ß√£o da solicitacaoServico.");
             e.printStackTrace();
         }
     }
@@ -151,7 +151,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         try {
             this.execUpdate(sql.toString(), params);
         } catch (PersistenceException e) {
-            System.out.println("Problemas com atualizaÁ„o da tarefa de encerramento da solicitaÁ„o.");
+            System.out.println("Problemas com atualiza√ß√£o da tarefa de encerramento da solicita√ß√£o.");
             e.printStackTrace();
         }
     }
@@ -163,7 +163,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         try {
             this.execUpdate(sql.toString(), params);
         } catch (PersistenceException e) {
-            System.out.println("Problemas na aprovaÁ„o da solicitacao de serviÁo.");
+            System.out.println("Problemas na aprova√ß√£o da solicitacao de servi√ßo.");
             e.printStackTrace();
         }
     }
@@ -175,7 +175,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         try {
             this.execUpdate(sql.toString(), params);
         } catch (PersistenceException e) {
-            System.out.println("Problemas com atualizaÁ„o da solicitacaoServico.");
+            System.out.println("Problemas com atualiza√ß√£o da solicitacaoServico.");
             e.printStackTrace();
         }
     }
@@ -187,7 +187,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         try {
             this.execUpdate(sql.toString(), params);
         } catch (PersistenceException e) {
-            System.out.println("Problemas com atualizaÁ„o da solicitacaoServico.");
+            System.out.println("Problemas com atualiza√ß√£o da solicitacaoServico.");
             e.printStackTrace();
         }
     }
@@ -199,7 +199,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         try {
             this.execUpdate(sql.toString(), params);
         } catch (PersistenceException e) {
-            System.out.println("Problemas com atualizaÁ„o da solicitacaoServico.");
+            System.out.println("Problemas com atualiza√ß√£o da solicitacaoServico.");
             e.printStackTrace();
         }
     }
@@ -277,7 +277,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         List<TarefaFluxoDTO> listaRetornoSituacaoSla = new ArrayList<TarefaFluxoDTO>();
         List<TarefaFluxoDTO> listaRetornoFinal = new ArrayList<TarefaFluxoDTO>();
 
-        // tipo de visualizaÁ„o
+        // tipo de visualiza√ß√£o
         for (TarefaFluxoDTO tarefaFluxoDTO : listTarefa) {
             if (tipoVisualizacao.equals("possoExecutar")) {
                 if (tarefaFluxoDTO.isSomenteAcompanhamento() == false) {
@@ -317,7 +317,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                                 && !solicitacaoDto.getSituacao().equalsIgnoreCase(SituacaoSolicitacaoServico.Suspensa.name()) && solicitacaoDto.getSituacaoSLA().equals("A") && aCombinar != true) {
                             listaRetornoSituacaoSla.add(tarefaFluxoDTO);
                         }
-                        // foi definido que a regra n„o È pra trazer solicitaÁıes suspensas, mesmo que estejam suspensas e vencidas
+                        // foi definido que a regra n√£o √© pra trazer solicita√ß√µes suspensas, mesmo que estejam suspensas e vencidas
                         // else if (solicitacaoDto.getSituacaoSLA() != null && solicitacaoDto.getSituacaoSLA().equalsIgnoreCase(SituacaoSLA.S.name())
                         // && solicitacaoDto.getDataHoraSuspensaoSLA().compareTo(solicitacaoDto.getDataHoraLimite()) > 0) {
                         // listaRetornoSituacaoSla.add(tarefaFluxoDTO);
@@ -325,7 +325,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                     }
                 }
             } else if (situacaoSla.equals("aguardandoAprovacao")) {
-                if (eletmentoFluxoDto != null && eletmentoFluxoDto.getDocumentacao() != null && eletmentoFluxoDto.getDocumentacao().equalsIgnoreCase("Aprovar requisiÁ„o")) {// ComparaÁ„o feita com o nome da tarefa que est· no Banco
+                if (eletmentoFluxoDto != null && eletmentoFluxoDto.getDocumentacao() != null && eletmentoFluxoDto.getDocumentacao().equalsIgnoreCase("Aprovar requisi√ß√£o")) {// Compara√ß√£o feita com o nome da tarefa que est√° no Banco
                     listaRetornoSituacaoSla.add(tarefaFluxoDTO);
                 }
             } else if (situacaoSla.equals("avencer30min")) {
@@ -436,13 +436,13 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      * @param dto
      * @return
      * @throws Exception
-     * @author bruno.aquino Filtra a lista de SolicitaÁıes de Acordo com os Filtros Selecionados
+     * @author bruno.aquino Filtra a lista de Solicita√ß√µes de Acordo com os Filtros Selecionados
      */
     public void filtroExternoDosElementos(StringBuilder sql, GerenciamentoServicosDTO dto) throws Exception {
         String tipoVisualizacao = dto.getTipoVisualizacao() == null ? "" : dto.getTipoVisualizacao();
         String situacaoSla = dto.getSituacaoSla() == null ? "" : dto.getSituacaoSla();
 
-        /* tipo de visualizaÁ„o */
+        /* tipo de visualiza√ß√£o */
         if (tipoVisualizacao.equals("possoExecutar")) {
             sql.append("");
         } else if (tipoVisualizacao.equals("possoVisualizar")) {
@@ -485,7 +485,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Retorna SolicitaÁıes de ServiÁo associadas a Base de Conhecimento.
+     * Retorna Solicita√ß√µes de Servi√ßo associadas a Base de Conhecimento.
      *
      * @param baseConhecimentoDto
      * @return List<SolicitacaoServicoDTO>
@@ -540,8 +540,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         List parametros3 = new ArrayList();
 
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor·rio: 10h00min - ID Citsmart: 120770 Motivo/Coment·rio: A tabela origematendimento, faseservico e empregados estava utilizando INNER
-         * JOIN, isso fazia com que as solicitaÁıes que n„o possuem origem contrato, fase ou solicitante n„o fossem retornadas. Alterado para LEFT JOIN
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor√°rio: 10h00min - ID Citsmart: 120770 Motivo/Coment√°rio: A tabela origematendimento, faseservico e empregados estava utilizando INNER
+         * JOIN, isso fazia com que as solicita√ß√µes que n√£o possuem origem contrato, fase ou solicitante n√£o fossem retornadas. Alterado para LEFT JOIN
          */
 
         // sql para Postgres e Mysql
@@ -673,15 +673,15 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                 sql.append(" LIMIT " + pagAtual + ", " + quantidadePaginator);
             }
 
-            // para Oracle o sql de paginaÁ„o È diferente
+            // para Oracle o sql de pagina√ß√£o √© diferente
             else if (strSGBDPrincipal.equalsIgnoreCase("ORACLE")) {
                 Integer quantidadePaginator2 = new Integer(0);
                 sql.setLength(0);
                 quantidadePaginator2 = quantidadePaginator + pagAtual;
 
                 /*
-                 * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor·rio: 10h00min - ID Citsmart: 120770 Motivo/Coment·rio: A tabela origematendimento, faseservico e empregados estava utilizando
-                 * INNER JOIN, isso fazia com que as solicitaÁıes que n„o possuem origem contrato, fase ou solicitante n„o fossem retornadas. Alterado para LEFT JOIN
+                 * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor√°rio: 10h00min - ID Citsmart: 120770 Motivo/Coment√°rio: A tabela origematendimento, faseservico e empregados estava utilizando
+                 * INNER JOIN, isso fazia com que as solicita√ß√µes que n√£o possuem origem contrato, fase ou solicitante n√£o fossem retornadas. Alterado para LEFT JOIN
                  */
 
                 sql.append("SELECT tempoAtendimentoHH,tempoAtendimentoMM,datahorainicio, datahorafim, idsolicitacaoservico, nomeservico, unidade.nome AS NOMEUNIDADE, CASE WHEN solicitacaoservico.situacao = 'EmAndamento' THEN 'Em Andamento' ELSE solicitacaoservico.situacao END AS situacao, dataHoraSolicitacao, dataHoraLimite, nomeTipoDemandaServico, prazohh, prazomm, ");
@@ -790,8 +790,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                 }
 
                 /*
-                 * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor·rio: 10h00min - ID Citsmart: 120770 Motivo/Coment·rio: A tabela origematendimento, faseservico e empregados estava utilizando
-                 * INNER JOIN, isso fazia com que as solicitaÁıes que n„o possuem origem contrato, fase ou solicitante n„o fossem retornadas. Alterado para LEFT JOIN
+                 * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor√°rio: 10h00min - ID Citsmart: 120770 Motivo/Coment√°rio: A tabela origematendimento, faseservico e empregados estava utilizando
+                 * INNER JOIN, isso fazia com que as solicita√ß√µes que n√£o possuem origem contrato, fase ou solicitante n√£o fossem retornadas. Alterado para LEFT JOIN
                  */
 
                 sql.append(" AND IDSOLICITACAOSERVICO IN(SELECT IDSOLICITACAOSERVICO FROM(SELECT row_.*, ROWNUM ROWNUM_ FROM (SELECT COUNT(*) OVER() AS TOTALROWCOUNT, ");
@@ -907,15 +907,15 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                 sql.append(") row_ WHERE ROWNUM <= " + quantidadePaginator2 + " ) WHERE ROWNUM_ > " + pagAtual + ")");
             }
 
-            // para sqlserver o sql È diferente
+            // para sqlserver o sql √© diferente
             else if (strSGBDPrincipal.equalsIgnoreCase("sqlserver")) {
                 Integer quantidadePaginator2 = new Integer(0);
                 sql.setLength(0);
                 quantidadePaginator2 = quantidadePaginator + pagAtual;
 
                 /*
-                 * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor·rio: 10h00min - ID Citsmart: 120770 Motivo/Coment·rio: A tabela origematendimento, faseservico e empregados estava utilizando
-                 * INNER JOIN, isso fazia com que as solicitaÁıes que n„o possuem origem contrato, fase ou solicitante n„o fossem retornadas. Alterado para LEFT JOIN
+                 * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor√°rio: 10h00min - ID Citsmart: 120770 Motivo/Coment√°rio: A tabela origematendimento, faseservico e empregados estava utilizando
+                 * INNER JOIN, isso fazia com que as solicita√ß√µes que n√£o possuem origem contrato, fase ou solicitante n√£o fossem retornadas. Alterado para LEFT JOIN
                  */
 
                 sql.append(";WITH TabelaTemporaria AS ( ");
@@ -1115,8 +1115,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         List parametros3 = new ArrayList();
 
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor·rio: 10h00min - ID Citsmart: 120770 Motivo/Coment·rio: A tabela origematendimento, faseservico e empregados estava utilizando INNER
-         * JOIN, isso fazia com que as solicitaÁıes que n„o possuem origem contrato, fase ou solicitante n„o fossem retornadas. Alterado para LEFT JOIN
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor√°rio: 10h00min - ID Citsmart: 120770 Motivo/Coment√°rio: A tabela origematendimento, faseservico e empregados estava utilizando INNER
+         * JOIN, isso fazia com que as solicita√ß√µes que n√£o possuem origem contrato, fase ou solicitante n√£o fossem retornadas. Alterado para LEFT JOIN
          */
 
         // sql para Postgres e Mysql
@@ -1236,7 +1236,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
         
         /**
-         * @author Cristian: obtÈm as unidades que o usu·rio logado tem permiss„o para acessar
+         * @author Cristian: obt√©m as unidades que o usu√°rio logado tem permiss√£o para acessar
          */
         
         if ((unidadesColaborador!=null) && (unidadesColaborador.size()>0)) {
@@ -1266,15 +1266,15 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                 sql.append(" LIMIT " + pagAtual + ", " + quantidadePaginator);
             }
 
-            // para Oracle o sql de paginaÁ„o È diferente
+            // para Oracle o sql de pagina√ß√£o √© diferente
             else if (strSGBDPrincipal.equalsIgnoreCase("ORACLE")) {
                 Integer quantidadePaginator2 = new Integer(0);
                 sql.setLength(0);
                 quantidadePaginator2 = quantidadePaginator + pagAtual;
 
                 /*
-                 * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor·rio: 10h00min - ID Citsmart: 120770 Motivo/Coment·rio: A tabela origematendimento, faseservico e empregados estava utilizando
-                 * INNER JOIN, isso fazia com que as solicitaÁıes que n„o possuem origem contrato, fase ou solicitante n„o fossem retornadas. Alterado para LEFT JOIN
+                 * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor√°rio: 10h00min - ID Citsmart: 120770 Motivo/Coment√°rio: A tabela origematendimento, faseservico e empregados estava utilizando
+                 * INNER JOIN, isso fazia com que as solicita√ß√µes que n√£o possuem origem contrato, fase ou solicitante n√£o fossem retornadas. Alterado para LEFT JOIN
                  */
 
                 sql.append("SELECT tempoAtendimentoHH,tempoAtendimentoMM,datahorainicio, datahorafim, idsolicitacaoservico, nomeservico, unidade.nome AS NOMEUNIDADE, CASE WHEN solicitacaoservico.situacao = 'EmAndamento' THEN 'Em Andamento' ELSE solicitacaoservico.situacao END AS situacao, dataHoraSolicitacao, dataHoraLimite, nomeTipoDemandaServico, prazohh, prazomm, ");
@@ -1383,8 +1383,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                 }
 
                 /*
-                 * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor·rio: 10h00min - ID Citsmart: 120770 Motivo/Coment·rio: A tabela origematendimento, faseservico e empregados estava utilizando
-                 * INNER JOIN, isso fazia com que as solicitaÁıes que n„o possuem origem contrato, fase ou solicitante n„o fossem retornadas. Alterado para LEFT JOIN
+                 * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor√°rio: 10h00min - ID Citsmart: 120770 Motivo/Coment√°rio: A tabela origematendimento, faseservico e empregados estava utilizando
+                 * INNER JOIN, isso fazia com que as solicita√ß√µes que n√£o possuem origem contrato, fase ou solicitante n√£o fossem retornadas. Alterado para LEFT JOIN
                  */
 
                 sql.append(" AND IDSOLICITACAOSERVICO IN(SELECT IDSOLICITACAOSERVICO FROM(SELECT row_.*, ROWNUM ROWNUM_ FROM (SELECT COUNT(*) OVER() AS TOTALROWCOUNT, ");
@@ -1500,15 +1500,15 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                 sql.append(") row_ WHERE ROWNUM <= " + quantidadePaginator2 + " ) WHERE ROWNUM_ > " + pagAtual + ")");
             }
 
-            // para sqlserver o sql È diferente
+            // para sqlserver o sql √© diferente
             else if (strSGBDPrincipal.equalsIgnoreCase("sqlserver")) {
                 Integer quantidadePaginator2 = new Integer(0);
                 sql.setLength(0);
                 quantidadePaginator2 = quantidadePaginator + pagAtual;
 
                 /*
-                 * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor·rio: 10h00min - ID Citsmart: 120770 Motivo/Coment·rio: A tabela origematendimento, faseservico e empregados estava utilizando
-                 * INNER JOIN, isso fazia com que as solicitaÁıes que n„o possuem origem contrato, fase ou solicitante n„o fossem retornadas. Alterado para LEFT JOIN
+                 * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor√°rio: 10h00min - ID Citsmart: 120770 Motivo/Coment√°rio: A tabela origematendimento, faseservico e empregados estava utilizando
+                 * INNER JOIN, isso fazia com que as solicita√ß√µes que n√£o possuem origem contrato, fase ou solicitante n√£o fossem retornadas. Alterado para LEFT JOIN
                  */
 
                 sql.append(";WITH TabelaTemporaria AS ( ");
@@ -2050,8 +2050,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         sql.append("select distinct sol.idsolicitacaoservico, sol.situacao, sol.idprioridade, sol.urgencia, sol.datahorafim, sol.datahoralimite from solicitacaoservico sol "
                 + "inner join servicocontrato sc on sc.idservicocontrato = sol.idservicocontrato " + "inner join grupo g on sc.idgrupoexecutor = g.idgrupo "
                 + "inner join ocorrenciasolicitacao o on sol.idsolicitacaoservico = o.idsolicitacaoservico " + "where g.idgrupo = ? " + "and datahorainiciosla between ? and ? "
-                + "and (o.registradopor like ? or o.registradopor like ?) " + "and o.ocorrencia like 'ExecuÁ„o da tarefa \"Desenvolvimento\"' "
-                + "and o.descricao like '%Registro de ExecuÁ„o%' and (sol.prazohh <> 0 or sol.prazomm <> 0) and situacao <> 'Cancelada'");
+                + "and (o.registradopor like ? or o.registradopor like ?) " + "and o.ocorrencia like 'Execu√ß√£o da tarefa \"Desenvolvimento\"' "
+                + "and o.descricao like '%Registro de Execu√ß√£o%' and (sol.prazohh <> 0 or sol.prazomm <> 0) and situacao <> 'Cancelada'");
 
         parametro.add(idGrupo);
         parametro.add(dataInicio);
@@ -2115,8 +2115,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                 + "inner join servicocontrato sc on sc.idservicocontrato = sol.idservicocontrato " + "inner join grupo g on sc.idgrupoexecutor = g.idgrupo "
                 + "inner join ocorrenciasolicitacao o on sol.idsolicitacaoservico = o.idsolicitacaoservico "
                 + "where g.idgrupo = ? and datahorainiciosla between ? and ? and datahorafim < datahoralimite " + "and (o.registradopor like ? or o.registradopor like ?) "
-                + "and o.ocorrencia like 'ExecuÁ„o da tarefa \"Desenvolvimento\"' "
-                + "and o.descricao like '%Registro de ExecuÁ„o%' and (sol.prazohh <> 0 or sol.prazomm <> 0) and situacao <> 'Cancelada'");
+                + "and o.ocorrencia like 'Execu√ß√£o da tarefa \"Desenvolvimento\"' "
+                + "and o.descricao like '%Registro de Execu√ß√£o%' and (sol.prazohh <> 0 or sol.prazomm <> 0) and situacao <> 'Cancelada'");
         parametro.add(idGrupo);
         parametro.add(dataInicio);
         parametro.add(dataFim);
@@ -2175,7 +2175,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Retorna a solicitaÁ„o de servico pelo id
+     * Retorna a solicita√ß√£o de servico pelo id
      *
      * @param idSolicitacaoServico
      * @return
@@ -2733,7 +2733,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         try {
             this.execUpdate(sql.toString(), params);
         } catch (PersistenceException e) {
-            System.out.println("Problemas com atualizaÁ„o da solicitacaoServico.");
+            System.out.println("Problemas com atualiza√ß√£o da solicitacaoServico.");
             e.printStackTrace();
         }
     }
@@ -2948,7 +2948,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             parametro.add(transformaHoraFinal(solicitacaoDto.getDataFim()));
         }
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor·rio: 14h21min - ID Citsmart: 120770 Motivo/Coment·rio: Removida a condiÁ„o que n„o exibia solicitaÁıes com contrato de serviÁos que
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor√°rio: 14h21min - ID Citsmart: 120770 Motivo/Coment√°rio: Removida a condi√ß√£o que n√£o exibia solicita√ß√µes com contrato de servi√ßos que
          * foram deletados. Todos devem ser exibidos.
          */
         if (solicitacaoDto.getIdContrato() != null) {
@@ -2960,8 +2960,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             parametro.add(solicitacaoDto.getSituacao());
         }
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor·rio: 14h17min - ID Citsmart: 120770 Motivo/Coment·rio: Adicionado "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
-         * retornar solicitaÁıes de serviÁo sem tipo demanda (inconsistentes)
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor√°rio: 14h17min - ID Citsmart: 120770 Motivo/Coment√°rio: Adicionado "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
+         * retornar solicita√ß√µes de servi√ßo sem tipo demanda (inconsistentes)
          */
         sql.append(" AND solicitacaoservico.idtipodemandaservico is not null ");
         sql.append(" group by fase.nomefase");
@@ -2985,10 +2985,10 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         StringBuilder sql = new StringBuilder();
 
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 23/10/2013 - Hor·rio: 10h47min - ID Citsmart: 120770 Motivo/Coment·rio: O grupo estava utilizando INNER JOIN e quando n„o existia relacionamento o
-         * resultado do grupo n„o era retornado.
+         * Desenvolvedor: Rodrigo Pecci - Data: 23/10/2013 - Hor√°rio: 10h47min - ID Citsmart: 120770 Motivo/Coment√°rio: O grupo estava utilizando INNER JOIN e quando n√£o existia relacionamento o
+         * resultado do grupo n√£o era retornado.
          */
-        sql.append("select (CASE WHEN grupo.sigla IS NULL THEN 'SEM ATRIBUI«√O' ELSE grupo.sigla end), servico.nomeservico, count(*) from solicitacaoservico solicitacaoservico  ");
+        sql.append("select (CASE WHEN grupo.sigla IS NULL THEN 'SEM ATRIBUI√á√ÉO' ELSE grupo.sigla end), servico.nomeservico, count(*) from solicitacaoservico solicitacaoservico  ");
         sql.append("left join grupo grupo  on solicitacaoservico.idgrupoatual = grupo.idgrupo  ");
         sql.append("INNER JOIN execucaosolicitacao es ON es.idsolicitacaoservico = solicitacaoservico.idsolicitacaoservico ");
         sql.append("inner join servicocontrato servicocontrato on solicitacaoservico.idservicocontrato = servicocontrato.idservicocontrato ");
@@ -3017,7 +3017,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             parametro.add(transformaHoraFinal(solicitacaoDto.getDataFim()));
         }
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor·rio: 14h21min - ID Citsmart: 120770 Motivo/Coment·rio: Removida a condiÁ„o que n„o exibia solicitaÁıes com contrato de serviÁos que
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor√°rio: 14h21min - ID Citsmart: 120770 Motivo/Coment√°rio: Removida a condi√ß√£o que n√£o exibia solicita√ß√µes com contrato de servi√ßos que
          * foram deletados. Todos devem ser exibidos.
          */
         if (solicitacaoDto.getIdContrato() != null) {
@@ -3030,8 +3030,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
 
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor·rio: 14h17min - ID Citsmart: 120770 Motivo/Coment·rio: Adicionado "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
-         * retornar solicitaÁıes de serviÁo sem tipo demanda (inconsistentes)
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor√°rio: 14h17min - ID Citsmart: 120770 Motivo/Coment√°rio: Adicionado "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
+         * retornar solicita√ß√µes de servi√ßo sem tipo demanda (inconsistentes)
          */
         sql.append(" AND solicitacaoservico.idtipodemandaservico is not null ");
 
@@ -3094,7 +3094,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             parametro.add(transformaHoraFinal(solicitacaoDto.getDataFim()));
         }
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor·rio: 14h21min - ID Citsmart: 120770 Motivo/Coment·rio: Removida a condiÁ„o que n„o exibia solicitaÁıes com contrato de serviÁos que
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor√°rio: 14h21min - ID Citsmart: 120770 Motivo/Coment√°rio: Removida a condi√ß√£o que n√£o exibia solicita√ß√µes com contrato de servi√ßos que
          * foram deletados. Todos devem ser exibidos.
          */
         if (solicitacaoDto.getIdContrato() != null) {
@@ -3107,8 +3107,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
 
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor·rio: 14h17min - ID Citsmart: 120770 Motivo/Coment·rio: Adicionado "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
-         * retornar solicitaÁıes de serviÁo sem tipo demanda (inconsistentes)
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor√°rio: 14h17min - ID Citsmart: 120770 Motivo/Coment√°rio: Adicionado "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
+         * retornar solicita√ß√µes de servi√ßo sem tipo demanda (inconsistentes)
          */
         sql.append(" AND solicitacaoservico.idtipodemandaservico is not null ");
 
@@ -3133,12 +3133,12 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Retorna a quantidade de solicitaÁıes separado por item de configuraÁ„o.
+     * Retorna a quantidade de solicita√ß√µes separado por item de configura√ß√£o.
      *
      * @param solicitacaoDto
      * @return Collection<RelatorioQuantitativoSolicitacaoDTO>
      * @throws Exception
-     * @author rodrigo.acorse - Data: 23/10/2013 - Hor·rio: 10h47min - ID Citsmart: 120770
+     * @author rodrigo.acorse - Data: 23/10/2013 - Hor√°rio: 10h47min - ID Citsmart: 120770
      */
     public Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorItemConfiguracao(SolicitacaoServicoDTO solicitacaoDto) throws Exception {
         List listRetorno = new ArrayList();
@@ -3146,10 +3146,10 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         StringBuilder sql = new StringBuilder();
 
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 23/10/2013 - Hor·rio: 10h47min - ID Citsmart: 120770 Motivo/Coment·rio: O item de configuraÁ„o estava utilizando INNER JOIN e quando n„o existia
-         * relacionamento o resultado do item n„o era retornado.
+         * Desenvolvedor: Rodrigo Pecci - Data: 23/10/2013 - Hor√°rio: 10h47min - ID Citsmart: 120770 Motivo/Coment√°rio: O item de configura√ß√£o estava utilizando INNER JOIN e quando n√£o existia
+         * relacionamento o resultado do item n√£o era retornado.
          */
-        sql.append("select (CASE WHEN itemconfiguracao.identificacao IS NULL THEN 'SEM ATRIBUI«√O' ELSE itemconfiguracao.identificacao end), count(*)   from solicitacaoservico solicitacaoservico  ");
+        sql.append("select (CASE WHEN itemconfiguracao.identificacao IS NULL THEN 'SEM ATRIBUI√á√ÉO' ELSE itemconfiguracao.identificacao end), count(*)   from solicitacaoservico solicitacaoservico  ");
         sql.append("left join itemconfiguracao itemconfiguracao  on solicitacaoservico.iditemconfiguracao = itemconfiguracao.iditemconfiguracao ");
         sql.append("INNER JOIN execucaosolicitacao es ON es.idsolicitacaoservico = solicitacaoservico.idsolicitacaoservico ");
         sql.append("inner join servicocontrato servicocontrato on solicitacaoservico.idservicocontrato = servicocontrato.idservicocontrato ");
@@ -3180,7 +3180,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             parametro.add(transformaHoraFinal(solicitacaoDto.getDataFim()));
         }
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor·rio: 14h21min - ID Citsmart: 120770 Motivo/Coment·rio: Removida a condiÁ„o que n„o exibia solicitaÁıes com contrato de serviÁos que
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor√°rio: 14h21min - ID Citsmart: 120770 Motivo/Coment√°rio: Removida a condi√ß√£o que n√£o exibia solicita√ß√µes com contrato de servi√ßos que
          * foram deletados. Todos devem ser exibidos.
          */
         if (solicitacaoDto.getIdContrato() != null) {
@@ -3193,8 +3193,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
 
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor·rio: 14h17min - ID Citsmart: 120770 Motivo/Coment·rio: Adicionado "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
-         * retornar solicitaÁıes de serviÁo sem tipo demanda (inconsistentes)
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor√°rio: 14h17min - ID Citsmart: 120770 Motivo/Coment√°rio: Adicionado "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
+         * retornar solicita√ß√µes de servi√ßo sem tipo demanda (inconsistentes)
          */
         sql.append(" AND solicitacaoservico.idtipodemandaservico is not null ");
 
@@ -3212,18 +3212,18 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Retorna a quantidade de solicitaÁıes separado por item de configuraÁ„o. Alterado o script para mostrar todas os serviÁos com a origem fazia com o nome 'SEM ATRIBUI«√O'
+     * Retorna a quantidade de solicita√ß√µes separado por item de configura√ß√£o. Alterado o script para mostrar todas os servi√ßos com a origem fazia com o nome 'SEM ATRIBUI√á√ÉO'
      *
      * @param solicitacaoDto
      * @return Collection<RelatorioQuantitativoSolicitacaoDTO>
      * @throws Exception
-     * @author bruno.aquino - Data: 23/10/2013 - Hor·rio: 15h32min - ID Citsmart: 120770|122034
+     * @author bruno.aquino - Data: 23/10/2013 - Hor√°rio: 15h32min - ID Citsmart: 120770|122034
      */
     public Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorOrigem(SolicitacaoServicoDTO solicitacaoDto) throws Exception {
         List listRetorno = new ArrayList();
         List parametro = new ArrayList();
         StringBuilder sql = new StringBuilder();
-        sql.append("select  (CASE WHEN origem.descricao IS NULL THEN 'SEM ATRIBUI«√O' ELSE origem.descricao end), count(*)  from " + getTableName() + " solicitacaoservico ");
+        sql.append("select  (CASE WHEN origem.descricao IS NULL THEN 'SEM ATRIBUI√á√ÉO' ELSE origem.descricao end), count(*)  from " + getTableName() + " solicitacaoservico ");
         sql.append("left join origematendimento origem   on solicitacaoservico.idorigem = origem.idorigem ");
         // if (solicitacaoDto.getIdContrato() != null) {
         sql.append("INNER JOIN execucaosolicitacao es ON es.idsolicitacaoservico = solicitacaoservico.idsolicitacaoservico ");
@@ -3257,7 +3257,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             parametro.add(transformaHoraFinal(solicitacaoDto.getDataFim()));
         }
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor·rio: 14h21min - ID Citsmart: 120770 Motivo/Coment·rio: Removida a condiÁ„o que n„o exibia solicitaÁıes com contrato de serviÁos que
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor√°rio: 14h21min - ID Citsmart: 120770 Motivo/Coment√°rio: Removida a condi√ß√£o que n√£o exibia solicita√ß√µes com contrato de servi√ßos que
          * foram deletados. Todos devem ser exibidos.
          */
         if (solicitacaoDto.getIdContrato() != null) {
@@ -3270,8 +3270,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
 
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor·rio: 14h17min - ID Citsmart: 120770 Motivo/Coment·rio: Adicionado "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
-         * retornar solicitaÁıes de serviÁo sem tipo demanda (inconsistentes)
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor√°rio: 14h17min - ID Citsmart: 120770 Motivo/Coment√°rio: Adicionado "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
+         * retornar solicita√ß√µes de servi√ßo sem tipo demanda (inconsistentes)
          */
         sql.append(" AND solicitacaoservico.idtipodemandaservico is not null ");
 
@@ -3290,7 +3290,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Retorna a quantidade de solicitaÁıes de serviÁo por pesquisa de satisfaÁ„o
+     * Retorna a quantidade de solicita√ß√µes de servi√ßo por pesquisa de satisfa√ß√£o
      *
      * @param solicitacaoDto
      * @return Collection<RelatorioQuantitativoSolicitacaoDTO>
@@ -3301,7 +3301,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         List parametro = new ArrayList();
         List listaQuantidadeSolicitacaoPorGrupo = new ArrayList();
         StringBuilder sql = new StringBuilder();
-        sql.append("select (CASE WHEN grupo.sigla IS NULL THEN 'SEM ATRIBUI«√O' ELSE grupo.sigla end), servico.nomeservico, count(*) from solicitacaoservico solicitacaoservico  ");
+        sql.append("select (CASE WHEN grupo.sigla IS NULL THEN 'SEM ATRIBUI√á√ÉO' ELSE grupo.sigla end), servico.nomeservico, count(*) from solicitacaoservico solicitacaoservico  ");
         sql.append("inner join pesquisasatisfacao pesquisasatisfacao  on pesquisasatisfacao.idsolicitacaoservico = solicitacaoservico.idsolicitacaoservico  ");
         sql.append("left join grupo grupo  on solicitacaoservico.idgrupoatual = grupo.idgrupo  ");
         sql.append("INNER JOIN execucaosolicitacao es ON es.idsolicitacaoservico = solicitacaoservico.idsolicitacaoservico ");
@@ -3331,7 +3331,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             parametro.add(transformaHoraFinal(solicitacaoDto.getDataFim()));
         }
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor·rio: 14h21min - ID Citsmart: 120770 Motivo/Coment·rio: Removida a condiÁ„o que n„o exibia solicitaÁıes com contrato de serviÁos que
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor√°rio: 14h21min - ID Citsmart: 120770 Motivo/Coment√°rio: Removida a condi√ß√£o que n√£o exibia solicita√ß√µes com contrato de servi√ßos que
          * foram deletados. Todos devem ser exibidos.
          */
         if (solicitacaoDto.getIdContrato() != null) {
@@ -3344,8 +3344,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
 
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor·rio: 14h17min - ID Citsmart: 120770 Motivo/Coment·rio: Adicionado "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
-         * retornar solicitaÁıes de serviÁo sem tipo demanda (inconsistentes)
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor√°rio: 14h17min - ID Citsmart: 120770 Motivo/Coment√°rio: Adicionado "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
+         * retornar solicita√ß√µes de servi√ßo sem tipo demanda (inconsistentes)
          */
         sql.append(" AND solicitacaoservico.idtipodemandaservico is not null ");
 
@@ -3400,7 +3400,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             parametro.add(transformaHoraFinal(solicitacaoDto.getDataFim()));
         }
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor·rio: 14h21min - ID Citsmart: 120770 Motivo/Coment·rio: Removida a condiÁ„o que n„o exibia solicitaÁıes com contrato de serviÁos que
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor√°rio: 14h21min - ID Citsmart: 120770 Motivo/Coment√°rio: Removida a condi√ß√£o que n√£o exibia solicita√ß√µes com contrato de servi√ßos que
          * foram deletados. Todos devem ser exibidos.
          */
         if (solicitacaoDto.getIdContrato() != null) {
@@ -3413,8 +3413,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
 
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor·rio: 14h17min - ID Citsmart: 120770 Motivo/Coment·rio: Adicionado "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
-         * retornar solicitaÁıes de serviÁo sem tipo demanda (inconsistentes)
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor√°rio: 14h17min - ID Citsmart: 120770 Motivo/Coment√°rio: Adicionado "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
+         * retornar solicita√ß√µes de servi√ßo sem tipo demanda (inconsistentes)
          */
         sql.append(" AND solicitacaoservico.idtipodemandaservico is not null ");
 
@@ -3475,7 +3475,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             parametro.add(transformaHoraFinal(solicitacaoDto.getDataFim()));
         }
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor·rio: 14h21min - ID Citsmart: 120770 Motivo/Coment·rio: Removida a condiÁ„o que n„o exibia solicitaÁıes com contrato de serviÁos que
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor√°rio: 14h21min - ID Citsmart: 120770 Motivo/Coment√°rio: Removida a condi√ß√£o que n√£o exibia solicita√ß√µes com contrato de servi√ßos que
          * foram deletados. Todos devem ser exibidos.
          */
         if (solicitacaoDto.getIdContrato() != null) {
@@ -3488,8 +3488,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
 
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor·rio: 14h17min - ID Citsmart: 120770 Motivo/Coment·rio: Adicionado "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
-         * retornar solicitaÁıes de serviÁo sem tipo demanda (inconsistentes)
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor√°rio: 14h17min - ID Citsmart: 120770 Motivo/Coment√°rio: Adicionado "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
+         * retornar solicita√ß√µes de servi√ßo sem tipo demanda (inconsistentes)
          */
         sql.append(" and solicitacaoservico.idtipodemandaservico is not null ");
         sql.append(" and bpm_itemtrabalhofluxo.situacao in ( '"+SituacaoItemTrabalho.Executado+"' , '"+SituacaoItemTrabalho.EmAndamento+"' ) ");
@@ -3508,15 +3508,15 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
     }
 
-    /* Seleciona o servico e a quantidade de servicos dentro das solicitaÁıes por contrato */
+    /* Seleciona o servico e a quantidade de servicos dentro das solicita√ß√µes por contrato */
     public Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorServico(SolicitacaoServicoDTO solicitacaoServicoDto) throws Exception {
         StringBuilder sql = new StringBuilder();
         List parametro = new ArrayList();
         List listRetorno = new ArrayList();
 
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 31/10/2013 - Hor·rio: 15h35min - ID Citsmart: 120770 Motivo/Coment·rio: Foi adicionado um join com o fluxo de trabalho e novas cl·usulas foram no where
-         * para garantir a consistÍncia do relatÛrio.
+         * Desenvolvedor: Rodrigo Pecci - Data: 31/10/2013 - Hor√°rio: 15h35min - ID Citsmart: 120770 Motivo/Coment√°rio: Foi adicionado um join com o fluxo de trabalho e novas cl√°usulas foram no where
+         * para garantir a consist√™ncia do relat√≥rio.
          */
 
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.SQLSERVER)) {
@@ -3539,7 +3539,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
 
         /*
-         * Apenas registros de contratos n„o excluÌdos
+         * Apenas registros de contratos n√£o exclu√≠dos
          */
         sql.append("and (upper(contratos.deleted) = 'N' or contratos.deleted is null) ");
 
@@ -3552,7 +3552,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             parametro.add(transformaHoraFinal(solicitacaoServicoDto.getDataFim()));
         }
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor·rio: 14h21min - ID Citsmart: 120770 Motivo/Coment·rio: Removida a condiÁ„o que n„o exibia solicitaÁıes com contrato de serviÁos que
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor√°rio: 14h21min - ID Citsmart: 120770 Motivo/Coment√°rio: Removida a condi√ß√£o que n√£o exibia solicita√ß√µes com contrato de servi√ßos que
          * foram deletados. Todos devem ser exibidos.
          */
         if (solicitacaoServicoDto.getIdContrato() != null) {
@@ -3561,14 +3561,14 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
 
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor·rio: 14h17min - ID Citsmart: 120770 Motivo/Coment·rio: Adicionado "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
-         * retornar solicitaÁıes de serviÁo sem tipo demanda (inconsistentes)
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor√°rio: 14h17min - ID Citsmart: 120770 Motivo/Coment√°rio: Adicionado "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
+         * retornar solicita√ß√µes de servi√ßo sem tipo demanda (inconsistentes)
          */
         sql.append(" AND solicitacaoservico.idtipodemandaservico is not null ");
 
         /*
-         * Desenvolvedor: Thiago Matias - Data: 29/10/2013 - Hor·rio: 11h00 - ID Citsmart: 122025 Motivo/Coment·rio: Adicionado
-         * "AND solicitacaoservico.situacao != 'EmAndamento' AND solicitacaoservico.situacao != 'Suspensa'" para n„o retornar solicitaÁıes de serviÁo em andamento ou suspensa
+         * Desenvolvedor: Thiago Matias - Data: 29/10/2013 - Hor√°rio: 11h00 - ID Citsmart: 122025 Motivo/Coment√°rio: Adicionado
+         * "AND solicitacaoservico.situacao != 'EmAndamento' AND solicitacaoservico.situacao != 'Suspensa'" para n√£o retornar solicita√ß√µes de servi√ßo em andamento ou suspensa
          */
         sql.append(" AND solicitacaoservico.situacao in ('Fechada', 'Cancelada', 'Resolvida') ");
 
@@ -3637,7 +3637,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             parametro.add(transformaHoraFinal(solicitacaoDto.getDataFim()));
         }
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor·rio: 14h21min - ID Citsmart: 120770 Motivo/Coment·rio: Removida a condiÁ„o que n„o exibia solicitaÁıes com contrato de serviÁos que
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor√°rio: 14h21min - ID Citsmart: 120770 Motivo/Coment√°rio: Removida a condi√ß√£o que n√£o exibia solicita√ß√µes com contrato de servi√ßos que
          * foram deletados. Todos devem ser exibidos.
          */
         if (solicitacaoDto.getIdContrato() != null) {
@@ -3646,8 +3646,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
 
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor·rio: 14h17min - ID Citsmart: 120770 Motivo/Coment·rio: Adicionado "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
-         * retornar solicitaÁıes de serviÁo sem tipo demanda (inconsistentes)
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor√°rio: 14h17min - ID Citsmart: 120770 Motivo/Coment√°rio: Adicionado "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
+         * retornar solicita√ß√µes de servi√ßo sem tipo demanda (inconsistentes)
          */
         sql.append(" AND solicitacaoservico.idtipodemandaservico is not null ");
 
@@ -3700,7 +3700,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             from_where.append("AND prioridadeservicounidade.idprioridade <> 1 ");
         }
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor·rio: 14h21min - ID Citsmart: 120770 Motivo/Coment·rio: Removida a condiÁ„o que n„o exibia solicitaÁıes com contrato de serviÁos que
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor√°rio: 14h21min - ID Citsmart: 120770 Motivo/Coment√°rio: Removida a condi√ß√£o que n√£o exibia solicita√ß√µes com contrato de servi√ßos que
          * foram deletados. Todos devem ser exibidos.
          */
         if (solicitacaoDto.getIdContrato() != null) {
@@ -3711,8 +3711,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
 
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor·rio: 14h17min - ID Citsmart: 120770 Motivo/Coment·rio: Adicionado "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
-         * retornar solicitaÁıes de serviÁo sem tipo demanda (inconsistentes)
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor√°rio: 14h17min - ID Citsmart: 120770 Motivo/Coment√°rio: Adicionado "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
+         * retornar solicita√ß√µes de servi√ßo sem tipo demanda (inconsistentes)
          */
         from_where.append(" AND solicitacaoservico.idtipodemandaservico is not null ");
 
@@ -3796,7 +3796,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             parametro.add(transformaHoraFinal(solicitacaoDto.getDataFim()));
         }
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor·rio: 14h21min - ID Citsmart: 120770 Motivo/Coment·rio: Removida a condiÁ„o que n„o exibia solicitaÁıes com contrato de serviÁos que
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor√°rio: 14h21min - ID Citsmart: 120770 Motivo/Coment√°rio: Removida a condi√ß√£o que n√£o exibia solicita√ß√µes com contrato de servi√ßos que
          * foram deletados. Todos devem ser exibidos.
          */
         if (solicitacaoDto.getIdContrato() != null) {
@@ -3810,8 +3810,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
 
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor·rio: 14h17min - ID Citsmart: 120770 Motivo/Coment·rio: Adicionado "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
-         * retornar solicitaÁıes de serviÁo sem tipo demanda (inconsistentes)
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor√°rio: 14h17min - ID Citsmart: 120770 Motivo/Coment√°rio: Adicionado "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
+         * retornar solicita√ß√µes de servi√ßo sem tipo demanda (inconsistentes)
          */
         sql.append(" AND solicitacaoservico.idtipodemandaservico is not null ");
 
@@ -3868,7 +3868,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             parametro.add(transformaHoraFinal(solicitacaoDto.getDataFim()));
         }
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor·rio: 14h21min - ID Citsmart: 120770 Motivo/Coment·rio: Removida a condiÁ„o que n„o exibia solicitaÁıes com contrato de serviÁos que
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor√°rio: 14h21min - ID Citsmart: 120770 Motivo/Coment√°rio: Removida a condi√ß√£o que n√£o exibia solicita√ß√µes com contrato de servi√ßos que
          * foram deletados. Todos devem ser exibidos.
          */
         if (solicitacaoDto.getIdContrato() != null) {
@@ -3925,7 +3925,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             parametro.add(transformaHoraFinal(solicitacaoDto.getDataFim()));
         }
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor·rio: 14h21min - ID Citsmart: 120770 Motivo/Coment·rio: Removida a condiÁ„o que n„o exibia solicitaÁıes com contrato de serviÁos que
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor√°rio: 14h21min - ID Citsmart: 120770 Motivo/Coment√°rio: Removida a condi√ß√£o que n√£o exibia solicita√ß√µes com contrato de servi√ßos que
          * foram deletados. Todos devem ser exibidos.
          */
         if (solicitacaoDto.getIdContrato() != null) {
@@ -3937,8 +3937,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             parametro.add(solicitacaoDto.getSituacao());
         }
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor·rio: 14h17min - ID Citsmart: 120770 Motivo/Coment·rio: Adicionado "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
-         * retornar solicitaÁıes de serviÁo sem tipo demanda (inconsistentes)
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor√°rio: 14h17min - ID Citsmart: 120770 Motivo/Coment√°rio: Adicionado "AND solicitacaoservico.idtipodemandaservico is not null" para evitar
+         * retornar solicita√ß√µes de servi√ßo sem tipo demanda (inconsistentes)
          */
         sql.append(" AND solicitacaoservico.idtipodemandaservico is not null ");
         sql.append(" group by tiposervico.nometiposervico");
@@ -4029,7 +4029,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Retorna uma lista de ServiÁos que estejam associada a uma solicitaÁ„o serviÁo.
+     * Retorna uma lista de Servi√ßos que estejam associada a uma solicita√ß√£o servi√ßo.
      *
      * @param relatorioAnaliseServicoDto
      * @return Collection<RelatorioAnaliseServicoDTO>
@@ -4088,7 +4088,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         List parametro = new ArrayList();
         List listRetorno = new ArrayList();
         /**
-         * Checa se h· limite para pesquisa
+         * Checa se h√° limite para pesquisa
          * @author thyen.chang
          */
         boolean seLimita = !solicitacaoServicoDto.getTopList().equals(0);
@@ -4151,7 +4151,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                 sql.append(" ROWNUM <= ? AND ");
                 parametro.add(solicitacaoServicoDto.getTopList());
             }
-            sql.append("bpm_elementofluxo.documentacao like 'Aprovar solicitaÁ„o' ");
+            sql.append("bpm_elementofluxo.documentacao like 'Aprovar solicita√ß√£o' ");
             sql.append("AND bpm_itemtrabalhofluxo.situacao NOT IN ( 'Executado', 'Cancelado' ) ");
         }
 
@@ -4700,8 +4700,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         List listRetorno = new ArrayList();
 
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor·rio: 10h00min - ID Citsmart: 120770 Motivo/Coment·rio: A tabela origematendimento, faseservico e empregados estava utilizando INNER
-         * JOIN, isso fazia com que as solicitaÁıes que n„o possuem origem contrato, fase ou solicitante n„o fossem retornadas. Alterado para LEFT JOIN
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor√°rio: 10h00min - ID Citsmart: 120770 Motivo/Coment√°rio: A tabela origematendimento, faseservico e empregados estava utilizando INNER
+         * JOIN, isso fazia com que as solicita√ß√µes que n√£o possuem origem contrato, fase ou solicitante n√£o fossem retornadas. Alterado para LEFT JOIN
          */
 
         sql.append("SELECT solicitacaoservico.idbaseconhecimento,solicitacaoservico.idsolicitacaoservico,tempoAtendimentoHH,tempoAtendimentoMM, ");
@@ -4752,14 +4752,14 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Retorna uma lista de solicitacao serviÁo de acordo com os parametro passados com o principal objetivo de trazer somente solicitaÁıes fechadas ou canceladas. Foi adicionado o seguinte trecho de
-     * cÛdigo no script 'and solicitacaoservico.idtipodemandaservico is not null' para n„o deixar mostrar na lista do relatÛrio os dados que estiverem com o campo idtipodemandaservico vazio.
+     * Retorna uma lista de solicitacao servi√ßo de acordo com os parametro passados com o principal objetivo de trazer somente solicita√ß√µes fechadas ou canceladas. Foi adicionado o seguinte trecho de
+     * c√≥digo no script 'and solicitacaoservico.idtipodemandaservico is not null' para n√£o deixar mostrar na lista do relat√≥rio os dados que estiverem com o campo idtipodemandaservico vazio.
      *
      * @param relatorioSolicitacaoPorSolucionarDto
      * @return Collection
      * @throws Exception
      * @author thays.araujo
-     * @author bruno.aquino - Data: 24/10/2013 - Hor·rio: 14h24min - ID Citsmart: 122034
+     * @author bruno.aquino - Data: 24/10/2013 - Hor√°rio: 14h24min - ID Citsmart: 122034
      */
     public Collection<RelatorioSolicitacaoPorExecutanteDTO> listaSolicitacaoPorExecutante(RelatorioSolicitacaoPorExecutanteDTO relatorioSolicitacaoPorSolucionarDto) throws Exception {
         List parametro = new ArrayList();
@@ -4767,7 +4767,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         List list = new ArrayList();
 
         /**
-         * Checa de h· limite para pesquisa
+         * Checa de h√° limite para pesquisa
          * @author thyen.chang
          */
         boolean seLimita = !relatorioSolicitacaoPorSolucionarDto.getTopList().equals(0);
@@ -4862,7 +4862,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Retorna SolicitaÁ„o servico de acordo com criterios passados.
+     * Retorna Solicita√ß√£o servico de acordo com criterios passados.
      *
      * @return Collection<SolicitacaoServicoDTO>
      * @throws Exception
@@ -4878,8 +4878,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         List parametros = new ArrayList();
 
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor·rio: 10h00min - ID Citsmart: 120770 Motivo/Coment·rio: A tabela origematendimento e faseservico estava utilizando INNER JOIN, isso
-         * fazia com que as solicitaÁıes que n„o possuem origem contrato ou fase n„o fossem retornadas. Alterado para LEFT JOIN
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor√°rio: 10h00min - ID Citsmart: 120770 Motivo/Coment√°rio: A tabela origematendimento e faseservico estava utilizando INNER JOIN, isso
+         * fazia com que as solicita√ß√µes que n√£o possuem origem contrato ou fase n√£o fossem retornadas. Alterado para LEFT JOIN
          */
 
         /* String SGBD = CITCorporeUtil.SGBD_PRINCIPAL; */
@@ -4968,7 +4968,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Retorna uma lista de SolicitaÁıes ServiÁos e Problemas de acordo com o idServiÁo passado.
+     * Retorna uma lista de Solicita√ß√µes Servi√ßos e Problemas de acordo com o idServi√ßo passado.
      *
      * @param relatorioAnaliseServicoDto
      * @return Collection<RelatorioAnaliseServicoDTO>
@@ -5010,7 +5010,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Lista todas as solicitaÁıes pelo id do empregado, inclusive as solicitaÁıes resolvidas
+     * Lista todas as solicita√ß√µes pelo id do empregado, inclusive as solicita√ß√µes resolvidas
      *
      * @param pgAtual
      * @param qtdPaginacao
@@ -5180,7 +5180,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
 
         if (listContratoUsuarioLogado != null && !listContratoUsuarioLogado.isEmpty()) {
-            // FILTRA CONTRATO DO USU¡RIO LOGADO - SÛ retorna as SolicitaÁıes dos Contratos em que o usu·rio logado est· inserido.
+            // FILTRA CONTRATO DO USU√ÅRIO LOGADO - S√≥ retorna as Solicita√ß√µes dos Contratos em que o usu√°rio logado est√° inserido.
             if (listContratoUsuarioLogado != null && !listContratoUsuarioLogado.isEmpty()) {
                 sql.append(" AND c.idcontrato in ( ");
                 boolean verifica = true;
@@ -5266,8 +5266,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     
     
     /**
-     * Lista todas as solicitaÁıes pelo id do empregado, inclusive as solicitaÁıes resolvidas
-     * Este mÈtodo inclui o par‚metro "situacao", que permite o filtro das solicitaÁıes por situaÁ„ı (Fechado, Em Andamento, etc.)
+     * Lista todas as solicita√ß√µes pelo id do empregado, inclusive as solicita√ß√µes resolvidas
+     * Este m√©todo inclui o par√¢metro "situacao", que permite o filtro das solicita√ß√µes por situa√ß√£√µ (Fechado, Em Andamento, etc.)
      *
      * @param pgAtual
      * @param qtdPaginacao
@@ -5411,7 +5411,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
 
         if (listContratoUsuarioLogado != null && !listContratoUsuarioLogado.isEmpty()) {
-            // FILTRA CONTRATO DO USU¡RIO LOGADO - SÛ retorna as SolicitaÁıes dos Contratos em que o usu·rio logado est· inserido.
+            // FILTRA CONTRATO DO USU√ÅRIO LOGADO - S√≥ retorna as Solicita√ß√µes dos Contratos em que o usu√°rio logado est√° inserido.
             if (listContratoUsuarioLogado != null && !listContratoUsuarioLogado.isEmpty()) {
                 sql.append(" AND c.idcontrato in ( ");
                 boolean verifica = true;
@@ -5430,7 +5430,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
         
         /**
-         * Cristian em 03/12/2014: ImplemntaÁ„o do filtro por situaÁ„o
+         * Cristian em 03/12/2014: Implemnta√ß√£o do filtro por situa√ß√£o
          */
         
         
@@ -5706,8 +5706,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Utilizado para a RENDERIZA«√O do GR¡FICO, pois no Gr·fico n„o È necess·rio a utilizaÁ„o de PaginaÁ„o. Esta consulta considera o Login do Usu·rio Logado, os Contratos em que est· inserido e os
-     * Filtros Selecionados na tela de Gerenciamento de ServiÁos.
+     * Utilizado para a RENDERIZA√á√ÉO do GR√ÅFICO, pois no Gr√°fico n√£o √© necess√°rio a utiliza√ß√£o de Pagina√ß√£o. Esta consulta considera o Login do Usu√°rio Logado, os Contratos em que est√° inserido e os
+     * Filtros Selecionados na tela de Gerenciamento de Servi√ßos.
      *
      * @param listTarefa
      * @param gerenciamentoBean
@@ -5886,7 +5886,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                 }
             }
 
-            // FILTRA CONTRATO DO USU¡RIO LOGADO - SÛ retorna as SolicitaÁıes dos Contratos em que o usu·rio logado est· inserido.
+            // FILTRA CONTRATO DO USU√ÅRIO LOGADO - S√≥ retorna as Solicita√ß√µes dos Contratos em que o usu√°rio logado est√° inserido.
             if (listContratoUsuarioLogado != null && !listContratoUsuarioLogado.isEmpty()) {
                 sql.append(" AND c.idcontrato in ( ");
                 boolean verifica = true;
@@ -6156,7 +6156,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Retorna a Lista de TarefaDTO com SolicitacaoServidoDTO de acordo com o Login, Lista de Contratos do Usu·rio Logado e os Filtros Selecionados na Tela de Gerenciamento de ServiÁos.
+     * Retorna a Lista de TarefaDTO com SolicitacaoServidoDTO de acordo com o Login, Lista de Contratos do Usu√°rio Logado e os Filtros Selecionados na Tela de Gerenciamento de Servi√ßos.
      *
      * @param listTarefas
      * @param qtdAtual
@@ -6381,7 +6381,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                 }
             }
 
-            // FILTRA CONTRATO DO USU¡RIO LOGADO - SÛ retorna as SolicitaÁıes dos Contratos em que o usu·rio logado est· inserido.
+            // FILTRA CONTRATO DO USU√ÅRIO LOGADO - S√≥ retorna as Solicita√ß√µes dos Contratos em que o usu√°rio logado est√° inserido.
             if (listContratoUsuarioLogado != null && !listContratoUsuarioLogado.isEmpty()) {
                 sql.append(" AND c.idcontrato in ( ");
                 boolean verifica = true;
@@ -6790,7 +6790,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Retorna SolicitaÔøΩ√µes de ServiÁos de acordo com o Tipo de Demanda e UsuÔøΩrio.
+     * Retorna Solicita√ß√µes de Servi√ßos de acordo com o Tipo de Demanda e Usu√°rio.
      *
      * @param tipoDemandaServico
      * @param grupoSeguranca
@@ -6881,7 +6881,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Retorna SolicitaÔøΩ√µes de ServiÁos de acordo com criterios passados.
+     * Retorna Solicita√ß√µes de Servi√ßos de acordo com criterios passados.
      *
      * @return <code>Collection<SolicitacaoServicoDTO></code>
      * @throws Exception
@@ -6891,8 +6891,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         List listRetorno = new ArrayList();
 
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor·rio: 10h00min - ID Citsmart: 120770 Motivo/Coment·rio: A tabela origematendimento, faseservico e empregados estava utilizando INNER
-         * JOIN, isso fazia com que as solicitaÁıes que n„o possuem origem contrato, fase ou solicitante n„o fossem retornadas. Alterado para LEFT JOIN
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor√°rio: 10h00min - ID Citsmart: 120770 Motivo/Coment√°rio: A tabela origematendimento, faseservico e empregados estava utilizando INNER
+         * JOIN, isso fazia com que as solicita√ß√µes que n√£o possuem origem contrato, fase ou solicitante n√£o fossem retornadas. Alterado para LEFT JOIN
          */
 
         /* String SGBD = CITCorporeUtil.SGBD_PRINCIPAL; */
@@ -7275,7 +7275,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         try {
             solicitacoesServicoDTO = this.execSQL(sql.toString(), params);
         } catch (PersistenceException e) {
-            System.out.println("Problemas com atualizaÁ„o da solicitacaoServico.");
+            System.out.println("Problemas com atualiza√ß√£o da solicitacaoServico.");
             e.printStackTrace();
         }
         return solicitacoesServicoDTO;
@@ -7422,8 +7422,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         StringBuilder sql = new StringBuilder();
 
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor·rio: 10h00min - ID Citsmart: 120770 Motivo/Coment·rio: A tabela empregados estava utilizando INNER JOIN, isso fazia com que as
-         * solicitaÁıes que n„o possuem solicitante n„o fossem retornadas. Alterado para LEFT JOIN
+         * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor√°rio: 10h00min - ID Citsmart: 120770 Motivo/Coment√°rio: A tabela empregados estava utilizando INNER JOIN, isso fazia com que as
+         * solicita√ß√µes que n√£o possuem solicitante n√£o fossem retornadas. Alterado para LEFT JOIN
          */
 
         sql.append(" SELECT ss.prazohh,  ");
@@ -7483,8 +7483,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         sql.append("   INNER JOIN contratos co  ");
         sql.append("           ON co.idcontrato = sc.idcontrato  ");
         /*
-         * Desenvolvedor: Rodrigo Pecci - Data: 23/10/2013 - Hor·rio: 10h47min - ID Citsmart: 120770 Motivo/Coment·rio: O grupo estava utilizando INNER JOIN e quando n„o existia relacionamento o
-         * resultado do grupo n„o era retornado.
+         * Desenvolvedor: Rodrigo Pecci - Data: 23/10/2013 - Hor√°rio: 10h47min - ID Citsmart: 120770 Motivo/Coment√°rio: O grupo estava utilizando INNER JOIN e quando n√£o existia relacionamento o
+         * resultado do grupo n√£o era retornado.
          */
         sql.append("   LEFT JOIN grupo g  ");
         sql.append("           ON g.idgrupo = ss.idgrupoatual  ");
@@ -7510,7 +7510,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                     parametro.add(transformaHoraFinal(solicitacaoServicoDTO.getDataFim()));
                 }
                 /*
-                 * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor·rio: 14h21min - ID Citsmart: 120770 Motivo/Coment·rio: Removida a condiÁ„o que n„o exibia solicitaÁıes com contrato de serviÁos
+                 * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Hor√°rio: 14h21min - ID Citsmart: 120770 Motivo/Coment√°rio: Removida a condi√ß√£o que n√£o exibia solicita√ß√µes com contrato de servi√ßos
                  * que foram deletados. Todos devem ser exibidos.
                  */
                 if (solicitacaoServicoDTO.getIdContrato() != null) {
@@ -7692,7 +7692,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Retorna SolicitacaoServico com as informaÁıes do contato setado.
+     * Retorna SolicitacaoServico com as informa√ß√µes do contato setado.
      *
      * @param nomeContato
      * @return
@@ -7722,7 +7722,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Retorna SolicitacaoServico com Item de ConfiguraÁ„o do Solicitante selecionado.
+     * Retorna SolicitacaoServico com Item de Configura√ß√£o do Solicitante selecionado.
      *
      * @param login
      * @return SolicitacaoServicoDTO
@@ -7887,12 +7887,12 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Retorna o Total de P·ginas (Quantidade Total de SolicitaÁıes dividido pela QTDE de Itens por P·gina) de acordo com as Tarefas e os Contratos do Usu·rio Logado.
+     * Retorna o Total de P√°ginas (Quantidade Total de Solicita√ß√µes dividido pela QTDE de Itens por P√°gina) de acordo com as Tarefas e os Contratos do Usu√°rio Logado.
      *
      * @param itensPorPagina
      * @param listTarefa
      * @param gerenciamentoServicosDTO
-     * @return Integer - N˙mero Total de P·ginas
+     * @return Integer - N√∫mero Total de P√°ginas
      * @throws Exception
      * @author valdoilo.damasceno
      * @since 05.11.2013
@@ -7931,7 +7931,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         if (listaFiltrada != null && size != 0 && listContratoUsuarioLogado != null && !listContratoUsuarioLogado.isEmpty()) {
             // Hack oracle
             if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE)) {
-                // O oracle possui uma restriÁ„o de apenas 1000 registros na funÁ„o IN por isso foi necess·rio realizar um UNION a cada 1000 registros. Realizado por Fl·vio.
+                // O oracle possui uma restri√ß√£o de apenas 1000 registros na fun√ß√£o IN por isso foi necess√°rio realizar um UNION a cada 1000 registros. Realizado por Fl√°vio.
                 sql.append(" AND it.iditemtrabalho IN ( select * from table(sys.odcinumberlist( ");
             } else {
                 sql.append(" AND it.iditemtrabalho IN  ( ");
@@ -7969,7 +7969,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
             }
 
-            // FILTRA CONTRATO DO USU¡RIO LOGADO - SÛ retorna as SolicitaÁıes dos Contratos em que o usu·rio logado est· inserido.
+            // FILTRA CONTRATO DO USU√ÅRIO LOGADO - S√≥ retorna as Solicita√ß√µes dos Contratos em que o usu√°rio logado est√° inserido.
             if (listContratoUsuarioLogado != null && !listContratoUsuarioLogado.isEmpty()) {
                 sql.append(" AND c.idcontrato in ( ");
                 boolean a = true;
@@ -8046,7 +8046,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
 
     /**
-     * Total de p·gina para o portal
+     * Total de p√°gina para o portal
      * @param itensPorPagina
      * @param listTarefa
      * @return
@@ -8079,7 +8079,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         sql.append("WHERE sol.idsolicitacaopai is null ");
 
         if (listContratoUsuarioLogado != null && !listContratoUsuarioLogado.isEmpty()) {
-            // FILTRA CONTRATO DO USU¡RIO LOGADO - SÛ retorna as SolicitaÁıes dos Contratos em que o usu·rio logado est· inserido.
+            // FILTRA CONTRATO DO USU√ÅRIO LOGADO - S√≥ retorna as Solicita√ß√µes dos Contratos em que o usu√°rio logado est√° inserido.
             if (listContratoUsuarioLogado != null && !listContratoUsuarioLogado.isEmpty()) {
                 sql.append(" AND c.idcontrato in ( ");
                 boolean verifica = true;
@@ -8139,7 +8139,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
 
     /**
-     * Seta uma solicitaÁ„o como filha de outra.
+     * Seta uma solicita√ß√£o como filha de outra.
      *
      * @param solicitacaoDto
      * @param condicoes
@@ -8152,7 +8152,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         try {
             this.execUpdate(sql.toString(), params);
         } catch (PersistenceException e) {
-            System.out.println("Problemas com atualizaÁ„o da solicitacaoServico.");
+            System.out.println("Problemas com atualiza√ß√£o da solicitacaoServico.");
             e.printStackTrace();
         }
     }
@@ -8489,7 +8489,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
 
     /**
-     * lista com os quantitativos por empregado de solicitaÁıes serviÁos emcaminhadas e foram concluidas com exito.
+     * lista com os quantitativos por empregado de solicita√ß√µes servi√ßos emcaminhadas e foram concluidas com exito.
      * @param relatorioKpiProdutividadeDto
      * @return
      * @throws Exception
@@ -8869,7 +8869,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         sql.append("        LEFT JOIN aprovacaosolicitacaoservico aprov ON aprov.idaprovacaosolicitacaoservico = sol.idultimaaprovacao ");
         sql.append(" WHERE sol.idsolicitacaopai IS NOT NULL ");
 
-        // FILTRA CONTRATO DO USU¡RIO LOGADO - SÛ retorna as SolicitaÁıes dos Contratos em que o usu·rio logado est· inserido.
+        // FILTRA CONTRATO DO USU√ÅRIO LOGADO - S√≥ retorna as Solicita√ß√µes dos Contratos em que o usu√°rio logado est√° inserido.
         if (listContratoUsuarioLogado != null && !listContratoUsuarioLogado.isEmpty()) {
             sql.append(" AND c.idcontrato in ( ");
             boolean verifica = true;
@@ -8923,7 +8923,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         List list = new ArrayList();
         StringBuilder sql = new StringBuilder();
         /*
-         * Permite funcion·rios do mesmo grupo
+         * Permite funcion√°rios do mesmo grupo
 		sql.append("select distinct empregados.idempregado ");
 		sql.append("from alcada join limitealcada on alcada.idalcada = limitealcada.idalcada and alcada.situacao = 'A' ");
 		sql.append("join grupo on grupo.idgrupo = limitealcada.idgrupo ");
@@ -8932,7 +8932,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 		sql.append("where empregados.idempregado = ? and alcada.tipoalcada = 'Pessoal'  order by grupo.nome, empregados.nome");
          */
 
-        //Somente o Respons·vel poder· solicitar
+        //Somente o Respons√°vel poder√° solicitar
         sql.append("select distinct alcadacentroresultado.idempregado ");
         sql.append("from alcada join alcadacentroresultado on alcada.tipoalcada = 'Pessoal' and alcada.situacao = 'A' and ");
         sql.append("alcada.idalcada = alcadacentroresultado.idalcada and ");
@@ -9173,7 +9173,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
     
     /**
-     * MÈtodo para listar n˙mero de solicitaÁıes fora do perÌodo fornecido pelo usu·rio
+     * M√©todo para listar n√∫mero de solicita√ß√µes fora do per√≠odo fornecido pelo usu√°rio
      * 
      * @param relatorioIncidentesNaoResolvidosDTO
      * @return

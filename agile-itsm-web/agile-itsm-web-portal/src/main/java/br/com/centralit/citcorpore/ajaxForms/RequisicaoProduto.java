@@ -349,7 +349,7 @@ public class RequisicaoProduto extends AjaxFormAction {
 							String motivo = alcadaProcessoNegocioDto.getMotivoRejeicao().getDescricao();
 							if (alcadaProcessoNegocioDto.getComplementoRejeicao() != null)
 								motivo += " - "+alcadaProcessoNegocioDto.getComplementoRejeicao();
-							title="title='header=[Motivo da rejeição] body=[" + motivo + "]'";
+							title="title='header=[Motivo da rejeiÃ§Ã£o] body=[" + motivo + "]'";
 						}
 	        		}
 					str += "<tr "+title+cor+">";
@@ -360,12 +360,12 @@ public class RequisicaoProduto extends AjaxFormAction {
 					str += alcadaProcessoNegocioDto.getProcessosNegocio().get(0).getNivelAutoridadeDto().getNomeNivelAutoridade();
 					str += "	</td>";
 					if (!alcadaProcessoNegocioDto.isDelegacao()) {
-						str += "<td>Não</td>";
+						str += "<td>NÃ£o</td>";
 					}else{
 						str += "<td style='color:red'>Sim</td>";
 					}
 					if (alcadaProcessoNegocioDto.isAlcadaRejeitada()) {
-						str += "<td>Não";
+						str += "<td>NÃ£o";
 					}else{
 						str += "<td>Sim";
 					}

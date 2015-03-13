@@ -66,13 +66,13 @@ public class MudarSLA extends AjaxFormAction {
 	}
 
 	/**
-	 * Salva a MudanÁa de SLA da SolicitaÁ„o.
+	 * Salva a Mudan√ßa de SLA da Solicita√ß√£o.
 	 * 
 	 * @param document
 	 * @param request
 	 * @param response
 	 * @throws Exception
-	 * @author valdoilo.damasceno Data: 25/10/2013 - Hor·rio: 16:03. Chamada parent.pesquisarItensFiltro()
+	 * @author valdoilo.damasceno Data: 25/10/2013 - Hor√°rio: 16:03. Chamada parent.pesquisarItensFiltro()
 	 */
 	public void save(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		UsuarioDTO usuario = WebUtil.getUsuario(request);

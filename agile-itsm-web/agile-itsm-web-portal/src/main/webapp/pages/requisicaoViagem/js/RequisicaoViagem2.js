@@ -56,7 +56,7 @@ $(window).load(function() {
 	/* AutorizaÃ§Ã£o Viagem */
 	habilitaJustificativaNaoAutorizacao();
 	
-	/* Conferência Viagem */
+	/* ConferÃªncia Viagem */
 	habilitaJustificativaNaoAutorizacaoConferencia();
 });
 
@@ -87,12 +87,12 @@ $(".radio-autorizacao").on("click", function() {
 	habilitaJustificativaNaoAutorizacao();
 });
 
-/* Conferência Viagem */
+/* ConferÃªncia Viagem */
 $(".radio-autorizacao-conferencia").on("click", function() {
 	habilitaJustificativaNaoAutorizacaoConferencia();
 });
 
-/* Conferência Viagem */
+/* ConferÃªncia Viagem */
 function habilitaJustificativaNaoAutorizacaoConferencia() {
 	if($("#nao_autorizado_conferencia:checked").length) {
 		$("#autorizacao-justificativa-conferencia-container").show();

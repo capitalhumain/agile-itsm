@@ -74,7 +74,7 @@ import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 
 /**
- * Controller da p·gina de instalaÁ„o do sistema
+ * Controller da p√°gina de instala√ß√£o do sistema
  *
  * @author flavio.santana
  *
@@ -126,7 +126,7 @@ public class Start extends AjaxFormAction {
                                 + conn.getMetaData().getDatabaseProductName().replaceAll(" ", "_") + ".sql"));
                     } catch (final Exception er) {}
                     /**
-                     * Mata da sess„o o parametro de instalaÁ„o
+                     * Mata da sess√£o o parametro de instala√ß√£o
                      */
                     final ServletContext context = request.getSession().getServletContext();
                     context.setAttribute("instalacao", null);
@@ -145,7 +145,7 @@ public class Start extends AjaxFormAction {
     }
 
     /**
-     * Verifica o status da conex„o
+     * Verifica o status da conex√£o
      *
      * @throws SQLException
      */
@@ -162,7 +162,7 @@ public class Start extends AjaxFormAction {
     }
 
     /**
-     * InfomaÁıes iniciais de configuraÁ„o da Empresa
+     * Infoma√ß√µes iniciais de configura√ß√£o da Empresa
      *
      * @throws Exception
      * @throws ServiceException
@@ -177,7 +177,7 @@ public class Start extends AjaxFormAction {
             document.alert(UtilI18N.internacionaliza(request, "start.instalacao.validaEmpresa"));
             document.executeScript("document.frmEmpresa.nomeEmpresa.focus()");
         } else {
-            empresaDTO.setIdEmpresa(1); // Definindo o id padr„o da carga
+            empresaDTO.setIdEmpresa(1); // Definindo o id padr√£o da carga
             empresaDTO.setNomeEmpresa(start.getNomeEmpresa());
             empresaDTO.setDetalhamento(start.getDetalhamento());
             empresaDTO.setDataInicio(UtilDatas.getDataAtual());
@@ -189,7 +189,7 @@ public class Start extends AjaxFormAction {
     }
 
     /**
-     * Carrega as informaÁıes de empresa
+     * Carrega as informa√ß√µes de empresa
      *
      * @param document
      * @param request
@@ -265,7 +265,7 @@ public class Start extends AjaxFormAction {
     }
 
     /**
-     * Grava os parametros do LDAP informados pelo usu·rio
+     * Grava os parametros do LDAP informados pelo usu√°rio
      *
      * @param document
      * @param request
@@ -279,7 +279,7 @@ public class Start extends AjaxFormAction {
         final StartDTO ldap = (StartDTO) document.getBean();
         final ParametroCorporeService parametroCorporeService = getParametroCorporeService();
 
-        /* Atualiza o metodo de autencicaÁ„o de pasta 1 Proprio / 2LDAP */
+        /* Atualiza o metodo de autencica√ß√£o de pasta 1 Proprio / 2LDAP */
         final ParametroCorporeDTO metodoAutenticacaoPasta = new ParametroCorporeDTO();
         metodoAutenticacaoPasta.setId(Enumerados.ParametroSistema.METODO_AUTENTICACAO_Pasta.id());
         metodoAutenticacaoPasta.setValor(ldap.getMetodoAutenticacao());
@@ -313,7 +313,7 @@ public class Start extends AjaxFormAction {
     }
 
     /**
-     * Testa os parametros de Conex„o LDAP
+     * Testa os parametros de Conex√£o LDAP
      *
      * @param document
      * @param request
@@ -394,7 +394,7 @@ public class Start extends AjaxFormAction {
     }
 
     /**
-     * Carrega as informaÁıes dos parametros do sistema para log
+     * Carrega as informa√ß√µes dos parametros do sistema para log
      *
      * @param document
      * @param request
@@ -425,7 +425,7 @@ public class Start extends AjaxFormAction {
     }
 
     /**
-     * Grava as informaÁıes de log do sistema
+     * Grava as informa√ß√µes de log do sistema
      *
      * @param document
      * @param request
@@ -453,7 +453,7 @@ public class Start extends AjaxFormAction {
     }
 
     /**
-     * Carrega as informaÁıes do gerenciamento eletronico de documentos
+     * Carrega as informa√ß√µes do gerenciamento eletronico de documentos
      *
      * @param document
      * @param request
@@ -475,7 +475,7 @@ public class Start extends AjaxFormAction {
     }
 
     /**
-     * Carrega as informaÁıes do gerenciamento eletronico de documentos
+     * Carrega as informa√ß√µes do gerenciamento eletronico de documentos
      *
      * @param document
      * @param request
@@ -515,7 +515,7 @@ public class Start extends AjaxFormAction {
     }
 
     /**
-     * Grava as informaÁıes de Ged do sistema
+     * Grava as informa√ß√µes de Ged do sistema
      *
      * @param document
      * @param request
@@ -556,7 +556,7 @@ public class Start extends AjaxFormAction {
     }
 
     /**
-     * Grava as informaÁıes de SMTP do sistema
+     * Grava as informa√ß√µes de SMTP do sistema
      *
      * @param document
      * @param request
@@ -584,7 +584,7 @@ public class Start extends AjaxFormAction {
     }
 
     /**
-     * Carrega as informaÁıes do gerenciamento eletronico de documentos
+     * Carrega as informa√ß√µes do gerenciamento eletronico de documentos
      *
      * @param document
      * @param request
@@ -639,7 +639,7 @@ public class Start extends AjaxFormAction {
     }
 
     /**
-     * Grava as informaÁıes de parametros para item de configuraÁ„o do sistema
+     * Grava as informa√ß√µes de parametros para item de configura√ß√£o do sistema
      *
      * @param document
      * @param request
@@ -666,7 +666,7 @@ public class Start extends AjaxFormAction {
     }
 
     /**
-     * Carrega as informaÁıes de base de conhecimento
+     * Carrega as informa√ß√µes de base de conhecimento
      *
      * @param document
      * @param request
@@ -694,7 +694,7 @@ public class Start extends AjaxFormAction {
     }
 
     /**
-     * Grava as informaÁıes de parametros para base de conhecimento do sistema
+     * Grava as informa√ß√µes de parametros para base de conhecimento do sistema
      *
      * @param document
      * @param request
@@ -721,7 +721,7 @@ public class Start extends AjaxFormAction {
     }
 
     /**
-     * Carrega as informaÁıes de base de conhecimento
+     * Carrega as informa√ß√µes de base de conhecimento
      *
      * @param document
      * @param request
@@ -842,14 +842,14 @@ public class Start extends AjaxFormAction {
             versaoService.validaVersoes(WebUtil.getUsuario(request));
 
             /**
-             * Define a instalaÁ„o com sucesso
+             * Define a instala√ß√£o com sucesso
              */
             final InstalacaoDTO instalacaoDTO = new InstalacaoDTO();
             instalacaoDTO.setSucesso("S");
             instalacaoService.create(instalacaoDTO);
 
             reload(document, request, "citcorpore.comum.citsmartInstaladoComSucesso");
-            // forcei o usu·rio relogar por problemas de carregamento de menu.
+            // forcei o usu√°rio relogar por problemas de carregamento de menu.
             request.getSession(true).setAttribute("menuPadrao", null);
         } catch (final Exception ex) {
             document.alert(ex.getMessage());
@@ -864,7 +864,7 @@ public class Start extends AjaxFormAction {
     }
 
     /**
-     * Defini o valor da sess„o para os passos da instalaÁ„o
+     * Defini o valor da sess√£o para os passos da instala√ß√£o
      *
      * @param request
      * @param sessao
@@ -883,7 +883,7 @@ public class Start extends AjaxFormAction {
     }
 
     /**
-     * D· um location para a p·gina inicial
+     * D√° um location para a p√°gina inicial
      *
      * @param document
      * @param request
@@ -898,7 +898,7 @@ public class Start extends AjaxFormAction {
     }
 
     /**
-     * D· um location para a p·gina inicial
+     * D√° um location para a p√°gina inicial
      *
      * @param document
      * @param request
@@ -908,7 +908,7 @@ public class Start extends AjaxFormAction {
     }
 
     /**
-     * Valida se Existe o diretÛrio
+     * Valida se Existe o diret√≥rio
      *
      * @param document
      * @param request
@@ -958,7 +958,7 @@ public class Start extends AjaxFormAction {
     }
 
     /**
-     * Carrega as Visoes da Dinamic Views para instalaÁ„o do sistema
+     * Carrega as Visoes da Dinamic Views para instala√ß√£o do sistema
      *
      * @throws ServiceException
      * @throws Exception
@@ -1030,16 +1030,16 @@ public class Start extends AjaxFormAction {
                     } catch (final FileNotFoundException e) {
                         e.printStackTrace();
                     }
-                    final XStream x = new XStream(new DomDriver("ISO-8859-1"));
+                    final XStream x = new XStream(new DomDriver("UTF-8"));
                     visaoDtoXML = (VisaoDTO) x.fromXML(reader);
                     visaoAtual = visaoService.visaoExistente(visaoDtoXML.getIdentificador());
-                    // Determina o tipo da importaÁ„o
+                    // Determina o tipo da importa√ß√£o
                     if (visaoAtual == null) {
                         try {
                             visaoService.importar(visaoDtoXML);
                             countImport++;
                         } catch (final Exception e) {
-                            System.out.println("Erro ao importar vis„o: " + visaoDtoXML.getIdentificador());
+                            System.out.println("Erro ao importar vis√£o: " + visaoDtoXML.getIdentificador());
                             e.printStackTrace();
                         }
                     } else {
@@ -1047,13 +1047,13 @@ public class Start extends AjaxFormAction {
                             visaoService.atualizarVisao(visaoAtual, visaoDtoXML);
                             countAtualiza++;
                         } catch (final Exception e) {
-                            System.out.println("Erro ao atualizar vis„o: " + visaoDtoXML.getIdentificador());
+                            System.out.println("Erro ao atualizar vis√£o: " + visaoDtoXML.getIdentificador());
                             e.printStackTrace();
                         }
                     }
                 }
             }
-            System.out.println("Visıes importadas com sucesso: " + countImport + "\n" + "Visıes atualizadas com sucesso: " + countAtualiza);
+            System.out.println("Vis√µes importadas com sucesso: " + countImport + "\n" + "Vis√µes atualizadas com sucesso: " + countAtualiza);
 
         } else {
             System.out.println("Nenhum arquivo foi selecionado!");
@@ -1111,12 +1111,12 @@ public class Start extends AjaxFormAction {
         final String path = CITCorporeUtil.CAMINHO_REAL_APP + "XMLs" + separator + "release_" + locale + ".xml";
 
         try {
-            reader = new InputStreamReader(new FileInputStream(path), "ISO-8859-1");
+            reader = new InputStreamReader(new FileInputStream(path), "UTF-8");
         } catch (final FileNotFoundException e) {
             e.printStackTrace();
         }
 
-        final XStream x = new XStream(new DomDriver("ISO-8859-1"));
+        final XStream x = new XStream(new DomDriver("UTF-8"));
         final Collection<ReleaseDTO> listRelease = (Collection<ReleaseDTO>) x.fromXML(reader);
 
         try {

@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.citframework.dto.Usuario"%>
@@ -9,9 +11,9 @@
 			String iframe = "";
 		    iframe = request.getParameter("iframe");
 		%>
-	<%@include file="/include/security/security.jsp"%>
-	<title>CIT Corpore</title>
+
 	<%@include file="/include/header.jsp"%>
+	<%@include file="/novoLayout/common/include/titulo.jsp" %>
 	<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 
 	<style type="text/css">

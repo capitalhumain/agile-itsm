@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.citframework.util.UtilDatas"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
@@ -7,8 +9,7 @@
 <html>
 	<head>
 		<%@include file="/include/header.jsp"%>
-		<%@include file="/include/security/security.jsp" %>
-		<title><fmt:message key="citcorpore.comum.title"/></title>
+		<%@include file="/novoLayout/common/include/titulo.jsp" %>
 		<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 
 		<style type="text/css">
@@ -335,7 +336,7 @@
 											<fieldset>
 												<label class="campoObrigatorio"><fmt:message key="itemConfiguracao.itemConfiguracao"/></label>
 													<div>
-													  	<input type='text' name="identificacao" maxlength="70" size="70" class="Valid[Required] Description[Nome do Item Configuração]" />
+													  	<input type='text' name="identificacao" maxlength="70" size="70" class="Valid[Required] Description[Nome do Item ConfiguraÃ§Ã£o]" />
 													</div>
 											</fieldset>
 										</div>
@@ -419,7 +420,7 @@
 		</div>
 		<%@include file="/include/footer.jsp"%>
 	</body>
-	<div id="POPUP_TIPOITEMCONFIGURACAO" title="Consulta Tipo de Item Configuração">
+	<div id="POPUP_TIPOITEMCONFIGURACAO" title="Consulta Tipo de Item ConfiguraÃ§Ã£o">
 		<div class="box grid_16 tabs">
 			<div class="toggle_container">
 										<div id="tabs-1" class="block">
@@ -439,7 +440,7 @@
 												<fieldset>
 													<label class="campoObrigatorio"><fmt:message key="tipoItemConfiguracao.tipoItemConfiguracao"/></label>
 														<div>
-														  <input type='text' name="nome" maxlength="70" size="70" class="Valid[Required] Description[Nome Tipo de Item Configuração" />
+														  <input type='text' name="nome" maxlength="70" size="70" class="Valid[Required] Description[Nome Tipo de Item ConfiguraÃ§Ã£o" />
 														</div>
 												</fieldset>
 											</div>
@@ -447,7 +448,7 @@
 												<fieldset>
 													<label class="campoObrigatorio"><fmt:message key="citcorpore.comum.tag"/></label>
 														<div>
-														  <input type='text' name="tag" maxlength="50" size="70" class="Valid[Required] Description[TAG do Tipo de Item Configuração" />
+														  <input type='text' name="tag" maxlength="50" size="70" class="Valid[Required] Description[TAG do Tipo de Item ConfiguraÃ§Ã£o" />
 														</div>
 												</fieldset>
 											</div>
@@ -461,7 +462,7 @@
 												<button type='button' name='botaoCaracteristica' class="light" onclick="popupA.abrePopup('caracteristica', 'preencherComboUnidade')" >
 													<img src="${ctx}/template_new/images/icons/small/util/adcionar.png">
 													<span>
-														Inserir Características
+														Inserir CaracterÃ­sticas
 													</span>
 												</button>
 											</div>
@@ -508,7 +509,7 @@
 			</div>
 		</div>
 	</div>
-	<div id="POPUP_GRUPOITEMCONFIGURACAO" title="Consulta Grupo de Item Configuração">
+	<div id="POPUP_GRUPOITEMCONFIGURACAO" title="Consulta Grupo de Item ConfiguraÃ§Ã£o">
 		<div class="toggle_container">
 			<div id="tabs-2" class="block">
 				<div class="section" style="padding: 33px;">

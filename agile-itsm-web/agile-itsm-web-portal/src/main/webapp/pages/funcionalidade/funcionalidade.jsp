@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.citframework.dto.Usuario"%>
@@ -5,13 +7,8 @@
 <!doctype html public "">
 <html>
 <head>
-<%@include file="/include/security/security.jsp" %>
-<!--[if lt IE 7]> <html lang="en-us" class="no-js ie6"> <![endif]-->
-<!--[if IE 7]>    <html lang="en-us" class="no-js ie7"> <![endif]-->
-<!--[if IE 8]>    <html lang="en-us" class="no-js ie8"> <![endif]-->
-<!--[if IE 9]>    <html lang="en-us" class="no-js ie9"> <![endif]-->
-	<title>CIT Corpore</title>
 	<%@include file="/include/header.jsp" %>
+	<%@include file="/novoLayout/common/include/titulo.jsp" %>
 </head>
 <body>
 	<div id="wrapper">
@@ -59,8 +56,8 @@
 						<div>
 						  <textarea name="descricao"
 
-										class="Valid[Required] Description[Descrição]"
-										title="Informe a descrição da Funcionalidade.">
+										class="Valid[Required] Description[DescriÃ§Ã£o]"
+										title="Informe a descriÃ§Ã£o da Funcionalidade.">
 									</textarea>
 						</div>
 				</fieldset>

@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.citframework.dto.Usuario"%>
@@ -8,7 +10,7 @@
 		<%@include file="/include/header.jsp"%>
 		<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 
-		<title><fmt:message key="citcorpore.comum.title" /></title>
+		<%@include file="/novoLayout/common/include/titulo.jsp" %>
 
 		<link rel="stylesheet" type="text/css" href="./css/controleContrato.css" />
 
@@ -52,7 +54,7 @@
 									<input type="hidden" id="rowIndex" name="rowIndex"/>
 
 									<div class="columns clearfix">
-										<!-- Início dados Gerais -->
+										<!-- InÃ­cio dados Gerais -->
 										<div class="col_60">
 											<fieldset>
 												<label class="campoObrigatorio" style="margin-bottom: 3px;">
@@ -352,7 +354,7 @@
 												</tr>
 											</table>
 										</div>
-										<!--  Trecho de código comentado pois não estava claro a sua utilização na tela em questão
+										<!--  Trecho de cÃ³digo comentado pois nÃ£o estava claro a sua utilizaÃ§Ã£o na tela em questÃ£o
 										<div class="col_100" style="border-top: 1px solid #ddd">
 											<div style="margin-bottom: 5px; margin-top: 5px; border-bottom: none;">
 												<b><fmt:message key="citcorpore.controleContrato.incidentes" /></b>

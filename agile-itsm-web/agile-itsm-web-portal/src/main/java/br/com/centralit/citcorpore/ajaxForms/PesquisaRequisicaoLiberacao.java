@@ -335,9 +335,9 @@ public class PesquisaRequisicaoLiberacao extends AjaxFormAction {
 //			html.append("<td>" + UtilStrings.nullToVazio(r.getResposta()) + "</td>");
 //			html.append("<td>" + r.getNomeServico().replace(".", ". ") + "</td>");
 			if(r.getStatus().equalsIgnoreCase("emexecucao"))
-				html.append("<td>" + "Em ExecuÁ„o" + "</td>");
+				html.append("<td>" + "Em Execu√ß√£o" + "</td>");
 			else if(r.getStatus().equalsIgnoreCase("naoresolvida"))
-				html.append("<td>" + "N„o Resolvida" + "</td>");
+				html.append("<td>" + "N√£o Resolvida" + "</td>");
 			else
 				html.append("<td>" + r.getStatus() + "</td>");
 			
@@ -478,7 +478,7 @@ public class PesquisaRequisicaoLiberacao extends AjaxFormAction {
 		parametros = UtilRelatorio.trataInternacionalizacaoLocale(session, parametros);
 		
 		parametros.put("TITULO_RELATORIO", UtilI18N.internacionaliza(request, "citcorporeRelatorio.comum.relatorioRequisicoesLiberacoes"));
-		parametros.put("CIDADE", "BrasÌlia,");
+		parametros.put("CIDADE", "Bras√≠lia,");
 		parametros.put("DATA_HORA", UtilDatas.getDataHoraAtual());
 		parametros.put("NOME_USUARIO", usuario.getNomeUsuario());
 		parametros.put("dataInicial", pesquisaRequisicaoLiberacaoDto.getDataInicio());
@@ -582,7 +582,7 @@ public class PesquisaRequisicaoLiberacao extends AjaxFormAction {
 			// Instancia o arquivo de swap, informando:
 			// Diretorio,
 			// Tamanho de cada bloco (4kb)
-			// Numero mÌnimo de blocos que o swap ser· aumentado sempre que
+			// Numero m√≠nimo de blocos que o swap ser√° aumentado sempre que
 			// estiver cheio
 			// JRSwapFile arquivoSwap = new JRSwapFile(diretorioReceita, 4096,
 			// 25);
@@ -593,11 +593,11 @@ public class PesquisaRequisicaoLiberacao extends AjaxFormAction {
 
 			JRAbstractLRUVirtualizer virtualizer = new JRGzipVirtualizer(500);
 
-			// Seta o parametro REPORT_VIRTUALIZER com a inst‚ncia da
-			// virtualizaÁ„o
+			// Seta o parametro REPORT_VIRTUALIZER com a inst√¢ncia da
+			// virtualiza√ß√£o
 			parametros.put(JRParameter.REPORT_VIRTUALIZER, virtualizer);
 
-			// Preenche o relatÛrio e exibe numa GUI
+			// Preenche o relat√≥rio e exibe numa GUI
 			Timestamp ts1 = UtilDatas.getDataHoraAtual();
 			JasperPrint jp = JasperFillManager.fillReport(caminhoJasper, parametros, dataSource);
 			Timestamp ts2 = UtilDatas.getDataHoraAtual();
@@ -691,8 +691,8 @@ public class PesquisaRequisicaoLiberacao extends AjaxFormAction {
 		Map<String, Object> parametros = new HashMap<String, Object>();
 		parametros = UtilRelatorio.trataInternacionalizacaoLocale(session, parametros);
 		
-		parametros.put("TITULO_RELATORIO", "RelatÛrio Incidentes / SolicitaÁıes de ServiÁos");
-		parametros.put("CIDADE", "BrasÌlia,");
+		parametros.put("TITULO_RELATORIO", "Relat√≥rio Incidentes / Solicita√ß√µes de Servi√ßos");
+		parametros.put("CIDADE", "Bras√≠lia,");
 		parametros.put("DATA_HORA", UtilDatas.getDataHoraAtual());
 		parametros.put("NOME_USUARIO", usuario.getNomeUsuario());
 		parametros.put("dataInicio", pesquisaRequisicaoLiberacaoDto.getDataInicio());

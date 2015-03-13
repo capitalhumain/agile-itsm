@@ -76,7 +76,7 @@ public class MonitoraMudanca extends Thread {
 
             Collection<RequisicaoMudancaDTO> col = null;
             try {
-                ligaFuncionamentoRegrasEscalonamento = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.HABILITA_ESCALONAMENTO_MUDANÇA, "N");
+                ligaFuncionamentoRegrasEscalonamento = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.HABILITA_ESCALONAMENTO_MUDANÃ‡A, "N");
                 ID_MODELO_EMAIL_ESCALACAO_AUTOMATICA_STR = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.ID_MODELO_EMAIL_ESCALACAO_AUTOMATICA, "0");
                 if (!ID_MODELO_EMAIL_PRAZO_VENCENDO_STR.trim().equals("")) {
                     ID_MODELO_EMAIL_PRAZO_VENCENDO = new Integer(ID_MODELO_EMAIL_PRAZO_VENCENDO_STR);
@@ -88,7 +88,7 @@ public class MonitoraMudanca extends Thread {
 
             try {
                 try {
-                    /* Lista todas as solicitaçãoes relacionadas a regra de escalonamento definido e demais. */
+                    /* Lista todas as solicitaÃ§Ã£oes relacionadas a regra de escalonamento definido e demais. */
                     col = mudancaDao.listSolicitacoesByRegra();
                 } catch (final Exception e) {
                     e.printStackTrace();
@@ -108,7 +108,7 @@ public class MonitoraMudanca extends Thread {
                             Collection<RegraEscalonamentoDTO> colecaoRegrasEscalonamento = null;
                             Collection<EscalonamentoDTO> colecaoEscalonamento = null;
                             try {
-                                // regra: 1 para solicitação/incidente, 3 para mudança, 2 para problema
+                                // regra: 1 para solicitaÃ§Ã£o/incidente, 3 para mudanÃ§a, 2 para problema
                                 colecaoRegrasEscalonamento = regraEscalonamentoDao.findRegraByRequisicaoMudanca(requisicaoMudancaDto, 3);
                                 if (colecaoRegrasEscalonamento != null) {
                                     for (final RegraEscalonamentoDTO regraEscalonamentoDTO : colecaoRegrasEscalonamento) {
@@ -119,22 +119,22 @@ public class MonitoraMudanca extends Thread {
                                         colecaoEscalonamento = escalonamentoDao.findByRegraEscalonamento(regraEscalonamentoDTO);
                                         if (colecaoEscalonamento != null) {
                                             for (final EscalonamentoDTO escalonamentoDTO : colecaoEscalonamento) {
-                                                // System.out.println("Estabelecendo regra... Solicitação: " + solicitacaoServicoDTO.getIdRequisicaoMudanca());
+                                                // System.out.println("Estabelecendo regra... SolicitaÃ§Ã£o: " + solicitacaoServicoDTO.getIdRequisicaoMudanca());
                                                 if (escalonamentoDTO.getPrazoExecucao() == null || escalonamentoDTO.getPrazoExecucao().intValue() == 0) {
                                                     continue;
                                                 }
 
-                                                // Verifica se já existe referencia
+                                                // Verifica se jÃ¡ existe referencia
                                                 final boolean temEscalonamento = relEscalonamentoMudancaDao.temRelacionamentoSolicitacaoEscalonamento(
                                                         requisicaoMudancaDto.getIdRequisicaoMudanca(), escalonamentoDTO.getIdEscalonamento());
                                                 if (temEscalonamento) {
-                                                    // System.out.println("Escalonamento " + escalonamentoDTO.getIdEscalonamento() + " já executado.");
+                                                    // System.out.println("Escalonamento " + escalonamentoDTO.getIdEscalonamento() + " jÃ¡ executado.");
                                                     continue;
                                                 }
 
                                                 if (regraEscalonamentoDTO.getTipoDataEscalonamento() != null && regraEscalonamentoDTO.getTipoDataEscalonamento().intValue() == 1) {
                                                     /**
-                                                     * Verifica se o tempo que se passou é maior que o prazo de execução
+                                                     * Verifica se o tempo que se passou Ã© maior que o prazo de execuÃ§Ã£o
                                                      */
                                                     if (requisicaoMudancaDto.getDataHoraInicio() != null
                                                             && dataHoraAtual.getTime() - requisicaoMudancaDto.getDataHoraInicio().getTime() > escalonamentoDTO.getPrazoExecucao() * 60 * 1000) {
@@ -148,15 +148,15 @@ public class MonitoraMudanca extends Thread {
                                                             relEscalonamentoMudancaDao.create(dto);
 
                                                             /**
-                                                             * Realizando o escalonamento da solicitação com base nas regras estabelecidas
-                                                             * Se prioridade for nula estão se escalonamento com a mesma prioridade antiga
+                                                             * Realizando o escalonamento da solicitaÃ§Ã£o com base nas regras estabelecidas
+                                                             * Se prioridade for nula estÃ£o se escalonamento com a mesma prioridade antiga
                                                              */
                                                             mudancaServiceEjb.updateTimeAction(
                                                                     escalonamentoDTO.getIdGrupoExecutor(),
                                                                     escalonamentoDTO.getIdPrioridade() != null ? escalonamentoDTO.getIdPrioridade() : requisicaoMudancaDto
                                                                             .getPrioridade(), requisicaoMudancaDto.getIdRequisicaoMudanca());
                                                             /**
-                                                             * Enviando email de escalação automática
+                                                             * Enviando email de escalaÃ§Ã£o automÃ¡tica
                                                              */
                                                             this.enviaEmail(ID_MODELO_EMAIL_ESCALACAO_AUTOMATICA, requisicaoMudancaDto.getIdRequisicaoMudanca());
 
@@ -195,15 +195,15 @@ public class MonitoraMudanca extends Thread {
                                                                     relEscalonamentoMudancaDao.create(dto);
 
                                                                     /**
-                                                                     * Realizando o escalonamento da solicitação com base nas regras estabelecidas
-                                                                     * Se prioridade for nula estão se escalonamento com a mesma prioridade antiga
+                                                                     * Realizando o escalonamento da solicitaÃ§Ã£o com base nas regras estabelecidas
+                                                                     * Se prioridade for nula estÃ£o se escalonamento com a mesma prioridade antiga
                                                                      */
                                                                     mudancaServiceEjb.updateTimeAction(
                                                                             escalonamentoDTO.getIdGrupoExecutor(),
                                                                             escalonamentoDTO.getIdPrioridade() != null ? escalonamentoDTO.getIdPrioridade() : requisicaoMudancaDto
                                                                                     .getPrioridade(), requisicaoMudancaDto.getIdRequisicaoMudanca());
                                                                     /**
-                                                                     * Enviando email de escalação automática
+                                                                     * Enviando email de escalaÃ§Ã£o automÃ¡tica
                                                                      */
                                                                     this.enviaEmail(ID_MODELO_EMAIL_ESCALACAO_AUTOMATICA, requisicaoMudancaDto.getIdRequisicaoMudanca());
 
@@ -244,7 +244,7 @@ public class MonitoraMudanca extends Thread {
     private void trataSituacaoVencimentoSolicitacao(final RequisicaoMudancaDTO requisicaoMudancaDto, final RegraEscalonamentoDTO regraEscalonamentoDTO,
             final RequisicaoMudancaServiceEjb requisicaoMudancaServiceEjb, final Timestamp dataHoraAtual, final OcorrenciaMudancaDTO ocorrSolDto, final Integer idModeloEmail)
             throws Exception {
-        // trata regra de classificação se está vencendo
+        // trata regra de classificaÃ§Ã£o se estÃ¡ vencendo
         if (requisicaoMudancaDto.getDataHoraTermino() != null && regraEscalonamentoDTO.getTempoExecucao() != null
                 && (requisicaoMudancaDto.getPrazoHH() != 0 || requisicaoMudancaDto.getPrazoMM() != 0)
                 && dataHoraAtual.getTime() - requisicaoMudancaDto.getDataHoraTermino().getTime() >= regraEscalonamentoDTO.getTempoExecucao() * 60 * 1000) {
@@ -259,7 +259,7 @@ public class MonitoraMudanca extends Thread {
                 if (dataHoraAtual.getTime() - timeAux.getTime() > intervaloTempo) {
                     if (regraEscalonamentoDTO.getEnviarEmail() != null && regraEscalonamentoDTO.getEnviarEmail().equals("S")) {
                         final UsuarioDTO usuarioDTO = new UsuarioDTO();
-                        usuarioDTO.setLogin("Automático");
+                        usuarioDTO.setLogin("AutomÃ¡tico");
                         OcorrenciaMudancaServiceEjb.create(requisicaoMudancaDto, null, "Vencendo", OrigemOcorrencia.OUTROS, CategoriaOcorrencia.Atualizacao, null,
                                 CategoriaOcorrencia.Atualizacao.getDescricao(), usuarioDTO, 0, null, null);
                         if (idModeloEmail != null) {
@@ -316,7 +316,7 @@ public class MonitoraMudanca extends Thread {
 
         final String remetente = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.RemetenteNotificacoesSolicitacao, null);
         if (remetente == null) {
-            throw new LogicException("Remetente para notificações de solicitação de serviço não foi parametrizado");
+            throw new LogicException("Remetente para notificaÃ§Ãµes de solicitaÃ§Ã£o de serviÃ§o nÃ£o foi parametrizado");
         }
 
         final String urlSistema = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.URL_Sistema, "");
@@ -326,7 +326,7 @@ public class MonitoraMudanca extends Thread {
 
         final String idHashValidacao = CriptoUtils.generateHash("CODED" + requisicaoAuxDto.getIdRequisicaoMudanca(), "MD5");
         requisicaoAuxDto.setLinkPesquisaSatisfacao("<a href=\"" + urlSistema + "/pages/pesquisaSatisfacao/pesquisaSatisfacao.load?idSolicitacaoServico="
-                + requisicaoAuxDto.getIdRequisicaoMudanca() + "&hash=" + idHashValidacao + "\">Clique aqui para fazer a avaliação do Atendimento</a>");
+                + requisicaoAuxDto.getIdRequisicaoMudanca() + "&hash=" + idHashValidacao + "\">Clique aqui para fazer a avaliaÃ§Ã£o do Atendimento</a>");
 
         final MensagemEmail mensagem = new MensagemEmail(idModeloEmail, new BaseEntity[] {requisicaoAuxDto});
         try {

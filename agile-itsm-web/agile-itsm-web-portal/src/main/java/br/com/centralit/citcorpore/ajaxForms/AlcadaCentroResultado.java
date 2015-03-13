@@ -38,7 +38,7 @@ public class AlcadaCentroResultado extends AjaxFormAction {
 			return;
 		}
 
-		// Lógica de verificação dos radiobuttons de acordo com a operação: inserção ou atualização.
+		// LÃ³gica de verificaÃ§Ã£o dos radiobuttons de acordo com a operaÃ§Ã£o: inserÃ§Ã£o ou atualizaÃ§Ã£o.
 		document.executeScript("$('#situacaoAtivo').attr('checked', true)");
 		document.executeScript("$('#situacao').val('A')");
 
@@ -62,7 +62,7 @@ public class AlcadaCentroResultado extends AjaxFormAction {
 		CentroResultadoService centroResultadoService = (CentroResultadoService) ServiceLocator.getInstance().getService(CentroResultadoService.class, null);
 		AlcadaService alcadaService = (AlcadaService) ServiceLocator.getInstance().getService(AlcadaService.class, null);
 
-		// Verificando se os DTOs e seus respectivos Services possuem referências.
+		// Verificando se os DTOs e seus respectivos Services possuem referÃªncias.
 		if (alcadaCentroResultadoDTO == null || alcadaCentroResultadoDTO.getIdAlcadaCentroResultado() == null) {
 			return;
 		}
@@ -79,7 +79,7 @@ public class AlcadaCentroResultado extends AjaxFormAction {
 			return;
 		}
 
-		// Recuperando a alçada de centro de resultado a partir do banco de dados.
+		// Recuperando a alÃ§ada de centro de resultado a partir do banco de dados.
 		alcadaCentroResultadoDTO = (AlcadaCentroResultadoDTO) alcadaCentroResultadoService.restore(alcadaCentroResultadoDTO);
 
 		// Recuperando o empregado.
@@ -96,7 +96,7 @@ public class AlcadaCentroResultado extends AjaxFormAction {
 			alcadaCentroResultadoDTO.setNomeCentroResultado(centroResultadoDTO.getNomeCentroResultado());
 		}
 
-		// Recuperando a alçada.
+		// Recuperando a alÃ§ada.
 		if (alcadaCentroResultadoDTO.getIdAlcada() != null) {
 			alcadaDTO.setIdAlcada(alcadaCentroResultadoDTO.getIdAlcada());
 			alcadaDTO = (AlcadaDTO) alcadaService.restore(alcadaDTO);
@@ -119,16 +119,16 @@ public class AlcadaCentroResultado extends AjaxFormAction {
 	}
 
 	public void save(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// Obtendo o objeto (DTO - Data Transfer Object) que armazena os dados do formulário.
+		// Obtendo o objeto (DTO - Data Transfer Object) que armazena os dados do formulÃ¡rio.
 		AlcadaCentroResultadoDTO alcadaCentroResultadoDTO = (AlcadaCentroResultadoDTO) document.getBean();
-		// Obtendo um objeto da camada de serviço para realizar a persistência dos dados provenientes do DTO.
+		// Obtendo um objeto da camada de serviÃ§o para realizar a persistÃªncia dos dados provenientes do DTO.
 		AlcadaCentroResultadoService alcadaCentroResultadoService = (AlcadaCentroResultadoService) ServiceLocator.getInstance().getService(AlcadaCentroResultadoService.class, null);
 		HTMLForm form = document.getForm("form");
 
 		// Verificando se o DTO e o Service existem.
 		if (alcadaCentroResultadoDTO != null && alcadaCentroResultadoService != null) {
 			/*
-			 * Verificando se a alçada de centro de resultado possui um empregado, um centro de resultado e uma alçada associados. Caso os tenha, prossegue no fluxo persistindo o objeto senão o
+			 * Verificando se a alÃ§ada de centro de resultado possui um empregado, um centro de resultado e uma alÃ§ada associados. Caso os tenha, prossegue no fluxo persistindo o objeto senÃ£o o
 			 * abandona.
 			 */
 			if (alcadaCentroResultadoDTO.getIdEmpregado() == null || alcadaCentroResultadoDTO.getIdCentroResultado() == null || alcadaCentroResultadoDTO.getIdAlcada() == null) {
@@ -138,38 +138,38 @@ public class AlcadaCentroResultado extends AjaxFormAction {
 			// Configurando a data em que o objeto foi persistido.
 			alcadaCentroResultadoDTO.setDataInicio(UtilDatas.getDataAtual());
 
-			// Inserção (id do DTO é nulo).
+			// InserÃ§Ã£o (id do DTO Ã© nulo).
 			if (alcadaCentroResultadoDTO.getIdAlcadaCentroResultado() == null) {
 				/*
-				 * Requisito: Só é permitida uma alçada de centro de resultado ativa (datafim = null) para um mesmo empregado, centro de resultado e alçada.
+				 * Requisito: SÃ³ Ã© permitida uma alÃ§ada de centro de resultado ativa (datafim = null) para um mesmo empregado, centro de resultado e alÃ§ada.
 				 */
 
 				/*
-				 * Obtem todas as alçadas de centro de resultado já registradas com o mesmo empregado, centro resultado e alçada.
+				 * Obtem todas as alÃ§adas de centro de resultado jÃ¡ registradas com o mesmo empregado, centro resultado e alÃ§ada.
 				 */
 				List lista = (List) alcadaCentroResultadoService.find(alcadaCentroResultadoDTO);
 
-				// Verifica se a lista existe e não é vazia.
+				// Verifica se a lista existe e nÃ£o Ã© vazia.
 				if (lista != null && !lista.isEmpty()) {
 					// Itera sobre a lista
 					for (int i = 0; i < lista.size(); i++) {
 						// Configurando a data final de cada elemento.
 						AlcadaCentroResultadoDTO aux = (AlcadaCentroResultadoDTO) lista.get(i);
 						aux.setDataFim(UtilDatas.getDataAtual());
-						// Persistindo a alteração no banco de dados.
+						// Persistindo a alteraÃ§Ã£o no banco de dados.
 						alcadaCentroResultadoService.update(aux);
 					}
 				}
-				// Senão persistir no banco de dados.
+				// SenÃ£o persistir no banco de dados.
 				alcadaCentroResultadoService.create(alcadaCentroResultadoDTO);
 				document.alert(UtilI18N.internacionaliza(request, "MSG05"));
-				// Limpando o formulário.
+				// Limpando o formulÃ¡rio.
 				form.clear();
 				// Configurando novo bean.
 				document.setBean(new AlcadaCentroResultadoDTO());
-				// Recarregando a página.
+				// Recarregando a pÃ¡gina.
 				load(document, request, response);
-			} else { // Atualização (id do DTO não é nulo).
+			} else { // AtualizaÃ§Ã£o (id do DTO nÃ£o Ã© nulo).
 				String situacao = request.getParameter("situacao");
 
 				if (situacao == null || situacao.equals("")) {
@@ -188,7 +188,7 @@ public class AlcadaCentroResultado extends AjaxFormAction {
 				form.clear();
 				// Configurando novo bean.
 				document.setBean(new AlcadaCentroResultadoDTO());
-				// Recarregando a página.
+				// Recarregando a pÃ¡gina.
 				load(document, request, response);
 				document.alert(UtilI18N.internacionaliza(request, "MSG06"));
 			}
@@ -202,9 +202,9 @@ public class AlcadaCentroResultado extends AjaxFormAction {
 		AlcadaCentroResultadoService alcadaCentroResultadoService = (AlcadaCentroResultadoService) ServiceLocator.getInstance().getService(AlcadaCentroResultadoService.class, null);
 
 		if (alcadaCentroResultadoDTO != null & alcadaCentroResultadoService != null) {
-			// Id do DTO não é nulo nem zero.
+			// Id do DTO nÃ£o Ã© nulo nem zero.
 			if (alcadaCentroResultadoDTO.getIdAlcadaCentroResultado() != null && (alcadaCentroResultadoDTO.getIdAlcadaCentroResultado().intValue() > 0)) {
-				// Recuperando o DTO no banco de dados através de seu ID.
+				// Recuperando o DTO no banco de dados atravÃ©s de seu ID.
 				alcadaCentroResultadoDTO = (AlcadaCentroResultadoDTO) alcadaCentroResultadoService.restore(alcadaCentroResultadoDTO);
 				// Configurando a data final.
 				alcadaCentroResultadoDTO.setDataFim(UtilDatas.getDataAtual());

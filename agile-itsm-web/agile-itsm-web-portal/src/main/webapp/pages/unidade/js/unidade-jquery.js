@@ -1,5 +1,5 @@
 /**
- * Componentes JQuery para inclus�o e manipula��o de Mapas na tela de Unidade
+ * Componentes JQuery para inclusï¿½o e manipulaï¿½ï¿½o de Mapas na tela de Unidade
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 12/09/2014
@@ -74,9 +74,9 @@
 	});
 
 	/**
-	 * Constr�i o endere�o a ser consultado ou exibido na InfoWindow
+	 * Constrï¿½i o endereï¿½o a ser consultado ou exibido na InfoWindow
 	 *
-	 * @param {string} endere�o completo da unidade
+	 * @param {string} endereï¿½o completo da unidade
 	 */
 	$.fn.constructFullAddress = function(separator) {
 		var content = "";
@@ -155,8 +155,8 @@
 	};
 
 	/**
-	 * Habilita ou desabilita o bot�o para recuperar as coordenadas geogr�ficas da unidade,
-	 * de acordo com as informa��es contidas no form
+	 * Habilita ou desabilita o botï¿½o para recuperar as coordenadas geogrï¿½ficas da unidade,
+	 * de acordo com as informaï¿½ï¿½es contidas no form
 	 */
 	$.fn.enableDisableButton = function() {
 		if ($(unidadeParams.mapAreaId).length > 0 && $().hasValueInFields()) {
@@ -167,9 +167,9 @@
 	};
 
 	/**
-	 * Verifica a exist�ncia de conte�do em campos de endere�o para habilitar o bot�o.
+	 * Verifica a existï¿½ncia de conteï¿½do em campos de endereï¿½o para habilitar o botï¿½o.
 	 *
-	 * @return {boolean} true, caso tenha valor em algum campos. false, caso contr�rio
+	 * @return {boolean} true, caso tenha valor em algum campos. false, caso contrï¿½rio
 	 */
 	$.fn.hasValueInFields = function() {
 		var country = $.trim($(unidadeParams.paisId).val());
@@ -192,7 +192,7 @@
 	};
 
 	/**
-	 * Reseta o mapa para a configura��o padr�o, quando o form � "limpado"
+	 * Reseta o mapa para a configuraï¿½ï¿½o padrï¿½o, quando o form ï¿½ "limpado"
 	 */
 	$.fn.resetMapsToDefault = function() {
 		mapsParams.latLng = defaultParams.latLng;
@@ -203,7 +203,7 @@
 	};
 
 	/**
-	 * Atualiza as informa��es de latitude e longitude da unidade
+	 * Atualiza as informaï¿½ï¿½es de latitude e longitude da unidade
 	 */
 	$.fn.setPosition = function(position) {
 		$(unidadeParams.latitudeId).val(position.lat());
@@ -213,7 +213,7 @@
 	};
 
 	/**
-	 * Recupera os pontos geogr�ficos de acordo com o endere�o informado no form
+	 * Recupera os pontos geogrï¿½ficos de acordo com o endereï¿½o informado no form
 	 */
 	$.fn.updateUnidadeLocation = function() {
 		var fullAddress = $().constructFullAddress(", ");
@@ -234,7 +234,7 @@
 	};
 
 	/**
-	 * Atualiza o mapa da tela de unidade quando uma nova unidade � recuperada
+	 * Atualiza o mapa da tela de unidade quando uma nova unidade ï¿½ recuperada
 	 */
 	$.fn.updateMapsOnRestore = function() {
 		var latitude = $(unidadeParams.latitudeId).val();
@@ -260,9 +260,9 @@
 	};
 
 	/**
-	 * Constr�i o conte�do a ser inclu�do na InfoWindow da unidade
+	 * Constrï¿½i o conteï¿½do a ser incluï¿½do na InfoWindow da unidade
 	 *
-	 * @return {string} conte�do a ser colocado na InfoWindow
+	 * @return {string} conteï¿½do a ser colocado na InfoWindow
 	 */
 	$.fn.makeInfoWindowContent = function() {
 		var template = "<div>" +

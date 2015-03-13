@@ -115,7 +115,7 @@ public class ClienteDao extends CrudDaoDefaultImpl {
 
 
     /**
-     * Encontra o cliente pela Raz„o Social
+     * Encontra o cliente pela Raz√£o Social
      * @author euler.ramos
      * @throws Exception
      */
@@ -143,7 +143,7 @@ public class ClienteDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Verifica se existe cliente vinculado ‡ algum contrato.
+     * Verifica se existe cliente vinculado √† algum contrato.
      * @param idCliente
      * @return
      * @throws Exception

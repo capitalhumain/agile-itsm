@@ -33,7 +33,7 @@ public class CadastroFluxo extends AjaxFormAction {
     public void load(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         final UsuarioDTO usuario = WebUtil.getUsuario(request);
         if (usuario == null) {
-            document.alert("Sess„o expirada! Favor efetuar logon novamente!");
+            document.alert("Sess√£o expirada! Favor efetuar logon novamente!");
             document.executeScript("window.location = '" + Constantes.getValue("SERVER_ADDRESS") + request.getContextPath() + "'");
             return;
         }
@@ -85,7 +85,7 @@ public class CadastroFluxo extends AjaxFormAction {
         }
 
         this.getFluxoService().delete(fluxoDto);
-        document.alert("Fluxo excluÌdo com sucesso");
+        document.alert("Fluxo exclu√≠do com sucesso");
         document.executeScript("parent.atualizar(" + fluxoDto.getIdFluxo() + ");");
     }
 

@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@ page isErrorPage="true"%>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
@@ -8,7 +10,6 @@
 <!doctype html public "">
 <html>
 <head>
-<%@include file="/include/security/security.jsp"%>
 <html lang="en-us" class="no-js">
 <!--<![endif]-->
 <title>Erro 404 - CITSmart</title>
@@ -39,8 +40,8 @@
 				<div class="toggle_container">
 					<h1 class="wrap">Erro 404</h1>
 					<section>
-						<h3>Página não encontrada.</h3>
-						<p>O endereço que você está tentado acessar não existe.</p>
+						<h3>PÃ¡gina nÃ£o encontrada.</h3>
+						<p>O endereÃ§o que vocÃª estÃ¡ tentado acessar nÃ£o existe.</p>
 					</section>
 				</div>
 			</div>

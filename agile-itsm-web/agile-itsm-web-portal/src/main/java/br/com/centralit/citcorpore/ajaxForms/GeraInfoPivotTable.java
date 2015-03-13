@@ -154,7 +154,7 @@ public class GeraInfoPivotTable extends AjaxFormAction{
 					if (objs[i] != null){
 						valueStr = valueStr.replaceAll("\"", "");
 						valueStr = valueStr.replaceAll("\'", "");
-						valueStr = valueStr.replaceAll("[^a-zA-Z0-9 \\.\\Á\\„\\‚\\È\\Í\\·\\Û\\Ù\\˙\\Ì\\«\\√\\¬\\…\\ \\¡\\”\\‘\\⁄\\Õ\\-\\_\\(\\)\\*\\%\\$\\#\\@\\!\\|\\,]+"," ");
+						valueStr = valueStr.replaceAll("[^a-zA-Z0-9 \\.\\√ß\\√£\\√¢\\√©\\√™\\√°\\√≥\\√¥\\√∫\\√≠\\√á\\√É\\√Ç\\√â\\√ä\\√Å\\√ì\\√î\\√ö\\√ç\\-\\_\\(\\)\\*\\%\\$\\#\\@\\!\\|\\,]+"," ");
 						//valueStr = valueStr.replaceAll("\\W", "");
 						str += "\"" + valueStr + "\"";
 					}else{
@@ -188,7 +188,7 @@ public class GeraInfoPivotTable extends AjaxFormAction{
 			HttpServletResponse response) throws Exception {
 		UsuarioDTO usuario = WebUtil.getUsuario(request);
 		if (usuario == null){
-			document.alert("Sess„o expirada! Favor efetuar logon novamente!");
+			document.alert("Sess√£o expirada! Favor efetuar logon novamente!");
 			return;
 		}
 		
@@ -219,7 +219,7 @@ public class GeraInfoPivotTable extends AjaxFormAction{
 			HttpServletResponse response) throws Exception {
 		UsuarioDTO usuario = WebUtil.getUsuario(request);
 		if (usuario == null){
-			document.alert("Sess„o expirada! Favor efetuar logon novamente!");
+			document.alert("Sess√£o expirada! Favor efetuar logon novamente!");
 			return;
 		}
 		

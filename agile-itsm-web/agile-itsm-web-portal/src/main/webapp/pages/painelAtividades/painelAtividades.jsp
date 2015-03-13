@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/templates/taglibs.jsp"%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<%@include file="/include/titleComum/titleComum.jsp"%>
+<%@include file="/novoLayout/common/include/titulo.jsp" %>
 <%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 <%@include file="/include/cssComuns/cssComuns.jsp"%>
 
@@ -46,7 +46,7 @@ $(function() {
             <br />
             <br />
             <div id="migalha">
-                <label>Você está aqui: &nbsp; Cadastro - Painel de Atividades</label>
+                <label>VocÃª estÃ¡ aqui: &nbsp; Cadastro - Painel de Atividades</label>
             </div>
         </div>
 
@@ -65,38 +65,38 @@ $(function() {
                             <div>
                                 <table style="border-spacing:0;" class="table">
                                     <tr>
-                                    <th>Descrição</th>
+                                    <th>DescriÃ§Ã£o</th>
                                     <th>Data Inicial</th>
                                     <th>Hora</th>
-                                    <th>Duração</th>
+                                    <th>DuraÃ§Ã£o</th>
                                     <th>Periodicidade</th>
-                                    <th>Situação</th>
-                                    <th>Ação</th>
+                                    <th>SituaÃ§Ã£o</th>
+                                    <th>AÃ§Ã£o</th>
                                     </tr>
                                     <tr id="tr_teste">
-                                        <td>Verificação de temperatura do CPD A</td>
+                                        <td>VerificaÃ§Ã£o de temperatura do CPD A</td>
                                         <td>01/11/2011</td>
                                         <td>7:00</td>
                                         <td>2 dias</td>
                                         <td>Mensal</td>
                                         <td>Em aberto</td>
-                                        <td><a href="#" onclick="carregar(this);" title="Registrar realização de Atividade."><img src="../../imagens/add2.png" /></a></td>
+                                        <td><a href="#" onclick="carregar(this);" title="Registrar realizaÃ§Ã£o de Atividade."><img src="../../imagens/add2.png" /></a></td>
                                     <tr>
                                     <tr>
-                                        <td>Verificação de temperatura do CPD B</td>
+                                        <td>VerificaÃ§Ã£o de temperatura do CPD B</td>
                                         <td>01/11/2011</td>
                                         <td>7:00</td>
                                         <td>2 dias</td>
                                         <td>Mensal</td>
                                         <td>Em aberto</td>
                                         <td>
-                                            <a href="#" onclick="carregar(this);" title="Registrar realização de Atividade.">
+                                            <a href="#" onclick="carregar(this);" title="Registrar realizaÃ§Ã£o de Atividade.">
                                                 <img src="../../imagens/add2.png"
-                                                    title="Registrar realização de Atividade." /></a>
+                                                    title="Registrar realizaÃ§Ã£o de Atividade." /></a>
                                         </td>
                                     <tr>
                                     <tr>
-                                        <td>Verificação de temperatura do CPD C</td>
+                                        <td>VerificaÃ§Ã£o de temperatura do CPD C</td>
                                         <td>01/11/2011</td>
                                         <td>7:00</td>
                                         <td>2 dias</td>
@@ -112,16 +112,16 @@ $(function() {
                             <div>
                                 <table style="border-spacing:0;" class="table">
                                     <tr>
-                                    <th>Descrição</th>
+                                    <th>DescriÃ§Ã£o</th>
                                     <th>Data Inicial</th>
                                     <th>Hora</th>
-                                    <th>Duração</th>
+                                    <th>DuraÃ§Ã£o</th>
                                     <th>Periodicidade</th>
-                                    <th>Situação</th>
-                                    <th>Ação</th>
+                                    <th>SituaÃ§Ã£o</th>
+                                    <th>AÃ§Ã£o</th>
                                     </tr>
                                     <tr>
-                                        <td>Verificação de temperatura do CPD X</td>
+                                        <td>VerificaÃ§Ã£o de temperatura do CPD X</td>
                                         <td>01/11/2011</td>
                                         <td>7:00</td>
                                         <td>2 dias</td>
@@ -130,7 +130,7 @@ $(function() {
                                         <td><a href="#" onclick="carregar(this);"><img src="../../imagens/add2.png" /></a></td>
                                     <tr>
                                     <tr>
-                                        <td>Verificação de temperatura do CPD X</td>
+                                        <td>VerificaÃ§Ã£o de temperatura do CPD X</td>
                                         <td>01/11/2011</td>
                                         <td>7:00</td>
                                         <td>2 dias</td>
@@ -139,7 +139,7 @@ $(function() {
                                         <td><a href="#" onclick="carregar(this);"><img src="../../imagens/add2.png" /></a></td>
                                     <tr>
                                     <tr>
-                                        <td>Verificação de temperatura do CPD D</td>
+                                        <td>VerificaÃ§Ã£o de temperatura do CPD D</td>
                                         <td>01/11/2011</td>
                                         <td>7:00</td>
                                         <td>2 dias</td>
@@ -150,22 +150,22 @@ $(function() {
                                 </table>
                             </div>
                             <h3>
-                                <a href="#" id="container_realizacao_atividade">Realização Atividade</a>
+                                <a href="#" id="container_realizacao_atividade">RealizaÃ§Ã£o Atividade</a>
                             </h3>
                             <div>
                                 <table id="table_cadastro_atividade">
                                     <tr>
-                                        <td><label class="formLabel">Descrição:*</label></td>
+                                        <td><label class="formLabel">DescriÃ§Ã£o:*</label></td>
                                         <td><input type='text' name="descricao" id="descricao" maxlength="100"
                                             style="width: 300px;"
-                                            title="Informe a descrição da Atividade." />
+                                            title="Informe a descriÃ§Ã£o da Atividade." />
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><label class="formLabel">Usuário:*</label></td>
+                                        <td><label class="formLabel">UsuÃ¡rio:*</label></td>
                                         <td><input type='text' name="usuario" id="tags" maxlength="70"
                                             style="width: 300px;"
-                                            title="Informe o usuário da Atividade." />
+                                            title="Informe o usuÃ¡rio da Atividade." />
                                         </td>
                                     </tr>
                                     <tr>
@@ -184,17 +184,17 @@ $(function() {
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><label class="formLabel">Evidência:*</label></td>
+                                        <td><label class="formLabel">EvidÃªncia:*</label></td>
                                         <td><input type='text' name="evidencia" id="evidencia" maxlength="70"
-                                            class="Valid[Required] Description[Descrição]" style="width: 300px;"
-                                            title="Informe a evidência da Atividade." />
+                                            class="Valid[Required] Description[DescriÃ§Ã£o]" style="width: 300px;"
+                                            title="Informe a evidÃªncia da Atividade." />
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><label class="formLabel">Observação:</label></td>
+                                        <td><label class="formLabel">ObservaÃ§Ã£o:</label></td>
                                         <td>
                                             <textarea name="observacao" id="observacao" style="width: 360px;"
-                                            title="Informe a observação da Atividade."></textarea>
+                                            title="Informe a observaÃ§Ã£o da Atividade."></textarea>
                                         </td>
                                     </tr>
                                     <tr>
@@ -216,26 +216,26 @@ $(function() {
                 <div id="tab_pesquisa">
                     <table>
                         <tr>
-                            <td><label class="formLabel">Descrição</label></td>
+                            <td><label class="formLabel">DescriÃ§Ã£o</label></td>
                             <td>
                                 <input type="text" name="descricao" style="width:300px;" />
                             </td>
                         </tr>
                         <tr>
-                            <td><label class="formLabel">Usuário</label></td>
+                            <td><label class="formLabel">UsuÃ¡rio</label></td>
                             <td>
                                 <input type="text" name="usuario" style="width:300px;" />
                             </td>
                         </tr>
                         <tr>
-                            <td><label class="formLabel">Período</label></td>
+                            <td><label class="formLabel">PerÃ­odo</label></td>
                             <td>
                                 <input type="text" name="dataInicial" class="datepicker" /> -
                                 <input type="text" name="dataFinal" class="datepicker" />
                             </td>
                         </tr>
                         <tr>
-                            <td><label class="formLabel">Horário</label></td>
+                            <td><label class="formLabel">HorÃ¡rio</label></td>
                             <td>
                                 <input type="text" name="horaInicial" class="timepicker" /> -
                                 <input type="text" name="horaFinal" class="timepicker" />

@@ -201,20 +201,20 @@
 			'pesoCotacaoTaxaJuros'
 		];
 
-    	// Associa a funÁ„o de validaÁ„o aos critÈrios e pesos obrigatÛrios para a cotaÁ„o (quando o campo perder o foco).
+    	// Associa a fun√ß√£o de valida√ß√£o aos crit√©rios e pesos obrigat√≥rios para a cota√ß√£o (quando o campo perder o foco).
     	for (i in criteriosPesosCotacao) {
     		$('#' + criteriosPesosCotacao[i]).focusout(function() {
     			if ($(this).val() == '')
     				return;
 
-    			// Referencia o elemento que precede (anterior) ao elemento pai da caixa de texto que est· sendo validada.
+    			// Referencia o elemento que precede (anterior) ao elemento pai da caixa de texto que est√° sendo validada.
     			var nomeCampo = $(this).parent().prev().html();
 
     			nomeCampo = nomeCampo.substr(0, nomeCampo.indexOf('&nbsp;') ).replace(/^\s+|\s+$/g, '').toLowerCase();
 
     			var msg = null;
 
-    			// Verificando se o valor do critÈrio ou peso de cotaÁ„o È numÈrico e possui um ou dois algarismos.
+    			// Verificando se o valor do crit√©rio ou peso de cota√ß√£o √© num√©rico e possui um ou dois algarismos.
     			if ($(this).val().match(/^\d{1,2}$/) ) {
     				if ($(this).val() < 0 || $(this).val() > 10) {
     					msg = i18n_message("categoriaProduto.valorInformado") + ' ' + nomeCampo + ' ' + i18n_message("categoriaProduto.invalidoforaIntervalo");

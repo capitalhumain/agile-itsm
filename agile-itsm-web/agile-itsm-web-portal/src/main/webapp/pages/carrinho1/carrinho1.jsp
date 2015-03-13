@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
@@ -50,7 +52,7 @@
 					<th></th>
 					<th style="width: 80px;"><fmt:message key="carrinho.categoria"/></th>
 					<th style="width: 50px;"><fmt:message key="carrinho.quantidade"/></th>
-					<th style="width: 80px;"><fmt:message key="carrinho.preço"/></th>
+					<th style="width: 80px;"><fmt:message key="carrinho.preÃ§o"/></th>
 					<th style="width: 80px;"><fmt:message key="carrinho.subtotal"/></th>
 					<th style="width: 80px;"><fmt:message key="carrinho.excluir"/></th>
 				</tr>
@@ -65,7 +67,7 @@
 						<div class="media">
 							<!-- <a href="shop_client_product.htmllang=en&amp;layout_type=fluid&amp;menu_position=menu-left&amp;style=style-light" class="media-object pull-left"><img class="thumb" src="theme/images/gallery-2/1.jpg" width="80" alt=""></a> -->
 							<div id="produto" class="media-body">
-								<h5 style="color: #333333">Product name goes here</h5><span>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipo.</span>
+								<h5 style="color: #333333">Product name goes here</h5><span>Lorem Ipsum Ã© simplesmente uma simulaÃ§Ã£o de texto da indÃºstria tipogrÃ¡fica e de impressos, e vem sendo utilizado desde o sÃ©culo XVI, quando um impressor desconhecido pegou uma bandeja de tipo.</span>
 								<!-- <span class="col">
 									Size:<br/>
 									<span class="label">3-4 Years</span>

@@ -50,7 +50,7 @@ public class CotacaoDao extends CrudDaoDefaultImpl {
         try {
             this.execUpdate(sql.toString(), params);
         } catch (PersistenceException e) {
-            System.out.println("Problemas com atualização cotação.");
+            System.out.println("Problemas com atualizaÃ§Ã£o cotaÃ§Ã£o.");
             e.printStackTrace();
         }
     }

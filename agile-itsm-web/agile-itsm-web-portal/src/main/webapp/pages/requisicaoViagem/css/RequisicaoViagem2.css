@@ -1,4 +1,4 @@
-@CHARSET "ISO-8859-1";
+@CHARSET "UTF-8";
 
 #wrapper {
 	box-sizing: border-box;
@@ -101,18 +101,18 @@
 .treeview > li ul li.last {  }
 .treeview > li ul li.last .file {  }
 
-/* Criação Viagem */
+/* CriaÃ§Ã£o Viagem */
 #table-integrantes-container {
 	margin-top: 10px;
 }
 
-/* Execução Viagem */
+/* ExecuÃ§Ã£o Viagem */
 #add_itens{
 	margin-top: 3px;
 	float: right;	
 }
 
-/* Autorização Viagem */
+/* AutorizaÃ§Ã£o Viagem */
 #autorizacao-container {
 	margin-top: 15px;
 }

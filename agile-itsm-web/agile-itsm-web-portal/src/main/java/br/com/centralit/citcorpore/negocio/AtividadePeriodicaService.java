@@ -18,7 +18,7 @@ public interface AtividadePeriodicaService extends CrudService {
 	public boolean existeDuplicacao(String tituloAtividade, Integer idAtividade) throws Exception;
 	
 	/**
-	 * Retorna uma lista de atividades periodicas de acordo com a requisição mudança passado
+	 * Retorna uma lista de atividades periodicas de acordo com a requisiÃ§Ã£o mudanÃ§a passado
 	 * @param parm
 	 * @return
 	 * @throws Exception

@@ -79,7 +79,7 @@ public class HistoricoBaseConhecimentoDAO extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Retorna lista de historico de alteração da Base de Conhecimento informada.
+	 * Retorna lista de historico de alteraÃ§Ã£o da Base de Conhecimento informada.
 	 * 
 	 * @param baseConhecimento
 	 * @return Collection<BaseConhecimentoDTO>

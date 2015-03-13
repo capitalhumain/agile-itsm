@@ -12,7 +12,7 @@ import br.com.centralit.citsmart.rest.schema.BICitsmart;
 import br.com.centralit.citsmart.rest.util.RestBICitsmartOperationUtil;
 
 /**
- * Classe Resource responsável pelas Requisições do BICitsmart.
+ * Classe Resource responsÃ¡vel pelas RequisiÃ§Ãµes do BICitsmart.
  * 
  * @author valdoilo.damasceno
  * @since 06.12.2013
@@ -21,7 +21,7 @@ import br.com.centralit.citsmart.rest.util.RestBICitsmartOperationUtil;
 public class RestBICitsmartResource {
 
 	/**
-	 * Trata Requisição de Recuperaração da Tabela Contratos.
+	 * Trata RequisiÃ§Ã£o de RecuperaraÃ§Ã£o da Tabela Contratos.
 	 * 
 	 * @param input
 	 *            - BICitsmart

@@ -16,7 +16,7 @@
         <br.com.centralit.citcorpore.metainfo.bean.GrupoVisaoCamposNegocioDTO>
           <idGrupoVisao>36</idGrupoVisao>
           <idCamposObjetoNegocio>97</idCamposObjetoNegocio>
-          <descricaoNegocio>Código do Cliente</descricaoNegocio>
+          <descricaoNegocio>CÃ³digo do Cliente</descricaoNegocio>
           <tipoNegocio>HIDDEN</tipoNegocio>
           <ordem>1</ordem>
           <situacao>A</situacao>
@@ -31,7 +31,7 @@
         <br.com.centralit.citcorpore.metainfo.bean.GrupoVisaoCamposNegocioDTO>
           <idGrupoVisao>36</idGrupoVisao>
           <idCamposObjetoNegocio>99</idCamposObjetoNegocio>
-          <descricaoNegocio>Nome/Razão Social</descricaoNegocio>
+          <descricaoNegocio>Nome/RazÃ£o Social</descricaoNegocio>
           <tipoNegocio>TEXT</tipoNegocio>
           <ordem>2</ordem>
           <situacao>A</situacao>
@@ -76,7 +76,7 @@
         <br.com.centralit.citcorpore.metainfo.bean.GrupoVisaoCamposNegocioDTO>
           <idGrupoVisao>36</idGrupoVisao>
           <idCamposObjetoNegocio>105</idCamposObjetoNegocio>
-          <descricaoNegocio>Observações</descricaoNegocio>
+          <descricaoNegocio>ObservaÃ§Ãµes</descricaoNegocio>
           <tipoNegocio>TEXTAREA</tipoNegocio>
           <ordem>5</ordem>
           <situacao>A</situacao>
@@ -91,7 +91,7 @@
         <br.com.centralit.citcorpore.metainfo.bean.GrupoVisaoCamposNegocioDTO>
           <idGrupoVisao>36</idGrupoVisao>
           <idCamposObjetoNegocio>107</idCamposObjetoNegocio>
-          <descricaoNegocio>Situação</descricaoNegocio>
+          <descricaoNegocio>SituaÃ§Ã£o</descricaoNegocio>
           <tipoNegocio>RADIO</tipoNegocio>
           <ordem>6</ordem>
           <situacao>A</situacao>

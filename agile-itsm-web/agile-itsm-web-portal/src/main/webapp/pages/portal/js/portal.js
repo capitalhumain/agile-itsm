@@ -347,7 +347,7 @@ function filtrarCatalogo(str) {
 /**
  * Autor: Thiago Matias Data: 16/08/2013 Filtra todos os dados contidos na lista
  * deve ser chamada no input via onkeyup campoBusca: valor digitado no campo de
- * filtro lista: Id da div onde ser� feito a busca
+ * filtro lista: Id da div onde serï¿½ feito a busca
  */
 function filtroListaJs(campoBusca, lista) {
 	// Recupera value do campo de busca
@@ -366,7 +366,7 @@ function filtroListaJs(campoBusca, lista) {
 
 						});
 	} else {
-		// Quando n�o h� nada digitado, mostra a tabela com todos os dados
+		// Quando nï¿½o hï¿½ nada digitado, mostra a tabela com todos os dados
 		$('#' + lista + ' ul > li')
 				.each(
 						function() {
@@ -392,7 +392,7 @@ function filtroTableJs(campoBusca, table) {
 			}).parent("tr").show();
 		}
 	} else {
-		// Quando n�o h� nada digitado, mostra a tabela com todos os dados
+		// Quando nï¿½o hï¿½ nada digitado, mostra a tabela com todos os dados
 		$("#" + table + " tbody>tr").show();
 	}
 }
@@ -569,7 +569,7 @@ function mostrarMensagemSolicitacoes(param) {
 	});
 }
 /**
- * nota 1: Para 1000.55 retorna com precis�o 1 no FF/Opera � 1,000.5, mas no IE �
+ * nota 1: Para 1000.55 retorna com precisï¿½o 1 no FF/Opera ï¿½ 1,000.5, mas no IE ï¿½
  * 1,000.6 exemplo 1: number_format(1234.56); retorno 1: '1,235' exemplo 2:
  * number_format(1234.56, 2, ',', ' '); retorno 2: '1 234,56' exemplo 3:
  * number_format(1234.5678, 2, '.', ''); retorno 3: '1234.57' exemplo 4:
@@ -648,7 +648,7 @@ function executaTelaOrdensDeServico(id) {
 	// menu principal
 	// $("#tst").hide();
 
-	// bot�o de voltar
+	// botï¿½o de voltar
 	// $(".voltar").hide();
 	// document.getElementById("iframeInformacoesContrato").style.width ="100%";
 	// document.getElementById("iframeInformacoesContrato").style.height

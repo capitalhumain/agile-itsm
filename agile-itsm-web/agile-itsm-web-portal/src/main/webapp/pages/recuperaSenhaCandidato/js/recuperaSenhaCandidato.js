@@ -1,5 +1,5 @@
 function validar() {
-	// Validação email
+	// ValidaÃ§Ã£o email
 	if(!$('#email').val()) {
 		alert(i18n_message("informe.email"));
 		$('#email').focus();

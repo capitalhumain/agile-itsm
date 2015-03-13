@@ -17,7 +17,7 @@ public interface AtividadesServicoContratoService extends CrudService {
 	public void deleteByIdServicoContrato(Integer parm) throws Exception;
 
 	/**
-	 * Retorna Atividades Ativas do ServiÁo Contrato pelo Id do ServiÁo
+	 * Retorna Atividades Ativas do Servi√ßo Contrato pelo Id do Servi√ßo
 	 * Contrato.
 	 * 
 	 * @param idServicoContrato
@@ -27,7 +27,7 @@ public interface AtividadesServicoContratoService extends CrudService {
 	public Collection obterAtividadesAtivasPorIdServicoContrato(Integer idServicoContrato) throws Exception;
 	
 	/**
-	 * MÈtodo para atualizar a observacao de os n„o homologadas
+	 * M√©todo para atualizar a observacao de os n√£o homologadas
 	 * 
 	 * @param mapFields
 	 * @throws Exception
@@ -35,7 +35,7 @@ public interface AtividadesServicoContratoService extends CrudService {
 	public boolean atualizaObservacao(HashMap mapFields) throws Exception;
 	
 	/**
-	 * MÈtodo para calcular fÛrmula
+	 * M√©todo para calcular f√≥rmula
 	 * 
 	 * @param mapFields
 	 * @throws Exception
@@ -43,7 +43,7 @@ public interface AtividadesServicoContratoService extends CrudService {
 	public String calculaFormula(HashMap mapFields) throws Exception;
 	
 	/**
-	 * Verifica se complexidades est„o cadastradas
+	 * Verifica se complexidades est√£o cadastradas
 	 * 
 	 * @param mapFields
 	 * @throws Exception
@@ -51,7 +51,7 @@ public interface AtividadesServicoContratoService extends CrudService {
 	public boolean verificaComplexidade(HashMap mapFields) throws Exception;
 	
 	/**
-	 * MÈtodo que retorna os serviÁos vinculado ao contrato em quest„o
+	 * M√©todo que retorna os servi√ßos vinculado ao contrato em quest√£o
 	 * 
 	 * @param mapFields
 	 * @throws Exception

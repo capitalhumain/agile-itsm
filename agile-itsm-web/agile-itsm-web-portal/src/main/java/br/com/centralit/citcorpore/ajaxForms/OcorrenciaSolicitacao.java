@@ -142,7 +142,7 @@ public class OcorrenciaSolicitacao  extends AjaxFormAction {
     	    	
     	getService().create(ocorrenciaSolicitacaoDTO);
 
-    	//Realimentando os valores n„o restaurados
+    	//Realimentando os valores n√£o restaurados
     	CategoriaOcorrenciaService categoriaOcorrenciaService = (CategoriaOcorrenciaService) ServiceLocator.getInstance().getService(CategoriaOcorrenciaService.class, null);
     	CategoriaOcorrenciaDTO categoriaOcorrenciaDTO = new CategoriaOcorrenciaDTO();
     	categoriaOcorrenciaDTO.setIdCategoriaOcorrencia(ocorrenciaSolicitacaoDTO.getIdCategoriaOcorrencia());
@@ -157,12 +157,12 @@ public class OcorrenciaSolicitacao  extends AjaxFormAction {
     	ocorrenciaSolicitacaoDTO.setOrigem(origemOcorrenciaDTO.getNome());
 
     	// euler.ramos
-    	// Tratamento para o envio de e-mails notificando o solicitante sobre o lanÁamento de ocorrÍncias.
+    	// Tratamento para o envio de e-mails notificando o solicitante sobre o lan√ßamento de ocorr√™ncias.
     	if ((ocorrenciaSolicitacaoDTO.getNotificarSolicitante()!=null)&&(ocorrenciaSolicitacaoDTO.getNotificarSolicitante().equalsIgnoreCase("S"))){
     		try {
     			this.enviaEmailSolicitante(this.obterIdModeloEmailNotificacaoSolicitante(),ocorrenciaSolicitacaoDTO,request);
     		} catch (Exception e) {
-    			System.out.println("Problema no envio do e-mail de notificaÁ„o de ocorrÍncia ao solicitante.");
+    			System.out.println("Problema no envio do e-mail de notifica√ß√£o de ocorr√™ncia ao solicitante.");
     		}
     	}
     	
@@ -324,7 +324,7 @@ public class OcorrenciaSolicitacao  extends AjaxFormAction {
 				        if (aprovacaoDto.getAprovacao().equalsIgnoreCase("A"))
 				            aprovacao += "Sim";
 				        else
-				            aprovacao += "N„o";
+				            aprovacao += "N√£o";
 				        if (aprovacaoDto.getIdJustificativa() != null) {
 		                    JustificativaSolicitacaoDTO justificativaDto = new JustificativaSolicitacaoDTO();
 		                    justificativaDto.setIdJustificativa(aprovacaoDto.getIdJustificativa() );
@@ -362,7 +362,7 @@ public class OcorrenciaSolicitacao  extends AjaxFormAction {
 				stringBuilder.append("<b>" + UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT,ocorrenciaSolicitacaoAux.getDataregistro(), language) + " - " + ocorrenciaSolicitacaoAux.getHoraregistro());
 	        	String strRegPor = ocorrenciaSolicitacaoAux.getRegistradopor();
 	        	try{
-	        		if (ocorrenciaSolicitacaoAux.getRegistradopor() != null && !ocorrenciaSolicitacaoAux.getRegistradopor().trim().equalsIgnoreCase("Autom·tico")){
+	        		if (ocorrenciaSolicitacaoAux.getRegistradopor() != null && !ocorrenciaSolicitacaoAux.getRegistradopor().trim().equalsIgnoreCase("Autom√°tico")){
 		        		UsuarioDTO usuarioDto = usuarioService.restoreByLogin(ocorrenciaSolicitacaoAux.getRegistradopor());
 		        		if (usuarioDto != null){
 		        			EmpregadoDTO empregadoDto = empregadoService.restoreByIdEmpregado(usuarioDto.getIdEmpregado());
@@ -374,7 +374,7 @@ public class OcorrenciaSolicitacao  extends AjaxFormAction {
 	        		stringBuilder.append( " </b> - " + UtilI18N.internacionaliza(request, "ocorrenciaSolicitacao.registradopor") + ": <br/><b>" + strRegPor + "</b>");
 	        	stringBuilder.append("</td>");
 	        	
-	        	// Categoria OcorrÍncia
+	        	// Categoria Ocorr√™ncia
 	        	stringBuilder.append("<td >");
 	        	if (ocorrenciaSolicitacaoAux.getIdCategoriaOcorrencia() != null && ocorrenciaSolicitacaoAux.getIdCategoriaOcorrencia() != 0) {
 	        		categoriaOcorrenciaDTO.setIdCategoriaOcorrencia(ocorrenciaSolicitacaoAux.getIdCategoriaOcorrencia() );
@@ -385,7 +385,7 @@ public class OcorrenciaSolicitacao  extends AjaxFormAction {
 	        	}				
 	        	stringBuilder.append("</td>");
 				
-	        	// Origem OcorrÍncia
+	        	// Origem Ocorr√™ncia
 	        	stringBuilder.append( "<td >");
 				if (ocorrenciaSolicitacaoAux.getIdOrigemOcorrencia() != null && ocorrenciaSolicitacaoAux.getIdOrigemOcorrencia() != 0) {
 					origemOcorrenciaDTO.setIdOrigemOcorrencia(ocorrenciaSolicitacaoAux.getIdOrigemOcorrencia() );
@@ -540,7 +540,7 @@ public class OcorrenciaSolicitacao  extends AjaxFormAction {
 			return;
 		}
 
-		// Buscando os dados da SolicitaÁ„o de ServiÁo
+		// Buscando os dados da Solicita√ß√£o de Servi√ßo
 		SolicitacaoServicoService solicitacaoServicoService = (SolicitacaoServicoService) ServiceLocator.getInstance().getService(SolicitacaoServicoService.class, null);
 		SolicitacaoServicoDTO solicitacaoServicoDTO = solicitacaoServicoService.restoreAll(ocorrenciaSolicitacaoDTO.getIdSolicitacaoServico());
 		if (solicitacaoServicoDTO == null) {
@@ -556,7 +556,7 @@ public class OcorrenciaSolicitacao  extends AjaxFormAction {
 			return;
 		}
 
-		// Alimentando os par‚metros possÌveis
+		// Alimentando os par√¢metros poss√≠veis
 		Map<String, String> mapParametros = new HashMap<String, String>();
 		mapParametros.put("NOMECONTATO",solicitacaoServicoDTO.getNomecontato());
 		mapParametros.put("REGISTRADOPOR",ocorrenciaSolicitacaoDTO.getRegistradopor());
@@ -598,8 +598,8 @@ public class OcorrenciaSolicitacao  extends AjaxFormAction {
 	}
 	
 	/**
-	 * @author euler.ramos ObtÈm o id do modelo de email referente ‡ notificaÁ„o
-	 *         de ocorrÍncias ao solicitante
+	 * @author euler.ramos Obt√©m o id do modelo de email referente √† notifica√ß√£o
+	 *         de ocorr√™ncias ao solicitante
 	 * @return
 	 */
 	private Integer obterIdModeloEmailNotificacaoSolicitante() {
@@ -608,7 +608,7 @@ public class OcorrenciaSolicitacao  extends AjaxFormAction {
 			String idModeloEmailNotificarSolicitante = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.ID_MODELO_EMAIL_NOTIFICAR_SOLICITANTE, "0");
 			idModeloEmail = Integer.parseInt(idModeloEmailNotificarSolicitante.trim());
 		} catch (NumberFormatException e) {
-			System.out.println("Modelo de e-mail de notificaÁ„o de ocorrÍncias n„o definido.");
+			System.out.println("Modelo de e-mail de notifica√ß√£o de ocorr√™ncias n√£o definido.");
 			idModeloEmail = 0;
 		}
 		return idModeloEmail;
@@ -649,7 +649,7 @@ public class OcorrenciaSolicitacao  extends AjaxFormAction {
 	
 	
 	/**
-	 * Metodo responsavel por enivar o email para o responsavel pela solicitaÁ„o
+	 * Metodo responsavel por enivar o email para o responsavel pela solicita√ß√£o
 	 * 
 	 * @param idModeloEmail
 	 * @param ocorrenciaSolicitacaoDTO
@@ -663,7 +663,7 @@ public class OcorrenciaSolicitacao  extends AjaxFormAction {
 		MensagemEmail mensagem = null;
 
 		if ((idModeloEmail == null) || (idModeloEmail.intValue() == 0)) {
-			System.out.println("ID Modelo de Email n„o configurado");			
+			System.out.println("ID Modelo de Email n√£o configurado");			
 			return;
 		}
 
@@ -672,7 +672,7 @@ public class OcorrenciaSolicitacao  extends AjaxFormAction {
 		SolicitacaoServicoDTO solicitacaoServicoDTO = solicitacaoServicoService.restoreAll(ocorrenciaSolicitacaoDTO.getIdSolicitacaoServico());
 		
 		if (solicitacaoServicoDTO == null) {
-			System.out.println("SolicitaÁ„o n„o existe");			
+			System.out.println("Solicita√ß√£o n√£o existe");			
 			return;
 		}	
 
@@ -708,7 +708,7 @@ public class OcorrenciaSolicitacao  extends AjaxFormAction {
 				String remetente = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.RemetenteNotificacoesSolicitacao, null);
 				
 				if (remetente == null) {
-					System.out.println("Remetente n„o definido.");
+					System.out.println("Remetente n√£o definido.");
 					return;
 				}		
 				
@@ -725,7 +725,7 @@ public class OcorrenciaSolicitacao  extends AjaxFormAction {
 	}
 	
 	/**
-	 * Metodo responsavel por obter os emails referentes aos destinatarios de uma ocorrencia, implementaÁ„o referente a inicitiva 481.
+	 * Metodo responsavel por obter os emails referentes aos destinatarios de uma ocorrencia, implementa√ß√£o referente a inicitiva 481.
 	 * 
 	 * @param ocorrencia
 	 * @throws ServiceException
@@ -749,7 +749,7 @@ public class OcorrenciaSolicitacao  extends AjaxFormAction {
 		if (dadosEmail != null){	
 			
 			/*
-			 * Verificar se a solicitaÁ„o possui "Respons·vel", se sim, enviar e-mail ao Respons·vel pela solicitaÁ„o;
+			 * Verificar se a solicita√ß√£o possui "Respons√°vel", se sim, enviar e-mail ao Respons√°vel pela solicita√ß√£o;
 			 */
 			if (dadosEmail.getIdResponsavelAtual() != null){
 			
@@ -757,7 +757,7 @@ public class OcorrenciaSolicitacao  extends AjaxFormAction {
 			}
 			
 			/*
-			 * Verificar se a solicitaÁ„o foi direcionada para um grupo, se sim, enviar e-mail para o grupo que foi vinculado na solicitaÁ„o;
+			 * Verificar se a solicita√ß√£o foi direcionada para um grupo, se sim, enviar e-mail para o grupo que foi vinculado na solicita√ß√£o;
 			 *
 			 */
 			if (dadosEmail.getIdGrupoAtual() != null){	
@@ -774,7 +774,7 @@ public class OcorrenciaSolicitacao  extends AjaxFormAction {
 			ServicoContratoDTO servicoContratoDTO = servicoContratoService.findByIdSolicitacaoServico(ocorrencia.getIdSolicitacaoServico());			
 			
 			/*
-			 *  O sistema dever· verificar se para o serviÁo solicitado possui um "Grupo para escalaÁ„o do atendimento 1.o NÌvel" pa-rametrizado, se sim, enviar e-mail ao referido grupo pela solicitaÁ„o
+			 *  O sistema dever√° verificar se para o servi√ßo solicitado possui um "Grupo para escala√ß√£o do atendimento 1.o N√≠vel" pa-rametrizado, se sim, enviar e-mail ao referido grupo pela solicita√ß√£o
 			 */			
 			if (servicoContratoDTO.getIdGrupoNivel1() != null){
 		
@@ -786,7 +786,7 @@ public class OcorrenciaSolicitacao  extends AjaxFormAction {
 			}
 			
 			/*
-			 *  O sistema dever· verificar se para o serviÁo solicitado possui um "Grupo Executor" parametrizado, se sim, enviar e-mail ao referido grupo pela solicitaÁ„o
+			 *  O sistema dever√° verificar se para o servi√ßo solicitado possui um "Grupo Executor" parametrizado, se sim, enviar e-mail ao referido grupo pela solicita√ß√£o
 			 */
 			if (servicoContratoDTO.getIdGrupoNivel1() == null && servicoContratoDTO.getIdGrupoExecutor() != null){
 				
@@ -798,7 +798,7 @@ public class OcorrenciaSolicitacao  extends AjaxFormAction {
 			}	
 			
 			/*
-			 * Em ˙ltimo, caso a condiÁ„o 5 n„o seja satisfeita, o sistema dever· verificar o par‚metro 9 "ID Grupo NÌvel 1" e enviar a notificaÁ„o ao e-mail vinculado ‡ esse grupo definido por par‚metro.
+			 * Em √∫ltimo, caso a condi√ß√£o 5 n√£o seja satisfeita, o sistema dever√° verificar o par√¢metro 9 "ID Grupo N√≠vel 1" e enviar a notifica√ß√£o ao e-mail vinculado √† esse grupo definido por par√¢metro.
 			 */
 			if (servicoContratoDTO.getIdGrupoNivel1() == null && servicoContratoDTO.getIdGrupoExecutor() == null){
 				
@@ -818,14 +818,14 @@ public class OcorrenciaSolicitacao  extends AjaxFormAction {
 	}
 	
 	/**
-	 * Metodo responsavel por desabilitar os ocultar o campo "CheckNotificarSolicitante" que n„o faz parte dessa funcionalidade, e deixar os campos registradopor e tempoGasto
+	 * Metodo responsavel por desabilitar os ocultar o campo "CheckNotificarSolicitante" que n√£o faz parte dessa funcionalidade, e deixar os campos registradopor e tempoGasto
 	 * readOnly.
 	 * <p>
 	 * O campo tempoGasto tera o valor default igual a ZERO.
 	 * <p>
-	 * Metodo possui as chamdas dos demais metodos de regra de apresentaÁ„o
+	 * Metodo possui as chamdas dos demais metodos de regra de apresenta√ß√£o
 	 * <p>
-	 * No fim È executada uma funÁ„o javascript para quebra as linhas dentro da textarea.
+	 * No fim √© executada uma fun√ß√£o javascript para quebra as linhas dentro da textarea.
 	 * 
 	 * @param document
 	 * @param resgistrarOcorrencia
@@ -857,8 +857,8 @@ public class OcorrenciaSolicitacao  extends AjaxFormAction {
     		disableCamposOrigem(document);
     		
     		/**
-    		 * Cristian: solicitaÁ„o 165508
-    		 * O mÈtodo abaixo n„o funciona no IE. Ent„o, o que eu fiz foi comentar a linha abaixo e chamar este mÈtodo antes de abrir a modal.
+    		 * Cristian: solicita√ß√£o 165508
+    		 * O m√©todo abaixo n√£o funciona no IE. Ent√£o, o que eu fiz foi comentar a linha abaixo e chamar este m√©todo antes de abrir a modal.
     		 */
     		//document.executeScript("parent.escapeBrTextArea();");
     		document.executeScript("escapeBrTextArea();");
@@ -868,7 +868,7 @@ public class OcorrenciaSolicitacao  extends AjaxFormAction {
 	}
 
 	/**
-	 * Metodo responsavel por popular na tela a textarea de informaÁıes do contato, valores obtidos atravÈs do objeto solicitacaoServicoDTO
+	 * Metodo responsavel por popular na tela a textarea de informa√ß√µes do contato, valores obtidos atrav√©s do objeto solicitacaoServicoDTO
 	 * 
 	 * @param document
 	 * @param solicitacaoServicoDTO
@@ -956,7 +956,7 @@ public class OcorrenciaSolicitacao  extends AjaxFormAction {
 	}
 	
 	/**
-	 * Valida os par‚metros 262 e 263
+	 * Valida os par√¢metros 262 e 263
 	 * @param document
 	 * @author thyen.chang
 	 * @throws Exception 

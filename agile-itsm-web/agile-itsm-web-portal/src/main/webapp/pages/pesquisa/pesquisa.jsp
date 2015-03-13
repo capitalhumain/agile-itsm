@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.citframework.util.Constantes"%>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
@@ -6,9 +8,8 @@
 <html>
 <head>
 	<%@include file="/include/header.jsp"%>
-	<%@include file="/include/security/security.jsp" %>
 	<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
-	<title>CITSMart</title>
+	<%@include file="/novoLayout/common/include/titulo.jsp" %>
 	<%@include file="/include/menu_vertical.jsp"%>
 	<%@include file="/include/footer.jsp"%>
 	<%@include file="/include/menu_horizontal.jsp"%>

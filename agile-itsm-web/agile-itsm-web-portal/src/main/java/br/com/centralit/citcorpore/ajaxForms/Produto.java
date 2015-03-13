@@ -52,7 +52,7 @@ public class Produto extends AjaxFormAction {
 		//    document.alert(UtilI18N.internacionaliza(request, "produto.precoMercado")+" "+UtilI18N.internacionaliza(request,("citcorpore.comum.naoInformado")));
 		
 		if (produtos.getIdProduto() == null || produtos.getIdProduto() == 0) {
-			// Verificar se um DTO com o mesmo codigoProduto já existe
+			// Verificar se um DTO com o mesmo codigoProduto jÃ¡ existe
 		    if (produtos.getCodigoProduto() != null && produtos.getCodigoProduto().trim().length() > 0) {
     			List lista = (List) produtosService.validaNovoProduto(produtos); 
     			if (lista != null && !lista.isEmpty() ) {
@@ -190,7 +190,7 @@ public class Produto extends AjaxFormAction {
 							}
 						} catch (Exception e) {
 							e.printStackTrace();
-							System.out.println("Não foi possível encriptar o arquivo");
+							System.out.println("NÃ£o foi possÃ­vel encriptar o arquivo");
 						}
 					}
 				//}				

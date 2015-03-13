@@ -34,7 +34,7 @@ public class CopiarSLA extends AjaxFormAction {
 		String strBuffer = "<table>";
 		List colFinal = new ArrayList();
 
-		// Busca de serviÁos que j· possuem o SLA copiado
+		// Busca de servi√ßos que j√° possuem o SLA copiado
 		List colServicosContratoSLAJaCopiados = acordoNivelServicoService.buscaServicosComContrato(informacoesContratoDTO.getTituloSLA());
 
 		if (colServicosContrato != null && colServicosContratoSLAJaCopiados != null) {
@@ -56,7 +56,7 @@ public class CopiarSLA extends AjaxFormAction {
 			}
 		}
 
-		// Retira os serviÁos que j· possuem o SLA copiado para evitar duplicaÁıes
+		// Retira os servi√ßos que j√° possuem o SLA copiado para evitar duplica√ß√µes
 		List listFinal = new ArrayList();
 		listFinal = removerServicosJaCopiados(colFinal, colServicosContratoSLAJaCopiados);
 
@@ -100,7 +100,7 @@ public class CopiarSLA extends AjaxFormAction {
 	}
 
 	/**
-	 * MÈtodo para remover serviÁos com SLA j· copiados
+	 * M√©todo para remover servi√ßos com SLA j√° copiados
 	 * 
 	 * @param colFinal
 	 * @param colServicosContratoSLAJaCopiados

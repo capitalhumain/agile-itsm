@@ -54,7 +54,7 @@ import br.com.citframework.util.UtilI18N;
 import br.com.citframework.util.UtilStrings;
 
 /**
- * Classe Ejb respons·vel por tratar as consultas de DinamicViews.
+ * Classe Ejb respons√°vel por tratar as consultas de DinamicViews.
  *
  */
 @SuppressWarnings({ "rawtypes", "unchecked", "unused" })
@@ -182,7 +182,7 @@ public class TableSearchServiceEjb extends CrudServiceImpl implements TableSearc
 		// ReturnTableSearchDTO returnTableSearchDTO = new ReturnTableSearchDTO();
 
 		if (strSGBDPrincipal.equalsIgnoreCase("ORACLE") || strSGBDPrincipal.equalsIgnoreCase("ORACLE")) {
-			// verifica se os parametros j· foram alterados na sess„o para n„o alterar v·rias vezes sem necessidade - melhoria de performace
+			// verifica se os parametros j√° foram alterados na sess√£o para n√£o alterar v√°rias vezes sem necessidade - melhoria de performace
 			String sql1 = "alter session set nls_comp = linguistic";
 			try {
 				this.getDao().execSQL(sql1, null);
@@ -587,14 +587,14 @@ public class TableSearchServiceEjb extends CrudServiceImpl implements TableSearc
 	}
 
 	/**
-	 * Gera SQL de consulta das telas que s„o DinamicViews.
+	 * Gera SQL de consulta das telas que s√£o DinamicViews.
 	 *
 	 * @param colPresentation
 	 * @param colValue
 	 * @param colFilter
 	 * @param colOrder
 	 * @param termoPesquisa
-	 *            - Termo de pesquisa informado pelo usu·rio.
+	 *            - Termo de pesquisa informado pelo usu√°rio.
 	 * @param sqlAdicionalWhere
 	 * @return SQL de Consulta.
 	 * @throws Exception

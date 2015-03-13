@@ -79,7 +79,7 @@ public class ControleEmail implements Runnable {
 	    	mailProps.put("mail.smtp.starttls.enable", this.starttls);
             
 	    	/**
-	    	 * Motivo: AlteraÁ„o para resoluÁ„o de incidente. Se n„o exige autenticaÁ„o pelo parametro ent„o o mesmo n„o ser· atribuido
+	    	 * Motivo: Altera√ß√£o para resolu√ß√£o de incidente. Se n√£o exige autentica√ß√£o pelo parametro ent√£o o mesmo n√£o ser√° atribuido
 	    	 * Autor: flavio.santana
 	    	 * Data/Hora: 02/12/2013
 	    	 */
@@ -107,7 +107,7 @@ public class ControleEmail implements Runnable {
 				email.setRecipients(Message.RecipientType.BCC, InternetAddress.parse(mensagem.getCco()));
 			}
 			
-			email.setSubject(MimeUtility.encodeText(mensagem.getSubject(), "ISO-8859-1", "B"));
+			email.setSubject(MimeUtility.encodeText(mensagem.getSubject(), "UTF-8", "B"));
 			
 			try {
 				email.setSentDate(new Date());
@@ -124,7 +124,7 @@ public class ControleEmail implements Runnable {
          	mc.addMailcap("message/rfc822;; x-java-content-handler=com.sun.mail.handlers.message_rfc822");
          	CommandMap.setDefaultCommandMap(mc);
 
-			email.setContent((StringEscapeUtils.unescapeHtml(mensagem.getText())), "text/html; charset=ISO-8859-1;");
+			email.setContent((StringEscapeUtils.unescapeHtml(mensagem.getText())), "text/html; charset=UTF-8;");
 			
 			// Adicionar header para pedir confirmacao de leitura
 			if (mensagem.isConfirmarLeituraMail()) { 
@@ -150,7 +150,7 @@ public class ControleEmail implements Runnable {
 				Autenticador auth;
 				Session mailSession;
 				if (!NEED_AUTH) {
-					// N„o ha necessidade de autenticacao
+					// N√£o ha necessidade de autenticacao
 					mailProps.put("mail.smtp.auth", "false");
 					mailSession = Session.getInstance(mailProps);
 				} else {
@@ -183,7 +183,7 @@ public class ControleEmail implements Runnable {
 					email.setRecipients(Message.RecipientType.BCC, InternetAddress.parse(mensagem.getCco()));
 				}
 				email.setFrom(new InternetAddress(mensagem.getFrom()));
-				email.setSubject(MimeUtility.encodeText(mensagem.getSubject(), "ISO-8859-1", "B"));
+				email.setSubject(MimeUtility.encodeText(mensagem.getSubject(), "UTF-8", "B"));
 				try {
 					email.setSentDate(new Date());
 				} catch (Exception e) {
@@ -192,7 +192,7 @@ public class ControleEmail implements Runnable {
 				}
 				// email.setContent(msg.getText(), "text/html; charset=" +
 				// System.getProperty("file.encoding") + ";");
-				email.setContent(Util.encodeHTML(mensagem.getText()), "text/html; charset=ISO-8859-1;");
+				email.setContent(Util.encodeHTML(mensagem.getText()), "text/html; charset=UTF-8;");
 				if (mensagem.isConfirmarLeituraMail()) { // Adiciona header para
 					// pedir confirmacao de
 					// leitura

@@ -1,6 +1,6 @@
 <br.com.centralit.citcorpore.metainfo.bean.VisaoDTO>
   <idVisao>0</idVisao>
-  <descricao>Justificativa de Solicitações/Incidentes</descricao>
+  <descricao>Justificativa de SolicitaÃ§Ãµes/Incidentes</descricao>
   <tipoVisao>ED</tipoVisao>
   <situacao>A</situacao>
   <classeName></classeName>
@@ -8,7 +8,7 @@
   <filha>false</filha>
   <colGrupos class="list">
     <br.com.centralit.citcorpore.metainfo.bean.GrupoVisaoDTO>
-      <descricaoGrupoVisao>Justificativa de Solicitações/Incidentes</descricaoGrupoVisao>
+      <descricaoGrupoVisao>Justificativa de SolicitaÃ§Ãµes/Incidentes</descricaoGrupoVisao>
       <forma>1</forma>
       <ordem>0</ordem>
       <situacao>A</situacao>
@@ -16,7 +16,7 @@
         <br.com.centralit.citcorpore.metainfo.bean.GrupoVisaoCamposNegocioDTO>
           <idGrupoVisao>66</idGrupoVisao>
           <idCamposObjetoNegocio>2357</idCamposObjetoNegocio>
-          <descricaoNegocio>Código da Justificativa</descricaoNegocio>
+          <descricaoNegocio>CÃ³digo da Justificativa</descricaoNegocio>
           <tipoNegocio>HIDDEN</tipoNegocio>
           <ordem>1</ordem>
           <situacao>A</situacao>
@@ -31,7 +31,7 @@
         <br.com.centralit.citcorpore.metainfo.bean.GrupoVisaoCamposNegocioDTO>
           <idGrupoVisao>66</idGrupoVisao>
           <idCamposObjetoNegocio>2358</idCamposObjetoNegocio>
-          <descricaoNegocio>Descrição</descricaoNegocio>
+          <descricaoNegocio>DescriÃ§Ã£o</descricaoNegocio>
           <tipoNegocio>TEXT</tipoNegocio>
           <ordem>2</ordem>
           <situacao>A</situacao>
@@ -46,7 +46,7 @@
         <br.com.centralit.citcorpore.metainfo.bean.GrupoVisaoCamposNegocioDTO>
           <idGrupoVisao>66</idGrupoVisao>
           <idCamposObjetoNegocio>2359</idCamposObjetoNegocio>
-          <descricaoNegocio>Utilizado na suspensão</descricaoNegocio>
+          <descricaoNegocio>Utilizado na suspensÃ£o</descricaoNegocio>
           <tipoNegocio>SELECT</tipoNegocio>
           <ordem>3</ordem>
           <situacao>A</situacao>
@@ -58,7 +58,7 @@
           <visivel>S</visivel>
           <htmlCode></htmlCode>
           <valoresOpcoes>
-            <string>N#Não</string>
+            <string>N#NÃ£o</string>
             <string>S#Sim</string>
           </valoresOpcoes>
           <colValores class="list">
@@ -66,9 +66,9 @@
               <idValorVisaoCamposNegocio>131</idValorVisaoCamposNegocio>
               <idGrupoVisao>66</idGrupoVisao>
               <idCamposObjetoNegocio>2359</idCamposObjetoNegocio>
-              <valor>N#Não</valor>
+              <valor>N#NÃ£o</valor>
               <situacao>A</situacao>
-              <descricao>Não</descricao>
+              <descricao>NÃ£o</descricao>
             </br.com.centralit.citcorpore.metainfo.bean.ValorVisaoCamposNegocioDTO>
             <br.com.centralit.citcorpore.metainfo.bean.ValorVisaoCamposNegocioDTO>
               <idValorVisaoCamposNegocio>132</idValorVisaoCamposNegocio>
@@ -83,7 +83,7 @@
         <br.com.centralit.citcorpore.metainfo.bean.GrupoVisaoCamposNegocioDTO>
           <idGrupoVisao>66</idGrupoVisao>
           <idCamposObjetoNegocio>2360</idCamposObjetoNegocio>
-          <descricaoNegocio>Situação</descricaoNegocio>
+          <descricaoNegocio>SituaÃ§Ã£o</descricaoNegocio>
           <tipoNegocio>SELECT</tipoNegocio>
           <ordem>4</ordem>
           <situacao>A</situacao>

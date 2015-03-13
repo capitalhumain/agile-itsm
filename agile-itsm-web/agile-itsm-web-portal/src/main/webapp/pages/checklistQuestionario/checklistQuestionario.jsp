@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.centralit.citcorpore.bean.SolicitacaoServicoDTO"%>
@@ -10,8 +12,7 @@
 %>
 <%@include file="/include/header.jsp"%>
 
-<%@include file="/include/security/security.jsp"%>
-<title><fmt:message key="citcorpore.comum.title" /></title>
+<%@include file="/novoLayout/common/include/titulo.jsp" %>
 <%@include file="/include/menu/menuConfig.jsp"%>
 
 <%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
@@ -170,7 +171,7 @@ display: none!important;
 	function chamaEdicaoQuestionario(idRequisicao, idQuestionario, idItemParm, idIdentificador, somenteLeitura, subForm, abaSusp, nomeQuest){
 
 		if (idQuestionario == '0' || idQuestionario == '' || idQuestionario == 'null' || idQuestionario == ' '){
-			alert('N„o È possÌvel editar o procedimento!\n\n\nN„o existe question·rio configurado para este procedimento!');
+			alert('N√£o √© poss√≠vel editar o procedimento!\n\n\nN√£o existe question√°rio configurado para este procedimento!');
 			return;
 		}
 		if (idIdentificador == undefined || idIdentificador == null){
@@ -200,7 +201,7 @@ display: none!important;
 
 	/* function imprimeQuestionario(idPessoa, idQuestionario, idItemParm, idIdentificador, somenteLeitura, subForm){
 		if (idQuestionario == '0' || idQuestionario == '' || idQuestionario == 'null' || idQuestionario == ' '){
-			alert('N„o È possÌvel editar o procedimento!\n\n\nN„o existe question·rio configurado para este procedimento!');
+			alert('N√£o √© poss√≠vel editar o procedimento!\n\n\nN√£o existe question√°rio configurado para este procedimento!');
 			return;
 		}
 
@@ -253,7 +254,7 @@ display: none!important;
 
 
 									</div>
-									<%-- BOT√O PARA CRIAR QUESTIONARIO --%>
+									<%-- BOT√ÉO PARA CRIAR QUESTIONARIO --%>
 									<div>
 										<button type='button' name='btnCriar' class="light"
 										onclick='criarQuestionario();'

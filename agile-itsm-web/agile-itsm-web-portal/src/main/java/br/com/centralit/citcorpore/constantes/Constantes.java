@@ -51,7 +51,7 @@ public class Constantes {
     public static final int CODIGO_CONVENIO_PARTICULAR = 1;
 
     /**
-     * Definição de campos utilizados no sistema.
+     * DefiniÃ§Ã£o de campos utilizados no sistema.
      */
     public static final int CAMPO_TEXTO = 1;
     public static final int CAMPO_NUMERO = 2;

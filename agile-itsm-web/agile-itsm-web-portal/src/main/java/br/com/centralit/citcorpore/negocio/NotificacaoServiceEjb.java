@@ -70,7 +70,7 @@ public class NotificacaoServiceEjb extends CrudServiceImpl implements Notificaca
         notificacaoUsuarioDao.setTransactionControler(transactionControler);
 
         this.getDao().update(notificacaoDto);
-        /* deletando as notificações para usuario */
+        /* deletando as notificaÃ§Ãµes para usuario */
         notificacaoUsuarioDao.deleteByIdNotificacaoUsuario(notificacaoDto.getIdNotificacao());
         if (notificacaoDto.getListaDeUsuario() != null) {
             if (notificacaoDto.getIdNotificacao() != null && notificacaoDto.getIdNotificacao() != 0) {
@@ -83,7 +83,7 @@ public class NotificacaoServiceEjb extends CrudServiceImpl implements Notificaca
             }
 
         }
-        /* deletando as notificações para grupo */
+        /* deletando as notificaÃ§Ãµes para grupo */
         notificacaoGrupoDao.deleteByIdNotificacaoGrupo(notificacaoDto.getIdNotificacao());
         if (notificacaoDto.getListaDeGrupo() != null) {
             if (notificacaoDto.getIdNotificacao() != null && notificacaoDto.getIdNotificacao() != 0) {
@@ -96,7 +96,7 @@ public class NotificacaoServiceEjb extends CrudServiceImpl implements Notificaca
             }
 
         }
-        /* deletando as notificações para serviço */
+        /* deletando as notificaÃ§Ãµes para serviÃ§o */
         notificacaoServicoDao.deleteByIdNotificacaoServico(notificacaoDto.getIdNotificacao());
         if (notificacaoDto.getListaDeServico() != null) {
             for (final NotificacaoServicoDTO notificacaoServico : notificacaoDto.getListaDeServico()) {

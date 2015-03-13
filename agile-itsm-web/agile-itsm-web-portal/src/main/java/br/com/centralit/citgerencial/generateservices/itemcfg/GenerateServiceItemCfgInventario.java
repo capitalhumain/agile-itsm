@@ -22,7 +22,7 @@ import br.com.citframework.util.SQLConfig;
 import br.com.citframework.util.UtilDatas;
 
 /**
- * Adaptado método para utilizar corretamento os filtros de busca
+ * Adaptado mÃ©todo para utilizar corretamento os filtros de busca
  * 29/12/2014 - 10:42
  * @author thyen.chang
  */

@@ -118,7 +118,7 @@ public class LookupDTO extends BaseEntity {
 	public void setPaginacao(String paginacao) {
 		this.paginacao = paginacao;
 	}
-	//para verificar se é radiobutton ou checkbox
+	//para verificar se Ã© radiobutton ou checkbox
 	public String getCheckbox() {
 		return checkbox;
 	}

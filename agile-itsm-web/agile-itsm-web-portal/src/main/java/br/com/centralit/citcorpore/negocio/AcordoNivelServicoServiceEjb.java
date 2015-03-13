@@ -97,12 +97,12 @@ public class AcordoNivelServicoServiceEjb extends CrudServiceImpl implements Aco
                             try {
                                 prioridadeServicoUnidadeDao.delete(prioridadeServicoUnidadeDTO);
                             } catch (final Exception e) {
-                                e.printStackTrace(); // Deixa passar o erro, pos n„o influencia.
+                                e.printStackTrace(); // Deixa passar o erro, pos n√£o influencia.
                             }
                             try {
                                 prioridadeServicoUnidadeDao.create(prioridadeServicoUnidadeDTO);
                             } catch (final Exception e) {
-                                e.printStackTrace(); // Deixa passar o erro, pos n„o influencia.
+                                e.printStackTrace(); // Deixa passar o erro, pos n√£o influencia.
                             }
                         }
                     }
@@ -197,12 +197,12 @@ public class AcordoNivelServicoServiceEjb extends CrudServiceImpl implements Aco
     }
 
     /**
-     * MÈtodo para retornar os serviÁos que possuem o SLA selecionado j· copiado, para ser tratado evitando duplicaÁ„o
+     * M√©todo para retornar os servi√ßos que possuem o SLA selecionado j√° copiado, para ser tratado evitando duplica√ß√£o
      * de SLA.
      *
      * @param titulo
      *            do SLA selecionado
-     * @return retorna os serviÁos que possuem o SLA selecionado
+     * @return retorna os servi√ßos que possuem o SLA selecionado
      * @throws Exception
      * @author rodrigo.oliveira
      */
@@ -216,11 +216,11 @@ public class AcordoNivelServicoServiceEjb extends CrudServiceImpl implements Aco
     }
 
     /**
-     * MÈtodo para verificar se existe cadastrado um cadastro o mesmo nome.
+     * M√©todo para verificar se existe cadastrado um cadastro o mesmo nome.
      *
      * @param HashMap
      *            mapFields
-     * @return true se o nome existir e false se n„o existir
+     * @return true se o nome existir e false se n√£o existir
      * @throws Exception
      * @author rodrigo.oliveira
      */
@@ -436,7 +436,7 @@ public class AcordoNivelServicoServiceEjb extends CrudServiceImpl implements Aco
                 }
             }
 
-            // Atualiza prioridade usu·rios
+            // Atualiza prioridade usu√°rios
             final List<PrioridadeServicoUsuarioDTO> listaPrioridadeServicoUsuarioAtual = (List<PrioridadeServicoUsuarioDTO>) prioridadeServicoUsuarioDao
                     .findByIdAcordoNivelServico(idAcordoNivelServico);
             if (listaPrioridadeServicoUsuarioAtual != null && listaPrioridadeServicoUsuarioAtual.size() > 0) {

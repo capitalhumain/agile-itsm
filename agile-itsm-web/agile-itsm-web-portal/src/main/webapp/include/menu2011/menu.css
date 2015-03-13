@@ -71,7 +71,7 @@ UNKNOWN {
 	POSITION: absolute
 }
 
-.clT {<!--Altera características da fonte do menu principal-->
+.clT {<!--Altera caracterÃ­sticas da fonte do menu principal-->
 	PADDING-RIGHT:1px;
 	PADDING-LEFT: 1px;
 	FONT-SIZE: 10px;
@@ -81,7 +81,7 @@ UNKNOWN {
 	TEXT-ALIGN: left
 }
 
-.clTover {<!--Altera características da fonte do menu principal quando o
+.clTover {<!--Altera caracterÃ­sticas da fonte do menu principal quando o
 	mouse esta sobre ele--> ana, Arial, Helvetica, PADDING-RIGHT:1px;
 	PADDING-LEFT: 1px;
 	FONT-SIZE: 11px;
@@ -94,7 +94,7 @@ UNKNOWN {
 	layer-background-color: #B6D8EE
 }
 
-.clS {<!--Altera características da fonte dos sub-menus quando o mouse
+.clS {<!--Altera caracterÃ­sticas da fonte dos sub-menus quando o mouse
 	esta sobre o menu principal--> PADDING-RIGHT:1px;
 	PADDING-LEFT: 1px;
 	FONT-SIZE: 9px;
@@ -103,7 +103,7 @@ UNKNOWN {
 	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
 }
 
-.clSover {<!--Altera características da fonte dos sub-menus quando o
+.clSover {<!--Altera caracterÃ­sticas da fonte dos sub-menus quando o
 	mouse esta sobre eles--> PADDING-RIGHT:1px;
 	PADDING-LEFT: 1px;
 	FONT-SIZE: 11px;
@@ -161,7 +161,7 @@ UNKNOWN {
 }
 
 <!--
-.clTover define o padrão do menu principal quando o mouse está sobre ele-->.clTover
+.clTover define o padrÃ£o do menu principal quando o mouse estÃ¡ sobre ele-->.clTover
 	{
 	FONT: normal;
 	COLOR: #000000;
@@ -170,7 +170,7 @@ UNKNOWN {
 }
 
 <!--
-.clSover define o padrão do primeiro nível de submenu sub-menus -->.clSover
+.clSover define o padrÃ£o do primeiro nÃ­vel de submenu sub-menus -->.clSover
 	{
 	FONT: normal;
 	COLOR: #000000;
@@ -179,7 +179,7 @@ UNKNOWN {
 }
 
 <!--
-.clTover define o padrão do segundo nível de submenu sub-menus -->.clS2
+.clTover define o padrÃ£o do segundo nÃ­vel de submenu sub-menus -->.clS2
 	{
 	WIDTH: 230px;
 	BACKGROUND-COLOR: #F0FFFB;
@@ -187,7 +187,7 @@ UNKNOWN {
 }
 
 <!--
-.clTover define o padrão do segundo nível de sub-menus quando o mouse estiver encima dessa região do menu-->.clS2over
+.clTover define o padrÃ£o do segundo nÃ­vel de sub-menus quando o mouse estiver encima dessa regiÃ£o do menu-->.clS2over
 	{
 	FONT: normal COLOR :   #0000FF;
 	BACKGROUND-COLOR: #A5CADE;
@@ -195,7 +195,7 @@ UNKNOWN {
 }
 
 <!--
-.clTover define o padrão do terceiro nível de submenu sub-menus -->.clS3
+.clTover define o padrÃ£o do terceiro nÃ­vel de submenu sub-menus -->.clS3
 	{
 	WIDTH: 230px;
 	BACKGROUND-COLOR: #0000FF;
@@ -203,7 +203,7 @@ UNKNOWN {
 }
 
 <!--
-.clTover define o padrão do terceiro nível de submenu sub-menus quando o mouse estiver encima dessa região do menu-->.clS3over
+.clTover define o padrÃ£o do terceiro nÃ­vel de submenu sub-menus quando o mouse estiver encima dessa regiÃ£o do menu-->.clS3over
 	{
 	FONT: normal;
 	COLOR: #0000FF;

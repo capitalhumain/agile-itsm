@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.Enumerados.TipoDate"%>
 <%@page import="java.util.Collection"%>
 <%@page import="java.util.Iterator"%>
@@ -16,21 +18,20 @@ String info = (String)request.getAttribute("info");;
 <html>
 <head>
 	<%
-		//identifica se a página foi aberta a partir de um iframe (popup de cadastro rápido)
+		//identifica se a pÃ¡gina foi aberta a partir de um iframe (popup de cadastro rÃ¡pido)
 		String iframe = "";
 		iframe = request.getParameter("iframe");
 
 	%>
 	<%@include file="/include/header.jsp" %>
-	<%@include file="/include/security/security.jsp" %>
-	<title><fmt:message key="citcorpore.comum.title"/></title>
+	<%@include file="/novoLayout/common/include/titulo.jsp" %>
 	<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 
 	<link rel="stylesheet" type="text/css" href="./css/avaliacaoContrato.css" />
 
 	<script type="text/javascript" src="./js/avaliacaoContrato.js"></script>
 	<%
-	//se for chamado por iframe deixa apenas a parte de cadastro da página
+	//se for chamado por iframe deixa apenas a parte de cadastro da pÃ¡gina
 	if(iframe != null){%>
 		<link rel="stylesheet" type="text/css" href="./css/avaliacaoContrato.css" />
 	<%}%>
@@ -142,7 +143,7 @@ String info = (String)request.getAttribute("info");;
 					out.print("<td style='text-align: center;' align='center'>");
 					out.print("<img src='" + br.com.citframework.util.Constantes
 							.getValue("SERVER_ADDRESS") + br.com.citframework.util.Constantes
-							.getValue("CONTEXTO_APLICACAO") + "/imagens/write.png' border='0' style='cursor:pointer' title='Editar o serviço' onclick='editarServicoContrato(" + servicoContratoAux.getIdServicoContrato() + ")'/>");
+							.getValue("CONTEXTO_APLICACAO") + "/imagens/write.png' border='0' style='cursor:pointer' title='Editar o serviÃ§o' onclick='editarServicoContrato(" + servicoContratoAux.getIdServicoContrato() + ")'/>");
 					out.print("</td>");
 					out.print("</tr>");
 					out.print("</table>");
@@ -157,18 +158,18 @@ String info = (String)request.getAttribute("info");;
 					if (servicoContratoAux.getDataFim() != null && servicoContratoAux.getDataFim().before(UtilDatas.getDataAtual())){
 						out.print("<img src='" + br.com.citframework.util.Constantes
 								.getValue("SERVER_ADDRESS") + br.com.citframework.util.Constantes
-								.getValue("CONTEXTO_APLICACAO") + "/imagens/bolavermelha.png' border='0'  title='Serviço Inativo'/>");
+								.getValue("CONTEXTO_APLICACAO") + "/imagens/bolavermelha.png' border='0'  title='ServiÃ§o Inativo'/>");
 						out.print(""+UtilI18N.internacionaliza(request, "avalicaoContrato.Inativo(Datafim)")+"");
 					}else{
 						out.print("<img src='" + br.com.citframework.util.Constantes
 								.getValue("SERVER_ADDRESS") + br.com.citframework.util.Constantes
-								.getValue("CONTEXTO_APLICACAO") + "/imagens/bolaverde.png' border='0'  title='Serviço Ativo'/>");
+								.getValue("CONTEXTO_APLICACAO") + "/imagens/bolaverde.png' border='0'  title='ServiÃ§o Ativo'/>");
 						out.print(""+UtilI18N.internacionaliza(request, "citcorpore.comum.ativo")+"");
 					}
 				}else if (servicoContratoAux.getSituacaoServico().intValue() == 2){
 					out.print("<img src='" + br.com.citframework.util.Constantes
 							.getValue("SERVER_ADDRESS") + br.com.citframework.util.Constantes
-							.getValue("CONTEXTO_APLICACAO") + "/imagens/bolavermelha.png' border='0'  title='Serviço Inativo'/>");
+							.getValue("CONTEXTO_APLICACAO") + "/imagens/bolavermelha.png' border='0'  title='ServiÃ§o Inativo'/>");
 					out.print("Inativo");
 				}else {
 					String strSituacao = "";

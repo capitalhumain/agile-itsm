@@ -11,7 +11,7 @@
 			}
 
 			/*alterado por
-			 desenvolvedor: rcs (Rafael César Soyer)
+			 desenvolvedor: rcs (Rafael CÃ©sar Soyer)
 			 data: 24/12/2014
 			*/
 			function filtrar(){
@@ -84,9 +84,9 @@
 					return true;
 			}
 
-			/* desenvolvedor: rcs (Rafael César Soyer)
-		      Limpa tudo na tela, campos preenchidos pelo usuário e também o que foi filtrado na tabela "gantt".
-		      Chama o método limpar que vêm via include do "javaScriptsComuns.jsp".
+			/* desenvolvedor: rcs (Rafael CÃ©sar Soyer)
+		      Limpa tudo na tela, campos preenchidos pelo usuÃ¡rio e tambÃ©m o que foi filtrado na tabela "gantt".
+		      Chama o mÃ©todo limpar que vÃªm via include do "javaScriptsComuns.jsp".
 		      data: 26/12/2014
 		    */
 			function meulimpar(){

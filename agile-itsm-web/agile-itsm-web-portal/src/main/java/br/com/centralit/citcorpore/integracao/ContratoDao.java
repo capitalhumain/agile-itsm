@@ -251,7 +251,7 @@ public class ContratoDao extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Lista Contratos Ativos (SituaÁ„o Ativa e DataFim maior que a data Atual).
+	 * Lista Contratos Ativos (Situa√ß√£o Ativa e DataFim maior que a data Atual).
 	 * 
 	 * @return Collection<ContratoDTO> - Lista de Contratos Ativos.
 	 * @throws Exception
@@ -280,7 +280,7 @@ public class ContratoDao extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Retorna a Lista de Contratos Ativos (SituaÁ„o Ativa e DataFim maior que a data Atual). que est„o relacionados aos Grupos informados.
+	 * Retorna a Lista de Contratos Ativos (Situa√ß√£o Ativa e DataFim maior que a data Atual). que est√£o relacionados aos Grupos informados.
 	 * 
 	 * @param listGrupoDto
 	 *            - Lista de GrupoDTO.
@@ -382,7 +382,7 @@ public class ContratoDao extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Retorna a lista de Contratos com o nome da Raz„o Social do Cliente do Contrato.
+	 * Retorna a lista de Contratos com o nome da Raz√£o Social do Cliente do Contrato.
 	 * 
 	 * @return Collection<ContratoDTO>
 	 * @throws ServiceException

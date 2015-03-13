@@ -54,12 +54,12 @@ public class ThreadDisparaEvento implements Runnable {
             String comando = "";
             String comandoCopia = "";
             String comandoDelete = "";
-            // ServiÁos
+            // Servi√ßos
             final EventoItemConfigService eventoItemCfgService = (EventoItemConfigService) ServiceLocator.getInstance().getService(
                     EventoItemConfigService.class, null);
             final BaseItemConfiguracaoService baseItemCfgService = (BaseItemConfiguracaoService) ServiceLocator.getInstance().getService(
                     BaseItemConfiguracaoService.class, null);
-            // Recuperando informaÁıes de rede (IP, MAC e m·scara)
+            // Recuperando informa√ß√µes de rede (IP, MAC e m√°scara)
             System.out.println("Buscando IP do computador...");
             final List<CaracteristicaDTO> colNetworks = (List<CaracteristicaDTO>) eventoItemCfgService.pegarNetworksItemConfiguracao(idItemConfiguracao);
 
@@ -86,16 +86,16 @@ public class ThreadDisparaEvento implements Runnable {
             if (StringUtils.isNotBlank(ip)) {
                 System.out.println("IP encontrado: " + ip);
                 final boolean existeArquivo = true;
-                // Item ConfiguraÁ„o
+                // Item Configura√ß√£o
                 EventoItemConfigDTO eventoItemCfgDto = new EventoItemConfigDTO();
                 eventoItemCfgDto.setIdEvento(idEvento);
                 eventoItemCfgDto = (EventoItemConfigDTO) eventoItemCfgService.restore(eventoItemCfgDto);
-                // Base Item ConfiguraÁ„o
+                // Base Item Configura√ß√£o
                 BaseItemConfiguracaoDTO baseItemCfgDto = new BaseItemConfiguracaoDTO();
                 baseItemCfgDto.setId(idBaseItemConfiguracao);
                 baseItemCfgDto = (BaseItemConfiguracaoDTO) baseItemCfgService.restore(baseItemCfgDto);
                 String dominio = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.DOMINIO_REDE, ".");
-                // N„o est· associando valor DEFAULT, . significa domÌnio local
+                // N√£o est√° associando valor DEFAULT, . significa dom√≠nio local
                 if (dominio == null || dominio.isEmpty()) {
                     dominio = ".";
                 }
@@ -103,13 +103,13 @@ public class ThreadDisparaEvento implements Runnable {
                 comandoCopia = comando;
                 comandoDelete = comando;
                 // Tipos de Evento
-                // InstalaÁ„o
+                // Instala√ß√£o
                 if (tipoExecucao.equalsIgnoreCase("I")) {
-                    // Recupera o caminho da base de itens de configuraÁ„o
+                    // Recupera o caminho da base de itens de configura√ß√£o
 
                     caminho = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.CaminhoBaseItemCfg, " ");
 
-                    // Verifica se existe o arquivo no diretÛrio
+                    // Verifica se existe o arquivo no diret√≥rio
                     if (existeArquivo) {
                         if (!linhaComando.equals("")) {
                             // Recupera o sistema operacional utilizado
@@ -117,12 +117,12 @@ public class ThreadDisparaEvento implements Runnable {
                             // Configura as linhas de comando a serem enviadas ao interpretador de comandos de acordo com o sistema
                             // operacional
                             if (sO.indexOf("WINDOWS") >= 0) {
-                                // O argumento /C faz com que o iterpretador de comandos feche apÛs a execuÁ„o dos comandos
+                                // O argumento /C faz com que o iterpretador de comandos feche ap√≥s a execu√ß√£o dos comandos
                                 comando += " cmd.exe /C C:\\" + baseItemCfgDto.getExecutavel() + " " + linhaComando;
-                                // Comando de cÛpia do instalador (argumento /y efetua a cÛpia sem pedir confirmaÁ„o)
+                                // Comando de c√≥pia do instalador (argumento /y efetua a c√≥pia sem pedir confirma√ß√£o)
                                 comandoCopia += " cmd.exe /C COPY \"\\\\" + caminho.replace("/", "\\").trim() + "\\" + baseItemCfgDto.getExecutavel()
                                         + "\" C:\\ /y";
-                                // Comando de remoÁ„o do instalador
+                                // Comando de remo√ß√£o do instalador
                                 comandoDelete += " cmd.exe /C del C:\\" + baseItemCfgDto.getExecutavel();
                             } else { // Linux
                                 String[] caminhoSplit = caminho.split("/");
@@ -130,73 +130,73 @@ public class ThreadDisparaEvento implements Runnable {
                                     caminhoSplit = caminho.split("\\");
                                 }
                                 // Componentes do caminho
-                                // Ìndice 0 - ip da m·quina.
-                                // Ìndice 1 - pasta compartilhada.
-                                // Ìndices restantes - pastas a serem acessadas para achar a pasta de instalaÁ„o
+                                // √≠ndice 0 - ip da m√°quina.
+                                // √≠ndice 1 - pasta compartilhada.
+                                // √≠ndices restantes - pastas a serem acessadas para achar a pasta de instala√ß√£o
                                 if (caminhoSplit.length < 2) {
-                                    System.out.println("Erro com o par‚metro: CAMINHO_INSTALADORES");
+                                    System.out.println("Erro com o par√¢metro: CAMINHO_INSTALADORES");
                                     return;
                                 }
                                 String pastaSoftware = "";
                                 for (int i = 2; i < caminhoSplit.length; i++) {
                                     pastaSoftware += caminhoSplit[i] + "/";
                                 }
-                                // Seta linha de comando digitada pelo usu·rio
+                                // Seta linha de comando digitada pelo usu√°rio
                                 comando = linhaComandoLinux.replace(" ", "##") + "##/tmp/" + baseItemCfgDto.getExecutavel() + "##"
                                         + linhaComando.replace(" ", "##");
                                 // Seta comando de copia do executavel
                                 comandoCopia = "-COMANDOCOPIA-mount -t cifs //" + caminhoSplit[0].trim() + "/" + caminhoSplit[1] + " /mnt -o user="
                                         + eventoItemCfgDto.getUsuario() + ",password=" + eventoItemCfgDto.getSenha() + "##" + "cp-SEPARADOR-/mnt/"
                                         + pastaSoftware + baseItemCfgDto.getExecutavel() + "-SEPARADOR-/tmp/";
-                                // Arquivos em /tmp s„o deletados ao desligar, basta desmontar unidade
+                                // Arquivos em /tmp s√£o deletados ao desligar, basta desmontar unidade
                                 comandoDelete = "umount##/mnt";
                             }
                         }
                     } else {
                         System.out.println("###############################");
-                        System.out.println("Arquivo " + caminho + "\\" + baseItemCfgDto.getExecutavel() + " n„o encontrado! ");
+                        System.out.println("Arquivo " + caminho + "\\" + baseItemCfgDto.getExecutavel() + " n√£o encontrado! ");
                         System.out.println("IP: " + ip + " Data: " + Util.getDataAtual());
                         System.out.println("###############################");
-                        incluirHistoricoTentativa("Arquivo " + caminho + "\\" + baseItemCfgDto.getExecutavel() + " n„o encontrado!");
+                        incluirHistoricoTentativa("Arquivo " + caminho + "\\" + baseItemCfgDto.getExecutavel() + " n√£o encontrado!");
                     }
-                } else if (tipoExecucao.equalsIgnoreCase("D")) { // DesinstalaÁ„o
+                } else if (tipoExecucao.equalsIgnoreCase("D")) { // Desinstala√ß√£o
                     final String sO = eventoItemCfgService.pegarSistemaOperacionalItemConfiguracao(idItemConfiguracao).toUpperCase();
                     if (sO.indexOf("WINDOWS") >= 0) { // Windows
                         comando += " cmd.exe /C \"" + baseItemCfgDto.getExecutavel() + "\" " + linhaComando;
                     } else {
-                        // Seta linha de comando digitada pelo usu·rio
+                        // Seta linha de comando digitada pelo usu√°rio
                         comando = linhaComandoLinux.replace(" ", "##") + "##" + baseItemCfgDto.getExecutavel() + "##" + linhaComando.replace(" ", "##");
                     }
                 }
-                // Verifica a existÍncia do execut·vel
+                // Verifica a exist√™ncia do execut√°vel
                 if (existeArquivo) {
                     // Objeto que verifica o status, liga ou desliga o PC
                     final WakeOnLan wakeOnLan = new WakeOnLan(ip, ipMask, mac, 3, 50);
-                    // Verifica se È para ligar o PC caso esteja desligado
+                    // Verifica se √© para ligar o PC caso esteja desligado
                     if (eventoItemCfgDto.getLigarCasoDesl().equalsIgnoreCase("S")) {
                         if (wakeOnLan.pingar(ip)) {
                             System.out.println("O computador " + ip + " estava ligado!");
                             dispararEvento(ip, comando, comandoCopia, comandoDelete);
                         } else {
-                            System.out.println("O computador " + ip + " n„o estava ligado!");
+                            System.out.println("O computador " + ip + " n√£o estava ligado!");
                             // Executa uma thread WakeOnLan para ligar o PC
                             wakeOnLan.start();
-                            // Espera por 500 milisegundos atÈ que o PC ligue
+                            // Espera por 500 milisegundos at√© que o PC ligue
                             while (wakeOnLan.getControl().equalsIgnoreCase(WakeOnLan.NONE)) {
                                 Thread.sleep(500);
                             }
-                            // Verifica se o PC est· ligado
+                            // Verifica se o PC est√° ligado
                             if (wakeOnLan.getStatus()) {
                                 System.out.println("O computador " + ip + " ligou!");
-                                System.out.println("Aguardando subir o serviÁo do agente...");
+                                System.out.println("Aguardando subir o servi√ßo do agente...");
                                 Thread.sleep(120000);
                                 dispararEvento(ip, comando, comandoCopia, comandoDelete);
                                 desligarMaquina(ip);
                             } else {
                                 System.out.println("###############################");
-                                System.out.println("O computador " + ip + " n„o ligou!");
+                                System.out.println("O computador " + ip + " n√£o ligou!");
                                 System.out.println("###############################");
-                                incluirHistoricoTentativa("O computador " + ip + " n„o ligou!");
+                                incluirHistoricoTentativa("O computador " + ip + " n√£o ligou!");
                             }
                         }
                     } else {
@@ -214,9 +214,9 @@ public class ThreadDisparaEvento implements Runnable {
                 }
             } else {
                 System.out.println("###############################");
-                System.out.println("IP do computador n„o foi encontrado!");
+                System.out.println("IP do computador n√£o foi encontrado!");
                 System.out.println("###############################");
-                incluirHistoricoTentativa("IP do computador n„o foi encontrado!");
+                incluirHistoricoTentativa("IP do computador n√£o foi encontrado!");
             }
         } catch (final Exception e) {
             e.printStackTrace();
@@ -228,56 +228,56 @@ public class ThreadDisparaEvento implements Runnable {
     private void dispararEvento(final String ip, final String comando, final String comandoCopia, final String comandoDelete) {
         String resposta = "";
         try {
-            // Efetua cÛpia do arquivo de instalaÁ„o
+            // Efetua c√≥pia do arquivo de instala√ß√£o
             if (tipoExecucao.equalsIgnoreCase("I")) {
-                System.out.println("Iniciando cÛpia do arquivo de instalaÁ„o...");
+                System.out.println("Iniciando c√≥pia do arquivo de instala√ß√£o...");
                 resposta = executaComando(ip, comandoCopia, 60);
                 if (resposta.equalsIgnoreCase("true")) {
-                    System.out.println("Finalizando cÛpia do arquivo de instalaÁ„o...");
+                    System.out.println("Finalizando c√≥pia do arquivo de instala√ß√£o...");
                     Thread.sleep(5000);
                 } else {
                     System.out.println("###############################");
-                    System.out.println("CÛpia do arquivo de instalaÁ„o falhou!");
+                    System.out.println("C√≥pia do arquivo de instala√ß√£o falhou!");
                     System.out.println("IP: " + ip + " Data: " + Util.getDataAtual());
                     System.out.println("###############################");
-                    incluirHistoricoTentativa("CÛpia do arquivo de instalaÁ„o falhou!");
+                    incluirHistoricoTentativa("C√≥pia do arquivo de instala√ß√£o falhou!");
                     return;
                 }
             }
-            // Efetua execuÁ„o especÌfica do evento
+            // Efetua execu√ß√£o espec√≠fica do evento
             if (tipoExecucao.equalsIgnoreCase("I")) {
-                System.out.println("Iniciando instalaÁ„o do software...");
+                System.out.println("Iniciando instala√ß√£o do software...");
             } else {
-                System.out.println("Iniciando desinstalaÁ„o do software...");
+                System.out.println("Iniciando desinstala√ß√£o do software...");
             }
             resposta = executaComando(ip, comando, 300);
             if (resposta.equalsIgnoreCase("true")) {
                 if (tipoExecucao.equalsIgnoreCase("I")) {
-                    System.out.println("Finalizando instalaÁ„o do software...");
+                    System.out.println("Finalizando instala√ß√£o do software...");
                 } else {
-                    System.out.println("Finalizando desinstalaÁ„o do software...");
+                    System.out.println("Finalizando desinstala√ß√£o do software...");
                 }
                 Thread.sleep(20000);
             } else {
                 System.out.println("###############################");
-                System.out.println("ExecuÁ„o falhou!");
+                System.out.println("Execu√ß√£o falhou!");
                 System.out.println("IP: " + ip + " Data: " + Util.getDataAtual());
                 System.out.println("###############################");
-                incluirHistoricoTentativa("ExecuÁ„o falhou!");
+                incluirHistoricoTentativa("Execu√ß√£o falhou!");
             }
-            // Efetua exclus„o do arquivo de instalaÁ„o
+            // Efetua exclus√£o do arquivo de instala√ß√£o
             if (tipoExecucao.equalsIgnoreCase("I")) {
-                System.out.println("Iniciando exclus„o do arquivo de instalaÁ„o...");
+                System.out.println("Iniciando exclus√£o do arquivo de instala√ß√£o...");
                 resposta = executaComando(ip, comandoDelete, 60);
                 if (resposta.equalsIgnoreCase("true")) {
-                    System.out.println("Finalizando exclus„o do arquivo de instalaÁ„o...");
+                    System.out.println("Finalizando exclus√£o do arquivo de instala√ß√£o...");
                     Thread.sleep(5000);
                 } else {
                     System.out.println("###############################");
-                    System.out.println("Exclus„o do arquivo de instalaÁ„o falhou!");
+                    System.out.println("Exclus√£o do arquivo de instala√ß√£o falhou!");
                     System.out.println("IP: " + ip + " Data: " + Util.getDataAtual());
                     System.out.println("###############################");
-                    incluirHistoricoTentativa("Exclus„o do arquivo de instalaÁ„o falhou!");
+                    incluirHistoricoTentativa("Exclus√£o do arquivo de instala√ß√£o falhou!");
                 }
             }
         } catch (final Exception e) {
@@ -290,9 +290,9 @@ public class ThreadDisparaEvento implements Runnable {
         ObjectOutputStream outObjects = null;
         String dadoRecebido = "";
         try {
-            // Socket que escuta por requisiÁıes na porta 7000
+            // Socket que escuta por requisi√ß√µes na porta 7000
             s = new Socket(ip, 7000);
-            // Recuperando saÌda do socket
+            // Recuperando sa√≠da do socket
             outObjects = new ObjectOutputStream(s.getOutputStream());
             final List<String> parametrosEvento = new ArrayList<String>();
             parametrosEvento.add("EVENTO");
@@ -313,7 +313,7 @@ public class ThreadDisparaEvento implements Runnable {
                 } catch (final IOException e) {
                     System.out.println("###############################");
                     System.out.println("Algum problema ocorreu para receber dados do socket.");
-                    System.out.println("ComunicaÁ„o encerrada!");
+                    System.out.println("Comunica√ß√£o encerrada!");
                     System.out.println("IP: " + ip + " Data: " + Util.getDataAtual());
                     System.out.println("###############################");
                     e.printStackTrace();
@@ -337,7 +337,7 @@ public class ThreadDisparaEvento implements Runnable {
         } catch (final Exception e) {
             System.out.println("###############################");
             System.out.println("Algum problema ocorreu para receber dados do socket.");
-            System.out.println("ComunicaÁ„o encerrada!");
+            System.out.println("Comunica√ß√£o encerrada!");
             System.out.println("IP: " + ip + " Data: " + Util.getDataAtual());
             System.out.println("###############################");
             e.printStackTrace();
@@ -365,7 +365,7 @@ public class ThreadDisparaEvento implements Runnable {
             s = new Socket(ip, 7000);
             // Cria a Stream de saida de dados
             outObjects = new ObjectOutputStream(s.getOutputStream());
-            // Imprime uma linha para a stream de saÌda de dados
+            // Imprime uma linha para a stream de sa√≠da de dados
             final SignedInfo signedInfo = CriptoSignedUtil.generateStringToSend(CITCorporeUtil.CAMINHO_REAL_APP + "/keysSec/citsmart.jks",
                     CITCorporeUtil.CAMINHO_REAL_APP + "/keysSec/citsmartcripto.jks", "DESLIGAR");
             outObjects.writeObject(signedInfo);
@@ -373,7 +373,7 @@ public class ThreadDisparaEvento implements Runnable {
         } catch (final Exception e) {
             System.out.println("###############################");
             System.out.println("Ocorreu um erro durante o desligamento do computador!");
-            System.out.println("ComunicaÁ„o encerrada!");
+            System.out.println("Comunica√ß√£o encerrada!");
             System.out.println("IP: " + ip + " Data: " + Util.getDataAtual());
             System.out.println("###############################");
             e.printStackTrace();
@@ -383,7 +383,7 @@ public class ThreadDisparaEvento implements Runnable {
                 if (s != null) {
                     s.close();
                 }
-                System.out.println("O computador est· sendo desligado!");
+                System.out.println("O computador est√° sendo desligado!");
             } catch (final IOException e) {
                 // Deixa passar!
             }
@@ -391,7 +391,7 @@ public class ThreadDisparaEvento implements Runnable {
     }
 
     private void incluirHistoricoTentativa(final String descricao) throws ServiceException, Exception {
-        // Cria um objeto para trafegar os dados relativos ao histÛrico de tentativas
+        // Cria um objeto para trafegar os dados relativos ao hist√≥rico de tentativas
         final HistoricoTentativaDTO historicoTentativaDto = new HistoricoTentativaDTO();
         historicoTentativaDto.setIdEvento(idEvento);
         historicoTentativaDto.setIdItemConfiguracao(idItemConfiguracao);

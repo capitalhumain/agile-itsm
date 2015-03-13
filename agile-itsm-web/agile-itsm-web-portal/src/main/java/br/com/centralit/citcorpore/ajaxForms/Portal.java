@@ -112,7 +112,7 @@ public class Portal extends AjaxFormAction {
 
         sbCatSer.append("	<ul class='row-fluid'>");
         for (final CatalogoServicoDTO catalogoServicoDTO : listCatalogos) {
-            // Criando lista de ServiÁos
+            // Criando lista de Servi√ßos
             sbCatSer.append("	<li class='span4'>");
             sbCatSer.append("		<a href='javascript:carregarServicos(" + catalogoServicoDTO.getIdCatalogoServico() + "," + catalogoServicoDTO.getIdContrato() + ");' >");
             sbCatSer.append("			<span class='pull-right glyphicons shopping_cart'><i></i></span>");
@@ -128,23 +128,23 @@ public class Portal extends AjaxFormAction {
         }
         sbCatSer.append("	</ul>");
 
-        // atribuindo informaÁıes da lista de ServiÁos
+        // atribuindo informa√ß√µes da lista de Servi√ßos
         final HTMLElement divPrincipal = document.getElementById("listaServicos");
         divPrincipal.setInnerHTML(sbCatSer.toString());
 
     }
 
     /**
-     * Modificado 09/12/2014. Adicionado condicional para exibiÁ„o completa
+     * Modificado 09/12/2014. Adicionado condicional para exibi√ß√£o completa
      * @author thyen.chang
      */
     public void contentServicos(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         final InfoCatalogoServicoService infoCatalogoServicoService = (InfoCatalogoServicoService) ServiceLocator.getInstance().getService(InfoCatalogoServicoService.class, null);
         final StringBuilder sbDesc = new StringBuilder();
-        // Criando tabela DescriÁ„o
+        // Criando tabela Descri√ß√£o
         sbDesc.append("<h5>" + UtilI18N.internacionaliza(request, "portal.carrinho.listagem") + "</h5>");
         sbDesc.append("<table class='table table-bordered uniformjs tabelaFixa' id='tblDescricao'>");
-        sbDesc.append("		<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>◊</button>");
+        sbDesc.append("		<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>√ó</button>");
         sbDesc.append("		<tr>");
         sbDesc.append("			<th class='span1'>");
         sbDesc.append("				<input class='checkbox' "
@@ -199,9 +199,9 @@ public class Portal extends AjaxFormAction {
                 }
             }
             /*
-             * Desenvolvedor: Thiago Matias - Data: 07/11/2013 - Hor·rio: 14:50 - ID Citsmart: 123357 - Motivo/Coment·rio: uma forma de verificar se no cat·logo de NegÛcio o campo
-             * ServiÁo foi
-             * preenchido, pois pode haver dados antigos no banco que n„o tenha essa vinculaÁ„o do Cat. NegÛcio com o ServiÁo
+             * Desenvolvedor: Thiago Matias - Data: 07/11/2013 - Hor√°rio: 14:50 - ID Citsmart: 123357 - Motivo/Coment√°rio: uma forma de verificar se no cat√°logo de Neg√≥cio o campo
+             * Servi√ßo foi
+             * preenchido, pois pode haver dados antigos no banco que n√£o tenha essa vincula√ß√£o do Cat. Neg√≥cio com o Servi√ßo
              */
             if (i == 1) {
                 document.alert(UtilI18N.internacionaliza(request, "portal.naohaserviconocatalogo"));
@@ -209,8 +209,8 @@ public class Portal extends AjaxFormAction {
             }
         } else {
             /*
-             * Desenvolvedor: Thiago Matias - Data: 07/11/2013 - Hor·rio: 14:50 - ID Citsmart: 123357 - Motivo/Coment·rio: Exibir um alert se no cat·logo de NegÛcio n„o houver
-             * nenhum serviÁo
+             * Desenvolvedor: Thiago Matias - Data: 07/11/2013 - Hor√°rio: 14:50 - ID Citsmart: 123357 - Motivo/Coment√°rio: Exibir um alert se no cat√°logo de Neg√≥cio n√£o houver
+             * nenhum servi√ßo
              * vinculados
              */
             document.alert(UtilI18N.internacionaliza(request, "portal.naohaserviconocatalogo"));
@@ -288,11 +288,11 @@ public class Portal extends AjaxFormAction {
         }
 
         /*
-         * Parametro bloqueiaAcoes È recupearado, caso esteja com o valor falso significa que o
+         * Parametro bloqueiaAcoes √© recupearado, caso esteja com o valor falso significa que o
          *
-         * usuario n„o selecionou em nenhum serviÁo a opÁ„o "Deseja anexar arquivo(s)" e o serviÁo
+         * usuario n√£o selecionou em nenhum servi√ßo a op√ß√£o "Deseja anexar arquivo(s)" e o servi√ßo
          *
-         * n„o possua questionario vinculado, ent„o continua com as rotinas normais.
+         * n√£o possua questionario vinculado, ent√£o continua com as rotinas normais.
          *
          * @author Ezequiel
          *
@@ -330,7 +330,7 @@ public class Portal extends AjaxFormAction {
     }
 
     /**
-     * N„o existia este mÈtodo para atualizar o valor do atributo "colecao_dados_solicit_quest"
+     * N√£o existia este m√©todo para atualizar o valor do atributo "colecao_dados_solicit_quest"
      * @author cristian.guedes
      * @param document
      * @param request
@@ -367,8 +367,8 @@ public class Portal extends AjaxFormAction {
     }
 
     /**
-     * A requisiÁ„o no citsmart sempre È executada 2 vezes, por isto criei este mÈtodo para n„o inserir o mesmo
-     * question·rio mais de uma vez na lista
+     * A requisi√ß√£o no citsmart sempre √© executada 2 vezes, por isto criei este m√©todo para n√£o inserir o mesmo
+     * question√°rio mais de uma vez na lista
      * @param request
      * @param solicitacaoServicoQuestionarioDTO
      * @param colecaoDeQuestionarios
@@ -472,9 +472,9 @@ public class Portal extends AjaxFormAction {
 	/**
 	 * Metodo responsavel por obter o valor do parametro HABILITA_PRECO_CARRINHO_PORTAL
 	 *
-	 * O par‚metro 245 dever· estar setado em "N". Caso esteja setado em "S" o sistema apresentar·
+	 * O par√¢metro 245 dever√° estar setado em "N". Caso esteja setado em "S" o sistema apresentar√°
 	 *
-	 * a tela completa que n„o possui as funÁıes de "Responder Question·rio e Anexar Arquivos".
+	 * a tela completa que n√£o possui as fun√ß√µes de "Responder Question√°rio e Anexar Arquivos".
 	 *
 	 * @author Ezequiel
 	 *
@@ -511,15 +511,15 @@ public class Portal extends AjaxFormAction {
 	}
 
 	/**
-	 * Metodo responsavel por verificar se existe questionario para o serviÁo especifico
+	 * Metodo responsavel por verificar se existe questionario para o servi√ßo especifico
 	 *
-	 * Se sim e o parametro 245 esteja com valor 'N', emt„o ser· setado um valor 'S' para
+	 * Se sim e o parametro 245 esteja com valor 'N', emt√£o ser√° setado um valor 'S' para
 	 *
-	 * o atributo existe questionario, esse atributo È responsavel por renderizar os botıes
+	 * o atributo existe questionario, esse atributo √© responsavel por renderizar os bot√µes
 	 *
-	 * na grid, foi criado um atributo na sess„o para amarrar a existencia do questionario.
+	 * na grid, foi criado um atributo na sess√£o para amarrar a existencia do questionario.
 	 *
-	 * No complete do metodo uma funÁ„o javascript e executada para exibir a coluna de
+	 * No complete do metodo uma fun√ß√£o javascript e executada para exibir a coluna de
 	 *
 	 * questionario.
 	 *
@@ -549,17 +549,17 @@ public class Portal extends AjaxFormAction {
 	}
 
 	/**
-	 * Verifica se a opÁ„o de anexar arquivos foi marcada.
+	 * Verifica se a op√ß√£o de anexar arquivos foi marcada.
 	 *
-	 * Se sim, o sistema popula o campo permiteAnexo, para cada linha da tabela que tera a opÁ„o de anexar, caso n„o a linha n„o
+	 * Se sim, o sistema popula o campo permiteAnexo, para cada linha da tabela que tera a op√ß√£o de anexar, caso n√£o a linha n√£o
 	 *
-	 * tera o bot„o de anexar.
+	 * tera o bot√£o de anexar.
 	 *
-	 * Foi criado um objeto na sess„o com o nome "bloqueiaAcoes" remetendo ao campo "Deseja anexar arquivo(s)", esse atributo foi
+	 * Foi criado um objeto na sess√£o com o nome "bloqueiaAcoes" remetendo ao campo "Deseja anexar arquivo(s)", esse atributo foi
 	 *
-	 * criado com a funÁ„o de controlar se pelo menos um dos serviÁos possui opÁ„o de anexar, isso foi feito para disabilitar algumas
+	 * criado com a fun√ß√£o de controlar se pelo menos um dos servi√ßos possui op√ß√£o de anexar, isso foi feito para disabilitar algumas
 	 *
-	 * funÁıes j· existentes.
+	 * fun√ß√µes j√° existentes.
 	 *
 	 * @param document
 	 * @param request
@@ -582,9 +582,9 @@ public class Portal extends AjaxFormAction {
 
 
     /**
-     * Metodo responsavel por verificar se existe questionario a ser respondido, nos serviÁos do carrinho.
+     * Metodo responsavel por verificar se existe questionario a ser respondido, nos servi√ßos do carrinho.
      *
-     * Essa validaÁ„o sÛ ser· feita se o parametro 245 estiver com o valor setado como 'N'.
+     * Essa valida√ß√£o s√≥ ser√° feita se o parametro 245 estiver com o valor setado como 'N'.
      *
      * @param document
      * @param request
@@ -710,13 +710,13 @@ public class Portal extends AjaxFormAction {
 
 
         /**
-         * Cristian: SolicitaÁ„o 165383
-         * Os arquivos que haviam sido previamente "upados" continuavam a aparecer na prÛxima tentativa de upload
+         * Cristian: Solicita√ß√£o 165383
+         * Os arquivos que haviam sido previamente "upados" continuavam a aparecer na pr√≥xima tentativa de upload
          */
         request.getSession(true).setAttribute("colUploadsGED", null);
 
         /**
-         * Cristian: solicitaÁ„o 165505
+         * Cristian: solicita√ß√£o 165505
          * Reativa os objetos que foram desativados durante o processamento de fechamento da compra
          */
         document.executeScript("reativarObjetos();");
@@ -726,7 +726,7 @@ public class Portal extends AjaxFormAction {
     }
 
     /**
-     * Verifica as Permissıes de Acesso do Usu·rio a Pasta informada
+     * Verifica as Permiss√µes de Acesso do Usu√°rio a Pasta informada
      *
      * @param document
      * @param request
@@ -789,7 +789,7 @@ public class Portal extends AjaxFormAction {
     }
 
     /**
-     * Metodo responsavel por controlar olaguns objetos vinculados a sess„o e abrir um popup para anexos de arquivos.
+     * Metodo responsavel por controlar olaguns objetos vinculados a sess√£o e abrir um popup para anexos de arquivos.
      *
      * @param document
      * @param request
@@ -817,7 +817,7 @@ public class Portal extends AjaxFormAction {
 
 
 	/**
-	 * Metodo responsavel por exibir o modal de questionario, o questionario sÛ ser· apresentado se ainda n„o foi respondido.
+	 * Metodo responsavel por exibir o modal de questionario, o questionario s√≥ ser√° apresentado se ainda n√£o foi respondido.
 	 *
 	 * @param document
 	 * @param request
@@ -855,7 +855,7 @@ public class Portal extends AjaxFormAction {
 
 			else {
 				/**
-				 * Cristian: solicitaÁ„o 165475
+				 * Cristian: solicita√ß√£o 165475
 				 */
 				String mensagem = UtilI18N.internacionaliza(request, "questionario.jafoirespondido");
 				document.executeScript("alert('"+mensagem+"')");
@@ -871,7 +871,7 @@ public class Portal extends AjaxFormAction {
 
 
 	/**
-	 * Metodo responsavel por desabilitar o bot„o caso o questionario do relatorio j· tenha sido respondido.
+	 * Metodo responsavel por desabilitar o bot√£o caso o questionario do relatorio j√° tenha sido respondido.
 	 *
 	 * @param request
 	 * @param idQuestionario
@@ -900,7 +900,7 @@ public class Portal extends AjaxFormAction {
 
 
 	/**
-	 * Metodo responsavel por verificar se existe alguma quest„o obrigatoria no questionario.
+	 * Metodo responsavel por verificar se existe alguma quest√£o obrigatoria no questionario.
 	 *
 	 * @param idQuestionario
 	 * @author Ezequiel
@@ -922,7 +922,7 @@ public class Portal extends AjaxFormAction {
 	}
 
 	/**
-	 * Metodo responsavel por verificar se existe quest„o obrigatoria n„o respondida.
+	 * Metodo responsavel por verificar se existe quest√£o obrigatoria n√£o respondida.
 	 *
 	 * @param document
 	 * @param request
@@ -970,11 +970,11 @@ public class Portal extends AjaxFormAction {
 
 
 	/**
-	 * Metodo responsavel por remover da sess„o o questionario vinculado a um serviÁo que foi removido da grid.
+	 * Metodo responsavel por remover da sess√£o o questionario vinculado a um servi√ßo que foi removido da grid.
 	 *
-	 * Existe um contado na sess„o com o nome "qtdQuestionarioObrigatorios", quando esse metodo for assionando
+	 * Existe um contado na sess√£o com o nome "qtdQuestionarioObrigatorios", quando esse metodo for assionando
 	 *
-	 * ser· decrementado 1 do contatod.
+	 * ser√° decrementado 1 do contatod.
 	 *
 	 * @param document
 	 * @param request
@@ -1027,11 +1027,11 @@ public class Portal extends AjaxFormAction {
 
 
 	/**
-	 * Metodo responsavel por remover da sess„o o anexo do serviÁo excluido da grid do carrinho de compras.
+	 * Metodo responsavel por remover da sess√£o o anexo do servi√ßo excluido da grid do carrinho de compras.
 	 * <p>
-	 * Metodo verifica se o <code>idServicoSelecionado</code> È igual ao <code>idLinhaPai</code>(vinculo do anexo ao servico) se sim monta o objeto <code>anexosARemover</code>.
+	 * Metodo verifica se o <code>idServicoSelecionado</code> √© igual ao <code>idLinhaPai</code>(vinculo do anexo ao servico) se sim monta o objeto <code>anexosARemover</code>.
 	 *
-	 * ApÛs È chamado o metodo <code>remove</code> da <code>Collection</code> passando o objeto a ser removido.
+	 * Ap√≥s √© chamado o metodo <code>remove</code> da <code>Collection</code> passando o objeto a ser removido.
 	 *
 	 * @param document
 	 * @param request
@@ -1072,9 +1072,9 @@ public class Portal extends AjaxFormAction {
 	}
 
 	/**
-	 * Metodo responsavel por limpar objetos adicionados a sess„o, para controle do questionario e anexo na tela de carrinho
+	 * Metodo responsavel por limpar objetos adicionados a sess√£o, para controle do questionario e anexo na tela de carrinho
 	 *
-	 * Esse metodo sÛ ser· assionado no load da pagina.
+	 * Esse metodo s√≥ ser√° assionado no load da pagina.
 	 *
 	 * @param document
 	 * @param request
@@ -1099,9 +1099,9 @@ public class Portal extends AjaxFormAction {
 	}
 
 	/**
-	 * Metodo responsavel por limpar da sess„o o objeto "existeQuestionario", apÛs a exclus„o de um serviÁo da grid que contenha questionario.
+	 * Metodo responsavel por limpar da sess√£o o objeto "existeQuestionario", ap√≥s a exclus√£o de um servi√ßo da grid que contenha questionario.
 	 *
-	 * Esse metodo sÛ ser· assionado se n„o conter na grid nenhum serviÁo que contenha questionario.
+	 * Esse metodo s√≥ ser√° assionado se n√£o conter na grid nenhum servi√ßo que contenha questionario.
 	 *
 	 * @param document
 	 * @param request
@@ -1116,9 +1116,9 @@ public class Portal extends AjaxFormAction {
 	}
 
 	/**
-	 * Metodo responsavel por limparda sess„o o objeto "existeAnexo", apÛs a exclus„o de um serviÁo da grid que contenha a funÁ„o de anexar.
+	 * Metodo responsavel por limparda sess√£o o objeto "existeAnexo", ap√≥s a exclus√£o de um servi√ßo da grid que contenha a fun√ß√£o de anexar.
 	 *
-	 * Esse metodo sÛ ser· assionado se n„o conter na grid nenhum serviÁo que contenha anexo.
+	 * Esse metodo s√≥ ser√° assionado se n√£o conter na grid nenhum servi√ßo que contenha anexo.
 	 *
 	 * @param document
 	 * @param request
@@ -1135,7 +1135,7 @@ public class Portal extends AjaxFormAction {
 	}
 
 	/**
-	 * Metodo responsavel por recuperar da sess„o a lista de questionarios.
+	 * Metodo responsavel por recuperar da sess√£o a lista de questionarios.
 	 *
 	 * @param request
 	 * @return
@@ -1149,7 +1149,7 @@ public class Portal extends AjaxFormAction {
 	}
 	
 	/**
-	 * MÈtodo para carregar Base de Conhecimento paginado
+	 * M√©todo para carregar Base de Conhecimento paginado
 	 * 
 	 * @author thyen.chang
 	 * @since 06/02/2015
@@ -1216,7 +1216,7 @@ public class Portal extends AjaxFormAction {
 	}
 	
 	/**
-	 * MÈtodo para carregar FAQ paginado
+	 * M√©todo para carregar FAQ paginado
 	 * 
 	 * @author thyen.chang
 	 * @since 06/02/2015
@@ -1258,12 +1258,12 @@ public class Portal extends AjaxFormAction {
 
 					final PermissaoAcessoPasta permissao = getPerfilAcessoPastaService().verificarPermissaoDeAcessoPasta(usuarioDto, pastaDto);
 
-					strFaq.append("<div class='accordion-heading'>");// Inicio div CabeÁalho
+					strFaq.append("<div class='accordion-heading'>");// Inicio div Cabe√ßalho
 					strFaq.append("<a class='accordion-toggle glyphicons circle_question_mark' data-toggle='collapse' data-parent='#accordion' href='#collapse-" + baseDTO.getIdBaseConhecimento()
 							+ "'>");
 					strFaq.append("<i></i>" + UtilStrings.unescapeJavaString(baseDTO.getTitulo()));// Titulo
 					strFaq.append("</a>");
-					strFaq.append("</div>");// Fim div cabeÁalho
+					strFaq.append("</div>");// Fim div cabe√ßalho
 
 					strFaq.append("<div id='collapse-" + baseDTO.getIdBaseConhecimento() + "' class='accordion-body collapse'>");// Inicio div Corpo
 					if (permissao != null) {
@@ -1287,15 +1287,15 @@ public class Portal extends AjaxFormAction {
 	}
 	
 	/**
-	 * MÈtodo que gera div com p·ginas
+	 * M√©todo que gera div com p√°ginas
 	 * 
 	 * @author thyen.chang
 	 * @since 06/02/2015
-	 * @param totalPaginas - N˙mero total de p·ginas da div
+	 * @param totalPaginas - N√∫mero total de p√°ginas da div
 	 * @param sb - StringBuilder contendo os elementos HTML
-	 * @param paginaSelecionada - Qual a p·ginada selecionada
+	 * @param paginaSelecionada - Qual a p√°ginada selecionada
 	 * @param request
-	 * @param functionName - Nome da funÁ„o para os botıes de p·gina
+	 * @param functionName - Nome da fun√ß√£o para os bot√µes de p√°gina
 	 * @return
 	 * @throws Exception
 	 */
@@ -1365,7 +1365,7 @@ public class Portal extends AjaxFormAction {
 	 * Pesquisa os itens da base de conhecimento do portal
 	 * 
 	 * @author thyen.chang
-	 * @since 09/02/2015 - OPERA«√O USAIN BOLT
+	 * @since 09/02/2015 - OPERA√á√ÉO USAIN BOLT
 	 * @param document
 	 * @param request
 	 * @param response
@@ -1476,12 +1476,12 @@ public class Portal extends AjaxFormAction {
 
 					final PermissaoAcessoPasta permissao = getPerfilAcessoPastaService().verificarPermissaoDeAcessoPasta(usuarioDto, pastaDto);
 
-					strFaq.append("<div class='accordion-heading'>");// Inicio div CabeÁalho
+					strFaq.append("<div class='accordion-heading'>");// Inicio div Cabe√ßalho
 					strFaq.append("<a class='accordion-toggle glyphicons circle_question_mark' data-toggle='collapse' data-parent='#accordion' href='#collapse-" + baseDTO.getIdBaseConhecimento()
 							+ "'>");
 					strFaq.append("<i></i>" + UtilStrings.unescapeJavaString(baseDTO.getTitulo()));// Titulo
 					strFaq.append("</a>");
-					strFaq.append("</div>");// Fim div cabeÁalho
+					strFaq.append("</div>");// Fim div cabe√ßalho
 
 					strFaq.append("<div id='collapse-" + baseDTO.getIdBaseConhecimento() + "' class='accordion-body collapse'>");// Inicio div Corpo
 					if (permissao != null) {

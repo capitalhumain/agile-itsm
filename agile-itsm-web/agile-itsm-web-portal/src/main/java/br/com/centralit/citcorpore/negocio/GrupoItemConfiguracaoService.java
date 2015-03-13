@@ -14,7 +14,7 @@ public interface GrupoItemConfiguracaoService extends CrudService {
 	public boolean VerificaSeCadastrado(GrupoItemConfiguracaoDTO grupoItemConfiguracaoDTO) throws PersistenceException;
 	
 	/**
-	 * MÈtodo que traz a lista de Grupo de item de configuraÁ„o relacionados ao evento passado como par‚metro
+	 * M√©todo que traz a lista de Grupo de item de configura√ß√£o relacionados ao evento passado como par√¢metro
 	 * 
 	 * @param idEvento
 	 * @return Collection<GrupoItemConfiguracaoDTO> relacionado ao evento

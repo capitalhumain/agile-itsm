@@ -44,7 +44,7 @@ public class UtilI18N {
 
     /**
      *
-     * Iniciliza o mapa de valores em portuguÍs, por ser o padr„o. Os outros ser„o carregados on demmand
+     * Iniciliza o mapa de valores em portugu√™s, por ser o padr√£o. Os outros ser√£o carregados on demmand
      *
      */
     public static void initialize() {
@@ -53,7 +53,7 @@ public class UtilI18N {
 
     /**
      * @param request
-     *            … necessario para idenficar o locale na sess„o
+     *            √â necessario para idenficar o locale na sess√£o
      * @param key
      *            Parametro para identificar arquivo no arquivo properties
      * @return String da mensagem.
@@ -64,7 +64,7 @@ public class UtilI18N {
 
         String localKey = key.trim();
 
-        // FIXME n„o deve ser tratado aqui, refazer o mÈtodo internacionalizaString
+        // FIXME n√£o deve ser tratado aqui, refazer o m√©todo internacionalizaString
         if (!localKey.startsWith("$(")) {
             localKey = key.replaceAll("\\$", "");
         }
@@ -80,7 +80,7 @@ public class UtilI18N {
 
     /**
      * @param locale
-     *            identificador do pais ex: en (InglÍs)
+     *            identificador do pais ex: en (Ingl√™s)
      * @param Key
      *            parametro de busca arquivo properties
      * @return String da mensagem.
@@ -106,8 +106,8 @@ public class UtilI18N {
      * @param key
      *            chave de busca
      * @param params
-     *            par‚metros para formataÁ„o
-     * @return mensagem, se encontrada no resource, formatada com os par‚metros
+     *            par√¢metros para formata√ß√£o
+     * @return mensagem, se encontrada no resource, formatada com os par√¢metros
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      * @since 30/09/2014
      */
@@ -163,7 +163,7 @@ public class UtilI18N {
         final ConcurrentMap<String, String> map = getMapLanguage(siglaLingua);
         if (map != null) {
             value = map.get(key);
-            // FIXME n„o deve ser tratado aqui, refazer o mÈtodo internacionalizaString
+            // FIXME n√£o deve ser tratado aqui, refazer o m√©todo internacionalizaString
             if (StringUtils.isBlank(value)) {
                 map.put(key, key);
                 value = map.get(key);

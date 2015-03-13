@@ -509,7 +509,7 @@ public class OsSetSituacao extends Os {
         .append("<table>")
         .append("<tr>")
         .append("<td>")
-        .append("<input type='button' name='btnAssociarIncidente' value='Salvar AssociaÁ„o' onclick='associarIncidentes()'/>")
+        .append("<input type='button' name='btnAssociarIncidente' value='Salvar Associa√ß√£o' onclick='associarIncidentes()'/>")
         .append("</td>")
         .append("<td>")
         .append("&nbsp;")
@@ -556,7 +556,7 @@ public class OsSetSituacao extends Os {
                 count++;
             }
             if(count > 0){
-                document.alert(count + " Incidente(s) associado(s) com sucesso! \nAtenÁ„o! Os valores ser„o atualizados somente apÛs a gravaÁ„o da OS!");
+                document.alert(count + " Incidente(s) associado(s) com sucesso! \nAten√ß√£o! Os valores ser√£o atualizados somente ap√≥s a grava√ß√£o da OS!");
             }
         }
         document.executeScript("$('#POPUP_LISTA_INCIDENTES').dialog('close');");
@@ -592,11 +592,11 @@ public class OsSetSituacao extends Os {
         }catch (Exception e) {
         }
         if (idContrato == -1){
-            document.alert("N„o foi possÌvel identificar o contrato, por favor, feche esta tela e faÁa logon novamente!");
+            document.alert("N√£o foi poss√≠vel identificar o contrato, por favor, feche esta tela e fa√ßa logon novamente!");
             return;
         }
         if (os.getIdOS()==null || os.getIdOS().intValue()==0){
-            document.alert("N„o foi possÌvel identificar a OS, por favor, feche esta tela e faÁa logon novamente!");
+            document.alert("N√£o foi poss√≠vel identificar a OS, por favor, feche esta tela e fa√ßa logon novamente!");
             return;
         }
 
@@ -616,7 +616,7 @@ public class OsSetSituacao extends Os {
                 AtividadesOSDTO atividadesOSAux = new AtividadesOSDTO();
                 atividadesOSAux.setIdAtividadesOS(atividadesOSDTO.getIdAtividadesOS());
 
-                //Multiplica o valor da atividade pelo n˙mero de incidentes associados, caso exista.
+                //Multiplica o valor da atividade pelo n√∫mero de incidentes associados, caso exista.
                 Collection<VinculaOsIncidenteDTO> listaAtividadesOSDTOs = vinculaOsIncidenteService.findByIdAtividadeOS(atividadesOSDTO.getIdAtividadesOS());
 
                 if(listaAtividadesOSDTOs != null && listaAtividadesOSDTOs.size() > 0){
@@ -647,7 +647,7 @@ public class OsSetSituacao extends Os {
                             glosaPercAplicadoTotal = glosaPercAplicadoTotal + glosaOSDTO.getPercAplicado();
                         }
                     }
-                    //Rateia o valor total da glosa pelo n˙mero de atividades
+                    //Rateia o valor total da glosa pelo n√∫mero de atividades
                     if(atividadesOSDTO.getQtdeExecutada()!=null){
                         glosaAtividade = (glosaPercAplicadoTotal * atividadesOSDTO.getQtdeExecutada()) / 100;
                     }
@@ -680,10 +680,10 @@ public class OsSetSituacao extends Os {
             }else{
                 osService.updateSituacao(os.getIdOS(), os.getSituacaoOS(), colGlosas, colItens, os.getObsFinalizacao());
 
-                //Verifica se a OS est· em condiÁ„o de registrar uma contagem de glosa
+                //Verifica se a OS est√° em condi√ß√£o de registrar uma contagem de glosa
                 String flag = os.getFlagGlosa().toString();
                 if(os.getSituacaoOS().equals(OSDTO.EXECUTADA) && (flag!=null && flag.equalsIgnoreCase("N"))){
-                    //Chama conta glosa se houver alguma ocorrÍncia de glosa
+                    //Chama conta glosa se houver alguma ocorr√™ncia de glosa
                     if(colGlosas != null && colGlosas.size() > 0){
                         contaServicoGlosa(os, colGlosas, document);
                     }
@@ -869,7 +869,7 @@ public class OsSetSituacao extends Os {
     public void calculaFormulaANS(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
         UsuarioDTO usuario = br.com.centralit.citcorpore.util.WebUtil.getUsuario(request);
         if (usuario == null) {
-            document.alert("Sess„o expirada! Favor efetuar logon novamente!");
+            document.alert("Sess√£o expirada! Favor efetuar logon novamente!");
             document.getJanelaPopupById("JANELA_AGUARDE_MENU").hide();
             return;
         }
@@ -880,7 +880,7 @@ public class OsSetSituacao extends Os {
         } catch (Exception e) {
         }
         if (idContrato == -1) {
-            document.alert("N„o foi possÌvel identificar o contrato, por favor, feche esta tela e faÁa logon novamente!");
+            document.alert("N√£o foi poss√≠vel identificar o contrato, por favor, feche esta tela e fa√ßa logon novamente!");
             document.getJanelaPopupById("JANELA_AGUARDE_MENU").hide();
             return;
         }

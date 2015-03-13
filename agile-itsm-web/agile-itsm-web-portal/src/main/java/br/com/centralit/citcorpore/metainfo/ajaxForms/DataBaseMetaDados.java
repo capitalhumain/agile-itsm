@@ -74,7 +74,7 @@ public class DataBaseMetaDados extends AjaxFormAction {
 		    DB_SCHEMA = "citsmart";
 		}
 
-		//Desabilitando as tabelas para garantir que as que n„o existam mais n„o fiquem ativas
+		//Desabilitando as tabelas para garantir que as que n√£o existam mais n√£o fiquem ativas
 		desabilitaTabelas();
 
         final Collection colObsNegocio = dataBaseMetaDadosUtil.readTables(con, DB_SCHEMA, DB_SCHEMA, null, true);

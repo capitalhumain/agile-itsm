@@ -82,7 +82,7 @@ function CITTable(_idCITTable, _fields, _tableObjects) {
 			for (j = 0; j < fields.length; j++) {
 				celula = linha.insertCell(j);
 
-				// tratamento caso seja um componente ao invés de texto
+				// tratamento caso seja um componente ao invÃ©s de texto
 				try {
 					celula.appendChild(tableObjects[i][j]);
 				} catch (e) {
@@ -96,7 +96,7 @@ function CITTable(_idCITTable, _fields, _tableObjects) {
 
 				btAux.setAttribute("id", i);
 				btAux.addEventListener("click", function(evt) {
-					// ao disparar o evento, considerará o id do botão
+					// ao disparar o evento, considerarÃ¡ o id do botÃ£o
 					self.removeObject(this.id);
 					this.onDeleteRow(this);
 

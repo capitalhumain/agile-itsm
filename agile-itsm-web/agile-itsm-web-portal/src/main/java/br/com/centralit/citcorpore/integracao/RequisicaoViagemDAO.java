@@ -70,7 +70,7 @@ public class RequisicaoViagemDAO extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Busca uma coleção de requisicao de viagem pelo idCentroCusto
+     * Busca uma coleÃ§Ã£o de requisicao de viagem pelo idCentroCusto
      *
      * @param idCentroCusto
      * @return

@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp" %>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil" %>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO" %>
@@ -9,7 +9,7 @@
 <%@page import="br.com.centralit.citcorpore.util.CitCorporeConstantes" %>
 
 <%
-	response.setCharacterEncoding("ISO-8859-1");
+	response.setCharacterEncoding("UTF-8");
 
 	String id = request.getParameter("idBaseConhecimento");
 	pageContext.setAttribute("id", id);
@@ -40,7 +40,7 @@
 
 	<%@ include file="/include/javaScriptsComuns/javaScriptsComuns.jsp" %>
 
-	<title>CITSMart</title>
+	<%@include file="/novoLayout/common/include/titulo.jsp" %>
 
 	<link type="text/css" rel="stylesheet" href="${ctx}/css/layout-default-latest.css"/>
 
@@ -738,7 +738,7 @@
 						</span>
 					</button>
 				</div>
-				<!-- Solução de Contorno -->
+				<!-- SoluÃ§Ã£o de Contorno -->
 				<div id="POPUP_SOLUCAO_CONTORNO">
 					<div class="columns clearfix">
 					<div class="col_100">
@@ -775,7 +775,7 @@
 				</fieldset>
 				</div>
 			</div>
-			<!-- Solução de Definitiva -->
+			<!-- SoluÃ§Ã£o de Definitiva -->
 			<div id="POPUP_SOLUCAO_DEFINITIVA">
 				<div class="columns clearfix">
 					<div class="col_100">
@@ -819,7 +819,7 @@
 
 	</div>
 
-	<!-- MAPA DESENHO SERVIÇO -->
+	<!-- MAPA DESENHO SERVIÃ‡O -->
 	<div id="popupCadastroRapido">
 		<iframe id="frameCadastroRapido" name="frameCadastroRapido" width="100%" height="100%"></iframe>
 	</div>
@@ -848,7 +848,7 @@
 		</div>
 	</div>
 
-	<div id="POPUPITEMCONFIGURACAO" style="" title="Pesquisa Itens Configuração" class="POPUP_LOOKUP">
+	<div id="POPUPITEMCONFIGURACAO" style="" title="Pesquisa Itens ConfiguraÃ§Ã£o" class="POPUP_LOOKUP">
  		<table>
 			<tr>
 				<td>
@@ -928,7 +928,7 @@
 		</div>
 	</div>
 
-	<div id="POPUP_SERVICO" style="" title="Pesquisa Serviço" class="POPUP_LOOKUP">
+	<div id="POPUP_SERVICO" style="" title="Pesquisa ServiÃ§o" class="POPUP_LOOKUP">
 			<table>
 			<tr>
 				<td>
@@ -968,7 +968,7 @@
 		<iframe id='iframeEditarCadastrarProblema' src='about:blank' width="100%" height="100%" style='width: 100%; height: 100%; border:none;'onload="resize_iframe()"></iframe>
 	</div>
 
-	<!-- Thiago Fernandes - 01/11/2013 08:30 - Sol. 121468 - Popup para cadastro nova solicitação serviço.. -->
+	<!-- Thiago Fernandes - 01/11/2013 08:30 - Sol. 121468 - Popup para cadastro nova solicitaÃ§Ã£o serviÃ§o.. -->
 	<div id="POPUP_NOVASOLICITACAOSERVICO" style="overflow: hidden;" title="<fmt:message key="solicitacaoServico.solicitacao"/>">
 		<iframe id='iframeNovaSolicitacao' src='about:blank' width="100%" height="100%" onload="resize_iframe()">
 		</iframe>

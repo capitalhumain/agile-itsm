@@ -7,7 +7,7 @@
 
 	/**
 	 Alterado por
-	 desenvolvedor: rcs (Rafael C�sar Soyer)
+	 desenvolvedor: rcs (Rafael Cï¿½sar Soyer)
 	 data: 19/01/2015
 	*/
 	function imprimirRelatorioQuantitativoPorServico(){

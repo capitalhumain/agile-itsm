@@ -62,12 +62,12 @@ public class Index extends AjaxFormAction {
 
         Reader reader = null;
         try {
-            reader = new InputStreamReader(new FileInputStream(path), "ISO-8859-1");
+            reader = new InputStreamReader(new FileInputStream(path), "UTF-8");
         } catch (final FileNotFoundException e) {
             LOGGER.warn(e.getMessage(), e);
         }
 
-        final XStream x = new XStream(new DomDriver("ISO-8859-1"));
+        final XStream x = new XStream(new DomDriver("UTF-8"));
         final Collection<ReleaseDTO> listRelease = (Collection<ReleaseDTO>) x.fromXML(reader);
 
         this.preencherComboVersao(document, request, response, listRelease);
@@ -159,12 +159,12 @@ public class Index extends AjaxFormAction {
 
         Reader reader = null;
         try {
-            reader = new InputStreamReader(new FileInputStream(path), "ISO-8859-1");
+            reader = new InputStreamReader(new FileInputStream(path), "UTF-8");
         } catch (final FileNotFoundException e) {
             LOGGER.warn(e.getMessage(), e);
         }
 
-        final XStream x = new XStream(new DomDriver("ISO-8859-1"));
+        final XStream x = new XStream(new DomDriver("UTF-8"));
         final Collection<ReleaseDTO> listRelease = (Collection<ReleaseDTO>) x.fromXML(reader);
 
         try {

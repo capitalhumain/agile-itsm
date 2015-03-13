@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 import br.com.citframework.util.Assert;
 
 /**
- * Utilit·rios para trabalho com atributos de geolocalizaÁ„o
+ * Utilit√°rios para trabalho com atributos de geolocaliza√ß√£o
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 22/09/2014
@@ -37,7 +37,7 @@ public final class GeoUtils {
      *
      * @param latitude
      *            latitude a ser validada
-     * @return {@code true}, caso a latitude seja v·lida. {@code false}, caso contr·rio
+     * @return {@code true}, caso a latitude seja v√°lida. {@code false}, caso contr√°rio
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      * @see GeoUtils#validLatitude(String)
      * @since 22/09/2014
@@ -55,7 +55,7 @@ public final class GeoUtils {
      *
      * @param latitude
      *            latitude a ser validada
-     * @return {@code true}, caso a latitude seja v·lida. {@code false}, caso contr·rio
+     * @return {@code true}, caso a latitude seja v√°lida. {@code false}, caso contr√°rio
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      * @see GeoUtils#validLatitude(Double)
      * @since 22/09/2014
@@ -69,7 +69,7 @@ public final class GeoUtils {
      *
      * @param longitude
      *            longitude a ser validada
-     * @return {@code true}, caso a longitude seja v·lida. {@code false}, caso contr·rio
+     * @return {@code true}, caso a longitude seja v√°lida. {@code false}, caso contr√°rio
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      * @see GeoUtils#validLongitude(String)
      * @since 22/09/2014
@@ -87,7 +87,7 @@ public final class GeoUtils {
      *
      * @param longitude
      *            longitude a ser validada
-     * @return {@code true}, caso a longitude seja v·lida. {@code false}, caso contr·rio
+     * @return {@code true}, caso a longitude seja v√°lida. {@code false}, caso contr√°rio
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      * @see GeoUtils#validLongitude(Double)
      * @since 22/09/2014
@@ -103,7 +103,7 @@ public final class GeoUtils {
      *            latitude a ser validada
      * @param longitude
      *            longitude a ser validada
-     * @return {@code true}, caso latitude e longitude seja v·lida. {@code false}, caso contr·rio
+     * @return {@code true}, caso latitude e longitude seja v√°lida. {@code false}, caso contr√°rio
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      * @see GeoUtils#validCoordinates(String, String)
      * @since 22/09/2014
@@ -119,7 +119,7 @@ public final class GeoUtils {
      *            latitude a ser validada
      * @param longitude
      *            longitude a ser validada
-     * @return {@code true}, caso latitude e longitude seja v·lida. {@code false}, caso contr·rio
+     * @return {@code true}, caso latitude e longitude seja v√°lida. {@code false}, caso contr√°rio
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      * @see GeoUtils#validCoordinates(Double, Double)
      * @since 22/09/2014
@@ -133,7 +133,7 @@ public final class GeoUtils {
     private static final String DISTANCE_WHERE_QUERY_WITH_INDEX_FOR_MYSQL_MSSQLSERVER = " (%s >= ? AND %s <= ?) AND (%s >= ? %s %s <= ?) AND acos(sin(?) * sin(%s) + cos(?) * cos(%s) * cos(%s - (?))) <= ? ";
 
     /**
-     * Recupera um trecho de query SQL, a ser adicionado ‡ cl·usula {@code WHERE} final a ser executada
+     * Recupera um trecho de query SQL, a ser adicionado √† cl√°usula {@code WHERE} final a ser executada
      *
      * <p>
      * Exemplo de como seria o resultado final:
@@ -146,12 +146,12 @@ public final class GeoUtils {
      *
      * Em que:
      * <ul>
-     * <li><b>latitude</b>: nome da coluna que contÈm o valor da latitude na base de dados</li>
-     * <li><b>longitude</b>: nome da coluna que contÈm o valor da longitude na base de dados</li>
-     * <li><b>-0.306154991</b>: latitude do ponto central de onde ser· calculado o raio</li>
-     * <li><b>-0.811136922</b>: longitude do ponto central de onde ser· calculado o raio</li>
+     * <li><b>latitude</b>: nome da coluna que cont√©m o valor da latitude na base de dados</li>
+     * <li><b>longitude</b>: nome da coluna que cont√©m o valor da longitude na base de dados</li>
+     * <li><b>-0.306154991</b>: latitude do ponto central de onde ser√° calculado o raio</li>
+     * <li><b>-0.811136922</b>: longitude do ponto central de onde ser√° calculado o raio</li>
      * <li><b>6371</b>: raio da terra</li>
-     * <li><b>10000</b>: dist‚ncia em KM a partir do ponto</li>
+     * <li><b>10000</b>: dist√¢ncia em KM a partir do ponto</li>
      * </ul>
      * </p>
      *
@@ -164,13 +164,13 @@ public final class GeoUtils {
      *
      * </p>
      *
-     * OBSERVA«√O: a query retornada n„o permite indexaÁ„o por parte do SGBD, mais perfom·tica para menor quantidade de dados
+     * OBSERVA√á√ÉO: a query retornada n√£o permite indexa√ß√£o por parte do SGBD, mais perfom√°tica para menor quantidade de dados
      *
      * @param latitudeColumnName
-     *            nome da coluna que armazena a informaÁ„o de latitude do ponto geogr·fico
+     *            nome da coluna que armazena a informa√ß√£o de latitude do ponto geogr√°fico
      * @param longitudeColumnName
-     *            nome da coluna que armazena a informaÁ„o de longitude do ponto geogr·fico
-     * @return query a ser adicionada ‡ cl·usula query, com os statements em seus devidos lugares
+     *            nome da coluna que armazena a informa√ß√£o de longitude do ponto geogr√°fico
+     * @return query a ser adicionada √† cl√°usula query, com os statements em seus devidos lugares
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      * @since 23/10/2014
      */
@@ -181,7 +181,7 @@ public final class GeoUtils {
     }
 
     /**
-     * Recupera um trecho de query SQL, a ser adicionado ‡ cl·usula {@code WHERE} final a ser executada. A query filtra por faixas, ent„o os limites devem ser calculados antes.
+     * Recupera um trecho de query SQL, a ser adicionado √† cl√°usula {@code WHERE} final a ser executada. A query filtra por faixas, ent√£o os limites devem ser calculados antes.
      * Veja {@link GeoLocation#boundingCoordinates(double, double)}
      *
      * <p>
@@ -199,15 +199,15 @@ public final class GeoUtils {
      *
      * Em que:
      * <ul>
-     * <li><b>latitude</b>: nome da coluna que contÈm o valor da latitude na base de dados</li>
-     * <li><b>longitude</b>: nome da coluna que contÈm o valor da longitude na base de dados</li>
+     * <li><b>latitude</b>: nome da coluna que cont√©m o valor da latitude na base de dados</li>
+     * <li><b>longitude</b>: nome da coluna que cont√©m o valor da longitude na base de dados</li>
      * <li><b>-0.3078396187175743</b>: latitude minima para filtro</li>
-     * <li><b>-0.30470039903341123</b>: latitude m·xima para filtro</li>
+     * <li><b>-0.30470039903341123</b>: latitude m√°xima para filtro</li>
      * <li><b>-0.8128445354586982</b>: longitude minima para filtro</li>
-     * <li><b>-0.8095521016055605</b>: longitude m·xima para filtro</li>
-     * <li><b>-0.30627000887549277</b>: latitude do ponto de referÍncia</li>
-     * <li><b>-0.8111983185321293</b>: longitude do ponto de referÍncia</li>
-     * <li><b>0.0015696098420815538</b>: relaÁ„o dist‚ncia raio (10 / 6371.01)</li>
+     * <li><b>-0.8095521016055605</b>: longitude m√°xima para filtro</li>
+     * <li><b>-0.30627000887549277</b>: latitude do ponto de refer√™ncia</li>
+     * <li><b>-0.8111983185321293</b>: longitude do ponto de refer√™ncia</li>
+     * <li><b>0.0015696098420815538</b>: rela√ß√£o dist√¢ncia raio (10 / 6371.01)</li>
      * </ul>
      * </p>
      *
@@ -239,11 +239,11 @@ public final class GeoUtils {
      * </p>
      *
      * @param latitudeColumnName
-     *            nome da coluna que armazena a informaÁ„o de latitude do ponto geogr·fico
+     *            nome da coluna que armazena a informa√ß√£o de latitude do ponto geogr√°fico
      * @param longitudeColumnName
-     *            nome da coluna que armazena a informaÁ„o de longitude do ponto geogr·fico
+     *            nome da coluna que armazena a informa√ß√£o de longitude do ponto geogr√°fico
      * @param meridian180WithinDistance
-     * @return query a ser adicionada ‡ cl·usula query, com os statements em seus devidos lugares
+     * @return query a ser adicionada √† cl√°usula query, com os statements em seus devidos lugares
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      * @since 23/10/2014
      * @see GeoLocation#boundingCoordinates(double, double) para calcular os limites
@@ -256,7 +256,7 @@ public final class GeoUtils {
     }
 
     /**
-     * Recupera um trecho de query SQL para MySQL e MS SQL Server, a ser adicionado ‡ cl·usula {@code WHERE} final a ser executada. A query filtra por faixas, ent„o os limites
+     * Recupera um trecho de query SQL para MySQL e MS SQL Server, a ser adicionado √† cl√°usula {@code WHERE} final a ser executada. A query filtra por faixas, ent√£o os limites
      * devem ser calculados antes.
      * Veja {@link GeoLocation#boundingCoordinates(double, double)}
      *
@@ -275,15 +275,15 @@ public final class GeoUtils {
      *
      * Em que:
      * <ul>
-     * <li><b>latitude</b>: nome da coluna que contÈm o valor da latitude na base de dados</li>
-     * <li><b>longitude</b>: nome da coluna que contÈm o valor da longitude na base de dados</li>
+     * <li><b>latitude</b>: nome da coluna que cont√©m o valor da latitude na base de dados</li>
+     * <li><b>longitude</b>: nome da coluna que cont√©m o valor da longitude na base de dados</li>
      * <li><b>-0.3078396187175743</b>: latitude minima para filtro</li>
-     * <li><b>-0.30470039903341123</b>: latitude m·xima para filtro</li>
+     * <li><b>-0.30470039903341123</b>: latitude m√°xima para filtro</li>
      * <li><b>-0.8128445354586982</b>: longitude minima para filtro</li>
-     * <li><b>-0.8095521016055605</b>: longitude m·xima para filtro</li>
-     * <li><b>-0.30627000887549277</b>: latitude do ponto de referÍncia</li>
-     * <li><b>-0.8111983185321293</b>: longitude do ponto de referÍncia</li>
-     * <li><b>0.0015696098420815538</b>: relaÁ„o dist‚ncia raio (10 / 6371.01)</li>
+     * <li><b>-0.8095521016055605</b>: longitude m√°xima para filtro</li>
+     * <li><b>-0.30627000887549277</b>: latitude do ponto de refer√™ncia</li>
+     * <li><b>-0.8111983185321293</b>: longitude do ponto de refer√™ncia</li>
+     * <li><b>0.0015696098420815538</b>: rela√ß√£o dist√¢ncia raio (10 / 6371.01)</li>
      * </ul>
      * </p>
      *
@@ -315,11 +315,11 @@ public final class GeoUtils {
      * </p>
      *
      * @param latitudeColumnName
-     *            nome da coluna que armazena a informaÁ„o de latitude do ponto geogr·fico
+     *            nome da coluna que armazena a informa√ß√£o de latitude do ponto geogr√°fico
      * @param longitudeColumnName
-     *            nome da coluna que armazena a informaÁ„o de longitude do ponto geogr·fico
+     *            nome da coluna que armazena a informa√ß√£o de longitude do ponto geogr√°fico
      * @param meridian180WithinDistance
-     * @return query a ser adicionada ‡ cl·usula query, com os statements em seus devidos lugares
+     * @return query a ser adicionada √† cl√°usula query, com os statements em seus devidos lugares
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      * @since 27/10/2014
      * @see GeoLocation#boundingCoordinates(double, double) para calcular os limites

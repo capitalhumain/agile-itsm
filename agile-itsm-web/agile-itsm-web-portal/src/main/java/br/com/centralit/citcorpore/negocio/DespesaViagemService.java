@@ -15,7 +15,7 @@ public interface DespesaViagemService extends ComplemInfSolicitacaoServicoServic
 	public Collection<DespesaViagemDTO> findTodasDespesasViagemByIdRoteiro(Integer idRoteiro) throws Exception;
 	
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	public Collection<DespesaViagemDTO> findHitoricoDespesaViagemByIdRoteiro(Integer idRoteiro) throws Exception;
 	public Double buscaValorTotalViagemAtivo(Integer idSolicitacao) throws Exception;

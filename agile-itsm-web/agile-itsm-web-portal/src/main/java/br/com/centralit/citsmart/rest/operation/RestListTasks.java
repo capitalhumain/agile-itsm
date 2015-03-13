@@ -21,7 +21,7 @@ public class RestListTasks implements IRestOperation<CtListTasks, CtListTasksRes
     public CtListTasksResp execute(final RestSessionDTO restSession, final RestOperationDTO restOperation, final CtListTasks message) throws JAXBException {
         final CtListTasksResp resp = new CtListTasksResp();
         if (restSession.getUser() == null || restSession.getUser().getLogin() == null || restSession.getUser().getLogin().trim().equals("")) {
-            resp.setError(RestOperationUtil.buildError(RestEnum.INPUT_ERROR, "Login do usuário não identificado"));
+            resp.setError(RestOperationUtil.buildError(RestEnum.INPUT_ERROR, "Login do usuÃ¡rio nÃ£o identificado"));
             return resp;
         }
 
@@ -43,7 +43,7 @@ public class RestListTasks implements IRestOperation<CtListTasks, CtListTasksRes
         }
 
         if (tipos.size() == 0) {
-            resp.setError(RestOperationUtil.buildError(RestEnum.INPUT_ERROR, "Pelo menos um tipo de solicitação deve ser selecionado"));
+            resp.setError(RestOperationUtil.buildError(RestEnum.INPUT_ERROR, "Pelo menos um tipo de solicitaÃ§Ã£o deve ser selecionado"));
             return resp;
         }
 

@@ -16,7 +16,7 @@ public class PermissoesFluxo implements IPermissoesFluxo {
 			try {
 				singleton = (IPermissoesFluxo) Class.forName(classe).newInstance();
 			} catch (Exception e) {
-				throw new Exception("Classe de configuraÁ„o de permissıes de fluxo encontrada");
+				throw new Exception("Classe de configura√ß√£o de permiss√µes de fluxo encontrada");
 			}
 		}
 		return singleton;

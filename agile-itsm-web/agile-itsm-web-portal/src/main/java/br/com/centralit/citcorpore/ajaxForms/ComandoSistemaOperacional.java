@@ -32,7 +32,7 @@ public class ComandoSistemaOperacional extends AjaxFormAction {
 
 		SistemaOperacionalService sistemaOperacionalService = (SistemaOperacionalService) ServiceLocator.getInstance().getService(SistemaOperacionalService.class, null);
 
-		// Verificando a existÍncia do serviÁo.
+		// Verificando a exist√™ncia do servi√ßo.
 		if (sistemaOperacionalService != null) {
 
 			HTMLSelect selectSO = (HTMLSelect) document.getSelectById("idSistemaOperacional");
@@ -63,13 +63,13 @@ public class ComandoSistemaOperacional extends AjaxFormAction {
 	}
 
 	public void save(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// Obtendo os dados do formul·rio.
+		// Obtendo os dados do formul√°rio.
 		ComandoSistemaOperacionalDTO comandoSODTO = (ComandoSistemaOperacionalDTO) document.getBean();
-		// Criando serviÁo (objeto da camada de serviÁo).
+		// Criando servi√ßo (objeto da camada de servi√ßo).
 		ComandoSistemaOperacionalService comandoSOService = (ComandoSistemaOperacionalService) ServiceLocator.getInstance()
 				.getService(ComandoSistemaOperacionalService.class, null);
 
-		// Verificando a existÍncia do DTO e do serviÁo.
+		// Verificando a exist√™ncia do DTO e do servi√ßo.
 		if (comandoSODTO != null && comandoSOService != null) {
 			// Inserindo o comando de SO.
 			if (comandoSODTO.getId() == null || comandoSODTO.getId().intValue() == 0) {
@@ -77,9 +77,9 @@ public class ComandoSistemaOperacional extends AjaxFormAction {
 
 				// boolean comandoSOjaExiste = comandoSOService.pesquisarExistenciaComandoSO(comandoSODTO);
 
-				// Verificando se o comando de SO j· foi cadastrado.
+				// Verificando se o comando de SO j√° foi cadastrado.
 				if (comandoSOJaCadastrado != null && !comandoSOJaCadastrado.isEmpty() ) {
-					// Se verdadeiro ent„o alerta o usu·rio e pede para cadastrar outro comando de SO.
+					// Se verdadeiro ent√£o alerta o usu√°rio e pede para cadastrar outro comando de SO.
 					document.alert(UtilI18N.internacionaliza(request, "MSE01") );
 				} else {
 					comandoSOService.create(comandoSODTO);
@@ -90,29 +90,29 @@ public class ComandoSistemaOperacional extends AjaxFormAction {
 			    document.alert(UtilI18N.internacionaliza(request, "MSG06") );
 			}
 
-			// Limpando o formul·rio.
+			// Limpando o formul√°rio.
 			HTMLForm form = document.getForm("form");
 			form.clear();
 		}
 	}
 
 	public void restore(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// Obtendo os dados do formul·rio de cadastro.
+		// Obtendo os dados do formul√°rio de cadastro.
 		ComandoSistemaOperacionalDTO comandoSODTO = (ComandoSistemaOperacionalDTO) document.getBean();
-		// Obtendo o serviÁo.
+		// Obtendo o servi√ßo.
 		ComandoSistemaOperacionalService comandoSOService = (ComandoSistemaOperacionalService) ServiceLocator.getInstance()
 				.getService(ComandoSistemaOperacionalService.class, null);
 
-		// Verificando a existÍncia do DTO e do serviÁo.
+		// Verificando a exist√™ncia do DTO e do servi√ßo.
 		if (comandoSODTO != null && comandoSOService != null) {
 			// Recuperando o objeto.
 			comandoSODTO = (ComandoSistemaOperacionalDTO) comandoSOService.restore(comandoSODTO);
 
-			// Limpando o formul·rio.
+			// Limpando o formul√°rio.
 			HTMLForm form = document.getForm("form");
 			form.clear();
 
-			// Preenchendo o formul·rio com os dados do objeto recuperado.
+			// Preenchendo o formul√°rio com os dados do objeto recuperado.
 			form.setValues(comandoSODTO);
 		}
 	}

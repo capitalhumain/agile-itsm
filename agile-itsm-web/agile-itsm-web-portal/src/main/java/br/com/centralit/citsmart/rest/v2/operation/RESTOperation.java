@@ -44,7 +44,7 @@ import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.ServiceLocator;
 
 /**
- * ImplementaÁ„o das operaÁ„os que respondem em {@code /service} da vers„o V2 de apis consumidas pelo mobile
+ * Implementa√ß√£o das opera√ß√£os que respondem em {@code /service} da vers√£o V2 de apis consumidas pelo mobile
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 29/09/2014

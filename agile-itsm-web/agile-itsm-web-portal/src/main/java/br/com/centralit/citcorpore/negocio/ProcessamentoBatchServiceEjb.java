@@ -167,14 +167,14 @@ public class ProcessamentoBatchServiceEjb extends CrudServiceImpl implements Pro
 				document.alert(UtilI18N.internacionaliza(request,"processamentoBatch.aoMenosDiaMesOuDiaSemana"));
 				return false;
 			}
-			//Somente o Dia do mÍs ou dia da semana deve ser informado.
+			//Somente o Dia do m√™s ou dia da semana deve ser informado.
 			//Support for specifying both a day-of-week AND a day-of-month parameter is not implemented.
 			if ((!processamentoBatchDTO.getDiaDoMes().equalsIgnoreCase("?"))&&(!processamentoBatchDTO.getDiaDaSemana().equalsIgnoreCase("?"))) {
 				document.alert(UtilI18N.internacionaliza(request,"processamentoBatch.diaMesdiaSemanaMesmoTempo"));
 				return false;
 			}
 		}
-		//Verificando a express„o cron para saber se define um agendamento passÌvel de ser executado.
+		//Verificando a express√£o cron para saber se define um agendamento pass√≠vel de ser executado.
 		if((processamentoBatchDTO.getExpressaoCRON() != null)&&(processamentoBatchDTO.getExpressaoCRON().length()>0)){
 			Date dtProximaEx = this.proximaExecucao(processamentoBatchDTO.getExpressaoCRON());
 			if (dtProximaEx == null){
@@ -268,7 +268,7 @@ public class ProcessamentoBatchServiceEjb extends CrudServiceImpl implements Pro
 	}
 
 	/**
-	 * Retorna a prÛxima data de execuÁ„o definida na express„o Cron passada como par‚metro
+	 * Retorna a pr√≥xima data de execu√ß√£o definida na express√£o Cron passada como par√¢metro
 	 * @author euler.ramos
 	 */
 	public Date proximaExecucao(String expressaoCron){

@@ -134,12 +134,12 @@ public class EventoItemConfigServiceEjb extends CrudServiceImpl implements Event
     }
 
     /**
-     * Método que gera o relacionamento dos grupos de item configuração com o evento e dos itens de configuração com o evento.
+     * MÃ©todo que gera o relacionamento dos grupos de item configuraÃ§Ã£o com o evento e dos itens de configuraÃ§Ã£o com o evento.
      *
      * @param eventoDto
      *            EventoItemConfigDTO evento a ser relacionado
      * @param tc
-     *            TransactionControler controlador de transição do DAO
+     *            TransactionControler controlador de transiÃ§Ã£o do DAO
      * @throws Exception
      */
     private void generateTableRelationship(final EventoItemConfigDTO eventoDto, final EventoGrupoDao eventoGrupoDao, final EventoItemConfigRelDao eventoItemConfigRelDao)
@@ -152,7 +152,7 @@ public class EventoItemConfigServiceEjb extends CrudServiceImpl implements Event
             }
         }
 
-        // Cria o relacionamento Evento com o Item de Configuração
+        // Cria o relacionamento Evento com o Item de ConfiguraÃ§Ã£o
         if (eventoDto.getLstItemConfiguracao() != null && eventoDto.getLstItemConfiguracao().size() > 0) {
             for (final EventoItemConfigRelDTO itemConfigRelDTO : eventoDto.getLstItemConfiguracao()) {
                 itemConfigRelDTO.setIdEvento(eventoDto.getIdEvento());
@@ -162,7 +162,7 @@ public class EventoItemConfigServiceEjb extends CrudServiceImpl implements Event
     }
 
     /**
-     * Método que verifica se é para executar o evento agora e dispara a thread.
+     * MÃ©todo que verifica se Ã© para executar o evento agora e dispara a thread.
      *
      * @param itemConfigEventoDto
      * @param eventoDto
@@ -185,7 +185,7 @@ public class EventoItemConfigServiceEjb extends CrudServiceImpl implements Event
             if (listItemConfiguracao == null) {
                 listItemConfiguracao = new ArrayList<EventoItemConfigRelDTO>();
             }
-            // Busca Itens de Configuração relacionados ao grupo
+            // Busca Itens de ConfiguraÃ§Ã£o relacionados ao grupo
             final List<EventoGrupoDTO> lstGrupo = eventoDto.getLstGrupo();
             final GrupoItemConfiguracaoDTO grupoItemConfiguracaoDTO = new GrupoItemConfiguracaoDTO();
             for (final EventoGrupoDTO eventoGrupoDTO : lstGrupo) {
@@ -196,7 +196,7 @@ public class EventoItemConfigServiceEjb extends CrudServiceImpl implements Event
                 for (final ItemConfiguracaoDTO itemConfiguracaoDTO : lstItemConfigGrupo) {
                     final EventoItemConfigRelDTO configRelDTO = new EventoItemConfigRelDTO();
                     configRelDTO.setIdItemConfiguracao(itemConfiguracaoDTO.getIdItemConfiguracao());
-                    // Verifica se o Item de Configuração consta na lista
+                    // Verifica se o Item de ConfiguraÃ§Ã£o consta na lista
                     if (!listItemConfiguracao.contains(configRelDTO)) {
                         listItemConfiguracao.add(configRelDTO);
                     }
@@ -215,7 +215,7 @@ public class EventoItemConfigServiceEjb extends CrudServiceImpl implements Event
     }
 
     /**
-     * Método que deleta os relacionamentos com Grupo de item configuração e Item configuração com o evento
+     * MÃ©todo que deleta os relacionamentos com Grupo de item configuraÃ§Ã£o e Item configuraÃ§Ã£o com o evento
      *
      * @param eventoGrupoDao
      *            DAO de EventoGrupo

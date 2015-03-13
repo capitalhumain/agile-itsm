@@ -78,12 +78,12 @@ public class CaracteristicaDao extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Consulta CaracterÌsticas por idTipoItemConfiguracao.
+	 * Consulta Caracter√≠sticas por idTipoItemConfiguracao.
 	 *
 	 * @param idTipoItemConfiguracao
 	 *            Identificador do Tipo Item Configuracao.
 	 * @param dataFim
-	 *            Se false, retorna CaracterÌsticas que n„o foram excluÌdas.
+	 *            Se false, retorna Caracter√≠sticas que n√£o foram exclu√≠das.
 	 * @return List
 	 * @throws Exception
 	 * @author VMD
@@ -105,12 +105,12 @@ public class CaracteristicaDao extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Consulta CaracterÌsticas por idTipoItemConfiguracao passando um array de caracteristicas
+	 * Consulta Caracter√≠sticas por idTipoItemConfiguracao passando um array de caracteristicas
 	 *
 	 * @param idTipoItemConfiguracao
 	 *            Identificador do Tipo Item Configuracao.
 	 * @param dataFim
-	 *            Se false, retorna CaracterÌsticas que n„o foram excluÌdas.
+	 *            Se false, retorna Caracter√≠sticas que n√£o foram exclu√≠das.
 	 * @return List
 	 * @throws Exception
 	 * @author flavio.santana
@@ -147,12 +147,12 @@ public class CaracteristicaDao extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Consulta CaracterÌsticas por idTipoItemConfiguracao.
+	 * Consulta Caracter√≠sticas por idTipoItemConfiguracao.
 	 *
 	 * @param idTipoItemConfiguracao
 	 *            Identificador do Tipo Item Configuracao.
 	 * @param dataFim
-	 *            Se false, retorna CaracterÌsticas que n„o foram excluÌdas.
+	 *            Se false, retorna Caracter√≠sticas que n√£o foram exclu√≠das.
 	 * @return List
 	 * @throws Exception
 	 */
@@ -207,7 +207,7 @@ public class CaracteristicaDao extends CrudDaoDefaultImpl {
 	 * Verifica se Caracteristica informada existe.
 	 *
 	 * @param grupo
-	 * @return true - existe; false - n„o existe;
+	 * @return true - existe; false - n√£o existe;
 	 * @throws PersistenceException
 	 * @author Thays.araujo
 	 */

@@ -72,7 +72,7 @@ public class CriterioAvaliacaoDao extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Retorna true ou false em relação ao criterio basado
+	 * Retorna true ou false em relaÃ§Ã£o ao criterio basado
 	 * 
 	 * @param criterioAvaliacaoDto
 	 * @return boolean

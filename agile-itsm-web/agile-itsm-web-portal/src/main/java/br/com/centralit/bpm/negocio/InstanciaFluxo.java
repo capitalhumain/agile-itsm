@@ -57,7 +57,7 @@ public class InstanciaFluxo extends NegocioBpm{
 			avanca(elementoInicioDto.getIdElemento());
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new LogicException("Erro na criaÁ„o da inst‚ncia do fluxo. Verifique o desenho e a parametrizaÁ„o do fluxo.");
+			throw new LogicException("Erro na cria√ß√£o da inst√¢ncia do fluxo. Verifique o desenho e a parametriza√ß√£o do fluxo.");
 		}
 	}
 
@@ -182,7 +182,7 @@ public class InstanciaFluxo extends NegocioBpm{
 	public void executaItemTrabalho(String loginUsuario, Integer idItemTrabalho, Map<String, Object> objetos) throws Exception {
 		ItemTrabalho itemTrabalho = ItemTrabalho.getItemTrabalho(this, idItemTrabalho);
 		if (itemTrabalho.resolvido())
-			throw new LogicException("O item de trabalho '"+itemTrabalho.getElementoFluxoDto().getDocumentacao()+"' j· foi executado.");
+			throw new LogicException("O item de trabalho '"+itemTrabalho.getElementoFluxoDto().getDocumentacao()+"' j√° foi executado.");
 
 		itemTrabalho.executa(loginUsuario, objetos);
 		atualizaObjetosInstancia(objetos);

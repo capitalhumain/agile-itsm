@@ -13,7 +13,7 @@ public interface AprovacaoSolicitacaoServicoService extends ComplemInfSolicitaca
 	public void deleteByIdSolicitacaoServico(Integer parm) throws Exception;
 
 	/**
-	 * Retorna AprovacaoSolicitacaoServicoNaoAprovada se existir para a Solicitação de Serviço informada.
+	 * Retorna AprovacaoSolicitacaoServicoNaoAprovada se existir para a SolicitaÃ§Ã£o de ServiÃ§o informada.
 	 * 
 	 * @param solicitacaoServicoDto
 	 * @return AprovacaoSolicitacaoServicoDTO

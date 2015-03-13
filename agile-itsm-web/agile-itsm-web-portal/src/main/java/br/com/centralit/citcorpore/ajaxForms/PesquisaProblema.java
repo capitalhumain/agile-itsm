@@ -94,7 +94,7 @@ public class PesquisaProblema extends AjaxFormAction {
 			boolean verificaId = false;
 			for (PesquisaProblemaDTO problema : listaProblema) {
 
-				// faz a validaÁ„o do tamanho do campo tÌtulo
+				// faz a valida√ß√£o do tamanho do campo t√≠tulo
 				if (problema.getTitulo().length() >= 200) {
 					StringBuilder sb = new StringBuilder();
 					sb.append(problema.getTitulo().substring(0, 49) + "\n");
@@ -117,7 +117,7 @@ public class PesquisaProblema extends AjaxFormAction {
 				} else {
 
 				}
-				// faz a validaÁ„o do tamanho do campo descriÁ„o
+				// faz a valida√ß√£o do tamanho do campo descri√ß√£o
 				if (problema.getDescricao().length() > 800) {
 					StringBuilder sb = new StringBuilder();
 					sb.append(problema.getDescricao().substring(0, 199) + "\n");
@@ -181,7 +181,7 @@ public class PesquisaProblema extends AjaxFormAction {
 	}
 
 	/**
-	 * fireEvent para impress„o dos relatorio.
+	 * fireEvent para impress√£o dos relatorio.
 	 * 
 	 * @param document
 	 * @param request
@@ -296,7 +296,7 @@ public class PesquisaProblema extends AjaxFormAction {
 	}
 
 	/**
-	 * Gerar relatÛrio no formato .pdf
+	 * Gerar relat√≥rio no formato .pdf
 	 * 
 	 * @param listProblemaByCriterios
 	 * @param caminhoJasper
@@ -324,7 +324,7 @@ public class PesquisaProblema extends AjaxFormAction {
 	}
 
 	/**
-	 * Gerar relatÛrio no formato .xls
+	 * Gerar relat√≥rio no formato .xls
 	 * 
 	 * @param listProblemaByCriterios
 	 * @param parametros

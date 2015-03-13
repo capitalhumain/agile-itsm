@@ -34,10 +34,10 @@ public class RequisicaoMudancaDTO extends ObjetoNegocioFluxoDTO {
 
 	public final static String NIVEL_IMPACTO_ALTO = "Alto";
 	public final static String NIVEL_IMPACTO_BAIXO = "Baixo";
-	public final static String NIVEL_IMPACTO_MEDIO = "Médio";
+	public final static String NIVEL_IMPACTO_MEDIO = "MÃ©dio";
 	public final static String NIVEL_URGENCIA_ALTA = "Alta";
 	public final static String NIVEL_URGENCIA_BAIXA = "Baixa";
-	public final static String NIVEL_URGENCIA_MEDIA = "Média";
+	public final static String NIVEL_URGENCIA_MEDIA = "MÃ©dia";
 	private String acaoFluxo;
 	private String alterarSituacao;
 	private String analiseImpacto;
@@ -237,7 +237,7 @@ public class RequisicaoMudancaDTO extends ObjetoNegocioFluxoDTO {
 	private String grupoMudanca;
 	private String grupoMudancaSerializado;
 
-	// Questionário
+	// QuestionÃ¡rio
 	private Integer idTipoRequisicao;
 
 	private String hiddenDescricaoItemConfiguracao;
@@ -260,7 +260,7 @@ public class RequisicaoMudancaDTO extends ObjetoNegocioFluxoDTO {
 
 	private String liberacoesRelacionadosSerializado;
 
-	// campos para reuniao reunião
+	// campos para reuniao reuniÃ£o
 	private String localReuniao;
 	private String horaInicio;
 	private Integer duracaoEstimada;
@@ -275,10 +275,10 @@ public class RequisicaoMudancaDTO extends ObjetoNegocioFluxoDTO {
 	// campo para cadastrar agendamento direto da jsp requisicaoMudanca
 	private Integer idGrupoAtvPeriodica;
 
-	// coleção de planos de reversão
+	// coleÃ§Ã£o de planos de reversÃ£o
 	private Collection colUploadPlanoDeReversaoGED;
 
-	// campo auxiliar que não é salvo no banco
+	// campo auxiliar que nÃ£o Ã© salvo no banco
 	private String responsavelAtual;
 	private Double tempoAuto;
 	private Integer idPrioridadeAuto1;
@@ -1156,12 +1156,12 @@ public class RequisicaoMudancaDTO extends ObjetoNegocioFluxoDTO {
 	public String getDadosStr() {
 		StringBuilder str = new StringBuilder();
 		if (getIdRequisicaoMudanca() != null) {
-			str.append("Número da requisição: " + getIdRequisicaoMudanca() + "\n");
+			str.append("NÃºmero da requisiÃ§Ã£o: " + getIdRequisicaoMudanca() + "\n");
 			if (getDataHoraInicio() != null) {
 				str.append("Criada em: " + getDataHoraInicio() + "\n");
 			}
 			if (getDescrSituacao() != null) {
-				str.append("Situação: " + getDescrSituacao() + "\n");
+				str.append("SituaÃ§Ã£o: " + getDescrSituacao() + "\n");
 			}
 			if (!suspensa()) {
 				if (getPrazoHH() != null) {
@@ -1181,7 +1181,7 @@ public class RequisicaoMudancaDTO extends ObjetoNegocioFluxoDTO {
 					imp = "Baixo";
 				}
 				if (getNivelImpacto().equalsIgnoreCase("M")) {
-					imp = "Médio";
+					imp = "MÃ©dio";
 				}
 				if (getNivelImpacto().equalsIgnoreCase("A")) {
 					imp = "Alto";
@@ -1194,15 +1194,15 @@ public class RequisicaoMudancaDTO extends ObjetoNegocioFluxoDTO {
 					imp = "Baixa";
 				}
 				if (getNivelUrgencia().equalsIgnoreCase("M")) {
-					imp = "Média";
+					imp = "MÃ©dia";
 				}
 				if (getNivelUrgencia().equalsIgnoreCase("A")) {
 					imp = "Alta";
 				}
-				str.append("Urgência: " + imp + "\n");
+				str.append("UrgÃªncia: " + imp + "\n");
 			}
 			if (getPrioridade() != null) {
-				str.append("Prioridade (Código): " + getPrioridade() + "\n");
+				str.append("Prioridade (CÃ³digo): " + getPrioridade() + "\n");
 			}
 		}
 		return str.toString();

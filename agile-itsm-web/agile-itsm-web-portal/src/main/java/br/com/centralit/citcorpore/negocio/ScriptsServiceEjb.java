@@ -108,10 +108,10 @@ public class ScriptsServiceEjb extends CrudServiceImpl implements ScriptsService
             scriptsDao.setTransactionControler(tc);
             versaoDao.setTransactionControler(tc);
             /**
-             * Recupera lista com todos os scripts e as ordena em ordem crescente para se realizar uma busca bin·ria
+             * Recupera lista com todos os scripts e as ordena em ordem crescente para se realizar uma busca bin√°ria
              *
              * @author thyen.chang
-             * @since 03/02/2015 - OPERA«√O USAIN BOLT
+             * @since 03/02/2015 - OPERA√á√ÉO USAIN BOLT
              */
             final ArrayList<ScriptsDTO> listaScripts = new ArrayList<ScriptsDTO>(scriptsDao.listaTodosScripts());
             Collections.sort(listaScripts, new ScriptsDTO());
@@ -134,10 +134,10 @@ public class ScriptsServiceEjb extends CrudServiceImpl implements ScriptsService
                     file = new File(diretorio + nomeArquivo);
                     Scanner scanner = null;
                     try {
-                        scanner = new Scanner(file, "ISO-8859-1");
+                        scanner = new Scanner(file, "UTF-8");
                         scanner = scanner.useDelimiter("\n");
                     } catch (final FileNotFoundException e) {
-                        // VERSAO N√O ENCONTROU SCRIPT
+                        // VERSAO N√ÉO ENCONTROU SCRIPT
                         continue;
                     }
 
@@ -177,11 +177,11 @@ public class ScriptsServiceEjb extends CrudServiceImpl implements ScriptsService
                             ScriptsDTO scriptsDTO = new ScriptsDTO();
                             scriptsDTO.setNome(nomeScript);
                             /**
-                             * Busca o script via busca bin·ria.
-                             * Se n„o o encontrar, o Ìndice retornado È negativo
+                             * Busca o script via busca bin√°ria.
+                             * Se n√£o o encontrar, o √≠ndice retornado √© negativo
                              *
                              * @author thyen.chang
-                             * @since 03/02/2015 - OPERA«√O USAIN BOLT
+                             * @since 03/02/2015 - OPERA√á√ÉO USAIN BOLT
                              */
                             final int indexScript = Collections.binarySearch(listaScripts, scriptsDTO, new ScriptsDTO());
                             if (indexScript < 0) {
@@ -191,10 +191,10 @@ public class ScriptsServiceEjb extends CrudServiceImpl implements ScriptsService
                                 scriptsDTO.setDataInicio(UtilDatas.getDataAtual());
                                 scriptsDTO.setSqlQuery(sql);
                                 scriptsDTO.setTipo(ScriptsDTO.TIPO_UPDATE);
-                                scriptsDTO.setHistorico("INSTRU«√O EXECUTADA PELA ROTINA DO SISTEMA AO INICIALIZAR A APLICA«√O. DATA / HORA: " + UtilDatas.getDataHoraAtual());
+                                scriptsDTO.setHistorico("INSTRU√á√ÉO EXECUTADA PELA ROTINA DO SISTEMA AO INICIALIZAR A APLICA√á√ÉO. DATA / HORA: " + UtilDatas.getDataHoraAtual());
                                 scriptsDTO.setIdVersao(versaoDTO.getIdVersao());
                                 try {
-                                    LOGGER.info("Vers„o -> " + versaoDTO.getNomeVersao() + " SQL -> " + scriptsDTO.getSqlQuery());
+                                    LOGGER.info("Vers√£o -> " + versaoDTO.getNomeVersao() + " SQL -> " + scriptsDTO.getSqlQuery());
                                     final int quantidadeRegistrosAfetados = tc.getConnection().createStatement().executeUpdate(sql);
                                     scriptsDTO.setDescricao("SUCESSO: " + quantidadeRegistrosAfetados + " REGISTROS AFETADOS!");
                                 } catch (final SQLException e) {
@@ -412,8 +412,8 @@ public class ScriptsServiceEjb extends CrudServiceImpl implements ScriptsService
     }
 
     /**
-     * Faz a leitura da SQL substituindo as chaves pelos prÛximos valores disponÌveis no banco de dados. Essas chaves
-     * tem o padr„o $id_[texto] Ex.: $id_idusuario01, $id_idusuario20,
+     * Faz a leitura da SQL substituindo as chaves pelos pr√≥ximos valores dispon√≠veis no banco de dados. Essas chaves
+     * tem o padr√£o $id_[texto] Ex.: $id_idusuario01, $id_idusuario20,
      * $id_texto_qualquer...
      *
      * @author Murilo Gabriel Rodrigues
@@ -426,7 +426,7 @@ public class ScriptsServiceEjb extends CrudServiceImpl implements ScriptsService
             final String chave = matcher.group();
             if (chave != null && !chave.trim().isEmpty()) {
                 String indice = this.getChaves().get(chave);
-                // se a chave ainda n„o foi obtida
+                // se a chave ainda n√£o foi obtida
                 if (indice == null || indice.trim().isEmpty()) {
                     final String coluna = this.obterColunaCorrespondenteAChave(sql, chave);
                     final String tabela = this.obterNomeDaTabela(sql);
@@ -510,7 +510,7 @@ public class ScriptsServiceEjb extends CrudServiceImpl implements ScriptsService
         return resultadoTestePermissoes != null
                 && !resultadoTestePermissoes.trim().equalsIgnoreCase("sucesso")
                 && (resultadoTestePermissoes.toLowerCase().contains("command denied") || resultadoTestePermissoes.toLowerCase().contains("permission denied")
-                        || resultadoTestePermissoes.toLowerCase().contains("permiss„o negada") || resultadoTestePermissoes.toLowerCase().contains("must be owner")
+                        || resultadoTestePermissoes.toLowerCase().contains("permiss√£o negada") || resultadoTestePermissoes.toLowerCase().contains("must be owner")
                         || resultadoTestePermissoes.toLowerCase().contains("deve ser o dono") || resultadoTestePermissoes.toLowerCase().contains("insufficient privileges") || resultadoTestePermissoes
                         .toLowerCase().contains("no privileges"));
     }
@@ -545,11 +545,11 @@ public class ScriptsServiceEjb extends CrudServiceImpl implements ScriptsService
             }
             break;
         case ScriptsDTO.TIPO_INSERIR_REGISTRO:
-            // verificacao para esse caso atualmente n„o È vi·vel
+            // verificacao para esse caso atualmente n√£o √© vi√°vel
             scriptFoiExecutado = true;
             break;
         case ScriptsDTO.TIPO_DELETAR_REGISTRO:
-            // verificacao para esse caso atualmente n„o È vi·vel
+            // verificacao para esse caso atualmente n√£o √© vi√°vel
             scriptFoiExecutado = true;
             break;
         case ScriptsDTO.TIPO_ADICIONAR_COLUNA:
@@ -568,19 +568,19 @@ public class ScriptsServiceEjb extends CrudServiceImpl implements ScriptsService
             }
             break;
         case ScriptsDTO.TIPO_ADICIONAR_CONSTRAINT:
-            // verificacao para esse caso atualmente n„o È vi·vel
+            // verificacao para esse caso atualmente n√£o √© vi√°vel
             scriptFoiExecutado = true;
             break;
         case ScriptsDTO.TIPO_ALTERAR_COLUNA:
-            // verificacao para esse caso atualmente n„o È vi·vel
+            // verificacao para esse caso atualmente n√£o √© vi√°vel
             scriptFoiExecutado = true;
             break;
         case ScriptsDTO.TIPO_DELETAR_COLUNA:
-            // verificacao para esse caso atualmente n„o È vi·vel
+            // verificacao para esse caso atualmente n√£o √© vi√°vel
             scriptFoiExecutado = true;
             break;
         case ScriptsDTO.TIPO_DELETAR_TABELA:
-            // verificacao para esse caso atualmente n„o È vi·vel
+            // verificacao para esse caso atualmente n√£o √© vi√°vel
             scriptFoiExecutado = true;
             break;
         }

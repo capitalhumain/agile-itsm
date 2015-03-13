@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%@page import="br.com.citframework.util.Constantes"%>
 <%@page import="br.com.centralit.citcorpore.util.CitCorporeConstantes"%>
 
 <%
-    response.setCharacterEncoding("ISO-8859-1");
+    response.setCharacterEncoding("UTF-8");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -12,8 +12,7 @@
 <head>
 	<%@include file="/include/header.jsp"%>
 
-    <%@include file="/include/security/security.jsp" %>
-	<title><fmt:message key="citcorpore.comum.title"/></title>
+    <%@include file="/novoLayout/common/include/titulo.jsp" %>
 	<%@include file="/include/menu/menuConfig.jsp" %>
 
 	<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp" %>

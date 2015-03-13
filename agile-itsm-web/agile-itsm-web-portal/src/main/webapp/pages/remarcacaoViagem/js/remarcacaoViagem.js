@@ -380,8 +380,8 @@ function calcularQuantidadeDias() {
 	}
 }
 
-//Valida se a dataFim � maior que a dataInicio
-//Parametro opcao serve para alterar a mensagem que ser� exibida para o usuario
+//Valida se a dataFim ï¿½ maior que a dataInicio
+//Parametro opcao serve para alterar a mensagem que serï¿½ exibida para o usuario
 function validaData(dataInicio, dataFim) {
 	if (typeof(locale) === "undefined") locale = '';
 	
@@ -465,7 +465,7 @@ var completeCidadeOrigem;
 var completeCidadeDestino; 
 var completeFornecedor;
 
-/** Inicializa��o da tela **/
+/** Inicializaï¿½ï¿½o da tela **/
 $(document).ready(function() {
 	$('#horaCotacao').mask('99:99');
 	

@@ -154,7 +154,7 @@ public class Candidato extends AjaxFormAction {
 	}
 
 	/**
-	 * Seta uma data final para o candidato("exclus„o")
+	 * Seta uma data final para o candidato("exclus√£o")
 	 * 
 	 * @param document
 	 * @param request

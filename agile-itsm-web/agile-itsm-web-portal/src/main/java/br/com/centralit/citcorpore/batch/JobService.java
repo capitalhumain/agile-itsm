@@ -38,7 +38,7 @@ public abstract class JobService implements Job {
 	/**
 	 * <p>
 	 * Chamado por <code>{@link org.quartz.Scheduler}</code> quando
-	 * <code>{@link org.quartz.Trigger}</code> dispara o que est· relacionado com a <code>Job</code>.
+	 * <code>{@link org.quartz.Trigger}</code> dispara o que est√° relacionado com a <code>Job</code>.
 	 * </p>
 	 * 
 	 * @throws JobExecutionException
@@ -47,7 +47,7 @@ public abstract class JobService implements Job {
 	public void execute(JobExecutionContext contexto)
 			throws JobExecutionException {
 		try {
-			log.registraLog("Iniciando a execuÁ„o do job " + this.getClass().getName() + " em " + new java.util.Date() , this.getClass(), Log.INFO);
+			log.registraLog("Iniciando a execu√ß√£o do job " + this.getClass().getName() + " em " + new java.util.Date() , this.getClass(), Log.INFO);
 		} catch (Exception e1) {
 			System.out.println("Problemas com o registro de LOGS...");
 			e1.printStackTrace();
@@ -57,13 +57,13 @@ public abstract class JobService implements Job {
 			executar();
             MailMessage msg = new MailMessage(DEFAULT_MAIL, "", "", 
                     br.com.citframework.util.Constantes.getValue(
-                            "EMAIL_FROM"), "EXECU«√O DE JOB - BATCH: " 
-                            + this.getClass().getName(), "ExecuÁ„o OK.");
+                            "EMAIL_FROM"), "EXECU√á√ÉO DE JOB - BATCH: " 
+                            + this.getClass().getName(), "Execu√ß√£o OK.");
             MailManager mail = new MailManager();
             mail.send(msg);			
 		} catch (Exception e) {
 			try{
-				log.registraLog("Erro na execuÁ„o do job " 
+				log.registraLog("Erro na execu√ß√£o do job " 
 				        + this.getClass().getName() + " em " 
 				        + new java.util.Date() + " -> " + e.getMessage(), 
 				        this.getClass(), Log.ERROR);
@@ -75,9 +75,9 @@ public abstract class JobService implements Job {
             MailMessage msg = new MailMessage(DEFAULT_MAIL, "", "", 
                     br.com.citframework.util.Constantes.getValue(
                             "EMAIL_FROM"), 
-                            "PROBLEMA - EXECU«√O DE JOB - BATCH: " 
+                            "PROBLEMA - EXECU√á√ÉO DE JOB - BATCH: " 
                             + this.getClass().getName(), 
-                            "Erro na execuÁ„o do job " 
+                            "Erro na execu√ß√£o do job " 
                             + this.getClass().getName() + " em " 
                             + new java.util.Date() + " -> " + e.getMessage());
             MailManager mail = new MailManager();
@@ -88,7 +88,7 @@ public abstract class JobService implements Job {
             } 
 		}
 		try {
-			log.registraLog("Finalizando a execuÁ„o do job " + this.getClass().getName() + " em " + new java.util.Date() , this.getClass(), Log.INFO);
+			log.registraLog("Finalizando a execu√ß√£o do job " + this.getClass().getName() + " em " + new java.util.Date() , this.getClass(), Log.INFO);
 		} catch (Exception e1) {
 			System.out.println("Problemas com o registro de LOGS...");
 			e1.printStackTrace();

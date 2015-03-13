@@ -425,7 +425,7 @@ public class DataManager extends AjaxFormAction {
             str += "\n-- END SQL";
             UtilTratamentoArquivos.geraFileTxtFromString(CITCorporeUtil.CAMINHO_REAL_APP + "/exportSQL/export_data_" + strDateTime + ".sql", str);
         } else {
-            str = "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n<tables origem='" + ORIGEM_SISTEMA + "'>\n" + strAux.toString();
+            str = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<tables origem='" + ORIGEM_SISTEMA + "'>\n" + strAux.toString();
             str = "" + str + "\n</tables>";
             UtilTratamentoArquivos.geraFileTxtFromString(CITCorporeUtil.CAMINHO_REAL_APP + "/exportXML/export_data_" + strDateTime + ".smart", str);
         }
@@ -561,7 +561,7 @@ public class DataManager extends AjaxFormAction {
             }
         }
 
-        String strAux = "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n<tables origem='" + ORIGEM_SISTEMA + "'>\n" + str.toString();
+        String strAux = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<tables origem='" + ORIGEM_SISTEMA + "'>\n" + str.toString();
         strAux = "" + strAux + "\n</tables>";
 
         String strDateTime = new java.util.Date().toString();
@@ -739,7 +739,7 @@ public class DataManager extends AjaxFormAction {
 
     private HashMap getFormFields(final HttpServletRequest req) {
         try {
-            req.setCharacterEncoding("ISO-8859-1");
+            req.setCharacterEncoding("UTF-8");
         } catch (final UnsupportedEncodingException e) {
             System.out.println("PROBLEMA COM CODIFICACAO DE CARACTERES!!! [AjaxProcessEvent.getFormFields()]");
             e.printStackTrace();
@@ -998,7 +998,7 @@ public class DataManager extends AjaxFormAction {
             DB_SCHEMA = "citsmart";
         }
 
-        // Desabilitando as tabelas para garantir que as que n„o existam mais n„o fiquem ativas
+        // Desabilitando as tabelas para garantir que as que n√£o existam mais n√£o fiquem ativas
         this.desabilitaTabelas();
 
         final Collection colObsNegocio = dataBaseMetaDadosUtil.readTables(con, DB_SCHEMA, DB_SCHEMA, null, true);

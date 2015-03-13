@@ -123,7 +123,7 @@ public class AtividadesOSDao extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Retorna a quantidadedeExecuÁ„o de atividades por id OS.
+	 * Retorna a quantidadedeExecu√ß√£o de atividades por id OS.
 	 * 
 	 * @param idOs
 	 * @return <code>Double</code>
@@ -175,7 +175,7 @@ public class AtividadesOSDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * MÈtodo para atualizar observao de os n„o homologadas
+	 * M√©todo para atualizar observao de os n√£o homologadas
 	 * 
 	 * @param observacao
 	 * @param os

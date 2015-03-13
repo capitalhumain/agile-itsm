@@ -182,10 +182,10 @@ public class PerfilAcessoMenuDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * ObtÈm um Mapa<idMenu, List<PerfilAcessoMenu> > de todos os menus deste usu·rio
+	 * Obt√©m um Mapa<idMenu, List<PerfilAcessoMenu> > de todos os menus deste usu√°rio
      * 
      * @author thyen.chang
-     * @since 28/01/2015 - OPERA«√O USAIN BOLT
+     * @since 28/01/2015 - OPERA√á√ÉO USAIN BOLT
 	 * @param usuario
 	 * @return
 	 * @throws PersistenceException
@@ -226,10 +226,10 @@ public class PerfilAcessoMenuDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * Converte a lista de permiss„o que o usu·rio tem para acessar cada menu em um Mapa
+	 * Converte a lista de permiss√£o que o usu√°rio tem para acessar cada menu em um Mapa
      * 
      * @author thyen.chang
-     * @since 28/01/2015 - OPERA«√O USAIN BOLT
+     * @since 28/01/2015 - OPERA√á√ÉO USAIN BOLT
 	 * @param listaPerfilAcesso
 	 * @return
 	 */

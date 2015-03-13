@@ -3,7 +3,7 @@ package br.com.centralit.citcorpore.bean;
 import br.com.agileitsm.model.support.BaseEntity;
 
 /**
- * @author euler.ramos Guardará o resultado da análise de tendências de lançamento de solicitações de serviço
+ * @author euler.ramos GuardarÃ¡ o resultado da anÃ¡lise de tendÃªncias de lanÃ§amento de solicitaÃ§Ãµes de serviÃ§o
  */
 public class TendenciaDTO extends BaseEntity {
 

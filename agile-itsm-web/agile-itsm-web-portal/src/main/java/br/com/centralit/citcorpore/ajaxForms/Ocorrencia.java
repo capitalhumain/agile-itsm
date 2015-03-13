@@ -29,7 +29,7 @@ public class Ocorrencia extends AjaxFormAction {
 		OcorrenciaDTO ocorrenciaBean = (OcorrenciaDTO)document.getBean();
 		
 		if (ocorrenciaBean.getRespostaOcorrencia()==null){
-			document.alert("Resposta não informada! Favor informar a resposta!");
+			document.alert("Resposta nÃ£o informada! Favor informar a resposta!");
 			return;
 		}
 		
@@ -54,7 +54,7 @@ public class Ocorrencia extends AjaxFormAction {
 		
 		document.executeScript("POPUP_OCORRENCIA.hide()");
 		
-		document.alert("Ocorrência registrada com sucesso!");		
+		document.alert("OcorrÃªncia registrada com sucesso!");		
 	}
 	
 	public void consultarOcorrencia(DocumentHTML document, HttpServletRequest request,
@@ -70,7 +70,7 @@ public class Ocorrencia extends AjaxFormAction {
 		tabelaConsultaTimeSheet.addRowsByCollection(col, 
 				new String[] {"dataStr", "tipoOcorrenciaStr", "ocorrencia", "respostaOcorrencia", "nomeEmpregado"}, 
 				null, 
-				"Já existe registrado este registro na tabela", 
+				"JÃ¡ existe registrado este registro na tabela", 
 				null, 
 				"CHAMA_AtualizaResposta", 
 				null);

@@ -1,23 +1,20 @@
 package br.com.citframework.util.geo;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
- * Simples representaÁ„o de coordenadas geogr·ficas em graus
+ * Simples representa√ß√£o de coordenadas geogr√°ficas em graus
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 28/10/2014
  *
  */
+@Data
+@EqualsAndHashCode(callSuper = false)
 public class Coordinate {
 
-    @Getter
-    @Setter
     private double lat;
-
-    @Getter
-    @Setter
     private double lng;
 
 }

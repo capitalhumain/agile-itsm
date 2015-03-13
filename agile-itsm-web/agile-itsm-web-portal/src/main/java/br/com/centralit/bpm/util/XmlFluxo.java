@@ -227,16 +227,16 @@ public class XmlFluxo {
         }
 
         if (tarefaDto.getIdDesenho() == null) {
-            throw new Exception("ID XML n„o definido para tarefa");
+            throw new Exception("ID XML n√£o definido para tarefa");
         }
         if (tarefaDto.getNome() == null) {
-            throw new Exception("Nome da tarefa " + tarefaDto.getIdDesenho() + " n„o definido");
+            throw new Exception("Nome da tarefa " + tarefaDto.getIdDesenho() + " n√£o definido");
         }
         if (tarefaDto.getDocumentacao() == null) {
-            throw new Exception("DocumentaÁ„o da tarefa " + tarefaDto.getIdDesenho() + " n„o definido");
+            throw new Exception("Documenta√ß√£o da tarefa " + tarefaDto.getIdDesenho() + " n√£o definido");
         }
         if (tarefaDto.getTipoInteracao() == null) {
-            throw new Exception("Tipo de interaÁ„o da tarefa " + tarefaDto.getIdDesenho() + " n„o definido");
+            throw new Exception("Tipo de intera√ß√£o da tarefa " + tarefaDto.getIdDesenho() + " n√£o definido");
         }
 
         return tarefaDto;
@@ -264,10 +264,10 @@ public class XmlFluxo {
         }
 
         if (sequenciaDto.getIdDesenhoOrigem() == null) {
-            throw new Exception("ID origem n„o definido para sequÍncia");
+            throw new Exception("ID origem n√£o definido para sequ√™ncia");
         }
         if (sequenciaDto.getIdDesenhoDestino() == null) {
-            throw new Exception("ID destino n„o definido para sequÍncia");
+            throw new Exception("ID destino n√£o definido para sequ√™ncia");
         }
 
         return sequenciaDto;
@@ -304,7 +304,7 @@ public class XmlFluxo {
         decisaoDto.setIdDesenho(UtilStrings.nullToVazio(map.getNamedItem("id").getNodeValue()));
 
         if (decisaoDto.getIdDesenho() == null) {
-            throw new Exception("ID XML n„o definido para decis„o");
+            throw new Exception("ID XML n√£o definido para decis√£o");
         }
 
         return decisaoDto;
@@ -341,10 +341,10 @@ public class XmlFluxo {
                 raiaDto.setIdElementosAgrupados(elementos);
 
                 if (raiaDto.getIdDesenho() == null) {
-                    throw new Exception("ID XML n„o definido para raia");
+                    throw new Exception("ID XML n√£o definido para raia");
                 }
                 if (raiaDto.getSiglaGrupo() == null) {
-                    throw new Exception("IdentificaÁ„o do grupo executor n„o definido para raia " + raiaDto.getIdDesenho());
+                    throw new Exception("Identifica√ß√£o do grupo executor n√£o definido para raia " + raiaDto.getIdDesenho());
                 }
 
                 raias.add(raiaDto);
@@ -364,10 +364,10 @@ public class XmlFluxo {
         emailDto.setNome(UtilStrings.nullToVazio(map.getNamedItem("drools:taskName").getNodeValue()));
 
         if (emailDto.getIdDesenho() == null) {
-            throw new Exception("ID XML n„o definido para email");
+            throw new Exception("ID XML n√£o definido para email");
         }
         if (emailDto.getNome() == null) {
-            throw new Exception("Identificador de email n„o definido para " + emailDto.getIdDesenho());
+            throw new Exception("Identificador de email n√£o definido para " + emailDto.getIdDesenho());
         }
 
         return emailDto;
@@ -433,10 +433,10 @@ public class XmlFluxo {
         }
 
         if (scriptDto.getIdDesenho() == null) {
-            throw new Exception("ID XML n„o definido para script");
+            throw new Exception("ID XML n√£o definido para script");
         }
         if (scriptDto.getScript() == null) {
-            throw new Exception("Texto script n„o definido para " + scriptDto.getIdDesenho());
+            throw new Exception("Texto script n√£o definido para " + scriptDto.getIdDesenho());
         }
 
         return scriptDto;

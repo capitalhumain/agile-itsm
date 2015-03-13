@@ -11,7 +11,7 @@ import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
 /**
- * Classe de testes para validação do comportamento de {@link UtilI18N}
+ * Classe de testes para validaÃ§Ã£o do comportamento de {@link UtilI18N}
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 04/02/2015
@@ -32,7 +32,7 @@ public class UtilI18NTest {
     private static final String PROPERTY_NOTFOUND_KEY = "property.notfound.key";
 
     private static final String EXPECTED_PROPERTY_VALUE_EN = "Year";
-    private static final String EXPECTED_PROPERTY_VALUE_ES = "Año";
+    private static final String EXPECTED_PROPERTY_VALUE_ES = "AÃ±o";
     private static final String EXPECTED_PROPERTY_VALUE_PT = "Ano";
     private static final String EXPECTED_PROPERTY_NOTFOUND_VALUE = "property.notfound.key";
 

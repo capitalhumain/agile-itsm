@@ -35,7 +35,7 @@ public class RecuperaFromGed extends AjaxFormAction {
     public void load(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
 	UsuarioDTO user = WebUtil.getUsuario(request);
 	if (user == null) {
-	    document.alert("O usu·rio n„o est· logado! Favor logar no sistema!");
+	    document.alert("O usu√°rio n√£o est√° logado! Favor logar no sistema!");
 	    return;
 	}
 	ControleGEDDTO controleGEDDTO = (ControleGEDDTO) document.getBean();

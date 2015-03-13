@@ -10,7 +10,7 @@ import br.com.agileitsm.model.support.BaseEntity;
 
 /**
  * @author flavio.santana
- *         Bean dos objetos de instalaÁ„o do sistema
+ *         Bean dos objetos de instala√ß√£o do sistema
  */
 public class StartDTO extends BaseEntity {
 
@@ -28,7 +28,7 @@ public class StartDTO extends BaseEntity {
     private Collection<String> conteudo;
 
     /*
-     * Atributos de Conex„o
+     * Atributos de Conex√£o
      */
     private String driverConexao;
 
@@ -127,7 +127,7 @@ public class StartDTO extends BaseEntity {
     }
 
     /**
-     * @return a sess„o corrente
+     * @return a sess√£o corrente
      */
     public String getCurrent() {
         return current;
@@ -135,7 +135,7 @@ public class StartDTO extends BaseEntity {
 
     /**
      * @param define
-     *            a sess„o corrente
+     *            a sess√£o corrente
      */
     public void setCurrent(String current) {
         this.current = current;

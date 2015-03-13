@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.CitCorporeConstantes"%>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
@@ -106,7 +108,7 @@
 													</ul>
 												</div>
 												<div class="tab-content">
-												<!-- INICIO - Atribuições e Responsabilidades  -->
+												<!-- INICIO - AtribuiÃ§Ãµes e Responsabilidades  -->
 													<div class="tab-pane active" id="tab1-6">
 														<div class="widget">
 															<div class="widget-head">
@@ -132,7 +134,7 @@
 															</div>
 														</div>
 													</div>
-													<!-- FIM - Atribuições e Responsabilidades  -->
+													<!-- FIM - AtribuiÃ§Ãµes e Responsabilidades  -->
 
 													<!-- INICIO - Perspectiva Tecnica  -->
 													<div class="tab-pane" id="tab2-6">
@@ -198,7 +200,7 @@
 																			  			<div class="row-fluid">
 																				  			<div class="span12">
 																								<label class="strong"><fmt:message key="ManualFuncao.ExperienciaAnterior" /></label>
-																								<input class="span8" type="text" id="expAnteriorRA" name="expAnteriorRA" placeholder="Digite a Experiência Anterior" />
+																								<input class="span8" type="text" id="expAnteriorRA" name="expAnteriorRA" placeholder="Digite a ExperiÃªncia Anterior" />
 																							</div>
 																						</div>
 																					</div>
@@ -291,7 +293,7 @@
 																			  			<div class="row-fluid">
 																				  			<div class="span12">
 																								<label class="strong"><fmt:message key="ManualFuncao.ExperienciaAnterior" /></label>
-																								<input class="span8" type="text" id="expAnteriorRF" name="expAnteriorRF" placeholder="Digite a Experiência Anterior" />
+																								<input class="span8" type="text" id="expAnteriorRF" name="expAnteriorRF" placeholder="Digite a ExperiÃªncia Anterior" />
 																							</div>
 																						</div>
 																					</div>
@@ -327,7 +329,7 @@
 													</div>
 													<!-- FIM - Perspectiva Tecnica  -->
 
-													<!-- INICIO - Competências Técnicas  -->
+													<!-- INICIO - CompetÃªncias TÃ©cnicas  -->
 													<div class="tab-pane" id="tab3-6">
 														<div class="widget">
 															<div class="widget-head">
@@ -350,7 +352,7 @@
 															</div>
 														</div>
 													</div>
-													<!-- FIM - Competências Técnicas  -->
+													<!-- FIM - CompetÃªncias TÃ©cnicas  -->
 
 													<!-- INICIO - Perspectiva Comportamental  -->
 													<div class="tab-pane" id="tab4-6">

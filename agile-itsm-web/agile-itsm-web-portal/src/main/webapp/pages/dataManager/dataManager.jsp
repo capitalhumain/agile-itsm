@@ -4,14 +4,13 @@
 <%@page import="br.com.citframework.dto.Usuario"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.centralit.citcorpore.bean.UploadDTO"%>
-<%@page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
 		<%@include file="/include/header.jsp"%>
-		<title><fmt:message key="citcorpore.comum.title"/></title>
+		<%@include file="/novoLayout/common/include/titulo.jsp" %>
 
-		<%@include file="/include/security/security.jsp" %>
 		<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 
 		<script type="text/javascript" src="${ctx}/js/UploadUtils.js"></script>
@@ -70,7 +69,7 @@
 						</form>
 					</div>
 				</div>
-				<!-- Pop de Exportação -->
+				<!-- Pop de ExportaÃ§Ã£o -->
 				<div id="POPUP_EXPORTAR" style='display:none;' title="<fmt:message key="dataManager.objetoNegocio"/>">
 					<form name='form2' action='${ctx}/pages/dataManager/dataManager'>
 						<input type='hidden' name='idObjetoNegocio' id='idObjetoNegocio2' />
@@ -78,7 +77,7 @@
 						<div id='divExport'></div>
 					</form>
 				</div>
-				<!-- Pop de Importação -->
+				<!-- Pop de ImportaÃ§Ã£o -->
 				<div id="POPUP_IMPORTAR" style='display:none'>
 					<form name="formUpload" method="post" enctype="multipart/form-data">
 						<cit:uploadControl style="height:100px;width:100%;border:1px solid black"  title="Anexos" id="uploadAnexos" form="document.formUpload" action="/pages/upload/upload.load" disabled="false"/>

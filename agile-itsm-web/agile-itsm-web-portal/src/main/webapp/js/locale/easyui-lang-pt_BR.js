@@ -14,23 +14,23 @@ if ($.messager){
 	$.messager.defaults.cancel = 'Cancelar';
 }
 if ($.fn.validatebox){
-	$.fn.validatebox.defaults.missingMessage = 'Esse campo È requerido.';
-	$.fn.validatebox.defaults.rules.email.message = 'Insira um endereÁo de email v·lido.';
-	$.fn.validatebox.defaults.rules.url.message = 'Insira uma URL v·lida.';
+	$.fn.validatebox.defaults.missingMessage = 'Esse campo √© requerido.';
+	$.fn.validatebox.defaults.rules.email.message = 'Insira um endere√ßo de email v√°lido.';
+	$.fn.validatebox.defaults.rules.url.message = 'Insira uma URL v√°lida.';
 	$.fn.validatebox.defaults.rules.length.message = 'Insira uma valor entre {0} e {1}.';
 	$.fn.validatebox.defaults.rules.remote.message = 'Corrija esse campo.';
 }
 if ($.fn.numberbox){
-	$.fn.numberbox.defaults.missingMessage = 'Esse campo È requerido.';
+	$.fn.numberbox.defaults.missingMessage = 'Esse campo √© requerido.';
 }
 if ($.fn.combobox){
-	$.fn.combobox.defaults.missingMessage = 'Esse campo È requerido.';
+	$.fn.combobox.defaults.missingMessage = 'Esse campo √© requerido.';
 }
 if ($.fn.combotree){
-	$.fn.combotree.defaults.missingMessage = 'Esse campo È requerido.';
+	$.fn.combotree.defaults.missingMessage = 'Esse campo √© requerido.';
 }
 if ($.fn.combogrid){
-	$.fn.combogrid.defaults.missingMessage = 'Esse campo È requerido.';
+	$.fn.combogrid.defaults.missingMessage = 'Esse campo √© requerido.';
 }
 if ($.fn.calendar){
 	$.fn.calendar.defaults.weeks = ['D','S','T','Q','Q','S','S'];
@@ -40,7 +40,7 @@ if ($.fn.datebox){
 	$.fn.datebox.defaults.currentText = 'Hoje';
 	$.fn.datebox.defaults.closeText = 'Fechar';
 	$.fn.datebox.defaults.okText = 'Ok';
-	$.fn.datebox.defaults.missingMessage = 'Esse campo È requerido.';
+	$.fn.datebox.defaults.missingMessage = 'Esse campo √© requerido.';
 }
 if ($.fn.datetimebox && $.fn.datebox){
 	$.extend($.fn.datetimebox.defaults,{

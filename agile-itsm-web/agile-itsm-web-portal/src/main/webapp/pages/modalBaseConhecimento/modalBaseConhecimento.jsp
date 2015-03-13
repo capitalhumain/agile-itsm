@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.citframework.util.UtilDatas"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
@@ -15,8 +17,7 @@
 		<script type="text/javascript" src="${ctx}/js/UploadUtils.js"></script>
     	<script type="text/javascript" src="${ctx}/fckeditor/fckeditor.js"></script>
 
-		<%@include file="/include/security/security.jsp" %>
-		<title><fmt:message key="citcorpore.comum.title"/></title>
+		<%@include file="/novoLayout/common/include/titulo.jsp" %>
 		<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 
 		<link type="text/css" rel="stylesheet" href="${ctx}/css/layout-default-latest.css"/>

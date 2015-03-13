@@ -36,7 +36,7 @@ public class NetDiscoverAdvanced implements Runnable {
 	public static void main(String[] args) throws IOException {
 		NetDiscoverAdvanced netDiscoverAdvanced = new NetDiscoverAdvanced();
 		for (int i = 1; i < 255; i++){
-			System.out.println("EndereÁo 10.0.0." + i + "  >>> " + netDiscoverAdvanced.pingOK("10.0.0." + i));
+			System.out.println("Endere√ßo 10.0.0." + i + "  >>> " + netDiscoverAdvanced.pingOK("10.0.0." + i));
 		}
 		//netDiscoverAdvanced.pingOK("10.0.0.1");
 		//new Thread(new NetDiscoverAdvanced()).start();
@@ -84,7 +84,7 @@ public class NetDiscoverAdvanced implements Runnable {
 							listaVmapFiles.add(caminhoNetMap + "nmapFile" + i);
 							i++;
 						}catch (IOException er) {
-							throw new LogicException("Par‚mentro de ConfiguraÁ„o do Caminho nmap inv·lido");
+							throw new LogicException("Par√¢mentro de Configura√ß√£o do Caminho nmap inv√°lido");
 						}
 					}
 				}
@@ -116,13 +116,13 @@ public class NetDiscoverAdvanced implements Runnable {
 							}
 						}
 						arq.close();
-						// Chama metodo que ir· fazer leitura de arquivo nmap
+						// Chama metodo que ir√° fazer leitura de arquivo nmap
 						// Pegar lista Preenchida pelo metodo netDiscover
 						listaRetorno.addAll(readFile(arqv));
 					}
 				}
 			} else {
-				throw new LogicException("Par‚mentro de ConfiguraÁ„o de DiretÛrio Arquivo NetMap n„o Encontrado");
+				throw new LogicException("Par√¢mentro de Configura√ß√£o de Diret√≥rio Arquivo NetMap n√£o Encontrado");
 			}
 
 		} catch (Exception e) {
@@ -172,7 +172,7 @@ public class NetDiscoverAdvanced implements Runnable {
 			while (arq.hasNext()) {
 				String linha = arq.nextLine();
 				if (linha.length() > 0) {
-					// Identifica se È o final do arquivo
+					// Identifica se √© o final do arquivo
 					boolean fim = false;
 					if (linha.substring(0, 11).equalsIgnoreCase("# Nmap done")) {
 						fim = true;
@@ -183,7 +183,7 @@ public class NetDiscoverAdvanced implements Runnable {
 						}
 					}
 					if (!fim) {
-						// Verifica se È ip
+						// Verifica se √© ip
 						if (linha.substring(0, 9).equalsIgnoreCase("Nmap scan")) {
 								getNetMapDto();
 
@@ -374,7 +374,7 @@ public class NetDiscoverAdvanced implements Runnable {
 					}
 				}
 			} else {
-				System.out.println("N„o foi encontrado IP na rede!");
+				System.out.println("N√£o foi encontrado IP na rede!");
 			}
 		} catch (ServiceException e) {
 			System.out.println("Problema ao gravar dados NetMap: " + e.getMessage());
@@ -473,11 +473,11 @@ public class NetDiscoverAdvanced implements Runnable {
 			if(faixaIp.trim().indexOf(";") != -1){
 				arrayIp = faixaIp.split(";");
 			}else {
-				throw new LogicException("Par‚mentro de ConfiguraÁ„o de Faixa de IP inv·lido");
+				throw new LogicException("Par√¢mentro de Configura√ß√£o de Faixa de IP inv√°lido");
 			}
 			return arrayIp;
 		} else {
-			System.out.println("Caminho Nmap n„o definida em Par‚metro de Sistema 'Faixa Ip'!");
+			System.out.println("Caminho Nmap n√£o definida em Par√¢metro de Sistema 'Faixa Ip'!");
 		}
 		return null;
 	}

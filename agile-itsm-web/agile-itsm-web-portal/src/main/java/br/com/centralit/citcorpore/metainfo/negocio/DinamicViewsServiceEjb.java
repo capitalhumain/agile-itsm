@@ -430,7 +430,7 @@ public class DinamicViewsServiceEjb extends CrudServiceImpl implements DinamicVi
         String strFields = "";
 
         if (colCampos == null) {
-            LOGGER.debug("DinamicViewsServiceEjb - colCampos È null ");
+            LOGGER.debug("DinamicViewsServiceEjb - colCampos √© null ");
         }
 
         final String strTable = this.generateFrom(colCampos);
@@ -466,14 +466,14 @@ public class DinamicViewsServiceEjb extends CrudServiceImpl implements DinamicVi
 
                     lstParms.add(val);
                 } else {
-                    // Se o campo for obrigatÛrio e o valor for null ou vazio, n„o pode continuar.
+                    // Se o campo for obrigat√≥rio e o valor for null ou vazio, n√£o pode continuar.
                     if (camposObjetoNegocioDTO != null && camposObjetoNegocioDTO.getObrigatorio() != null && camposObjetoNegocioDTO.getObrigatorio().equalsIgnoreCase("S")) {
                         if (strVal == null || strVal.trim().equals("")) {
                             return map;
                         }
                     } else {
                         /*
-                         * Desenvolvedor: euler.ramos e thiago.oliveira Data: 08/11/2013 Hor·rio: 16h00min ID Citsmart: 123627 Motivo/Coment·rio: As telas dinamic view n„o estavam
+                         * Desenvolvedor: euler.ramos e thiago.oliveira Data: 08/11/2013 Hor√°rio: 16h00min ID Citsmart: 123627 Motivo/Coment√°rio: As telas dinamic view n√£o estavam
                          * listando os registros que estavam com o campo deleted igual a null
                          */
                         if (camposObjetoNegocioDTO != null && camposObjetoNegocioDTO.getNome().equalsIgnoreCase("deleted")) {
@@ -481,7 +481,7 @@ public class DinamicViewsServiceEjb extends CrudServiceImpl implements DinamicVi
                                 strVal = "n";
                             }
                         }
-                        // Se o campo n„o for obrigatÛrio mas o valor for null, recebe vazio para garantir que n„o de erro de sql (para campos tipo not null)
+                        // Se o campo n√£o for obrigat√≥rio mas o valor for null, recebe vazio para garantir que n√£o de erro de sql (para campos tipo not null)
                         if (strVal == null) {
                             strVal = UtilStrings.nullToVazio(strVal);
                         }
@@ -578,7 +578,7 @@ public class DinamicViewsServiceEjb extends CrudServiceImpl implements DinamicVi
                 }
             } catch (final Exception e) {
                 LOGGER.debug("SQL executado:" + sqlUltAtualizAndLogicDelete);
-                throw new LogicException("N„o foi possÌ≠vel realizar a exclus„o do registro! Verifique se possui o Campo 'DELETED' do tipo CHAR(1) no Banco de dados!");
+                throw new LogicException("N√£o foi poss√≠¬≠vel realizar a exclus√£o do registro! Verifique se possui o Campo 'DELETED' do tipo CHAR(1) no Banco de dados!");
             }
         }
     }
@@ -650,7 +650,7 @@ public class DinamicViewsServiceEjb extends CrudServiceImpl implements DinamicVi
 
                     i++;
                 }
-                break; // Como È restore, pega sÛ o 1.o
+                break; // Como √© restore, pega s√≥ o 1.o
             }
         }
         return colCamposTodos;

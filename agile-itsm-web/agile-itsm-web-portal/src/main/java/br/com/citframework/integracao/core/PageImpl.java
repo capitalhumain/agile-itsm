@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * ImplementaÁ„o b·sica de {@link Page}
+ * Implementa√ß√£o b√°sica de {@link Page}
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 01/10/2014
@@ -22,11 +22,11 @@ public class PageImpl<T> implements Page<T>, Serializable {
     private final List<T> content = new ArrayList<>();
 
     /**
-     * Cria uma nova {@link PageImpl} com o conte˙do informado. Como resultado, ter· uma {@link Page} being identical
+     * Cria uma nova {@link PageImpl} com o conte√∫do informado. Como resultado, ter√° uma {@link Page} being identical
      * to the entire {@link List}.
      *
      * @param content
-     *            n„o deve ser {@code null}.
+     *            n√£o deve ser {@code null}.
      */
     public PageImpl(final List<T> content) {
         this(content, null, null == content ? 0 : content.size());
@@ -36,7 +36,7 @@ public class PageImpl<T> implements Page<T>, Serializable {
      * Cria uma nova {@link Page} with the given content and the given governing {@link Pageable}.
      *
      * @param content
-     *            conte˙do a ser incluÌdo na {@link Page}. N„o deve ser {@code null}.
+     *            conte√∫do a ser inclu√≠do na {@link Page}. N√£o deve ser {@code null}.
      * @param pageable
      *            {@link Pageable}: pode ser {@code null}.
      */
@@ -48,11 +48,11 @@ public class PageImpl<T> implements Page<T>, Serializable {
      * Cria uma {@link Page}.
      *
      * @param content
-     *            conte˙do desta p·gina, n„o deve ser {@code null}.
+     *            conte√∫do desta p√°gina, n√£o deve ser {@code null}.
      * @param pageable
-     *            informaÁıes da paginaÁ„o, pode ser {@code null}.
+     *            informa√ß√µes da pagina√ß√£o, pode ser {@code null}.
      * @param total
-     *            o total de itens disponÌveis
+     *            o total de itens dispon√≠veis
      */
     public PageImpl(final List<T> content, final Pageable pageable, final long total) {
         if (content == null) {

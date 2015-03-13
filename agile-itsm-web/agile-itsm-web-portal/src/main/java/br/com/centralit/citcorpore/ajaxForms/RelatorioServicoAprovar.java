@@ -79,8 +79,8 @@ public class RelatorioServicoAprovar extends AjaxFormAction {
 	}
 	
 	/**
-	 * Trata a internacionalizaÁ„o de acordo com a situaÁ„o
-	 * Foi verificado que existem todos as situaÁıes internacionalizadas em citcorpore.comum.{situacao}
+	 * Trata a internacionaliza√ß√£o de acordo com a situa√ß√£o
+	 * Foi verificado que existem todos as situa√ß√µes internacionalizadas em citcorpore.comum.{situacao}
 	 * sendo (situacao} em minusculo
 	 * @param request
 	 * @param situacaoKey
@@ -93,7 +93,7 @@ public class RelatorioServicoAprovar extends AjaxFormAction {
 	}
 
 	/**
-	 * Faz a impress„o do relatÛrio no formato pdf.
+	 * Faz a impress√£o do relat√≥rio no formato pdf.
 	 * 
 	 * @param document
 	 * @param request
@@ -220,7 +220,7 @@ public class RelatorioServicoAprovar extends AjaxFormAction {
 	}
 
 	/**
-	 * Faz a impress„o do relatÛrio no formato xls.
+	 * Faz a impress√£o do relat√≥rio no formato xls.
 	 * 
 	 * @param document
 	 * @param request

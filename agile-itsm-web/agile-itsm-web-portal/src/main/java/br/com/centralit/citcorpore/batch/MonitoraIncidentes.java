@@ -92,7 +92,7 @@ public class MonitoraIncidentes extends Thread {
 
 				Collection<SolicitacaoServicoDTO> col = null;
 				try {
-					/* Lista todas as solicitaÁ„oes relacionadas a regra de escalonamento definido e demais. */
+					/* Lista todas as solicita√ß√£oes relacionadas a regra de escalonamento definido e demais. */
 					col = solicitacaoServicoDao.listSolicitacoesByRegra();
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -126,7 +126,7 @@ public class MonitoraIncidentes extends Thread {
 							Collection<RegraEscalonamentoDTO> colecaoRegrasEscalonamento = null;
 							Collection<EscalonamentoDTO> colecaoEscalonamento = null;
 							try {
-								// regra: 1 para solicitaÁ„o/incidente, 2 para mudanÁa, 3 para problema
+								// regra: 1 para solicita√ß√£o/incidente, 2 para mudan√ßa, 3 para problema
 								colecaoRegrasEscalonamento = regraEscalonamentoDao.findRegraBySolicitacao(solicitacaoServicoDTO, 1);
 								if (colecaoRegrasEscalonamento != null) {
 									for (RegraEscalonamentoDTO regraEscalonamentoDTO : colecaoRegrasEscalonamento) {
@@ -141,20 +141,20 @@ public class MonitoraIncidentes extends Thread {
 												if (escalonamentoDTO.getPrazoExecucao() == null || escalonamentoDTO.getPrazoExecucao().intValue() == 0)
 													continue;
 
-												// Verifica se j· existe referencia
+												// Verifica se j√° existe referencia
 												boolean temEscalonamento = relEscalonamentoSolServicoDao.temRelacionamentoSolicitacaoEscalonamento(solicitacaoServicoDTO.getIdSolicitacaoServico(),
 														escalonamentoDTO.getIdEscalonamento());
 												if (temEscalonamento) {
-													// System.out.println("Escalonamento " + escalonamentoDTO.getIdEscalonamento() + " j· executado.");
+													// System.out.println("Escalonamento " + escalonamentoDTO.getIdEscalonamento() + " j√° executado.");
 													continue;
 												}
 
 												if (regraEscalonamentoDTO.getTipoDataEscalonamento() != null && regraEscalonamentoDTO.getTipoDataEscalonamento().intValue() == 1) {
 													/**
-													 * Verifica se o tempo que se passou È maior que o prazo de execuÁ„o
+													 * Verifica se o tempo que se passou √© maior que o prazo de execu√ß√£o
 													 */
 
-													// se o prazo for a combinar, prazohh e prazomm ser„o 0, n„o vai cair na regra de escalonamento
+													// se o prazo for a combinar, prazohh e prazomm ser√£o 0, n√£o vai cair na regra de escalonamento
 													if ((solicitacaoServicoDTO.getDataHoraSolicitacao() != null)
 															&& ((solicitacaoServicoDTO.getPrazoHH() != 0) || (solicitacaoServicoDTO.getPrazoMM() != 0))
 															&& (dataHoraAtual.getTime() - solicitacaoServicoDTO.getDataHoraSolicitacao().getTime()) > (escalonamentoDTO.getPrazoExecucao() * 60 * 1000)) {
@@ -168,14 +168,14 @@ public class MonitoraIncidentes extends Thread {
 															relEscalonamentoSolServicoDao.create(dto);
 
 															/**
-															 * Realizando o escalonamento da solicitaÁ„o com base nas regras estabelecidas Se prioridade for nula est„o se escalonamento com a mesma
+															 * Realizando o escalonamento da solicita√ß√£o com base nas regras estabelecidas Se prioridade for nula est√£o se escalonamento com a mesma
 															 * prioridade antiga
 															 */
 															getSolicitacaoServicoService().updateTimeAction(escalonamentoDTO.getIdGrupoExecutor(),
 																	(escalonamentoDTO.getIdPrioridade() != null ? escalonamentoDTO.getIdPrioridade() : solicitacaoServicoDTO.getIdPrioridade()),
 																	solicitacaoServicoDTO.getIdSolicitacaoServico(), tc);
 															/**
-															 * Enviando email de escalaÁ„o autom·tica
+															 * Enviando email de escala√ß√£o autom√°tica
 															 */
 															enviaEmail(ID_MODELO_EMAIL_ESCALACAO_AUTOMATICA, solicitacaoServicoDTO.getIdSolicitacaoServico(), tc);
 
@@ -211,7 +211,7 @@ public class MonitoraIncidentes extends Thread {
 																	relEscalonamentoSolServicoDao.create(dto);
 
 																	/**
-																	 * Realizando o escalonamento da solicitaÁ„o com base nas regras estabelecidas Se prioridade for nula est„o se escalonamento com a
+																	 * Realizando o escalonamento da solicita√ß√£o com base nas regras estabelecidas Se prioridade for nula est√£o se escalonamento com a
 																	 * mesma prioridade antiga
 																	 */
 																	getSolicitacaoServicoService()
@@ -220,7 +220,7 @@ public class MonitoraIncidentes extends Thread {
 																					(escalonamentoDTO.getIdPrioridade() != null ? escalonamentoDTO.getIdPrioridade() : solicitacaoServicoDTO
 																							.getIdPrioridade()), solicitacaoServicoDTO.getIdSolicitacaoServico(), tc);
 																	/**
-																	 * Enviando email de escalaÁ„o autom·tica
+																	 * Enviando email de escala√ß√£o autom√°tica
 																	 */
 																	enviaEmail(ID_MODELO_EMAIL_ESCALACAO_AUTOMATICA, solicitacaoServicoDTO.getIdSolicitacaoServico(), tc);
 
@@ -332,7 +332,7 @@ public class MonitoraIncidentes extends Thread {
 
 		String remetente = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.RemetenteNotificacoesSolicitacao, null);
 		if (remetente == null)
-			throw new LogicException("Remetente para notificaÁıes de solicitaÁ„o de serviÁo n„o foi parametrizado");
+			throw new LogicException("Remetente para notifica√ß√µes de solicita√ß√£o de servi√ßo n√£o foi parametrizado");
 
 		String urlSistema = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.URL_Sistema, "");
 
@@ -343,7 +343,7 @@ public class MonitoraIncidentes extends Thread {
 		solicitacaoAuxDto.setHashPesquisaSatisfacao(idHashValidacao);
 		solicitacaoAuxDto.setUrlSistema(urlSistema);
 		solicitacaoAuxDto.setLinkPesquisaSatisfacao("<a href=\"" + urlSistema + "/pages/pesquisaSatisfacao/pesquisaSatisfacao.load?idSolicitacaoServico=" + solicitacaoAuxDto.getIdSolicitacaoServico()
-				+ "&hash=" + idHashValidacao + "\">Clique aqui para fazer a avaliaÁ„o do Atendimento</a>");
+				+ "&hash=" + idHashValidacao + "\">Clique aqui para fazer a avalia√ß√£o do Atendimento</a>");
 
 		MensagemEmail mensagem = new MensagemEmail(idModeloEmail, new BaseEntity[] { solicitacaoAuxDto });
 
@@ -363,7 +363,7 @@ public class MonitoraIncidentes extends Thread {
 
 		String remetente = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.RemetenteNotificacoesSolicitacao, null);
 		if (remetente == null)
-			throw new LogicException("Remetente para notificaÁıes de solicitaÁ„o de serviÁo n„o foi parametrizado");
+			throw new LogicException("Remetente para notifica√ß√µes de solicita√ß√£o de servi√ßo n√£o foi parametrizado");
 
 		String urlSistema = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.URL_Sistema, "");
 
@@ -374,7 +374,7 @@ public class MonitoraIncidentes extends Thread {
 		solicitacaoAuxDto.setHashPesquisaSatisfacao(idHashValidacao);
 		solicitacaoAuxDto.setUrlSistema(urlSistema);
 		solicitacaoAuxDto.setLinkPesquisaSatisfacao("<a href=\"" + urlSistema + "/pages/pesquisaSatisfacao/pesquisaSatisfacao.load?idSolicitacaoServico=" + solicitacaoAuxDto.getIdSolicitacaoServico()
-				+ "&hash=" + idHashValidacao + "\">Clique aqui para fazer a avaliaÁ„o do Atendimento</a>");
+				+ "&hash=" + idHashValidacao + "\">Clique aqui para fazer a avalia√ß√£o do Atendimento</a>");
 
 		MensagemEmail mensagem = new MensagemEmail(idModeloEmail, new BaseEntity[] { solicitacaoAuxDto });
 
@@ -420,7 +420,7 @@ public class MonitoraIncidentes extends Thread {
 		// SolicitacaoServicoServiceEjb solServiceEjb = new SolicitacaoServicoServiceEjb();
 		solAux = (SolicitacaoServicoDTO) dao.restore(solicitacaoServicoDTO);
 
-		// traz as outras informaÁıes referentes a JOINS
+		// traz as outras informa√ß√µes referentes a JOINS
 
 		SolicitacaoServicoDTO solAux2 = new SolicitacaoServicoDTO();
 		solAux2 = dao.findInfosCriacaoProblemaByIdSolServico(solicitacaoServicoDTO);
@@ -442,12 +442,12 @@ public class MonitoraIncidentes extends Thread {
 		problemaDto.setEnviaEmailPrazoSolucionarExpirou("S");
 		problemaDto.setListIdSolicitacaoServico(listIdSolicitacaoServico);
 
-		// N„o existe GrupoNivel1 e GrupoAtual na entidade Problema. Verificar DAO da entidade. valdoilo.damasceno
+		// N√£o existe GrupoNivel1 e GrupoAtual na entidade Problema. Verificar DAO da entidade. valdoilo.damasceno
 		// problemaDto.setIdGrupo(solAux.getIdGrupo());
 		// problemaDto.setIdGrupoAtual(solAux.getIdGrupoAtual());
 		// problemaDto.setIdGrupoNivel1(solAux.getIdGrupoNivel1());
 		problemaDto.setIdContrato(solAux2.getIdContrato());
-		// Como È o sistema vai usar o id do Admin
+		// Como √© o sistema vai usar o id do Admin
 		problemaDto.setIdCriador(1);
 		problemaDto.setIdLocalidade(solAux.getIdLocalidade());
 		problemaDto.setIdOrigemAtendimento(solAux.getIdOrigem());
@@ -460,7 +460,7 @@ public class MonitoraIncidentes extends Thread {
 		problemaDto.setIdServicoContrato(solAux.getIdServicoContrato());
 		problemaDto.setIdServico(solAux.getIdServico());
 		problemaDto.setDescricao(StringEscapeUtils.escapeHtml(solAux.getDescricaoSemFormatacao()));
-		problemaDto.setTitulo("Problema Criado por Rotina autom·tica");
+		problemaDto.setTitulo("Problema Criado por Rotina autom√°tica");
 		problemaDto.setTelefoneContato(solAux2.getTelefonecontato());
 		problemaDto.setUsuarioDto(solAux.getUsuarioDto());
 		problemaDto.setImpacto(solAux.getImpacto());
@@ -471,7 +471,7 @@ public class MonitoraIncidentes extends Thread {
 		problemaDto.setIdSolicitante(solAux.getIdSolicitante());
 		problemaDto.setDataHoraSolicitacao(UtilDatas.getDataHoraAtual());
 		problemaDto.setDataHoraCaptura(UtilDatas.getDataHoraAtual());
-		// categoria padr„o
+		// categoria padr√£o
 		problemaDto.setIdCategoriaProblema(1);
 
 		problemaDto.setSeveridade("Alta");
@@ -490,7 +490,7 @@ public class MonitoraIncidentes extends Thread {
 
 	public void trataSituacaoVencimentoSolicitacao(SolicitacaoServicoDTO solicitacaoServicoDTO, RegraEscalonamentoDTO regraEscalonamentoDTO, SolicitacaoServicoDao solicitacaoServicoDao,
 			Timestamp dataHoraAtual, OcorrenciaSolicitacaoDTO ocorrSolDto, Integer idModeloEmail, TransactionControler tc) throws Exception {
-		// trata regra de classificaÁ„o se est· vencendo
+		// trata regra de classifica√ß√£o se est√° vencendo
 		if ((solicitacaoServicoDTO.getDataHoraLimite() != null) && ((solicitacaoServicoDTO.getPrazoHH() != 0) || (solicitacaoServicoDTO.getPrazoMM() != 0))
 				&& ((solicitacaoServicoDTO.getDataHoraLimite().getTime() - dataHoraAtual.getTime()) <= (regraEscalonamentoDTO.getTempoExecucao() * 60 * 1000))) {
 
@@ -504,7 +504,7 @@ public class MonitoraIncidentes extends Thread {
 				if ((dataHoraAtual.getTime() - timeAux.getTime()) > intervaloTempo) {
 					if (regraEscalonamentoDTO.getEnviarEmail() != null && regraEscalonamentoDTO.getEnviarEmail().equals("S")) {
 						UsuarioDTO usuarioDTO = new UsuarioDTO();
-						usuarioDTO.setLogin("Autom·tico");
+						usuarioDTO.setLogin("Autom√°tico");
 						OcorrenciaSolicitacaoServiceEjb.create(solicitacaoServicoDTO, null, "Vencendo", OrigemOcorrencia.OUTROS, CategoriaOcorrencia.Atualizacao, null,
 								CategoriaOcorrencia.Atualizacao.getDescricao(), usuarioDTO, 0, null, tc);
 						if (idModeloEmail != null)

@@ -39,7 +39,7 @@ public class LiberacaoMudancaServiceEjb extends CrudServiceImpl implements Liber
     }
 
     /**
-     * Lista por idrequisicaoliberacao, no caso ele listar· apenas os que o status n„o for nulo.
+     * Lista por idrequisicaoliberacao, no caso ele listar√° apenas os que o status n√£o for nulo.
      * 
      * @author geber.costa
      * @param idrequisicaoliberacao

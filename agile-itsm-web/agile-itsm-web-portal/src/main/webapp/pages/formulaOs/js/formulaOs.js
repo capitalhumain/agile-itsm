@@ -225,7 +225,7 @@
 
 						if(arrayValores.length!=0){
 							var aux1 = "";
-							var aux2 = "";//variavel que ir· armazenar a formula final sem os input
+							var aux2 = "";//variavel que ir√° armazenar a formula final sem os input
 							var aux3 = formulaAuxiliar;
 
 							for(i = 0;i<arrayValores.length;i++){
@@ -261,7 +261,7 @@
 
 						if(arrayComplexidade.length!=0){
 							var aux1 = "";
-							var aux2 = "";//variavel que ir· armazenar a formula final sem os input
+							var aux2 = "";//variavel que ir√° armazenar a formula final sem os input
 							var aux3 = formulaAuxiliar;
 
 							for(i = 0;i<arrayComplexidade.length;i++){
@@ -317,8 +317,8 @@
 
 					function addOperador(operador){
 						var montarFormula = $("#formula").val();
-						/* ValidaÁ„o para gravar o tamanho do da formula do mesmo tamanho do banco de dados
-						o valor deve ser menor para n„o tenha conflito entre digitar a formula e usar os botoes de opÁıes.*/
+						/* Valida√ß√£o para gravar o tamanho do da formula do mesmo tamanho do banco de dados
+						o valor deve ser menor para n√£o tenha conflito entre digitar a formula e usar os botoes de op√ß√µes.*/
 						if(montarFormula.length<230){
 						montarFormula += operador.value;
 						$("#formula").val(montarFormula);

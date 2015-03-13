@@ -12,7 +12,7 @@ public interface EventoItemConfigService extends CrudService {
     public ValorDTO pegarCaminhoItemConfig(String nomeBaseItemConfig) throws ServiceException;
     
     /**
-     * Traz os dados da Network do item de configuração
+     * Traz os dados da Network do item de configuraÃ§Ã£o
      * 
      * @param idItemConfiguracao
      * @return
@@ -21,7 +21,7 @@ public interface EventoItemConfigService extends CrudService {
     public Collection<CaracteristicaDTO> pegarNetworksItemConfiguracao(Integer idItemConfiguracao) throws ServiceException;
     
     /**
-     * Traz o nome do Sistema Operacional instalado no item de configuração
+     * Traz o nome do Sistema Operacional instalado no item de configuraÃ§Ã£o
      * 
      * @param idItemConfiguracao
      * @return String nome do SO

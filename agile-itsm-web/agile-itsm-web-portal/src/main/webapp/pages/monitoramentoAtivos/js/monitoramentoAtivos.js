@@ -1,8 +1,8 @@
-//Inicializa��o das vari�veis globais.
+//Inicializaï¿½ï¿½o das variï¿½veis globais.
 var contNotificacaoUsuarios = 0;
 var contNotificacaoGrupos = 0;
 
-//Fun��o executada ap�s o restore da pesquisa.
+//Funï¿½ï¿½o executada apï¿½s o restore da pesquisa.
 document.form.afterRestore = function() {
 	$('[data-toggle="tab"][href="#tab1-2"]').trigger('click');
 }
@@ -294,7 +294,7 @@ function validaData(dataInicio, dataFim) {
              return true;
 }
 
-//Realiza a limpeza dinamica de qualquer lookup na tela (conforme configura��o no link de limpar)
+//Realiza a limpeza dinamica de qualquer lookup na tela (conforme configuraï¿½ï¿½o no link de limpar)
 $(document).on('click', '.limpar', function(){
 	var input = $(this).attr('data-input');
 	var id = $(this).attr('data-id');
@@ -302,7 +302,7 @@ $(document).on('click', '.limpar', function(){
 	$('#' + id).attr('value', '');
 	$('#' + input).attr('value', '');
 	
-	//Se o input for de tipoItemConfiguracao, faz a limpeza tamb�m das caracteristicas
+	//Se o input for de tipoItemConfiguracao, faz a limpeza tambï¿½m das caracteristicas
 	if (input == 'tipoItemConfiguracao') {
 		HTMLUtils.deleteAllRows('tblCaracteristicas');
 	}

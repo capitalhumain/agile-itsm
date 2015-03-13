@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.centralit.citcorpore.bean.SolicitacaoServicoDTO"%>
@@ -6,8 +8,7 @@
 <head>
 <%@include file="/include/header.jsp"%>
 
-<%@include file="/include/security/security.jsp"%>
-<title><fmt:message key="citcorpore.comum.title" /></title>
+<%@include file="/novoLayout/common/include/titulo.jsp" %>
 <%@include file="/include/menu/menuConfig.jsp"%>
 
 <%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
@@ -56,7 +57,7 @@
                                                         </td>
                                                         <td style="padding-left: 5px;">
                                                         <!-- Alterado por
-														     desenvolvedor: rcs (Rafael César Soyer)
+														     desenvolvedor: rcs (Rafael CÃ©sar Soyer)
 														     data: 06/01/2015
 														 -->
                                                             <div id='divPeriodoCriacao'>
@@ -67,7 +68,7 @@
                                                             </div>
                                                             <div id='divPeriodoAcesso'>
                                                             </div>
-                                                            <!-- rcs - fim alteração -->
+                                                            <!-- rcs - fim alteraÃ§Ã£o -->
                                                         </td>
                                                     </tr>
                                                 </table>

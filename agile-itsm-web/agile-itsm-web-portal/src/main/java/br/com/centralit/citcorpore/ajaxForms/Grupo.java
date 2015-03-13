@@ -124,7 +124,7 @@ public class Grupo extends AjaxFormAction {
 						bufferContratos += "<tr>";
 						bufferContratos += "<td>";
 						bufferContratos += "<input type='checkbox' name='idContrato' id='idContrato_" + contratoDto.getIdContrato() + "' value='0" + contratoDto.getIdContrato() + "' " + checked
-								+ "/> N˙mero: " + contratoDto.getNumero() + " de " + UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, contratoDto.getDataContrato(), WebUtil.getLanguage(request)) + " (" + nomeCliente + " - " + nomeForn + ") - " + situacao;
+								+ "/> N√∫mero: " + contratoDto.getNumero() + " de " + UtilDatas.convertDateToString(TipoDate.DATE_DEFAULT, contratoDto.getDataContrato(), WebUtil.getLanguage(request)) + " (" + nomeCliente + " - " + nomeForn + ") - " + situacao;
 						bufferContratos += "</td>";
 						bufferContratos += "</tr>";
 					}
@@ -413,7 +413,7 @@ public class Grupo extends AjaxFormAction {
 		GrupoEmpregadoService grupoEmpregadoService = (GrupoEmpregadoService) ServiceLocator.getInstance().getService(GrupoEmpregadoService.class, null);
 		Integer idGrupo = grupo.getIdGrupo();
 		
-		// Verifica-se se h· empregadosCheckados caso haja faz-se um for para excluir um a um!
+		// Verifica-se se h√° empregadosCheckados caso haja faz-se um for para excluir um a um!
 		if (grupo.getColEmpregadoCheckado() != null && grupo.getColEmpregadoCheckado().length >= 1){
 			Integer count = 0;
 			for (String empregadoCheckado : grupo.getColEmpregadoCheckado()){
@@ -428,7 +428,7 @@ public class Grupo extends AjaxFormAction {
 						count++;
 					}
 				} else {
-					//Informar individualmente o colaborador que n„o pode ser excluido
+					//Informar individualmente o colaborador que n√£o pode ser excluido
 					resultResponsaveisDto.setResultado(true);
 					for (GrupoEmpregadoDTO grupoEmpregado : colGrupoEmpregadoDTO){
 						resultResponsaveisDto.concatMensagem(UtilI18N.internacionaliza(request, "grupo.oColaborador") + grupoEmpregado.getNomeEmpregado());
@@ -472,7 +472,7 @@ public class Grupo extends AjaxFormAction {
 						count++;
 					}
 				} else {
-					//Informar individualmente o colaborador que n„o pode ser excluido
+					//Informar individualmente o colaborador que n√£o pode ser excluido
 					resultResponsaveisDto.setResultado(true);
 					for (GrupoEmpregadoDTO grupoEmpregadoResponsavel : colGrupoEmpregadoResponsaveis){
 						resultResponsaveisDto.concatMensagem(UtilI18N.internacionaliza(request, "grupo.oColaborador") + grupoEmpregadoResponsavel.getNomeEmpregado()+" , ");
@@ -581,7 +581,7 @@ public class Grupo extends AjaxFormAction {
         	paginaSelecionadaColaborador = 1;
         }
         
-		//Insere a paginaÁao
+		//Insere a pagina√ßao
         //if(totalPaginas>1){
         	paginacaoColaborador(totalPaginas,paginaSelecionadaColaborador,request, document);
         //}
@@ -606,7 +606,7 @@ public class Grupo extends AjaxFormAction {
 	}
 	
 	
-	//Insere os elementos de paginaÁ„o
+	//Insere os elementos de pagina√ß√£o
 	public void paginacaoColaborador(Integer totalPaginas, Integer paginaSelecionada, HttpServletRequest request, DocumentHTML document) throws Exception {
 		HTMLElement divPrincipal = document.getElementById("paginas");
 		StringBuilder sb = new StringBuilder();
@@ -671,7 +671,7 @@ public class Grupo extends AjaxFormAction {
 		String idEmpregadoAux = request.getParameter("iddEmpregado");
 		String descEmpregado = UtilStrings.decodeCaracteresEspeciais(request.getParameter("descEmpregado"));
 		Integer idEmpregado = Integer.parseInt(idEmpregadoAux);
-		//verifica se est· criando ou incluindo empregado
+		//verifica se est√° criando ou incluindo empregado
 		if (grupo.getIdGrupo() != null) {
 			//verifica se existe empregado ao grupo
 			if (!grupoEmpregadoService.grupoempregado(idEmpregado,grupo.getIdGrupo())) {
@@ -685,7 +685,7 @@ public class Grupo extends AjaxFormAction {
 			}
 	
 	} else{
-		//Quando n„o tem o grupo apenas adiciona a linha
+		//Quando n√£o tem o grupo apenas adiciona a linha
 		document.executeScript("addLinhaTabelaEmpregado('"+ idEmpregado + "','" + descEmpregado + "'," + true + ", false);");
 	}	
 
@@ -697,7 +697,7 @@ public class Grupo extends AjaxFormAction {
 		GrupoEmpregadoDTO grupoEmpregadoDTO = new GrupoEmpregadoDTO();
 		GrupoEmpregadoService grupoEmpregadoService = (GrupoEmpregadoService) ServiceLocator.getInstance().getService(GrupoEmpregadoService.class, null);
 		if (grupo.getIdGrupo() != null) {
-			//Elementos que est„o na tabela da pagina selecionada e setando se envia email
+			//Elementos que est√£o na tabela da pagina selecionada e setando se envia email
 			Collection <GrupoEmpregadoDTO> grupoempregado =  br.com.citframework.util.WebUtil.deserializeCollectionFromRequest(GrupoEmpregadoDTO.class, "empregadosSerializadosAux", request);
 			if(grupoempregado!=null){
 			for(GrupoEmpregadoDTO grupoempregadoaux : grupoempregado){

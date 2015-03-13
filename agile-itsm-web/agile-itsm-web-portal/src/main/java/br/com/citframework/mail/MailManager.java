@@ -77,7 +77,7 @@ public class MailManager {
 				Autenticador auth;
 				Session mailSession;
 				if (!NEED_AUTH) {
-					// Não ha necessidade de autenticacao
+					// NÃ£o ha necessidade de autenticacao
 					mailProps.put("mail.smtp.auth", "false");
 					mailSession = Session.getInstance(mailProps);
 				} else {
@@ -110,7 +110,7 @@ public class MailManager {
 							InternetAddress.parse(msg.getCco()));
 				}
 				email.setFrom(new InternetAddress(msg.getFrom()));
-				email.setSubject(MimeUtility.encodeText(msg.getSubject(), "ISO-8859-1", "B"));
+				email.setSubject(MimeUtility.encodeText(msg.getSubject(), "UTF-8", "B"));
 				try {
 					email.setSentDate(new Date());
 				} catch (Exception e) {
@@ -121,7 +121,7 @@ public class MailManager {
 				// email.setContent(msg.getText(), "text/html; charset=" +
 				// System.getProperty("file.encoding") + ";");
 				email.setContent(msg.getText(),
-						"text/html; charset=ISO-8859-1;");
+						"text/html; charset=UTF-8;");
 				if (msg.isConfirmarLeituraMail()) { // Adiciona header para
 													// pedir confirmacao de
 													// leitura
@@ -162,7 +162,7 @@ public class MailManager {
 		Autenticador auth;
 		Session session;
 		if (!NEED_AUTH) {
-			// Não ha necessidade de autenticacao
+			// NÃ£o ha necessidade de autenticacao
 			props.put("mail.smtp.auth", "false");
 			session = Session.getDefaultInstance(props, null);
 		} else {

@@ -76,7 +76,7 @@ public class BICitsmartRespDeserializer implements JsonDeserializer<BICitsmartRe
             "operationID":null,
             "error":{
                 "code":"PARAM",
-                "description":"Usuário não tem acesso à operação"
+                "description":"UsuÃ¡rio nÃ£o tem acesso Ã  operaÃ§Ã£o"
             },
             "xml":null
         }

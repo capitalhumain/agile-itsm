@@ -126,11 +126,11 @@ public class ThreadMonitoraAtivosConfiguracao extends Thread {
             Integer idGrupoAtual = Integer.parseInt(ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.ID_GRUPO_PADRAO_NIVEL1, "53"));
             solicitacaoServicoDto.setIdGrupoAtual(idGrupoAtual);
 
-            // Preenche a situação e registro de execução
+            // Preenche a situaÃ§Ã£o e registro de execuÃ§Ã£o
             solicitacaoServicoDto.setSituacao("EmAndamento");
             solicitacaoServicoDto.setRegistroexecucao("");
 
-            // Preenche as informações do solicitante e contato
+            // Preenche as informaÃ§Ãµes do solicitante e contato
             UsuarioDTO usuarioDto = usuarioService.restoreByIdEmpregado(1);
             EmpregadoDTO empregadoDto = empregadoService.restoreByIdEmpregado(usuarioDto.getIdEmpregado());
 
@@ -142,7 +142,7 @@ public class ThreadMonitoraAtivosConfiguracao extends Thread {
             solicitacaoServicoDto.setEmailcontato(empregadoDto.getEmail());
             solicitacaoServicoDto.setTelefonecontato(empregadoDto.getTelefone());
 
-            // Preenche o id do serviço
+            // Preenche o id do serviÃ§o
             Integer idServico = Integer.parseInt(ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.SERVICO_PADRAO_SOLICITACAO, "1721"));
             solicitacaoServicoDto.setIdServico(idServico);
 
@@ -150,19 +150,19 @@ public class ThreadMonitoraAtivosConfiguracao extends Thread {
             ServicoDTO servicoDto = servicoService.findById(idServico);
             solicitacaoServicoDto.setIdTipoDemandaServico(servicoDto.getIdTipoDemandaServico());
 
-            // Preenche o impacto e urgência
+            // Preenche o impacto e urgÃªncia
             portalService.relacionaImpactoUrgencia(solicitacaoServicoDto);
 
-            // Preenche a descrição
+            // Preenche a descriÃ§Ã£o
             solicitacaoServicoDto.setDescricao(UtilStrings.getParameter(monitoramentoAtivosDto2.getDescricao()));
 
             // Realiza o create
             solicitacaoServicoService.create(solicitacaoServicoDto);
         } catch (ServiceException e) {
-            System.out.println("FALHA AO CRIAR INCIDENTE NO MONITORAMENTO DE ATIVOS DE CONFIGURAÇÃO. VERIFICAR PARÂMETROS RELACIONADOS.");
+            System.out.println("FALHA AO CRIAR INCIDENTE NO MONITORAMENTO DE ATIVOS DE CONFIGURAÃ‡ÃƒO. VERIFICAR PARÃ‚METROS RELACIONADOS.");
             e.printStackTrace();
         } catch (Exception e) {
-            System.out.println("FALHA AO CRIAR INCIDENTE NO MONITORAMENTO DE ATIVOS DE CONFIGURAÇÃO. VERIFICAR PARÂMETROS RELACIONADOS.");
+            System.out.println("FALHA AO CRIAR INCIDENTE NO MONITORAMENTO DE ATIVOS DE CONFIGURAÃ‡ÃƒO. VERIFICAR PARÃ‚METROS RELACIONADOS.");
             e.printStackTrace();
         }
     }
@@ -199,7 +199,7 @@ public class ThreadMonitoraAtivosConfiguracao extends Thread {
         problemaDto.setTelefoneContato(empregadoDto.getTelefone());
         problemaDto.setRamal(empregadoDto.getRamal());
         problemaDto.setIdUnidade(empregadoDto.getIdUnidade());
-        problemaDto.setTitulo("Problema Criado por Rotina automática");
+        problemaDto.setTitulo("Problema Criado por Rotina automÃ¡tica");
         problemaDto.setDescricao(StringEscapeUtils.escapeHtml(monitoramentoAtivosDto.getDescricao()));
         problemaDto.setSeveridade("Alta");
 
@@ -218,7 +218,7 @@ public class ThreadMonitoraAtivosConfiguracao extends Thread {
         problemaDto.setIdServico(idServico);
         problemaDto.setUsuarioDto(usuarioDto);
         problemaDto.setDataHoraInicio(UtilDatas.getDataHoraAtual());
-        // categoria padrão
+        // categoria padrÃ£o
         problemaDto.setIdCategoriaProblema(1);
 
         problemaService.create(problemaDto);
@@ -226,7 +226,7 @@ public class ThreadMonitoraAtivosConfiguracao extends Thread {
     }
 
     /**
-     * Trata o envio de Notificações de acordo com os Usuários e Grupos informados no Monitoramento de Ativos.
+     * Trata o envio de NotificaÃ§Ãµes de acordo com os UsuÃ¡rios e Grupos informados no Monitoramento de Ativos.
      *
      * @throws LogicException
      * @param monitoramentoAtivosDto2
@@ -249,7 +249,7 @@ public class ThreadMonitoraAtivosConfiguracao extends Thread {
 
             String remetente = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.RemetenteNotificacoesSolicitacao, null);
             if (remetente == null) {
-                throw new LogicException("Remetente para notificações de solicitação de serviço não foi parametrizado");
+                throw new LogicException("Remetente para notificaÃ§Ãµes de solicitaÃ§Ã£o de serviÃ§o nÃ£o foi parametrizado");
             }
 
             try {
@@ -297,24 +297,24 @@ public class ThreadMonitoraAtivosConfiguracao extends Thread {
                 }
 
             } catch (NumberFormatException ne) {
-                System.out.println("FALHA AO ENVIAR E-MAIL NO MONITORAMENTO DE ATIVOS DE CONFIGURAÇÃO. VERIFICAR PARÂMETROS RELACIONADOS.");
+                System.out.println("FALHA AO ENVIAR E-MAIL NO MONITORAMENTO DE ATIVOS DE CONFIGURAÃ‡ÃƒO. VERIFICAR PARÃ‚METROS RELACIONADOS.");
                 ne.printStackTrace();
             } catch (Exception e) {
-                System.out.println("FALHA AO ENVIAR E-MAIL NO MONITORAMENTO DE ATIVOS DE CONFIGURAÇÃO. VERIFICAR PARÂMETROS RELACIONADOS.");
+                System.out.println("FALHA AO ENVIAR E-MAIL NO MONITORAMENTO DE ATIVOS DE CONFIGURAÃ‡ÃƒO. VERIFICAR PARÃ‚METROS RELACIONADOS.");
                 e.printStackTrace();
             }
         }
     }
 
     /**
-     * Envia Mensagem de E-mail utilizando o Remente, Modelo de E-mail e Destinatário informados.
+     * Envia Mensagem de E-mail utilizando o Remente, Modelo de E-mail e DestinatÃ¡rio informados.
      *
      * @param remetente
      *            - Remetente do e-mail.
      * @param idModeloEmail
-     *            - Modelo de e-mail que será utilizado.
+     *            - Modelo de e-mail que serÃ¡ utilizado.
      * @param empregadoDto
-     *            - Empregado para quem será enviado e-mail.
+     *            - Empregado para quem serÃ¡ enviado e-mail.
      * @param monitoramentoAtivosDto2
      * @throws Exception
      * @author valdoilo.damasceno
@@ -332,7 +332,7 @@ public class ThreadMonitoraAtivosConfiguracao extends Thread {
         try {
             mensagem.envia(emailEmpregado, remetente, remetente);
         } catch (Exception e) {
-            System.out.println("FALHA AO ENVIAR E-MAIL NO MONITORAMENTO DE ATIVOS DE CONFIGURAÇÃO. VERIFICAR PARÂMETROS RELACIONADOS.");
+            System.out.println("FALHA AO ENVIAR E-MAIL NO MONITORAMENTO DE ATIVOS DE CONFIGURAÃ‡ÃƒO. VERIFICAR PARÃ‚METROS RELACIONADOS.");
             e.printStackTrace();
         }
     }

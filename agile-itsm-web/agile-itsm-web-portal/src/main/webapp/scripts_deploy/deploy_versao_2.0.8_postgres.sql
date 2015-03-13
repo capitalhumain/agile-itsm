@@ -1,6 +1,6 @@
 -- PostgreSQL
 
--- InÌcio Carlos Santos 16/05/13 autorizado 28/06/13
+-- In√≠cio Carlos Santos 16/05/13 autorizado 28/06/13
 
 alter table templatesolicitacaoservico  drop constraint fk_questionario;
 
@@ -181,7 +181,7 @@ INSERT INTO templatesolicitacaoservico (idtemplate, identificacao,nometemplate,n
 
 -- Fim Carlos Santos
 
--- InÌcio Maycon
+-- In√≠cio Maycon
 
 create table requisicaoliberacaomidia (
   idRequisicaoLiberacaoMidia int not null,
@@ -197,9 +197,9 @@ INSERT INTO bpm_fluxo (idfluxo, versao, idtipofluxo, variaveis, conteudoxml, dat
 
 INSERT INTO bpm_elementofluxo (idelemento, idfluxo, tipoelemento, subtipo, nome, documentacao, tipointeracao, url, visao, grupos, usuarios, acaoentrada, acaosaida, script, textoemail, nomefluxoencadeado, posx, posy, altura, largura, modeloemail, template, intervalo, condicaodisparo, multiplasinstancias, destinatariosemail, contabilizasla, percexecucao) VALUES (631, 62, 'Inicio', '', '', '', '', '', '', '', '', '', '', '', '', '', 98, 144, 32, 32, '', '', NULL, '', '', '', '', NULL);
 INSERT INTO bpm_elementofluxo (idelemento, idfluxo, tipoelemento, subtipo, nome, documentacao, tipointeracao, url, visao, grupos, usuarios, acaoentrada, acaosaida, script, textoemail, nomefluxoencadeado, posx, posy, altura, largura, modeloemail, template, intervalo, condicaodisparo, multiplasinstancias, destinatariosemail, contabilizasla, percexecucao) VALUES (632, 62, 'Tarefa', '', 'Liberar', 'Liberar', 'U', 'pages/requisicaoLiberacao/requisicaoLiberacao.load?escalar=S&alterarSituacao=S', '', NULL, '#{requisicaoLiberacao.usuarioSolicitante}', '', '', '', '', '', 243, 127, 65, 140, '', '', NULL, '', '', '', 'S', NULL);
-INSERT INTO bpm_elementofluxo (idelemento, idfluxo, tipoelemento, subtipo, nome, documentacao, tipointeracao, url, visao, grupos, usuarios, acaoentrada, acaosaida, script, textoemail, nomefluxoencadeado, posx, posy, altura, largura, modeloemail, template, intervalo, condicaodisparo, multiplasinstancias, destinatariosemail, contabilizasla, percexecucao) VALUES (633, 62, 'Tarefa', '', 'ExecuÁ„o', 'ExecuÁ„o', 'U', 'pages/requisicaoLiberacao/requisicaoLiberacao.load?escalar=S&alterarSituacao=S', '', '#{requisicaoLiberacao.nomeGrupoAtual}', '', '', '', '', '', '', 579, 0, 65, 140, '', '', NULL, '', '', '', 'S', NULL);
+INSERT INTO bpm_elementofluxo (idelemento, idfluxo, tipoelemento, subtipo, nome, documentacao, tipointeracao, url, visao, grupos, usuarios, acaoentrada, acaosaida, script, textoemail, nomefluxoencadeado, posx, posy, altura, largura, modeloemail, template, intervalo, condicaodisparo, multiplasinstancias, destinatariosemail, contabilizasla, percexecucao) VALUES (633, 62, 'Tarefa', '', 'Execu√ß√£o', 'Execu√ß√£o', 'U', 'pages/requisicaoLiberacao/requisicaoLiberacao.load?escalar=S&alterarSituacao=S', '', '#{requisicaoLiberacao.nomeGrupoAtual}', '', '', '', '', '', '', 579, 0, 65, 140, '', '', NULL, '', '', '', 'S', NULL);
 INSERT INTO bpm_elementofluxo (idelemento, idfluxo, tipoelemento, subtipo, nome, documentacao, tipointeracao, url, visao, grupos, usuarios, acaoentrada, acaosaida, script, textoemail, nomefluxoencadeado, posx, posy, altura, largura, modeloemail, template, intervalo, condicaodisparo, multiplasinstancias, destinatariosemail, contabilizasla, percexecucao) VALUES (634, 62, 'Tarefa', '', 'Teste', 'Teste', 'U', 'pages/requisicaoLiberacao/requisicaoLiberacao.load?escalar=S&alterarSituacao=S', '', '#{requisicaoLiberacao.nomeGrupoAtual}', '', '', '', '', '', '', 808, 51, 65, 140, '', '', NULL, '', '', '', 'S', NULL);
-INSERT INTO bpm_elementofluxo (idelemento, idfluxo, tipoelemento, subtipo, nome, documentacao, tipointeracao, url, visao, grupos, usuarios, acaoentrada, acaosaida, script, textoemail, nomefluxoencadeado, posx, posy, altura, largura, modeloemail, template, intervalo, condicaodisparo, multiplasinstancias, destinatariosemail, contabilizasla, percexecucao) VALUES (635, 62, 'Tarefa', '', 'HomologaÁ„o', 'HomologaÁ„o', 'U', 'pages/requisicaoLiberacao/requisicaoLiberacao.load?escalar=S&alterarSituacao=S', '', '#{requisicaoLiberacao.nomeGrupoAtual}', '', '', '', '', '', '', 621, 249, 65, 140, '', '', NULL, '', '', '', 'S', NULL);
+INSERT INTO bpm_elementofluxo (idelemento, idfluxo, tipoelemento, subtipo, nome, documentacao, tipointeracao, url, visao, grupos, usuarios, acaoentrada, acaosaida, script, textoemail, nomefluxoencadeado, posx, posy, altura, largura, modeloemail, template, intervalo, condicaodisparo, multiplasinstancias, destinatariosemail, contabilizasla, percexecucao) VALUES (635, 62, 'Tarefa', '', 'Homologa√ß√£o', 'Homologa√ß√£o', 'U', 'pages/requisicaoLiberacao/requisicaoLiberacao.load?escalar=S&alterarSituacao=S', '', '#{requisicaoLiberacao.nomeGrupoAtual}', '', '', '', '', '', '', 621, 249, 65, 140, '', '', NULL, '', '', '', 'S', NULL);
 INSERT INTO bpm_elementofluxo (idelemento, idfluxo, tipoelemento, subtipo, nome, documentacao, tipointeracao, url, visao, grupos, usuarios, acaoentrada, acaosaida, script, textoemail, nomefluxoencadeado, posx, posy, altura, largura, modeloemail, template, intervalo, condicaodisparo, multiplasinstancias, destinatariosemail, contabilizasla, percexecucao) VALUES (636, 62, 'Tarefa', '', 'Resolvido', 'Resolvido', 'U', 'pages/requisicaoLiberacao/requisicaoLiberacao.load?escalar=S&alterarSituacao=S', '', NULL, '#{requisicaoLiberacao.usuarioSolicitante}', '', '#{execucaoFluxo}.finalizaIC(#{requisicaoLiberacao});', '', '', '', 70, 328, 65, 140, '', '', NULL, '', '', '', 'S', NULL);
 INSERT INTO bpm_elementofluxo (idelemento, idfluxo, tipoelemento, subtipo, nome, documentacao, tipointeracao, url, visao, grupos, usuarios, acaoentrada, acaosaida, script, textoemail, nomefluxoencadeado, posx, posy, altura, largura, modeloemail, template, intervalo, condicaodisparo, multiplasinstancias, destinatariosemail, contabilizasla, percexecucao) VALUES (637, 62, 'Porta', '', '', '', '', '', '', '', '', '', '', '', '', '', 561, 137, 42, 42, '', '', NULL, '', '', '', '', NULL);
 INSERT INTO bpm_elementofluxo (idelemento, idfluxo, tipoelemento, subtipo, nome, documentacao, tipointeracao, url, visao, grupos, usuarios, acaoentrada, acaosaida, script, textoemail, nomefluxoencadeado, posx, posy, altura, largura, modeloemail, template, intervalo, condicaodisparo, multiplasinstancias, destinatariosemail, contabilizasla, percexecucao) VALUES (638, 62, 'Porta', '', '', '', '', '', '', '', '', '', '', '', '', '', 856, 215, 42, 42, '', '', NULL, '', '', '', '', NULL);
@@ -214,19 +214,19 @@ INSERT INTO bpm_sequenciafluxo (idelementoorigem, idelementodestino, idfluxo, no
 INSERT INTO bpm_sequenciafluxo (idelementoorigem, idelementodestino, idfluxo, nomeclasseorigem, nomeclassedestino, condicao, idconexaoorigem, idconexaodestino, bordax, borday, posicaoalterada, nome) VALUES (634, 638, 62, NULL, NULL, '', 2, 0, 877.5, 165.5, '', '');
 INSERT INTO bpm_sequenciafluxo (idelementoorigem, idelementodestino, idfluxo, nomeclasseorigem, nomeclassedestino, condicao, idconexaoorigem, idconexaodestino, bordax, borday, posicaoalterada, nome) VALUES (635, 640, 62, NULL, NULL, '', 2, 0, 691, 325.5, '', '');
 INSERT INTO bpm_sequenciafluxo (idelementoorigem, idelementodestino, idfluxo, nomeclasseorigem, nomeclassedestino, condicao, idconexaoorigem, idconexaodestino, bordax, borday, posicaoalterada, nome) VALUES (636, 642, 62, NULL, NULL, '', 0, 2, 139.5, 300.5, '', '');
-INSERT INTO bpm_sequenciafluxo (idelementoorigem, idelementodestino, idfluxo, nomeclasseorigem, nomeclassedestino, condicao, idconexaoorigem, idconexaodestino, bordax, borday, posicaoalterada, nome) VALUES (637, 632, 62, NULL, NULL, '#{requisicaoLiberacao}.naoResolvida();', 3, 1, 472, 158.75, '', 'N„o Resolvida');
-INSERT INTO bpm_sequenciafluxo (idelementoorigem, idelementodestino, idfluxo, nomeclasseorigem, nomeclassedestino, condicao, idconexaoorigem, idconexaodestino, bordax, borday, posicaoalterada, nome) VALUES (637, 634, 62, NULL, NULL, '!#{requisicaoLiberacao}.naoResolvida();', 2, 3, 799, 189, 'S', 'Em ExecuÁ„o');
-INSERT INTO bpm_sequenciafluxo (idelementoorigem, idelementodestino, idfluxo, nomeclasseorigem, nomeclassedestino, condicao, idconexaoorigem, idconexaodestino, bordax, borday, posicaoalterada, nome) VALUES (638, 632, 62, NULL, NULL, '#{requisicaoLiberacao}.naoResolvida();', 3, 1, 395, 238, 'S', 'N„o Resolvido');
-INSERT INTO bpm_sequenciafluxo (idelementoorigem, idelementodestino, idfluxo, nomeclasseorigem, nomeclassedestino, condicao, idconexaoorigem, idconexaodestino, bordax, borday, posicaoalterada, nome) VALUES (638, 635, 62, NULL, NULL, '!#{requisicaoLiberacao}.naoResolvida();', 2, 1, 878, 280, 'S', 'Em ExecuÁ„o');
-INSERT INTO bpm_sequenciafluxo (idelementoorigem, idelementodestino, idfluxo, nomeclasseorigem, nomeclassedestino, condicao, idconexaoorigem, idconexaodestino, bordax, borday, posicaoalterada, nome) VALUES (639, 632, 62, NULL, NULL, '!#{requisicaoLiberacao}.atendida();', 0, 2, 314, 266, '', 'N„o Resolvida');
+INSERT INTO bpm_sequenciafluxo (idelementoorigem, idelementodestino, idfluxo, nomeclasseorigem, nomeclassedestino, condicao, idconexaoorigem, idconexaodestino, bordax, borday, posicaoalterada, nome) VALUES (637, 632, 62, NULL, NULL, '#{requisicaoLiberacao}.naoResolvida();', 3, 1, 472, 158.75, '', 'N√£o Resolvida');
+INSERT INTO bpm_sequenciafluxo (idelementoorigem, idelementodestino, idfluxo, nomeclasseorigem, nomeclassedestino, condicao, idconexaoorigem, idconexaodestino, bordax, borday, posicaoalterada, nome) VALUES (637, 634, 62, NULL, NULL, '!#{requisicaoLiberacao}.naoResolvida();', 2, 3, 799, 189, 'S', 'Em Execu√ß√£o');
+INSERT INTO bpm_sequenciafluxo (idelementoorigem, idelementodestino, idfluxo, nomeclasseorigem, nomeclassedestino, condicao, idconexaoorigem, idconexaodestino, bordax, borday, posicaoalterada, nome) VALUES (638, 632, 62, NULL, NULL, '#{requisicaoLiberacao}.naoResolvida();', 3, 1, 395, 238, 'S', 'N√£o Resolvido');
+INSERT INTO bpm_sequenciafluxo (idelementoorigem, idelementodestino, idfluxo, nomeclasseorigem, nomeclassedestino, condicao, idconexaoorigem, idconexaodestino, bordax, borday, posicaoalterada, nome) VALUES (638, 635, 62, NULL, NULL, '!#{requisicaoLiberacao}.naoResolvida();', 2, 1, 878, 280, 'S', 'Em Execu√ß√£o');
+INSERT INTO bpm_sequenciafluxo (idelementoorigem, idelementodestino, idfluxo, nomeclasseorigem, nomeclassedestino, condicao, idconexaoorigem, idconexaodestino, bordax, borday, posicaoalterada, nome) VALUES (639, 632, 62, NULL, NULL, '!#{requisicaoLiberacao}.atendida();', 0, 2, 314, 266, '', 'N√£o Resolvida');
 INSERT INTO bpm_sequenciafluxo (idelementoorigem, idelementodestino, idfluxo, nomeclasseorigem, nomeclassedestino, condicao, idconexaoorigem, idconexaodestino, bordax, borday, posicaoalterada, nome) VALUES (639, 636, 62, NULL, NULL, '#{requisicaoLiberacao}.atendida();', 3, 1, 252, 360.75, '', 'Resolvida');
-INSERT INTO bpm_sequenciafluxo (idelementoorigem, idelementodestino, idfluxo, nomeclasseorigem, nomeclassedestino, condicao, idconexaoorigem, idconexaodestino, bordax, borday, posicaoalterada, nome) VALUES (640, 638, 62, NULL, NULL, '#{requisicaoLiberacao}.emAtendimento();', 1, 1, 914, 359, 'S', 'Em ExecuÁ„o');
+INSERT INTO bpm_sequenciafluxo (idelementoorigem, idelementodestino, idfluxo, nomeclasseorigem, nomeclassedestino, condicao, idconexaoorigem, idconexaodestino, bordax, borday, posicaoalterada, nome) VALUES (640, 638, 62, NULL, NULL, '#{requisicaoLiberacao}.emAtendimento();', 1, 1, 914, 359, 'S', 'Em Execu√ß√£o');
 INSERT INTO bpm_sequenciafluxo (idelementoorigem, idelementodestino, idfluxo, nomeclasseorigem, nomeclassedestino, condicao, idconexaoorigem, idconexaodestino, bordax, borday, posicaoalterada, nome) VALUES (640, 639, 62, NULL, NULL, '#{requisicaoLiberacao}.liberada();', 3, 1, 503, 359.5, '', 'Liberar');
 INSERT INTO bpm_sequenciafluxo (idelementoorigem, idelementodestino, idfluxo, nomeclasseorigem, nomeclassedestino, condicao, idconexaoorigem, idconexaodestino, bordax, borday, posicaoalterada, nome) VALUES (641, 633, 62, NULL, NULL, '', 0, 3, 440, 32.75, '', '');
 
--- InÌcio Bruno
+-- In√≠cio Bruno
 
--- FLUXO M”DULO DE MUDAN«A
+-- FLUXO M√ìDULO DE MUDAN√áA
 
 UPDATE bpm_fluxo SET datafim = '2013-06-10' WHERE idtipofluxo = 8;
 
@@ -275,7 +275,7 @@ INSERT INTO bpm_sequenciafluxo (idelementoorigem, idelementodestino, idfluxo, no
 
 INSERT INTO bpm_sequenciafluxo (idelementoorigem, idelementodestino, idfluxo, nomeclasseorigem, nomeclassedestino, condicao, idconexaoorigem, idconexaodestino, bordax, borday, posicaoalterada, nome) VALUES (761, 762, 125, NULL, NULL, '!#{requisicaoMudanca}.votacaoPropostaAprovada();', 1, 3, 807.5, 333, '', 'rejeitada');
 
--- Fim MÛdulo MudanÁa
+-- Fim M√≥dulo Mudan√ßa
 
 -- Fim Bruno
 
@@ -292,9 +292,9 @@ CREATE TABLE requisicaoliberacaoresponsavel(
 alter table itemconfiguracao add column idliberacao int null;
 alter table itemconfiguracao add constraint fk_itemconfiguracao_liberacao foreign key(idliberacao) references liberacao(idliberacao);
 
-INSERT INTO grupoitemconfiguracao (idgrupoitemconfiguracao, nomegrupoitemconfiguracao, datainicio, datafim, email, emailgrupoitemconfiguracao, idGrupoItemConfiguracaoPai) VALUES (1001,'Desenvolvimento - Padr„o','2013-06-12',NULL,NULL,NULL,997);
-INSERT INTO grupoitemconfiguracao (idgrupoitemconfiguracao, nomegrupoitemconfiguracao, datainicio, datafim, email, emailgrupoitemconfiguracao, idGrupoItemConfiguracaoPai) VALUES (1002,'HomologaÁ„o - Padr„o','2013-06-12',NULL,NULL,NULL,999);
-INSERT INTO grupoitemconfiguracao (idgrupoitemconfiguracao, nomegrupoitemconfiguracao, datainicio, datafim, email, emailgrupoitemconfiguracao, idGrupoItemConfiguracaoPai) VALUES (1003,'ProduÁ„o - Padr„o','2013-06-12',NULL,NULL,NULL,998);
+INSERT INTO grupoitemconfiguracao (idgrupoitemconfiguracao, nomegrupoitemconfiguracao, datainicio, datafim, email, emailgrupoitemconfiguracao, idGrupoItemConfiguracaoPai) VALUES (1001,'Desenvolvimento - Padr√£o','2013-06-12',NULL,NULL,NULL,997);
+INSERT INTO grupoitemconfiguracao (idgrupoitemconfiguracao, nomegrupoitemconfiguracao, datainicio, datafim, email, emailgrupoitemconfiguracao, idGrupoItemConfiguracaoPai) VALUES (1002,'Homologa√ß√£o - Padr√£o','2013-06-12',NULL,NULL,NULL,999);
+INSERT INTO grupoitemconfiguracao (idgrupoitemconfiguracao, nomegrupoitemconfiguracao, datainicio, datafim, email, emailgrupoitemconfiguracao, idGrupoItemConfiguracaoPai) VALUES (1003,'Produ√ß√£o - Padr√£o','2013-06-12',NULL,NULL,NULL,998);
 
 alter table historicoic add column origemmodificacao varchar(20) null;
 alter table historicoic add column idmodificacao int null;
@@ -302,7 +302,7 @@ alter table historicoic add column idmodificacao int null;
 -- Fim Riubbe
 
 
--- MÛdulo de LiberaÁ„o
+-- M√≥dulo de Libera√ß√£o
 -- Geber Costa 21/06/2013
 
 CREATE TABLE situacaoliberacaomudanca (
@@ -311,9 +311,9 @@ CREATE TABLE situacaoliberacaomudanca (
 );
 
 INSERT INTO situacaoliberacaomudanca VALUES
-(1,'Em ExecuÁ„o'),
+(1,'Em Execu√ß√£o'),
 (2,'Resolvida'),
-(3,'N„o Resolvida'),
+(3,'N√£o Resolvida'),
 (4,'Cancelada');
 
 ALTER TABLE liberacaomudanca add status VARCHAR(45);
@@ -321,7 +321,7 @@ ALTER TABLE liberacaomudanca add situacaoliberacao VARCHAR(45);
 
 -- Fim
 
--- InÌcio Bruno MudanÁa 24/06/13
+-- In√≠cio Bruno Mudan√ßa 24/06/13
 CREATE TABLE requisicaomudancaresponsavel(
        idRequisicaoMudancaResp integer NOT NULL,
        idResponsavel integer NULL,
@@ -335,14 +335,14 @@ alter table requisicaomudancaresponsavel add constraint fk_requisicaomudancaresp
 
 -- Fim Bruno
 
--- InÌcio Thiago Fernandes 24/06/13
+-- In√≠cio Thiago Fernandes 24/06/13
 ALTER TABLE ocorrenciamudanca DROP CONSTRAINT ocorrenciamudanca_idjustificativa_fkey;
 
 ALTER TABLE ocorrenciamudanca ADD CONSTRAINT ocorrenciamudanca_idjustificativa_fkey FOREIGN KEY (idjustificativa) REFERENCES justificativamudanca (idjustificativamudanca);
 
 -- Fim Thiago Fernandes
 
--- InÌcio Thiago Matias 26/06/13
+-- In√≠cio Thiago Matias 26/06/13
 
 CREATE TABLE requisicaoliberacaocompras (
   idRequisicaoLiberacaoCompras integer NULL,
@@ -352,7 +352,7 @@ CREATE TABLE requisicaoliberacaocompras (
 
 -- Fim Thiago Matias
 
--- InÌcio Maycon 26/06/13
+-- In√≠cio Maycon 26/06/13
 create table requisicaoliberacaomidia (
   idRequisicaoLiberacaoMidia int not null,
   idMidiaSoftware int not null,
@@ -364,7 +364,7 @@ create table requisicaoliberacaomidia (
 
 -- Fim Maycon
 
--- InÌcio Maycon 28/06/13
+-- In√≠cio Maycon 28/06/13
 
 ALTER TABLE ocorrencialiberacao drop  CONSTRAINT ocorrencialiberacao_idjustificativa_fkey;
 
@@ -372,7 +372,7 @@ ALTER TABLE ocorrencialiberacao add CONSTRAINT ocorrencialiberacao_idjustificati
 
 -- Fim Maycon
 
--- InÌcio Thiago Fernandes 01/07/13
+-- In√≠cio Thiago Fernandes 01/07/13
 
 update bpm_elementofluxo set url = 'pages/requisicaoMudanca/requisicaoMudanca.load?alterarSituacao=N&fase=Avaliacao' where idelemento = 406;
 
@@ -380,7 +380,7 @@ update bpm_elementofluxo set url = 'pages/requisicaoMudanca/requisicaoMudanca.lo
 
 -- Fim Thiago Fernandes
 
--- InÌcio Murilo Pacheco 02/07/13
+-- In√≠cio Murilo Pacheco 02/07/13
 
 create table ligacao_lib_hist_midia (
     idligacao_lib_hist_midia integer not null,
@@ -438,7 +438,7 @@ alter table origematendimento add column datafim date;
 CREATE INDEX INDEX_EMP_NOMEPROC ON empregados USING btree (nomeprocura);
 -- Fim
 
--- InÌcio rodrigo.oliveira - 14/06/2013
+-- In√≠cio rodrigo.oliveira - 14/06/2013
 
 CREATE TABLE prioridadeservicousuario (
   idusuario int NOT NULL,

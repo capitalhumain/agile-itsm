@@ -12,11 +12,11 @@ public interface CalendarioService extends CrudService {
 	public boolean jornadaDeTrabalhoEmUso(JornadaTrabalhoDTO jornadaTrabalhoDTO) throws Exception;
 	
 	/**
-	 * MÈtodo para verificar se existe calend·rio com a mesma descriÁ„o
+	 * M√©todo para verificar se existe calend√°rio com a mesma descri√ß√£o
 	 * 
 	 * @author rodrigo.oliveira
 	 * @param calendarioDTO
-	 * @return Se caso exista calendario com a mesma descriÁ„o retorna true
+	 * @return Se caso exista calendario com a mesma descri√ß√£o retorna true
 	 * @throws Exception
 	 */
 	public boolean verificaSeExisteCalendario(CalendarioDTO calendarioDTO) throws Exception;

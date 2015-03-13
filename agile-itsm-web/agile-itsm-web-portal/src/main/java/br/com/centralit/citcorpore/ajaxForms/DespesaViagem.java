@@ -206,7 +206,7 @@ public class DespesaViagem extends AjaxFormAction {
 					html.append("							</tr>");
 				} else {
 					html.append("							<tr>");
-					html.append("								<td colspan='3' style='padding: 0;'>N„o h· itens adicionados para este integrante!</td>");
+					html.append("								<td colspan='3' style='padding: 0;'>N√£o h√° itens adicionados para este integrante!</td>");
 					html.append("							</tr>");
 				}
 
@@ -247,7 +247,7 @@ public class DespesaViagem extends AjaxFormAction {
 		this.preencherComboMoeda(document, request, response);
 		this.preencherComboFormaPagamento(document, request, response);
 
-		// Verifica se È alteraÁ„o do item
+		// Verifica se √© altera√ß√£o do item
 		if(despesaViagemDTO.getIdDespesaViagem() != null) {
 			DespesaViagemService despesaViagemService = (DespesaViagemService) ServiceLocator.getInstance().getService(DespesaViagemService.class, null);
 			ParceiroService parceiroService = (ParceiroService) ServiceLocator.getInstance().getService(ParceiroService.class, null);
@@ -329,11 +329,11 @@ public class DespesaViagem extends AjaxFormAction {
 	}
 
 	/**
-	 * Faz o tratamento do tipo da movimentaÁ„o financeira.
-	 * Se a ClassificaÁ„o for igual a di·ria ent„o o adiantamento = valorUnit·rio * (quantidade + 1), se a classificaÁ„o for qualquer outro diferente
-	 * ent„o adiantamento = valorUnit·rio * di·ria
-	 * O tratamento para o adiantamento È feito , ele calcula e seta o valor na tela automaticamente.
-	 * Esse mÈtodo tambÈm faz o tratamento para casas decimais
+	 * Faz o tratamento do tipo da movimenta√ß√£o financeira.
+	 * Se a Classifica√ß√£o for igual a di√°ria ent√£o o adiantamento = valorUnit√°rio * (quantidade + 1), se a classifica√ß√£o for qualquer outro diferente
+	 * ent√£o adiantamento = valorUnit√°rio * di√°ria
+	 * O tratamento para o adiantamento √© feito , ele calcula e seta o valor na tela automaticamente.
+	 * Esse m√©todo tamb√©m faz o tratamento para casas decimais
 	 *
 	 * @param document
 	 * @param request
@@ -377,7 +377,7 @@ public class DespesaViagem extends AjaxFormAction {
 
 						requisicaoViagemDto = (RequisicaoViagemDTO) requisicaoService.restore(requisicaoViagemDto);
 
-						// Adiciona mais um dia quando a opÁ„o selecionada e di·ria
+						// Adiciona mais um dia quando a op√ß√£o selecionada e di√°ria
 						requisicaoViagemDto.setQtdeDias(requisicaoViagemDto.getQtdeDias() + 1);
 
 						despesaViagemDTO.setQuantidade(requisicaoViagemDto.getQtdeDias());
@@ -577,7 +577,7 @@ public class DespesaViagem extends AjaxFormAction {
 	}
 
 	/**
-	 * Preenche a combo de 'Centro Resultado' do formul·rio HTML
+	 * Preenche a combo de 'Centro Resultado' do formul√°rio HTML
 	 *
 	 * @param document
 	 * @param request
@@ -601,7 +601,7 @@ public class DespesaViagem extends AjaxFormAction {
 	}
 
 	/**
-	 * Preenche a combo de 'Projeto' do formul·rio HTML
+	 * Preenche a combo de 'Projeto' do formul√°rio HTML
 	 *
 	 * @param document
 	 * @param request
@@ -633,7 +633,7 @@ public class DespesaViagem extends AjaxFormAction {
 	}
 
 	/**
-	 * Preenche combo de 'justificativa solicitaÁ„o'.
+	 * Preenche combo de 'justificativa solicita√ß√£o'.
 	 *
 	 * @param document
 	 * @param request
@@ -766,7 +766,7 @@ public class DespesaViagem extends AjaxFormAction {
 	}
 
 	/**
-	 * Remove o bot„o adicionar itens caso o usuario n„o tenha permiss„o
+	 * Remove o bot√£o adicionar itens caso o usuario n√£o tenha permiss√£o
 	 *
 	 * @param document
 	 * @param request
@@ -799,7 +799,7 @@ public class DespesaViagem extends AjaxFormAction {
 
 
 	/**
-	 * Restaura a justificativa informada quando a autorizaÁ„o È negada.
+	 * Restaura a justificativa informada quando a autoriza√ß√£o √© negada.
 	 *
 	 * @param document
 	 * @param request

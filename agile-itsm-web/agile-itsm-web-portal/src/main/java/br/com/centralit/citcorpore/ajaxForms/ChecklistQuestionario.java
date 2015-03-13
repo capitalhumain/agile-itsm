@@ -75,7 +75,7 @@ public class ChecklistQuestionario extends AjaxFormAction {
     }
 
     /**
-     * Metodo colocar status Inativo quando for solicitado a exclus„o do usuario.
+     * Metodo colocar status Inativo quando for solicitado a exclus√£o do usuario.
      *
      * @param document
      * @param request
@@ -107,7 +107,7 @@ public class ChecklistQuestionario extends AjaxFormAction {
         final ChecklistQuestionarioDTO checklistQuestionarioDTO = (ChecklistQuestionarioDTO) document.getBean();
         final UsuarioDTO usuario = WebUtil.getUsuario(request);
         if (usuario == null) {
-            document.alert("Sess„o expirada! Favor efetuar logon novamente!");
+            document.alert("Sess√£o expirada! Favor efetuar logon novamente!");
             return;
         }
         String PRONTUARIO_FORMA_EDICAO = "PRONTUARIO_FORMA_EDICAO";

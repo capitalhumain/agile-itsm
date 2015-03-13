@@ -20,7 +20,7 @@ public class UploadDTO extends BaseEntity {
     private String idMudanca;
     private String caminhoRelativo;
 
-    /* Atributo criado para implementação do upload por serviço dentro da grid, referente ao idServico */
+    /* Atributo criado para implementaÃ§Ã£o do upload por serviÃ§o dentro da grid, referente ao idServico */
     private Integer idLinhaPai;
 
     private ControleGEDDTO controleGEDDto;

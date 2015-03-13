@@ -69,11 +69,11 @@ public class JornadaTrabalhoDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * Retorna se existe jornada j· cadastrada
+	 * Retorna se existe jornada j√° cadastrada
 	 * 
 	 * @author rodrigo.oliveira
 	 * @param jornadaTrabalhoDTO
-	 * @return Se caso existe jornada j· cadastrada retorna true
+	 * @return Se caso existe jornada j√° cadastrada retorna true
 	 * @throws Exception
 	 */
 	public boolean verificaJornadaExistente(JornadaTrabalhoDTO jornadaTrabalho) throws PersistenceException {

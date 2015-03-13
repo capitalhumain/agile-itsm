@@ -52,7 +52,7 @@ public class NotificacaoDao extends CrudDaoDefaultImpl {
 				return NotificacaoDTO.class;
 	}
 	/**
-	 * Retorna true caso titulo ja exista false caso titulo n„o exista ou esteje excluido.
+	 * Retorna true caso titulo ja exista false caso titulo n√£o exista ou esteje excluido.
 	 * 
 	 * @param obj
 	 * @return

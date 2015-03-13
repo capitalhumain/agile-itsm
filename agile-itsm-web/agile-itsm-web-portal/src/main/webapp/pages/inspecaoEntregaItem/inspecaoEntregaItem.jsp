@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.citframework.util.Constantes"%>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
@@ -13,7 +15,7 @@
         Collection<CriterioAvaliacaoDTO> colCriterios = (Collection)request.getAttribute("colCriterios");
     %>
 	<%@include file="/include/header.jsp"%>
-    <title><fmt:message key="citcorpore.comum.title"/></title>
+    <%@include file="/novoLayout/common/include/titulo.jsp" %>
     <%@include file="/include/menu/menuConfig.jsp" %>
 
     <%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp" %>
@@ -304,7 +306,7 @@
                      }
                      var idAux = eval('document.formItemRequisicao.idCriterio' + NumberUtil.zerosAEsquerda(i,5) + '.value');
                      if (idAux == idCriterio) {
-                          alert('CritÈrio j· selecionado!');
+                          alert('Crit√©rio j√° selecionado!');
                           eval('document.formItemRequisicao.idCriterio' + seq + '.focus()');
                           return false;
                      }
@@ -330,7 +332,7 @@
                             return false;
                         }
                         if (StringUtils.isBlank(criterioDto.avaliacao)){
-                            alert('Informe a avaliaÁ„o!');
+                            alert('Informe a avalia√ß√£o!');
                             eval('document.formItemRequisicao.avaliacao' + NumberUtil.zerosAEsquerda(i,5) + '.focus()');
                             return false;
                         }
@@ -532,7 +534,7 @@
                     </h2>
             </div>
             <div class="col_100" style='height:170px;overflow:auto;'>
-	             <cit:grid id="GRID_CRITERIOS" columnHeaders="CritÈrio;Avaliacao;ObservaÁıes" styleCells="linhaGrid" deleteIcon="false">
+	             <cit:grid id="GRID_CRITERIOS" columnHeaders="Crit√©rio;Avaliacao;Observa√ß√µes" styleCells="linhaGrid" deleteIcon="false">
 	                 <cit:column idGrid="GRID_CRITERIOS" number="001">
 	                     <select name='idCriterio#SEQ#' id='idCriterio#SEQ#' style='border:none;' disabled='disabled; min-width:20% !important'>
 	                         <option value=''><fmt:message key="citcorpore.comum.selecione" /></option>

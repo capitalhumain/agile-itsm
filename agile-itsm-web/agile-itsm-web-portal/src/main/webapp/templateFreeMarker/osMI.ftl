@@ -4,12 +4,12 @@
 <body>
 <table width='100%' cellspacing="0" cellpadding="0">
 	<tr>
-		<td colspan='5' style='border:1px solid black; background-color:#F0F0F0; font-family: arial; font-size: 11px;'>1 - ESPECIFICA«√O DOS PRODUTOS/SERVI«OS E VOLUMES</td>
+		<td colspan='5' style='border:1px solid black; background-color:#F0F0F0; font-family: arial; font-size: 11px;'>1 - ESPECIFICA√á√ÉO DOS PRODUTOS/SERVI√áOS E VOLUMES</td>
 	</tr>
 	<tr>
 		<td style='border:1px solid black;font-family: arial; font-size: 11px; background-color:#6600FF; color: white;text-align:center'>Atividades</td>
 		<td style='border:1px solid black;font-family: arial; font-size: 11px; background-color:#6600FF; color: white;text-align:center'>Produtos</td>
-		<td style='border:1px solid black;font-family: arial; font-size: 11px; background-color:#6600FF; color: white;text-align:center'>MÈtrica (HST)</td>
+		<td style='border:1px solid black;font-family: arial; font-size: 11px; background-color:#6600FF; color: white;text-align:center'>M√©trica (HST)</td>
 		<td style='border:1px solid black;font-family: arial; font-size: 11px; background-color:#6600FF; color: white;text-align:center'>Data Entrega</td>
 		<td style='border:1px solid black;font-family: arial; font-size: 11px; background-color:#6600FF; color: white;text-align:center'>Total</td>
 	</tr>
@@ -63,7 +63,7 @@
 
 <table width='100%' cellspacing="0" cellpadding="0">
 	<tr>
-		<td style='border:1px solid black;font-family: arial; font-size: 11px;background-color:#F0F0F0'>2 - INSTRU«’ES COMPLEMENTARES</td>
+		<td style='border:1px solid black;font-family: arial; font-size: 11px;background-color:#F0F0F0'>2 - INSTRU√á√ïES COMPLEMENTARES</td>
 	</tr>
 	<tr>
 		<td style='border:1px solid black;font-family: arial; font-size: 11px;'>${projectDTO.detalhamentoFmt}</td>
@@ -73,11 +73,11 @@
 
 <table width='100%' cellspacing="0" cellpadding="0">
 	<tr>
-		<td colspan='4' style='border:1px solid black;font-family: arial; font-size: 11px;background-color:#F0F0F0'>3 - CRONOGRAMA FÕSICO/ FINANCEIRO</td>
+		<td colspan='4' style='border:1px solid black;font-family: arial; font-size: 11px;background-color:#F0F0F0'>3 - CRONOGRAMA F√çSICO/ FINANCEIRO</td>
 	</tr>
 	<tr>
-		<td style='border:1px solid black;font-family: arial; font-size: 11px; background-color:#6600FF; color: white'>MÍs de referÍncia</td>
-		<td style='border:1px solid black;font-family: arial; font-size: 11px; background-color:#6600FF; color: white'>Entreg·veis</td>
+		<td style='border:1px solid black;font-family: arial; font-size: 11px; background-color:#6600FF; color: white'>M√™s de refer√™ncia</td>
+		<td style='border:1px solid black;font-family: arial; font-size: 11px; background-color:#6600FF; color: white'>Entreg√°veis</td>
 		<td style='border:1px solid black;font-family: arial; font-size: 11px; background-color:#6600FF; color: white'>Quantidade por Perfil/HST</td>
 		<td style='border:1px solid black;font-family: arial; font-size: 11px; background-color:#6600FF; color: white'>VALOR R$</td>
 	</tr>
@@ -150,7 +150,7 @@
 		<td colspan='5' style='border:1px solid black;font-family: arial; font-size: 11px;background-color:#F0F0F0'>4 - QUADRO RESUMO DOS RECURSOS INVESTIDOS</td>
 	</tr>
 	<tr>
-		<td style='border:1px solid black;font-family: arial; font-size: 11px;background-color:#CCFFFF;'><b>Perfil de ServiÁos</b></td>
+		<td style='border:1px solid black;font-family: arial; font-size: 11px;background-color:#CCFFFF;'><b>Perfil de Servi√ßos</b></td>
 		<td style='border:1px solid black;font-family: arial; font-size: 11px;text-align:right;background-color:#CCFFFF;'><b>HST</b></td>
 		<td style='border:1px solid black;font-family: arial; font-size: 11px;text-align:right;background-color:#CCFFFF;'><b>VALOR R$</b></td>
 	</tr>	
@@ -198,8 +198,8 @@
 		<td colspan='3' style='border:1px solid black;font-family: arial; font-size: 11px;background-color:#F0F0F0'>6 - DATAS E PRAZOS</td>
 	</tr>
 	<tr>
-		<td style='border:1px solid black;font-family: arial; font-size: 11px;background-color:#CCFFFF;text-align:center;'>Data Prevista para InÌcio dos Produtos / ServiÁos</td>
-		<td style='border:1px solid black;font-family: arial; font-size: 11px;background-color:#CCFFFF;text-align:center;'>Data Prevista para Entrega dos Produtos / ServiÁos</td>
+		<td style='border:1px solid black;font-family: arial; font-size: 11px;background-color:#CCFFFF;text-align:center;'>Data Prevista para In√≠cio dos Produtos / Servi√ßos</td>
+		<td style='border:1px solid black;font-family: arial; font-size: 11px;background-color:#CCFFFF;text-align:center;'>Data Prevista para Entrega dos Produtos / Servi√ßos</td>
 		<td style='border:1px solid black;font-family: arial; font-size: 11px;background-color:#CCFFFF;text-align:center;'>Prazo Total do Contrato (com a Garantia)</td>
 	</tr>	
 	<tr>
@@ -212,32 +212,32 @@
 
 <table width='100%' cellspacing="0" cellpadding="0">
 	<tr>
-		<td colspan='2' style='border:1px solid black;font-family: arial; font-size: 11px;background-color:#F0F0F0'>7 - CI NCIA</td>
+		<td colspan='2' style='border:1px solid black;font-family: arial; font-size: 11px;background-color:#F0F0F0'>7 - CI√äNCIA</td>
 	</tr>
 	<tr>
 		<td colspan='2' style='border:1px solid black;font-family: arial; font-size: 11px;background-color:#CCFFFF;text-align:center;'>CONTRATANTE</td>
 	</tr>
 	<tr>
-		<td width='50%' style='border:1px solid black;font-family: arial; font-size: 11px;background-color:#CCFFFF;text-align:center;'>¡rea Requisitante da SoluÁ„o</td>
+		<td width='50%' style='border:1px solid black;font-family: arial; font-size: 11px;background-color:#CCFFFF;text-align:center;'>√Årea Requisitante da Solu√ß√£o</td>
 		<td width='50%' style='border:1px solid black;font-family: arial; font-size: 11px;background-color:#CCFFFF;text-align:center;'>Gestor do Contrato</td>
 	</tr>
 	<tr>
 		<td width='50%' style='border:1px solid black;font-family: arial; font-size: 11px;text-align:center;'><br/><br/><br/>
-			JO√O MARCELO ALVES DE ANDRADE<br/>
-			MatrÌcula:154613		
+			JO√ÉO MARCELO ALVES DE ANDRADE<br/>
+			Matr√≠cula:154613		
 		</td>
 		<td width='50%' style='border:1px solid black;font-family: arial; font-size: 11px;text-align:center;'><br/><br/><br/>
-			FL¡VIO FERREIRA DOS SANTOS<br/>
-			MatrÌcula: 1777179		
+			FL√ÅVIO FERREIRA DOS SANTOS<br/>
+			Matr√≠cula: 1777179		
 		</td>
 	</tr>
 	<tr>
-		<td colspan='2' style='border:1px solid black;font-family: arial; font-size: 11px;background-color:#CCFFFF;text-align:center;'>Gestor de Tecnologia da InformaÁ„o</td>
+		<td colspan='2' style='border:1px solid black;font-family: arial; font-size: 11px;background-color:#CCFFFF;text-align:center;'>Gestor de Tecnologia da Informa√ß√£o</td>
 	</tr>	
 	<tr>
 		<td colspan='2' style='border:1px solid black;font-family: arial; font-size: 11px;text-align:center;'><br/><br/><br/>
-			EDUARDO MENDON«A DA SILVA<br/>
-            MatrÌcula:1780203
+			EDUARDO MENDON√áA DA SILVA<br/>
+            Matr√≠cula:1780203
 		</td>
 	</tr>	
 	<tr>
@@ -248,7 +248,7 @@
 	</tr>	
 	<tr>
 		<td colspan='2' style='border:1px solid black;font-family: arial; font-size: 11px;text-align:center;'><br/><br/><br/>
-			JO√O RAFAEL DE SOUZA PUGLIA</br>
+			JO√ÉO RAFAEL DE SOUZA PUGLIA</br>
 			CTIS 
 		</td>
 	</tr>

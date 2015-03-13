@@ -19,17 +19,17 @@ import br.com.citframework.util.UtilStrings;
 public class AdaptacaoBD {
 
     /**
-     * Arquivo de configuraÁ„o das adaptaÁıes.
+     * Arquivo de configura√ß√£o das adapta√ß√µes.
      */
     private static Properties prop = null;
 
     /**
-     * MÈtodo construtor.
+     * M√©todo construtor.
      */
     protected AdaptacaoBD() {}
 
     /**
-     * @return adaptaÁıes configuradas.
+     * @return adapta√ß√µes configuradas.
      */
     private static Properties getProp() {
         if (prop == null) {
@@ -47,7 +47,7 @@ public class AdaptacaoBD {
                 prop.load(inADPDB);
             } catch (final Exception e) {
                 e.printStackTrace();
-                throw new Error("Arquivo de configuraÁ„o " + "'AdaptacaoBancos.properties' n„o encontrado.");
+                throw new Error("Arquivo de configura√ß√£o " + "'AdaptacaoBancos.properties' n√£o encontrado.");
             }
         }
         return prop;
@@ -55,7 +55,7 @@ public class AdaptacaoBD {
 
     /**
      * @param ds
-     *            - DataSource que contÈm os dados de conex„o.
+     *            - DataSource que cont√©m os dados de conex√£o.
      * @return identificador do banco de dados obtido do DataSource.
      */
     public static String getBancoUtilizado(final DataSource ds) {
@@ -64,7 +64,7 @@ public class AdaptacaoBD {
                 return getBancoUtilizadoByDBProductName(conn.getMetaData().getDatabaseProductName());
             } catch (final Exception e) {
                 e.printStackTrace();
-                System.out.println("CITSMART -> atencao: N„o È possÌvel obter a URL de conex„o do DataSource! Assumindo padr„o: ORACLE!");
+                System.out.println("CITSMART -> atencao: N√£o √© poss√≠vel obter a URL de conex√£o do DataSource! Assumindo padr√£o: ORACLE!");
                 return "oracle"; // retorna o padrao.
             }
         }
@@ -81,7 +81,7 @@ public class AdaptacaoBD {
             return getBancoUtilizadoByDBProductName(conn.getMetaData().getDatabaseProductName());
         } catch (final Exception e) {
             e.printStackTrace();
-            System.out.println("CITSMART -> atencao: N„o È possÌvel obter a URL de conex„o do DataSource! Assumindo padr„o: ORACLE!");
+            System.out.println("CITSMART -> atencao: N√£o √© poss√≠vel obter a URL de conex√£o do DataSource! Assumindo padr√£o: ORACLE!");
             return "oracle"; // retorna o padrao.
         }
     }
@@ -109,7 +109,7 @@ public class AdaptacaoBD {
     /**
      * Retorna o comando SQL para obter a data.
      *
-     * @return adaptaÁ„o referente ao banco de dados acessado pelo DataSource.
+     * @return adapta√ß√£o referente ao banco de dados acessado pelo DataSource.
      */
     public static String getDate() {
         String p = CITCorporeUtil.SGBD_PRINCIPAL;
@@ -123,7 +123,7 @@ public class AdaptacaoBD {
     /**
      * Retorna o comando SQL para obter o timestamp.
      *
-     * @return adaptaÁ„o referente ao banco de dados acessado pelo DataSource.
+     * @return adapta√ß√£o referente ao banco de dados acessado pelo DataSource.
      */
     public static String getTimestamp() {
         String p = CITCorporeUtil.SGBD_PRINCIPAL;
@@ -137,7 +137,7 @@ public class AdaptacaoBD {
     /**
      * Retorna o comando SQL para obter a hora.
      *
-     * @return adaptaÁ„o referente ao banco de dados acessado pelo DataSource.
+     * @return adapta√ß√£o referente ao banco de dados acessado pelo DataSource.
      */
     public static String getTime() {
         String p = CITCorporeUtil.SGBD_PRINCIPAL;
@@ -152,8 +152,8 @@ public class AdaptacaoBD {
      * Retorna o comando SQL para obter o dia de uma data.
      *
      * @param sourceData
-     *            - Fonte da informaÁ„o a ser convertida. Pode ser o nome de um campo ou a prÛpria data a ser convertida.
-     * @return adaptaÁ„o referente ao banco de dados acessado pelo DataSource.
+     *            - Fonte da informa√ß√£o a ser convertida. Pode ser o nome de um campo ou a pr√≥pria data a ser convertida.
+     * @return adapta√ß√£o referente ao banco de dados acessado pelo DataSource.
      */
     public static String getDay(final String sourceData) {
         String p = CITCorporeUtil.SGBD_PRINCIPAL;
@@ -193,8 +193,8 @@ public class AdaptacaoBD {
      * Retorna o comando SQL para obter o dia da semana de uma data.
      *
      * @param sourceData
-     *            - Fonte da informaÁ„o a ser convertida. Pode ser o nome de um campo ou a prÛpria data a ser convertida.
-     * @return adaptaÁ„o referente ao banco de dados acessado pelo DataSource.
+     *            - Fonte da informa√ß√£o a ser convertida. Pode ser o nome de um campo ou a pr√≥pria data a ser convertida.
+     * @return adapta√ß√£o referente ao banco de dados acessado pelo DataSource.
      */
     public static String getDayOfWeek(final String sourceData) {
         String p = CITCorporeUtil.SGBD_PRINCIPAL;
@@ -210,11 +210,11 @@ public class AdaptacaoBD {
     }
 
     /**
-     * Retorna o comando SQL para obter o n˙mero do mÍs de uma data.
+     * Retorna o comando SQL para obter o n√∫mero do m√™s de uma data.
      *
      * @param sourceData
-     *            - Fonte da informaÁ„o a ser convertida. Pode ser o nome de um campo ou a prÛpria data a ser convertida.
-     * @return adaptaÁ„o referente ao banco de dados acessado pelo DataSource.
+     *            - Fonte da informa√ß√£o a ser convertida. Pode ser o nome de um campo ou a pr√≥pria data a ser convertida.
+     * @return adapta√ß√£o referente ao banco de dados acessado pelo DataSource.
      */
     public static String getMonth(final String sourceData) {
         String p = CITCorporeUtil.SGBD_PRINCIPAL;
@@ -235,8 +235,8 @@ public class AdaptacaoBD {
      * Retorna o comando SQL para obter o ano de uma data.
      *
      * @param sourceData
-     *            - Fonte da informaÁ„o a ser convertida. Pode ser o nome de um campo ou a prÛpria data a ser convertida.
-     * @return adaptaÁ„o referente ao banco de dados acessado pelo DataSource.
+     *            - Fonte da informa√ß√£o a ser convertida. Pode ser o nome de um campo ou a pr√≥pria data a ser convertida.
+     * @return adapta√ß√£o referente ao banco de dados acessado pelo DataSource.
      */
     public static String getYear(final String sourceData) {
         String p = CITCorporeUtil.SGBD_PRINCIPAL;
@@ -254,9 +254,9 @@ public class AdaptacaoBD {
     }
 
     /**
-     * Retorna o comando SQL para setar o formato padr„o de datas.
+     * Retorna o comando SQL para setar o formato padr√£o de datas.
      *
-     * @return adaptaÁ„o referente ao banco de dados acessado pelo DataSource.
+     * @return adapta√ß√£o referente ao banco de dados acessado pelo DataSource.
      */
     public static String getSetDateFormat() {
         String p = CITCorporeUtil.SGBD_PRINCIPAL;
@@ -268,11 +268,11 @@ public class AdaptacaoBD {
     }
 
     /**
-     * Retorna o comando SQL para convers„o de algum campo para varchar.
+     * Retorna o comando SQL para convers√£o de algum campo para varchar.
      *
      * @param sourceData
-     *            - Fonte da informaÁ„o a ser convertida. Pode ser o nome de um campo ou a prÛpria data a ser convertida.
-     * @return adaptaÁ„o referente ao banco de dados acessado pelo DataSource.
+     *            - Fonte da informa√ß√£o a ser convertida. Pode ser o nome de um campo ou a pr√≥pria data a ser convertida.
+     * @return adapta√ß√£o referente ao banco de dados acessado pelo DataSource.
      */
     public static String getCastToChar(final String sourceData) {
         String p = CITCorporeUtil.SGBD_PRINCIPAL;
@@ -290,11 +290,11 @@ public class AdaptacaoBD {
     }
 
     /**
-     * Retorna o comando SQL para convers„o de campos CLOB's em varchar.
+     * Retorna o comando SQL para convers√£o de campos CLOB's em varchar.
      *
      * @param sourceData
-     *            - Fonte da informaÁ„o a ser convertida. Pode ser o nome de um campo ou a prÛpria data a ser convertida.
-     * @return adaptaÁ„o referente ao banco de dados acessado pelo DataSource.
+     *            - Fonte da informa√ß√£o a ser convertida. Pode ser o nome de um campo ou a pr√≥pria data a ser convertida.
+     * @return adapta√ß√£o referente ao banco de dados acessado pelo DataSource.
      */
     public static String getClobToVarchar(final String sourceData) {
         String p = CITCorporeUtil.SGBD_PRINCIPAL;
@@ -315,11 +315,11 @@ public class AdaptacaoBD {
      * Ajusta o SQL para retornar apenas a quantidade de registros desejada.
      *
      * @param select
-     *            - script SQL que ser· ajustado.
+     *            - script SQL que ser√° ajustado.
      * @param qtd
-     *            - quantidade de linhas que ser„o retornadas.
+     *            - quantidade de linhas que ser√£o retornadas.
      * @param orderBy
-     *            - condiÁ„o ORDER BY para ajuste do SQL. N„o È obrigatÛrio.
+     *            - condi√ß√£o ORDER BY para ajuste do SQL. N√£o √© obrigat√≥rio.
      * @return SQL ajustada.
      */
     public static String getFetchFirst(final String select, final Integer qtd, final String orderBy) {
@@ -338,11 +338,11 @@ public class AdaptacaoBD {
     }
 
     /**
-     * Retorna o comando SQL para obter as horas e minutos a partir de um campo que armazena data e hora. O formato retornado È <i>HH:mm</i>.
+     * Retorna o comando SQL para obter as horas e minutos a partir de um campo que armazena data e hora. O formato retornado √© <i>HH:mm</i>.
      *
      * @param sourceData
-     *            - Fonte da informaÁ„o a ser convertida. Pode ser o nome de um campo ou o prÛprio timestamp a ser convertido.
-     * @return adaptaÁ„o referente ao banco de dados acessado pelo DataSource.
+     *            - Fonte da informa√ß√£o a ser convertida. Pode ser o nome de um campo ou o pr√≥prio timestamp a ser convertido.
+     * @return adapta√ß√£o referente ao banco de dados acessado pelo DataSource.
      */
     public static String getConvertDatetimeToHHMMChar(final String sourceData) {
         String p = CITCorporeUtil.SGBD_PRINCIPAL;
@@ -358,11 +358,11 @@ public class AdaptacaoBD {
     }
 
     /**
-     * Retorna o comando SQL para obter a data a partir de um campo que armazena data e hora. O formato retornado È <i>DD/MM/YYYY</i>.
+     * Retorna o comando SQL para obter a data a partir de um campo que armazena data e hora. O formato retornado √© <i>DD/MM/YYYY</i>.
      *
      * @param sourceData
-     *            - Fonte da informaÁ„o a ser convertida. Pode ser o nome de um campo ou o prÛprio timestamp a ser convertido.
-     * @return adaptaÁ„o referente ao banco de dados acessado pelo DataSource.
+     *            - Fonte da informa√ß√£o a ser convertida. Pode ser o nome de um campo ou o pr√≥prio timestamp a ser convertido.
+     * @return adapta√ß√£o referente ao banco de dados acessado pelo DataSource.
      */
     public static String getConvertDateToDDMMYYYYChar(final String sourceData) {
         String p = CITCorporeUtil.SGBD_PRINCIPAL;

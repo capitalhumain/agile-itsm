@@ -76,7 +76,7 @@ public interface OSService extends CrudService {
 	public boolean retornaRegistroOsPai(OSDTO osDTO) throws Exception;
 
 	/**
-	 * Retonar uma lista com as informações do contrato.
+	 * Retonar uma lista com as informaÃ§Ãµes do contrato.
 	 * @param relatorio
 	 * @return
 	 * @throws Exception

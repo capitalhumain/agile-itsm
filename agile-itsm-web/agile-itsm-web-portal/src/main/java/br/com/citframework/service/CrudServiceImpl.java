@@ -165,7 +165,7 @@ public abstract class CrudServiceImpl implements CrudService, IService {
      * @param key
      *            chave a ser procurada
      * @param params
-     *            par‚metros para formataÁ„o, caso haja
+     *            par√¢metros para formata√ß√£o, caso haja
      * @return
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      * @since 30/09/2014

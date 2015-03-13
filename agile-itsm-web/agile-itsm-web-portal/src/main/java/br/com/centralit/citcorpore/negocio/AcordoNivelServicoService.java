@@ -35,7 +35,7 @@ public interface AcordoNivelServicoService extends CrudService {
     List<AcordoNivelServicoDTO> findAcordosSemVinculacaoDireta() throws Exception;
 
     /**
-     * Cria um novo acordo de nível de serviço
+     * Cria um novo acordo de nÃ­vel de serviÃ§o
      *
      * @param acordoNivelServicoDTO
      * @param acordoNivelServicoHistoricoDTO
@@ -47,7 +47,7 @@ public interface AcordoNivelServicoService extends CrudService {
             AcordoNivelServicoHistoricoDTO acordoNivelServicoHistoricoDTO) throws ServiceException, LogicException;
 
     /**
-     * Atualiza um novo acordo de nível de serviço
+     * Atualiza um novo acordo de nÃ­vel de serviÃ§o
      *
      * @param acordoNivelServicoDTO
      * @param acordoNivelServicoHistoricoDTO

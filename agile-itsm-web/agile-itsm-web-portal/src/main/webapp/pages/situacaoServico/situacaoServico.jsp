@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.citframework.dto.Usuario"%>
@@ -7,8 +9,7 @@
 <head>
 <%@include file="/include/header.jsp"%>
 
-<%@include file="/include/security/security.jsp" %>
-<title>CIT Corpore</title>
+<%@include file="/novoLayout/common/include/titulo.jsp" %>
 
 <%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 	<script type="text/javascript" src="./js/situacaoServico.js"></script>
@@ -46,7 +47,7 @@
 											<label class="campoObrigatorio"><fmt:message key="situacao.nome"/></label>
 											<div>
 												<input type='text' name="nomeSituacaoServico" maxlength="100"
-													class="Valid[Required] Description[Nome da Situação do Serviço]" />
+													class="Valid[Required] Description[Nome da SituaÃ§Ã£o do ServiÃ§o]" />
 											</div>
 										</fieldset>
 									</div>

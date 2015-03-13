@@ -28,12 +28,12 @@ public class GrupoDao extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Select para lista GRUPO que ainda n�o forma associados a EMPREGADOS.
+	 * Select para lista GRUPO que ainda não forma associados a EMPREGADOS.
 	 */
 	private static final String SQL_NOMEGRUPO = "select idgrupo,nome " + "from grupo where idgrupo not in(select idgrupo from empregados)";
 
 	/**
-	 * Select para lista GRUPO que ainda n�o forma associados a USU�RIOS.
+	 * Select para lista GRUPO que ainda não forma associados a USUï¿½RIOS.
 	 */
 	private static final String SQL_NOMEUSUARIO = "select idgrupo,nome " + "from grupo where idgrupo not in(select idgrupo from usuario)";
 
@@ -86,7 +86,7 @@ public class GrupoDao extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Retorna lista de GRUPO que ainda n�o est�o associados a EMPREGADOS.
+	 * Retorna lista de GRUPO que ainda não estï¿½o associados a EMPREGADOS.
 	 * 
 	 * @return
 	 * @throws Exception
@@ -104,7 +104,7 @@ public class GrupoDao extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Retorna lista de GRUPO que ainda n�o est�o associados a USU�RIO.
+	 * Retorna lista de GRUPO que ainda não estï¿½o associados a USUï¿½RIO.
 	 * 
 	 * @return
 	 * @throws Exception
@@ -289,9 +289,9 @@ public class GrupoDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * Bruno.Aquino - Listar todos os grupos que o usu�rio estiver vinculado.
+	 * Bruno.Aquino - Listar todos os grupos que o usuário estiver vinculado.
 	 * 
-	 * @param idUsu�rio
+	 * @param idUsuário
 	 * @return Lista de Grupos
 	 * @throws PersistenceException
 	 */
@@ -347,7 +347,7 @@ public class GrupoDao extends CrudDaoDefaultImpl {
 	 * Verifica se Grupo informada existe.
 	 * 
 	 * @param grupo
-	 * @return true - existe; false - n�o existe;
+	 * @return true - existe; false - não existe;
 	 * @throws PersistenceException
 	 */
 	public boolean verificarSeGrupoExiste(GrupoDTO grupo) throws PersistenceException {
@@ -371,7 +371,7 @@ public class GrupoDao extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Retorna lista de e-mails que est�o cadastrados para receber notifica��o
+	 * Retorna lista de e-mails que estão cadastrados para receber notificação
 	 * 
 	 * @param idGrupo
 	 * @return List<String> emails

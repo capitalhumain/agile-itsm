@@ -11,7 +11,7 @@
 
 				$(function() {
 					$("#POPUP_NOTIFICACAO").dialog({
-						title: 'Notifica��es',
+						title: 'Notificaï¿½ï¿½es',
 						autoOpen : false,
 						width : 1300,
 						height : 600,
@@ -309,7 +309,7 @@
 					var arrayIdUsuario = document.getElementsByName("idUsuario");
 					for (var i = 0; i < arrayIdUsuario.length; i++){
 						if (arrayIdUsuario[i].value == id){
-							alert('Regristro j� adicionado!');
+							alert('Regristro jï¿½ adicionado!');
 							return false;
 						}
 
@@ -317,7 +317,7 @@
 				} else if (lastRow == 2){
 					var idUsuario = document.getElementsByName("idUsuario");
 					if (idUsuario[0].value == id){
-						alert('Regristro j� adicionado!');
+						alert('Regristro jï¿½ adicionado!');
 						return false;
 					}
 				}

@@ -22,22 +22,22 @@ public interface CategoriaPostService extends CrudService {
 	public Collection listCategoriasAtivas() throws Exception;
 
 	/**
-	 * Verifica se Categoria ServiÁo possui subcategoria ou serviÁo associado.
+	 * Verifica se Categoria Servi√ßo possui subcategoria ou servi√ßo associado.
 	 * 
 	 * @param categoriaServico
-	 * @return - <b>True:</b> Possui. - <b>False: </b>N„o possui.
+	 * @return - <b>True:</b> Possui. - <b>False: </b>N√£o possui.
 	 * @throws PersistenceException
 	 * @throws ServiceException
 	 */
 	public boolean verificarSeCategoriaPossuiServicoOuSubCategoria(CategoriaPostDTO categoriaPostDTO) throws PersistenceException, br.com.citframework.excecao.ServiceException;
 
 	/**
-	 * Verifica se categoria informada j· existe.
+	 * Verifica se categoria informada j√° existe.
 	 * 
 	 * @param categoriaServicoDTO
 	 * @throws PersistenceException
 	 * @throws ServiceException
-	 * @return true - existe; false - n„o existe;
+	 * @return true - existe; false - n√£o existe;
 	 */
 	public boolean verificarSeCategoriaExiste(CategoriaPostDTO categoriaPostDTO) throws PersistenceException, ServiceException;
 

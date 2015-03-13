@@ -3,7 +3,7 @@ package br.com.citframework.util.geo;
 import br.com.citframework.util.Assert;
 
 /**
- * Classe que representa um ponto na superfÌcie de uma esfera
+ * Classe que representa um ponto na superf√≠cie de uma esfera
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 23/10/2014
@@ -39,11 +39,11 @@ public class GeoLocation {
     }
 
     /**
-     * Calcula um cÌrculo de dist‚ncia entre o ponto geogr·fico informado como argumento e o ponto geogr·fico atual
+     * Calcula um c√≠rculo de dist√¢ncia entre o ponto geogr√°fico informado como argumento e o ponto geogr√°fico atual
      *
      * @param radius
-     *            o raio na esfera, para calculo da dist‚ncia. Como exemplo, o raio aproximado da terra È 6371.01 quilÙmetros
-     * @return dist‚ncia, na mesma unidade de medida do raio informado como argumento
+     *            o raio na esfera, para calculo da dist√¢ncia. Como exemplo, o raio aproximado da terra √© 6371.01 quil√¥metros
+     * @return dist√¢ncia, na mesma unidade de medida do raio informado como argumento
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      * @since 23/10/2014
      */
@@ -55,13 +55,13 @@ public class GeoLocation {
     }
 
     /**
-     * Calcula dist‚ncia em quilÙmetros entre dois pontos presentes na terra
+     * Calcula dist√¢ncia em quil√¥metros entre dois pontos presentes na terra
      *
      * @param pointOne
-     *            primeiro ponto para c·lculo da dist‚ncia
+     *            primeiro ponto para c√°lculo da dist√¢ncia
      * @param pointTwo
-     *            segundo ponto para c·lculo da dist‚ncia
-     * @return dist‚ncia, em quilÙmetros, entre os pontos
+     *            segundo ponto para c√°lculo da dist√¢ncia
+     * @return dist√¢ncia, em quil√¥metros, entre os pontos
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
      * @since 23/10/2014
      */
@@ -72,14 +72,14 @@ public class GeoLocation {
 
     /**
      * <p>
-     * Calcula as coordenadas limite de todos os pontos da superfÌcie de uma esfera, tendo como referÍncia {@link GeoLocation} e que a dist‚ncia È menor ou igual ‡ dist‚ncia
+     * Calcula as coordenadas limite de todos os pontos da superf√≠cie de uma esfera, tendo como refer√™ncia {@link GeoLocation} e que a dist√¢ncia √© menor ou igual √† dist√¢ncia
      * {@code distance}
      * </p>
      *
      * @param distance
-     *            a dist‚ncia do ponto representado pela inst‚ncia. Ser· medido na mesma unidade do argumento {@code radius}
+     *            a dist√¢ncia do ponto representado pela inst√¢ncia. Ser√° medido na mesma unidade do argumento {@code radius}
      * @param radius
-     *            raio da esfera onde ser· calculado a dist‚ncia
+     *            raio da esfera onde ser√° calculado a dist√¢ncia
      * @return um array contendo dois objetos {@link GeoLocation}, sendo o primeiro contendo as menores coordenadas e o segundo contendo as maiores coordenadas
      */
     public GeoLocation[] boundingCoordinates(final double distance, final double radius) {
@@ -114,7 +114,7 @@ public class GeoLocation {
     }
 
     /**
-     * Gera um objeto {@link GeoLocation} a partir de ponto geogr·fico representado em graus
+     * Gera um objeto {@link GeoLocation} a partir de ponto geogr√°fico representado em graus
      *
      * @param latitude
      *            latitude em graus
@@ -134,7 +134,7 @@ public class GeoLocation {
     }
 
     /**
-     * Gera um objeto {@link GeoLocation} a partir de ponto geogr·fico representado em radianos
+     * Gera um objeto {@link GeoLocation} a partir de ponto geogr√°fico representado em radianos
      *
      * @param latitude
      *            latitude em radianos

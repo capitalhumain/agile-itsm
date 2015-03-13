@@ -41,12 +41,12 @@ public class ColetaPrecoServiceEjb extends CrudServiceImpl implements ColetaPrec
 
     private void validaAtualizacao(final ColetaPrecoDTO coletaPrecoDto) throws Exception {
         if (coletaPrecoDto.getDataValidade() != null && coletaPrecoDto.getDataValidade().compareTo(coletaPrecoDto.getDataColeta()) < 0) {
-            throw new LogicException("Data da validade n„o pode ser menor que a data da coleta");
+            throw new LogicException("Data da validade n√£o pode ser menor que a data da coleta");
         }
         if (coletaPrecoDto.getIdColetaPreco() == null) {
             final Collection<ColetaPrecoDTO> colColetas = this.findByIdItemCotacaoAndIdFornecedor(coletaPrecoDto.getIdFornecedor(), coletaPrecoDto.getIdItemCotacao());
             if (colColetas != null && !colColetas.isEmpty()) {
-                throw new LogicException("J· existe uma coleta de preÁo para este fornecedor e este item");
+                throw new LogicException("J√° existe uma coleta de pre√ßo para este fornecedor e este item");
             }
         }
         ItemCotacaoDTO itemCotacaoDto = new ItemCotacaoDTO();
@@ -56,7 +56,7 @@ public class ColetaPrecoServiceEjb extends CrudServiceImpl implements ColetaPrec
             return;
         }
         if (!new AvaliacaoFornecedorServiceEjb().fornecedorQualificado(coletaPrecoDto.getIdFornecedor())) {
-            throw new LogicException("Este item de cotaÁ„o exige que o fornecedor seja qualificado");
+            throw new LogicException("Este item de cota√ß√£o exige que o fornecedor seja qualificado");
         }
     }
 
@@ -121,10 +121,10 @@ public class ColetaPrecoServiceEjb extends CrudServiceImpl implements ColetaPrec
             for (int i = 0; i < idCriterioColeta.length; i++) {
                 if (idCriterioColeta[i] != null) {
                     if (pesoCriterioColeta[i] == null) {
-                        throw new Exception("AvaliaÁ„o n„o informada");
+                        throw new Exception("Avalia√ß√£o n√£o informada");
                     }
                     if (pesoCriterioColeta[i].intValue() > 10) {
-                        throw new Exception("A avaliaÁ„o deve estar entre 0 e 10");
+                        throw new Exception("A avalia√ß√£o deve estar entre 0 e 10");
                     }
 
                     final AvaliacaoColetaPrecoDTO avaliacaoCotacaoDto = new AvaliacaoColetaPrecoDTO();
@@ -218,22 +218,22 @@ public class ColetaPrecoServiceEjb extends CrudServiceImpl implements ColetaPrec
     @Override
     public void defineResultado(final ColetaPrecoDTO coletaPrecoDto) throws Exception {
         if (coletaPrecoDto.getResultadoFinal() == null || coletaPrecoDto.getResultadoFinal().equals(ColetaPrecoDTO.RESULT_EMPATE)) {
-            throw new LogicException("Resultado n„o definido");
+            throw new LogicException("Resultado n√£o definido");
         }
         if (coletaPrecoDto.getQuantidadeCompra() == null) {
-            throw new LogicException("Quantidade para compra n„o definida");
+            throw new LogicException("Quantidade para compra n√£o definida");
         }
 
         ColetaPrecoDTO coletaPrecoBean = new ColetaPrecoDTO();
         coletaPrecoBean = (ColetaPrecoDTO) this.restore(coletaPrecoDto);
 
         if (coletaPrecoDto.getQuantidadeCompra().doubleValue() > coletaPrecoBean.getQuantidadeCotada().doubleValue()) {
-            throw new LogicException("Quantidade para compra È maior que a quantidade cotada");
+            throw new LogicException("Quantidade para compra √© maior que a quantidade cotada");
         }
 
         if (coletaPrecoDto.getResultadoFinal().equals(ColetaPrecoDTO.RESULT_MELHOR_COTACAO)
                 && (coletaPrecoDto.getQuantidadeCompra() == null || coletaPrecoDto.getQuantidadeCompra().doubleValue() == 0)) {
-            throw new LogicException("Quantidade para compra n„o definida");
+            throw new LogicException("Quantidade para compra n√£o definida");
         }
 
         if (coletaPrecoDto.getIdJustifResultado() == null) {
@@ -243,7 +243,7 @@ public class ColetaPrecoServiceEjb extends CrudServiceImpl implements ColetaPrec
             }
 
             if (bExibeJustificativa) {
-                throw new LogicException("Justificativa n„o informada");
+                throw new LogicException("Justificativa n√£o informada");
             }
         }
 

@@ -56,7 +56,7 @@ function ImagemItemConfiguracao(_context, _caminho){
 	// GETTERS & SETTERS
 	/**
 	 * Retorna o caminho da imagem com o nome da pasta
-	 * raiz + o nome do tipo de item configura��o.
+	 * raiz + o nome do tipo de item configuraï¿½ï¿½o.
 	 */
 	this.getCaminhoImagem = function(){
 		return pastaImagens + this.caminhoImagem;

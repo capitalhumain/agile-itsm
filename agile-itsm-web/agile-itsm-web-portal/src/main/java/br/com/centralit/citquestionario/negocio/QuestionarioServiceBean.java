@@ -91,7 +91,7 @@ public class QuestionarioServiceBean extends CrudServiceImpl implements Question
                         }
                         final Collection colQuestoesSigla = questaoDao.listBySiglaAndIdQuestao(questaoDto.getSigla(), idQuestaoOrigem, idQuestao);
                         if (colQuestoesSigla.size() > 0) {
-                            // throw new LogicException("A sigla "+questaoDto.getSigla()+" já está sendo utilizada por outra questão.");
+                            // throw new LogicException("A sigla "+questaoDto.getSigla()+" jÃ¡ estÃ¡ sendo utilizada por outra questÃ£o.");
                         }
                     }
                 }
@@ -589,7 +589,7 @@ public class QuestionarioServiceBean extends CrudServiceImpl implements Question
          * Collection colRespostas = new ArrayList();
          * if (questDto.getTipo().equalsIgnoreCase("L") || questDto.getTipo().equalsIgnoreCase("M")) {
          * if (questDto.getColQuestoesAgrupadas() != null && questDto.getColQuestoesAgrupadas().size() > 0) {
-         * // recupera a última questao respondida da matriz ou tabela
+         * // recupera a Ãºltima questao respondida da matriz ou tabela
          * RespostaItemQuestionarioDTO respostaItemDto = respostaDao.getUltimaRespostaBySiglaQuestaoAgrupadora(questDto.getSigla(), idPessoa);
          * if (respostaItemDto != null) {
          * Collection colRespQuestaoAgrupada = null;
@@ -604,7 +604,7 @@ public class QuestionarioServiceBean extends CrudServiceImpl implements Question
          * questaoAuxDto.setIdQuestaoQuestionario(respQuestaoDto.getIdQuestaoQuestionario());
          * questaoAuxDto = (QuestaoQuestionarioDTO) questaoDao.restore(questaoAuxDto);
          * if (questaoAuxDto.getSigla() != null) {
-         * // localiza a questão com a mesma sigla
+         * // localiza a questÃ£o com a mesma sigla
          * for (Iterator itQuest = questDto.getColQuestoesAgrupadas().iterator(); itQuest.hasNext();){
          * QuestaoQuestionarioDTO questaoAgrupadaDto = (QuestaoQuestionarioDTO) itQuest.next();
          * if (questaoAgrupadaDto.getSigla() != null && questaoAgrupadaDto.getSigla().equalsIgnoreCase(questaoAuxDto.getSigla())) {
@@ -626,7 +626,7 @@ public class QuestionarioServiceBean extends CrudServiceImpl implements Question
          * }
          * }
          * }else{
-         * // recupera a última resposta dos outros tipos de questão
+         * // recupera a Ãºltima resposta dos outros tipos de questÃ£o
          * RespostaItemQuestionarioDTO respostaItemDto = null;
          * if (questDto.getUltimoValor().equalsIgnoreCase("S")) {
          * respostaItemDto = respostaDao.getUltimaRespostaByIdQuestao(questDto.getIdQuestaoOrigem(), idPessoa);
@@ -634,12 +634,12 @@ public class QuestionarioServiceBean extends CrudServiceImpl implements Question
          * respostaItemDto = respostaDao.getUltimaRespostaBySiglaQuestao(questDto.getSigla(), idPessoa);
          * }
          * if (respostaItemDto != null) {
-         * // associa a resposta à questão
+         * // associa a resposta Ã  questÃ£o
          * respostaItemDto.setIdQuestaoQuestionario(questDto.getIdQuestaoQuestionario());
          * colRespostas.add(respostaItemDto);
          * }
          * }
-         * // monta as opções de resposta
+         * // monta as opÃ§Ãµes de resposta
          * recuperaOpcoesResposta(questDto, colRespostas);
          * // limpa o identificador e id da resposta
          * for (Iterator itAux = colRespostas.iterator(); itAux.hasNext();){

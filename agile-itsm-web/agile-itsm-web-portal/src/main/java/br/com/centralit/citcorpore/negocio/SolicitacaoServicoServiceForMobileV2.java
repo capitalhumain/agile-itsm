@@ -11,7 +11,7 @@ import br.com.citframework.integracao.core.Pageable;
 import br.com.citframework.service.CrudService;
 
 /**
- * ServiÁos para as consultas de {@link SolicitacaoServicoDTO} realizadas pelo mobile V2
+ * Servi√ßos para as consultas de {@link SolicitacaoServicoDTO} realizadas pelo mobile V2
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 09/10/2014
@@ -23,13 +23,13 @@ public interface SolicitacaoServicoServiceForMobileV2 extends CrudService {
      * Lista {@link SolicitacaoServicoDTO} de acordo com a mais recente presente no APP
      *
      * @param newestNumber
-     *            n˙mero de solicitaÁ„o mais recente presente no mobile
+     *            n√∫mero de solicita√ß√£o mais recente presente no mobile
      * @param usuario
-     *            usu·rio que est· solicitando a listagem
+     *            usu√°rio que est√° solicitando a listagem
      * @param tiposSolicitacao
-     *            tipos de solicitaÁ„o a serem consideradas na listagem
+     *            tipos de solicita√ß√£o a serem consideradas na listagem
      * @param aprovacao
-     *            identificador de se a solicitaÁ„o est· ou n„o em aprovaÁ„o
+     *            identificador de se a solicita√ß√£o est√° ou n√£o em aprova√ß√£o
      * @return {@link Page} contendo os registros resultantes da consulta
      * @throws ServiceException
      */
@@ -40,13 +40,13 @@ public interface SolicitacaoServicoServiceForMobileV2 extends CrudService {
      * Lista {@link SolicitacaoServicoDTO} de acordo com a mais antiga presente no APP
      *
      * @param oldestNumber
-     *            n˙mero de solicitaÁ„o mais antiga presente no mobile
+     *            n√∫mero de solicita√ß√£o mais antiga presente no mobile
      * @param usuario
-     *            usu·rio que est· solicitando a listagem
+     *            usu√°rio que est√° solicitando a listagem
      * @param tiposSolicitacao
-     *            tipos de solicitaÁ„o a serem consideradas na listagem
+     *            tipos de solicita√ß√£o a serem consideradas na listagem
      * @param aprovacao
-     *            identificador de se a solicitaÁ„o est· ou n„o em aprovaÁ„o
+     *            identificador de se a solicita√ß√£o est√° ou n√£o em aprova√ß√£o
      * @return {@link Page} contendo os registros resultantes da consulta
      * @throws ServiceException
      */
@@ -54,20 +54,20 @@ public interface SolicitacaoServicoServiceForMobileV2 extends CrudService {
             throws ServiceException;
 
     /**
-     * Lista {@link SolicitacaoServicoDTO} de acordo com o posicionamento geogr·fico do usu·rio
+     * Lista {@link SolicitacaoServicoDTO} de acordo com o posicionamento geogr√°fico do usu√°rio
      *
      * @param latitude
-     *            latitude do posicionamento do usu·rio
+     *            latitude do posicionamento do usu√°rio
      * @param longitude
-     *            longitude do posicionamento do usu·rio
+     *            longitude do posicionamento do usu√°rio
      * @param usuario
-     *            usu·rio que est· solicitando a listagem
+     *            usu√°rio que est√° solicitando a listagem
      * @param tiposSolicitacao
-     *            tipos de solicitaÁ„o a serem consideradas na listagem
+     *            tipos de solicita√ß√£o a serem consideradas na listagem
      * @param aprovacao
-     *            identificador de se a solicitaÁ„o est· ou n„o em aprovaÁ„o
+     *            identificador de se a solicita√ß√£o est√° ou n√£o em aprova√ß√£o
      * @param pageable
-     *            informaÁ„o sobre paginaÁ„o
+     *            informa√ß√£o sobre pagina√ß√£o
      * @return {@link Page} contendo os registros resultantes da consulta
      * @throws ServiceException
      */
@@ -75,12 +75,12 @@ public interface SolicitacaoServicoServiceForMobileV2 extends CrudService {
             final String aprovacao, final Pageable pageable) throws ServiceException;
 
     /**
-     * Lista solicitaÁıes de serviÁos para roteirizaÁ„o
+     * Lista solicita√ß√µes de servi√ßos para roteiriza√ß√£o
      *
      * @param filter
-     *            informaÁıes para filtro
+     *            informa√ß√µes para filtro
      * @param pageable
-     *            informaÁıes para paginaÁ„o
+     *            informa√ß√µes para pagina√ß√£o
      * @return {@link Page} contendo os registros resultantes da consulta
      * @throws ServiceException
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>

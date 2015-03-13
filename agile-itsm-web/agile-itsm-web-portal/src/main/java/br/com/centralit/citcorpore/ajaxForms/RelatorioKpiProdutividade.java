@@ -75,7 +75,7 @@ public class RelatorioKpiProdutividade extends AjaxFormAction {
 		UsuarioService usuarioService = (UsuarioService) ServiceLocator.getInstance().getService(UsuarioService.class, null);
 		ArrayList<UsuarioDTO> listaUsuarios = new ArrayList<UsuarioDTO>();
 		Collection<RelatorioKpiProdutividadeDTO> listaParaEnvio = new ArrayList<RelatorioKpiProdutividadeDTO>();
-		// Restaura o usuário selecionado
+		// Restaura o usuÃ¡rio selecionado
 		if (relatorioKpiProdutividadeDTO.getListaUsuarios() != null) {
 			String[] listaUsuariosTela;
 			listaUsuariosTela = relatorioKpiProdutividadeDTO.getListaUsuarios().split(";");
@@ -104,7 +104,7 @@ public class RelatorioKpiProdutividade extends AjaxFormAction {
 		boolean mostrarRequisicoes = relatorioKpiProdutividadeDTO.getCheckMostrarRequisicoes() != null ? true : false;
 
 		if (listaUsuarios != null) {
-			// Busca todas as solicitações feitas pelo usuário
+			// Busca todas as solicitaÃ§Ãµes feitas pelo usuÃ¡rio
 			for (UsuarioDTO usuarios : listaUsuarios) {
 				RelatorioKpiProdutividadeDTO novoFuncionario = new RelatorioKpiProdutividadeDTO();
 				novoFuncionario.setFuncionario(Integer.toString(usuarios.getIdUsuario()));
@@ -124,7 +124,7 @@ public class RelatorioKpiProdutividade extends AjaxFormAction {
 				novoFuncionario.setFuncionario(usuarios.getNomeUsuario());
 				if (listaSolicitacoesUsuario != null && !listaSolicitacoesUsuario.isEmpty()) {
 
-					// verifica a quantidade de solicitações
+					// verifica a quantidade de solicitaÃ§Ãµes
 
 					for (SolicitacaoServicoDTO solicitacaoServicoDTOAux : listaSolicitacoesUsuario) {
 						countExecutadasPorSolicitacao++;

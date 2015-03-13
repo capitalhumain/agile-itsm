@@ -1,6 +1,6 @@
 -- PostgreSQL
 
--- Início rodrigo.oliveira - 02/07/13
+-- InÃ­cio rodrigo.oliveira - 02/07/13
 
 ALTER TABLE atividadesservicocontrato ALTER complexidade TYPE character(1);
 

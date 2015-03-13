@@ -85,7 +85,7 @@ public class ProdutoServiceEjb extends CrudServiceImpl implements ProdutoService
     public BaseEntity restore(final BaseEntity model) throws ServiceException, LogicException {
         final ProdutoDTO produtoDto = (ProdutoDTO) super.restore(model);
         if (produtoDto != null) {
-            produtoDto.montaIdentificacao(); // só pra setar a identificação
+            produtoDto.montaIdentificacao(); // sÃ³ pra setar a identificaÃ§Ã£o
         }
         return produtoDto;
     }

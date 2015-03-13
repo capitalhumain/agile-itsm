@@ -23,13 +23,13 @@ public class Contratos extends AjaxFormAction {
 	public void load(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		UsuarioDTO usuario = WebUtil.getUsuario(request);
 		if (usuario == null){
-			document.alert("Sess„o expirada! Favor efetuar logon novamente!");
+			document.alert("Sess√£o expirada! Favor efetuar logon novamente!");
 			document.executeScript("window.location = '" + Constantes.getValue("SERVER_ADDRESS") + request.getContextPath() + "'");
 			return;
 		}	
 		/*
 		if (!WebUtil.isUserInGroup(request, Constantes.getValue("GRUPO_DIRETORIA"))){
-			document.alert("VocÍ n„o tem permiss„o para acessar esta funcionalidade!");
+			document.alert("Voc√™ n√£o tem permiss√£o para acessar esta funcionalidade!");
 			document.executeScript("window.location = '" + Constantes.getValue("SERVER_ADDRESS") + request.getContextPath() + "/pages/index/index.jsp'");
 			return;			
 		}		

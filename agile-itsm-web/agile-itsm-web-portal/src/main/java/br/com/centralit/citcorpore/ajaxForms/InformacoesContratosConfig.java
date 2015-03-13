@@ -27,7 +27,7 @@ public class InformacoesContratosConfig extends AjaxFormAction{
 	public void load(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		UsuarioDTO usuarioDto = WebUtil.getUsuario(request);
 		if (usuarioDto == null){
-			document.alert("Sess„o expirada!!! Favor efetuar logon novamente!");
+			document.alert("Sess√£o expirada!!! Favor efetuar logon novamente!");
 			document.executeScript("window.location = '" + Constantes.getValue("SERVER_ADDRESS") + request.getContextPath() + "'");
 			return;
 		}		
@@ -36,7 +36,7 @@ public class InformacoesContratosConfig extends AjaxFormAction{
         Collection collection = questionarioService.listByIdEmpresa(usuarioDto.getIdEmpresa());
         HTMLSelect combo = document.getSelectById("idQuestionario");
         combo.removeAllOptions();
-        combo.addOption("", "-- Selecione um Question·rio --");        
+        combo.addOption("", "-- Selecione um Question√°rio --");        
         if(collection != null && !collection.isEmpty()){
         	combo.addOptions(collection, "idQuestionario", "nomeQuestionario", null);                            
         }	
@@ -60,7 +60,7 @@ public class InformacoesContratosConfig extends AjaxFormAction{
 	public void save(DocumentHTML document, HttpServletRequest request, HttpServletResponse arg2) throws Exception {
 		Usuario user = (Usuario) request.getSession().getAttribute(Constantes.getValue("USUARIO_SESSAO"));
 		if (user == null){
-			document.alert("O usu·rio n„o est· logado! Favor logar no sistema!");
+			document.alert("O usu√°rio n√£o est√° logado! Favor logar no sistema!");
 			return;
 		}			
 	    InformacoesContratoConfigDTO contratoBean = (InformacoesContratoConfigDTO) document.getBean();

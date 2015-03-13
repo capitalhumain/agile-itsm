@@ -15,14 +15,14 @@ public interface IntegranteViagemService extends CrudService{
 	public Collection<IntegranteViagemDTO> findAllRemarcacaoByIdSolicitacao(Integer idSolicitacaoServico);
 	
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	public IntegranteViagemDTO recuperaIntegranteFuncionario(Integer idsolicitacaoServico,Integer idEmpregado) throws Exception;
 	public IntegranteViagemDTO recuperaIntegranteNaoFuncionario(Integer idsolicitacaoServico, String nomeNaoFuncionario) throws Exception;
 	public Collection<IntegranteViagemDTO> recuperaIntegrantesRemarcacao(IntegranteViagemDTO integranteViagemDTO, String eOu) throws Exception;
 	
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	public Collection<IntegranteViagemDTO> recuperaIntegrantesViagemByCompras(Integer idSolicitacaoServico) throws Exception;
 	public Collection<IntegranteViagemDTO> recuperaIntegrantesViagemByIdSolicitacao(Integer idSolicitacaoServico) throws Exception;

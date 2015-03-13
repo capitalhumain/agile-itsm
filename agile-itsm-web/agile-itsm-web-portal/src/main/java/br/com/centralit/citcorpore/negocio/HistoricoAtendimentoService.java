@@ -15,7 +15,7 @@ import br.com.centralit.citcorpore.bean.result.HistoricoAtendimentoResultDTO;
 public interface HistoricoAtendimentoService {
 
     /**
-     * Lista de histórico de atendimentos por atendente
+     * Lista de histÃ³rico de atendimentos por atendente
      *
      * @param historicoAtendimento
      *            objetos contendo os filtros a serem considerados

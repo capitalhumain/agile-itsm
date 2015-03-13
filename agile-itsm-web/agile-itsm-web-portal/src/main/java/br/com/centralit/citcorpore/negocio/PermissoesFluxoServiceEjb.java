@@ -142,7 +142,7 @@ public class PermissoesFluxoServiceEjb extends CrudServiceImpl implements Permis
                     }
                 }
             }
-            if (permissoesDto != null) { // Retorna as permissıes para o fluxo, independentemente do grupo
+            if (permissoesDto != null) { // Retorna as permiss√µes para o fluxo, independentemente do grupo
                 permissoesDto.setIdGrupo(null);
                 permissoesDto.setCriar(criar);
                 permissoesDto.setExecutar(executar);

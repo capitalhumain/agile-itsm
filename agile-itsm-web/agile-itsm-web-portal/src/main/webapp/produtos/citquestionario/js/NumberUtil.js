@@ -28,7 +28,7 @@ NumberUtil.isInteger = function(val) {
  * Retorna apenas numeros de uma string passada como parametro:
  *		exemplo: 
  *				StringUtils.apenasNumeros('500px');
- *					retornar·: 500
+ *					retornar√°: 500
  * ----------------------------------------------------------------
  */
 NumberUtil.apenasNumeros = function(str){
@@ -47,7 +47,7 @@ NumberUtil.apenasNumeros = function(str){
  * Retorna apenas a representacao de decimal de uma string passada como parametro:
  *		exemplo: 
  *				StringUtils.apenasCurrency('1.500,78px');
- *					retornar·: 1500,78
+ *					retornar√°: 1500,78
  * ----------------------------------------------------------------
  */
 NumberUtil.apenasCurrency = function(str){

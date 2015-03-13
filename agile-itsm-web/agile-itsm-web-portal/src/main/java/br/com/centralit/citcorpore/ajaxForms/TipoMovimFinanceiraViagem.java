@@ -83,7 +83,7 @@ public class TipoMovimFinanceiraViagem extends AjaxFormAction {
 	}
 	
 	/**
-	 * Deleta o dado quando for solicitado a sua exclus„o.
+	 * Deleta o dado quando for solicitado a sua exclus√£o.
 	 * @author ronnie.lopes
 	 * @param document
 	 * @param request
@@ -105,7 +105,7 @@ public class TipoMovimFinanceiraViagem extends AjaxFormAction {
 	}
 	
 	/**
-	 * Preenche o combo da classificaÁ„o com o enumerado ClassificacaoMovFinViagem
+	 * Preenche o combo da classifica√ß√£o com o enumerado ClassificacaoMovFinViagem
 	 * @author ronnie.lopes
 	 * @param document
 	 * @param request

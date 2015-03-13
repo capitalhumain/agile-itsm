@@ -67,7 +67,7 @@ h3 {
   line-height: 30px;
 }
 
-/*    Abas de nagevação      */
+/*    Abas de nagevaÃ§Ã£o      */
 .tabs li, .tabs li.tabs-selected, .tabs li.tabs-selected a{
 	border-radius:0 !important;
 	margin-right: 0 !important;
@@ -182,7 +182,7 @@ div.main_container{
     border-top: none !important;
     /*
     Rodrigo Pecci Acorse - 11/11/2013 - #123390
-    O float e overflow foram definidos para os valores default para garantir que não irá quebrar o layout se o css style-light.css (do layout novo) também for importado.
+    O float e overflow foram definidos para os valores default para garantir que nÃ£o irÃ¡ quebrar o layout se o css style-light.css (do layout novo) tambÃ©m for importado.
     */
     float: none;
     overflow: visible;
@@ -221,8 +221,8 @@ img {
     max-width: 100%;
     vertical-align: middle;
 }
-/* Desenvolvedor: Pedro Lino - Data: 25/10/2013 - Horário: 10:35 - ID Citsmart: 120948
-- Motivo/Comentário: Imagens de ação das table pequenas no chrome/retirado max-width das imagens apenas das tables */
+/* Desenvolvedor: Pedro Lino - Data: 25/10/2013 - HorÃ¡rio: 10:35 - ID Citsmart: 120948
+- Motivo/ComentÃ¡rio: Imagens de aÃ§Ã£o das table pequenas no chrome/retirado max-width das imagens apenas das tables */
 table img {
 	max-width: none!important;
 }
@@ -1843,9 +1843,9 @@ label, input, .table-condensed{
     margin-right:1.5em;
 
 }
-/* Desenvolvedor: Pedro Lino - Data: 31/10/2013 - Horário: 14:17 - ID Citsmart: 120948 -
-* Motivo/Comentário: Retirado texto uppercase / capitalize */
-/* Paginação do findfield */
+/* Desenvolvedor: Pedro Lino - Data: 31/10/2013 - HorÃ¡rio: 14:17 - ID Citsmart: 120948 -
+* Motivo/ComentÃ¡rio: Retirado texto uppercase / capitalize */
+/* PaginaÃ§Ã£o do findfield */
 #btfirst,#btprevius, #btnext, #btlast{
 	height:25px;
 	font-size: 11px;
@@ -1879,8 +1879,8 @@ output{
 	padding:5px !important;
 }
 
-/* Desenvolvedor: Pedro Lino - Data: 23/10/2013 - Horário: 14:37 - ID Citsmart: 120948 -
- * Motivo/Comentário: Conflito com css do plugin ui layout/ Comentado, pois, no plugin via javascript é que são alterados propriedades de CSS */
+/* Desenvolvedor: Pedro Lino - Data: 23/10/2013 - HorÃ¡rio: 14:37 - ID Citsmart: 120948 -
+ * Motivo/ComentÃ¡rio: Conflito com css do plugin ui layout/ Comentado, pois, no plugin via javascript Ã© que sÃ£o alterados propriedades de CSS */
 .ui-layout-center{
 	/* top:118px !important; */
 }
@@ -1933,14 +1933,14 @@ button.text_only{
 #frameCadastroRapido{
 	border: none !important;
 }
-/* Autor: Tiago Cartibani - Data: 25/10/2013 - Horário: 20:42
- * Comentário: Retirar a barra de rolagem do gerenciamento de Mudanças > Ocorrências */
+/* Autor: Tiago Cartibani - Data: 25/10/2013 - HorÃ¡rio: 20:42
+ * ComentÃ¡rio: Retirar a barra de rolagem do gerenciamento de MudanÃ§as > OcorrÃªncias */
 #divRelacaoOcorrencias{
 	height: auto !important;
 }
 
-/* Autor: Tiago Cartibani - Data: 29/10/2013 - Horário: 15:27
- * Comentário: Retira todas as imagens dos botões e alinha */
+/* Autor: Tiago Cartibani - Data: 29/10/2013 - HorÃ¡rio: 15:27
+ * ComentÃ¡rio: Retira todas as imagens dos botÃµes e alinha */
 
 	 button > img {
 	 display: none !important;
@@ -1986,7 +1986,7 @@ border: none !important;
 .displayInBk {display: inline-block;}
 
 /*
-* Motivo: Adicionando Código específico para ie10
+* Motivo: Adicionando CÃ³digo especÃ­fico para ie10
 * Autor: flavio.santana
 */
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {

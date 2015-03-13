@@ -9,7 +9,7 @@ jQuery(function($){
 	$('.date').datepicker();
 
 	/*
-	 * Passar por todos os inputs com as classes .citdatepicker e .datepicker e adicionar as classes de formataÁ„o e validaÁ„o do framework se n„o existirem
+	 * Passar por todos os inputs com as classes .citdatepicker e .datepicker e adicionar as classes de formata√ß√£o e valida√ß√£o do framework se n√£o existirem
 	 */
 	$('.citdatepicker, .datepicker, .dataNascimento, .dtpicker, .date').each(function(e) {
 		if (!$(this).hasClass('Format[Date]')) $(this).addClass('Format[Date]');

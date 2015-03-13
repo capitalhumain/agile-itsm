@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <historicoDeVersoes>
     <versao>2.0.4</versao>
     <versao>2.0.6</versao>
@@ -76,21 +76,21 @@
     <versao>VO3R17.0</versao>
     <versao>4.0.0</versao>
     <versao>VO4R0.0</versao>
-	<versao>VO4R0.1</versao>
-	<versao>VO4R0.2</versao>
-	<versao>VO4R0.3</versao>
+    <versao>VO4R0.1</versao>
+    <versao>VO4R0.2</versao>
+    <versao>VO4R0.3</versao>
     <versao>VO4R0.4</versao>
     <versao>VC4R0.5</versao>
-	<versao>VC4R0.6</versao>
+    <versao>VC4R0.6</versao>
     <versao>VC4R0.7</versao>
-	<versao>VC4R0.8</versao>
+    <versao>VC4R0.8</versao>
     <versao>VC4R0.9</versao>
-	<versao>VB_P004_P069_01</versao>
-	<versao>VB_P004_P069_02</versao>
-	<versao>VB_P004_P069_03</versao>
-	<versao>VB_P004_P069_04</versao>
-	<versao>VB_P004_P069_05</versao>
-	<versao>VB_P004_P069_06</versao>
-	<versao>VB_P004_P069_07</versao>
-	<versao>VB_P004_P069_08</versao>
+    <versao>VB_P004_P069_01</versao>
+    <versao>VB_P004_P069_02</versao>
+    <versao>VB_P004_P069_03</versao>
+    <versao>VB_P004_P069_04</versao>
+    <versao>VB_P004_P069_05</versao>
+    <versao>VB_P004_P069_06</versao>
+    <versao>VB_P004_P069_07</versao>
+    <versao>VB_P004_P069_08</versao>
 </historicoDeVersoes>

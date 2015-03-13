@@ -85,7 +85,7 @@ public class CriptoSignedUtil {
     }
 
     /**
-     * Extrai a chave pública do arquivo.
+     * Extrai a chave pÃºblica do arquivo.
      */
     public static PublicKey getPublicKeyFromFile(final File cert, final String alias, final String password) throws Exception {
         final KeyStore ks = KeyStore.getInstance("JKS");
@@ -99,7 +99,7 @@ public class CriptoSignedUtil {
     }
 
     /**
-     * Extrai a chave pública do arquivo.
+     * Extrai a chave pÃºblica do arquivo.
      */
     public static SecretKey getSecretKeyFromFile(final File cert, final String alias, final String password) throws Exception {
         final KeyStore ks = KeyStore.getInstance("JCEKS");
@@ -129,7 +129,7 @@ public class CriptoSignedUtil {
     }
 
     /**
-     * Verifica a assinatura para o buffer de bytes, usando a chave pública.
+     * Verifica a assinatura para o buffer de bytes, usando a chave pÃºblica.
      *
      * @param key
      *            PublicKey
@@ -146,7 +146,7 @@ public class CriptoSignedUtil {
     }
 
     /**
-     * Converte um array de byte em uma representação, em String, de seus
+     * Converte um array de byte em uma representaÃ§Ã£o, em String, de seus
      * hexadecimais.
      */
     public static String txt2Hexa(final byte[] bytes) {
@@ -194,11 +194,11 @@ public class CriptoSignedUtil {
     }
 
     /**
-     * Converte o array de bytes em uma representação hexadecimal.
+     * Converte o array de bytes em uma representaÃ§Ã£o hexadecimal.
      *
      * @param input
      *            - O array de bytes a ser convertido.
-     * @return Uma String com a representação hexa do array
+     * @return Uma String com a representaÃ§Ã£o hexa do array
      */
     public static String byteArrayToHexString(final byte[] b) {
         final StringBuilder buf = new StringBuilder();
@@ -219,13 +219,13 @@ public class CriptoSignedUtil {
      *            - A String hexa
      * @return O vetor de bytes
      * @throws IllegalArgumentException
-     *             - Caso a String não sej auma representação haxadecimal válida
+     *             - Caso a String nÃ£o sej auma representaÃ§Ã£o haxadecimal vÃ¡lida
      */
     public static byte[] hexStringToByteArray(final String hexa) throws IllegalArgumentException {
 
         // verifica se a String possui uma quantidade par de elementos
         if (hexa.length() % 2 != 0) {
-            throw new IllegalArgumentException("String hexa inválida");
+            throw new IllegalArgumentException("String hexa invÃ¡lida");
         }
 
         final byte[] b = new byte[hexa.length() / 2];

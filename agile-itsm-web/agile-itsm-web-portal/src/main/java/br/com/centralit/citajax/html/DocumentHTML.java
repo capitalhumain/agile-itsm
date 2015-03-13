@@ -251,9 +251,9 @@ public class DocumentHTML {
     }
 
     /**
-     * Retorna a language do usuário logado.
+     * Retorna a language do usuÃ¡rio logado.
      *
-     * @return language - Linguagem do usuário logado.
+     * @return language - Linguagem do usuÃ¡rio logado.
      * @author valdoilo.damasceno
      * @since 03.02.2014
      */
@@ -262,10 +262,10 @@ public class DocumentHTML {
     }
 
     /**
-     * Atribui valor da language do usuário logado.
+     * Atribui valor da language do usuÃ¡rio logado.
      *
      * @param language
-     *            - Linguagem do usuário logado.
+     *            - Linguagem do usuÃ¡rio logado.
      * @author valdoilo.damasceno
      * @since 03.02.2014
      */

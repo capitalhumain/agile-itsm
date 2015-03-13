@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.Collection"%>
@@ -13,18 +15,17 @@
 			String iframe = "";
 			iframe = request.getParameter("iframe");
 %>
-<%@include file="/include/security/security.jsp"%>
 <%@include file="/include/header.jsp"%>
 
-<title><fmt:message key="citcorpore.comum.title"/></title>
+<%@include file="/novoLayout/common/include/titulo.jsp" %>
 
 <%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
-<script charset="ISO-8859-1"  type="text/javascript" src="${ctx}/js/PopupManager.js"></script>
+<script charset="UTF-8"  type="text/javascript" src="${ctx}/js/PopupManager.js"></script>
 
 <link type="text/css" rel="stylesheet" href="css/tipoProdutoAll.css"/>
 
 <script type="text/javascript" src="js/tipoProduto.js"></script>
-<%//se for chamado por iframe deixa apenas a parte de cadastro da página
+<%//se for chamado por iframe deixa apenas a parte de cadastro da pÃ¡gina
 			if (iframe != null) {%>
 	<link type="text/css" rel="stylesheet" href="css/tipoProdutoIframe.css"/>
 <%}%>

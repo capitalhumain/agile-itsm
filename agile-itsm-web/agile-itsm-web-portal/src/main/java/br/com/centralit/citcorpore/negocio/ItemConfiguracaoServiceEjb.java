@@ -289,13 +289,13 @@ public class ItemConfiguracaoServiceEjb extends CrudServiceImpl implements ItemC
 				boolean verificaGravacaoIc = false;
 
 				/**
-				 * Se existe item de configuraÁ„o com a mesma identificaÁ„o
+				 * Se existe item de configura√ß√£o com a mesma identifica√ß√£o
 				 */
 				ItemConfiguracaoDTO itemConfiguracaoExistente;
 				if ((itemConfiguracaoExistente = this.getDao().findByIdentificacaoItemConfiguracao(itemConfiguracao)) != null) {
 
 					/**
-					 * Atualizo os dados do item de configuraÁ„o
+					 * Atualizo os dados do item de configura√ß√£o
 					 */
 					HistoricoItemConfiguracaoDTO historicoIc = this.createHistoricoItem(itemConfiguracaoExistente, null);
 					historicoIc = (HistoricoItemConfiguracaoDTO) this.getHistoricoItemConfiguracaoDao().create(historicoIc);
@@ -309,8 +309,8 @@ public class ItemConfiguracaoServiceEjb extends CrudServiceImpl implements ItemC
 					itemConfiguracao = itemConfiguracaoExistente;
 
 					/**
-					 * SETA DATAFIM Atualizando o itens filhos relacionados. Atribui DataFim para todos os Itens de ConfiguraÁ„o Filhos. Em gravarItemConfiguracaoFilho esses Itens Filhos ser„o
-					 * atualizados, conforme as informaÁıes do novo invent·rio, removendo a DataFim caso ainda exista no novo invent·rio. Essa verificaÁ„o È feira atravÈs de sua identificaÁ„o.
+					 * SETA DATAFIM Atualizando o itens filhos relacionados. Atribui DataFim para todos os Itens de Configura√ß√£o Filhos. Em gravarItemConfiguracaoFilho esses Itens Filhos ser√£o
+					 * atualizados, conforme as informa√ß√µes do novo invent√°rio, removendo a DataFim caso ainda exista no novo invent√°rio. Essa verifica√ß√£o √© feira atrav√©s de sua identifica√ß√£o.
 					 */
 					this.getDao().updateItemConfiguracaoFilho(itemConfiguracao.getIdItemConfiguracao(), UtilDatas.getDataAtual(), UtilDatas.getDataHoraAtual());
 
@@ -322,7 +322,7 @@ public class ItemConfiguracaoServiceEjb extends CrudServiceImpl implements ItemC
 
 				} else {
 					/**
-					 * Cria o item de configuraÁ„o
+					 * Cria o item de configura√ß√£o
 					 */
 					itemConfiguracao.setDataInicio(UtilDatas.getDataAtual());
 					itemConfiguracao.setDtUltimaCaptura(UtilDatas.getDataHoraAtual());
@@ -360,7 +360,7 @@ public class ItemConfiguracaoServiceEjb extends CrudServiceImpl implements ItemC
 							this.gravarValor(valorDTO, caracteristicaBean, itemConfiguracaoFilhoGravado, itemConfiguracaoFilhoGravado.getHistoricoItemConfiguracaoDTO(), verificaGravacaoIc,
 									transactionControler, executorService);
 
-							// Verifica se h· Software Lista Negra Instalado
+							// Verifica se h√° Software Lista Negra Instalado
 							if (tipoItemConfiguracaoDTO.getNome().equalsIgnoreCase("SOFTWARES") && (colsoftwareslistanegra != null && !colsoftwareslistanegra.isEmpty())
 									&& (valorDTO.getValorStr() != null && !StringUtils.isBlank(valorDTO.getValorStr()))
 									&& (tipoItemConfiguracaoDTO.getNome() != null && !StringUtils.isBlank(tipoItemConfiguracaoDTO.getNome()))) {
@@ -448,7 +448,7 @@ public class ItemConfiguracaoServiceEjb extends CrudServiceImpl implements ItemC
 	}
 
 	/**
-	 * Formata em string a coleÁ„o de softwares lista negra, transformando em uma tabela HTML para enviar por email
+	 * Formata em string a cole√ß√£o de softwares lista negra, transformando em uma tabela HTML para enviar por email
 	 *
 	 * @author ronnie.lopes
 	 *
@@ -473,7 +473,7 @@ public class ItemConfiguracaoServiceEjb extends CrudServiceImpl implements ItemC
 	}
 
 	/**
-	 * Notifica com relatÛrio Softwares Lista Negra todos os respons·veis de um grupo
+	 * Notifica com relat√≥rio Softwares Lista Negra todos os respons√°veis de um grupo
 	 *
 	 * @author ronnie.lopes
 	 * @param idModeloEmail
@@ -653,7 +653,7 @@ public class ItemConfiguracaoServiceEjb extends CrudServiceImpl implements ItemC
 				if (verificaGravacaoIc) {
 					// Verifica situacao para gravar log somente uma vez, como pode ser alterado somente a uma valor de uma caracteristica
 					if (!this.situacao) {
-						getAuditoriaItemConfiguracaoDao().create(this.gravarAuditoriaItemConfig(itemConfiguracaoFilhoGravado, null, null, null, "CriaÁ„o"));
+						getAuditoriaItemConfiguracaoDao().create(this.gravarAuditoriaItemConfig(itemConfiguracaoFilhoGravado, null, null, null, "Cria√ß√£o"));
 						this.situacao = true;
 					}
 				}
@@ -677,7 +677,7 @@ public class ItemConfiguracaoServiceEjb extends CrudServiceImpl implements ItemC
 				if (valorByIdIC == null) {
 					if (verificaGravacaoIc) {
 						if (!this.situacao) {
-							getAuditoriaItemConfiguracaoDao().create(this.gravarAuditoriaItemConfig(itemConfiguracaoFilhoGravado, null, null, null, "AlteraÁ„o"));
+							getAuditoriaItemConfiguracaoDao().create(this.gravarAuditoriaItemConfig(itemConfiguracaoFilhoGravado, null, null, null, "Altera√ß√£o"));
 							this.situacao = true;
 						}
 					}
@@ -831,7 +831,7 @@ public class ItemConfiguracaoServiceEjb extends CrudServiceImpl implements ItemC
 
 			if (itemConfiguracao != null && itemConfiguracao.getIdGrupoItemConfiguracao() != null) {
 				if (itemConfiguracao.getIdGrupoItemConfiguracao() == 1000) {
-					throw new LogicException("VocÍ deve criar um novo Grupo e fazer a vinculaÁ„o com ele.");
+					throw new LogicException("Voc√™ deve criar um novo Grupo e fazer a vincula√ß√£o com ele.");
 				}
 			}
 			itemConfiguracao = (ItemConfiguracaoDTO) getDao().create(itemConfiguracao);
@@ -892,7 +892,7 @@ public class ItemConfiguracaoServiceEjb extends CrudServiceImpl implements ItemC
 	}
 
 	/**
-	 * Cria ou Atualiza associaÁ„o do Valor da CaracterÌstica ao Ìtem de ConfiguraÁ„o.
+	 * Cria ou Atualiza associa√ß√£o do Valor da Caracter√≠stica ao √≠tem de Configura√ß√£o.
 	 *
 	 * @throws Exception
 	 * @author valdoilo.damasceno
@@ -922,13 +922,13 @@ public class ItemConfiguracaoServiceEjb extends CrudServiceImpl implements ItemC
 
 					if (valorDto == null) {
 						if (!situacao) {
-							this.getAuditoriaItemConfiguracaoDao().create(this.gravarAuditoriaItemConfig(itemConfiguracaoDto, null, null, user, "AlteraÁ„o"));
+							this.getAuditoriaItemConfiguracaoDao().create(this.gravarAuditoriaItemConfig(itemConfiguracaoDto, null, null, user, "Altera√ß√£o"));
 							situacao = true;
 						}
 
 					} else if (historicoValorbean == null) {
 						if (!situacao) {
-							this.getAuditoriaItemConfiguracaoDao().create(this.gravarAuditoriaItemConfig(itemConfiguracaoDto, null, null, user, "AlteraÁ„o"));
+							this.getAuditoriaItemConfiguracaoDao().create(this.gravarAuditoriaItemConfig(itemConfiguracaoDto, null, null, user, "Altera√ß√£o"));
 							situacao = true;
 						}
 					}
@@ -946,7 +946,7 @@ public class ItemConfiguracaoServiceEjb extends CrudServiceImpl implements ItemC
 					historioConfiguracaoDTO.setIdHistoricoIC(idHistoricoIC);
 					itemConfiguracaoDto.setHistoricoItemConfiguracaoDTO(historioConfiguracaoDTO);
 					if (!situacao) {
-						this.getAuditoriaItemConfiguracaoDao().create(this.gravarAuditoriaItemConfig(itemConfiguracaoDto, null, null, user, "CriaÁ„o"));
+						this.getAuditoriaItemConfiguracaoDao().create(this.gravarAuditoriaItemConfig(itemConfiguracaoDto, null, null, user, "Cria√ß√£o"));
 						situacao = true;
 					}
 
@@ -970,7 +970,7 @@ public class ItemConfiguracaoServiceEjb extends CrudServiceImpl implements ItemC
 	}
 
 	/**
-	 * Alterado para n„o criar m˙ltiplas transaÁıes 02/01/2015 - 14:09
+	 * Alterado para n√£o criar m√∫ltiplas transa√ß√µes 02/01/2015 - 14:09
 	 *
 	 * @author rafael.soyer
 	 * @author thyen.chan
@@ -1094,7 +1094,7 @@ public class ItemConfiguracaoServiceEjb extends CrudServiceImpl implements ItemC
 		}
 	}
 
-	/* Historico de item configuraÁ„o */
+	/* Historico de item configura√ß√£o */
 	@Override
 	public HistoricoItemConfiguracaoDTO createHistoricoItem(ItemConfiguracaoDTO itemConfiguracao, UsuarioDTO user) throws Exception {
 		HistoricoItemConfiguracaoDTO historico = new HistoricoItemConfiguracaoDTO();
@@ -1127,7 +1127,7 @@ public class ItemConfiguracaoServiceEjb extends CrudServiceImpl implements ItemC
 		return historico;
 	}
 
-	/* Historico de valor item configuraÁ„o */
+	/* Historico de valor item configura√ß√£o */
 	@Override
 	public HistoricoValorDTO createHistoricoValor(ValorDTO valor, UsuarioDTO user, Integer idHistoricoIC) throws Exception {
 		HistoricoValorDTO historico = new HistoricoValorDTO();
@@ -1430,7 +1430,7 @@ public class ItemConfiguracaoServiceEjb extends CrudServiceImpl implements ItemC
 					}
 				}
 			} else if (PADRAO.equals("2")) {
-				// Enviando email para o propriet·rio do IC
+				// Enviando email para o propriet√°rio do IC
 				if (itemConfiguracaoDTO.getIdProprietario() != null) {
 					emp.setIdEmpregado(itemConfiguracaoDTO.getIdProprietario());
 					emp = (EmpregadoDTO) empregadoDao.restore(emp);
@@ -1458,7 +1458,7 @@ public class ItemConfiguracaoServiceEjb extends CrudServiceImpl implements ItemC
 					}
 				}
 
-				// Enviando email para o propriet·rio do IC
+				// Enviando email para o propriet√°rio do IC
 				if (itemConfiguracaoDTO.getIdProprietario() != null) {
 					emp.setIdEmpregado(itemConfiguracaoDTO.getIdProprietario());
 					emp = (EmpregadoDTO) empregadoDao.restore(emp);
@@ -1555,7 +1555,7 @@ public class ItemConfiguracaoServiceEjb extends CrudServiceImpl implements ItemC
 	}
 
 	public void relacaoLiberacao(ItemConfiguracaoDTO item) throws ServiceException, Exception {
-		/* Gravando o relacionamento com liberaÁ„o */
+		/* Gravando o relacionamento com libera√ß√£o */
 		if (item.getIdLiberacao() != null) {
 			RequisicaoLiberacaoItemConfiguracaoDTO liberacao = new RequisicaoLiberacaoItemConfiguracaoDTO();
 			liberacao.setIdItemConfiguracao(item.getIdItemConfiguracao());
@@ -1565,7 +1565,7 @@ public class ItemConfiguracaoServiceEjb extends CrudServiceImpl implements ItemC
 		}
 	}
 
-	/* Historico de item configuraÁ„o para ser chamado pelos modulo de liberacao, mudanca e problema para setar a origem da modificaÁ„o */
+	/* Historico de item configura√ß√£o para ser chamado pelos modulo de liberacao, mudanca e problema para setar a origem da modifica√ß√£o */
 	@Override
 	public void createHistoricoItemComOrigem(ItemConfiguracaoDTO itemConfiguracao, RequisicaoLiberacaoDTO liberacao, String origem) throws Exception {
 		HistoricoItemConfiguracaoDTO historico = new HistoricoItemConfiguracaoDTO();
@@ -1660,7 +1660,7 @@ public class ItemConfiguracaoServiceEjb extends CrudServiceImpl implements ItemC
 	@Override
 	public List<AuditoriaItemConfigDTO> historicoAlteracaoItemConfiguracaoByIdItemConfiguracao(ItemConfiguracaoDTO itemConfiguracaoDTO) throws Exception {
 
-		/** Comentado por n„o est· sendo usado. valdoilo.damasceno */
+		/** Comentado por n√£o est√° sendo usado. valdoilo.damasceno */
 		// ItemConfiguracaoDTO itemConfiguracaoRetornoDTO = (ItemConfiguracaoDTO) restore(itemConfiguracaoDTO);
 
 		return getAuditoriaItemConfiguracaoDao().historicoAlteracaoItemConfiguracaoByIdItemConfiguracao(itemConfiguracaoDTO);
@@ -1669,10 +1669,10 @@ public class ItemConfiguracaoServiceEjb extends CrudServiceImpl implements ItemC
 
 	/**
 	 *
-	 * necessario passa data de finalizaÁ„o
+	 * necessario passa data de finaliza√ß√£o
 	 *
 	 * @param itemConfiguracaoDTO
-	 * @return lista de item configuraÁ„o finalizados "Desistalando"
+	 * @return lista de item configura√ß√£o finalizados "Desistalando"
 	 * @throws Exception
 	 */
 	public List<ItemConfiguracaoDTO> retornaItemConfiguracaoFinalizadoByIdItemConfiguracao(ItemConfiguracaoDTO itemConfiguracaoDTO, ItemConfiguracaoDao itemConfiguracaoDao) throws Exception {
@@ -1811,11 +1811,11 @@ public class ItemConfiguracaoServiceEjb extends CrudServiceImpl implements ItemC
 	}
 
 	/**
-	 * Obtem a IdentificaÁ„o do Item de ConfiguraÁ„o de acordo com os valores das caracterÌsticas que o identifica como ˙nico.
+	 * Obtem a Identifica√ß√£o do Item de Configura√ß√£o de acordo com os valores das caracter√≠sticas que o identifica como √∫nico.
 	 *
 	 * @param tipoItemConfiguracaoDTO
-	 *            - Tipo do Item de ConfiguraÁ„o com suas devidas caracterÌsticas e valores.
-	 * @return String - IdentificaÁ„o do Item de ConfiguraÁ„o.
+	 *            - Tipo do Item de Configura√ß√£o com suas devidas caracter√≠sticas e valores.
+	 * @return String - Identifica√ß√£o do Item de Configura√ß√£o.
 	 * @author valdoilo.damasceno
 	 * @since 19.01.2015
 	 */
@@ -1856,20 +1856,20 @@ public class ItemConfiguracaoServiceEjb extends CrudServiceImpl implements ItemC
 				return ((CaracteristicaDTO) tipoItemConfiguracaoDTO.getCaracteristicas().get(0)).getValorString();
 			}
 		} catch (Exception e) {
-			return "N„o identificado";
+			return "N√£o identificado";
 		}
 	}
 
 	/**
-	 * ObtÈm a IdentificaÁ„o do Item de ConfiguraÁ„o identificacao = valorCaracterÌstica1 + valorCaracterÌstica2.
+	 * Obt√©m a Identifica√ß√£o do Item de Configura√ß√£o identificacao = valorCaracter√≠stica1 + valorCaracter√≠stica2.
 	 *
 	 * @param listCaracteristicaDto
-	 *            - Lista de caracterÌsticas.
+	 *            - Lista de caracter√≠sticas.
 	 * @param tagCaracteristica1
-	 *            - TAG da CaracterÌstica 1 de IdentificaÁ„o.
+	 *            - TAG da Caracter√≠stica 1 de Identifica√ß√£o.
 	 * @param tagCaracteristica2
-	 *            - TAG da CaracterÌstica 2 de IdentificaÁ„o.
-	 * @return String - IdentificaÁ„o do Item de ConfiguraÁ„o de acordo com as TAGs informadas.
+	 *            - TAG da Caracter√≠stica 2 de Identifica√ß√£o.
+	 * @return String - Identifica√ß√£o do Item de Configura√ß√£o de acordo com as TAGs informadas.
 	 * @author valdoilo.damasceno
 	 * @since 19.01.2015
 	 */
@@ -1901,28 +1901,28 @@ public class ItemConfiguracaoServiceEjb extends CrudServiceImpl implements ItemC
 						}
 					}
 				} catch (Exception e) {
-					/** Tag do Item de ConfiguraÁ„o n„o È chave, prosseguir **/
+					/** Tag do Item de Configura√ß√£o n√£o √© chave, prosseguir **/
 				}
 			}
 
 			return nome1.toString() + nome2.toString();
 		}
 
-		return "N„o Identificado ";
+		return "N√£o Identificado ";
 	}
 
 	/**
-	 * ObtÈm a IdentificaÁ„o do Item de ConfiguraÁ„o identificacao = valorCaracterÌstica1 + valorCaracterÌstica2 + valorCaracterÌstica3.
+	 * Obt√©m a Identifica√ß√£o do Item de Configura√ß√£o identificacao = valorCaracter√≠stica1 + valorCaracter√≠stica2 + valorCaracter√≠stica3.
 	 *
 	 * @param listCaracteristicaDto
-	 *            - Lista de caracterÌsticas.
+	 *            - Lista de caracter√≠sticas.
 	 * @param tagCaracteristica1
-	 *            - TAG da CaracterÌstica 1 de IdentificaÁ„o.
+	 *            - TAG da Caracter√≠stica 1 de Identifica√ß√£o.
 	 * @param tagCaracteristica2
-	 *            - TAG da CaracterÌstica 2 de IdentificaÁ„o.
+	 *            - TAG da Caracter√≠stica 2 de Identifica√ß√£o.
 	 * @param tagCaracteristica3
-	 *            - TAG da CaracterÌstica 3 de IdentificaÁ„o.
-	 * @return String - IdentificaÁ„o do Item de ConfiguraÁ„o de acordo com as TAGs informadas.
+	 *            - TAG da Caracter√≠stica 3 de Identifica√ß√£o.
+	 * @return String - Identifica√ß√£o do Item de Configura√ß√£o de acordo com as TAGs informadas.
 	 * @author valdoilo.damasceno
 	 * @since 19.01.2015
 	 */
@@ -1956,7 +1956,7 @@ public class ItemConfiguracaoServiceEjb extends CrudServiceImpl implements ItemC
 									tamanho /= Math.pow(1024, 3);
 									nome3.append(new DecimalFormat(".00").format(tamanho).toString() + " GB");
 								} catch (NumberFormatException e) {
-									/** Valor n„o-numÈrico no campo de capacidade ou tamanho de disco. Retornar valor deste. **/
+									/** Valor n√£o-num√©rico no campo de capacidade ou tamanho de disco. Retornar valor deste. **/
 									nome3.append(caracteristicaDto.getValor().getValorStr());
 								}
 							} else {
@@ -1978,7 +1978,7 @@ public class ItemConfiguracaoServiceEjb extends CrudServiceImpl implements ItemC
 		if (!nome1.toString().isEmpty() && !nome2.toString().isEmpty() && !nome3.toString().isEmpty()) {
 			return nome1.toString() + nome2.toString() + nome3.toString();
 		} else {
-			return "N„o Identificado ";
+			return "N√£o Identificado ";
 		}
 	}
 }

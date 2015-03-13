@@ -158,19 +158,19 @@ insert into modelosemails (idmodeloemail,titulo,texto,situacao,identificador) va
 
 insert into modelosemails (idmodeloemail,titulo,texto,situacao,identificador) values (37,'Problema encaminhado para seu GRUPO DE TRABALHO','&nbsp;A solicita&ccedil;&atilde;o abaixo foi encaminhada para seu Grupo de Trabalho:<div>&nbsp;</div><div>N&uacute;mero: ${IDPROBLEMA}</div><div>Tipo: ${PROATIVOREATIVO}</div><div><strong>T&iacute;tulo:</strong> ${TITULO}</div><div>&nbsp;</div><div>Descri&ccedil;&atilde;o:&nbsp;</div><div>${DESCRICAO}</div><div>&nbsp;</div><div>Central IT Tecnologia da Informa&ccedil;&atilde;o Ltda.</div>','A','grupoProblema');
 
-insert into modelosemails (idmodeloemail,titulo,texto,situacao,identificador) values (38,'RequisiÁıes Problemas com prazo expirados','<br />informamos que existem&nbsp;requisi&ccedil;&otilde;es problemas com prazo para contornar ou solucionar expirados.<br /><br /><br />atenciosamente.<br />central it&nbsp;tecnologia da informa&ccedil;&atilde;o ltda.<br /><br />','a','problemaprazocontexp');
+insert into modelosemails (idmodeloemail,titulo,texto,situacao,identificador) values (38,'Requisi√ß√µes Problemas com prazo expirados','<br />informamos que existem&nbsp;requisi&ccedil;&otilde;es problemas com prazo para contornar ou solucionar expirados.<br /><br /><br />atenciosamente.<br />central it&nbsp;tecnologia da informa&ccedil;&atilde;o ltda.<br /><br />','a','problemaprazocontexp');
 
-insert into modelosemails (idmodeloemail,titulo,texto,situacao,identificador) values (39,'RequisiÁ„o MudanÁa Reuni„o Marcada', '&nbsp;Senhor(a) ${NOMECONTATO},&nbsp;<br /><br />Informamos que haver&aacute; uma reuni&atilde;o relacionada a Requisi&ccedil;&atilde;o de mudan&ccedil;a de n&uacute;mero&nbsp;${IDREQUISICAOMUDANCA}.<br /><br /><strong><span style="font-size:12.0pt;mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;mso-ansi-language:PT-BR;mso-fareast-language:PT-BR;mso-bidi-language:AR-SA"><font face="Times New Roman, serif">Local</font>:</span></strong><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;mso-ansi-language:PT-BR;mso-fareast-language:PT-BR;mso-bidi-language:AR-SA">&nbsp;${LOCALREUNIAO}<br /> <strong>Data:</strong>&nbsp;${DATAINICIO}<br /> <strong>Hor&aacute;rio:</strong>&nbsp;${HORAINICIO}<br /> <strong>Dura&ccedil;&atilde;o Estimada:</strong>&nbsp;${DURACAOESTIMADA} minutos<br /> <br /> <strong>Descri&ccedil;&atilde;o:</strong>&nbsp;<br /></span><span serif; font-size: 16px;">${DESCRICAO}</span><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;mso-ansi-language:PT-BR;mso-fareast-language:PT-BR;mso-bidi-language:AR-SA"><br /> <!--[if !supportLineBreakNewLine]--><br /> <!--[endif]--></span><br />Atenciosamente,&nbsp;<br /><br />Central IT Tecnologia da Informa&ccedil;&atilde;o Ltda.', 'A', 'reuniao');
+insert into modelosemails (idmodeloemail,titulo,texto,situacao,identificador) values (39,'Requisi√ß√£o Mudan√ßa Reuni√£o Marcada', '&nbsp;Senhor(a) ${NOMECONTATO},&nbsp;<br /><br />Informamos que haver&aacute; uma reuni&atilde;o relacionada a Requisi&ccedil;&atilde;o de mudan&ccedil;a de n&uacute;mero&nbsp;${IDREQUISICAOMUDANCA}.<br /><br /><strong><span style="font-size:12.0pt;mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;mso-ansi-language:PT-BR;mso-fareast-language:PT-BR;mso-bidi-language:AR-SA"><font face="Times New Roman, serif">Local</font>:</span></strong><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;mso-ansi-language:PT-BR;mso-fareast-language:PT-BR;mso-bidi-language:AR-SA">&nbsp;${LOCALREUNIAO}<br /> <strong>Data:</strong>&nbsp;${DATAINICIO}<br /> <strong>Hor&aacute;rio:</strong>&nbsp;${HORAINICIO}<br /> <strong>Dura&ccedil;&atilde;o Estimada:</strong>&nbsp;${DURACAOESTIMADA} minutos<br /> <br /> <strong>Descri&ccedil;&atilde;o:</strong>&nbsp;<br /></span><span serif; font-size: 16px;">${DESCRICAO}</span><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;mso-ansi-language:PT-BR;mso-fareast-language:PT-BR;mso-bidi-language:AR-SA"><br /> <!--[if !supportLineBreakNewLine]--><br /> <!--[endif]--></span><br />Atenciosamente,&nbsp;<br /><br />Central IT Tecnologia da Informa&ccedil;&atilde;o Ltda.', 'A', 'reuniao');
 
-insert into modelosemails (idmodeloemail,titulo,texto,situacao,identificador) values (51,'Registro de LiberaÁ„o  -  ${IDREQUISICAOLIBERACAO}' , 'Senhor(a) ${NOMESOLICITANTE},<br /><br />Informamos que a sua Requisi&ccedil;&atilde;o de Libera&ccedil;&atilde;o foi registrada em ${DATAHORAINICIOSTR}, conforme os dados abaixo:<br /><br />N&uacute;mero: ${IDREQUISICAOLIBERACAO}<br />Tipo: ${TIPO}<br />T&iacute;tulo: ${TITULO}<br /><br />Descri&ccedil;&atilde;o: ${DESCRICAO}<br /><br />Atenciosamente,<br /><br />Central IT Tecnologia da Informa&ccedil;&atilde;o Ltda.<br /><br /><br />' , 'A' , 'regestroLib');
+insert into modelosemails (idmodeloemail,titulo,texto,situacao,identificador) values (51,'Registro de Libera√ß√£o  -  ${IDREQUISICAOLIBERACAO}' , 'Senhor(a) ${NOMESOLICITANTE},<br /><br />Informamos que a sua Requisi&ccedil;&atilde;o de Libera&ccedil;&atilde;o foi registrada em ${DATAHORAINICIOSTR}, conforme os dados abaixo:<br /><br />N&uacute;mero: ${IDREQUISICAOLIBERACAO}<br />Tipo: ${TIPO}<br />T&iacute;tulo: ${TITULO}<br /><br />Descri&ccedil;&atilde;o: ${DESCRICAO}<br /><br />Atenciosamente,<br /><br />Central IT Tecnologia da Informa&ccedil;&atilde;o Ltda.<br /><br /><br />' , 'A' , 'regestroLib');
 
-insert into modelosemails (idmodeloemail,titulo,texto,situacao,identificador) values (52,'RequisiÁ„o LiberaÁ„o finalizada  -  ${IDREQUISICAOLIBERACAO}' , 'Senhor(a) ${NOMESOLICITANTE},<br /><br />Informamos que a sua Requisi&ccedil;&atilde;o de libera&ccedil;&atilde;o foi finalizada em ${DATAHORACONCLUSAO}, conforme os dados abaixo:<br /><br />N&uacute;mero: ${IDREQUISICAOLIBERACAO}<br />Tipo: ${TIPO}<br />T&iacute;tulo: ${TITULO}<br /><br />Status:${STATUS}<br />Descri&ccedil;&atilde;o:<br />${DESCRICAO}<br /><br /><br />Atenciosamente,<br /><br />Central IT Tecnologia da Informa&ccedil;&atilde;o Ltda.<br />' , 'A' , 'liberacaoFinalizada');
+insert into modelosemails (idmodeloemail,titulo,texto,situacao,identificador) values (52,'Requisi√ß√£o Libera√ß√£o finalizada  -  ${IDREQUISICAOLIBERACAO}' , 'Senhor(a) ${NOMESOLICITANTE},<br /><br />Informamos que a sua Requisi&ccedil;&atilde;o de libera&ccedil;&atilde;o foi finalizada em ${DATAHORACONCLUSAO}, conforme os dados abaixo:<br /><br />N&uacute;mero: ${IDREQUISICAOLIBERACAO}<br />Tipo: ${TIPO}<br />T&iacute;tulo: ${TITULO}<br /><br />Status:${STATUS}<br />Descri&ccedil;&atilde;o:<br />${DESCRICAO}<br /><br /><br />Atenciosamente,<br /><br />Central IT Tecnologia da Informa&ccedil;&atilde;o Ltda.<br />' , 'A' , 'liberacaoFinalizada');
 
-insert into modelosemails (idmodeloemail,titulo,texto,situacao,identificador) values (53,'RequisiÁ„o  LiberaÁ„o em andamento- ${IDREQUISICAOLIBERACAO}' , 'Senhor(a) ${NOMESOLICITANTE},<br /><br />Informamos que a requisi&ccedil;&atilde;o de libera&ccedil;&atilde;o registrada em ${DATAHORAINICIOSTR} est&aacute; em atendimento, conforme os dados abaixo:<br /><br />N&uacute;mero: ${IDREQUISICAOLIBERACAO}<br />T&iacute;tulo: ${TITULO}<br /><br />Descri&ccedil;&atilde;o: <br />${TITULO}<br /><br />${DESCRICAO}<br /><br />Grupo de atendimento: ${NOMEGRUPOATUAL}<br /><br />Atenciosamente,<br /><br />Central IT Tecnologia da Informa&ccedil;&atilde;o Ltda<br />' , 'A' , 'liberacaoEmAndamento');
+insert into modelosemails (idmodeloemail,titulo,texto,situacao,identificador) values (53,'Requisi√ß√£o  Libera√ß√£o em andamento- ${IDREQUISICAOLIBERACAO}' , 'Senhor(a) ${NOMESOLICITANTE},<br /><br />Informamos que a requisi&ccedil;&atilde;o de libera&ccedil;&atilde;o registrada em ${DATAHORAINICIOSTR} est&aacute; em atendimento, conforme os dados abaixo:<br /><br />N&uacute;mero: ${IDREQUISICAOLIBERACAO}<br />T&iacute;tulo: ${TITULO}<br /><br />Descri&ccedil;&atilde;o: <br />${TITULO}<br /><br />${DESCRICAO}<br /><br />Grupo de atendimento: ${NOMEGRUPOATUAL}<br /><br />Atenciosamente,<br /><br />Central IT Tecnologia da Informa&ccedil;&atilde;o Ltda<br />' , 'A' , 'liberacaoEmAndamento');
 
 -- autor: thiago.monteiro
 -- data: 19/04/2013
-insert into bpm_tipofluxo (idtipofluxo, nomefluxo, descricao, nomeclassefluxo) values (50, 'ProblemaPadrao', 'Problema Padr„o', 'br.com.centralit.citcorpore.bpm.negocio.ExecucaoProblema');
+insert into bpm_tipofluxo (idtipofluxo, nomefluxo, descricao, nomeclassefluxo) values (50, 'ProblemaPadrao', 'Problema Padr√£o', 'br.com.centralit.citcorpore.bpm.negocio.ExecucaoProblema');
 
 insert into bpm_fluxo (idfluxo, versao, idtipofluxo, variaveis, conteudoxml, datainicio, datafim) values (100, '1.0', 50, 'problema;problema.status;problema.nomeGrupoAtual', '', '2013-04-19', NULL);
 
@@ -184,11 +184,11 @@ insert into bpm_elementofluxo (idelemento, idfluxo, tipoelemento, subtipo, nome,
 
 insert into bpm_elementofluxo (idelemento, idfluxo, tipoelemento, subtipo, nome, documentacao, tipointeracao, url, visao, grupos, usuarios, acaoentrada, acaosaida, script, textoemail, nomefluxoencadeado, posx, posy, altura, largura, modeloemail, template, intervalo, condicaodisparo, multiplasinstancias, destinatariosemail, contabilizasla, percexecucao) values (1001, 100, 'Tarefa', '', 'Registrada', 'Registrada', 'U', 'pages/problema/problema.load?alterarSituacao=N&faseAtual=Registrada&fase=EmInvestigacao', '', '#{problema.nomeGrupoAtual}', '', '', '', '', '', '', 178, 200, 65, 140, '', '', null, '', 'N', '', 'S', NULL);
 
-insert into bpm_elementofluxo (idelemento, idfluxo, tipoelemento, subtipo, nome, documentacao, tipointeracao, url, visao, grupos, usuarios, acaoentrada, acaosaida, script, textoemail, nomefluxoencadeado, posx, posy, altura, largura, modeloemail, template, intervalo, condicaodisparo, multiplasinstancias, destinatariosemail, contabilizasla, percexecucao) values (1002, 100, 'Tarefa', '', 'InvestigaÁ„o e diagnÛstico', 'InvestigaÁ„o e diagnÛstico', 'U', ' pages/problema/problema.load?alterarSituacao=N&faseAtual=EmInvestigacao&fase=RegistroErroConhecido', '', '#{problema.nomeGrupoAtual}', '', '', '', '', '', '', 410, 200, 65, 140, '', '', null, '', 'N', '', 'S', NULL);
+insert into bpm_elementofluxo (idelemento, idfluxo, tipoelemento, subtipo, nome, documentacao, tipointeracao, url, visao, grupos, usuarios, acaoentrada, acaosaida, script, textoemail, nomefluxoencadeado, posx, posy, altura, largura, modeloemail, template, intervalo, condicaodisparo, multiplasinstancias, destinatariosemail, contabilizasla, percexecucao) values (1002, 100, 'Tarefa', '', 'Investiga√ß√£o e diagn√≥stico', 'Investiga√ß√£o e diagn√≥stico', 'U', ' pages/problema/problema.load?alterarSituacao=N&faseAtual=EmInvestigacao&fase=RegistroErroConhecido', '', '#{problema.nomeGrupoAtual}', '', '', '', '', '', '', 410, 200, 65, 140, '', '', null, '', 'N', '', 'S', NULL);
 
 insert into bpm_elementofluxo (idelemento, idfluxo, tipoelemento, subtipo, nome, documentacao, tipointeracao, url, visao, grupos, usuarios, acaoentrada, acaosaida, script, textoemail, nomefluxoencadeado, posx, posy, altura, largura, modeloemail, template, intervalo, condicaodisparo, multiplasinstancias, destinatariosemail, contabilizasla, percexecucao) values (1003, 100, 'Tarefa', '', 'Registro de Erro Conhecido', 'Registro de Erro Conhecido', 'U', ' pages/problema/problema.load?alterarSituacao=N&faseAtual=RegistroErroConhecido&fase=Resolucao', '', '#{problema.nomeGrupoAtual}', '', '', '', '', '', '', 663, 203, 65, 140, '', '', null, '', 'N', '', 'S', NULL);
 
-insert into bpm_elementofluxo (idelemento, idfluxo, tipoelemento, subtipo, nome, documentacao, tipointeracao, url, visao, grupos, usuarios, acaoentrada, acaosaida, script, textoemail, nomefluxoencadeado, posx, posy, altura, largura, modeloemail, template, intervalo, condicaodisparo, multiplasinstancias, destinatariosemail, contabilizasla, percexecucao) values (1004, 100, 'Tarefa', '', 'ResoluÁ„o', 'ResoluÁ„o', 'U', ' pages/problema/problema.load?alterarSituacao=N&faseAtual=Resolucao', '', '#{problema.nomeGrupoAtual}', '', '', '', '', '', '', 895, 213, 65, 140, '', '', null, '', 'N', '', 'S', NULL);
+insert into bpm_elementofluxo (idelemento, idfluxo, tipoelemento, subtipo, nome, documentacao, tipointeracao, url, visao, grupos, usuarios, acaoentrada, acaosaida, script, textoemail, nomefluxoencadeado, posx, posy, altura, largura, modeloemail, template, intervalo, condicaodisparo, multiplasinstancias, destinatariosemail, contabilizasla, percexecucao) values (1004, 100, 'Tarefa', '', 'Resolu√ß√£o', 'Resolu√ß√£o', 'U', ' pages/problema/problema.load?alterarSituacao=N&faseAtual=Resolucao', '', '#{problema.nomeGrupoAtual}', '', '', '', '', '', '', 895, 213, 65, 140, '', '', null, '', 'N', '', 'S', NULL);
 
 insert into bpm_elementofluxo (idelemento, idfluxo, tipoelemento, subtipo, nome, documentacao, tipointeracao, url, visao, grupos, usuarios, acaoentrada, acaosaida, script, textoemail, nomefluxoencadeado, posx, posy, altura, largura, modeloemail, template, intervalo, condicaodisparo, multiplasinstancias, destinatariosemail, contabilizasla, percexecucao) values (1005, 100, 'Script', '', 'Encerrar', '', '', '', '', '', '', '', '', '#{execucaoFluxo}.encerra();', '', '', 1088, 190, 65, 140, '', '', null, '', '', '', 'S', NULL);
 
@@ -352,12 +352,12 @@ CREATE TABLE liberacaoproblema ( idliberacao integer, idproblema integer NOT NUL
 ALTER TABLE liberacaoproblema ALTER COLUMN idproblema DROP NOT NULL;
 -- fim
 
--- criaÁ„o da coluna idhistoricoliberacao na tabela liberacaomudanÁa caso a tabela ja exista
+-- cria√ß√£o da coluna idhistoricoliberacao na tabela liberacaomudan√ßa caso a tabela ja exista
 alter table liberacaomudanca add column idhistoricoliberacao integer;
 
 ALTER TABLE liberacaomudanca DROP CONSTRAINT liberacaomudanca_pkey;
 ALTER TABLE liberacaomudanca ALTER COLUMN idliberacao DROP NOT NULL;
--- remoÁ„o da contraint da tabela liberacaomudanca
+-- remo√ß√£o da contraint da tabela liberacaomudanca
 
 
 CREATE TABLE ocorrencialiberacao
@@ -406,16 +406,16 @@ CREATE INDEX ocorrencialiberacao_iditemtrabalho_idx
   (idrequisicaoliberacao );
   
 -- MURILO ALMEIDA PACHECO 22/04/2013
--- ALTERA«√O DO NOME DA TABELA PARA SEGUIR O PADR√O DOS OUTROS MODULOS DO SISTEMA.
--- COMENTEI POR ENQUANTO PRECISAMOS TROCAR O NOME DA TABELA DEPOIS DE ALINHAR COM O CLEISON ALGUMAS DUVIDAS N√O APAGAR !!!!!
+-- ALTERA√á√ÉO DO NOME DA TABELA PARA SEGUIR O PADR√ÉO DOS OUTROS MODULOS DO SISTEMA.
+-- COMENTEI POR ENQUANTO PRECISAMOS TROCAR O NOME DA TABELA DEPOIS DE ALINHAR COM O CLEISON ALGUMAS DUVIDAS N√ÉO APAGAR !!!!!
 -- ALTER TABLE liberacao RENAME TO requisicaoliberacao;
 
 -- MURILO ALMEIDA PACHECO 25/04/2013
--- ALTERA«√O DO TIPO DE DADOS DA TABELA DE BYTEA PARA TEXT QUE … COMPATIVEL COM O TIPO BLOB DO MYSQL
+-- ALTERA√á√ÉO DO TIPO DE DADOS DA TABELA DE BYTEA PARA TEXT QUE √â COMPATIVEL COM O TIPO BLOB DO MYSQL
 ALTER TABLE controleged ALTER COLUMN conteudoarquivo type text;
 
 -- MURILO ALMEIDA PACHECO
--- CRIA«√O DA TABELA DE HISTORICOS DE ALTERA«’ES DAS LIBERA«’ES
+-- CRIA√á√ÉO DA TABELA DE HISTORICOS DE ALTERA√á√ïES DAS LIBERA√á√ïES
 CREATE TABLE historicoliberacao (
   idhistoricoliberacao integer NOT NULL,
   idexecutormodificacao integer NOT NULL,
@@ -480,7 +480,7 @@ alter table historicoliberacao add  column acaoFluxo character varying(1);
 alter table historicoliberacao add column alterarsituacao character varying;
 alter table historicoliberacao add column acaoFluxo character varying;
 
--- criaÁ„o da tabela requisicaoliberacaoitemconfiguracao para registrar os ics da liberacao.
+-- cria√ß√£o da tabela requisicaoliberacaoitemconfiguracao para registrar os ics da liberacao.
 CREATE TABLE requisicaoliberacaoitemconfiguracao (
   idrequisicaoliberacaoitemconfiguracao integer NOT NULL,
   idrequisicaoliberacao integer DEFAULT NULL,
@@ -490,7 +490,7 @@ CREATE TABLE requisicaoliberacaoitemconfiguracao (
   CONSTRAINT requisicaoliberacaoic_pkey PRIMARY KEY (idrequisicaoliberacaoitemconfiguracao)
 );
 
--- CRIA«√O TABELA CONHECIMENTOLIBERACAO
+-- CRIA√á√ÉO TABELA CONHECIMENTOLIBERACAO
 CREATE TABLE CONHECIMENTOLIBERACAO (
   IDREQUISICAOLIBERACAO INTEGER NOT NULL,
   IDBASECONHECIMENTO INTEGER NOT NULL,
@@ -704,7 +704,7 @@ alter table liberacao alter column situacao drop not null;
 alter table liberacao alter column situacao set default null;
 
 -- BPM TIPO FLUXO
-INSERT INTO bpm_tipofluxo (idtipofluxo, nomefluxo, descricao, nomeclassefluxo) VALUES (54, 'LiberacaoDeploy', 'LiberaÁ„o Deploy', 'br.com.centralit.citcorpore.bpm.negocio.ExecucaoLiberacao');
+INSERT INTO bpm_tipofluxo (idtipofluxo, nomefluxo, descricao, nomeclassefluxo) VALUES (54, 'LiberacaoDeploy', 'Libera√ß√£o Deploy', 'br.com.centralit.citcorpore.bpm.negocio.ExecucaoLiberacao');
 
 -- BPM FLUXO
 INSERT INTO bpm_fluxo (idfluxo, versao, idtipofluxo, variaveis, conteudoxml, datainicio, datafim) VALUES (50, '1.0', 54, 'requisicaoLiberacao;requisicaoLiberacao.status;requisicaoLiberacao.nomeGrupoAtual', '', '2013-05-18', NULL);
@@ -712,7 +712,7 @@ INSERT INTO bpm_fluxo (idfluxo, versao, idtipofluxo, variaveis, conteudoxml, dat
 -- BPM ELEMENTO FLUXO
 INSERT INTO bpm_elementofluxo (idelemento, idfluxo, tipoelemento, subtipo, nome, documentacao, tipointeracao, url, visao, grupos, usuarios, acaoentrada, acaosaida, script, textoemail, nomefluxoencadeado, posx, posy, altura, largura, modeloemail, template, intervalo, condicaodisparo, multiplasinstancias, destinatariosemail, contabilizasla, percexecucao) VALUES (592,50,'Inicio','','','','','','','','','','','','','',160,73,32,32,'','',NULL,'','','','S', NULL);
 INSERT INTO bpm_elementofluxo (idelemento, idfluxo, tipoelemento, subtipo, nome, documentacao, tipointeracao, url, visao, grupos, usuarios, acaoentrada, acaosaida, script, textoemail, nomefluxoencadeado, posx, posy, altura, largura, modeloemail, template, intervalo, condicaodisparo, multiplasinstancias, destinatariosemail, contabilizasla, percexecucao) VALUES (593,50,'Tarefa','','Liberar','Liberar','U','pages/requisicaoLiberacao/requisicaoLiberacao.load?escalar=S&alterarSituacao=S','','#{requisicaoLiberacao.nomeGrupoAtual}','','','','','','',324,59,65,140,'','',NULL,'','N','','S', NULL);
-INSERT INTO bpm_elementofluxo (idelemento, idfluxo, tipoelemento, subtipo, nome, documentacao, tipointeracao, url, visao, grupos, usuarios, acaoentrada, acaosaida, script, textoemail, nomefluxoencadeado, posx, posy, altura, largura, modeloemail, template, intervalo, condicaodisparo, multiplasinstancias, destinatariosemail, contabilizasla, percexecucao) VALUES (594,50,'Tarefa','','Em ExecuÁ„o ','Em ExecuÁ„o','U','pages/requisicaoLiberacao/requisicaoLiberacao.load?escalar=S&alterarSituacao=S','','#{requisicaoLiberacao.nomeGrupoAtual}','','','','','','',753,28,65,140,'','',NULL,'','N','','S', NULL);
+INSERT INTO bpm_elementofluxo (idelemento, idfluxo, tipoelemento, subtipo, nome, documentacao, tipointeracao, url, visao, grupos, usuarios, acaoentrada, acaosaida, script, textoemail, nomefluxoencadeado, posx, posy, altura, largura, modeloemail, template, intervalo, condicaodisparo, multiplasinstancias, destinatariosemail, contabilizasla, percexecucao) VALUES (594,50,'Tarefa','','Em Execu√ß√£o ','Em Execu√ß√£o','U','pages/requisicaoLiberacao/requisicaoLiberacao.load?escalar=S&alterarSituacao=S','','#{requisicaoLiberacao.nomeGrupoAtual}','','','','','','',753,28,65,140,'','',NULL,'','N','','S', NULL);
 INSERT INTO bpm_elementofluxo (idelemento, idfluxo, tipoelemento, subtipo, nome, documentacao, tipointeracao, url, visao, grupos, usuarios, acaoentrada, acaosaida, script, textoemail, nomefluxoencadeado, posx, posy, altura, largura, modeloemail, template, intervalo, condicaodisparo, multiplasinstancias, destinatariosemail, contabilizasla, percexecucao) VALUES (595,50,'Script','','Encerrar','','','','','','','','','#{execucaoFluxo}.encerra();','','',519,203,65,140,'','',NULL,'','','','S', NULL);
 INSERT INTO bpm_elementofluxo (idelemento, idfluxo, tipoelemento, subtipo, nome, documentacao, tipointeracao, url, visao, grupos, usuarios, acaoentrada, acaosaida, script, textoemail, nomefluxoencadeado, posx, posy, altura, largura, modeloemail, template, intervalo, condicaodisparo, multiplasinstancias, destinatariosemail, contabilizasla, percexecucao) VALUES (596,50,'Porta','','','','','','','','','','','','','',569,333,42,42,'','',NULL,'','','','S', NULL);
 INSERT INTO bpm_elementofluxo (idelemento, idfluxo, tipoelemento, subtipo, nome, documentacao, tipointeracao, url, visao, grupos, usuarios, acaoentrada, acaosaida, script, textoemail, nomefluxoencadeado, posx, posy, altura, largura, modeloemail, template, intervalo, condicaodisparo, multiplasinstancias, destinatariosemail, contabilizasla, percexecucao) VALUES (597,50,'Porta','','','','','','','','','','','','','',803,233,42,42,'','',NULL,'','','','S', NULL);
@@ -723,21 +723,21 @@ INSERT INTO bpm_elementofluxo (idelemento, idfluxo, tipoelemento, subtipo, nome,
 INSERT INTO bpm_sequenciafluxo (idelementoorigem, idelementodestino, idfluxo, nomeclasseorigem, nomeclassedestino, condicao, idconexaoorigem, idconexaodestino, bordax, borday, posicaoalterada, nome) VALUES (592,593,50,'','','',1,3,258,90.25,'N','');
 INSERT INTO bpm_sequenciafluxo (idelementoorigem, idelementodestino, idfluxo, nomeclasseorigem, nomeclassedestino, condicao, idconexaoorigem, idconexaodestino, bordax, borday, posicaoalterada, nome) VALUES (593,598,50,'','','',1,3,516,91.75,'N','');
 INSERT INTO bpm_sequenciafluxo (idelementoorigem, idelementodestino, idfluxo, nomeclasseorigem, nomeclassedestino, condicao, idconexaoorigem, idconexaodestino, bordax, borday, posicaoalterada, nome) VALUES (594,597,50,'','','',2,0,823.5,163,'N','');
-INSERT INTO bpm_sequenciafluxo (idelementoorigem, idelementodestino, idfluxo, nomeclasseorigem, nomeclassedestino, condicao, idconexaoorigem, idconexaodestino, bordax, borday, posicaoalterada, nome) VALUES (596,593,50,'','','!#{requisicaoLiberacao}.atendida();',3,2,391,353,'S','N„o Resolvida');
+INSERT INTO bpm_sequenciafluxo (idelementoorigem, idelementodestino, idfluxo, nomeclasseorigem, nomeclassedestino, condicao, idconexaoorigem, idconexaodestino, bordax, borday, posicaoalterada, nome) VALUES (596,593,50,'','','!#{requisicaoLiberacao}.atendida();',3,2,391,353,'S','N√£o Resolvida');
 INSERT INTO bpm_sequenciafluxo (idelementoorigem, idelementodestino, idfluxo, nomeclasseorigem, nomeclassedestino, condicao, idconexaoorigem, idconexaodestino, bordax, borday, posicaoalterada, nome) VALUES (597,596,50,'','','#{requisicaoLiberacao}.liberada();',2,1,822,353,'S','Liberada');
-INSERT INTO bpm_sequenciafluxo (idelementoorigem, idelementodestino, idfluxo, nomeclasseorigem, nomeclassedestino, condicao, idconexaoorigem, idconexaodestino, bordax, borday, posicaoalterada, nome) VALUES (598,594,50,'','','!#{requisicaoLiberacao}.atendida();',0,3,665,59.75,'N','N„o Resolvida');
+INSERT INTO bpm_sequenciafluxo (idelementoorigem, idelementodestino, idfluxo, nomeclasseorigem, nomeclassedestino, condicao, idconexaoorigem, idconexaodestino, bordax, borday, posicaoalterada, nome) VALUES (598,594,50,'','','!#{requisicaoLiberacao}.atendida();',0,3,665,59.75,'N','N√£o Resolvida');
 INSERT INTO bpm_sequenciafluxo (idelementoorigem, idelementodestino, idfluxo, nomeclasseorigem, nomeclassedestino, condicao, idconexaoorigem, idconexaodestino, bordax, borday, posicaoalterada, nome) VALUES (597,598,50,'','','#{requisicaoLiberacao}.emAtendimento();',3,1,706.5,173,'N','Em Atendimento');
 INSERT INTO bpm_sequenciafluxo (idelementoorigem, idelementodestino, idfluxo, nomeclasseorigem, nomeclassedestino, condicao, idconexaoorigem, idconexaodestino, bordax, borday, posicaoalterada, nome) VALUES (595,599,50,'','','',3,1,394,235.25,'N','');
 INSERT INTO bpm_sequenciafluxo (idelementoorigem, idelementodestino, idfluxo, nomeclasseorigem, nomeclassedestino, condicao, idconexaoorigem, idconexaodestino, bordax, borday, posicaoalterada, nome) VALUES (598,595,50,'','','#{requisicaoLiberacao}.atendida();',2,0,589,158,'N','Resolvida');
 INSERT INTO bpm_sequenciafluxo (idelementoorigem, idelementodestino, idfluxo, nomeclasseorigem, nomeclassedestino, condicao, idconexaoorigem, idconexaodestino, bordax, borday, posicaoalterada, nome) VALUES (596,595,50,'','','#{requisicaoLiberacao}.atendida();',0,2,589.5,300.5,'N','Resolvida');
 
 -- TIPO LIBERACAO
-INSERT INTO tipoliberacao (idtipoliberacao, idtipofluxo, idmodeloemailcriacao, idmodeloemailfinalizacao, idmodeloemailacoes, idgrupoexecutor, idcalendario, nometipoliberacao, datainicio, datafim) VALUES (1,54,51,52,53,1,1,'RequisiÁ„o LiberaÁ„o Normal','2013-05-20',NULL);
+INSERT INTO tipoliberacao (idtipoliberacao, idtipofluxo, idmodeloemailcriacao, idmodeloemailfinalizacao, idmodeloemailacoes, idgrupoexecutor, idcalendario, nometipoliberacao, datainicio, datafim) VALUES (1,54,51,52,53,1,1,'Requisi√ß√£o Libera√ß√£o Normal','2013-05-20',NULL);
 
 -- fim modelos emails
 
 -- EDMAR FAGUNDES - 16/05/2013 {
--- ADICIONA TABELA DE APROVA«√O PARA AUXILIAR NA PARTE DE PESQUISA
+-- ADICIONA TABELA DE APROVA√á√ÉO PARA AUXILIAR NA PARTE DE PESQUISA
 CREATE TABLE aprovacaorequisicaoliberacao
 (
   idaprovacaorequisicaoliberacao integer NOT NULL,
@@ -752,7 +752,7 @@ CREATE TABLE aprovacaorequisicaoliberacao
   CONSTRAINT idaprovacaorequisicao PRIMARY KEY (idaprovacaorequisicaoliberacao)
 );
 
--- ADICIONA TABELA DE CONTATO PARA SALVAR OS DADOS DO CONTATO AO CRIAR UMA NOVA LIBERA«√O
+-- ADICIONA TABELA DE CONTATO PARA SALVAR OS DADOS DO CONTATO AO CRIAR UMA NOVA LIBERA√á√ÉO
 CREATE TABLE contatorequisicaoliberacao
 (
   idcontatorequisicaoliberacao integer NOT NULL,
@@ -878,18 +878,18 @@ CREATE TABLE ccmodulosistema
 
 -- Inserts
 INSERT INTO MODULOSISTEMA VALUES(1, 'INCIDENTE');
-INSERT INTO MODULOSISTEMA VALUES(2, 'REQUISI«√O');
-INSERT INTO MODULOSISTEMA VALUES(3, 'MUDAN«A');
+INSERT INTO MODULOSISTEMA VALUES(2, 'REQUISI√á√ÉO');
+INSERT INTO MODULOSISTEMA VALUES(3, 'MUDAN√áA');
 INSERT INTO MODULOSISTEMA VALUES(4, 'EVENTO');
 INSERT INTO MODULOSISTEMA VALUES(5, 'CONTINUIDADE');
 INSERT INTO MODULOSISTEMA VALUES(6, 'CONHECIMENTO');
 INSERT INTO MODULOSISTEMA VALUES(7, 'SLA');
 INSERT INTO MODULOSISTEMA VALUES(8, 'PROBLEMA');
 INSERT INTO MODULOSISTEMA VALUES(9, 'CAPACIDADE');
-INSERT INTO MODULOSISTEMA VALUES(10, 'PORTIF”LIO');
+INSERT INTO MODULOSISTEMA VALUES(10, 'PORTIF√ìLIO');
 INSERT INTO MODULOSISTEMA VALUES(11, 'ATIVOS E CONFIG.');
-INSERT INTO MODULOSISTEMA VALUES(12, 'GERENCIAMENTO DE SERVI«OS');
-INSERT INTO MODULOSISTEMA VALUES(13, 'LIBERA«√O');
+INSERT INTO MODULOSISTEMA VALUES(12, 'GERENCIAMENTO DE SERVI√áOS');
+INSERT INTO MODULOSISTEMA VALUES(13, 'LIBERA√á√ÉO');
 INSERT INTO MODULOSISTEMA VALUES(14, 'DISPONIBILIDADE');
 
 -- INSERT CATEGORIA IMAGEM
@@ -1143,7 +1143,7 @@ alter table problema add column idcategoriasolucao int ;
 alter table problema add column precisasolucaocontorno char(1);
 alter table problema add column resolvido char(1) ;
  
--- Scripts do mÛdulo de mudanÁa
+-- Scripts do m√≥dulo de mudan√ßa
 
 -- INICIO - MODULO DE MUDANCA
 
@@ -1234,7 +1234,7 @@ ALTER TABLE requisicaomudanca ALTER COLUMN DATAHORACONCLUSAO DROP NOT NULL;
 
 ALTER TABLE netmap ADD COLUMN dataInventario date;
 
--- Fl·vio
+-- Fl√°vio
 CREATE TABLE midiasoftwarechave
 (
    "idmidiasoftwarechave" integer, 
@@ -1276,14 +1276,14 @@ DROP TRIGGER add_current_date_to_problema ON problema;
 ALTER TABLE versao ADD COLUMN idusuario INTEGER;
 -- FIM - MURILO GABRIEL RODRIGUES - 05/06/2013
 
--- Flavio J˙nior - 06/06/2013
+-- Flavio J√∫nior - 06/06/2013
 ALTER TABLE midiasoftwarechave ADD COLUMN qtdpermissoes integer;
 
 ALTER TABLE itemconfiguracao ADD COLUMN dtultimacaptura timestamp without time zone;
 
 ALTER TABLE historicoic ADD COLUMN dtultimacaptura timestamp without time zone;
 
--- MÛdulo MudanÁa
+-- M√≥dulo Mudan√ßa
 ALTER TABLE REQUISICAOMUDANCA ADD COLUMN EHPROPOSTAaux char(1);
 ALTER TABLE REQUISICAOMUDANCA ADD COLUMN VOTACAOPROPOSTAAPROVADAAUX char(1);
 
@@ -1299,7 +1299,7 @@ create table aprovacaoproposta (
     datahorainicio date null
 );
 
--- fim mÛdulo mudanÁa
+-- fim m√≥dulo mudan√ßa
 
 -- Fim
 

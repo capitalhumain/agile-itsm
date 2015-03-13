@@ -29,7 +29,7 @@ public class DbLogArquivo implements Log {
 		inicializarParametros();
 	}
 	
-	/**Inicializa o DbLogArquivo com o caminho da gravaÁ„o do arquivo, nome do arquivo, e extens„o do arquivo
+	/**Inicializa o DbLogArquivo com o caminho da grava√ß√£o do arquivo, nome do arquivo, e extens√£o do arquivo
 	 * @author ronnie.lopes
 	 */
 	private void inicializarParametros(){
@@ -60,7 +60,7 @@ public class DbLogArquivo implements Log {
 		}
 	}
 	
-	/**Monta a estrutura do log com tratamento de excess„o
+	/**Monta a estrutura do log com tratamento de excess√£o
 	 * @author ronnie.lopes
 	 */
 	public void registraLog(Exception e, Class classe, String tipoMensagem) throws Exception {
@@ -84,8 +84,8 @@ public class DbLogArquivo implements Log {
 		}
 	}
 	
-	/**Verifica se o arquivo È do DbLogArquivo e MantÈm apenas os arquivos dos ˙ltimos 5 dias,
-	 * excluindo o arquivo que foi criado a 6 dias atr·s referente a data atual
+	/**Verifica se o arquivo √© do DbLogArquivo e Mant√©m apenas os arquivos dos √∫ltimos 5 dias,
+	 * excluindo o arquivo que foi criado a 6 dias atr√°s referente a data atual
 	 * @author ronnie.lopes
 	 */
 	public void manterPastaArqUltimoCincoDias(String localArquivo) {
@@ -129,11 +129,11 @@ public class DbLogArquivo implements Log {
 		
 		if(logDados != null) {
 			
-			texto.append(" Data Hora AtualizaÁ„o: " + logDados.getDtAtualizacao() + " | "
-			+			 " OperaÁ„o: " + logDados.getOperacao() + " | "
+			texto.append(" Data Hora Atualiza√ß√£o: " + logDados.getDtAtualizacao() + " | "
+			+			 " Opera√ß√£o: " + logDados.getOperacao() + " | "
 			+			 " Dados: " + logDados.getDados() + " | "
-			+			 " Id Usu·rio: " + logDados.getIdUsuario() + " | "
-			+			 " Nome Usu·rio: " + logDados.getNomeUsuario() + " | "
+			+			 " Id Usu√°rio: " + logDados.getIdUsuario() + " | "
+			+			 " Nome Usu√°rio: " + logDados.getNomeUsuario() + " | "
 			+			 " Local Origem: " + logDados.getLocalOrigem() + " | "
 			+			 " Nome Tabela: " + logDados.getNomeTabela());
 			return texto.toString();

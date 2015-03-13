@@ -41,7 +41,7 @@ public class AtualizaNomeProcuraEmpregados implements Job {
 				}
 
 			} while (aindaExistemRegistros);
-			System.out.println("Atualização de nomeProcura dos empregados concluída");
+			System.out.println("AtualizaÃ§Ã£o de nomeProcura dos empregados concluÃ­da");
 		} catch (Exception e) {
 			System.out.println("ERRO -  " + e.getMessage());
 		}

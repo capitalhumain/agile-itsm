@@ -44,7 +44,7 @@ public class ControleRendimento extends AjaxFormAction{
 		Calendar dataAtual = Calendar.getInstance();
 		String anoAtual = (dataAtual.get(GregorianCalendar.YEAR)) + "";
 
-		//carrega informaÁıes da aba Apurar MÍs
+		//carrega informa√ß√µes da aba Apurar M√™s
 		((HTMLSelect) document.getSelectById("comboMes")).removeAllOptions();
 		((HTMLSelect) document.getSelectById("comboMes")).addOption("1", UtilI18N.internacionaliza(request, "controle.mesJaneiro"));
 		((HTMLSelect) document.getSelectById("comboMes")).addOption("2", UtilI18N.internacionaliza(request, "controle.mesFevereiro"));
@@ -69,7 +69,7 @@ public class ControleRendimento extends AjaxFormAction{
 		}
 		((HTMLSelect) document.getSelectById("comboAno")).setValue(anoAtual);
 
-		//carrega informaÁıes da aba RelatÛrios
+		//carrega informa√ß√µes da aba Relat√≥rios
 		((HTMLSelect) document.getSelectById("comboMesRelatorio")).removeAllOptions();
 		((HTMLSelect) document.getSelectById("comboMesRelatorio")).addOption("1", UtilI18N.internacionaliza(request, "controle.mesJaneiro"));
 		((HTMLSelect) document.getSelectById("comboMesRelatorio")).addOption("2", UtilI18N.internacionaliza(request, "controle.mesFevereiro"));
@@ -100,11 +100,11 @@ public class ControleRendimento extends AjaxFormAction{
 		ControleRendimentoExecucaoDTO controleExecucaoDto = (ControleRendimentoExecucaoDTO) document.getBean();
 		ControleRendimentoService controleRendimentoService = (ControleRendimentoService) ServiceLocator.getInstance().getService(ControleRendimentoService.class, WebUtil.getUsuarioSistema(request));
 
-		//confere se mÍs j· acabou
+		//confere se m√™s j√° acabou
 
 		Calendar dataAtual = Calendar.getInstance();
 		Integer anoAtual = (dataAtual.get(GregorianCalendar.YEAR));
-		Integer mesAtual = (dataAtual.get(GregorianCalendar.MONTH) + 1); // tem que somar um porque os meses do Calendar v„o de 0 a 11
+		Integer mesAtual = (dataAtual.get(GregorianCalendar.MONTH) + 1); // tem que somar um porque os meses do Calendar v√£o de 0 a 11
 		Integer diaAtual = (dataAtual.get(GregorianCalendar.DAY_OF_MONTH));
 
 		String anoControle = controleExecucaoDto.getAno();
@@ -119,7 +119,7 @@ public class ControleRendimento extends AjaxFormAction{
 			}
 		}
 
-		//verifica se o mÍs ainda n„o chegou
+		//verifica se o m√™s ainda n√£o chegou
 		if(Integer.parseInt(anoControle) == anoAtual){
 			if(Integer.parseInt(mesControle) > mesAtual){
 				document.alert(UtilI18N.internacionaliza(request, "controle.mesAindaNaoChegou"));
@@ -127,7 +127,7 @@ public class ControleRendimento extends AjaxFormAction{
 			}
 		}
 
-		//verifica se o mes j· foi fechado
+		//verifica se o mes j√° foi fechado
 		Collection<ControleRendimentoDTO> listaConfereSeMesJaFoiFechado = (Collection<ControleRendimentoDTO>) controleRendimentoService.findByMesAno(controleExecucaoDto.getMes(), controleExecucaoDto.getAno(), controleExecucaoDto.getIdGrupo());
 
 		if(listaConfereSeMesJaFoiFechado != null){
@@ -147,7 +147,7 @@ public class ControleRendimento extends AjaxFormAction{
 		controleRendimentoDto.setQtdSolicitacoes(Integer.parseInt(controleExecucaoDto.getQtdSolicitacoes()));
 		controleRendimentoDto.setDataHoraExecucao(UtilDatas.getDataHoraAtual());
 
-		//transforma a mÈdia relativa em double de volta
+		//transforma a m√©dia relativa em double de volta
 		String mediaRelativa = controleRendimentoDto.getMediaRelativa();
 		mediaRelativa = mediaRelativa.replace(",", ".");
 		controleRendimentoDto.setMediaRelativa(mediaRelativa);

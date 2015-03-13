@@ -22,12 +22,12 @@ public class ExecucaoConexaoBIServiceEjb extends CrudServiceImpl implements Exec
 
         final ConexaoBIDAO conexaoBIDao = new ConexaoBIDAO();
 
-        // ESSA LISTA DE TAREFAS J¡ EST¡ VINDO COM O DTO E N√O DEVERIA VIR. CRIAR M…TODO PARA TRAZER APENAS AS TAREFAS COM O IDINSTANCIA, QUE … A ⁄NICA INFORMA«√O UTILIZADA NA
+        // ESSA LISTA DE TAREFAS J√Å EST√Å VINDO COM O DTO E N√ÉO DEVERIA VIR. CRIAR M√âTODO PARA TRAZER APENAS AS TAREFAS COM O IDINSTANCIA, QUE √â A √öNICA INFORMA√á√ÉO UTILIZADA NA
         // CONSULTA ABAIXO.
         // List<TarefaFluxoDTO> listTarefasComSolicitacaoServico = recuperaTarefas(loginUsuario);
         //
         // listTarefas = listTarefasComSolicitacaoServico;
-        // Comentado para centalizar o mÈtodo abaixo
+        // Comentado para centalizar o m√©todo abaixo
 
         total = conexaoBIDao.totalDePaginas(itensPorPagina, null, conexaoBIBean);
 

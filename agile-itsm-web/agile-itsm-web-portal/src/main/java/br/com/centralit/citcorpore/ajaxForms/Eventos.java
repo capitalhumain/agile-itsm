@@ -94,7 +94,7 @@ public class Eventos extends AjaxFormAction {
 	public void save(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		UsuarioDTO usuario = (UsuarioDTO) request.getSession().getAttribute(Constantes.getValue("USUARIO_SESSAO"));
 		if (usuario == null){
-			document.alert("O usu·rio n„o est· logado! Favor logar no sistema!");
+			document.alert("O usu√°rio n√£o est√° logado! Favor logar no sistema!");
 			return;
 		}
 		

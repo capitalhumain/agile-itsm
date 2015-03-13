@@ -109,13 +109,13 @@ window.load = ativa;
 
 	   if (res<=0)
 	   {
-	     alert("Usuário não está logado");
+	     alert("UsuÃ¡rio nÃ£o estÃ¡ logado");
 	   }
 	 }
 	 function enviarMensagem(){
 		 var texto = $("#idMessage").val();
 			if(text!="")
-				 $("<p align = 'left'><font color='blue'>"+ "Você falou para "+<%= request.getParameter("usuarioSelecionado") %>+": "+texto+ "</font></p>").appendTo("#TextoChat");
+				 $("<p align = 'left'><font color='blue'>"+ "VocÃª falou para "+<%= request.getParameter("usuarioSelecionado") %>+": "+texto+ "</font></p>").appendTo("#TextoChat");
 		      	$("#TextoChat").scrollTop($("#TextoChat")[0].scrollHeight);
 				sendMessage(<%= request.getParameter("usuarioSelecionado") %>,texto,0);
 			}

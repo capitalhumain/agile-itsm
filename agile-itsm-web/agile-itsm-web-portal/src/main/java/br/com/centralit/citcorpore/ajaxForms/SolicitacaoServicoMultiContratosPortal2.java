@@ -91,7 +91,7 @@ public class SolicitacaoServicoMultiContratosPortal2 extends SolicitacaoServicoM
 //					if(contratosGruposService.hasContrato(listGrupos, contrato))  {
 						restaurarInformacoes(document, request, contrato);
 //					} else {
-						//FunÁ„o especÌfica para exibir somente um popup no IE
+						//Fun√ß√£o espec√≠fica para exibir somente um popup no IE
 //						document.executeScript("cancelarUsuarioContrato()");	
 						//document.alert(UtilI18N.internacionaliza(request, "solicitacaoservico.validacao.usuarioContratoNaoLocalizado"));
 //					}
@@ -127,7 +127,7 @@ public class SolicitacaoServicoMultiContratosPortal2 extends SolicitacaoServicoM
 		ServicoContratoService servicoContratoServico = (ServicoContratoService) ServiceLocator.getInstance().getService(ServicoContratoService.class, WebUtil.getUsuarioSistema(request));
 		ServicoContratoDTO servicoContratoDto= null;
 		
-		//Insere grupo Executor padr„o
+		//Insere grupo Executor padr√£o
 		if(solicitacaoServicoDto.getIdContrato() != null && solicitacaoServicoDto.getIdServico() != null ){
 			servicoContratoDto = servicoContratoServico.findByIdContratoAndIdServico(solicitacaoServicoDto.getIdContrato(), solicitacaoServicoDto.getIdServico());
 			
@@ -146,7 +146,7 @@ public class SolicitacaoServicoMultiContratosPortal2 extends SolicitacaoServicoM
 				try {
 					if (solicitacaoServicoDto.getIdSolicitacaoServico() == null || solicitacaoServicoDto.getIdSolicitacaoServico().intValue() == 0) {
  						solicitacaoServicoDto = (SolicitacaoServicoDTO) solicitacaoServicoService.create(solicitacaoServicoDto);
-						// document.alert("Registro efetuado com sucesso. SolicitaÁ„o N.o: " + solicitacaoServicoDto.getIdSolicitacaoServico() + " criada.");
+						// document.alert("Registro efetuado com sucesso. Solicita√ß√£o N.o: " + solicitacaoServicoDto.getIdSolicitacaoServico() + " criada.");
 						String comando = "mostraMensagemInsercao('" +"<H3>"+ UtilI18N.internacionaliza(request, "MSG05") + ".<br>"
 								+ UtilI18N.internacionaliza(request, "gerenciaservico.numerosolicitacao") + " <b><u>" + solicitacaoServicoDto.getIdSolicitacaoServico() + "</u></b> "
 								+ UtilI18N.internacionaliza(request, "citcorpore.comum.crida") + ".<br><br>" + UtilI18N.internacionaliza(request, "prioridade.prioridade") + ": "
@@ -231,7 +231,7 @@ public class SolicitacaoServicoMultiContratosPortal2 extends SolicitacaoServicoM
 				ServicoDTO servicoDto = new ServicoDTO();
 				servicoDto.setIdServico(idServico);
 				servicoDto = (ServicoDTO) servicoService.restore(servicoDto);
-				/*Setando o tipo de demanda de serviÁo*/
+				/*Setando o tipo de demanda de servi√ßo*/
 				if(servicoDto!=null) {
 					solicitacaoServicoDto.setNomeServico(servicoDto.getNomeServico());
 					

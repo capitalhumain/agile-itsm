@@ -23,7 +23,7 @@ var canvasParent = null;
 
 var bAlterado = false;
 
-// ========================================== FUN«’ES DE TRATAMENTO ========================================== //
+// ========================================== FUN√á√ïES DE TRATAMENTO ========================================== //
 function pressionou_TECLA_DEL(shift, ctrl, alt, node){
 	if (desenhoFluxo != null && ctrl) {
 		desenhoFluxo.excluiElemento();
@@ -152,7 +152,7 @@ function Coordenada(x, y) {
 	this.y = y;
 }
 
-//**** SeleÁ„o
+//**** Sele√ß√£o
 function Selecao(elemento, conexao, borda, bListaDePropriedades) {
 	this.elemento = elemento;
 	this.conexao = conexao;
@@ -241,7 +241,7 @@ function Propriedade() {
 	this.valorDefault = ""; 
 }
 
-//**** SequÍncia 
+//**** Sequ√™ncia 
 function SequenciaFluxo(_contexto) {
 	idElemento ++;
 	this.idElemento = idElemento;
@@ -557,7 +557,7 @@ function SequenciaFluxo(_contexto) {
 	
 }
 
-//**** Conex„o
+//**** Conex√£o
 function Conexao(x, y, l, a, posicao) {
 	this.x = x;
 	this.y = y;
@@ -684,7 +684,7 @@ function ElementoFluxo(_context) {
 	
 	this.desenha = function() {
 		if (this.imagemObj == null) {
-			alert('Erro! Imagem n„o localizada.');
+			alert('Erro! Imagem n√£o localizada.');
 			return;
 		}
 		if (this.borda) 
@@ -1088,7 +1088,7 @@ function DesenhoFluxo(_canvas){
 		var idTipoElemento = parseInt(e.dataTransfer.getData("text"));
 		var tipo = self.tiposDeElemento[idTipoElemento];
 		if(tipo == null){
-			UtilMapa.mostrarMsgTemporaria("msg_erro", 4, "Item inv·lido!");
+			UtilMapa.mostrarMsgTemporaria("msg_erro", 4, "Item inv√°lido!");
 			return;
 		}
 		var elemento = new ElementoFluxo(self.contexto);
@@ -1115,7 +1115,7 @@ function DesenhoFluxo(_canvas){
 		
 		/*
 		 * Rodrigo Pecci Acorse - 04/12/2013 17h09 - #125804
-		 * Comentado pois esse if reseta a posiÁ„o do scroll mas n„o deve ser chamado dentro do mÈtodo limpa().
+		 * Comentado pois esse if reseta a posi√ß√£o do scroll mas n√£o deve ser chamado dentro do m√©todo limpa().
 		 */
 		
 		/*if (canvasParent != null) {
@@ -1126,7 +1126,7 @@ function DesenhoFluxo(_canvas){
 	
 	/*
 	 * Rodrigo Pecci Acorse - 04/12/2013 17h09 - #125804
-	 * Novo mÈtodo para fazer o reset da posiÁ„o do scroll.
+	 * Novo m√©todo para fazer o reset da posi√ß√£o do scroll.
 	 */
 	this.resetScroll = function() {
 		if (canvasParent != null) {

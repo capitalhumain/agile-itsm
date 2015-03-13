@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.citframework.util.UtilDatas"%>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
@@ -10,7 +12,7 @@
 <html>
 <head>
 <%
-			//identifica se a p·gina foi aberta a partir de um iframe (popup de cadastro r·pido)
+			//identifica se a p√°gina foi aberta a partir de um iframe (popup de cadastro r√°pido)
 			String iframe = "";
 			iframe = request.getParameter("iframe");
 
@@ -20,9 +22,8 @@
 %>
 <%@include file="/include/header.jsp"%>
 
-<%@include file="/include/security/security.jsp"%>
 
-<title><fmt:message key="citcorpore.comum.title" /></title>
+<%@include file="/novoLayout/common/include/titulo.jsp" %>
 
 <%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
     <script type="text/javascript" src="../../cit/objects/InspecaoPedidoCompraDTO.js"></script>
@@ -166,7 +167,7 @@
                  }
                  var idAux = eval('document.form.idCriterio' + NumberUtil.zerosAEsquerda(i,5) + '.value');
                  if (idAux == idCriterio) {
-                      alert('CritÈrio j· selecionado!');
+                      alert('Crit√©rio j√° selecionado!');
                       eval('document.form.idCriterio' + seq + '.focus()');
                       return false;
                  }
@@ -192,7 +193,7 @@
                         return false;
                     }
                     if (StringUtils.isBlank(criterioDto.avaliacao)){
-                        alert('Informe a avaliaÁ„o!');
+                        alert('Informe a avalia√ß√£o!');
                         eval('document.form.avaliacao' + NumberUtil.zerosAEsquerda(i,5) + '.focus()');
                         return false;
                     }
@@ -363,7 +364,7 @@
 		            </div>
 		            <div class="col_100">
 		                  <div style='width:700px;overflow:auto;'>
-		                   <cit:grid id="GRID_CRITERIOS" columnHeaders="CritÈrio;Avaliacao;ObservaÁıes" styleCells="linhaGrid">
+		                   <cit:grid id="GRID_CRITERIOS" columnHeaders="Crit√©rio;Avaliacao;Observa√ß√µes" styleCells="linhaGrid">
 		                       <cit:column idGrid="GRID_CRITERIOS" number="001">
 		                           <select name='idCriterio#SEQ#' id='idCriterio#SEQ#' style='border:none; width: 200px' onchange='verificarCriterio("#SEQ#");'>
 		                               <option value=''><fmt:message key="citcorpore.comum.selecione" /></option>
@@ -399,7 +400,7 @@
 		                       onclick='emitirEspelho();'>
 		                       <img
 		                           src="${ctx}/template_new/images/icons/small/grey/printer.png">
-		                       <span>Espelho da AutorizaÁ„o de Compra</span>
+		                       <span>Espelho da Autoriza√ß√£o de Compra</span>
 		                   </button>
 		             </div>
               </div>

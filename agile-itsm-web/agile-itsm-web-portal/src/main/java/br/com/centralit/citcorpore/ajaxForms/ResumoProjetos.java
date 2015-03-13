@@ -49,8 +49,8 @@ public class ResumoProjetos extends AjaxFormAction {
 			HttpServletResponse response) throws Exception {
 
 	}
-	/* Desenvolvedor: Pedro Lino - Data: 28/10/2013 - Horário: 15:15 - ID Citsmart: 120948 -
-	* Motivo/Comentário: Tabela com dificil visualização/ alterado layout: retirado algumas bordas */
+	/* Desenvolvedor: Pedro Lino - Data: 28/10/2013 - HorÃ¡rio: 15:15 - ID Citsmart: 120948 -
+	* Motivo/ComentÃ¡rio: Tabela com dificil visualizaÃ§Ã£o/ alterado layout: retirado algumas bordas */
 	public void pesquisa(DocumentHTML document, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		UsuarioDTO usuario = WebUtil.getUsuario(request);
@@ -296,10 +296,10 @@ public class ResumoProjetos extends AjaxFormAction {
 
         try {
             ChartUtilities.saveChartAsPNG(arquivo, chart, width, height);
-            System.out.println("Gráfico Pizza gerado com sucesso em: \n\t" + caminho + nomeArquivo);
+            System.out.println("GrÃ¡fico Pizza gerado com sucesso em: \n\t" + caminho + nomeArquivo);
 
         } catch (Exception e) {
-            System.err.println("Problemas durante a criação do Gráfico XY: " + e.getMessage());
+            System.err.println("Problemas durante a criaÃ§Ã£o do GrÃ¡fico XY: " + e.getMessage());
         }
     }
 

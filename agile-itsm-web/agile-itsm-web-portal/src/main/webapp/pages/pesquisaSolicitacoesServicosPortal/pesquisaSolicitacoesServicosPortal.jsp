@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.centralit.citcorpore.bean.SolicitacaoServicoDTO"%>
@@ -21,8 +23,7 @@
 %>
 <%@include file="/include/header.jsp"%>
 
-<%@include file="/include/security/security.jsp"%>
-<title><fmt:message key="citcorpore.comum.title" /></title>
+<%@include file="/novoLayout/common/include/titulo.jsp" %>
 <%@include file="/include/menu/menuConfig.jsp"%>
 
 <%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
@@ -90,7 +91,7 @@
                                     <input type='hidden' id='origemSolicitacao' name='origemSolicitacao'>
 
                                     <!--
-                                        Motivo: Otimizando o html para o novo padrão de layout
+                                        Motivo: Otimizando o html para o novo padrÃ£o de layout
                                         Autor: flavio.santana
                                         Data: 30/10/2013 10:50
                                      -->

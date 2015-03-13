@@ -72,28 +72,28 @@ public class RelatorioMudancaItemConfiguracao extends AjaxFormAction {
 
 		Collection<RelatorioMudancaItemConfiguracaoDTO> listaRelatorioMudancaItemConfiguracao = null;// lista mudanca/itemConfig
 		Collection<RelatorioMudancaItemConfiguracaoDTO> listaParaEnvio = new ArrayList<RelatorioMudancaItemConfiguracaoDTO>();
-		// Par‚metros da vis„o
+		// Par√¢metros da vis√£o
 		int idItem = 0;
 		int idMudanca = 0;
 		int idContrato = 0;
 		
 		if (relatorioMudancaItemConfiguracaoDTO.getIdItemConfig() != null) {
-			idItem = relatorioMudancaItemConfiguracaoDTO.getIdItemConfig();// id item ConfiguraÁ„o
+			idItem = relatorioMudancaItemConfiguracaoDTO.getIdItemConfig();// id item Configura√ß√£o
 		}
 		if (relatorioMudancaItemConfiguracaoDTO.getIdContrato() != null) {
 			idContrato = relatorioMudancaItemConfiguracaoDTO.getIdContrato();
 		}
 		if (relatorioMudancaItemConfiguracaoDTO.getIdNumeroMudanca() != null) {
-			idMudanca = relatorioMudancaItemConfiguracaoDTO.getIdNumeroMudanca();// id mudanÁa
+			idMudanca = relatorioMudancaItemConfiguracaoDTO.getIdNumeroMudanca();// id mudan√ßa
 		}
 
 		Date dtInicial = relatorioMudancaItemConfiguracaoDTO.getDataInicio();// parametro data incial
-		Date dtFinal = relatorioMudancaItemConfiguracaoDTO.getDataFim();// par‚metro data fim
+		Date dtFinal = relatorioMudancaItemConfiguracaoDTO.getDataFim();// par√¢metro data fim
 		
 		
 		
 	
-		listaRelatorioMudancaItemConfiguracao = requisicaoMudancaItemConfiguracaoDao.listMudancaItemConfigRelatorio(idMudanca, idItem, dtInicial, dtFinal,idContrato);// Retorna valores dos atributos j· filtrados
+		listaRelatorioMudancaItemConfiguracao = requisicaoMudancaItemConfiguracaoDao.listMudancaItemConfigRelatorio(idMudanca, idItem, dtInicial, dtFinal,idContrato);// Retorna valores dos atributos j√° filtrados
 		
 	
 		

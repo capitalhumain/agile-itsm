@@ -178,7 +178,7 @@ public class PerfilAcesso extends AjaxFormAction {
 	}
 
 	/**
-	 * Monta ·rvore de Menus.
+	 * Monta √°rvore de Menus.
 	 * 
 	 * @param document
 	 * @param request
@@ -354,7 +354,7 @@ public class PerfilAcesso extends AjaxFormAction {
 	
 	
 	/**
-	 * Metodo responsavel por verificar se o perfil de acesso est· vinculado a algum grupo, se sim exibe a mensagem conforme mapeado na iniciativa 486
+	 * Metodo responsavel por verificar se o perfil de acesso est√° vinculado a algum grupo, se sim exibe a mensagem conforme mapeado na iniciativa 486
 	 * 
 	 * @param document
 	 * @param request
@@ -384,12 +384,12 @@ public class PerfilAcesso extends AjaxFormAction {
 		
 		}catch(Exception ex){
 			
-			System.out.println("N„o existe id perfil acesso vinculado");
+			System.out.println("N√£o existe id perfil acesso vinculado");
 		} 
 	}
 
 	/**
-	 * Retorna inst‚ncia de PerfilAcessoService.
+	 * Retorna inst√¢ncia de PerfilAcessoService.
 	 * 
 	 * @return EmpregadoService
 	 * @throws ServiceException
@@ -401,7 +401,7 @@ public class PerfilAcesso extends AjaxFormAction {
 	}
 
 	/**
-	 * Retorna inst‚ncia de MenuPerfisService.
+	 * Retorna inst√¢ncia de MenuPerfisService.
 	 * 
 	 * @return EmpregadoService
 	 * @throws ServiceException

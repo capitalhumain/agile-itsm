@@ -70,7 +70,7 @@ public class RelatorioItemConfiguracaoPacoteOffice extends AjaxFormAction {
 		@SuppressWarnings("unchecked")
 		List<MidiaSoftwareChaveDTO> midiaSoftwareChaves =  (List<MidiaSoftwareChaveDTO>) br.com.citframework.util.WebUtil.deserializeCollectionFromRequest(MidiaSoftwareChaveDTO.class, "midiaSoftwareChavesSerealizadas", request);
 		configuracaoDTO.setMidiaSoftwareChaves(midiaSoftwareChaves);
-		/*Lista os itens de configuração que possuem o pacote office instalado*/
+		/*Lista os itens de configuraÃ§Ã£o que possuem o pacote office instalado*/
 		
 		List<ItemConfiguracaoDTO> listItemConfiguracaoDTO = null;
 		if(configuracaoDTO.getDuplicado() != null && (midiaSoftwareChaves != null && !midiaSoftwareChaves.isEmpty())) {
@@ -149,7 +149,7 @@ public class RelatorioItemConfiguracaoPacoteOffice extends AjaxFormAction {
 		@SuppressWarnings("unchecked")
 		List<MidiaSoftwareChaveDTO> midiaSoftwareChaves =  (List<MidiaSoftwareChaveDTO>) br.com.citframework.util.WebUtil.deserializeCollectionFromRequest(MidiaSoftwareChaveDTO.class, "midiaSoftwareChavesSerealizadas", request);
 		configuracaoDTO.setMidiaSoftwareChaves(midiaSoftwareChaves);
-		/*Lista os itens de configuração que possuem o pacote office instalado*/
+		/*Lista os itens de configuraÃ§Ã£o que possuem o pacote office instalado*/
 		List<ItemConfiguracaoDTO> listItemConfiguracaoDTO = null;
 		
 		if(configuracaoDTO.getDuplicado() != null && (midiaSoftwareChaves != null && !midiaSoftwareChaves.isEmpty())) {

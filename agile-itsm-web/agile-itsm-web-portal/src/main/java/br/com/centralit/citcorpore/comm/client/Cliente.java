@@ -9,19 +9,19 @@ public class Cliente {
 	// Declaro o ServerSocket (ele que trata todos os pedidos de conexao)
 	ServerSocket serv = null;
 	try {
-	    // Cria o ServerSocket na porta 7000 se estiver disponÌvel (veja na
+	    // Cria o ServerSocket na porta 7000 se estiver dispon√≠vel (veja na
 	    // lista de portas em execucao da maquina servidora)
 	    serv = new ServerSocket(7000);
 
 	    while (true) {
-		// Declaro o Socket de comunicaÁ„o
+		// Declaro o Socket de comunica√ß√£o
 		Socket s = null;
-		// Aguarda uma conex„o na porta especificada e cria retorna o
+		// Aguarda uma conex√£o na porta especificada e cria retorna o
 		// socket
-		// que ir· comunicar com o cliente
+		// que ir√° comunicar com o cliente
 		s = serv.accept();
 
-		// Cria a tread que vai tratar a comunicaÁ„o e deixa a conversa
+		// Cria a tread que vai tratar a comunica√ß√£o e deixa a conversa
 		// com ela!
 		ThreadTrataComunicacao threadTratarComm = new ThreadTrataComunicacao(s);
 		threadTratarComm.start();
@@ -30,7 +30,7 @@ public class Cliente {
 		// de conexao!
 	    }
 	} catch (IOException e) {
-	    // Imprime uma notificaÁ„o na saÌda padr„o caso haja algo errado.
+	    // Imprime uma notifica√ß√£o na sa√≠da padr√£o caso haja algo errado.
 	    System.out.println("Algum problema ocorreu para criar ou receber o socket.");
 
 	} finally {

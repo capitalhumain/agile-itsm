@@ -176,11 +176,11 @@ public class PagamentoProjeto extends AjaxFormAction {
 			document.getCheckboxById("idTarefasParaPagamento").setValue(values);
 		}
 	}
-	/* Desenvolvedor: Pedro Lino - Data: 28/10/2013 - Horário: 14:20 - ID Citsmart: 120948 - 
-	* Motivo/Comentário: Tabela com dificil visualização/ alterado layout: retirado algumas bordas */
+	/* Desenvolvedor: Pedro Lino - Data: 28/10/2013 - HorÃ¡rio: 14:20 - ID Citsmart: 120948 - 
+	* Motivo/ComentÃ¡rio: Tabela com dificil visualizaÃ§Ã£o/ alterado layout: retirado algumas bordas */
 	
-	/* Desenvolvedor: Pedro Lino - Data: 29/10/2013 - Horário: 09:45 - ID Citsmart: 120948 - 
-	* Motivo/Comentário: Mesclado coluna pagamento e situação pois estavam redundantes */
+	/* Desenvolvedor: Pedro Lino - Data: 29/10/2013 - HorÃ¡rio: 09:45 - ID Citsmart: 120948 - 
+	* Motivo/ComentÃ¡rio: Mesclado coluna pagamento e situaÃ§Ã£o pois estavam redundantes */
 	public void getInformacoes(DocumentHTML document, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		PagamentoProjetoDTO pagamentoProjetoDTO = (PagamentoProjetoDTO)document.getBean();

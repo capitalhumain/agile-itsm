@@ -276,7 +276,7 @@ public class SolicitacaoServicoPortal extends SolicitacaoServicoMultiContratos {
     }
 
     /**
-     * informaDadosSolicitaÁ„o - Informa dados iniciais da solicitaÁ„o no momento da abertura
+     * informaDadosSolicita√ß√£o - Informa dados iniciais da solicita√ß√£o no momento da abertura
      * 
      * @author Flavio.Junior
      */
@@ -292,7 +292,7 @@ public class SolicitacaoServicoPortal extends SolicitacaoServicoMultiContratos {
             return;
         }
 
-        /* Setando o id do Solicitante diretamente d sess„o */
+        /* Setando o id do Solicitante diretamente d sess√£o */
         document.getElementById("idSolicitante").setValue(usuario.getIdEmpregado().toString());
 
         final EmpregadoDTO eb = this.getEmpregadoService().restoreByIdEmpregado(usuario.getIdEmpregado());
@@ -335,7 +335,7 @@ public class SolicitacaoServicoPortal extends SolicitacaoServicoMultiContratos {
             if (solicitacaoServicoDto.getIdSolicitacaoServico() == null
                     || solicitacaoServicoDto.getIdSolicitacaoServico().intValue() == 0) {
                 solicitacaoServicoDto = (SolicitacaoServicoDTO) solicitacaoServicoService.create(solicitacaoServicoDto);
-                // document.alert("Registro efetuado com sucesso. SolicitaÁ„o N.o: " +
+                // document.alert("Registro efetuado com sucesso. Solicita√ß√£o N.o: " +
                 // solicitacaoServicoDto.getIdSolicitacaoServico() + " criada.");
                 String comando = "mostraMensagemInsercao('" + UtilI18N.internacionaliza(request, "MSG05") + ".<br>"
                         + UtilI18N.internacionaliza(request, "gerenciaservico.numerosolicitacao") + " <b><u>"
@@ -379,7 +379,7 @@ public class SolicitacaoServicoPortal extends SolicitacaoServicoMultiContratos {
         ServicoDTO servicoDto = new ServicoDTO();
         servicoDto.setIdServico(idServico);
         servicoDto = (ServicoDTO) servicoService.restore(servicoDto);
-        /* Setando o tipo de demanda de serviÁo */
+        /* Setando o tipo de demanda de servi√ßo */
 
         if (servicoDto != null) {
             document.getElementById("idTipoDemandaServico").setValue(servicoDto.getIdTipoDemandaServico().toString());

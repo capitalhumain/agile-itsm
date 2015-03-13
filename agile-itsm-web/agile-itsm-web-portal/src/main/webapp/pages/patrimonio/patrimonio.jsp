@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.citframework.util.UtilDatas"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
@@ -8,8 +10,7 @@
 	<head>
 		<%@include file="/include/header.jsp"%>
 
-		<%@include file="/include/security/security.jsp" %>
-		<title><fmt:message key="citcorpore.comum.title"/></title>
+		<%@include file="/novoLayout/common/include/titulo.jsp" %>
 
 		<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 
@@ -544,7 +545,7 @@
 
 										<div id="gridCaracteristica" class="columns clearfix" style="display: none;">
 											<h1><fmt:message key="patrimonio.patrimonio_item_pai"/></h1>
-											<table class="table" id="tabelaCaracteristica" style="width: 100%" title="Patrimônio ">
+											<table class="table" id="tabelaCaracteristica" style="width: 100%" title="PatrimÃ´nio ">
 												<tr>
 													<th style="width: 16px;"></th>
 													<th style="width: 30%;"><fmt:message key="citcorpore.comum.caracteristica"/></th>
@@ -559,7 +560,7 @@
 
 										<div id="gridCaracteristicaItemFilho" class="columns clearfix" style="display: none;">
 											<h1><fmt:message key="patrimonio.patrimonio_item_filho"/></h1>
-											<table class="table" id="tabelaCaracteristicaItemFilho" style="width: 100%" title="Patrimônio Item Configuração Filho">
+											<table class="table" id="tabelaCaracteristicaItemFilho" style="width: 100%" title="PatrimÃ´nio Item ConfiguraÃ§Ã£o Filho">
 												<tr>
 													<th style="width: 16px;"></th>
 													<th style="width: 30%;"><fmt:message key="citcorpore.comum.caracteristica"/></th>
@@ -590,7 +591,7 @@
 		<%@include file="/include/footer.jsp"%>
 	</body>
 
-	<div id="POPUP_ITEMCONFIGPAI" title="Consulta Item Configuração Pai">
+	<div id="POPUP_ITEMCONFIGPAI" title="Consulta Item ConfiguraÃ§Ã£o Pai">
 		<div class="box grid_16 tabs">
 			<div class="toggle_container">
 				<div id="tabs-2" class="block">
@@ -607,7 +608,7 @@
 		</div>
 	</div>
 
-	<div id="POPUP_TIPOITEMCONFIGURACAO" title="Consulta Tipo de Item Configuração">
+	<div id="POPUP_TIPOITEMCONFIGURACAO" title="Consulta Tipo de Item ConfiguraÃ§Ã£o">
 		<div class="box grid_16 tabs">
 			<div class="toggle_container">
 				<div id="tabs-2" class="block">
@@ -625,7 +626,7 @@
 		</div>
 	</div>
 
-	<div id="POPUP_ITEMCONFIGFILHO" title="Consulta Item Configuração Filho">
+	<div id="POPUP_ITEMCONFIGFILHO" title="Consulta Item ConfiguraÃ§Ã£o Filho">
 		<div class="box grid_16 tabs">
 			<div class="toggle_container">
 				<div id="tabs-2" class="block">

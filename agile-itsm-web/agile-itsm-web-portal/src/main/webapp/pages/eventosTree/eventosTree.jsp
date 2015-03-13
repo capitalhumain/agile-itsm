@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.citframework.dto.Usuario"%>
@@ -5,7 +7,7 @@
 <!doctype html public "">
 <html>
 <head>
-<%@include file="/include/security/security.jsp" %>
+
 <!--[if lt IE 7]> <html lang="en-us" class="no-js ie6"> <![endif]-->
 <!--[if IE 7]>    <html lang="en-us" class="no-js ie7"> <![endif]-->
 <!--[if IE 8]>    <html lang="en-us" class="no-js ie8"> <![endif]-->
@@ -13,7 +15,7 @@
 <!--[if gt IE 8]><!--> <html lang="en-us" class="no-js"> <!--<![endif]-->
 <%@include file="/include/header.jsp"%>
 
-<title><fmt:message key="citcorpore.comum.title" /></title>
+<%@include file="/novoLayout/common/include/titulo.jsp" %>
 
 <%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp" %>
 <script type="text/javascript" src="${ctx}/js/ValidacaoUtils.js"></script>
@@ -51,16 +53,16 @@
 
 	function gravar() {
 		if (document.getElementById('tblGrupo').rows.length == 1 && document.getElementById('tblIConfig').rows.length == 1){
-			alert('Adicione pelo menos um "Grupo" ou "Item de ConfiguraÁ„o"!');
+			alert('Adicione pelo menos um "Grupo" ou "Item de Configura√ß√£o"!');
 			return;
 		}
 		if (document.getElementById('tblItemConfig').rows.length == 1){
-			alert('Adicione pelo menos um item de execuÁ„o!');
+			alert('Adicione pelo menos um item de execu√ß√£o!');
 			return;
 		}
 
 // 		if (document.form.idItemCfg.value != ''){
-// 			alert('Adicione o item de configuraÁ„o antes de gravar!');
+// 			alert('Adicione o item de configura√ß√£o antes de gravar!');
 // 			return;
 // 		}
 
@@ -130,7 +132,7 @@
 		var row = tbl.insertRow(lastRow);
 		var coluna = row.insertCell(0);
 		contIConfig++;
-		coluna.innerHTML = '<img id="imgDelItemConfig' + contIConfig + '" style="cursor: pointer;" title="Clique para excluir o item de configuraÁ„o!" src="${ctx}/imagens/delete.png" onclick="removeLinhaTabela(\'tblIConfig\', this.parentNode.parentNode.rowIndex);">';
+		coluna.innerHTML = '<img id="imgDelItemConfig' + contIConfig + '" style="cursor: pointer;" title="Clique para excluir o item de configura√ß√£o!" src="${ctx}/imagens/delete.png" onclick="removeLinhaTabela(\'tblIConfig\', this.parentNode.parentNode.rowIndex);">';
 		coluna = row.insertCell(1);
 		coluna.innerHTML = desc + '<input type="hidden" id="idItemConfiguracao' + contIConfig + '" name="idItemConfiguracao" value="' + id + '" />';
 		$("#POPUP_ITEM_CONFIG").dialog("close");
@@ -142,14 +144,14 @@
 			var arrayIdGrupo = document.form.idGrupo;
 			for (var i = 0; i < arrayIdGrupo.length; i++){
 				if (arrayIdGrupo[i].value == id){
-					alert('Grupo j· adicionado!');
+					alert('Grupo j√° adicionado!');
 					return false;
 				}
 			}
 		} else if (lastRow == 2){
 			var idGrupo = document.form.idGrupo;
 			if (idGrupo.value == id){
-				alert('Grupo j· adicionado!');
+				alert('Grupo j√° adicionado!');
 				return false;
 			}
 		}
@@ -161,14 +163,14 @@
 			var arrayidItemConfiguracao = document.form.idItemConfiguracao;
 			for (var i = 0; i < arrayidItemConfiguracao.length; i++){
 				if (arrayidItemConfiguracao[i].value == id){
-					alert('Item de configuraÁ„o j· adicionado!');
+					alert('Item de configura√ß√£o j√° adicionado!');
 					return false;
 				}
 			}
 		} else if (lastRow == 2){
 			var idItemConfiguracao = document.form.idItemConfiguracao;
 			if (idItemConfiguracao.value == id){
-				alert('Item de configuraÁ„o j· adicionado!');
+				alert('Item de configura√ß√£o j√° adicionado!');
 				return false;
 			}
 		}
@@ -303,12 +305,12 @@
 	function addItemConfig() {
 		//if (!document.form.tipoExec[0].checked && !document.form.tipoExec[1].checked && !document.form.tipoExec[2].checked){
 		if (!document.form.tipoExec[0].checked && !document.form.tipoExec[1].checked){
-			alert('Informe o tipo de execuÁ„o!');
+			alert('Informe o tipo de execu√ß√£o!');
 			document.form.tipoExec[0].focus();
 			return;
 		}
 		if (document.form.nomeItemCfg.value == '' || document.form.idItemCfg.value == ''){
-			alert('Informe o item de configuraÁ„o!');
+			alert('Informe o item de configura√ß√£o!');
 			return;
 		}
 		if (!document.form.gerarQuando[0].checked && !document.form.gerarQuando[1].checked){
@@ -334,12 +336,12 @@
 				return;
 			}
 			if (comparaComDataAtual(document.form.data) == -1){
-				alert('A data n„o pode ser menor que a data atual!');
+				alert('A data n√£o pode ser menor que a data atual!');
 				return;
 			}
 			if (comparaComDataAtual(document.form.data) == 0){
 				if (!comparaComHoraAtual(document.form.hora.value)){
-					alert('A hora n„o pode ser menor que a hora atual!');
+					alert('A hora n√£o pode ser menor que a hora atual!');
 					return;
 				}
 			}
@@ -368,17 +370,17 @@
 				if (document.form.idItemCfg.value == arrayIdItemConfig[i].value){
 					if (document.form.tipoExec[0].checked){
 						if (arrayTipoExecucao[i].value == 'I'){
-							alert('Este Item de ConfiguraÁ„o j· foi adicionado para InstalaÁ„o!');
+							alert('Este Item de Configura√ß√£o j√° foi adicionado para Instala√ß√£o!');
 							return;
 						}
 					} else if (document.form.tipoExec[1].checked) {
 						if (arrayTipoExecucao[i].value == 'D'){
-							alert('Este Item de ConfiguraÁ„o j· foi adicionado para DesinstalaÁ„o!');
+							alert('Este Item de Configura√ß√£o j√° foi adicionado para Desinstala√ß√£o!');
 							return;
 						}
 					}/* else {
 						if (arrayTipoExecucao[i].value == 'A'){
-							alert('Este Item de ConfiguraÁ„o j· foi adicionado para AlteraÁ„o!');
+							alert('Este Item de Configura√ß√£o j√° foi adicionado para Altera√ß√£o!');
 							return;
 						}
 					} */
@@ -390,17 +392,17 @@
 			if (document.form.idItemCfg.value == idItemConfig.value){
 				if (document.form.tipoExec[0].checked){
 					if (tipoExecucao.value == 'I'){
-						alert('Este Item de ConfiguraÁ„o j· foi adicionado para InstalaÁ„o!');
+						alert('Este Item de Configura√ß√£o j√° foi adicionado para Instala√ß√£o!');
 						return;
 					}
 				} else if (document.form.tipoExec[1].checked) {
 					if (tipoExecucao.value == 'D'){
-						alert('Este Item de ConfiguraÁ„o j· foi adicionado para DesinstalaÁ„o!');
+						alert('Este Item de Configura√ß√£o j√° foi adicionado para Desinstala√ß√£o!');
 						return;
 					}
 				}/* else {
 					if (tipoExecucao.value == 'A'){
-						alert('Este Item de ConfiguraÁ„o j· foi adicionado para AlteraÁ„o!');
+						alert('Este Item de Configura√ß√£o j√° foi adicionado para Altera√ß√£o!');
 						return;
 					}
 				} */
@@ -409,18 +411,18 @@
 		var row = tbl.insertRow(lastRow);
 		var coluna = row.insertCell(0);
 		contItemConfig++;
-		coluna.innerHTML = '<img id="imgAltItemConfig' + contItemConfig + '" style="cursor: pointer;" title="Clique para alterar o item de configuraÁ„o!" src="${ctx}/imagens/edit.png" onclick="alteraLinhaTabela(\'tblItemConfig\', this.parentNode.parentNode.rowIndex, ' + contItemConfig + ');">';
+		coluna.innerHTML = '<img id="imgAltItemConfig' + contItemConfig + '" style="cursor: pointer;" title="Clique para alterar o item de configura√ß√£o!" src="${ctx}/imagens/edit.png" onclick="alteraLinhaTabela(\'tblItemConfig\', this.parentNode.parentNode.rowIndex, ' + contItemConfig + ');">';
 		coluna = row.insertCell(1);
-		coluna.innerHTML = '<img id="imgDelItemConfig' + contItemConfig + '" style="cursor: pointer;" title="Clique para excluir o item de configuraÁ„o!" src="${ctx}/imagens/delete.png" onclick="removeLinhaTabela(\'tblItemConfig\', this.parentNode.parentNode.rowIndex);">';
+		coluna.innerHTML = '<img id="imgDelItemConfig' + contItemConfig + '" style="cursor: pointer;" title="Clique para excluir o item de configura√ß√£o!" src="${ctx}/imagens/delete.png" onclick="removeLinhaTabela(\'tblItemConfig\', this.parentNode.parentNode.rowIndex);">';
 		coluna = row.insertCell(2);
 		if (document.form.tipoExec[0].checked){
-			coluna.innerHTML = 'InstalaÁ„o' + '<input type="hidden" id="tipoExecucao' + contItemConfig + '" name="tipoExecucao" value="' + document.form.tipoExec[0].value + '" />';
+			coluna.innerHTML = 'Instala√ß√£o' + '<input type="hidden" id="tipoExecucao' + contItemConfig + '" name="tipoExecucao" value="' + document.form.tipoExec[0].value + '" />';
 			document.form.tipoExec[0].checked = false;
 		} else if (document.form.tipoExec[1].checked) {
-			coluna.innerHTML = 'DesinstalaÁ„o' + '<input type="hidden" id="tipoExecucao' + contItemConfig + '" name="tipoExecucao" value="' + document.form.tipoExec[1].value + '" />';
+			coluna.innerHTML = 'Desinstala√ß√£o' + '<input type="hidden" id="tipoExecucao' + contItemConfig + '" name="tipoExecucao" value="' + document.form.tipoExec[1].value + '" />';
 			document.form.tipoExec[1].checked = false;
 		}/* else {
-			coluna.innerHTML = 'AtualizaÁ„o' + '<input type="hidden" id="tipoExecucao' + contItemConfig + '" name="tipoExecucao" value="' + document.form.tipoExec[2].value + '" />';
+			coluna.innerHTML = 'Atualiza√ß√£o' + '<input type="hidden" id="tipoExecucao' + contItemConfig + '" name="tipoExecucao" value="' + document.form.tipoExec[2].value + '" />';
 			document.form.tipoExec[2].checked = false;
 		} */
 		coluna = row.insertCell(3);
@@ -469,16 +471,16 @@
 		var row = tbl.insertRow(lastRow);
 		var coluna = row.insertCell(0);
 		contItemConfig++;
-		coluna.innerHTML = '<img id="imgAltItemConfig' + contItemConfig + '" style="cursor: pointer;" title="Clique para alterar o item de configuraÁ„o!" src="${ctx}/imagens/edit.png" onclick="alteraLinhaTabela(\'tblItemConfig\', this.parentNode.parentNode.rowIndex, ' + contItemConfig + ');">';
+		coluna.innerHTML = '<img id="imgAltItemConfig' + contItemConfig + '" style="cursor: pointer;" title="Clique para alterar o item de configura√ß√£o!" src="${ctx}/imagens/edit.png" onclick="alteraLinhaTabela(\'tblItemConfig\', this.parentNode.parentNode.rowIndex, ' + contItemConfig + ');">';
 		coluna = row.insertCell(1);
-		coluna.innerHTML = '<img id="imgDelItemConfig' + contItemConfig + '" style="cursor: pointer;" title="Clique para excluir o item de configuraÁ„o!" src="${ctx}/imagens/delete.png" onclick="removeLinhaTabela(\'tblItemConfig\', this.parentNode.parentNode.rowIndex);">';
+		coluna.innerHTML = '<img id="imgDelItemConfig' + contItemConfig + '" style="cursor: pointer;" title="Clique para excluir o item de configura√ß√£o!" src="${ctx}/imagens/delete.png" onclick="removeLinhaTabela(\'tblItemConfig\', this.parentNode.parentNode.rowIndex);">';
 		coluna = row.insertCell(2);
 		if (tipoExecucao == 'I'){
-			coluna.innerHTML = 'InstalaÁ„o' + '<input type="hidden" id="tipoExecucao' + contItemConfig + '" name="tipoExecucao" value="' + tipoExecucao + '" />';
+			coluna.innerHTML = 'Instala√ß√£o' + '<input type="hidden" id="tipoExecucao' + contItemConfig + '" name="tipoExecucao" value="' + tipoExecucao + '" />';
 		} else if (tipoExecucao == 'D') {
-			coluna.innerHTML = 'DesinstalaÁ„o' + '<input type="hidden" id="tipoExecucao' + contItemConfig + '" name="tipoExecucao" value="' + tipoExecucao + '" />';
+			coluna.innerHTML = 'Desinstala√ß√£o' + '<input type="hidden" id="tipoExecucao' + contItemConfig + '" name="tipoExecucao" value="' + tipoExecucao + '" />';
 		}/* else {
-			coluna.innerHTML = 'AtualizaÁ„o' + '<input type="hidden" id="tipoExecucao' + contItemConfig + '" name="tipoExecucao" value="' + tipoExecucao + '" />';
+			coluna.innerHTML = 'Atualiza√ß√£o' + '<input type="hidden" id="tipoExecucao' + contItemConfig + '" name="tipoExecucao" value="' + tipoExecucao + '" />';
 		} */
 		coluna = row.insertCell(3);
 		coluna.innerHTML = identificacao + '<input type="hidden" id="idItemConfig' + contItemConfig + '" name="idItemConfig" value="' + idItemConfig + '" /><input type="hidden" id="nomeItemConfig' + contItemConfig + '" name="nomeItemConfig" value="' + identificacao + '" />';
@@ -601,7 +603,7 @@
 			<fieldset>
 				<label class="campoObrigatorio"><fmt:message key="citcorpore.comum.descricao" /></label>
 				<div>
-					<input type='text' id="descricao" name="descricao" maxlength="100" class="Valid[Required] Description[DescriÁ„o]" />
+					<input type='text' id="descricao" name="descricao" maxlength="100" class="Valid[Required] Description[Descri√ß√£o]" />
 				</div>
 			</fieldset>
 		</div>
@@ -609,8 +611,8 @@
 			<fieldset>
 				<label class="campoObrigatorio"><fmt:message key="eventoItemConfiguracao.ligarMaquina" /></label>
 				<div class="inline clearfix">
-					<label><input type='radio' id="ligarCasoDesl" name="ligarCasoDesl" value="S" class="Valid[Required] Description[Ligar a m·quina]" /><fmt:message key="eventoItemConfiguracao.ligarMaquinaSim" /></label>
-					<label><input type='radio' id="ligarCasoDesl" name="ligarCasoDesl" value="N" class="Valid[Required] Description[Ligar a m·quina]" /><fmt:message key="eventoItemConfiguracao.ligarMaquinaNao" /></label>
+					<label><input type='radio' id="ligarCasoDesl" name="ligarCasoDesl" value="S" class="Valid[Required] Description[Ligar a m√°quina]" /><fmt:message key="eventoItemConfiguracao.ligarMaquinaSim" /></label>
+					<label><input type='radio' id="ligarCasoDesl" name="ligarCasoDesl" value="N" class="Valid[Required] Description[Ligar a m√°quina]" /><fmt:message key="eventoItemConfiguracao.ligarMaquinaNao" /></label>
 				</div>
 			</fieldset>
 		</div>
@@ -621,7 +623,7 @@
 			<fieldset>
 				<label class="campoObrigatorio"><fmt:message key="eventoItemConfiguracao.usuario" /></label>
 				<div>
-					<input type='text' id="usuario" name="usuario" maxlength="100" class="Valid[Required] Description[Usu·rio]" />
+					<input type='text' id="usuario" name="usuario" maxlength="100" class="Valid[Required] Description[Usu√°rio]" />
 				</div>
 			</fieldset>
 		</div>
@@ -640,7 +642,7 @@
 	<div class="columns clearfix">
 		<div class="col_100">
 			<fieldset>
-				<label class="campoObrigatorio" id="addGrupoItemConfig" style="cursor: pointer;" title="Clique para adicionar um grupo de item de configuraÁ„o!"><fmt:message key="eventoItemConfiguracao.grupos" /><img src="${ctx}/imagens/add.png"></label>
+				<label class="campoObrigatorio" id="addGrupoItemConfig" style="cursor: pointer;" title="Clique para adicionar um grupo de item de configura√ß√£o!"><fmt:message key="eventoItemConfiguracao.grupos" /><img src="${ctx}/imagens/add.png"></label>
 				<div>
 					<table class="table" id="tblGrupo" style="display: none;">
 						<tr>
@@ -656,7 +658,7 @@
 	<div class="columns clearfix">
 		<div class="col_100">
 			<fieldset>
-				<label class="campoObrigatorio" id="addItemConfig" style="cursor: pointer;" title="Clique para adicionar um item de configuraÁ„o!"><fmt:message key="eventoItemConfiguracao.itensConfiguracao" /><img src="${ctx}/imagens/add.png"></label>
+				<label class="campoObrigatorio" id="addItemConfig" style="cursor: pointer;" title="Clique para adicionar um item de configura√ß√£o!"><fmt:message key="eventoItemConfiguracao.itensConfiguracao" /><img src="${ctx}/imagens/add.png"></label>
 				<div>
 					<table class="table" id="tblIConfig" style="display: none;">
 						<tr>
@@ -678,7 +680,7 @@
 				<div class="inline clearfix">
 					<label><input type='radio' id="tipoExec" name="tipoExec" value="I" onchange="limpaCamposItemConfig(this);" /><fmt:message key="eventoItemConfiguracao.instalacao"/></label>
 					<label><input type='radio' id="tipoExec" name="tipoExec" value="D" onchange="limpaCamposItemConfig(this);" /><fmt:message key="eventoItemConfiguracao.desinstalacao"/></label>
-					<!-- <label><input type='radio' id="tipoExec" name="tipoExec" value="A" onchange="limpaCamposItemConfig(this);" />AtualizaÁ„o</label> -->
+					<!-- <label><input type='radio' id="tipoExec" name="tipoExec" value="A" onchange="limpaCamposItemConfig(this);" />Atualiza√ß√£o</label> -->
 				</div>
 			</fieldset>
 		</div>
@@ -724,7 +726,7 @@
 	<div class="columns clearfix">
 		<!-- <div class="col_33">
 			<fieldset>
-				<label>ExecuÁ„o Padr„o</label>
+				<label>Execu√ß√£o Padr√£o</label>
 				<div style="margin-top: 10px;">
 					<label><input type="checkbox" id="execucaoPadrao" name="execucaoPadrao" checked="checked" onclick="disabledLinhaComando(this);" /></label>
 				</div>
@@ -740,7 +742,7 @@
 		</div>
 		<div class="col_33" id="divComandoLinux" style="display: none;">
 			<fieldset>
-				<label class="campoObrigatorio"><fmt:message key="eventoItemConfiguracao.linhaComandoLinux"/><img src="${ctx}/imagens/help_ico.gif" title="Linha de comando que vir· antes do nome do arquivo de instalaÁ„o no Linux"></label>
+				<label class="campoObrigatorio"><fmt:message key="eventoItemConfiguracao.linhaComandoLinux"/><img src="${ctx}/imagens/help_ico.gif" title="Linha de comando que vir√° antes do nome do arquivo de instala√ß√£o no Linux"></label>
 				<div>
 					<input type='text' id="linhaComandoLinux" name="linhaComandoLinux" maxlength="200" />
 				</div>
@@ -825,8 +827,8 @@
 	</div>
 	<%@include file="/include/footer.jsp"%>
 
-	<!-- POPUP ITEM CONFIGURA«√O -->
-	<div id="POPUP_ITEM_CONFIG" title="Pesquisa Item de ConfiguraÁ„o">
+	<!-- POPUP ITEM CONFIGURA√á√ÉO -->
+	<div id="POPUP_ITEM_CONFIG" title="Pesquisa Item de Configura√ß√£o">
 		<div class="box grid_16 tabs">
 		<div class="toggle_container">
 		<div id="tabs-2" class="block">
@@ -839,10 +841,10 @@
 		</div>
 		</div>
 	</div>
-	<!-- Fim POPUP ITEM CONFIGURA«√O-->
+	<!-- Fim POPUP ITEM CONFIGURA√á√ÉO-->
 
-	<!-- POPUP GRUPO ITEM CONFIGURA«√O -->
-	<div id="POPUP_GRUPO_ITEM_CONFIG" title="Pesquisa Grupo de Item de ConfiguraÁ„o">
+	<!-- POPUP GRUPO ITEM CONFIGURA√á√ÉO -->
+	<div id="POPUP_GRUPO_ITEM_CONFIG" title="Pesquisa Grupo de Item de Configura√ß√£o">
 		<div class="box grid_16 tabs">
 		<div class="toggle_container">
 		<div id="tabs-2" class="block">
@@ -855,10 +857,10 @@
 		</div>
 		</div>
 	</div>
-	<!-- Fim POPUP GRUPO ITEM CONFIGURA«√O-->
+	<!-- Fim POPUP GRUPO ITEM CONFIGURA√á√ÉO-->
 
 	<!-- POPUP BASE ITEM CONFIGURACAO DESINSTALACAO -->
-	<div id="POPUP_BASEITEMCONFIGURACAO_DES" title="Pesquisa Software DesinstalaÁ„o">
+	<div id="POPUP_BASEITEMCONFIGURACAO_DES" title="Pesquisa Software Desinstala√ß√£o">
 		<div class="box grid_16 tabs">
 		<div class="toggle_container">
 		<div id="tabs-2" class="block">
@@ -874,7 +876,7 @@
 	<!-- Fim POPUP BASE ITEM CONFIGURACAO DESINSTALACAO -->
 
 	<!-- POPUP BASE ITEM CONFIGURACAO INSTALACAO -->
-	<div id="POPUP_BASEITEMCONFIGURACAO_INS" title="Pesquisa Software InstalaÁ„o">
+	<div id="POPUP_BASEITEMCONFIGURACAO_INS" title="Pesquisa Software Instala√ß√£o">
 		<div class="box grid_16 tabs">
 		<div class="toggle_container">
 		<div id="tabs-2" class="block">

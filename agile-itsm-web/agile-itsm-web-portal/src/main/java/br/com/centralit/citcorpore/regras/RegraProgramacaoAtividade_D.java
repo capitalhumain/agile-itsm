@@ -23,15 +23,15 @@ public class RegraProgramacaoAtividade_D extends RegraProgramacaoAtividade {
     
     public void valida(ProgramacaoAtividadeDTO programacaoAtividadeDto) throws Exception {
         if (programacaoAtividadeDto.getPeriodicidadeDiaria() == null)
-            throw new LogicException("Periodicidade da programaÁ„o di·ria n„o foi informada");
+            throw new LogicException("Periodicidade da programa√ß√£o di√°ria n√£o foi informada");
     } 
     
     public String getDetalhamento(ProgramacaoAtividadeDTO programacaoAtividadeDto) throws Exception {
         String descricao = "";      
         if (programacaoAtividadeDto.getPeriodicidadeDiaria().intValue() == 1)
-            descricao = "Todo dia ‡s "+programacaoAtividadeDto.getHoraInicio();
+            descricao = "Todo dia √†s "+programacaoAtividadeDto.getHoraInicio();
         else
-            descricao = "¿s "+programacaoAtividadeDto.getHoraInicio()+" a cada "+programacaoAtividadeDto.getPeriodicidadeDiaria().intValue()+" dias";
+            descricao = "√Äs "+programacaoAtividadeDto.getHoraInicio()+" a cada "+programacaoAtividadeDto.getPeriodicidadeDiaria().intValue()+" dias";
         return descricao;
     }
     

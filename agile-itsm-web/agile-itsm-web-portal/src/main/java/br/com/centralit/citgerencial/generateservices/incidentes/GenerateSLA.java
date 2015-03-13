@@ -51,7 +51,7 @@ public class GenerateSLA extends GerencialGenerateService {
 		datafim = new java.sql.Date(calendar.getTime().getTime());
 
 		/*
-		 * Desenvolvedor: Rodrigo Pecci - Data: 31/10/2013 - Horário: 17h40min - ID Citsmart: 120770 Motivo/Comentário: O servicocontrato no select foi alterado para inner join.
+		 * Desenvolvedor: Rodrigo Pecci - Data: 31/10/2013 - HorÃ¡rio: 17h40min - ID Citsmart: 120770 Motivo/ComentÃ¡rio: O servicocontrato no select foi alterado para inner join.
 		 */
 
 		StringBuilder sql = new StringBuilder();
@@ -170,7 +170,7 @@ public class GenerateSLA extends GerencialGenerateService {
 						sla += " " + slaMM + "m";
 					}
 
-					// Pega o request dos parâmetros
+					// Pega o request dos parÃ¢metros
 					for (Iterator iterator = paramtersDefinition.iterator(); iterator.hasNext();) {
 						Object parametro = (Object) iterator.next();
 						if (parametro != null && "org.apache.catalina.connector.RequestFacade".equals(parametro.getClass().getName())) {
@@ -401,7 +401,7 @@ public class GenerateSLA extends GerencialGenerateService {
 				lstRetorno = new ArrayList();
 				// lstRetorno.add(new Object[] { "", "", "", "", "", "", "", "", "", "", "", "", "" });
 				/**
-				 * Foi adicionado comentado o Item acima pois, ao gerar o relatório com a lista vazia o relatório estava sendo mostrado. Bruno.Aquino
+				 * Foi adicionado comentado o Item acima pois, ao gerar o relatÃ³rio com a lista vazia o relatÃ³rio estava sendo mostrado. Bruno.Aquino
 				 */
 			}
 			for (Iterator iterator = paramtersDefinition.iterator(); iterator.hasNext();) {
@@ -419,10 +419,10 @@ public class GenerateSLA extends GerencialGenerateService {
 	}
 
 	/**
-	 * Retorna o Número Máximo de registros que deverá ser retornado na consulta.
+	 * Retorna o NÃºmero MÃ¡ximo de registros que deverÃ¡ ser retornado na consulta.
 	 * 
 	 * @param parametros
-	 * @return Número Máximo de Registros
+	 * @return NÃºmero MÃ¡ximo de Registros
 	 * @author valdoilo.damasceno
 	 */
 	private Integer obterValorParametroNumeroMaximoDeRegistros(HashMap parametros) {
@@ -446,12 +446,12 @@ public class GenerateSLA extends GerencialGenerateService {
 	}
 
 	/**
-	 * Acrescenta no SQL a condição para limitar o retorno de registros de acordo com o valor selecionado.
+	 * Acrescenta no SQL a condiÃ§Ã£o para limitar o retorno de registros de acordo com o valor selecionado.
 	 * 
 	 * @param sql
 	 *            - String SQL.
 	 * @param maximoRegistros
-	 *            - Número máximo de registros.
+	 *            - NÃºmero mÃ¡ximo de registros.
 	 * @author valdoilo.damasceno
 	 */
 	private void acrescentarNaSqlOLimitadorDeRegistros(StringBuilder sql, Integer maximoRegistros) {

@@ -70,8 +70,8 @@ ValidacaoUtils.validaCPF = function(field, label) {
 	var erro = new String;
 	if (cpf.length < 11) erro += label + i18n_message("citcorpore.validacao.digitosVerificacaoCPF");
 	
-/*============= INICIO DA ADAPTA«√O PARA O TRF ===============================*/
-/* ESTE TRECHO DE CODIGO PERMITE QUE OS CPF'S QUE CONTENHAM MATRICULAS N√O    */
+/*============= INICIO DA ADAPTA√á√ÉO PARA O TRF ===============================*/
+/* ESTE TRECHO DE CODIGO PERMITE QUE OS CPF'S QUE CONTENHAM MATRICULAS N√ÉO    */
 /* SEJAM VALIDADOS. APENAS DEPENDENTES POSSUEM MATRICULAS NO LUGAR DO CPF.    */
 /*============================================================================*/
 	var SIGLAS = new Array("AC", "AM", "AP", "BA", 
@@ -82,7 +82,7 @@ ValidacaoUtils.validaCPF = function(field, label) {
             return true;
         }
     }
-/*============= FINAL DA ADAPTA«√O PARA O TRF ===============================*/
+/*============= FINAL DA ADAPTA√á√ÉO PARA O TRF ===============================*/
 	
 	var nonNumbers = /\D/;
 	if (nonNumbers.test(cpf)) erro += label + i18n_message("citcorpore.validacao.suporteVerificacaoNumeroCPF"); 
@@ -233,114 +233,114 @@ ValidacaoUtils.validaEmail = function(mail, label) {
 		tratarMensagemEmailInvalido(mail, label);
 		return false;
 	}else
-	if(mail.value.indexOf("Á") >= 0) {
+	if(mail.value.indexOf("√ß") >= 0) {
 		tratarMensagemEmailInvalido(mail, label);
 		return false;
 	}else
-	if(mail.value.indexOf("«") >= 0) {
+	if(mail.value.indexOf("√á") >= 0) {
 		tratarMensagemEmailInvalido(mail, label);
 		return false;
 	}else
-	if(mail.value.indexOf("·") >= 0) {
+	if(mail.value.indexOf("√°") >= 0) {
 		tratarMensagemEmailInvalido(mail, label);
 		return false;
 	}else
-	if(mail.value.indexOf("¡") >= 0) {
+	if(mail.value.indexOf("√Å") >= 0) {
 		tratarMensagemEmailInvalido(mail, label);
 		return false;
 	}else
-	if(mail.value.indexOf("‡") >= 0) {
+	if(mail.value.indexOf("√†") >= 0) {
 		tratarMensagemEmailInvalido(mail, label);
 		return false;
 	}else
-	if(mail.value.indexOf("¿") >= 0) {
+	if(mail.value.indexOf("√Ä") >= 0) {
 		tratarMensagemEmailInvalido(mail, label);
 		return false;
 	}else
-	if(mail.value.indexOf("È") >= 0) {
+	if(mail.value.indexOf("√©") >= 0) {
 		tratarMensagemEmailInvalido(mail, label);
 		return false;
 	}else
-	if(mail.value.indexOf("…") >= 0) {
+	if(mail.value.indexOf("√â") >= 0) {
 		tratarMensagemEmailInvalido(mail, label);
 		return false;
-	}if(mail.value.indexOf("Ì") >= 0) {
-		tratarMensagemEmailInvalido(mail, label);
-		return false;
-	}else
-	if(mail.value.indexOf("Õ") >= 0) {
+	}if(mail.value.indexOf("√≠") >= 0) {
 		tratarMensagemEmailInvalido(mail, label);
 		return false;
 	}else
-	if(mail.value.indexOf("Û") >= 0) {
+	if(mail.value.indexOf("√ç") >= 0) {
 		tratarMensagemEmailInvalido(mail, label);
 		return false;
 	}else
-	if(mail.value.indexOf("”") >= 0) {
+	if(mail.value.indexOf("√≥") >= 0) {
 		tratarMensagemEmailInvalido(mail, label);
 		return false;
 	}else
-	if(mail.value.indexOf("˙") >= 0) {
+	if(mail.value.indexOf("√ì") >= 0) {
 		tratarMensagemEmailInvalido(mail, label);
 		return false;
 	}else
-	if(mail.value.indexOf("⁄") >= 0) {
+	if(mail.value.indexOf("√∫") >= 0) {
 		tratarMensagemEmailInvalido(mail, label);
 		return false;
 	}else
-	if(mail.value.indexOf("‚") >= 0) {
+	if(mail.value.indexOf("√ö") >= 0) {
 		tratarMensagemEmailInvalido(mail, label);
 		return false;
 	}else
-	if(mail.value.indexOf("¬") >= 0) {
+	if(mail.value.indexOf("√¢") >= 0) {
 		tratarMensagemEmailInvalido(mail, label);
 		return false;
 	}else
-	if(mail.value.indexOf("Í") >= 0) {
+	if(mail.value.indexOf("√Ç") >= 0) {
 		tratarMensagemEmailInvalido(mail, label);
 		return false;
 	}else
-	if(mail.value.indexOf(" ") >= 0) {
+	if(mail.value.indexOf("√™") >= 0) {
 		tratarMensagemEmailInvalido(mail, label);
 		return false;
 	}else
-	if(mail.value.indexOf("Ó") >= 0) {
+	if(mail.value.indexOf("√ä") >= 0) {
 		tratarMensagemEmailInvalido(mail, label);
 		return false;
 	}else
-	if(mail.value.indexOf("Œ") >= 0) {
+	if(mail.value.indexOf("√Æ") >= 0) {
 		tratarMensagemEmailInvalido(mail, label);
 		return false;
 	}else
-	if(mail.value.indexOf("Ù") >= 0) {
+	if(mail.value.indexOf("√é") >= 0) {
 		tratarMensagemEmailInvalido(mail, label);
 		return false;
 	}else
-	if(mail.value.indexOf("‘") >= 0) {
+	if(mail.value.indexOf("√¥") >= 0) {
+		tratarMensagemEmailInvalido(mail, label);
+		return false;
+	}else
+	if(mail.value.indexOf("√î") >= 0) {
 		tratarMensagemEmailInvalido(mail, label);
 		return false;
 	}
-	if(mail.value.indexOf("˚") >= 0) {
+	if(mail.value.indexOf("√ª") >= 0) {
 		tratarMensagemEmailInvalido(mail, label);
 		return false;
 	}else
-	if(mail.value.indexOf("€") >= 0) {
+	if(mail.value.indexOf("√õ") >= 0) {
 		tratarMensagemEmailInvalido(mail, label);
 		return false;
 	}else
-	if(mail.value.indexOf("„") >= 0) {
+	if(mail.value.indexOf("√£") >= 0) {
 		tratarMensagemEmailInvalido(mail, label);
 		return false;
 	}else
-	if(mail.value.indexOf("√") >= 0) {
+	if(mail.value.indexOf("√É") >= 0) {
 		tratarMensagemEmailInvalido(mail, label);
 		return false;
 	}else
-	if(mail.value.indexOf("ı") >= 0) {
+	if(mail.value.indexOf("√µ") >= 0) {
 		tratarMensagemEmailInvalido(mail, label);
 		return false;
 	}else
-	if(mail.value.indexOf("’") >= 0) {
+	if(mail.value.indexOf("√ï") >= 0) {
 		tratarMensagemEmailInvalido(mail, label);
 		return false;
 	}else
@@ -542,26 +542,26 @@ function retiraZerosEsquerda(str){
 	return strRetorno;
 }
 
-/* ===== M…TODO CRIADO PARA VALIDA«√O DO TIPO DE DOCUMENTO PRODEMGE ===== 
+/* ===== M√âTODO CRIADO PARA VALIDA√á√ÉO DO TIPO DE DOCUMENTO PRODEMGE ===== 
 Identidade:
-	SÛ ser· v·lido se existir pelo menos um caractere de 1 a 9 ou de A a Z em seu conte˙do.
-	Tamanho m·xim o: 11
-	Tipo: AlfanumÈrico
+	S√≥ ser√° v√°lido se existir pelo menos um caractere de 1 a 9 ou de A a Z em seu conte√∫do.
+	Tamanho m√°xim o: 11
+	Tipo: Alfanum√©rico
 
 	CTPS:
-	SÛ ser· v·lido se existir pelo menos um caractere de 1 a 9 em seu conte˙do. N„o ser· v·lido valor com n˙meros repetidos. Exemplo: 1111111, 2222222, etc.
+	S√≥ ser√° v√°lido se existir pelo menos um caractere de 1 a 9 em seu conte√∫do. N√£o ser√° v√°lido valor com n√∫meros repetidos. Exemplo: 1111111, 2222222, etc.
 	Tamanho: 7
-	Tipo: NumÈrico
+	Tipo: Num√©rico
 
 	CPF:
-	Dever· ser um n˙mero v·lido de acordo com a rotina de validaÁ„o. N„o ser· v·lido valor com n˙meros repetidos. Exemplo: 11111111111, 22222222222, etc.
+	Dever√° ser um n√∫mero v√°lido de acordo com a rotina de valida√ß√£o. N√£o ser√° v√°lido valor com n√∫meros repetidos. Exemplo: 11111111111, 22222222222, etc.
 	Tamanho: 11
-	Tipo: NumÈrico
+	Tipo: Num√©rico
 
 	Titulo de Eleitor:
-	Dever· ser um n˙mero v·lido de acordo com a rotina de validaÁ„o.
+	Dever√° ser um n√∫mero v√°lido de acordo com a rotina de valida√ß√£o.
 	Tamanho: 13
-	Tipo: NumÈrico */
+	Tipo: Num√©rico */
 
 ValidacaoUtils.validaNumeroDocumento = function(field, tipo) { 
 	if (StringUtils.isBlank(tipo)){
@@ -594,7 +594,7 @@ ValidacaoUtils.limpar = function(valor, validos) {
 	return result;
 }
 
-//Formata n˙mero tipo moeda usando o evento onKeyDown
+//Formata n√∫mero tipo moeda usando o evento onKeyDown
 
 ValidacaoUtils.formataMoeda = function(objTextBox, SeparadorMilesimo, SeparadorDecimal, e){
 	var SeparadorDecimal = ","
@@ -609,10 +609,10 @@ ValidacaoUtils.formataMoeda = function(objTextBox, SeparadorMilesimo, SeparadorD
 
 	if (whichCode == 13)
 		return true;
-	key = String.fromCharCode(whichCode); // Valor para o cÛdigo da Chave  
+	key = String.fromCharCode(whichCode); // Valor para o c√≥digo da Chave  
 
 	if (strCheck.indexOf(key) == -1)
-		return true; // Chave inv·lida  
+		return true; // Chave inv√°lida  
 	len = campo.value.length;
 	for (i = 0; i < len; i++)
 

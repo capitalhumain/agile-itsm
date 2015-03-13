@@ -235,7 +235,7 @@ function load() {
 }
 
 /**
- * Motivo: Criando flag de atualiza��o altera��o Autor: flavio.santana
+ * Motivo: Criando flag de atualizaï¿½ï¿½o alteraï¿½ï¿½o Autor: flavio.santana
  * thays.araujo Data/Hora: 13/11/2013 15:56 31/01/2014 as 15:44
  *
  */
@@ -263,7 +263,7 @@ function modalNovaSolicitacaoServico() {
     ajustarPadraoCitsmart();
 }
 
-// M�rio J�nior - 23/10/2013 - 16:27 - Inseri idTarefa como parametro.
+// Mï¿½rio Jï¿½nior - 23/10/2013 - 16:27 - Inseri idTarefa como parametro.
 function visualizarSolicitacao(idSolicitacaoServico, idTarefa) {
     document.getElementById('frameNovaSolicitacao').src = URL_SISTEMA + 'pages/solicitacaoServicoMultiContratos/solicitacaoServicoMultiContratos.load?idSolicitacaoServico=' + idSolicitacaoServico + '&idTarefa=' + idTarefa + '&escalar=N&alterarSituacao=N&editar=N&acaoFluxo=V';
     // window.frames['frameNovaSolicitacao'].bloquearForm();
@@ -438,8 +438,8 @@ $(document)
         });
 
 /**
- * Adicionado para fechar o moldal apos carregar a grid de solicita�oes.grid de
- * solicita��o.
+ * Adicionado para fechar o moldal apos carregar a grid de solicitaï¿½oes.grid de
+ * solicitaï¿½ï¿½o.
  *
  * @author maycon.fernandes
  * @since 25/10/2013 14:35
@@ -470,7 +470,7 @@ function fecharModalReclassificacao() {
 
 /**
  * Realiza o evento de dropdown do filtro de pesquisa Ao clicar dentro da area
- * de conteudo do filtro o mesmo n�o oculta, mas se o mesmo clicar fora da area
+ * de conteudo do filtro o mesmo nï¿½o oculta, mas se o mesmo clicar fora da area
  * de conteudo o mesmo fica oculto
  */
 $('html').off('click.dropdown.data-api');
@@ -494,7 +494,7 @@ function fechaWindow() {
 /**
  * Autor: Pedro Lino Data: 27/08/2013 Filtra todos os dados contidos na lista em
  * div.content-area.ativo deve ser chamada no input via onkeyup campoBusca:
- * valor digitado no campo de filtro lista: Id da div onde ser� feito a busca
+ * valor digitado no campo de filtro lista: Id da div onde serï¿½ feito a busca
  */
 function filtroListaDivJs(campoBusca, lista) {
     // Recupera value do campo de busca
@@ -514,7 +514,7 @@ function filtroListaDivJs(campoBusca, lista) {
 
                 });
     } else {
-        // Quando n�o h� nada digitado, mostra a tabela com todos os dados
+        // Quando nï¿½o hï¿½ nada digitado, mostra a tabela com todos os dados
         $('#' + lista + ' div.content-area.ativo')
             .each(
                 function() {
@@ -698,8 +698,8 @@ function carregarModalDuplicarSolicitacao(idSolicitacao) {
 
     /*
      * Rodrigo Pecci Acorse - 03/12/2013 14h40 - #126139 Seta os valores da
-     * situa��o e grupo executor que foram selecionados no filtro para o form de
-     * criar subsolicita��o.
+     * situaï¿½ï¿½o e grupo executor que foram selecionados no filtro para o form de
+     * criar subsolicitaï¿½ï¿½o.
      */
     var situacao = $('select[name="situacao"]').find(':selected').attr('value');
     if (situacao == "" || situacao == "undefined")
@@ -815,7 +815,7 @@ function adicionarIdContratoNaLookup(id) {
         document.getElementById('pesqLockupLOOKUP_SOLICITANTE_IDCONTRATO').value = id;
     }
     /**
-     * Motivo: Corrigir um bug nos navegadores que n�o fecham o select2 no dropdown
+     * Motivo: Corrigir um bug nos navegadores que nï¿½o fecham o select2 no dropdown
      * de filtro Autor: flavio.santana Data/Hora: 13/11/2013
      */
 function resetarPluginSelect2AutoComplete() {

@@ -39,7 +39,7 @@ switch(languageCode){
 		var todayString = '';
 		break;
 	case "ge":	/* German */
-		var monthArray = ['Januar','Februar','M‰rz','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
+		var monthArray = ['Januar','Februar','M√§rz','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
 		var monthArrayShort = ['Jan','Feb','Mar','Apr','Mai','Jun','Jul','Aug','Sep','Okt','Nov','Dez'];
 		var dayArray = ['Mon','Die','Mit','Don','Fre','Sam','Son'];
 		var weekString = 'Woche';
@@ -74,7 +74,7 @@ switch(languageCode){
 		var todayString = 'Hoje &eacute;';
 		break;
 	case "fr":      /* French */
-		var monthArray = ['Janvier','FÈvrier','Mars','Avril','Mai','Juin','Juillet','Ao˚t','Septembre','Octobre','Novembre','DÈcembre'];
+		var monthArray = ['Janvier','F√©vrier','Mars','Avril','Mai','Juin','Juillet','Ao√ªt','Septembre','Octobre','Novembre','D√©cembre'];
 		var monthArrayShort = ['Jan','Fev','Mar','Avr','Mai','Jun','Jul','Aou','Sep','Oct','Nov','Dec'];
 		var dayArray = ['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'];
 		var weekString = 'Sem';
@@ -88,10 +88,10 @@ switch(languageCode){
 		var todayString = 'I dag er den';
 		break;
 	case "hu":	/* Hungarian  - Remember to use UTF-8 encoding, i.e. the <meta> tag */
-		var monthArray = ['Janu·r','Febru·r','M·rcius','¡prilis','M·jus','J˙nius','J˙lius','Augusztus','Szeptember','OktÛber','November','December'];
-		var monthArrayShort = ['Jan','Feb','M·rc','¡pr','M·j','J˙n','J˙l','Aug','Szep','Okt','Nov','Dec'];
-		var dayArray = ['HÈ','Ke','Sze','Cs','PÈ','Szo','Vas'];
-		var weekString = 'HÈt';
+		var monthArray = ['Janu√°r','Febru√°r','M√°rcius','√Åprilis','M√°jus','J√∫nius','J√∫lius','Augusztus','Szeptember','Okt√≥ber','November','December'];
+		var monthArrayShort = ['Jan','Feb','M√°rc','√Åpr','M√°j','J√∫n','J√∫l','Aug','Szep','Okt','Nov','Dec'];
+		var dayArray = ['H√©','Ke','Sze','Cs','P√©','Szo','Vas'];
+		var weekString = 'H√©t';
 		var todayString = 'Mai nap';
 		break;
 	case "it":	/* Italian*/

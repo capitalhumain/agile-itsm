@@ -48,7 +48,7 @@
 		            document.form.colCriterios_Serialize.value = ObjectUtils.serializeObjects(objs);
 		            return true;
 		        }catch(e){
-		        	alert('Ocorreu um erro ao processar a solicita��o de Grava��o. Tente novamente! ' + e.message);
+		        	alert('Ocorreu um erro ao processar a solicitaï¿½ï¿½o de Gravaï¿½ï¿½o. Tente novamente! ' + e.message);
 		        	return false;
 		        }
 		    }

@@ -101,7 +101,7 @@ public class ParametroCorpore extends AjaxFormAction {
         parametroBean = (ParametroCorporeDTO) this.getParametroCorporeService().restore(parametroBean);
 
         /*
-         * Se o par‚metro for do tipo boolean, faz a convers„o para o valor correto
+         * Se o par√¢metro for do tipo boolean, faz a convers√£o para o valor correto
          */
         if (parametroBean.getTipoDado() != null && parametroBean.getTipoDado().equalsIgnoreCase("Boolean")) {
             parametroBean.setValor(Internacionalizar.internacionalizaOptionSN(request, "restore", parametroBean.getValor()));
@@ -179,7 +179,7 @@ public class ParametroCorpore extends AjaxFormAction {
         }
 
         /*
-         * Se o par‚metro for do tipo boolean, faz a convers„o para o valor correto
+         * Se o par√¢metro for do tipo boolean, faz a convers√£o para o valor correto
          */
         if (parametroBean.getTipoDado() != null && parametroBean.getTipoDado().equalsIgnoreCase("Boolean")) {
             parametroBean.setValor(Internacionalizar.internacionalizaOptionSN(request, "save", parametroBean.getValor().trim()));
@@ -198,9 +198,9 @@ public class ParametroCorpore extends AjaxFormAction {
             } else {
                 // parametroBean.setValor(StringUtils.replace(parametroBean.getValor(), "\\", "\\\\"));
                 try {
-                    // Setado nulo para n„o mexer no nome quando for salvo, fazendo um updadeNotNull.
+                    // Setado nulo para n√£o mexer no nome quando for salvo, fazendo um updadeNotNull.
                     parametroBean.setNome(null);
-                    // O parametro com id 152 È a nota da pesquisa de satisfaÁ„o automatica para que ela funcione corretamente È testado somente se for otimo bom regular ou ruim
+                    // O parametro com id 152 √© a nota da pesquisa de satisfa√ß√£o automatica para que ela funcione corretamente √© testado somente se for otimo bom regular ou ruim
                     // por isso valido o que o usuario digita no valor do parametro.
                     if (parametroBean.getId() != 152) {
                         this.getParametroCorporeService().updateNotNull(parametroBean);
@@ -216,7 +216,7 @@ public class ParametroCorpore extends AjaxFormAction {
                     }
 
                 } catch (final Exception e) {
-                    System.out.println("Problema ao atualizar Par‚metro CITSMart.");
+                    System.out.println("Problema ao atualizar Par√¢metro CITSMart.");
                     e.printStackTrace();
                     gravado = false;
                 }
@@ -233,7 +233,7 @@ public class ParametroCorpore extends AjaxFormAction {
     }
 
     /**
-     * Exclui Par‚metro atribuindo sua dataFim.
+     * Exclui Par√¢metro atribuindo sua dataFim.
      *
      * @param document
      * @param request
@@ -291,7 +291,7 @@ public class ParametroCorpore extends AjaxFormAction {
         final JRCsvExporter exporter = new JRCsvExporter();
         exporter.setParameter(JRExporterParameter.JASPER_PRINT, impressao);
         exporter.setParameter(JRCsvExporterParameter.FIELD_DELIMITER, ";");
-        exporter.setParameter(JRExporterParameter.CHARACTER_ENCODING, "ISO-8859-1");
+        exporter.setParameter(JRExporterParameter.CHARACTER_ENCODING, "UTF-8");
         exporter.setParameter(JRExporterParameter.OUTPUT_FILE_NAME, diretorioReceita + "/ParametroCorporeCsv" + strCompl + "_" + usuario.getIdUsuario() + ".csv");
 
         exporter.exportReport();

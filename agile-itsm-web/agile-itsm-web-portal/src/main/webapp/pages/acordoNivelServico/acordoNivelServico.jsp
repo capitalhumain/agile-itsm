@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.citframework.util.UtilStrings"%>
 <%@page import="br.com.citframework.util.Constantes"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
@@ -9,21 +11,18 @@
 <html>
 	<head>
 	<%
-	    String iframe = "";
-	    iframe = request.getParameter("iframe");
+	    String iframe = request.getParameter("iframe");
 	%>
 
 	<%@include file="/include/header.jsp"%>
-	<title><fmt:message key="citcorpore.comum.title" /></title>
-
-	<%@include file="/include/security/security.jsp"%>
+	<%@include file="/novoLayout/common/include/titulo.jsp" %>
 	<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 
-	<script charset="ISO-8859-1" type="text/javascript" src="${ctx}/js/SLA/RequisitoSLA.js"></script>
-	<script charset="ISO-8859-1" type="text/javascript" src="${ctx}/js/SLA/RevisarSLA.js"></script>
-	<script charset="ISO-8859-1"  type="text/javascript" src="${ctx}/js/SLA/PrioridadeSLA.js"></script>
+	<script charset="UTF-8" type="text/javascript" src="${ctx}/js/SLA/RequisitoSLA.js"></script>
+	<script charset="UTF-8" type="text/javascript" src="${ctx}/js/SLA/RevisarSLA.js"></script>
+	<script charset="UTF-8"  type="text/javascript" src="${ctx}/js/SLA/PrioridadeSLA.js"></script>
 
-	<script charset="ISO-8859-1" type="text/javascript" src="${ctx}/js/PopupManager.js"></script>
+	<script charset="UTF-8" type="text/javascript" src="${ctx}/js/PopupManager.js"></script>
 
 	<script type="text/javascript" src="../../cit/objects/PrioridadeAcordoNivelServicoDTO.js"></script>
 	<script type="text/javascript" src="../../cit/objects/PrioridadeServicoUsuarioDTO.js"></script>
@@ -201,7 +200,7 @@
 										</div>
 									</div>
 
-									<!-- Início da parte dinâmica -->
+									<!-- InÃ­cio da parte dinÃ¢mica -->
 									<div class="col_100">
 										<div id="divByDisponibilidade" style="display: none;" >
 											<div class="col_100" style="padding-bottom: 10px;">
@@ -486,7 +485,7 @@
 											</div>
 										</div>
 									</div>
-									<!-- Fim da parte dinâmica -->
+									<!-- Fim da parte dinÃ¢mica -->
 
 									<div class="col_100" style="padding-top: 30px; padding-bottom: 30px;">
 										<button type="button" name="btnGravar" class="light" onclick="gravar();">
@@ -504,7 +503,7 @@
 										</button>
 									</div>
 
-									<!-- Início das abas inferiores de Relacionamentos -->
+									<!-- InÃ­cio das abas inferiores de Relacionamentos -->
 									<div  id="abas" class="formRelacionamentos">
 										<div id="tabs" class="block" style="padding-bottom: 50px;">
 											<ul class="tab_header clearfix">

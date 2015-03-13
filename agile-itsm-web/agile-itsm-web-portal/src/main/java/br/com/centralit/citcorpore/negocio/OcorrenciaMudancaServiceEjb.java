@@ -55,7 +55,7 @@ public class OcorrenciaMudancaServiceEjb extends CrudServiceImpl implements Ocor
         try {
             ocorrenciaMudancaDTO.setDadosMudanca(new Gson().toJson(requisicaoMudancaDto));
         } catch (final Exception e) {
-            System.out.println("Problema na gravação dos dados da ocorrência da mudança - Objeto GSON");
+            System.out.println("Problema na gravaÃ§Ã£o dos dados da ocorrÃªncia da mudanÃ§a - Objeto GSON");
             // e.printStackTrace();
         }
         ocorrenciaMudancaDTO.setOcorrencia(ocorrencia);

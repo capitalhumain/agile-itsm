@@ -19,7 +19,7 @@ import br.com.citframework.service.ServiceLocator;
 import br.com.citframework.util.UtilI18N;
 
 /**
- * Action de Característica.
+ * Action de CaracterÃ­stica.
  * 
  * @author valdoilo.damasceno
  */
@@ -33,7 +33,7 @@ public class Caracteristica extends AjaxFormAction {
 	}
 
 	/**
-	 * Inclui Nova Característica.
+	 * Inclui Nova CaracterÃ­stica.
 	 * 
 	 * @param document
 	 * @param request
@@ -67,7 +67,7 @@ public class Caracteristica extends AjaxFormAction {
 	}
 
 	/**
-	 * Recupera característica.
+	 * Recupera caracterÃ­stica.
 	 * 
 	 * @param document
 	 * @param request
@@ -84,7 +84,7 @@ public class Caracteristica extends AjaxFormAction {
 	}
 
 	/**
-	 * Exclui característica.
+	 * Exclui caracterÃ­stica.
 	 * 
 	 * @param document
 	 * @param request
@@ -146,7 +146,7 @@ public class Caracteristica extends AjaxFormAction {
 	}
 
 	/**
-	 * Retorna Service de Característica.
+	 * Retorna Service de CaracterÃ­stica.
 	 * 
 	 * @return CaracteristicaService
 	 * @throws ServiceException
@@ -158,7 +158,7 @@ public class Caracteristica extends AjaxFormAction {
 	}
 
 	/**
-	 * Retorna bean de característica.
+	 * Retorna bean de caracterÃ­stica.
 	 * 
 	 * @return valor do atributo caracteristicaBean.
 	 * @author valdoilo.damasceno

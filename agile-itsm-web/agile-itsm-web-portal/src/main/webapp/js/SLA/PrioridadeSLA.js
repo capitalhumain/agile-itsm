@@ -1,4 +1,4 @@
-/* Início do código que contempla a adição de prioridade a Unidade no cadastro de SLA */
+/* InÃ­cio do cÃ³digo que contempla a adiÃ§Ã£o de prioridade a Unidade no cadastro de SLA */
 
 	var count1 = 0;
 		

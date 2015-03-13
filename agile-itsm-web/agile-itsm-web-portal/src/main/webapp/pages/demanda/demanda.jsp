@@ -1,15 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.centralit.citcorpore.util.CitCorporeConstantes"%>
 
 <%
-	response.setCharacterEncoding("ISO-8859-1");
+	response.setCharacterEncoding("UTF-8");
 %>
 <html>
 
 <head>
-	<%@include file="/include/titleComum/titleComum.jsp" %>
+	<%@include file="/novoLayout/common/include/titulo.jsp" %>
 
 	<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp" %>
 	<%@include file="/include/cssComuns/cssComuns.jsp" %>
@@ -92,9 +92,9 @@
 											         </tr>
 
 											         <tr>
-											            <td class="campoEsquerda">Expectativa de Finalização:*</td>
+											            <td class="campoEsquerda">Expectativa de FinalizaÃ§Ã£o:*</td>
 											            <td>
-											            	<input type='text' name="expectativaFim" maxlength="10" size="10" class="Valid[Required,Data] Description[Expectativa de Finalização] Format[Data]" />
+											            	<input type='text' name="expectativaFim" maxlength="10" size="10" class="Valid[Required,Data] Description[Expectativa de FinalizaÃ§Ã£o] Format[Data]" />
 											            </td>
 											         </tr>
 											         <tr>
@@ -102,7 +102,7 @@
 											            <td>
 											            	<input type='radio' name="prioridade" value="E" class="Valid[Required] Description[Prioridade]" />Emergencial
 											            	<input type='radio' name="prioridade" value="A" class="Valid[Required] Description[Prioridade]" />Alta
-											            	<input type='radio' name="prioridade" value="M" class="Valid[Required] Description[Prioridade]" />Média
+											            	<input type='radio' name="prioridade" value="M" class="Valid[Required] Description[Prioridade]" />MÃ©dia
 											            	<input type='radio' name="prioridade" value="B" class="Valid[Required] Description[Prioridade]" />Baixa
 											            </td>
 											         </tr>

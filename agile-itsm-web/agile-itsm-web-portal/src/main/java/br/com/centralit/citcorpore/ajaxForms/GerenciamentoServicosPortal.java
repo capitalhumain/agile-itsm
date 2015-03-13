@@ -45,7 +45,7 @@ public class GerenciamentoServicosPortal extends AjaxFormAction implements Geren
 	private ExecucaoSolicitacaoService execucaoSolicitacaoService;
 
 	public void iniciar(StringBuilder sb, HttpServletRequest request, Integer itensPorPagina, Integer paginaSelecionada, Integer tipoLista) throws Exception {
-		/* Forçando o filtro pela solicitações abertas pelo usuário */
+		/* ForÃ§ando o filtro pela solicitaÃ§Ãµes abertas pelo usuÃ¡rio */
 
 		UsuarioDTO usuarioLogado = WebUtil.getUsuario(request);
 
@@ -53,7 +53,7 @@ public class GerenciamentoServicosPortal extends AjaxFormAction implements Geren
 			this.getGerenciamentoServicosDTO().setIdSolicitante(usuarioLogado.getIdEmpregado());
 			criarScriptPaginacao(sb);
 
-			/** O método atualizarListaTarefasAndReturnTotalPaginas unificou as funcionalidades dos métodos atualizaListaTarefas e totalPaginas. 27.01.2015. Operação Usain Bolt. valdoilo.damasceno */
+			/** O mÃ©todo atualizarListaTarefasAndReturnTotalPaginas unificou as funcionalidades dos mÃ©todos atualizaListaTarefas e totalPaginas. 27.01.2015. OperaÃ§Ã£o Usain Bolt. valdoilo.damasceno */
 			Pageable pageable = new PageRequest(paginaSelecionada - 1, itensPorPagina);
 			Integer totalPaginasFinal = this.getExecucaoSolicitacaoService().atualizarListaTarefasAndReturnTotalPaginas(usuarioLogado, this.getGerenciamentoServicosDTO(), pageable);
 
@@ -65,7 +65,7 @@ public class GerenciamentoServicosPortal extends AjaxFormAction implements Geren
 			sb.append("<div class='widget-body collapse in'>");
 			carregarCabecalhoGerenciamento(totalPaginasFinal, sb, paginaSelecionada, request, tipoLista);
 
-			// Seto os valores padrões de pesquisa
+			// Seto os valores padrÃµes de pesquisa
 			if (ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.FILTRAR_SOLICITACAO_ANDAMENTO, "N").equals("S")) {
 				this.gerenciamentoServicosDTO.setSituacao("EmAndamento");
 			}
@@ -114,7 +114,7 @@ public class GerenciamentoServicosPortal extends AjaxFormAction implements Geren
 		int i = 0;
 		if (flag)
 			sb.append("<div  id='esquerda' class='innerTB'>");
-		sb.append("<!-- Inicio do loop de solicitações abertas -->");
+		sb.append("<!-- Inicio do loop de solicitaÃ§Ãµes abertas -->");
 		if (colecao != null && !colecao.isEmpty()) {
 			for (SolicitacaoServicoDTO sol : colecao) {
 				/* Detalhado */
@@ -149,8 +149,8 @@ public class GerenciamentoServicosPortal extends AjaxFormAction implements Geren
 				sb.append("		      <div>" + UtilI18N.internacionaliza(request, "solicitacaoServico.prazoLimite") + "</div>");
 				if (!sol.getSituacao().equals(SituacaoSolicitacaoServico.Suspensa.toString())) {
 					/*
-					 * Desenvolvedor: Thiago Matias - Data: 07/11/2013 - Horário: 17:50 - ID Citsmart: 123357 - Motivo/Comentário: quando a solicitação estava em fase de aprovação getDataHoraLimite
-					 * vinha Null por isso será inserido o "--" enquando não for aprovada
+					 * Desenvolvedor: Thiago Matias - Data: 07/11/2013 - HorÃ¡rio: 17:50 - ID Citsmart: 123357 - Motivo/ComentÃ¡rio: quando a solicitaÃ§Ã£o estava em fase de aprovaÃ§Ã£o getDataHoraLimite
+					 * vinha Null por isso serÃ¡ inserido o "--" enquando nÃ£o for aprovada
 					 */
 					if (sol.getDataHoraLimiteStr() != null) {
 						sb.append("		      <span class='verde-normal'>" + sol.obterDataHoraLimiteStrWithLanguage(WebUtil.getLanguage(request)) + "</span>");
@@ -226,9 +226,9 @@ public class GerenciamentoServicosPortal extends AjaxFormAction implements Geren
 						+ UtilI18N.internacionaliza(request, "gerenciaservico.visualizar") + "</button>");
 
 				/**
-				 * INICIATIVA 481 Criar um parâmetro para controlar se será possível cadastrar uma Ocorrência pela tela do Portal, com o nome "Registrar Ocorrência pelo Portal" com default em "N", ou
-				 * seja, não será apresentada a opção de Registrar Ocorrência no botão "Ação". Caso o ator sete o default para "S", o sistema habilitará no botão "Ação" a opção "Registrar Ocorrência"
-				 * e possibilitará a execução descrita no item 4.3.2 Registrar Ocorrência pelo Portal.
+				 * INICIATIVA 481 Criar um parÃ¢metro para controlar se serÃ¡ possÃ­vel cadastrar uma OcorrÃªncia pela tela do Portal, com o nome "Registrar OcorrÃªncia pelo Portal" com default em "N", ou
+				 * seja, nÃ£o serÃ¡ apresentada a opÃ§Ã£o de Registrar OcorrÃªncia no botÃ£o "AÃ§Ã£o". Caso o ator sete o default para "S", o sistema habilitarÃ¡ no botÃ£o "AÃ§Ã£o" a opÃ§Ã£o "Registrar OcorrÃªncia"
+				 * e possibilitarÃ¡ a execuÃ§Ã£o descrita no item 4.3.2 Registrar OcorrÃªncia pelo Portal.
 				 *
 				 * @author Ezequiel
 				 * @date 2014-12-08
@@ -376,7 +376,7 @@ public class GerenciamentoServicosPortal extends AjaxFormAction implements Geren
 			sb.append("	</div>");
 			sb.append("</div>");
 		}
-		sb.append("<!-- Fim do loop de solicitações abertas -->");
+		sb.append("<!-- Fim do loop de solicitaÃ§Ãµes abertas -->");
 		if (flag)
 			sb.append("</div>");
 	}
@@ -401,7 +401,7 @@ public class GerenciamentoServicosPortal extends AjaxFormAction implements Geren
 		}
 
 		/*
-		 * Desenvolvedor: Pedro Lino - Data: 08/11/2013 - Horário: 11:00 - ID Citsmart: 120948 - Motivo/Comentário: Retirado botão de busca na pagina a pedido do Jorge Santos(Consultoria)
+		 * Desenvolvedor: Pedro Lino - Data: 08/11/2013 - HorÃ¡rio: 11:00 - ID Citsmart: 120948 - Motivo/ComentÃ¡rio: Retirado botÃ£o de busca na pagina a pedido do Jorge Santos(Consultoria)
 		 */
 		StringBuilder sbFiltro = new StringBuilder();
 		if (flag) {
@@ -490,7 +490,7 @@ public class GerenciamentoServicosPortal extends AjaxFormAction implements Geren
 		sb.append("		<div class='row-fluid inicio'>");
 		sb.append("			<div class='span6'>");
 
-		// Cristian: solicitação 165137
+		// Cristian: solicitaÃ§Ã£o 165137
 		UsuarioDTO usuario = WebUtil.getUsuario(request);
 		try {
 			GrupoEmpregadoService grupoService = (GrupoEmpregadoService) ServiceLocator.getInstance().getService(GrupoEmpregadoService.class, null);
@@ -512,7 +512,7 @@ public class GerenciamentoServicosPortal extends AjaxFormAction implements Geren
 				contrato.setIdContrato(idContrato);
 				contrato = (ContratoDTO) contratoService.restore(contrato);
 				/**
-				 * Cristian, solicitação: 165137 Configura a ação do botão "Nova solicitação" para mostrar uma mensagem, caso o usuário não esteja vinculado ao contrato
+				 * Cristian, solicitaÃ§Ã£o: 165137 Configura a aÃ§Ã£o do botÃ£o "Nova solicitaÃ§Ã£o" para mostrar uma mensagem, caso o usuÃ¡rio nÃ£o esteja vinculado ao contrato
 				 */
 				if (contratosGruposService.hasContrato(listGrupos, contrato)) {
 					if (!ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.OCULTAR_BTN_NOVA_SOLICITACAO_PORTAL, "").equals("S")) {
@@ -604,13 +604,13 @@ public class GerenciamentoServicosPortal extends AjaxFormAction implements Geren
 	}
 
 	/**
-	 * Realiza a regra de paginação das solicitações Explicação: Se o número de páginas for maior do que cinco, já é possível criar os intervalos. Se a página atual for menor do que cinco (o adjacente
-	 * esta configurado com 2) é feito um laço. No for, enquanto a variável 'i' for menor do que seis os números são mostrados fazendo uma verificação para saber qual é a página atual que exige uma
-	 * estilização diferente. Mas se a página atual for maior do que quatro e menor do que a última menos três, é uma página intermediária. Primeiro são anexadas a primeira e última páginas. Depois é
-	 * feito um laço para definir as adjacentes. A variável 'adjacentes' recebeu neste código o valor dois. Para enteder melhor este laço vamos supor que estamos na página seis. A variável 'i' vai
-	 * receber quatro (atual - adjacentes), enquanto ela for menor do que oito (atual + adjacentes) os números links gerados com uma verificação para saber qual é a página atual. Por fim são anexadas
-	 * a última e penúltima páginas. O último else é para quando a página atual esta perto do final da numeração. São anexadas a primeira e última páginas além dos três pontos. A variável 'i' recebe o
-	 * resultado da última página menos oito (4+2*2) enquanto não for menor ou igual a este número, os links são gerados.
+	 * Realiza a regra de paginaÃ§Ã£o das solicitaÃ§Ãµes ExplicaÃ§Ã£o: Se o nÃºmero de pÃ¡ginas for maior do que cinco, jÃ¡ Ã© possÃ­vel criar os intervalos. Se a pÃ¡gina atual for menor do que cinco (o adjacente
+	 * esta configurado com 2) Ã© feito um laÃ§o. No for, enquanto a variÃ¡vel 'i' for menor do que seis os nÃºmeros sÃ£o mostrados fazendo uma verificaÃ§Ã£o para saber qual Ã© a pÃ¡gina atual que exige uma
+	 * estilizaÃ§Ã£o diferente. Mas se a pÃ¡gina atual for maior do que quatro e menor do que a Ãºltima menos trÃªs, Ã© uma pÃ¡gina intermediÃ¡ria. Primeiro sÃ£o anexadas a primeira e Ãºltima pÃ¡ginas. Depois Ã©
+	 * feito um laÃ§o para definir as adjacentes. A variÃ¡vel 'adjacentes' recebeu neste cÃ³digo o valor dois. Para enteder melhor este laÃ§o vamos supor que estamos na pÃ¡gina seis. A variÃ¡vel 'i' vai
+	 * receber quatro (atual - adjacentes), enquanto ela for menor do que oito (atual + adjacentes) os nÃºmeros links gerados com uma verificaÃ§Ã£o para saber qual Ã© a pÃ¡gina atual. Por fim sÃ£o anexadas
+	 * a Ãºltima e penÃºltima pÃ¡ginas. O Ãºltimo else Ã© para quando a pÃ¡gina atual esta perto do final da numeraÃ§Ã£o. SÃ£o anexadas a primeira e Ãºltima pÃ¡ginas alÃ©m dos trÃªs pontos. A variÃ¡vel 'i' recebe o
+	 * resultado da Ãºltima pÃ¡gina menos oito (4+2*2) enquanto nÃ£o for menor ou igual a este nÃºmero, os links sÃ£o gerados.
 	 *
 	 * @param totalPaginas
 	 * @param sb
@@ -684,7 +684,7 @@ public class GerenciamentoServicosPortal extends AjaxFormAction implements Geren
 	}
 
 	/**
-	 * Cria os scipts que serão usados na tela de gerenciamento de serviços
+	 * Cria os scipts que serÃ£o usados na tela de gerenciamento de serviÃ§os
 	 *
 	 * @param sb
 	 */
@@ -754,14 +754,14 @@ public class GerenciamentoServicosPortal extends AjaxFormAction implements Geren
 	}
 
 	/**
-	 * Recarrega a lista de solicitações de serviços
+	 * Recarrega a lista de solicitaÃ§Ãµes de serviÃ§os
 	 *
 	 * @param document
 	 * @param request
 	 * @param response
 	 * @throws Exception
 	 * @author valdoilo.damasceno
-	 * @since 27.01.2015. Melhoria implementada na Operação Usain Bolt.
+	 * @since 27.01.2015. Melhoria implementada na OperaÃ§Ã£o Usain Bolt.
 	 */
 	public void recarregarLista(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
 
@@ -790,7 +790,7 @@ public class GerenciamentoServicosPortal extends AjaxFormAction implements Geren
 
 		renderizarLista(sb, request, itensPorPagina, paginaSelecionada, false, tipoLista);
 
-		/** O método atualizarListaTarefasAndReturnTotalPaginas unificou as funcionalidades dos métodos atualizaListaTarefas e totalPaginas. 27.01.2015. Operação Usain Bolt. valdoilo.damasceno */
+		/** O mÃ©todo atualizarListaTarefasAndReturnTotalPaginas unificou as funcionalidades dos mÃ©todos atualizaListaTarefas e totalPaginas. 27.01.2015. OperaÃ§Ã£o Usain Bolt. valdoilo.damasceno */
 		Pageable pageable = new PageRequest(paginaSelecionada - 1, itensPorPagina);
 		Integer totalPaginasFinal = this.getExecucaoSolicitacaoService().atualizarListaTarefasAndReturnTotalPaginas(usuarioLogado, gerenciamentoServicosDTO, pageable);
 
@@ -806,7 +806,7 @@ public class GerenciamentoServicosPortal extends AjaxFormAction implements Geren
 	}
 
 	/**
-	 * Realiza a paginação dos itens e recarrega a lista de solicitações
+	 * Realiza a paginaÃ§Ã£o dos itens e recarrega a lista de solicitaÃ§Ãµes
 	 *
 	 * @param document
 	 * @param request
@@ -819,7 +819,7 @@ public class GerenciamentoServicosPortal extends AjaxFormAction implements Geren
 	}
 
 	/**
-	 * Atualiza e recarrega a lista de solicitações de serviços
+	 * Atualiza e recarrega a lista de solicitaÃ§Ãµes de serviÃ§os
 	 *
 	 * @param document
 	 * @param request
@@ -832,7 +832,7 @@ public class GerenciamentoServicosPortal extends AjaxFormAction implements Geren
 	}
 
 	/**
-	 * Carrega e atualiza os itens da paginação numerada e informa a quantidade de resultados Ex.: Primeiro « 1 2 3 4 5 » Último 1 De 7 Resultados
+	 * Carrega e atualiza os itens da paginaÃ§Ã£o numerada e informa a quantidade de resultados Ex.: Primeiro Â« 1 2 3 4 5 Â» Ãšltimo 1 De 7 Resultados
 	 *
 	 * @param document
 	 * @param request
@@ -861,7 +861,7 @@ public class GerenciamentoServicosPortal extends AjaxFormAction implements Geren
 	}
 
 	/***
-	 * Realiza o filtro de pesquisa da página de gerenciamento - Seta os itens do filtro no GerenciamentoServicosDTO - Recarrega a lista de solicitações de acordo com os filtros informados
+	 * Realiza o filtro de pesquisa da pÃ¡gina de gerenciamento - Seta os itens do filtro no GerenciamentoServicosDTO - Recarrega a lista de solicitaÃ§Ãµes de acordo com os filtros informados
 	 *
 	 * @param document
 	 * @param request
@@ -882,12 +882,12 @@ public class GerenciamentoServicosPortal extends AjaxFormAction implements Geren
 	}
 
 	/**
-	 * Retorna uma instância de ExecucaoSolicitacaoService.
+	 * Retorna uma instÃ¢ncia de ExecucaoSolicitacaoService.
 	 *
 	 * @return ExecucaoSolicitacaoService
 	 * @throws Exception
 	 * @author valdoilo.damasceno
-	 * @since 27.01.2014. Operação Usain Bolt
+	 * @since 27.01.2014. OperaÃ§Ã£o Usain Bolt
 	 */
 	private ExecucaoSolicitacaoService getExecucaoSolicitacaoService() throws Exception {
 		if (execucaoSolicitacaoService == null) {

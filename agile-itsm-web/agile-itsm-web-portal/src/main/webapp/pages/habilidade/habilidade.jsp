@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.citframework.util.Constantes"%>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
@@ -12,9 +14,8 @@
 %>
 <%@include file="/include/header.jsp"%>
 
-<%@include file="/include/security/security.jsp"%>
 
-<title><fmt:message key="citcorpore.comum.title"/></title>
+<%@include file="/novoLayout/common/include/titulo.jsp" %>
 
 <%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 
@@ -32,8 +33,8 @@
 
 		/*
 		* Tratamento para escutar o evento submit
-		* que È disparado quando o usu·rio d· enter no campo
-		* e ent„o salvar
+		* que √© disparado quando o usu√°rio d√° enter no campo
+		* e ent√£o salvar
 		*/
 		$('#form').submit(function (e) {
 
@@ -82,7 +83,7 @@
 
 </script>
 
-<%//se for chamado por iframe deixa apenas a parte de cadastro da p·gina
+<%//se for chamado por iframe deixa apenas a parte de cadastro da p√°gina
 			if (iframe != null) {%>
 <style>
 div#main_container {

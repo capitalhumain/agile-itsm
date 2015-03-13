@@ -491,7 +491,7 @@ public class GerencialGenerateEjb extends CrudServiceImpl implements GerencialGe
 					if (obj != null) {
 						String valorAtualAux = null;
 
-						// O trecho abaixo serve para controlar a totalizaÁ„o geral (indice 0).
+						// O trecho abaixo serve para controlar a totaliza√ß√£o geral (indice 0).
 						if (totals[totals.length - 1][z] == null) {
 							totals[totals.length - 1][z] = new Double(0);
 						}
@@ -736,7 +736,7 @@ public class GerencialGenerateEjb extends CrudServiceImpl implements GerencialGe
 
 			/*
 			 * Rodrigo Pecci Acorse - 30/01/2014 10h00 - #132390
-			 * Adiciona a soma total dos itens no relatÛrio
+			 * Adiciona a soma total dos itens no relat√≥rio
 			 */
 			String somaTotal = geraSomaTotal(listRetorno, gerencialItemPainelAuxDto, gerencialItemDto, request);
 
@@ -752,7 +752,7 @@ public class GerencialGenerateEjb extends CrudServiceImpl implements GerencialGe
 				bufferRetorno += "</tr>";
 			}
 
-			//Adiciona o total de registros (linhas) no relatÛrio
+			//Adiciona o total de registros (linhas) no relat√≥rio
 			bufferRetorno += geraTotais(qtdeColunas, counts.length - 1, gerencialItemDto, isCounts, isTotals, totals, counts, infoGenerate.getHashParametros());
 		}
 
@@ -822,7 +822,7 @@ public class GerencialGenerateEjb extends CrudServiceImpl implements GerencialGe
 
 	/**
 	 * Rodrigo Pecci Acorse - 30/01/2014 10h00 - #132390
-	 * Retorna a soma total do resultado das colunas do relatÛrio
+	 * Retorna a soma total do resultado das colunas do relat√≥rio
 	 *
 	 * @param listRetorno
 	 * @param gerencialItemPainelAuxDto
@@ -978,7 +978,7 @@ public class GerencialGenerateEjb extends CrudServiceImpl implements GerencialGe
 
 		/*
 		 * Rodrigo Pecci Acorse - 30/01/2014 10h00 - #132390
-		 * Adiciona a soma total dos itens no relatÛrio
+		 * Adiciona a soma total dos itens no relat√≥rio
 		 */
 		String somaTotal = geraSomaTotal(listRetorno, gerencialItemPainelAuxDto, gerencialItemDto, request);
 
@@ -1200,7 +1200,7 @@ public class GerencialGenerateEjb extends CrudServiceImpl implements GerencialGe
 			LOGGER.info("Grafico de Barras gerado em:\n\t" + caminho);
 
 		} catch (IOException e) {
-			LOGGER.error("Problemas durante a criaÁ„o do Gr·fico de Barras.", e);
+			LOGGER.error("Problemas durante a cria√ß√£o do Gr√°fico de Barras.", e);
 		}
 
 		if(listRetorno != null && listRetorno.size()!= 0){
@@ -1436,9 +1436,9 @@ public class GerencialGenerateEjb extends CrudServiceImpl implements GerencialGe
 																		// do grafico)
 		chart.setBorderVisible(false); // Visibilidade da borda do grafico
 
-		// Marcador de MÌdia de Resolubilidade
+		// Marcador de M√≠dia de Resolubilidade
 		// IntervalMarker target = new IntervalMarker(y - 0.3, y + 0.3);// A
-		// principio, a mÌdia ser· o TOTAL-MF
+		// principio, a m√≠dia ser√° o TOTAL-MF
 		/*
 		 * target.setLabel(" Resolubilidade Midia"); target.setLabelFont(new Font("arial", Font.BOLD, 12)); target.setLabelPaint(Color.RED); target.setLabelAnchor(RectangleAnchor.CENTER);
 		 * target.setLabelTextAnchor(TextAnchor.BOTTOM_CENTER);
@@ -1494,7 +1494,7 @@ public class GerencialGenerateEjb extends CrudServiceImpl implements GerencialGe
 			LOGGER.info("Grafico de Linhas gerado em:\n\t" + caminho);
 
 		} catch (IOException e) {
-			LOGGER.error("Problemas durante a criaÁ„o do Gr·fico de Barras.", e);
+			LOGGER.error("Problemas durante a cria√ß√£o do Gr√°fico de Barras.", e);
 		}
 
 		if(listRetorno != null && listRetorno.size()!= 0){
@@ -1974,7 +1974,7 @@ public class GerencialGenerateEjb extends CrudServiceImpl implements GerencialGe
 
 			/*
 			 * Rodrigo Pecci Acorse - 30/01/2014 10h00 - #132390
-			 * Adiciona a soma total dos itens no relatÛrio
+			 * Adiciona a soma total dos itens no relat√≥rio
 			 */
 			String somaTotal = geraSomaTotal(listRetorno, gerencialItemPainelAuxDto, gerencialItemDto, request);
 
@@ -1994,7 +1994,7 @@ public class GerencialGenerateEjb extends CrudServiceImpl implements GerencialGe
 				table.addCell(cell);
 			}
 
-			//Adiciona o total de registros (linhas) no relatÛrio
+			//Adiciona o total de registros (linhas) no relat√≥rio
 			geraTotaisPDF(table, qtdeColunas, counts.length - 1, gerencialItemDto, isCounts, isTotals, totals, counts, infoGenerate.getHashParametros());
 		}
 
@@ -2198,7 +2198,7 @@ public class GerencialGenerateEjb extends CrudServiceImpl implements GerencialGe
 			e2.printStackTrace();
 		}
 
-		//foi comentado para funcionar corretamente, n„o sei o motivo mas tratar o caminho aqui dava nullpointer mesmo com o caminho certo.
+		//foi comentado para funcionar corretamente, n√£o sei o motivo mas tratar o caminho aqui dava nullpointer mesmo com o caminho certo.
 
 /*		URL url = null;
 		try {
@@ -2243,7 +2243,7 @@ public class GerencialGenerateEjb extends CrudServiceImpl implements GerencialGe
 
 		/*
 		 * Rodrigo Pecci Acorse - 30/01/2014 10h00 - #132390
-		 * Adiciona a soma total dos itens no relatÛrio
+		 * Adiciona a soma total dos itens no relat√≥rio
 		 */
 		String somaTotal = geraSomaTotal(listRetorno, gerencialItemPainelAuxDto, gerencialItemDto, request);
 		if (!somaTotal.equals("")) {
@@ -2306,12 +2306,12 @@ public class GerencialGenerateEjb extends CrudServiceImpl implements GerencialGe
 				arquivo.delete();
 			}
 
-			//codigo abaixo necess·rio para tratar o encode nos servidores linux
+			//codigo abaixo necess√°rio para tratar o encode nos servidores linux
 			FileOutputStream fOut = new FileOutputStream(arquivo);
-			String str = "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\" >";
+			String str = "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" >";
 			BufferedWriter out = null;
 			try {
-				 out = new BufferedWriter(new OutputStreamWriter(fOut,"ISO-8859-1"));
+				 out = new BufferedWriter(new OutputStreamWriter(fOut,"UTF-8"));
 			} catch (Exception e) {
 				out = new BufferedWriter(new OutputStreamWriter(fOut));
 				e.printStackTrace();
@@ -2418,7 +2418,7 @@ public class GerencialGenerateEjb extends CrudServiceImpl implements GerencialGe
 		 * PdfPTable foot = new PdfPTable(2); String strSistema = Constantes.getValue("TEXTO_1a_LINHA_RODAPE_CITGERENCIAL"); if (strSistema != null && !strSistema.equalsIgnoreCase("")){ PdfPCell
 		 * cAuxSistema = new PdfPCell( new Phrase(strSistema, new Font(Font.HELVETICA, 8, Font.NORMAL, new Color(0, 0, 0)))); cAuxSistema.setColspan(2); foot.addCell(cAuxSistema); }
 		 *
-		 * PdfPCell cAuxPageNumber = new PdfPCell( new Phrase("Emiss„o: " + UtilDatas.dateToSTR(UtilDatas.getDataAtual()) + " " + UtilDatas.formatHoraFormatadaStr(UtilDatas.getHoraAtual()), new
+		 * PdfPCell cAuxPageNumber = new PdfPCell( new Phrase("Emiss√£o: " + UtilDatas.dateToSTR(UtilDatas.getDataAtual()) + " " + UtilDatas.formatHoraFormatadaStr(UtilDatas.getHoraAtual()), new
 		 * Font(Font.HELVETICA, 8, Font.NORMAL, new Color(0, 0, 0)))); foot.addCell(cAuxPageNumber);
 		 *
 		 * cAuxPageNumber = new PdfPCell(new Phrase("Pagina: " + i, new Font(Font.HELVETICA, 8, Font.NORMAL, new Color(0, 0, 0)))); cAuxPageNumber.setHorizontalAlignment(PdfPCell.ALIGN_RIGHT);

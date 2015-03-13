@@ -16,7 +16,7 @@ import br.com.citframework.service.CrudService;
 public interface PosicionamentoAtendenteService extends CrudService {
 
     /**
-     * Lista o último posicionamento dos atendentes, juntamente com informações (se existente) da última solicitação atendimento
+     * Lista o Ãºltimo posicionamento dos atendentes, juntamente com informaÃ§Ãµes (se existente) da Ãºltima solicitaÃ§Ã£o atendimento
      *
      * @param posicionamentoAtendente
      *            objetos contendo os filtros a serem considerados

@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * Provider/pool de conexıes apenas read only ({@code {@link Connection#setReadOnly(boolean)} == true}), mantendo apenas uma por usu·rio e senha ou JNDI
+ * Provider/pool de conex√µes apenas read only ({@code {@link Connection#setReadOnly(boolean)} == true}), mantendo apenas uma por usu√°rio e senha ou JNDI
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 20/08/2014
@@ -38,16 +38,16 @@ public final class ConnectionReadOnlyProvider {
     }
 
     /**
-     * Recupera uma conex„o de acordo com oas par‚metros informados
+     * Recupera uma conex√£o de acordo com oas par√¢metros informados
      *
      * @param clazz
-     *            classe do driver para conex„o
+     *            classe do driver para conex√£o
      * @param url
-     *            url de conex„o
+     *            url de conex√£o
      * @param user
-     *            usu·rio para conex„o
+     *            usu√°rio para conex√£o
      * @param password
-     *            senha do usu·rio para conex„o
+     *            senha do usu√°rio para conex√£o
      * @return {@link Connection}
      * @throws Exception
      * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>

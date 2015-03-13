@@ -59,7 +59,7 @@ public class GenerateServiceImpactoMudanca extends GerencialGenerateService {
 			ItemConfiguracaoDao itemConfiguracaoDao = new ItemConfiguracaoDao();
 			RequisicaoMudancaItemConfiguracaoDao requisicaoMudancaItemConfiguracaoDao = new RequisicaoMudancaItemConfiguracaoDao();
 
-			/* Realiza o filtro de mudanças */
+			/* Realiza o filtro de mudanÃ§as */
 			mudancas = new RequisicaoMudancaDao().findByPeriodoAndSituacao(datainicio, datafim, situacaoMudanca);
 
 			/* Filtra os grupos relacionados */

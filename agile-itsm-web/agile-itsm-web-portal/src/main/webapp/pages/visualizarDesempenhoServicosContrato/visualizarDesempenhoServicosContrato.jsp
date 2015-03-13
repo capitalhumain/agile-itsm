@@ -1,5 +1,5 @@
 <%@page import="br.com.citframework.util.UtilFormatacao"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="java.util.Collection"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="br.com.centralit.citcorpore.bean.ServicoContratoDTO"%>
@@ -58,7 +58,7 @@ Collection listaServicos = (Collection)request.getAttribute("listaServicos");
 					out.print("<td style='text-align: center;' align='center'>");
 					out.print("<img src='" + br.com.citframework.util.Constantes
 							.getValue("SERVER_ADDRESS") + br.com.citframework.util.Constantes
-							.getValue("CONTEXTO_APLICACAO") + "/imagens/write.png' border='0' style='cursor:pointer' title='Editar o serviço' onclick='editarServicoContrato(" + servicoContratoAux.getIdServicoContrato() + ")'/>");					
+							.getValue("CONTEXTO_APLICACAO") + "/imagens/write.png' border='0' style='cursor:pointer' title='Editar o serviÃ§o' onclick='editarServicoContrato(" + servicoContratoAux.getIdServicoContrato() + ")'/>");					
 					out.print("</td>");					
 					out.print("</tr>");
 					out.print("</table>");

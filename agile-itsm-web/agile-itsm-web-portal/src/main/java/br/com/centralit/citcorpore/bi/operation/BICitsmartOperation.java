@@ -83,11 +83,11 @@ public class BICitsmartOperation {
 
 			if (conexaoBIDTO == null) {
 				resultRotina.setResultado(false);
-				resultRotina.concatMensagem("As informações da conexão não foram preenchidas corretamente para a execução da rotina automática!");
+				resultRotina.concatMensagem("As informaÃ§Ãµes da conexÃ£o nÃ£o foram preenchidas corretamente para a execuÃ§Ã£o da rotina automÃ¡tica!");
 			} else {
 				if (conexaoBIDTO.getIdConexaoBI() == null) {
 					resultRotina.setResultado(false);
-					resultRotina.concatMensagem("Conexão BI não encontrada!");
+					resultRotina.concatMensagem("ConexÃ£o BI nÃ£o encontrada!");
 				}
 			}
 
@@ -99,11 +99,11 @@ public class BICitsmartOperation {
 						resultRotina = rotinaAutoBICitsmart(conexaoBIDTO.getIdConexaoBI(), conexaoBIDTO.getLink(), conexaoBIDTO.getLogin(), conexaoBIDTO.getSenha());
 					} else {
 						resultRotina.setResultado(false);
-						resultRotina.concatMensagem("As informações da conexão não foram preenchidas corretamente para a execução da rotina automática!");
+						resultRotina.concatMensagem("As informaÃ§Ãµes da conexÃ£o nÃ£o foram preenchidas corretamente para a execuÃ§Ã£o da rotina automÃ¡tica!");
 					}
 				} else {
 					resultRotina.setResultado(false);
-					resultRotina.concatMensagem("A execução da rotina automática está desativada!");
+					resultRotina.concatMensagem("A execuÃ§Ã£o da rotina automÃ¡tica estÃ¡ desativada!");
 				}
 
 			}
@@ -111,43 +111,43 @@ public class BICitsmartOperation {
 		} catch (Exception e) {
 			e.printStackTrace();
 			resultRotina.setResultado(false);
-			resultRotina.concatMensagem("- Falha na rotina automática (Falha)");
+			resultRotina.concatMensagem("- Falha na rotina automÃ¡tica (Falha)");
 		} catch (Error e) {
 			e.printStackTrace();
 			resultRotina.setResultado(false);
-			resultRotina.concatMensagem("- Falha na rotina automática (Erro)");
+			resultRotina.concatMensagem("- Falha na rotina automÃ¡tica (Erro)");
 		} finally {
 
 			logImportacaoBI.setDataHoraFim(new Timestamp(System.currentTimeMillis()));
 
 			if (idProcessamentoBatch != null) {
-				logImportacaoBI.concatDetalhamento("Importação Automática BI Citsmart (via Agendamento).");
+				logImportacaoBI.concatDetalhamento("ImportaÃ§Ã£o AutomÃ¡tica BI Citsmart (via Agendamento).");
 				logImportacaoBI.concatDetalhamento("Processo: " + idProcessamentoBatch);
 			} else {
-				logImportacaoBI.concatDetalhamento("Importação Automática BI Citsmart (via opção Executar Agora).");
+				logImportacaoBI.concatDetalhamento("ImportaÃ§Ã£o AutomÃ¡tica BI Citsmart (via opÃ§Ã£o Executar Agora).");
 			}
 
 			logImportacaoBI.concatDetalhamento(resultRotina.getMensagem());
 
 			if (resultRotina.isResultado()) {
 				final Timestamp dataHoraExecucao = new Timestamp(System.currentTimeMillis());
-				// Atualiza a data da última importação
+				// Atualiza a data da Ãºltima importaÃ§Ã£o
 				conexaoBIDTO.setDataHoraUltimaImportacao(dataHoraExecucao);
-				logImportacaoBI.concatDetalhamento("Execução realizada com sucesso!");
+				logImportacaoBI.concatDetalhamento("ExecuÃ§Ã£o realizada com sucesso!");
 				logImportacaoBI.setStatus("S");
 			} else {
-				logImportacaoBI.concatDetalhamento("Falha na execução da rotina!");
+				logImportacaoBI.concatDetalhamento("Falha na execuÃ§Ã£o da rotina!");
 				logImportacaoBI.setStatus("F");
 			}
 
-			// Grava o log da importação
+			// Grava o log da importaÃ§Ã£o
 			logImportacaoBI.setTipo("A");
 			logImportacaoBI.setIdConexaoBI(conexaoBIDTO.getIdConexaoBI());
 
 			final LogImportacaoBIService logImportacaoBIService = (LogImportacaoBIService) ServiceLocator.getInstance().getService(LogImportacaoBIService.class, null);
 			logImportacaoBIService.create(logImportacaoBI);
 
-			// Atualiza o status integração da Conexão BI
+			// Atualiza o status integraÃ§Ã£o da ConexÃ£o BI
 			conexaoBIDTO.setStatus(logImportacaoBI.getStatus());
 			final ConexaoBIService conexaoBIService = (ConexaoBIService) ServiceLocator.getInstance().getService(ConexaoBIService.class, null);
 			conexaoBIService.update(conexaoBIDTO);
@@ -208,12 +208,12 @@ public class BICitsmartOperation {
 					resp = gson.fromJson(reader, BICitsmartResp.class);
 
 					if (resp != null && resp.getError().getDescription() != null && !resp.getError().getDescription().equals("")) {
-						resultRotina.concatMensagem("- Estabelecimento da conexão: " + response.getStatus() + " - " + resp.getError().getDescription() + " (Falha) ");
+						resultRotina.concatMensagem("- Estabelecimento da conexÃ£o: " + response.getStatus() + " - " + resp.getError().getDescription() + " (Falha) ");
 					} else {
-						resultRotina.concatMensagem("- Estabelecimento da conexão HTTP (Falha): Erro " + response.getStatus());
+						resultRotina.concatMensagem("- Estabelecimento da conexÃ£o HTTP (Falha): Erro " + response.getStatus());
 					}
 				} else {
-					resultRotina.concatMensagem("- Estabelecimento da conexão HTTP (OK)");
+					resultRotina.concatMensagem("- Estabelecimento da conexÃ£o HTTP (OK)");
 					resultRotina.concatMensagem(autenticacao.getMensagem());
 
 					final String xmlString = StringEscapeUtils.unescapeHtml(response.getEntity());
@@ -230,7 +230,7 @@ public class BICitsmartOperation {
 			}
 		} catch (MalformedURLException murle) {
 			murle.printStackTrace();
-			resultRotina.concatMensagem("- Validação de URL (Falha)");
+			resultRotina.concatMensagem("- ValidaÃ§Ã£o de URL (Falha)");
 		} catch (NoHttpResponseException nhttpe) {
 			nhttpe.printStackTrace();
 			resultRotina.concatMensagem("- URL sem resposta (Falha)");
@@ -241,13 +241,13 @@ public class BICitsmartOperation {
 			jsyn.printStackTrace();
 			resultRotina.concatMensagem("- JSON sintaxe incorreta (Falha)");
 		} catch (IOException e) {
-			resultRotina.concatMensagem("- Estabelecimento da conexão (Falha)");
+			resultRotina.concatMensagem("- Estabelecimento da conexÃ£o (Falha)");
 		} catch (Exception e) {
 			e.printStackTrace();
-			resultRotina.concatMensagem("- Falha na rotina automática (Falha)");
+			resultRotina.concatMensagem("- Falha na rotina automÃ¡tica (Falha)");
 		} catch (Error e) {
 			e.printStackTrace();
-			resultRotina.concatMensagem("- Falha na rotina automática (Erro)");
+			resultRotina.concatMensagem("- Falha na rotina automÃ¡tica (Erro)");
 		}
 		return resultRotina;
 	}
@@ -309,12 +309,12 @@ public class BICitsmartOperation {
 			resultRotina.concatMensagem(UtilI18N.internacionaliza(req, "conexaoBI.testeConexaoErroFalhaHTTP"));
 		} catch (Exception ex) {
 			ex.printStackTrace();
-			resultRotina.concatMensagem(UtilI18N.internacionaliza(req, "Exceção identificada (FALHA)"));
+			resultRotina.concatMensagem(UtilI18N.internacionaliza(req, "ExceÃ§Ã£o identificada (FALHA)"));
 		} catch (Error e) {
 			e.printStackTrace();
 			resultRotina.concatMensagem(UtilI18N.internacionaliza(req, "MSE02"));
 		} finally {
-			// Grava o log da importação.
+			// Grava o log da importaÃ§Ã£o.
 			logImportacaoBI.setDataHoraFim(new Timestamp(System.currentTimeMillis()));
 			logImportacaoBI.concatDetalhamento(resultRotina.getMensagem());
 			logImportacaoBI.setTipo("T");
@@ -327,7 +327,7 @@ public class BICitsmartOperation {
 	}
 
 	/**
-	 * Executa a exportação manual das tabelas do BI do Citsmart
+	 * Executa a exportaÃ§Ã£o manual das tabelas do BI do Citsmart
 	 *
 	 * @param path
 	 * @return boolean
@@ -352,11 +352,11 @@ public class BICitsmartOperation {
 
 					final Calendar c = Calendar.getInstance();
 
-					// Utiliza o caminho do Parametro "BI Citsmart - Caminho exportação manual" e concatena com o nome do arquivo.
+					// Utiliza o caminho do Parametro "BI Citsmart - Caminho exportaÃ§Ã£o manual" e concatena com o nome do arquivo.
 					path = path + "bi_citsmart_exportacao_" + idConexaoBI + "_" + UtilDatas.getDataAtual() + "_" + c.get(Calendar.HOUR_OF_DAY) + "h" + c.get(Calendar.MINUTE) + ".xml";
 
 					File file = new File(path);
-					Writer out = new OutputStreamWriter(new FileOutputStream(file), "ISO-8859-1");
+					Writer out = new OutputStreamWriter(new FileOutputStream(file), "UTF-8");
 					out.write(xmlString);
 					out.close();
 				} else {
@@ -377,7 +377,7 @@ public class BICitsmartOperation {
 	}
 
 	/**
-	 * Executa a exportação manual das tabelas do BI do Citsmart
+	 * Executa a exportaÃ§Ã£o manual das tabelas do BI do Citsmart
 	 *
 	 * @param path
 	 * @return boolean
@@ -391,7 +391,7 @@ public class BICitsmartOperation {
 			final String idConexaoBI = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.BICITSMART_ID_CONEXAO, "");
 			if (idConexaoBI == null || idConexaoBI.equals("")) {
 				resultRotina.setResultado(false);
-				resultRotina.setMensagem("Parâmetro ID Conexão BI não informado.");
+				resultRotina.setMensagem("ParÃ¢metro ID ConexÃ£o BI nÃ£o informado.");
 			} else {
 				final String xmlString = StringEscapeUtils.unescapeHtml(BICitsmartUtils.recuperaXmlTabelasBICitsmart(true));
 				resultRotina.setResultado(true);
@@ -411,7 +411,7 @@ public class BICitsmartOperation {
 	}
 
 	/**
-	 * Executa a importação manual das tabelas do BI do Citsmart
+	 * Executa a importaÃ§Ã£o manual das tabelas do BI do Citsmart
 	 *
 	 * @param idConexao
 	 * @param xmlPath
@@ -429,35 +429,35 @@ public class BICitsmartOperation {
 		logImportacaoBI.clear();
 
 		try {
-			xmlSource = FileUtils.readFileToString(new File(xmlPath), "ISO-8859-1");
+			xmlSource = FileUtils.readFileToString(new File(xmlPath), "UTF-8");
 			if (!xmlSource.equals("")) {
 				BICitsmartResultRotinaDTO resultPersistencia = this.persisteDadosBICitsmart(idConexao, xmlSource, true);
 
-				logImportacaoBI.concatDetalhamento("Importação Manual BI Citsmart.");
+				logImportacaoBI.concatDetalhamento("ImportaÃ§Ã£o Manual BI Citsmart.");
 				logImportacaoBI.concatDetalhamento(resultPersistencia.getMensagem());
 
 				if (resultPersistencia.isResultado()) {
-					logImportacaoBI.concatDetalhamento("Importação realizada com sucesso!");
+					logImportacaoBI.concatDetalhamento("ImportaÃ§Ã£o realizada com sucesso!");
 					logImportacaoBI.setStatus("S");
 					resultado = true;
 				} else {
-					logImportacaoBI.concatDetalhamento("Falha na execução da importação manual!");
+					logImportacaoBI.concatDetalhamento("Falha na execuÃ§Ã£o da importaÃ§Ã£o manual!");
 				}
 			} else {
 				logImportacaoBI.concatDetalhamento("- Leitura do XML (Falha)");
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
-			logImportacaoBI.concatDetalhamento("- Conversão do XML (Falha)");
+			logImportacaoBI.concatDetalhamento("- ConversÃ£o do XML (Falha)");
 		} catch (Exception ex) {
 			ex.printStackTrace();
-			logImportacaoBI.concatDetalhamento("Exceção identificada (FALHA)");
+			logImportacaoBI.concatDetalhamento("ExceÃ§Ã£o identificada (FALHA)");
 		} catch (Error e) {
 			e.printStackTrace();
 			logImportacaoBI.concatDetalhamento("Erro identificado (ERRO)");
 		} finally {
 
-			// Grava o log da importação.
+			// Grava o log da importaÃ§Ã£o.
 			logImportacaoBI.setDataHoraFim(new Timestamp(System.currentTimeMillis()));
 			logImportacaoBI.setTipo("M");
 			logImportacaoBI.setIdConexaoBI(idConexao);
@@ -465,7 +465,7 @@ public class BICitsmartOperation {
 			final LogImportacaoBIService logImportacaoBIService = (LogImportacaoBIService) ServiceLocator.getInstance().getService(LogImportacaoBIService.class, null);
 			logImportacaoBIService.create(logImportacaoBI);
 
-			// Atualiza status da Conexão BI
+			// Atualiza status da ConexÃ£o BI
 			ConexaoBIDTO conexaoBIDTO = new ConexaoBIDTO();
 			conexaoBIDTO.setIdConexaoBI(idConexao);
 			final ConexaoBIService conexaoBIService = (ConexaoBIService) ServiceLocator.getInstance().getService(ConexaoBIService.class, null);
@@ -494,7 +494,7 @@ public class BICitsmartOperation {
 		TransactionControlerImpl transactionControler = new TransactionControlerImpl(Constantes.getValue("DATABASE_BI_ALIAS"));
 
 		// euler.ramos
-		// Declarando variáveis que serão utilizadas na iteração e, como são em sucessivas execuções, estavam onerando o Garbage Collection nas Declarações sucessivas
+		// Declarando variÃ¡veis que serÃ£o utilizadas na iteraÃ§Ã£o e, como sÃ£o em sucessivas execuÃ§Ãµes, estavam onerando o Garbage Collection nas DeclaraÃ§Ãµes sucessivas
 		ImportInfoRecord importInfoRecord;
 		StringBuilder sqlInsert = new StringBuilder();
 		StringBuilder sqlInsertFields = new StringBuilder();
@@ -550,11 +550,11 @@ public class BICitsmartOperation {
 						if (field.equalsIgnoreCase("IDCONEXAOBI") && Integer.parseInt(fieldValue) != idConexao) {
 							transactionControler.rollback();
 							resultRotina.setResultado(false);
-							resultRotina.concatMensagem("- Persistência de dados (Falha): O ID da conexão no xml não corresponde a conexão selecionada.");
+							resultRotina.concatMensagem("- PersistÃªncia de dados (Falha): O ID da conexÃ£o no xml nÃ£o corresponde a conexÃ£o selecionada.");
 							break;
 						} else {
 							/*
-							 * Rodrigo Pecci Acorse - 03/01/2014 10h15 - #128776 Remove o .000 dos campos numéricos para que a persistência seja feita corretamente.
+							 * Rodrigo Pecci Acorse - 03/01/2014 10h15 - #128776 Remove o .000 dos campos numÃ©ricos para que a persistÃªncia seja feita corretamente.
 							 */
 							if (importInfoField.getType().startsWith("NUMERIC")) {
 								if (fieldValue.indexOf(".000") > -1 && fieldValue.indexOf(".000") == fieldValue.length() - 4) {
@@ -677,7 +677,7 @@ public class BICitsmartOperation {
 			e.printStackTrace();
 
 			resultRotina.setResultado(false);
-			resultRotina.concatMensagem("- Persistência de dados (Falha).");
+			resultRotina.concatMensagem("- PersistÃªncia de dados (Falha).");
 			resultRotina.concatMensagem("INSERT: " + sqlInsert.toString() + " - " + lstParmsInsert);
 			resultRotina.concatMensagem("UPDATE: " + sqlUpdate.toString() + " - " + lstParmsUpdate);
 			resultRotina.concatMensagem("SELECT: " + sqlSelect.toString() + " - " + lstParmsWhere);
@@ -692,7 +692,7 @@ public class BICitsmartOperation {
 			ome.printStackTrace();
 		} catch (Exception ex) {
 			resultRotina.setResultado(false);
-			resultRotina.concatMensagem("- Falha na Persistência de dados (FALHA)");
+			resultRotina.concatMensagem("- Falha na PersistÃªncia de dados (FALHA)");
 			if (transactionControler.isStarted()) {
 				transactionControler.rollback();
 			}
@@ -700,7 +700,7 @@ public class BICitsmartOperation {
 		} catch (Error e) {
 			e.printStackTrace();
 			resultRotina.setResultado(false);
-			resultRotina.concatMensagem("- Erro na Persistência de dados (ERRO)");
+			resultRotina.concatMensagem("- Erro na PersistÃªncia de dados (ERRO)");
 		} finally {
 			try {
 				if (transactionControler.isStarted()) {
@@ -712,7 +712,7 @@ public class BICitsmartOperation {
 		}
 
 		if (resultRotina.isResultado()) {
-			resultRotina.concatMensagem("- Persistência de dados (OK)");
+			resultRotina.concatMensagem("- PersistÃªncia de dados (OK)");
 		}
 
 		return resultRotina;

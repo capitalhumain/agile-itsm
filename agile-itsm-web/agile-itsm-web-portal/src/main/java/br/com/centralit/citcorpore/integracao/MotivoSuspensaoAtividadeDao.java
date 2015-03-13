@@ -49,7 +49,7 @@ public class MotivoSuspensaoAtividadeDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Verifica se o registro informado j· consta gravado no BD. Considera apenas registros ativos.
+     * Verifica se o registro informado j√° consta gravado no BD. Considera apenas registros ativos.
      *
      * @param motivoSuspensaoAtividadeDTO
      * @return boolean

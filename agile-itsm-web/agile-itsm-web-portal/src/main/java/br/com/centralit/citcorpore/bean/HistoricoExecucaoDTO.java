@@ -54,8 +54,8 @@ public class HistoricoExecucaoDTO extends BaseEntity {
 	}
 	public String getSituacaoDesc() {
 		if (this.situacao == null) return "";
-		if (this.situacao.equalsIgnoreCase("N")) return "Não Iniciada";
-		if (this.situacao.equalsIgnoreCase("I")) return "Em Execução";
+		if (this.situacao.equalsIgnoreCase("N")) return "NÃ£o Iniciada";
+		if (this.situacao.equalsIgnoreCase("I")) return "Em ExecuÃ§Ã£o";
 		if (this.situacao.equalsIgnoreCase("F")) return "Finalizada";
 		if (this.situacao.equalsIgnoreCase("C")) return "Paralisada - Aguard. Cliente";
 		if (this.situacao.equalsIgnoreCase("P")) return "Paralisada - Interno";

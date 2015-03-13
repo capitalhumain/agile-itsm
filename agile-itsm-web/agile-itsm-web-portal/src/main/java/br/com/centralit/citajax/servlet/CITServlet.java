@@ -152,7 +152,7 @@ public class CITServlet extends HttpServlet {
                 // Operacoes de Carregamento de paginas
                 if ("load".equalsIgnoreCase(ext)) {
                     /**
-                     * Verifica se o parametro de instalação está em sessão
+                     * Verifica se o parametro de instalaÃ§Ã£o estÃ¡ em sessÃ£o
                      */
                     final ServletContext context = request.getSession().getServletContext();
                     if (context.getAttribute("instalacao") != null) {
@@ -188,7 +188,7 @@ public class CITServlet extends HttpServlet {
 
                     final boolean inSession = request.getSession(false) != null;
                     if (!inSession) {
-                        LOGGER.warn("ATENÇÃO >>> SESSÃO INVÁLIDA >>> URL >> " + pathInfo);
+                        LOGGER.warn("ATENÃ‡ÃƒO >>> SESSÃƒO INVÃÂLIDA >>> URL >> " + pathInfo);
                     }
 
                     if (!response.isCommitted() && inSession) {
@@ -210,7 +210,7 @@ public class CITServlet extends HttpServlet {
                         throw new ServletException(e);
                     }
 
-                    response.setContentType("text/html; charset=ISO-8859-1");
+                    response.setContentType("text/html; charset=UTF-8");
                     try (final PrintWriter out = response.getWriter()) {
                         out.write(strResult);
                     }
@@ -284,7 +284,7 @@ public class CITServlet extends HttpServlet {
 
                         final boolean inSession = request.getSession(false) != null;
                         if (!inSession) {
-                            LOGGER.warn("ATENÇÃO >>> SESSÃO INVÁLIDA >>> URL >> " + pathInfo);
+                            LOGGER.warn("ATENÃ‡ÃƒO >>> SESSÃƒO INVÃÂLIDA >>> URL >> " + pathInfo);
                         }
 
                         final String url = Constantes.getValue("CAMINHO_PAGES") + urlRedirecionarLookup;
@@ -305,7 +305,7 @@ public class CITServlet extends HttpServlet {
                         }
                         final boolean inSession = request.getSession(false) != null;
                         if (!inSession) {
-                            LOGGER.warn("ATENÇÃO >>> SESSÃO INVÁLIDA >>> URL >> " + pathInfo);
+                            LOGGER.warn("ATENÃ‡ÃƒO >>> SESSÃƒO INVÃÂLIDA >>> URL >> " + pathInfo);
                         }
 
                         final String url = Constantes.getValue("CAMINHO_PAGES") + urlErro;
@@ -325,7 +325,7 @@ public class CITServlet extends HttpServlet {
                         }
                         final boolean inSession = request.getSession(false) != null;
                         if (!inSession) {
-                            LOGGER.warn("ATENÇÃO >>> SESSÃO INVÁLIDA >>> URL >> " + pathInfo);
+                            LOGGER.warn("ATENÃ‡ÃƒO >>> SESSÃƒO INVÃÂLIDA >>> URL >> " + pathInfo);
                         }
 
                         final String url = Constantes.getValue("CAMINHO_PAGES") + urlErro;
@@ -345,7 +345,7 @@ public class CITServlet extends HttpServlet {
                         }
                         final boolean inSession = request.getSession(false) != null;
                         if (!inSession) {
-                            LOGGER.warn("ATENÇÃO >>> SESSÃO INVÁLIDA >>> URL >> " + pathInfo);
+                            LOGGER.warn("ATENÃ‡ÃƒO >>> SESSÃƒO INVÃÂLIDA >>> URL >> " + pathInfo);
                         }
 
                         final String url = Constantes.getValue("CAMINHO_PAGES") + urlErro;
@@ -376,16 +376,14 @@ public class CITServlet extends HttpServlet {
 
             mensagemErro = mensagemErro.replaceAll("br\\.com\\.citframework\\.excecao\\.FKReferenceException\\:", "");
             mensagemErro = mensagemErro.replaceAll("br\\.com\\.citframework\\.excecao\\.LogicException\\:", "");
-            mensagemErro = mensagemErro.replaceAll("br\\.com\\.centralit\\.citcorpore\\.exception\\.LogicException\\:", "");
-            mensagemErro = mensagemErro.replaceAll("br\\.com\\.centralit\\.citajax\\.exception\\.LogicException\\:", "");
             mensagemErro = mensagemErro.replaceAll("br\\.com\\.citframework\\.excecao\\.DuplicateUniqueException\\:", "");
             mensagemErro = UtilI18N.internacionaliza(request, mensagemErro);
             String exec = "";
             final String strForm = this.getObjectName(pathInfo);
             if (!LogicException.class.isInstance(ex)) {
-                exec = "Ocorreu um problema na execução: " + mensagemErro + ", contate a equipe de suporte do Citsmart";
+                exec = "Ocorreu um problema na execuÃ§Ã£o: " + mensagemErro + ", contate a equipe de suporte do Citsmart";
             } else if (DuplicateUniqueException.class.isInstance(ex)) {
-                exec = "Já existe um campo com este :" + mensagemErro;
+                exec = "JÃ¡ existe um campo com este :" + mensagemErro;
             } else {
                 exec = mensagemErro;
             }
@@ -393,7 +391,7 @@ public class CITServlet extends HttpServlet {
                 exec = "Problemas no Banco de dados: " + mensagemErro + ", contate a equipe de suporte do Citsmart";
             }
             if (mensagemErro.indexOf("connection") > -1) {
-                exec = "Problemas na Conexão com o Banco de dados: " + mensagemErro + ", contate a equipe de suporte do Citsmart";
+                exec = "Problemas na ConexÃ£o com o Banco de dados: " + mensagemErro + ", contate a equipe de suporte do Citsmart";
             }
             exec = exec.replaceAll("'", "\"");
             if ("load".equalsIgnoreCase(ext)) {
@@ -415,7 +413,7 @@ public class CITServlet extends HttpServlet {
 
                 final boolean inSession = request.getSession(false) != null;
                 if (!inSession) {
-                    LOGGER.warn("ATENÇÃO >>> SESSÃO INVÁLIDA >>> URL >> " + pathInfo);
+                    LOGGER.warn("ATENÃ‡ÃƒO >>> SESSÃƒO INVÃÂLIDA >>> URL >> " + pathInfo);
                 }
 
                 if (!response.isCommitted() && inSession) {

@@ -55,7 +55,7 @@ import br.com.citframework.util.UtilFormatacao;
 import br.com.citframework.util.UtilI18N;
 
 /**
- * Classe responsável por montar o gráfico e desempenho por serviço de um fornecedor
+ * Classe responsÃ¡vel por montar o grÃ¡fico e desempenho por serviÃ§o de um fornecedor
  * 
  * @author rodrigo.oliveira
  *
@@ -111,10 +111,10 @@ public class AvaliacaoPorFornecedor extends AjaxFormAction {
 		
 		setColServicosContrato(getServiceContratoService(request).listarServicosPorFornecedor(getIdFornecedor()));
 		
-		//Monta gráfico de desempenho do fornecedor selecionado
+		//Monta grÃ¡fico de desempenho do fornecedor selecionado
 		geraGraficoPorFornecedor(document, request, response);
 		
-		//Gera desempenho por serviço do fornecedor selecionado
+		//Gera desempenho por serviÃ§o do fornecedor selecionado
 		montaTelaDesempenho(document, request, response);
 		
 	}
@@ -425,10 +425,10 @@ public class AvaliacaoPorFornecedor extends AjaxFormAction {
 					}else {
 						String strSituacao = "";
 						if (servicoContratoAux.getSituacaoServico().intValue() == -999){
-							strSituacao = "Em análise";
+							strSituacao = "Em anÃ¡lise";
 						}
 						if (servicoContratoAux.getSituacaoServico().intValue() == 3){
-							strSituacao = "Em criação";
+							strSituacao = "Em criaÃ§Ã£o";
 						}
 						if (servicoContratoAux.getSituacaoServico().intValue() == 4){
 							strSituacao = "Em desenho";

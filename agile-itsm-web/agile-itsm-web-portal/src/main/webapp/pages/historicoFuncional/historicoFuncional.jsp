@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.CitCorporeConstantes"%>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
@@ -130,7 +132,7 @@
 														<div class="modal hide fade in" id="modal_visualizarHistorico" aria-hidden="false">
 															<!-- Modal heading -->
 															<div class="modal-header">
-																<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+																<button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
 															</div>
 															<!-- // Modal heading END -->
 															<!-- Modal body -->
@@ -144,7 +146,7 @@
 														<div class="modal hide fade in" id="modal_itemHistorico" aria-hidden="false">
 															<!-- Modal heading -->
 															<div class="modal-header">
-																<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+																<button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
 																<h3><fmt:message key="rh.novoItemHistorico"/></h3>
 															</div>
 															<!-- // Modal heading END -->
@@ -159,7 +161,7 @@
 														<div class="modal hide fade in" id="modal_blackList" aria-hidden="false">
 															<!-- Modal heading -->
 															<div class="modal-header">
-																<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+																<button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
 																<h3><fmt:message key="rh.cadastroBlackList"/></h3>
 															</div>
 															<!-- // Modal heading END -->

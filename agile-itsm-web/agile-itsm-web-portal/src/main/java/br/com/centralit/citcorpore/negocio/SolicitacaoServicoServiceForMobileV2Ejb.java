@@ -25,7 +25,7 @@ import br.com.citframework.util.geo.GeoUtils;
 public class SolicitacaoServicoServiceForMobileV2Ejb extends SolicitacaoServicoServiceEjb implements SolicitacaoServicoServiceForMobileV2 {
 
     private static final String PAGEABLE_MUST_NOT_BE_NULL = "'Pageable' must not be null.";
-    private static final String USUARIO_MUST_NOT_BE_NULL = "'Usu·rio' must not be null.";
+    private static final String USUARIO_MUST_NOT_BE_NULL = "'Usu√°rio' must not be null.";
 
     private SolicitacaoServicoForMobileV2Dao dao;
 

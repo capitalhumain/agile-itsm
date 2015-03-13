@@ -38,11 +38,11 @@ public class ExecucaoAtividadePeriodica extends AjaxFormAction {
 		ExecucaoAtividadePeriodicaDTO execucaoAtividadePeriodicaDTO = (ExecucaoAtividadePeriodicaDTO) document.getBean();
 
 		if (execucaoAtividadePeriodicaDTO.getSituacao() == null) {
-		    document.alert("Informe a situaÁ„o");
+		    document.alert("Informe a situa√ß√£o");
 		    return;
 		}
 		if (execucaoAtividadePeriodicaDTO.getSituacao().equals("S") && execucaoAtividadePeriodicaDTO.getIdMotivoSuspensao() == null) {
-		    document.alert("Informe o motivo da suspens„o");
+		    document.alert("Informe o motivo da suspens√£o");
 		    return;
 		}
 

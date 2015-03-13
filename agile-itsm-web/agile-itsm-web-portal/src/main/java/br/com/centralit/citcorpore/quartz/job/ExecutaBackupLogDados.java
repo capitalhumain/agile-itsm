@@ -74,7 +74,7 @@ public class ExecutaBackupLogDados implements Job {
                 }
                 nomeTabela = "LOGDADOS";
 
-                String str = "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n<tables origem='" + ORIGEM_SISTEMA + "'>\n" + strAux.toString();
+                String str = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<tables origem='" + ORIGEM_SISTEMA + "'>\n" + strAux.toString();
                 str = "" + str + "\n</tables>";
 
                 String strDateTime = new java.util.Date().toString();
@@ -98,7 +98,7 @@ public class ExecutaBackupLogDados implements Job {
                             final String[] strDel = sqlDelete.split(";");
                             if (strDel != null) {
                                 jdbcEngine.setTransactionControler(tc);
-                                System.out.println("Executando rotina de exclus„o da tabela LOGDADOS "+contador);
+                                System.out.println("Executando rotina de exclus√£o da tabela LOGDADOS "+contador);
                                 for (int i = 0; i < strDel.length; i++) {
                                     try {
                                         if (tc.isStarted()) {
@@ -114,7 +114,7 @@ public class ExecutaBackupLogDados implements Job {
                                         e.printStackTrace();
                                     }
                                 }
-                                System.out.println("Rotina de exclus„o "+contador+" finalizada.");
+                                System.out.println("Rotina de exclus√£o "+contador+" finalizada.");
                                 tc.commit();
                             }
                         } catch (final Exception e) {

@@ -71,7 +71,7 @@ public class AtribuicaoSolicitacaoAtendenteServiceEjb extends CrudServiceImpl im
     @Override
     public List<AtribuicaoSolicitacaoAtendenteDTO> criaAtribuicaoEmBatch(final List<AtribuicaoSolicitacaoAtendenteDTO> atribuicoes, final Date dataExecucao, final String connection)
             throws ServiceException {
-        Assert.isTrue(atribuicoes != null && atribuicoes.size() > 0, "'AtribuiÁıes' must not be null or empty.");
+        Assert.isTrue(atribuicoes != null && atribuicoes.size() > 0, "'Atribui√ß√µes' must not be null or empty.");
 
         final List<AtribuicaoSolicitacaoAtendenteDTO> newAtribuicoes = new ArrayList<>();
         try {
@@ -89,7 +89,7 @@ public class AtribuicaoSolicitacaoAtendenteServiceEjb extends CrudServiceImpl im
 
     @Override
     public List<AtribuicaoSolicitacaoAtendenteDTO> findByIDUsuarioAndIDSolicitacao(final AtribuicaoSolicitacaoAtendenteDTO atribuicao) throws ServiceException {
-        Assert.notNull(atribuicao, "'AtribuiÁ„o' must not be null.");
+        Assert.notNull(atribuicao, "'Atribui√ß√£o' must not be null.");
         try {
             return this.getDao().findByIDUsuarioAndIDSolicitacao(atribuicao.getIdUsuario(), atribuicao.getIdSolicitacao());
         } catch (final Exception e) {
@@ -151,7 +151,7 @@ public class AtribuicaoSolicitacaoAtendenteServiceEjb extends CrudServiceImpl im
 
                 this.createHistoricoPushMessage(usuario, request);
             } else {
-                LOGGER.fine(String.format("N„o existe associaÁ„o de devices para o usu·rio '%s'", usuario.getLogin()));
+                LOGGER.fine(String.format("N√£o existe associa√ß√£o de devices para o usu√°rio '%s'", usuario.getLogin()));
             }
         } catch (final Exception e) {
             LOGGER.log(Level.WARNING, "Problem on sending PushMessage: " + e.getMessage(), e);

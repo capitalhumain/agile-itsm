@@ -14,7 +14,7 @@ import org.mockito.Mockito;
 import br.com.centralit.MockInitialContextRule;
 
 /**
- * Classe de testes, mockada, para validação do comportamento de {@link JNDIFactory}
+ * Classe de testes, mockada, para validaÃ§Ã£o do comportamento de {@link JNDIFactory}
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 19/08/2014

@@ -45,7 +45,7 @@ public class Prioridade extends AjaxFormAction {
 		// Constantes.getValue("GRUPO_GPESS"))
 		// && !WebUtil.isUserInGroup(request,
 		// Constantes.getValue("GRUPO_DIRETORIA"))) {
-		// document.alert("VocÍ n„o tem permiss„o para acessar esta funcionalidade!");
+		// document.alert("Voc√™ n√£o tem permiss√£o para acessar esta funcionalidade!");
 		// document.executeScript("window.location = '" +
 		// Constantes.getValue("SERVER_ADDRESS")
 		// + request.getContextPath() + "/pages/index/index.jsp'");
@@ -67,21 +67,21 @@ public class Prioridade extends AjaxFormAction {
 	 */
 	public void save(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		// Obtendo o objeto de transferÍncia de dados (DTO).
+		// Obtendo o objeto de transfer√™ncia de dados (DTO).
 		PrioridadeDTO prioridadeDTO = (PrioridadeDTO) document.getBean();
 		
-		// Obtendo o serviÁo.
+		// Obtendo o servi√ßo.
 		PrioridadeService prioridadeService = (PrioridadeService) ServiceLocator.getInstance().getService(PrioridadeService.class, null);
 		ArrayList<PrioridadeDTO> listPrioridades = null;
 		if(prioridadeService != null){
 			listPrioridades = (ArrayList<PrioridadeDTO>) prioridadeService.prioridadesAtivasPorNome(prioridadeDTO.getNomePrioridade() );
 		}
-		// Verificando se a prioridade informada j· foi cadastrada.
+		// Verificando se a prioridade informada j√° foi cadastrada.
 		if(listPrioridades!=null){
 			document.alert(UtilI18N.internacionaliza(request, "citcorpore.comum.registroJaCadastrado") );
 			return;
 		}
-		// Verificando se o DTO e o serviÁo existem.
+		// Verificando se o DTO e o servi√ßo existem.
 		if (prioridadeDTO != null && prioridadeService != null) {
 			
 			// Inserindo.
@@ -92,20 +92,20 @@ public class Prioridade extends AjaxFormAction {
 					
 					prioridadeService.create(prioridadeDTO);
 					
-					// Notificando o usu·rio do sucesso da inserÁ„o.
+					// Notificando o usu√°rio do sucesso da inser√ß√£o.
 					document.alert(UtilI18N.internacionaliza(request, "MSG05") );
 				
 			} else {
 				prioridadeService.update(prioridadeDTO);
 				
-				// Notificando o usu·rio do sucesso da atualizaÁ„o.
+				// Notificando o usu√°rio do sucesso da atualiza√ß√£o.
 				document.alert(UtilI18N.internacionaliza(request, "MSG06") );
 			}
 			
-			// Referenciando o formul·rio.
+			// Referenciando o formul√°rio.
 			HTMLForm form = document.getForm("form");
 			
-			// Limpando o formul·rio.
+			// Limpando o formul√°rio.
 			form.clear();
 		}
 	}
@@ -132,7 +132,7 @@ public class Prioridade extends AjaxFormAction {
 	}
 
 	/**
-	 * Altera a situaÁ„o da prioridade para Inativo ao confirmar a exclus„o.
+	 * Altera a situa√ß√£o da prioridade para Inativo ao confirmar a exclus√£o.
 	 * 
 	 * @param document
 	 * @param request

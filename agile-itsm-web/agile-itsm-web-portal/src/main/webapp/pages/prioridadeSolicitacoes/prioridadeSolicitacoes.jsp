@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.citframework.util.UtilStrings"%>
 <%@page import="br.com.citframework.util.Constantes"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
@@ -14,13 +16,12 @@
 	%>
 	<%@include file="/include/header.jsp"%>
 
-	<title><fmt:message key="citcorpore.comum.title" /></title>
+	<%@include file="/novoLayout/common/include/titulo.jsp" %>
 
-	<%@include file="/include/security/security.jsp"%>
 
 	<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 
-	<script charset="ISO-8859-1"  type="text/javascript" src="${ctx}/js/PopupManager.js"></script>
+	<script charset="UTF-8"  type="text/javascript" src="${ctx}/js/PopupManager.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="./css/prioridadeSolicitacoes.css" />
 
@@ -73,7 +74,7 @@
 																		<input type='TEXT' name='SIGLAIMPACTO' size='1' maxlength='1'/>
 																	</td>
 																	<td>
-																		<img title="Adicionar nível do Impacto" src="/citsmart/imagens/add.png" onclick="addImpacto();" border="0" style="cursor:pointer">
+																		<img title="Adicionar nÃ­vel do Impacto" src="/citsmart/imagens/add.png" onclick="addImpacto();" border="0" style="cursor:pointer">
 																	</td>
 																</tr>
 															</table>
@@ -107,7 +108,7 @@
 																		<input type='TEXT' name='SIGLAURGENCIA' size='1' maxlength='1'/>
 																	</td>
 																	<td>
-																		<img title="Adicionar nível da Urgência" src="/citsmart/imagens/add.png" onclick="addUrgencia();" border="0" style="cursor:pointer">
+																		<img title="Adicionar nÃ­vel da UrgÃªncia" src="/citsmart/imagens/add.png" onclick="addUrgencia();" border="0" style="cursor:pointer">
 																	</td>
 																</tr>
 															</table>
@@ -160,7 +161,7 @@
 																		<input type='TEXT' name='VALORPRIORIDADE' size='5' maxlength='5' class="Format[Numero]"/>
 																	</td>
 																	<td>
-																		<img title="Adicionar situação na Matriz de Prioridade" src="/citsmart/imagens/add.png" onclick="addLinhaMatriz();" border="0" style="cursor:pointer;">
+																		<img title="Adicionar situaÃ§Ã£o na Matriz de Prioridade" src="/citsmart/imagens/add.png" onclick="addLinhaMatriz();" border="0" style="cursor:pointer;">
 																	</td>
 																</tr>
 															</table>

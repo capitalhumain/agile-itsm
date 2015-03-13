@@ -61,7 +61,7 @@ public class UsuarioDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Retorna lista de status de usu·rio.
+     * Retorna lista de status de usu√°rio.
      *
      * @param obj
      * @return
@@ -84,7 +84,7 @@ public class UsuarioDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Retorna lista de login por usu·rio.
+     * Retorna lista de login por usu√°rio.
      *
      * @param obj
      * @return
@@ -105,7 +105,7 @@ public class UsuarioDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Retorna de login que j· existe
+     * Retorna de login que j√° existe
      *
      * @param obj
      * @return
@@ -127,7 +127,7 @@ public class UsuarioDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Restaura Usu·rio por Login.
+     * Restaura Usu√°rio por Login.
      *
      * @param login
      * @return
@@ -195,7 +195,7 @@ public class UsuarioDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Restorna usu·rio por id do colaborador.
+     * Restorna usu√°rio por id do colaborador.
      *
      * @param idEmpregado
      * @return
@@ -227,7 +227,7 @@ public class UsuarioDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Restorna usu·rio por id do colaborador.
+     * Restorna usu√°rio por id do colaborador.
      *
      * @param idEmpregado
      * @return
@@ -293,7 +293,7 @@ public class UsuarioDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Restaura Usu·rio por nome do usuario.
+     * Restaura Usu√°rio por nome do usuario.
      *
      * @param nomeUsuario
      * @return
@@ -332,7 +332,7 @@ public class UsuarioDao extends CrudDaoDefaultImpl {
 
         String texto = Normalizer.normalize(nome, Normalizer.Form.NFD);
         texto = texto.replaceAll("[^\\p{ASCII}]", "");
-        texto = texto.replaceAll("·‡„‚ÈÍÌÛÙı˙¸Á¡¿√¬… Õ”‘’⁄‹«¥`^''-+=", "aaaaeeiooouucAAAAEEIOOOUUC ");
+        texto = texto.replaceAll("√°√†√£√¢√©√™√≠√≥√¥√µ√∫√º√ß√Å√Ä√É√Ç√â√ä√ç√ì√î√ï√ö√ú√á¬¥`^''-+=", "aaaaeeiooouucAAAAEEIOOOUUC ");
         texto = "%" + texto.toUpperCase() + "%";
 
         final Object[] objs = new Object[] {texto};
@@ -369,7 +369,7 @@ public class UsuarioDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Retorna a quantidade de usu·rios ativos no sistema
+     * Retorna a quantidade de usu√°rios ativos no sistema
      *
      * @return Long
      * @throws Exception
@@ -384,7 +384,7 @@ public class UsuarioDao extends CrudDaoDefaultImpl {
         Long qtdeUsu = 0L;
 
         if (lista != null && !lista.isEmpty() && lista.get(0) != null) {
-            // Pega o primeiro item da lista e converte para Array, depois pega a primeira posiÁ„o que È o Long
+            // Pega o primeiro item da lista e converte para Array, depois pega a primeira posi√ß√£o que √© o Long
             qtdeUsu = (Long) ((Object[]) lista.get(0))[0];
         }
 

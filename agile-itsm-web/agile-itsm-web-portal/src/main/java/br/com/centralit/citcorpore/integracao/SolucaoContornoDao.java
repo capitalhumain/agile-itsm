@@ -19,7 +19,8 @@ public class SolucaoContornoDao extends CrudDaoDefaultImpl {
 	public SolucaoContornoDao() {
 		super(Constantes.getValue("DATABASE_ALIAS"), null);
 	}
-
+
+
 
 
 	@Override

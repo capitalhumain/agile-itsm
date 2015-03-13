@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.citframework.util.UtilDatas"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
@@ -7,8 +9,7 @@
 <html>
 <head>
 <%@include file="/include/header.jsp"%>
-<%@include file="/include/security/security.jsp"%>
-<title><fmt:message key="citcorpore.comum.title" /></title>
+<%@include file="/novoLayout/common/include/titulo.jsp" %>
 <%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 <%
 	request.setCharacterEncoding("UTF-8");
@@ -18,7 +19,7 @@
 	iframe = request.getParameter("iframe"); %> <link rel="stylesheet" type="text/css" href="${ctx}/css/IC.css">
 
 <link href="${ctx}/pages/itemConfiguracaoTree/css/itemConfiguracaoTree.css" rel="stylesheet" />
-<script  charset="ISO-8859-1" type="text/javascript" src="${ctx}/js/PopupManager.js"></script>
+<script  charset="UTF-8" type="text/javascript" src="${ctx}/js/PopupManager.js"></script>
 <script type="text/javascript" src="../../cit/objects/CaracteristicaDTO.js"></script>
 <script type="text/javascript" src="../../cit/objects/HistoricoItemConfiguracaoDTO.js"></script>
 </head>
@@ -63,7 +64,7 @@
 
 			<!-- (flag) Elemento que  oculta o janela aguarde quando submetido o form -->
 			<input type='hidden' id='ocultaJanelaAguardeParent' name='ocultaJanelaAguardeParent'/>
-			<!-- Não é necessário pois a o uso do janela aguarde é apenas no frame -->
+			<!-- NÃ£o Ã© necessÃ¡rio pois a o uso do janela aguarde Ã© apenas no frame -->
 			<!-- <input type='hidden' id='ocultaJanelaAguarde' name='ocultaJanelaAguarde'/> -->
 
 			<div id="principalInf" style="display: none;"></div>
@@ -79,8 +80,8 @@
 						</tr>
 					</table>
 					<!--
-					* Alterado por luiz.borges dia 27/11/2013 às 10:30 hrs
-					* Motivo: Colocar o botão no layout padrão.
+					* Alterado por luiz.borges dia 27/11/2013 Ã s 10:30 hrs
+					* Motivo: Colocar o botÃ£o no layout padrÃ£o.
 					 -->
 					<div id="itemPai" style="line-height: 20px;display: none;">
 						<button type='button' name='addItemConfiguracaoPai' id="addItemConfiguracaoPai" class="light"  style="margin: 10px !important; text-align: right;float: left;" >
@@ -94,7 +95,7 @@
 							</span>
 						</div>
 					</div>
-					<!-- Fim da alteração luiz.borges -->
+					<!-- Fim da alteraÃ§Ã£o luiz.borges -->
 				</div>
 				<div class="columns clearfix">
 
@@ -163,7 +164,7 @@
 								<input id="nomeUsuario" type='text' readonly="readonly" name="nomeUsuario" onfocus='abrePopupUsuario();' style="width: 70% !important;" maxlength="80" class="Description[<fmt:message key="colaborador.colaborador"/>]" />
 								<img onclick="abrePopupUsuario()" style=" vertical-align: middle;" src="${ctx}/template_new/images/icons/small/grey/magnifying_glass.png">
 								<!-- /**
-								* Botão de limpar Lookup
+								* BotÃ£o de limpar Lookup
 								* @autor flavio.santana
 								* 25/10/2013 10:50
 								*/ -->
@@ -224,7 +225,7 @@
 							  	<input class="Valid[Required] Description[<fmt:message key="tipoItemConfiguracao.tipoItemConfiguracao"/>]" onclick="consultarTipoItemConfiguracao()" readonly="readonly" style="width: 70% !important;" type='text' name="nomeTipoItemConfiguracao" maxlength="70" size="70"  />
 								<img onclick="consultarTipoItemConfiguracao()" style=" vertical-align: middle;" src="${ctx}/template_new/images/icons/small/grey/magnifying_glass.png">
 								<!-- /**
-								* Botão de limpar Lookup
+								* BotÃ£o de limpar Lookup
 								* @autor flavio.santana
 								* 25/10/2013 10:50
 								*/ -->
@@ -289,7 +290,7 @@
 								  	<input onclick="abrePopupGrupoItemConfiguracao()" readonly="readonly" style="width: 70% !important;" type='text' name="nomeGrupoItemConfiguracao" maxlength="70" size="70"  />
 									<img onclick="abrePopupGrupoItemConfiguracao()" style=" vertical-align: middle;" src="${ctx}/template_new/images/icons/small/grey/magnifying_glass.png">
 									<!-- /**
-								* Botão de limpar Lookup
+								* BotÃ£o de limpar Lookup
 								* @autor flavio.santana
 								* 25/10/2013 10:50
 								*/ -->
@@ -320,7 +321,7 @@
 								<input id="nomeResponsavel" type='text' readonly="readonly" name="nomeResponsavel" onfocus='abrePopupResponsavel();' style="width: 70% !important;" maxlength="80" class="Valid[Required] Description[<fmt:message key="citcorpore.comum.responsavel"/>]" />
 								<img onclick="abrePopupResponsavel()" style=" vertical-align: middle;" src="${ctx}/template_new/images/icons/small/grey/magnifying_glass.png">
 								<!-- /**
-								* Botão de limpar Lookup
+								* BotÃ£o de limpar Lookup
 								* @autor flavio.santana
 								* 25/10/2013 10:50
 								*/ -->
@@ -747,7 +748,7 @@
 		<iframe id='iframeEditarProblema' src='about:blank' width="100%" height="99%" style='width: 100%; height: 100%; border:none;'></iframe>
 	</div>
 	<!--
-		Adicionado o script para carregamento no final da página
+		Adicionado o script para carregamento no final da pÃ¡gina
 		@autor flavio.santana
 		28/10/2013
 	 -->
@@ -755,7 +756,7 @@
 	<script type="text/javascript">
 		function reload(idItem) {
 			<%
-		    //se for chamado por iframe deixa apenas a parte de cadastro da página
+		    //se for chamado por iframe deixa apenas a parte de cadastro da pÃ¡gina
 		    if (iframe == null) {
 			%>
 				parent.reloadItem(idItem);
@@ -765,7 +766,7 @@
 		}
 		function ocultaGrid() {
 			<%
-		    //se for chamado por iframe deixa apenas a parte de cadastro da página
+		    //se for chamado por iframe deixa apenas a parte de cadastro da pÃ¡gina
 		    if (iframe == null) {
 			%>
 				document.getElementById('gridCaracteristica').style.display = 'none';

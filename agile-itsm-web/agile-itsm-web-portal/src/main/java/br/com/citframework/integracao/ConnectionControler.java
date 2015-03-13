@@ -5,7 +5,7 @@ import java.sql.Connection;
 import br.com.citframework.excecao.PersistenceException;
 
 /**
- * Controlador de comportamento de conexıes que n„o posuem transaÁ„o
+ * Controlador de comportamento de conex√µes que n√£o posuem transa√ß√£o
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 25/08/2014
@@ -14,7 +14,7 @@ import br.com.citframework.excecao.PersistenceException;
 public interface ConnectionControler extends AutoCloseable {
 
     /**
-     * Coloca uma conex„o em estado {@code read-only}, n„o pode ser transacional, n„o executa DML de alteraÁ„o
+     * Coloca uma conex√£o em estado {@code read-only}, n√£o pode ser transacional, n√£o executa DML de altera√ß√£o
      *
      * @param readOnly
      * @throws PersistenceException
@@ -24,9 +24,9 @@ public interface ConnectionControler extends AutoCloseable {
     void setReadOnly(final boolean readOnly) throws PersistenceException;
 
     /**
-     * Verifica se a conex„o È ou n„o apenas leitura
+     * Verifica se a conex√£o √© ou n√£o apenas leitura
      *
-     * @return {@code true}, caso a conex„o seja read only. {@code false}, caso contr·rio
+     * @return {@code true}, caso a conex√£o seja read only. {@code false}, caso contr√°rio
      * @throws PersistenceException
      * @since 01/09/2014
      */
@@ -48,10 +48,10 @@ public interface ConnectionControler extends AutoCloseable {
     void setDataBaseAlias(final String dataBaseAlias);
 
     /**
-     * Retorna a conex„o relacionada ao Transaction Controler
+     * Retorna a conex√£o relacionada ao Transaction Controler
      *
      * <p>
-     * {@code IMPORTANTE}: esta trasaÁ„o pode n„o estar com a transaÁ„o iniciada ({@code {@link Connection#getAutoCommit()} == false}). VocÍ deve chamar {@link #start()} caso
+     * {@code IMPORTANTE}: esta trasa√ß√£o pode n√£o estar com a transa√ß√£o iniciada ({@code {@link Connection#getAutoCommit()} == false}). Voc√™ deve chamar {@link #start()} caso
      * queira comportamento transacional
      * <p>
      *
@@ -60,19 +60,19 @@ public interface ConnectionControler extends AutoCloseable {
     Connection getConnection() throws PersistenceException;
 
     /**
-     * Commita e fecha a transaÁ„o
+     * Commita e fecha a transa√ß√£o
      *
      * @throws PersistenceException
-     *             caso algum problema ao fechar a transaÁ„o aconteÁa, como {@link Connection} j· fechada
+     *             caso algum problema ao fechar a transa√ß√£o aconte√ßa, como {@link Connection} j√° fechada
      * @see {@link Connection#close()}
      */
     @Override
     void close() throws PersistenceException;
 
     /**
-     * Commit e fecha a conex„o sem levantar excecıes
+     * Commit e fecha a conex√£o sem levantar excec√µes
      *
-     * @return {@code true}, caso obtenha sucesso em fechar a conex„o. {@code false}, caso contr·rio
+     * @return {@code true}, caso obtenha sucesso em fechar a conex√£o. {@code false}, caso contr√°rio
      * @see {@link #close()}
      */
     boolean closeQuietly();

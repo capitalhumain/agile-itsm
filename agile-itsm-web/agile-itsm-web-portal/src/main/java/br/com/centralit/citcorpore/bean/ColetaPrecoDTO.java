@@ -261,7 +261,7 @@ public class ColetaPrecoDTO extends BaseEntity {
         if (this.resultadoCalculo.equals(RESULT_EMPATE))
             resultadoCalculoStr = "Empate";
         if (this.resultadoCalculo.equals(RESULT_MELHOR_COTACAO))
-            resultadoCalculoStr = "Melhor cotação";
+            resultadoCalculoStr = "Melhor cotaÃ§Ã£o";
         if (this.resultadoCalculo.equals(RESULT_DESCLASSIFICADA))
             resultadoCalculoStr = "Desclassificada";
     }
@@ -276,7 +276,7 @@ public class ColetaPrecoDTO extends BaseEntity {
         if (this.resultadoFinal.equals(RESULT_EMPATE))
             resultadoFinalStr = "Empate";
         if (this.resultadoFinal.equals(RESULT_MELHOR_COTACAO))
-            resultadoFinalStr = "Melhor cotação";
+            resultadoFinalStr = "Melhor cotaÃ§Ã£o";
         if (this.resultadoFinal.equals(RESULT_DESCLASSIFICADA))
             resultadoFinalStr = "Desclassificada";
     }

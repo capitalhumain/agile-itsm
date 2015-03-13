@@ -1,12 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
 <%@include file="/include/header.jsp"%>
-<title><fmt:message key="citcorpore.comum.title" /></title>
+<%@include file="/novoLayout/common/include/titulo.jsp" %>
 <%@include file="/include/menu/menuConfig.jsp"%>
 <%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title><fmt:message key="desenhoFluxo.titulo"/></title>
 <script type="text/javascript" src="${ctx}/js/PopupManager.js"></script>
 <script type="text/javascript" src="${ctx}/js/Teclas.js"></script>

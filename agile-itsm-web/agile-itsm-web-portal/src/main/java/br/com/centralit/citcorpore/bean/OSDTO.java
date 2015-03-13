@@ -5,8 +5,8 @@
  * Dependentes: BI Citsmart
  *
  * Obs:
- * Qualquer alteraÁ„o nesta tabela dever· ser informada aos respons·veis pelo desenvolvimento do BI Citsmart.
- * O database do BI Citsmart precisa ter suas tabelas atualizadas de acordo com as mudanÁas nesta tabela.
+ * Qualquer altera√ß√£o nesta tabela dever√° ser informada aos respons√°veis pelo desenvolvimento do BI Citsmart.
+ * O database do BI Citsmart precisa ter suas tabelas atualizadas de acordo com as mudan√ßas nesta tabela.
  *
  * ************************************************************************************************************
  *
@@ -189,7 +189,7 @@ public class OSDTO extends BaseEntity {
             return "";
         }
         if (this.getSituacaoOS().intValue() == 1) {
-            return "Em criaÁ„o";
+            return "Em cria√ß√£o";
         }
         if (this.getSituacaoOS().intValue() == 2) {
             return "Solicitada";
@@ -201,7 +201,7 @@ public class OSDTO extends BaseEntity {
             return "Aprovada";
         }
         if (this.getSituacaoOS().intValue() == 5) {
-            return "Em execuÁ„o";
+            return "Em execu√ß√£o";
         }
         if (this.getSituacaoOS().intValue() == 6) {
             return "Executada";

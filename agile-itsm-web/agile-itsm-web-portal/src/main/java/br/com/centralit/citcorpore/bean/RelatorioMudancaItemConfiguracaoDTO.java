@@ -11,7 +11,7 @@ public class RelatorioMudancaItemConfiguracaoDTO extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
 
-	// Atributos para a mudança
+	// Atributos para a mudanÃ§a
 
 	private Integer idNumeroMudanca;
 	private String tituloMudanca;
@@ -19,7 +19,7 @@ public class RelatorioMudancaItemConfiguracaoDTO extends BaseEntity {
 	private Date dataMudanca;
 	private String descricaoProblemaMudanca;
 
-	// Atributos para o item de configuração
+	// Atributos para o item de configuraÃ§Ã£o
 	private Integer idItemConfig;
 	private String nomeItem;
 	// Atributos par aos parametros da tela

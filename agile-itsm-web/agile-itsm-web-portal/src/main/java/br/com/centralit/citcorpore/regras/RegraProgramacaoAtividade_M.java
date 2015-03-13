@@ -173,21 +173,21 @@ public class RegraProgramacaoAtividade_M extends RegraProgramacaoAtividade {
     
     public void valida(ProgramacaoAtividadeDTO programacaoAtividadeDto) throws Exception {
         if (programacaoAtividadeDto.getPeriodicidadeMensal() == null)
-            throw new LogicException("Periodicidade da programação semanal não foi informada");
+            throw new LogicException("Periodicidade da programaÃ§Ã£o semanal nÃ£o foi informada");
         switch (programacaoAtividadeDto.getPeriodicidadeMensal().intValue()) {
             case 1:
                 if (programacaoAtividadeDto.getDia() == null)
-                    throw new LogicException("Dia do mês não foi informado");
+                    throw new LogicException("Dia do mÃªs nÃ£o foi informado");
                 break;
             case 2:
                 if (programacaoAtividadeDto.getDiaUtil() == null)
-                    throw new LogicException("Dia útil do mês não foi informado");
+                    throw new LogicException("Dia Ãºtil do mÃªs nÃ£o foi informado");
                 break;
             case 3:
                 if (programacaoAtividadeDto.getSeqDiaSemana() == null)
-                    throw new LogicException("Sequência do dia da semana não foi informado");
+                    throw new LogicException("SequÃªncia do dia da semana nÃ£o foi informado");
                 if (programacaoAtividadeDto.getDiaSemana() == null)
-                    throw new LogicException("Dia da semana não foi informado");
+                    throw new LogicException("Dia da semana nÃ£o foi informado");
                 break;
         } 
         if (programacaoAtividadeDto.getJan() == null)
@@ -220,23 +220,23 @@ public class RegraProgramacaoAtividade_M extends RegraProgramacaoAtividade {
             programacaoAtividadeDto.getJul().equals("N") && programacaoAtividadeDto.getAgo().equals("N") &&
             programacaoAtividadeDto.getSet().equals("N") && programacaoAtividadeDto.getOut().equals("N") &&
             programacaoAtividadeDto.getNov().equals("N") && programacaoAtividadeDto.getDez().equals("N"))
-            throw new LogicException("Não foi informado nenhum mês");
+            throw new LogicException("NÃ£o foi informado nenhum mÃªs");
     }    
     
     public String getDetalhamento(ProgramacaoAtividadeDTO programacaoAtividadeDto) throws Exception {
         String descricao = "";      
-        String[] seqDiaSemana = new String[] {"","primeira(o)","segunda(o)","terceira(o)","quarta(o)","última(o)"};
-        String[] diaSemana = new String[] {"","domingo","segunda-feira","terça-feira","quarta-feira","quinta-feira","sexta-feira","sábado"};
-        descricao = "Às "+programacaoAtividadeDto.getHoraInicio()+" ";
+        String[] seqDiaSemana = new String[] {"","primeira(o)","segunda(o)","terceira(o)","quarta(o)","Ãºltima(o)"};
+        String[] diaSemana = new String[] {"","domingo","segunda-feira","terÃ§a-feira","quarta-feira","quinta-feira","sexta-feira","sÃ¡bado"};
+        descricao = "Ã€s "+programacaoAtividadeDto.getHoraInicio()+" ";
         switch (programacaoAtividadeDto.getPeriodicidadeMensal().intValue()) {
             case 1:
                 descricao += " no dia "+programacaoAtividadeDto.getDia();
                 break;
             case 2:
                 if (programacaoAtividadeDto.getDiaUtil().intValue() != 99)
-                    descricao += " no "+programacaoAtividadeDto.getDiaUtil()+"º dia útil";
+                    descricao += " no "+programacaoAtividadeDto.getDiaUtil()+"Âº dia Ãºtil";
                 else
-                    descricao += " no último dia útil";
+                    descricao += " no Ãºltimo dia Ãºtil";
                 break;
             case 3:
                 descricao += " no(a) "+seqDiaSemana[programacaoAtividadeDto.getSeqDiaSemana()]+" "+diaSemana[programacaoAtividadeDto.getDiaSemana()];
@@ -253,7 +253,7 @@ public class RegraProgramacaoAtividade_M extends RegraProgramacaoAtividade {
         if (programacaoAtividadeDto.getMar().equals("S")) {
             if (meses.length() > 0)
                 meses += ",";
-            meses += " março";
+            meses += " marÃ§o";
         }
         if (programacaoAtividadeDto.getAbr().equals("S")) {
             if (meses.length() > 0)

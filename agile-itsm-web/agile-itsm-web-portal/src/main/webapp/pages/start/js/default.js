@@ -715,7 +715,7 @@ function changeCheck() {
             $(this).val('false');
         }
     });
-    /* recarrega as configura��es do defines */
+    /* recarrega as configuraï¿½ï¿½es do defines */
     DEFINEALLPAGES_generateConfiguracaoCampos();
 }
 
@@ -750,7 +750,7 @@ function habilitaInstall() {
 /**
  * Autor: Pedro Lino Data: 19/04/2013 Filtra todos os dados contidos na
  * tabela(filtro feito por TR) deve ser chamada no input via onkeyup campoBusca:
- * valor digitado no campo de filtro table: Id da tabela onde ser� feito a busca
+ * valor digitado no campo de filtro table: Id da tabela onde serï¿½ feito a busca
  */
 function filtroTableJs(campoBusca, table) {
     // Recupera value do campo de busca
@@ -764,7 +764,7 @@ function filtroTableJs(campoBusca, table) {
             }).parent("tr").show();
         }
     } else {
-        // Quando n�o h� nada digitado, mostra a tabela com todos os dados
+        // Quando nï¿½o hï¿½ nada digitado, mostra a tabela com todos os dados
         $("#" + table + " tbody>tr").show();
     }
 }
@@ -772,7 +772,7 @@ function filtroTableJs(campoBusca, table) {
 /**
  * Autor: Thiago Matias Data: 16/08/2013 Filtra todos os dados contidos na lista
  * deve ser chamada no input via onkeyup campoBusca: valor digitado no campo de
- * filtro lista: Id da div onde ser� feito a busca
+ * filtro lista: Id da div onde serï¿½ feito a busca
  */
 function filtroListaJs(campoBusca, lista) {
     // Recupera value do campo de busca
@@ -791,7 +791,7 @@ function filtroListaJs(campoBusca, lista) {
 
                         });
     } else {
-        // Quando n�o h� nada digitado, mostra a tabela com todos os dados
+        // Quando nï¿½o hï¿½ nada digitado, mostra a tabela com todos os dados
         $('#' + lista + ' ul > li')
                 .each(
                         function() {
@@ -828,7 +828,7 @@ function filtroDivsJs(campoBusca, lista) {
 
                         });
     } else {
-        // Quando n�o h� nada digitado, mostra a tabela com todos os dados
+        // Quando nï¿½o hï¿½ nada digitado, mostra a tabela com todos os dados
         $('#' + lista + ' div')
                 .each(
                         function() {

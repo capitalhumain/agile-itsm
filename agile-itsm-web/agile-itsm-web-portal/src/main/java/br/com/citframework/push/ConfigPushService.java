@@ -4,7 +4,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
 /**
- * Cria configurações para uso dos serviços de push. Toda configuração deve ser adicionada em {@link Key}
+ * Cria configuraÃ§Ãµes para uso dos serviÃ§os de push. Toda configuraÃ§Ã£o deve ser adicionada em {@link Key}
  * 
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since

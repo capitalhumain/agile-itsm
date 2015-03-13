@@ -47,7 +47,7 @@ public class AlcadaRequisicaoViagem  extends AlcadaImpl {
         this.objetoNegocioDto = objetoNegocioDto;
         alcadaDto = alcadaDao.findByTipo(TipoAlcada.Viagem);
         if (alcadaDto == null)
-            throw new LogicException("Tipo de alÁada 'Viagem' n„o encontrada"); 
+            throw new LogicException("Tipo de al√ßada 'Viagem' n√£o encontrada"); 
 
         if (isNovaAlcada()) {
         	alcadaDto.setColResponsaveis(AlcadaProcessoNegocio.getInstance().getResponsaveis((SolicitacaoServicoDTO) objetoNegocioDto, centroCustoDto, tc));
@@ -56,11 +56,11 @@ public class AlcadaRequisicaoViagem  extends AlcadaImpl {
 	        setTransacaoDao(limiteAlcadaDao);
 	        Collection<LimiteAlcadaDTO> colLimites = limiteAlcadaDao.findByIdAlcada(alcadaDto.getIdAlcada());
 	        if (colLimites == null || colLimites.isEmpty())
-	            throw new LogicException("N„o foram encontrados limites de valores para a alÁada '"+alcadaDto.getNomeAlcada()+"'"); 
+	            throw new LogicException("N√£o foram encontrados limites de valores para a al√ßada '"+alcadaDto.getNomeAlcada()+"'"); 
 	        
 	        String idGrupo = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.ID_GRUPO_PADRAO_REQ_VIAGEM_EXECUCAO, null);
 	        if (idGrupo == null || idGrupo.trim().equals(""))
-	            throw new Exception("Grupo padr„o de requisiÁ„o de produtos n„o parametrizado");
+	            throw new Exception("Grupo padr√£o de requisi√ß√£o de produtos n√£o parametrizado");
 	        idGrupoViagem = new Integer(idGrupo.trim());
 	        
 	        AlcadaCentroResultadoDAO alcadaCentroResultadoDao = new AlcadaCentroResultadoDAO();
@@ -93,7 +93,7 @@ public class AlcadaRequisicaoViagem  extends AlcadaImpl {
 	            grupoDto.setIdGrupo(limiteAlcadaDto.getIdGrupo());
 	            grupoDto = (GrupoDTO) grupoDao.restore(grupoDto);
 	            if (grupoDto == null){
-	            	 throw new LogicException("Grupo "+limiteAlcadaDto.getIdGrupo()+" n„o encontrado");
+	            	 throw new LogicException("Grupo "+limiteAlcadaDto.getIdGrupo()+" n√£o encontrado");
 	            }
 	            
 	            if(limiteAlcadaDto.getTipoLimite().equalsIgnoreCase("Q") && limiteAlcadaDto.getAbrangenciaCentroCusto().equalsIgnoreCase("T")){

@@ -3,7 +3,7 @@ package br.com.centralit.citcorpore.bean.result;
 import java.io.Serializable;
 
 /**
- * DTO que contÈm atributos comuns aos DTOs usados para retorno ‡s telas da Gest„o da ForÁa de trabalho
+ * DTO que cont√©m atributos comuns aos DTOs usados para retorno √†s telas da Gest√£o da For√ßa de trabalho
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  *

@@ -34,7 +34,7 @@ public class RequisicaoMudancaServicoServiceEjb extends CrudServiceImpl implemen
     }
 
     /**
-     * Retorna o item de relacionamento especÌfico sem a chave prim·ria da tabela. Uma espÈcie de consulta por chave composta.
+     * Retorna o item de relacionamento espec√≠fico sem a chave prim√°ria da tabela. Uma esp√©cie de consulta por chave composta.
      *
      * @param dto
      * @return

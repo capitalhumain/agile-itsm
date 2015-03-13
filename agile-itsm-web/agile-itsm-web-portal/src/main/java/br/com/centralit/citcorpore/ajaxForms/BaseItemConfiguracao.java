@@ -33,7 +33,7 @@ import br.com.citframework.util.UtilI18N;
  */
 public class BaseItemConfiguracao extends AjaxFormAction {
 
-    /** Bean de Base Item Configuração. */
+    /** Bean de Base Item ConfiguraÃ§Ã£o. */
     private BaseItemConfiguracaoDTO baseItemConfiguracaoBean;
 
     @Override
@@ -42,7 +42,7 @@ public class BaseItemConfiguracao extends AjaxFormAction {
     }
 
     /**
-     * Inclui Novo Base Item de Configuração.
+     * Inclui Novo Base Item de ConfiguraÃ§Ã£o.
      *
      * @param document
      * @param request

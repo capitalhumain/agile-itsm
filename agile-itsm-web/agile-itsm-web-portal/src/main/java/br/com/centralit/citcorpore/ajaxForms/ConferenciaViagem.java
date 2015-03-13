@@ -142,7 +142,7 @@ public class ConferenciaViagem extends AjaxFormAction{
 	}
 	
 	/**
-	 * Recupera os valores informados na prestaÁ„o de contas como "Total da PrestaÁ„o de Contas", "Total LanÁamentos" e "DiferenÁa"
+	 * Recupera os valores informados na presta√ß√£o de contas como "Total da Presta√ß√£o de Contas", "Total Lan√ßamentos" e "Diferen√ßa"
 	 * 
 	 * @param document
 	 * @param request
@@ -179,7 +179,7 @@ public class ConferenciaViagem extends AjaxFormAction{
 	}
 	
 	/**
-	 * Gera a grid com os itens informados em prestaÁ„o de contas
+	 * Gera a grid com os itens informados em presta√ß√£o de contas
 	 * 
 	 * @param document
 	 * @param request
@@ -204,7 +204,7 @@ public class ConferenciaViagem extends AjaxFormAction{
 	}
 	
 	/**
-	 * Retorna a prestaÁ„o de contas atual e suas informaÁıes
+	 * Retorna a presta√ß√£o de contas atual e suas informa√ß√µes
 	 * 
 	 * @param prestacaoContasViagemDto
 	 * @return
@@ -227,7 +227,7 @@ public class ConferenciaViagem extends AjaxFormAction{
 	}
 	
 	/**
-	 * Retorna o empregado ligado a prestaÁ„o de contas atual
+	 * Retorna o empregado ligado a presta√ß√£o de contas atual
 	 * 
 	 * @param prestacaoContasViagemDto
 	 * @return
@@ -237,12 +237,12 @@ public class ConferenciaViagem extends AjaxFormAction{
 	private Integer recuperaEmpregado(PrestacaoContasViagemDTO prestacaoContasViagemDto) throws Exception{
 		PrestacaoContasViagemDao dao = new PrestacaoContasViagemDao();
 		PrestacaoContasViagemDTO prestacaoContasAux = new PrestacaoContasViagemDTO();
-		//verifica se ja existe um prestaÁ„o de contas para associada a essa tarefa
+		//verifica se ja existe um presta√ß√£o de contas para associada a essa tarefa
 		prestacaoContasAux = dao.findByTarefaAndSolicitacao(prestacaoContasViagemDto.getIdTarefa(), prestacaoContasViagemDto.getIdSolicitacaoServico());
 		if(prestacaoContasAux != null){
 			return prestacaoContasAux.getIdEmpregado();
 		}
-		//se nao existir uma prestaÁ„o, busca uma sem associaÁ„o e associa a tarefa atual
+		//se nao existir uma presta√ß√£o, busca uma sem associa√ß√£o e associa a tarefa atual
 		List list = dao.findBySolicitacao(prestacaoContasViagemDto.getIdSolicitacaoServico());
 		if(list != null){
 			prestacaoContasAux = (PrestacaoContasViagemDTO) list.get(0);
@@ -261,7 +261,7 @@ public class ConferenciaViagem extends AjaxFormAction{
 	}
 	
 	/**
-	 * Preenche a combo de justificativa de n„o autorizaÁ„o da prestaÁ„o de contas
+	 * Preenche a combo de justificativa de n√£o autoriza√ß√£o da presta√ß√£o de contas
 	 * 
 	 * @param document
 	 * @param request
@@ -288,7 +288,7 @@ public class ConferenciaViagem extends AjaxFormAction{
 	}
 
 	/**
-	 * Restaura os dados da solicitaÁ„o com cidade de origem e destino, data de ida e volta.
+	 * Restaura os dados da solicita√ß√£o com cidade de origem e destino, data de ida e volta.
 	 * 
 	 * @param document
 	 * @param request
@@ -342,7 +342,7 @@ public class ConferenciaViagem extends AjaxFormAction{
 	}
 	
 	/**
-	 * Preenche a combo de 'Centro Resultado' do formul·rio HTML
+	 * Preenche a combo de 'Centro Resultado' do formul√°rio HTML
 	 * 
 	 * @param document
 	 * @param request
@@ -366,7 +366,7 @@ public class ConferenciaViagem extends AjaxFormAction{
 	}
 	
 	/**
-	 * Preenche a combo de 'Projeto' do formul·rio HTML
+	 * Preenche a combo de 'Projeto' do formul√°rio HTML
 	 * 
 	 * @param document
 	 * @param request
@@ -397,7 +397,7 @@ public class ConferenciaViagem extends AjaxFormAction{
 	}
 	
 	/**
-	 * Preenche combo de 'justificativa solicitaÁ„o'.
+	 * Preenche combo de 'justificativa solicita√ß√£o'.
 	 * 
 	 * @param document
 	 * @param request

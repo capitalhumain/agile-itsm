@@ -119,7 +119,7 @@ public class RelatorioControleSla extends AjaxFormAction {
 	}
 
 	/**
-	 * FireEvent respons·vel por gerar o RelatÛrio XML de Controle SLA.
+	 * FireEvent respons√°vel por gerar o Relat√≥rio XML de Controle SLA.
 	 * 
 	 * @param document
 	 * @param request
@@ -230,7 +230,7 @@ public class RelatorioControleSla extends AjaxFormAction {
 	}
 
 	/**
-	 * FireEvent respons·vel por gerar o RelatÛrio XML de Controle SLA.
+	 * FireEvent respons√°vel por gerar o Relat√≥rio XML de Controle SLA.
 	 * 
 	 * @param document
 	 * @param request
@@ -348,7 +348,7 @@ public class RelatorioControleSla extends AjaxFormAction {
 	}
 
 	/**
-	 * Trata nos Ìtens da lista a SituaÁ„o, Prazo e Atraso do SLA.
+	 * Trata nos √≠tens da lista a Situa√ß√£o, Prazo e Atraso do SLA.
 	 * 
 	 * @param request
 	 *            - HttpServletRequest
@@ -371,8 +371,8 @@ public class RelatorioControleSla extends AjaxFormAction {
 
 			for (SolicitacaoServicoDTO solicitacaoServicoControleSlaDto : listSolicitacaoServicoControleSla) {
 				
-				/* Desenvolvedor: Rodrigo Pecci - Data: 01/11/2013 - Hor·rio: 18h30min - ID Citsmart: 120770
-				 * Motivo/Coment·rio: O mÈtodo anterior estava calculando o atraso da SLA mesmo se ela fosse Suspensa ou Cancelada. Foi alterado o mÈtodo.
+				/* Desenvolvedor: Rodrigo Pecci - Data: 01/11/2013 - Hor√°rio: 18h30min - ID Citsmart: 120770
+				 * Motivo/Coment√°rio: O m√©todo anterior estava calculando o atraso da SLA mesmo se ela fosse Suspensa ou Cancelada. Foi alterado o m√©todo.
 				 */
 				solicitacaoServicoControleSlaDto = solicitacaoServicoServiceEjb.verificaSituacaoSLA(solicitacaoServicoControleSlaDto, null);			
 

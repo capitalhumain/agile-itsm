@@ -6,7 +6,7 @@
     }
 
     /**
-     * Motivo: Criando flag de atualização 
+     * Motivo: Criando flag de atualizaÃ§Ã£o 
      * Autor: flavio.santana
      * Data/Hora: 13/11/2013 15:56
      */

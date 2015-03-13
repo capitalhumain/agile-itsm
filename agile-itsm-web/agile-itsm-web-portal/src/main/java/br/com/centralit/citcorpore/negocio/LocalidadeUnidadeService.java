@@ -17,7 +17,7 @@ public interface LocalidadeUnidadeService extends CrudService {
 	public Collection<LocalidadeUnidadeDTO> listaIdLocalidades(Integer idUnidade) throws Exception;
 
 	/**
-	 * Retonar verdadeiro caso a localidade esteja associado a uma unidade ou falso caso a localidade n„o esteja associado a uma unidade
+	 * Retonar verdadeiro caso a localidade esteja associado a uma unidade ou falso caso a localidade n√£o esteja associado a uma unidade
 	 * 
 	 * @param idLocalidade
 	 * @return true- false

@@ -38,7 +38,7 @@ public class ThreadVerificaEventos extends Thread {
                 }
             } catch (final Exception e) {
                 System.out.println("#########################################");
-                System.out.println("Problemas na execução dos eventos bpm");
+                System.out.println("Problemas na execuÃ§Ã£o dos eventos bpm");
                 System.out.println("#########################################");
                 e.printStackTrace();
             }

@@ -51,10 +51,10 @@ public class Util {
     private static final long DAY = 24 * HOUR;
     private static final long WEEK = 7 * DAY;
     private static final SimpleDateFormat dateFormatter = new SimpleDateFormat("EEEE, MMM d 'as' h:mm a");
-    private static final SimpleDateFormat yesterdayFormatter = new SimpleDateFormat("'Ontém ' h:mm a");
+    private static final SimpleDateFormat yesterdayFormatter = new SimpleDateFormat("'OntÃ©m ' h:mm a");
 
     /**
-     * Dependendo do horário retorna a mensagem de saudacao.
+     * Dependendo do horÃ¡rio retorna a mensagem de saudacao.
      *
      * @return
      */
@@ -74,7 +74,7 @@ public class Util {
     }
 
     /**
-     * Reencaminha para a URL passada como parâmetro.
+     * Reencaminha para a URL passada como parÃ¢metro.
      *
      * @param url
      */
@@ -95,7 +95,7 @@ public class Util {
     }
 
     /**
-     * Cria uma coleção a partir de um array de objetos
+     * Cria uma coleÃ§Ã£o a partir de um array de objetos
      *
      * @param objetos
      * @return
@@ -111,7 +111,7 @@ public class Util {
     }
 
     /**
-     * Retorna informações do dia
+     * Retorna informaÃ§Ãµes do dia
      *
      * @return
      */
@@ -136,7 +136,7 @@ public class Util {
     }
 
     /**
-     * Retorna o nome do mês
+     * Retorna o nome do mÃªs
      *
      * @param mes
      * @return
@@ -148,7 +148,7 @@ public class Util {
         case Calendar.FEBRUARY:
             return "Fevereiro";
         case Calendar.MARCH:
-            return "Março";
+            return "MarÃ§o";
         case Calendar.APRIL:
             return "Abril";
         case Calendar.MAY:
@@ -185,7 +185,7 @@ public class Util {
         case Calendar.MONDAY:
             return "Segunda-feira";
         case Calendar.TUESDAY:
-            return "Terça-feira";
+            return "TerÃ§a-feira";
         case Calendar.WEDNESDAY:
             return "Quarta-feira";
         case Calendar.THURSDAY:
@@ -213,15 +213,15 @@ public class Util {
         final StringBuilder encoded = new StringBuilder(2 * length);
         for (int i = 0; i < length; i++) {
             c = string.charAt(i);
-            if (c == 'ç') {
+            if (c == 'Ã§') {
                 encoded.append("&ccedil;");
-            } else if (c == 'Ç') {
+            } else if (c == 'Ã‡') {
                 encoded.append("&Ccedil;");
-            } else if (c == 'á' || c == 'Á' || c == 'é' || c == 'É' || c == 'í' || c == 'Í' || c == 'ó' || c == 'Ó' || c == 'ú' || c == 'Ú') {
+            } else if (c == 'Ã¡' || c == 'Ã' || c == 'Ã©' || c == 'Ã‰' || c == 'Ã­' || c == 'Ã' || c == 'Ã³' || c == 'Ã“' || c == 'Ãº' || c == 'Ãš') {
                 encoded.append("&" + getLetraCorrespondente(c) + "acute;");
-            } else if (c == 'â' || c == 'Â' || c == 'ê' || c == 'Ê' || c == 'î' || c == 'Î' || c == 'ô' || c == 'Ô' || c == 'û' || c == 'Û') {
+            } else if (c == 'Ã¢' || c == 'Ã‚' || c == 'Ãª' || c == 'ÃŠ' || c == 'Ã®' || c == 'ÃŽ' || c == 'Ã´' || c == 'Ã”' || c == 'Ã»' || c == 'Ã›') {
                 encoded.append("&" + getLetraCorrespondente(c) + "circ;");
-            } else if (c == 'ã' || c == 'Ã' || c == 'õ' || c == 'Õ') {
+            } else if (c == 'Ã£' || c == 'Ãƒ' || c == 'Ãµ' || c == 'Ã•') {
                 encoded.append("&" + getLetraCorrespondente(c) + "tilde;");
             } else {
                 encoded.append(c);
@@ -237,25 +237,25 @@ public class Util {
      * @return
      */
     public static String getLetraCorrespondente(final char c) {
-        if (c == 'á' || c == 'â' || c == 'ã') {
+        if (c == 'Ã¡' || c == 'Ã¢' || c == 'Ã£') {
             return "a";
-        } else if (c == 'Á' || c == 'Â' || c == 'Ã') {
+        } else if (c == 'Ã' || c == 'Ã‚' || c == 'Ãƒ') {
             return "A";
-        } else if (c == 'é' || c == 'ê') {
+        } else if (c == 'Ã©' || c == 'Ãª') {
             return "e";
-        } else if (c == 'É' || c == 'Ê') {
+        } else if (c == 'Ã‰' || c == 'ÃŠ') {
             return "E";
-        } else if (c == 'í' || c == 'î') {
+        } else if (c == 'Ã­' || c == 'Ã®') {
             return "i";
-        } else if (c == 'Í' || c == 'Î') {
+        } else if (c == 'Ã' || c == 'ÃŽ') {
             return "I";
-        } else if (c == 'ó' || c == 'ô' || c == 'õ') {
+        } else if (c == 'Ã³' || c == 'Ã´' || c == 'Ãµ') {
             return "o";
-        } else if (c == 'Ó' || c == 'Ô' || c == 'Õ') {
+        } else if (c == 'Ã“' || c == 'Ã”' || c == 'Ã•') {
             return "O";
-        } else if (c == 'ú' || c == 'û') {
+        } else if (c == 'Ãº' || c == 'Ã»') {
             return "u";
-        } else if (c == 'Ú' || c == 'Û') {
+        } else if (c == 'Ãš' || c == 'Ã›') {
             return "U";
         } else {
             final char auxChar[] = new char[1];
@@ -332,7 +332,7 @@ public class Util {
     }
 
     /**
-     * gera o nome da pasta, retirando os caracteres não utiliizaveis.
+     * gera o nome da pasta, retirando os caracteres nÃ£o utiliizaveis.
      *
      * @param texto
      * @return
@@ -395,7 +395,7 @@ public class Util {
     }
 
     /**
-     * Cria diretorio, caso não exista.
+     * Cria diretorio, caso nÃ£o exista.
      *
      * @param path
      * @return
@@ -596,7 +596,7 @@ public class Util {
     }
 
     /**
-     * Formata a string no padrão DD/MM/YYYY em Date.
+     * Formata a string no padrÃ£o DD/MM/YYYY em Date.
      *
      * @param data
      * @return
@@ -776,7 +776,7 @@ public class Util {
         case Calendar.MONDAY:
             return "Segunda-feira";
         case Calendar.TUESDAY:
-            return "Terça-feira";
+            return "TerÃ§a-feira";
         case Calendar.WEDNESDAY:
             return "Quarta-feira";
         case Calendar.THURSDAY:
@@ -784,7 +784,7 @@ public class Util {
         case Calendar.FRIDAY:
             return "Sexta-feira";
         case Calendar.SATURDAY:
-            return "Sabádo";
+            return "SabÃ¡do";
         }
         return "";
     }
@@ -801,7 +801,7 @@ public class Util {
         case Calendar.MONDAY:
             return "Segunda";
         case Calendar.TUESDAY:
-            return "Terça";
+            return "TerÃ§a";
         case Calendar.WEDNESDAY:
             return "Quarta";
         case Calendar.THURSDAY:
@@ -809,7 +809,7 @@ public class Util {
         case Calendar.FRIDAY:
             return "Sexta";
         case Calendar.SATURDAY:
-            return "Sabádo";
+            return "SabÃ¡do";
         }
         return "";
     }
@@ -821,7 +821,7 @@ public class Util {
         case 2:
             return "Segunda";
         case 3:
-            return "Terça";
+            return "TerÃ§a";
         case 4:
             return "Quarta";
         case 5:
@@ -829,7 +829,7 @@ public class Util {
         case 6:
             return "Sexta";
         case 7:
-            return "Sábado";
+            return "SÃ¡bado";
         }
         return "";
     }
@@ -930,7 +930,7 @@ public class Util {
     }
 
     /**
-     * Formata a data em uma String conforme o padrão especificado na variável pattern.
+     * Formata a data em uma String conforme o padrÃ£o especificado na variÃ¡vel pattern.
      *
      * @param data
      * @return
@@ -944,8 +944,8 @@ public class Util {
 
     /**
      * Transforma uma String em java.util.Date.
-     * O padrão da String deve estar especificado na atributo pattern
-     * conforme documentação da classe SimpleDateFormat
+     * O padrÃ£o da String deve estar especificado na atributo pattern
+     * conforme documentaÃ§Ã£o da classe SimpleDateFormat
      *
      * @param data
      * @param pattern
@@ -960,8 +960,8 @@ public class Util {
 
     /**
      * Transforma uma String em java.util.Date.
-     * O padrão da String deve estar especificado na atributo pattern
-     * conforme documentação da classe SimpleDateFormat
+     * O padrÃ£o da String deve estar especificado na atributo pattern
+     * conforme documentaÃ§Ã£o da classe SimpleDateFormat
      *
      * @param data
      * @param pattern
@@ -1012,7 +1012,7 @@ public class Util {
     }
 
     /**
-     * Retorna o tipo do arquivo pela extensão
+     * Retorna o tipo do arquivo pela extensÃ£o
      *
      * @param fileName
      * @return
@@ -1035,7 +1035,7 @@ public class Util {
     }
 
     /**
-     * Obtem a extensão de um arquivo.
+     * Obtem a extensÃ£o de um arquivo.
      *
      * @param fileName
      * @return
@@ -1177,7 +1177,7 @@ public class Util {
     }
 
     /**
-     * Verifica se o param é null para substituir por ""
+     * Verifica se o param Ã© null para substituir por ""
      *
      * @param conteudo
      * @return
@@ -1265,7 +1265,7 @@ public class Util {
     }
 
     /**
-     * Obtem o valor do identificador que está na requisição.
+     * Obtem o valor do identificador que estÃ¡ na requisiÃ§Ã£o.
      *
      * @param request
      * @param identificador
@@ -1393,11 +1393,11 @@ public class Util {
         if (delta / HOUR < 1) {
             final long minutes = delta / MINUTE;
             if (minutes == 0) {
-                return "menos de 1 minuto atrás";
+                return "menos de 1 minuto atrÃ¡s";
             } else if (minutes == 1) {
-                return "1 minuto atrás";
+                return "1 minuto atrÃ¡s";
             } else {
-                return minutes + " minutos atrás";
+                return minutes + " minutos atrÃ¡s";
             }
         }
 
@@ -1405,9 +1405,9 @@ public class Util {
         if (delta / DAY < 1) {
             final long hours = delta / HOUR;
             if (hours <= 1) {
-                return "1 hora atrás";
+                return "1 hora atrÃ¡s";
             } else {
-                return hours + " horas atrás";
+                return hours + " horas atrÃ¡s";
             }
         }
 
@@ -1515,29 +1515,29 @@ public class Util {
      * Substitui um caracter especial por uma String
      */
     public static String ChangeCharInvalid(final char c) {
-        if (c == 'á' || c == 'â' || c == 'ã') {
+        if (c == 'Ã¡' || c == 'Ã¢' || c == 'Ã£') {
             return "a";
-        } else if (c == 'Á' || c == 'Â' || c == 'Ã') {
+        } else if (c == 'Ã' || c == 'Ã‚' || c == 'Ãƒ') {
             return "A";
-        } else if (c == 'é' || c == 'ê') {
+        } else if (c == 'Ã©' || c == 'Ãª') {
             return "e";
-        } else if (c == 'É' || c == 'Ê') {
+        } else if (c == 'Ã‰' || c == 'ÃŠ') {
             return "E";
-        } else if (c == 'í' || c == 'î') {
+        } else if (c == 'Ã­' || c == 'Ã®') {
             return "i";
-        } else if (c == 'Í' || c == 'Î') {
+        } else if (c == 'Ã' || c == 'ÃŽ') {
             return "I";
-        } else if (c == 'ó' || c == 'ô' || c == 'õ') {
+        } else if (c == 'Ã³' || c == 'Ã´' || c == 'Ãµ') {
             return "o";
-        } else if (c == 'Ó' || c == 'Ô' || c == 'Õ') {
+        } else if (c == 'Ã“' || c == 'Ã”' || c == 'Ã•') {
             return "O";
-        } else if (c == 'ú' || c == 'û') {
+        } else if (c == 'Ãº' || c == 'Ã»') {
             return "u";
-        } else if (c == 'Ú' || c == 'Û') {
+        } else if (c == 'Ãš' || c == 'Ã›') {
             return "U";
-        } else if (c == 'Ç') {
+        } else if (c == 'Ã‡') {
             return "C";
-        } else if (c == 'ç') {
+        } else if (c == 'Ã§') {
             return "c";
         } else {
             return "";
@@ -1625,7 +1625,7 @@ public class Util {
         } else {
             strAno = " ano";
             strAnos = " anos";
-            strMes = " mês";
+            strMes = " mÃªs";
             strMeses = " meses";
             strDia = " dia";
             strDias = " dias";

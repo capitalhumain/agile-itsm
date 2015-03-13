@@ -28,7 +28,7 @@ public class ContatoRequisicaoLiberacaoServiceEjb extends CrudServiceImpl implem
         } catch (final Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-            System.out.println("Contato Requisicao Liberac„o n„o foi encontrado com esse ID");
+            System.out.println("Contato Requisicao Liberac√£o n√£o foi encontrado com esse ID");
         }
         return contatoRequisicaoLiberacaoDTO;
     }

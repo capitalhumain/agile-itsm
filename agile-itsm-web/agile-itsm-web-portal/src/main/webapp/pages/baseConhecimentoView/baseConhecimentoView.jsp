@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.ParametroUtil" %>
 <%@page import="br.com.centralit.citcorpore.util.Enumerados" %>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil" %>
@@ -19,7 +21,7 @@
 <head>
     <%@ include file="/include/header.jsp" %>
 
-    <title><fmt:message key="citcorpore.comum.title" /></title>
+    <%@include file="/novoLayout/common/include/titulo.jsp" %>
 
     <link type="text/css" rel="stylesheet" href="${ctx}/template_new/js/star-rating/jquery.rating.css" />
     <link type="text/css" rel="stylesheet" href="${ctx}/css/layout-default-latest.css" />
@@ -455,7 +457,7 @@
                                                     </div>
                                                 </fieldset>
                                             </div>
-                                            <!-- DIV ITEM CONFIGURAÇÃO -->
+                                            <!-- DIV ITEM CONFIGURAÃ‡ÃƒO -->
                                             <div class="col_50">
                                                 <fieldset>
                                                     <div class="col_100">

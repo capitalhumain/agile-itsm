@@ -23,7 +23,7 @@ import br.com.citframework.service.ServiceLocator;
 import br.com.citframework.util.UtilI18N;
 
 /**
- * @author ValdoÌlo
+ * @author Valdo√≠lo
  *
  */
 @SuppressWarnings({"rawtypes", "unchecked"})
@@ -115,7 +115,7 @@ public class Ldap extends AjaxFormAction {
 
                 parametroCorporeDto = (ParametroCorporeDTO) parametroCorporeService.restore(parametroCorporeDto);
                 /*
-                 * Se o par‚metro for do tipo boolean, faz a convers„o para o valor correto
+                 * Se o par√¢metro for do tipo boolean, faz a convers√£o para o valor correto
                  */
                 if (parametroCorporeDto.getTipoDado() != null && parametroCorporeDto.getTipoDado().equalsIgnoreCase("Boolean")) {
                     parametroCorporeDto.setValor(Internacionalizar.internacionalizaOptionSN(request, "save", parametroLdap.getValorAtributoLdap()));
@@ -158,7 +158,7 @@ public class Ldap extends AjaxFormAction {
     }
 
     /**
-     * Testa os parametros de conex„o e Sincroniza com o LDAP
+     * Testa os parametros de conex√£o e Sincroniza com o LDAP
      *
      * @param document
      * @param request

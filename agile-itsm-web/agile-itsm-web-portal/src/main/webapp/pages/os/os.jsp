@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.centralit.citcorpore.util.CitCorporeConstantes"%>
@@ -6,7 +6,7 @@
 <%@page import="br.com.centralit.citcorpore.util.ParametroUtil"%>
 
 <%
-	response.setCharacterEncoding("ISO-8859-1");
+	response.setCharacterEncoding("UTF-8");
 
 	String permiteValorZeroAtv = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.OS_VALOR_ZERO, "N");
 	if (permiteValorZeroAtv == null){
@@ -17,7 +17,7 @@
 <html>
 <head>
 	 <%@include file="/include/header.jsp"%>
-	<%@include file="/include/titleComum/titleComum.jsp" %>
+	<%@include file="/novoLayout/common/include/titulo.jsp" %>
 	<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp" %>
 	<%@include file="/include/cssComuns/cssComuns.jsp" %>
 
@@ -28,8 +28,8 @@
 	<link rel="stylesheet" type="text/css" href="${ctx}/template_new/css/theme_base.css">
 	<link rel="stylesheet" type="text/css" href="${ctx}/template_new/css/buttons.css">
 	<link rel="stylesheet" type="text/css" href="${ctx}/template_new/css/ie.css">
-<!--  Desenvolvedor: Pedro Lino - Data: 30/10/2013 - Horário: 09:40 - ID Citsmart: 120948 -
-* Motivo/Comentário: Inserido atualiza antigo para layout entrar na cor padrão 	 -->
+<!--  Desenvolvedor: Pedro Lino - Data: 30/10/2013 - HorÃ¡rio: 09:40 - ID Citsmart: 120948 -
+* Motivo/ComentÃ¡rio: Inserido atualiza antigo para layout entrar na cor padrÃ£o 	 -->
 	<link href="${ctx}/novoLayout/common/theme/css/atualiza-antigo.css" rel="stylesheet" />
   <link type="text/css" rel="stylesheet" href="css/os.css"/>
 
@@ -59,7 +59,7 @@
 										  		<tr>
 										            <td class="campoEsquerda"><fmt:message key="pesquisa.datainicio" />*:</td>
 										            <td>
-										            	<input type='text' id="dataInicio" name='dataInicio' size="10" maxlength="10" onchange="calculaCusto()" style="width: 100px !important;" class="Valid[Required,Date] Description[Data Início] Format[Date] dtpicker"/>
+										            	<input type='text' id="dataInicio" name='dataInicio' size="10" maxlength="10" onchange="calculaCusto()" style="width: 100px !important;" class="Valid[Required,Date] Description[Data InÃ­cio] Format[Date] dtpicker"/>
 										            </td>
 										         </tr>
 										         <tr>
@@ -71,7 +71,7 @@
 										         <tr>
 										            <td class="campoEsquerda"><fmt:message key="problema.servico" />*:</td>
 										            <td>
-										            	<select id="idServicoContrato" name='idServicoContrato' class="Valid[Required] Description[Serviço]" onclick="selecionaServicoContrato()" onchange="restoreInfoServios()"></select>
+										            	<select id="idServicoContrato" name='idServicoContrato' class="Valid[Required] Description[ServiÃ§o]" onclick="selecionaServicoContrato()" onchange="restoreInfoServios()"></select>
 										            </td>
 										         </tr>
 										         <tr>
@@ -83,13 +83,13 @@
 										         <tr>
 										            <td class="campoEsquerda"><fmt:message key="citcorpore.comum.numero" />*:</td>
 										            <td>
-										            	<input type='text' name='numero' size="20" maxlength="20" style="width: 250px !important;" class="Valid[Required] Description[Número] text"/>
+										            	<input type='text' name='numero' size="20" maxlength="20" style="width: 250px !important;" class="Valid[Required] Description[NÃºmero] text"/>
 										            </td>
 										         </tr>
 										         <tr>
 										            <td class="campoEsquerda"><fmt:message key="citcorpore.comum.areaRequisitante" />*:</td>
 										            <td>
-										            	<input type='text' id='nomeAreaRequisitante' name='nomeAreaRequisitante' size="80" maxlength="80" style="width: 500px !important;" class="Valid[Required] Description[Área requisitante] text"/>
+										            	<input type='text' id='nomeAreaRequisitante' name='nomeAreaRequisitante' size="80" maxlength="80" style="width: 500px !important;" class="Valid[Required] Description[Ãrea requisitante] text"/>
 										            </td>
 										         </tr>
 										         <tr>

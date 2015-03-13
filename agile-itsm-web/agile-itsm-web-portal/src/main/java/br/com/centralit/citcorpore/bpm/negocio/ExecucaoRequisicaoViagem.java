@@ -213,7 +213,7 @@ public class ExecucaoRequisicaoViagem extends ExecucaoSolicitacao {
 			}
 		}
 		if (result.length() == 0)
-			throw new LogicException("N„o foi encontrado nenhum autorizador da requisiÁ„o");
+			throw new LogicException("N√£o foi encontrado nenhum autorizador da requisi√ß√£o");
 		return result;
 	}
 
@@ -246,7 +246,7 @@ public class ExecucaoRequisicaoViagem extends ExecucaoSolicitacao {
 		 
 
 	/**
-	 * Metodo que valida a exigencia da autorizaÁ„o da requisiÁ„o de viagem
+	 * Metodo que valida a exigencia da autoriza√ß√£o da requisi√ß√£o de viagem
 	 * 
 	 * @param requisicaoViagemDto
 	 * @return
@@ -431,7 +431,7 @@ public class ExecucaoRequisicaoViagem extends ExecucaoSolicitacao {
 			e.printStackTrace();
 		}
 		if (result.length() == 0)
-			throw new LogicException("N„o foi encontrado nenhum Integrante da requisiÁ„o");
+			throw new LogicException("N√£o foi encontrado nenhum Integrante da requisi√ß√£o");
 		
 		return result;
 	}
@@ -586,7 +586,7 @@ public class ExecucaoRequisicaoViagem extends ExecucaoSolicitacao {
 	public void cancelaTarefaPrestacaoContas(Integer idTarefa, String login) throws Exception{
 		SolicitacaoServicoDTO solicitacaoDto = getSolicitacaoServicoDto();
 		TarefaFluxoDTO tarefaDto = recuperaTarefa(idTarefa);
-		String motivo = "RemarcaÁ„o";
+		String motivo = "Remarca√ß√£o";
 		this.cancelaTarefa(login, solicitacaoDto, tarefaDto, motivo);
 	}
 	
@@ -705,7 +705,7 @@ public class ExecucaoRequisicaoViagem extends ExecucaoSolicitacao {
 				}
 				
 				if(requisicaoViagemDto.getIdItemTrabalho() != null){
-					String motivo = "Data da contaÁ„o forado prazo de validade.";
+					String motivo = "Data da conta√ß√£o forado prazo de validade.";
 					TarefaFluxoDTO tarefaDto = recuperaTarefa(requisicaoViagemDto.getIdItemTrabalho());
 					this.cancelaTarefa(null,  this.getSolicitacaoServicoDto(), tarefaDto, motivo);
 				}
@@ -774,7 +774,7 @@ public class ExecucaoRequisicaoViagem extends ExecucaoSolicitacao {
 			}
 		}
 		if (result.length() == 0)
-			throw new LogicException("N„o foi encontrado nenhum responsavel para o Adiantamento");
+			throw new LogicException("N√£o foi encontrado nenhum responsavel para o Adiantamento");
 
 		return result;
 	}
@@ -802,7 +802,7 @@ public class ExecucaoRequisicaoViagem extends ExecucaoSolicitacao {
 			}
 		}
 		if (result.length() == 0)
-			throw new LogicException("N„o foi encontrado nenhum responsavel para a ConferÍncia");
+			throw new LogicException("N√£o foi encontrado nenhum responsavel para a Confer√™ncia");
 
 		return result;
 	}
@@ -829,7 +829,7 @@ public class ExecucaoRequisicaoViagem extends ExecucaoSolicitacao {
 			}
 		}
 		if (result.length() == 0)
-			throw new LogicException("N„o foi encontrado nenhum responsavel pela CotaÁ„o");
+			throw new LogicException("N√£o foi encontrado nenhum responsavel pela Cota√ß√£o");
 
 		return result;
 	}
@@ -868,7 +868,7 @@ public class ExecucaoRequisicaoViagem extends ExecucaoSolicitacao {
 			e.printStackTrace();
 		}
 		if (result.length() == 0)
-			throw new LogicException("N„o foi encontrado nenhum Integrante da requisiÁ„o");
+			throw new LogicException("N√£o foi encontrado nenhum Integrante da requisi√ß√£o");
 		return result;
 	}
 
@@ -909,7 +909,7 @@ public class ExecucaoRequisicaoViagem extends ExecucaoSolicitacao {
 				e.printStackTrace();
 			}
 			if (result.length() == 0)
-				throw new LogicException("N„o foi encontrado nenhum Integrante da requisiÁ„o");
+				throw new LogicException("N√£o foi encontrado nenhum Integrante da requisi√ß√£o");
 			return result;
 		}
 	}
@@ -943,7 +943,7 @@ public class ExecucaoRequisicaoViagem extends ExecucaoSolicitacao {
 		}
 		
 		if (result.length() == 0)
-			throw new LogicException("N„o foi encontrado nenhum Integrante da requisiÁ„o");
+			throw new LogicException("N√£o foi encontrado nenhum Integrante da requisi√ß√£o");
 		
 		return result;
 	}
@@ -1018,16 +1018,16 @@ public class ExecucaoRequisicaoViagem extends ExecucaoSolicitacao {
     	Integer idEmpregado = alcadaProcessoNegocioDto.getEmpregadoDto().getIdEmpregado();
     	
     	if (idEmpregado.intValue() == solicitacaoServicoDto.getIdSolicitante().intValue()) {
-        	alcadaProcessoNegocioDto.setComplementoRejeicao("Aprovador n„o pode ser o solicitante");
+        	alcadaProcessoNegocioDto.setComplementoRejeicao("Aprovador n√£o pode ser o solicitante");
             return false;
     	}
 	        
         String idGrupoViagem = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.ID_GRUPO_PADRAO_REQ_VIAGEM_EXECUCAO, null);
         if (idGrupoViagem == null || idGrupoViagem.trim().equals(""))
-            throw new Exception("Grupo padr„o de requisiÁ„o de produtos n„o parametrizado");
+            throw new Exception("Grupo padr√£o de requisi√ß√£o de produtos n√£o parametrizado");
         
         if (alcadaProcessoNegocioDto.getMapGruposEmpregado().get(idGrupoViagem.trim()) != null) {
-        	alcadaProcessoNegocioDto.setComplementoRejeicao("Aprovador n„o pode pertencer ao grupo respons·vel por viagens");
+        	alcadaProcessoNegocioDto.setComplementoRejeicao("Aprovador n√£o pode pertencer ao grupo respons√°vel por viagens");
         	return false;
         }
 
@@ -1035,7 +1035,7 @@ public class ExecucaoRequisicaoViagem extends ExecucaoSolicitacao {
         if (listaIntegratesViagem!=null){
         	for(IntegranteViagemDTO integranteViagemDto : listaIntegratesViagem){
         		if (integranteViagemDto.getIdEmpregado().intValue() ==  idEmpregado.intValue()) {
-                	alcadaProcessoNegocioDto.setComplementoRejeicao("Aprovador n„o pode ser um dos integrantes da viagem");
+                	alcadaProcessoNegocioDto.setComplementoRejeicao("Aprovador n√£o pode ser um dos integrantes da viagem");
                     return false;
         		}
         	}
@@ -1135,9 +1135,9 @@ public class ExecucaoRequisicaoViagem extends ExecucaoSolicitacao {
     
     
     /**
-     * Valida se a requisiÁ„o È uma requisiÁ„o de viagem remarcado, caso seja, 
-     * valida se todos os integrantes da viagem j· foram remarcadas, caso sim
-     * seta que a requisiÁ„o de viagem n„o È mais rearcada
+     * Valida se a requisi√ß√£o √© uma requisi√ß√£o de viagem remarcado, caso seja, 
+     * valida se todos os integrantes da viagem j√° foram remarcadas, caso sim
+     * seta que a requisi√ß√£o de viagem n√£o √© mais rearcada
      * 
      * @throws Exception
      *  
@@ -1165,7 +1165,7 @@ public class ExecucaoRequisicaoViagem extends ExecucaoSolicitacao {
     }
     
     /**
-     * Verifica se a viagem ja aconteceu para avanÁar o fluxo para prestaÁ„o de contas
+     * Verifica se a viagem ja aconteceu para avan√ßar o fluxo para presta√ß√£o de contas
      * 
      * @throws Exception
      *  
@@ -1201,7 +1201,7 @@ public class ExecucaoRequisicaoViagem extends ExecucaoSolicitacao {
     }	
     
     /**
-     * cancela intancia se itens com contaÁ„o vencida
+     * cancela intancia se itens com conta√ß√£o vencida
      * 
      * @throws Exception
      *  
@@ -1209,9 +1209,9 @@ public class ExecucaoRequisicaoViagem extends ExecucaoSolicitacao {
     public void cancelaAutorizacao() throws Exception{
     	SolicitacaoServicoDTO solicitacaoDto = getSolicitacaoServicoDto();
     	
-    	Collection<TarefaFluxoDTO> colTarefas = new TarefaFluxoDao().findDisponiveisByIdTarefaEstado(solicitacaoDto.getIdSolicitacaoServico(), "Autorizar requisiÁ„o");
+    	Collection<TarefaFluxoDTO> colTarefas = new TarefaFluxoDao().findDisponiveisByIdTarefaEstado(solicitacaoDto.getIdSolicitacaoServico(), "Autorizar requisi√ß√£o");
     	if(colTarefas != null && !colTarefas.isEmpty()){
-    		String motivo = "RequisiÁ„o com itens vencidos!";
+    		String motivo = "Requisi√ß√£o com itens vencidos!";
     		for(TarefaFluxoDTO tarefaDto: colTarefas){
 				this.cancelaTarefa(null, solicitacaoDto, tarefaDto, motivo);
     		}
@@ -1220,7 +1220,7 @@ public class ExecucaoRequisicaoViagem extends ExecucaoSolicitacao {
     
     
     /**
-     * Valida se a requisiÁ„o foi criada para executar planejamento
+     * Valida se a requisi√ß√£o foi criada para executar planejamento
      *  
      */
     public boolean isRequisicaoCriada() throws Exception{
@@ -1378,7 +1378,7 @@ public class ExecucaoRequisicaoViagem extends ExecucaoSolicitacao {
 	}
   
     /**
-     * Valida se alguma prestaÁ„o de contas aguarda conferÍncia
+     * Valida se alguma presta√ß√£o de contas aguarda confer√™ncia
      * @return
      * @throws Exception
      */

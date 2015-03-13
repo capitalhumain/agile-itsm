@@ -18,7 +18,7 @@ function montaParametrosAutocompleteCausa(){
  	completeCausa.setOptions({params: {contrato: contrato, tipoDemanda: tipoDemanda} });
 }
 
-/**Controle da lista serviço**/
+/**Controle da lista serviÃ§o**/
 function limparServico(){
 	$('#servicoBusca').val('');
 	$( "#idServico" ).val('');

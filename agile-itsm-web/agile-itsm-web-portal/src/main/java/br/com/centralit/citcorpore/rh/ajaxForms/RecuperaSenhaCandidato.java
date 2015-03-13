@@ -79,10 +79,10 @@ public class RecuperaSenhaCandidato extends AjaxFormAction{
 			msgEmail.append("									<tr>");
 			msgEmail.append("									<td style='border-top:solid 1px #d9d9d9' colspan='2'>");
 			msgEmail.append("										<div style='padding:15px 0'>");
-			msgEmail.append("											Olá <b>"+cadidatoAux.getNome());
-			msgEmail.append("											</b><br>Você solicitou a recuperação de senha do seu cadastro, por favor clique no link abaixo para redefinir sua senha.<br><br>");
+			msgEmail.append("											OlÃ¡ <b>"+cadidatoAux.getNome());
+			msgEmail.append("											</b><br>VocÃª solicitou a recuperaÃ§Ã£o de senha do seu cadastro, por favor clique no link abaixo para redefinir sua senha.<br><br>");
 			msgEmail.append("											<a href='http://"+ request.getServerName() + ":" + request.getServerPort() + request.getContextPath()+"/pages/trabalheConosco/trabalheConosco.load?id="+cadidatoAux.getHashID()+"'> "+"Recuperar Senha</a>");
-			msgEmail.append("											<br><br>Se não foi você quem realizou esta solicitação, favor desconsiderar este e-mail.<br><br>");
+			msgEmail.append("											<br><br>Se nÃ£o foi vocÃª quem realizou esta solicitaÃ§Ã£o, favor desconsiderar este e-mail.<br><br>");
 			msgEmail.append("										</div>");
 			msgEmail.append("									</td>");
 			msgEmail.append("									</tr>");
@@ -93,7 +93,7 @@ public class RecuperaSenhaCandidato extends AjaxFormAction{
 			msgEmail.append("									<tr style='font-size:11px;color:#999999'>");
 			msgEmail.append("									<td style='border-top:solid 1px #d9d9d9' colspan='2'>");
 			msgEmail.append("								<div style='padding-top:15px;padding-bottom:1px'>");
-			msgEmail.append("									<br>Atenciosamente,<br><b>Central IT - Governança Corporativa</b>");
+			msgEmail.append("									<br>Atenciosamente,<br><b>Central IT - GovernanÃ§a Corporativa</b>");
 			msgEmail.append("								</div>");
 			msgEmail.append("									</td>");
 			msgEmail.append("									</tr>");
@@ -111,7 +111,7 @@ public class RecuperaSenhaCandidato extends AjaxFormAction{
 			msgEmail.append("	</tbody>");
 			msgEmail.append("</table>");
 			
-			CandidatoTrabalheConosco.sendSimpleMail("Recuperação de conta.",cadidatoAux.getEmail(),usuarioEmail,msgEmail.toString());
+			CandidatoTrabalheConosco.sendSimpleMail("RecuperaÃ§Ã£o de conta.",cadidatoAux.getEmail(),usuarioEmail,msgEmail.toString());
 			
 			document.alert(UtilI18N.internacionaliza(request,"candidato.emailenviadosucesso"));
 			
@@ -125,7 +125,7 @@ public class RecuperaSenhaCandidato extends AjaxFormAction{
 	public String getRemetenteEmail() throws Exception {
 		String remetente = ParametroUtil.getValor(ParametroSistema.RemetenteNotificacoesSolicitacao);
 		if (remetente == null)
-			throw new LogicException("Remetente para notificações de solicitação de serviço não foi parametrizado");
+			throw new LogicException("Remetente para notificaÃ§Ãµes de solicitaÃ§Ã£o de serviÃ§o nÃ£o foi parametrizado");
 		return remetente;
 	}
 	
@@ -177,7 +177,7 @@ public class RecuperaSenhaCandidato extends AjaxFormAction{
 	               InternetAddress remetente = new InternetAddress(from);
 	//               LOGGER.info(remetente);
 	//               LOGGER.info(" -------- INICIO simple mail --------");
-	//               LOGGER.info("E-mail do Destinatário: " + destinatario);
+	//               LOGGER.info("E-mail do DestinatÃ¡rio: " + destinatario);
 	//               LOGGER.info("Remetente:    " + remetente);
 	//               LOGGER.info(" -------- FIM simple mail --------");
 	               Message message = new MimeMessage(mailSession);

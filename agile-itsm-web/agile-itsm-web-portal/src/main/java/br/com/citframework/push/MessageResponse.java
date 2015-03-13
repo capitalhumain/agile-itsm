@@ -3,7 +3,7 @@ package br.com.citframework.push;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
 /**
- * Padr„o de mensagem de response
+ * Padr√£o de mensagem de response
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 15/11/2014

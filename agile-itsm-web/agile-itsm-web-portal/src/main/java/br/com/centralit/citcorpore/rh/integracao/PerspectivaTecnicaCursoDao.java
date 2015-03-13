@@ -71,7 +71,7 @@ public class PerspectivaTecnicaCursoDao extends CrudDaoDefaultImpl {
         String text = nome.trim().replaceAll(" ", "");
         text = Normalizer.normalize(text, Normalizer.Form.NFD);
         text = text.replaceAll("[^\\p{ASCII}]", "");
-        text = text.replaceAll("·‡„‚ÈÍÌÛÙı˙¸Á¡¿√¬… Õ”‘’⁄‹«¥`^''-+=", "aaaaeeiooouucAAAAEEIOOOUUC ");
+        text = text.replaceAll("√°√†√£√¢√©√™√≠√≥√¥√µ√∫√º√ß√Å√Ä√É√Ç√â√ä√ç√ì√î√ï√ö√ú√á¬¥`^''-+=", "aaaaeeiooouucAAAAEEIOOOUUC ");
         nome = text;
         nome = "%" + nome.toUpperCase() + "%";
         final Object[] objs = new Object[] {nome};

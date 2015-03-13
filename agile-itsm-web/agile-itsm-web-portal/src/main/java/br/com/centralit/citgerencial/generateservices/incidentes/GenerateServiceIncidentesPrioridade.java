@@ -79,7 +79,7 @@ public class GenerateServiceIncidentesPrioridade extends GerencialGenerateServic
 			listaRetorno = new ArrayList();
 		}
 
-		// resetando par‚metro
+		// resetando par√¢metro
 		setNovoParametro(null);
 
 		return listaRetorno;

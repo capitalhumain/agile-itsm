@@ -43,7 +43,7 @@ public class Patrimonio extends AjaxFormAction {
             document.executeScript("ocultarItemConfiguracaoFilho()");
         } else {
 
-            document.alert("Tipo de Item ConfiguraÁ„o PatrimÙnio n„o definido.");
+            document.alert("Tipo de Item Configura√ß√£o Patrim√¥nio n√£o definido.");
 
             return;
         }
@@ -56,7 +56,7 @@ public class Patrimonio extends AjaxFormAction {
 
         if (parametroIdTipoItemConfiguracao == null || StringUtils.isBlank(parametroIdTipoItemConfiguracao)) {
 
-            document.alert("Tipo de Item ConfiguraÁ„o PatrimÙnio n„o definido.");
+            document.alert("Tipo de Item Configura√ß√£o Patrim√¥nio n√£o definido.");
 
             return;
         }
@@ -93,7 +93,7 @@ public class Patrimonio extends AjaxFormAction {
 
                 itemService.criarEAssociarValorDaCaracteristicaAoItemConfiguracao(itemConfiguracaoPaiDto, null, null);
 
-                document.alert("PatrimÙnio gravado com sucesso.");
+                document.alert("Patrim√¥nio gravado com sucesso.");
 
             }
 
@@ -107,7 +107,7 @@ public class Patrimonio extends AjaxFormAction {
 
                 itemService.criarEAssociarValorDaCaracteristicaAoItemConfiguracao(itemConfiguracaoFilhoDto, null, null);
 
-                document.alert("PatrimÙnio gravado com sucesso.");
+                document.alert("Patrim√¥nio gravado com sucesso.");
 
             }
 
@@ -118,7 +118,7 @@ public class Patrimonio extends AjaxFormAction {
     }
 
     /**
-     * Restaura o Tipo de Item ConfiguraÁ„o e carrega a Grid de CaracterÌsticas Ativas.
+     * Restaura o Tipo de Item Configura√ß√£o e carrega a Grid de Caracter√≠sticas Ativas.
      *
      * @param document
      * @param request
@@ -132,7 +132,7 @@ public class Patrimonio extends AjaxFormAction {
 
         if (parametroIdTipoItemConfiguracao == null || StringUtils.isBlank(parametroIdTipoItemConfiguracao)) {
 
-            document.alert("Tipo de Item ConfiguraÁ„o PatrimÙnio n„o definido.");
+            document.alert("Tipo de Item Configura√ß√£o Patrim√¥nio n√£o definido.");
 
             return;
         }

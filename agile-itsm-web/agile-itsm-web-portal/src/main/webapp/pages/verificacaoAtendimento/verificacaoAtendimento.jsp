@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.citframework.dto.Usuario"%>
@@ -7,14 +9,8 @@
 <html>
 <head>
 
-<%@include file="/include/security/security.jsp" %>
-<!--[if lt IE 7]> <html lang="en-us" class="no-js ie6"> <![endif]-->
-<!--[if IE 7]>    <html lang="en-us" class="no-js ie7"> <![endif]-->
-<!--[if IE 8]>    <html lang="en-us" class="no-js ie8"> <![endif]-->
-<!--[if IE 9]>    <html lang="en-us" class="no-js ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en-us" class="no-js"> <!--<![endif]-->
-	<title>CIT Corpore</title>
 	<%@include file="/include/header.jsp" %>
+	<%@include file="/novoLayout/common/include/titulo.jsp" %>
 	<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp" %>
 	<script type="text/javascript"
 			src="${ctx}/js/ValidacaoUtils.js"></script>
@@ -31,7 +27,7 @@
 		parent.fecharSolicitacao();
 	}
 
-	//funcoes de tratamento da popup de cadastro r·pido
+	//funcoes de tratamento da popup de cadastro r√°pido
 
 </script>
 </head>
@@ -58,7 +54,7 @@
 
 			<div class="col_33">
 				<fieldset>
-					<label>ServiÁo</label>
+					<label>Servi√ßo</label>
 						<div>
 							<input type='text' name='idServicoContrato' value='1'/>
 						</div>
@@ -82,7 +78,7 @@
 			</div>
 		    <div class="col_50">
 				<fieldset>
-					<label>DescriÁ„o</label>
+					<label>Descri√ß√£o</label>
 						<div>
 		       				<textarea name="descricao" cols='70' rows='5'></textarea>
 						</div>
@@ -98,11 +94,11 @@
 			</div>
 		    <div class="col_50">
 				<fieldset>
-					<label>SituaÁ„o</label>
+					<label>Situa√ß√£o</label>
 						<div>
-							<label><input type='radio' name="situacao" value="EmAndamento" class=" Description[SituaÁ„o]" />Em andamento</label>
-							<label><input type='radio' name="situacao" value="Resolvida" class=" Description[SituaÁ„o]" />Resolvida</label>
-							<label><input type='radio' name="situacao" value="Cancelada" class=" Description[SituaÁ„o]" />Cancelada</label>
+							<label><input type='radio' name="situacao" value="EmAndamento" class=" Description[Situa√ß√£o]" />Em andamento</label>
+							<label><input type='radio' name="situacao" value="Resolvida" class=" Description[Situa√ß√£o]" />Resolvida</label>
+							<label><input type='radio' name="situacao" value="Cancelada" class=" Description[Situa√ß√£o]" />Cancelada</label>
 						</div>
 				</fieldset>
 			</div>

@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.citframework.util.Constantes"%>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.citframework.util.UtilDatas"%>
@@ -8,12 +10,11 @@
 <html>
 	<head>
 		<%@include file="/include/header.jsp"%>
-		<title><fmt:message key="citcorpore.comum.title"/></title>
-		<%@include file="/include/security/security.jsp" %>
+		<%@include file="/novoLayout/common/include/titulo.jsp" %>
 		<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 
 		<script type="text/javascript" src="../../js/parametroCorpore.js"></script>
-		<script charset="ISO-8859-1" type="text/javascript" src="${ctx}/js/PopupManager.js"></script>
+		<script charset="UTF-8" type="text/javascript" src="${ctx}/js/PopupManager.js"></script>
 		<script type="text/javascript" src="../../cit/objects/BIConsultaColunasDTO.js"></script>
 
 		<script type="text/javascript" src="./js/construtorConsultas.js"></script>

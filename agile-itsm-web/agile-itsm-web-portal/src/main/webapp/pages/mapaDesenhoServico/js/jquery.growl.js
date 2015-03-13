@@ -173,7 +173,7 @@ Copyright 2013 Kevin Sylvestre
       options = {};
     }
     settings = {
-      title: "Atenção!",
+      title: "AtenÃ§Ã£o!",
       style: "warning"
     };
     return $.growl($.extend(settings, options));

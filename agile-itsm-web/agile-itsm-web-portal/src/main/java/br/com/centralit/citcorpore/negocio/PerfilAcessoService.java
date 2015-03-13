@@ -34,10 +34,10 @@ public interface PerfilAcessoService extends CrudService {
 	public PerfilAcessoDTO listByName(PerfilAcessoDTO obj) throws Exception;
 
 	/**
-	 * Exclui Perfil de Acesso se o mesmo n„o estiver sendo utilizado.
+	 * Exclui Perfil de Acesso se o mesmo n√£o estiver sendo utilizado.
 	 * 
 	 * @param perfilAcessoDto
-	 * @return true - est· sendo utilizado; false - n„o est· sendo utilizado.
+	 * @return true - est√° sendo utilizado; false - n√£o est√° sendo utilizado.
 	 * @throws ServiceException
 	 * @throws LogicException
 	 * @throws Exception
@@ -48,7 +48,7 @@ public interface PerfilAcessoService extends CrudService {
 	 * Verifica se PerfilAcesso informado existe.
 	 * 
 	 * @param perfilAcesso
-	 * @return true - existe; false - n„o existe;
+	 * @return true - existe; false - n√£o existe;
 	 * @throws PersistenceException
 	 */
 	public boolean verificarSePerfilAcessoExiste(PerfilAcessoDTO perfilAcesso) throws PersistenceException;
@@ -72,7 +72,7 @@ public interface PerfilAcessoService extends CrudService {
 	public PerfilAcessoDTO findByIdPerfilAcesso(PerfilAcessoDTO perfilAcessoDTO) throws Exception;
 	
 	/**
-	 * MÈtodo para retornar se o usu·rio pode acessar o citsmart. Caso nenhum grupo possua acesso, retorna "N"
+	 * M√©todo para retornar se o usu√°rio pode acessar o citsmart. Caso nenhum grupo possua acesso, retorna "N"
 	 * 30/12/2014
 	 * @author thyen.chang
 	 * @param idUsuario

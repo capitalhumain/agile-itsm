@@ -61,7 +61,7 @@ public class ThreadIniciaProcessamentosBatch extends Thread {
                         ProcessamentoBatchDTO procDto = (ProcessamentoBatchDTO) it.next();
                         if (procDto.getSituacao().equalsIgnoreCase("A") && !procDto.getExpressaoCRON().isEmpty()) {
                             try {
-                                // Somente ser· agendado se as configuraÁıes est„o corretas
+                                // Somente ser√° agendado se as configura√ß√µes est√£o corretas
                                 if (procBatchService.permiteAgendamento(procDto.getExpressaoCRON())) {
                                     final JobDetail jobDetailSQLs = new JobDetail("Processamento_CITSMART_" + procDto.getIdProcessamentoBatch(), "grupoBatch_CITSMART",
                                             JobProcessamentoBatchExecuteSQL.class);

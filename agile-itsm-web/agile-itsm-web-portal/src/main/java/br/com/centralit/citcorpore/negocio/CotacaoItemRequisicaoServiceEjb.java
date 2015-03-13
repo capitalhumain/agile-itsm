@@ -171,7 +171,7 @@ public class CotacaoItemRequisicaoServiceEjb extends CrudServiceImpl implements 
         cotacaoItemRequisicaoDao.update(itemAuxDto);
 
         final ItemRequisicaoProdutoServiceEjb itemRequisicaoService = new ItemRequisicaoProdutoServiceEjb();
-        itemRequisicaoService.geraHistorico(tc, usuarioDto, itemRequisicaoDto, AcaoItemRequisicaoProduto.Aprovacao, "Cotação No. " + cotacaoItemRequisicaoDto.getIdCotacao()
+        itemRequisicaoService.geraHistorico(tc, usuarioDto, itemRequisicaoDto, AcaoItemRequisicaoProduto.Aprovacao, "CotaÃ§Ã£o No. " + cotacaoItemRequisicaoDto.getIdCotacao()
                 + ", Coleta No. " + cotacaoItemRequisicaoDto.getIdColetaPreco(), SituacaoItemRequisicaoProduto.valueOf(itemRequisicaoDto.getSituacao()));
 
         if (parecerDto.getAprovado().equalsIgnoreCase("S")) {

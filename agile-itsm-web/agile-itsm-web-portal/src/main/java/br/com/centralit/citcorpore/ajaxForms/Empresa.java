@@ -32,11 +32,11 @@ public class Empresa extends AjaxFormAction {
 		/*
 		 * UsuarioDTO usuario = WebUtil.getUsuario(request);
 		 * 
-		 * if (usuario == null){ document.alert("Sess„o expirada! Favor efetuar logon novamente!"); document.executeScript("window.location = '" + Constantes.getValue("SERVER_ADDRESS") +
+		 * if (usuario == null){ document.alert("Sess√£o expirada! Favor efetuar logon novamente!"); document.executeScript("window.location = '" + Constantes.getValue("SERVER_ADDRESS") +
 		 * request.getContextPath() + "'"); return;
 		 * 
 		 * if (!WebUtil.isUserInGroup(request,Constantes.getValue("GRUPO_GPESS")) && !WebUtil.isUserInGroup(request,Constantes.getValue("GRUPO_DIRETORIA"))){
-		 * document.alert("VocÍ n„o tem permiss„o para acessar esta funcionalidade!"); document.executeScript("window.location = '" + Constantes.getValue("SERVER_ADDRESS") + request.getContextPath() +
+		 * document.alert("Voc√™ n√£o tem permiss√£o para acessar esta funcionalidade!"); document.executeScript("window.location = '" + Constantes.getValue("SERVER_ADDRESS") + request.getContextPath() +
 		 * "/pages/index/index.jsp'"); return; }
 		 */
 	}

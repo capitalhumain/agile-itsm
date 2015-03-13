@@ -5,7 +5,7 @@ import java.sql.Date;
 import br.com.agileitsm.model.support.BaseEntity;
 
 /**
- * @author Fl·vio.santana
+ * @author Fl√°vio.santana
  * 
  */
 public class CategoriaPostDTO extends BaseEntity {

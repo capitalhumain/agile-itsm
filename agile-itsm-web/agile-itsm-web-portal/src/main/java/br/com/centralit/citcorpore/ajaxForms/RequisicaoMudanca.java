@@ -171,7 +171,7 @@ public class RequisicaoMudanca extends AjaxFormAction {
     private static DocumentHTML documentGlobal;
 
     /*
-     * Thiago Fernandes - 23/10/2013 - Sol. 121468 - RealizaÁ„o das correÁıes dos testes feitos nas telas do sistema. Branch 3.0.3. Assim que aver apenas um contrato deve ser
+     * Thiago Fernandes - 23/10/2013 - Sol. 121468 - Realiza√ß√£o das corre√ß√µes dos testes feitos nas telas do sistema. Branch 3.0.3. Assim que aver apenas um contrato deve ser
      * seleciona-lo como default.
      */
     @Override
@@ -198,8 +198,8 @@ public class RequisicaoMudanca extends AjaxFormAction {
         document.executeScript("$('#statusCancelado').hide()");
 
         /**
-         * Adicionado para fazer limpeza do upload que est· na sess„o
-         * Modificado para quando for solicitaÁ„o serviÁo
+         * Adicionado para fazer limpeza do upload que est√° na sess√£o
+         * Modificado para quando for solicita√ß√£o servi√ßo
          *
          * @author maycon.fernandes
          * @author mario.junior
@@ -400,7 +400,7 @@ public class RequisicaoMudanca extends AjaxFormAction {
             this.carregaInformacoesComplementares(document, request, requisicaoMudancaDto);
         }
 
-        // carregar o grupo de atividade periÛdica para agendamento
+        // carregar o grupo de atividade peri√≥dica para agendamento
         final HTMLForm form = document.getForm("form");
         // form.clear();
 
@@ -607,11 +607,11 @@ public class RequisicaoMudanca extends AjaxFormAction {
         final ControleGEDService controleGedService = (ControleGEDService) ServiceLocator.getInstance().getService(ControleGEDService.class, null);
         final Collection colAnexos = controleGedService.listByIdTabelaAndID(ControleGEDDTO.TABELA_REQUISICAOMUDANCA, requisicaoMudancaDto.getIdRequisicaoMudanca());
         final Collection colAnexosUploadDTO = controleGedService.convertListControleGEDToUploadDTO(colAnexos);
-        // Thiago Fernandes - 29/10/2013 - 18:49 - Sol. 121468 - CriaÁ„o de Upload para requisiÁ„o mudanÁa para evitar conflitos com outras telas do sistema que us„o upload.
+        // Thiago Fernandes - 29/10/2013 - 18:49 - Sol. 121468 - Cria√ß√£o de Upload para requisi√ß√£o mudan√ßa para evitar conflitos com outras telas do sistema que us√£o upload.
         request.getSession(true).setAttribute("colUploadRequisicaoMudancaGED", colAnexosUploadDTO);
         // fim-restaurar-anexos
 
-        // Respons·vel
+        // Respons√°vel
         final HTMLTable tblResponsavel = document.getTableById("tblResponsavel");
         tblResponsavel.deleteAllRows();
 
@@ -650,7 +650,7 @@ public class RequisicaoMudanca extends AjaxFormAction {
             document.getForm("form").lockForm();
         }
 
-        // Criada para mostrar a fase da requisiÁ„o.
+        // Criada para mostrar a fase da requisi√ß√£o.
         String faseMudancaRequisicao = "";
         String sePropostaAprovada = "";
         String seRequisicaoAprovada = "";
@@ -980,27 +980,27 @@ public class RequisicaoMudanca extends AjaxFormAction {
     }
 
     /**
-     * Centraliza atualizaÁ„o de informaÁıes dos objetos que se relacionam com a mudanÁa.
+     * Centraliza atualiza√ß√£o de informa√ß√µes dos objetos que se relacionam com a mudan√ßa.
      *
      * @throws ServiceException
      * @throws Exception
      */
     private void atualizaInformacoesRelacionamentos(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws ServiceException,
             Exception {
-        // informaÁıes dos ics relacionados
+        // informa√ß√µes dos ics relacionados
         final ArrayList<RequisicaoMudancaItemConfiguracaoDTO> listaICsRelacionados = this.getReqMudancaICAction().listItensRelacionadosRequisicaoMudanca(requisicaoMudancaDto);
         if (listaICsRelacionados != null && listaICsRelacionados.size() > 0) {
             requisicaoMudancaDto.setItensConfiguracaoRelacionadosSerializado(br.com.citframework.util.WebUtil.serializeObjects(listaICsRelacionados, WebUtil.getLanguage(request)));
         }
 
         final RequisicaoMudancaService requisicaoMudancaService = (RequisicaoMudancaService) ServiceLocator.getInstance().getService(RequisicaoMudancaService.class, null);
-        // informaÁıes dos servicos relacionados
+        // informa√ß√µes dos servicos relacionados
         final ArrayList<RequisicaoMudancaServicoDTO> listaServicosRelacionados = this.getReqMudancaServicoAction().listItensRelacionadosRequisicaoMudanca(requisicaoMudancaDto);
         if (listaServicosRelacionados != null && listaServicosRelacionados.size() > 0) {
             requisicaoMudancaDto.setServicosRelacionadosSerializado(br.com.citframework.util.WebUtil.serializeObjects(listaServicosRelacionados, WebUtil.getLanguage(request)));
         }
 
-        // informaÁıes dos servicos relacionados
+        // informa√ß√µes dos servicos relacionados
         final LiberacaoMudancaService liberacaoMudancaService = (LiberacaoMudancaService) ServiceLocator.getInstance().getService(LiberacaoMudancaService.class, null);
         final ArrayList<LiberacaoMudancaDTO> liberacaoMudanca = (ArrayList<LiberacaoMudancaDTO>) liberacaoMudancaService.findByIdRequisicaoMudanca(
                 requisicaoMudancaDto.getIdLiberacao(), requisicaoMudancaDto.getIdRequisicaoMudanca());
@@ -1079,7 +1079,7 @@ public class RequisicaoMudanca extends AjaxFormAction {
         this.getRequisicaoMudancaDto().setIdGrupoAtvPeriodica(this.getRequisicaoMudancaDto().getIdGrupoAtvPeriodica());
 
         try {
-            /* Inicio DeserializaÁ„o */
+            /* Inicio Deserializa√ß√£o */
             final ArrayList<SolicitacaoServicoDTO> listIdSolicitacaoServico = (ArrayList<SolicitacaoServicoDTO>) br.com.citframework.util.WebUtil.deserializeCollectionFromRequest(
                     SolicitacaoServicoDTO.class, "solicitacaoServicoSerializado", request);
             this.getRequisicaoMudancaDto().setListIdSolicitacaoServico(listIdSolicitacaoServico);
@@ -1202,7 +1202,7 @@ public class RequisicaoMudanca extends AjaxFormAction {
             }
 
         } catch (final Exception e) {
-            System.out.println("Falha na transaÁ„o.");
+            System.out.println("Falha na transa√ß√£o.");
             throw new ServiceException(e);
         }
 
@@ -1306,10 +1306,10 @@ public class RequisicaoMudanca extends AjaxFormAction {
         final AtividadePeriodicaService atividadePeriodicaService = (AtividadePeriodicaService) ServiceLocator.getInstance().getService(AtividadePeriodicaService.class, null);
         atividadePeriodicaDTO.setColItens(colItens);
 
-        // verifica se j· n„o houve agendamento para essa requisiÁ„o
+        // verifica se j√° n√£o houve agendamento para essa requisi√ß√£o
         final Collection<AtividadePeriodicaDTO> listAtividade = atividadePeriodicaService.findByIdRequisicaoMudanca(requisicaoMudancaDto.getIdRequisicaoMudanca());
         if (listAtividade != null) {
-            // sÛ È possÌvel fazer um agendamento para a mudanÁa, logo a lista dever· vir sÛ com um registro ao atualizar na tela, esse registro ˙nico deve ser atualizado
+            // s√≥ √© poss√≠vel fazer um agendamento para a mudan√ßa, logo a lista dever√° vir s√≥ com um registro ao atualizar na tela, esse registro √∫nico deve ser atualizado
             int idAtvPeriodica = 0;
             idAtvPeriodica = listAtividade.iterator().next().getIdAtividadePeriodica();
             atividadePeriodicaDTO.setIdAtividadePeriodica(idAtvPeriodica);
@@ -1352,7 +1352,7 @@ public class RequisicaoMudanca extends AjaxFormAction {
     }
 
     /**
-     * Gravo no banco de dados apenas a aprovaÁ„o de mudanÁa do usu·rio(Se o mesmo for aprovador)
+     * Gravo no banco de dados apenas a aprova√ß√£o de mudan√ßa do usu√°rio(Se o mesmo for aprovador)
      *
      * @author Bruno.franco
      * @author flavio.santana
@@ -1375,7 +1375,7 @@ public class RequisicaoMudanca extends AjaxFormAction {
 
     /**
      *
-     * Gravo no banco de dados apenas a aprovaÁ„o de proposta do usu·rio(Se o mesmo for aprovador)
+     * Gravo no banco de dados apenas a aprova√ß√£o de proposta do usu√°rio(Se o mesmo for aprovador)
      */
     public List<AprovacaoPropostaDTO> setaDataHoraVotacoesProposta(final List<AprovacaoPropostaDTO> listAprovacoProposta, final UsuarioDTO usuario, final HttpServletRequest request) {
         final List<AprovacaoPropostaDTO> listaAtualizada = new ArrayList<>();
@@ -1458,7 +1458,7 @@ public class RequisicaoMudanca extends AjaxFormAction {
     }
 
     /**
-     * Atualiza as informaÁıes de nome de proprietario e nome de solicitante em uma requisicaoMudancaDto, caso haja.
+     * Atualiza as informa√ß√µes de nome de proprietario e nome de solicitante em uma requisicaoMudancaDto, caso haja.
      *
      * @param requisicaoMudancaDto
      * @throws ServiceException
@@ -1551,7 +1551,7 @@ public class RequisicaoMudanca extends AjaxFormAction {
     }
 
     /**
-     * Metodo para montar grid de aprovaÁ„o da requisiÁ„o mudanca
+     * Metodo para montar grid de aprova√ß√£o da requisi√ß√£o mudanca
      *
      * @param document
      * @param request
@@ -1849,7 +1849,7 @@ public class RequisicaoMudanca extends AjaxFormAction {
     }
 
     /**
-     * Retorna uma lista de informaÁıes da entidade ocorrencia
+     * Retorna uma lista de informa√ß√µes da entidade ocorrencia
      *
      * @param requisicaoMudancaDto
      * @param request
@@ -2036,7 +2036,7 @@ public class RequisicaoMudanca extends AjaxFormAction {
             }
         }
 
-        // Thiago Fernandes - 29/10/2013 - 18:49 - Sol. 121468 - CriaÁ„o de Upload para requisiÁ„o mudanÁa para evitar conflitos com outras telas do sistema que us„o upload.
+        // Thiago Fernandes - 29/10/2013 - 18:49 - Sol. 121468 - Cria√ß√£o de Upload para requisi√ß√£o mudan√ßa para evitar conflitos com outras telas do sistema que us√£o upload.
         request.getSession(true).setAttribute("colUploadRequisicaoMudancaGED", colAnexosUploadDTO);
     }
 
@@ -2068,7 +2068,7 @@ public class RequisicaoMudanca extends AjaxFormAction {
 
     public Collection gravarAnexoMudanca(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response,
             final RequisicaoMudancaDTO requisicaoMudanca) throws Exception {
-        // deleta os anexos referentes a essa requisicao de mudanÁa para poder regrav·-los
+        // deleta os anexos referentes a essa requisicao de mudan√ßa para poder regrav√°-los
         final ControleGEDService controleGedService = (ControleGEDService) ServiceLocator.getInstance().getService(ControleGEDService.class, null);
         final Collection<UploadDTO> colAnexos = controleGedService.listByIdTabelaAndID(ControleGEDDTO.TABELA_REQUISICAOMUDANCA, requisicaoMudanca.getIdRequisicaoMudanca());
         final Collection<UploadDTO> colAnexosUploadDTO = controleGedService.convertListControleGEDToUploadDTO(colAnexos);
@@ -2081,7 +2081,7 @@ public class RequisicaoMudanca extends AjaxFormAction {
         }
 
         Integer idEmpresa = null;
-        // Thiago Fernandes - 29/10/2013 - 18:49 - Sol. 121468 - CriaÁ„o de Upload para requisiÁ„o mudanÁa para evitar conflitos com outras telas do sistema que us„o upload.
+        // Thiago Fernandes - 29/10/2013 - 18:49 - Sol. 121468 - Cria√ß√£o de Upload para requisi√ß√£o mudan√ßa para evitar conflitos com outras telas do sistema que us√£o upload.
         final Collection<UploadDTO> arquivosUpados = (Collection<UploadDTO>) request.getSession(true).getAttribute("colUploadRequisicaoMudancaGED");
         requisicaoMudanca.setColArquivosUpload(arquivosUpados);
         // Rotina para gravar no banco
@@ -2152,10 +2152,10 @@ public class RequisicaoMudanca extends AjaxFormAction {
             // Instancia o virtualizador
             final JRAbstractLRUVirtualizer virtualizer = new JRSwapFileVirtualizer(25, arquivoSwap, true);
 
-            // Seta o parametro REPORT_VIRTUALIZER com a inst‚ncia da virtualizaÁ„o
+            // Seta o parametro REPORT_VIRTUALIZER com a inst√¢ncia da virtualiza√ß√£o
             parametros.put(JRParameter.REPORT_VIRTUALIZER, virtualizer);
 
-            // Preenche o relatÛrio e exibe numa GUI
+            // Preenche o relat√≥rio e exibe numa GUI
             final JasperPrint print = JasperFillManager.fillReport(caminhoJasper, parametros, dataSource);
 
             JasperExportManager.exportReportToPdfFile(print, diretorioReceita + "/RelatorioRequisicaoMudanca" + strCompl + "_" + usuario.getIdUsuario() + ".pdf");
@@ -2250,7 +2250,7 @@ public class RequisicaoMudanca extends AjaxFormAction {
      * @param response
      * @throws Exception
      *
-     *             MÈtodo que pega do jsp o id da liberaÁ„o , faz a validaÁ„o , restaura e executa o mÈtodo '' devolvendo o objeto com os valores preenchidos
+     *             M√©todo que pega do jsp o id da libera√ß√£o , faz a valida√ß√£o , restaura e executa o m√©todo '' devolvendo o objeto com os valores preenchidos
      */
     public void inserirRequisicaoLiberacao(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
         final String idLib = request.getParameter("liberacao#idRequisicaoLiberacao");
@@ -2263,7 +2263,7 @@ public class RequisicaoMudanca extends AjaxFormAction {
                     WebUtil.getUsuarioSistema(request));
             requisicaoLiberacaoDto = (RequisicaoLiberacaoDTO) requisicaoLiberacaoService.restore(requisicaoLiberacaoDto);
 
-            // caso contr·rio ele seta o valor vazio e executa a funÁ„o javascript
+            // caso contr√°rio ele seta o valor vazio e executa a fun√ß√£o javascript
             if (requisicaoLiberacaoDto.getSituacao().toUpperCase().toString().equalsIgnoreCase("E")) {
 
                 requisicaoLiberacaoDto.setSituacaoLiberacao(UtilI18N.internacionaliza(request, "liberacao.emExecucao"));
@@ -2284,7 +2284,7 @@ public class RequisicaoMudanca extends AjaxFormAction {
     }
 
     public void limpar(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
-        // Thiago Fernandes - 29/10/2013 - 18:49 - Sol. 121468 - CriaÁ„o de Upload para requisiÁ„o mudanÁa para evitar conflitos com outras telas do sistema que us„o upload.
+        // Thiago Fernandes - 29/10/2013 - 18:49 - Sol. 121468 - Cria√ß√£o de Upload para requisi√ß√£o mudan√ßa para evitar conflitos com outras telas do sistema que us√£o upload.
         request.getSession(true).setAttribute("colUploadRequisicaoMudancaGED", null);
         request.getSession(true).setAttribute("colUploadPlanoDeReversaoGED", null);
     }
@@ -2394,7 +2394,7 @@ public class RequisicaoMudanca extends AjaxFormAction {
         final RequisicaoMudancaService requisicaoLiberacaoService = (RequisicaoMudancaService) ServiceLocator.getInstance().getService(RequisicaoMudancaService.class, null);
         historicoMudancaDTO = (HistoricoMudancaDTO) historicoMudancaDao.restore(historicoMudancaDTO);
 
-        // Realizando a Reflex„o de Item de ConfiguraÁ„o
+        // Realizando a Reflex√£o de Item de Configura√ß√£o
         Reflexao.copyPropertyValues(historicoMudancaDTO, requisicaoMudancaDTOAux);
 
         List<RequisicaoMudancaItemConfiguracaoDTO> colItemconfiguracao = new ArrayList<RequisicaoMudancaItemConfiguracaoDTO>();
@@ -2468,7 +2468,7 @@ public class RequisicaoMudanca extends AjaxFormAction {
 
         String comando = "mostraMensagemRestaurarBaseline('" + UtilI18N.internacionaliza(request, "MSG15") + ".<br>"
                 + UtilI18N.internacionaliza(request, "requisicaoLiberacao.requisicaoLiberacao") + " <b><u>" + requisicaoMudancaDTO.getIdRequisicaoMudanca() + "</u></b> "
-                + UtilI18N.internacionaliza(request, "citcorpore.comum.restaurada") + ".<br><br>" + "Vers„o: "
+                + UtilI18N.internacionaliza(request, "citcorpore.comum.restaurada") + ".<br><br>" + "Vers√£o: "
                 + UtilStrings.nullToVazio(requisicaoMudancaDTOAux.getIdRequisicaoMudanca().toString()) + "<br>";
         comando = comando + "')";
 
@@ -2522,7 +2522,7 @@ public class RequisicaoMudanca extends AjaxFormAction {
             listaValoresCheckados.add(problemaCheckado);
         }
 
-        // Neste trecho do codigo adiciona a uma Collection os valores que NAO est„o se repetindo entre os dois Arrays
+        // Neste trecho do codigo adiciona a uma Collection os valores que NAO est√£o se repetindo entre os dois Arrays
         final Set<String> valoresUnicosGrid = new HashSet<String>();
         valoresUnicosGrid.addAll(listaValoresGrid);
         valoresUnicosGrid.addAll(listaValoresCheckados);

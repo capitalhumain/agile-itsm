@@ -86,7 +86,7 @@ public class LogImportacaoBI extends AjaxFormAction {
 				strBuffer += "	<td>" + UtilDatas.dateToSTRWithFormat(logImportacaoDto.getDataHoraFim(), "dd/MM/yyyy HH:mm:ss.SSS") + "</td>";
 				strBuffer += "	<td>" + (logImportacaoDto.getStatus().equalsIgnoreCase("F") ? "Falha" : "Sucesso") + "</td>";
 				strBuffer += "	<td>" + logImportacaoDto.getDetalhamento().replaceAll("\n", "<br/>") + "</td>";
-				strBuffer += "	<td>" + (logImportacaoDto.getTipo().equalsIgnoreCase("A") ? "Autom·tico" : (logImportacaoDto.getTipo().equalsIgnoreCase("M") ? "Manual" : "Teste de conex„o")) + "</td>";
+				strBuffer += "	<td>" + (logImportacaoDto.getTipo().equalsIgnoreCase("A") ? "Autom√°tico" : (logImportacaoDto.getTipo().equalsIgnoreCase("M") ? "Manual" : "Teste de conex√£o")) + "</td>";
 				strBuffer += "	<td><a href='javascript:baixarLog(" + logImportacaoDto.getIdLogImportacao() + ");'>" + UtilI18N.internacionaliza(request, "downloadagente.download") + "</a></td>";
 				strBuffer += "</tr>";
 			}
@@ -97,7 +97,7 @@ public class LogImportacaoBI extends AjaxFormAction {
 		document.getElementById("tblLog").setInnerHTML(strBuffer.toString());
 	}
 
-	//Insere os elementos de paginaÁ„o
+	//Insere os elementos de pagina√ß√£o
 	public void paginacaoLog(Integer totalPaginas, Integer paginaSelecionada, HttpServletRequest request, DocumentHTML document) throws Exception {
 		HTMLElement divPrincipal = document.getElementById("paginas");
 		StringBuilder sb = new StringBuilder();

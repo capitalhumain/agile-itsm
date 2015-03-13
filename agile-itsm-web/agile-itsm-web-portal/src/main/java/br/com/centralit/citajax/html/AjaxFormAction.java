@@ -98,7 +98,7 @@ public abstract class AjaxFormAction {
     }
 
     /**
-     * Retorna a linguagem que foi passada no request que est· em paramtersDefinition. ATEN«√O: UTILIZADO SOMENTE PARA A GERA«√O DE RELAT”RIOS EM PAINEL. Este mÈtodo tambÈm est·
+     * Retorna a linguagem que foi passada no request que est√° em paramtersDefinition. ATEN√á√ÉO: UTILIZADO SOMENTE PARA A GERA√á√ÉO DE RELAT√ìRIOS EM PAINEL. Este m√©todo tamb√©m est√°
      * implementando em
      * br.com.centralit.citgerencial.bean.GerencialGenerateService.java.
      *

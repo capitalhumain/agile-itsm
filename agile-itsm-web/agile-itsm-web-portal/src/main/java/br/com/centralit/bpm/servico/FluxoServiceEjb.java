@@ -51,10 +51,10 @@ public class FluxoServiceEjb extends CrudServiceImpl implements FluxoService {
     protected void validaCreate(final Object arg0) throws Exception {
         final FluxoDTO fluxoDto = (FluxoDTO) arg0;
         if (fluxoDto.getIdTipoFluxo() == null) {
-            throw new LogicException("Tipo de fluxo n„o definido.");
+            throw new LogicException("Tipo de fluxo n√£o definido.");
         }
         if (fluxoDto.getDataInicio() == null) {
-            throw new LogicException("Data inÌcio n„o definida.");
+            throw new LogicException("Data in√≠cio n√£o definida.");
         }
         fluxoDto.setVersao("1.0");
     }
@@ -66,7 +66,7 @@ public class FluxoServiceEjb extends CrudServiceImpl implements FluxoService {
         if (fluxoAuxDto != null) {
             final Collection colInstancias = new InstanciaFluxoDao().findByIdFluxo(fluxoAuxDto.getIdFluxo());
             if (colInstancias != null && !colInstancias.isEmpty()) {
-                throw new LogicException("Fluxo '" + fluxoAuxDto.getDescricao() + "' n„o pode ser excluÌdo. J· existem inst‚ncias vinculadas.");
+                throw new LogicException("Fluxo '" + fluxoAuxDto.getDescricao() + "' n√£o pode ser exclu√≠do. J√° existem inst√¢ncias vinculadas.");
             }
         }
     }
@@ -78,10 +78,10 @@ public class FluxoServiceEjb extends CrudServiceImpl implements FluxoService {
     protected void validaUpdate(final Object arg0) throws Exception {
         final FluxoDTO fluxoDto = (FluxoDTO) arg0;
         if (fluxoDto.getIdTipoFluxo() == null) {
-            throw new LogicException("Tipo de fluxo n„o definido.");
+            throw new LogicException("Tipo de fluxo n√£o definido.");
         }
         if (fluxoDto.getDataInicio() == null) {
-            throw new LogicException("Data inÌcio n„o definida.");
+            throw new LogicException("Data in√≠cio n√£o definida.");
         }
     }
 
@@ -97,15 +97,15 @@ public class FluxoServiceEjb extends CrudServiceImpl implements FluxoService {
 
     private void criaElementos(final FluxoDTO fluxoDto, final TransactionControler tc) throws Exception {
         if (fluxoDto.getInicioFluxo() == null) {
-            throw new LogicException("InÌcio do fluxo n„o definido");
+            throw new LogicException("In√≠cio do fluxo n√£o definido");
         }
 
         if (fluxoDto.getColFinalizacoes() == null || fluxoDto.getColFinalizacoes().isEmpty()) {
-            throw new LogicException("TÈrmino do fluxo n„o definido");
+            throw new LogicException("T√©rmino do fluxo n√£o definido");
         }
 
         if (fluxoDto.getColSequenciamentos() == null || fluxoDto.getColSequenciamentos().isEmpty()) {
-            throw new LogicException("O fluxo deve ter pelo menos uma ligaÁ„o entre elementos");
+            throw new LogicException("O fluxo deve ter pelo menos uma liga√ß√£o entre elementos");
         }
 
         final ElementoFluxoInicioDao fluxoInicioDao = new ElementoFluxoInicioDao();
@@ -271,7 +271,7 @@ public class FluxoServiceEjb extends CrudServiceImpl implements FluxoService {
             fluxoDao.update(fluxoDto);
             TipoFluxoDTO tipoFluxoDto = tipoFluxoDao.findByNome(fluxoDto.getNomeFluxo());
             if (tipoFluxoDto != null && tipoFluxoDto.getIdTipoFluxo().intValue() != fluxoDto.getIdTipoFluxo().intValue()) {
-                throw new LogicException("J· existe um fluxo com esse nome");
+                throw new LogicException("J√° existe um fluxo com esse nome");
             }
 
             tipoFluxoDto = new TipoFluxoDTO();
@@ -296,7 +296,7 @@ public class FluxoServiceEjb extends CrudServiceImpl implements FluxoService {
 
             tc.start();
 
-            /** Chamada do mÈtodo especÌfico que recupera o fluxo com os elementos. OperaÁ„o Usain Bolt - 27.01.2015 - carlos.santos */
+            /** Chamada do m√©todo espec√≠fico que recupera o fluxo com os elementos. Opera√ß√£o Usain Bolt - 27.01.2015 - carlos.santos */
             fluxoDao.restoreComEstrutura(fluxoDto);
             this.criaEstrutura(fluxoDto, tc);
 
@@ -316,7 +316,7 @@ public class FluxoServiceEjb extends CrudServiceImpl implements FluxoService {
         final TipoFluxoDao tipoFluxoDao = new TipoFluxoDao();
         TipoFluxoDTO tipoFluxoDto = tipoFluxoDao.findByNome(fluxoDto.getNomeFluxo());
         if (tipoFluxoDto != null) {
-            throw new LogicException("J· existe um fluxo com esse nome");
+            throw new LogicException("J√° existe um fluxo com esse nome");
         }
 
         final TransactionControler tc = new TransactionControlerImpl(new FluxoDao().getAliasDB());
@@ -363,7 +363,7 @@ public class FluxoServiceEjb extends CrudServiceImpl implements FluxoService {
         TipoFluxoDTO tipoFluxoDto = tipoFluxoDao.findByNome(fluxoDto.getNomeFluxo());
         if (fluxoDto.getIdTipoFluxo() == null) {
             if (tipoFluxoDto != null) {
-                throw new LogicException("J· existe um fluxo com esse nome");
+                throw new LogicException("J√° existe um fluxo com esse nome");
             }
             tipoFluxoDto = new TipoFluxoDTO();
             tipoFluxoDto.setNomeFluxo(fluxoDto.getNomeFluxo());
@@ -373,7 +373,7 @@ public class FluxoServiceEjb extends CrudServiceImpl implements FluxoService {
             fluxoDto.setIdTipoFluxo(tipoFluxoDto.getIdTipoFluxo());
         } else {
             if (tipoFluxoDto != null && tipoFluxoDto.getIdTipoFluxo().intValue() != fluxoDto.getIdTipoFluxo().intValue()) {
-                throw new LogicException("J· existe um fluxo com esse nome");
+                throw new LogicException("J√° existe um fluxo com esse nome");
             }
             tipoFluxoDto = new TipoFluxoDTO();
             tipoFluxoDto.setNomeFluxo(fluxoDto.getNomeFluxo());
@@ -518,7 +518,7 @@ public class FluxoServiceEjb extends CrudServiceImpl implements FluxoService {
      * @return Fluxo com os Elementos.
      * @throws PersistenceException
      * @author carlos.santos
-     * @since 27.01.2015 - OperaÁ„o Usain Bolt.
+     * @since 27.01.2015 - Opera√ß√£o Usain Bolt.
      */
     @Override
     public BaseEntity restoreComEstrutura(final BaseEntity obj) throws PersistenceException {

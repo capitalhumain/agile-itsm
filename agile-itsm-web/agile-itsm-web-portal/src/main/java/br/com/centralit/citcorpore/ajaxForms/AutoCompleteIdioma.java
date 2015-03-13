@@ -23,8 +23,8 @@ public class AutoCompleteIdioma extends AbstractAutoComplete {
 
     @Override
     public void load(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
-        // Corrige o enconding do par‚metro desejado.
-        final String consulta = new String(request.getParameter("query").getBytes("ISO-8859-1"), "UTF-8");
+        // Corrige o enconding do par√¢metro desejado.
+        final String consulta = new String(request.getParameter("query").getBytes("UTF-8"), "UTF-8");
         final IdiomaService idiomaService = (IdiomaService) ServiceLocator.getInstance().getService(IdiomaService.class, null);
 
         final Collection colRetorno = idiomaService.findByNome(consulta);

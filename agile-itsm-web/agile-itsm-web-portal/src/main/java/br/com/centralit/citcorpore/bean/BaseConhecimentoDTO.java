@@ -199,7 +199,7 @@ public class BaseConhecimentoDTO extends BaseEntity {
 	private Date dataInicioAcesso;
 	private Date dataFimAcesso;
 
-	// Atributos para RelatÛrio
+	// Atributos para Relat√≥rio
 	private Integer qtdPublicados = 0;
 	private Integer qtdNaoPublicados = 0;
 	private Integer qtdAcessados = 0;
@@ -232,7 +232,7 @@ public class BaseConhecimentoDTO extends BaseEntity {
 	
 	private String erroConhecido;
 	
-	//atributos liberaÁ„o
+	//atributos libera√ß√£o
 	private Integer idRequisicaoLiberacao;
 	
 	
@@ -1537,11 +1537,11 @@ public class BaseConhecimentoDTO extends BaseEntity {
 	}
 
 	/**
-	 * Uma Base de conhecimento ativa È uma base publicada, n„o arquivada e n„o excluÌda.
+	 * Uma Base de conhecimento ativa √© uma base publicada, n√£o arquivada e n√£o exclu√≠da.
 	 * @Author euler.ramos
 	 */
 	public boolean ativa(){
-		//Base de conhecimento publicada, n„o arquivada e n„o excluÌda.
+		//Base de conhecimento publicada, n√£o arquivada e n√£o exclu√≠da.
 		boolean resultado;
 		String publicada = (this.getStatus() == null ? "N" : this.getStatus());
 		String arquivada = (this.getArquivado() == null ? "N" : this.getArquivado());

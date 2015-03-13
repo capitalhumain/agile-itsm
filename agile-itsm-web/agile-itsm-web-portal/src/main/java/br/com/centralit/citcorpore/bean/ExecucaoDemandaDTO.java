@@ -55,16 +55,16 @@ public class ExecucaoDemandaDTO extends BaseEntity {
 		retorno =  "<img src=demanda.gif title='Outros' border='0' />";
 		
 		if (this.idTipoDemanda.intValue()==1) retorno =  "<img src=esquadro.jpg title='Demanda de Projeto' border='0' />";
-		if (this.idTipoDemanda.intValue()==2) retorno =  "<img src=ferramenta.gif title='Manutenção Evolutiva' border='0' />";
+		if (this.idTipoDemanda.intValue()==2) retorno =  "<img src=ferramenta.gif title='ManutenÃ§Ã£o Evolutiva' border='0' />";
 		if (this.idTipoDemanda.intValue()==3) retorno =  "<img src=joaninha.gif title='Erro' border='0' />";
-		if (this.idTipoDemanda.intValue()==4) retorno =  "<img src=comercial.gif title='Atendimento a área comercial' border='0' />";
-		if (this.idTipoDemanda.intValue()==5) retorno =  "<img src=apresentacao.jpg title='Apresentação de Solução' border='0' />";
-		if (this.idTipoDemanda.intValue()==6) retorno =  "<img src=reuniao.gif title='Reunião com cliente' border='0' />";
+		if (this.idTipoDemanda.intValue()==4) retorno =  "<img src=comercial.gif title='Atendimento a Ã¡rea comercial' border='0' />";
+		if (this.idTipoDemanda.intValue()==5) retorno =  "<img src=apresentacao.jpg title='ApresentaÃ§Ã£o de SoluÃ§Ã£o' border='0' />";
+		if (this.idTipoDemanda.intValue()==6) retorno =  "<img src=reuniao.gif title='ReuniÃ£o com cliente' border='0' />";
 		if (this.idTipoDemanda.intValue()==7) retorno =  "<img src=cliente.gif title='Apoio ao Cliente' border='0' />";
 		if (this.idTipoDemanda.intValue()==8) retorno =  "<img src=design.gif title='Design' border='0' />";
 		if (this.idTipoDemanda.intValue()==9) retorno =  "<img src=ISO.gif title='Demanda ISO 9001' border='0' />";
 		if (this.idTipoDemanda.intValue()==10) retorno =  "<img src=demanda.gif title='Demanda Avulsa' border='0' />";
-		if (this.idTipoDemanda.intValue()==11) retorno =  "<img src=reuniaointerna.gif title='Reunião Interna' border='0' />";
+		if (this.idTipoDemanda.intValue()==11) retorno =  "<img src=reuniaointerna.gif title='ReuniÃ£o Interna' border='0' />";
 		
 		return retorno;
 	}
@@ -112,8 +112,8 @@ public class ExecucaoDemandaDTO extends BaseEntity {
 	}
 	public String getSituacaoDesc() {
 		if (this.situacao == null) return "";
-		if (this.situacao.equalsIgnoreCase("N")) return "Não Iniciada";
-		if (this.situacao.equalsIgnoreCase("I")) return "Em Execução";
+		if (this.situacao.equalsIgnoreCase("N")) return "NÃ£o Iniciada";
+		if (this.situacao.equalsIgnoreCase("I")) return "Em ExecuÃ§Ã£o";
 		if (this.situacao.equalsIgnoreCase("F")) return "Finalizada";
 		if (this.situacao.equalsIgnoreCase("C")) return "Paralisada - Aguard. Cliente";
 		if (this.situacao.equalsIgnoreCase("P")) return "Paralisada - Interno";
@@ -122,8 +122,8 @@ public class ExecucaoDemandaDTO extends BaseEntity {
 	}	
 	public String getSituacaoDescHTML() {
 		if (this.situacao == null) return "";
-		if (this.situacao.equalsIgnoreCase("N")) return UtilHTML.encodeHTML("Não Iniciada");
-		if (this.situacao.equalsIgnoreCase("I")) return UtilHTML.encodeHTML("Em Execução");
+		if (this.situacao.equalsIgnoreCase("N")) return UtilHTML.encodeHTML("NÃ£o Iniciada");
+		if (this.situacao.equalsIgnoreCase("I")) return UtilHTML.encodeHTML("Em ExecuÃ§Ã£o");
 		if (this.situacao.equalsIgnoreCase("F")) return "Finalizada";
 		if (this.situacao.equalsIgnoreCase("C")) return "Paralisada - Aguard. Cliente";
 		if (this.situacao.equalsIgnoreCase("P")) return "Paralisada - Interno";
@@ -186,18 +186,18 @@ public class ExecucaoDemandaDTO extends BaseEntity {
 		if (this.prioridade == null) return "";
 		if (this.prioridade.equalsIgnoreCase("E")) return "Emergencial";
 		if (this.prioridade.equalsIgnoreCase("A")) return "Alta";
-		if (this.prioridade.equalsIgnoreCase("M")) return "Média";
+		if (this.prioridade.equalsIgnoreCase("M")) return "MÃ©dia";
 		if (this.prioridade.equalsIgnoreCase("B")) return "Baixa";
-		if (this.prioridade.equalsIgnoreCase("X")) return "Não Definida";
+		if (this.prioridade.equalsIgnoreCase("X")) return "NÃ£o Definida";
 		return prioridade;
 	}
 	public String getPrioridadeDescHTML() {
 		if (this.prioridade == null) return "";
 		if (this.prioridade.equalsIgnoreCase("E")) return "Emergencial";
 		if (this.prioridade.equalsIgnoreCase("A")) return "Alta";
-		if (this.prioridade.equalsIgnoreCase("M")) return UtilHTML.encodeHTML("Média");
+		if (this.prioridade.equalsIgnoreCase("M")) return UtilHTML.encodeHTML("MÃ©dia");
 		if (this.prioridade.equalsIgnoreCase("B")) return "Baixa";
-		if (this.prioridade.equalsIgnoreCase("X")) return UtilHTML.encodeHTML("Não Definida");
+		if (this.prioridade.equalsIgnoreCase("X")) return UtilHTML.encodeHTML("NÃ£o Definida");
 		return UtilHTML.encodeHTML(prioridade);
 	}	
 	public String getPrioridade() {

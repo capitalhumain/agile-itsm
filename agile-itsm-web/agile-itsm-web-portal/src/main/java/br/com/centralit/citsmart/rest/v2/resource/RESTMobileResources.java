@@ -29,7 +29,7 @@ import br.com.centralit.citsmart.rest.v2.util.RESTOperations;
 import br.com.citframework.util.UtilI18N;
 
 /**
- * Endpoints REST da vers„o V2 dos serviÁos oferecidos ao Mobile
+ * Endpoints REST da vers√£o V2 dos servi√ßos oferecidos ao Mobile
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 22/09/2014

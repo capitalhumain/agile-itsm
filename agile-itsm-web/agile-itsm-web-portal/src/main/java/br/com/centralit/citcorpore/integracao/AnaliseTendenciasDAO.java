@@ -54,8 +54,8 @@ public class AnaliseTendenciasDAO extends CrudDaoDefaultImpl {
 		return TendenciaDTO.class;
 	}
 
-	//MÈtodo criado para completar as consultas do gr·fico com as datas que n„o tiveram lanÁamento de solicitaÁıes de serviÁo
-	//… utilizado apenas nos bancos que n„o s„o o PostgreSQL
+	//M√©todo criado para completar as consultas do gr√°fico com as datas que n√£o tiveram lan√ßamento de solicita√ß√µes de servi√ßo
+	//√â utilizado apenas nos bancos que n√£o s√£o o PostgreSQL
 	public ArrayList<TendenciaGanttDTO> montarPeriodo(AnaliseTendenciasDTO analiseTendenciasDTO, ArrayList<TendenciaGanttDTO> resultado ) {
 		ArrayList<TendenciaGanttDTO> listaPeriodo = new ArrayList<TendenciaGanttDTO>();
 		try {
@@ -429,7 +429,7 @@ public class AnaliseTendenciasDAO extends CrudDaoDefaultImpl {
 				DataFim = UtilDatas.getTimeStampComUltimaHoraDoDia(analiseTendenciasDTO.getDataFim());
 			}
 
-			//Deve-se ter um perÌodo informado
+			//Deve-se ter um per√≠odo informado
 			if ((DataInicio==null) || (DataFim==null)){
 				return new ArrayList<TendenciaGanttDTO>();
 			}
@@ -439,7 +439,7 @@ public class AnaliseTendenciasDAO extends CrudDaoDefaultImpl {
 
 			StringBuilder sql = new StringBuilder();
 
-			//Para o PostgreSQL j· podemos trazer a coleÁ„o completa com as datas que n„o tem ocorrÍncia de solicitaÁıes j· com a qtde zerada!
+			//Para o PostgreSQL j√° podemos trazer a cole√ß√£o completa com as datas que n√£o tem ocorr√™ncia de solicita√ß√µes j√° com a qtde zerada!
 			if (CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.POSTGRESQL)){
 				sql.append("select gdias.data, case when qtde is null then 0 else qtde end as qtde ");
 				sql.append("from ");
@@ -506,7 +506,7 @@ public class AnaliseTendenciasDAO extends CrudDaoDefaultImpl {
 			sql.append("group by CAST(datahorasolicitacao AS DATE) ");
 			sql.append("order by data");
 
-			//Para o PostgreSQL j· podemos trazer a coleÁ„o completa com as datas que n„o tem ocorrÍncia de solicitaÁıes j· com a qtde zerada!
+			//Para o PostgreSQL j√° podemos trazer a cole√ß√£o completa com as datas que n√£o tem ocorr√™ncia de solicita√ß√µes j√° com a qtde zerada!
 			if (CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.POSTGRESQL)){
 				sql.append(") s on gdias.data=s.data");
 			}
@@ -521,9 +521,9 @@ public class AnaliseTendenciasDAO extends CrudDaoDefaultImpl {
 			result = null;
 		}
 
-		//Para o PostgreSQL j· podemos trazer a coleÁ„o completa com as datas que n„o tem ocorrÍncia de solicitaÁıes j· com a qtde zerada!
+		//Para o PostgreSQL j√° podemos trazer a cole√ß√£o completa com as datas que n√£o tem ocorr√™ncia de solicita√ß√µes j√° com a qtde zerada!
 		if (!CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.POSTGRESQL)){
-			//Popula uma coleÁ„o com o intervalo de datas! DataInicio - DataFim
+			//Popula uma cole√ß√£o com o intervalo de datas! DataInicio - DataFim
 		}
 		result = this.montarPeriodo(analiseTendenciasDTO,(ArrayList<TendenciaGanttDTO>) result);
 		return (ArrayList<TendenciaGanttDTO>) (((result == null)||(result.size()<=0)) ? new ArrayList<TendenciaGanttDTO>() : result);
@@ -547,7 +547,7 @@ public class AnaliseTendenciasDAO extends CrudDaoDefaultImpl {
 				DataFim = UtilDatas.getTimeStampComUltimaHoraDoDia(analiseTendenciasDTO.getDataFim());
 			}
 
-			//Deve-se ter um perÌodo informado
+			//Deve-se ter um per√≠odo informado
 			if ((DataInicio==null) || (DataFim==null)){
 				return new ArrayList<TendenciaGanttDTO>();
 			}
@@ -557,7 +557,7 @@ public class AnaliseTendenciasDAO extends CrudDaoDefaultImpl {
 
 			StringBuilder sql = new StringBuilder();
 
-			//Para o PostgreSQL j· podemos trazer a coleÁ„o completa com as datas que n„o tem ocorrÍncia de solicitaÁıes j· com a qtde zerada!
+			//Para o PostgreSQL j√° podemos trazer a cole√ß√£o completa com as datas que n√£o tem ocorr√™ncia de solicita√ß√µes j√° com a qtde zerada!
 			if (CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.POSTGRESQL)){
 				sql.append("select gdias.data, case when qtde is null then 0 else qtde end as qtde ");
 				sql.append("from ");
@@ -627,7 +627,7 @@ public class AnaliseTendenciasDAO extends CrudDaoDefaultImpl {
 			sql.append("group by CAST(datahorasolicitacao AS DATE) ");
 			sql.append("order by data");
 
-			//Para o PostgreSQL j· podemos trazer a coleÁ„o completa com as datas que n„o tem ocorrÍncia de solicitaÁıes j· com a qtde zerada!
+			//Para o PostgreSQL j√° podemos trazer a cole√ß√£o completa com as datas que n√£o tem ocorr√™ncia de solicita√ß√µes j√° com a qtde zerada!
 			if (CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.POSTGRESQL)){
 				sql.append(") s on gdias.data=s.data");
 			}
@@ -663,7 +663,7 @@ public class AnaliseTendenciasDAO extends CrudDaoDefaultImpl {
 				DataFim = UtilDatas.getTimeStampComUltimaHoraDoDia(analiseTendenciasDTO.getDataFim());
 			}
 
-			//Deve-se ter um perÌodo informado
+			//Deve-se ter um per√≠odo informado
 			if ((DataInicio==null) || (DataFim==null)){
 				return new ArrayList<TendenciaGanttDTO>();
 			}
@@ -673,7 +673,7 @@ public class AnaliseTendenciasDAO extends CrudDaoDefaultImpl {
 
 			StringBuilder sql = new StringBuilder();
 
-			//Para o PostgreSQL j· podemos trazer a coleÁ„o completa com as datas que n„o tem ocorrÍncia de solicitaÁıes j· com a qtde zerada!
+			//Para o PostgreSQL j√° podemos trazer a cole√ß√£o completa com as datas que n√£o tem ocorr√™ncia de solicita√ß√µes j√° com a qtde zerada!
 			if (CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.POSTGRESQL)){
 				sql.append("select gdias.data, case when qtde is null then 0 else qtde end as qtde ");
 				sql.append("from ");
@@ -743,7 +743,7 @@ public class AnaliseTendenciasDAO extends CrudDaoDefaultImpl {
 			sql.append("group by CAST(datahorasolicitacao AS DATE) ");
 			sql.append("order by data");
 
-			//Para o PostgreSQL j· podemos trazer a coleÁ„o completa com as datas que n„o tem ocorrÍncia de solicitaÁıes j· com a qtde zerada!
+			//Para o PostgreSQL j√° podemos trazer a cole√ß√£o completa com as datas que n√£o tem ocorr√™ncia de solicita√ß√µes j√° com a qtde zerada!
 			if (CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.POSTGRESQL)){
 				sql.append(") s on gdias.data=s.data");
 			}

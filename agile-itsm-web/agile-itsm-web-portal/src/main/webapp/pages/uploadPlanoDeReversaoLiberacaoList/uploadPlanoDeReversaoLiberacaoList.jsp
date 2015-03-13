@@ -1,4 +1,6 @@
-<!-- Esta página realiza apenas a listagens dos uploads -->
+<!-- Esta pÃ¡gina realiza apenas a listagens dos uploads -->
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%@page import="br.com.centralit.citged.bean.ControleGEDDTO"%>
 <%@page import="br.com.centralit.citcorpore.bean.UploadDTO"%>

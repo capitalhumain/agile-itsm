@@ -50,19 +50,19 @@ public class PedidoCompraServiceEjb extends CrudServiceImpl implements PedidoCom
 
 	private void validaPedido(PedidoCompraDTO pedidoCompraDto) throws Exception {
         if (pedidoCompraDto.getDataPedido() == null)
-            throw new LogicException("Data do pedido n„o informada");
+            throw new LogicException("Data do pedido n√£o informada");
 
         if (pedidoCompraDto.getColItens() == null || pedidoCompraDto.getColItens().size() == 0)
-	        throw new LogicException("N„o foi adicionado nenhum item ao pedido");
+	        throw new LogicException("N√£o foi adicionado nenhum item ao pedido");
 
 	    if (pedidoCompraDto.getDataPrevistaEntrega() != null && pedidoCompraDto.getDataPedido().compareTo(pedidoCompraDto.getDataPrevistaEntrega()) > 0)
-            throw new LogicException("Data prevista da entrega deve ser maior ou igual ‡ data do pedido");
+            throw new LogicException("Data prevista da entrega deve ser maior ou igual √† data do pedido");
 
         if (pedidoCompraDto.getDataEntrega() != null && pedidoCompraDto.getDataPedido().compareTo(pedidoCompraDto.getDataEntrega()) > 0)
-            throw new LogicException("Data da entrega deve ser maior ou igual ‡ data do pedido");
+            throw new LogicException("Data da entrega deve ser maior ou igual √† data do pedido");
 
         if (pedidoCompraDto.getDataEntrega() != null && pedidoCompraDto.getDataEntrega().compareTo(UtilDatas.getDataAtual()) > 0)
-            throw new LogicException("Data da entrega n„o pode ser maior que a data atual");
+            throw new LogicException("Data da entrega n√£o pode ser maior que a data atual");
 
         ColetaPrecoDao coletaPrecoDao = new ColetaPrecoDao();
 
@@ -82,12 +82,12 @@ public class PedidoCompraServiceEjb extends CrudServiceImpl implements PedidoCom
         }
         for (ColetaPrecoDTO coletaPrecoDto: mapColetas.values()) {
             if (coletaPrecoDto.getQuantidadePedido().doubleValue() > coletaPrecoDto.getQuantidadeAprovada().doubleValue())
-                throw new LogicException("Quantidade pedida È maior que a quantidade aprovada na coleta de preÁo n˙mero "+coletaPrecoDto.getIdColetaPreco());
+                throw new LogicException("Quantidade pedida √© maior que a quantidade aprovada na coleta de pre√ßo n√∫mero "+coletaPrecoDto.getIdColetaPreco());
         }
 
         if (pedidoCompraDto.getSituacao().equals(SituacaoPedidoCompra.Entregue.name())) {
             if (pedidoCompraDto.getDataEntrega() == null)
-                throw new LogicException("Data de entrega n„o informada");
+                throw new LogicException("Data de entrega n√£o informada");
         }else{
             pedidoCompraDto.setDataEntrega(null);
         }
@@ -140,10 +140,10 @@ public class PedidoCompraServiceEjb extends CrudServiceImpl implements PedidoCom
 
             ItemRequisicaoProdutoServiceEjb itemRequisicaoService = new ItemRequisicaoProdutoServiceEjb();
             for (ItemPedidoCompraDTO itemDto : colItens) {
-                String complemento = "Exclus„o do pedido ";
+                String complemento = "Exclus√£o do pedido ";
                 if (pedidoCompraDto.getNumeroPedido() != null)
                     complemento += " No. " + pedidoCompraDto.getNumeroPedido();
-                complemento += ", CotaÁ„o No. "+pedidoCompraDto.getIdCotacao();
+                complemento += ", Cota√ß√£o No. "+pedidoCompraDto.getIdCotacao();
                 Collection<CotacaoItemRequisicaoDTO> colItensRequisicao = cotacaoItemRequisicaoDao.findByIdColetaPreco(itemDto.getIdColetaPreco());
                 if (colItensRequisicao != null) {
                     for (CotacaoItemRequisicaoDTO cotacaoItemRequisicaoDto : colItensRequisicao) {
@@ -164,7 +164,7 @@ public class PedidoCompraServiceEjb extends CrudServiceImpl implements PedidoCom
             ItemPedidoCompraDao itemPedidoCompraDao = new ItemPedidoCompraDao();
             itemPedidoCompraDao.setTransactionControler(tc);
 
-            String complemento = "CotaÁ„o No. "+pedidoCompraDto.getIdCotacao();
+            String complemento = "Cota√ß√£o No. "+pedidoCompraDto.getIdCotacao();
             if (pedidoCompraDto.getNumeroPedido() != null)
                 complemento += ", Pedido No. " + pedidoCompraDto.getNumeroPedido();
             ItemRequisicaoProdutoServiceEjb itemRequisicaoService = new ItemRequisicaoProdutoServiceEjb();
@@ -281,7 +281,7 @@ public class PedidoCompraServiceEjb extends CrudServiceImpl implements PedidoCom
                         entregaDto.setSituacao(SituacaoEntregaItemRequisicao.Aguarda.name());
                         entregaDto = (EntregaItemRequisicaoDTO) entregaItemDao.create(entregaDto);
 
-                        String complemento = "CotaÁ„o No. "+pedidoCompraDto.getIdCotacao();
+                        String complemento = "Cota√ß√£o No. "+pedidoCompraDto.getIdCotacao();
                         if (pedidoCompraDto.getNumeroPedido() != null)
                             complemento += ", Pedido No. " + pedidoCompraDto.getNumeroPedido();
 
@@ -336,11 +336,11 @@ public class PedidoCompraServiceEjb extends CrudServiceImpl implements PedidoCom
         PedidoCompraDao pedidoCompraDao = new PedidoCompraDao();
         PedidoCompraDTO pedidoAuxDto = (PedidoCompraDTO) pedidoCompraDao.restore(pedidoCompraDto);
         if (pedidoAuxDto.getSituacao().equals(SituacaoPedidoCompra.Entregue.name()))
-            throw new Exception("Pedido j· foi entregue");
+            throw new Exception("Pedido j√° foi entregue");
 
         Collection<InspecaoPedidoCompraDTO> colInspecao = pedidoCompraDto.getColInspecao();
         if (colInspecao == null)
-            throw new Exception("AvaliaÁ„o do pedido nao informada");
+            throw new Exception("Avalia√ß√£o do pedido nao informada");
 
         InspecaoPedidoCompraDao inspecaoPedidoDao = new InspecaoPedidoCompraDao();
         ItemPedidoCompraDao itemPedidoDao = new ItemPedidoCompraDao();
@@ -349,13 +349,13 @@ public class PedidoCompraServiceEjb extends CrudServiceImpl implements PedidoCom
         try{
 
             if (pedidoCompraDto.getDataEntrega() == null)
-                throw new LogicException("Data de entrega n„o informada");
+                throw new LogicException("Data de entrega n√£o informada");
 
             if (pedidoAuxDto.getDataPedido().compareTo(pedidoCompraDto.getDataEntrega()) > 0)
-                throw new LogicException("Data da entrega deve ser maior ou igual ‡ data do pedido");
+                throw new LogicException("Data da entrega deve ser maior ou igual √† data do pedido");
 
             if (pedidoCompraDto.getDataEntrega().compareTo(UtilDatas.getDataAtual()) > 0)
-                throw new LogicException("Data da entrega n„o pode ser maior que a data atual");
+                throw new LogicException("Data da entrega n√£o pode ser maior que a data atual");
 
             tc = new TransactionControlerImpl(pedidoCompraDao.getAliasDB());
 
@@ -374,7 +374,7 @@ public class PedidoCompraServiceEjb extends CrudServiceImpl implements PedidoCom
             inspecaoPedidoDao.deleteByIdPedido(pedidoCompraDto.getIdPedido());
             for (InspecaoPedidoCompraDTO inspecaoDto : colInspecao) {
                 if (inspecaoDto.getAvaliacao() == null || inspecaoDto.getAvaliacao().trim().length() == 0)
-                    throw new Exception("AvaliaÁ„o n„o informada");
+                    throw new Exception("Avalia√ß√£o n√£o informada");
                 inspecaoDto.setIdResponsavel(pedidoCompraDto.getUsuarioDto().getIdEmpregado());
                 inspecaoDto.setDataHoraInspecao(UtilDatas.getDataHoraAtual());
                 inspecaoDto.setIdPedido(pedidoCompraDto.getIdPedido());

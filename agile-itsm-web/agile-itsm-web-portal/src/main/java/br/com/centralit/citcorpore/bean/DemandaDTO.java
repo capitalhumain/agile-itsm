@@ -10,9 +10,9 @@ public class DemandaDTO extends BaseEntity {
 	 * 
 	 */
 	public static final Integer SITUACAO_AGUARDANDO_APROVACAO =  new Integer(0); // Aguardando aprovacao
-	public static final Integer SITUACAO_NAO_INICIADA =  new Integer(1); // Não Iniciada
-	//public static final Integer SITUACAO_ATRIBUIDA =  new Integer(2); // Atribuída
-	public static final Integer SITUACAO_EM_EXECUCAO =  new Integer(2); // Em Execução
+	public static final Integer SITUACAO_NAO_INICIADA =  new Integer(1); // NÃ£o Iniciada
+	//public static final Integer SITUACAO_ATRIBUIDA =  new Integer(2); // AtribuÃ­da
+	public static final Integer SITUACAO_EM_EXECUCAO =  new Integer(2); // Em ExecuÃ§Ã£o
 	public static final Integer SITUACAO_FINALIZADA =  new Integer(3); // Finalizada
 	public static final Integer SITUACAO_PARALISADA =  new Integer(4); // Paralisada
 	public static final Integer SITUACAO_AGUARDANDO_RESPOSTA =  new Integer(5); // Aguardando Resposta

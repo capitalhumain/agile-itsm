@@ -45,35 +45,35 @@ public class CategoriaProdutoServiceEjb extends CrudServiceImpl implements Categ
         final CategoriaProdutoDTO categoriaProdutoDto = (CategoriaProdutoDTO) arg0;
 
         if (categoriaProdutoDto.getPesoCotacaoPreco() == null) {
-            throw new Exception("Peso para o critério preço não foi informado");
+            throw new Exception("Peso para o critÃ©rio preÃ§o nÃ£o foi informado");
         }
         if (categoriaProdutoDto.getPesoCotacaoPrazoEntrega() == null) {
-            throw new Exception("Peso para o critério prazo de entrega não foi informado");
+            throw new Exception("Peso para o critÃ©rio prazo de entrega nÃ£o foi informado");
         }
         if (categoriaProdutoDto.getPesoCotacaoPrazoGarantia() == null) {
-            throw new Exception("Peso para o critério prazo de garantia não foi informado");
+            throw new Exception("Peso para o critÃ©rio prazo de garantia nÃ£o foi informado");
         }
         if (categoriaProdutoDto.getPesoCotacaoPrazoPagto() == null) {
-            throw new Exception("Peso para o critério prazo de pagamento não foi informado");
+            throw new Exception("Peso para o critÃ©rio prazo de pagamento nÃ£o foi informado");
         }
         if (categoriaProdutoDto.getPesoCotacaoTaxaJuros() == null) {
-            throw new Exception("Peso para o critério taxa de juros não foi informado");
+            throw new Exception("Peso para o critÃ©rio taxa de juros nÃ£o foi informado");
         }
 
         if (categoriaProdutoDto.getPesoCotacaoPreco().intValue() > 10) {
-            throw new Exception("Peso para o critério preço deve estar entre 0 e 10");
+            throw new Exception("Peso para o critÃ©rio preÃ§o deve estar entre 0 e 10");
         }
         if (categoriaProdutoDto.getPesoCotacaoPrazoEntrega().intValue() > 10) {
-            throw new Exception("Peso para o critério prazo deve estar entre 0 e 10");
+            throw new Exception("Peso para o critÃ©rio prazo deve estar entre 0 e 10");
         }
         if (categoriaProdutoDto.getPesoCotacaoPrazoGarantia().intValue() > 10) {
-            throw new Exception("Peso para o critério prazo deve estar entre 0 e 10");
+            throw new Exception("Peso para o critÃ©rio prazo deve estar entre 0 e 10");
         }
         if (categoriaProdutoDto.getPesoCotacaoPrazoPagto().intValue() > 10) {
-            throw new Exception("Peso para o critério prazo deve estar entre 0 e 10");
+            throw new Exception("Peso para o critÃ©rio prazo deve estar entre 0 e 10");
         }
         if (categoriaProdutoDto.getPesoCotacaoTaxaJuros().intValue() > 10) {
-            throw new Exception("Peso para o critério taxa deve estar entre 0 e 10");
+            throw new Exception("Peso para o critÃ©rio taxa deve estar entre 0 e 10");
         }
 
     }
@@ -254,7 +254,7 @@ public class CategoriaProdutoServiceEjb extends CrudServiceImpl implements Categ
         if (categoriaProdutoDto.getColCriterios() != null) {
             for (final CriterioCotacaoCategoriaDTO criterioDto : categoriaProdutoDto.getColCriterios()) {
                 if (criterioDto.getPesoCotacao() == null) {
-                    throw new Exception("Peso não informado");
+                    throw new Exception("Peso nÃ£o informado");
                 }
                 if (criterioDto.getPesoCotacao().intValue() > 10) {
                     throw new Exception("O peso deve estar entre 0 e 10");

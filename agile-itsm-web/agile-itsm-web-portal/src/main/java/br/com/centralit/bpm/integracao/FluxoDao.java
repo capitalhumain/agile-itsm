@@ -119,7 +119,7 @@ public class FluxoDao extends CrudDaoDefaultImpl {
         final String sql = SQL_RESTORE + " WHERE f.dataFim IS NULL  ORDER BY t.nomeFluxo, f.idFluxo";
         final List<?> lista = execSQL(sql, null);
 
-        /** A recuperaÁ„o da estrutura n„o È necess·ria. OperaÁ„o Usain Bolt - 27.01.2015 - carlos.santos */
+        /** A recupera√ß√£o da estrutura n√£o √© necess√°ria. Opera√ß√£o Usain Bolt - 27.01.2015 - carlos.santos */
         // return this.recuperaEstrutura(engine.listConvertion(this.getBean(), lista, this.getListaDeCampos()));
         return engine.listConvertion(getBean(), lista, getListaDeCampos());
     }
@@ -129,7 +129,7 @@ public class FluxoDao extends CrudDaoDefaultImpl {
 
         final List<?> lista = execSQL(sql, null);
 
-        /** A recuperaÁ„o da estrutura n„o È necess·ria. OperaÁ„o Usain Bolt - 27.01.2015 - carlos.santos */
+        /** A recupera√ß√£o da estrutura n√£o √© necess√°ria. Opera√ß√£o Usain Bolt - 27.01.2015 - carlos.santos */
         // return this.recuperaEstrutura(engine.listConvertion(this.getBean(), lista, this.getListaDeCampos()));
         return engine.listConvertion(getBean(), lista, getListaDeCampos());
     }
@@ -148,7 +148,7 @@ public class FluxoDao extends CrudDaoDefaultImpl {
         final List<FluxoDTO> result = engine.listConvertion(getBean(), lista, getListaDeCampos());
 
         if (result != null && !result.isEmpty()) {
-            /** A recuperaÁ„o da estrutura n„o È necess·ria. OperaÁ„o Usain Bolt - 27.01.2015 - carlos.santos */
+            /** A recupera√ß√£o da estrutura n√£o √© necess√°ria. Opera√ß√£o Usain Bolt - 27.01.2015 - carlos.santos */
             // return this.recuperaEstrutura((FluxoDTO) result.get(0));
             return result.get(0);
         }
@@ -160,7 +160,7 @@ public class FluxoDao extends CrudDaoDefaultImpl {
 
         final List<?> lista = execSQL(sql, new Object[] {idTipoFluxo});
 
-        /** A recuperaÁ„o da estrutura n„o È necess·ria. OperaÁ„o Usain Bolt - 27.01.2015 - carlos.santos */
+        /** A recupera√ß√£o da estrutura n√£o √© necess√°ria. Opera√ß√£o Usain Bolt - 27.01.2015 - carlos.santos */
         // final List result = this.recuperaEstrutura(engine.listConvertion(this.getBean(), lista, this.getListaDeCampos()));
         final List result = engine.listConvertion(getBean(), lista, getListaDeCampos());
         if (result != null && !result.isEmpty()) {
@@ -174,7 +174,7 @@ public class FluxoDao extends CrudDaoDefaultImpl {
 
         final List<?> lista = execSQL(sql, new Object[] {idTipoFluxo});
 
-        /** A recuperaÁ„o da estrutura n„o È necess·ria. OperaÁ„o Usain Bolt - 27.01.2015 - carlos.santos */
+        /** A recupera√ß√£o da estrutura n√£o √© necess√°ria. Opera√ß√£o Usain Bolt - 27.01.2015 - carlos.santos */
         // return this.recuperaEstrutura(engine.listConvertion(this.getBean(), lista, this.getListaDeCampos()));
         return engine.listConvertion(getBean(), lista, getListaDeCampos());
     }
@@ -184,7 +184,7 @@ public class FluxoDao extends CrudDaoDefaultImpl {
 
         final List lista = execSQL(sql, new Object[] {fluxoDto.getNomeFluxo(), fluxoDto.getVersao()});
 
-        /** A recuperaÁ„o da estrutura n„o È necess·ria. OperaÁ„o Usain Bolt - 27.01.2015 - carlos.santos */
+        /** A recupera√ß√£o da estrutura n√£o √© necess√°ria. Opera√ß√£o Usain Bolt - 27.01.2015 - carlos.santos */
         // final List result = this.recuperaEstrutura(engine.listConvertion(this.getBean(), lista, this.getListaDeCampos()));
         final List result = engine.listConvertion(getBean(), lista, getListaDeCampos());
         if (result != null && !result.isEmpty()) {
@@ -198,7 +198,7 @@ public class FluxoDao extends CrudDaoDefaultImpl {
 
         final List<?> lista = execSQL(sql, new Object[] {nomeFluxo});
 
-        /** A recuperaÁ„o da estrutura n„o È necess·ria. OperaÁ„o Usain Bolt - 27.01.2015 - carlos.santos */
+        /** A recupera√ß√£o da estrutura n√£o √© necess√°ria. Opera√ß√£o Usain Bolt - 27.01.2015 - carlos.santos */
         // final List result = this.recuperaEstrutura(engine.listConvertion(this.getBean(), lista, this.getListaDeCampos()));
         final List result = engine.listConvertion(getBean(), lista, getListaDeCampos());
         if (result != null && !result.isEmpty()) {
@@ -217,19 +217,19 @@ public class FluxoDao extends CrudDaoDefaultImpl {
 
         final List<?> lista = execSQL(sql, new Object[] {parm});
 
-        /** A recuperaÁ„o da estrutura n„o È necess·ria. OperaÁ„o Usain Bolt - 27.01.2015 - carlos.santos */
+        /** A recupera√ß√£o da estrutura n√£o √© necess√°ria. Opera√ß√£o Usain Bolt - 27.01.2015 - carlos.santos */
         // return this.recuperaEstrutura(engine.listConvertion(this.getBean(), lista, this.getListaDeCampos()));
         return engine.listConvertion(getBean(), lista, getListaDeCampos());
     }
 
     /**
-     * Recupera os Elementos do Fluxo (Tarefa, Script, Porta, Evento e FinalizaÁ„o).
+     * Recupera os Elementos do Fluxo (Tarefa, Script, Porta, Evento e Finaliza√ß√£o).
      *
      * @param fluxoDto
      * @return FluxoDTO - Fluxo com os Elementos.
      * @throws PersistenceException
      * @author valdoilo.damasceno
-     * @since 23.01.2015 - OperaÁ„o Usain Bolt.
+     * @since 23.01.2015 - Opera√ß√£o Usain Bolt.
      */
     private FluxoDTO recuperaEstrutura(final FluxoDTO fluxoDto) throws PersistenceException {
 
@@ -295,11 +295,11 @@ public class FluxoDao extends CrudDaoDefaultImpl {
     }
 
     /**
-     * Retorna uma inst‚ncia de ElementoFluxoDao.
+     * Retorna uma inst√¢ncia de ElementoFluxoDao.
      *
      * @return ElementoFluxoDao
      * @author valdoilo.damasceno
-     * @since 23.01.2015 - UperaÁ„o Osain Bolt.
+     * @since 23.01.2015 - Upera√ß√£o Osain Bolt.
      */
     private ElementoFluxoDao getElementoFluxoDao() {
         if (elementoFluxoDao == null) {
@@ -322,7 +322,7 @@ public class FluxoDao extends CrudDaoDefaultImpl {
      * @return Fluxo com os Elementos.
      * @throws PersistenceException
      * @author carlos.santos
-     * @since 27.01.2015 - OperaÁ„o Usain Bolt.
+     * @since 27.01.2015 - Opera√ß√£o Usain Bolt.
      */
     public BaseEntity restoreComEstrutura(final BaseEntity obj) throws PersistenceException {
 

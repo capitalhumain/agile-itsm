@@ -14,7 +14,7 @@ import br.com.citframework.util.UtilI18N;
 
 /**
  * 
- * @author fl·vio.santana
+ * @author fl√°vio.santana
  *
  */
 public class ValoresServicoContrato extends AjaxFormAction {
@@ -76,7 +76,7 @@ public class ValoresServicoContrato extends AjaxFormAction {
 	}
 	
 	/**
-	 * recupera os dados ao carregar p·gina
+	 * recupera os dados ao carregar p√°gina
 	 * 
 	 * @param document
 	 * @param request

@@ -96,7 +96,7 @@ public class TipoServico extends AjaxFormAction {
 	}
 
 	/**
-	 * Altera a situaÁ„o da prioridade para Inativo ao confirmar a exclus„o.
+	 * Altera a situa√ß√£o da prioridade para Inativo ao confirmar a exclus√£o.
 	 *
 	 * @param document
 	 * @param request

@@ -8,7 +8,7 @@ var previousTabDestino;
  */
 function load() {
 	
-	//Inicia a tela da forma padr�o
+	//Inicia a tela da forma padrï¿½o
 	$("#divHora").hide();
 	$("#divPeriodo").show("slow");
 	
@@ -64,8 +64,8 @@ function load() {
 
 	
 /**
- * Valida se a grid de importa��o est� vazia
- * @returns true: est� vazia || false: existem dados inseridos
+ * Valida se a grid de importaï¿½ï¿½o estï¿½ vazia
+ * @returns true: estï¿½ vazia || false: existem dados inseridos
  */
 function validarGridVazia() {
 	

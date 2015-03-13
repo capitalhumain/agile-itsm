@@ -18,7 +18,7 @@ public class Enumerados {
 
     public enum SituacaoItemTrabalho {
         Criado("Criado"),
-        Disponivel("DisponÌvel"),
+        Disponivel("Dispon√≠vel"),
         EmAndamento("Em andamento"),
         Suspenso("Suspenso"),
         Cancelado("Cancelado"),
@@ -54,9 +54,9 @@ public class Enumerados {
     }
 
     public enum TipoAtribuicao {
-        Automatica("Autom·tica"),
+        Automatica("Autom√°tica"),
         Acompanhamento("Acompanhamento"),
-        Delegacao("DelegaÁ„o");
+        Delegacao("Delega√ß√£o");
 
         private final String descricao;
 
@@ -70,13 +70,13 @@ public class Enumerados {
     }
 
     public enum TipoElementoFluxo {
-        Inicio("InÌcio"),
+        Inicio("In√≠cio"),
         Tarefa("Tarefa"),
         Script("Script"),
         Email("Email"),
         Porta("Porta"),
         Evento("Evento"),
-        Finalizacao("FinalizaÁ„o");
+        Finalizacao("Finaliza√ß√£o");
 
         private final String descricao;
 
@@ -90,7 +90,7 @@ public class Enumerados {
     }
 
     public enum TipoPorta {
-        Decisao("Decis„o"),
+        Decisao("Decis√£o"),
         Paralela("Paralela"),
         Convergente("Convergente");
 

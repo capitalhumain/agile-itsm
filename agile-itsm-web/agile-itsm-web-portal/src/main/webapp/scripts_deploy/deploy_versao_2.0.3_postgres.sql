@@ -1,5 +1,5 @@
 -- Autor: Rodrigo Engelberg
--- Data: Quarta-feira, 27 de março de 2013 18:04
+-- Data: Quarta-feira, 27 de marÃ§o de 2013 18:04
 -- Fonte: email corporativo da CentralIT
 
 alter table atividadesservicocontrato alter column periodo type char(1);
@@ -71,7 +71,7 @@ templatesolicitacaoservico (
 ) values (
 	10,
 	'AprovacaoSolicitacaoServico',
-	'Aprovaçãoo da Solicitação de Serviço',
+	'AprovaÃ§Ã£oo da SolicitaÃ§Ã£o de ServiÃ§o',
 	'br.com.centralit.citcorpore.bean.AprovacaoSolicitacaoServicoDTO',
 	'br.com.centralit.citcorpore.ajaxForms.AprovacaoSolicitacaoServico',
 	'br.com.centralit.citcorpore.negocio.AprovacaoSolicitacaoServicoServiceEjb',

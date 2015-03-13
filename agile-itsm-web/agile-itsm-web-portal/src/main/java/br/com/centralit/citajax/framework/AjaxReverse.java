@@ -13,12 +13,12 @@ import org.directwebremoting.ScriptSessions;
 public class AjaxReverse extends Browser {
 
 	/**
-	 * Executa o Ajax Reverso chamando uma função JavaScript com seus respectivos parâmetros.
+	 * Executa o Ajax Reverso chamando uma funÃ§Ã£o JavaScript com seus respectivos parÃ¢metros.
 	 * 
 	 * @param nomeDaFuncaoJavaScript
-	 *            - Nome da Função JavaScript.
+	 *            - Nome da FunÃ§Ã£o JavaScript.
 	 * @param parametrosDaFuncao
-	 *            - Parâmetros da Função JavaScript.
+	 *            - ParÃ¢metros da FunÃ§Ã£o JavaScript.
 	 * @since 21.11.2013
 	 * @author valdoilo.damasceno
 	 */
@@ -36,12 +36,12 @@ public class AjaxReverse extends Browser {
 	}
 
 	/**
-	 * Executa o Ajax Reverso chamando uma função JavaScript com seus respectivos parâmetros.
+	 * Executa o Ajax Reverso chamando uma funÃ§Ã£o JavaScript com seus respectivos parÃ¢metros.
 	 * 
 	 * @param nomeDaFuncaoJavaScript
-	 *            - Nome da Função JavaScript.
+	 *            - Nome da FunÃ§Ã£o JavaScript.
 	 * @param parametrosDaFuncao
-	 *            - Parâmetros da Função JavaScript.
+	 *            - ParÃ¢metros da FunÃ§Ã£o JavaScript.
 	 * @since 28.11.2013
 	 * @author valdoilo.damasceno
 	 */

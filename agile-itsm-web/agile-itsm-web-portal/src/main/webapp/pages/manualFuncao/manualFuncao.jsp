@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.CitCorporeConstantes"%>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
@@ -74,11 +76,11 @@
 															<div class='row-fluid'>
 																<div class='span8'>
 																	<label class="campoObrigatorio strong"><fmt:message key="ManualFuncao.tituloFuncao" /></label>
-																	<input id="tituloFuncao" name="tituloFuncao" type='text' placeholder="Click e selecione a função" maxlength="256" class="span12 Valid[Required] Description[ManualFuncao.tituloFuncao]" readonly="readonly"/>
+																	<input id="tituloFuncao" name="tituloFuncao" type='text' placeholder="Click e selecione a funÃ§Ã£o" maxlength="256" class="span12 Valid[Required] Description[ManualFuncao.tituloFuncao]" readonly="readonly"/>
 																</div>
 																<div class='span4'>
 																	<label class="campoObrigatorio strong"><fmt:message key="ManualFuncao.Codigo" /></label>
-																	<input id="codigo" type="text" name="codigo" placeholder="Digite o Código" maxlength="256" class="Valid[Required] Description[ManualFuncao.Codigo]" />
+																	<input id="codigo" type="text" name="codigo" placeholder="Digite o CÃ³digo" maxlength="256" class="Valid[Required] Description[ManualFuncao.Codigo]" />
 																</div>
 															</div>
 															<div class='row-fluid'>
@@ -94,7 +96,7 @@
 															<div class='row-fluid'>
 																<div class='span12'>
 																	<label class="campoObrigatorio strong"><fmt:message key="ManualFuncao.ResumoFuncao" /></label>
-																	<textarea class="widthTextArea Valid[Required] Description[ManualFuncao.ResumoFuncao]" id="resumoFuncao" name="resumoFuncao" rows="4" cols="1" placeholder="Digite Resumo da Função" maxlength="500"></textarea>
+																	<textarea class="widthTextArea Valid[Required] Description[ManualFuncao.ResumoFuncao]" id="resumoFuncao" name="resumoFuncao" rows="4" cols="1" placeholder="Digite Resumo da FunÃ§Ã£o" maxlength="500"></textarea>
 																</div>
 															</div>
 														</div>
@@ -114,7 +116,7 @@
 															</ul>
 														</div>
 														<div class="tab-content">
-														<!-- INICIO - Atribuições e Responsabilidades  -->
+														<!-- INICIO - AtribuiÃ§Ãµes e Responsabilidades  -->
 															<div class="tab-pane active" id="tab1-6">
 																<div class="widget">
 																	<div class="widget-head">
@@ -135,7 +137,7 @@
 																							</div>
 
 																							<div class='row-fluid'>
-																								<input id="descricaoPerspectivaComplexidade" name="descricaoPerspectivaComplexidade" type='text' placeholder="Digite a Descrição" maxlength="256" class="span12 " />
+																								<input id="descricaoPerspectivaComplexidade" name="descricaoPerspectivaComplexidade" type='text' placeholder="Digite a DescriÃ§Ã£o" maxlength="256" class="span12 " />
 																							</div>
 																						</div>
 
@@ -165,7 +167,7 @@
 																	</div>
 																</div>
 															</div>
-															<!-- FIM - Atribuições e Responsabilidades  -->
+															<!-- FIM - AtribuiÃ§Ãµes e Responsabilidades  -->
 
 															<!-- INICIO - Perspectiva Tecnica  -->
 															<div class="tab-pane" id="tab2-6">
@@ -231,7 +233,7 @@
 																					  			<div class="row-fluid">
 																						  			<div class="span12">
 																										<label class="campoObrigatorio strong"><fmt:message key="ManualFuncao.ExperienciaAnterior" /></label>
-																										<input class="span8" type="text" id="expAnteriorRA" name="expAnteriorRA" placeholder="Digite a Experiência Anterior" maxlength="256"/>
+																										<input class="span8" type="text" id="expAnteriorRA" name="expAnteriorRA" placeholder="Digite a ExperiÃªncia Anterior" maxlength="256"/>
 																									</div>
 																								</div>
 																							</div>
@@ -239,7 +241,7 @@
 																								<div class="row-fluid">
 																									<div class='span8'>
 																										<label class="campoObrigatorio strong"><fmt:message key="ManualFuncao.Certificacoes" /></label>
-																										<input class="span12" type="text" id="CertificacaoRA" name="CertificacaoRA" placeholder="Digite a Certificação" maxlength="256"/>
+																										<input class="span12" type="text" id="CertificacaoRA" name="CertificacaoRA" placeholder="Digite a CertificaÃ§Ã£o" maxlength="256"/>
 																									</div>
 																									<div class='span1'>
 																										<button onclick="adicionaCertificacao()" class="btn btn-icon btn-primary alinhaBotao" type="button" id="addCertificacaoRA" name="addCertificacaoRA">Adicionar</button>
@@ -344,7 +346,7 @@
 																					  			<div class="row-fluid">
 																						  			<div class="span12">
 																										<label class="campoObrigatorio strong"><fmt:message key="ManualFuncao.ExperienciaAnterior" /></label>
-																										<input class="span8" type="text" id="expAnteriorRF" name="expAnteriorRF" placeholder="Digite a Experiência Anterior" maxlength="256"/>
+																										<input class="span8" type="text" id="expAnteriorRF" name="expAnteriorRF" placeholder="Digite a ExperiÃªncia Anterior" maxlength="256"/>
 																									</div>
 																								</div>
 																							</div>
@@ -352,7 +354,7 @@
 																								<div class="row-fluid">
 																									<div class='span8'>
 																										<label class="campoObrigatorio strong"><fmt:message key="ManualFuncao.Certificacoes" /></label>
-																										<input class="span12" type="text" id="CertificacaoRF" name="CertificacaoRF" placeholder="Digite a Certificação" maxlength="256"/>
+																										<input class="span12" type="text" id="CertificacaoRF" name="CertificacaoRF" placeholder="Digite a CertificaÃ§Ã£o" maxlength="256"/>
 																									</div>
 																									<div class='span1'>
 																										<button onclick="adicionaCertificacaoRF()" class="btn btn-icon btn-primary alinhaBotao" type="button" id="addCertificacaoRF" name="addCertificacaoRF">Adicionar</button>
@@ -400,7 +402,7 @@
 															</div>
 															<!-- FIM - Perspectiva Tecnica  -->
 
-															<!-- INICIO - Competências Técnicas  -->
+															<!-- INICIO - CompetÃªncias TÃ©cnicas  -->
 															<div class="tab-pane" id="tab3-6">
 																<div class="widget">
 																	<div class="widget-head">
@@ -418,7 +420,7 @@
 																					</div>
 
 																					<input type='hidden' name="idCompetenciaTecnica" id="idCompetenciaTecnica"/>
-																					<input class="span12" type="text" id="competencia" name="competencia" placeholder="Digite a Competência Tecnica" maxlength="256"/>
+																					<input class="span12" type="text" id="competencia" name="competencia" placeholder="Digite a CompetÃªncia Tecnica" maxlength="256"/>
 																				</div>
 																			</div>
 
@@ -455,7 +457,7 @@
 																	</div>
 																</div>
 															</div>
-															<!-- FIM - Competências Técnicas  -->
+															<!-- FIM - CompetÃªncias TÃ©cnicas  -->
 
 															<!-- INICIO - Perspectiva Comportamental  -->
 															<div class="tab-pane" id="tab4-6">
@@ -573,7 +575,7 @@
 															</div>
 															<!-- FIM - Peso das Perspectiva  -->
 
-															<!-- INICIO - Histórico  -->
+															<!-- INICIO - HistÃ³rico  -->
 															<div class="tab-pane" id="tab6-6">
 																<div class="widget">
 																	<div class="widget-head">
@@ -604,7 +606,7 @@
 																	</div>
 																</div>
 															</div>
-															<!-- FIM - Histórico  -->
+															<!-- FIM - HistÃ³rico  -->
 														</div>
 													</div>
 												</div>
@@ -637,7 +639,7 @@
 					<div class="modal hide fade in" id="modal_HistoricoVersoes" tabindex="-1" data-backdrop="static" data-keyboard="false">
 					<!-- Modal heading -->
 						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
 							<h3><fmt:message key="citcorpore.comum.ocorrencia" /></h3>
 						</div>
 						<!-- // Modal heading END -->

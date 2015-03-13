@@ -191,9 +191,9 @@ public class AtividadePeriodicaServiceEjb extends CrudServiceImpl implements Ati
         Collection<AtividadePeriodicaDTO> colAgendamentoMudanca = new ArrayList<AtividadePeriodicaDTO>();
         final Collection<AtividadePeriodicaDTO> colRetorno = new ArrayList<AtividadePeriodicaDTO>();
         try {
-            // Só vai entrar caso tenha selecionado algum item do Grupo de Atividades.
+            // SÃ³ vai entrar caso tenha selecionado algum item do Grupo de Atividades.
             if (agendaAtvPeriodicasDTO != null && agendaAtvPeriodicasDTO.getIdGrupoAtvPeriodica() != 0 && agendaAtvPeriodicasDTO.getIdGrupoPesquisa() != null) {
-                // Só vai entrar caso tenha selecioando a opção Gerência Mudança do Grupo Pesquisa.
+                // SÃ³ vai entrar caso tenha selecioando a opÃ§Ã£o GerÃªncia MudanÃ§a do Grupo Pesquisa.
                 if (agendaAtvPeriodicasDTO != null && agendaAtvPeriodicasDTO.getIdGrupoPesquisa() != null && agendaAtvPeriodicasDTO.getIdGrupoPesquisa() == 2) {
                     colAgendamentoMudanca = this.getDao().listSomenteReqMudanca(agendaAtvPeriodicasDTO);
                     if (colAgendamentoMudanca != null) {
@@ -207,7 +207,7 @@ public class AtividadePeriodicaServiceEjb extends CrudServiceImpl implements Ati
                         }
                     }
                 }
-                // Caso não tenha selecionado nenhuma opção do Grupo Pesquisa, ai vou trazer todos.
+                // Caso nÃ£o tenha selecionado nenhuma opÃ§Ã£o do Grupo Pesquisa, ai vou trazer todos.
                 if (agendaAtvPeriodicasDTO != null && agendaAtvPeriodicasDTO.getIdGrupoPesquisa() != null && agendaAtvPeriodicasDTO.getIdGrupoPesquisa() == 0) {
                     colAgendamentoSemVinculacao = this.getDao().listAgendamentoSemVinculacao(agendaAtvPeriodicasDTO);
                     colAgendamentoMudanca = this.getDao().listSomenteReqMudanca(agendaAtvPeriodicasDTO);

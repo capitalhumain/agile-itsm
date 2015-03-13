@@ -301,7 +301,7 @@ HTMLUtils.addRowsByCollection = function(ele, form, name, collection, arColunas,
 /*
 	Seta o valor de uma coluna de uma Tabela
 	Exemplo: HTMLUtils.setValueColumnTable('tabelaCargos', '', 0, null, 1);
-					Far· a atribuiÁ„o de '' para a tabela Cargos da linha 0 atÈ a ˙ltima (null representa a ˙ltima) para a coluna 1.
+					Far√° a atribui√ß√£o de '' para a tabela Cargos da linha 0 at√© a √∫ltima (null representa a √∫ltima) para a coluna 1.
 */
 HTMLUtils.setValueColumnTable = function(tableId, value, iRowIni, iRowFim, indexColumn){
 	var tbl = $(tableId);
@@ -1018,8 +1018,8 @@ HTMLUtils.addOptionIfNotExists = function(idCombo, texto, valor){
  * Adiciona options no Select.
  *     idCombo = Identificacao do Combo no HTML
  *     array = o Array de Objetos a ser acrescentado no Select
- *     propId = Propriedade do Objeto que ser· colocado no value
- *     propText = Propriedade do Objeto que ser· colocado no Text
+ *     propId = Propriedade do Objeto que ser√° colocado no value
+ *     propText = Propriedade do Objeto que ser√° colocado no Text
  *     defaultId = valor default que deve aparecer marcado (selecionado)
  */
 HTMLUtils.addOptions = function(idCombo,array,propId,propText,defaultId){
@@ -1101,7 +1101,7 @@ HTMLUtils.removeOptionSelected = function(idCombo){
 }
 /*
  * Adiciona evento a um determinado objeto (window, input, ...)
- *    Este evento novo ser· adicionado apos a execucao do evento que ja estiver associado.
+ *    Este evento novo ser√° adicionado apos a execucao do evento que ja estiver associado.
  *    Exemplo de utilizacao: HTMLUtils.addEvent(window, "load", loadAdicional, false);
  *           No exemplo sera adicionado ao evento "load" a funcao "loadAdicional".
  */
@@ -1256,9 +1256,9 @@ HTMLUtils.setColorTR = function(src,color){
 }
 /*
     Mostra uma DIV suspensa na posicao a esquerda de um objeto de referencia.
-    	Exemplo: queremos apresentar uma div, log abaixo de um bot„o:
+    	Exemplo: queremos apresentar uma div, log abaixo de um bot√£o:
     			<input ... onclick='HTMLUtils.showPopupInObjectReferenceLeft(this, "telaGrafico", "menuCfg, menuOutros")' />
-    				Isto fara que quando clicado no botao a DIV apareca logo abaixo do bot„o do lado esquerdo. 
+    				Isto fara que quando clicado no botao a DIV apareca logo abaixo do bot√£o do lado esquerdo. 
     				As divs de IDs = menuCfg e menuOutros serao colocadas invisiveis.
     				Se clicado novamente (enquanto a DIV estiver visivel) a DIV desaparece.
     			Obs.: Para torna invisivel atraves de comando, utilize:   HTMLUtils.hide("telaGrafico");
@@ -1302,9 +1302,9 @@ HTMLUtils.showPopupInObjectReferenceLeft = function(objComparar, idDIV, idsDIVsT
 } 
 /*
     Mostra uma DIV suspensa na posicao a esquerda de um objeto de referencia.
-    	Exemplo: queremos apresentar uma div, log abaixo de um bot„o:
+    	Exemplo: queremos apresentar uma div, log abaixo de um bot√£o:
     			<input ... onclick='HTMLUtils.showPopupInObjectReferenceRight(this, "telaGrafico", "menuCfg, menuOutros")' />
-    				Isto fara que quando clicado no botao a DIV apareca logo abaixo do bot„o do lado direito. 
+    				Isto fara que quando clicado no botao a DIV apareca logo abaixo do bot√£o do lado direito. 
     				As divs de IDs = menuCfg e menuOutros serao colocadas invisiveis.
     				Se clicado novamente (enquanto a DIV estiver visivel) a DIV desaparece.
     			Obs.: Para torna invisivel atraves de comando, utilize:   HTMLUtils.hide("telaGrafico");

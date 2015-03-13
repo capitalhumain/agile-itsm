@@ -148,7 +148,7 @@ public class RequisicaoLiberacaoDao extends CrudDaoDefaultImpl {
 		try {
 			this.execUpdate(sql.toString(), params);
 		} catch (PersistenceException e) {
-			System.out.println("Problemas com atualização da requisição de Liberação.");
+			System.out.println("Problemas com atualizaÃ§Ã£o da requisiÃ§Ã£o de LiberaÃ§Ã£o.");
 			e.printStackTrace();
 		}
 	}

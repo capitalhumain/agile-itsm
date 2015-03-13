@@ -90,7 +90,7 @@ public class PesquisaRequisicaoMudanca extends AjaxFormAction {
 	}
 
 	/**
-	 * fireEvent para impress„o dos relatorio.
+	 * fireEvent para impress√£o dos relatorio.
 	 * 
 	 * @param document
 	 * @param request
@@ -182,7 +182,7 @@ public class PesquisaRequisicaoMudanca extends AjaxFormAction {
 	}
 
 	/**
-	 * Gerar relatÛrio no formato .pdf
+	 * Gerar relat√≥rio no formato .pdf
 	 * 
 	 * @param listRequisicaoMudancaByCriterios
 	 * @param caminhoJasper
@@ -210,7 +210,7 @@ public class PesquisaRequisicaoMudanca extends AjaxFormAction {
 	}
 
 	/**
-	 * Gerar relatÛrio no formato .xls
+	 * Gerar relat√≥rio no formato .xls
 	 * 
 	 * @param listRequisicaoMudancaByCriterios
 	 * @param parametros

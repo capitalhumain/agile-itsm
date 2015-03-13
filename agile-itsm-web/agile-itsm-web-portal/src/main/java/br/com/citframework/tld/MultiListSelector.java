@@ -109,7 +109,7 @@ public class MultiListSelector extends BodyTagSupport {
         strBuff.append("      }");
         if (this.getPermitDuplicate().equalsIgnoreCase("N")) {
             strBuff.append("      if (!VERIFICA_DUP_" + this.getName() + "(s1,s2)){");
-            strBuff.append("           alert('Este item j· existe selecionado !');");
+            strBuff.append("           alert('Este item j√° existe selecionado !');");
             strBuff.append("           return;");
             strBuff.append("      }");
         }

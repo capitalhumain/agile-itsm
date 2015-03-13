@@ -69,7 +69,7 @@ public class ManualCursoDao extends CrudDaoDefaultImpl {
 
         String texto = Normalizer.normalize(nome, Normalizer.Form.NFD);
         texto = texto.replaceAll("[^\\p{ASCII}]", "");
-        texto = texto.replaceAll("áàãâéêíóôõúüçÁÀÃÂÉÊÍÓÔÕÚÜÇ´`^''-+=", "aaaaeeiooouucAAAAEEIOOOUUC ");
+        texto = texto.replaceAll("Ã¡Ã Ã£Ã¢Ã©ÃªÃ­Ã³Ã´ÃµÃºÃ¼Ã§ÃÃ€ÃƒÃ‚Ã‰ÃŠÃÃ“Ã”Ã•ÃšÃœÃ‡Â´`^''-+=", "aaaaeeiooouucAAAAEEIOOOUUC ");
         texto = "%" + texto.toUpperCase() + "%";
 
         final Object[] objs = new Object[] {texto};

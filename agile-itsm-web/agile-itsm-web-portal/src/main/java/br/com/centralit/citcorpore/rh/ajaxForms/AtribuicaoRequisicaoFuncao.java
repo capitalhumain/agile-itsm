@@ -83,7 +83,7 @@ public class AtribuicaoRequisicaoFuncao extends AjaxFormAction {
 	}
 	
 	/**
-	 * Exclui Tipo Item Configuração e suas características.
+	 * Exclui Tipo Item ConfiguraÃ§Ã£o e suas caracterÃ­sticas.
 	 * 
 	 * @param document
 	 * @param request

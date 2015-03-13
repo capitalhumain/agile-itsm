@@ -62,7 +62,7 @@ public class UploadAjax extends AjaxFormAction {
 					UploadDTO uploadDTO = new UploadDTO();
 					uploadDTO.setDescricao(descUploadFile);
 					uploadDTO.setNameFile(CITCorporeUtil.getNameFile(fi.getName()));
-					uploadDTO.setSituacao("Tempor·rio");
+					uploadDTO.setSituacao("Tempor√°rio");
 					uploadDTO.setTemporario("S");
 					uploadDTO.setPath(CITCorporeUtil.CAMINHO_REAL_APP + "tempUpload/" + uploadDTO.getNameFile());
 

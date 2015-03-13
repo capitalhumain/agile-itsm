@@ -40,7 +40,7 @@ public class PrestacaoContasViagemDao extends CrudDaoDefaultImpl {
 		listFields.add(new Field("iditemtrabalho", "idItemTrabalho", false, false, false, false));
 		listFields.add(new Field("integrantefuncionario", "integranteFuncionario", false, false, false, false));
 		
-		// TODO Este campo esta em desuso, pode ser removido na proxima vers„o
+		// TODO Este campo esta em desuso, pode ser removido na proxima vers√£o
 		listFields.add(new Field("nomenaofuncionario", "nomeNaoFuncionario", false, false, false, false));
 		
 		return listFields;
@@ -86,7 +86,7 @@ public class PrestacaoContasViagemDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	public PrestacaoContasViagemDTO findBySolicitacaoAndNomeNaoFuncionario(Integer idSolicitacaoServico, String nomeNaoFunc) throws PersistenceException {
 		List condicao = new ArrayList();
@@ -100,7 +100,7 @@ public class PrestacaoContasViagemDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	public List findBySolicitacao(Integer idSolicitacaoServico, Integer idEmpregado) throws PersistenceException {
 		List condicao = new ArrayList();
@@ -109,7 +109,7 @@ public class PrestacaoContasViagemDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * Retorna uma lista de prestaÁ„o de contas conforme idsolicitacaoservico passados
+	 * Retorna uma lista de presta√ß√£o de contas conforme idsolicitacaoservico passados
 	 * 
 	 * @param idSolicitacaoServico
 	 * @return
@@ -124,7 +124,7 @@ public class PrestacaoContasViagemDao extends CrudDaoDefaultImpl {
 	
 	
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	public Collection findBySolicitacaoAndTafera(Integer idSolicitacaoServico) throws PersistenceException {
 		List condicao = new ArrayList();
@@ -137,7 +137,7 @@ public class PrestacaoContasViagemDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	public Collection findBySolicitacaoAndConferencia(Integer idSolicitacaoServico) throws PersistenceException {
 		List condicao = new ArrayList();
@@ -150,7 +150,7 @@ public class PrestacaoContasViagemDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * Verifica se a requisiÁ„o esta na etapa de prestaÁ„o de contas
+	 * Verifica se a requisi√ß√£o esta na etapa de presta√ß√£o de contas
 	 * 
 	 * @param requisicaoViagemDto
 	 * @return
@@ -175,7 +175,7 @@ public class PrestacaoContasViagemDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	public boolean isEstadoAutorizacao(RequisicaoViagemDTO requisicaoViagemDto) throws PersistenceException {
 		List result = null;
@@ -196,7 +196,7 @@ public class PrestacaoContasViagemDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	public boolean isViagemRemarcado(RequisicaoViagemDTO requisicaoViagemDto) throws PersistenceException {
 		List result = null;
@@ -215,7 +215,7 @@ public class PrestacaoContasViagemDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	public Collection findByCorrigirAndSolicitacao(Integer idSolicitacaoServico) throws PersistenceException {
 		List condicao = new ArrayList();
@@ -228,7 +228,7 @@ public class PrestacaoContasViagemDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	public Collection findBySolicitacaoEmConferencia(Integer idSolicitacaoServico) throws PersistenceException {
 		List condicao = new ArrayList();
@@ -241,7 +241,7 @@ public class PrestacaoContasViagemDao extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	public PrestacaoContasViagemDTO findBySolicitacaoAndTarefa(Integer idSolicitacaoServico, Integer idTarefa) throws PersistenceException {
 		List condicao = new ArrayList();
@@ -257,7 +257,7 @@ public class PrestacaoContasViagemDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	public PrestacaoContasViagemDTO findNaoAprovados(Integer idSolicitacaoServico, Integer idTarefa) throws PersistenceException {
 		List condicao = new ArrayList();
@@ -274,7 +274,7 @@ public class PrestacaoContasViagemDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * Recupera a prestaÁ„o de contas conforme idtarefa e idsolicitacaoservico passados
+	 * Recupera a presta√ß√£o de contas conforme idtarefa e idsolicitacaoservico passados
 	 * 
 	 * @param idTarefa
 	 * @param idSolicitacaoServico
@@ -297,7 +297,7 @@ public class PrestacaoContasViagemDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	public boolean verificaSeTodasPrestacaoAprovadas(Integer idSolicitacao) throws PersistenceException {
 		IntegranteViagemDao integrantesDao = new IntegranteViagemDao();
@@ -318,7 +318,7 @@ public class PrestacaoContasViagemDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * Retorna uma coleÁ„o de prestaÁ„o de contas que esta na etapa de conferencia
+	 * Retorna uma cole√ß√£o de presta√ß√£o de contas que esta na etapa de conferencia
 	 * 
 	 * @param idSolicitacaoServico
 	 * @return
@@ -335,7 +335,7 @@ public class PrestacaoContasViagemDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	public Collection findBySolicitacaoAndTaferaCorrecao(Integer idSolicitacaoServico) throws PersistenceException {
 		List condicao = new ArrayList();
@@ -348,7 +348,7 @@ public class PrestacaoContasViagemDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	public Collection findBySolicitacaoEmpregadoSeCorrecao(Integer idSolicitacaoServico, Integer idEmpregado) throws PersistenceException {
 		List condicao = new ArrayList();
@@ -361,7 +361,7 @@ public class PrestacaoContasViagemDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * Retorna uma lista de prestaÁ„o de contas conforme idtarefa passados
+	 * Retorna uma lista de presta√ß√£o de contas conforme idtarefa passados
 	 * 
 	 * @param idTarefa
 	 * @return
@@ -376,7 +376,7 @@ public class PrestacaoContasViagemDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * Retorna uma lista de prestaÁ„o de contas conforme idsolicitacaoservico e situacao passados, mas que n„o tenha iditemtrabalho associado a ele
+	 * Retorna uma lista de presta√ß√£o de contas conforme idsolicitacaoservico e situacao passados, mas que n√£o tenha iditemtrabalho associado a ele
 	 * 
 	 * @param idSolicitacaoServico
 	 * @param situacao
@@ -394,7 +394,7 @@ public class PrestacaoContasViagemDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers„o
+	 * TODO Este metodo esta em desuso, pode ser removido na proxima vers√£o
 	 */
 	public Collection findBySituacaoAndNotNull(Integer idSolicitacaoServico, String situacao) throws PersistenceException {
 		List condicao = new ArrayList();
@@ -407,7 +407,7 @@ public class PrestacaoContasViagemDao extends CrudDaoDefaultImpl {
 	}
 	
 	/**
-	 * Retorna uma lista de prestaÁ„o de contas conforme idsolicitacaoservico e situacao passados
+	 * Retorna uma lista de presta√ß√£o de contas conforme idsolicitacaoservico e situacao passados
 	 * 
 	 * @param idSolicitacaoServico
 	 * @param situacao

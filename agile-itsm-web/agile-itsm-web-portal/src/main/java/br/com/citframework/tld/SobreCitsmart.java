@@ -23,7 +23,7 @@ import br.com.citframework.util.Mensagens;
 import br.com.citframework.util.UtilI18N;
 
 /**
- * Imprime as informações relacionadas a versão
+ * Imprime as informaÃ§Ãµes relacionadas a versÃ£o
  *
  * @author flavio.santana
  * @since 23/10/2013
@@ -142,7 +142,7 @@ public class SobreCitsmart extends BodyTagSupport {
 
             stringBuilder.append("	<div id='produto-container'>");
             stringBuilder.append("		<div><a target='_blank' href='http://www.citsmart.com.br'>Citsmart</a></div>");
-            stringBuilder.append("		<div>© 2014 -  " + UtilI18N.internacionaliza((HttpServletRequest) pageContext.getRequest(), "citcorpore.todosDireitosReservados") + "</div>");
+            stringBuilder.append("		<div>Â© 2014 -  " + UtilI18N.internacionaliza((HttpServletRequest) pageContext.getRequest(), "citcorpore.todosDireitosReservados") + "</div>");
             stringBuilder.append("	</div>");
             stringBuilder.append("</form>");
 

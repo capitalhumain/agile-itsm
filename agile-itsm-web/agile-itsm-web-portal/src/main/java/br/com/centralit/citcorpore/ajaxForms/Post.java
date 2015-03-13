@@ -24,7 +24,7 @@ import br.com.citframework.util.UtilDatas;
 import br.com.citframework.util.UtilI18N;
 
 /**
- * @author Fl·vio.santana
+ * @author Fl√°vio.santana
  *
  */
 public class Post extends AjaxFormAction {

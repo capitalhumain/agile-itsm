@@ -107,7 +107,7 @@ public class CITFacadeProcess {
                         parms[i - 1] = request.getParameter("parm" + i);
                     } catch (final Exception e) {
                         // TODO: handle exception
-                        // n„o È para printar pois este tratamento È para o jboss7
+                        // n√£o √© para printar pois este tratamento √© para o jboss7
                     }
 
                     if (parms[i - 1] == null) {

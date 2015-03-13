@@ -42,10 +42,10 @@ public class Internacionalizar extends AjaxFormAction {
     }
 
     /**
-     * Realiza a internacionalização das opções de Sim(S)/Não(N) do sistema
+     * Realiza a internacionalizaÃ§Ã£o das opÃ§Ãµes de Sim(S)/NÃ£o(N) do sistema
      *
      * <p>
-     * Ex: Se o usuário estiver utilizando o sistema com o idioma em inglês, ele deverá entrar com o valor "Y" para Sim e "N" para Não. O sistema deve converter o valor inserido no
+     * Ex: Se o usuÃ¡rio estiver utilizando o sistema com o idioma em inglÃªs, ele deverÃ¡ entrar com o valor "Y" para Sim e "N" para NÃ£o. O sistema deve converter o valor inserido no
      * input para o valor utilizado internamente. Ex: Y = S
      * </p>
      *

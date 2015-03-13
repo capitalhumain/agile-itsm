@@ -1,6 +1,6 @@
 <br.com.centralit.citcorpore.metainfo.bean.VisaoDTO>
   <idVisao>0</idVisao>
-  <descricao>Fluxo Serviço</descricao>
+  <descricao>Fluxo ServiÃ§o</descricao>
   <tipoVisao>ED</tipoVisao>
   <situacao>A</situacao>
   <classeName></classeName>
@@ -8,7 +8,7 @@
   <filha>false</filha>
   <colGrupos class="list">
     <br.com.centralit.citcorpore.metainfo.bean.GrupoVisaoDTO>
-      <descricaoGrupoVisao>Fluxo Serviço</descricaoGrupoVisao>
+      <descricaoGrupoVisao>Fluxo ServiÃ§o</descricaoGrupoVisao>
       <forma>1</forma>
       <ordem>0</ordem>
       <situacao>A</situacao>
@@ -16,7 +16,7 @@
         <br.com.centralit.citcorpore.metainfo.bean.GrupoVisaoCamposNegocioDTO>
           <idGrupoVisao>58</idGrupoVisao>
           <idCamposObjetoNegocio>1920</idCamposObjetoNegocio>
-          <descricaoNegocio>Código do Serviço Contrato</descricaoNegocio>
+          <descricaoNegocio>CÃ³digo do ServiÃ§o Contrato</descricaoNegocio>
           <tipoNegocio>HIDDEN</tipoNegocio>
           <ordem>1</ordem>
           <situacao>A</situacao>
@@ -85,7 +85,7 @@
           <visivel>S</visivel>
           <htmlCode></htmlCode>
           <valoresOpcoes>
-            <string>N#Não</string>
+            <string>N#NÃ£o</string>
             <string>S#Sim</string>
           </valoresOpcoes>
           <colValores class="list">
@@ -93,9 +93,9 @@
               <idValorVisaoCamposNegocio>121</idValorVisaoCamposNegocio>
               <idGrupoVisao>58</idGrupoVisao>
               <idCamposObjetoNegocio>2341</idCamposObjetoNegocio>
-              <valor>N#Não</valor>
+              <valor>N#NÃ£o</valor>
               <situacao>A</situacao>
-              <descricao>Não</descricao>
+              <descricao>NÃ£o</descricao>
             </br.com.centralit.citcorpore.metainfo.bean.ValorVisaoCamposNegocioDTO>
             <br.com.centralit.citcorpore.metainfo.bean.ValorVisaoCamposNegocioDTO>
               <idValorVisaoCamposNegocio>122</idValorVisaoCamposNegocio>

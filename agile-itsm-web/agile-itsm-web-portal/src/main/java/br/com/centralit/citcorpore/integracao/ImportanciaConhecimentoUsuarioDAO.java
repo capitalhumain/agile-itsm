@@ -61,7 +61,7 @@ public class ImportanciaConhecimentoUsuarioDAO extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Deleta ImportanciaConhecimentoUsu·rio da Base de Conhecimento.
+	 * Deleta ImportanciaConhecimentoUsu√°rio da Base de Conhecimento.
 	 * 
 	 * @param idBaseConhecimento
 	 * @throws Exception

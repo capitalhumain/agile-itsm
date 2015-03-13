@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.citframework.dto.Usuario"%>
@@ -5,9 +7,8 @@
 <!doctype html public "">
 <html>
 <head>
-	<%@include file="/include/security/security.jsp" %>
 	<%@include file="/include/header.jsp"%>
-	<title><fmt:message key="citcorpore.comum.title" /></title>
+	<%@include file="/novoLayout/common/include/titulo.jsp" %>
 	<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp" %>
 <script>
 
@@ -55,7 +56,7 @@
 				<fieldset>
 					<label>Raz&atilde;o Social</label>
 						<div>
-						  <input type='text' name="nomeRazaoSocial" maxlength="70" size="70" class="Valid[Required] Description[Razão Social]" />
+						  <input type='text' name="nomeRazaoSocial" maxlength="70" size="70" class="Valid[Required] Description[RazÃ£o Social]" />
 						</div>
 				</fieldset>
 			</div>
@@ -81,7 +82,7 @@
 				<fieldset>
 					<label><span class="campoEsquerda">Situa&ccedil;&atilde;o</span></label>
 						<div>
-						  <select name='situacao' class="Valid[Required] Description[Situação]"></select>
+						  <select name='situacao' class="Valid[Required] Description[SituaÃ§Ã£o]"></select>
 						</div>
 				</fieldset>
 			</div>

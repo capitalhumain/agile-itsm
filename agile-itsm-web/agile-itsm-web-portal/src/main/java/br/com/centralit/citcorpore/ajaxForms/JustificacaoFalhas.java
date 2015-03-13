@@ -58,16 +58,16 @@ public class JustificacaoFalhas extends AjaxFormAction {
         	    if(identificacaoAux == ""){
         		identificacaoAux = o.getIdentificacaoItemConfiguracao();
         		System.out.println("=================FIRST IN ACTION==================");
-        		System.out.println("Identificação: " + o.getIdentificacaoItemConfiguracao());
+        		System.out.println("IdentificaÃ§Ã£o: " + o.getIdentificacaoItemConfiguracao());
         		
         	    }
         	    if(!identificacaoAux.equals(o.getIdentificacaoItemConfiguracao())){			
         		System.out.println("---------------------------------------------");
-        		System.out.println("Identificação: " + o.getIdentificacaoItemConfiguracao());
+        		System.out.println("IdentificaÃ§Ã£o: " + o.getIdentificacaoItemConfiguracao());
         		identificacaoAux = o.getIdentificacaoItemConfiguracao();
         		
         	    }
-        	    System.out.println("Descrição do Falha: " + o.getDescricaoTentativa());
+        	    System.out.println("DescriÃ§Ã£o do Falha: " + o.getDescricaoTentativa());
         	}
 	}*/	    	
 	justificacao.setListaItensSerializado(WebUtil.serializeObjects(resultados, WebUtil.getLanguage(request)));

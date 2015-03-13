@@ -18,7 +18,8 @@ public class ItemPedidoPortalDAO extends CrudDaoDefaultImpl{
 	public ItemPedidoPortalDAO() {
 		super(Constantes.getValue("DATABASE_ALIAS"), null);
 	}
-
+
+
 
 	@Override
 	public Collection find(BaseEntity obj) throws PersistenceException {

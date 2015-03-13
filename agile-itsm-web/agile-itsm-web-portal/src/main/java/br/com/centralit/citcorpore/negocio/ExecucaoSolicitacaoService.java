@@ -47,7 +47,7 @@ public interface ExecucaoSolicitacaoService extends ExecucaoFluxoService {
 	public Integer totalPaginas(Integer itensPorPagina, String login) throws Exception;
 
 	/**
-	 * Retorna o Total de P·ginas de acordo com o Login do Usu·rio, os Filtros e a Lista de Contratos que o Usu·rio Logado est· associado.
+	 * Retorna o Total de P√°ginas de acordo com o Login do Usu√°rio, os Filtros e a Lista de Contratos que o Usu√°rio Logado est√° associado.
 	 *
 	 * @param itensPorPagina
 	 * @param loginUsuario
@@ -62,7 +62,7 @@ public interface ExecucaoSolicitacaoService extends ExecucaoFluxoService {
 			throws Exception;
 
 	/**
-	 * Consulta utilizada para a RENDERIZA«√O da LISTAGEM SOLICITACAO SERVI«O. Retorna a Lista de TarefaDTO com SolicitacaoServidoDTO de acordo com o Login e a Lista de Contratos do Usu·rio Logado.
+	 * Consulta utilizada para a RENDERIZA√á√ÉO da LISTAGEM SOLICITACAO SERVI√áO. Retorna a Lista de TarefaDTO com SolicitacaoServidoDTO de acordo com o Login e a Lista de Contratos do Usu√°rio Logado.
 	 *
 	 * @param pgAtual
 	 * @param qtdAPaginacao
@@ -78,7 +78,7 @@ public interface ExecucaoSolicitacaoService extends ExecucaoFluxoService {
 			throws Exception;
 
 	/**
-	 * Utilizado para a RENDERIZA«√O do GR¡FICO, pois no Gr·fico n„o È necess·rio a utilizaÁ„o de PaginaÁ„o. Esta consulta considera o Login do Usu·rio Logado e os Contratos em que est· inserido.
+	 * Utilizado para a RENDERIZA√á√ÉO do GR√ÅFICO, pois no Gr√°fico n√£o √© necess√°rio a utiliza√ß√£o de Pagina√ß√£o. Esta consulta considera o Login do Usu√°rio Logado e os Contratos em que est√° inserido.
 	 *
 	 * @param loginUsuario
 	 * @param gerenciamentoBean
@@ -92,29 +92,29 @@ public interface ExecucaoSolicitacaoService extends ExecucaoFluxoService {
 	public ExecucaoSolicitacaoDTO findByIdInstanciaFluxo(Integer idInstanciaFluxo) throws Exception;
 
 	/**
-	 * Atualiza a Lista de Tarefas do Usu·rio Logado e retorna o n˙mero total de p·ginas de acordo com a quantidade de itens a serem exibidos na listagem.
+	 * Atualiza a Lista de Tarefas do Usu√°rio Logado e retorna o n√∫mero total de p√°ginas de acordo com a quantidade de itens a serem exibidos na listagem.
 	 *
 	 * @param usuarioLogado
-	 *            - Usu·rio logado.
+	 *            - Usu√°rio logado.
 	 * @param gerenciamentoServicosDTO
 	 *            - DTO de GerenciamentoServicos.
-	 * @return Integer - Quantidade total de p·ginas.
+	 * @return Integer - Quantidade total de p√°ginas.
 	 * @throws Exception
 	 * @author valdoilo.damasceno
-	 * @since 27.01.2014 - OperaÁ„o Usain Bolt
+	 * @since 27.01.2014 - Opera√ß√£o Usain Bolt
 	 */
 	public Integer atualizarListaTarefasAndReturnTotalPaginas(UsuarioDTO usuarioLogado, GerenciamentoServicosDTO gerenciamentoServicosDTO, Pageable pageable) throws Exception;
 
 	/**
-	 * Consulta utilizada para a RENDERIZA«√O da LISTAGEM SOLICITACAO SERVI«O. Retorna a Lista de TarefaDTO com SolicitacaoServidoDTO de acordo com po aramRecuperacaoTarefasDto.
+	 * Consulta utilizada para a RENDERIZA√á√ÉO da LISTAGEM SOLICITACAO SERVI√áO. Retorna a Lista de TarefaDTO com SolicitacaoServidoDTO de acordo com po aramRecuperacaoTarefasDto.
 	 *
 	 * @param paramRecuperacaoTarefasDto
 	 * @param pageable
-     *            - informaÁ„o para paginaÁ„o
+     *            - informa√ß√£o para pagina√ß√£o
 	 * @return List<TarefaFluxoDTO - Com SolicitacaoServicoDTO recuperados.
 	 * @throws Exception
 	 * @author carlos.santos
-	 * @since 27.01.2015 - OperaÁ„o Usain Bolt.
+	 * @since 27.01.2015 - Opera√ß√£o Usain Bolt.
 	 */
 	public Page<TarefaFluxoDTO> recuperaTarefas(ParamRecuperacaoTarefasDTO paramRecuperacaoTarefasDto, Pageable pageable) throws Exception;
 }

@@ -164,19 +164,19 @@ FormatUtils.formataCampo2 = function(objeto, sMask, evtKeyPress) {
 	}
 }
 FormatUtils.bloqueiaNaoNumerico = function(evt) {
-	var bReturn = true; //padr„o È true
+	var bReturn = true; //padr√£o √© true
     var e = evt || window.event; //evento
-    var element = $(e.target); //elemento do input que est· sendo digitado
+    var element = $(e.target); //elemento do input que est√° sendo digitado
     var key = e.keyCode || e.which; //chave da tecla que foi digitada
     var allowed = [48,49,50,51,52,53,54,55,56,57,96,97,98,99,100,101,102,103,104,105,8,9,13,35,36,37,39,46,45]; //chaves permitidas (0123456789, backspace, delete, home, end, tab, etc..)
 
     if ($.inArray(key, allowed) === -1 || (evt.shiftKey == true || evt.altKey == true || evt.ctrlKey == true)) { 
-    	//se n„o estiver entre as chaves permitidas ou o shift, alt, ctrl estiver digitado, n„o permite o caracter
+    	//se n√£o estiver entre as chaves permitidas ou o shift, alt, ctrl estiver digitado, n√£o permite o caracter
         
     	e.returnValue = false;
         if (e.preventDefault) e.preventDefault(); 
     }
-    element.val(element.val().replace(/[^0-9]+/g, '')); //garante que o valor digitado (n„o permitido) n„o entrou no input
+    element.val(element.val().replace(/[^0-9]+/g, '')); //garante que o valor digitado (n√£o permitido) n√£o entrou no input
 	
 	return bReturn;
 }

@@ -16,7 +16,7 @@ import br.com.centralit.citcorpore.util.Enumerados.SituacaoSolicitacaoServicoNaR
 import br.com.citframework.util.UtilI18N;
 
 /**
- * Controlador para visualização de histórico de atendimento
+ * Controlador para visualizaÃ§Ã£o de histÃ³rico de atendimento
  *
  * @author bruno.ribeiro - <a href="mailto:bruno.ribeiro@centrait.com.br">bruno.ribeiro@centrait.com.br</a>
  * @since 06/10/2014

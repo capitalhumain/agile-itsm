@@ -39,10 +39,10 @@ import br.com.citframework.util.WebUtil;
 @SuppressWarnings("rawtypes")
 public class ItemConfiguracao extends AjaxFormAction {
 
-    /** Bean de Base Item ConfiguraÁ„o. */
+    /** Bean de Base Item Configura√ß√£o. */
     private ItemConfiguracaoDTO itemConfiguracaoBean;
 
-    /** Bean de Tipo Item ConfiguraÁ„o. */
+    /** Bean de Tipo Item Configura√ß√£o. */
     private TipoItemConfiguracaoDTO tipoItemConfiguracaoBean = new TipoItemConfiguracaoDTO();
 
     /** Bean de Usuario */
@@ -74,7 +74,7 @@ public class ItemConfiguracao extends AjaxFormAction {
     }
 
     /**
-     * Inclui Novo Item de ConfiguraÁ„o na Base.
+     * Inclui Novo Item de Configura√ß√£o na Base.
      *
      * @param document
      * @param request
@@ -91,7 +91,7 @@ public class ItemConfiguracao extends AjaxFormAction {
 
         setItemConfiguracaoBean((BaseEntity) document.getBean());
         /**
-         * Checa qual tipo de respons·vel para gravar no banco o ID correspondente
+         * Checa qual tipo de respons√°vel para gravar no banco o ID correspondente
          *
          * @author thyen.chang
          */
@@ -131,7 +131,7 @@ public class ItemConfiguracao extends AjaxFormAction {
             document.executeScript("parent.JANELA_AGUARDE_MENU.hide()");
 
         } else {
-            /* Verificando se as mÌdias est„o esgotadas */
+            /* Verificando se as m√≠dias est√£o esgotadas */
             if (getItemConfiguracaoBean().getIdMidiaSoftware() != null) {
                 MidiaSoftwareDTO midia = new MidiaSoftwareDTO();
                 midia.setIdMidiaSoftware(getItemConfiguracaoBean().getIdMidiaSoftware());
@@ -234,7 +234,7 @@ public class ItemConfiguracao extends AjaxFormAction {
     }
 
     /**
-     * Restaura o Tipo de Item ConfiguraÁ„o e carrega a Grid de CaracterÌsticas
+     * Restaura o Tipo de Item Configura√ß√£o e carrega a Grid de Caracter√≠sticas
      * Ativas.
      *
      * @param document
@@ -248,7 +248,7 @@ public class ItemConfiguracao extends AjaxFormAction {
     }
 
     /**
-     * Restaura o Tipo de Item ConfiguraÁ„o e carrega a Grid de CaracterÌsticas
+     * Restaura o Tipo de Item Configura√ß√£o e carrega a Grid de Caracter√≠sticas
      * Ativas.
      *
      * @param document
@@ -271,7 +271,7 @@ public class ItemConfiguracao extends AjaxFormAction {
         getTipoItemConfiguracaoBean().setId(getItemConfiguracaoBean().getIdTipoItemConfiguracao());
         setTipoItemConfiguracaoBean(getTipoItemConfiguracaoService().restore(getTipoItemConfiguracaoBean()));
         /**
-         * Valida se o campo È diferente de null
+         * Valida se o campo √© diferente de null
          *
          * @author flavio.santana
          *         25/10/2013 11:40
@@ -345,7 +345,7 @@ public class ItemConfiguracao extends AjaxFormAction {
      * @param response
      * @throws Exception
      *             Metodo colocar status Data fim quando for solicitado a
-     *             exclus„o do ItemConfiguracao.
+     *             exclus√£o do ItemConfiguracao.
      * @author thays.araujo
      */
 
@@ -435,7 +435,7 @@ public class ItemConfiguracao extends AjaxFormAction {
     }
 
     /**
-     * Retorna Bean Tipo Item ConfiguraÁ„o.
+     * Retorna Bean Tipo Item Configura√ß√£o.
      *
      * @return TipoItemConfiguracaoDTO
      * @author thays.araujo
@@ -475,7 +475,7 @@ public class ItemConfiguracao extends AjaxFormAction {
     }
 
     /**
-     * Configura Tipo Item ConfiguraÁ„o.
+     * Configura Tipo Item Configura√ß√£o.
      *
      * @param tipoItemConfiguracao
      * @author thays.araujo

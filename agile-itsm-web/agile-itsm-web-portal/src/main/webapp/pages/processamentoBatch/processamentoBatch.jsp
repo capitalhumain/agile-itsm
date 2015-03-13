@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@page import="br.com.centralit.citcorpore.util.CitCorporeConstantes"%>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
@@ -150,7 +152,7 @@
 		<div class="modal hide fade" id="modal_Execucoes" tabindex="-1" data-backdrop="static" data-keyboard="false">
 			<!-- Modal heading -->
 			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">×</button>
+				<button type="button" class="close" data-dismiss="modal">Ã—</button>
 				<h3><fmt:message key="processamento.ultimasExecucoes" /></h3>
 			</div>
 			<!-- // Modal heading END -->

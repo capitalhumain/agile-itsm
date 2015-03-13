@@ -21,7 +21,7 @@ import br.com.citframework.service.ServiceLocator;
 import br.com.citframework.util.Constantes;
 
 /*
- * Desenvolvedor: Euler Data: 28/10/2013 Horário: 09h45min ID Citsmart: 120393 Motivo/Comentário: Eliminar mensagem de
+ * Desenvolvedor: Euler Data: 28/10/2013 HorÃ¡rio: 09h45min ID Citsmart: 120393 Motivo/ComentÃ¡rio: Eliminar mensagem de
  * erro antes de carregar a tela
  */
 @SuppressWarnings("rawtypes")
@@ -31,7 +31,7 @@ public class CargaUsuarioAd extends AjaxFormAction {
     public void load(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
         UsuarioDTO usuario = WebUtil.getUsuario(request);
         if (usuario == null) {
-            document.alert("Sessão expirada! Favor efetuar logon novamente!");
+            document.alert("SessÃ£o expirada! Favor efetuar logon novamente!");
             document.executeScript("window.location = '" + Constantes.getValue("SERVER_ADDRESS")
                     + request.getContextPath() + "'");
             return;
@@ -69,7 +69,7 @@ public class CargaUsuarioAd extends AjaxFormAction {
 
                     String extensao = br.com.centralit.citcorpore.util.Util.getFileExtension(fi.getName());
                     if (!extensao.equalsIgnoreCase("csv")) {
-                        document.alert("Arquivo inválido. Importar arquivo.csv");
+                        document.alert("Arquivo invÃ¡lido. Importar arquivo.csv");
                         document.executeScript("JANELA_AGUARDE_MENU.hide();");
                         return;
                     }
@@ -88,14 +88,14 @@ public class CargaUsuarioAd extends AjaxFormAction {
 
                 Thread.sleep(5000);
 
-                System.out.println(">>> Carga de Usuários e Empregados Iniciada..." + CITCorporeUtil.CAMINHO_REAL_APP
+                System.out.println(">>> Carga de UsuÃ¡rios e Empregados Iniciada..." + CITCorporeUtil.CAMINHO_REAL_APP
                         + "tempFiles/" + fileName);
 
                 arquivo = new File(CITCorporeUtil.CAMINHO_REAL_APP + "tempFiles/" + fileName);
 
                 usuarioService.gerarCarga(arquivo);
 
-                document.alert("Carga de Usuários e Empregados realizada com sucesso!");
+                document.alert("Carga de UsuÃ¡rios e Empregados realizada com sucesso!");
             }
             document.executeScript("JANELA_AGUARDE_MENU.hide();");
         }

@@ -102,7 +102,7 @@ public class Tarefa extends ItemTrabalho {
 			TarefaFluxoDao tarefaFluxoDao = new TarefaFluxoDao();
 			setTransacaoDao(tarefaFluxoDao);
 			/*
-			 * Removido: o respons·vel atual continua o mesmo
+			 * Removido: o respons√°vel atual continua o mesmo
 			 */
 			//itemTrabalhoDto.setIdResponsavelAtual(responsavel.getIdUsuario());
 			itemTrabalhoDto.setSituacao(SituacaoItemTrabalho.Disponivel.name());

@@ -12,7 +12,8 @@ import br.com.citframework.integracao.Field;
 import br.com.citframework.util.Constantes;
 
 public class CategoriaGaleriaImagemDao extends CrudDaoDefaultImpl {
-
+
+
 
 	public CategoriaGaleriaImagemDao() {
 		super(Constantes.getValue("DATABASE_ALIAS"), null);
@@ -49,7 +50,7 @@ public class CategoriaGaleriaImagemDao extends CrudDaoDefaultImpl {
 	}
 
 	/**
-	 * Retorna lista de status de usu·rio.
+	 * Retorna lista de status de usu√°rio.
 	 *
 	 * @param obj
 	 * @return

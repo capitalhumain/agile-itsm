@@ -27,7 +27,7 @@ public class ConsultaMeuTimeSheet extends AjaxFormAction {
 	public void load(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		UsuarioDTO usuario = WebUtil.getUsuario(request);
 		if (usuario == null){
-			document.alert("Sess„o expirada! Favor efetuar logon novamente!");
+			document.alert("Sess√£o expirada! Favor efetuar logon novamente!");
 			document.executeScript("window.location = '" + Constantes.getValue("SERVER_ADDRESS") + request.getContextPath() + "'");
 			return;
 		}		
@@ -39,7 +39,7 @@ public class ConsultaMeuTimeSheet extends AjaxFormAction {
 		
 		UsuarioDTO usuario = WebUtil.getUsuario(request);
 		if (usuario == null){
-			document.alert("Sess„o expirada! Favor efetuar logon novamente!");
+			document.alert("Sess√£o expirada! Favor efetuar logon novamente!");
 			document.executeScript("window.location = '" + request.getContextPath() + "'");
 			return;
 		}		
@@ -68,7 +68,7 @@ public class ConsultaMeuTimeSheet extends AjaxFormAction {
 			tblMeuTimeSheet.addRowsByCollection(colAux, 
 					new String[] {"dataStrDet", "nomeProjeto", "detalhamentoDemanda", "detalhamento", "qtdeHorasStr2"}, 
 					null, 
-					"J· existe registrado esta demanda na tabela", 
+					"J√° existe registrado esta demanda na tabela", 
 					null, 
 					null, 
 					null);
@@ -95,7 +95,7 @@ public class ConsultaMeuTimeSheet extends AjaxFormAction {
 		tblMeuTimeSheet.addRow(timeSheetBean, 
 				new String[] {"dataStr", "nomeCliente", "nomeProjeto", "detalhamentoDemanda", "qtdeHorasStr"}, 
 				null, 
-				"J· existe registrado esta demanda na tabela", 
+				"J√° existe registrado esta demanda na tabela", 
 				new String[] {"ExecutaInsercaoTabela"}, 
 				null, 
 				null);
@@ -108,7 +108,7 @@ public class ConsultaMeuTimeSheet extends AjaxFormAction {
 		Collection colRet = new ArrayList();
 		for(Iterator it = col.iterator(); it.hasNext();){
 			TimeSheetDTO timeSheet = (TimeSheetDTO)it.next();
-			//Por incrivel que pareÁa a simples comparaÁ„o de datas n„o funciona, por isto foi colocado a comparaÁ„o de strings
+			//Por incrivel que pare√ßa a simples compara√ß√£o de datas n√£o funciona, por isto foi colocado a compara√ß√£o de strings
 			if (UtilDatas.dateToSTR(timeSheet.getData()).equalsIgnoreCase(UtilDatas.dateToSTR(d))){
 				colRet.add(timeSheet);
 			}
@@ -121,8 +121,8 @@ public class ConsultaMeuTimeSheet extends AjaxFormAction {
 		if (UtilDatas.verificaDiaUtil(d)){
 			TimeSheetDTO timeSheet = new TimeSheetDTO(); 
 			timeSheet.setData(d);
-			timeSheet.setNomeCliente(JavaScriptUtil.escapeJavaScript(UtilHTML.encodeHTML("<font color='red'><b>N„o h· registro de timesheet</b></font>")));
-			timeSheet.setNomeProjeto(JavaScriptUtil.escapeJavaScript(UtilHTML.encodeHTML("<font color='red'><b>N„o h· registro de timesheet</b></font>")));
+			timeSheet.setNomeCliente(JavaScriptUtil.escapeJavaScript(UtilHTML.encodeHTML("<font color='red'><b>N√£o h√° registro de timesheet</b></font>")));
+			timeSheet.setNomeProjeto(JavaScriptUtil.escapeJavaScript(UtilHTML.encodeHTML("<font color='red'><b>N√£o h√° registro de timesheet</b></font>")));
 			timeSheet.setQtdeHoras(new Double(0));
 			colRet.add(timeSheet);
 			

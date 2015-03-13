@@ -42,11 +42,11 @@ public class Host {
 	}
 
 	/**
-	 * Adiciona um novo serviÁo ao host.
+	 * Adiciona um novo servi√ßo ao host.
 	 * 
 	 * @param serviceName
-	 *            Nome do serviÁo.
-	 * @return Service - ServiÁo.
+	 *            Nome do servi√ßo.
+	 * @return Service - Servi√ßo.
 	 */
 	Service addAndOrFindService(String serviceName) {
 		for (Service currentService : services) {
@@ -95,9 +95,9 @@ public class Host {
 	 * Adiciona um novo ParameterEntry (Parametro/Valor) ao Host.
 	 * 
 	 * @param hostParameterName
-	 *            Nome do par‚metro do host.
+	 *            Nome do par√¢metro do host.
 	 * @param hostParameterValue
-	 *            Valor do par‚metro do host.
+	 *            Valor do par√¢metro do host.
 	 * @return ParameterEntry - Parametro/Valor.
 	 */
 	public ParameterEntry addParameter(String hostParameterName, String hostParameterValue) {

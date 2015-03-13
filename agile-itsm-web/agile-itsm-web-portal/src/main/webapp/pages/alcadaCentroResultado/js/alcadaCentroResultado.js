@@ -86,7 +86,7 @@
 				});
 			}
 
-			// FUNÇÕES PARA ABERTURA DA PÁGINA DE CADASTRO DE OUTRAS ENTIDADES
+			// FUNÇÕES PARA ABERTURA DA PÁGINA DE CADASTRO DE OUTRAS ENTIDADES
 
 			function abrirPopupCadastroCentroResultado() {
 				popupCadastroCentroResultado.abrePopupParms("centroResultado", "");

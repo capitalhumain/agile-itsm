@@ -38,13 +38,13 @@ public class LeitorHTML {
         final HTMLParseLister h = process(nomeArquivo, debugParser);
 
         if (debugParser) {
-            System.out.println(">>>> LeitorHTML:: TEXTO EXTRAÕDO: " + h.getStrBuffTextData().toString());
+            System.out.println(">>>> LeitorHTML:: TEXTO EXTRA√ç¬çDO: " + h.getStrBuffTextData().toString());
         }
         return h.getStrBuffTextData();
     }
 
     /**
-     * Obtem uma coleÁ„o de elementos string - nao formatado de um arquivo HTML (sem as tags).
+     * Obtem uma cole√ß√£o de elementos string - nao formatado de um arquivo HTML (sem as tags).
      *
      * @param nomeArquivo
      * @param debugParser
@@ -59,7 +59,7 @@ public class LeitorHTML {
                 int i = 0;
                 for (final Iterator it = h.getColBuffTextData().iterator(); it.hasNext();) {
                     final String element = (String) it.next();
-                    System.out.println(">>>> LeitorHTML:: TEXTO EXTRAÕDO (" + i + "): " + element);
+                    System.out.println(">>>> LeitorHTML:: TEXTO EXTRA√çDO (" + i + "): " + element);
                     i++;
                 }
             }
