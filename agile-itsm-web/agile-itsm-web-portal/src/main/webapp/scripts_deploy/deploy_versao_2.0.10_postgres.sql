@@ -463,25 +463,6 @@ create table formapagamento(
 
 -- Fim Geber
 
--- Início Ronnie 24/07/13
-
-create table tipomovimfinanceiraviagem (
-  idtipomovimfinanceiraviagem integer not null,
-  nome varchar(100) not null,
-  descricao text,
-  classificacao varchar(30) not null,
-  situacao char(1) not null,
-  permiteadiantamento char(1) not null,
-  exigeprestacaoconta char(1) not null,
-  exigejustificativa char(1) not null,
-  valorpadrao decimal(8,2),
-  tipo char(1) not null
-);
-
-alter table tipomovimfinanceiraviagem add constraint tipomovimfinanceiraviagem_pkey primary key (idtipomovimfinanceiraviagem);
-
--- Fim Ronnie
-
 -- Início Geber 24/07/13
 
 alter table justificativasolicitacao add column viagem char(1);
@@ -491,47 +472,6 @@ alter table justificativasolicitacao add column viagem char(1);
 -- Início Thays 29/07/13
 
 update justificativasolicitacao set viagem = 'n' where idjustificativa > 0;
-
-create table requisicaoviagem (
-   idsolicitacaoservico bigint not null,
-   idcidadeorigem integer not null,
-   idcidadedestino integer not null,
-   idprojeto integer not null,
-   idcentrocusto integer not null,
-   idmotivoviagem integer not null,
-   idaprovacao integer,
-   descricaomotivo text not null,
-   datainicio date not null,
-   datafim date not null,
-   qtdedias integer not null,
-   estado varchar(30) not null
-);
-
-alter table requisicaoviagem add constraint requisicaoviagem_pkey primary key (idsolicitacaoservico);
-
-alter table requisicaoviagem add constraint fk_requisicaoviagem_reference_solicitacaoservico foreign key (idsolicitacaoservico) references solicitacaoservico (idsolicitacaoservico);
-
-alter table requisicaoviagem add constraint fk_requisicaoviagem_reference_cidadeorigem foreign key (idcidadeorigem) references cidades (idcidade);
-
-alter table requisicaoviagem add constraint fk_requisicaoviagem_reference_cidadedestino foreign key (idcidadedestino) references cidades (idcidade);
-
-alter table requisicaoviagem add constraint fk_requisicaoviagem_reference_centroresultado foreign key (idcentrocusto) references centroresultado (idcentroresultado);
-
-alter table requisicaoviagem add constraint fk_requisicaoviagem_reference_projetos foreign key (idprojeto) references projetos (idprojeto);
-
-alter table requisicaoviagem add constraint fk_requisicaoviagem_reference_justificativasolicitacao foreign key (idmotivoviagem) references justificativasolicitacao (idjustificativa);
-
-alter table requisicaoviagem add constraint fk_requisicaoviagem_reference_parecer foreign key (idaprovacao) references parecer (idparecer);
-
-create table integranteviagem (
-   idsolicitacaoservico bigint not null,
-   idempregado integer not null,
-   primary key (idsolicitacaoservico, idempregado)
-);
-
-alter table integranteviagem add constraint fk_integranteviagem_reference_solicitacaoservico foreign key (idsolicitacaoservico) references requisicaoviagem (idsolicitacaoservico);
-
-alter table integranteviagem add constraint fk_integranteviagem_reference_empregados foreign key (idempregado) references empregados (idempregado);
 
 -- Fim Thays
 

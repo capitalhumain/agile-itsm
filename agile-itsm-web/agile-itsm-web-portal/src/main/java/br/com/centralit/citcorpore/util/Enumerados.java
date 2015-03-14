@@ -615,7 +615,7 @@ public class Enumerados implements Serializable {
         }
 
         public String getSigla() {
-            return name();
+            return this.name();
         }
 
     }
@@ -1489,65 +1489,6 @@ public class Enumerados implements Serializable {
 
         public String getDescricao() {
             return descricao;
-        }
-
-    }
-
-    /**
-     * Enumerados do tipo de movimentação financeira do módulo de viagens.
-     *
-     * @author ronnie.lopes
-     */
-    public enum TipoMovFinViagem {
-
-        D("requisicaoViagem.itemReferente", 1),
-        R("requisicaoViagem.ressarcimento", 2);
-
-        private final String descricao;
-        private final Integer id;
-
-        private TipoMovFinViagem(final String descricao, final Integer id) {
-            this.descricao = descricao;
-            this.id = id;
-        }
-
-        public String getDescricao() {
-            return descricao;
-        }
-
-        public Integer getId() {
-            return id;
-        }
-
-    }
-
-    /**
-     * Enumerados da classificação de movimentação financeira do módulo de viagens.
-     *
-     * @author ronnie.lopes
-     */
-    public enum ClassificacaoMovFinViagem {
-
-        Passagem("Passagem", 1),
-        Hospedagem("Hospedagem", 2),
-        LocacaoVeiculo("Locação Veículo", 3),
-        Diaria("Diária", 4),
-        DespesaExtra("Despesa Extra", 5);
-
-        private final String descricao;
-        private final Integer id;
-
-        private ClassificacaoMovFinViagem(final String descricao, final Integer id) {
-            this.descricao = descricao;
-            this.id = id;
-        }
-
-        public String getDescricao() {
-            return descricao;
-        }
-
-        public Integer getId() {
-            return id;
         }
 
     }

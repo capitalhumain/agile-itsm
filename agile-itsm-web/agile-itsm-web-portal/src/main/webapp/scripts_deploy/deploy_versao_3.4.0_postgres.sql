@@ -89,68 +89,6 @@ PRIMARY KEY (idatribuicao)
 -- FIM -Bruno Aquino
 
 -- INICIO GILBERTO TAVARES DE FRANCO NERY (08/04/2010)
-
-CREATE  TABLE integranteviagem (
-idintegranteviagem integer NOT NULL ,
-idsolicitacaoservico bigint NOT NULL ,
-idempregado integer NULL ,
-idrespprestacaocontas integer NULL,
-integrantefuncionario VARCHAR(1) NULL ,
-nomenaofuncionario VARCHAR(255) NULL ,
-PRIMARY KEY (idintegranteviagem)
-);
-
-ALTER TABLE integranteviagem ADD CONSTRAINT rel_integranteviagem_solserv FOREIGN KEY ( idsolicitacaoservico ) REFERENCES solicitacaoservico ( idsolicitacaoservico )  ON DELETE NO ACTION ON UPDATE NO ACTION;
-ALTER TABLE integranteviagem ADD CONSTRAINT rel_integranteviagem_empregado FOREIGN KEY ( idempregado ) REFERENCES empregados ( idempregado )  ON DELETE NO ACTION ON UPDATE NO ACTION;
-
-ALTER TABLE itemcontrolefinanceiroviagem ADD nomenaofuncionario varchar(255) NULL;
-
-alter table adiantamentoviagem ADD integrantefuncionario varchar(1) NULL;
-alter table adiantamentoviagem ADD nomenaofuncionario varchar(255) NULL;
-
-alter table prestacaocontasviagem ADD integrantefuncionario varchar(1) NULL;
-alter table prestacaocontasviagem ADD nomenaofuncionario varchar(255) NULL;
-
-alter table requisicaoviagem ADD remarcacao char(1) NULL;
-
-ALTER TABLE integranteviagem ADD remarcacao VARCHAR(1) NULL;
-
-create table histitemcontrolefinanceiroviagem (
-                idhistitemcontrolefinanceiroviagem bigint not null,
-                iditemcontrolefinanceiroviagem bigint not null,
-                idcontrolefinanceiroviagem bigint default null,
-                idformapagamento int default null,
-                idadiantamentoviagem bigint default null,
-                idfornecedor bigint default null,
-                idjustificativa int default null,
-                idsolicitacaoservico bigint default null,
-                idempregado int(11) default null,
-                idtipomovimfinanceiraviagem int(11) default null,
-                complementojustificativa text default null,
-                quantidade numeric(8,2) default null,
-                valorunitario decimal(8,2) default null,
-                valoradiantamento decimal(8,2) default null,
-                tipopassagem varchar(20) default null,
-                localizador varchar(50) default null,
-                assento varchar(20) default null,
-                situacao varchar(20) default null,
-                datafim DATE NULL DEFAULT NULL,
-                prazocotacao DATE NULL DEFAULT NULL,
-                observacao TEXT NULL,
-                dataexecucao TIMESTAMP NULL DEFAULT NULL,
-                datahoraprazocotacao TIMESTAMP NULL DEFAULT NULL,
-                dataalteracao TIMESTAMP NULL,
-                idintegranteviagem int(11),
-                idusuarioalteracao int(11),
-                nomenaofuncionario varchar(255) NULL
-
-);
-
-alter table "itemcontrolefinanceiroviagem"
-   drop constraint fk_itemcontrolefinaceiroviagem_controlefinanceiroviagem;
-
-ALTER TABLE itemcontrolefinanceiroviagem DROP INDEX fk_itemcontrolefinaceiroviagem_fornecedor ;
-
 alter table rh_funcionario ADD idempregado integer NULL;
 
 alter table rh_cargahoraria drop column entrada;
@@ -167,19 +105,11 @@ values ('1', '1', 'S', 'J', 'importar funcionario - rh_funcionario', 'var import
 ('5', '1', 'S', 'J', 'Jornada', 'var importNames = JavaImporter();\n \nimportNames.importPackage(java.sql);\nimportNames.importPackage(java.util);\nimportNames.importPackage(Packages.br.com.citframework.integracao);\nimportNames.importPackage(Packages.br.com.centralit.citcorpore.bean);\n \njava.lang.Class.forName(driver);\n \nvar conn = java.sql.DriverManager.getConnection(url, user, password);\n  \nvar stmt = conn.createStatement();\n \n//Limpa a tabela\nvar sql = \"delete from rh_jornadadetrabalho where idjornada >= 0\";\nvar objs =  new Array(); \n\njdbcEngine.execUpdate(sql, objs);\n \nvar rs;\nvar meta;\nvar idJornada = 1;\n \n	//Tabela vazia, popula a tabela com todos os dados\n \n 	sql = \"select CODCARGAHOR, DESCRCARGAHOR, ESCALONAR, CONSIDERAFERIADOS from \" +  schema + \".[TFPCGH]\";\n \n 	rs = stmt.executeQuery(sql);\n 	meta = rs.getMetaData();\n \n 	while(rs.next()) {\n \n 		objs = new Array();\n \n 		objs[0] = idJornada;\n 		\n 		for(var i = 1; i <= meta.getColumnCount(); i++) {\n 			objs[i] = rs.getObject(i);\n 		}\n \n 		sql = \"insert into rh_jornadadetrabalho (idjornada, codcargahor, descricao, escala, considerarferiados) values (?,?,?,?,?) \";\n \n		//Inserir registro\n 		jdbcEngine.execUpdate(sql, objs);\n 		\n 		idJornada += 1;\n \n 	}\n \n //Fecha conexão\n rs.close();\n stmt.close();\n conn.close();', 'S', 'H', '02:00', '20', NULL, NULL, NULL, ''),
 ('6', '1', 'S', 'J', 'Importar Parceiro', 'var importNames = JavaImporter();\n \nimportNames.importPackage(java.sql);\nimportNames.importPackage(java.util);\nimportNames.importPackage(Packages.br.com.citframework.integracao);\nimportNames.importPackage(Packages.br.com.centralit.citcorpore.bean);\n \njava.lang.Class.forName(driver);\n \nvar conn = java.sql.DriverManager.getConnection(url, user, password);\n  \nvar stmt = conn.createStatement();\n \nvar sql = \"select idparceiro from rh_parceiro where idparceiro >= ?\";\n \nvar objs =  new Array();\nobjs[0]= 1;\n \nvar objs2;\n \nvar parcs = jdbcEngine.execSQL(sql, objs, 0);\n \nvar rs;\nvar meta;\nvar aux;\nvar idParc = 1;\n \n//Valida se a tabela esta vazia\nif(parcs == null || parcs.isEmpty()){\n \n	//Tabela vazia, popula a tabela com todos os dados\n \n 	sql = \"SELECT CODPARC, NOMEPARC, RAZAOSOCIAL, TIPPESSOA, DTALTER, ATIVO, SITUACAO, FORNECEDOR from \" +  schema + \".TGFPAR WHERE FORNECEDOR = ''S'' order by CODPARC;\";\n \n 	rs = stmt.executeQuery(sql);\n 	meta = rs.getMetaData();\n \n 	while(rs.next()) {\n \n 		objs = new Array();\n \n 		for(var i = 1; i <= meta.getColumnCount(); i++) {\n			\n			if(i == 1)\n				objs[i-1] = rs.getObject(i);\n 			else\n 				objs[i-1] = new String(rs.getObject(i).toString()).replace(/^\\s+|\\s+$/g,\"\");\n 		}\n \n 		sql = \"insert into rh_parceiro (idparceiro, nome, razaosocial, tipopessoa, dataalteracao, ativo, situacao, fornecedor) values (?,?,?,?,?,?,?,?) \";\n \n		//Inserir registro\n 		jdbcEngine.execUpdate(sql, objs);\n 		\n 	}\n \n } else {\n \n	//Tabela ja contem dados, realiza update\n\n 	sql = \"SELECT NOMEPARC, RAZAOSOCIAL, TIPPESSOA, DTALTER, ATIVO, SITUACAO, FORNECEDOR, CODPARC from \" +  schema + \".TGFPAR WHERE FORNECEDOR = ''S'' and DTALTER >= ''\";\n 	sql = sql + dataAtualFormatada + \"'' order by DTALTER\";\n \n 	rs = stmt.executeQuery(sql);\n 	objs = new Array();\n 	meta = rs.getMetaData();\n \n 	while(rs.next()) {\n \n 		sql = \"update rh_parceiro set nome = ?, razaosocial = ?, tipopessoa = ?, dataalteracao = ?, ativo = ?, situacao = ?, fornecedor = ? where idparceiro = ?\";\n 		objs = new Array();\n \n 		for(var i = 1; i <= meta.getColumnCount(); i++) {\n \n 			if(i == 8){\n				objs[i-1] = rs.getObject(i);\n			} else if(i == 4){\n				objs[i-1] = rs.getObject(i).toString().substring(0, 10);\n 			}else\n 				objs[i-1] = rs.getObject(i).toString().trim();\n \n 		}\n \n \n		//Executa update(Retorna 1: atualizou o registro ou 0 caso não encontrou o registro)\n		// Se não encontrou o registro, realiza insert\n 		if(jdbcEngine.execUpdate(sql, objs) == 0){\n \n 			sql = \"insert into rh_parceiro (nome, razaosocial, tipopessoa, dataalteracao, ativo, situacao, fornecedor, idparceiro) values (?,?,?,?,?,?,?,?) \";\n 			\n 			jdbcEngine.execUpdate(sql, objs);\n 			\n 		}\n 	}\n \n }\n \n //Fecha conexão\n rs.close();\n stmt.close();\n conn.close();', 'N', NULL, NULL, NULL, NULL, NULL, NULL, '');
 
-ALTER TABLE integranteviagem ADD iditemtrabalho integer NULL;
-
 delete from importardados where idimportardados = 1;
 insert into importardados (idimportardados,idexternalconnection,importarpor,tipo,nome,script,agendarrotina,executarpor,horaexecucao,periodohora,datafim,tabelaorigem,tabeladestino,jsonmatriz)
 values ('1', '2', 'S', 'J', 'Popular tabela de rh_funcionario', 'var importNames = JavaImporter();\n \nimportNames.importPackage(java.sql);\nimportNames.importPackage(java.util);\nimportNames.importPackage(Packages.br.com.citframework.integracao);\nimportNames.importPackage(Packages.br.com.centralit.citcorpore.bean);\n \njava.lang.Class.forName(driver);\n \nvar conn = java.sql.DriverManager.getConnection(url, user, password);\n  \nvar stmt = conn.createStatement();\nvar stmt2 = conn.createStatement();\n \nvar sql = \"select idfuncionario from rh_funcionario where idfuncionario >= ?\";\nvar sql_consulta_empregado;\n \nvar objs =  new Array();\nobjs[0]= 1;\n \nvar objs2;\n \nvar funcs = jdbcEngine.execSQL(sql, objs, 0);\nvar emps;\n \nvar rs;\nvar rs2;\nvar meta;\nvar aux;\nvar idFuncionario = 1;\nvar idEmpregado;\n\nvar str = \"\"; \nvar res = \"\";\n\nvar auxEmp; \n\n//Valida se a tabela esta vazia\nif(funcs == null || funcs.isEmpty()){\n \n	//Tabela vazia, popula a tabela com todos os dados\n \n 	sql = \"select distinct (CPF) CPF, NOMEFUNC FROM \" +  schema + \".[TFPFUN] where CODEMP in (1,5,6) and CPF is not null and DTDEM is null order by NOMEFUNC\";\n \n 	rs = stmt.executeQuery(sql);\n 	meta = rs.getMetaData();\n \n 	while(rs.next()) {\n \n 		objs = new Array();\n \n 		objs[0] = idFuncionario;\n 		\n 		for(var i = 1; i <= meta.getColumnCount(); i++) {\n 			objs[i] = rs.getObject(i);\n 		}\n \n 		objs.push(dataAtual);\n\n		str = objs[2]; \n		\n		//Remove os espaços em branco\n		res = str.trim();\n		res = res.replace(\" \", \"\");\n		\n		res = res.toLowerCase();\n	\n		sql_consulta_empregado = \" select usr.idempregado from usuario usr join empregados emp on emp.idempregado = usr.idempregado \"\n		sql_consulta_empregado += \" where lcase(replace(trim(emp.nome), \' \', \'\')) like \'\" + res + \"\' order by usr.idempregado limit 1;\"\n		\n		emps = jdbcEngine.execSQL(sql_consulta_empregado, null, 0);\n	 \n		if(emps != null && !emps.isEmpty()){\n		\n			var auxEmp = emps.get(0);\n			\n			idEmpregado = Number(auxEmp[0]);\n			\n			objs[4] = idEmpregado;\n\n			sql = \"insert into rh_funcionario (idfuncionario, cpf, nome, datainicio, datafim, idempregado) values (?,?,?,?, null,?) \";\n	 \n			//Inserir registro\n			jdbcEngine.execUpdate(sql, objs);\n			\n		}\n\n 		idFuncionario += 1;\n \n 	}\n \n } else {\n \n	//Tabela ja contem dados, realiza update\n	\n 	sql = \"select NOMEFUNC, DTDEM, CPF FROM \" +  schema + \".[TFPFUN] where CODEMP in (1,5,6) and CPF is not null and DTALTER >= \'\";\n 	sql = sql + dataAtualFormatada + \"\' order by DTALTER\";\n \n 	rs = stmt.executeQuery(sql);\n 	objs = new Array();\n 	meta = rs.getMetaData();\n \n 	while(rs.next()) {\n \n 		sql = \"update rh_funcionario set nome = ?, datafim = ? where cpf = ?\";\n 		objs = new Array();\n \n 		for(var i = 1; i <= meta.getColumnCount(); i++) {\n \n 			if(i == 2){\n \n 				if(rs.getObject(i) == null || rs.getObject(i).equals(\"\"))\n 					objs[i-1] = null;\n 				else \n 					objs[i-1] = rs.getObject(i).toString().substring(0, 10);\n \n 			}else\n 				objs[i-1] = rs.getObject(i);\n \n 		}\n		\n		//Executa update(Retorna 1: atualizou o registro ou 0 caso não encontrou o registro)\n		// Se não eencontrou o registro, realiza insert\n 		if(jdbcEngine.execUpdate(sql, objs) == 0){\n \n			str = objs[0]; \n			\n			//Remove os espaços em branco\n			res = str.trim();\n			res = res.replace(\" \", \"\");\n			\n			res = res.toLowerCase();\n		\n			sql_consulta_empregado = \" select usr.idempregado from usuario usr join empregados emp on emp.idempregado = usr.idempregado \"\n			sql_consulta_empregado += \" where lcase(replace(trim(emp.nome), \' \', \'\')) like \'\" + res + \"\' order by usr.idempregado limit 1; \"\n			\n			emps = jdbcEngine.execSQL(sql_consulta_empregado, null, 0);\n	 \n			if(emps != null && !emps.isEmpty()){\n		\n				var auxEmp = emps.get(0);\n				\n				idEmpregado = Number(auxEmp[0]);\n				\n				objs2 =  new Array();\n	 \n				sql = \"select idfuncionario from rh_funcionario order by idfuncionario desc limit 1\";\n	 \n				funcs = jdbcEngine.execSQL(sql, objs2, 0);\n	 \n				var aux = funcs.get(0);\n				\n				idFuncionario = Number(aux[0]);\n				\n				objs2.push(idFuncionario + 1);\n				objs2.push(objs[0]);\n				objs2.push(objs[2]);\n				objs2.push(dataAtual);\n				objs2.push(objs[1]);\n				objs2.push(idEmpregado);\n\n				sql = \"insert into rh_funcionario (idfuncionario, nome, cpf, datainicio, datafim, idempregado) values (?,?,?,?,?,?)\";\n				\n				jdbcEngine.execUpdate(sql, objs2);\n			\n			}\n 			\n 		}\n 	}\n \n }\n \n //Fecha conexão\n rs.close();\n stmt.close();\n conn.close();', 'S', 'P', '00:00', '4', NULL, NULL, NULL, '');
 
 -- FIM GILBERTO TAVARES DE FRANCO NERY (08/04/2010)
-
--- INICIO RODRIGO PECCI ACORSE (11/04/2014)
-
-ALTER TABLE  tipomovimfinanceiraviagem add imagem varchar(255);
-
--- FIM RODRIGO PECCI ACORSE (11/04/2014)
 
 -- INICIO - THIAGO BORGES DA SILVA - 24/02/2014
 
@@ -714,16 +644,6 @@ INSERT INTO contratoformulaos (idcontratoformulaos,idcontrato,idformulaos,delete
 INSERT INTO contratoformulaos (idcontratoformulaos,idcontrato,idformulaos,deleted) VALUES (6,1,6,'N');
 
 -- Fim - Bruno.aquino - 25/04/2014
-
--- inicio - maycon 09/05/20014
-
-ALTER TABLE controlefinanceiroviagem ADD COLUMN iditemtrabalho int;
-
-ALTER TABLE integranteviagem ADD COLUMN emprestacaocontas varchar(1);
-
-ALTER TABLE requisicaoviagem ADD COLUMN iditemtrabalho  int NULL;
-
--- fim - maycon 09/05/20014
 
 -- inicio - flavio.santana 15/05/2014
 

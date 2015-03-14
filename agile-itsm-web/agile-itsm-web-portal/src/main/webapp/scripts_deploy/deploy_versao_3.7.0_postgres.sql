@@ -20,27 +20,14 @@ ALTER TABLE rh_perspectivacomportamentalfuncao ADD CONSTRAINT fk_atitudeindividu
 
 -- FIM - david.silva 27/06/2014
 
--- INICIO - thiago.borges - 30/06/2014
-
-ALTER TABLE integranteviagem ADD COLUMN idtarefa int NULL;
-
--- FIM - thiago.borges - 30/06/2014
-
 -- INICIO - euler.ramos - 11/07/2014
 delete from menu where link = '/relatorioEficaciaNaDocumentacao/relatorioEficaciaNaDocumentacao.load';
 delete from menu where link = '/relatorioEficaciaDoSoftware/relatorioEficaciaDoSoftware.load';
 -- FIM - euler.ramos - 11/07/2014
 
--- INICIO - david.silva 15/07/2014
-
-ALTER TABLE tipomovimfinanceiraviagem ALTER COLUMN exigejustificativa SET DEFAULT 'N';
-
--- FIM - david.silva 15/07/2014
-
 -- INICIO - Mário Hayasaki Júnior - 22/07/2014
 alter table servicocontrato add expandir char(1);
 --Fim
--- FIM - david.silva 15/07/2014
 
 -- INICIO - renato.jesus 22/07/2014
 ALTER TABLE rh_candidato ADD idempregado INTEGER NULL DEFAULT NULL;

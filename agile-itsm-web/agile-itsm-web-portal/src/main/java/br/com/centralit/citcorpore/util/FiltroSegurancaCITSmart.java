@@ -52,7 +52,7 @@ public class FiltroSegurancaCITSmart implements Filter {
 
     @Override
     public void doFilter(final ServletRequest servletRequest, final ServletResponse servletResponse, final FilterChain chain) throws IOException,
-            ServletException {
+    ServletException {
         final HttpServletRequest request = (HttpServletRequest) servletRequest;
         final HttpServletResponse response = (HttpServletResponse) servletResponse;
         String path = this.getRequestedPath(request);
@@ -931,36 +931,6 @@ public class FiltroSegurancaCITSmart implements Filter {
             return true;
         }
 
-        if (requestedPath.endsWith("/pages/requisicaoViagem/requisicaoViagem.load")) {
-            return true;
-        }
-        if (requestedPath.endsWith("/pages/despesaViagem/despesaViagem.load")) {
-            return true;
-        }
-        if (requestedPath.endsWith("/pages/adiantamentoViagem/adiantamentoViagem.load")) {
-            return true;
-        }
-        if (requestedPath.endsWith("/pages/autorizacaoViagem/autorizacaoViagem.load")) {
-            return true;
-        }
-        if (requestedPath.endsWith("/pages/conferenciaViagem/conferenciaViagem.load")) {
-            return true;
-        }
-        if (requestedPath.endsWith("/pages/controleFinanceiroViagem/controleFinanceiroViagem.load")) {
-            return true;
-        }
-        if (requestedPath.endsWith("/pages/prestacaoContasViagem/prestacaoContasViagem.load")) {
-            return true;
-        }
-        if (requestedPath.endsWith("/pages/itemControleFinanceiroViagem/itemControleFinanceiroViagem.load")) {
-            return true;
-        }
-        if (requestedPath.endsWith("/pages/compraViagem/compraViagem.load")) {
-            return true;
-        }
-        if (requestedPath.endsWith("/pages/corrigirPrestacaoContas/corrigirPrestacaoContas.load")) {
-            return true;
-        }
         if (requestedPath.endsWith("/pages/chatSmart/chatSmart.load")) {
             return true;
         }

@@ -1,4 +1,4 @@
--- In�cio M�rio 05/09/2013
+-- Início Mário 05/09/2013
 
 CREATE TABLE gruporequisicaomudanca (
   idgruporequisicaomudanca int NOT NULL,
@@ -21,9 +21,9 @@ CREATE TABLE ligacao_mud_his_gru
   constraint pk_ligacao_mud_his_gru primary key (idligacao_mud_his_gru)
 );
 
--- Fim M�rio
+-- Fim Mário
 
--- In�cio Murilo Gabriel 07/09/2013
+-- Início Murilo Gabriel 07/09/2013
 
 alter table historicoic add column idcontrato int null;
 alter table historicoic add column idliberacao int null;
@@ -32,7 +32,7 @@ alter table historicoic add column ativofixo varchar(255) null;
 
 -- Fim Murilo Gabriel
 
--- In�cio Ronnie Mikihiro 10/09/2013
+-- Início Ronnie Mikihiro 10/09/2013
 
 CREATE TABLE softwareslistanegra (
     idsoftwareslistanegra int NOT NULL,
@@ -56,7 +56,7 @@ CREATE INDEX fk_idx_softwareslistanegraencontrados ON softwareslistanegraencontr
 
 -- Fim Ronnie Mikihiro 10/09/2013
 
--- In�cio Bruno 10/09/2013
+-- Início Bruno 10/09/2013
 
 alter table solicitacaoservico add column vencendo varchar(1) NULL;
 alter table solicitacaoservico add column criouproblemaautomatico varchar(1) NULL;
@@ -122,11 +122,11 @@ ALTER TABLE itemrequisicaoproduto ALTER COLUMN situacao TYPE VARCHAR(50);
 
 -- Fim Cleison
 
--- Inicio M�rio Haysaki J�nior 12/09/2013
+-- Inicio Mário Haysaki J�nior 12/09/2013
 
 ALTER TABLE projetos ADD COLUMN deleted varchar(1) DEFAULT NULL;
 
--- Fim M�rio Haysaki J�nior
+-- Fim Mário Haysaki J�nior
 
 -- Inicio Bruno Franco 12/09/2013
 
@@ -165,7 +165,7 @@ alter table itemconfiguracao ADD COLUMN datahoradesinstalacao TIMESTAMP;
 
 alter table requisicaomudanca add column vencendo varchar(1) NULL;
 
-insert into modelosemails (idmodeloemail, titulo, texto, situacao, identificador) values ($id_modeloemail_escalonamento,'Prazo para resolu��o terminando - ${IDSOLICITACAOSERVICO}','Senhor(a) ${NOMECONTATO},<br /><br />Informamos que o prazo para resolu&ccedil;&atilde;o da solicita&ccedil;&atilde;o&nbsp;${IDSOLICITACAOSERVICO} &nbsp;est&aacute; terminando.<br /><br /><strong>N&uacute;mero:</strong> ${IDSOLICITACAOSERVICO}<br /><strong>Tipo:</strong> ${DEMANDA}<br /><strong>Servi&ccedil;o:</strong> ${SERVICO}<br /><br /><strong>Descri&ccedil;&atilde;o:</strong> <br />${DESCRICAO}<br /><br />Atenciosamente,<br /><br />Central IT&nbsp;Tecnologia da Informa&ccedil;&atilde;o Ltda<br />','A','PrazoSolicitacao');
+insert into modelosemails (idmodeloemail, titulo, texto, situacao, identificador) values ($id_modeloemail_escalonamento,'Prazo para resolução terminando - ${IDSOLICITACAOSERVICO}','Senhor(a) ${NOMECONTATO},<br /><br />Informamos que o prazo para resolu&ccedil;&atilde;o da solicita&ccedil;&atilde;o&nbsp;${IDSOLICITACAOSERVICO} &nbsp;est&aacute; terminando.<br /><br /><strong>N&uacute;mero:</strong> ${IDSOLICITACAOSERVICO}<br /><strong>Tipo:</strong> ${DEMANDA}<br /><strong>Servi&ccedil;o:</strong> ${SERVICO}<br /><br /><strong>Descri&ccedil;&atilde;o:</strong> <br />${DESCRICAO}<br /><br />Atenciosamente,<br /><br />Central IT&nbsp;Tecnologia da Informa&ccedil;&atilde;o Ltda<br />','A','PrazoSolicitacao');
 
 -- Fim - Bruno Franco
 
@@ -233,196 +233,6 @@ CREATE TABLE relEscalonamentoproblema
 alter table problema add column vencendo varchar(1) NULL;
 
 -- Fim - Bruno Franco
-
--- Inicio - Riubbe Da Silva Oliveira 16/09/2013
-
-create table controlefinanceiroviagem (
-    idcontrolefinanceiroviagem bigint not null,
-    idresponsavel int default null,
-    idmoeda int default null,
-    datahora timestamp null,
-    situacao varchar default null,
-    observacoes text default null
-);
-
-alter table controlefinanceiroviagem add constraint pk_controlefinanceiroviagem primary key(idcontrolefinanceiroviagem);
-alter table controlefinanceiroviagem add constraint fk_controlefinanceiroviagem_empregados foreign key (idresponsavel) references empregados(idempregado);
-alter table controlefinanceiroviagem add constraint fk_controlefinanceiroviagem_moedas foreign key (idmoeda) references moedas(idmoeda);
-create index fk_idx_controlefinanceiroviagem on controlefinanceiroviagem(idcontrolefinanceiroviagem);
-
-create table adiantamentoviagem (
-    idadiantamentoviagem bigint not null,
-    idresponsavel int default null,
-    idsolicitacaoservico bigint default null,
-    idempregado int default null,
-    datahora timestamp default null,
-    valortotaladiantado decimal(8,2) default null,
-    situacao varchar(20)not null,
-    observacoes text default null
-);
-
-alter table adiantamentoviagem add constraint pk_adiantamentoviagem primary key(idadiantamentoviagem);
-alter table adiantamentoviagem add constraint fk_adiantamentoviagem_empregados foreign key(idresponsavel) references empregados(idempregado);
-alter table adiantamentoviagem add constraint fk_adiantamentoviagem_integranteviagem foreign key(idsolicitacaoservico, idempregado) references integranteviagem(idsolicitacaoservico, idempregado);
-create index fk_idx_adiantamentoviagem on adiantamentoviagem(idadiantamentoviagem);
-
-create table itemcontrolefinanceiroviagem (
-    iditemcontrolefinanceiroviagem bigint not null,
-    idcontrolefinanceiroviagem bigint default null,
-    idformapagamento int default null,
-    idadiantamentoviagem bigint default null,
-    idfornecedor bigint default null,
-    idjustificativa int default null,
-    idsolicitacaoservico bigint default null,
-    idempregado int default null,
-    idtipomovimfinanceiraviagem bigint default null,
-    complementojustificativa text default null,
-    quantidade numeric(8,2) default null,
-    valorunitario decimal(8,2) default null,
-    valoradiantamento decimal(8,2) default null,
-    tipopassagem varchar(20) default null,
-    localizador varchar(50) default null,
-    assento varchar(20) default null,
-    situacao varchar(20) default null,
-    datafim date default null,
-    prazocotacao date default null,
-    observacao TEXT NULL,
-    dataexecucao timestamp default null,
-    datahoraprazocotacao timestamp default null
-);
-
-alter table itemcontrolefinanceiroviagem add constraint pk_itemcontrolefinanceiroviagem primary key(iditemcontrolefinanceiroviagem);
-alter table itemcontrolefinanceiroviagem add constraint fk_itemcontrolefinaceiroviagem_controlefinanceiroviagem foreign key(idcontrolefinanceiroviagem) references controlefinanceiroviagem(idcontrolefinanceiroviagem);
-alter table itemcontrolefinanceiroviagem add constraint fk_itemcontrolefinaceiroviagem_formapagamento foreign key(idformapagamento) references formapagamento(idformapagamento);
-alter table itemcontrolefinanceiroviagem add constraint fk_itemcontrolefinaceiroviagem_adiantamentoviagem foreign key(idadiantamentoviagem) references adiantamentoviagem(idadiantamentoviagem);
-alter table itemcontrolefinanceiroviagem add constraint fk_itemcontrolefinaceiroviagem_fornecedor foreign key(idfornecedor) references fornecedor(idfornecedor);
-alter table itemcontrolefinanceiroviagem add constraint fk_itemcontrolefinaceiroviagem_justificativasolicitacao foreign key(idjustificativa) references justificativasolicitacao(idjustificativa);
-alter table itemcontrolefinanceiroviagem add constraint fk_itemcontrolefinaceiroviagem_solicitacaoservico_empregado foreign key(idsolicitacaoservico, idempregado) references integranteviagem(idsolicitacaoservico, idempregado);
-alter table itemcontrolefinanceiroviagem add constraint fk_itemcontrolefinaceiroviagem_tipomovimfinanceiraviagem foreign key(idtipomovimfinanceiraviagem) references tipomovimfinanceiraviagem(idtipomovimfinanceiraviagem);
-create index fk_idx_itemcontrolefinanceiroviagem on itemcontrolefinanceiroviagem(iditemcontrolefinanceiroviagem);
-
-
-CREATE TABLE prestacaocontasviagem (
-  idprestacaocontasviagem bigint NOT NULL,
-  idresponsavel int DEFAULT NULL,
-  idaprovacao int DEFAULT NULL,
-  idsolicitacaoservico bigint DEFAULT NULL,
-  idempregado int DEFAULT NULL,
-  datahora timestamp NULL,
-  situacao varchar(35) DEFAULT NULL,
-  iditemtrabalho bigint DEFAULT NULL
-);
-
-ALTER TABLE prestacaocontasviagem ADD CONSTRAINT pk_prestacaocontasviagem PRIMARY KEY (idprestacaocontasviagem);
-ALTER TABLE prestacaocontasviagem ADD CONSTRAINT fk_prestacaocontasviagem_responsavel FOREIGN KEY (idresponsavel) REFERENCES empregados (idempregado);
-ALTER TABLE prestacaocontasviagem ADD CONSTRAINT fk_prestacaocontasviagem_aprovacao FOREIGN KEY (idaprovacao) REFERENCES parecer (idparecer);
-ALTER TABLE prestacaocontasviagem ADD CONSTRAINT fk_prestacaocontasviagem_solicitacaoservico_empregado FOREIGN KEY (idsolicitacaoservico, idempregado) REFERENCES integranteviagem (idsolicitacaoservico, idempregado);
-CREATE INDEX fk_idx_prestacaocontasviagem on prestacaocontasviagem(idprestacaocontasviagem);
-
-CREATE TABLE itemprestacaocontasviagem (
-  iditemprestcontasviagem bigint NOT NULL,
-  idprestacaocontasviagem bigint DEFAULT NULL,
-  iditemdespesaviagem bigint DEFAULT NULL,
-  idfornecedor bigint DEFAULT NULL,
-  data date DEFAULT NULL,
-  nomefornecedor varchar(100) DEFAULT NULL,
-  numeroDocumento varchar(50) DEFAULT NULL,
-  descricao varchar(200) DEFAULT NULL,
-  valor decimal(8,2) NOT NULL
-);
-
-ALTER TABLE itemprestacaocontasviagem ADD CONSTRAINT pk_itemprestacaocontasviagem PRIMARY KEY (iditemprestcontasviagem);
-ALTER TABLE itemprestacaocontasviagem ADD CONSTRAINT fk_prestacaocontasviagem_prestacaocontasviagem FOREIGN KEY (idprestacaocontasviagem) REFERENCES prestacaocontasviagem (idprestacaocontasviagem);
-ALTER TABLE itemprestacaocontasviagem ADD CONSTRAINT fk_prestacaocontasviagem_itemdespesaviagem FOREIGN KEY (iditemdespesaviagem) REFERENCES itemcontrolefinanceiroviagem (iditemcontrolefinanceiroviagem);
-ALTER TABLE itemprestacaocontasviagem ADD CONSTRAINT fk_prestacaocontasviagem_fornecedor FOREIGN KEY(idfornecedor) REFERENCES fornecedor (idfornecedor);
-CREATE INDEX fk_idx_itemprestacaocontasviagem on itemprestacaocontasviagem(iditemprestcontasviagem);
-
-INSERT INTO bpm_tipofluxo (idtipofluxo,nomefluxo,descricao,nomeclassefluxo) VALUES ($id_tipo_fluxo,'RequisicaoViagem','Requisic�o Viagem','br.com.centralit.citcorpore.bpm.negocio.ExecucaoRequisicaoViagem');
-
-INSERT INTO bpm_fluxo (idfluxo,versao,idtipofluxo,variaveis,conteudoxml,datainicio,datafim) VALUES ($id_fluxo,'01.0',$id_tipo_fluxo,'solicitacaoServico;solicitacaoServico.situacao;solicitacaoServico.grupoAtual;solicitacaoServico.grupoNivel1','','2013-09-12',NULL);
-
-INSERT INTO bpm_elementofluxo (idelemento,idfluxo,tipoelemento,subtipo,nome,documentacao,tipointeracao,url,visao,grupos,usuarios,acaoentrada,acaosaida,script,textoemail,nomefluxoencadeado,posx,posy,altura,largura,modeloemail,template,intervalo,condicaodisparo,multiplasinstancias,destinatariosemail,contabilizasla,percexecucao) VALUES ($id_elemento_00,$id_fluxo,'Inicio','','','','','','','','','','','','','',47,33,32,32,'','',NULL,'','','','',NULL);
-INSERT INTO bpm_elementofluxo (idelemento,idfluxo,tipoelemento,subtipo,nome,documentacao,tipointeracao,url,visao,grupos,usuarios,acaoentrada,acaosaida,script,textoemail,nomefluxoencadeado,posx,posy,altura,largura,modeloemail,template,intervalo,condicaodisparo,multiplasinstancias,destinatariosemail,contabilizasla,percexecucao) VALUES ($id_elemento_01,$id_fluxo,'Tarefa','','Em Execu��o','Em Execu��o','U','/pages/solicitacaoServicoMultiContratos/solicitacaoServicoMultiContratos.load','',NULL,'script:#{execucaoFluxo}.recuperaLoginResponsaveisCotacao();','','','','','',201,16,65,140,'','ControleFinanceiroViagem',NULL,'','N','','S',NULL);
-INSERT INTO bpm_elementofluxo (idelemento,idfluxo,tipoelemento,subtipo,nome,documentacao,tipointeracao,url,visao,grupos,usuarios,acaoentrada,acaosaida,script,textoemail,nomefluxoencadeado,posx,posy,altura,largura,modeloemail,template,intervalo,condicaodisparo,multiplasinstancias,destinatariosemail,contabilizasla,percexecucao) VALUES ($id_elemento_02,$id_fluxo,'Tarefa','','Autorizar requisi��o','Autorizar requisi��o','U','/pages/solicitacaoServicoMultiContratos/solicitacaoServicoMultiContratos.load','',NULL,'script:#{execucaoFluxo}.recuperaLoginAutorizadores();','','','','','',226,197,65,140,'','AutorizacaoViagem',NULL,'','N','','S',NULL);
-INSERT INTO bpm_elementofluxo (idelemento,idfluxo,tipoelemento,subtipo,nome,documentacao,tipointeracao,url,visao,grupos,usuarios,acaoentrada,acaosaida,script,textoemail,nomefluxoencadeado,posx,posy,altura,largura,modeloemail,template,intervalo,condicaodisparo,multiplasinstancias,destinatariosemail,contabilizasla,percexecucao) VALUES ($id_elemento_03,$id_fluxo,'Tarefa','','Adiantamento','Adiantamento','U','/pages/solicitacaoServicoMultiContratos/solicitacaoServicoMultiContratos.load','',NULL,'script:#{execucaoFluxo}.recuperaLoginResponsaveisAdiantamento();','','','','','',532,238,65,140,'','AdiantamentoViagem',NULL,'','N','','S',NULL);
-INSERT INTO bpm_elementofluxo (idelemento,idfluxo,tipoelemento,subtipo,nome,documentacao,tipointeracao,url,visao,grupos,usuarios,acaoentrada,acaosaida,script,textoemail,nomefluxoencadeado,posx,posy,altura,largura,modeloemail,template,intervalo,condicaodisparo,multiplasinstancias,destinatariosemail,contabilizasla,percexecucao) VALUES ($id_elemento_04,$id_fluxo,'Tarefa','','Presta��o de Contas','Presta��o de Contas','U','/pages/solicitacaoServicoMultiContratos/solicitacaoServicoMultiContratos.load','',NULL,'script:#{execucaoFluxo}.recuperaLoginIntegrantes();','','','','','',939,44,65,140,'','PrestacaoContasViagem',NULL,'','U','','S',NULL);
-INSERT INTO bpm_elementofluxo (idelemento,idfluxo,tipoelemento,subtipo,nome,documentacao,tipointeracao,url,visao,grupos,usuarios,acaoentrada,acaosaida,script,textoemail,nomefluxoencadeado,posx,posy,altura,largura,modeloemail,template,intervalo,condicaodisparo,multiplasinstancias,destinatariosemail,contabilizasla,percexecucao) VALUES ($id_elemento_05,$id_fluxo,'Tarefa','','Confer�ncia','Confer�ncia','U','/pages/solicitacaoServicoMultiContratos/solicitacaoServicoMultiContratos.load','',NULL,'script:#{execucaoFluxo}.recuperaLoginResponsaveisConferencia();','#{execucaoFluxo}.associaItemTrabalhoPrestacaoConferencia(#{itemTrabalho}); ','#{execucaoFluxo}.enviaEmailNaoAprovado();','','','',936,161,65,140,'','ConferenciaViagem',NULL,'','S','','S',NULL);
-INSERT INTO bpm_elementofluxo (idelemento,idfluxo,tipoelemento,subtipo,nome,documentacao,tipointeracao,url,visao,grupos,usuarios,acaoentrada,acaosaida,script,textoemail,nomefluxoencadeado,posx,posy,altura,largura,modeloemail,template,intervalo,condicaodisparo,multiplasinstancias,destinatariosemail,contabilizasla,percexecucao) VALUES ($id_elemento_06,$id_fluxo,'Tarefa','','Em Revis�o','Em Revis�o','U','/pages/solicitacaoServicoMultiContratos/solicitacaoServicoMultiContratos.load?alterarSituacao=S','','#{solicitacaoServico.grupoNivel1}','','','','','','',224,341,65,140,'','AlteracaoRequisicaoViagem',NULL,'','N','','S',NULL);
-INSERT INTO bpm_elementofluxo (idelemento,idfluxo,tipoelemento,subtipo,nome,documentacao,tipointeracao,url,visao,grupos,usuarios,acaoentrada,acaosaida,script,textoemail,nomefluxoencadeado,posx,posy,altura,largura,modeloemail,template,intervalo,condicaodisparo,multiplasinstancias,destinatariosemail,contabilizasla,percexecucao) VALUES ($id_elemento_07,$id_fluxo,'Tarefa','','Corrigir Presta��o de Contas','Corrigir Presta��o de Contas','U','/pages/solicitacaoServicoMultiContratos/solicitacaoServicoMultiContratos.load','',NULL,'script:#{execucaoFluxo}.recuperaLoginIntegranteCorrecao();','#{execucaoFluxo}.associaItemTrabalhoPrestacaoCorrecao(#{itemTrabalho}); ','','','','',895,307,65,140,'','CorrigirPrestacaoContas',NULL,'','S','','S',NULL);
-INSERT INTO bpm_elementofluxo (idelemento,idfluxo,tipoelemento,subtipo,nome,documentacao,tipointeracao,url,visao,grupos,usuarios,acaoentrada,acaosaida,script,textoemail,nomefluxoencadeado,posx,posy,altura,largura,modeloemail,template,intervalo,condicaodisparo,multiplasinstancias,destinatariosemail,contabilizasla,percexecucao) VALUES ($id_elemento_08,$id_fluxo,'Tarefa','','Execu��o Compras','Execu��o Compras','U','/pages/solicitacaoServicoMultiContratos/solicitacaoServicoMultiContratos.load','',NULL,'script:#{execucaoFluxo}.recuperaLoginResponsaveisCotacao();','','','','','',532,72,65,140,'','ExecComprasViagem',NULL,'','N','','S',NULL);
-INSERT INTO bpm_elementofluxo (idelemento,idfluxo,tipoelemento,subtipo,nome,documentacao,tipointeracao,url,visao,grupos,usuarios,acaoentrada,acaosaida,script,textoemail,nomefluxoencadeado,posx,posy,altura,largura,modeloemail,template,intervalo,condicaodisparo,multiplasinstancias,destinatariosemail,contabilizasla,percexecucao) VALUES ($id_elemento_09,$id_fluxo,'Script','','Encerra','','','','','','','','','#{execucaoFluxo}.encerra();','','',532,342,65,140,'','',NULL,'','','','',NULL);
-INSERT INTO bpm_elementofluxo (idelemento,idfluxo,tipoelemento,subtipo,nome,documentacao,tipointeracao,url,visao,grupos,usuarios,acaoentrada,acaosaida,script,textoemail,nomefluxoencadeado,posx,posy,altura,largura,modeloemail,template,intervalo,condicaodisparo,multiplasinstancias,destinatariosemail,contabilizasla,percexecucao) VALUES ($id_elemento_10,$id_fluxo,'Evento','','','','','','','','','','','','','',710,178,32,32,'','',5,'!#{solicitacaoServico}.finalizada();','','','',NULL);
-INSERT INTO bpm_elementofluxo (idelemento,idfluxo,tipoelemento,subtipo,nome,documentacao,tipointeracao,url,visao,grupos,usuarios,acaoentrada,acaosaida,script,textoemail,nomefluxoencadeado,posx,posy,altura,largura,modeloemail,template,intervalo,condicaodisparo,multiplasinstancias,destinatariosemail,contabilizasla,percexecucao) VALUES ($id_elemento_11,$id_fluxo,'Email','','','','','','','','script:#{execucaoFluxo}.recuperaLoginResponsaveisCotacao();','','','','','',127,38,22,31,'CriacaoReqViagem','',NULL,'','','#{solicitacaoServico.emailcontato}','',NULL);
-INSERT INTO bpm_elementofluxo (idelemento,idfluxo,tipoelemento,subtipo,nome,documentacao,tipointeracao,url,visao,grupos,usuarios,acaoentrada,acaosaida,script,textoemail,nomefluxoencadeado,posx,posy,altura,largura,modeloemail,template,intervalo,condicaodisparo,multiplasinstancias,destinatariosemail,contabilizasla,percexecucao) VALUES ($id_elemento_12,$id_fluxo,'Email','','','','','','','','script:#{execucaoFluxo}.recuperaLoginResponsaveisCotacao();','','','','','',254,101,22,31,'ItemAtrasadosViagem','',NULL,'','','','',NULL);
-INSERT INTO bpm_elementofluxo (idelemento,idfluxo,tipoelemento,subtipo,nome,documentacao,tipointeracao,url,visao,grupos,usuarios,acaoentrada,acaosaida,script,textoemail,nomefluxoencadeado,posx,posy,altura,largura,modeloemail,template,intervalo,condicaodisparo,multiplasinstancias,destinatariosemail,contabilizasla,percexecucao) VALUES ($id_elemento_13,$id_fluxo,'Email','','','','','','','','script:#{execucaoFluxo}.recuperaLoginResponsaveisCotacao();','','','','','',478,36,22,31,'AprovacaoReqViagem','',NULL,'','','','',NULL);
-INSERT INTO bpm_elementofluxo (idelemento,idfluxo,tipoelemento,subtipo,nome,documentacao,tipointeracao,url,visao,grupos,usuarios,acaoentrada,acaosaida,script,textoemail,nomefluxoencadeado,posx,posy,altura,largura,modeloemail,template,intervalo,condicaodisparo,multiplasinstancias,destinatariosemail,contabilizasla,percexecucao) VALUES ($id_elemento_14,$id_fluxo,'Email','','','','','','','','script:#{execucaoFluxo}.recuperaLoginAutorizadores();','','','','','',321,158,22,31,'AutorizarReqViagem','',NULL,'','','','',NULL);
-INSERT INTO bpm_elementofluxo (idelemento,idfluxo,tipoelemento,subtipo,nome,documentacao,tipointeracao,url,visao,grupos,usuarios,acaoentrada,acaosaida,script,textoemail,nomefluxoencadeado,posx,posy,altura,largura,modeloemail,template,intervalo,condicaodisparo,multiplasinstancias,destinatariosemail,contabilizasla,percexecucao) VALUES ($id_elemento_15,$id_fluxo,'Email','','','','','','','','','','','','','',733,325,22,31,'ReqViagemFinalizada','',NULL,'','','#{solicitacaoServico.emailcontato}','',NULL);
-INSERT INTO bpm_elementofluxo (idelemento,idfluxo,tipoelemento,subtipo,nome,documentacao,tipointeracao,url,visao,grupos,usuarios,acaoentrada,acaosaida,script,textoemail,nomefluxoencadeado,posx,posy,altura,largura,modeloemail,template,intervalo,condicaodisparo,multiplasinstancias,destinatariosemail,contabilizasla,percexecucao) VALUES ($id_elemento_16,$id_fluxo,'Email','','','','','','','','','','','','','',414,348,22,31,'ReprovacaoReqViagem','',NULL,'','','#{solicitacaoServico.emailcontato}','',NULL);
-INSERT INTO bpm_elementofluxo (idelemento,idfluxo,tipoelemento,subtipo,nome,documentacao,tipointeracao,url,visao,grupos,usuarios,acaoentrada,acaosaida,script,textoemail,nomefluxoencadeado,posx,posy,altura,largura,modeloemail,template,intervalo,condicaodisparo,multiplasinstancias,destinatariosemail,contabilizasla,percexecucao) VALUES ($id_elemento_17,$id_fluxo,'Email','','','','','','','','script:#{execucaoFluxo}.recuperaLoginResponsaveisConferencia();','','','','','',861,183,22,31,'ConfReqViagem','',NULL,'','','','',NULL);
-INSERT INTO bpm_elementofluxo (idelemento,idfluxo,tipoelemento,subtipo,nome,documentacao,tipointeracao,url,visao,grupos,usuarios,acaoentrada,acaosaida,script,textoemail,nomefluxoencadeado,posx,posy,altura,largura,modeloemail,template,intervalo,condicaodisparo,multiplasinstancias,destinatariosemail,contabilizasla,percexecucao) VALUES ($id_elemento_18,$id_fluxo,'Email','','','','','','','','script:#{execucaoFluxo}.recuperaLoginResponsaveisAdiantamento();','','','','','',586,175,22,31,'AdiantaReqViagem','',NULL,'','','','',NULL);
-INSERT INTO bpm_elementofluxo (idelemento,idfluxo,tipoelemento,subtipo,nome,documentacao,tipointeracao,url,visao,grupos,usuarios,acaoentrada,acaosaida,script,textoemail,nomefluxoencadeado,posx,posy,altura,largura,modeloemail,template,intervalo,condicaodisparo,multiplasinstancias,destinatariosemail,contabilizasla,percexecucao) VALUES ($id_elemento_19,$id_fluxo,'Email','','','','','','','','script:#{execucaoFluxo}.recuperaLoginIntegrantes();','','','','','',857,65,22,31,'PrestContaViagem','',NULL,'','','','',NULL);
-INSERT INTO bpm_elementofluxo (idelemento,idfluxo,tipoelemento,subtipo,nome,documentacao,tipointeracao,url,visao,grupos,usuarios,acaoentrada,acaosaida,script,textoemail,nomefluxoencadeado,posx,posy,altura,largura,modeloemail,template,intervalo,condicaodisparo,multiplasinstancias,destinatariosemail,contabilizasla,percexecucao) VALUES ($id_elemento_20,$id_fluxo,'Porta','','','','','','','','','','','','','',408,271,42,42,'','',NULL,'','','','',NULL);
-INSERT INTO bpm_elementofluxo (idelemento,idfluxo,tipoelemento,subtipo,nome,documentacao,tipointeracao,url,visao,grupos,usuarios,acaoentrada,acaosaida,script,textoemail,nomefluxoencadeado,posx,posy,altura,largura,modeloemail,template,intervalo,condicaodisparo,multiplasinstancias,destinatariosemail,contabilizasla,percexecucao) VALUES ($id_elemento_21,$id_fluxo,'Porta','','','','','','','','','','','','','',770,173,42,42,'','',NULL,'','','','',NULL);
-INSERT INTO bpm_elementofluxo (idelemento,idfluxo,tipoelemento,subtipo,nome,documentacao,tipointeracao,url,visao,grupos,usuarios,acaoentrada,acaosaida,script,textoemail,nomefluxoencadeado,posx,posy,altura,largura,modeloemail,template,intervalo,condicaodisparo,multiplasinstancias,destinatariosemail,contabilizasla,percexecucao) VALUES ($id_elemento_22,$id_fluxo,'Porta','','','','','','','','','','','','','',383,27,42,42,'','',NULL,'','','','',NULL);
-INSERT INTO bpm_elementofluxo (idelemento,idfluxo,tipoelemento,subtipo,nome,documentacao,tipointeracao,url,visao,grupos,usuarios,acaoentrada,acaosaida,script,textoemail,nomefluxoencadeado,posx,posy,altura,largura,modeloemail,template,intervalo,condicaodisparo,multiplasinstancias,destinatariosemail,contabilizasla,percexecucao) VALUES ($id_elemento_23,$id_fluxo,'Porta','','','','','','','','','','','','','',473,123,42,42,'','',NULL,'','','','',NULL);
-INSERT INTO bpm_elementofluxo (idelemento,idfluxo,tipoelemento,subtipo,nome,documentacao,tipointeracao,url,visao,grupos,usuarios,acaoentrada,acaosaida,script,textoemail,nomefluxoencadeado,posx,posy,altura,largura,modeloemail,template,intervalo,condicaodisparo,multiplasinstancias,destinatariosemail,contabilizasla,percexecucao) VALUES ($id_elemento_24,$id_fluxo,'Finalizacao','','','','','','','','','','','','','',586,464,32,32,'','',NULL,'','','','',NULL);
-
-INSERT INTO bpm_sequenciafluxo (idelementoorigem,idelementodestino,idfluxo,nomeclasseorigem,nomeclassedestino,condicao,idconexaoorigem,idconexaodestino,bordax,borday,posicaoalterada,nome) VALUES ($id_elemento_00,$id_elemento_11,$id_fluxo,NULL,NULL,'',1,3,103,49,'N','');
-INSERT INTO bpm_sequenciafluxo (idelementoorigem,idelementodestino,idfluxo,nomeclasseorigem,nomeclassedestino,condicao,idconexaoorigem,idconexaodestino,bordax,borday,posicaoalterada,nome) VALUES ($id_elemento_01,$id_elemento_22,$id_fluxo,NULL,NULL,'',1,3,362,48.25,'N','');
-INSERT INTO bpm_sequenciafluxo (idelementoorigem,idelementodestino,idfluxo,nomeclasseorigem,nomeclassedestino,condicao,idconexaoorigem,idconexaodestino,bordax,borday,posicaoalterada,nome) VALUES ($id_elemento_02,$id_elemento_20,$id_fluxo,NULL,NULL,'',2,3,296,292,'S','');
-INSERT INTO bpm_sequenciafluxo (idelementoorigem,idelementodestino,idfluxo,nomeclasseorigem,nomeclassedestino,condicao,idconexaoorigem,idconexaodestino,bordax,borday,posicaoalterada,nome) VALUES ($id_elemento_03,$id_elemento_10,$id_fluxo,NULL,NULL,'',1,3,691,232.25,'N','');
-INSERT INTO bpm_sequenciafluxo (idelementoorigem,idelementodestino,idfluxo,nomeclasseorigem,nomeclassedestino,condicao,idconexaoorigem,idconexaodestino,bordax,borday,posicaoalterada,nome) VALUES ($id_elemento_06,$id_elemento_09,$id_fluxo,NULL,NULL,'#{solicitacaoServico}.finalizada();',2,3,480,419,'S','finalizada');
-INSERT INTO bpm_sequenciafluxo (idelementoorigem,idelementodestino,idfluxo,nomeclasseorigem,nomeclassedestino,condicao,idconexaoorigem,idconexaodestino,bordax,borday,posicaoalterada,nome) VALUES ($id_elemento_06,$id_elemento_11,$id_fluxo,NULL,NULL,'!#{solicitacaoServico}.finalizada();',3,2,142,327,'S','n�o finalizada');
-INSERT INTO bpm_sequenciafluxo (idelementoorigem,idelementodestino,idfluxo,nomeclasseorigem,nomeclassedestino,condicao,idconexaoorigem,idconexaodestino,bordax,borday,posicaoalterada,nome) VALUES ($id_elemento_08,$id_elemento_18,$id_fluxo,NULL,NULL,'',2,0,601.75,156,'N','');
-INSERT INTO bpm_sequenciafluxo (idelementoorigem,idelementodestino,idfluxo,nomeclasseorigem,nomeclassedestino,condicao,idconexaoorigem,idconexaodestino,bordax,borday,posicaoalterada,nome) VALUES ($id_elemento_09,$id_elemento_24,$id_fluxo,NULL,NULL,'',2,0,602,435.5,'N','');
-INSERT INTO bpm_sequenciafluxo (idelementoorigem,idelementodestino,idfluxo,nomeclasseorigem,nomeclassedestino,condicao,idconexaoorigem,idconexaodestino,bordax,borday,posicaoalterada,nome) VALUES ($id_elemento_10,$id_elemento_21,$id_fluxo,NULL,NULL,'',1,3,756,194,'N','');
-INSERT INTO bpm_sequenciafluxo (idelementoorigem,idelementodestino,idfluxo,nomeclasseorigem,nomeclassedestino,condicao,idconexaoorigem,idconexaodestino,bordax,borday,posicaoalterada,nome) VALUES ($id_elemento_11,$id_elemento_01,$id_fluxo,NULL,NULL,'',1,3,179.5,48.75,'N','');
-INSERT INTO bpm_sequenciafluxo (idelementoorigem,idelementodestino,idfluxo,nomeclasseorigem,nomeclassedestino,condicao,idconexaoorigem,idconexaodestino,bordax,borday,posicaoalterada,nome) VALUES ($id_elemento_12,$id_elemento_01,$id_fluxo,NULL,NULL,'',0,2,270.25,91,'N','');
-INSERT INTO bpm_sequenciafluxo (idelementoorigem,idelementodestino,idfluxo,nomeclasseorigem,nomeclassedestino,condicao,idconexaoorigem,idconexaodestino,bordax,borday,posicaoalterada,nome) VALUES ($id_elemento_13,$id_elemento_08,$id_fluxo,NULL,NULL,'',1,0,561.5,53.5,'N','');
-INSERT INTO bpm_sequenciafluxo (idelementoorigem,idelementodestino,idfluxo,nomeclasseorigem,nomeclassedestino,condicao,idconexaoorigem,idconexaodestino,bordax,borday,posicaoalterada,nome) VALUES ($id_elemento_14,$id_elemento_02,$id_fluxo,NULL,NULL,'',3,0,296,169,'S','');
-INSERT INTO bpm_sequenciafluxo (idelementoorigem,idelementodestino,idfluxo,nomeclasseorigem,nomeclassedestino,condicao,idconexaoorigem,idconexaodestino,bordax,borday,posicaoalterada,nome) VALUES ($id_elemento_15,$id_elemento_09,$id_fluxo,NULL,NULL,'',3,1,702.5,355.25,'N','');
-INSERT INTO bpm_sequenciafluxo (idelementoorigem,idelementodestino,idfluxo,nomeclasseorigem,nomeclassedestino,condicao,idconexaoorigem,idconexaodestino,bordax,borday,posicaoalterada,nome) VALUES ($id_elemento_16,$id_elemento_06,$id_fluxo,NULL,NULL,'',3,1,389,366.25,'N','');
-INSERT INTO bpm_sequenciafluxo (idelementoorigem,idelementodestino,idfluxo,nomeclasseorigem,nomeclassedestino,condicao,idconexaoorigem,idconexaodestino,bordax,borday,posicaoalterada,nome) VALUES ($id_elemento_17,$id_elemento_05,$id_fluxo,NULL,NULL,'',1,3,914,193.75,'N','');
-INSERT INTO bpm_sequenciafluxo (idelementoorigem,idelementodestino,idfluxo,nomeclasseorigem,nomeclassedestino,condicao,idconexaoorigem,idconexaodestino,bordax,borday,posicaoalterada,nome) VALUES ($id_elemento_18,$id_elemento_03,$id_fluxo,NULL,NULL,'',2,0,601.75,217.5,'N','');
-INSERT INTO bpm_sequenciafluxo (idelementoorigem,idelementodestino,idfluxo,nomeclasseorigem,nomeclassedestino,condicao,idconexaoorigem,idconexaodestino,bordax,borday,posicaoalterada,nome) VALUES ($id_elemento_19,$id_elemento_04,$id_fluxo,NULL,NULL,'',1,3,913.5,76.25,'N','');
-INSERT INTO bpm_sequenciafluxo (idelementoorigem,idelementodestino,idfluxo,nomeclasseorigem,nomeclassedestino,condicao,idconexaoorigem,idconexaodestino,bordax,borday,posicaoalterada,nome) VALUES ($id_elemento_20,$id_elemento_16,$id_fluxo,NULL,NULL,'!#{execucaoFluxo}.requisicaoAutorizada();',2,0,429.25,330.5,'N','N�o autorizado');
-INSERT INTO bpm_sequenciafluxo (idelementoorigem,idelementodestino,idfluxo,nomeclasseorigem,nomeclassedestino,condicao,idconexaoorigem,idconexaodestino,bordax,borday,posicaoalterada,nome) VALUES ($id_elemento_20,$id_elemento_23,$id_fluxo,NULL,NULL,'#{execucaoFluxo}.requisicaoAutorizada();',1,3,462,221,'S','Autorizado');
-INSERT INTO bpm_sequenciafluxo (idelementoorigem,idelementodestino,idfluxo,nomeclasseorigem,nomeclassedestino,condicao,idconexaoorigem,idconexaodestino,bordax,borday,posicaoalterada,nome) VALUES ($id_elemento_21,$id_elemento_07,$id_fluxo,NULL,NULL,'#{execucaoFluxo}.corrigirPrestacaoContas();',2,3,852,304,'S','Corrigir Presta��o de Contas');
-INSERT INTO bpm_sequenciafluxo (idelementoorigem,idelementodestino,idfluxo,nomeclasseorigem,nomeclassedestino,condicao,idconexaoorigem,idconexaodestino,bordax,borday,posicaoalterada,nome) VALUES ($id_elemento_21,$id_elemento_15,$id_fluxo,NULL,NULL,'#{execucaoFluxo}.requisicaoViagemFinalizada();',2,0,748,280,'S','Aprovada e Finalizada');
-INSERT INTO bpm_sequenciafluxo (idelementoorigem,idelementodestino,idfluxo,nomeclasseorigem,nomeclassedestino,condicao,idconexaoorigem,idconexaodestino,bordax,borday,posicaoalterada,nome) VALUES ($id_elemento_21,$id_elemento_17,$id_fluxo,NULL,NULL,'#{execucaoFluxo}.isTarefaConferencia();',1,3,836.5,194,'N','Aguardando Confer�ncia');
-INSERT INTO bpm_sequenciafluxo (idelementoorigem,idelementodestino,idfluxo,nomeclasseorigem,nomeclassedestino,condicao,idconexaoorigem,idconexaodestino,bordax,borday,posicaoalterada,nome) VALUES ($id_elemento_21,$id_elemento_19,$id_fluxo,NULL,NULL,'#{execucaoFluxo}.isEstadoPrestacaoContas();',0,3,818,118.5,'N','Aguardando Presta��o de Contas');
-INSERT INTO bpm_sequenciafluxo (idelementoorigem,idelementodestino,idfluxo,nomeclasseorigem,nomeclassedestino,condicao,idconexaoorigem,idconexaodestino,bordax,borday,posicaoalterada,nome) VALUES ($id_elemento_22,$id_elemento_13,$id_fluxo,NULL,NULL,'!#{execucaoFluxo}.exigeAutorizacao();',1,3,451.5,47.5,'N','n�o exige autoriza��o');
-INSERT INTO bpm_sequenciafluxo (idelementoorigem,idelementodestino,idfluxo,nomeclasseorigem,nomeclassedestino,condicao,idconexaoorigem,idconexaodestino,bordax,borday,posicaoalterada,nome) VALUES ($id_elemento_22,$id_elemento_14,$id_fluxo,NULL,NULL,'#{execucaoFluxo}.exigeAutorizacao();',2,1,405,168,'S','exige autoriza��o');
-INSERT INTO bpm_sequenciafluxo (idelementoorigem,idelementodestino,idfluxo,nomeclasseorigem,nomeclassedestino,condicao,idconexaoorigem,idconexaodestino,bordax,borday,posicaoalterada,nome) VALUES ($id_elemento_23,$id_elemento_12,$id_fluxo,NULL,NULL,'!#{execucaoFluxo}.validaPrazoItens();',0,1,429,111,'S','Itens N�o Aprovados');
-INSERT INTO bpm_sequenciafluxo (idelementoorigem,idelementodestino,idfluxo,nomeclasseorigem,nomeclassedestino,condicao,idconexaoorigem,idconexaodestino,bordax,borday,posicaoalterada,nome) VALUES ($id_elemento_23,$id_elemento_13,$id_fluxo,NULL,NULL,'#{execucaoFluxo}.validaPrazoItens();',0,2,493.75,90.5,'N','Itens Aprovados');
-
-INSERT INTO templatesolicitacaoservico (idtemplate,identificacao,nometemplate,nomeclassedto,nomeclasseaction,nomeclasseservico,urlrecuperacao,scriptaposrecuperacao,habilitadirecionamento,habilitasituacao,habilitasolucao,alturadiv,habilitaurgenciaimpacto,habilitanotificacaoemail,habilitaproblema,habilitamudanca,habilitaitemconfiguracao,habilitasolicitacaorelacionada,habilitagravarecontinuar,idquestionario,aprovacao) VALUES ($id_template_14,'CriacaoRequisicaoViagem','Requisi�ao Viagem','br.com.centralit.citcorpore.bean.RequisicaoViagemDTO','br.com.centralit.citcorpore.ajaxForms.RequisicaoViagem','br.com.centralit.citcorpore.negocio.RequisicaoViagemServiceEjb','/pages/requisicaoViagem/requisicaoViagem.load','','N','N','N',600,'N','N','N','N','N','N','S',NULL,'N');
-INSERT INTO templatesolicitacaoservico (idtemplate,identificacao,nometemplate,nomeclassedto,nomeclasseaction,nomeclasseservico,urlrecuperacao,scriptaposrecuperacao,habilitadirecionamento,habilitasituacao,habilitasolucao,alturadiv,habilitaurgenciaimpacto,habilitanotificacaoemail,habilitaproblema,habilitamudanca,habilitaitemconfiguracao,habilitasolicitacaorelacionada,habilitagravarecontinuar,idquestionario,aprovacao) VALUES ($id_template_15,'ControleFinanceiroViagem','Controle Financeiro Viagem','br.com.centralit.citcorpore.bean.ControleFinanceiroViagemDTO','br.com.centralit.citcorpore.ajaxForms.ControleFinanceiroViagem','br.com.centralit.citcorpore.negocio.ControleFinanceiroViagemServiceEjb','/pages/controleFinanceiroViagem/controleFinanceiroViagem.load','','N','N','N',700,'N','N','N','N','N','N','S',NULL,'N');
-INSERT INTO templatesolicitacaoservico (idtemplate,identificacao,nometemplate,nomeclassedto,nomeclasseaction,nomeclasseservico,urlrecuperacao,scriptaposrecuperacao,habilitadirecionamento,habilitasituacao,habilitasolucao,alturadiv,habilitaurgenciaimpacto,habilitanotificacaoemail,habilitaproblema,habilitamudanca,habilitaitemconfiguracao,habilitasolicitacaorelacionada,habilitagravarecontinuar,idquestionario,aprovacao) VALUES ($id_template_16,'AutorizacaoViagem','Autoriza��o Viagem','br.com.centralit.citcorpore.bean.RequisicaoViagemDTO','br.com.centralit.citcorpore.ajaxForms.AutorizacaoViagem','br.com.centralit.citcorpore.negocio.AutorizacaoViagemServiceEjb','/pages/autorizacaoViagem/autorizacaoViagem.load','','N','N','N',800,'N','N','N','N','N','N','S',NULL,'N');
-INSERT INTO templatesolicitacaoservico (idtemplate,identificacao,nometemplate,nomeclassedto,nomeclasseaction,nomeclasseservico,urlrecuperacao,scriptaposrecuperacao,habilitadirecionamento,habilitasituacao,habilitasolucao,alturadiv,habilitaurgenciaimpacto,habilitanotificacaoemail,habilitaproblema,habilitamudanca,habilitaitemconfiguracao,habilitasolicitacaorelacionada,habilitagravarecontinuar,idquestionario,aprovacao) VALUES ($id_template_17,'AlteracaoRequisicaoViagem','Altera��o Requisi��o Viagem','br.com.centralit.citcorpore.bean.RequisicaoViagemDTO','br.com.centralit.citcorpore.ajaxForms.RequisicaoViagem','br.com.centralit.citcorpore.negocio.RequisicaoViagemServiceEjb','/pages/requisicaoViagem/requisicaoViagem.load','','N','S','N',600,'N','N','N','N','N','N','S',NULL,'N');
-INSERT INTO templatesolicitacaoservico (idtemplate,identificacao,nometemplate,nomeclassedto,nomeclasseaction,nomeclasseservico,urlrecuperacao,scriptaposrecuperacao,habilitadirecionamento,habilitasituacao,habilitasolucao,alturadiv,habilitaurgenciaimpacto,habilitanotificacaoemail,habilitaproblema,habilitamudanca,habilitaitemconfiguracao,habilitasolicitacaorelacionada,habilitagravarecontinuar,idquestionario,aprovacao) VALUES ($id_template_18,'AdiantamentoViagem','Adiantamento Viagem','br.com.centralit.citcorpore.bean.AdiantamentoViagemDTO','br.com.centralit.citcorpore.ajaxForms.AdiantamentoViagem','br.com.centralit.citcorpore.negocio.AdiantamentoViagemServiceEjb','/pages/adiantamentoViagem/adiantamentoViagem.load','','N','N','N',500,'N','N','N','N','N','N','S',NULL,'N');
-INSERT INTO templatesolicitacaoservico (idtemplate,identificacao,nometemplate,nomeclassedto,nomeclasseaction,nomeclasseservico,urlrecuperacao,scriptaposrecuperacao,habilitadirecionamento,habilitasituacao,habilitasolucao,alturadiv,habilitaurgenciaimpacto,habilitanotificacaoemail,habilitaproblema,habilitamudanca,habilitaitemconfiguracao,habilitasolicitacaorelacionada,habilitagravarecontinuar,idquestionario,aprovacao) VALUES ($id_template_19,'PrestacaoContasViagem','Prestacao Contas Viagem','br.com.centralit.citcorpore.bean.PrestacaoContasViagemDTO','br.com.centralit.citcorpore.ajaxForms.PrestacaoContasViagem','br.com.centralit.citcorpore.negocio.PrestacaoContasViagemServiceEjb','/pages/prestacaoContasViagem/prestacaoContasViagem.load','','N','N','N',600,'N','N','N','N','N','N','S',NULL,'N');
-INSERT INTO templatesolicitacaoservico (idtemplate,identificacao,nometemplate,nomeclassedto,nomeclasseaction,nomeclasseservico,urlrecuperacao,scriptaposrecuperacao,habilitadirecionamento,habilitasituacao,habilitasolucao,alturadiv,habilitaurgenciaimpacto,habilitanotificacaoemail,habilitaproblema,habilitamudanca,habilitaitemconfiguracao,habilitasolicitacaorelacionada,habilitagravarecontinuar,idquestionario,aprovacao) VALUES ($id_template_20,'ConferenciaViagem','Conferencia Viagem','br.com.centralit.citcorpore.bean.PrestacaoContasViagemDTO','br.com.centralit.citcorpore.ajaxForms.ConferenciaViagem','br.com.centralit.citcorpore.negocio.ConferenciaViagemServiceEjb','/pages/conferenciaViagem/conferenciaViagem.load','','N','N','N',600,'N','N','N','N','N','N','S',NULL,'N');
-INSERT INTO templatesolicitacaoservico (idtemplate,identificacao,nometemplate,nomeclassedto,nomeclasseaction,nomeclasseservico,urlrecuperacao,scriptaposrecuperacao,habilitadirecionamento,habilitasituacao,habilitasolucao,alturadiv,habilitaurgenciaimpacto,habilitanotificacaoemail,habilitaproblema,habilitamudanca,habilitaitemconfiguracao,habilitasolicitacaorelacionada,habilitagravarecontinuar,idquestionario,aprovacao) VALUES ($id_template_21,'ExecComprasViagem','Execu��o Compras Viagem','br.com.centralit.citcorpore.bean.ControleFinanceiroViagemDTO','br.com.centralit.citcorpore.ajaxForms.CompraViagem','br.com.centralit.citcorpore.negocio.CompraViagemServiceEjb','/pages/compraViagem/compraViagem.load','','N','N','N',800,'N','N','N','N','N','N','S',NULL,'N');
-INSERT INTO templatesolicitacaoservico (idtemplate,identificacao,nometemplate,nomeclassedto,nomeclasseaction,nomeclasseservico,urlrecuperacao,scriptaposrecuperacao,habilitadirecionamento,habilitasituacao,habilitasolucao,alturadiv,habilitaurgenciaimpacto,habilitanotificacaoemail,habilitaproblema,habilitamudanca,habilitaitemconfiguracao,habilitasolicitacaorelacionada,habilitagravarecontinuar,idquestionario,aprovacao) VALUES ($id_template_22,'CorrigirPrestacaoContas','Corrigir Prestacao Contas','br.com.centralit.citcorpore.bean.PrestacaoContasViagemDTO','br.com.centralit.citcorpore.ajaxForms.CorrigirPrestacaoContas','br.com.centralit.citcorpore.negocio.PrestacaoContasViagemServiceEjb','/pages/corrigirPrestacaoContas/corrigirPrestacaoContas.load','','N','N','N',700,'N','N','N','N','N','N','N',NULL,'S');
-
-INSERT INTO modelosemails (idmodeloemail,titulo,texto,situacao,identificador) VALUES ($id_modelo_55,'Requisi�ao Viagem - ${IDSOLICITACAOSERVICO}','&nbsp;&nbsp;Senhor(a) ${NOMECONTATO},<br /><br />Informamos que a sua requisi&ccedil;&atilde;o foi registrada em ${DATAHORASOLICITACAO}, conforme os dados abaixo:<br /><strong><br />N&uacute;mero:</strong>&nbsp;${IDSOLICITACAOSERVICO}<br /><strong>Servi&ccedil;o:</strong>&nbsp;${SERVICO}<br /><br />${INFORMACOESCOMPLEMENTARESHTML}<br /><br /><br />Atenciosamente,<br /><br />Central IT Tecnologia da Informa&ccedil;&atilde;o Ltda.','A','CriacaoReqViagem');
-INSERT INTO modelosemails (idmodeloemail,titulo,texto,situacao,identificador) VALUES ($id_modelo_56,'Requisi��o Viagem  - ${IDSOLICITACAOSERVICO}','&nbsp;&nbsp;&nbsp;Senhor(a) ${NOMECONTATO},<br /><br />Informamos que a sua requisi&ccedil;&atilde;o foi registrada em ${DATAHORASOLICITACAO}, conforme os dados abaixo:<br /><strong><br />N&uacute;mero:</strong>&nbsp;${IDSOLICITACAOSERVICO}<br /><strong>Servi&ccedil;o:</strong>&nbsp;${SERVICO}<br />Data Inicio:${DATAINICIOVIAGEM}<br />DataFim:${DATAFIMVIAGEM}<br />Cidade Origem:<br />Cidade Destino:<br />Motivo:<br />${DESCRICAOMOTIVO}<br /><br />Atenciosamente,<br /><br />Central IT Tecnologia da Informa&ccedil;&atilde;o Ltda.','A','ReqVigIntegrate');
-INSERT INTO modelosemails (idmodeloemail,titulo,texto,situacao,identificador) VALUES ($id_modelo_65,'Cria��o da Requisi��o de Viagem - ${IDSOLICITACAOSERVICO}','&nbsp;Informamos que foi criado a requisi&ccedil;&atilde;o de viagem : ${IDSOLICITACAOSERVICO}.<br /><br />Atenciosamente,<br /><br />Central IT Tecnologia da Informa&ccedil;&atilde;o Ltda.','A','CRV');
-INSERT INTO modelosemails (idmodeloemail,titulo,texto,situacao,identificador) VALUES ($id_modelo_66,'Requisi�ao Viagem - ${IDSOLICITACAOSERVICO}','&nbsp;&nbsp;&nbsp;Senhor(a) ${NOMECONTATO},<br /><br />Informamos que a requisi&ccedil;&atilde;o&nbsp;<strong>N&uacute;mero:</strong>&nbsp;${IDSOLICITACAOSERVICO}&nbsp;&nbsp;necessita de sua autoriza&ccedil;&atilde;o:<br /><br /><strong>Servi&ccedil;o:</strong>&nbsp;${SERVICO}<br /><br />${INFORMACOESCOMPLEMENTARESHTML}<br /><br /><br />Atenciosamente,<br /><br />Central IT Tecnologia da Informa&ccedil;&atilde;o Ltda.','A','AutorizarReqViagem');
-INSERT INTO modelosemails (idmodeloemail,titulo,texto,situacao,identificador) VALUES ($id_modelo_67,'Requisi�ao Viagem - ${IDSOLICITACAOSERVICO}','&nbsp;&nbsp;&nbsp;&nbsp;Senhor(a),<br /><br />Informamos que a requisi&ccedil;&atilde;o de viagem&nbsp;<strong>N&uacute;mero:</strong>&nbsp;${IDSOLICITACAOSERVICO} foi aprovada e aguarda a compras dos itens da viagem <br /><br /><strong>Servi&ccedil;o:</strong>&nbsp;${SERVICO}<br /><br />${INFORMACOESCOMPLEMENTARESHTML}<br /><br /><br />Atenciosamente,<br /><br />Central IT Tecnologia da Informa&ccedil;&atilde;o Ltda.','A','AprovacaoReqViagem');
-INSERT INTO modelosemails (idmodeloemail,titulo,texto,situacao,identificador) VALUES ($id_modelo_68,'Requisi�ao Viagem - ${IDSOLICITACAOSERVICO}','Senhor(a) ${NOMECONTATO},<br /><br />Informamos que a requisi&ccedil;&atilde;o de viagem&nbsp;<strong>N&uacute;mero:</strong>&nbsp;${IDSOLICITACAOSERVICO} n&atilde;o foi Autorizada pela seguinte justificativa :<br /><br />${JUSTIFICATIVA}<br /><br /><strong>Servi&ccedil;o:</strong>&nbsp;${SERVICO}<br /><br />${INFORMACOESCOMPLEMENTARESHTML}<br /><br /><br />Atenciosamente,<br /><br />Central IT Tecnologia da Informa&ccedil;&atilde;o Ltda.','A','ReprovacaoReqViagem');
-INSERT INTO modelosemails (idmodeloemail,titulo,texto,situacao,identificador) VALUES ($id_modelo_70,'Requisi�ao Viagem - ${IDSOLICITACAOSERVICO}','&nbsp;&nbsp;&nbsp; Senhor(a),<br /><br />Informamos que a requisi&ccedil;&atilde;o de viagem&nbsp;<strong>N&uacute;mero:</strong>&nbsp;${IDSOLICITACAOSERVICO} foi aprovada e aguarda o adiantamento do(s) item(s) da viagem <br /><br /><strong>Servi&ccedil;o:</strong>&nbsp;${SERVICO}<br /><br />${INFORMACOESCOMPLEMENTARESHTML}<br /><br /><br />Atenciosamente,<br /><br />Central IT Tecnologia da Informa&ccedil;&atilde;o Ltda.','A','AdiantaReqViagem');
-INSERT INTO modelosemails (idmodeloemail,titulo,texto,situacao,identificador) VALUES ($id_modelo_71,'Requisi�ao Viagem - ${IDSOLICITACAOSERVICO}','&nbsp;&nbsp;&nbsp; Senhor(a),<br /><br />Informamos que algum(s) Item(s) da requisi&ccedil;&atilde;o de viagem&nbsp;<strong>N&uacute;mero:</strong>&nbsp;${IDSOLICITACAOSERVICO} tiveram o prazo de cota&ccedil;&atilde;o estourado.<br />Favor verificar.<br /><br /><strong>Servi&ccedil;o:</strong>&nbsp;${SERVICO}<br /><br />${INFORMACOESCOMPLEMENTARESHTML}<br /><br /><br />Atenciosamente,<br /><br />Central IT Tecnologia da Informa&ccedil;&atilde;o Ltda.','A','ItemAtrasadosViagem');
-INSERT INTO modelosemails (idmodeloemail,titulo,texto,situacao,identificador) VALUES ($id_modelo_72,'Requisi�ao Viagem - ${IDSOLICITACAOSERVICO}','&nbsp;&nbsp;&nbsp; Senhor(a),<br /><br />Desejamos boa viagem e infomamos que no seu retorno a requisi&ccedil;&atilde;o de viagem&nbsp;<strong>N&uacute;mero:</strong>&nbsp;${IDSOLICITACAOSERVICO} j&aacute; estar&aacute; aguardando para a tarefa de presta&ccedil;&atilde;o de contas.<br /><br /><strong>Servi&ccedil;o:</strong>&nbsp;${SERVICO}<br /><br />${INFORMACOESCOMPLEMENTARESHTML}<br /><br /><br />Atenciosamente,<br /><br />Central IT Tecnologia da Informa&ccedil;&atilde;o Ltda.','A','PrestContaViagem');
-INSERT INTO modelosemails (idmodeloemail,titulo,texto,situacao,identificador) VALUES ($id_modelo_73,'Requisi�ao Viagem - ${IDSOLICITACAOSERVICO}','&nbsp;&nbsp;&nbsp; Senhor(a),<br /><br />Informamos que um dos integrantes da requisi&ccedil;&atilde;o de viagem&nbsp;<strong>N&uacute;mero:</strong>&nbsp;${IDSOLICITACAOSERVICO} ja prestou contas de seus gastos e agora aguarda a conf&ecirc;rencia dos mesmos.<br /><br /><strong>Servi&ccedil;o:</strong>&nbsp;${SERVICO}<br /><br />${INFORMACOESCOMPLEMENTARESHTML}<br /><br /><br />Atenciosamente,<br /><br />Central IT Tecnologia da Informa&ccedil;&atilde;o Ltda.','A','ConfReqViagem');
-INSERT INTO modelosemails (idmodeloemail,titulo,texto,situacao,identificador) VALUES ($id_modelo_74,'Requisi�ao Viagem - ${IDSOLICITACAOSERVICO}','&nbsp;&nbsp;&nbsp; Senhor(a),<br /><br />Informamos que presta&ccedil;&atilde;o de contas da requisi&ccedil;&atilde;o de viagem&nbsp;<strong>N&uacute;mero:</strong>&nbsp;${IDSOLICITACAOSERVICO} n&atilde;o foi aprovada, favor verificar o motivo e fazer as corre&ccedil;&otilde;es necess&aacute;rias.<br /><br /><strong>Servi&ccedil;o:</strong>&nbsp;${SERVICO}<br /><br />${INFORMACOESCOMPLEMENTARESHTML}<br /><br /><br />Atenciosamente,<br /><br />Central IT Tecnologia da Informa&ccedil;&atilde;o Ltda.','A','PrestNaoApViagem');
-INSERT INTO modelosemails (idmodeloemail,titulo,texto,situacao,identificador) VALUES ($id_modelo_75,'Requisi�ao Viagem - ${IDSOLICITACAOSERVICO}','&nbsp;&nbsp;&nbsp; Senhor(a)&nbsp; ${NOMECONTATO},<br /><br /><br />Informamos que a requisi&ccedil;&atilde;o de viagem&nbsp;<strong>N&uacute;mero:</strong>&nbsp;${IDSOLICITACAOSERVICO} foi encerrada com sucesso.<br /><br /><strong>Servi&ccedil;o:</strong>&nbsp;${SERVICO}<br /><br />${INFORMACOESCOMPLEMENTARESHTML}<br /><br /><br />Atenciosamente,<br /><br />Central IT Tecnologia da Informa&ccedil;&atilde;o Ltda.','A','ReqViagemFinalizada');
-
-ALTER TABLE controlefinanceiroviagem ADD COLUMN idresponsavelcompras INT NULL;
-
-
--- Fim - Riubbe Da Silva Oliveira
 
 -- Inicio - Bruno Franco 18/09/2013
 
@@ -621,9 +431,9 @@ INSERT INTO bpm_fluxo (idfluxo, versao, idtipofluxo, variaveis, conteudoxml, dat
 
 INSERT INTO bpm_elementofluxo  (idelemento, idfluxo, tipoelemento, subtipo, nome, documentacao, tipointeracao, url, visao, grupos, usuarios, acaoentrada, acaosaida, script, textoemail, nomefluxoencadeado, posx, posy, altura, largura, modeloemail, template, intervalo, condicaodisparo, multiplasinstancias, destinatariosemail, contabilizasla, percexecucao) VALUES($id_elementofluxo_pessoal_1588, $id_fluxo_pessoal_152, 'Inicio', '', '', '', '', '', '', '', '', '', '', '', '', '', 19, 28, 32, 32, '', '', NULL, '', '', '', '', NULL);
 
-INSERT INTO bpm_elementofluxo  (idelemento, idfluxo, tipoelemento, subtipo, nome, documentacao, tipointeracao, url, visao, grupos, usuarios, acaoentrada, acaosaida, script, textoemail, nomefluxoencadeado, posx, posy, altura, largura, modeloemail, template, intervalo, condicaodisparo, multiplasinstancias, destinatariosemail, contabilizasla, percexecucao) VALUES($id_elementofluxo_pessoal_1589, $id_fluxo_pessoal_152, 'Tarefa', '', 'Analisar requisi��o de pessoal', 'Analisar requisi��o de pessoal', 'U', '/pages/solicitacaoServicoMultiContratos/solicitacaoServicoMultiContratos.load', '', '#{solicitacaoServico.grupoAtual}', '', '', '', '', '', '', 216, 11, 65, 140, '', 'AnaliseRequisicaoPessoal', NULL, '', '', '', '', NULL);
+INSERT INTO bpm_elementofluxo  (idelemento, idfluxo, tipoelemento, subtipo, nome, documentacao, tipointeracao, url, visao, grupos, usuarios, acaoentrada, acaosaida, script, textoemail, nomefluxoencadeado, posx, posy, altura, largura, modeloemail, template, intervalo, condicaodisparo, multiplasinstancias, destinatariosemail, contabilizasla, percexecucao) VALUES($id_elementofluxo_pessoal_1589, $id_fluxo_pessoal_152, 'Tarefa', '', 'Analisar requisiçã de pessoal', 'Analisar requisiçã de pessoal', 'U', '/pages/solicitacaoServicoMultiContratos/solicitacaoServicoMultiContratos.load', '', '#{solicitacaoServico.grupoAtual}', '', '', '', '', '', '', 216, 11, 65, 140, '', 'AnaliseRequisicaoPessoal', NULL, '', '', '', '', NULL);
 
-INSERT INTO bpm_elementofluxo  (idelemento, idfluxo, tipoelemento, subtipo, nome, documentacao, tipointeracao, url, visao, grupos, usuarios, acaoentrada, acaosaida, script, textoemail, nomefluxoencadeado, posx, posy, altura, largura, modeloemail, template, intervalo, condicaodisparo, multiplasinstancias, destinatariosemail, contabilizasla, percexecucao) VALUES($id_elementofluxo_pessoal_1590, $id_fluxo_pessoal_152, 'Tarefa', '', 'Alterar requisi��o de pessoal', 'Alterar requisi��o de pessoal', 'U', '/pages/solicitacaoServicoMultiContratos/solicitacaoServicoMultiContratos.load', '/pages/solicitacaoServicoMultiContratos/solicitacaoServicoMultiContratos.load', '#{solicitacaoServico.grupoNivel1}', '', '', '', '', '', '', 337, 203, 65, 140, '', 'RequisicaoPessoal', NULL, '', '', '', '', NULL);
+INSERT INTO bpm_elementofluxo  (idelemento, idfluxo, tipoelemento, subtipo, nome, documentacao, tipointeracao, url, visao, grupos, usuarios, acaoentrada, acaosaida, script, textoemail, nomefluxoencadeado, posx, posy, altura, largura, modeloemail, template, intervalo, condicaodisparo, multiplasinstancias, destinatariosemail, contabilizasla, percexecucao) VALUES($id_elementofluxo_pessoal_1590, $id_fluxo_pessoal_152, 'Tarefa', '', 'Alterar requisiçã de pessoal', 'Alterar requisiçã de pessoal', 'U', '/pages/solicitacaoServicoMultiContratos/solicitacaoServicoMultiContratos.load', '/pages/solicitacaoServicoMultiContratos/solicitacaoServicoMultiContratos.load', '#{solicitacaoServico.grupoNivel1}', '', '', '', '', '', '', 337, 203, 65, 140, '', 'RequisicaoPessoal', NULL, '', '', '', '', NULL);
 
 INSERT INTO bpm_elementofluxo  (idelemento, idfluxo, tipoelemento, subtipo, nome, documentacao, tipointeracao, url, visao, grupos, usuarios, acaoentrada, acaosaida, script, textoemail, nomefluxoencadeado, posx, posy, altura, largura, modeloemail, template, intervalo, condicaodisparo, multiplasinstancias, destinatariosemail, contabilizasla, percexecucao) VALUES($id_elementofluxo_pessoal_1591, $id_fluxo_pessoal_152, 'Tarefa', '', 'Triagem de curr�culos', 'Triagem de curr�culos', 'U', '/pages/solicitacaoServicoMultiContratos/solicitacaoServicoMultiContratos.load', '/pages/solicitacaoServicoMultiContratos/solicitacaoServicoMultiContratos.load', ' #{solicitacaoServico.grupoAtual}', '', '', '', '', '', '', 542, 11, 65, 140, '', 'TriagemRequisicaoPessoal', NULL, '', '', '', '', NULL);
 
@@ -713,7 +523,7 @@ INSERT INTO bpm_sequenciafluxo (idelementoorigem, idelementodestino, idfluxo, no
 VALUES($id_elementofluxo_pessoal_1602, $id_elementofluxo_pessoal_1599, $id_fluxo_pessoal_152, NULL, NULL, '#{execucaoFluxo}.requisicaoRejeitada();', 2, 0, 406.25, 95, 'N', 'rejeitada');
 
 INSERT INTO bpm_sequenciafluxo (idelementoorigem, idelementodestino, idfluxo, nomeclasseorigem, nomeclassedestino, condicao, idconexaoorigem, idconexaodestino, bordax, borday, posicaoalterada, nome)
-VALUES($id_elementofluxo_pessoal_1602, $id_elementofluxo_pessoal_1600, $id_fluxo_pessoal_152, NULL, NULL, '!#{execucaoFluxo}.requisicaoRejeitada();', 1, 3, 456, 44, 'S', 'n�o rejeitada');
+VALUES($id_elementofluxo_pessoal_1602, $id_elementofluxo_pessoal_1600, $id_fluxo_pessoal_152, NULL, NULL, '!#{execucaoFluxo}.requisicaoRejeitada();', 1, 3, 456, 44, 'S', 'não rejeitada');
 
 INSERT INTO bpm_sequenciafluxo (idelementoorigem, idelementodestino, idfluxo, nomeclasseorigem, nomeclassedestino, condicao, idconexaoorigem, idconexaodestino, bordax, borday, posicaoalterada, nome)
 VALUES($id_elementofluxo_pessoal_1603, $id_elementofluxo_pessoal_1592, $id_fluxo_pessoal_152, NULL, NULL, '#{execucaoFluxo}.existeEntrevistaPendenteRH();', 1, 3, 707, 143, 'S', 'existe entrevista RH');
@@ -731,22 +541,22 @@ INSERT INTO bpm_sequenciafluxo (idelementoorigem, idelementodestino, idfluxo, no
 VALUES($id_elementofluxo_pessoal_1605, $id_elementofluxo_pessoal_1603, $id_fluxo_pessoal_152, NULL, NULL, '#{execucaoFluxo}.preRequisitoEntrevistaGestor();', 0, 2, 676.5, 301.5, 'N', 'entrevistas simultaneas');
 
 INSERT INTO bpm_sequenciafluxo (idelementoorigem, idelementodestino, idfluxo, nomeclasseorigem, nomeclassedestino, condicao, idconexaoorigem, idconexaodestino, bordax, borday, posicaoalterada, nome)
-VALUES($id_elementofluxo_pessoal_1606, $id_elementofluxo_pessoal_1591, $id_fluxo_pessoal_152, NULL, NULL, '!#{execucaoFluxo}.vagasPreenchidas();', 0, 1, 1468, 47, 'S', 'vagas n�o preenchidas');
+VALUES($id_elementofluxo_pessoal_1606, $id_elementofluxo_pessoal_1591, $id_fluxo_pessoal_152, NULL, NULL, '!#{execucaoFluxo}.vagasPreenchidas();', 0, 1, 1468, 47, 'S', 'vagas não preenchidas');
 
 INSERT INTO bpm_sequenciafluxo (idelementoorigem, idelementodestino, idfluxo, nomeclasseorigem, nomeclassedestino, condicao, idconexaoorigem, idconexaodestino, bordax, borday, posicaoalterada, nome)
 VALUES($id_elementofluxo_pessoal_1606, $id_elementofluxo_pessoal_1601, $id_fluxo_pessoal_152, NULL, NULL, '#{execucaoFluxo}.vagasPreenchidas();', 2, 0, 1470.25, 182.5, 'N', 'vagas preenchidas');
 
 INSERT INTO bpm_sequenciafluxo (idelementoorigem, idelementodestino, idfluxo, nomeclasseorigem, nomeclassedestino, condicao, idconexaoorigem, idconexaodestino, bordax, borday, posicaoalterada, nome)
-VALUES($id_elementofluxo_pessoal_1607, $id_elementofluxo_pessoal_1605, $id_fluxo_pessoal_152, NULL, NULL, '!#{execucaoFluxo}.vagasPreenchidas();', 1, 3, 642.5, 465, 'N', 'vagas n�o preenchidas e solicitacao em andamento');
+VALUES($id_elementofluxo_pessoal_1607, $id_elementofluxo_pessoal_1605, $id_fluxo_pessoal_152, NULL, NULL, '!#{execucaoFluxo}.vagasPreenchidas();', 1, 3, 642.5, 465, 'N', 'vagas não preenchidas e solicitacao em andamento');
 
 INSERT INTO bpm_sequenciafluxo (idelementoorigem, idelementodestino, idfluxo, nomeclasseorigem, nomeclassedestino, condicao, idconexaoorigem, idconexaodestino, bordax, borday, posicaoalterada, nome)
-VALUES($id_elementofluxo_pessoal_1607, $id_elementofluxo_pessoal_1609, $id_fluxo_pessoal_152, NULL, NULL, '#{execucaoFluxo}.vagasPreenchidas();', 2, 2, 1471, 574, 'S', 'vagas n�o preenchidas e solicitacao cancelada');
+VALUES($id_elementofluxo_pessoal_1607, $id_elementofluxo_pessoal_1609, $id_fluxo_pessoal_152, NULL, NULL, '#{execucaoFluxo}.vagasPreenchidas();', 2, 2, 1471, 574, 'S', 'vagas não preenchidas e solicitacao cancelada');
 
 INSERT INTO bpm_sequenciafluxo (idelementoorigem, idelementodestino, idfluxo, nomeclasseorigem, nomeclassedestino, condicao, idconexaoorigem, idconexaodestino, bordax, borday, posicaoalterada, nome)
-VALUES($id_elementofluxo_pessoal_1608, $id_elementofluxo_pessoal_1591, $id_fluxo_pessoal_152, NULL, NULL, '!#{execucaoFluxo}.entrevistaAprovadaENaoClassificada();', 0, 1, 1016, 84, 'S', 'n�o existe entrevista');
+VALUES($id_elementofluxo_pessoal_1608, $id_elementofluxo_pessoal_1591, $id_fluxo_pessoal_152, NULL, NULL, '!#{execucaoFluxo}.entrevistaAprovadaENaoClassificada();', 0, 1, 1016, 84, 'S', 'não existe entrevista');
 
 INSERT INTO bpm_sequenciafluxo (idelementoorigem, idelementodestino, idfluxo, nomeclasseorigem, nomeclassedestino, condicao, idconexaoorigem, idconexaodestino, bordax, borday, posicaoalterada, nome)
-VALUES($id_elementofluxo_pessoal_1608, $id_elementofluxo_pessoal_1596, $id_fluxo_pessoal_152, NULL, NULL, '#{execucaoFluxo}.entrevistaAprovadaENaoClassificada();', 1, 3, 1054, 118, 'S', 'existe entrevista aprovada e n�o classificada');
+VALUES($id_elementofluxo_pessoal_1608, $id_elementofluxo_pessoal_1596, $id_fluxo_pessoal_152, NULL, NULL, '#{execucaoFluxo}.entrevistaAprovadaENaoClassificada();', 1, 3, 1054, 118, 'S', 'existe entrevista aprovada e não classificada');
 
 -- ################################# fim sequencia fluxo ######################## --
 
@@ -765,10 +575,10 @@ INSERT INTO bpm_elementofluxo (idelemento, idfluxo, tipoelemento, subtipo, nome,
 VALUES($id_elementofluxo_cargo_1610, $id_fluxo_cargo_153, 'Inicio', '', '', '', '', '', '', '', '', '', '', '', '', '', 29, 60, 32, 32, '', '', NULL, '', '', '', '', NULL);
 
 INSERT INTO bpm_elementofluxo (idelemento, idfluxo, tipoelemento, subtipo, nome, documentacao, tipointeracao, url, visao, grupos, usuarios, acaoentrada, acaosaida, script, textoemail, nomefluxoencadeado, posx, posy, altura, largura, modeloemail, template, intervalo, condicaodisparo, multiplasinstancias, destinatariosemail, contabilizasla, percexecucao)
-VALUES($id_elementofluxo_cargo_1611, $id_fluxo_cargo_153, 'Tarefa', '', 'Analisar solicita��o de cargo', 'Analisar solicita��o de cargo', 'U', '/pages/solicitacaoServicoMultiContratos/solicitacaoServicoMultiContratos.load', '', '#{solicitacaoServico.grupoAtual}', '', '', '', '', '', '', 292, 43, 65, 140, '', 'AnaliseSolicitacaoCargo', NULL, '', '', '', '', NULL);
+VALUES($id_elementofluxo_cargo_1611, $id_fluxo_cargo_153, 'Tarefa', '', 'Analisar solicitação de cargo', 'Analisar solicitação de cargo', 'U', '/pages/solicitacaoServicoMultiContratos/solicitacaoServicoMultiContratos.load', '', '#{solicitacaoServico.grupoAtual}', '', '', '', '', '', '', 292, 43, 65, 140, '', 'AnaliseSolicitacaoCargo', NULL, '', '', '', '', NULL);
 
 INSERT INTO bpm_elementofluxo (idelemento, idfluxo, tipoelemento, subtipo, nome, documentacao, tipointeracao, url, visao, grupos, usuarios, acaoentrada, acaosaida, script, textoemail, nomefluxoencadeado, posx, posy, altura, largura, modeloemail, template, intervalo, condicaodisparo, multiplasinstancias, destinatariosemail, contabilizasla, percexecucao)
-VALUES($id_elementofluxo_cargo_1612, $id_fluxo_cargo_153, 'Tarefa', '', 'Alterar solicita��o de cargo', 'Alterar solicita��o de cargo', 'U', '/pages/solicitacaoServicoMultiContratos/solicitacaoServicoMultiContratos.load', '/pages/solicitacaoServicoMultiContratos/solicitacaoServicoMultiContratos.load', '#{solicitacaoServico.grupoNivel1}', '', '', '', '', '', '', 594, 241, 65, 140, '', 'SolicitacaoCargo', NULL, '', '', '', '', NULL);
+VALUES($id_elementofluxo_cargo_1612, $id_fluxo_cargo_153, 'Tarefa', '', 'Alterar solicitação de cargo', 'Alterar solicitação de cargo', 'U', '/pages/solicitacaoServicoMultiContratos/solicitacaoServicoMultiContratos.load', '/pages/solicitacaoServicoMultiContratos/solicitacaoServicoMultiContratos.load', '#{solicitacaoServico.grupoNivel1}', '', '', '', '', '', '', 594, 241, 65, 140, '', 'SolicitacaoCargo', NULL, '', '', '', '', NULL);
 
 INSERT INTO bpm_elementofluxo (idelemento, idfluxo, tipoelemento, subtipo, nome, documentacao, tipointeracao, url, visao, grupos, usuarios, acaoentrada, acaosaida, script, textoemail, nomefluxoencadeado, posx, posy, altura, largura, modeloemail, template, intervalo, condicaodisparo, multiplasinstancias, destinatariosemail, contabilizasla, percexecucao)
 VALUES($id_elementofluxo_cargo_1613, $id_fluxo_cargo_153, 'Script', '', 'encerra', '', '', '', '', '', '', '', '', '#{execucaoFluxo}.encerra();', '', '', 855, 44, 65, 140, '', '', NULL, '', '', '', '', NULL);
@@ -836,13 +646,13 @@ VALUES($id_elementofluxo_cargo_1619, $id_elementofluxo_cargo_1618, $id_fluxo_car
 -- ######################################## template solicitacao servico ###########################################
 
 INSERT INTO templatesolicitacaoservico (idtemplate, identificacao, nometemplate, nomeclassedto, nomeclasseaction, nomeclasseservico, urlrecuperacao, scriptaposrecuperacao, habilitadirecionamento, habilitasituacao, habilitasolucao, alturadiv, habilitaurgenciaimpacto, habilitanotificacaoemail, habilitaproblema, habilitamudanca, habilitaitemconfiguracao, habilitasolicitacaorelacionada, habilitagravarecontinuar, idquestionario,aprovacao)
-VALUES($id_template_sol_ser_pessoal, 'RequisicaoPessoal', 'Requisi��o Pessoal', 'br.com.centralit.citcorpore.rh.bean.RequisicaoPessoalDTO', 'br.com.centralit.citcorpore.ajaxForms.RequisicaoPessoal', 'br.com.centralit.citcorpore.rh.negocio.RequisicaoPessoalServiceEjb', '/pages/requisicaoPessoal/requisicaoPessoal.load', '', 'N', 'S', 'N', 1000, 'S', 'N', 'N', 'N', 'N', 'N', 'S', NULL, 'N');
+VALUES($id_template_sol_ser_pessoal, 'RequisicaoPessoal', 'Requisiçã Pessoal', 'br.com.centralit.citcorpore.rh.bean.RequisicaoPessoalDTO', 'br.com.centralit.citcorpore.ajaxForms.RequisicaoPessoal', 'br.com.centralit.citcorpore.rh.negocio.RequisicaoPessoalServiceEjb', '/pages/requisicaoPessoal/requisicaoPessoal.load', '', 'N', 'S', 'N', 1000, 'S', 'N', 'N', 'N', 'N', 'N', 'S', NULL, 'N');
 
 INSERT INTO templatesolicitacaoservico (idtemplate, identificacao, nometemplate, nomeclassedto, nomeclasseaction, nomeclasseservico, urlrecuperacao, scriptaposrecuperacao, habilitadirecionamento, habilitasituacao, habilitasolucao, alturadiv, habilitaurgenciaimpacto, habilitanotificacaoemail, habilitaproblema, habilitamudanca, habilitaitemconfiguracao, habilitasolicitacaorelacionada, habilitagravarecontinuar, idquestionario,aprovacao)
-VALUES($id_template_sol_ser_analise_pessoal, 'AnaliseRequisicaoPessoal', 'An�lise Requisi��o Pessoal', 'br.com.centralit.citcorpore.rh.bean.RequisicaoPessoalDTO', 'br.com.centralit.citcorpore.ajaxForms.AnaliseRequisicaoPessoal', 'br.com.centralit.citcorpore.rh.negocio.RequisicaoPessoalServiceEjb', '/pages/analiseRequisicaoPessoal/analiseRequisicaoPessoal.load', '', 'N', 'S', 'N', 1000, 'S', 'N', 'N', 'N', 'N', 'N', 'S', NULL, 'N');
+VALUES($id_template_sol_ser_analise_pessoal, 'AnaliseRequisicaoPessoal', 'An�lise Requisiçã Pessoal', 'br.com.centralit.citcorpore.rh.bean.RequisicaoPessoalDTO', 'br.com.centralit.citcorpore.ajaxForms.AnaliseRequisicaoPessoal', 'br.com.centralit.citcorpore.rh.negocio.RequisicaoPessoalServiceEjb', '/pages/analiseRequisicaoPessoal/analiseRequisicaoPessoal.load', '', 'N', 'S', 'N', 1000, 'S', 'N', 'N', 'N', 'N', 'N', 'S', NULL, 'N');
 
 INSERT INTO templatesolicitacaoservico (idtemplate, identificacao, nometemplate, nomeclassedto, nomeclasseaction, nomeclasseservico, urlrecuperacao, scriptaposrecuperacao, habilitadirecionamento, habilitasituacao, habilitasolucao, alturadiv, habilitaurgenciaimpacto, habilitanotificacaoemail, habilitaproblema, habilitamudanca, habilitaitemconfiguracao, habilitasolicitacaorelacionada, habilitagravarecontinuar, idquestionario,aprovacao)
-VALUES($id_template_sol_ser_triagem, 'TriagemRequisicaoPessoal', 'Triagem Requisi��o Pessoal', 'br.com.centralit.citcorpore.rh.bean.RequisicaoPessoalDTO', 'br.com.centralit.citcorpore.ajaxForms.TriagemRequisicaoPessoal', 'br.com.centralit.citcorpore.rh.negocio.RequisicaoPessoalServiceEjb', '/pages/triagemRequisicaoPessoal/triagemRequisicaoPessoal.load', '', 'N', 'N', 'N', 800, 'S', 'N', 'N', 'N', 'N', 'N', 'S', NULL, 'N');
+VALUES($id_template_sol_ser_triagem, 'TriagemRequisicaoPessoal', 'Triagem Requisiçã Pessoal', 'br.com.centralit.citcorpore.rh.bean.RequisicaoPessoalDTO', 'br.com.centralit.citcorpore.ajaxForms.TriagemRequisicaoPessoal', 'br.com.centralit.citcorpore.rh.negocio.RequisicaoPessoalServiceEjb', '/pages/triagemRequisicaoPessoal/triagemRequisicaoPessoal.load', '', 'N', 'N', 'N', 800, 'S', 'N', 'N', 'N', 'N', 'N', 'S', NULL, 'N');
 
 INSERT INTO templatesolicitacaoservico (idtemplate, identificacao, nometemplate, nomeclassedto, nomeclasseaction, nomeclasseservico, urlrecuperacao, scriptaposrecuperacao, habilitadirecionamento, habilitasituacao, habilitasolucao, alturadiv, habilitaurgenciaimpacto, habilitanotificacaoemail, habilitaproblema, habilitamudanca, habilitaitemconfiguracao, habilitasolicitacaorelacionada, habilitagravarecontinuar, idquestionario,aprovacao)
 VALUES($id_template_sol_ser_entrevista, 'EntrevistaRequisicaoPessoal', 'Entrevista Requisicao Pessoal', 'br.com.centralit.citcorpore.rh.bean.RequisicaoPessoalDTO', 'br.com.centralit.citcorpore.ajaxForms.EntrevistaRequisicaoPessoal', 'br.com.centralit.citcorpore.rh.negocio.RequisicaoPessoalServiceEjb', '/pages/entrevistaRequisicaoPessoal/entrevistaRequisicaoPessoal.load', '', 'N', 'N', 'N', 800, 'S', 'N', 'N', 'N', 'N', 'N', 'S', NULL, 'N');
@@ -909,8 +719,8 @@ CREATE INDEX idx_idtipofluxo ON bpm_tipofluxo USING btree (idtipofluxo);
 
 -- Inicio - Murilo Gabriel Rodrigues 31/10/2013
 
-UPDATE bpm_tipofluxo SET descricao = 'Solicita��o de Servi�o' WHERE idtipofluxo = 1;
-INSERT INTO lingua (idlingua, nome, sigla, datainicio, datafim) VALUES ($id_ligua_espanhol, 'Espa�ol', 'ES', '2013-10-31', NULL);
+UPDATE bpm_tipofluxo SET descricao = 'Solicitação de Serviço' WHERE idtipofluxo = 1;
+INSERT INTO lingua (idlingua, nome, sigla, datainicio, datafim) VALUES ($id_ligua_espanhol, 'Español', 'ES', '2013-10-31', NULL);
 
 -- Fim - Murilo Gabriel Rodrigues
 
@@ -1001,11 +811,11 @@ ALTER TABLE bi_consultacolunas
 
 INSERT INTO bi_categorias
             (idcategoria,idcategoriapai,nomecategoria,identificacao,situacao)
-VALUES      (1,NULL,'Incidentes/Requisi��es','INCREQ001','A');
+VALUES      (1,NULL,'Incidentes/Requisições','INCREQ001','A');
 
 INSERT INTO bi_categorias
             (idcategoria,idcategoriapai,nomecategoria,identificacao,situacao)
-VALUES      (2,NULL,'Ativos e Configura��o','ATVCFG001','A');
+VALUES      (2,NULL,'Ativos e Configuração','ATVCFG001','A');
 
 INSERT INTO bi_categorias
             (idcategoria,idcategoriapai,nomecategoria,identificacao,situacao)
@@ -1013,7 +823,7 @@ VALUES      (3,NULL,'Base de Conhecimento','BASECG001','A');
 
 INSERT INTO bi_categorias
             (idcategoria,idcategoriapai,nomecategoria,identificacao,situacao)
-VALUES      (4,NULL,'N�veis de Servi�o','NIVELS001','A');
+VALUES      (4,NULL,'N�veis de Serviço','NIVELS001','A');
 
 INSERT INTO bi_categorias
             (idcategoria,idcategoriapai,nomecategoria,identificacao,situacao)
@@ -1021,15 +831,15 @@ VALUES      (5,NULL,'Problemas','PROBL001','A');
 
 INSERT INTO bi_categorias
             (idcategoria,idcategoriapai,nomecategoria,identificacao,situacao)
-VALUES      (6,NULL,'Mudan�as','MUDAN001','A');
+VALUES      (6,NULL,'Mudanças','MUDAN001','A');
 
 INSERT INTO bi_categorias
             (idcategoria,idcategoriapai,nomecategoria,identificacao,situacao)
-VALUES      (7,NULL,'Libera��es','LIBER001','A');
+VALUES      (7,NULL,'Liberações','LIBER001','A');
 
 INSERT INTO bi_categorias
             (idcategoria,idcategoriapai,nomecategoria,identificacao,situacao)
-VALUES      (8,NULL,'Catalogo de Servi�os','CATAL001','A');
+VALUES      (8,NULL,'Catalogo de Serviços','CATAL001','A');
 
 INSERT INTO bi_categorias
             (idcategoria,idcategoriapai,nomecategoria,identificacao,situacao)

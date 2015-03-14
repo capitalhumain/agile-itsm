@@ -2298,47 +2298,6 @@
                </subMenu1>
             </menu>
             <menu>
-               <nome>$menu.nome.viagem</nome>
-               <descricao>Módulo de Viagem</descricao>
-               <ordem>4</ordem>
-               <menuRapido>null</menuRapido>
-               <link />
-               <imagem>users.png</imagem>
-               <horizontal />
-               <subMenu1>
-                  <menu>
-                     <nome>$menu.nome.tipoMovimFinanceiraViagem</nome>
-                     <descricao>Tipo Movimentação Financeira Viagem</descricao>
-                     <ordem>1</ordem>
-                     <menuRapido>null</menuRapido>
-                     <link>/tipoMovimFinanceiraViagem/tipoMovimFinanceiraViagem.load</link>
-                     <imagem />
-                     <horizontal />
-                     <subMenu2 />
-                  </menu>
-                  <menu>
-                     <nome>$menu.nome.formaPagamento</nome>
-                     <descricao>Forma Pagamento</descricao>
-                     <ordem>2</ordem>
-                     <menuRapido>null</menuRapido>
-                     <link>/formaPagamento/formaPagamento.load</link>
-                     <imagem />
-                     <horizontal />
-                     <subMenu2 />
-                  </menu>
-                  <menu>
-                     <nome>$menu.nome.RemarcacaoViagem</nome>
-                     <descricao>Remarcacão Viagem</descricao>
-                     <ordem>0</ordem>
-                     <menuRapido>null</menuRapido>
-                     <link>/remarcacaoViagem/remarcacaoViagem.load</link>
-                     <imagem />
-                     <horizontal />
-                     <subMenu2 />
-                  </menu>
-               </subMenu1>
-            </menu>
-            <menu>
                <nome>$menu.nome.bi</nome>
                <descricao>BI Citsmart</descricao>
                <ordem>5</ordem>

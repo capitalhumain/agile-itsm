@@ -46,10 +46,6 @@ delete from menu where link like '/formacaoAcademica/formacaoAcademica.load';
 delete from menu where link like '/habilidade/habilidade.load';
 delete from menu where link like '/idioma/idioma.load';
 delete from menu where link like '/jornadaEmpregado/jornadaEmpregado.load';
-delete from menu where nome like '$menu.nome.viagem';
-delete from menu where link like '/controleFinanceiroViagemImprevisto/controleFinanceiroViagemImprevisto.load';
-delete from menu where link like '/tipoMovimFinanceiraViagem/tipoMovimFinanceiraViagem.load';
-delete from menu where link like '/formaPagamento/formaPagamento.load';
 
 -- FIM - MURILO GABRIEL RODRIGUES - 29/01/2014
 
@@ -237,7 +233,7 @@ CREATE TABLE rh_funcionario (
   cpf CHAR(11) NOT NULL ,
   datainicio DATE NULL ,
   datafim DATE NULL ,
-  PRIMARY KEY (idfuncionario) 
+  PRIMARY KEY (idfuncionario)
 );
 
 CREATE  TABLE rh_departamento (
@@ -249,7 +245,7 @@ CREATE  TABLE rh_departamento (
   analitico CHAR(1) NULL ,
   idparceiro INTEGER NULL ,
   coddep INTEGER NULL ,
-  PRIMARY KEY (iddepartamento) 
+  PRIMARY KEY (iddepartamento)
 );
 
 -- FIM -  GILBERTO TAVARES DE FRANCO NERY - 13/03/2013
