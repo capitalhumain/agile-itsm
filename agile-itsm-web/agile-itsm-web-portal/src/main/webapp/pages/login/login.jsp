@@ -50,48 +50,33 @@
                 <div class="widget-body">
 
                     <%
-                        String locale = UtilStrings.nullToVazio((String)request.getSession().getAttribute("locale"));
-                        String action_ = CitCorporeConstantes.CAMINHO_SERVIDOR + request.getContextPath() + "/pages/start/start";
-                        /*Verificar a ocorrencia disto*/
-                        if (request.getSession().getAttribute("passoInstalacao") != null) {
-                            action_ = CitCorporeConstantes.CAMINHO_SERVIDOR + request.getContextPath()+"/pages/start/start";
-                        }
-                        /* @autor edu.braz
-                         *  14/02/2014 */
-                        /* Variveis que recebem os parametros de telefone surpote para, depois fazer a quebra e armazenar em array usando o metodo split usando o (ponto e virgula) como separador.*/
                         String telefoneSuporteTelaLogin = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.CONFIGURACAO_TELEFONE_SUPORTE_TELA_LOGIN, ";" );
-                        String arrayTelefoneSuporteTelaLogin[] = telefoneSuporteTelaLogin.split(";"); %>
-                    <% /* @autor edu.braz
-                         *  14/02/2014  */
-                        /* Variveis que recebem os parametros de email surpote para, depois fazer a quebra e armazenar em array usando o metodo split usando o (ponto e virgula) como separador.*/
+                        String arrayTelefoneSuporteTelaLogin[] = telefoneSuporteTelaLogin.split(";");
+
                         String emailSuporteTelaLogin = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.CONFIGURACAO_EMAIL_SUPORTE_TELA_LOGIN, ";" );
                         String arrayEmailSuporteTelaLogin[] = emailSuporteTelaLogin.split(";");
                     %>
 
-                    <form name='formInternacionaliza' id='formInternacionaliza' class="marginless" action='<%=action_%>'>
+                    <form name='formInternacionaliza' id='formInternacionaliza' class="marginless" action="${ctx}/pages/start/start">
                         <input type="hidden" name="locale" id="locale"/>
                             <div class="navbar main hidden-print">
                             <ul class="topnav pull-right">
                                 <li class="hidden-phone dropdown dd-1 dd-flags" id="lang_nav">
-
-                                <% if (locale.equalsIgnoreCase("pt")) {%>
-                                        <a href="#" data-toggle="dropdown"><img id='linguagemAtiva' src="${ctx}/novoLayout/common/theme/images/lang/br.png" alt="br"></a>
-                                 <%} else {
-                                    if (locale.equalsIgnoreCase("en")) {%>
-                                        <a href="#" data-toggle="dropdown"><img id='linguagemAtiva' src="${ctx}/novoLayout/common/theme/images/lang/us.png" alt="br"></a>
-                                  <%} else {
-                                    if (locale.equalsIgnoreCase("es")) {%>
-                                        <a href="#" data-toggle="dropdown"><img id='linguagemAtiva' src="${ctx}/novoLayout/common/theme/images/lang/es.png" alt="br"></a>
-                                    <%} else {%>
-                                        <a href="#" data-toggle="dropdown"><img id='linguagemAtiva' src="${ctx}/novoLayout/common/theme/images/lang/br.png" alt="br"></a>
-                                    <%}
-                                    }
-                                  }%>
-
+                                    <c:choose>
+                                        <c:when test="${locale eq en}">
+                                            <a href="#" data-toggle="dropdown"><img id='linguagemAtiva' src="${ctx}/novoLayout/common/theme/images/lang/es.png" alt="us"></a>
+                                        </c:when>
+                                        <c:when test="${locale eq es}">
+                                            <a href="#" data-toggle="dropdown"><img id='linguagemAtiva' src="${ctx}/novoLayout/common/theme/images/lang/es.png" alt="br"></a>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <a href="#" data-toggle="dropdown"><img id='linguagemAtiva' src="${ctx}/novoLayout/common/theme/images/lang/br.png" alt="br"></a>
+                                        </c:otherwise>
+                                    </c:choose>
                                     <ul class="dropdown-menu pull-left">
                                         <li class="active"><a href="javascript:;" onclick="internacionalizar('pt')" title="Portugues" ><img src="${ctx}/novoLayout/common/theme/images/lang/br.png" alt="Portugues"> Português BR</a></li>
-                                          <li><a href="javascript:;" onclick="internacionalizar('en')" title="English"><img src="${ctx}/novoLayout/common/theme/images/lang/us.png" alt="English"> English</a></li>
-                                          <li><a href="javascript:;" onclick="internacionalizar('es')" title="Español"><img src="${ctx}/novoLayout/common/theme/images/lang/es.png" alt="Espanhol"> Español</a></li>
+                                        <li><a href="javascript:;" onclick="internacionalizar('en')" title="English"><img src="${ctx}/novoLayout/common/theme/images/lang/us.png" alt="English"> English</a></li>
+                                        <li><a href="javascript:;" onclick="internacionalizar('es')" title="Español"><img src="${ctx}/novoLayout/common/theme/images/lang/es.png" alt="Espanhol"> Español</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -164,23 +149,24 @@
             <p><i></i><fmt:message key="login.problema"/></p>
             <table align="center">
                 <td align="left">
-              <%/* @autor edu.braz
-                 *  05/02/2014
-                 * Percorre todo o array de telefone surpote para depois apresentalos na tela de forma separada. */
-                  int i = 0;
-                  while(i<arrayTelefoneSuporteTelaLogin.length){ %>
-                    <span class="glyphicons phone" data-toggle="notyfy" data-layout="topRight" data-type="primary"><i></i><b><fmt:message key="citcorpore.comum.ligue_nos"/></b><span class="">&nbsp;<%= arrayTelefoneSuporteTelaLogin[i] %></span></span><br>
-                  <%i++;
-                  } %>
+                <%
+                    int i = 0;
+                    while(i < arrayTelefoneSuporteTelaLogin.length) {
+                %>
+                      <span class="glyphicons phone" data-toggle="notyfy" data-layout="topRight" data-type="primary"><i></i><b><fmt:message key="citcorpore.comum.ligue_nos"/></b><span class="">&nbsp;<%= arrayTelefoneSuporteTelaLogin[i] %></span></span><br>
+                <%
+                        i++;
+                    }
+                %>
                     </td><td align="left">
-                <%/* @autor edu.braz
-                   *  05/02/2014
-                   * Percorre todo o array de E-mail surpote para depois apresentalos na tela de forma separada. */
-                    int j = 0;
-                    while(j<arrayEmailSuporteTelaLogin.length){ %>
-                &nbsp;&nbsp;<a href="mailto:<%=arrayEmailSuporteTelaLogin[j]%>?Subject=[<fmt:message key="citcorpore.comum.suporte"/>]" target="top" data-toggle="" class="glyphicons envelope"><i></i><%=arrayEmailSuporteTelaLogin[j] %><span class=""></span></a><br>
-                     <%j++;
-                    } %>
+                <%
+                      int j = 0;
+                      while(j<arrayEmailSuporteTelaLogin.length) { %>
+                          &nbsp;&nbsp;<a href="mailto:<%= arrayEmailSuporteTelaLogin[j] %>?Subject=[<fmt:message key="citcorpore.comum.suporte"/>]" target="top" data-toggle="" class="glyphicons envelope"><i></i><%= arrayEmailSuporteTelaLogin[j] %><span class=""></span></a><br>
+                <%
+                          j++;
+                      }
+                %>
                 </td>
             </table>
         </div>
