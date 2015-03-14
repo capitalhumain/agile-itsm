@@ -1179,18 +1179,18 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
                 if (bvalidaBaseConhecimento) {
                     final boolean informouBaseConhecimento = solicitacaoServicoDto.getColConhecimentoSolicitacaoSerialize() != null
                             && solicitacaoServicoDto.getColConhecimentoSolicitacaoSerialize().size() > 0;
-                    if (!informouBaseConhecimento) {
-                        document.alert(UtilI18N.internacionaliza(request, "citcorpore.comum.validacao.baseconhecimento"));
-                        this.verificaImpactoUrgencia(document, request, response);
-                        document.executeScript("habilitaBotaoGravar()");
-                        if (!bAlterarSituacao) {
-                            document.executeScript("desabilitarSituacao();");
-                        }
-                        if (solicitacaoServicoQuestionarioDto != null) {
-                            this.carregaInformacoesComplementares(document, request, solicitacaoServicoDto);
-                        }
-                        return;
-                    }
+                            if (!informouBaseConhecimento) {
+                                document.alert(UtilI18N.internacionaliza(request, "citcorpore.comum.validacao.baseconhecimento"));
+                                this.verificaImpactoUrgencia(document, request, response);
+                                document.executeScript("habilitaBotaoGravar()");
+                                if (!bAlterarSituacao) {
+                                    document.executeScript("desabilitarSituacao();");
+                                }
+                                if (solicitacaoServicoQuestionarioDto != null) {
+                                    this.carregaInformacoesComplementares(document, request, solicitacaoServicoDto);
+                                }
+                                return;
+                            }
                 }
             }
 
@@ -2087,7 +2087,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
     }
 
     public void duplicarSolicitacao(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws ServiceException,
-    Exception {
+            Exception {
 
         SolicitacaoServicoDTO novaSolicitacaoServicoDto = (SolicitacaoServicoDTO) document.getBean();
 
@@ -2251,7 +2251,7 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
     }
 
     public void preenchePorEmail(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws ServiceException,
-    Exception {
+            Exception {
         final String UNIDADE_AUTOCOMPLETE = ParametroUtil.getValorParametroCitSmartHashMap(
                 br.com.centralit.citcorpore.util.Enumerados.ParametroSistema.UNIDADE_AUTOCOMPLETE, "N");
 
@@ -2558,24 +2558,6 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
             document.executeScript("document.getElementById('col4').style.display = 'none';");
         }
 
-    }
-
-    public void trataTemplatesViagens(final TemplateSolicitacaoServicoDTO templateDto, final SolicitacaoServicoDTO solicitacaoServicoDto,
-            final HttpServletRequest request, final DocumentHTML document) {
-        WebUtil.getUsuario(request);
-        if (templateDto != null
-                && templateDto.getIdentificacao() != null
-                && (templateDto.getIdentificacao().equalsIgnoreCase("ControleFinanceiroViagem")
-                        || templateDto.getIdentificacao().equalsIgnoreCase("AdiantamentoViagem")
-                        || templateDto.getIdentificacao().equalsIgnoreCase("AlteracaoRequisicaoViagem")
-                        || templateDto.getIdentificacao().equalsIgnoreCase("ExecComprasViagem") || templateDto.getIdentificacao().equalsIgnoreCase(
-                                "AutorizacaoViagem"))) {
-            // regra: permite que o usuário solicitante cancele a solicitação durante essas fases do fluxo
-            // mas o usuário não pode marcar a solicitação como resolvida
-            document.executeScript("document.getElementById('col4').style.display = 'block';");
-            document.executeScript("document.getElementById('divSituacao').style.display = 'block';");
-            document.executeScript("document.getElementById('radioResolvida').disabled=true;");
-        }
     }
 
     public void pesquisaBaseConhecimento(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {

@@ -385,13 +385,13 @@ public class Enumerados implements Serializable {
         ID_GRUPO_PADRAO_EXECUTOR(167, "parametro.167", NUMERO),
         FILTRO_FLUXO_NOME(168, "parametro.168", TEXTO),
         FILTRO_FLUXO_ENCERRAMENTO(169, "parametro.169", TEXTO),
-        ID_GRUPO_PADRAO_REQ_VIAGEM_EXECUCAO(170, "parametro.170", NUMERO),
+        // ID_GRUPO_PADRAO_REQ_VIAGEM_EXECUCAO(170, "parametro.170", NUMERO),
         DIAS_LIMITE_REABERTURA_INCIDENTE_REQUISICAO(171, "parametro.171", NUMERO),
         MOSTRAR_GERENCIA_RECURSOS_HUMANOS(172, "parametro.172", BOOLEAN),
         MOSTRAR_COMPRAS(173, "parametro.173", BOOLEAN),
-        ID_GRUPO_PADRAO_RESPONSAVEL_COTACAO_VIAGEM(174, "parametro.174", NUMERO),
-        ID_GRUPO_PADRAO_RESPONSAVEL_ADIANTAMENTO_VIAGEM(175, "parametro.175", NUMERO),
-        ID_GRUPO_PADRAO_RESPONSAVEL_CONFERENCIA_VIAGEM(176, "parametro.176", NUMERO),
+        // ID_GRUPO_PADRAO_RESPONSAVEL_COTACAO_VIAGEM(174, "parametro.174", NUMERO),
+        // ID_GRUPO_PADRAO_RESPONSAVEL_ADIANTAMENTO_VIAGEM(175, "parametro.175", NUMERO),
+        // ID_GRUPO_PADRAO_RESPONSAVEL_CONFERENCIA_VIAGEM(176, "parametro.176", NUMERO),
         SERVASTERISKATIVAR(177, "parametro.177", BOOLEAN),
         SERVASTERISKIP(178, "parametro.178", TEXTO),
         SERVASTERISKLOGIN(179, "parametro.179", TEXTO),
@@ -428,7 +428,7 @@ public class Enumerados implements Serializable {
         BICITSMART_ID_MODELO_EMAIL_ERRO_PARAMETRO(210, "parametro.210", NUMERO),
         BICITSMART_ID_MODELO_EMAIL_ERRO_EXCECUCAO(211, "parametro.211", NUMERO),
         BICITSMART_ID_CONEXAO(212, "parametro.212", NUMERO),
-        GRUPO_PERMISSAO_DELEGAR_PRESTACAO_VIAGEM(213, "parametro.213", NUMERO),
+        // GRUPO_PERMISSAO_DELEGAR_PRESTACAO_VIAGEM(213, "parametro.213", NUMERO),
         LDAP_SUBDOMINIO(214, "parametro.214", TEXTO),
         RECEBER_NOTIFICACAO_ENCERRAR_ESCALONAR_SOLICITACOES_VINCULADAS(215, "parametro.215", BOOLEAN),
         ID_MODELO_EMAIL_CRIACAO_GRUPO_EXECUTOR_SOLICITACAO_RELACIONADA(216, "parametro.216", NUMERO),
@@ -1193,8 +1193,7 @@ public class Enumerados implements Serializable {
     public enum TipoAlcada {
 
         Compras("Autorização de compras"),
-        Pessoal("Requisição de pessoal"),
-        Viagem("Requisicao de Viagem");
+        Pessoal("Requisição de pessoal");
 
         private final String descricao;
 
@@ -1496,7 +1495,6 @@ public class Enumerados implements Serializable {
     public enum TipoSolicitacaoServico {
 
         COMPRA(1, "Compra"),
-        VIAGEM(2, "Viagem"),
         RH(3, "Requisição de pessoal"),
         INCIDENTE(4, "Incidente"),
         REQUISICAO(5, "Requisição");

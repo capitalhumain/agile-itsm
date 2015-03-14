@@ -75,7 +75,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      * @param gerenciamentoBean
      * @throws Exception
      */
-    public void adicionarFiltroPesquisa(final StringBuilder sql, final GerenciamentoServicosDTO gerenciamentoBean, final List parametros) throws Exception {
+    public void adicionarFiltroPesquisa(final StringBuilder sql, final GerenciamentoServicosDTO gerenciamentoBean, final List<Object> parametros)
+            throws Exception {
         if (gerenciamentoBean != null) {
             if (gerenciamentoBean.getIdSolicitacao() != null && !gerenciamentoBean.getIdSolicitacao().equals(new Integer(-1))) {
                 sql.append(" AND sol.idSolicitacaoServico = ? ");
@@ -205,9 +206,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     public SolicitacaoServicoDTO buscarNumeroItemTrabalhoPorNumeroSolicitacao(final int idSolicitacao) throws Exception {
-        final List parametro = new ArrayList<>();
-        final List listRetorno = new ArrayList<>();
-        List list = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
 
         final StringBuilder sql = new StringBuilder();
         sql.append("SELECT bpm_itemtrabalhofluxo.iditemtrabalho as idItemFluxoTrabalho FROM ");
@@ -225,7 +225,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
         parametro.add(idSolicitacao);
 
-        list = this.execSQL(sql.toString(), parametro.toArray());
+        final List<?> list = this.execSQL(sql.toString(), parametro.toArray());
 
         listRetorno.add("idItemFluxoTrabalho");
 
@@ -236,7 +236,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     public boolean confirmaEncerramento(final RelatorioQuantitativoRetornoDTO relatorioQuantitativoRetornoDTO, final Integer idElemento) throws Exception {
-        final List parametro = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
         final StringBuilder sb = new StringBuilder();
 
         sb.append("select * ");
@@ -255,11 +255,11 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     public boolean existeSolicitacaoServico(final SolicitacaoServicoDTO solicitacaoservico) throws Exception {
-        final List parametro = new ArrayList<>();
-        List list = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+
         final String sql = "select idsolicitacaoservico From " + this.getTableName() + " where idsolicitacaoservico = ?";
         parametro.add(solicitacaoservico.getIdSolicitacaoServico());
-        list = this.execSQL(sql, parametro.toArray());
+        final List<?> list = this.execSQL(sql, parametro.toArray());
         if (list != null && !list.isEmpty()) {
             return true;
         }
@@ -497,9 +497,9 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      * @author Vadoilo Damasceno
      */
     public List<SolicitacaoServicoDTO> findByConhecimento(final BaseConhecimentoDTO baseConhecimentoDto) throws Exception {
-        final List parametro = new ArrayList<>();
-        final List listRetorno = new ArrayList<>();
-        List list = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
+
         final StringBuilder sql = new StringBuilder();
 
         sql.append("select solicitacaoservico.idsolicitacaoservico, servico.nomeservico ");
@@ -511,7 +511,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
         parametro.add(baseConhecimentoDto.getIdBaseConhecimento());
 
-        list = this.execSQL(sql.toString(), parametro.toArray());
+        final List<?> list = this.execSQL(sql.toString(), parametro.toArray());
 
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("nomeServico");
@@ -534,15 +534,15 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             strSGBDPrincipal = UtilStrings.nullToVazio(strSGBDPrincipal).trim();
         }
 
-        final List listRetorno = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
 
         final StringBuilder sql = new StringBuilder();
 
         List listaTotal = new ArrayList<>();
 
-        final List parametros = new ArrayList<>();
-        final List parametros2 = new ArrayList<>();
-        final List parametros3 = new ArrayList<>();
+        final List<Object> parametros = new ArrayList<>();
+        final List<Object> parametros2 = new ArrayList<>();
+        final List<Object> parametros3 = new ArrayList<>();
 
         /*
          * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 10h00min - ID Citsmart: 120770 Motivo/Comentário: A tabela origematendimento, faseservico
@@ -1107,9 +1107,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("contrato");
         listRetorno.add("idUsuarioResponsavelAtual");
 
-        final List listaSolicitacoes = engine.listConvertion(this.getBean(), lista, listRetorno);
-
-        return listaSolicitacoes;
+        return engine.listConvertion(this.getBean(), lista, listRetorno);
     }
 
     public Collection<SolicitacaoServicoDTO> findByIdContratoPaginada(final PesquisaSolicitacaoServicoDTO pesquisaSolicitacaoServicoDto,
@@ -1120,15 +1118,15 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             strSGBDPrincipal = UtilStrings.nullToVazio(strSGBDPrincipal).trim();
         }
 
-        final List listRetorno = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
 
         final StringBuilder sql = new StringBuilder();
 
         List listaTotal = new ArrayList<>();
 
-        final List parametros = new ArrayList<>();
-        final List parametros2 = new ArrayList<>();
-        final List parametros3 = new ArrayList<>();
+        final List<Object> parametros = new ArrayList<>();
+        final List<Object> parametros2 = new ArrayList<>();
+        final List<Object> parametros3 = new ArrayList<>();
 
         /*
          * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 10h00min - ID Citsmart: 120770 Motivo/Comentário: A tabela origematendimento, faseservico
@@ -1654,7 +1652,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             }
         }
         pesquisaSolicitacaoServicoDto.setTotalPagina(totalPag);
-        List lista;
+        List<?> lista;
 
         if (strSGBDPrincipal.equalsIgnoreCase("ORACLE")) {
             lista = this.execSQL(sql.toString().toUpperCase(), parametros2.toArray());
@@ -1718,15 +1716,14 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     public Collection<SolicitacaoServicoDTO> findByIdGrupo(final Integer idGrupo) throws Exception {
-        final List parametro = new ArrayList<>();
-        final List listRetorno = new ArrayList<>();
-        List list = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
 
         final StringBuilder sql = new StringBuilder();
         sql.append("select sol.idsolicitacaoservico, sol.situacao from solicitacaoservico sol where sol.idgrupoatual = ? and (sol.prazohh <> 0 or sol.prazomm <> 0) and situacao <> 'Cancelada'");
         parametro.add(idGrupo);
 
-        list = this.execSQL(sql.toString(), parametro.toArray());
+        final List<?> list = this.execSQL(sql.toString(), parametro.toArray());
 
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("situacao");
@@ -1738,9 +1735,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     public Collection<SolicitacaoServicoDTO> findByIdGrupoEDataAlta(final Integer idGrupo, final Date dataInicio, final Date dataFim) throws Exception {
-        final List parametro = new ArrayList<>();
-        final List listRetorno = new ArrayList<>();
-        List list = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
 
         final StringBuilder sql = new StringBuilder();
         sql.append("select sol.idsolicitacaoservico, sol.situacao, sol.idprioridade, sol.urgencia from solicitacaoservico sol "
@@ -1752,7 +1748,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         parametro.add(dataFim);
         parametro.add("A");
 
-        list = this.execSQL(sql.toString(), parametro.toArray());
+        final List<?> list = this.execSQL(sql.toString(), parametro.toArray());
 
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("situacao");
@@ -1766,9 +1762,9 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     public Collection<SolicitacaoServicoDTO> findByIdGrupoEDataAtendidasAlta(final Integer idGrupo, final Date dataInicio, final Date dataFim) throws Exception {
-        final List parametro = new ArrayList<>();
-        final List listRetorno = new ArrayList<>();
-        List list = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
+
         final Date dataAtual = UtilDatas.getDataAtual();
 
         final StringBuilder sql = new StringBuilder();
@@ -1784,7 +1780,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         parametro.add("A");
         parametro.add(dataAtual);
 
-        list = this.execSQL(sql.toString(), parametro.toArray());
+        final List<?> list = this.execSQL(sql.toString(), parametro.toArray());
 
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("situacao");
@@ -1799,9 +1795,9 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
     public Collection<SolicitacaoServicoDTO> findByIdGrupoEDataAtendidasBaixa(final Integer idGrupo, final Date dataInicio, final Date dataFim)
             throws Exception {
-        final List parametro = new ArrayList<>();
-        final List listRetorno = new ArrayList<>();
-        List list = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
+
         final Date dataAtual = UtilDatas.getDataAtual();
 
         final StringBuilder sql = new StringBuilder();
@@ -1816,7 +1812,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         parametro.add("B");
         parametro.add(dataAtual);
 
-        list = this.execSQL(sql.toString(), parametro.toArray());
+        final List<?> list = this.execSQL(sql.toString(), parametro.toArray());
 
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("situacao");
@@ -1831,9 +1827,9 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
     public Collection<SolicitacaoServicoDTO> findByIdGrupoEDataAtendidasMedia(final Integer idGrupo, final Date dataInicio, final Date dataFim)
             throws Exception {
-        final List parametro = new ArrayList<>();
-        final List listRetorno = new ArrayList<>();
-        List list = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
+
         final Date dataAtual = UtilDatas.getDataAtual();
 
         final StringBuilder sql = new StringBuilder();
@@ -1849,7 +1845,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         parametro.add("M");
         parametro.add(dataAtual);
 
-        list = this.execSQL(sql.toString(), parametro.toArray());
+        final List<?> list = this.execSQL(sql.toString(), parametro.toArray());
 
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("situacao");
@@ -1864,9 +1860,9 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
     public Collection<SolicitacaoServicoDTO> findByIdGrupoEDataAtendidasTotal(final Integer idGrupo, final Date dataInicio, final Date dataFim)
             throws Exception {
-        final List parametro = new ArrayList<>();
-        final List listRetorno = new ArrayList<>();
-        List list = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
+
         final Date dataAtual = UtilDatas.getDataAtual();
 
         final StringBuilder sql = new StringBuilder();
@@ -1880,7 +1876,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         parametro.add(dataFim);
         parametro.add(dataAtual);
 
-        list = this.execSQL(sql.toString(), parametro.toArray());
+        final List<?> list = this.execSQL(sql.toString(), parametro.toArray());
 
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("situacao");
@@ -1894,9 +1890,9 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
     public Collection<SolicitacaoServicoDTO> findByIdGrupoEDataAtrasadasTotal(final Integer idGrupo, final Date dataInicio, final Date dataFim)
             throws Exception {
-        final List parametro = new ArrayList<>();
-        final List listRetorno = new ArrayList<>();
-        List list = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
+
         final Date dataAtual = UtilDatas.getDataAtual();
 
         final StringBuilder sql = new StringBuilder();
@@ -1912,7 +1908,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         parametro.add(dataAtual);
         parametro.add(dataAtual);
 
-        list = this.execSQL(sql.toString(), parametro.toArray());
+        final List<?> list = this.execSQL(sql.toString(), parametro.toArray());
 
         listRetorno.add("idSolicitacaoServico");
 
@@ -1923,9 +1919,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     public Collection<SolicitacaoServicoDTO> findByIdGrupoEDataBaixa(final Integer idGrupo, final Date dataInicio, final Date dataFim) throws Exception {
-        final List parametro = new ArrayList<>();
-        final List listRetorno = new ArrayList<>();
-        List list = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
 
         final StringBuilder sql = new StringBuilder();
         sql.append("select sol.idsolicitacaoservico, sol.situacao, sol.idprioridade, sol.urgencia from solicitacaoservico sol "
@@ -1937,7 +1932,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         parametro.add(dataFim);
         parametro.add("B");
 
-        list = this.execSQL(sql.toString(), parametro.toArray());
+        final List<?> list = this.execSQL(sql.toString(), parametro.toArray());
 
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("situacao");
@@ -1951,9 +1946,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     public Collection<SolicitacaoServicoDTO> findByIdGrupoEDataMedia(final Integer idGrupo, final Date dataInicio, final Date dataFim) throws Exception {
-        final List parametro = new ArrayList<>();
-        final List listRetorno = new ArrayList<>();
-        List list = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
 
         final StringBuilder sql = new StringBuilder();
         sql.append("select sol.idsolicitacaoservico, sol.situacao, sol.idprioridade, sol.urgencia from solicitacaoservico sol "
@@ -1965,7 +1959,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         parametro.add(dataFim);
         parametro.add("M");
 
-        list = this.execSQL(sql.toString(), parametro.toArray());
+        final List<?> list = this.execSQL(sql.toString(), parametro.toArray());
 
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("situacao");
@@ -1980,9 +1974,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
     public Collection<SolicitacaoServicoDTO> findByIdGrupoEDataSuspensasTotal(final Integer idGrupo, final Date dataInicio, final Date dataFim)
             throws Exception {
-        final List parametro = new ArrayList<>();
-        final List listRetorno = new ArrayList<>();
-        List list = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
 
         final StringBuilder sql = new StringBuilder();
         sql.append("select sol.idsolicitacaoservico, sol.situacao, sol.idprioridade, sol.urgencia, sol.datahorafim, sol.datahoralimite from solicitacaoservico sol "
@@ -1994,7 +1987,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         parametro.add(dataInicio);
         parametro.add(dataFim);
 
-        list = this.execSQL(sql.toString(), parametro.toArray());
+        final List<?> list = this.execSQL(sql.toString(), parametro.toArray());
 
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("situacao");
@@ -2010,9 +2003,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     public Collection<SolicitacaoServicoDTO> findByIdGrupoEDataTotal(final Integer idGrupo, final Date dataInicio, final Date dataFim) throws Exception {
-        final List parametro = new ArrayList<>();
-        final List listRetorno = new ArrayList<>();
-        List list = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
 
         final StringBuilder sql = new StringBuilder();
         sql.append("select sol.idsolicitacaoservico, sol.situacao, sol.idprioridade, sol.urgencia, sol.datahorafim, sol.datahoralimite from solicitacaoservico sol "
@@ -2024,7 +2016,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         parametro.add(dataFim);
         parametro.add(UtilDatas.getDataHoraAtual());
 
-        list = this.execSQL(sql.toString(), parametro.toArray());
+        final List<?> list = this.execSQL(sql.toString(), parametro.toArray());
 
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("situacao");
@@ -2041,9 +2033,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
     public Collection<SolicitacaoServicoDTO> findByIdPessoaEData(final Integer idGrupo, final Integer idPessoa, final Date dataInicio, final Date dataFim)
             throws Exception {
-        final List parametro = new ArrayList<>();
-        final List listRetorno = new ArrayList<>();
-        List list = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
 
         final StringBuilder sql = new StringBuilder();
         sql.append("select sol.idsolicitacaoservico, sol.situacao, sol.idprioridade, sol.urgencia, sol.datahorafim, sol.datahoralimite from solicitacaoservico sol "
@@ -2055,7 +2046,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         parametro.add(dataFim);
         parametro.add(idPessoa);
 
-        list = this.execSQL(sql.toString(), parametro.toArray());
+        final List<?> list = this.execSQL(sql.toString(), parametro.toArray());
 
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("situacao");
@@ -2072,9 +2063,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
     public Collection<SolicitacaoServicoDTO> findByIdPessoaEData(final Integer idGrupo, final String login, final String nome, final Date dataInicio,
             final Date dataFim) throws Exception {
-        final List parametro = new ArrayList<>();
-        final List listRetorno = new ArrayList<>();
-        List list = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
 
         final StringBuilder sql = new StringBuilder();
         sql.append("select distinct sol.idsolicitacaoservico, sol.situacao, sol.idprioridade, sol.urgencia, sol.datahorafim, sol.datahoralimite from solicitacaoservico sol "
@@ -2093,7 +2083,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         parametro.add(login);
         parametro.add(nome);
 
-        list = this.execSQL(sql.toString(), parametro.toArray());
+        final List<?> list = this.execSQL(sql.toString(), parametro.toArray());
 
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("situacao");
@@ -2110,9 +2100,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
     public Collection<SolicitacaoServicoDTO> findByIdPessoaEDataAtendidas(final Integer idGrupo, final Integer idPessoa, final Date dataInicio,
             final Date dataFim) throws Exception {
-        final List parametro = new ArrayList<>();
-        final List listRetorno = new ArrayList<>();
-        List list = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
 
         final StringBuilder sql = new StringBuilder();
         sql.append("select sol.idsolicitacaoservico, sol.situacao, sol.idprioridade, sol.urgencia, sol.datahorafim, sol.datahoralimite from solicitacaoservico sol "
@@ -2124,7 +2113,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         parametro.add(dataFim);
         parametro.add(idPessoa);
 
-        list = this.execSQL(sql.toString(), parametro.toArray());
+        final List<?> list = this.execSQL(sql.toString(), parametro.toArray());
 
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("situacao");
@@ -2141,9 +2130,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
     public Collection<SolicitacaoServicoDTO> findByIdPessoaEDataAtendidas(final Integer idGrupo, final String login, final String nome, final Date dataInicio,
             final Date dataFim) throws Exception {
-        final List parametro = new ArrayList<>();
-        final List listRetorno = new ArrayList<>();
-        List list = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
 
         final StringBuilder sql = new StringBuilder();
         sql.append("select distinct sol.idsolicitacaoservico, sol.situacao, sol.idprioridade, sol.urgencia, sol.datahorafim, sol.datahoralimite from solicitacaoservico sol "
@@ -2160,7 +2148,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         parametro.add(login);
         parametro.add(nome);
 
-        list = this.execSQL(sql.toString(), parametro.toArray());
+        final List<?> list = this.execSQL(sql.toString(), parametro.toArray());
 
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("situacao");
@@ -2176,9 +2164,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     public Collection<SolicitacaoServicoDTO> findByIdPessoaEDataNaoAtendidas(final Integer idGrupo, final Date dataInicio, final Date dataFim) throws Exception {
-        final List parametro = new ArrayList<>();
-        final List listRetorno = new ArrayList<>();
-        List list = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
 
         final StringBuilder sql = new StringBuilder();
         sql.append("select sol.idResponsavel, sol.idsolicitacaoservico, sol.situacao, sol.idprioridade, sol.urgencia from solicitacaoservico sol "
@@ -2190,7 +2177,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         parametro.add(dataFim);
         parametro.add(UtilDatas.getDataHoraAtual());
 
-        list = this.execSQL(sql.toString(), parametro.toArray());
+        final List<?> list = this.execSQL(sql.toString(), parametro.toArray());
 
         listRetorno.add("idResponsavel");
         listRetorno.add("idSolicitacaoServico");
@@ -2218,9 +2205,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      * @throws Exception
      */
     public SolicitacaoServicoDTO findByIdSolicitacaoServico(final Integer idSolicitacaoServico) throws Exception {
-        final List parametro = new ArrayList<>();
-        final List listRetorno = new ArrayList<>();
-        List list = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
 
         final StringBuilder sql = new StringBuilder();
         sql.append("select sol.idsolicitacaoservico, ser.nomeservico , sol.situacao from solicitacaoservico sol inner join servicocontrato "
@@ -2228,7 +2214,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                 + "where sol.idsolicitacaoservico = ?");
         parametro.add(idSolicitacaoServico);
 
-        list = this.execSQL(sql.toString(), parametro.toArray());
+        final List<?> list = this.execSQL(sql.toString(), parametro.toArray());
 
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("nomeServico");
@@ -2244,9 +2230,9 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      * Executando em: sqlServer, mySql e POstgreSQL
      **/
     public Collection<SolicitacaoServicoDTO> findByServico(final Integer idServico) throws Exception {
-        final List parametro = new ArrayList<>();
-        final List fields = new ArrayList<>();
-        List list = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> fields = new ArrayList<>();
+
         String sql = "   select nometiposervico, nomeservico, nomecategoriaservico, idServico from servico "
                 + "inner join tiposervico  on servico.idtiposervico = tiposervico.idtiposervico "
                 + "inner join categoriaservico on servico.idcategoriaservico = categoriaservico.idcategoriaservico " + "where ";
@@ -2259,7 +2245,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         sql += "and situacao = 'A' and servico.idServico = ? and dispportal = 'S' order by nomecategoriaservico ";
 
         parametro.add(idServico);
-        list = this.execSQL(sql, parametro.toArray());
+        final List<?> list = this.execSQL(sql, parametro.toArray());
         fields.add("nomeTipoServico");
         fields.add("nomeServico");
         fields.add("nomeCategoriaServico");
@@ -2275,9 +2261,9 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      * Executando em: sqlServer, mySql e POstgreSQL
      **/
     public Collection<SolicitacaoServicoDTO> findByServico(final Integer idServico, final String nome) throws Exception {
-        final List parametro = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
         final List fields = new ArrayList<>();
-        List list = new ArrayList<>();
+
         String sql = "   select nometiposervico, nomeservico, nomecategoriaservico, idServico from servico "
                 + "inner join tiposervico  on servico.idtiposervico = tiposervico.idtiposervico "
                 + "inner join categoriaservico on servico.idcategoriaservico = categoriaservico.idcategoriaservico " + "where ";
@@ -2290,7 +2276,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         sql += "and situacao = 'A' and servico.idServico = ? and dispportal = 'S' and servico.nomeservico like '%" + nome + "%' order by nomecategoriaservico ";
 
         parametro.add(idServico);
-        list = this.execSQL(sql, parametro.toArray());
+        final List<?> list = this.execSQL(sql, parametro.toArray());
         fields.add("nomeTipoServico");
         fields.add("nomeServico");
         fields.add("nomeCategoriaServico");
@@ -2304,7 +2290,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
     public SolicitacaoServicoDTO findInfosCriacaoProblemaByIdSolServico(final SolicitacaoServicoDTO solServico) throws Exception {
         final Object[] params = new Object[] {solServico.getIdSolicitacaoServico()};
-        final List listRetorno = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
         final StringBuilder sql = new StringBuilder();
         sql.append("select C.NOMECONTATO, C.TELEFONECONTATO, C.EMAILCONTATO, SE.IDCONTRATO " + " from solicitacaoservico S "
                 + " INNER JOIN CONTATOSOLICITACAOSERVICO C ON S.idcontatosolicitacaoservico= C.idcontatosolicitacaoservico "
@@ -2315,7 +2301,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("emailcontato");
         listRetorno.add("idContrato");
 
-        final List list = this.execSQL(sql.toString(), params);
+        final List<?> list = this.execSQL(sql.toString(), params);
         if (list != null && !list.isEmpty()) {
             return (SolicitacaoServicoDTO) this.listConvertion(this.getBean(), list, listRetorno).get(0);
         }
@@ -2324,9 +2310,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
     public Collection<SolicitacaoServicoDTO> findResponsavelAtual(final Integer idSolicitacaoServico) throws Exception {
         final StringBuilder sql = new StringBuilder();
-        final List parametro = new ArrayList<>();
-
-        List list = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
 
         sql.append("SELECT bpm_itemtrabalhofluxo.idresponsavelatual ");
         sql.append("FROM solicitacaoservico solicitacaoservico ");
@@ -2340,8 +2324,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
         parametro.add(idSolicitacaoServico);
 
-        list = this.execSQL(sql.toString(), parametro.toArray());
-        final List listRetorno = new ArrayList<>();
+        final List<?> list = this.execSQL(sql.toString(), parametro.toArray());
+        final List<String> listRetorno = new ArrayList<>();
         listRetorno.add("idUsuarioResponsavelAtual");
         final List result = engine.listConvertion(this.getBean(), list, listRetorno);
         if (result != null && !result.isEmpty()) {
@@ -2352,8 +2336,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
     public ArrayList<SolicitacaoServicoDTO> findSolicitacoesServicosUsuario(final Integer idUsuario, final String status, final String campoBusca)
             throws Exception {
-        final List listRetorno = new ArrayList<>();
-        List list = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
+
         final StringBuilder sql = new StringBuilder();
 
         sql.append("select idSolicitacaoServico");
@@ -2378,7 +2362,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             sql.append(")");
         }
 
-        list = this.execSQL(sql.toString(), null);
+        final List<?> list = this.execSQL(sql.toString(), null);
 
         listRetorno.add("idSolicitacaoServico");
 
@@ -2585,7 +2569,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      * Executando em: sqlServer, mySql e POstgreSQL
      **/
     public Collection<SolicitacaoServicoDTO> getHistoricoByIdSolicitacao(final Integer idSolicitacao) throws Exception {
-        final List listRetorno = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
         String sql = "";
         sql = "select s.idsolicitacaoservico, ";
         sql += "       e.seqreabertura, ";
@@ -2638,7 +2622,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      * Executando em: sqlServer, mySql e POstgreSQL
      **/
     public Integer getQuantidadeByIdServico(final int idServico) throws Exception {
-        final List parametro = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
         final String sql = "SELECT count(*) FROM solicitacaoservico ss, servicocontrato sc "
                 + "where ss.idservicocontrato =  sc.idservicocontrato and sc.idservico = ?";
         parametro.add(idServico);
@@ -2651,7 +2635,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     public Integer getQuantidadeByIdServicoContrato(final int idServicoContrato) throws Exception {
-        final List parametro = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
         final String sql = "SELECT count(*) FROM solicitacaoservico ss, servicocontrato sc "
                 + "where ss.idservicocontrato =  sc.idservicocontrato and sc.idServicoContrato = ?";
         parametro.add(idServicoContrato);
@@ -2718,14 +2702,14 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             sql.append(" and situacao like '%" + status + "%'");
         }
 
-        final List list = this.execSQL(sql.toString(), null);
+        final List<?> list = this.execSQL(sql.toString(), null);
         return list != null && !list.isEmpty();
     }
 
     public Collection incidentesPorContrato(final Integer idContrato) throws Exception {
         final StringBuilder sql = new StringBuilder();
-        final List parametro = new ArrayList<>();
-        final List listRetorno = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
 
         sql.append(" SELECT idsolicitacaoservico, nomeservico, contratos.numero ,empregado.nome, usuario.nome");
         sql.append(" FROM solicitacaoservico");
@@ -2743,7 +2727,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("nome");
         listRetorno.add("nomeUsu");
 
-        final List list = this.execSQL(sql.toString(), parametro.toArray());
+        final List<?> list = this.execSQL(sql.toString(), parametro.toArray());
         final List result = engine.listConvertion(SolicitacaoServicoDTO.class, list, listRetorno);
 
         if (result != null && !result.isEmpty()) {
@@ -2775,7 +2759,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
     @Override
     public Collection list() throws PersistenceException {
-        final List list = new ArrayList<>();
+        final List<Order> list = new ArrayList<>();
         list.add(new Order("idSolicitacaoServico"));
         return super.list(list);
     }
@@ -2815,7 +2799,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     public SolicitacaoServicoDTO listaIdItemTrabalho(final Integer idInstancia) throws Exception {
-        final List parametro = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
         final StringBuilder sb = new StringBuilder();
         sb.append("SELECT bpm_itemtrabalhofluxo.iditemtrabalho ");
         sb.append("FROM bpm_itemtrabalhofluxo bpm_itemtrabalhofluxo ");
@@ -2834,9 +2818,9 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     public Collection<SolicitacaoServicoDTO> listaIDSolicitacaoNaoRespondida(final Date dataLimite) throws Exception {
-        final List parametro = new ArrayList<>();
-        final List listRetorno = new ArrayList<>();
-        List list = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
+
         Collection<SolicitacaoServicoDTO> solicitacoes = new ArrayList<>();
         final StringBuilder sql = new StringBuilder();
 
@@ -2849,7 +2833,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
         parametro.add(this.transformaHoraFinal(dataLimite));
 
-        list = this.execSQL(sql.toString(), parametro.toArray());
+        final List<?> list = this.execSQL(sql.toString(), parametro.toArray());
 
         listRetorno.add("idSolicitacaoServico");
 
@@ -2863,15 +2847,15 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      * Executando em: sqlServer, mySql e POstgreSQL
      **/
     public Collection<SolicitacaoServicoDTO> listAllIncidentes(final Integer idEmpregado) throws Exception {
-        final List parametro = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
         final List fields = new ArrayList<>();
-        List list = new ArrayList<>();
+
         final String sql = "SELECT solicitacaoservico.idSolicitacaoServico, solicitacaoservico.dataHoraSolicitacao, solicitacaoservico.dataHoraLimite, "
                 + "solicitacaoservico.Situacao, faseservico.nomeFase as faseAtual, prioridade.nomePrioridade " + "FROM solicitacaoservico "
                 + "INNER JOIN faseservico ON solicitacaoservico.idfaseatual = faseservico.idfase "
                 + "INNER JOIN prioridade ON solicitacaoservico.idprioridade = prioridade.idprioridade WHERE solicitacaoservico.idSolicitante = ?";
         parametro.add(idEmpregado);
-        list = this.execSQL(sql, parametro.toArray());
+        final List<?> list = this.execSQL(sql, parametro.toArray());
         fields.add("idSolicitacaoServico");
         fields.add("dataHoraSolicitacao");
         fields.add("dataHoraLimite");
@@ -2890,9 +2874,9 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      * Executando em: sqlServer, mySql e POstgreSQL
      **/
     public Collection<SolicitacaoServicoDTO> listAllServicos() throws Exception {
-        final List parametro = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
         final List fields = new ArrayList<>();
-        List list = new ArrayList<>();
+
         String sql = "select nometiposervico, nomeservico, nomecategoriaservico, idServico from servico "
                 + "inner join tiposervico  on servico.idtiposervico = tiposervico.idtiposervico "
                 + "inner join categoriaservico on servico.idcategoriaservico = categoriaservico.idcategoriaservico " + "where ";
@@ -2904,7 +2888,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
         sql += "and situacao = 'A' and dispportal = 'S' order by nomecategoriaservico ";
 
-        list = this.execSQL(sql, parametro.toArray());
+        final List<?> list = this.execSQL(sql, parametro.toArray());
         fields.add("nomeTipoServico");
         fields.add("nomeServico");
         fields.add("nomeCategoriaServico");
@@ -2920,9 +2904,9 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      * Executando em: sqlServer, mySql e POstgreSQL
      **/
     public Collection<SolicitacaoServicoDTO> listAllServicosLikeNomeServico(final String nome) throws Exception {
-        final List parametro = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
         final List fields = new ArrayList<>();
-        List list = new ArrayList<>();
+
         String sql = "   select nometiposervico, nomeservico, nomecategoriaservico, idServico from servico "
                 + "inner join tiposervico  on servico.idtiposervico = tiposervico.idtiposervico "
                 + "inner join categoriaservico on servico.idcategoriaservico = categoriaservico.idcategoriaservico " + "where ";
@@ -2934,7 +2918,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         }
         sql += "and situacao = 'A' and dispportal = 'S' and servico.nomeservico like '%" + nome + "%' order by nomecategoriaservico ";
 
-        list = this.execSQL(sql, parametro.toArray());
+        final List<?> list = this.execSQL(sql, parametro.toArray());
         fields.add("nomeTipoServico");
         fields.add("nomeServico");
         fields.add("nomeCategoriaServico");
@@ -2947,8 +2931,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     public Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorFase(final SolicitacaoServicoDTO solicitacaoDto) throws Exception {
-        final List listRetorno = new ArrayList<>();
-        final List parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
         final StringBuilder sql = new StringBuilder();
 
         sql.append("select  fase.nomefase, count(*)  from " + this.getTableName() + " solicitacaoservico ");
@@ -3014,8 +2998,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     public Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorGrupo(final SolicitacaoServicoDTO solicitacaoDto) throws Exception {
-        final List listRetorno = new ArrayList<>();
-        final List parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
         List listaQuantidadeSolicitacaoPorGrupo = new ArrayList<>();
         final StringBuilder sql = new StringBuilder();
 
@@ -3089,8 +3073,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
     public Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorHoraAbertura(final SolicitacaoServicoDTO solicitacaoDto)
             throws Exception {
-        final List listRetorno = new ArrayList<>();
-        final List parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
         final StringBuilder sql = new StringBuilder();
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.SQLSERVER)) {
             sql.append("select datepart(hour, solicitacaoservico.datahorasolicitacao) as int, count(*) from " + this.getTableName() + " solicitacaoservico ");
@@ -3184,8 +3168,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      */
     public Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorItemConfiguracao(final SolicitacaoServicoDTO solicitacaoDto)
             throws Exception {
-        final List listRetorno = new ArrayList<>();
-        final List parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
         final StringBuilder sql = new StringBuilder();
 
         /*
@@ -3266,8 +3250,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      * @author bruno.aquino - Data: 23/10/2013 - Horário: 15h32min - ID Citsmart: 120770|122034
      */
     public Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorOrigem(final SolicitacaoServicoDTO solicitacaoDto) throws Exception {
-        final List listRetorno = new ArrayList<>();
-        final List parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
         final StringBuilder sql = new StringBuilder();
         sql.append("select  (CASE WHEN origem.descricao IS NULL THEN 'SEM ATRIBUIÇÃO' ELSE origem.descricao end), count(*)  from " + this.getTableName()
                 + " solicitacaoservico ");
@@ -3346,8 +3330,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      */
     public Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorPesquisaSatisfacao(final SolicitacaoServicoDTO solicitacaoDto)
             throws Exception {
-        final List listRetorno = new ArrayList<>();
-        final List parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
         List listaQuantidadeSolicitacaoPorGrupo = new ArrayList<>();
         final StringBuilder sql = new StringBuilder();
         sql.append("select (CASE WHEN grupo.sigla IS NULL THEN 'SEM ATRIBUIÇÃO' ELSE grupo.sigla end), servico.nomeservico, count(*) from solicitacaoservico solicitacaoservico  ");
@@ -3415,8 +3399,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     public Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorPrioridade(final SolicitacaoServicoDTO solicitacaoDto) throws Exception {
-        final List listRetorno = new ArrayList<>();
-        final List parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
         final StringBuilder sql = new StringBuilder();
         sql.append("select  prioridade.nomeprioridade, count(*)  from " + this.getTableName() + " solicitacaoservico ");
         sql.append("inner join prioridade prioridade   on solicitacaoservico.idprioridade = prioridade.idprioridade ");
@@ -3486,8 +3470,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
     public Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorResponsavel(final SolicitacaoServicoDTO solicitacaoDto)
             throws Exception {
-        final List listRetorno = new ArrayList<>();
-        final List parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
         final StringBuilder sql = new StringBuilder();
         sql.append("select  ");
         sql.append("	ltrim(usuario.nome), count(*) ");
@@ -3566,8 +3550,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     public Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorServico(final SolicitacaoServicoDTO solicitacaoServicoDto)
             throws Exception {
         final StringBuilder sql = new StringBuilder();
-        final List parametro = new ArrayList<>();
-        final List listRetorno = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
 
         /*
          * Desenvolvedor: Rodrigo Pecci - Data: 31/10/2013 - Horário: 15h35min - ID Citsmart: 120770 Motivo/Comentário: Foi adicionado um join com o fluxo de
@@ -3652,7 +3636,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
         }
 
-        final List list = this.execSQL(sql.toString(), parametro.toArray());
+        final List<?> list = this.execSQL(sql.toString(), parametro.toArray());
         listRetorno.add("nomeServico");
         listRetorno.add("nometiposervico");
         listRetorno.add("idServico");
@@ -3666,8 +3650,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     public Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorSituacao(final SolicitacaoServicoDTO solicitacaoDto) throws Exception {
-        final List listRetorno = new ArrayList<>();
-        final List parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
         final StringBuilder sql = new StringBuilder();
         sql.append("select solicitacaoservico.situacao, count(*)  from " + this.getTableName() + " solicitacaoservico   ");
         sql.append("INNER JOIN execucaosolicitacao es ON es.idsolicitacaoservico = solicitacaoservico.idsolicitacaoservico ");
@@ -3727,9 +3711,9 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     public List<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorSituacaoSLA(final SolicitacaoServicoDTO solicitacaoDto) throws Exception {
-        final List listRetorno = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
         List listaQuantidadeSolicitacaoPorPrioridade = new ArrayList<>();
-        final List parametro = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
 
         // String dataInicio = solicitacaoDto.getDataInicio().toString();
         // String dataFim = (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.ORACLE) ? solicitacaoDto.getDataFim() :
@@ -3823,8 +3807,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
     public Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorSolicitante(final SolicitacaoServicoDTO solicitacaoDto)
             throws Exception {
-        final List listRetorno = new ArrayList<>();
-        final List parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
         final StringBuilder sql = new StringBuilder();
         sql.append("select ltrim(empregado.nome), count(*) from solicitacaoservico solicitacaoservico ");
         sql.append("inner join empregados empregado on solicitacaoservico.idsolicitante = empregado.idempregado ");
@@ -3897,8 +3881,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     public Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorTipo(final SolicitacaoServicoDTO solicitacaoDto) throws Exception {
-        final List listRetorno = new ArrayList<>();
-        final List parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
         final StringBuilder sql = new StringBuilder();
         sql.append("select  tipodemandaservico.nometipodemandaservico, count(*)  from " + this.getTableName() + " solicitacaoservico ");
         // if (solicitacaoDto.getIdContrato() != null) {
@@ -3962,8 +3946,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
     public Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorTipoServico(final SolicitacaoServicoDTO solicitacaoDto)
             throws Exception {
-        final List listRetorno = new ArrayList<>();
-        final List parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
         final StringBuilder sql = new StringBuilder();
 
         sql.append("select tiposervico.nometiposervico, count(*)  from " + this.getTableName() + " solicitacaoservico ");
@@ -4041,16 +4025,15 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     public Collection<SolicitacaoServicoDTO> listarSolicitacoesAbertasEmAndamentoPorGrupo(final int idGrupoAtual, final String situacaoSla) throws Exception {
-        final List parametro = new ArrayList<>();
-        final List listRetorno = new ArrayList<>();
-        List list = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
 
         final StringBuilder sql = new StringBuilder();
         sql.append("SELECT *  from solicitacaoservico ss,tipodemandaservico td where situacao LIKE 'EmAndamento' AND ss.datahorafim IS NULL AND ss.idgrupoatual = ? AND situacaosla LIKE ? AND td.classificacao LIKE 'R'");
         parametro.add(idGrupoAtual);
         parametro.add(situacaoSla);
 
-        list = this.execSQL(sql.toString(), parametro.toArray());
+        final List<?> list = this.execSQL(sql.toString(), parametro.toArray());
 
         listRetorno.add("idSolicitacaoServico");
 
@@ -4061,16 +4044,15 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     public Collection<SolicitacaoServicoDTO> listarSolicitacoesMultadasSuspensasPorGrupo(final int idGrupoAtual, final String situacaoSla) throws Exception {
-        final List parametro = new ArrayList<>();
-        final List listRetorno = new ArrayList<>();
-        List list = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
 
         final StringBuilder sql = new StringBuilder();
         sql.append("SELECT *  from solicitacaoservico ss,tipodemandaservico td where situacao like 'Suspensa' and ss.datahorafim is null and ss.idgrupoatual = ? and td.classificacao LIKE 'R' and situacaosla LIKE ?");
         parametro.add(idGrupoAtual);
         parametro.add(situacaoSla);
 
-        list = this.execSQL(sql.toString(), parametro.toArray());
+        final List<?> list = this.execSQL(sql.toString(), parametro.toArray());
 
         listRetorno.add("idSolicitacaoServico");
 
@@ -4081,7 +4063,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     public String listaServico(final int idsolicitacaoservico) throws Exception {
-        final List parametro = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
         final String sql = "SELECT s.nomeservico FROM solicitacaoservico ss, servicocontrato sc, servico s "
                 + "where ss.idservicocontrato =  sc.idservicocontrato and sc.idservico = s.idservico and ss.idsolicitacaoservico = ?";
         parametro.add(idsolicitacaoservico);
@@ -4105,7 +4087,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      */
     public Collection<RelatorioQuantitativoSolicitacaoProblemaPorServicoDTO> listaServicoPorSolicitacaoServico(
             final RelatorioQuantitativoSolicitacaoProblemaPorServicoDTO relatorioAnaliseServicoDto) throws Exception {
-        final List parametro = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
 
         final StringBuilder sql = new StringBuilder();
 
@@ -4151,8 +4133,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     public Collection<RelatorioQuantitativoSolicitacaoDTO> listaServicosAbertosAprovados(final SolicitacaoServicoDTO solicitacaoServicoDto) throws Exception {
 
         final StringBuilder sql = new StringBuilder();
-        final List parametro = new ArrayList<>();
-        final List listRetorno = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
         /**
          * Checa se há limite para pesquisa
          *
@@ -4258,7 +4240,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             parametro.add(solicitacaoServicoDto.getTopList());
         }
 
-        final List list = this.execSQL(sql.toString(), parametro.toArray());
+        final List<?> list = this.execSQL(sql.toString(), parametro.toArray());
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("nomeServico");
         listRetorno.add("nome");
@@ -4274,9 +4256,9 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     public Collection<SolicitacaoServicoDTO> listaServicosPorResponsavelNoPeriodo(final RelatorioKpiProdutividadeDTO dto) throws Exception {
-        final List parametro = new ArrayList<>();
-        final List listRetorno = new ArrayList<>();
-        List list = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
+
         final StringBuilder sql = new StringBuilder();
 
         sql.append("SELECT solicitacaoservico.idsolicitacaoservico, solicitacaoservico.datahorainicio, solicitacaoservico.datahoralimite, solicitacaoservico.dataHoraFim,solicitacaoservico.prazohh, solicitacaoservico.prazomm ,solicitacaoservico.idtipodemandaservico, servico.nomeServico, servico.idservico ");
@@ -4299,7 +4281,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             sql.append(";");
         }
 
-        list = this.execSQL(sql.toString(), parametro.toArray());
+        final List<?> list = this.execSQL(sql.toString(), parametro.toArray());
 
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("dataHoraInicio");
@@ -4319,9 +4301,9 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
     public Collection<SolicitacaoServicoDTO> listaServicosPorAbertosParaDocumentacao(final Date dataIncio, final Date dataFim, final boolean mostrarIncidentes,
             final boolean mostrarRequisicoes) throws Exception {
-        final List parametro = new ArrayList<>();
-        final List listRetorno = new ArrayList<>();
-        List list = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
+
         final StringBuilder sql = new StringBuilder();
 
         sql.append("SELECT DISTINCT solicitacaoservico.idsolicitacaoservico, solicitacaoservico.datahorainicio, solicitacaoservico.datahoralimite, solicitacaoservico.dataHoraFim,solicitacaoservico.prazohh, solicitacaoservico.prazomm ,solicitacaoservico.idtipodemandaservico, servico.nomeServico, servico.idservico, solicitacaoservico.situacao ");
@@ -4348,7 +4330,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             parametro.add("R");
         }
 
-        list = this.execSQL(sql.toString(), parametro.toArray());
+        final List<?> list = this.execSQL(sql.toString(), parametro.toArray());
 
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("dataHoraInicio");
@@ -4369,9 +4351,9 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
     public Collection<SolicitacaoServicoDTO> listaServicosPorAbertosPelotesteParaValidacao(final Date dataIncio, final Date dataFim,
             final boolean mostrarIncidentes, final boolean mostrarRequisicoes) throws Exception {
-        final List parametro = new ArrayList<>();
-        final List listRetorno = new ArrayList<>();
-        List list = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
+
         final StringBuilder sql = new StringBuilder();
 
         sql.append("SELECT DISTINCT solicitacaoservico.idsolicitacaoservico, solicitacaoservico.datahorainicio, solicitacaoservico.datahoralimite, solicitacaoservico.dataHoraFim,solicitacaoservico.prazohh,"
@@ -4399,7 +4381,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             parametro.add("R");
         }
 
-        list = this.execSQL(sql.toString(), parametro.toArray());
+        final List<?> list = this.execSQL(sql.toString(), parametro.toArray());
 
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("dataHoraInicio");
@@ -4421,9 +4403,9 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
     public Collection<SolicitacaoServicoDTO> listaServicosPorResponsavelNoPeriodo(final Date dataIncio, final Date dataFim, final int idFuncionario,
             final boolean mostrarIncidentes, final boolean mostrarRequisicoes, final String situacao) throws Exception {
-        final List parametro = new ArrayList<>();
-        final List listRetorno = new ArrayList<>();
-        List list = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
+
         final StringBuilder sql = new StringBuilder();
 
         sql.append("SELECT DISTINCT solicitacaoservico.idsolicitacaoservico, solicitacaoservico.datahorainicio, solicitacaoservico.datahoralimite, solicitacaoservico.dataHoraFim,solicitacaoservico.prazohh, solicitacaoservico.prazomm ,solicitacaoservico.idtipodemandaservico, servico.nomeServico, servico.idservico ");
@@ -4460,7 +4442,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             sql.append(" and (solicitacaoservico.situacao like 'Fechada' or solicitacaoservico.situacao like 'Cancelada' or solicitacaoservico.situacao like 'Resolvida' ) ");
         }
 
-        list = this.execSQL(sql.toString(), parametro.toArray());
+        final List<?> list = this.execSQL(sql.toString(), parametro.toArray());
 
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("dataHoraInicio");
@@ -4480,9 +4462,9 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
     public Collection<SolicitacaoServicoDTO> listaServicosPorResponsavelNoPeriodoDocumentacao(final Date dataIncio, final Date dataFim,
             final int idFuncionario, final boolean mostrarIncidentes, final boolean mostrarRequisicoes) throws Exception {
-        final List parametro = new ArrayList<>();
-        final List listRetorno = new ArrayList<>();
-        List list = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
+
         final StringBuilder sql = new StringBuilder();
 
         sql.append("SELECT DISTINCT solicitacaoservico.idsolicitacaoservico, solicitacaoservico.datahorainicio, solicitacaoservico.datahoralimite, solicitacaoservico.dataHoraFim,solicitacaoservico.prazohh, solicitacaoservico.prazomm ,solicitacaoservico.idtipodemandaservico, servico.nomeServico, servico.idservico, solicitacaoservico.situacao ");
@@ -4512,7 +4494,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             parametro.add("R");
         }
 
-        list = this.execSQL(sql.toString(), parametro.toArray());
+        final List<?> list = this.execSQL(sql.toString(), parametro.toArray());
 
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("dataHoraInicio");
@@ -4533,10 +4515,10 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
     public Collection<SolicitacaoServicoDTO> listaServicosPorResponsavelNoPeriodoDocumentacaoPorServico(final Date dataIncio, final Date dataFim,
             final int idFuncionario, final boolean mostrarIncidentes, final boolean mostrarRequisicoes, final String listaIdsServicosHomologacaoDocumentacao)
-            throws Exception {
-        final List parametro = new ArrayList<>();
-        final List listRetorno = new ArrayList<>();
-        List list = new ArrayList<>();
+                    throws Exception {
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
+
         final StringBuilder sql = new StringBuilder();
 
         sql.append("SELECT DISTINCT solicitacaoservico.idsolicitacaoservico, solicitacaoservico.datahorainicio, solicitacaoservico.datahoralimite, solicitacaoservico.dataHoraFim,solicitacaoservico.prazohh, solicitacaoservico.prazomm ,solicitacaoservico.idtipodemandaservico, servico.nomeServico, servico.idservico, solicitacaoservico.situacao ");
@@ -4585,7 +4567,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             parametro.add(3);
         }
 
-        list = this.execSQL(sql.toString(), parametro.toArray());
+        final List<?> list = this.execSQL(sql.toString(), parametro.toArray());
 
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("dataHoraInicio");
@@ -4606,9 +4588,9 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
     public Collection<SolicitacaoServicoDTO> listaServicosPorSolicitanteNoPeriodoEnviadosAoteste(final Date dataIncio, final Date dataFim,
             final int idFuncionario, final boolean mostrarIncidentes, final boolean mostrarRequisicoes) throws Exception {
-        final List parametro = new ArrayList<>();
-        final List listRetorno = new ArrayList<>();
-        List list = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
+
         final StringBuilder sql = new StringBuilder();
 
         sql.append("SELECT solicitacaoservico.idsolicitacaoservico, solicitacaoservico.datahorainicio, solicitacaoservico.datahoralimite, solicitacaoservico.dataHoraFim,solicitacaoservico.prazohh, solicitacaoservico.prazomm ,solicitacaoservico.idtipodemandaservico, servico.nomeServico, servico.idservico, solicitacaoservico.situacao ");
@@ -4635,7 +4617,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             parametro.add(1);
             parametro.add(3);
         }
-        list = this.execSQL(sql.toString(), parametro.toArray());
+        final List<?> list = this.execSQL(sql.toString(), parametro.toArray());
 
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("dataHoraInicio");
@@ -4656,7 +4638,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
     public Collection<RelatorioQuantitativoRetornoDTO> listaServicosRetorno(final SolicitacaoServicoDTO solicitacaoServicoDTO, final String grupoRetorno)
             throws Exception {
-        final List parametro = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
 
         final StringBuilder sql = new StringBuilder();
 
@@ -4740,7 +4722,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
     public Collection<RelatorioQuantitativoRetornoDTO> listaServicosRetornoNomeResponsavel(final RelatorioQuantitativoRetornoDTO relatorioQuantitativoRetornoDTO)
             throws Exception {
-        final List parametro = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
 
         final StringBuilder sql = new StringBuilder();
 
@@ -4769,8 +4751,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
     public Collection<SolicitacaoServicoDTO> listaSolicitacaoPorBaseConhecimento(final SolicitacaoServicoDTO solicitacao) throws Exception {
         final StringBuilder sql = new StringBuilder();
-        final List parametro = new ArrayList<>();
-        final List listRetorno = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
 
         /*
          * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 10h00min - ID Citsmart: 120770 Motivo/Comentário: A tabela origematendimento, faseservico
@@ -4816,7 +4798,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("origem");
         listRetorno.add("prioridade");
 
-        final List list = this.execSQL(sql.toString(), parametro.toArray());
+        final List<?> list = this.execSQL(sql.toString(), parametro.toArray());
         if (list != null && !list.isEmpty()) {
             final Collection<SolicitacaoServicoDTO> listaSolicitacaoServicoPorBaseConhecimento = this.listConvertion(SolicitacaoServicoDTO.class, list,
                     listRetorno);
@@ -4840,9 +4822,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      */
     public Collection<RelatorioSolicitacaoPorExecutanteDTO> listaSolicitacaoPorExecutante(
             final RelatorioSolicitacaoPorExecutanteDTO relatorioSolicitacaoPorSolucionarDto) throws Exception {
-        final List parametro = new ArrayList<>();
-        final List listRetorno = new ArrayList<>();
-        List list = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
 
         /**
          * Checa de há limite para pesquisa
@@ -4929,7 +4910,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             parametro.add(relatorioSolicitacaoPorSolucionarDto.getTopList());
         }
 
-        list = this.execSQL(sql.toString(), parametro.toArray());
+        final List<?> list = this.execSQL(sql.toString(), parametro.toArray());
 
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("nomeServico");
@@ -4953,13 +4934,13 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      */
     public Collection<SolicitacaoServicoDTO> listaSolicitacaoServicoPorCriterios(final PesquisaSolicitacaoServicoDTO pesquisaSolicitacaoServicoDto)
             throws Exception {
-        final List listRetorno = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
 
         final StringBuilder sql = new StringBuilder();
 
         List lista = new ArrayList<>();
 
-        final List parametros = new ArrayList<>();
+        final List<Object> parametros = new ArrayList<>();
 
         /*
          * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 10h00min - ID Citsmart: 120770 Motivo/Comentário: A tabela origematendimento e faseservico
@@ -5016,7 +4997,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
         final StringBuilder sql = new StringBuilder();
 
-        final List listRetorno = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
 
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("descricao");
@@ -5060,7 +5041,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      */
     public Collection<RelatorioQuantitativoSolicitacaoProblemaPorServicoDTO> listaSolicitacaoServicoProblemaPorServico(
             final RelatorioQuantitativoSolicitacaoProblemaPorServicoDTO relatorioAnaliseServicoDto) throws Exception {
-        final List parametro = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
 
         final StringBuilder sql = new StringBuilder();
 
@@ -5128,7 +5109,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
         ordernarPor += direcaoOrdenacao;
 
-        final List listRetorno = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("idbaseconhecimento");
         listRetorno.add("idServicoContrato");
@@ -5214,7 +5195,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("idInstanciaFluxo");
 
         final StringBuilder sql = new StringBuilder();
-        final List parametros = new ArrayList<>();
+        final List<Object> parametros = new ArrayList<>();
 
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.SQLSERVER)) {
             sql.append(" ;WITH TabelaTemporaria AS ( ");
@@ -5356,7 +5337,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      */
     public Collection<SolicitacaoServicoDTO> listaSolicitacoesPorIdEmpregado(Integer pgAtual, final Integer qtdPaginacao,
             final GerenciamentoServicosDTO gerenciamentoBean, final Collection<ContratoDTO> listContratoUsuarioLogado, final String[] filtro) throws Exception {
-        final List listRetorno = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("idbaseconhecimento");
         listRetorno.add("idServicoContrato");
@@ -5442,7 +5423,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("idInstanciaFluxo");
 
         final StringBuilder sql = new StringBuilder();
-        final List parametros = new ArrayList<>();
+        final List<Object> parametros = new ArrayList<>();
 
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.SQLSERVER)) {
             sql.append(" ;WITH TabelaTemporaria AS ( ");
@@ -5577,8 +5558,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     public Collection listaSolicitacoesSemPesquisaSatisfacao() throws Exception {
-        final List listRetorno = new ArrayList<>();
-        final List parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
         final StringBuilder sql = new StringBuilder();
         sql.append("select idsolicitacaoservico from " + this.getTableName() + " solicitacaoservico  ");
         sql.append("where solicitacaoservico.idsolicitacaoservico NOT IN (select idsolicitacaoservico from pesquisasatisfacao) ");
@@ -5601,7 +5582,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
     public Collection<SolicitacaoServicoDTO> listByTarefas(final Collection<TarefaFluxoDTO> listTarefa) throws Exception {
 
-        final List listRetorno = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("idbaseconhecimento");
         listRetorno.add("idServicoContrato");
@@ -5794,7 +5775,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     public Collection<SolicitacaoServicoDTO> listByTarefas(final Collection<TarefaFluxoDTO> listTarefa, final GerenciamentoServicosDTO gerenciamentoBean,
             final Collection<ContratoDTO> listContratoUsuarioLogado) throws Exception {
 
-        final List listRetorno = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("idbaseconhecimento");
         listRetorno.add("idServicoContrato");
@@ -5882,7 +5863,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("idTarefa");
 
         final StringBuilder sql = new StringBuilder();
-        final List parametros = new ArrayList<>();
+        final List<Object> parametros = new ArrayList<>();
 
         sql.append("SELECT sol.idSolicitacaoServico, sol.idbaseconhecimento, sol.idServicoContrato, sol.idSolicitante, ");
         sql.append("       sol.idItemConfiguracao, sol.idItemConfiguracaoFilho, sol.idtipodemandaservico, sol.idcontatosolicitacaoservico, ");
@@ -5996,7 +5977,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     public Collection<SolicitacaoServicoDTO> listByTarefas(final Collection<TarefaFluxoDTO> listTarefa, Integer pgAtual, final Integer qtdPaginacao)
             throws Exception {
 
-        final List listRetorno = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("idbaseconhecimento");
         listRetorno.add("idServicoContrato");
@@ -6265,7 +6246,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             ordernarPor = " ORDER BY sol.idresponsavel ";
         }
 
-        final List listRetorno = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("idbaseconhecimento");
         listRetorno.add("idServicoContrato");
@@ -6356,7 +6337,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("qtdeItensConfiguracaoRelacionados");
 
         final StringBuilder sql = new StringBuilder();
-        final List parametros = new ArrayList<>();
+        final List<Object> parametros = new ArrayList<>();
 
         if (CITCorporeUtil.SGBD_PRINCIPAL.toUpperCase().equals(SQLConfig.SQLSERVER)) {
             sql.append(" ;WITH TabelaTemporaria AS ( ");
@@ -6543,7 +6524,6 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         boolean bIncidentes = false;
         boolean bRequisicoes = false;
         boolean bCompras = false;
-        boolean bViagens = false;
         boolean bRH = false;
         if (tiposSolicitacao != null) {
             for (final TipoSolicitacaoServico tipo : tiposSolicitacao) {
@@ -6556,16 +6536,13 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                 if (!bCompras && tipo.equals(TipoSolicitacaoServico.COMPRA)) {
                     bCompras = true;
                 }
-                if (!bViagens && tipo.equals(TipoSolicitacaoServico.VIAGEM)) {
-                    bViagens = true;
-                }
                 if (!bRH && tipo.equals(TipoSolicitacaoServico.RH)) {
                     bRH = true;
                 }
             }
         }
 
-        final List listRetorno = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("idbaseconhecimento");
         listRetorno.add("idServicoContrato");
@@ -6650,7 +6627,6 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("idLocalidade");
         listRetorno.add("idInstanciaFluxo");
         listRetorno.add("idRequisicaoProduto");
-        listRetorno.add("idRequisicaoViagem");
         listRetorno.add("idRequisicaoPessoal");
         listRetorno.add("classificacao");
 
@@ -6668,9 +6644,9 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         sql.append("       sol.tempoAtrasoHH, sol.tempoAtrasoMM, sol.tempoAtendimentoHH, sol.tempoAtendimentoMM, sol.idacordonivelservico, ");
         sql.append("       sol.idultimaaprovacao, sol.datahorainiciosla, sol.datahorasuspensaosla, sol.datahorareativacaosla, sol.situacaosla, aprov.aprovacao, ");
         sql.append("       s.idservico, s.nomeServico, td.idTipoDemandaServico, td.nomeTipoDemandaServico, c.idContrato, c.numero, e1.nome, u1.nome, ");
-        sql.append("       e2.nome, u2.nome, oa.descricao, p.nomeprioridade, fs.nomefase,  ");
-        sql.append("       g1.sigla, g2.sigla, cs.nomecontato, cs.emailcontato, cs.telefonecontato, cs.localizacaofisica ,cs.idlocalidade , es.idInstanciaFluxo, ");
-        sql.append("       reqprod.idsolicitacaoservico, reqviagem.idsolicitacaoservico, reqrh.idsolicitacaoservico, td.classificacao");
+        sql.append("       e2.nome, u2.nome, oa.descricao, p.nomeprioridade, fs.nomefase, ");
+        sql.append("       g1.sigla, g2.sigla, cs.nomecontato, cs.emailcontato, cs.telefonecontato, cs.localizacaofisica, cs.idlocalidade, es.idInstanciaFluxo, ");
+        sql.append("       reqprod.idsolicitacaoservico, reqrh.idsolicitacaoservico, td.classificacao");
         sql.append("  FROM solicitacaoservico sol ");
         sql.append("        LEFT JOIN servicocontrato sc ON sc.idservicocontrato = sol.idservicocontrato ");
         sql.append("        LEFT JOIN contratos c ON c.idcontrato = sc.idcontrato ");
@@ -6690,7 +6666,6 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         sql.append("        LEFT JOIN aprovacaosolicitacaoservico aprov ON aprov.idaprovacaosolicitacaoservico = sol.idultimaaprovacao ");
         sql.append("        LEFT JOIN requisicaoproduto reqprod ON reqprod.idsolicitacaoservico = sol.idsolicitacaoservico ");
         sql.append("        LEFT JOIN rh_requisicaopessoal reqrh ON reqrh.idsolicitacaoservico = sol.idsolicitacaoservico ");
-        sql.append("        LEFT JOIN requisicaoviagem reqviagem ON reqviagem.idsolicitacaoservico = sol.idsolicitacaoservico ");
 
         sql.append(" INNER JOIN execucaosolicitacao es ON es.idsolicitacaoservico = sol.idsolicitacaoservico ");
         sql.append("WHERE sol.idsolicitacaopai is null ");
@@ -6709,7 +6684,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             } else {
                 sql.append(" AND (");
             }
-            sql.append(" reqprod.idsolicitacaoservico IS NULL AND reqviagem.idsolicitacaoservico IS NULL AND reqrh.idsolicitacaoservico IS NULL AND td.classificacao = 'R' ");
+            sql.append(" reqprod.idsolicitacaoservico IS NULL AND reqrh.idsolicitacaoservico IS NULL AND td.classificacao = 'R' ");
             bFiltrouTipos = true;
         }
 
@@ -6720,16 +6695,6 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                 sql.append(" AND (");
             }
             sql.append(" reqprod.idsolicitacaoservico IS NOT NULL ");
-            bFiltrouTipos = true;
-        }
-
-        if (bViagens) {
-            if (bFiltrouTipos) {
-                sql.append(" OR ");
-            } else {
-                sql.append(" AND (");
-            }
-            sql.append(" reqviagem.idsolicitacaoservico IS NOT NULL ");
             bFiltrouTipos = true;
         }
 
@@ -6804,8 +6769,6 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             for (final SolicitacaoServicoDTO solicitacaoDto : result) {
                 if (solicitacaoDto.getIdRequisicaoProduto() != null) {
                     solicitacaoDto.setTipoSolicitacao(TipoSolicitacaoServico.COMPRA);
-                } else if (solicitacaoDto.getIdRequisicaoViagem() != null) {
-                    solicitacaoDto.setTipoSolicitacao(TipoSolicitacaoServico.VIAGEM);
                 } else if (solicitacaoDto.getIdRequisicaoPessoal() != null) {
                     solicitacaoDto.setTipoSolicitacao(TipoSolicitacaoServico.RH);
                 } else if (solicitacaoDto.getClassificacao() != null && solicitacaoDto.getClassificacao().equalsIgnoreCase("R")) {
@@ -6820,7 +6783,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     public SolicitacaoServicoDTO listIdentificacao(final Integer idItemConfiguracao) throws Exception {
-        final List parametro = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
         final StringBuilder sb = new StringBuilder();
         sb.append("select identificacao from ITEMCONFIGURACAO where iditemconfiguracao = " + idItemConfiguracao + " ");
         final List lista = this.execSQL(sb.toString(), parametro.toArray());
@@ -6831,8 +6794,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     public Collection<SolicitacaoServicoDTO> listIncidentesNaoFinalizados() throws Exception {
-        final List parametro = new ArrayList<>();
-        final List listRetorno = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
         final StringBuilder sql = new StringBuilder();
 
         sql.append("SELECT idsolicitacaoservico, situacao, datahorasolicitacao, datahoralimite, nometipodemandaservico, datahorafim ");
@@ -6874,8 +6837,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      */
     public Collection<SolicitacaoServicoDTO> listSolicitacaoServico(final String tipoDemandaServico, final GrupoDTO grupoSeguranca, final UsuarioDTO usuario,
             final Date dataInicio, final Date dataFim, final String situacao) throws Exception {
-        final List parametro = new ArrayList<>();
-        final List listRetorno = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
         final StringBuilder sql = new StringBuilder();
 
         sql.append("SELECT idsolicitacaoservico, situacao, datahorasolicitacao, datahoralimite, nometipodemandaservico, datahorafim ");
@@ -6961,7 +6924,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      * @author emauri
      */
     public Collection<SolicitacaoServicoDTO> listSolicitacaoServicoByCriterios(final Collection colCriterios) throws Exception {
-        final List listRetorno = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
 
         /*
          * Desenvolvedor: Rodrigo Pecci - Data: 25/10/2013 - Horário: 10h00min - ID Citsmart: 120770 Motivo/Comentário: A tabela origematendimento, faseservico
@@ -7020,7 +6983,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             }
         }
         List lista = new ArrayList<>();
-        final List parametros = new ArrayList<>();
+        final List<Object> parametros = new ArrayList<>();
         parametros.add(dataInicio);
         parametros.add(dataFim);
         parametros.add(dataInicioFechamento);
@@ -7056,7 +7019,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     public List<SolicitacaoServicoDTO> listSolicitacaoServicoByItemConfiguracao(final Integer idItemConfiguracao) throws Exception {
-        final List parametro = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
         final StringBuilder sb = new StringBuilder();
         sb.append("SELECT sol.idsolicitacaoservico, ser.nomeServico, tempoAtendimentoHH, tempoAtendimentoMM, datahorainicio, datahorafim, ");
         /**
@@ -7134,8 +7097,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     public Collection<SolicitacaoServicoDTO> listSolicitacaoServicoNaoFinalizadas() throws Exception {
-        final List parametro = new ArrayList<>();
-        final List listRetorno = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
         final StringBuilder sql = new StringBuilder();
 
         sql.append("SELECT idsolicitacaoservico, situacao, datahorasolicitacao, datahoralimite, nometipodemandaservico, datahorafim ");
@@ -7214,7 +7177,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     public Collection listSolicitacoesByRegra() throws Exception {
-        final List listRetorno = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
         final StringBuilder sql = new StringBuilder();
         sql.append("SELECT distinct (s.idsolicitacaoservico), s.idAcordoNivelServico, ans.tempoauto, ans.idprioridadeauto1, ans.idgrupo1, s.impacto, s.urgencia, ");
         sql.append("s.idprioridade, s.datahoralimite,  regra1.idcontrato as idcontrato, regra2.idservico as idservico, regra3.idsolicitante as idsolicitante, ");
@@ -7255,7 +7218,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("prazoHH");
         listRetorno.add("prazoMM");
 
-        final List list = this.execSQL(sql.toString(), null);
+        final List<?> list = this.execSQL(sql.toString(), null);
         if (list != null && !list.isEmpty()) {
             return this.listConvertion(this.getBean(), list, listRetorno);
         }
@@ -7270,7 +7233,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
     public SolicitacaoServicoDTO obterQuantidadeSolicitacoesServico(final Integer idServicoContrato, final java.util.Date dataInicio,
             final java.util.Date dataFim) throws Exception {
-        final List parametros = new ArrayList<>();
+        final List<Object> parametros = new ArrayList<>();
         final StringBuilder sql = new StringBuilder();
 
         sql.append(" select ");
@@ -7359,7 +7322,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     public String paginacaoOracle(String strSQL, final int intInicio, final int intLimite) {
         strSQL = strSQL + " order by sol.idsolicitacaoservico ";
         return "SELECT * FROM (SELECT PAGING.*, ROWNUM PAGING_RN FROM" + " (" + strSQL + ") PAGING WHERE (ROWNUM <= " + intLimite + "))"
-                + " WHERE (PAGING_RN >= " + intInicio + ") ";
+        + " WHERE (PAGING_RN >= " + intInicio + ") ";
     }
 
     @SuppressWarnings("unused")
@@ -7473,8 +7436,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
     public Collection<SolicitacaoServicoDTO> quantidadeSolicitacaoPorBaseConhecimento(final SolicitacaoServicoDTO solicitacao) throws Exception {
         final StringBuilder sql = new StringBuilder();
-        final List parametro = new ArrayList<>();
-        final List listRetorno = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
 
         sql.append("select idbaseconhecimento,count(idbaseconhecimento) from solicitacaoservico where idbaseconhecimento = ? group by idbaseconhecimento");
 
@@ -7482,20 +7445,17 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("idBaseConhecimento");
         listRetorno.add("quantidade");
 
-        final List list = this.execSQL(sql.toString(), parametro.toArray());
+        final List<?> list = this.execSQL(sql.toString(), parametro.toArray());
         if (list != null && !list.isEmpty()) {
             final Collection<SolicitacaoServicoDTO> listaQuantidadeSolicitacaoServicoPorBaseConhecimento = this.listConvertion(SolicitacaoServicoDTO.class,
                     list, listRetorno);
             return listaQuantidadeSolicitacaoServicoPorBaseConhecimento;
-            /*
-             * for(SolicitacaoServicoDTO solicitacaoDto : listaQuantidadeSolicitacaoServicoPorBaseConhecimento){ return solicitacaoDto.getQuantidade(); }
-             */
         }
         return null;
     }
 
     public Collection<SolicitacaoServicoDTO> relatorioControleSla(final SolicitacaoServicoDTO solicitacaoServicoDTO) throws Exception {
-        final List parametro = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
         final StringBuilder sql = new StringBuilder();
 
         /*
@@ -7686,7 +7646,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     public SolicitacaoServicoDTO restoreAll(final Integer idSolicitacao) throws Exception {
-        final List parametro = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
         parametro.add(idSolicitacao);
 
         String sql = this.getSQLRestoreAll();
@@ -7702,7 +7662,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     public SolicitacaoServicoDTO restoreByIdInstanciaFluxo(final Integer idInstanciaFluxo) throws Exception {
-        final List parametro = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
         parametro.add(idInstanciaFluxo);
 
         String sql = this.getSQLRestoreAll();
@@ -7720,7 +7680,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     public SolicitacaoServicoDTO restoreInfoEmails(final Integer idSolicitacao) throws Exception {
-        final List parametro = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
         parametro.add(idSolicitacao);
 
         final String sql = "select o.ocorrencia as registroexecucao, o.dataregistro as dataRegistroOcorrencia, o.horaregistro as horaRegistroOcorrencia, o.registradopor, o.categoria as categoriaocorrencia "
@@ -7751,7 +7711,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     public RelatorioQuantitativoRetornoDTO retornarIdEncerramento(final String encerramento,
             final RelatorioQuantitativoRetornoDTO relatorioQuantitativoRetornoDTO) throws Exception {
 
-        final List parametro = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
         final StringBuilder sb = new StringBuilder();
 
         sb.append("select idelemento from bpm_elementofluxo where nome LIKE '" + encerramento + "'  and idFluxo = ?");
@@ -7778,7 +7738,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      * @throws Exception
      */
     public SolicitacaoServicoDTO retornaSolicitacaoServicoComInformacoesDoContato(final String nomeContato) throws Exception {
-        final List parametro = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
 
         final StringBuilder sb = new StringBuilder();
 
@@ -7807,7 +7767,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      * @throws Exception
      */
     public SolicitacaoServicoDTO retornaSolicitacaoServicoComItemConfiguracaoDoSolicitante(final String login) throws Exception {
-        final List parametro = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
 
         final StringBuilder sb = new StringBuilder();
 
@@ -7827,7 +7787,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     public RelatorioQuantitativoRetornoDTO servicoRetorno(final RelatorioQuantitativoRetornoDTO relatorioQuantitativoRetornoDTO) throws Exception {
-        final List parametro = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
         final StringBuilder sql = new StringBuilder();
 
         sql.append("select ocorrenciasolicitacao.idocorrencia,ocorrenciasolicitacao.dataregistro, ocorrenciasolicitacao.horaregistro ");
@@ -7979,7 +7939,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             final GerenciamentoServicosDTO gerenciamentoServicosDTO, final Collection<ContratoDTO> listContratoUsuarioLogado) throws Exception {
 
         final StringBuilder sql = new StringBuilder();
-        final List parametros = new ArrayList<>();
+        final List<Object> parametros = new ArrayList<>();
 
         sql.append(" SELECT COUNT(*) ");
         sql.append(" FROM solicitacaoservico sol ");
@@ -8130,7 +8090,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     public Integer totalDePaginasPortal(final Integer itensPorPagina, final Collection<TarefaFluxoDTO> listTarefa,
             final GerenciamentoServicosDTO gerenciamentoServicosDTO, final Collection<ContratoDTO> listContratoUsuarioLogado) throws Exception {
         final StringBuilder sql = new StringBuilder();
-        final List parametros = new ArrayList<>();
+        final List<Object> parametros = new ArrayList<>();
 
         sql.append(" SELECT COUNT(*) ");
         sql.append(" FROM solicitacaoservico sol ");
@@ -8231,7 +8191,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     public boolean validaQuantidadeRetorno(final RelatorioQuantitativoRetornoDTO relatorioQuantitativoRetornoDTO) throws Exception {
-        final List parametro = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
         final StringBuilder sb = new StringBuilder();
 
         sb.append("select count(idelemento) as total ");
@@ -8260,7 +8220,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         final String sql = "SELECT distinct idunidade FROM " + this.getTableName() + " WHERE idunidade = ?  ";
         final List lista = this.execSQL(sql, objs);
 
-        final List listRetorno = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
         listRetorno.add("idUnidade");
         if (lista != null && !lista.isEmpty()) {
             return true;
@@ -8270,9 +8230,9 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
     public Collection<RelatorioEficaciaTesteDTO> listaSolicitacaoPorServicosAbertosNoPerido(final Date dataIncio, final Date dataFim,
             final List<ServicoDTO> listaServicos) throws Exception {
-        final List parametro = new ArrayList<>();
-        final List listRetorno = new ArrayList<>();
-        List list = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
+
         final StringBuilder sql = new StringBuilder();
 
         sql.append(" SELECT DISTINCT  solicitacaoservico.idsolicitacaoservico as numeroSolicitacao,servico.nomeServico as nomeServico,empregados.nome as solicitante,solicitacaoservico.datahorasolicitacao as aberturaSolicitacao,solicitacaoservico.situacao as situacao");
@@ -8292,7 +8252,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         final Timestamp dtfim = this.transformaHoraFinal(dataFim);
         parametro.add(dtfim);
 
-        list = this.execSQL(sql.toString(), parametro.toArray());
+        final List<?> list = this.execSQL(sql.toString(), parametro.toArray());
 
         listRetorno.add("numeroSolicitacao");
         listRetorno.add("nomeServico");
@@ -8308,10 +8268,10 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
     public Collection<RelatorioDocumentacaoDeFuncionalidadesNovasOuAlteradasNoPeriodoDTO> listaQtdSolicitacoesCanceladasFinalizadasporServicoNoPeriodo(
             final Date dataIncio, final Date dataFim, final List<ServicoDTO> listaServicos) throws Exception {
-        final List parametro = new ArrayList<>();
-        final List listRetorno = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
         String servicos = "";
-        List list = new ArrayList<>();
+
         final StringBuilder sql = new StringBuilder();
 
         for (int i = 0; i < listaServicos.size(); i++) {
@@ -8338,7 +8298,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         parametro.add(dataIncio);
         parametro.add(dtfim);
 
-        list = this.execSQL(sql.toString(), parametro.toArray());
+        final List<?> list = this.execSQL(sql.toString(), parametro.toArray());
 
         listRetorno.add("nomeServico");
         listRetorno.add("totalAberto");
@@ -8358,9 +8318,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      */
     public Collection<SolicitacaoServicoDTO> findSolicitacoesNaoResolvidasNoPrazoKPI(
             final RelatorioIncidentesNaoResolvidosDTO relatorioIncidentesNaoResolvidosDTO) throws Exception {
-        final List parametro = new ArrayList<>();
-        final List listRetorno = new ArrayList<>();
-        List list = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
 
         final StringBuilder sql = new StringBuilder();
         sql.append("select ss.idsolicitacaoservico, t.nometipodemandaservico, ss.idusuarioresponsavelatual, u.nome as responsavelAtual, ");
@@ -8433,7 +8392,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             parametro.add(relatorioIncidentesNaoResolvidosDTO.getIdContrato());
         }
 
-        list = this.execSQL(sql.toString(), parametro.toArray());
+        final List<?> list = this.execSQL(sql.toString(), parametro.toArray());
 
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("nomeTipoDemandaServico");
@@ -8461,9 +8420,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      */
     public Collection<SolicitacaoServicoDTO> findSolicitacoesNaoResolvidasEntrePrazoKPI(
             final RelatorioIncidentesNaoResolvidosDTO relatorioIncidentesNaoResolvidosDTO) throws Exception {
-        final List parametro = new ArrayList<>();
-        final List listRetorno = new ArrayList<>();
-        List list = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
 
         final StringBuilder sql = new StringBuilder();
         sql.append("select ss.idsolicitacaoservico, t.nometipodemandaservico, ss.idusuarioresponsavelatual, u.nome as responsavelAtual, ");
@@ -8537,7 +8495,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             parametro.add(relatorioIncidentesNaoResolvidosDTO.getIdContrato());
         }
 
-        list = this.execSQL(sql.toString(), parametro.toArray());
+        final List<?> list = this.execSQL(sql.toString(), parametro.toArray());
 
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("nomeTipoDemandaServico");
@@ -8569,9 +8527,9 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     public Collection<RelatorioKpiProdutividadeDTO> listaQuantitativaEmpregadoSolicitacoesEmcaminhaExito(
             final RelatorioKpiProdutividadeDTO relatorioKpiProdutividadeDto) throws Exception {
 
-        final List parametro = new ArrayList<>();
-        final List listRetorno = new ArrayList<>();
-        List list = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
+
         final StringBuilder sql = new StringBuilder();
 
         sql.append("SELECT empregados.idempregado, ");
@@ -8803,7 +8761,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         sql.append("ON empregados.idempregado = x.idempregado ) ");
         sql.append("ORDER  BY nome");
 
-        list = this.execSQL(sql.toString(), parametro.toArray());
+        final List<?> list = this.execSQL(sql.toString(), parametro.toArray());
 
         listRetorno.add("idEmpregado");
         listRetorno.add("funcionario");
@@ -8818,7 +8776,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
     public Collection<SolicitacaoServicoDTO> listSolicitacoesFilhasFiltradas(final GerenciamentoServicosDTO gerenciamentoBean,
             final Collection<ContratoDTO> listContratoUsuarioLogado) throws Exception {
-        final List listRetorno = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("idbaseconhecimento");
         listRetorno.add("idServicoContrato");
@@ -8904,7 +8862,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("vencendo");
 
         final StringBuilder sql = new StringBuilder();
-        final List parametros = new ArrayList<>();
+        final List<Object> parametros = new ArrayList<>();
 
         sql.append("SELECT sol.idSolicitacaoServico, sol.idbaseconhecimento, sol.idServicoContrato, sol.idSolicitante, ");
         sql.append("       sol.idItemConfiguracao, sol.idItemConfiguracaoFilho, sol.idtipodemandaservico, sol.idcontatosolicitacaoservico, ");
@@ -8969,7 +8927,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     public List<SolicitacaoServicoDTO> listaSolicitacoesRelacionadasBaseconhecimento(final Integer idBaseconhecimento) throws Exception {
-        final List parametro = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
         final StringBuilder sb = new StringBuilder();
         sb.append("select con.idsolicitacaoservico");
         sb.append(" from conhecimentosolicitacaoservico con");
@@ -8977,10 +8935,10 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         sb.append(" where bas.idbaseconhecimento = ?");
 
         parametro.add(idBaseconhecimento);
-        final List listRetorno = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
         listRetorno.add("idSolicitacaoServico");
 
-        final List list = this.execSQL(sb.toString(), parametro.toArray());
+        final List<?> list = this.execSQL(sb.toString(), parametro.toArray());
         if (list != null && !list.isEmpty()) {
             return this.listConvertion(SolicitacaoServicoDTO.class, list, listRetorno);
         }
@@ -8988,18 +8946,9 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     public boolean verificaPermGestorSolicitanteRH(final Integer idSolicitante) throws PersistenceException {
-        final List parametro = new ArrayList<>();
-        List list = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+
         final StringBuilder sql = new StringBuilder();
-        /*
-         * Permite funcionários do mesmo grupo
-         * sql.append("select distinct empregados.idempregado ");
-         * sql.append("from alcada join limitealcada on alcada.idalcada = limitealcada.idalcada and alcada.situacao = 'A' ");
-         * sql.append("join grupo on grupo.idgrupo = limitealcada.idgrupo ");
-         * sql.append("join gruposempregados on gruposempregados.idgrupo = grupo.idgrupo ");
-         * sql.append("join empregados on empregados.idempregado = gruposempregados.idempregado ");
-         * sql.append("where empregados.idempregado = ? and alcada.tipoalcada = 'Pessoal'  order by grupo.nome, empregados.nome");
-         */
 
         // Somente o Responsável poderá solicitar
         sql.append("select distinct alcadacentroresultado.idempregado ");
@@ -9009,7 +8958,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
         parametro.add(idSolicitante);
 
-        list = this.execSQL(sql.toString(), parametro.toArray());
+        final List<?> list = this.execSQL(sql.toString(), parametro.toArray());
 
         if (list != null && !list.isEmpty()) {
             return list.size() > 0;
@@ -9018,9 +8967,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     public Collection<RelatorioCausaSolucaoDTO> listaCausaSolicitacao(final RelatorioCausaSolucaoDTO relatorioCausaSolicitacao) throws Exception {
-        final List parametro = new ArrayList<>();
-        final List listRetorno = new ArrayList<>();
-        List list = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
 
         final StringBuilder sql = new StringBuilder();
         sql.append("select c.idcausaincidente, descricaocausa, count(idsolicitacaoservico) as numeroSolicitacoes from solicitacaoservico ss ");
@@ -9075,7 +9023,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
         System.out.println(sql + " - " + parametro.toString());
 
-        list = this.execSQL(sql.toString(), parametro.toArray());
+        final List<?> list = this.execSQL(sql.toString(), parametro.toArray());
 
         listRetorno.add("idCausaIncidente");
         listRetorno.add("descricaoCausa");
@@ -9090,9 +9038,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     public Collection<RelatorioCausaSolucaoDTO> listaSolucaoSolicitacao(final RelatorioCausaSolucaoDTO relatorioCausaSolicitacao) throws Exception {
-        final List parametro = new ArrayList<>();
-        final List listRetorno = new ArrayList<>();
-        List list = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
 
         final StringBuilder sql = new StringBuilder();
         sql.append("select cs.idcategoriasolucao, descricaocategoriasolucao, count(idsolicitacaoservico) as numeroSolicitacoes from solicitacaoservico ss ");
@@ -9147,7 +9094,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
         System.out.println(sql + " - " + parametro.toString());
 
-        list = this.execSQL(sql.toString(), parametro.toArray());
+        final List<?> list = this.execSQL(sql.toString(), parametro.toArray());
 
         listRetorno.add("idCategoriaSolucao");
         listRetorno.add("descricaoCategoriaSolucao");
@@ -9162,9 +9109,8 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     }
 
     public Collection<RelatorioCausaSolucaoDTO> listaCausaSolucaoAnalitico(final RelatorioCausaSolucaoDTO relatorioCausaSolicitacao) throws Exception {
-        final List parametro = new ArrayList<>();
-        final List listRetorno = new ArrayList<>();
-        List list = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
 
         final StringBuilder sql = new StringBuilder();
         sql.append("select ss.idsolicitacaoservico, ss.situacao as status, s.nomeservico, c.descricaocausa, cs.descricaocategoriasolucao from solicitacaoservico ss ");
@@ -9228,7 +9174,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
         System.out.println(sql + " - " + parametro.toString());
 
-        list = this.execSQL(sql.toString(), parametro.toArray());
+        final List<?> list = this.execSQL(sql.toString(), parametro.toArray());
 
         listRetorno.add("idSolicitacaoServico");
         listRetorno.add("status");
@@ -9253,7 +9199,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
      * @author thyen.chang
      */
     public Integer numeroSolicitacoesForaPeriodo(final RelatorioIncidentesNaoResolvidosDTO relatorioIncidentesNaoResolvidosDTO) throws PersistenceException {
-        final List parametro = new ArrayList<>();
+        final List<Object> parametro = new ArrayList<>();
         List retorno = new ArrayList<>();
 
         final StringBuilder sql = new StringBuilder();
@@ -9345,7 +9291,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     public Long listaRelatorioGetQuantidadeRegistros(final PesquisaSolicitacaoServicoDTO pesquisaSolicitacaoServicoDto) throws ServiceException, Exception {
         final StringBuilder sql = new StringBuilder();
 
-        final List parametros = new ArrayList<>();
+        final List<Object> parametros = new ArrayList<>();
 
         List lista = new ArrayList<>();
 
@@ -9372,11 +9318,11 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
         final StringBuilder sql = new StringBuilder();
 
-        final List parametros = new ArrayList<>();
+        final List<Object> parametros = new ArrayList<>();
 
         List lista = new ArrayList<>();
 
-        final List listRetorno = new ArrayList<>();
+        final List<String> listRetorno = new ArrayList<>();
 
         if (CITCorporeUtil.SGBD_PRINCIPAL.trim().toUpperCase().equalsIgnoreCase(SQLConfig.SQLSERVER)) {
             sql.append(";WITH ResultadoTemporario AS ( ");
@@ -9456,7 +9402,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         return listaSolicitacoes;
     }
 
-    private String montaSql(final List parametros, final PesquisaSolicitacaoServicoDTO pesquisaSolicitacaoServicoDto, final Integer limiteConsulta,
+    private String montaSql(final List<Object> parametros, final PesquisaSolicitacaoServicoDTO pesquisaSolicitacaoServicoDto, final Integer limiteConsulta,
             final boolean isRelatorio) throws ServiceException, Exception {
         final StringBuilder sql = new StringBuilder();
         final UnidadeDao unidadeDao = new UnidadeDao();

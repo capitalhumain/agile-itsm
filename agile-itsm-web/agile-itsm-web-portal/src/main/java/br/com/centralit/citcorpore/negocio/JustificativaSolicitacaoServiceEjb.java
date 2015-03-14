@@ -32,9 +32,4 @@ public class JustificativaSolicitacaoServiceEjb extends CrudServiceImpl implemen
         return this.getDao().listAtivasParaAprovacao();
     }
 
-    @Override
-    public Collection<JustificativaSolicitacaoDTO> listAtivasParaViagem() throws Exception {
-        return this.getDao().listAtivasParaViagem();
-    }
-
 }

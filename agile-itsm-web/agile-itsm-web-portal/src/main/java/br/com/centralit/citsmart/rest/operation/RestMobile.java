@@ -23,7 +23,6 @@ import br.com.centralit.citcorpore.bean.AcordoNivelServicoDTO;
 import br.com.centralit.citcorpore.bean.AcordoServicoContratoDTO;
 import br.com.centralit.citcorpore.bean.EmpregadoDTO;
 import br.com.centralit.citcorpore.bean.JustificativaParecerDTO;
-import br.com.centralit.citcorpore.bean.JustificativaSolicitacaoDTO;
 import br.com.centralit.citcorpore.bean.ServicoContratoDTO;
 import br.com.centralit.citcorpore.bean.ServicoDTO;
 import br.com.centralit.citcorpore.bean.SolicitacaoServicoDTO;
@@ -32,7 +31,6 @@ import br.com.centralit.citcorpore.negocio.AcordoNivelServicoService;
 import br.com.centralit.citcorpore.negocio.AcordoServicoContratoService;
 import br.com.centralit.citcorpore.negocio.ComplemInfSolicitacaoServicoService;
 import br.com.centralit.citcorpore.negocio.JustificativaParecerService;
-import br.com.centralit.citcorpore.negocio.JustificativaSolicitacaoService;
 import br.com.centralit.citcorpore.negocio.ServicoContratoService;
 import br.com.centralit.citcorpore.negocio.ServicoService;
 import br.com.centralit.citcorpore.negocio.SolicitacaoServicoService;
@@ -118,7 +116,8 @@ public class RestMobile implements IRestOperation<CtMessage, CtMessageResp> {
         boolean result = false;
         final ElementoFluxoDTO elementoFluxo = itemTrabalho.getElementoFluxoDto();
         if (itemTrabalho.getSituacao().trim().equals(SituacaoItemTrabalho.Disponivel.name()) && StringUtils.isNotBlank(elementoFluxo.getTemplate())) {
-            final TemplateSolicitacaoServicoDTO template = this.getTemplateSolicitacaoServicoService(restSession).findByIdentificacao(elementoFluxo.getTemplate().trim());
+            final TemplateSolicitacaoServicoDTO template = this.getTemplateSolicitacaoServicoService(restSession).findByIdentificacao(
+                    elementoFluxo.getTemplate().trim());
             if (template != null && template.getAprovacao().equals("S")) {
                 result = true;
             }
@@ -140,17 +139,20 @@ public class RestMobile implements IRestOperation<CtMessage, CtMessageResp> {
             return;
         }
 
-        final ServicoContratoDTO servicoContrato = this.getServicoContratoService().findByIdContratoAndIdServico(solicitacao.getIdContrato(), solicitacao.getIdServico());
+        final ServicoContratoDTO servicoContrato = this.getServicoContratoService().findByIdContratoAndIdServico(solicitacao.getIdContrato(),
+                solicitacao.getIdServico());
 
         solicitacao.setImpacto(DEFAULT_IMPACT_URGENCY);
         solicitacao.setUrgencia(DEFAULT_IMPACT_URGENCY);
 
         if (servicoContrato != null) {
-            AcordoNivelServicoDTO acordoNivelServico = this.getAcordoNivelServicoService().findAtivoByIdServicoContrato(servicoContrato.getIdServicoContrato(), "T");
+            AcordoNivelServicoDTO acordoNivelServico = this.getAcordoNivelServicoService().findAtivoByIdServicoContrato(servicoContrato.getIdServicoContrato(),
+                    "T");
             if (acordoNivelServico == null) {
-                // Se nao houver acordo especifico, ou seja, associado direto ao servicocontrato, entao busca um acordo geral que esteja vinculado ao servicocontrato.
-                final AcordoServicoContratoDTO acordoServicoContrato = this.getAcordoServicoContratoService().findAtivoByIdServicoContrato(servicoContrato.getIdServicoContrato(),
-                        "T");
+                // Se nao houver acordo especifico, ou seja, associado direto ao servicocontrato, entao busca um acordo geral que esteja vinculado ao
+                // servicocontrato.
+                final AcordoServicoContratoDTO acordoServicoContrato = this.getAcordoServicoContratoService().findAtivoByIdServicoContrato(
+                        servicoContrato.getIdServicoContrato(), "T");
                 if (acordoServicoContrato == null) {
                     throw new LogicException(RestUtil.i18nMessage(restSession, "rest.service.mobile.sla.not.set"));
                 }
@@ -232,7 +234,8 @@ public class RestMobile implements IRestOperation<CtMessage, CtMessageResp> {
                     }
                 }
                 if (resp.getNotifications().size() == 0) {
-                    resp.setError(RestOperationUtil.buildError(RestEnum.INPUT_ERROR, RestUtil.i18nMessage(restSession, "rest.service.mobile.mandatory.fields.are.empty")));
+                    resp.setError(RestOperationUtil.buildError(RestEnum.INPUT_ERROR,
+                            RestUtil.i18nMessage(restSession, "rest.service.mobile.mandatory.fields.are.empty")));
                 }
             }
         } catch (final Exception e) {
@@ -287,7 +290,8 @@ public class RestMobile implements IRestOperation<CtMessage, CtMessageResp> {
 
         resp.setNotification(notification);
 
-        final String url = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.URL_Sistema, "").trim() + Constantes.getValue("CONTEXTO_APLICACAO");
+        final String url = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.URL_Sistema, "").trim()
+                + Constantes.getValue("CONTEXTO_APLICACAO");
         resp.setSite(url.replaceAll("//", "/"));
 
         return resp;
@@ -345,8 +349,8 @@ public class RestMobile implements IRestOperation<CtMessage, CtMessageResp> {
 
         String descricao = "";
         try {
-            final ComplemInfSolicitacaoServicoService complemInfSolicitacaoServicoService = this.getSolicitacaoServicoService(restSession).getInformacoesComplementaresService(
-                    itemTrabalho);
+            final ComplemInfSolicitacaoServicoService complemInfSolicitacaoServicoService = this.getSolicitacaoServicoService(restSession)
+                    .getInformacoesComplementaresService(itemTrabalho);
             if (complemInfSolicitacaoServicoService != null) {
                 descricao = complemInfSolicitacaoServicoService.getInformacoesComplementaresFmtTexto(solicitacao, itemTrabalho);
             }
@@ -437,17 +441,18 @@ public class RestMobile implements IRestOperation<CtMessage, CtMessageResp> {
         }
 
         if (solicitacao == null) {
-            resp.setError(RestOperationUtil.buildError(RestEnum.INPUT_ERROR, RestUtil.i18nMessage(restSession, "rest.service.mobile.service.solicitation.notfound")));
+            resp.setError(RestOperationUtil.buildError(RestEnum.INPUT_ERROR,
+                    RestUtil.i18nMessage(restSession, "rest.service.mobile.service.solicitation.notfound")));
             return resp;
         }
 
         try {
-            final ComplemInfSolicitacaoServicoService complemInfSolicitacaoServicoService = this.getSolicitacaoServicoService(restSession).getInformacoesComplementaresService(
-                    itemTrabalho);
+            final ComplemInfSolicitacaoServicoService complemInfSolicitacaoServicoService = this.getSolicitacaoServicoService(restSession)
+                    .getInformacoesComplementaresService(itemTrabalho);
 
             if (complemInfSolicitacaoServicoService != null) {
-                complemInfSolicitacaoServicoService.preparaSolicitacaoParaAprovacao(solicitacao, itemTrabalho, this.getAprovacao(input.getFeedback()), input.getReasonId(),
-                        input.getComments());
+                complemInfSolicitacaoServicoService.preparaSolicitacaoParaAprovacao(solicitacao, itemTrabalho, this.getAprovacao(input.getFeedback()),
+                        input.getReasonId(), input.getComments());
             }
 
             if (solicitacao.getAcaoFluxo() != null) {
@@ -470,7 +475,8 @@ public class RestMobile implements IRestOperation<CtMessage, CtMessageResp> {
         final CtNotificationNewResp resp = new CtNotificationNewResp();
 
         if (StringUtils.isBlank(input.getDescription())) {
-            resp.setError(RestOperationUtil.buildError(RestEnum.INPUT_ERROR, RestUtil.i18nMessage(restSession, "rest.service.mobile.description.solicitation.not.informed")));
+            resp.setError(RestOperationUtil.buildError(RestEnum.INPUT_ERROR,
+                    RestUtil.i18nMessage(restSession, "rest.service.mobile.description.solicitation.not.informed")));
             return resp;
         }
 
@@ -487,19 +493,22 @@ public class RestMobile implements IRestOperation<CtMessage, CtMessageResp> {
 
         final String idContrato = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.CONTRATO_PADRAO, "").trim();
         if (StringUtils.isBlank(idContrato)) {
-            resp.setError(RestOperationUtil.buildError(RestEnum.PARAM_ERROR, RestUtil.i18nMessage(restSession, "rest.service.mobile.contract.default.not.parametrized")));
+            resp.setError(RestOperationUtil.buildError(RestEnum.PARAM_ERROR,
+                    RestUtil.i18nMessage(restSession, "rest.service.mobile.contract.default.not.parametrized")));
             return resp;
         }
 
         final String idServico = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.SERVICO_PADRAO_SOLICITACAO, "").trim();
         if (StringUtils.isBlank(idServico)) {
-            resp.setError(RestOperationUtil.buildError(RestEnum.PARAM_ERROR, RestUtil.i18nMessage(restSession, "rest.service.mobile.service.default.not.parametrized")));
+            resp.setError(RestOperationUtil.buildError(RestEnum.PARAM_ERROR,
+                    RestUtil.i18nMessage(restSession, "rest.service.mobile.service.default.not.parametrized")));
             return resp;
         }
 
         ServicoDTO servico = null;
         try {
-            final ServicoService servicoService = (ServicoService) ServiceLocator.getInstance().getService(ServicoService.class, RestUtil.getUsuarioSistema(restSession));
+            final ServicoService servicoService = (ServicoService) ServiceLocator.getInstance().getService(ServicoService.class,
+                    RestUtil.getUsuarioSistema(restSession));
             servico = new ServicoDTO();
             servico.setIdServico(Integer.valueOf(idServico));
             servico = (ServicoDTO) servicoService.restore(servico);
@@ -514,8 +523,8 @@ public class RestMobile implements IRestOperation<CtMessage, CtMessageResp> {
 
         ServicoContratoDTO servicoContrato = null;
         try {
-            final ServicoContratoService servicoContratoService = (ServicoContratoService) ServiceLocator.getInstance().getService(ServicoContratoService.class,
-                    RestUtil.getUsuarioSistema(restSession));
+            final ServicoContratoService servicoContratoService = (ServicoContratoService) ServiceLocator.getInstance().getService(
+                    ServicoContratoService.class, RestUtil.getUsuarioSistema(restSession));
             servicoContrato = servicoContratoService.findByIdContratoAndIdServico(Integer.valueOf(idContrato), Integer.valueOf(idServico));
         } catch (final Exception e) {
             LOGGER.log(Level.WARNING, e.getMessage(), e);
@@ -528,7 +537,8 @@ public class RestMobile implements IRestOperation<CtMessage, CtMessageResp> {
 
         final String idOrigem = ParametroUtil.getValorParametroCitSmartHashMap(Enumerados.ParametroSistema.ORIGEM_PADRAO_SOLICITACAO, "").trim();
         if (StringUtils.isBlank(idOrigem)) {
-            resp.setError(RestOperationUtil.buildError(RestEnum.PARAM_ERROR, RestUtil.i18nMessage(restSession, "rest.service.mobile.treatment.id.not.parametrized")));
+            resp.setError(RestOperationUtil.buildError(RestEnum.PARAM_ERROR,
+                    RestUtil.i18nMessage(restSession, "rest.service.mobile.treatment.id.not.parametrized")));
             return resp;
         }
 
@@ -536,7 +546,8 @@ public class RestMobile implements IRestOperation<CtMessage, CtMessageResp> {
         if (idUnidade == null) {
             final Map<String, RestDomainDTO> mapParam = RestUtil.getRestParameterService(restSession).findParameters(restSession, restOperation);
             if (mapParam == null || mapParam.isEmpty()) {
-                resp.setError(RestOperationUtil.buildError(RestEnum.PARAM_ERROR, RestUtil.i18nMessage(restSession, "rest.service.mobile.operation.params.not.registered")));
+                resp.setError(RestOperationUtil.buildError(RestEnum.PARAM_ERROR,
+                        RestUtil.i18nMessage(restSession, "rest.service.mobile.operation.params.not.registered")));
                 return resp;
             }
 
@@ -629,7 +640,8 @@ public class RestMobile implements IRestOperation<CtMessage, CtMessageResp> {
         }
 
         if (solicitacaoServico == null) {
-            resp.setError(RestOperationUtil.buildError(RestEnum.INPUT_ERROR, RestUtil.i18nMessage(restSession, "rest.service.mobile.service.solicitation.notfound")));
+            resp.setError(RestOperationUtil.buildError(RestEnum.INPUT_ERROR,
+                    RestUtil.i18nMessage(restSession, "rest.service.mobile.service.solicitation.notfound")));
             return resp;
         }
 
@@ -638,24 +650,6 @@ public class RestMobile implements IRestOperation<CtMessage, CtMessageResp> {
             switch (tipoSolicitacaoServico) {
             case INCIDENTE:
             case REQUISICAO:
-            case VIAGEM:
-                Collection<JustificativaSolicitacaoDTO> justificativasSolicitacao = null;
-                final JustificativaSolicitacaoService justificativaSolicitacaoService = (JustificativaSolicitacaoService) ServiceLocator.getInstance().getService(
-                        JustificativaSolicitacaoService.class, RestUtil.getUsuarioSistema(restSession));
-                if (tipoSolicitacaoServico.equals(TipoSolicitacaoServico.VIAGEM)) {
-                    justificativasSolicitacao = justificativaSolicitacaoService.listAtivasParaViagem();
-                } else {
-                    justificativasSolicitacao = justificativaSolicitacaoService.listAtivasParaAprovacao();
-                }
-                if (justificativasSolicitacao != null) {
-                    for (final JustificativaSolicitacaoDTO justificativaDto : justificativasSolicitacao) {
-                        final CtReason justificativa = new CtReason();
-                        justificativa.setId(justificativaDto.getIdJustificativa());
-                        justificativa.setDesc(justificativaDto.getDescricaoJustificativa());
-                        resp.getReasons().add(justificativa);
-                    }
-                }
-                break;
             default:
                 Collection<JustificativaParecerDTO> justificativasParecer = null;
                 final JustificativaParecerService justificativaParecerService = (JustificativaParecerService) ServiceLocator.getInstance().getService(
@@ -666,7 +660,7 @@ public class RestMobile implements IRestOperation<CtMessage, CtMessageResp> {
                     } else if (StringUtils.containsIgnoreCase(elementoFluxo.getTemplate(), "AUTORIZACAO")) {
                         justificativasParecer = justificativaParecerService.listAplicaveisRequisicao();
                     }
-                } else if (tipoSolicitacaoServico.equals(TipoSolicitacaoServico.VIAGEM) || tipoSolicitacaoServico.equals(TipoSolicitacaoServico.RH)) {
+                } else if (tipoSolicitacaoServico.equals(tipoSolicitacaoServico.equals(TipoSolicitacaoServico.RH))) {
                     justificativasParecer = justificativaParecerService.list();
                 }
 
@@ -774,8 +768,8 @@ public class RestMobile implements IRestOperation<CtMessage, CtMessageResp> {
 
     private TemplateSolicitacaoServicoService getTemplateSolicitacaoServicoService(final RestSessionDTO restSession) throws Exception {
         if (templateSolicitacaoServicoService == null) {
-            templateSolicitacaoServicoService = (TemplateSolicitacaoServicoService) ServiceLocator.getInstance().getService(TemplateSolicitacaoServicoService.class,
-                    RestUtil.getUsuarioSistema(restSession));
+            templateSolicitacaoServicoService = (TemplateSolicitacaoServicoService) ServiceLocator.getInstance().getService(
+                    TemplateSolicitacaoServicoService.class, RestUtil.getUsuarioSistema(restSession));
         }
         return templateSolicitacaoServicoService;
     }

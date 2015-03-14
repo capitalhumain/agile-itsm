@@ -449,7 +449,6 @@ public class SolicitacaoServicoDTO extends ObjetoNegocioFluxoDTO {
 
     private TipoSolicitacaoServico tipoSolicitacao;
     private Integer idRequisicaoProduto;
-    private Integer idRequisicaoViagem;
     private Integer idRequisicaoPessoal;
     // Atributo auxiliar, não é salvo em banco
     private String possuiAnexo;
@@ -559,7 +558,7 @@ public class SolicitacaoServicoDTO extends ObjetoNegocioFluxoDTO {
         return situacao != null
                 && (situacao.equalsIgnoreCase(Enumerados.SituacaoSolicitacaoServico.Resolvida.name())
                         || situacao.equalsIgnoreCase(Enumerados.SituacaoSolicitacaoServico.Cancelada.name()) || situacao
-                            .equalsIgnoreCase(Enumerados.SituacaoSolicitacaoServico.Fechada.name()));
+                        .equalsIgnoreCase(Enumerados.SituacaoSolicitacaoServico.Fechada.name()));
     }
 
     public boolean emAtendimento() {
@@ -580,7 +579,7 @@ public class SolicitacaoServicoDTO extends ObjetoNegocioFluxoDTO {
         if (obj == null) {
             return false;
         }
-        if (getClass() != obj.getClass()) {
+        if (this.getClass() != obj.getClass()) {
             return false;
         }
         final SolicitacaoServicoDTO other = (SolicitacaoServicoDTO) obj;
@@ -595,14 +594,14 @@ public class SolicitacaoServicoDTO extends ObjetoNegocioFluxoDTO {
     }
 
     public boolean escalada() {
-        return getIdGrupoAtual() != null;
+        return this.getIdGrupoAtual() != null;
     }
 
     public boolean finalizada() {
         return situacao != null
                 && (situacao.equalsIgnoreCase(Enumerados.SituacaoSolicitacaoServico.Resolvida.name())
                         || situacao.equalsIgnoreCase(Enumerados.SituacaoSolicitacaoServico.Cancelada.name()) || situacao
-                            .equalsIgnoreCase(Enumerados.SituacaoSolicitacaoServico.Fechada.name()));
+                        .equalsIgnoreCase(Enumerados.SituacaoSolicitacaoServico.Fechada.name()));
     }
 
     public String getAcaoFluxo() {
@@ -679,58 +678,58 @@ public class SolicitacaoServicoDTO extends ObjetoNegocioFluxoDTO {
 
     public String getDadosStr() {
         final StringBuilder str = new StringBuilder();
-        if (getIdSolicitacaoServico() != null) {
-            str.append("Número da solicitação: " + getIdSolicitacaoServico() + "\n");
-            if (getDataHoraSolicitacaoStr() != null) {
-                str.append("Criada em: " + getDataHoraSolicitacaoStr() + "\n");
+        if (this.getIdSolicitacaoServico() != null) {
+            str.append("Número da solicitação: " + this.getIdSolicitacaoServico() + "\n");
+            if (this.getDataHoraSolicitacaoStr() != null) {
+                str.append("Criada em: " + this.getDataHoraSolicitacaoStr() + "\n");
             }
-            if (getDescrSituacao() != null) {
-                str.append("Situação: " + getDescrSituacao() + "\n");
+            if (this.getDescrSituacao() != null) {
+                str.append("Situação: " + this.getDescrSituacao() + "\n");
             }
-            if (getSituacaoSLA() != null) {
-                str.append("Situação do SLA: " + SituacaoSLA.valueOf(getSituacaoSLA()).getDescricao() + "\n");
+            if (this.getSituacaoSLA() != null) {
+                str.append("Situação do SLA: " + SituacaoSLA.valueOf(this.getSituacaoSLA()).getDescricao() + "\n");
             }
-            if (getSituacaoSLA() == null || !getSituacaoSLA().equalsIgnoreCase("S")) {
-                if (getPrazoHH() != null) {
-                    str.append("Tempo SLA: " + getSLAStr() + "\n");
+            if (this.getSituacaoSLA() == null || !this.getSituacaoSLA().equalsIgnoreCase("S")) {
+                if (this.getPrazoHH() != null) {
+                    str.append("Tempo SLA: " + this.getSLAStr() + "\n");
                 }
-                if (getDataHoraLimiteStr() != null) {
-                    str.append("Data hora limite: " + getDataHoraLimiteStr() + "\n");
+                if (this.getDataHoraLimiteStr() != null) {
+                    str.append("Data hora limite: " + this.getDataHoraLimiteStr() + "\n");
                 }
-                if (getGrupoAtual() != null) {
-                    str.append("Grupo atual: " + getGrupoAtual() + "\n");
+                if (this.getGrupoAtual() != null) {
+                    str.append("Grupo atual: " + this.getGrupoAtual() + "\n");
                 }
             } else {
-                str.append("Tempo decorrido: " + getTempoDecorridoStr() + "\n");
+                str.append("Tempo decorrido: " + this.getTempoDecorridoStr() + "\n");
             }
-            if (getImpacto() != null) {
+            if (this.getImpacto() != null) {
                 String imp = "";
-                if (getImpacto().equalsIgnoreCase("B")) {
+                if (this.getImpacto().equalsIgnoreCase("B")) {
                     imp = "Baixo";
                 }
-                if (getImpacto().equalsIgnoreCase("M")) {
+                if (this.getImpacto().equalsIgnoreCase("M")) {
                     imp = "Médio";
                 }
-                if (getImpacto().equalsIgnoreCase("A")) {
+                if (this.getImpacto().equalsIgnoreCase("A")) {
                     imp = "Alto";
                 }
                 str.append("Impacto: " + imp + "\n");
             }
-            if (getUrgencia() != null) {
+            if (this.getUrgencia() != null) {
                 String imp = "";
-                if (getUrgencia().equalsIgnoreCase("B")) {
+                if (this.getUrgencia().equalsIgnoreCase("B")) {
                     imp = "Baixa";
                 }
-                if (getUrgencia().equalsIgnoreCase("M")) {
+                if (this.getUrgencia().equalsIgnoreCase("M")) {
                     imp = "Média";
                 }
-                if (getUrgencia().equalsIgnoreCase("A")) {
+                if (this.getUrgencia().equalsIgnoreCase("A")) {
                     imp = "Alta";
                 }
                 str.append("Urgência: " + imp + "\n");
             }
-            if (getIdPrioridade() != null) {
-                str.append("Prioridade (Código): " + getIdPrioridade() + "\n");
+            if (this.getIdPrioridade() != null) {
+                str.append("Prioridade (Código): " + this.getIdPrioridade() + "\n");
             }
         }
         return str.toString();
@@ -864,7 +863,8 @@ public class SolicitacaoServicoDTO extends ObjetoNegocioFluxoDTO {
             } else {
                 return false;
             }
-        } return false;
+        }
+        return false;
     }
 
     public String getTempoFaltante() {
@@ -1749,7 +1749,7 @@ public class SolicitacaoServicoDTO extends ObjetoNegocioFluxoDTO {
     public void setDescricao(final String parm) {
 
         if (parm != null && !StringUtils.isBlank(parm)) {
-            setDescricaoSemFormatacao(parm);
+            this.setDescricaoSemFormatacao(parm);
         }
         descricao = parm;
     }
@@ -1775,7 +1775,7 @@ public class SolicitacaoServicoDTO extends ObjetoNegocioFluxoDTO {
      *            the emailcontato to set
      */
     public void setEmailcontato(final String emailcontato) {
-        this.emailcontato = tratarCaracteresEspeciais(emailcontato);
+        this.emailcontato = this.tratarCaracteresEspeciais(emailcontato);
     }
 
     public void setEnviaEmailAcoes(final String enviaEmailAcoes) {
@@ -2047,7 +2047,7 @@ public class SolicitacaoServicoDTO extends ObjetoNegocioFluxoDTO {
      *            the nomecontato to set
      */
     public void setNomecontato(final String nomecontato) {
-        this.nomecontato = tratarCaracteresEspeciais(nomecontato);
+        this.nomecontato = this.tratarCaracteresEspeciais(nomecontato);
     }
 
     public void setNomeItemConfiguracao(final String nomeItemConfiguracao) {
@@ -2104,7 +2104,7 @@ public class SolicitacaoServicoDTO extends ObjetoNegocioFluxoDTO {
      *            the localizacaofisica to set
      */
     public void setObservacao(final String observacao) {
-        this.observacao = tratarCaracteresEspeciais(observacao);
+        this.observacao = this.tratarCaracteresEspeciais(observacao);
     }
 
     /**
@@ -2491,7 +2491,7 @@ public class SolicitacaoServicoDTO extends ObjetoNegocioFluxoDTO {
     }
 
     public String getSituacaoFinal() {
-        return getDescrSituacao();
+        return this.getDescrSituacao();
     }
 
     public Integer getIdOcorrencia() {
@@ -2548,14 +2548,6 @@ public class SolicitacaoServicoDTO extends ObjetoNegocioFluxoDTO {
 
     public void setIdRequisicaoProduto(final Integer idRequisicaoProduto) {
         this.idRequisicaoProduto = idRequisicaoProduto;
-    }
-
-    public Integer getIdRequisicaoViagem() {
-        return idRequisicaoViagem;
-    }
-
-    public void setIdRequisicaoViagem(final Integer idRequisicaoViagem) {
-        this.idRequisicaoViagem = idRequisicaoViagem;
     }
 
     public Integer getIdRequisicaoPessoal() {

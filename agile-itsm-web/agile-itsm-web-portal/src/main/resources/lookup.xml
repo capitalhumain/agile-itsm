@@ -4200,58 +4200,6 @@
         </camposChave>
     </lookup>
 
-    <lookup name="LOOKUP_FORMAPAGAMENTO" daoProcessor="DEFAULT"
-        tabela="FORMAPAGAMENTO EM" where="situacao like upper('A')">
-        <camposPesquisa>
-            <campo nome="nomeformapagamento" descricao="formaPagamento.nome"
-                obrigatorio="nao" tipo="TEXT" tamanho="50" somenteBusca="true" />
-        </camposPesquisa>
-        <camposRetorno>
-            <campo nome="idformapagamento" descricao="formaPagamento.id"
-                obrigatorio="nao" tipo="TEXT" tamanho="12" />
-            <campo nome="nomeformapagamento" descricao="formaPagamento.nome"
-                obrigatorio="sim" tipo="TEXT" tamanho="50" />
-        </camposRetorno>
-        <camposOrdenacao>
-            <campo nome="nomeformapagamento" descricao="formaPagamento.nome"
-                obrigatorio="sim" tipo="TEXT" tamanho="50" />
-        </camposOrdenacao>
-        <camposChave>
-            <campo nome="idformapagamento" descricao="formaPagamento.id"
-                obrigatorio="nao" tipo="TEXT" tamanho="10" />
-        </camposChave>
-    </lookup>
-
-    <lookup name="LOOKUP_TIPOMOVIMFINANCEIRAVIAGEM" daoProcessor="DEFAULT"
-        tabela="tipoMovimFinanceiraViagem" where="">
-        <camposPesquisa>
-            <campo nome="nome" descricao="citcorpore.comum.nome"
-                obrigatorio="nao" tipo="TEXT" tamanho="40" />
-            <campo nome="situacao" descricao="citcorpore.comum.situacao"
-                obrigatorio="sim" tipo="COMBO"
-                values="{'A','I'=lookup.todas};{'A'=citcorpore.comum.ativo};{'I'=citcorpore.comum.inativo}"
-                tamanho="14" />
-        </camposPesquisa>
-        <camposRetorno>
-            <campo nome="idtipoMovimFinanceiraViagem" descricao="lookup.id"
-                obrigatorio="nao" tipo="TEXT" tamanho="12" />
-            <campo nome="nome" descricao="citcorpore.comum.nome"
-                obrigatorio="nao" tipo="TEXT" tamanho="12" />
-            <campo nome="classificacao" descricao="citcorpore.comum.classificacao"
-                obrigatorio="sim" tipo="TEXT" tamanho="50" />
-            <campo nome="situacao" descricao="citcorpore.comum.situacao"
-                obrigatorio="sim" tipo="TEXT" tamanho="50" />
-        </camposRetorno>
-        <camposOrdenacao>
-            <campo nome="nome" descricao="citcorpore.comum.nome"
-                obrigatorio="sim" tipo="TEXT" tamanho="50" />
-        </camposOrdenacao>
-        <camposChave>
-            <campo nome="idtipoMovimFinanceiraViagem" descricao="lookup.id"
-                obrigatorio="nao" tipo="TEXT" tamanho="10" />
-        </camposChave>
-    </lookup>
-
     <lookup name="LOOKUP_MOEDA" tabela="moedas" where="dataFim is null"
         daoProcessor="DEFAULT">
         <camposOrdenacao>

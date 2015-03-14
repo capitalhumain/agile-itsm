@@ -633,7 +633,7 @@ function carregarProblema(row, obj) {
 
 /**
 Funcao que faz referencia ao bot?o fechar da tela de problema ap?s fechar um problema ira fechar modal em solicitacao servico.
-* 
+*
 * @author maycon.fernandes
 * @since 30/10/2013 15:35
 */
@@ -647,7 +647,7 @@ function fecharFrameProblema() {
 
 /**
 Funcao que faz referencia ao bot?o fechar da tela de mudanca ap?s fechar um mudanca ira fechar modal em solicitacao servico.
-* 
+*
 * @author maycon.fernandes
 * @since 30/10/2013 15:35
 */
@@ -657,7 +657,7 @@ function fecharMudanca() {
 
 /**
 Alterado para apenas visualizar, a rotina anterior estava permitindo alterar com isso ele nao estava andando junto com o fluxo.
-* 
+*
 * @author maycon.fernandes
 * @since 30/10/2013 15:35
 */
@@ -875,11 +875,11 @@ function limparServico() {
     $("#idServico").val('');
 }
 
-/* Desenvolvedor: Riubbe Oliveira - Data: 23/10/2013 - Hor?rio: 10:46 - ID Citsmart: 121539 
- * 
- * Motivo/Coment?rio: Fun??o para ocultar divInformacoesComplementares caso seja um questionario 
+/* Desenvolvedor: Riubbe Oliveira - Data: 23/10/2013 - Hor?rio: 10:46 - ID Citsmart: 121539
+ *
+ * Motivo/Coment?rio: Fun??o para ocultar divInformacoesComplementares caso seja um questionario
  * isso se faz necess?rio porque ao salvar o question?rio, a fun??o getObjetoSeriarizado
- * da um submit e um reload dentro da div mostrando a pagina inicial do citsmart   
+ * da um submit e um reload dentro da div mostrando a pagina inicial do citsmart
  * */
 function ocultaInfoComplSeQuestionario(link) {
     var str = new String(link);
@@ -1009,7 +1009,7 @@ function scrolls() {
 }
 
 function atualizarLista() {
-	parent.atualizarLista();
+    parent.atualizarLista();
 }
 
 function informacoesComplementaresSerialize() {
@@ -1177,30 +1177,28 @@ $(function() {
 
 var evento;
 
-if (isVersionFree == false) {
-    excluiProblema = function(indice) {
-        if (indice > 0 && confirm('Confirma exclusão')) {
-            HTMLUtils.deleteRow('tblProblema', indice);
-            count = $("#tblProblema").find("tr").length - 1;
-            $("#quantidadeProblema").text(count);
+excluiProblema = function(indice) {
+    if (indice > 0 && confirm('Confirma exclusão')) {
+        HTMLUtils.deleteRow('tblProblema', indice);
+        count = $("#tblProblema").find("tr").length - 1;
+        $("#quantidadeProblema").text(count);
 
-        }
     }
+}
 
-    excluiMudanca = function(indice) {
-        if (indice > 0 && confirm('Confirma exclusão')) {
-            HTMLUtils.deleteRow('tblMudanca', indice);
-            count = $("#tblMudanca").find("tr").length - 1;
-            $("#quantidadeMudanca").text(count);
-        }
+excluiMudanca = function(indice) {
+    if (indice > 0 && confirm('Confirma exclusão')) {
+        HTMLUtils.deleteRow('tblMudanca', indice);
+        count = $("#tblMudanca").find("tr").length - 1;
+        $("#quantidadeMudanca").text(count);
     }
+}
 
-    excluiIC = function(indice) {
-        if (indice > 0 && confirm('Confirma exclusão')) {
-            HTMLUtils.deleteRow('tblIC', indice);
-            count = $("#tblIC").find("tr").length - 1;
-            $("#quantidadeItemConfiguracao").text(count);
-        }
+excluiIC = function(indice) {
+    if (indice > 0 && confirm('Confirma exclusão')) {
+        HTMLUtils.deleteRow('tblIC', indice);
+        count = $("#tblIC").find("tr").length - 1;
+        $("#quantidadeItemConfiguracao").text(count);
     }
 }
 

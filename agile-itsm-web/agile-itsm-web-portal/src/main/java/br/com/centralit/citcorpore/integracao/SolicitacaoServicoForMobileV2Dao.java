@@ -40,8 +40,8 @@ public class SolicitacaoServicoForMobileV2Dao extends SolicitacaoServicoDao {
     private static final String WHERE_ID_SOLICITACAO = " WHERE sol.idsolicitacaoservico ";
     private static final String ORDER_BY_ID_SOLICITACAO = " ORDER BY sol.idsolicitacaoservico DESC, atrSol.dataexecucao, atrSol.priorityOrder ";
 
-    public Page<SolicitacaoServicoDTO> listNewest(final Integer newestNumber, final UsuarioDTO usuario, final TipoSolicitacaoServico[] tiposSolicitacao, final String aprovacao)
-            throws PersistenceException {
+    public Page<SolicitacaoServicoDTO> listNewest(final Integer newestNumber, final UsuarioDTO usuario, final TipoSolicitacaoServico[] tiposSolicitacao,
+            final String aprovacao) throws PersistenceException {
         final List<Object> parametros = new ArrayList<>();
         final Pageable pageable = this.getDefaultPageable();
 
@@ -66,8 +66,8 @@ public class SolicitacaoServicoForMobileV2Dao extends SolicitacaoServicoDao {
         return this.makePage(result, pageable, 0L);
     }
 
-    public Page<SolicitacaoServicoDTO> listOldest(final Integer oldestNumber, final UsuarioDTO usuario, final TipoSolicitacaoServico[] tiposSolicitacao, final String aprovacao)
-            throws PersistenceException {
+    public Page<SolicitacaoServicoDTO> listOldest(final Integer oldestNumber, final UsuarioDTO usuario, final TipoSolicitacaoServico[] tiposSolicitacao,
+            final String aprovacao) throws PersistenceException {
         final Pageable pageable = this.getDefaultPageable();
         final List<Object> parametros = new ArrayList<>();
 
@@ -94,8 +94,8 @@ public class SolicitacaoServicoForMobileV2Dao extends SolicitacaoServicoDao {
     }
 
     public Page<SolicitacaoServicoDTO> listByCoordinates(final GeoLocation referencePoint, final GeoLocation[] bounds, final double distanceRadius,
-            final boolean meridian180WithinDistance, final UsuarioDTO usuario, final TipoSolicitacaoServico[] tiposSolicitacao, final String aprovacao, final Pageable pageable)
-            throws PersistenceException {
+            final boolean meridian180WithinDistance, final UsuarioDTO usuario, final TipoSolicitacaoServico[] tiposSolicitacao, final String aprovacao,
+            final Pageable pageable) throws PersistenceException {
         final List<Object> parametros = new ArrayList<>();
 
         final StringBuilder from = this.fromQueryPiece(usuario, parametros);
@@ -108,7 +108,8 @@ public class SolicitacaoServicoForMobileV2Dao extends SolicitacaoServicoDao {
             where.append(GeoUtils.getSQLWherePieceForDistanceWithIndex("ender.latitude", "ender.longitude", meridian180WithinDistance));
             break;
         default:
-            where.append(GeoUtils.getSQLWherePieceForDistanceWithIndexForMySQLAndMSSQLServer("ender.latitude_radians", "ender.longitude_radians", meridian180WithinDistance));
+            where.append(GeoUtils.getSQLWherePieceForDistanceWithIndexForMySQLAndMSSQLServer("ender.latitude_radians", "ender.longitude_radians",
+                    meridian180WithinDistance));
             break;
         }
 
@@ -165,8 +166,6 @@ public class SolicitacaoServicoForMobileV2Dao extends SolicitacaoServicoDao {
             for (final SolicitacaoServicoDTO solicitacao : result) {
                 if (solicitacao.getIdRequisicaoProduto() != null) {
                     solicitacao.setTipoSolicitacao(TipoSolicitacaoServico.COMPRA);
-                } else if (solicitacao.getIdRequisicaoViagem() != null) {
-                    solicitacao.setTipoSolicitacao(TipoSolicitacaoServico.VIAGEM);
                 } else if (solicitacao.getIdRequisicaoPessoal() != null) {
                     solicitacao.setTipoSolicitacao(TipoSolicitacaoServico.RH);
                 } else if (solicitacao.getClassificacao() != null && solicitacao.getClassificacao().equalsIgnoreCase("R")) {
@@ -178,7 +177,8 @@ public class SolicitacaoServicoForMobileV2Dao extends SolicitacaoServicoDao {
         }
     }
 
-    public Page<GerenciamentoRotasResultDTO> listarSolicitacoesParaRoteirizacao(final GerenciamentoRotasDTO filter, final Pageable pageable) throws PersistenceException {
+    public Page<GerenciamentoRotasResultDTO> listarSolicitacoesParaRoteirizacao(final GerenciamentoRotasDTO filter, final Pageable pageable)
+            throws PersistenceException {
         final List<Object> params = new ArrayList<>();
 
         final StringBuilder sql = new StringBuilder();
@@ -238,8 +238,6 @@ public class SolicitacaoServicoForMobileV2Dao extends SolicitacaoServicoDao {
         from.append("              ON reqprod.idsolicitacaoservico = sol.idsolicitacaoservico ");
         from.append("       LEFT JOIN rh_requisicaopessoal reqrh ");
         from.append("              ON reqrh.idsolicitacaoservico = sol.idsolicitacaoservico ");
-        from.append("       LEFT JOIN requisicaoviagem reqviagem ");
-        from.append("              ON reqviagem.idsolicitacaoservico = sol.idsolicitacaoservico ");
         from.append("       LEFT JOIN atribuicaosolicitacao atrSol ");
         from.append("              ON sol.idsolicitacaoservico = atrSol.idsolicitacao AND atrSol.active = 1 ");
         from.append("WHERE  bpmItem.situacao NOT IN ( 'Executado', 'Cancelado' ) ");
@@ -306,7 +304,8 @@ public class SolicitacaoServicoForMobileV2Dao extends SolicitacaoServicoDao {
         sql.append("ORDER  BY sol.idsolicitacaoservico, atrSol.dataexecucao, atrSol.priorityOrder ");
 
         final Object[] paramsArray = params.toArray();
-        final List<GerenciamentoRotasResultDTO> result = this.executeQuery(sql.toString(), pageable, paramsArray, this.getFieldsRoteirizacao(), GerenciamentoRotasResultDTO.class);
+        final List<GerenciamentoRotasResultDTO> result = this.executeQuery(sql.toString(), pageable, paramsArray, this.getFieldsRoteirizacao(),
+                GerenciamentoRotasResultDTO.class);
 
         final StringBuilder sqlCount = this.countQueryPiece(from);
 
@@ -365,7 +364,6 @@ public class SolicitacaoServicoForMobileV2Dao extends SolicitacaoServicoDao {
             listNamesFieldDB.add("identificacaoTemplate");
             listNamesFieldDB.add("idFluxo");
             listNamesFieldDB.add("idRequisicaoProduto");
-            listNamesFieldDB.add("idRequisicaoViagem");
             listNamesFieldDB.add("idRequisicaoPessoal");
             listNamesFieldDB.add("classificacao");
         }
@@ -443,7 +441,6 @@ public class SolicitacaoServicoForMobileV2Dao extends SolicitacaoServicoDao {
         sql.append("        tarefa.identificacao, ");
         sql.append("        tarefa.idfluxo, ");
         sql.append("        reqprod.idSolicitacaoServico as idrequisicaoproduto, ");
-        sql.append("        reqviagem.idSolicitacaoServico as idrequisicaoviagem, ");
         sql.append("        reqrh.idSolicitacaoServico as idrequisicaopessoal, ");
         sql.append("        td.classificacao ");
         sql.append(sqlFrom);
@@ -574,7 +571,6 @@ public class SolicitacaoServicoForMobileV2Dao extends SolicitacaoServicoDao {
         sqlFrom.append("       LEFT JOIN aprovacaosolicitacaoservico aprov  ON aprov.idaprovacaosolicitacaoservico = sol.idultimaaprovacao ");
         sqlFrom.append("       LEFT JOIN requisicaoproduto reqprod   ON reqprod.idsolicitacaoservico = sol.idsolicitacaoservico ");
         sqlFrom.append("       LEFT JOIN rh_requisicaopessoal reqrh ON reqrh.idsolicitacaoservico = sol.idsolicitacaoservico ");
-        sqlFrom.append("       LEFT JOIN requisicaoviagem reqviagem  ON reqviagem.idsolicitacaoservico = sol.idsolicitacaoservico ");
         sqlFrom.append("       LEFT JOIN atribuicaosolicitacao atrSol on sol.idsolicitacaoservico = atrSol.idsolicitacao AND atrSol.idusuario = ? AND atrSol.active = 1 ");
 
         parametros.add(usuario.getIdUsuario());
@@ -587,7 +583,6 @@ public class SolicitacaoServicoForMobileV2Dao extends SolicitacaoServicoDao {
         boolean bIncidentes = false;
         boolean bRequisicoes = false;
         boolean bCompras = false;
-        boolean bViagens = false;
         boolean bRH = false;
 
         if (aprovacao != null && aprovacao.trim().equalsIgnoreCase("S")) {
@@ -605,9 +600,6 @@ public class SolicitacaoServicoForMobileV2Dao extends SolicitacaoServicoDao {
                 }
                 if (!bCompras && tipo.equals(TipoSolicitacaoServico.COMPRA)) {
                     bCompras = true;
-                }
-                if (!bViagens && tipo.equals(TipoSolicitacaoServico.VIAGEM)) {
-                    bViagens = true;
                 }
                 if (!bRH && tipo.equals(TipoSolicitacaoServico.RH)) {
                     bRH = true;
@@ -629,7 +621,7 @@ public class SolicitacaoServicoForMobileV2Dao extends SolicitacaoServicoDao {
             } else {
                 sql.append(" AND (");
             }
-            sql.append(" reqprod.idsolicitacaoservico IS NULL AND reqviagem.idsolicitacaoservico IS NULL AND reqrh.idsolicitacaoservico IS NULL AND td.classificacao = ?  ");
+            sql.append(" reqprod.idsolicitacaoservico IS NULL AND reqrh.idsolicitacaoservico IS NULL AND td.classificacao = ?  ");
 
             parametros.add("R");
 
@@ -643,16 +635,6 @@ public class SolicitacaoServicoForMobileV2Dao extends SolicitacaoServicoDao {
                 sql.append(" AND (");
             }
             sql.append(" reqprod.idsolicitacaoservico IS NOT NULL ");
-            bFiltrouTipos = true;
-        }
-
-        if (bViagens) {
-            if (bFiltrouTipos) {
-                sql.append(" OR ");
-            } else {
-                sql.append(" AND (");
-            }
-            sql.append(" reqviagem.idsolicitacaoservico IS NOT NULL ");
             bFiltrouTipos = true;
         }
 

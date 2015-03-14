@@ -75,34 +75,6 @@ public class JustificativaSolicitacaoDao extends CrudDaoDefaultImpl {
         return super.findByCondition(condicao, ordenacao);
     }
 
-    /**
-     * Retorna uma lista de justificativas ativas para requisicao viagem
-     *
-     * @return
-     * @throws Exception
-     * @author thays.araujo
-     */
-    public Collection<JustificativaSolicitacaoDTO> listAtivasParaViagem() throws PersistenceException {
-        final List<String> condicao = new ArrayList<>();
-        final List<String> listaRetorno = new ArrayList<>();
-
-        final String sql = "select idjustificativa, descricaoJustificativa from justificativasolicitacao where suspensao = ? and viagem = ? and situacao = ? and (deleted <> ? or deleted is null) ";
-        condicao.add("N");
-        condicao.add("S");
-        condicao.add("A");
-        condicao.add("Y");
-
-        final List<?> lista = this.execSQL(sql, condicao.toArray());
-
-        listaRetorno.add("idJustificativa");
-        listaRetorno.add("descricaoJustificativa");
-
-        if (lista != null && !lista.isEmpty()) {
-            return this.listConvertion(this.getBean(), lista, listaRetorno);
-        }
-        return null;
-    }
-
     @Override
     public Class<JustificativaSolicitacaoDTO> getBean() {
         return JustificativaSolicitacaoDTO.class;
