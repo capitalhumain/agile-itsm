@@ -161,7 +161,7 @@
                                             <fieldset style="height: 80px; text-align: center;	">
                                                 <label><fmt:message key="solicitacaoServico.solicitacao"/></label>
                                                 <div>
-                                                    <input type="image" class='' style="cursor: pointer;" title="<fmt:message key='rh.solicitacaoServico'/>" onclick="gravarIncidentesRequisicao(document.form.idBaseConhecimento.value);return false;" src="${ctx}/template_new/images/icons/large/grey/cog.png"/>
+                                                    <input type="image" class='' style="cursor: pointer;" title="<fmt:message key='baseConhecimento.solicitacaoServico'/>" onclick="gravarIncidentesRequisicao(document.form.idBaseConhecimento.value);return false;" src="${ctx}/template_new/images/icons/large/grey/cog.png"/>
                                                 </div>
                                             </fieldset>
                                         </div>

@@ -349,7 +349,7 @@ public class Enumerados implements Serializable {
         QUANT_RETORNO_PESQUISA(131, "parametro.131", NUMERO),
         QUANT_RETORNO_PESQUISA_ORDEM_SERVICO(132, "parametro.132", TEXTO), // Não esta sendo usado
         ID_MODELO_EMAIL_AVISAR_REUNIAO_MARCADA(133, "parametro.133", NUMERO),
-        ID_GRUPO_PADRAO_REQ_RH(134, "parametro.134", NUMERO),
+        // ID_GRUPO_PADRAO_REQ_RH(134, "parametro.134", NUMERO),
         ID_PERFIL_ACESSO_ADMINISTRADOR(135, "parametro.135", NUMERO),
         URL_LOGO_PADRAO_RELATORIO(136, "parametro.136", TEXTO),
         ID_MODELO_EMAIL_AVISAR_PESQUISA_SATISFACAO_RUIM_OU_REGULAR(137, "parametro.137", NUMERO),
@@ -1455,47 +1455,9 @@ public class Enumerados implements Serializable {
 
     }
 
-    public enum TipoEntrevista {
-
-        RH("Entrevista com RH"),
-        Gestor("Entrevista com Gestor");
-
-        private final String descricao;
-
-        private TipoEntrevista(final String descricao) {
-            this.descricao = descricao;
-        }
-
-        public String getDescricao() {
-            return descricao;
-        }
-
-    }
-
-    public enum ResultadoEntrevista {
-
-        N("Não avaliada"),
-        A("Entrevista com RH"),
-        R("Reprovado"),
-        S("2ª Oportunidade"),
-        D("Descarte");
-
-        private final String descricao;
-
-        private ResultadoEntrevista(final String descricao) {
-            this.descricao = descricao;
-        }
-
-        public String getDescricao() {
-            return descricao;
-        }
-
-    }
-
     public enum TipoSolicitacaoServico {
 
         COMPRA(1, "Compra"),
-        RH(3, "Requisição de pessoal"),
         INCIDENTE(4, "Incidente"),
         REQUISICAO(5, "Requisição");
 

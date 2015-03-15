@@ -1,53 +1,27 @@
 -- INICIO - EULER JOSÉ RAMOS - 03/01/2013
 
-INSERT INTO modelosemails (idmodeloemail,titulo,texto,situacao,identificador) VALUES ($id_modeloemail_85,'BI Citsmart - Notificação Erro Importação Auto Ag.Exceção','<span style="font-size: larger;"><strong>Importa&ccedil;&atilde;o autom&aacute;tica BI Citsmart n&atilde;o executada!</strong></span><br /><span style="font-size: larger;"><span style="font-family: Times New Roman;"><br /><samp>Ocorreu problema na execu&ccedil;&atilde;o do Agendamento de Exce&ccedil;&atilde;o:</samp></span></span><br /><span style="font-size: larger;"><span style="font-family: Times New Roman;">ID Conex&atilde;o: <strong>${IDCONEXAO}</strong><br />Nome Conex&atilde;o: <strong>${NOMECONEXAO}</strong><br />Link: <strong>${LINKCONEXAO}</strong><br />Processamento Batch:<strong> ${IDPROCESSAMENTO} - ${DESCRPROCESSAMENTO}</strong></span></span><br />','A','NotErrBiExc');
+INSERT INTO modelosemails (idmodeloemail,titulo,texto,situacao,identificador) VALUES ($id_modeloemail_85,'BI Agile ITSM - Notificação Erro Importação Auto Ag.Exceção','<span style="font-size: larger;"><strong>Importa&ccedil;&atilde;o autom&aacute;tica BI Agile ITSM n&atilde;o executada!</strong></span><br /><span style="font-size: larger;"><span style="font-family: Times New Roman;"><br /><samp>Ocorreu problema na execu&ccedil;&atilde;o do Agendamento de Exce&ccedil;&atilde;o:</samp></span></span><br /><span style="font-size: larger;"><span style="font-family: Times New Roman;">ID Conex&atilde;o: <strong>${IDCONEXAO}</strong><br />Nome Conex&atilde;o: <strong>${NOMECONEXAO}</strong><br />Link: <strong>${LINKCONEXAO}</strong><br />Processamento Batch:<strong> ${IDPROCESSAMENTO} - ${DESCRPROCESSAMENTO}</strong></span></span><br />','A','NotErrBiExc');
 UPDATE parametrocorpore SET valor = '$id_modeloemail_85' WHERE idparametrocorpore = 207;
 
-INSERT INTO modelosemails (idmodeloemail,titulo,texto,situacao,identificador) VALUES ($id_modeloemail_86,'BI Citsmart - Notificação Erro Importação Auto Ag.Específico','<span style="font-size: larger;"><strong>Importa&ccedil;&atilde;o autom&aacute;tica BI Citsmart n&atilde;o executada!</strong></span><br /><span style="font-size: larger;"><span style="font-family: Times New Roman;"><br /><samp>Ocorreu problema na execu&ccedil;&atilde;o do Agendamento Espec&iacute;fico:</samp></span></span><br /><span style="font-size: larger;"><span style="font-family: Times New Roman;">ID Conex&atilde;o: <strong>${IDCONEXAO}</strong><br />Nome Conex&atilde;o: <strong>${NOMECONEXAO}</strong><br />Link: <strong>${LINKCONEXAO}</strong><br />Processamento Batch:<strong> ${IDPROCESSAMENTO} - ${DESCRPROCESSAMENTO}</strong></span></span><br />','A','NotErrBiEsp');
+INSERT INTO modelosemails (idmodeloemail,titulo,texto,situacao,identificador) VALUES ($id_modeloemail_86,'BI Agile ITSM - Notificação Erro Importação Auto Ag.Específico','<span style="font-size: larger;"><strong>Importa&ccedil;&atilde;o autom&aacute;tica BI Agile ITSM n&atilde;o executada!</strong></span><br /><span style="font-size: larger;"><span style="font-family: Times New Roman;"><br /><samp>Ocorreu problema na execu&ccedil;&atilde;o do Agendamento Espec&iacute;fico:</samp></span></span><br /><span style="font-size: larger;"><span style="font-family: Times New Roman;">ID Conex&atilde;o: <strong>${IDCONEXAO}</strong><br />Nome Conex&atilde;o: <strong>${NOMECONEXAO}</strong><br />Link: <strong>${LINKCONEXAO}</strong><br />Processamento Batch:<strong> ${IDPROCESSAMENTO} - ${DESCRPROCESSAMENTO}</strong></span></span><br />','A','NotErrBiEsp');
 UPDATE parametrocorpore set valor = '$id_modeloemail_86' WHERE idparametrocorpore = 208;
 
-INSERT INTO modelosemails (idmodeloemail,titulo,texto,situacao,identificador) VALUES ($id_modeloemail_87,'BI Citsmart - Notificação Erro Importação Auto Ag.Padrão','<span style="font-size: larger;"><strong>Importa&ccedil;&atilde;o autom&aacute;tica BI Citsmart n&atilde;o executada!</strong></span><br /><span style="font-size: larger;"><span style="font-family: Times New Roman;"><br /><samp>Ocorreu problema na execu&ccedil;&atilde;o do Agendamento Padr&atilde;o:</samp></span></span><br /><span style="font-size: larger;"><span style="font-family: Times New Roman;">ID Conex&atilde;o: <strong>${IDCONEXAO}</strong><br />Nome Conex&atilde;o: <strong>${NOMECONEXAO}</strong><br />Link: <strong>${LINKCONEXAO}</strong><br />Processamento Batch:<strong> ${IDPROCESSAMENTO} - ${DESCRPROCESSAMENTO}</strong></span></span><br />','A','NotErrBiPadr');
+INSERT INTO modelosemails (idmodeloemail,titulo,texto,situacao,identificador) VALUES ($id_modeloemail_87,'BI Agile ITSM - Notificação Erro Importação Auto Ag.Padrão','<span style="font-size: larger;"><strong>Importa&ccedil;&atilde;o autom&aacute;tica BI Agile ITSM n&atilde;o executada!</strong></span><br /><span style="font-size: larger;"><span style="font-family: Times New Roman;"><br /><samp>Ocorreu problema na execu&ccedil;&atilde;o do Agendamento Padr&atilde;o:</samp></span></span><br /><span style="font-size: larger;"><span style="font-family: Times New Roman;">ID Conex&atilde;o: <strong>${IDCONEXAO}</strong><br />Nome Conex&atilde;o: <strong>${NOMECONEXAO}</strong><br />Link: <strong>${LINKCONEXAO}</strong><br />Processamento Batch:<strong> ${IDPROCESSAMENTO} - ${DESCRPROCESSAMENTO}</strong></span></span><br />','A','NotErrBiPadr');
 UPDATE parametrocorpore SET valor = '$id_modeloemail_87' WHERE idparametrocorpore = 209;
 
-INSERT INTO modelosemails (idmodeloemail,titulo,texto,situacao,identificador) VALUES ($id_modeloemail_88,'BI Citsmart - Notificação Erro Importação Auto','<span style="font-size: larger;"><strong>Importa&ccedil;&atilde;o autom&aacute;tica BI Citsmart n&atilde;o executada!</strong></span><p><span style="font-family: Times New Roman;"><samp><span style="font-size: larger;"><br />Ocorreu problema na execu&ccedil;&atilde;o antes da identifica&ccedil;&atilde;o do Agendamento e do processamento batch.</span></samp></span></p><br />','A','NotErrBi');
+INSERT INTO modelosemails (idmodeloemail,titulo,texto,situacao,identificador) VALUES ($id_modeloemail_88,'BI Agile ITSM - Notificação Erro Importação Auto','<span style="font-size: larger;"><strong>Importa&ccedil;&atilde;o autom&aacute;tica BI Agile ITSM n&atilde;o executada!</strong></span><p><span style="font-family: Times New Roman;"><samp><span style="font-size: larger;"><br />Ocorreu problema na execu&ccedil;&atilde;o antes da identifica&ccedil;&atilde;o do Agendamento e do processamento batch.</span></samp></span></p><br />','A','NotErrBi');
 UPDATE parametrocorpore SET valor = '$id_modeloemail_88' WHERE idparametrocorpore = 211;
 
-INSERT INTO modelosemails (idmodeloemail,titulo,texto,situacao,identificador) VALUES ($id_modeloemail_89,'BI Citsmart - Importação Auto Não Executada!','<span style="font-size: larger;"><strong>Importa&ccedil;&atilde;o autom&aacute;tica BI Citsmart n&atilde;o executada!</strong></span><p><span style="font-family: Times New Roman;"><samp><span style="font-size: larger;"><br />O par&acirc;metro: ${PARAMETRO} est&aacute; inativado, ou seja, diferente de "S"</span></samp></span></p><br />','A','NotBiInativo');
+INSERT INTO modelosemails (idmodeloemail,titulo,texto,situacao,identificador) VALUES ($id_modeloemail_89,'BI Agile ITSM - Importação Auto Não Executada!','<span style="font-size: larger;"><strong>Importa&ccedil;&atilde;o autom&aacute;tica BI Agile ITSM n&atilde;o executada!</strong></span><p><span style="font-family: Times New Roman;"><samp><span style="font-size: larger;"><br />O par&acirc;metro: ${PARAMETRO} est&aacute; inativado, ou seja, diferente de "S"</span></samp></span></p><br />','A','NotBiInativo');
 UPDATE parametrocorpore SET valor = '$id_modeloemail_89' WHERE idparametrocorpore = 210;
 
 -- FIM - EULER JOSÉ RAMOS - 03/01/2013
-
--- INICIO - RODRIGO PECCI ACORSE - 09/11/2013
-
-delete from menu where link like '/conexaoBI/conexaoBI.load';
-delete from menu where link like '/deParaCatalogoServicosBI/deParaCatalogoServicosBI.load';
-delete from menu where link like '/contratosBI/contratosBI.load';
-delete from menu where link like '/servicoCorporeBI/servicoCorporeBI.load';
-
--- FIM - RODRIGO PECCI ACORSE - 09/11/2013
 
 -- INICIO - FLAVIO JUNIOR NEVES SANTANA SILVA - 22/01/2014
 
 ALTER TABLE historicoic ALTER COLUMN historicoversao TYPE DECIMAL(5,2);
 
 -- FIM - FLAVIO JUNIOR NEVES SANTANA SILVA - 22/01/2014
-
--- INICIO - MURILO GABRIEL RODRIGUES - 29/01/2014
-
-delete from menu where nome like '$menu.nome.recursosHumanos';
-delete from menu where nome like '$menu.nome.cadastrosRH';
-delete from menu where link like '/atitudeIndividual/atitudeIndividual.load';
-delete from menu where link like '/templateCurriculo/templateCurriculo.load';
-delete from menu where link like '/certificacao/certificacao.load';
-delete from menu where link like '/conhecimento/conhecimento.load';
-delete from menu where link like '/curso/curso.load';
-delete from menu where link like '/experienciaInformatica/experienciaInformatica.load';
-delete from menu where link like '/formacaoAcademica/formacaoAcademica.load';
-delete from menu where link like '/habilidade/habilidade.load';
-delete from menu where link like '/idioma/idioma.load';
-delete from menu where link like '/jornadaEmpregado/jornadaEmpregado.load';
-
--- FIM - MURILO GABRIEL RODRIGUES - 29/01/2014
 
 -- INICIO - RODRIGO PECCI ACORSE - 03/02/2014
 
@@ -102,7 +76,7 @@ insert into matrizcomunicacaofrequencia (idfrequencia, frequencia) values (8,'An
 insert into matrizcomunicacaofrequencia (idfrequencia, frequencia) values (9,'Quando o evento ocorrer');
 
 insert into matrizcomunicacaoformacontato (idformacontato, formacontato) values (1,'E-mail');
-insert into matrizcomunicacaoformacontato (idformacontato, formacontato) values (2,'Solicitação via Citsmart ou e-mail');
+insert into matrizcomunicacaoformacontato (idformacontato, formacontato) values (2,'Solicitação via Agile ITSM ou e-mail');
 insert into matrizcomunicacaoformacontato (idformacontato, formacontato) values (3,'Telefone');
 insert into matrizcomunicacaoformacontato (idformacontato, formacontato) values (4,'Internet');
 insert into matrizcomunicacaoformacontato (idformacontato, formacontato) values (5,'Videoconferência');
@@ -162,18 +136,6 @@ ALTER TABLE modelosemails ALTER COLUMN titulo TYPE CHARACTER VARYING(255);
 
 -- INICIO -  GILBERTO TAVARES DE FRANCO NERY - 12/03/2013
 
-CREATE  TABLE rh_parceiro (
-  idparceiro INTEGER NOT NULL,
-  nome VARCHAR(120) NOT NULL,
-  razaosocial VARCHAR(120),
-  tipopessoa CHAR(1) NOT NULL,
-  dataalteracao DATE NOT NULL,
-  ativo CHAR(1) NOT NULL,
-  situacao CHAR(1) NULL,
-  fornecedor CHAR(1) NULL,
-  PRIMARY KEY (idparceiro)
-);
-
 CREATE TABLE importardados (
   idimportardados integer NOT NULL,
   idexternalconnection integer NOT NULL,
@@ -210,42 +172,3 @@ alter table importconfig add datafim DATE;
 alter table importconfigcampos add idimportardados integer;
 
 -- FIM -  GILBERTO TAVARES DE FRANCO NERY - 12/03/2013
-
--- INICIO -  GILBERTO TAVARES DE FRANCO NERY - 13/03/2013
-
-alter table rh_jornadadetrabalho add codcargahor INTEGER;
-
-CREATE  TABLE rh_cargahoraria (
-  idcargahoraria INTEGER NOT NULL ,
-  codcargahor INTEGER NOT NULL ,
-  diasemana SMALLINT NOT NULL ,
-  entrada SMALLINT NOT NULL ,
-  saida SMALLINT NOT NULL ,
-  descansoem CHAR(1) NOT NULL ,
-  turno SMALLINT NOT NULL ,
-  dataalter DATE NOT NULL ,
-  PRIMARY KEY (idcargahoraria)
-);
-
-CREATE TABLE rh_funcionario (
-  idfuncionario INTEGER NOT NULL ,
-  nome VARCHAR(100) NOT NULL ,
-  cpf CHAR(11) NOT NULL ,
-  datainicio DATE NULL ,
-  datafim DATE NULL ,
-  PRIMARY KEY (idfuncionario)
-);
-
-CREATE  TABLE rh_departamento (
-  iddepartamento INTEGER NOT NULL ,
-  descricao VARCHAR(30) NULL ,
-  idcentrocusto INTEGER NULL ,
-  lotacaopai INTEGER NULL ,
-  situacao CHAR(1) NULL ,
-  analitico CHAR(1) NULL ,
-  idparceiro INTEGER NULL ,
-  coddep INTEGER NULL ,
-  PRIMARY KEY (iddepartamento)
-);
-
--- FIM -  GILBERTO TAVARES DE FRANCO NERY - 13/03/2013

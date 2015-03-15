@@ -23,7 +23,6 @@ public class Menu extends BodyTagSupport {
 
     private static final Logger LOGGER = Logger.getLogger(Menu.class);
 
-    private static final String FORWARD_SLASH = "/";
     private static final long serialVersionUID = -3103179786470352866L;
 
     @Override

@@ -40,10 +40,10 @@ import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.integracao.TransactionControler;
 import br.com.citframework.service.CrudService;
 
-@SuppressWarnings("rawtypes")
 public interface SolicitacaoServicoService extends CrudService {
 
-    void deserializaInformacoesComplementares(final SolicitacaoServicoDTO solicitacaoServicoDto, final SolicitacaoServicoQuestionarioDTO solQuestionarioDto) throws Exception;
+    void deserializaInformacoesComplementares(final SolicitacaoServicoDTO solicitacaoServicoDto, final SolicitacaoServicoQuestionarioDTO solQuestionarioDto)
+            throws Exception;
 
     void encerra(final SolicitacaoServicoDTO solicitacaoServicoDto) throws Exception;
 
@@ -62,7 +62,8 @@ public interface SolicitacaoServicoService extends CrudService {
 
     Collection<SolicitacaoServicoDTO> findByServico(final Integer idServico) throws Exception;
 
-    Collection<SolicitacaoServicoDTO> findSolicitacoesNaoResolvidasNoPrazoKPI(final RelatorioIncidentesNaoResolvidosDTO relatorioIncidentesNaoResolvidosDTO) throws Exception;
+    Collection<SolicitacaoServicoDTO> findSolicitacoesNaoResolvidasNoPrazoKPI(final RelatorioIncidentesNaoResolvidosDTO relatorioIncidentesNaoResolvidosDTO)
+            throws Exception;
 
     Collection<SolicitacaoServicoDTO> findByServico(final Integer idServico, final String nome) throws Exception;
 
@@ -82,8 +83,8 @@ public interface SolicitacaoServicoService extends CrudService {
 
     String getUrlInformacoesComplementares(final SolicitacaoServicoDTO solicitacaoServicoDto) throws Exception;
 
-    void gravaInformacoesGED(final Collection colArquivosUpload, final int idEmpresa, final SolicitacaoServicoDTO solicitacaoServicoDto, final TransactionControler tc)
-            throws Exception;
+    void gravaInformacoesGED(final Collection colArquivosUpload, final int idEmpresa, final SolicitacaoServicoDTO solicitacaoServicoDto,
+            final TransactionControler tc) throws Exception;
 
     Collection<SolicitacaoServicoDTO> listAll() throws Exception;
 
@@ -109,8 +110,8 @@ public interface SolicitacaoServicoService extends CrudService {
      * @throws Exception
      * @author Thays.araujo
      */
-    Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorGrupo(final HttpServletRequest request, final SolicitacaoServicoDTO solicitacaoDto)
-            throws Exception;
+    Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorGrupo(final HttpServletRequest request,
+            final SolicitacaoServicoDTO solicitacaoDto) throws Exception;
 
     Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorHoraAbertura(final SolicitacaoServicoDTO solicitacaoDto) throws Exception;
 
@@ -132,8 +133,8 @@ public interface SolicitacaoServicoService extends CrudService {
      */
     Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorOrigem(final SolicitacaoServicoDTO solicitacaoDto) throws Exception;
 
-    Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorPesquisaSatisfacao(final HttpServletRequest request, final SolicitacaoServicoDTO solicitacaoDto)
-            throws Exception;
+    Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorPesquisaSatisfacao(final HttpServletRequest request,
+            final SolicitacaoServicoDTO solicitacaoDto) throws Exception;
 
     /**
      * Metodo retornar uma lista com a quantidade de solicitação por prioridade
@@ -173,8 +174,8 @@ public interface SolicitacaoServicoService extends CrudService {
      */
     Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorSituacao(final SolicitacaoServicoDTO solicitacaoDto) throws Exception;
 
-    Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorSituacaoSLA(final HttpServletRequest request, final SolicitacaoServicoDTO solicitacaoDto)
-            throws Exception;
+    Collection<RelatorioQuantitativoSolicitacaoDTO> listaQuantidadeSolicitacaoPorSituacaoSLA(final HttpServletRequest request,
+            final SolicitacaoServicoDTO solicitacaoDto) throws Exception;
 
     /**
      * Metodo retornar uma lista com a quantidade de solicitação por solicitante.
@@ -217,8 +218,9 @@ public interface SolicitacaoServicoService extends CrudService {
      */
     Collection<SolicitacaoServicoDTO> listaSolicitacaoServicoPorCriterios(final PesquisaSolicitacaoServicoDTO pesquisaSolicitacaoServicoDto) throws Exception;
 
-    Collection<SolicitacaoServicoDTO> listaSolicitacaoServicoPorCriteriosPaginado(final PesquisaSolicitacaoServicoDTO pesquisaSolicitacaoServicoDto, final String paginacao,
-            final Integer pagAtual, final Integer pagAtualAux, final Integer totalPag, final Integer quantidadePaginator, final String campoPesquisa) throws Exception;
+    Collection<SolicitacaoServicoDTO> listaSolicitacaoServicoPorCriteriosPaginado(final PesquisaSolicitacaoServicoDTO pesquisaSolicitacaoServicoDto,
+            final String paginacao, final Integer pagAtual, final Integer pagAtualAux, final Integer totalPag, final Integer quantidadePaginator,
+            final String campoPesquisa) throws Exception;
 
     Collection listaSolicitacoesSemPesquisaSatisfacao() throws Exception;
 
@@ -237,8 +239,8 @@ public interface SolicitacaoServicoService extends CrudService {
      * @return
      * @throws Exception
      */
-    Collection<SolicitacaoServicoDTO> listSolicitacaoServico(final String tipoDemandaServico, final GrupoDTO grupoSeguranca, final UsuarioDTO usuario, final Date dataInicio,
-            final Date dataFim, final String situacao) throws Exception;
+    Collection<SolicitacaoServicoDTO> listSolicitacaoServico(final String tipoDemandaServico, final GrupoDTO grupoSeguranca, final UsuarioDTO usuario,
+            final Date dataInicio, final Date dataFim, final String situacao) throws Exception;
 
     Collection<SolicitacaoServicoDTO> listSolicitacaoServicoByCriterios(final Collection colCriterios) throws Exception;
 
@@ -254,7 +256,8 @@ public interface SolicitacaoServicoService extends CrudService {
 
     Collection<SolicitacaoServicoDTO> listSolicitacoesFilhas() throws Exception;
 
-    SolicitacaoServicoDTO obterQuantidadeSolicitacoesServico(final Integer idServicoContrato, final java.util.Date dataInicio, final java.util.Date dataFim) throws Exception;
+    SolicitacaoServicoDTO obterQuantidadeSolicitacoesServico(final Integer idServicoContrato, final java.util.Date dataInicio, final java.util.Date dataFim)
+            throws Exception;
 
     /**
      * Retorna quantidade
@@ -331,15 +334,16 @@ public interface SolicitacaoServicoService extends CrudService {
     SolicitacaoServicoDTO findByIdSolicitacaoServico(final Integer idSolicitacaoServico) throws Exception;
 
     /**
-     * Retorna uma lista de solicitacao serviço de acordo com os parametro passados com o principal objetivo de trazer somente solicitações fechadas ou canceladas.
+     * Retorna uma lista de solicitacao serviço de acordo com os parametro passados com o principal objetivo de trazer somente solicitações fechadas ou
+     * canceladas.
      *
      * @param relatorioSolicitacaoPorSolucionarDto
      * @return Collection
      * @throws Exception
      * @author thays.araujo
      */
-    Collection<RelatorioSolicitacaoPorExecutanteDTO> listaSolicitacaoPorExecutante(final RelatorioSolicitacaoPorExecutanteDTO relatorioSolicitacaoPorExecutanteDto)
-            throws Exception;
+    Collection<RelatorioSolicitacaoPorExecutanteDTO> listaSolicitacaoPorExecutante(
+            final RelatorioSolicitacaoPorExecutanteDTO relatorioSolicitacaoPorExecutanteDto) throws Exception;
 
     Collection<RelatorioCausaSolucaoDTO> listaCausaSolicitacao(final RelatorioCausaSolucaoDTO relatorioCausaSolicitacao) throws Exception;
 
@@ -376,16 +380,19 @@ public interface SolicitacaoServicoService extends CrudService {
 
     Collection<SolicitacaoServicoDTO> findByIdGrupoEDataSuspensasTotal(final Integer idGrupo, final Date dataInicio, final Date dataFim) throws Exception;
 
-    Collection<SolicitacaoServicoDTO> findByIdPessoaEDataAtendidas(final Integer idGrupo, final String login, final String nome, final Date dataInicio, final Date dataFim)
-            throws Exception;
+    Collection<SolicitacaoServicoDTO> findByIdPessoaEDataAtendidas(final Integer idGrupo, final String login, final String nome, final Date dataInicio,
+            final Date dataFim) throws Exception;
 
-    Collection<SolicitacaoServicoDTO> findByIdPessoaEData(final Integer idGrupo, final String login, final String nome, final Date dataInicio, final Date dataFim) throws Exception;
+    Collection<SolicitacaoServicoDTO> findByIdPessoaEData(final Integer idGrupo, final String login, final String nome, final Date dataInicio,
+            final Date dataFim) throws Exception;
 
     Collection<SolicitacaoServicoDTO> findByIdPessoaEDataNaoAtendidas(final Integer idGrupo, final Date dataInicio, final Date dataFim) throws Exception;
 
-    Collection<RelatorioQuantitativoRetornoDTO> listaServicosRetorno(final SolicitacaoServicoDTO solicitacaoServicoDTO, final String grupoRetorno) throws Exception;
+    Collection<RelatorioQuantitativoRetornoDTO> listaServicosRetorno(final SolicitacaoServicoDTO solicitacaoServicoDTO, final String grupoRetorno)
+            throws Exception;
 
-    Collection<RelatorioQuantitativoRetornoDTO> listaServicosRetornoNomeResponsavel(final RelatorioQuantitativoRetornoDTO relatorioQuantitativoRetornoDTO) throws Exception;
+    Collection<RelatorioQuantitativoRetornoDTO> listaServicosRetornoNomeResponsavel(final RelatorioQuantitativoRetornoDTO relatorioQuantitativoRetornoDTO)
+            throws Exception;
 
     SolicitacaoServicoDTO listaIdItemTrabalho(final Integer idInstancia) throws Exception;
 
@@ -396,11 +403,11 @@ public interface SolicitacaoServicoService extends CrudService {
     BaseEntity create(final BaseEntity model, final TransactionControler tc, final boolean determinaPrioridadePrazo, final boolean determinaHoraInicio,
             final boolean determinaDataHoraSolicitacao) throws Exception;
 
-    Collection<SolicitacaoServicoDTO> listaSolicitacoesPorIdEmpregado(final Integer pgAtual, final Integer qtdPaginacao, final GerenciamentoServicosDTO gerenciamentoBean,
-            final Collection<ContratoDTO> listContratoUsuarioLogado) throws Exception;
+    Collection<SolicitacaoServicoDTO> listaSolicitacoesPorIdEmpregado(final Integer pgAtual, final Integer qtdPaginacao,
+            final GerenciamentoServicosDTO gerenciamentoBean, final Collection<ContratoDTO> listContratoUsuarioLogado) throws Exception;
 
-    Collection<SolicitacaoServicoDTO> listaSolicitacoesPorIdEmpregado(final Integer pgAtual, final Integer qtdPaginacao, final GerenciamentoServicosDTO gerenciamentoBean,
-            final Collection<ContratoDTO> listContratoUsuarioLogado, final String[] filtro) throws Exception;
+    Collection<SolicitacaoServicoDTO> listaSolicitacoesPorIdEmpregado(final Integer pgAtual, final Integer qtdPaginacao,
+            final GerenciamentoServicosDTO gerenciamentoBean, final Collection<ContratoDTO> listContratoUsuarioLogado, final String[] filtro) throws Exception;
 
     Collection<TipoDemandaServicoDTO> resumoTipoDemandaServico(final List<TarefaFluxoDTO> listTarefas) throws Exception;
 
@@ -408,7 +415,8 @@ public interface SolicitacaoServicoService extends CrudService {
 
     boolean validaQuantidadeRetorno(final RelatorioQuantitativoRetornoDTO relatorioQuantitativoRetornoDTO) throws Exception;
 
-    RelatorioQuantitativoRetornoDTO retornarIdEncerramento(final String encerramento, final RelatorioQuantitativoRetornoDTO relatorioQuantitativoRetornoDTO) throws Exception;
+    RelatorioQuantitativoRetornoDTO retornarIdEncerramento(final String encerramento, final RelatorioQuantitativoRetornoDTO relatorioQuantitativoRetornoDTO)
+            throws Exception;
 
     /**
      * @param solicitacaoServicoDTO
@@ -424,7 +432,8 @@ public interface SolicitacaoServicoService extends CrudService {
 
     SolicitacaoServicoDTO restoreByIdInstanciaFluxo(final Integer idInstanciaFluxo) throws Exception;
 
-    Collection<SolicitacaoServicoDTO> listByTarefas(final Collection<TarefaFluxoDTO> listTarefas, final TipoSolicitacaoServico[] tiposSolicitacao) throws Exception;
+    Collection<SolicitacaoServicoDTO> listByTarefas(final Collection<TarefaFluxoDTO> listTarefas, final TipoSolicitacaoServico[] tiposSolicitacao)
+            throws Exception;
 
     Collection<PrioridadeDTO> resumoPrioridade(final List<TarefaFluxoDTO> listTarefas) throws Exception;
 
@@ -440,8 +449,8 @@ public interface SolicitacaoServicoService extends CrudService {
 
     Collection<SolicitacaoServicoDTO> listarSolicitacoesMultadasSuspensasPorGrupo(final int idGrupoAtual, final String situacaoSla) throws Exception;
 
-    Collection<SolicitacaoServicoDTO> listaServicosPorResponsavelNoPeriodo(final Date dataIncio, final Date dataFim, final int idFuncionario, final boolean mostrarIncidentes,
-            final boolean mostrarRequisicoes, final String situacao) throws Exception;
+    Collection<SolicitacaoServicoDTO> listaServicosPorResponsavelNoPeriodo(final Date dataIncio, final Date dataFim, final int idFuncionario,
+            final boolean mostrarIncidentes, final boolean mostrarRequisicoes, final String situacao) throws Exception;
 
     Collection<SolicitacaoServicoDTO> listaServicosPorSolicitanteNoPeriodoEnviadosAoteste(final Date dataIncio, final Date dataFim, final int idFuncionario,
             final boolean mostrarIncidentes, final boolean mostrarRequisicoes) throws Exception;
@@ -452,19 +461,20 @@ public interface SolicitacaoServicoService extends CrudService {
     Collection<SolicitacaoServicoDTO> listaServicosPorResponsavelNoPeriodoDocumentacao(final Date dataIncio, final Date dataFim, final int idFuncionario,
             final boolean mostrarIncidentes, final boolean mostrarRequisicoes) throws Exception;
 
-    Collection<SolicitacaoServicoDTO> listaServicosPorResponsavelNoPeriodoDocumentacaoPorServico(final Date dataIncio, final Date dataFim, final int idFuncionario,
-            final boolean mostrarIncidentes, final boolean mostrarRequisicoes, final String listaIdsServicosHomologacaoDocumentacao) throws Exception;
+    Collection<SolicitacaoServicoDTO> listaServicosPorResponsavelNoPeriodoDocumentacaoPorServico(final Date dataIncio, final Date dataFim,
+            final int idFuncionario, final boolean mostrarIncidentes, final boolean mostrarRequisicoes, final String listaIdsServicosHomologacaoDocumentacao)
+            throws Exception;
 
     Collection<SolicitacaoServicoDTO> listaServicosPorAbertosPelotesteParaValidacao(final Date dataIncio, final Date dataFim, final boolean mostrarIncidentes,
             final boolean mostrarRequisicoes) throws Exception;
 
     SolicitacaoServicoDTO buscarNumeroItemTrabalhoPorNumeroSolicitacao(final int idSolicitacao) throws Exception;
 
-    Collection<RelatorioEficaciaTesteDTO> listaSolicitacaoPorServicosAbertosNoPerido(final Date dataIncio, final Date dataFim, final List<ServicoDTO> listaServicos)
-            throws Exception;
+    Collection<RelatorioEficaciaTesteDTO> listaSolicitacaoPorServicosAbertosNoPerido(final Date dataIncio, final Date dataFim,
+            final List<ServicoDTO> listaServicos) throws Exception;
 
-    Collection<RelatorioDocumentacaoDeFuncionalidadesNovasOuAlteradasNoPeriodoDTO> listaQtdSolicitacoesCanceladasFinalizadasporServicoNoPeriodo(final Date dataIncio,
-            final Date dataFim, final List<ServicoDTO> listaServicos) throws Exception;
+    Collection<RelatorioDocumentacaoDeFuncionalidadesNovasOuAlteradasNoPeriodoDTO> listaQtdSolicitacoesCanceladasFinalizadasporServicoNoPeriodo(
+            final Date dataIncio, final Date dataFim, final List<ServicoDTO> listaServicos) throws Exception;
 
     /**
      * lista com os quantitativos por empregado de solicitações serviços emcaminhadas e foram concluidas com exito.
@@ -474,18 +484,18 @@ public interface SolicitacaoServicoService extends CrudService {
      * @throws Exception
      * @author thays.araujo
      */
-    Collection<RelatorioKpiProdutividadeDTO> listaQuantitativaEmpregadoSolicitacoesEmcaminhaExito(final RelatorioKpiProdutividadeDTO relatorioKpiProdutividadeDto) throws Exception;
+    Collection<RelatorioKpiProdutividadeDTO> listaQuantitativaEmpregadoSolicitacoesEmcaminhaExito(
+            final RelatorioKpiProdutividadeDTO relatorioKpiProdutividadeDto) throws Exception;
 
-    Collection<SolicitacaoServicoDTO> findSolicitacoesNaoResolvidasEntrePrazoKPI(final RelatorioIncidentesNaoResolvidosDTO relatorioIncidentesNaoResolvidosDTO) throws Exception;
-
-    boolean verificaPermGestorSolicitanteRH(final Integer idSolicitante) throws PersistenceException;
-
-    Collection<SolicitacaoServicoDTO> listSolicitacoesFilhasFiltradas(final GerenciamentoServicosDTO gerenciamentoBean, final Collection<ContratoDTO> listContratoUsuarioLogado)
+    Collection<SolicitacaoServicoDTO> findSolicitacoesNaoResolvidasEntrePrazoKPI(final RelatorioIncidentesNaoResolvidosDTO relatorioIncidentesNaoResolvidosDTO)
             throws Exception;
 
-    Collection<SolicitacaoServicoDTO> listaSolicitacaoServicoPorCriteriosPaginado(final PesquisaSolicitacaoServicoDTO pesquisaSolicitacaoServicoDto, final String paginacao,
-            final Integer pagAtual, final Integer pagAtualAux, final Integer totalPag, final Integer quantidadePaginator, final String campoPesquisa,
-            final Collection<UnidadeDTO> unidadesColaborador) throws Exception;
+    Collection<SolicitacaoServicoDTO> listSolicitacoesFilhasFiltradas(final GerenciamentoServicosDTO gerenciamentoBean,
+            final Collection<ContratoDTO> listContratoUsuarioLogado) throws Exception;
+
+    Collection<SolicitacaoServicoDTO> listaSolicitacaoServicoPorCriteriosPaginado(final PesquisaSolicitacaoServicoDTO pesquisaSolicitacaoServicoDto,
+            final String paginacao, final Integer pagAtual, final Integer pagAtualAux, final Integer totalPag, final Integer quantidadePaginator,
+            final String campoPesquisa, final Collection<UnidadeDTO> unidadesColaborador) throws Exception;
 
     /**
      * Método para listar número de solicitações fora do período fornecido pelo usuário
@@ -498,18 +508,20 @@ public interface SolicitacaoServicoService extends CrudService {
      * @throws LogicException
      * @throws Exception
      */
-    Integer numeroSolicitacoesForaPeriodo(final RelatorioIncidentesNaoResolvidosDTO relatorioIncidentesNaoResolvidosDTO) throws PersistenceException, ServiceException;
+    Integer numeroSolicitacoesForaPeriodo(final RelatorioIncidentesNaoResolvidosDTO relatorioIncidentesNaoResolvidosDTO) throws PersistenceException,
+            ServiceException;
 
     /**
      * @author thyen.chang
      */
-    Long listaRelatorioGetQuantidadeRegistros(final PesquisaSolicitacaoServicoDTO pesquisaSolicitacaoServicoDto) throws ParseException, PersistenceException, ServiceException,
-            LogicException, Exception;
+    Long listaRelatorioGetQuantidadeRegistros(final PesquisaSolicitacaoServicoDTO pesquisaSolicitacaoServicoDto) throws ParseException, PersistenceException,
+            ServiceException, LogicException, Exception;
 
     List<SolicitacaoServicoDTO> listRelatorioGetListaPaginada(final PesquisaSolicitacaoServicoDTO pesquisaSolicitacaoServicoDTO, final Integer paginaAtual,
             final Integer quantidadePorPagina) throws Exception;
 
     void determinaPrazoLimite(final SolicitacaoServicoDTO solicitacao, final Integer idCalendario, final TransactionControler tc) throws Exception;
 
-	BaseEntity create(BaseEntity model) throws ServiceException, LogicException;
+    @Override
+    BaseEntity create(final BaseEntity model) throws ServiceException, LogicException;
 }

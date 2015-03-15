@@ -3,7 +3,7 @@
    <menuSuperior>
       <menu>
          <nome>$menu.nome.cadastroGerais</nome>
-         <descricao>Cadastros do CITSmart</descricao>
+         <descricao>Cadastros do Agile ITSM</descricao>
          <ordem>2</ordem>
          <menuRapido>null</menuRapido>
          <link />
@@ -205,7 +205,7 @@
       </menu>
       <menu>
          <nome>$menu.nome.relatorio</nome>
-         <descricao>Relatórios do CITSmart</descricao>
+         <descricao>Relatórios do Agile ITSM</descricao>
          <ordem>4</ordem>
          <menuRapido>null</menuRapido>
          <link />
@@ -707,7 +707,7 @@
       </menu>
       <menu>
          <nome>$menu.nome.sistema</nome>
-         <descricao>Configurações e Parametrizações do CITSMart</descricao>
+         <descricao>Configurações e Parametrizações do Agile ITSM</descricao>
          <ordem>61</ordem>
          <menuRapido>null</menuRapido>
          <link />
@@ -716,7 +716,7 @@
          <subMenu0>
             <menu>
                <nome>$menu.nome.parametrosCITSmart</nome>
-               <descricao>Cadastro de Parâmetros do CITSmart</descricao>
+               <descricao>Cadastro de Parâmetros do Agile ITSM</descricao>
                <ordem>63</ordem>
                <menuRapido>null</menuRapido>
                <link>/parametroCorpore/parametroCorpore.load</link>
@@ -2245,61 +2245,8 @@
                </subMenu1>
             </menu>
             <menu>
-               <nome>$menu.nome.recursosHumanos</nome>
-               <descricao>Recursos Humanos</descricao>
-               <ordem>3</ordem>
-               <menuRapido>null</menuRapido>
-               <link />
-               <imagem>documents.png</imagem>
-               <horizontal />
-               <subMenu1>
-                  <menu>
-                     <nome>$menu.nome.cadastrosRH</nome>
-                     <descricao>Cadastros</descricao>
-                     <ordem>1</ordem>
-                     <menuRapido>null</menuRapido>
-                     <link />
-                     <imagem />
-                     <horizontal />
-                     <subMenu2>
-                        <menu>
-                           <nome>$menu.nome.cadastrosRH.idioma</nome>
-                           <descricao>Idioma</descricao>
-                           <ordem>1</ordem>
-                           <menuRapido>null</menuRapido>
-                           <link>/idioma/idioma.load</link>
-                           <imagem />
-                           <horizontal />
-                           <subMenu3 />
-                        </menu>
-                     </subMenu2>
-                  </menu>
-                  <menu>
-                     <nome>$menu.nome.pesquisa</nome>
-                     <descricao>Pesquisa</descricao>
-                     <ordem>2</ordem>
-                     <menuRapido>null</menuRapido>
-                     <link />
-                     <imagem />
-                     <horizontal />
-                     <subMenu2>
-                        <menu>
-                           <nome>$menu.nome.pesquisaCurrriculo</nome>
-                           <descricao>Pesquisa Curriculo</descricao>
-                           <ordem>1</ordem>
-                           <menuRapido>null</menuRapido>
-                           <link>/pesquisaCurriculo/pesquisaCurriculo.load</link>
-                           <imagem />
-                           <horizontal />
-                           <subMenu3 />
-                        </menu>
-                     </subMenu2>
-                  </menu>
-               </subMenu1>
-            </menu>
-            <menu>
                <nome>$menu.nome.bi</nome>
-               <descricao>BI Citsmart</descricao>
+               <descricao>BI Agile ITSM</descricao>
                <ordem>5</ordem>
                <menuRapido>null</menuRapido>
                <link />
@@ -2318,7 +2265,7 @@
                   </menu>
                   <menu>
                      <nome>$menu.nome.bi.painelControle</nome>
-                     <descricao>Painel de Controle BI Citsmart</descricao>
+                     <descricao>Painel de Controle BI Agile ITSM</descricao>
                      <ordem>0</ordem>
                      <menuRapido>null</menuRapido>
                      <link>/conexaoBI/conexaoBI.load</link>
@@ -2338,7 +2285,7 @@
                   </menu>
                   <menu>
                      <nome>$menu.nome.bi.servicoCorporeBI</nome>
-                     <descricao>Serviço Corporativo - BI Citsmart</descricao>
+                     <descricao>Serviço Corporativo - BI Agile ITSM</descricao>
                      <ordem>2</ordem>
                      <menuRapido>null</menuRapido>
                      <link>/servicoCorporeBI/servicoCorporeBI.load</link>

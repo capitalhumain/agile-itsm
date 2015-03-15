@@ -33,7 +33,6 @@ public class ControleGEDDTO extends BaseEntity {
     public static final int FOTO_CURRICULO = 20;
     public static final int TABELA_PROBLEMA = 21;
     public static final int TABELA_IMPORTARDADOS = 22;
-    public static final int TABELA_RH_ENTREVISTA_CANDIDATO = 23;
     public static final int TABELA_INFO_CATALOGO_SERVICO = 24;
 
     private Integer idControleGED;

@@ -3650,48 +3650,6 @@
                 obrigatorio="nao" tipo="TEXT" tamanho="12" />
         </camposChave>
     </lookup>
-
-    <lookup name="LOOKUP_ENTREVISTAS_NAO_ADMITIDAS" daoProcessor="DEFAULT"
-        tabela="rh_entrevistacandidato e
-  inner join rh_curriculo c on c.idcurriculo = e.idcurriculo
-  inner join rh_triagemrequisicaopessoal t on t.idtriagem = e.idtriagem
-  inner join rh_requisicaopessoal r on r.idsolicitacaoservico = t.idsolicitacaoservico
-  inner join cargos cg on cg.idcargo = r.idcargo
-  inner join centroresultado cr on cr.idcentroresultado = r.idcentrocusto
-  inner join projetos proj on proj.idprojeto = r.idprojeto"
-        where="resultado = 'A' and not exists (select 1 from empregados where idcurriculo = e.idcurriculo)">
-        <camposPesquisa>
-            <campo nome="c.nome" descricao="lookup.nome" obrigatorio="nao"
-                tipo="TEXT" tamanho="100" />
-            <campo nome="cg.nomecargo" descricao="lookup.cargo"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" />
-            <campo nome="cr.nomecentroresultado" descricao="lookup.centroCusto"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" />
-            <campo nome="proj.nomeprojeto" descricao="lookup.projeto"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" />
-        </camposPesquisa>
-        <camposRetorno>
-            <campo nome="idEntrevista" descricao="idEntrevista"
-                obrigatorio="nao" tipo="TEXT" tamanho="12" />
-            <campo nome="c.nome" descricao="lookup.nome" obrigatorio="nao"
-                tipo="TEXT" tamanho="100" />
-            <campo nome="cg.nomecargo" descricao="lookup.cargo"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" />
-            <campo nome="cr.nomecentroresultado" descricao="lookup.centroCusto"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" />
-            <campo nome="proj.nomeprojeto" descricao="lookup.projeto"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" />
-        </camposRetorno>
-        <camposOrdenacao>
-            <campo nome="c.nome" descricao="lookup.nome" obrigatorio="sim"
-                tipo="TEXT" tamanho="100" />
-        </camposOrdenacao>
-        <camposChave>
-            <campo nome="idEntrevista" descricao="idEntrevista"
-                obrigatorio="nao" tipo="TEXT" tamanho="10" />
-        </camposChave>
-    </lookup>
-
     <lookup name="LOOKUP_EMPREGADOS" daoProcessor="DEFAULT" tabela="empregados"
         where="">
         <camposPesquisa>
@@ -3723,262 +3681,6 @@
         <camposChave>
             <campo nome="idEmpregado" descricao="idEmpregado" obrigatorio="nao"
                 tipo="TEXT" tamanho="10" />
-        </camposChave>
-    </lookup>
-
-    <lookup name="LOOKUP_CURRICULOS_NAO_ADMITIDOS" daoProcessor="DEFAULT"
-        tabela="rh_curriculo cur where not exists (select 1 from rh_entrevistacandidato where idcurriculo = cur.idcurriculo and resultado in ('A','C'))"
-        where="">
-        <camposPesquisa>
-            <campo nome="cur.nome" descricao="Nome" obrigatorio="nao" tipo="TEXT"
-                tamanho="100" somenteBusca="true" />
-            <campo nome="cur.cpf" descricao="CPF" obrigatorio="nao" tipo="TEXT"
-                tamanho="100" />
-        </camposPesquisa>
-        <camposRetorno>
-            <campo nome="cur.idCurriculo" descricao="idCurriculo"
-                obrigatorio="nao" tipo="TEXT" tamanho="12" />
-            <campo nome="cur.nome" descricao="Nome" obrigatorio="nao" tipo="TEXT"
-                tamanho="100" />
-            <campo nome="cur.cpf" descricao="CPF" obrigatorio="nao" tipo="TEXT"
-                tamanho="100" />
-            <campo nome="cur.datanascimento" descricao="Data de Nascimento"
-                obrigatorio="nao" tipo="DATE" tamanho="100" />
-        </camposRetorno>
-        <camposOrdenacao>
-            <campo nome="cur.nome" descricao="Nome" obrigatorio="sim" tipo="TEXT"
-                tamanho="100" />
-        </camposOrdenacao>
-        <camposChave>
-            <campo nome="cur.idCurriculo" descricao="idCurriculo"
-                obrigatorio="nao" tipo="TEXT" tamanho="10" />
-        </camposChave>
-    </lookup>
-
-    <lookup name="LOOKUP_CURSOS" daoProcessor="DEFAULT" tabela="rh_curso" where="">
-        <camposPesquisa>
-            <campo nome="descricao" descricao="citcorpore.comum.descricao"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" />
-            <campo nome="detalhe" descricao="solicitacaoCargo.detalhamento"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" />
-        </camposPesquisa>
-        <camposRetorno>
-            <campo nome="idCurso" descricao="idCurso" obrigatorio="nao"
-                tipo="TEXT" tamanho="12" />
-            <campo nome="descricao" descricao="citcorpore.comum.descricao"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" />
-            <campo nome="detalhe" descricao="solicitacaoCargo.detalhamento"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" />
-        </camposRetorno>
-        <camposOrdenacao>
-            <campo nome="descricao" descricao="citcorpore.comum.descricao"
-                obrigatorio="sim" tipo="TEXT" tamanho="100" />
-        </camposOrdenacao>
-        <camposChave>
-            <campo nome="idCurso" descricao="idCurso" obrigatorio="nao"
-                tipo="TEXT" tamanho="10" />
-        </camposChave>
-    </lookup>
-
-    <lookup name="LOOKUP_FORMACAO_ACADEMICA" daoProcessor="DEFAULT"
-        tabela="rh_formacaoAcademica" where="">
-        <camposPesquisa>
-            <campo nome="descricao" descricao="citcorpore.comum.descricao"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" />
-            <campo nome="detalhe" descricao="solicitacaoCargo.detalhamento"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" />
-        </camposPesquisa>
-        <camposRetorno>
-            <campo nome="idFormacaoAcademica" descricao="idFormacaoAcademica"
-                obrigatorio="nao" tipo="TEXT" tamanho="12" />
-            <campo nome="descricao" descricao="citcorpore.comum.descricao"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" />
-            <campo nome="detalhe" descricao="solicitacaoCargo.detalhamento"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" />
-        </camposRetorno>
-        <camposOrdenacao>
-            <campo nome="descricao" descricao="citcorpore.comum.descricao"
-                obrigatorio="sim" tipo="TEXT" tamanho="100" />
-        </camposOrdenacao>
-        <camposChave>
-            <campo nome="idFormacaoAcademica" descricao="idFormacaoAcademica"
-                obrigatorio="nao" tipo="TEXT" tamanho="10" />
-        </camposChave>
-    </lookup>
-    <lookup name="LOOKUP_CERTIFICACOES" daoProcessor="DEFAULT"
-        tabela="rh_certificacao" where="">
-        <camposPesquisa>
-            <campo nome="descricao" descricao="citcorpore.comum.descricao"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" />
-            <campo nome="detalhe" descricao="solicitacaoCargo.detalhamento"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" />
-        </camposPesquisa>
-        <camposRetorno>
-            <campo nome="idCertificacao" descricao="idCertificacao"
-                obrigatorio="nao" tipo="TEXT" tamanho="12" />
-            <campo nome="descricao" descricao="citcorpore.comum.descricao"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" />
-            <campo nome="detalhe" descricao="solicitacaoCargo.detalhamento"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" />
-        </camposRetorno>
-        <camposOrdenacao>
-            <campo nome="descricao" descricao="citcorpore.comum.descricao"
-                obrigatorio="sim" tipo="TEXT" tamanho="100" />
-        </camposOrdenacao>
-        <camposChave>
-            <campo nome="idCertificacao" descricao="idCertificacao"
-                obrigatorio="nao" tipo="TEXT" tamanho="10" />
-        </camposChave>
-    </lookup>
-    <lookup name="LOOKUP_INFORMATICA" daoProcessor="DEFAULT"
-        tabela="rh_experienciaInformatica" where="">
-        <camposPesquisa>
-            <campo nome="descricao" descricao="citcorpore.comum.descricao"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" />
-            <campo nome="detalhe" descricao="solicitacaoCargo.detalhamento"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" />
-        </camposPesquisa>
-        <camposRetorno>
-            <campo nome="idExperienciaInformatica" descricao="idExperienciaInformatica"
-                obrigatorio="nao" tipo="TEXT" tamanho="12" />
-            <campo nome="descricao" descricao="citcorpore.comum.descricao"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" />
-            <campo nome="detalhe" descricao="solicitacaoCargo.detalhamento"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" />
-        </camposRetorno>
-        <camposOrdenacao>
-            <campo nome="descricao" descricao="citcorpore.comum.descricao"
-                obrigatorio="sim" tipo="TEXT" tamanho="100" />
-        </camposOrdenacao>
-        <camposChave>
-            <campo nome="idExperienciaInformatica" descricao="idExperienciaInformatica"
-                obrigatorio="nao" tipo="TEXT" tamanho="10" />
-        </camposChave>
-    </lookup>
-    <lookup name="LOOKUP_IDIOMA" daoProcessor="DEFAULT" tabela="rh_idioma"
-        where="">
-        <camposPesquisa>
-            <campo nome="descricao" descricao="citcorpore.comum.descricao"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" />
-            <campo nome="detalhe" descricao="solicitacaoCargo.detalhamento"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" />
-        </camposPesquisa>
-        <camposRetorno>
-            <campo nome="idIdioma" descricao="idIdioma" obrigatorio="nao"
-                tipo="TEXT" tamanho="12" />
-            <campo nome="descricao" descricao="citcorpore.comum.descricao"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" />
-            <campo nome="detalhe" descricao="solicitacaoCargo.detalhamento"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" />
-        </camposRetorno>
-        <camposOrdenacao>
-            <campo nome="descricao" descricao="citcorpore.comum.descricao"
-                obrigatorio="sim" tipo="TEXT" tamanho="100" />
-        </camposOrdenacao>
-        <camposChave>
-            <campo nome="idIdioma" descricao="idIdioma" obrigatorio="nao"
-                tipo="TEXT" tamanho="10" />
-        </camposChave>
-    </lookup>
-    <lookup name="LOOKUP_CONHECIMENTO" daoProcessor="DEFAULT"
-        tabela="rh_conhecimento" where="">
-        <camposPesquisa>
-            <campo nome="descricao" descricao="citcorpore.comum.descricao"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" />
-            <campo nome="detalhe" descricao="solicitacaoCargo.detalhamento"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" />
-        </camposPesquisa>
-        <camposRetorno>
-            <campo nome="idConhecimento" descricao="idConhecimento"
-                obrigatorio="nao" tipo="TEXT" tamanho="12" />
-            <campo nome="descricao" descricao="citcorpore.comum.descricao"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" />
-            <campo nome="detalhe" descricao="solicitacaoCargo.detalhamento"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" />
-        </camposRetorno>
-        <camposOrdenacao>
-            <campo nome="descricao" descricao="citcorpore.comum.descricao"
-                obrigatorio="sim" tipo="TEXT" tamanho="100" />
-        </camposOrdenacao>
-        <camposChave>
-            <campo nome="idConhecimento" descricao="idConhecimento"
-                obrigatorio="nao" tipo="TEXT" tamanho="10" />
-        </camposChave>
-    </lookup>
-    <lookup name="LOOKUP_HABILIDADE" daoProcessor="DEFAULT" tabela="rh_habilidade"
-        where="">
-        <camposPesquisa>
-            <campo nome="descricao" descricao="citcorpore.comum.descricao"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" />
-            <campo nome="detalhe" descricao="solicitacaoCargo.detalhamento"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" />
-        </camposPesquisa>
-        <camposRetorno>
-            <campo nome="idHabilidade" descricao="idHabilidade"
-                obrigatorio="nao" tipo="TEXT" tamanho="12" />
-            <campo nome="descricao" descricao="citcorpore.comum.descricao"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" />
-            <campo nome="detalhe" descricao="solicitacaoCargo.detalhamento"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" />
-        </camposRetorno>
-        <camposOrdenacao>
-            <campo nome="descricao" descricao="citcorpore.comum.descricao"
-                obrigatorio="sim" tipo="TEXT" tamanho="100" />
-        </camposOrdenacao>
-        <camposChave>
-            <campo nome="idHabilidade" descricao="idHabilidade"
-                obrigatorio="nao" tipo="TEXT" tamanho="10" />
-        </camposChave>
-    </lookup>
-
-    <lookup name="LOOKUP_ATITUDE" daoProcessor="DEFAULT"
-        tabela="rh_atitudeindividual" where="">
-        <camposPesquisa>
-            <campo nome="descricao" descricao="citcorpore.comum.descricao"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" />
-            <campo nome="detalhe" descricao="solicitacaoCargo.detalhamento"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" />
-        </camposPesquisa>
-        <camposRetorno>
-            <campo nome="idAtitudeIndividual" descricao="idAtitudeIndividual"
-                obrigatorio="nao" tipo="TEXT" tamanho="12" />
-            <campo nome="descricao" descricao="citcorpore.comum.descricao"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" />
-            <campo nome="detalhe" descricao="solicitacaoCargo.detalhamento"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" />
-        </camposRetorno>
-        <camposOrdenacao>
-            <campo nome="descricao" descricao="citcorpore.comum.descricao"
-                obrigatorio="sim" tipo="TEXT" tamanho="100" />
-        </camposOrdenacao>
-        <camposChave>
-            <campo nome="idAtitudeIndividual" descricao="idAtitudeIndividual"
-                obrigatorio="nao" tipo="TEXT" tamanho="10" />
-        </camposChave>
-    </lookup>
-    <lookup name="LOOKUP_ATITUDE_ORGANIZACIONAL" daoProcessor="DEFAULT"
-        tabela="rh_atitudeorganizacional" where="">
-        <camposPesquisa>
-            <campo nome="descricao" descricao="citcorpore.comum.descricao"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" />
-            <campo nome="detalhe" descricao="solicitacaoCargo.detalhamento"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" />
-        </camposPesquisa>
-        <camposRetorno>
-            <campo nome="idAtitudeOrganizacional" descricao="idAtitudeOrganizacional"
-                obrigatorio="nao" tipo="TEXT" tamanho="12" />
-            <campo nome="descricao" descricao="citcorpore.comum.descricao"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" />
-            <campo nome="detalhe" descricao="solicitacaoCargo.detalhamento"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" />
-        </camposRetorno>
-        <camposOrdenacao>
-            <campo nome="descricao" descricao="citcorpore.comum.descricao"
-                obrigatorio="sim" tipo="TEXT" tamanho="100" />
-        </camposOrdenacao>
-        <camposChave>
-            <campo nome="idAtitudeOrganizacional" descricao="idAtitudeOrganizacional"
-                obrigatorio="nao" tipo="TEXT" tamanho="10" />
         </camposChave>
     </lookup>
     <lookup name="LOOKUP_ORIGEMATENDIMENTO" daoProcessor="DEFAULT"
@@ -4552,93 +4254,21 @@
                 obrigatorio="nao" tipo="TEXT" tamanho="10" />
         </camposChave>
     </lookup>
-
-    <lookup name="LOOKUP_CANDIDATO" daoProcessor="DEFAULT" tabela="RH_CANDIDATO"
-        where="datafim is null">
+    <lookup name="LOOKUP_FORNECEDOR" daoProcessor="DEFAULT" tabela="fornecedor" where="(deleted != 'S' or deleted is null)">
         <camposPesquisa>
-            <campo nome="nome" descricao="citcorpore.comum.nome"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" somenteBusca="true" />
-            <campo nome="cpf" descricao="colaborador.cpf"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" somenteBusca="true" />
+            <campo nome="razaosocial" descricao="lookup.razaoSocial" obrigatorio="nao" tipo="TEXT" tamanho="100" somenteBusca="true" />
+            <campo nome="cnpj" descricao="fornecedor.cpfcnpj" obrigatorio="nao" tipo="TEXT" tamanho="14" />
         </camposPesquisa>
         <camposRetorno>
-            <campo nome="idcandidato" descricao="lookup.idCandidato"
-                obrigatorio="nao" tipo="TEXT" tamanho="12" />
-            <campo nome="nome" descricao="citcorpore.comum.nome"
-                obrigatorio="sim" tipo="TEXT" tamanho="50" />
-            <campo nome="cpf" descricao="colaborador.cpf"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" somenteBusca="true" />
+            <campo nome="idfornecedor" descricao="lookup.idFornecedor" obrigatorio="nao" tipo="TEXT" tamanho="12" />
+            <campo nome="razaosocial" descricao="lookup.razaoSocial" obrigatorio="nao" tipo="TEXT" tamanho="100" />
+            <campo nome="cnpj" descricao="fornecedor.cpfcnpj" obrigatorio="nao" tipo="TEXT" tamanho="40" />
         </camposRetorno>
         <camposOrdenacao>
-            <campo nome="nome" descricao="citcorpore.comum.nome"
-                obrigatorio="sim" tipo="TEXT" tamanho="50" />
+            <campo nome="razaosocial" descricao="lookup.razaoSocial" obrigatorio="nao" tipo="TEXT" tamanho="100" />
         </camposOrdenacao>
         <camposChave>
-            <campo nome="idcandidato" descricao="lookup.idCandidato"
-                obrigatorio="nao" tipo="TEXT" tamanho="10" />
-        </camposChave>
-    </lookup>
-
-    <lookup name="LOOKUP_JUSTIFICATIVALISTANEGRA" daoProcessor="DEFAULT"
-        tabela="RH_JUSTIFICATIVALISTANEGRA" where="">
-        <camposPesquisa>
-            <campo nome="justificativa" descricao="citcorpore.comum.justificativa"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" somenteBusca="true"/>
-        </camposPesquisa>
-        <camposRetorno>
-            <campo nome="idJustificativa" descricao="lookup.id"
-                obrigatorio="nao" tipo="TEXT" tamanho="12" />
-            <campo nome="justificativa" descricao="citcorpore.comum.justificativa"
-                obrigatorio="sim" tipo="TEXT" tamanho="100" />
-            <campo nome="situacao" descricao="citcorpore.comum.situacao"
-                obrigatorio="sim" tipo="TEXT" tamanho="1" />
-        </camposRetorno>
-        <camposOrdenacao>
-            <campo nome="justificativa" descricao="citcorpore.comum.justificativa"
-                obrigatorio="sim" tipo="TEXT" tamanho="100" />
-        </camposOrdenacao>
-        <camposChave>
-            <campo nome="idJustificativa" descricao="lookup.id"
-                obrigatorio="nao" tipo="TEXT" tamanho="12" />
-        </camposChave>
-    </lookup>
-
-    <lookup name="LOOKUP_FORNECEDOR" daoProcessor="DEFAULT" tabela="fornecedor"	 where="(deleted != 'S' or deleted is null)">
-        <camposPesquisa>
-            <campo nome="razaosocial" descricao="lookup.razaoSocial"	 obrigatorio="nao" tipo="TEXT" tamanho="100" somenteBusca="true" />
-            <campo nome="cnpj" descricao="fornecedor.cpfcnpj" obrigatorio="nao"	 tipo="TEXT" tamanho="14" />
-        </camposPesquisa>
-        <camposRetorno>
-            <campo nome="idfornecedor" descricao="lookup.idFornecedor"	 obrigatorio="nao" tipo="TEXT" tamanho="12" />
-            <campo nome="razaosocial" descricao="lookup.razaoSocial"	 obrigatorio="nao" tipo="TEXT" tamanho="100" />
-            <campo nome="cnpj" descricao="fornecedor.cpfcnpj" obrigatorio="nao"	 tipo="TEXT" tamanho="40" />
-        </camposRetorno>
-        <camposOrdenacao>
-            <campo nome="razaosocial" descricao="lookup.razaoSocial"	 obrigatorio="nao" tipo="TEXT" tamanho="100" />
-        </camposOrdenacao>
-        <camposChave>
-            <campo nome="idfornecedor" descricao="lookup.idFornecedor"	 obrigatorio="nao" tipo="TEXT" tamanho="12" />
-        </camposChave>
-    </lookup>
-
-    <lookup name="LOOKUP_ATRIBUICAOREQUISICAOFUNCAO" daoProcessor="DEFAULT" tabela="rh_atribuicao" where="dataFim is null">
-        <camposPesquisa>
-            <campo nome="descricao" descricao="citcorpore.comum.descricao"
-                obrigatorio="nao" tipo="TEXT" tamanho="255" somenteBusca="true" />
-        </camposPesquisa>
-        <camposRetorno>
-            <campo nome="idAtribuicao" descricao="lookup.idAtribuicao" obrigatorio="nao"
-                tipo="TEXT" tamanho="12" />
-            <campo nome="descricao" descricao="citcorpore.comum.descricao"
-                obrigatorio="sim" tipo="TEXT" tamanho="255" />
-        </camposRetorno>
-        <camposOrdenacao>
-            <campo nome="descricao" descricao="citcorpore.comum.descricao"
-                obrigatorio="sim" tipo="TEXT" tamanho="255" />
-        </camposOrdenacao>
-        <camposChave>
-            <campo nome="idAtribuicao" descricao="lookup.idAtribuicao" obrigatorio="nao"
-                tipo="TEXT" tamanho="12" />
+            <campo nome="idfornecedor" descricao="lookup.idFornecedor" obrigatorio="nao" tipo="TEXT" tamanho="12" />
         </camposChave>
     </lookup>
 
@@ -4733,52 +4363,6 @@
                 obrigatorio="nao" tipo="TEXT" tamanho="12" />
         </camposChave>
     </lookup>
-
-    <lookup name="LOOKUP_JORNADAEMPREGADO" daoProcessor="DEFAULT" tabela="RH_JornadaEmpregado"
-        where="">
-        <camposPesquisa>
-            <campo nome="descricao" descricao="lookup.jornada_descricao" obrigatorio="sim"
-                tipo="TEXT" tamanho="100" somenteBusca="true" />
-        </camposPesquisa>
-        <camposRetorno>
-            <campo nome="idJornada" descricao="lookup.idJornada"
-                obrigatorio="nao" tipo="TEXT" tamanho="12" />
-            <campo nome="descricao" descricao="lookup.jornada_descricao"
-                obrigatorio="nao" tipo="TEXT" tamanho="50" />
-        </camposRetorno>
-        <camposOrdenacao>
-            <campo nome="descricao" descricao="lookup.jornada_descricao"
-                obrigatorio="nao" tipo="TEXT" tamanho="50" />
-        </camposOrdenacao>
-        <camposChave>
-            <campo nome="idJornada" descricao="lookup.idJornada"
-                obrigatorio="nao" tipo="TEXT" tamanho="12" />
-
-        </camposChave>
-    </lookup>
-
-    <lookup name="LOOKUP_MANUALFUNCAO" daoProcessor="DEFAULT" tabela="RH_MANUALFUNCAO"
-         where="">
-        <camposPesquisa>
-            <campo nome="titulocargo" descricao="citcorpore.comum.nome"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" somenteBusca="true" />
-        </camposPesquisa>
-        <camposRetorno>
-            <campo nome="idManualFuncao" descricao="lookup.id"
-                obrigatorio="nao" tipo="TEXT" tamanho="12" />
-            <campo nome="titulocargo" descricao="ManualFuncao.TituloCargo"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" />
-        </camposRetorno>
-        <camposOrdenacao>
-            <campo nome="titulocargo" descricao="ManualFuncao.TituloCargo"
-                obrigatorio="nao" tipo="TEXT" tamanho="100" />
-        </camposOrdenacao>
-        <camposChave>
-            <campo nome="idManualFuncao" descricao="lookup.id"
-                obrigatorio="nao" tipo="TEXT" tamanho="12" />
-        </camposChave>
-    </lookup>
-
     <lookup name="LOOKUP_NIVELAUTORIDADE" daoProcessor="DEFAULT"
         tabela="nivelautoridade" where="">
         <camposPesquisa>
@@ -4878,7 +4462,6 @@
         </camposChave>
     </lookup>
 
-
     <lookup name="LOOKUP_LIMITEAPROVACAO" daoProcessor="DEFAULT"
         tabela="limiteaprovacao" where="">
         <camposPesquisa>
@@ -4900,28 +4483,6 @@
                 obrigatorio="nao" tipo="TEXT" tamanho="12" />
         </camposChave>
     </lookup>
-
-    <lookup name="LOOKUP_REQUISICAOFUNCAO" daoProcessor="DEFAULT" tabela=" rh_requisicaofuncao req INNER JOIN cargos cargo ON req.idcargo = cargo.idcargo "
-            where=" req.fase = 'finalizado' ">
-        <camposPesquisa>
-            <campo nome="req.idsolicitacaoservico" descricao="lookup.requisicaoFuncao"	obrigatorio="sim" tipo="NUMBER" tamanho="80" />
-        </camposPesquisa>
-        <camposPesquisa>
-            <campo nome="req.nomefuncao" descricao="lookup.funcao" obrigatorio="sim" tipo="TEXT" tamanho="200" />
-        </camposPesquisa>
-        <camposRetorno>
-            <campo nome="req.idsolicitacaoservico" descricao="lookup.requisicaoFuncao" obrigatorio="sim" tipo="TEXT" tamanho="12" />
-            <campo nome="req.nomeFuncao" descricao="rh.funcao" obrigatorio="sim" tipo="TEXT" tamanho="12" />
-            <campo nome="cargo.nomeCargo" descricao="cargo.nomecargo" obrigatorio="sim" tipo="TEXT" tamanho="12" />
-        </camposRetorno>
-        <camposOrdenacao>
-            <campo nome="req.idsolicitacaoservico" descricao="lookup.requisicaoFuncao" obrigatorio="nao" tipo="TEXT" tamanho="70" />
-        </camposOrdenacao>
-        <camposChave>
-            <campo nome="req.idsolicitacaoservico" descricao="lookup.requisicaoFuncao" obrigatorio="sim" tipo="TEXT" tamanho="12" />
-        </camposChave>
-    </lookup>
-
     <lookup name="LOOKUP_FORMULAOS" daoProcessor="DEFAULT" tabela="FORMULAOS" where="">
         <camposPesquisa>
             <campo nome="descricao" descricao="gerenciamentoservico.descricao" obrigatorio="nao" tipo="TEXT" tamanho="100" somenteBusca="true" />

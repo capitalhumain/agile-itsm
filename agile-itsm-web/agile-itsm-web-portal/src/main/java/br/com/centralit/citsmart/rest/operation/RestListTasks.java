@@ -35,9 +35,6 @@ public class RestListTasks implements IRestOperation<CtListTasks, CtListTasksRes
         if (UtilStrings.nullToVazio(message.getListarRequisicoes()).equalsIgnoreCase("S")) {
             tipos.add(TipoSolicitacaoServico.REQUISICAO);
         }
-        if (UtilStrings.nullToVazio(message.getListarRH()).equalsIgnoreCase("S")) {
-            tipos.add(TipoSolicitacaoServico.RH);
-        }
 
         if (tipos.size() == 0) {
             resp.setError(RestOperationUtil.buildError(RestEnum.INPUT_ERROR, "Pelo menos um tipo de solicitação deve ser selecionado"));

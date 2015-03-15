@@ -166,8 +166,6 @@ public class SolicitacaoServicoForMobileV2Dao extends SolicitacaoServicoDao {
             for (final SolicitacaoServicoDTO solicitacao : result) {
                 if (solicitacao.getIdRequisicaoProduto() != null) {
                     solicitacao.setTipoSolicitacao(TipoSolicitacaoServico.COMPRA);
-                } else if (solicitacao.getIdRequisicaoPessoal() != null) {
-                    solicitacao.setTipoSolicitacao(TipoSolicitacaoServico.RH);
                 } else if (solicitacao.getClassificacao() != null && solicitacao.getClassificacao().equalsIgnoreCase("R")) {
                     solicitacao.setTipoSolicitacao(TipoSolicitacaoServico.REQUISICAO);
                 } else {
@@ -236,8 +234,6 @@ public class SolicitacaoServicoForMobileV2Dao extends SolicitacaoServicoDao {
         from.append("              ON ender.idcidade = cid.idcidade ");
         from.append("       LEFT JOIN requisicaoproduto reqprod ");
         from.append("              ON reqprod.idsolicitacaoservico = sol.idsolicitacaoservico ");
-        from.append("       LEFT JOIN rh_requisicaopessoal reqrh ");
-        from.append("              ON reqrh.idsolicitacaoservico = sol.idsolicitacaoservico ");
         from.append("       LEFT JOIN atribuicaosolicitacao atrSol ");
         from.append("              ON sol.idsolicitacaoservico = atrSol.idsolicitacao AND atrSol.active = 1 ");
         from.append("WHERE  bpmItem.situacao NOT IN ( 'Executado', 'Cancelado' ) ");
@@ -364,7 +360,6 @@ public class SolicitacaoServicoForMobileV2Dao extends SolicitacaoServicoDao {
             listNamesFieldDB.add("identificacaoTemplate");
             listNamesFieldDB.add("idFluxo");
             listNamesFieldDB.add("idRequisicaoProduto");
-            listNamesFieldDB.add("idRequisicaoPessoal");
             listNamesFieldDB.add("classificacao");
         }
         return listNamesFieldDB;
@@ -441,7 +436,6 @@ public class SolicitacaoServicoForMobileV2Dao extends SolicitacaoServicoDao {
         sql.append("        tarefa.identificacao, ");
         sql.append("        tarefa.idfluxo, ");
         sql.append("        reqprod.idSolicitacaoServico as idrequisicaoproduto, ");
-        sql.append("        reqrh.idSolicitacaoServico as idrequisicaopessoal, ");
         sql.append("        td.classificacao ");
         sql.append(sqlFrom);
         return sql;
@@ -570,7 +564,6 @@ public class SolicitacaoServicoForMobileV2Dao extends SolicitacaoServicoDao {
         sqlFrom.append("       LEFT JOIN contatosolicitacaoservico cs   ON cs.idcontatosolicitacaoservico = sol.idcontatosolicitacaoservico ");
         sqlFrom.append("       LEFT JOIN aprovacaosolicitacaoservico aprov  ON aprov.idaprovacaosolicitacaoservico = sol.idultimaaprovacao ");
         sqlFrom.append("       LEFT JOIN requisicaoproduto reqprod   ON reqprod.idsolicitacaoservico = sol.idsolicitacaoservico ");
-        sqlFrom.append("       LEFT JOIN rh_requisicaopessoal reqrh ON reqrh.idsolicitacaoservico = sol.idsolicitacaoservico ");
         sqlFrom.append("       LEFT JOIN atribuicaosolicitacao atrSol on sol.idsolicitacaoservico = atrSol.idsolicitacao AND atrSol.idusuario = ? AND atrSol.active = 1 ");
 
         parametros.add(usuario.getIdUsuario());
@@ -583,7 +576,6 @@ public class SolicitacaoServicoForMobileV2Dao extends SolicitacaoServicoDao {
         boolean bIncidentes = false;
         boolean bRequisicoes = false;
         boolean bCompras = false;
-        boolean bRH = false;
 
         if (aprovacao != null && aprovacao.trim().equalsIgnoreCase("S")) {
             sql.append(" AND tarefa.aprovar = ? ");
@@ -600,9 +592,6 @@ public class SolicitacaoServicoForMobileV2Dao extends SolicitacaoServicoDao {
                 }
                 if (!bCompras && tipo.equals(TipoSolicitacaoServico.COMPRA)) {
                     bCompras = true;
-                }
-                if (!bRH && tipo.equals(TipoSolicitacaoServico.RH)) {
-                    bRH = true;
                 }
             }
         }
@@ -621,7 +610,7 @@ public class SolicitacaoServicoForMobileV2Dao extends SolicitacaoServicoDao {
             } else {
                 sql.append(" AND (");
             }
-            sql.append(" reqprod.idsolicitacaoservico IS NULL AND reqrh.idsolicitacaoservico IS NULL AND td.classificacao = ?  ");
+            sql.append(" reqprod.idsolicitacaoservico IS NULL AND td.classificacao = ?  ");
 
             parametros.add("R");
 
@@ -635,16 +624,6 @@ public class SolicitacaoServicoForMobileV2Dao extends SolicitacaoServicoDao {
                 sql.append(" AND (");
             }
             sql.append(" reqprod.idsolicitacaoservico IS NOT NULL ");
-            bFiltrouTipos = true;
-        }
-
-        if (bRH) {
-            if (bFiltrouTipos) {
-                sql.append(" OR ");
-            } else {
-                sql.append(" AND (");
-            }
-            sql.append(" reqrh.idsolicitacaoservico IS NOT NULL ");
             bFiltrouTipos = true;
         }
 

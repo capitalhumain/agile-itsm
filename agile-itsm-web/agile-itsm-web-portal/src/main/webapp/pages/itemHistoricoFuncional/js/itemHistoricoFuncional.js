@@ -1,3 +1,0 @@
-function cancelar(){
-	parent.fecharModalItemHistorico();
-}

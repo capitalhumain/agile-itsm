@@ -117,7 +117,6 @@ import br.com.centralit.citged.bean.ControleGEDDTO;
 import br.com.centralit.citged.negocio.ControleGEDService;
 import br.com.centralit.lucene.Lucene;
 import br.com.citframework.excecao.LogicException;
-import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.excecao.ServiceException;
 import br.com.citframework.service.ServiceLocator;
 import br.com.citframework.util.Constantes;
@@ -2421,24 +2420,6 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
         solicitacaoServicoDto = null;
     }
 
-    private boolean validaPermissoesDoTemplate(final DocumentHTML document, final HttpServletRequest request,
-            final SolicitacaoServicoDTO solicitacaoServicoDto, final String urlTemplate) throws ServiceException {
-        boolean validacao = true;
-        if (urlTemplate.contains("/requisicaoPessoal.load")) {
-            try {
-                if (!this.getSolicitacaoServicoService().verificaPermGestorSolicitanteRH(solicitacaoServicoDto.getIdSolicitante())) {
-                    validacao = false;
-                    document.alert(UtilI18N.internacionaliza(request, "requisicaoPessoal.somenteGestoresSupDirPodemAbrirReqPessoal"));
-                    document.executeScript("limparServico();");
-                }
-            } catch (final PersistenceException e) {
-                validacao = false;
-                e.printStackTrace();
-            }
-        }
-        return validacao;
-    }
-
     private void carregaInformacoesComplementares(final DocumentHTML document, final HttpServletRequest request,
             final SolicitacaoServicoDTO solicitacaoServicoDto) throws Exception {
         document.executeScript("document.getElementById('flagGrupo').value = 1;");
@@ -2457,38 +2438,32 @@ public class SolicitacaoServicoMultiContratos extends AjaxFormAction {
                 TemplateSolicitacaoServicoService.class, WebUtil.getUsuarioSistema(request));
         ServicoContratoDTO servicoContrato = null;
 
-        // Valida permissoes do template
-        if (this.validaPermissoesDoTemplate(document, request, solicitacaoServicoDto,
-                this.getSolicitacaoServicoService().getUrlInformacoesComplementares(solicitacaoServicoDto))) {
-            request.getSession().setAttribute("idSolicitante", solicitacaoServicoDto.getIdSolicitante());
-            document.executeScript("exibirInformacoesComplementares(\"" + solicitacaoServicoService.getUrlInformacoesComplementares(solicitacaoServicoDto)
-                    + "\");");
-            // Incluído, quando questionário for recarregado.
-            document.executeScript("incluiInfoComplSeQuestionario(\"" + solicitacaoServicoService.getUrlInformacoesComplementares(solicitacaoServicoDto)
-                    + "\");");
-            final TemplateSolicitacaoServicoDTO templateDto = templateService.recuperaTemplateServico(solicitacaoServicoDto);
+        request.getSession().setAttribute("idSolicitante", solicitacaoServicoDto.getIdSolicitante());
+        document.executeScript("exibirInformacoesComplementares(\"" + solicitacaoServicoService.getUrlInformacoesComplementares(solicitacaoServicoDto) + "\");");
+        // Incluído, quando questionário for recarregado.
+        document.executeScript("incluiInfoComplSeQuestionario(\"" + solicitacaoServicoService.getUrlInformacoesComplementares(solicitacaoServicoDto) + "\");");
+        final TemplateSolicitacaoServicoDTO templateDto = templateService.recuperaTemplateServico(solicitacaoServicoDto);
 
-            if (templateDto != null) {
-                this.carregaInformacoesComplementaresTemplate(document, request, templateDto, solicitacaoServicoDto);
-            }
+        if (templateDto != null) {
+            this.carregaInformacoesComplementaresTemplate(document, request, templateDto, solicitacaoServicoDto);
+        }
 
-            final String exandiTelaPadrao = (String) request.getSession().getAttribute("expandiuTela");
-            /**
-             * @author david.silva - data 25/06/2014 ajustarTelaPadraoTemplate() - responsavel por expandir a tela de Solicitação de
-             *         Serviço.
-             *
-             *         Alteração mario.haysaki inserção de flag para tela de expandir tela.
-             */
-            if (solicitacaoServicoDto.getIdContrato() != null && solicitacaoServicoDto.getIdServico() != null) {
-                servicoContrato = this.getServicoContratoService().findByIdContratoAndIdServico(solicitacaoServicoDto.getIdContrato(),
-                        solicitacaoServicoDto.getIdServico());
-                if (servicoContrato != null && servicoContrato.getExpandir() != null && servicoContrato.getExpandir().equalsIgnoreCase("S")) {
-                    document.executeScript("ajustarTelaPadraoTemplate();");
-                    request.getSession().setAttribute("expandiuTela", "S");
-                } else if (exandiTelaPadrao != null && exandiTelaPadrao.equals("S")) {
-                    document.executeScript("ajustarTelaPadraoCitsmart()");
-                    request.getSession().setAttribute("expandiuTela", null);
-                }
+        final String exandiTelaPadrao = (String) request.getSession().getAttribute("expandiuTela");
+        /**
+         * @author david.silva - data 25/06/2014 ajustarTelaPadraoTemplate() - responsavel por expandir a tela de Solicitação de
+         *         Serviço.
+         *
+         *         Alteração mario.haysaki inserção de flag para tela de expandir tela.
+         */
+        if (solicitacaoServicoDto.getIdContrato() != null && solicitacaoServicoDto.getIdServico() != null) {
+            servicoContrato = this.getServicoContratoService().findByIdContratoAndIdServico(solicitacaoServicoDto.getIdContrato(),
+                    solicitacaoServicoDto.getIdServico());
+            if (servicoContrato != null && servicoContrato.getExpandir() != null && servicoContrato.getExpandir().equalsIgnoreCase("S")) {
+                document.executeScript("ajustarTelaPadraoTemplate();");
+                request.getSession().setAttribute("expandiuTela", "S");
+            } else if (exandiTelaPadrao != null && exandiTelaPadrao.equals("S")) {
+                document.executeScript("ajustarTelaPadraoCitsmart()");
+                request.getSession().setAttribute("expandiuTela", null);
             }
         }
     }

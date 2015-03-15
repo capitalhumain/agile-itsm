@@ -3,7 +3,6 @@ package br.com.centralit.citcorpore.util;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -27,7 +26,7 @@ import br.com.citframework.util.Constantes;
 public class FiltroSegurancaCITSmart implements Filter {
 
     private static final int ACESSO_NEGADO = 403;
-    private static Collection colLivres = new ArrayList<>();
+    private static Collection<String> COL_LIVRES = new ArrayList<>();
     private static Boolean haVersoesSemValidacao = null;
     private static final String INTERROGACAO = "?";
 
@@ -108,6 +107,7 @@ public class FiltroSegurancaCITSmart implements Filter {
                 chain.doFilter(request, response);
                 return;
             }
+
             // Deixa passar, se nao nem loga.
             if (path.endsWith("/login.save")) {
                 chain.doFilter(request, response);
@@ -125,7 +125,6 @@ public class FiltroSegurancaCITSmart implements Filter {
 
         if (!usuario.getLogin().equalsIgnoreCase("consultor") && !usuario.getLogin().equalsIgnoreCase("admin")) {
             if ("N".equalsIgnoreCase(usuario.getAcessoCitsmart())) {
-
                 response.sendRedirect(Constantes.getValue("SERVER_ADDRESS") + Constantes.getValue("CONTEXTO_APLICACAO") + "/pages/portal/portal.load");
                 return;
             }
@@ -164,11 +163,11 @@ public class FiltroSegurancaCITSmart implements Filter {
                 chain.doFilter(request, response);
                 return;
             }
-            Collection col = (Collection) request.getSession(true).getAttribute("acessosUsuario");
+            Collection<String> col = (Collection<String>) request.getSession(true).getAttribute("acessosUsuario");
 
             // Caso ainda nao tenha carregado a colecao com as autorizações, entao carrega.
             if (col == null) {
-                final Collection colPathsAutorizadosUsuario = new ArrayList<>();
+                final Collection<String> colPathsAutorizadosUsuario = new ArrayList<>();
                 final MenuService menuService = (MenuService) ServiceLocator.getInstance().getService(MenuService.class, null);
                 final Collection<MenuDTO> listaPermissao = menuService.listaMenuByUsr(usuario);
                 if (listaPermissao != null && listaPermissao.size() > 0) {
@@ -310,18 +309,13 @@ public class FiltroSegurancaCITSmart implements Filter {
     }
 
     private boolean isPaginaScript(final String requestedPath) {
-
-        if (requestedPath.endsWith("/scripts/scripts.load") || requestedPath.endsWith("/scripts/scripts.get")
+        return requestedPath.endsWith("/scripts/scripts.load") || requestedPath.endsWith("/scripts/scripts.get")
                 || requestedPath.endsWith("/scripts/scripts.event") || requestedPath.contains("/scripts_deploy/") || requestedPath.endsWith("vazio.jsp")
                 || requestedPath.endsWith("/start/start.event") || requestedPath.endsWith("/start/start.load") || requestedPath.endsWith("/start/start.get")
                 || requestedPath.endsWith("/login/login.load") || requestedPath.endsWith("/login/login.save") || requestedPath.endsWith("/login/login.get")
                 || requestedPath.endsWith("/start/termos.html") || requestedPath.endsWith("/start/start.load.event")
                 || requestedPath.endsWith("/start/termos_pt_BR.html") || requestedPath.endsWith("/start/termos_en.html")
-                || requestedPath.endsWith("/start/termos_es.html")) {
-
-            return true;
-        }
-        return false;
+                || requestedPath.endsWith("/start/termos_es.html");
     }
 
     private boolean isRecursoLivre(String requestedPath) {
@@ -699,10 +693,7 @@ public class FiltroSegurancaCITSmart implements Filter {
             return true;
         }
 
-        /*
-         * ######################################### INICIO FILTRO DE COMPRAS
-         */
-
+        // INICIO FILTRO DE COMPRAS
         if (requestedPath.endsWith("/requisicaoProduto/requisicaoProduto.load")) {
             return true;
         }
@@ -751,49 +742,7 @@ public class FiltroSegurancaCITSmart implements Filter {
         if (requestedPath.endsWith("/informacaoItemConfiguracao/informacaoItemConfiguracao.load")) {
             return true;
         }
-
-        /*
-         * ############################## FIM FILTRO DE COMPRAS
-         */
-
-        /*
-         * ######################################### INICIO FILTRO DE RH
-         */
-        if (requestedPath.endsWith("/entrevistaRequisicaoPessoal/entrevistaRequisicaoPessoal.load")) {
-            return true;
-        }
-        if (requestedPath.endsWith("/analiseRequisicaoPessoal/analiseRequisicaoPessoal.load")) {
-            return true;
-        }
-
-        if (requestedPath.endsWith("pages/entrevistaCandidato/entrevistaCandidato.load")) {
-            return true;
-        }
-
-        if (requestedPath.endsWith("/pages/requisicaoPessoal/requisicaoPessoal.load")) {
-            return true;
-        }
-
-        if (requestedPath.endsWith("pages/triagemRequisicaoPessoal/triagemRequisicaoPessoal.load")) {
-            return true;
-        }
-
-        if (requestedPath.endsWith("pages/pesquisaCurriculo/pesquisaCurriculo.load")) {
-            return true;
-        }
-        if (requestedPath.endsWith("pages/visualizarHistoricoFuncional/visualizarHistoricoFuncional.load")) {
-            return true;
-        }
-        if (requestedPath.endsWith("pages/blackList/blackList.load")) {
-            return true;
-        }
-        if (requestedPath.endsWith("pages/itemHistoricoFuncional/itemHistoricoFuncional.load")) {
-            return true;
-        }
-
-        /*
-         * ######################################### INICIO FILTRO LAYOUT NOVO
-         */
+        // FIM FILTRO DE COMPRAS
 
         if (requestedPath.endsWith("/gerenciamentoServicos/gerenciamentoServicos.load")) {
             return true;
@@ -806,10 +755,6 @@ public class FiltroSegurancaCITSmart implements Filter {
         if (StringUtils.containsIgnoreCase(requestedPath, "autoComplete")) {
             return true;
         }
-
-        /*
-         * ############################## FIM FILTRO DE RH
-         */
 
         if (requestedPath.endsWith("/pages/relatorioQuantitativoPorServico/relatorioQuantitativoPorServico.load")) {
             return true;
@@ -1122,10 +1067,6 @@ public class FiltroSegurancaCITSmart implements Filter {
             return true;
         }
 
-        if (requestedPath.endsWith("/pages/candidatoTrabalheConosco/candidatoTrabalheConosco.load")) {
-            return true;
-        }
-
         if (requestedPath.endsWith("/pages/uploadFile/uploadFile.load")) {
             return true;
         }
@@ -1134,13 +1075,12 @@ public class FiltroSegurancaCITSmart implements Filter {
             return true;
         }
 
-        if (colLivres != null) {
+        if (COL_LIVRES != null) {
             if (requestedPath.startsWith("/")) {
                 requestedPath = requestedPath.substring(1);
             }
-            for (final Iterator it = colLivres.iterator(); it.hasNext();) {
-                final String req = (String) it.next();
-                if (req.equalsIgnoreCase(requestedPath)) {
+            for (final String element : COL_LIVRES) {
+                if (element.equalsIgnoreCase(requestedPath)) {
                     return true;
                 }
             }

@@ -660,8 +660,6 @@ public class RestMobile implements IRestOperation<CtMessage, CtMessageResp> {
                     } else if (StringUtils.containsIgnoreCase(elementoFluxo.getTemplate(), "AUTORIZACAO")) {
                         justificativasParecer = justificativaParecerService.listAplicaveisRequisicao();
                     }
-                } else if (tipoSolicitacaoServico.equals(tipoSolicitacaoServico.equals(TipoSolicitacaoServico.RH))) {
-                    justificativasParecer = justificativaParecerService.list();
                 }
 
                 if (justificativasParecer != null) {
