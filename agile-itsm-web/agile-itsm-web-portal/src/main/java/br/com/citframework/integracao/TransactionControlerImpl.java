@@ -1,13 +1,16 @@
 package br.com.citframework.integracao;
 
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Savepoint;
+
+import org.apache.log4j.Logger;
 
 import br.com.citframework.excecao.PersistenceException;
 import br.com.citframework.excecao.TransactionOperationException;
 
 public class TransactionControlerImpl extends ConnectionControlerImpl implements TransactionControler {
+
+    private static final Logger LOGGER = Logger.getLogger(TransactionControlerImpl.class);
 
     private static final String COMMIT = "Commit";
     private static final String ROLLBACK = "Rollback";
@@ -28,7 +31,7 @@ public class TransactionControlerImpl extends ConnectionControlerImpl implements
         try {
             started = connection != null && !connection.isClosed() ? !connection.getAutoCommit() : false;
         } catch (final SQLException e) {
-            e.printStackTrace();
+            LOGGER.warn(e.getMessage(), e);
         }
         return started;
     }
@@ -43,20 +46,6 @@ public class TransactionControlerImpl extends ConnectionControlerImpl implements
             connection = this.getConnection();
 
             connection.setAutoCommit(false);
-
-            /**
-             * Alterado em 10.01.2014 por valdoilo.damasceno
-             *
-             * Essa validação não representava a situação real da conexão. O Citsmart pode utilizar vários BD portanto a obtenção de qual está sendo utilizado deverá ser feita
-             * através da conexão ativa
-             * no start da transaction.
-             */
-            if ("MYSQL".equalsIgnoreCase(connection.getMetaData().getDatabaseProductName())) {
-                final String sqlSetAutocommit = "SET autocommit = 0;";
-                try (final PreparedStatement ps = connection.prepareStatement(sqlSetAutocommit)) {
-                    ps.execute();
-                }
-            }
         } catch (final SQLException e) {
             try {
                 if (connection != null && !connection.isClosed()) {
@@ -87,8 +76,19 @@ public class TransactionControlerImpl extends ConnectionControlerImpl implements
         try {
             connection.rollback();
         } catch (final SQLException e) {
-            final String message = "CITFramework -> Rollback operation Failed: " + e.getMessage();
+            final String message = "Rollback operation Failed: " + e.getMessage();
             throw new PersistenceException(message, e);
+        }
+    }
+
+    @Override
+    public boolean rollbackQuietly() {
+        try {
+            this.rollback();
+            return true;
+        } catch (final PersistenceException e) {
+            LOGGER.warn(e.getMessage(), e);
+            return false;
         }
     }
 
@@ -99,8 +99,19 @@ public class TransactionControlerImpl extends ConnectionControlerImpl implements
         try {
             connection.rollback(savepoint);
         } catch (final SQLException e) {
-            final String message = String.format("CITFramework -> Rollback operation Failed for savepoint %s: ", savepoint) + e.getMessage();
+            final String message = String.format("Rollback operation Failed for savepoint %s: ", savepoint) + e.getMessage();
             throw new PersistenceException(message, e);
+        }
+    }
+
+    @Override
+    public boolean rollbackQuietly(final Savepoint savepoint) {
+        try {
+            this.rollback(savepoint);
+            return true;
+        } catch (final PersistenceException e) {
+            LOGGER.warn(e.getMessage(), e);
+            return false;
         }
     }
 
@@ -112,7 +123,7 @@ public class TransactionControlerImpl extends ConnectionControlerImpl implements
                 connection.close();
             }
         } catch (final SQLException e) {
-            final String message = "CITFramework -> Close operation Failed: " + e.getMessage();
+            final String message = "Close operation Failed: " + e.getMessage();
             throw new PersistenceException(message, e);
         }
     }
@@ -165,7 +176,6 @@ public class TransactionControlerImpl extends ConnectionControlerImpl implements
     protected void doConnectionValidation(final String operation) throws PersistenceException {
         if (!this.isStarted()) {
             // throw new IllegalStateException(String.format("'%s' operation failed: transaction is not started.", operation));
-            // this.start(); // TODO retirar e lançar exceção assim que, tanto framework quanto CITSMart, estejam trabalhando corretamente com transações e connections e usar
         }
     }
 

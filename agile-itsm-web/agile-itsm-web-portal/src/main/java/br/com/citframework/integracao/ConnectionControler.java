@@ -51,8 +51,8 @@ public interface ConnectionControler extends AutoCloseable {
      * Retorna a conexão relacionada ao Transaction Controler
      *
      * <p>
-     * {@code IMPORTANTE}: esta trasação pode não estar com a transação iniciada ({@code {@link Connection#getAutoCommit()} == false}). Você deve chamar {@link #start()} caso
-     * queira comportamento transacional
+     * {@code IMPORTANTE}: esta conexão pode não estar com a transação iniciada ({@code {@link Connection#getAutoCommit()} == false}). Você deve chamar
+     * {@link #start()} caso queira comportamento transacional
      * <p>
      *
      * @return {@link Connection}

@@ -26,7 +26,7 @@ public interface TransactionControler extends ConnectionControler {
      * Commita as alterações na transação
      *
      * @throws PersistenceException
-     *             caso algum problema ao iniciar a transação aconteça, como {@link Connection} já fechada
+     *             caso algum problema ao commitar a transação aconteça, como {@link Connection} já fechada
      */
     void commit() throws PersistenceException;
 
@@ -34,9 +34,17 @@ public interface TransactionControler extends ConnectionControler {
      * Realização rollback de todas as alterações ainda não commitadas na transação
      *
      * @throws PersistenceException
-     *             caso algum problema ao iniciar a transação aconteça, como {@link Connection} já fechada
+     *             caso algum problema ao fazer rollback na transação aconteça, como {@link Connection} já fechada
      */
     void rollback() throws PersistenceException;
+
+    /**
+     * Realização rollback de todas as alterações ainda não commitadas na transação sem levantar exceção
+     *
+     * @return {@code true}, caso obtenha sucesso em fazer rollback. {@code false}, caso contrário
+     * @see {@link #rollback()}
+     */
+    boolean rollbackQuietly();
 
     /**
      * Realiza rollback na transação até um ponto de marcação
@@ -47,6 +55,17 @@ public interface TransactionControler extends ConnectionControler {
      *             caso algum problema ao dar rollback na transação aconteça, como {@link Connection} já fechada
      */
     void rollback(final Savepoint savepoint) throws PersistenceException;
+
+    /**
+     *
+     * Realiza rollback na transação até um ponto de marcação sem levantar exceção
+     *
+     * @param savepoint
+     *            ponto até o qual deve ser feito o rollback
+     * @return {@code true}, caso obtenha sucesso em fazer rollback. {@code false}, caso contrário
+     * @see {@link #rollback(Savepoint)}
+     */
+    boolean rollbackQuietly(final Savepoint savepoint);
 
     /**
      * Cria um {@link Savepoint} na transação
