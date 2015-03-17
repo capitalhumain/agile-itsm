@@ -30,7 +30,6 @@ import br.com.centralit.citcorpore.bean.HistoricoMudancaDTO;
 import br.com.centralit.citcorpore.bean.ItemConfiguracaoDTO;
 import br.com.centralit.citcorpore.bean.LiberacaoMudancaDTO;
 import br.com.centralit.citcorpore.bean.LiberacaoProblemaDTO;
-import br.com.centralit.citcorpore.bean.LigacaoRequisicaoLiberacaoHistoricoComprasDTO;
 import br.com.centralit.citcorpore.bean.LigacaoRequisicaoLiberacaoHistoricoMidiaDTO;
 import br.com.centralit.citcorpore.bean.LigacaoRequisicaoLiberacaoHistoricoResponsavelDTO;
 import br.com.centralit.citcorpore.bean.OcorrenciaLiberacaoDTO;
@@ -38,7 +37,6 @@ import br.com.centralit.citcorpore.bean.PesquisaRequisicaoLiberacaoDTO;
 import br.com.centralit.citcorpore.bean.RequisicaoLiberacaoDTO;
 import br.com.centralit.citcorpore.bean.RequisicaoLiberacaoItemConfiguracaoDTO;
 import br.com.centralit.citcorpore.bean.RequisicaoLiberacaoMidiaDTO;
-import br.com.centralit.citcorpore.bean.RequisicaoLiberacaoRequisicaoComprasDTO;
 import br.com.centralit.citcorpore.bean.RequisicaoLiberacaoResponsavelDTO;
 import br.com.centralit.citcorpore.bean.RequisicaoMudancaDTO;
 import br.com.centralit.citcorpore.bean.RequisicaoQuestionarioDTO;
@@ -55,7 +53,6 @@ import br.com.centralit.citcorpore.integracao.HistoricoGEDDao;
 import br.com.centralit.citcorpore.integracao.HistoricoLiberacaoDao;
 import br.com.centralit.citcorpore.integracao.LiberacaoMudancaDao;
 import br.com.centralit.citcorpore.integracao.LiberacaoProblemaDao;
-import br.com.centralit.citcorpore.integracao.LigacaoRequisicaoLiberacaoComprasDao;
 import br.com.centralit.citcorpore.integracao.LigacaoRequisicaoLiberacaoMidiaDao;
 import br.com.centralit.citcorpore.integracao.LigacaoRequisicaoLiberacaoResponsavelDao;
 import br.com.centralit.citcorpore.integracao.OcorrenciaLiberacaoDao;
@@ -63,7 +60,6 @@ import br.com.centralit.citcorpore.integracao.PermissoesFluxoDao;
 import br.com.centralit.citcorpore.integracao.RequisicaoLiberacaoDao;
 import br.com.centralit.citcorpore.integracao.RequisicaoLiberacaoItemConfiguracaoDao;
 import br.com.centralit.citcorpore.integracao.RequisicaoLiberacaoMidiaDao;
-import br.com.centralit.citcorpore.integracao.RequisicaoLiberacaoRequisicaoComprasDAO;
 import br.com.centralit.citcorpore.integracao.RequisicaoLiberacaoResponsavelDao;
 import br.com.centralit.citcorpore.integracao.RequisicaoQuestionarioDao;
 import br.com.centralit.citcorpore.integracao.TemplateSolicitacaoServicoDao;
@@ -150,9 +146,9 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
         }
 
         HistoricoLiberacaoDTO ultVersao = new HistoricoLiberacaoDTO();
-        ultVersao = getHistoricoLiberacaoDao().maxIdHistorico(requisicaoLiberacaoDTO);
+        ultVersao = this.getHistoricoLiberacaoDao().maxIdHistorico(requisicaoLiberacaoDTO);
         if (ultVersao.getIdHistoricoLiberacao() != null) {
-            ultVersao = (HistoricoLiberacaoDTO) getHistoricoLiberacaoDao().restore(ultVersao);
+            ultVersao = (HistoricoLiberacaoDTO) this.getHistoricoLiberacaoDao().restore(ultVersao);
             historico.setHistoricoVersao(ultVersao.getHistoricoVersao() == null ? 1d : +new BigDecimal(ultVersao.getHistoricoVersao() + 0.1f).setScale(1,
                     BigDecimal.ROUND_DOWN).floatValue());
         } else {
@@ -171,7 +167,7 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
 
     @Override
     public Collection findByIdSolicitante(final Integer parm) throws Exception {
-        final RequisicaoLiberacaoDao dao = getDao();
+        final RequisicaoLiberacaoDao dao = this.getDao();
         try {
             return dao.findByIdSolicitante(parm);
         } catch (final Exception e) {
@@ -181,13 +177,12 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
 
     @Override
     public BaseEntity create(final BaseEntity model) throws ServiceException, LogicException {
-        final RequisicaoLiberacaoDao liberacaoDao = getDao();
+        final RequisicaoLiberacaoDao liberacaoDao = this.getDao();
         final LiberacaoMudancaDao liberacaoMudancaDao = new LiberacaoMudancaDao();
         final LiberacaoProblemaDao liberacaoProblemaDao = new LiberacaoProblemaDao();
         final RequisicaoLiberacaoItemConfiguracaoDao requisicaoLiberacaoItemConfiguracaoDao = new RequisicaoLiberacaoItemConfiguracaoDao();
         final RequisicaoLiberacaoMidiaDao requisicaoLiberacaoMidiaDao = new RequisicaoLiberacaoMidiaDao();
         final RequisicaoLiberacaoResponsavelDao requisicaoLiberacaoResponsavelDao = new RequisicaoLiberacaoResponsavelDao();
-        final RequisicaoLiberacaoRequisicaoComprasDAO requisicaoLiberacaoPedidoComprasDao = new RequisicaoLiberacaoRequisicaoComprasDAO();
         final TipoLiberacaoDAO tipoLiberacaoDAO = new TipoLiberacaoDAO();
         TipoLiberacaoDTO tipoLiberacaoDTO = new TipoLiberacaoDTO();
         final UsuarioDao usuarioDao = new UsuarioDao();
@@ -201,7 +196,7 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
         final ExecucaoLiberacaoServiceEjb execucaoLiberacaoServiceEjb = new ExecucaoLiberacaoServiceEjb();
 
         try {
-            validaCreate(model);
+            this.validaCreate(model);
 
             liberacaoDao.setTransactionControler(tc);
             liberacaoMudancaDao.setTransactionControler(tc);
@@ -209,7 +204,6 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
             tipoLiberacaoDAO.setTransactionControler(tc);
             requisicaoLiberacaoMidiaDao.setTransactionControler(tc);
             requisicaoLiberacaoResponsavelDao.setTransactionControler(tc);
-            requisicaoLiberacaoPedidoComprasDao.setTransactionControler(tc);
             usuarioDao.setTransactionControler(tc);
             tc.start();
 
@@ -224,7 +218,7 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
 
             if (liberacaoDto != null && liberacaoDto.getDataInicial() != null && liberacaoDto.getHoraAgendamentoInicial() != null && liberacaoDto != null
                     && liberacaoDto.getDataFinal() != null && liberacaoDto.getHoraAgendamentoFinal() != null) {
-                final boolean resultado = seHoraFinalMenorQHoraInicial(liberacaoDto);
+                final boolean resultado = this.seHoraFinalMenorQHoraInicial(liberacaoDto);
                 if (resultado == true) {
                     throw new LogicException(this.i18nMessage("requisicaoMudanca.horaFinalMenorQueInicial"));
                 }
@@ -232,26 +226,26 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
 
             if (liberacaoDto != null && liberacaoDto.getDataInicial() != null && liberacaoDto.getHoraAgendamentoInicial() != null) {
 
-                final boolean resultado = seHoraInicialMenorQAtual(liberacaoDto);
+                final boolean resultado = this.seHoraInicialMenorQAtual(liberacaoDto);
                 if (resultado == true) {
                     throw new LogicException(this.i18nMessage("requisicaoMudanca.horaInicialMenorQueAtual"));
                 }
             }
 
             if (liberacaoDto != null && liberacaoDto.getDataFinal() != null && liberacaoDto.getHoraAgendamentoFinal() != null) {
-                final boolean resultado = seHoraFinalMenorQAtual(liberacaoDto);
+                final boolean resultado = this.seHoraFinalMenorQAtual(liberacaoDto);
                 if (resultado == true) {
                     throw new LogicException(this.i18nMessage("requisicaoMudanca.horaFinalMenorQueAtual"));
                 }
             }
 
             if (liberacaoDto != null && liberacaoDto.getDataInicial() != null && liberacaoDto.getHoraAgendamentoInicial() != null) {
-                final Timestamp dataHoraInicial = MontardataHoraAgendamentoInicial(liberacaoDto);
+                final Timestamp dataHoraInicial = this.MontardataHoraAgendamentoInicial(liberacaoDto);
                 liberacaoDto.setDataHoraInicioAgendada(dataHoraInicial);
             }
 
             if (liberacaoDto != null && liberacaoDto.getDataFinal() != null && liberacaoDto.getHoraAgendamentoFinal() != null) {
-                final Timestamp dataHoraFinal = MontardataHoraAgendamentoFinal(liberacaoDto);
+                final Timestamp dataHoraFinal = this.MontardataHoraAgendamentoFinal(liberacaoDto);
                 liberacaoDto.setDataHoraTerminoAgendada(dataHoraFinal);
                 liberacaoDto.setDataHoraTermino(dataHoraFinal);
             }
@@ -261,7 +255,7 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
                 tipoLiberacaoDTO = (TipoLiberacaoDTO) tipoLiberacaoDAO.restore(tipoLiberacaoDTO);
             }
 
-            final boolean resultado = validacaoGrupoExecutor(liberacaoDto);
+            final boolean resultado = this.validacaoGrupoExecutor(liberacaoDto);
             if (resultado == false) {
                 throw new LogicException(this.i18nMessage("requisicaoLiberacao.grupoSemPermissao"));
             }
@@ -269,7 +263,7 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
             if (liberacaoDto.getDataInicial() != null && liberacaoDto.getDataFinal() != null) {
 
                 this.determinaPrazo(liberacaoDto, tipoLiberacaoDTO.getIdCalendario());
-                calculaTempoAtraso(liberacaoDto);
+                this.calculaTempoAtraso(liberacaoDto);
 
             } else {
                 liberacaoDto.setPrazoHH(00);
@@ -314,7 +308,7 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
             liberacaoDto.setDataHoraInicio(new Timestamp(new java.util.Date().getTime()));
             liberacaoDto.setDataHoraCaptura(liberacaoDto.getDataHoraInicio());
 
-            contatoRequisicaoLiberacaoDto = criarContatoRequisicaoLiberacao(requisicaoLiberacaoDto, tc);
+            contatoRequisicaoLiberacaoDto = this.criarContatoRequisicaoLiberacao(requisicaoLiberacaoDto, tc);
 
             liberacaoDto.setIdContatoRequisicaoLiberacao(contatoRequisicaoLiberacaoDto.getIdContatoRequisicaoLiberacao());
             liberacaoDto = (RequisicaoLiberacaoDTO) liberacaoDao.create(liberacaoDto);
@@ -325,13 +319,13 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
                 this.gravaInformacoesGED(liberacaoDto, tc, historicoLiberacaoDTO);
             }
             if (liberacaoDto.getColArquivosUploadDocsLegais() != null) {
-                gravaGEDDocLegais(liberacaoDto, tc, historicoLiberacaoDTO);
+                this.gravaGEDDocLegais(liberacaoDto, tc, historicoLiberacaoDTO);
             }
             if (liberacaoDto.getColDocsGerais() != null) {
-                gravaGEDDocGerais(liberacaoDto, tc, historicoLiberacaoDTO);
+                this.gravaGEDDocGerais(liberacaoDto, tc, historicoLiberacaoDTO);
             }
 
-            criarOcorrenciaLiberacao(liberacaoDto, tc);
+            this.criarOcorrenciaLiberacao(liberacaoDto, tc);
 
             // esse bloco grava a ocorrencia a partir do botão adicionar registro de execução
             final Source source = new Source(liberacaoDto.getRegistroexecucao());
@@ -407,15 +401,6 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
                 }
             }
 
-            // create PedidoCompras
-            final Collection<RequisicaoLiberacaoRequisicaoComprasDTO> colRequisicaoLiberacaoCompras = liberacaoDto.getColRequisicaoCompras();
-            if (colRequisicaoLiberacaoCompras != null) {
-                for (final RequisicaoLiberacaoRequisicaoComprasDTO liberacaoPedidoComprasDTO : colRequisicaoLiberacaoCompras) {
-                    liberacaoPedidoComprasDTO.setIdRequisicaoLiberacao(liberacaoDto.getIdRequisicaoLiberacao());
-                    requisicaoLiberacaoPedidoComprasDao.create(liberacaoPedidoComprasDTO);
-                }
-            }
-
             // Grava Fluxo
             execucaoLiberacaoServiceEjb.registraLiberacao(liberacaoDto, tc, usuario);
 
@@ -426,7 +411,7 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
             }
 
         } catch (final Exception e) {
-            rollbackTransaction(tc, e);
+            this.rollbackTransaction(tc, e);
         } finally {
             tc.closeQuietly();
         }
@@ -471,20 +456,17 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
     @Override
     public void update(final BaseEntity model) throws ServiceException, LogicException {
         ContatoRequisicaoLiberacaoDTO contatoRequisicaoLiberacaoDto = new ContatoRequisicaoLiberacaoDTO();
-        final RequisicaoLiberacaoDao liberacaoDao = getDao();
+        final RequisicaoLiberacaoDao liberacaoDao = this.getDao();
         final LiberacaoMudancaDao liberacaoMudancaDao = new LiberacaoMudancaDao();
         final LiberacaoProblemaDao liberacaoProblemaDao = new LiberacaoProblemaDao();
         final RequisicaoLiberacaoResponsavelDao liberacaoResponsavelDao = new RequisicaoLiberacaoResponsavelDao();
         final RequisicaoLiberacaoMidiaDao requisicaoLiberacaoMidiaDao = new RequisicaoLiberacaoMidiaDao();
-        final RequisicaoLiberacaoRequisicaoComprasDAO requisicaoLiberacaoPedidoComprasDao = new RequisicaoLiberacaoRequisicaoComprasDAO();
         final TipoLiberacaoDAO tipoLiberacaoDAO = new TipoLiberacaoDAO();
         final UsuarioDao usuarioDao = new UsuarioDao();
         LigacaoRequisicaoLiberacaoHistoricoMidiaDTO ligacaoMidiaDto = new LigacaoRequisicaoLiberacaoHistoricoMidiaDTO();
         LigacaoRequisicaoLiberacaoHistoricoResponsavelDTO ligacaoResponsavelDTO = new LigacaoRequisicaoLiberacaoHistoricoResponsavelDTO();
         final LigacaoRequisicaoLiberacaoMidiaDao ligacaoMidiaDao = new LigacaoRequisicaoLiberacaoMidiaDao();
         final LigacaoRequisicaoLiberacaoResponsavelDao ligacaoResponsavelDao = new LigacaoRequisicaoLiberacaoResponsavelDao();
-        LigacaoRequisicaoLiberacaoHistoricoComprasDTO ligacaoComprasDTO = new LigacaoRequisicaoLiberacaoHistoricoComprasDTO();
-        final LigacaoRequisicaoLiberacaoComprasDao ligacaoComprasDao = new LigacaoRequisicaoLiberacaoComprasDao();
 
         final TransactionControler tc = new TransactionControlerImpl(liberacaoDao.getAliasDB());
         Connection connection = null;
@@ -500,7 +482,7 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
         UsuarioDTO usuarioDto = new UsuarioDTO();
 
         try {
-            validaUpdate(model);
+            this.validaUpdate(model);
 
             liberacaoDao.setTransactionControler(tc);
             liberacaoMudancaDao.setTransactionControler(tc);
@@ -508,7 +490,6 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
             liberacaoResponsavelDao.setTransactionControler(tc);
             tipoLiberacaoDAO.setTransactionControler(tc);
             requisicaoLiberacaoMidiaDao.setTransactionControler(tc);
-            requisicaoLiberacaoPedidoComprasDao.setTransactionControler(tc);
             usuarioDao.setTransactionControler(tc);
             ligacaoMidiaDao.setTransactionControler(tc);
             ligacaoResponsavelDao.setTransactionControler(tc);
@@ -526,19 +507,19 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
 
             if (liberacaoDto != null && liberacaoDto.getDataInicial() != null && liberacaoDto.getHoraAgendamentoInicial() != null && liberacaoDto != null
                     && liberacaoDto.getDataFinal() != null && liberacaoDto.getHoraAgendamentoFinal() != null) {
-                final boolean resultado = seHoraFinalMenorQHoraInicial(liberacaoDto);
+                final boolean resultado = this.seHoraFinalMenorQHoraInicial(liberacaoDto);
                 if (resultado == true) {
                     throw new LogicException(this.i18nMessage("requisicaoMudanca.horaFinalMenorQueInicial"));
                 }
             }
 
             if (liberacaoDto != null && liberacaoDto.getDataInicial() != null && liberacaoDto.getHoraAgendamentoInicial() != null) {
-                final Timestamp dataHoraInicial = MontardataHoraAgendamentoInicial(liberacaoDto);
+                final Timestamp dataHoraInicial = this.MontardataHoraAgendamentoInicial(liberacaoDto);
                 liberacaoDto.setDataHoraInicioAgendada(dataHoraInicial);
             }
 
             if (liberacaoDto != null && liberacaoDto.getDataFinal() != null && liberacaoDto.getHoraAgendamentoFinal() != null) {
-                final Timestamp dataHoraFinal = MontardataHoraAgendamentoFinal(liberacaoDto);
+                final Timestamp dataHoraFinal = this.MontardataHoraAgendamentoFinal(liberacaoDto);
                 liberacaoDto.setDataHoraTerminoAgendada(dataHoraFinal);
                 liberacaoDto.setDataHoraTermino(dataHoraFinal);
             }
@@ -551,7 +532,7 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
             if (liberacaoDto != null && liberacaoDto.getDataInicial() != null && liberacaoDto.getDataFinal() != null) {
 
                 this.determinaPrazo(liberacaoDto, tipoLiberacaoDto.getIdCalendario());
-                calculaTempoAtraso(liberacaoDto);
+                this.calculaTempoAtraso(liberacaoDto);
 
             } else {
                 if (liberacaoDto != null) {
@@ -589,11 +570,11 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
             }
             if (!liberacaoDto.getStatus().equalsIgnoreCase(SituacaoRequisicaoLiberacao.Cancelada.name())) {
                 if (liberacaoDto.getAlterarSituacao() != null && liberacaoDto.getAlterarSituacao().equalsIgnoreCase("N")) {
-                    liberacaoDto.setStatus(getStatusAtual(liberacaoDto.getIdRequisicaoLiberacao()));
+                    liberacaoDto.setStatus(this.getStatusAtual(liberacaoDto.getIdRequisicaoLiberacao()));
                 }
             }
 
-            contatoRequisicaoLiberacaoDto = criarContatoRequisicaoLiberacao(liberacaoDto, tc);
+            contatoRequisicaoLiberacaoDto = this.criarContatoRequisicaoLiberacao(liberacaoDto, tc);
 
             if (contatoRequisicaoLiberacaoDto != null) {
                 liberacaoDto.setIdContatoRequisicaoLiberacao(contatoRequisicaoLiberacaoDto.getIdContatoRequisicaoLiberacao());
@@ -604,20 +585,12 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
 
             }
             if (liberacaoDto.getAcaoFluxo() != null && liberacaoDto.getAcaoFluxo().equalsIgnoreCase("E")) {
-                if (liberacaoDto.getColRequisicaoCompras() != null) {
-                    for (final RequisicaoLiberacaoRequisicaoComprasDTO reqCompras : liberacaoDto.getColRequisicaoCompras()) {
-                        if (!reqCompras.getSituacaoServicos().equals("Fechada") && !reqCompras.getSituacaoServicos().equals("Concluida")) {
-                            throw new LogicException(this.i18nMessage("requisicaoLiberacao.requisicaoComprasVinculacao"));
-                        }
-                    }
-                }
-
                 if (liberacaoDto.getStatus().equalsIgnoreCase(SituacaoRequisicaoLiberacao.Resolvida.name())) {
                     if (liberacaoDto.getFechamento() == null || liberacaoDto.getFechamento().equalsIgnoreCase("")) {
                         throw new LogicException(this.i18nMessage("citcorpore.comum.informeFechamento"));
                     }
 
-                    if (!verificaConfirmacaoQuestionario(liberacaoDto)) {
+                    if (!this.verificaConfirmacaoQuestionario(liberacaoDto)) {
                         throw new LogicException(this.i18nMessage("requisicaoLiberacao.verificaQuestionario"));
                     }
 
@@ -714,23 +687,23 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
             final HistoricoLiberacaoDao historicoLiberacaoDao = new HistoricoLiberacaoDao();
             historicoLiberacaoDao.setTransactionControler(tc);
             if (liberacaoDto.getIdRequisicaoLiberacao() != null) {
-                historicoLiberacaoDTO = (HistoricoLiberacaoDTO) historicoLiberacaoDao.create(createHistoricoLiberacao(liberacaoDto));
+                historicoLiberacaoDTO = (HistoricoLiberacaoDTO) historicoLiberacaoDao.create(this.createHistoricoLiberacao(liberacaoDto));
                 final ControleGEDDao controleGEDDao = new ControleGEDDao();
                 controleGEDDao.setTransactionControler(tc);
 
-                historicoLiberacaoDTO.setListRequisicaoLiberacaoItemConfiguracaoDTO(listarICsLiberacaoRequisicao(historicoLiberacaoDTO));
+                historicoLiberacaoDTO.setListRequisicaoLiberacaoItemConfiguracaoDTO(this.listarICsLiberacaoRequisicao(historicoLiberacaoDTO));
                 if (historicoLiberacaoDTO.getListRequisicaoLiberacaoItemConfiguracaoDTO() != null) {
                     this.gravarICsRequisicaoLiberacao(historicoLiberacaoDTO, tc);
                 }
-                historicoLiberacaoDTO.setColMudancas(listarColMudancas(historicoLiberacaoDTO));
+                historicoLiberacaoDTO.setColMudancas(this.listarColMudancas(historicoLiberacaoDTO));
                 if (historicoLiberacaoDTO.getColMudancas() != null) {
-                    gravarMudancasHistorico(historicoLiberacaoDTO, tc);
+                    this.gravarMudancasHistorico(historicoLiberacaoDTO, tc);
                 }
-                historicoLiberacaoDTO.setColProblemas(listarColProblemas(historicoLiberacaoDTO));
+                historicoLiberacaoDTO.setColProblemas(this.listarColProblemas(historicoLiberacaoDTO));
                 if (historicoLiberacaoDTO.getColProblemas() != null) {
-                    gravarProblemasHistorico(historicoLiberacaoDTO, tc);
+                    this.gravarProblemasHistorico(historicoLiberacaoDTO, tc);
                 }
-                historicoLiberacaoDTO.setColMidia(listarColMidias(historicoLiberacaoDTO));
+                historicoLiberacaoDTO.setColMidia(this.listarColMidias(historicoLiberacaoDTO));
                 if (historicoLiberacaoDTO.getColMidia() != null) {
                     for (final RequisicaoLiberacaoMidiaDTO requisicaoLiberacaoMidiaDTO : historicoLiberacaoDTO.getColMidia()) {
                         ligacaoMidiaDto.setIdRequisicaoLiberacao(historicoLiberacaoDTO.getIdRequisicaoLiberacao());
@@ -740,7 +713,7 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
                         ligacaoMidiaDto = new LigacaoRequisicaoLiberacaoHistoricoMidiaDTO();
                     }
                 }
-                historicoLiberacaoDTO.setColResponsaveis(listarColResponsaveis(historicoLiberacaoDTO));
+                historicoLiberacaoDTO.setColResponsaveis(this.listarColResponsaveis(historicoLiberacaoDTO));
                 if (historicoLiberacaoDTO.getColResponsaveis() != null) {
                     for (final RequisicaoLiberacaoResponsavelDTO requisicaoLiberacaoRespDTO : historicoLiberacaoDTO.getColResponsaveis()) {
                         ligacaoResponsavelDTO.setIdRequisicaoLiberacao(historicoLiberacaoDTO.getIdRequisicaoLiberacao());
@@ -748,16 +721,6 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
                         ligacaoResponsavelDTO.setIdHistoricoLiberacao(historicoLiberacaoDTO.getIdHistoricoLiberacao());
                         ligacaoResponsavelDao.create(ligacaoResponsavelDTO);
                         ligacaoResponsavelDTO = new LigacaoRequisicaoLiberacaoHistoricoResponsavelDTO();
-                    }
-                }
-                historicoLiberacaoDTO.setColRequisicaoCompras(listarColCompras(historicoLiberacaoDTO));
-                if (historicoLiberacaoDTO.getColRequisicaoCompras() != null) {
-                    for (final RequisicaoLiberacaoRequisicaoComprasDTO requisicaoLiberacaoComprasDTO : historicoLiberacaoDTO.getColRequisicaoCompras()) {
-                        ligacaoComprasDTO.setIdRequisicaoLiberacao(historicoLiberacaoDTO.getIdRequisicaoLiberacao());
-                        ligacaoComprasDTO.setIdRequisicaoLiberacaoCompras(requisicaoLiberacaoComprasDTO.getIdRequisicaoLiberacaoCompras());
-                        ligacaoComprasDTO.setIdHistoricoLiberacao(historicoLiberacaoDTO.getIdHistoricoLiberacao());
-                        ligacaoComprasDao.create(ligacaoComprasDTO);
-                        ligacaoComprasDTO = new LigacaoRequisicaoLiberacaoHistoricoComprasDTO();
                     }
                 }
             }
@@ -792,7 +755,7 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
                 }
             }
             if (liberacaoDto.getColArquivosUploadDocsLegais() != null) {
-                gravaGEDDocLegais(liberacaoDto, tc, historicoLiberacaoDTO);
+                this.gravaGEDDocLegais(liberacaoDto, tc, historicoLiberacaoDTO);
             }
 
             // lista todos os anexos de decumentos legais para setar a data fim para o historico
@@ -807,7 +770,7 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
                 }
             }
             if (liberacaoDto.getColDocsGerais() != null /* && liberacaoDto.getColDocsGerais().size() > 0 */) {
-                gravaGEDDocGerais(liberacaoDto, tc, historicoLiberacaoDTO);
+                this.gravaGEDDocGerais(liberacaoDto, tc, historicoLiberacaoDTO);
             }
 
             // lista todos os anexos de decumentos legais para setar a data fim para o historico
@@ -825,7 +788,7 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
                 final RequisicaoMudancaDTO requisicaomudacaDTO = new RequisicaoMudancaDTO();
                 final HistoricoMudancaDTO historicoMudancaDTO = new HistoricoMudancaDTO();
 
-                gravaPlanoDeReversaoGED(requisicaomudacaDTO, tc, historicoMudancaDTO);
+                this.gravaPlanoDeReversaoGED(requisicaomudacaDTO, tc, historicoMudancaDTO);
             }
 
             // gravar ICs vinculados a liberacao
@@ -851,7 +814,7 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
             }
 
             if (liberacaoDto.getColMidia() != null && liberacaoDto.getColMidia().size() > 0) {
-                deleteAdicionaTabelaMidias(liberacaoDto, tc);
+                this.deleteAdicionaTabelaMidias(liberacaoDto, tc);
             } else {
                 final RequisicaoLiberacaoMidiaDao midiaDao = new RequisicaoLiberacaoMidiaDao();
                 final Collection<RequisicaoLiberacaoMidiaDTO> ListRequisicaoLiberacaoMidiaDTO = midiaDao.findByIdLiberacaoEDataFim(liberacaoDto
@@ -865,7 +828,7 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
             }
 
             if (liberacaoDto.getColResponsaveis() != null && liberacaoDto.getColResponsaveis().size() > 0) {
-                deleteAdicionaTabelaResponsavel(liberacaoDto, tc);
+                this.deleteAdicionaTabelaResponsavel(liberacaoDto, tc);
             } else {
                 final RequisicaoLiberacaoResponsavelDao requisicaoLiberacaoResponsavelDao = new RequisicaoLiberacaoResponsavelDao();
                 final Collection<RequisicaoLiberacaoResponsavelDTO> responsavel = requisicaoLiberacaoResponsavelDao.findByIdLiberacaoEDataFim(liberacaoDto
@@ -877,20 +840,6 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
                     }
                 }
             }
-            if (liberacaoDto.getColRequisicaoCompras() != null && liberacaoDto.getColRequisicaoCompras().size() > 0) {
-                deleteAdicionaTabelaCompras(liberacaoDto, tc);
-            } else {
-                final RequisicaoLiberacaoRequisicaoComprasDAO requisicaoComprasDAO = new RequisicaoLiberacaoRequisicaoComprasDAO();
-                final Collection<RequisicaoLiberacaoRequisicaoComprasDTO> requisicaoCompras = requisicaoComprasDAO.findByIdLiberacaoAndDataFim(liberacaoDto
-                        .getIdRequisicaoLiberacao());
-                if (requisicaoCompras != null && requisicaoCompras.size() > 0) {
-                    for (final RequisicaoLiberacaoRequisicaoComprasDTO requisicaoLiberacaoRequisicaoComprasDTO : requisicaoCompras) {
-                        requisicaoLiberacaoRequisicaoComprasDTO.setDataFim(UtilDatas.getDataAtual());
-                        requisicaoComprasDAO.update(requisicaoLiberacaoRequisicaoComprasDTO);
-                    }
-                }
-
-            }
 
             tc.commit();
 
@@ -899,7 +848,7 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
             }
 
         } catch (final Exception e) {
-            rollbackTransaction(tc, e);
+            this.rollbackTransaction(tc, e);
         } finally {
             tc.closeQuietly();
         }
@@ -933,7 +882,7 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
         icsBanco = requisicaoLiberacaoItemConfiguracaoDao.listByIdRequisicaoLiberacao(liberacaoDto.getIdRequisicaoLiberacao());
         if (icsBanco != null) {
             for (final RequisicaoLiberacaoItemConfiguracaoDTO i : icsBanco) {
-                if (!requisicaoLiberacaoICExisteNaLista(i, liberacaoDto.getListRequisicaoLiberacaoItemConfiguracaoDTO())) {
+                if (!this.requisicaoLiberacaoICExisteNaLista(i, liberacaoDto.getListRequisicaoLiberacaoItemConfiguracaoDTO())) {
                     requisicaoLiberacaoItemConfiguracaoDao.delete(i);
                 }
             }
@@ -1036,15 +985,6 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
         return listResp;
     }
 
-    public Collection<RequisicaoLiberacaoRequisicaoComprasDTO> listarColCompras(final HistoricoLiberacaoDTO historicoLiberacaoDTO) throws ServiceException,
-            Exception {
-        final RequisicaoLiberacaoRequisicaoComprasDAO comprasDao = new RequisicaoLiberacaoRequisicaoComprasDAO();
-        final Collection<RequisicaoLiberacaoRequisicaoComprasDTO> listCompras = comprasDao.findByIdLiberacaoAndDataFim(historicoLiberacaoDTO
-                .getIdRequisicaoLiberacao());
-
-        return listCompras;
-    }
-
     /**
      * Verifica se o item existe na lista.
      *
@@ -1067,12 +1007,12 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
 
     @Override
     public void delete(final BaseEntity model) throws ServiceException, LogicException {
-        final RequisicaoLiberacaoDao liberacaoDao = getDao();
+        final RequisicaoLiberacaoDao liberacaoDao = this.getDao();
         final LiberacaoMudancaDao liberacaoMudancaDao = new LiberacaoMudancaDao();
         final TransactionControler tc = new TransactionControlerImpl(liberacaoDao.getAliasDB());
 
         try {
-            validaDelete(model);
+            this.validaDelete(model);
 
             liberacaoDao.setTransactionControler(tc);
             liberacaoMudancaDao.setTransactionControler(tc);
@@ -1086,7 +1026,7 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
             tc.commit();
 
         } catch (final Exception e) {
-            rollbackTransaction(tc, e);
+            this.rollbackTransaction(tc, e);
         } finally {
             tc.closeQuietly();
         }
@@ -1094,12 +1034,12 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
 
     @Override
     public List<RequisicaoLiberacaoDTO> listLiberacoes() throws Exception {
-        return getDao().listLiberacoes();
+        return this.getDao().listLiberacoes();
     }
 
     @Override
     public void reativa(final UsuarioDTO usuarioDto, final RequisicaoLiberacaoDTO requisicaoLiberacaoDTO) throws Exception {
-        final TransactionControler tc = new TransactionControlerImpl(getDao().getAliasDB());
+        final TransactionControler tc = new TransactionControlerImpl(this.getDao().getAliasDB());
         this.reativa(usuarioDto, requisicaoLiberacaoDTO, tc);
         tc.commit();
         tc.close();
@@ -1127,7 +1067,7 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
     }
 
     public RequisicaoLiberacaoDTO restoreAll(final Integer idRequisicaoLiberacao, final TransactionControler tc) throws Exception {
-        final RequisicaoLiberacaoDao requisicaoDao = getDao();
+        final RequisicaoLiberacaoDao requisicaoDao = this.getDao();
         if (tc != null) {
             requisicaoDao.setTransactionControler(tc);
         }
@@ -1218,7 +1158,7 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
                 }
 
             }
-            return verificaAtraso(requisicaoDto);
+            return this.verificaAtraso(requisicaoDto);
         }
         return null;
     }
@@ -1269,7 +1209,7 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
     private String getStatusAtual(final Integer id) throws ServiceException, Exception {
         RequisicaoLiberacaoDTO reqLiberacao = new RequisicaoLiberacaoDTO();
         reqLiberacao.setIdRequisicaoLiberacao(id);
-        reqLiberacao = (RequisicaoLiberacaoDTO) getDao().restore(reqLiberacao);
+        reqLiberacao = (RequisicaoLiberacaoDTO) this.getDao().restore(reqLiberacao);
         final String res = reqLiberacao.getStatus();
         return res;
 
@@ -1874,7 +1814,7 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
 
     @Override
     public void suspende(final UsuarioDTO usuarioDto, final RequisicaoLiberacaoDTO requisicaoLiberacaoDTO) throws Exception {
-        final TransactionControler tc = new TransactionControlerImpl(getDao().getAliasDB());
+        final TransactionControler tc = new TransactionControlerImpl(this.getDao().getAliasDB());
         this.suspende(usuarioDto, requisicaoLiberacaoDTO, tc);
         tc.commit();
         tc.close();
@@ -1923,7 +1863,7 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
             }
 
         } catch (final Exception e) {
-            rollbackTransaction(tc, e);
+            this.rollbackTransaction(tc, e);
             throw new ServiceException(e);
         }
         return contatoRequisicaoLiberacaoDto;
@@ -1932,9 +1872,9 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
     @Override
     public void updateLiberacaoAprovada(final BaseEntity obj) throws Exception {
         final RequisicaoLiberacaoDTO liberacaoDto = (RequisicaoLiberacaoDTO) obj;
-        final RequisicaoLiberacaoDao requiDao = getDao();
+        final RequisicaoLiberacaoDao requiDao = this.getDao();
         final OcorrenciaLiberacaoDao ocorrenciaLiberacaoDao = new OcorrenciaLiberacaoDao();
-        final TransactionControler tc = new TransactionControlerImpl(getDao().getAliasDB());
+        final TransactionControler tc = new TransactionControlerImpl(this.getDao().getAliasDB());
         final OcorrenciaLiberacaoDTO ocorrenciaLiberacaoDTO = new OcorrenciaLiberacaoDTO();
         requiDao.setTransactionControler(tc);
         ocorrenciaLiberacaoDao.setTransactionControler(tc);
@@ -1974,7 +1914,7 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
             throws Exception {
         Collection<RequisicaoLiberacaoDTO> listaRequisicaoLiberacaoPorCriterios = null;
         try {
-            listaRequisicaoLiberacaoPorCriterios = getDao().listaRequisicaoLiberacaoPorCriterios(pesquisaRequisicaoLiberacaoDto);
+            listaRequisicaoLiberacaoPorCriterios = this.getDao().listaRequisicaoLiberacaoPorCriterios(pesquisaRequisicaoLiberacaoDto);
         } catch (final Exception e) {
             e.printStackTrace();
         }
@@ -2001,7 +1941,7 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
 
     @Override
     public void reabre(final UsuarioDTO usuarioDto, final RequisicaoLiberacaoDTO requisicaoLiberacaoDto) throws Exception {
-        final TransactionControler tc = new TransactionControlerImpl(getDao().getAliasDB());
+        final TransactionControler tc = new TransactionControlerImpl(this.getDao().getAliasDB());
         this.reabre(usuarioDto, requisicaoLiberacaoDto, tc);
         tc.close();
     }
@@ -2095,7 +2035,7 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
     @Override
     public List<RequisicaoLiberacaoDTO> findByConhecimento(final BaseConhecimentoDTO baseConhecimentoDto) throws Exception {
         try {
-            return getDao().findByConhecimento(baseConhecimentoDto);
+            return this.getDao().findByConhecimento(baseConhecimentoDto);
         } catch (final Exception e) {
             e.printStackTrace();
         }
@@ -2104,7 +2044,7 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
 
     @Override
     public List<RequisicaoLiberacaoDTO> listLiberacaoByItemConfiugracao(final Integer idItemConfiguracao) throws Exception {
-        return getDao().listLiberacaoByIdItemConfiguracao(idItemConfiguracao);
+        return this.getDao().listLiberacaoByIdItemConfiguracao(idItemConfiguracao);
     }
 
     private boolean verificaConfirmacaoQuestionario(final RequisicaoLiberacaoDTO liberacao) throws ServiceException, Exception {
@@ -2273,66 +2213,6 @@ public class RequisicaoLiberacaoServiceEjb extends CrudServiceImpl implements Re
                         }
                         if (exclui) {
                             responsavelDao.update(requisicaoLiberacaoRespDTO);
-                        }
-                    }
-                }
-            }
-        }
-
-    }
-
-    public void deleteAdicionaTabelaCompras(final RequisicaoLiberacaoDTO liberacaoDTO, final TransactionControler tc) throws Exception {
-        Collection<RequisicaoLiberacaoRequisicaoComprasDTO> colComprasBanco = new ArrayList<RequisicaoLiberacaoRequisicaoComprasDTO>();
-        final RequisicaoLiberacaoRequisicaoComprasDAO comprasDao = new RequisicaoLiberacaoRequisicaoComprasDAO();
-        colComprasBanco = comprasDao.findByIdLiberacaoAndDataFim(liberacaoDTO.getIdRequisicaoLiberacao());
-        comprasDao.setTransactionControler(tc);
-        boolean grava = false;
-        boolean exclui = false;
-        int idCompras1 = 0;
-        int idCompras2 = 0;
-        if (colComprasBanco == null || colComprasBanco.size() == 0) {
-            for (final RequisicaoLiberacaoRequisicaoComprasDTO requisicaoLiberacaoComprasDTO : liberacaoDTO.getColRequisicaoCompras()) {
-                requisicaoLiberacaoComprasDTO.setIdRequisicaoLiberacao(liberacaoDTO.getIdRequisicaoLiberacao());
-                comprasDao.create(requisicaoLiberacaoComprasDTO);
-            }
-        } else {
-            if (liberacaoDTO.getColRequisicaoCompras() != null && liberacaoDTO.getColRequisicaoCompras().size() > 0) {
-                // compara o que vem da tela com o que está no banco se o que estiver na tela for diferente do banco
-                // então ele grava poruqe o item não existe no banco.
-                for (final RequisicaoLiberacaoRequisicaoComprasDTO requisicaoLiberacaoComprasDTO : liberacaoDTO.getColRequisicaoCompras()) {
-                    for (final RequisicaoLiberacaoRequisicaoComprasDTO requisicaoLiberacaoComprasDTO2 : colComprasBanco) {
-                        idCompras1 = requisicaoLiberacaoComprasDTO.getIdSolicitacaoServico();
-                        idCompras2 = requisicaoLiberacaoComprasDTO2.getIdSolicitacaoServico();
-                        if (idCompras1 == idCompras2) {
-                            grava = false;
-                            break;
-                        } else {
-                            grava = true;
-                        }
-                    }
-                    if (grava) {
-                        requisicaoLiberacaoComprasDTO.setIdRequisicaoLiberacao(liberacaoDTO.getIdRequisicaoLiberacao());
-                        comprasDao.create(requisicaoLiberacaoComprasDTO);
-                    }
-                }
-                // Compara o que vem do banco com o que está na tela se o que estiver no banco for diferente do que tem
-                // na tela
-                // então ele seta a data fim para desabilitar no banco.
-                if (colComprasBanco != null && colComprasBanco.size() > 0) {
-                    for (final RequisicaoLiberacaoRequisicaoComprasDTO requisicaoLiberacaoComprasDTO : colComprasBanco) {
-                        for (final RequisicaoLiberacaoRequisicaoComprasDTO requisicaoLiberacaoComprasDTO2 : liberacaoDTO.getColRequisicaoCompras()) {
-                            idCompras1 = requisicaoLiberacaoComprasDTO.getIdSolicitacaoServico();
-                            idCompras2 = requisicaoLiberacaoComprasDTO2.getIdSolicitacaoServico();
-                            if (idCompras1 == idCompras2) {
-                                exclui = false;
-                                break;
-                            } else {
-                                exclui = true;
-                                requisicaoLiberacaoComprasDTO.setDataFim(UtilDatas.getDataAtual());
-                            }
-                        }
-                        if (exclui) {
-                            comprasDao.update(requisicaoLiberacaoComprasDTO);
                         }
                     }
                 }

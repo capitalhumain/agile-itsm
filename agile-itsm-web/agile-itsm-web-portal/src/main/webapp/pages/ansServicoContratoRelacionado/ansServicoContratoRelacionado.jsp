@@ -13,7 +13,6 @@
 	<%@include file="/include/header.jsp"%>
 	<%@include file="/novoLayout/common/include/titulo.jsp" %>
 	<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
-	<%@include file="/include/menu/menuConfig.jsp" %>
 	<script type="text/javascript" src="../../cit/objects/AcordoServicoContratoDTO.js"></script>
 	<script type="text/javascript" src="${ctx}/pages/portal/js/default.js"></script>
 

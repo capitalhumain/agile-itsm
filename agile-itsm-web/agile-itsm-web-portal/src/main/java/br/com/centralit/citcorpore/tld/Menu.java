@@ -114,19 +114,6 @@ public class Menu extends BodyTagSupport {
             html.append("<script>function chamaItemMenu(url){window.location = url;}</script>");
             html.append("<div id='tst' style='background: #D5DBDF; width:100%;'>");
             for (final MenuDTO menPai : menusPai) {
-                if (menPai.getNome().trim().equalsIgnoreCase("$menu.nome.recursosHumanos")) {
-                    final String mostrarGerenciaRecursosHumanos = ParametroUtil.getValorParametroCitSmartHashMap(
-                            ParametroSistema.MOSTRAR_GERENCIA_RECURSOS_HUMANOS, "N");
-                    if (!mostrarGerenciaRecursosHumanos.trim().equalsIgnoreCase("S") || menPai.getMostrar() == null
-                            || !Boolean.parseBoolean(menPai.getMostrar())) {
-                        continue;
-                    }
-                } else if (menPai.getNome().trim().equalsIgnoreCase("$menu.nome.compras")) {
-                    final String mostrarCompras = ParametroUtil.getValorParametroCitSmartHashMap(ParametroSistema.MOSTRAR_COMPRAS, "N");
-                    if (!mostrarCompras.trim().equalsIgnoreCase("S") || menPai.getMostrar() == null || !Boolean.parseBoolean(menPai.getMostrar())) {
-                        continue;
-                    }
-                }
                 html.append("<a href=\"javascript:void(0)\" id='itemMM");
                 html.append(menPai.getIdMenu());
                 html.append("' style='background:url(");

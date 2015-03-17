@@ -52,31 +52,30 @@ public class Enumerados implements Serializable {
         }
 
         public static String getDescOrigemByOrigem(final Integer origem) {
-            String descStrOrigem = "";
-            if (origem.intValue() == 1) {
-                descStrOrigem = OrigemBaseConhecimento.CONHECIMENTO.getDescOrigem();
-            }
-            if (origem.intValue() == 2) {
-                descStrOrigem = OrigemBaseConhecimento.EVENTO.getDescOrigem();
-            }
-            if (origem.intValue() == 3) {
-                descStrOrigem = OrigemBaseConhecimento.MUDANCA.getDescOrigem();
-            }
-            if (origem.intValue() == 4) {
-                descStrOrigem = OrigemBaseConhecimento.INCIDENTE.getDescOrigem();
-            }
-            if (origem.intValue() == 5) {
-                descStrOrigem = OrigemBaseConhecimento.SERVICO.getDescOrigem();
-            }
-            if (origem.intValue() == 6) {
-                descStrOrigem = OrigemBaseConhecimento.PROBLEMA.getDescOrigem();
-            }
-            return descStrOrigem;
+            final OrigemBaseConhecimento origemBase = OrigemBaseConhecimento.fromOrigem(origem);
+            return origemBase.getDescOrigem();
         }
 
         private OrigemBaseConhecimento(final Integer origem, final String descOrigem) {
             this.origem = origem;
             this.descOrigem = descOrigem;
+        }
+
+        /**
+         * Recupera uma {@link OrigemBaseConhecimento} de acordo com seu id origem
+         *
+         * @param origem
+         *            id a ser verificado se há uma {@link SituacaoSolicitacaoServico}
+         * @return {@link OrigemBaseConhecimento} caso encontre. {@link IllegalArgumentException}, caso contrário
+         */
+        public static OrigemBaseConhecimento fromOrigem(final Integer origem) {
+            final OrigemBaseConhecimento[] origens = OrigemBaseConhecimento.values();
+            for (final OrigemBaseConhecimento origemBase : origens) {
+                if (origemBase.getOrigem().equals(origem)) {
+                    return origemBase;
+                }
+            }
+            throw new IllegalArgumentException(String.format("OrigemBaseConhecimento not found for origem '%s'", origem));
         }
 
     }
@@ -315,21 +314,21 @@ public class Enumerados implements Serializable {
         ID_GRUPO_PADRAO_IC_PRODUCAO(97, "parametro.97", NUMERO),
         ID_GRUPO_PADRAO_IC_HOMOLOGACA0(98, "parametro.98", NUMERO),
         ID_GRUPO_PADRAO_IC_INVENTARIO(99, "parametro.99", NUMERO),
-        ID_GRUPO_PADRAO_REQ_PRODUTOS(100, "parametro.100", NUMERO),
-        PERC_MAX_VAR_PRECO_COTACAO(101, "parametro.101", TEXTO),
+        // ID_GRUPO_PADRAO_REQ_PRODUTOS(100, "parametro.100", NUMERO),
+        // PERC_MAX_VAR_PRECO_COTACAO(101, "parametro.101", TEXTO),
         NUMERO_COLABORADORES_CONSULTA_AD(102, "parametro.102", NUMERO),
         ID_MODELO_EMAIL_AVISAR_ALTERACAO_SERVICO(103, "parametro.103", NUMERO),
         CALCULAR_PRIORIDADE_SOLICITACAO_DINAMICAMENTE(104, "parametro.104", BOOLEAN),
         ORIGEM_PADRAO(105, "parametro.105", NUMERO),
         DETERMINA_URGENCIA_IMPACTO_REQPROD(106, "parametro.106", BOOLEAN),
-        COTACAO_PESO_PRECO(107, "parametro.107", NUMERO),
-        COTACAO_PESO_PRAZO_ENTREGA(108, "parametro.108", NUMERO),
-        COTACAO_PESO_PRAZO_PAGTO(109, "parametro.109", NUMERO),
-        COTACAO_PESO_GARANTIA(110, "parametro.110", NUMERO),
-        COTACAO_PESO_JUROS(111, "parametro.111", NUMERO),
+        // COTACAO_PESO_PRECO(107, "parametro.107", NUMERO),
+        // COTACAO_PESO_PRAZO_ENTREGA(108, "parametro.108", NUMERO),
+        // COTACAO_PESO_PRAZO_PAGTO(109, "parametro.109", NUMERO),
+        // COTACAO_PESO_GARANTIA(110, "parametro.110", NUMERO),
+        // COTACAO_PESO_JUROS(111, "parametro.111", NUMERO),
         PATH_NAGIOS_STATUS(112, "parametro.112", TEXTO),
         ID_MODELO_EMAIL_ESCALACAO_AUTOMATICA(113, "parametro.113", NUMERO),
-        PEMITE_REQUISICAO_EMPREGADO_COMPRAS(114, "parametro.114", BOOLEAN),
+        // PEMITE_REQUISICAO_EMPREGADO_COMPRAS(114, "parametro.114", BOOLEAN),
         TIRAR_VINCULO_LOCALIDADE_UNIDADE(115, "parametro.115", BOOLEAN),
         ID_MODELO_EMAIL_ALTERACAO_SENHA(116, "parametro.116", SENHA),
         INFORMAR_CAMINHO_EXECUCAO_BACKUP_LOGDADOS(117, "parametro.117", TEXTO),
@@ -387,8 +386,8 @@ public class Enumerados implements Serializable {
         FILTRO_FLUXO_ENCERRAMENTO(169, "parametro.169", TEXTO),
         // ID_GRUPO_PADRAO_REQ_VIAGEM_EXECUCAO(170, "parametro.170", NUMERO),
         DIAS_LIMITE_REABERTURA_INCIDENTE_REQUISICAO(171, "parametro.171", NUMERO),
-        MOSTRAR_GERENCIA_RECURSOS_HUMANOS(172, "parametro.172", BOOLEAN),
-        MOSTRAR_COMPRAS(173, "parametro.173", BOOLEAN),
+        // MOSTRAR_GERENCIA_RECURSOS_HUMANOS(172, "parametro.172", BOOLEAN),
+        // MOSTRAR_COMPRAS(173, "parametro.173", BOOLEAN),
         // ID_GRUPO_PADRAO_RESPONSAVEL_COTACAO_VIAGEM(174, "parametro.174", NUMERO),
         // ID_GRUPO_PADRAO_RESPONSAVEL_ADIANTAMENTO_VIAGEM(175, "parametro.175", NUMERO),
         // ID_GRUPO_PADRAO_RESPONSAVEL_CONFERENCIA_VIAGEM(176, "parametro.176", NUMERO),
@@ -443,7 +442,7 @@ public class Enumerados implements Serializable {
         CONFIGURACAO_EMAIL_SUPORTE_TELA_LOGIN(225, "parametro.225", TEXTO),
         CONFIGURACAO_TELEFONE_SUPORTE_TELA_LOGIN(226, "parametro.226", TEXTO),
         BPM_ELEMENTO_EXECUCAO(227, "parametro.227", TEXTO),
-        VALOR_ALCADA_SEM_NESSIDADE_AUTORIZACAO(228, "parametro.228", NUMERO),
+        // VALOR_ALCADA_SEM_NESSIDADE_AUTORIZACAO(228, "parametro.228", NUMERO),
         RECONFIGURAR_FORMULASOS_DASATIVIDADES(229, "parametro.229", TEXTO),
         PermiteDataInferiorHoje(230, "parametro.230", TEXTO),
         ATIVAR_ENVIO_EMAIL_UPDATE_INCIDENTE(231, "parametro.231", TEXTO),
@@ -451,13 +450,13 @@ public class Enumerados implements Serializable {
         NAGIOS_CONEXOES_LIVESTATUS(233, "parametro.233", TEXTO),
         NAGIOS_TIPO_ACESSO(234, "parametro.234", NUMERO),
         UNIDADE_AUTOCOMPLETE(235, "parametro.235", BOOLEAN),
-        SELENIUM_USUARIO_TESTE(236, "parametro.236", TEXTO),
-        SELENIUM_SENHA_TEST(237, "parametro.237", SENHA),
-        SELENIUM_NAVEGADOR_TESTE(238, "parametro.238", TEXTO),
-        SELENIUM_URL_TESTE(239, "parametro.239", TEXTO),
-        SELENIUM_URL_CLIENTE_TESTE(240, "parametro.240", TEXTO),
-        SELENIUM_CAMINHO_COMPLETO_DRIVER_IE(241, "parametro.241", TEXTO),
-        SELENIUM_CAMINHO_COMPLETO_DRIVER_CHROME(242, "parametro.242", TEXTO),
+        // SELENIUM_USUARIO_TESTE(236, "parametro.236", TEXTO),
+        // SELENIUM_SENHA_TEST(237, "parametro.237", SENHA),
+        // SELENIUM_NAVEGADOR_TESTE(238, "parametro.238", TEXTO),
+        // SELENIUM_URL_TESTE(239, "parametro.239", TEXTO),
+        // SELENIUM_URL_CLIENTE_TESTE(240, "parametro.240", TEXTO),
+        // SELENIUM_CAMINHO_COMPLETO_DRIVER_IE(241, "parametro.241", TEXTO),
+        // SELENIUM_CAMINHO_COMPLETO_DRIVER_CHROME(242, "parametro.242", TEXTO),
         ATIVAR_ASSINATURA_PERSONALIZADA_REL_OS(243, "parametro.243", BOOLEAN),
         MENSAGEM_TELA_LOGIN(244, "parametro.244", TEXTO),
         HABILITA_PRECO_CARRINHO_PORTAL(245, "parametro.245", BOOLEAN),
@@ -1121,133 +1120,6 @@ public class Enumerados implements Serializable {
 
     }
 
-    public enum SituacaoItemRequisicaoProduto {
-
-        AguardandoValidacao("Aguardando validação", AcaoItemRequisicaoProduto.Criacao),
-        RejeitadoCompras("Requisição rejeitada", AcaoItemRequisicaoProduto.Validacao),
-        AlteradoCompras("Alterado pela área de compras", AcaoItemRequisicaoProduto.Validacao),
-        Inviabilizado("Inviabilizado", AcaoItemRequisicaoProduto.Validacao),
-        AguardandoAutorizacaoCompra("Aguardando autorização", AcaoItemRequisicaoProduto.Validacao),
-        AlteradoAutorizador("Alterado pelo autorizador", AcaoItemRequisicaoProduto.Autorizacao),
-        RejeitadoAutorizador("Requisição rejeitada", AcaoItemRequisicaoProduto.Autorizacao),
-        CompraNaoAutorizada("Compra não autorizada", AcaoItemRequisicaoProduto.Autorizacao),
-        AguardandoCotacao("Aguardando cotação", AcaoItemRequisicaoProduto.Autorizacao),
-        AguardandoAprovacaoCotacao("Aguardando aprovação da cotação", AcaoItemRequisicaoProduto.Publicacao),
-        CotacaoNaoAprovada("Cotação não aprovada", AcaoItemRequisicaoProduto.Aprovacao),
-        AguardandoPedido("Aguardando pedido de compra", AcaoItemRequisicaoProduto.Aprovacao),
-        AguardandoEntrega("Aguardando entrega", AcaoItemRequisicaoProduto.Pedido),
-        AguardandoInspecao("Aguardando inspeção", AcaoItemRequisicaoProduto.Entrega),
-        AguardandoInspecaoGarantia("Aguardando inspeção", AcaoItemRequisicaoProduto.Garantia),
-        InspecaoRejeitada("Inspeção rejeitada", AcaoItemRequisicaoProduto.Inspecao),
-        Cancelado("Cancelado", AcaoItemRequisicaoProduto.Cancelamento),
-        Finalizado("Finalizado", AcaoItemRequisicaoProduto.Inspecao);
-
-        private final String descricao;
-        private final AcaoItemRequisicaoProduto acaoPadrao;
-
-        private SituacaoItemRequisicaoProduto(final String descricao, final AcaoItemRequisicaoProduto acaoPadrao) {
-            this.descricao = descricao;
-            this.acaoPadrao = acaoPadrao;
-        }
-
-        public String getDescricao() {
-            return descricao;
-        }
-
-        public AcaoItemRequisicaoProduto getAcaoPadrao() {
-            return acaoPadrao;
-        }
-
-    }
-
-    public enum AcaoItemRequisicaoProduto {
-
-        Criacao("Criação da requisição"),
-        Alteracao("Alteração da requisição"),
-        Validacao("Validação pela área de compras"),
-        Autorizacao("Autorização da compra"),
-        Publicacao("Publicação dos resultados"),
-        Aprovacao("Aprovação da cotação"),
-        Reabertura("Reabertura das coletas de preço"),
-        Pedido("Geração do pedido"),
-        Entrega("Entrega do pedido"),
-        Garantia("Retorno de garantia"),
-        Inspecao("Inspeção do solicitante"),
-        Cancelamento("Exclusão/Cancelamento do item"),
-        ExclusaoPedido("Exclusão do pedido"),
-        ExclusaoItemCotacao("Exclusão do item de cotação"),
-        EncerramentoCotacao("Encerramento da cotação");
-
-        private final String descricao;
-
-        private AcaoItemRequisicaoProduto(final String descricao) {
-            this.descricao = descricao;
-        }
-
-        public String getDescricao() {
-            return descricao;
-        }
-
-    }
-
-    public enum TipoAlcada {
-
-        Compras("Autorização de compras"),
-        Pessoal("Requisição de pessoal");
-
-        private final String descricao;
-
-        private TipoAlcada(final String descricao) {
-            this.descricao = descricao;
-        }
-
-        public String getDescricao() {
-            return descricao;
-        }
-
-    }
-
-    public enum SituacaoCotacao {
-
-        EmAndamento("Em andamento"),
-        Calculada("Resultado calculado"),
-        Publicada("Resultado publicado"),
-        Pedido("Pedido(s) gerado(s)"),
-        Entrega("Pedido(s) entregue(s)"),
-        Finalizada("Finalizada"),
-        Cancelada("Cancelada");
-
-        private final String descricao;
-
-        private SituacaoCotacao(final String descricao) {
-            this.descricao = descricao;
-        }
-
-        public String getDescricao() {
-            return descricao;
-        }
-
-    }
-
-    public enum SituacaoCotacaoItemRequisicao {
-
-        AguardaAprovacao("Aguardando aprovação"),
-        PreAprovado("Pré aprovado"),
-        Aprovado("Aprovado"),
-        NaoAprovado("Não aprovado");
-
-        private final String descricao;
-
-        private SituacaoCotacaoItemRequisicao(final String descricao) {
-            this.descricao = descricao;
-        }
-
-        public String getDescricao() {
-            return descricao;
-        }
-
-    }
-
     public enum OrigemNotificacao {
 
         B("Notificação de base de conhecimento"),
@@ -1276,47 +1148,6 @@ public class Enumerados implements Serializable {
         private final String descricao;
 
         private ResultadoValidacao(final String descricao) {
-            this.descricao = descricao;
-        }
-
-        public String getDescricao() {
-            return descricao;
-        }
-
-    }
-
-    public enum SituacaoPedidoCompra {
-
-        Efetivado("Efetivado"),
-        Analise("Aguardando análise de crédito"),
-        Aprovacao("Aguardando aprovação do pagamento"),
-        Aprovado("Pagamento aprovado"),
-        Transportadora("Entregue à transportadora"),
-        Transporte("Em rota de entrega"),
-        Entregue("Entregue");
-
-        private final String descricao;
-
-        private SituacaoPedidoCompra(final String descricao) {
-            this.descricao = descricao;
-        }
-
-        public String getDescricao() {
-            return descricao;
-        }
-
-    }
-
-    public enum SituacaoEntregaItemRequisicao {
-
-        Aguarda("Aguardando inspeção"),
-        Aprovada("Entrega aprovada"),
-        AprovadaPrazo("Aprovada por decurso de prazo"),
-        NaoAprovada("Entrega nao aprovada");
-
-        private final String descricao;
-
-        private SituacaoEntregaItemRequisicao(final String descricao) {
             this.descricao = descricao;
         }
 
@@ -1457,7 +1288,6 @@ public class Enumerados implements Serializable {
 
     public enum TipoSolicitacaoServico {
 
-        COMPRA(1, "Compra"),
         INCIDENTE(4, "Incidente"),
         REQUISICAO(5, "Requisição");
 
@@ -1606,27 +1436,6 @@ public class Enumerados implements Serializable {
 
         public String getTipoOrigemLeituraEmail() {
             return tipoOrigemLeituraEmail;
-        }
-
-    }
-
-    public enum MotivoRejeicaoAlcada {
-
-        LimiteValor("Fora dos limites de aprovação"),
-        HierarquiaAutoridade("Nível de hierarquia abaixo da hierarquia do solicitante"),
-        PermissaoAutoridade("Autoridade não tem permissão para aprovar as próprias solicitações"),
-        RegrasProcesso("Regras do processo de negócio"),
-        UsuarioNaoExiste("Não existe um usuário ativo associado ao empregado autorizador"),
-        PertenceGrupoAdministrador("Solicitante pertence ao grupo administrador do processo de negócio");
-
-        private final String descricao;
-
-        private MotivoRejeicaoAlcada(final String descricao) {
-            this.descricao = descricao;
-        }
-
-        public String getDescricao() {
-            return descricao;
         }
 
     }

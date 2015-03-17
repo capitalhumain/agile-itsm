@@ -127,7 +127,6 @@ public class RequisicaoLiberacaoDTO extends ObjetoNegocioFluxoDTO {
     private Collection<LiberacaoProblemaDTO> colProblemas;
     private List<RequisicaoLiberacaoItemConfiguracaoDTO> listRequisicaoLiberacaoItemConfiguracaoDTO;
     private Collection<RequisicaoLiberacaoResponsavelDTO> colResponsaveis;
-    private Collection<RequisicaoLiberacaoRequisicaoComprasDTO> colRequisicaoCompras;
 
     // atributos do historico
     private Collection<UploadDTO> colArquivosUpload;
@@ -572,7 +571,7 @@ public class RequisicaoLiberacaoDTO extends ObjetoNegocioFluxoDTO {
         return situacao != null
                 && (status.equalsIgnoreCase(Enumerados.SituacaoRequisicaoLiberacao.Resolvida.name())
                         || status.equalsIgnoreCase(Enumerados.SituacaoRequisicaoLiberacao.Cancelada.name()) || status
-                            .equalsIgnoreCase(Enumerados.SituacaoRequisicaoLiberacao.Fechada.name()));
+                        .equalsIgnoreCase(Enumerados.SituacaoRequisicaoLiberacao.Fechada.name()));
     }
 
     public boolean aprovada() {
@@ -592,14 +591,14 @@ public class RequisicaoLiberacaoDTO extends ObjetoNegocioFluxoDTO {
                 && (status.equalsIgnoreCase(Enumerados.SituacaoRequisicaoLiberacao.Registrada.name())
                         || status.equalsIgnoreCase(Enumerados.SituacaoRequisicaoLiberacao.Aprovada.name())
                         || status.equalsIgnoreCase(Enumerados.SituacaoRequisicaoLiberacao.EmExecucao.name()) || status
-                            .equalsIgnoreCase(Enumerados.SituacaoRequisicaoLiberacao.Reaberta.name()));
+                        .equalsIgnoreCase(Enumerados.SituacaoRequisicaoLiberacao.Reaberta.name()));
     }
 
     public boolean liberada() {
         return status != null
                 && (status.equalsIgnoreCase(Enumerados.SituacaoRequisicaoLiberacao.Resolvida.name())
                         || status.equalsIgnoreCase(Enumerados.SituacaoRequisicaoLiberacao.Cancelada.name()) || status
-                            .equalsIgnoreCase(Enumerados.SituacaoRequisicaoLiberacao.NaoResolvida.name()));
+                        .equalsIgnoreCase(Enumerados.SituacaoRequisicaoLiberacao.NaoResolvida.name()));
     }
 
     public boolean naoResolvida() {
@@ -1348,14 +1347,6 @@ public class RequisicaoLiberacaoDTO extends ObjetoNegocioFluxoDTO {
 
     public void setColDocsGerais(final Collection<UploadDTO> colDocsGerais) {
         this.colDocsGerais = colDocsGerais;
-    }
-
-    public Collection<RequisicaoLiberacaoRequisicaoComprasDTO> getColRequisicaoCompras() {
-        return colRequisicaoCompras;
-    }
-
-    public void setColRequisicaoCompras(final Collection<RequisicaoLiberacaoRequisicaoComprasDTO> colRequisicaoCompras) {
-        this.colRequisicaoCompras = colRequisicaoCompras;
     }
 
     public Integer getIdICMudanca() {

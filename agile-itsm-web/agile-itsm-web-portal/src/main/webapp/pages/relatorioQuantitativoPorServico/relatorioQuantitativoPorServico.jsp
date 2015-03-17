@@ -9,7 +9,6 @@
 <%@include file="/include/header.jsp"%>
 
 <%@include file="/novoLayout/common/include/titulo.jsp" %>
-<%@include file="/include/menu/menuConfig.jsp"%>
 
 <%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 <link rel="stylesheet" type="text/css" href="./css/relatorioQuantitativoPorServico.css" />

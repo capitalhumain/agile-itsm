@@ -506,7 +506,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
     public Collection<SolicitacaoServicoDTO> findByIdContratoPaginada(final PesquisaSolicitacaoServicoDTO pesquisaSolicitacaoServico, final String paginacao,
             final Integer pagAtual, final Integer pagAtualAux, Integer totalPag, final Integer quantidadePaginator, final String campoPesquisa)
-                    throws Exception {
+            throws Exception {
         final List<String> listRetorno = new ArrayList<>();
 
         final StringBuilder sql = new StringBuilder();
@@ -3300,7 +3300,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
     public Collection<SolicitacaoServicoDTO> listaServicosPorResponsavelNoPeriodoDocumentacaoPorServico(final Date dataIncio, final Date dataFim,
             final int idFuncionario, final boolean mostrarIncidentes, final boolean mostrarRequisicoes, final String listaIdsServicosHomologacaoDocumentacao)
-                    throws Exception {
+            throws Exception {
         final List<Object> parametro = new ArrayList<>();
         final List<String> listRetorno = new ArrayList<>();
 
@@ -4898,7 +4898,6 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             throws Exception {
         boolean bIncidentes = false;
         boolean bRequisicoes = false;
-        boolean bCompras = false;
         if (tiposSolicitacao != null) {
             for (final TipoSolicitacaoServico tipo : tiposSolicitacao) {
                 if (!bIncidentes && tipo.equals(TipoSolicitacaoServico.INCIDENTE)) {
@@ -4906,9 +4905,6 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
                 }
                 if (!bRequisicoes && tipo.equals(TipoSolicitacaoServico.REQUISICAO)) {
                     bRequisicoes = true;
-                }
-                if (!bCompras && tipo.equals(TipoSolicitacaoServico.COMPRA)) {
-                    bCompras = true;
                 }
             }
         }
@@ -4997,7 +4993,6 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         listRetorno.add("observacao");
         listRetorno.add("idLocalidade");
         listRetorno.add("idInstanciaFluxo");
-        listRetorno.add("idRequisicaoProduto");
         listRetorno.add("classificacao");
 
         final StringBuilder sql = new StringBuilder();
@@ -5016,7 +5011,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         sql.append("       s.idservico, s.nomeServico, td.idTipoDemandaServico, td.nomeTipoDemandaServico, c.idContrato, c.numero, e1.nome, u1.nome, ");
         sql.append("       e2.nome, u2.nome, oa.descricao, p.nomeprioridade, fs.nomefase, ");
         sql.append("       g1.sigla, g2.sigla, cs.nomecontato, cs.emailcontato, cs.telefonecontato, cs.localizacaofisica, cs.idlocalidade, es.idInstanciaFluxo, ");
-        sql.append("       reqprod.idsolicitacaoservico, td.classificacao");
+        sql.append("       td.classificacao");
         sql.append("  FROM solicitacaoservico sol ");
         sql.append("        LEFT JOIN servicocontrato sc ON sc.idservicocontrato = sol.idservicocontrato ");
         sql.append("        LEFT JOIN contratos c ON c.idcontrato = sc.idcontrato ");
@@ -5034,8 +5029,6 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
         sql.append("        LEFT JOIN grupo g2 ON g2.idgrupo = sol.idgruponivel1 ");
         sql.append("        LEFT JOIN contatosolicitacaoservico cs ON cs.idcontatosolicitacaoservico = sol.idcontatosolicitacaoservico ");
         sql.append("        LEFT JOIN aprovacaosolicitacaoservico aprov ON aprov.idaprovacaosolicitacaoservico = sol.idultimaaprovacao ");
-        sql.append("        LEFT JOIN requisicaoproduto reqprod ON reqprod.idsolicitacaoservico = sol.idsolicitacaoservico ");
-
         sql.append(" INNER JOIN execucaosolicitacao es ON es.idsolicitacaoservico = sol.idsolicitacaoservico ");
         sql.append("WHERE sol.idsolicitacaopai is null ");
 
@@ -5053,17 +5046,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
             } else {
                 sql.append(" AND (");
             }
-            sql.append(" reqprod.idsolicitacaoservico IS NULL AND td.classificacao = 'R' ");
-            bFiltrouTipos = true;
-        }
-
-        if (bCompras) {
-            if (bFiltrouTipos) {
-                sql.append(" OR ");
-            } else {
-                sql.append(" AND (");
-            }
-            sql.append(" reqprod.idsolicitacaoservico IS NOT NULL ");
+            sql.append("td.classificacao = 'R' ");
             bFiltrouTipos = true;
         }
 
@@ -5100,9 +5083,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
 
         if (result != null) {
             for (final SolicitacaoServicoDTO solicitacao : result) {
-                if (solicitacao.getIdRequisicaoProduto() != null) {
-                    solicitacao.setTipoSolicitacao(TipoSolicitacaoServico.COMPRA);
-                } else if (solicitacao.getClassificacao() != null && solicitacao.getClassificacao().equalsIgnoreCase("R")) {
+                if (solicitacao.getClassificacao() != null && solicitacao.getClassificacao().equalsIgnoreCase("R")) {
                     solicitacao.setTipoSolicitacao(TipoSolicitacaoServico.REQUISICAO);
                 } else {
                     solicitacao.setTipoSolicitacao(TipoSolicitacaoServico.INCIDENTE);
@@ -5614,7 +5595,7 @@ public class SolicitacaoServicoDao extends CrudDaoDefaultImpl {
     public String paginacaoOracle(String strSQL, final int intInicio, final int intLimite) {
         strSQL = strSQL + " order by sol.idsolicitacaoservico ";
         return "SELECT * FROM (SELECT PAGING.*, ROWNUM PAGING_RN FROM" + " (" + strSQL + ") PAGING WHERE (ROWNUM <= " + intLimite + "))"
-        + " WHERE (PAGING_RN >= " + intInicio + ") ";
+                + " WHERE (PAGING_RN >= " + intInicio + ") ";
     }
 
     public Integer qtdTipoDemandaPrioridade(final List<TarefaFluxoDTO> listTarefa, final Integer idTipoDemandaServico, final Integer idPrioridade)

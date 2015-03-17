@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<%@page import="java.util.HashMap"%>
+<%@page import="java.util.Map"%>
 <%@page import="br.com.centralit.citcorpore.util.WebUtil"%>
 <%@page import="br.com.centralit.citcorpore.bean.UsuarioDTO"%>
 <%@page import="br.com.centralit.citcorpore.bean.EmpregadoDTO"%>
@@ -8,26 +8,22 @@
 	String sgbd = "";
 	String banco = "";
 	String schema = "";
-	HashMap<Integer, String> dadosSGBD = new HashMap<Integer, String>();
-	dadosSGBD = (HashMap)request.getSession().getAttribute("dadosSGBD");
+	Map<Integer, String> dadosSGBD = (Map)request.getSession().getAttribute("dadosSGBD");
 	if(dadosSGBD != null){
 		sgbd = dadosSGBD.get(1);
 		banco = dadosSGBD.get(2);
 		schema = dadosSGBD.get(3);
 	}
-
 %>
 <!doctype html public "">
 <html>
 	<head>
 	<%
-		String iframe = "";
-		iframe = request.getParameter("iframe");
+		String iframe = request.getParameter("iframe");
 	%>
 	<%@include file="/include/header.jsp"%>
 
 	<%@include file="/novoLayout/common/include/titulo.jsp" %>
-	<%@include file="/include/menu/menuConfig.jsp"%>
 
 	<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 	<script type="text/javascript" src="${ctx}/js/PopupManager.js"></script>

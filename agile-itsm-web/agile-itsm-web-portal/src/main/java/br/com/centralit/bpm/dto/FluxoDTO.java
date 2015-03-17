@@ -4,7 +4,6 @@ import java.sql.Date;
 import java.util.List;
 
 import br.com.agileitsm.model.support.BaseEntity;
-import br.com.centralit.citcorpore.bean.ProcessoNegocioDTO;
 
 public class FluxoDTO extends BaseEntity {
 
@@ -55,10 +54,6 @@ public class FluxoDTO extends BaseEntity {
     private String linhaAtual;
 
     private String acao;
-
-    private Integer idProcessoNegocio;
-
-    private ProcessoNegocioDTO processoNegocioDto;
 
     public Integer getIdFluxo() {
         return idFluxo;
@@ -360,22 +355,6 @@ public class FluxoDTO extends BaseEntity {
 
     public void setAcao(final String acao) {
         this.acao = acao;
-    }
-
-    public Integer getIdProcessoNegocio() {
-        return idProcessoNegocio;
-    }
-
-    public void setIdProcessoNegocio(final Integer idProcessoNegocio) {
-        this.idProcessoNegocio = idProcessoNegocio;
-    }
-
-    public ProcessoNegocioDTO getProcessoNegocioDto() {
-        return processoNegocioDto;
-    }
-
-    public void setProcessoNegocioDto(final ProcessoNegocioDTO processoNegocioDto) {
-        this.processoNegocioDto = processoNegocioDto;
     }
 
 }

@@ -18,11 +18,9 @@
 <script type="text/javascript" src="${ctx}/template_new/js/fancybox/jquery.fancybox-1.3.4.js"></script>
 <script type="text/javascript" src="${ctx}/template_new/js/custom/gallery.js"></script>
 
-<% if(!FiltroSegurancaCITSmart.getHaVersoesSemValidacao()) { %>
 <script type="text/javascript" src="${ctx}/dwr/engine.js"></script>
-<%} %>
-
 <script type="text/javascript" src="${ctx}/dwr/util.js"></script>
+
 <script type="text/javascript">
     function tratarEnter (field, event) {
         var keyCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;

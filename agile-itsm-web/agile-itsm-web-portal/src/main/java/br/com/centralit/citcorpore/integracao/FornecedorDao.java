@@ -96,11 +96,10 @@ public class FornecedorDao extends CrudDaoDefaultImpl {
         List list = new ArrayList<>();
         final StringBuilder sql = new StringBuilder();
 
-        sql.append("select fornecedor.nomeFantasia, nomeProduto, nomeMarca ");
+        sql.append("select fornecedor.nomeFantasia, nomeProduto ");
         sql.append("from fornecedorproduto ");
         sql.append("inner join tipoproduto tipo on tipo.idTipoProduto = fornecedorproduto.idTipoProduto ");
         sql.append("inner join fornecedor fornecedor on fornecedor.idFornecedor = fornecedorproduto.idFornecedor ");
-        sql.append(" left join marca marca on marca.idMarca = fornecedorproduto.idMarca ");
         if (fornecedorDto.getIdFornecedor() != null) {
             sql.append("where fornecedor.idFornecedor = ? ");
             parametro.add(fornecedorDto.getIdFornecedor());
@@ -110,7 +109,6 @@ public class FornecedorDao extends CrudDaoDefaultImpl {
 
         listaRetornor.add("nomeFantasia");
         listaRetornor.add("nomeProduto");
-        listaRetornor.add("marca");
 
         if (list != null && !list.isEmpty()) {
 

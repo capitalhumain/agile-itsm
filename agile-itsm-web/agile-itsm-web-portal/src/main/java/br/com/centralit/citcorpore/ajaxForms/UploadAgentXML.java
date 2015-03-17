@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.centralit.citajax.html.AjaxFormAction;
 import br.com.centralit.citajax.html.DocumentHTML;
 import br.com.centralit.citajax.html.HTMLForm;
-import br.com.centralit.citcorpore.bean.CategoriaProdutoDTO;
 import br.com.centralit.citcorpore.bean.UploadDTO;
 import br.com.centralit.citcorpore.bean.UsuarioDTO;
 import br.com.centralit.citcorpore.comm.server.Servidor;
@@ -18,99 +17,100 @@ import br.com.centralit.citcorpore.util.WebUtil;
 import br.com.citframework.util.Constantes;
 import br.com.citframework.util.UtilI18N;
 
-@SuppressWarnings({ "rawtypes", "unchecked" })
+@SuppressWarnings({"rawtypes", "unchecked"})
 public class UploadAgentXML extends AjaxFormAction {
 
-	@Override
-	public void load(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
-		UsuarioDTO usuario = WebUtil.getUsuario(request);
+    @Override
+    public void load(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
+        final UsuarioDTO usuario = WebUtil.getUsuario(request);
 
-		request.getSession(true).setAttribute("colUploadsGED", null);
+        request.getSession(true).setAttribute("colUploadsGED", null);
 
-		if (usuario == null) {
-			document.alert(UtilI18N.internacionaliza(request, "citcorpore.comum.sessaoExpirada"));
-			document.executeScript("window.location = '" + Constantes.getValue("SERVER_ADDRESS") + request.getContextPath() + "'");
-			return;
-		}
-	}
+        if (usuario == null) {
+            document.alert(UtilI18N.internacionaliza(request, "citcorpore.comum.sessaoExpirada"));
+            document.executeScript("window.location = '" + Constantes.getValue("SERVER_ADDRESS") + request.getContextPath() + "'");
+            return;
+        }
+    }
 
-	public void enviar(DocumentHTML document, HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public void enviar(final DocumentHTML document, final HttpServletRequest request, final HttpServletResponse response) throws Exception {
 
-		Collection<UploadDTO> arquivosUpados = (Collection<UploadDTO>) request.getSession(true).getAttribute("colUploadsGED");
+        final Collection<UploadDTO> arquivosUpados = (Collection<UploadDTO>) request.getSession(true).getAttribute("colUploadsGED");
 
-		FileReader reader = null;
-		String resultado = "";
-		String extensoesErradas = "";
-		String extensoesCorretas = "";
+        FileReader reader = null;
+        String resultado = "";
+        String extensoesErradas = "";
+        String extensoesCorretas = "";
 
-		if (arquivosUpados != null && arquivosUpados.size() > 0) {
+        if (arquivosUpados != null && arquivosUpados.size() > 0) {
 
-			for (UploadDTO uploadDTO : arquivosUpados) {
-				String path = uploadDTO.getPath();
+            for (final UploadDTO uploadDTO : arquivosUpados) {
+                final String path = uploadDTO.getPath();
 
-				String ext[] = null;
-				if(path != null){
-					ext = path.split("\\.");
-				}
-				
-				int i = 0;
-				if(ext != null){
-					i = ext.length;
-				}
+                String ext[] = null;
+                if (path != null) {
+                    ext = path.split("\\.");
+                }
 
-				if (i > 0) {
-					if (ext[i - 1].equalsIgnoreCase("ocs") || ext[i - 1].equalsIgnoreCase("xml")) {
+                int i = 0;
+                if (ext != null) {
+                    i = ext.length;
+                }
 
-						if (path != null && !path.isEmpty()) {
-							try {
-								reader = new FileReader(path);
-								BufferedReader lerArq = new BufferedReader(reader);
-								String linha = lerArq.readLine();
+                if (i > 0) {
+                    if (ext[i - 1].equalsIgnoreCase("ocs") || ext[i - 1].equalsIgnoreCase("xml")) {
 
-								while (linha != null) {
-									resultado += linha;
-									linha = lerArq.readLine();
-								}
+                        if (path != null && !path.isEmpty()) {
+                            try {
+                                reader = new FileReader(path);
+                                final BufferedReader lerArq = new BufferedReader(reader);
+                                String linha = lerArq.readLine();
 
-								new Servidor().getGravarItemConfiguracao(resultado);
-								reader.close();
-								extensoesCorretas += "\n " + uploadDTO.getNameFile() + ";";
-							} catch (Exception e) {
-								e.printStackTrace();
-							}
-						}
+                                while (linha != null) {
+                                    resultado += linha;
+                                    linha = lerArq.readLine();
+                                }
 
-					} else {
-						extensoesErradas += "\n" + uploadDTO.getNameFile() + ";";
-					}
-				} else {
-					document.alert(UtilI18N.internacionaliza(request, "uploadAgente.arquivos_formato_xml"));
-					return;
-				}
-			}
+                                new Servidor().getGravarItemConfiguracao(resultado);
+                                reader.close();
+                                extensoesCorretas += "\n " + uploadDTO.getNameFile() + ";";
+                            } catch (final Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
 
-			document.executeScript("fechar_aguarde();");
+                    } else {
+                        extensoesErradas += "\n" + uploadDTO.getNameFile() + ";";
+                    }
+                } else {
+                    document.alert(UtilI18N.internacionaliza(request, "uploadAgente.arquivos_formato_xml"));
+                    return;
+                }
+            }
 
-			if (extensoesErradas != null && !extensoesErradas.equalsIgnoreCase("")) {
-				document.alert(UtilI18N.internacionaliza(request, "uploadAgente.arquivos_nao_registrados") + "\n" + UtilI18N.internacionaliza(request, "uploadAgente.arquivos_nao_formato")
-						+ extensoesErradas);
-			}
+            document.executeScript("fechar_aguarde();");
 
-			if (extensoesCorretas != null && !extensoesCorretas.equalsIgnoreCase("")) {
-				document.alert(UtilI18N.internacionaliza(request, "uploadAgente.arquivos_registrados_sucesso") + extensoesCorretas);
-			}
+            if (extensoesErradas != null && !extensoesErradas.equalsIgnoreCase("")) {
+                document.alert(UtilI18N.internacionaliza(request, "uploadAgente.arquivos_nao_registrados") + "\n"
+                        + UtilI18N.internacionaliza(request, "uploadAgente.arquivos_nao_formato") + extensoesErradas);
+            }
 
-			HTMLForm formUpload = document.getForm("formUpload");
-			formUpload.clear();
-			request.getSession(true).setAttribute("colUploadsGED", null);
-		} else {
-			document.executeScript("fechar_aguarde();");
-			document.alert(UtilI18N.internacionaliza(request, "uploadAgente.nenhum_arquivo_selecionado"));
-		}
-	}
+            if (extensoesCorretas != null && !extensoesCorretas.equalsIgnoreCase("")) {
+                document.alert(UtilI18N.internacionaliza(request, "uploadAgente.arquivos_registrados_sucesso") + extensoesCorretas);
+            }
 
-	@Override
-	public Class getBeanClass() {
-		return CategoriaProdutoDTO.class;
-	}
+            final HTMLForm formUpload = document.getForm("formUpload");
+            formUpload.clear();
+            request.getSession(true).setAttribute("colUploadsGED", null);
+        } else {
+            document.executeScript("fechar_aguarde();");
+            document.alert(UtilI18N.internacionaliza(request, "uploadAgente.nenhum_arquivo_selecionado"));
+        }
+    }
+
+    @Override
+    public Class<?> getBeanClass() {
+        return Class.class;
+    }
+
 }

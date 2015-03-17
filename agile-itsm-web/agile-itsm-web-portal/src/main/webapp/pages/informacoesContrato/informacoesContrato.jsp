@@ -43,7 +43,6 @@
 
 	<%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 	<%@include file="/novoLayout/common/include/titulo.jsp" %>
-	<%@include file="/include/menu/menuConfig.jsp" %>
 
 	<link rel="stylesheet" type="text/css" href="./css/informacoesContrato.css" />
 	<link rel="stylesheet" type="text/css" href="${ctx}/template_new/css/reset.css" />

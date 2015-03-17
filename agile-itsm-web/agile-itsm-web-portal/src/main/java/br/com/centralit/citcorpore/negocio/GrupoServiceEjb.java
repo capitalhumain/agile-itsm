@@ -16,7 +16,6 @@ import br.com.centralit.citcorpore.bean.EventoGrupoDTO;
 import br.com.centralit.citcorpore.bean.GrupoDTO;
 import br.com.centralit.citcorpore.bean.GrupoEmailDTO;
 import br.com.centralit.citcorpore.bean.GrupoEmpregadoDTO;
-import br.com.centralit.citcorpore.bean.LimiteAlcadaDTO;
 import br.com.centralit.citcorpore.bean.PerfilAcessoGrupoDTO;
 import br.com.centralit.citcorpore.bean.ServicoContratoDTO;
 import br.com.centralit.citcorpore.integracao.ContratoDao;
@@ -25,7 +24,6 @@ import br.com.centralit.citcorpore.integracao.EventoGrupoDao;
 import br.com.centralit.citcorpore.integracao.GrupoDao;
 import br.com.centralit.citcorpore.integracao.GrupoEmailDao;
 import br.com.centralit.citcorpore.integracao.GrupoEmpregadoDao;
-import br.com.centralit.citcorpore.integracao.LimiteAlcadaDao;
 import br.com.centralit.citcorpore.integracao.NotificacaoGrupoDao;
 import br.com.centralit.citcorpore.integracao.PerfilAcessoGrupoDao;
 import br.com.centralit.citcorpore.integracao.PermissoesFluxoDao;
@@ -81,11 +79,11 @@ public class GrupoServiceEjb extends CrudServiceImpl implements GrupoService {
 
         try {
             this.validaCreate(model);
-            final List<GrupoEmpregadoDTO> listaEmpregados = (List<GrupoEmpregadoDTO>) br.com.citframework.util.WebUtil.deserializeCollectionFromRequest(GrupoEmpregadoDTO.class,
-                    "empregadosSerializados", request);
+            final List<GrupoEmpregadoDTO> listaEmpregados = (List<GrupoEmpregadoDTO>) br.com.citframework.util.WebUtil.deserializeCollectionFromRequest(
+                    GrupoEmpregadoDTO.class, "empregadosSerializados", request);
 
-            final List<GrupoEmailDTO> listaEmails = (List<GrupoEmailDTO>) br.com.citframework.util.WebUtil.deserializeCollectionFromRequest(GrupoEmailDTO.class,
-                    "emailsSerializados", request);
+            final List<GrupoEmailDTO> listaEmails = (List<GrupoEmailDTO>) br.com.citframework.util.WebUtil.deserializeCollectionFromRequest(
+                    GrupoEmailDTO.class, "emailsSerializados", request);
 
             final PerfilAcessoGrupoDao perfilAcessogrupoDao = new PerfilAcessoGrupoDao();
             final GrupoEmpregadoDao grupoEmpregadoDao = new GrupoEmpregadoDao();
@@ -172,7 +170,7 @@ public class GrupoServiceEjb extends CrudServiceImpl implements GrupoService {
             try {
                 tc.close();
             } catch (final PersistenceException e) {
-                
+
                 e.printStackTrace();
             }
 
@@ -186,8 +184,8 @@ public class GrupoServiceEjb extends CrudServiceImpl implements GrupoService {
         final TransactionControler tc = new TransactionControlerImpl(this.getDao().getAliasDB());
         try {
             this.validaUpdate(model);
-            final List<GrupoEmailDTO> listaEmails = (ArrayList<GrupoEmailDTO>) br.com.citframework.util.WebUtil.deserializeCollectionFromRequest(GrupoEmailDTO.class,
-                    "emailsSerializados", request);
+            final List<GrupoEmailDTO> listaEmails = (ArrayList<GrupoEmailDTO>) br.com.citframework.util.WebUtil.deserializeCollectionFromRequest(
+                    GrupoEmailDTO.class, "emailsSerializados", request);
             final PerfilAcessoGrupoDao perfilAcessogrupoDao = new PerfilAcessoGrupoDao();
             final GrupoEmpregadoDao grupoEmpregadoDao = new GrupoEmpregadoDao();
             final PermissoesFluxoDao permissoesFluxoDao = new PermissoesFluxoDao();
@@ -256,7 +254,7 @@ public class GrupoServiceEjb extends CrudServiceImpl implements GrupoService {
             try {
                 tc.close();
             } catch (final PersistenceException e) {
-                
+
                 e.printStackTrace();
             }
 
@@ -283,7 +281,6 @@ public class GrupoServiceEjb extends CrudServiceImpl implements GrupoService {
             final ContratoDao contratoDao = new ContratoDao();
             final EventoGrupoDao eventoGrupoDao = new EventoGrupoDao();
             final NotificacaoGrupoDao notificacaoGrupoDao = new NotificacaoGrupoDao();
-            final LimiteAlcadaDao limiteAlcadaDao = new LimiteAlcadaDao();
             final ServicoContratoDao servicoContratoDao = new ServicoContratoDao();
 
             this.getDao().setTransactionControler(tc);
@@ -293,7 +290,6 @@ public class GrupoServiceEjb extends CrudServiceImpl implements GrupoService {
             contratoDao.setTransactionControler(tc);
             eventoGrupoDao.setTransactionControler(tc);
             notificacaoGrupoDao.setTransactionControler(tc);
-            limiteAlcadaDao.setTransactionControler(tc);
             servicoContratoDao.setTransactionControler(tc);
 
             tc.start();
@@ -303,16 +299,10 @@ public class GrupoServiceEjb extends CrudServiceImpl implements GrupoService {
             final Collection<GrupoEmpregadoDTO> grupoDeEmpregados = grupoEmpregadoDao.findByIdGrupo(idGrupo);
             final Collection<ContratoDTO> contratoDTO = contratoDao.findByIdGrupo(idGrupo);
             final Collection<EventoGrupoDTO> eventoGrupoDTO = eventoGrupoDao.findByIdGrupo(idGrupo);
-            final Collection<LimiteAlcadaDTO> limiteAlcadaDTO = limiteAlcadaDao.findByIdGrupo(idGrupo);
             final Collection<ServicoContratoDTO> colecaoServicosVinculados = servicoContratoDao.findAtivosByIdGrupo(grupoDto.getIdGrupo());
 
             if (eventoGrupoDTO != null) {
                 document.alert(this.i18nMessage("grupo.deletar.eventoGrupo"));
-                return;
-            }
-
-            if (limiteAlcadaDTO != null) {
-                document.alert(this.i18nMessage("grupo.deletar.limiteAlcadaGrupo"));
                 return;
             }
 
@@ -378,7 +368,7 @@ public class GrupoServiceEjb extends CrudServiceImpl implements GrupoService {
             try {
                 tc.close();
             } catch (final PersistenceException e) {
-                
+
                 e.printStackTrace();
             }
 
@@ -559,7 +549,8 @@ public class GrupoServiceEjb extends CrudServiceImpl implements GrupoService {
                         idGrupo = Integer.parseInt(ParametroUtil.getValor(element));
                     }
                     if (idGrupo.intValue() == grupoDto.getIdGrupo().intValue()) {
-                        document.alert(this.i18nMessage("grupo.deletar.parametro") + " " + element.id() + " " + this.i18nMessage("grupo.deletar.parametroContinuacao"));
+                        document.alert(this.i18nMessage("grupo.deletar.parametro") + " " + element.id() + " "
+                                + this.i18nMessage("grupo.deletar.parametroContinuacao"));
                         return false;
                     }
 
@@ -572,7 +563,8 @@ public class GrupoServiceEjb extends CrudServiceImpl implements GrupoService {
                         nomeGrupo = ParametroUtil.getValor(element);
                     }
                     if (nomeGrupo.equalsIgnoreCase(grupoDto.getNome())) {
-                        document.alert(this.i18nMessage("grupo.deletar.parametro") + " " + element.id() + " " + this.i18nMessage("grupo.deletar.parametroContinuacao"));
+                        document.alert(this.i18nMessage("grupo.deletar.parametro") + " " + element.id() + " "
+                                + this.i18nMessage("grupo.deletar.parametroContinuacao"));
                         return false;
                     }
                 } catch (final Exception e) {

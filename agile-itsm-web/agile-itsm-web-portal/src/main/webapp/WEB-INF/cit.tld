@@ -571,7 +571,6 @@
         </attribute>
     </tag>
 
-
     <tag>
         <name>tabControl</name>
         <tag-class>br.com.citframework.tld.TabControl</tag-class>
@@ -673,12 +672,6 @@
             <required>true</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
-    </tag>
-
-    <tag>
-        <name>Menu</name>
-        <tag-class>br.com.citframework.tld.Menu</tag-class>
-        <body-content>JSP</body-content>
     </tag>
 
     <tag>

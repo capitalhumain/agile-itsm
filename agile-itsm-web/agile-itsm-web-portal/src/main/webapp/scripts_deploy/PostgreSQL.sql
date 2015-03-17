@@ -6600,33 +6600,6 @@ CREATE TABLE timers (
 
 
 --
--- TOC entry 446 (class 1259 OID 2249410)
--- Dependencies: 5
--- Name: timesheet; Type: TABLE; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE TABLE timesheet (
-    idtimesheet integer NOT NULL,
-    iddemanda integer,
-    idempregado integer NOT NULL,
-    idprojeto integer,
-    qtdehoras numeric(18,3) NOT NULL,
-    data date NOT NULL,
-    custoporhora numeric(18,3) NOT NULL,
-    detalhamento text
-);
-
-
---
--- TOC entry 6491 (class 0 OID 0)
--- Dependencies: 446
--- Name: TABLE timesheet; Type: COMMENT; Schema: public; Owner: -
---
-
-COMMENT ON TABLE timesheet IS 'timesheet';
-
-
---
 -- TOC entry 447 (class 1259 OID 2249421)
 -- Dependencies: 5
 -- Name: tipocomplexidade; Type: TABLE; Schema: public; Owner: -; Tablespace: 
@@ -17132,39 +17105,6 @@ INSERT INTO tempoacordonivelservico VALUES (3, 4, 2, 0, 0);
 INSERT INTO tempoacordonivelservico VALUES (3, 5, 1, 0, 0);
 INSERT INTO tempoacordonivelservico VALUES (3, 5, 2, 0, 0);
 
-
---
--- TOC entry 6353 (class 0 OID 2249399)
--- Dependencies: 445 6388
--- Data for Name: timers; Type: TABLE DATA; Schema: public; Owner: -
---
-
-
-
---
--- TOC entry 6354 (class 0 OID 2249410)
--- Dependencies: 446 6388
--- Data for Name: timesheet; Type: TABLE DATA; Schema: public; Owner: -
---
-
-
-
---
--- TOC entry 6355 (class 0 OID 2249421)
--- Dependencies: 447 6388
--- Data for Name: tipocomplexidade; Type: TABLE DATA; Schema: public; Owner: -
---
-
-
-
---
--- TOC entry 6356 (class 0 OID 2249426)
--- Dependencies: 448 6388
--- Data for Name: tipodemanda; Type: TABLE DATA; Schema: public; Owner: -
---
-
-
-
 --
 -- TOC entry 6357 (class 0 OID 2249431)
 -- Dependencies: 449 6388
@@ -20126,16 +20066,6 @@ ALTER TABLE ONLY tempoacordonivelservico
 
 ALTER TABLE ONLY timers
     ADD CONSTRAINT timers_pkey PRIMARY KEY (timerid, targetid);
-
-
---
--- TOC entry 5813 (class 2606 OID 2249417)
--- Dependencies: 446 446 6389
--- Name: timesheet_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
---
-
-ALTER TABLE ONLY timesheet
-    ADD CONSTRAINT timesheet_pkey PRIMARY KEY (idtimesheet);
 
 
 --
@@ -24379,33 +24309,6 @@ CREATE INDEX tabfederacaodados_1_idx ON tabfederacaodados USING btree (origem, n
 --
 
 CREATE INDEX tempoacordonivelservico_idprioridade_idx ON tempoacordonivelservico USING btree (idprioridade);
-
-
---
--- TOC entry 5809 (class 1259 OID 2249418)
--- Dependencies: 446 6389
--- Name: timesheet_iddemanda_idx; Type: INDEX; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE INDEX timesheet_iddemanda_idx ON timesheet USING btree (iddemanda);
-
-
---
--- TOC entry 5810 (class 1259 OID 2249419)
--- Dependencies: 446 6389
--- Name: timesheet_idempregado_idx; Type: INDEX; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE INDEX timesheet_idempregado_idx ON timesheet USING btree (idempregado);
-
-
---
--- TOC entry 5811 (class 1259 OID 2249420)
--- Dependencies: 446 6389
--- Name: timesheet_idprojeto_idx; Type: INDEX; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE INDEX timesheet_idprojeto_idx ON timesheet USING btree (idprojeto);
 
 
 --

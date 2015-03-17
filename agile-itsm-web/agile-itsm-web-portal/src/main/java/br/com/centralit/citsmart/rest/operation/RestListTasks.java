@@ -26,9 +26,6 @@ public class RestListTasks implements IRestOperation<CtListTasks, CtListTasksRes
         }
 
         final List<TipoSolicitacaoServico> tipos = new ArrayList<>();
-        if (UtilStrings.nullToVazio(message.getListarCompras()).equalsIgnoreCase("S")) {
-            tipos.add(TipoSolicitacaoServico.COMPRA);
-        }
         if (UtilStrings.nullToVazio(message.getListarIncidentes()).equalsIgnoreCase("S")) {
             tipos.add(TipoSolicitacaoServico.INCIDENTE);
         }

@@ -32,9 +32,7 @@ import br.com.centralit.bpm.negocio.UsuarioGrupo;
 import br.com.centralit.bpm.util.Enumerados;
 import br.com.centralit.citcorpore.bean.AcordoNivelServicoDTO;
 import br.com.centralit.citcorpore.bean.AcordoServicoContratoDTO;
-import br.com.centralit.citcorpore.bean.AlcadaProcessoNegocioDTO;
 import br.com.centralit.citcorpore.bean.CalculoJornadaDTO;
-import br.com.centralit.citcorpore.bean.CentroResultadoDTO;
 import br.com.centralit.citcorpore.bean.ContratoDTO;
 import br.com.centralit.citcorpore.bean.EmpregadoDTO;
 import br.com.centralit.citcorpore.bean.ExecucaoSolicitacaoDTO;
@@ -1563,7 +1561,7 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
                 && solicitacaoDto.getDataHoraReativacaoSLA() != null
                 && solicitacaoDto.getTempoDecorridoHH() != null
                 && solicitacaoDto.getPrazoHH() * 100 + solicitacaoDto.getPrazoMM() > solicitacaoDto.getTempoDecorridoHH() * 100
-                        + solicitacaoDto.getTempoDecorridoMM()) {
+                + solicitacaoDto.getTempoDecorridoMM()) {
             final Integer novoPrazoHH = solicitacaoDto.getPrazoHH() - solicitacaoDto.getTempoDecorridoHH();
             final Integer novoPrazoMM = solicitacaoDto.getPrazoMM() - solicitacaoDto.getTempoDecorridoMM();
 
@@ -1625,7 +1623,7 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
 
         solicitacaoDto.setSituacaoSLA(SituacaoSLA.S.name());
         solicitacaoDto
-                .setTempoDecorridoHH(new Integer(solicitacaoDto.getTempoDecorridoHH().intValue() + calculoDto.getTempoDecorridoHH().intValue() + horasAux));
+        .setTempoDecorridoHH(new Integer(solicitacaoDto.getTempoDecorridoHH().intValue() + calculoDto.getTempoDecorridoHH().intValue() + horasAux));
         solicitacaoDto.setTempoDecorridoMM(new Integer(minAux));
         solicitacaoDto.setDataHoraSuspensaoSLA(tsAtual);
         solicitacaoDto.setDataHoraReativacaoSLA(null);
@@ -1745,7 +1743,7 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
      */
     public List<TarefaFluxoDTO> recuperaTarefas(final Integer qtdAtual, final Integer qtdAPaginacao, final String login,
             final GerenciamentoServicosDTO gerenciamentoBean, final Collection<ContratoDTO> listContratoUsuarioLogado, List<TarefaFluxoDTO> listTarefas)
-            throws Exception {
+                    throws Exception {
         final TransactionControler tc = new TransactionControlerImpl(this.getJdbcAliasBPM());
         try {
             this.setTransacao(tc);
@@ -1879,26 +1877,6 @@ public class ExecucaoSolicitacao extends ExecucaoFluxo {
         } finally {
             tc.closeQuietly();
         }
-    }
-
-    public boolean permiteAprovacaoAlcada(final AlcadaProcessoNegocioDTO alcadaProcessoNegocioDto, final SolicitacaoServicoDTO solicitacaoServicoDto)
-            throws Exception {
-        return true;
-    }
-
-    public void calculaValorAprovadoAnual(final CentroResultadoDTO centroResultadoDto, final int anoRef, final TransactionControler tc) throws Exception {
-        valorAnualAtendCliente = 0.0;
-        valorAnualUsoInterno = 0.0;
-    }
-
-    public void calculaValorAprovadoMensal(final CentroResultadoDTO centroResultadoDto, final int mesRef, final int anoRef, final TransactionControler tc)
-            throws Exception {
-        valorMensalAtendCliente = 0.0;
-        valorMensalUsoInterno = 0.0;
-    }
-
-    public double calculaValorAprovado(final SolicitacaoServicoDTO solicitacaoServicoDto, final TransactionControler tc) throws Exception {
-        return 0.0;
     }
 
     public boolean isAtendimentoCliente(final SolicitacaoServicoDTO solicitacaoServicoDto) throws Exception {

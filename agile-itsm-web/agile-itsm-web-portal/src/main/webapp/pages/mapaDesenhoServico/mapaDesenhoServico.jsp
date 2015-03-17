@@ -9,7 +9,6 @@
 <head>
 <meta charset="UTF-8">
 <%@include file="/include/header.jsp"%>
-<%@include file="/include/menu/menuConfig.jsp"%>
 <%@include file="/include/javaScriptsComuns/javaScriptsComuns.jsp"%>
 
 <%@include file="/novoLayout/common/include/titulo.jsp" %>

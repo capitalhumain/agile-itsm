@@ -22,7 +22,6 @@ import br.com.centralit.bpm.util.Enumerados.SituacaoItemTrabalho;
 import br.com.centralit.citcorpore.bean.AcordoNivelServicoDTO;
 import br.com.centralit.citcorpore.bean.AcordoServicoContratoDTO;
 import br.com.centralit.citcorpore.bean.EmpregadoDTO;
-import br.com.centralit.citcorpore.bean.JustificativaParecerDTO;
 import br.com.centralit.citcorpore.bean.ServicoContratoDTO;
 import br.com.centralit.citcorpore.bean.ServicoDTO;
 import br.com.centralit.citcorpore.bean.SolicitacaoServicoDTO;
@@ -30,7 +29,6 @@ import br.com.centralit.citcorpore.bean.TemplateSolicitacaoServicoDTO;
 import br.com.centralit.citcorpore.negocio.AcordoNivelServicoService;
 import br.com.centralit.citcorpore.negocio.AcordoServicoContratoService;
 import br.com.centralit.citcorpore.negocio.ComplemInfSolicitacaoServicoService;
-import br.com.centralit.citcorpore.negocio.JustificativaParecerService;
 import br.com.centralit.citcorpore.negocio.ServicoContratoService;
 import br.com.centralit.citcorpore.negocio.ServicoService;
 import br.com.centralit.citcorpore.negocio.SolicitacaoServicoService;
@@ -57,7 +55,6 @@ import br.com.centralit.citsmart.rest.schema.CtNotificationGetReasons;
 import br.com.centralit.citsmart.rest.schema.CtNotificationGetReasonsResp;
 import br.com.centralit.citsmart.rest.schema.CtNotificationNew;
 import br.com.centralit.citsmart.rest.schema.CtNotificationNewResp;
-import br.com.centralit.citsmart.rest.schema.CtReason;
 import br.com.centralit.citsmart.rest.util.RestEnum;
 import br.com.centralit.citsmart.rest.util.RestOperationUtil;
 import br.com.centralit.citsmart.rest.util.RestUtil;
@@ -642,39 +639,6 @@ public class RestMobile implements IRestOperation<CtMessage, CtMessageResp> {
         if (solicitacaoServico == null) {
             resp.setError(RestOperationUtil.buildError(RestEnum.INPUT_ERROR,
                     RestUtil.i18nMessage(restSession, "rest.service.mobile.service.solicitation.notfound")));
-            return resp;
-        }
-
-        try {
-            final TipoSolicitacaoServico tipoSolicitacaoServico = solicitacaoServico.getTipoSolicitacao();
-            switch (tipoSolicitacaoServico) {
-            case INCIDENTE:
-            case REQUISICAO:
-            default:
-                Collection<JustificativaParecerDTO> justificativasParecer = null;
-                final JustificativaParecerService justificativaParecerService = (JustificativaParecerService) ServiceLocator.getInstance().getService(
-                        JustificativaParecerService.class, RestUtil.getUsuarioSistema(restSession));
-                if (tipoSolicitacaoServico.equals(TipoSolicitacaoServico.COMPRA)) {
-                    if (StringUtils.containsIgnoreCase(elementoFluxo.getTemplate(), "APROVACAO")) {
-                        justificativasParecer = justificativaParecerService.listAplicaveisCotacao();
-                    } else if (StringUtils.containsIgnoreCase(elementoFluxo.getTemplate(), "AUTORIZACAO")) {
-                        justificativasParecer = justificativaParecerService.listAplicaveisRequisicao();
-                    }
-                }
-
-                if (justificativasParecer != null) {
-                    for (final JustificativaParecerDTO justificativaDto : justificativasParecer) {
-                        final CtReason justificativa = new CtReason();
-                        justificativa.setId(justificativaDto.getIdJustificativa());
-                        justificativa.setDesc(justificativaDto.getDescricaoJustificativa());
-                        resp.getReasons().add(justificativa);
-                    }
-                }
-                break;
-            }
-        } catch (final Exception e) {
-            LOGGER.log(Level.WARNING, e.getMessage(), e);
-            resp.setError(RestOperationUtil.buildError(e));
             return resp;
         }
 

@@ -12,8 +12,6 @@ public class ProcessoNivelAutoridadeDTO extends BaseEntity {
 
     private Integer sequencia;
     private Integer hierarquia;
-    private NivelAutoridadeDTO nivelAutoridadeDto;
-    private LimiteAprovacaoDTO limiteAprovacaoDto;
 
     public Integer getIdProcessoNegocio() {
         return idProcessoNegocio;
@@ -69,22 +67,6 @@ public class ProcessoNivelAutoridadeDTO extends BaseEntity {
 
     public void setHierarquia(final Integer hierarquia) {
         this.hierarquia = hierarquia;
-    }
-
-    public NivelAutoridadeDTO getNivelAutoridadeDto() {
-        return nivelAutoridadeDto;
-    }
-
-    public void setNivelAutoridadeDto(final NivelAutoridadeDTO nivelAutoridadeDto) {
-        this.nivelAutoridadeDto = nivelAutoridadeDto;
-    }
-
-    public LimiteAprovacaoDTO getLimiteAprovacaoDto() {
-        return limiteAprovacaoDto;
-    }
-
-    public void setLimiteAprovacaoDto(final LimiteAprovacaoDTO limiteAprovacaoDto) {
-        this.limiteAprovacaoDto = limiteAprovacaoDto;
     }
 
 }

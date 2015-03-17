@@ -448,7 +448,7 @@ public class SolicitacaoServicoDTO extends ObjetoNegocioFluxoDTO {
     private String solicitacaoAtrasada;
 
     private TipoSolicitacaoServico tipoSolicitacao;
-    private Integer idRequisicaoProduto;
+
     // Atributo auxiliar, não é salvo em banco
     private String possuiAnexo;
     private String vencendo;
@@ -557,7 +557,7 @@ public class SolicitacaoServicoDTO extends ObjetoNegocioFluxoDTO {
         return situacao != null
                 && (situacao.equalsIgnoreCase(Enumerados.SituacaoSolicitacaoServico.Resolvida.name())
                         || situacao.equalsIgnoreCase(Enumerados.SituacaoSolicitacaoServico.Cancelada.name()) || situacao
-                            .equalsIgnoreCase(Enumerados.SituacaoSolicitacaoServico.Fechada.name()));
+                        .equalsIgnoreCase(Enumerados.SituacaoSolicitacaoServico.Fechada.name()));
     }
 
     public boolean emAtendimento() {
@@ -600,7 +600,7 @@ public class SolicitacaoServicoDTO extends ObjetoNegocioFluxoDTO {
         return situacao != null
                 && (situacao.equalsIgnoreCase(Enumerados.SituacaoSolicitacaoServico.Resolvida.name())
                         || situacao.equalsIgnoreCase(Enumerados.SituacaoSolicitacaoServico.Cancelada.name()) || situacao
-                            .equalsIgnoreCase(Enumerados.SituacaoSolicitacaoServico.Fechada.name()));
+                        .equalsIgnoreCase(Enumerados.SituacaoSolicitacaoServico.Fechada.name()));
     }
 
     public String getAcaoFluxo() {
@@ -2539,14 +2539,6 @@ public class SolicitacaoServicoDTO extends ObjetoNegocioFluxoDTO {
 
     public void setTipoSolicitacao(final TipoSolicitacaoServico tipoSolicitacao) {
         this.tipoSolicitacao = tipoSolicitacao;
-    }
-
-    public Integer getIdRequisicaoProduto() {
-        return idRequisicaoProduto;
-    }
-
-    public void setIdRequisicaoProduto(final Integer idRequisicaoProduto) {
-        this.idRequisicaoProduto = idRequisicaoProduto;
     }
 
     public String getNomeContrato() {
